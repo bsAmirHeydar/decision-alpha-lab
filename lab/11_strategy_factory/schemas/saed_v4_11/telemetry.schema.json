@@ -1,0 +1,139 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/telemetry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "execution": {
+          "type": "boolean"
+        },
+        "runtime": {
+          "type": "boolean"
+        },
+        "selection": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "execution",
+        "runtime",
+        "selection"
+      ],
+      "type": "object"
+    },
+    "contamination_passed": {
+      "type": "boolean"
+    },
+    "corpus_record_count": {
+      "type": "integer"
+    },
+    "external_evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "distributed_training": {
+          "type": "string"
+        },
+        "gpu_reproduction": {
+          "type": "string"
+        },
+        "live": {
+          "type": "string"
+        },
+        "metaeditor_compile": {
+          "type": "string"
+        },
+        "prospective_paper": {
+          "type": "string"
+        },
+        "real_corpus_training": {
+          "type": "string"
+        },
+        "shadow": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "distributed_training",
+        "gpu_reproduction",
+        "live",
+        "metaeditor_compile",
+        "prospective_paper",
+        "real_corpus_training",
+        "shadow"
+      ],
+      "type": "object"
+    },
+    "implementation_status": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "reference_checkpoint_admitted": {
+      "type": "boolean"
+    },
+    "representation_collapsed": {
+      "type": "boolean"
+    },
+    "split_counts": {
+      "additionalProperties": false,
+      "properties": {
+        "quarantine": {
+          "type": "integer"
+        },
+        "test": {
+          "type": "integer"
+        },
+        "train": {
+          "type": "integer"
+        },
+        "validation": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "quarantine",
+        "test",
+        "train",
+        "validation"
+      ],
+      "type": "object"
+    },
+    "telemetry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "telemetry_id": {
+      "type": "string"
+    },
+    "training_pair_count": {
+      "type": "integer"
+    },
+    "training_status": {
+      "type": "string"
+    },
+    "vocabulary_size": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "authority",
+    "contamination_passed",
+    "corpus_record_count",
+    "external_evidence",
+    "implementation_status",
+    "phase",
+    "reference_checkpoint_admitted",
+    "representation_collapsed",
+    "split_counts",
+    "telemetry_hash",
+    "telemetry_id",
+    "training_pair_count",
+    "training_status",
+    "vocabulary_size"
+  ],
+  "title": "Telemetry",
+  "type": "object"
+}

@@ -1,0 +1,64 @@
+{
+  "checkpoint_format": "canonical_json",
+  "dependencies": [
+    {
+      "name": "python-standard-library",
+      "required": true,
+      "scope": "runtime"
+    },
+    {
+      "name": "pytest",
+      "required": true,
+      "scope": "qa"
+    },
+    {
+      "name": "jsonschema",
+      "required": true,
+      "scope": "qa"
+    }
+  ],
+  "external_network_required": false,
+  "format": "decision-alpha-lab-sbom-v1",
+  "phase": "SAED_V4_11",
+  "pickle_or_opaque_binary_checkpoint": false,
+  "runtime": {
+    "python_implementation": "CPython",
+    "python_major_minor": "3.13"
+  },
+  "sbom_hash": "db74fb23379299b744404712f96a0758071a70905932fa3d5e765d7d60a89d37",
+  "sbom_id": "v411sbom_c23a638b433d4049cbffa85c",
+  "source_files": [
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/__init__.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/authority.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/budget.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/canonical.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/checkpoint.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/claims.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/cli.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/conformance.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/contamination.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/controls.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/corpus.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/diff.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/encoder.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/errors.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/evaluation.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/handoff.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/integrity.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/masking.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/models.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/negatives.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/objectives.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/provenance.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/registry.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/replay.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/serialization.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/service.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/splits.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/telemetry.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/tokenization.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/trainer.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/validation.py",
+    "lab/11_strategy_factory/python/saed_v4_self_supervised_pretraining/version.py"
+  ]
+}

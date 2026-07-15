@@ -1,58 +1,35 @@
 ---
-title: V4-11 Self Supervised Context Pretraining
-status: canonical
-version: 4.0.0
+title: V4-11 Self-Supervised Context Pretraining
+status: implemented-reference
+version: 1.0.0
 created: '2026-07-13'
-updated: '2026-07-13'
-capability_tier: core-production
+updated: '2026-07-15'
+capability_tier: research-reference
 tags:
   - saed-v4
   - implementation
-  - roadmap
+  - self-supervised
+  - representation-learning
 ---
 
-# Phase V4-11: Self Supervised Context Pretraining
+# Phase V4-11: Self-Supervised Context Pretraining
 
 ## Mission
 
-Implement this phase as an additive, closed-contract capability that preserves UCEE authority and can be independently validated.
+Build the first learned Context representation in SAED V4 without crossing the evidence, known-time, treatment-selection, portfolio-risk, runtime, or execution boundaries. The accepted output is a deterministic, content-addressed, synthetic-reference encoder checkpoint and its complete evidence bundle. It is not an alpha model, treatment ranker, trading policy, runtime bundle, or production authorization.
 
-## Entry gates
+## Implemented capability
 
-- Prior phase artifacts are immutable and hash verified.
-- Data roles, support, treatment universe and authority are frozen.
-- Golden and negative fixtures exist.
-- Compute, exposure and review budgets are approved.
+V4-11 now includes a closed corpus contract, identity-and-time split manifest, canonical multimodal and hypergraph tokenization, view masks, deterministic masked-span augmentation, dependency-safe negative sampling, seven self-supervised objectives, staged curriculum, deterministic embedding trainer, complete exposure accounting, canonical JSON checkpointing, contamination and membership audits, representation collapse checks, non-outcome structural probes, random and frozen controls, immutable checkpoint registration, independent replay, semantic diff, SBOM, telemetry, incident template, MQL5 static mirror, and a hash-frozen handoff to V4-12.
 
-## Engineering slices
+## Authority boundary
 
-1. Contract and schema freeze.
-2. Deterministic reference implementation.
-3. Golden, negative and mutation tests.
-4. Distributed or advanced challenger implementation.
-5. Model-risk and security review.
-6. Independent reproduction.
-7. Evidence bundle and handoff.
+The phase may train and register only the reference-synthetic representation. Outcome cube, execution twin, benchmark result, protected-final, prospective, shadow, and live artifacts are prohibited as encoder inputs. The phase cannot predict outcomes, rank or select treatments, allocate risk, activate runtime generations, or place orders.
 
-## Acceptance gates
+## Evidence status
 
-- Zero unknown fields in closed contracts.
-- No future-suffix sensitivity.
-- Deterministic identity and replay.
-- Complete trial/exposure accounting.
-- Baseline preserved.
-- Fail-closed fallback verified.
-- UCEE compatibility and no central-engine mutation.
-- Actual external/MetaEditor evidence distinguished from static evidence.
+Local Python contracts, golden fixtures, negative and mutation tests, deterministic replay, schema closure, boundary scanning, MQL5 static validation, and Obsidian validation are included. Real-corpus training, distributed/GPU reproduction, MetaEditor compilation, prospective paper, shadow, micro-live, and live evidence are not claimed.
 
-## Deliverables
+## Downstream handoff
 
-- Source modules and tests.
-- Schemas and examples.
-- Obsidian implementation documentation.
-- QA report, inventory, file index and hash ledger.
-- Handoff to the next phase.
-
-## Non-goals
-
-This architecture phase does not claim real alpha, prospective success, runtime parity or production authorization unless actual evidence is attached.
+The next phase is [[V4_12_Deep_Sequence_And_State_Space_Models|V4-12 Deep Sequence and State-Space Models]]. V4-12 may read the exact frozen tokenizer and encoder checkpoint hashes and build reference challengers. It may not mutate V4-11 evidence identities or infer decision authority from representation quality.

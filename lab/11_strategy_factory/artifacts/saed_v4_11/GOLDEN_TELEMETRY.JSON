@@ -1,0 +1,33 @@
+{
+  "authority": {
+    "execution": false,
+    "runtime": false,
+    "selection": false
+  },
+  "contamination_passed": true,
+  "corpus_record_count": 22,
+  "external_evidence": {
+    "distributed_training": "not_claimed",
+    "gpu_reproduction": "not_claimed",
+    "live": "not_claimed",
+    "metaeditor_compile": "pending_local_windows",
+    "prospective_paper": "not_claimed",
+    "real_corpus_training": "not_claimed",
+    "shadow": "not_claimed"
+  },
+  "implementation_status": "implemented_reference_synthetic",
+  "phase": "SAED_V4_11",
+  "reference_checkpoint_admitted": true,
+  "representation_collapsed": false,
+  "split_counts": {
+    "quarantine": 2,
+    "test": 4,
+    "train": 12,
+    "validation": 4
+  },
+  "telemetry_hash": "e88d47cd8c280f367c639c93b4c9079ecc97698764e550271de80d4154723ad5",
+  "telemetry_id": "v411telemetry_844a5e14e656779444821cda",
+  "training_pair_count": 918,
+  "training_status": "completed_reference_synthetic",
+  "vocabulary_size": 111
+}

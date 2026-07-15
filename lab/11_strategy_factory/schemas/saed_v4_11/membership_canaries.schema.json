@@ -1,0 +1,30 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/membership_canaries.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "admitted_corpus_membership": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "tokens": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "admitted_corpus_membership",
+    "phase",
+    "purpose",
+    "tokens"
+  ],
+  "title": "Membership Canaries",
+  "type": "object"
+}

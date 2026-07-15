@@ -1,0 +1,1694 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/conformance_vectors.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cases": {
+      "items": {
+        "anyOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "case_id": {
+                "type": "string"
+              },
+              "expected_valid": {
+                "type": "boolean"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "payload": {
+                "additionalProperties": false,
+                "properties": {
+                  "execution_authority": {
+                    "type": "boolean"
+                  },
+                  "forbidden_objectives": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "future_suffix_allowed": {
+                    "type": "boolean"
+                  },
+                  "included_artifacts": {
+                    "items": {
+                      "anyOf": [
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "artifact_class": {
+                              "type": "string"
+                            },
+                            "artifact_hash": {
+                              "pattern": "^[0-9a-f]{64}$",
+                              "type": "string"
+                            },
+                            "artifact_id": {
+                              "type": "string"
+                            },
+                            "known_as_of": {
+                              "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+                              "type": "string"
+                            },
+                            "role": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "artifact_class",
+                            "artifact_hash",
+                            "artifact_id",
+                            "known_as_of",
+                            "role"
+                          ],
+                          "type": "object"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "artifact_class": {
+                              "type": "string"
+                            },
+                            "artifact_hash": {
+                              "pattern": "^[0-9a-f]{64}$",
+                              "type": "string"
+                            },
+                            "artifact_id": {
+                              "type": "string"
+                            },
+                            "known_as_of": {
+                              "type": "null"
+                            },
+                            "role": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "artifact_class",
+                            "artifact_hash",
+                            "artifact_id",
+                            "known_as_of",
+                            "role"
+                          ],
+                          "type": "object"
+                        }
+                      ]
+                    },
+                    "type": "array"
+                  },
+                  "label_semantics": {
+                    "type": "string"
+                  },
+                  "manifest_hash": {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "type": "string"
+                  },
+                  "manifest_id": {
+                    "type": "string"
+                  },
+                  "masked_objective_boundary": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "phase": {
+                    "type": "string"
+                  },
+                  "prohibited_input_artifact_classes": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "selection_authority": {
+                    "type": "boolean"
+                  },
+                  "self_supervised_only": {
+                    "type": "boolean"
+                  },
+                  "split_policy": {
+                    "type": "string"
+                  },
+                  "target_phase": {
+                    "type": "string"
+                  },
+                  "training_authority": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "execution_authority",
+                  "forbidden_objectives",
+                  "future_suffix_allowed",
+                  "included_artifacts",
+                  "label_semantics",
+                  "manifest_hash",
+                  "manifest_id",
+                  "masked_objective_boundary",
+                  "phase",
+                  "prohibited_input_artifact_classes",
+                  "selection_authority",
+                  "self_supervised_only",
+                  "split_policy",
+                  "target_phase",
+                  "training_authority"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "case_id",
+              "expected_valid",
+              "kind",
+              "payload"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "case_id": {
+                "type": "string"
+              },
+              "expected_valid": {
+                "type": "boolean"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "payload": {
+                "items": {
+                  "anyOf": [
+                    {
+                      "additionalProperties": false,
+                      "properties": {
+                        "context_id": {
+                          "type": "string"
+                        },
+                        "descriptor_tokens": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "domain_id": {
+                          "type": "string"
+                        },
+                        "event_time": {
+                          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+                          "type": "string"
+                        },
+                        "evidence_role": {
+                          "type": "string"
+                        },
+                        "graph_relations": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "known_time": {
+                          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+                          "type": "string"
+                        },
+                        "parent_context_id": {
+                          "type": "null"
+                        },
+                        "record_id": {
+                          "type": "string"
+                        },
+                        "root_context_id": {
+                          "type": "string"
+                        },
+                        "source_hashes": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "synthetic": {
+                          "type": "boolean"
+                        },
+                        "views": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "context_ancestry_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "context_family": {
+                                  "type": "string"
+                                },
+                                "generation_depth": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "context_family",
+                                "generation_depth"
+                              ],
+                              "type": "object"
+                            },
+                            "execution_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "spread_bucket": {
+                                  "type": "string"
+                                },
+                                "venue_state": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "spread_bucket",
+                                "venue_state"
+                              ],
+                              "type": "object"
+                            },
+                            "higher_timeframe_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "alignment": {
+                                  "type": "string"
+                                },
+                                "compression": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "required": [
+                                "alignment",
+                                "compression"
+                              ],
+                              "type": "object"
+                            },
+                            "intermarket_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "agreement": {
+                                  "type": "string"
+                                },
+                                "lead_lag_bucket": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "agreement",
+                                "lead_lag_bucket"
+                              ],
+                              "type": "object"
+                            },
+                            "liquidity_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "depth_bucket": {
+                                  "type": "string"
+                                },
+                                "sweep_state": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "depth_bucket",
+                                "sweep_state"
+                              ],
+                              "type": "object"
+                            },
+                            "price_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "range_position": {
+                                  "type": "number"
+                                },
+                                "return_bucket": {
+                                  "type": "string"
+                                },
+                                "volatility_bucket": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "range_position",
+                                "return_bucket",
+                                "volatility_bucket"
+                              ],
+                              "type": "object"
+                            },
+                            "session_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "opening_window": {
+                                  "type": "boolean"
+                                },
+                                "session": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "opening_window",
+                                "session"
+                              ],
+                              "type": "object"
+                            },
+                            "structure_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "break_state": {
+                                  "type": "string"
+                                },
+                                "swing_count": {
+                                  "type": "integer"
+                                },
+                                "trend_state": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "break_state",
+                                "swing_count",
+                                "trend_state"
+                              ],
+                              "type": "object"
+                            },
+                            "time_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "minute_bucket": {
+                                  "type": "integer"
+                                },
+                                "session": {
+                                  "type": "string"
+                                },
+                                "weekday": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "minute_bucket",
+                                "session",
+                                "weekday"
+                              ],
+                              "type": "object"
+                            },
+                            "treatment_descriptor_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "contains_abstain": {
+                                  "type": "boolean"
+                                },
+                                "descriptor_count": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "contains_abstain",
+                                "descriptor_count"
+                              ],
+                              "type": "object"
+                            }
+                          },
+                          "required": [
+                            "context_ancestry_view",
+                            "execution_view",
+                            "higher_timeframe_view",
+                            "intermarket_view",
+                            "liquidity_view",
+                            "price_view",
+                            "session_view",
+                            "structure_view",
+                            "time_view",
+                            "treatment_descriptor_view"
+                          ],
+                          "type": "object"
+                        }
+                      },
+                      "required": [
+                        "context_id",
+                        "descriptor_tokens",
+                        "domain_id",
+                        "event_time",
+                        "evidence_role",
+                        "graph_relations",
+                        "known_time",
+                        "parent_context_id",
+                        "record_id",
+                        "root_context_id",
+                        "source_hashes",
+                        "synthetic",
+                        "views"
+                      ],
+                      "type": "object"
+                    },
+                    {
+                      "additionalProperties": false,
+                      "properties": {
+                        "context_id": {
+                          "type": "string"
+                        },
+                        "descriptor_tokens": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "domain_id": {
+                          "type": "string"
+                        },
+                        "event_time": {
+                          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+                          "type": "string"
+                        },
+                        "evidence_role": {
+                          "type": "string"
+                        },
+                        "graph_relations": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "known_time": {
+                          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+                          "type": "string"
+                        },
+                        "parent_context_id": {
+                          "type": "string"
+                        },
+                        "record_id": {
+                          "type": "string"
+                        },
+                        "root_context_id": {
+                          "type": "string"
+                        },
+                        "source_hashes": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "synthetic": {
+                          "type": "boolean"
+                        },
+                        "views": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "context_ancestry_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "context_family": {
+                                  "type": "string"
+                                },
+                                "generation_depth": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "context_family",
+                                "generation_depth"
+                              ],
+                              "type": "object"
+                            },
+                            "execution_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "spread_bucket": {
+                                  "type": "string"
+                                },
+                                "venue_state": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "spread_bucket",
+                                "venue_state"
+                              ],
+                              "type": "object"
+                            },
+                            "higher_timeframe_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "alignment": {
+                                  "type": "string"
+                                },
+                                "compression": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "required": [
+                                "alignment",
+                                "compression"
+                              ],
+                              "type": "object"
+                            },
+                            "intermarket_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "agreement": {
+                                  "type": "string"
+                                },
+                                "lead_lag_bucket": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "agreement",
+                                "lead_lag_bucket"
+                              ],
+                              "type": "object"
+                            },
+                            "liquidity_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "depth_bucket": {
+                                  "type": "string"
+                                },
+                                "sweep_state": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "depth_bucket",
+                                "sweep_state"
+                              ],
+                              "type": "object"
+                            },
+                            "price_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "range_position": {
+                                  "type": "number"
+                                },
+                                "return_bucket": {
+                                  "type": "string"
+                                },
+                                "volatility_bucket": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "range_position",
+                                "return_bucket",
+                                "volatility_bucket"
+                              ],
+                              "type": "object"
+                            },
+                            "session_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "opening_window": {
+                                  "type": "boolean"
+                                },
+                                "session": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "opening_window",
+                                "session"
+                              ],
+                              "type": "object"
+                            },
+                            "structure_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "break_state": {
+                                  "type": "string"
+                                },
+                                "swing_count": {
+                                  "type": "integer"
+                                },
+                                "trend_state": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "break_state",
+                                "swing_count",
+                                "trend_state"
+                              ],
+                              "type": "object"
+                            },
+                            "time_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "minute_bucket": {
+                                  "type": "integer"
+                                },
+                                "session": {
+                                  "type": "string"
+                                },
+                                "weekday": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "minute_bucket",
+                                "session",
+                                "weekday"
+                              ],
+                              "type": "object"
+                            },
+                            "treatment_descriptor_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "contains_abstain": {
+                                  "type": "boolean"
+                                },
+                                "descriptor_count": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "contains_abstain",
+                                "descriptor_count"
+                              ],
+                              "type": "object"
+                            }
+                          },
+                          "required": [
+                            "context_ancestry_view",
+                            "execution_view",
+                            "higher_timeframe_view",
+                            "intermarket_view",
+                            "liquidity_view",
+                            "price_view",
+                            "session_view",
+                            "structure_view",
+                            "time_view",
+                            "treatment_descriptor_view"
+                          ],
+                          "type": "object"
+                        }
+                      },
+                      "required": [
+                        "context_id",
+                        "descriptor_tokens",
+                        "domain_id",
+                        "event_time",
+                        "evidence_role",
+                        "graph_relations",
+                        "known_time",
+                        "parent_context_id",
+                        "record_id",
+                        "root_context_id",
+                        "source_hashes",
+                        "synthetic",
+                        "views"
+                      ],
+                      "type": "object"
+                    }
+                  ]
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "case_id",
+              "expected_valid",
+              "kind",
+              "payload"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "case_id": {
+                "type": "string"
+              },
+              "expected_valid": {
+                "type": "boolean"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "payload": {
+                "items": {
+                  "anyOf": [
+                    {
+                      "additionalProperties": false,
+                      "properties": {
+                        "context_id": {
+                          "type": "string"
+                        },
+                        "descriptor_tokens": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "domain_id": {
+                          "type": "string"
+                        },
+                        "event_time": {
+                          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+                          "type": "string"
+                        },
+                        "evidence_role": {
+                          "type": "string"
+                        },
+                        "graph_relations": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "known_time": {
+                          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+                          "type": "string"
+                        },
+                        "parent_context_id": {
+                          "type": "null"
+                        },
+                        "record_id": {
+                          "type": "string"
+                        },
+                        "root_context_id": {
+                          "type": "string"
+                        },
+                        "source_hashes": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "synthetic": {
+                          "type": "boolean"
+                        },
+                        "views": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "context_ancestry_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "context_family": {
+                                  "type": "string"
+                                },
+                                "generation_depth": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "context_family",
+                                "generation_depth"
+                              ],
+                              "type": "object"
+                            },
+                            "execution_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "spread_bucket": {
+                                  "type": "string"
+                                },
+                                "venue_state": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "spread_bucket",
+                                "venue_state"
+                              ],
+                              "type": "object"
+                            },
+                            "higher_timeframe_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "alignment": {
+                                  "type": "string"
+                                },
+                                "compression": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "required": [
+                                "alignment",
+                                "compression"
+                              ],
+                              "type": "object"
+                            },
+                            "intermarket_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "agreement": {
+                                  "type": "string"
+                                },
+                                "lead_lag_bucket": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "agreement",
+                                "lead_lag_bucket"
+                              ],
+                              "type": "object"
+                            },
+                            "liquidity_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "depth_bucket": {
+                                  "type": "string"
+                                },
+                                "sweep_state": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "depth_bucket",
+                                "sweep_state"
+                              ],
+                              "type": "object"
+                            },
+                            "price_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "outcome_cube_hint": {
+                                  "type": "string"
+                                },
+                                "range_position": {
+                                  "type": "number"
+                                },
+                                "return_bucket": {
+                                  "type": "string"
+                                },
+                                "volatility_bucket": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "outcome_cube_hint",
+                                "range_position",
+                                "return_bucket",
+                                "volatility_bucket"
+                              ],
+                              "type": "object"
+                            },
+                            "session_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "opening_window": {
+                                  "type": "boolean"
+                                },
+                                "session": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "opening_window",
+                                "session"
+                              ],
+                              "type": "object"
+                            },
+                            "structure_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "break_state": {
+                                  "type": "string"
+                                },
+                                "swing_count": {
+                                  "type": "integer"
+                                },
+                                "trend_state": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "break_state",
+                                "swing_count",
+                                "trend_state"
+                              ],
+                              "type": "object"
+                            },
+                            "time_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "minute_bucket": {
+                                  "type": "integer"
+                                },
+                                "session": {
+                                  "type": "string"
+                                },
+                                "weekday": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "minute_bucket",
+                                "session",
+                                "weekday"
+                              ],
+                              "type": "object"
+                            },
+                            "treatment_descriptor_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "contains_abstain": {
+                                  "type": "boolean"
+                                },
+                                "descriptor_count": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "contains_abstain",
+                                "descriptor_count"
+                              ],
+                              "type": "object"
+                            }
+                          },
+                          "required": [
+                            "context_ancestry_view",
+                            "execution_view",
+                            "higher_timeframe_view",
+                            "intermarket_view",
+                            "liquidity_view",
+                            "price_view",
+                            "session_view",
+                            "structure_view",
+                            "time_view",
+                            "treatment_descriptor_view"
+                          ],
+                          "type": "object"
+                        }
+                      },
+                      "required": [
+                        "context_id",
+                        "descriptor_tokens",
+                        "domain_id",
+                        "event_time",
+                        "evidence_role",
+                        "graph_relations",
+                        "known_time",
+                        "parent_context_id",
+                        "record_id",
+                        "root_context_id",
+                        "source_hashes",
+                        "synthetic",
+                        "views"
+                      ],
+                      "type": "object"
+                    },
+                    {
+                      "additionalProperties": false,
+                      "properties": {
+                        "context_id": {
+                          "type": "string"
+                        },
+                        "descriptor_tokens": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "domain_id": {
+                          "type": "string"
+                        },
+                        "event_time": {
+                          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+                          "type": "string"
+                        },
+                        "evidence_role": {
+                          "type": "string"
+                        },
+                        "graph_relations": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "known_time": {
+                          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+                          "type": "string"
+                        },
+                        "parent_context_id": {
+                          "type": "string"
+                        },
+                        "record_id": {
+                          "type": "string"
+                        },
+                        "root_context_id": {
+                          "type": "string"
+                        },
+                        "source_hashes": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "synthetic": {
+                          "type": "boolean"
+                        },
+                        "views": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "context_ancestry_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "context_family": {
+                                  "type": "string"
+                                },
+                                "generation_depth": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "context_family",
+                                "generation_depth"
+                              ],
+                              "type": "object"
+                            },
+                            "execution_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "spread_bucket": {
+                                  "type": "string"
+                                },
+                                "venue_state": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "spread_bucket",
+                                "venue_state"
+                              ],
+                              "type": "object"
+                            },
+                            "higher_timeframe_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "alignment": {
+                                  "type": "string"
+                                },
+                                "compression": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "required": [
+                                "alignment",
+                                "compression"
+                              ],
+                              "type": "object"
+                            },
+                            "intermarket_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "agreement": {
+                                  "type": "string"
+                                },
+                                "lead_lag_bucket": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "agreement",
+                                "lead_lag_bucket"
+                              ],
+                              "type": "object"
+                            },
+                            "liquidity_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "depth_bucket": {
+                                  "type": "string"
+                                },
+                                "sweep_state": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "depth_bucket",
+                                "sweep_state"
+                              ],
+                              "type": "object"
+                            },
+                            "price_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "range_position": {
+                                  "type": "number"
+                                },
+                                "return_bucket": {
+                                  "type": "string"
+                                },
+                                "volatility_bucket": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "range_position",
+                                "return_bucket",
+                                "volatility_bucket"
+                              ],
+                              "type": "object"
+                            },
+                            "session_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "opening_window": {
+                                  "type": "boolean"
+                                },
+                                "session": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "opening_window",
+                                "session"
+                              ],
+                              "type": "object"
+                            },
+                            "structure_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "break_state": {
+                                  "type": "string"
+                                },
+                                "swing_count": {
+                                  "type": "integer"
+                                },
+                                "trend_state": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "break_state",
+                                "swing_count",
+                                "trend_state"
+                              ],
+                              "type": "object"
+                            },
+                            "time_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "minute_bucket": {
+                                  "type": "integer"
+                                },
+                                "session": {
+                                  "type": "string"
+                                },
+                                "weekday": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "minute_bucket",
+                                "session",
+                                "weekday"
+                              ],
+                              "type": "object"
+                            },
+                            "treatment_descriptor_view": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "contains_abstain": {
+                                  "type": "boolean"
+                                },
+                                "descriptor_count": {
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "contains_abstain",
+                                "descriptor_count"
+                              ],
+                              "type": "object"
+                            }
+                          },
+                          "required": [
+                            "context_ancestry_view",
+                            "execution_view",
+                            "higher_timeframe_view",
+                            "intermarket_view",
+                            "liquidity_view",
+                            "price_view",
+                            "session_view",
+                            "structure_view",
+                            "time_view",
+                            "treatment_descriptor_view"
+                          ],
+                          "type": "object"
+                        }
+                      },
+                      "required": [
+                        "context_id",
+                        "descriptor_tokens",
+                        "domain_id",
+                        "event_time",
+                        "evidence_role",
+                        "graph_relations",
+                        "known_time",
+                        "parent_context_id",
+                        "record_id",
+                        "root_context_id",
+                        "source_hashes",
+                        "synthetic",
+                        "views"
+                      ],
+                      "type": "object"
+                    }
+                  ]
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "case_id",
+              "expected_valid",
+              "kind",
+              "payload"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "case_id": {
+                "type": "string"
+              },
+              "expected_valid": {
+                "type": "boolean"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "payload": {
+                "additionalProperties": false,
+                "properties": {
+                  "curriculum": {
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "epochs": {
+                          "type": "integer"
+                        },
+                        "max_pairs_per_record": {
+                          "type": "integer"
+                        },
+                        "objective_ids": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "type": "array"
+                        },
+                        "stage_id": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "epochs",
+                        "max_pairs_per_record",
+                        "objective_ids",
+                        "stage_id"
+                      ],
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "deterministic": {
+                    "type": "boolean"
+                  },
+                  "embedding_dim": {
+                    "type": "integer"
+                  },
+                  "exact_version": {
+                    "type": "string"
+                  },
+                  "learning_rate": {
+                    "type": "number"
+                  },
+                  "max_total_pairs": {
+                    "type": "integer"
+                  },
+                  "negative_samples": {
+                    "type": "integer"
+                  },
+                  "objectives": {
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "enabled": {
+                          "type": "boolean"
+                        },
+                        "objective_id": {
+                          "type": "string"
+                        },
+                        "objective_kind": {
+                          "type": "string"
+                        },
+                        "weight": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "enabled",
+                        "objective_id",
+                        "objective_kind",
+                        "weight"
+                      ],
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "seed": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "curriculum",
+                  "deterministic",
+                  "embedding_dim",
+                  "exact_version",
+                  "learning_rate",
+                  "max_total_pairs",
+                  "negative_samples",
+                  "objectives",
+                  "seed"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "case_id",
+              "expected_valid",
+              "kind",
+              "payload"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "case_id": {
+                "type": "string"
+              },
+              "companion": {
+                "additionalProperties": false,
+                "properties": {
+                  "execution_authority": {
+                    "type": "boolean"
+                  },
+                  "forbidden_objectives": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "future_suffix_allowed": {
+                    "type": "boolean"
+                  },
+                  "included_artifacts": {
+                    "items": {
+                      "anyOf": [
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "artifact_class": {
+                              "type": "string"
+                            },
+                            "artifact_hash": {
+                              "pattern": "^[0-9a-f]{64}$",
+                              "type": "string"
+                            },
+                            "artifact_id": {
+                              "type": "string"
+                            },
+                            "known_as_of": {
+                              "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+                              "type": "string"
+                            },
+                            "role": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "artifact_class",
+                            "artifact_hash",
+                            "artifact_id",
+                            "known_as_of",
+                            "role"
+                          ],
+                          "type": "object"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "artifact_class": {
+                              "type": "string"
+                            },
+                            "artifact_hash": {
+                              "pattern": "^[0-9a-f]{64}$",
+                              "type": "string"
+                            },
+                            "artifact_id": {
+                              "type": "string"
+                            },
+                            "known_as_of": {
+                              "type": "null"
+                            },
+                            "role": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "artifact_class",
+                            "artifact_hash",
+                            "artifact_id",
+                            "known_as_of",
+                            "role"
+                          ],
+                          "type": "object"
+                        }
+                      ]
+                    },
+                    "type": "array"
+                  },
+                  "label_semantics": {
+                    "type": "string"
+                  },
+                  "manifest_hash": {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "type": "string"
+                  },
+                  "manifest_id": {
+                    "type": "string"
+                  },
+                  "masked_objective_boundary": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "phase": {
+                    "type": "string"
+                  },
+                  "prohibited_input_artifact_classes": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "selection_authority": {
+                    "type": "boolean"
+                  },
+                  "self_supervised_only": {
+                    "type": "boolean"
+                  },
+                  "split_policy": {
+                    "type": "string"
+                  },
+                  "target_phase": {
+                    "type": "string"
+                  },
+                  "training_authority": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "execution_authority",
+                  "forbidden_objectives",
+                  "future_suffix_allowed",
+                  "included_artifacts",
+                  "label_semantics",
+                  "manifest_hash",
+                  "manifest_id",
+                  "masked_objective_boundary",
+                  "phase",
+                  "prohibited_input_artifact_classes",
+                  "selection_authority",
+                  "self_supervised_only",
+                  "split_policy",
+                  "target_phase",
+                  "training_authority"
+                ],
+                "type": "object"
+              },
+              "expected_valid": {
+                "type": "boolean"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "payload": {
+                "additionalProperties": false,
+                "properties": {
+                  "authority": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "activate_runtime": {
+                        "type": "boolean"
+                      },
+                      "allocate_risk": {
+                        "type": "boolean"
+                      },
+                      "build_self_supervised_pretraining_reference": {
+                        "type": "boolean"
+                      },
+                      "rank_treatments": {
+                        "type": "boolean"
+                      },
+                      "read_frozen_baselines": {
+                        "type": "boolean"
+                      },
+                      "read_frozen_pretraining_corpus": {
+                        "type": "boolean"
+                      },
+                      "select_treatment": {
+                        "type": "boolean"
+                      },
+                      "send_order": {
+                        "type": "boolean"
+                      },
+                      "use_outcomes_as_pretraining_inputs": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "activate_runtime",
+                      "allocate_risk",
+                      "build_self_supervised_pretraining_reference",
+                      "rank_treatments",
+                      "read_frozen_baselines",
+                      "read_frozen_pretraining_corpus",
+                      "select_treatment",
+                      "send_order",
+                      "use_outcomes_as_pretraining_inputs"
+                    ],
+                    "type": "object"
+                  },
+                  "baseline_registry_hash": {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "type": "string"
+                  },
+                  "baseline_registry_id": {
+                    "type": "string"
+                  },
+                  "benchmark_hash": {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "type": "string"
+                  },
+                  "entry_gates": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "baseline_frozen": {
+                        "type": "boolean"
+                      },
+                      "future_suffix_forbidden": {
+                        "type": "boolean"
+                      },
+                      "manual_program_replayable": {
+                        "type": "boolean"
+                      },
+                      "outcomes_excluded_from_pretraining_inputs": {
+                        "type": "boolean"
+                      },
+                      "self_supervised_corpus_boundary_frozen": {
+                        "type": "boolean"
+                      },
+                      "training_authority_granted": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "baseline_frozen",
+                      "future_suffix_forbidden",
+                      "manual_program_replayable",
+                      "outcomes_excluded_from_pretraining_inputs",
+                      "self_supervised_corpus_boundary_frozen",
+                      "training_authority_granted"
+                    ],
+                    "type": "object"
+                  },
+                  "handoff_hash": {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "type": "string"
+                  },
+                  "handoff_id": {
+                    "type": "string"
+                  },
+                  "integrity_receipt_hash": {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "type": "string"
+                  },
+                  "limitations": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "next_phase": {
+                    "type": "string"
+                  },
+                  "phase": {
+                    "type": "string"
+                  },
+                  "pretraining_corpus_manifest_hash": {
+                    "pattern": "^[0-9a-f]{64}$",
+                    "type": "string"
+                  },
+                  "pretraining_corpus_manifest_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "authority",
+                  "baseline_registry_hash",
+                  "baseline_registry_id",
+                  "benchmark_hash",
+                  "entry_gates",
+                  "handoff_hash",
+                  "handoff_id",
+                  "integrity_receipt_hash",
+                  "limitations",
+                  "next_phase",
+                  "phase",
+                  "pretraining_corpus_manifest_hash",
+                  "pretraining_corpus_manifest_id"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "case_id",
+              "companion",
+              "expected_valid",
+              "kind",
+              "payload"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "cases",
+    "phase"
+  ],
+  "title": "Conformance Vectors",
+  "type": "object"
+}

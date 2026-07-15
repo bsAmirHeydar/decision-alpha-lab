@@ -1,0 +1,56 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/incident.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_ids": {
+      "items": {},
+      "type": "array"
+    },
+    "authority_escalation": {
+      "type": "boolean"
+    },
+    "containment_actions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "detected_at": {
+      "type": "null"
+    },
+    "incident_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "reason_codes": {
+      "items": {},
+      "type": "array"
+    },
+    "runtime_impact": {
+      "type": "string"
+    },
+    "severity": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_ids",
+    "authority_escalation",
+    "containment_actions",
+    "detected_at",
+    "incident_id",
+    "phase",
+    "reason_codes",
+    "runtime_impact",
+    "severity",
+    "status"
+  ],
+  "title": "Incident",
+  "type": "object"
+}

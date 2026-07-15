@@ -1,0 +1,77 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/checkpoint_card.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "card_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "card_id": {
+      "type": "string"
+    },
+    "checkpoint_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "checkpoint_id": {
+      "type": "string"
+    },
+    "dimension": {
+      "type": "integer"
+    },
+    "evidence_scope": {
+      "type": "string"
+    },
+    "intended_use": {
+      "type": "string"
+    },
+    "known_limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "model_family": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "prohibited_uses": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "representation_dossier_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "training_receipt_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "vocabulary_size": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "card_hash",
+    "card_id",
+    "checkpoint_hash",
+    "checkpoint_id",
+    "dimension",
+    "evidence_scope",
+    "intended_use",
+    "known_limitations",
+    "model_family",
+    "phase",
+    "prohibited_uses",
+    "representation_dossier_hash",
+    "training_receipt_hash",
+    "vocabulary_size"
+  ],
+  "title": "Checkpoint Card",
+  "type": "object"
+}

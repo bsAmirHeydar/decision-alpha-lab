@@ -1,0 +1,63 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/split_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "descendant_cross_split_allowed": {
+      "type": "boolean"
+    },
+    "future_suffix_allowed": {
+      "type": "boolean"
+    },
+    "quarantine_known_time_max": {
+      "type": "string"
+    },
+    "quarantine_roots": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "test_known_time_max": {
+      "type": "string"
+    },
+    "test_roots": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "train_known_time_max": {
+      "type": "string"
+    },
+    "train_roots": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "validation_known_time_max": {
+      "type": "string"
+    },
+    "validation_roots": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "descendant_cross_split_allowed",
+    "future_suffix_allowed",
+    "quarantine_known_time_max",
+    "quarantine_roots",
+    "test_known_time_max",
+    "test_roots",
+    "train_known_time_max",
+    "train_roots",
+    "validation_known_time_max",
+    "validation_roots"
+  ],
+  "title": "Split Policy",
+  "type": "object"
+}

@@ -1,0 +1,185 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/handoff_v4_12.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "activate_runtime": {
+          "type": "boolean"
+        },
+        "allocate_risk": {
+          "type": "boolean"
+        },
+        "build_reference_sequence_state_space_challengers": {
+          "type": "boolean"
+        },
+        "fine_tune_on_protected_or_live_data": {
+          "type": "boolean"
+        },
+        "predict_outcomes": {
+          "type": "boolean"
+        },
+        "rank_treatments": {
+          "type": "boolean"
+        },
+        "read_frozen_encoder": {
+          "type": "boolean"
+        },
+        "select_treatment": {
+          "type": "boolean"
+        },
+        "send_order": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "activate_runtime",
+        "allocate_risk",
+        "build_reference_sequence_state_space_challengers",
+        "fine_tune_on_protected_or_live_data",
+        "predict_outcomes",
+        "rank_treatments",
+        "read_frozen_encoder",
+        "select_treatment",
+        "send_order"
+      ],
+      "type": "object"
+    },
+    "checkpoint_registry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "checkpoint_registry_id": {
+      "type": "string"
+    },
+    "corpus_manifest_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "corpus_manifest_id": {
+      "type": "string"
+    },
+    "encoder_checkpoint_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "encoder_checkpoint_id": {
+      "type": "string"
+    },
+    "entry_gates": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_registry_preserved": {
+          "type": "boolean"
+        },
+        "contamination_audit_passed": {
+          "type": "boolean"
+        },
+        "deterministic_replay_passed": {
+          "type": "boolean"
+        },
+        "future_suffix_forbidden": {
+          "type": "boolean"
+        },
+        "membership_audit_passed": {
+          "type": "boolean"
+        },
+        "outcome_supervision_absent": {
+          "type": "boolean"
+        },
+        "reference_checkpoint_admitted": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "baseline_registry_preserved",
+        "contamination_audit_passed",
+        "deterministic_replay_passed",
+        "future_suffix_forbidden",
+        "membership_audit_passed",
+        "outcome_supervision_absent",
+        "reference_checkpoint_admitted"
+      ],
+      "type": "object"
+    },
+    "handoff_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "integrity_receipt_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "representation_dossier_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "representation_dossier_id": {
+      "type": "string"
+    },
+    "split_manifest_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "split_manifest_id": {
+      "type": "string"
+    },
+    "tokenizer_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "tokenizer_id": {
+      "type": "string"
+    },
+    "training_receipt_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "training_receipt_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "authority",
+    "checkpoint_registry_hash",
+    "checkpoint_registry_id",
+    "corpus_manifest_hash",
+    "corpus_manifest_id",
+    "encoder_checkpoint_hash",
+    "encoder_checkpoint_id",
+    "entry_gates",
+    "handoff_hash",
+    "handoff_id",
+    "integrity_receipt_hash",
+    "limitations",
+    "next_phase",
+    "phase",
+    "representation_dossier_hash",
+    "representation_dossier_id",
+    "split_manifest_hash",
+    "split_manifest_id",
+    "tokenizer_hash",
+    "tokenizer_id",
+    "training_receipt_hash",
+    "training_receipt_id"
+  ],
+  "title": "Handoff V4 12",
+  "type": "object"
+}

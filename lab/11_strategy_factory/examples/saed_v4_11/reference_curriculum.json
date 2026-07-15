@@ -1,0 +1,42 @@
+{
+  "curriculum": [
+    {
+      "epochs": 2,
+      "max_pairs_per_record": 14,
+      "objective_ids": [
+        "obj_masked",
+        "obj_cross_view",
+        "obj_missing"
+      ],
+      "stage_id": "stage_local_semantics"
+    },
+    {
+      "epochs": 2,
+      "max_pairs_per_record": 14,
+      "objective_ids": [
+        "obj_graph",
+        "obj_cross_view",
+        "obj_masked"
+      ],
+      "stage_id": "stage_graph_structure"
+    },
+    {
+      "epochs": 2,
+      "max_pairs_per_record": 12,
+      "objective_ids": [
+        "obj_next",
+        "obj_temporal",
+        "obj_transition",
+        "obj_masked"
+      ],
+      "stage_id": "stage_temporal_context"
+    }
+  ],
+  "outcome_supervision": false,
+  "phase": "SAED_V4_11",
+  "progression": [
+    "local semantics",
+    "cross-view and graph structure",
+    "temporal context"
+  ]
+}

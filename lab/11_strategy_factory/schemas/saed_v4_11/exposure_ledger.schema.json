@@ -1,0 +1,98 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/exposure_ledger.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_train_split": {
+      "type": "boolean"
+    },
+    "complete": {
+      "type": "boolean"
+    },
+    "entries": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "anchor_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "epoch": {
+            "type": "integer"
+          },
+          "exposure_id": {
+            "type": "string"
+          },
+          "negative_count": {
+            "type": "integer"
+          },
+          "objective_id": {
+            "type": "string"
+          },
+          "objective_kind": {
+            "type": "string"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "positive_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "record_id": {
+            "type": "string"
+          },
+          "stage_id": {
+            "type": "string"
+          },
+          "weight": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "anchor_hash",
+          "epoch",
+          "exposure_id",
+          "negative_count",
+          "objective_id",
+          "objective_kind",
+          "ordinal",
+          "positive_hash",
+          "record_id",
+          "stage_id",
+          "weight"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "ledger_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "max_total_pairs": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "total_pairs": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "all_train_split",
+    "complete",
+    "entries",
+    "ledger_hash",
+    "ledger_id",
+    "max_total_pairs",
+    "phase",
+    "total_pairs"
+  ],
+  "title": "Exposure Ledger",
+  "type": "object"
+}

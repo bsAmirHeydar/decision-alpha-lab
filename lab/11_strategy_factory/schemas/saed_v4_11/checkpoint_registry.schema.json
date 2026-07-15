@@ -1,0 +1,106 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/checkpoint_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "admitted_count": {
+      "type": "integer"
+    },
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "entries": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "checkpoint_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "checkpoint_id": {
+            "type": "string"
+          },
+          "contamination_audit_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "control_comparison_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "dossier_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "evidence_scope": {
+            "type": "string"
+          },
+          "membership_audit_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "promotion_authority": {
+            "type": "boolean"
+          },
+          "reasons": {
+            "items": {},
+            "type": "array"
+          },
+          "runtime_authority": {
+            "type": "boolean"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "checkpoint_hash",
+          "checkpoint_id",
+          "contamination_audit_hash",
+          "control_comparison_hash",
+          "dossier_hash",
+          "evidence_scope",
+          "membership_audit_hash",
+          "promotion_authority",
+          "reasons",
+          "runtime_authority",
+          "status"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "entry_count": {
+      "type": "integer"
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "rejected_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "admitted_count",
+    "baseline_preserved",
+    "entries",
+    "entry_count",
+    "immutable",
+    "phase",
+    "registry_hash",
+    "registry_id",
+    "rejected_count"
+  ],
+  "title": "Checkpoint Registry",
+  "type": "object"
+}

@@ -1,0 +1,888 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/encoder_checkpoint.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "checkpoint_format": {
+      "type": "string"
+    },
+    "checkpoint_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "checkpoint_id": {
+      "type": "string"
+    },
+    "dimension": {
+      "type": "integer"
+    },
+    "embeddings": {
+      "additionalProperties": false,
+      "properties": {
+        "DESC::abstain": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "DESC::entry_limit": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "DESC::management_none": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "DESC::stop_structural": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "DESC::target_reward_2": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "DESC::target_reward_3": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "DOMAIN::EQUITY_INDEX": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "DOMAIN::FX_MAJOR": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "DOMAIN::PRECIOUS_METAL": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "GRAPH_REL::context_composition": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "GRAPH_REL::cross_view_alignment": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "GRAPH_REL::regime_high": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "GRAPH_REL::regime_low": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "GRAPH_REL::regime_medium": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "GRAPH_REL::temporal_precedence": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "GRAPH_REL::transition_balanced": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "GRAPH_REL::transition_down": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "GRAPH_REL::transition_up": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "ROLE::development": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "ROLE::training": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "ROLE::validation": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "SYNTHETIC::TRUE": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::context_ancestry_view::context_family::F1": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::context_ancestry_view::context_family::F2": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::context_ancestry_view::context_family::F3": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::context_ancestry_view::generation_depth::0": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::context_ancestry_view::generation_depth::1": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::context_ancestry_view::generation_depth::2": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::context_ancestry_view::generation_depth::3": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::execution_view::spread_bucket::normal": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::execution_view::venue_state::available": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::higher_timeframe_view::alignment::balanced": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::higher_timeframe_view::alignment::down": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::higher_timeframe_view::alignment::up": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::higher_timeframe_view::compression::FALSE": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::higher_timeframe_view::compression::TRUE": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::intermarket_view::agreement::aligned": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::intermarket_view::agreement::mixed": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::intermarket_view::lead_lag_bucket::0": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::intermarket_view::lead_lag_bucket::1": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::intermarket_view::lead_lag_bucket::2": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::liquidity_view::depth_bucket::deep": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::liquidity_view::depth_bucket::normal": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::liquidity_view::depth_bucket::thin": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::liquidity_view::sweep_state::absent": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::liquidity_view::sweep_state::observed": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::price_view::range_position::0.2": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::price_view::range_position::0.333": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::price_view::range_position::0.4": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::price_view::range_position::0.6": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::price_view::range_position::0.667": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::price_view::range_position::0.8": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::price_view::return_bucket::balanced": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::price_view::return_bucket::down": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::price_view::return_bucket::up": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::price_view::volatility_bucket::high": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::price_view::volatility_bucket::low": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::price_view::volatility_bucket::medium": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::session_view::opening_window::FALSE": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::session_view::opening_window::TRUE": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::session_view::session::london": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::session_view::session::new_york": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::session_view::session::overlap": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::structure_view::break_state::confirmed": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::structure_view::break_state::none": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::structure_view::swing_count::2": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::structure_view::swing_count::3": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::structure_view::swing_count::4": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::structure_view::swing_count::5": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::structure_view::trend_state::balanced": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::structure_view::trend_state::down": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::structure_view::trend_state::up": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::time_view::minute_bucket::0": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::time_view::minute_bucket::1": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::time_view::minute_bucket::2": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::time_view::minute_bucket::3": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::time_view::minute_bucket::4": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::time_view::minute_bucket::5": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::time_view::session::london": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::time_view::session::new_york": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::time_view::session::overlap": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::time_view::weekday::monday": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::treatment_descriptor_view::contains_abstain::TRUE": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW::treatment_descriptor_view::descriptor_count::3": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW_KIND::context_ancestry_view": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW_KIND::execution_view": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW_KIND::higher_timeframe_view": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW_KIND::intermarket_view": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW_KIND::liquidity_view": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW_KIND::price_view": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW_KIND::session_view": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW_KIND::structure_view": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW_KIND::time_view": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW_KIND::treatment_descriptor_view": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW_MASK::context_ancestry_view::PRESENT": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW_MASK::execution_view::PRESENT": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW_MASK::higher_timeframe_view::PRESENT": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW_MASK::intermarket_view::PRESENT": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW_MASK::liquidity_view::PRESENT": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW_MASK::price_view::PRESENT": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW_MASK::session_view::PRESENT": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW_MASK::structure_view::PRESENT": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW_MASK::time_view::PRESENT": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "VIEW_MASK::treatment_descriptor_view::PRESENT": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "[DESC]": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "[GRAPH]": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "[MASK]": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "[PAD]": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "[RECORD]": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "[UNK]": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "[VIEW]": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "DESC::abstain",
+        "DESC::entry_limit",
+        "DESC::management_none",
+        "DESC::stop_structural",
+        "DESC::target_reward_2",
+        "DESC::target_reward_3",
+        "DOMAIN::EQUITY_INDEX",
+        "DOMAIN::FX_MAJOR",
+        "DOMAIN::PRECIOUS_METAL",
+        "GRAPH_REL::context_composition",
+        "GRAPH_REL::cross_view_alignment",
+        "GRAPH_REL::regime_high",
+        "GRAPH_REL::regime_low",
+        "GRAPH_REL::regime_medium",
+        "GRAPH_REL::temporal_precedence",
+        "GRAPH_REL::transition_balanced",
+        "GRAPH_REL::transition_down",
+        "GRAPH_REL::transition_up",
+        "ROLE::development",
+        "ROLE::training",
+        "ROLE::validation",
+        "SYNTHETIC::TRUE",
+        "VIEW::context_ancestry_view::context_family::F1",
+        "VIEW::context_ancestry_view::context_family::F2",
+        "VIEW::context_ancestry_view::context_family::F3",
+        "VIEW::context_ancestry_view::generation_depth::0",
+        "VIEW::context_ancestry_view::generation_depth::1",
+        "VIEW::context_ancestry_view::generation_depth::2",
+        "VIEW::context_ancestry_view::generation_depth::3",
+        "VIEW::execution_view::spread_bucket::normal",
+        "VIEW::execution_view::venue_state::available",
+        "VIEW::higher_timeframe_view::alignment::balanced",
+        "VIEW::higher_timeframe_view::alignment::down",
+        "VIEW::higher_timeframe_view::alignment::up",
+        "VIEW::higher_timeframe_view::compression::FALSE",
+        "VIEW::higher_timeframe_view::compression::TRUE",
+        "VIEW::intermarket_view::agreement::aligned",
+        "VIEW::intermarket_view::agreement::mixed",
+        "VIEW::intermarket_view::lead_lag_bucket::0",
+        "VIEW::intermarket_view::lead_lag_bucket::1",
+        "VIEW::intermarket_view::lead_lag_bucket::2",
+        "VIEW::liquidity_view::depth_bucket::deep",
+        "VIEW::liquidity_view::depth_bucket::normal",
+        "VIEW::liquidity_view::depth_bucket::thin",
+        "VIEW::liquidity_view::sweep_state::absent",
+        "VIEW::liquidity_view::sweep_state::observed",
+        "VIEW::price_view::range_position::0.2",
+        "VIEW::price_view::range_position::0.333",
+        "VIEW::price_view::range_position::0.4",
+        "VIEW::price_view::range_position::0.6",
+        "VIEW::price_view::range_position::0.667",
+        "VIEW::price_view::range_position::0.8",
+        "VIEW::price_view::return_bucket::balanced",
+        "VIEW::price_view::return_bucket::down",
+        "VIEW::price_view::return_bucket::up",
+        "VIEW::price_view::volatility_bucket::high",
+        "VIEW::price_view::volatility_bucket::low",
+        "VIEW::price_view::volatility_bucket::medium",
+        "VIEW::session_view::opening_window::FALSE",
+        "VIEW::session_view::opening_window::TRUE",
+        "VIEW::session_view::session::london",
+        "VIEW::session_view::session::new_york",
+        "VIEW::session_view::session::overlap",
+        "VIEW::structure_view::break_state::confirmed",
+        "VIEW::structure_view::break_state::none",
+        "VIEW::structure_view::swing_count::2",
+        "VIEW::structure_view::swing_count::3",
+        "VIEW::structure_view::swing_count::4",
+        "VIEW::structure_view::swing_count::5",
+        "VIEW::structure_view::trend_state::balanced",
+        "VIEW::structure_view::trend_state::down",
+        "VIEW::structure_view::trend_state::up",
+        "VIEW::time_view::minute_bucket::0",
+        "VIEW::time_view::minute_bucket::1",
+        "VIEW::time_view::minute_bucket::2",
+        "VIEW::time_view::minute_bucket::3",
+        "VIEW::time_view::minute_bucket::4",
+        "VIEW::time_view::minute_bucket::5",
+        "VIEW::time_view::session::london",
+        "VIEW::time_view::session::new_york",
+        "VIEW::time_view::session::overlap",
+        "VIEW::time_view::weekday::monday",
+        "VIEW::treatment_descriptor_view::contains_abstain::TRUE",
+        "VIEW::treatment_descriptor_view::descriptor_count::3",
+        "VIEW_KIND::context_ancestry_view",
+        "VIEW_KIND::execution_view",
+        "VIEW_KIND::higher_timeframe_view",
+        "VIEW_KIND::intermarket_view",
+        "VIEW_KIND::liquidity_view",
+        "VIEW_KIND::price_view",
+        "VIEW_KIND::session_view",
+        "VIEW_KIND::structure_view",
+        "VIEW_KIND::time_view",
+        "VIEW_KIND::treatment_descriptor_view",
+        "VIEW_MASK::context_ancestry_view::PRESENT",
+        "VIEW_MASK::execution_view::PRESENT",
+        "VIEW_MASK::higher_timeframe_view::PRESENT",
+        "VIEW_MASK::intermarket_view::PRESENT",
+        "VIEW_MASK::liquidity_view::PRESENT",
+        "VIEW_MASK::price_view::PRESENT",
+        "VIEW_MASK::session_view::PRESENT",
+        "VIEW_MASK::structure_view::PRESENT",
+        "VIEW_MASK::time_view::PRESENT",
+        "VIEW_MASK::treatment_descriptor_view::PRESENT",
+        "[DESC]",
+        "[GRAPH]",
+        "[MASK]",
+        "[PAD]",
+        "[RECORD]",
+        "[UNK]",
+        "[VIEW]"
+      ],
+      "type": "object"
+    },
+    "execution_authority": {
+      "type": "boolean"
+    },
+    "metadata": {
+      "additionalProperties": false,
+      "properties": {
+        "corpus_manifest_hash": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "exposure_ledger_hash": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "objective_registry_hash": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "split_manifest_hash": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "tokenizer_hash": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "training_receipt_hash": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "corpus_manifest_hash",
+        "exposure_ledger_hash",
+        "objective_registry_hash",
+        "split_manifest_hash",
+        "tokenizer_hash",
+        "training_receipt_hash"
+      ],
+      "type": "object"
+    },
+    "model_family": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "runtime_authority": {
+      "type": "boolean"
+    },
+    "seed": {
+      "type": "integer"
+    },
+    "selection_authority": {
+      "type": "boolean"
+    },
+    "synthetic_reference_only": {
+      "type": "boolean"
+    },
+    "vocabulary": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "checkpoint_format",
+    "checkpoint_hash",
+    "checkpoint_id",
+    "dimension",
+    "embeddings",
+    "execution_authority",
+    "metadata",
+    "model_family",
+    "phase",
+    "runtime_authority",
+    "seed",
+    "selection_authority",
+    "synthetic_reference_only",
+    "vocabulary"
+  ],
+  "title": "Encoder Checkpoint",
+  "type": "object"
+}

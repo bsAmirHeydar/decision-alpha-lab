@@ -1,0 +1,50 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/objective_catalog.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "forbidden": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "objectives": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          },
+          "objective_id": {
+            "type": "string"
+          },
+          "objective_kind": {
+            "type": "string"
+          },
+          "weight": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "enabled",
+          "objective_id",
+          "objective_kind",
+          "weight"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "forbidden",
+    "objectives",
+    "phase"
+  ],
+  "title": "Objective Catalog",
+  "type": "object"
+}

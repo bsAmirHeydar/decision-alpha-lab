@@ -1,0 +1,63 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/rejected_checkpoint_ledger.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "entries": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_id": {
+            "type": "string"
+          },
+          "checkpoint_hash": {
+            "type": "null"
+          },
+          "reason_codes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "checkpoint_hash",
+          "reason_codes",
+          "status"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "entry_count": {
+      "type": "integer"
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "ledger_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "entries",
+    "entry_count",
+    "immutable",
+    "ledger_hash",
+    "ledger_id",
+    "phase"
+  ],
+  "title": "Rejected Checkpoint Ledger",
+  "type": "object"
+}

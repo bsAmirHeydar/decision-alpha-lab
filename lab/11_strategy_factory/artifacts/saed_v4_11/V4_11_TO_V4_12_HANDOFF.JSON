@@ -1,0 +1,46 @@
+{
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "build_reference_sequence_state_space_challengers": true,
+    "fine_tune_on_protected_or_live_data": false,
+    "predict_outcomes": false,
+    "rank_treatments": false,
+    "read_frozen_encoder": true,
+    "select_treatment": false,
+    "send_order": false
+  },
+  "checkpoint_registry_hash": "844d91a09d044b254ec918d6519f2ba35980d0dd42d91f1e2f4264c15704f414",
+  "checkpoint_registry_id": "checkpointregistry_05825044bd218f241aac37db",
+  "corpus_manifest_hash": "47fc6f89b7ae5429c7aaf45802b0233560ca4d1ae5e3bdce4322dbc7e5b8361a",
+  "corpus_manifest_id": "v411corpus_65e4bb5b9187a408fc43fad5",
+  "encoder_checkpoint_hash": "aab287ba676dacc6cba84a8671f853a71c721d6f1a5997fd264e0f80cf801e6a",
+  "encoder_checkpoint_id": "encoderckpt_4fcfb52d3410bbedce23761e",
+  "entry_gates": {
+    "baseline_registry_preserved": true,
+    "contamination_audit_passed": true,
+    "deterministic_replay_passed": true,
+    "future_suffix_forbidden": true,
+    "membership_audit_passed": true,
+    "outcome_supervision_absent": true,
+    "reference_checkpoint_admitted": true
+  },
+  "handoff_hash": "52d2950fea7ba89cdef7f16927e262ae111edaf0e497229e7e33c7cafaf1ed6d",
+  "handoff_id": "v411to12_4de2b1f926c58fa8b0ee9932",
+  "integrity_receipt_hash": "a6aa51bab2217c97b191bd890167dc06a4e2151a7ca9a840fcce9b5e41e2e339",
+  "limitations": [
+    "Encoder was trained on a synthetic reference corpus.",
+    "V4-12 must preserve exact tokenizer and checkpoint hashes.",
+    "Any real-corpus or protected-role training requires a separate evidence-bearing admission."
+  ],
+  "next_phase": "SAED_V4_12",
+  "phase": "SAED_V4_11",
+  "representation_dossier_hash": "5f001b01531fadaeb367b7f4ddb5f7dd6757ead33722de5d0a676ac96ecdd163",
+  "representation_dossier_id": "representationdossier_9829bba65ec9f7cf6de1dd09",
+  "split_manifest_hash": "bc72c72c6554d2429026903ba9778643d5638b33a67d0686d7a0fe4b8acf18b6",
+  "split_manifest_id": "splitmanifest_cccbc07837b88d3a24c071e1",
+  "tokenizer_hash": "71b0813379929af782ac7403abcd5414e8e8ba961f97cbd5988ab1189d10d89f",
+  "tokenizer_id": "tokenizer_7393dad27949df516ad4b99f",
+  "training_receipt_hash": "e46856769eddbbcdf534aa047af5f764f6cd3007cadd2eae03b4d31a8d799ee1",
+  "training_receipt_id": "trainingreceipt_5cd4fc916c13d04a8b435ec7"
+}

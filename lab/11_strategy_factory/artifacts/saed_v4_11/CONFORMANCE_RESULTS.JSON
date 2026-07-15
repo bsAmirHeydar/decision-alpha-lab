@@ -1,0 +1,65 @@
+{
+  "case_count": 8,
+  "passed": true,
+  "phase": "SAED_V4_11",
+  "result_hash": "bcc661479804a82731b4664316402d4cd5d5873bc296674d7eac4603d39391d6",
+  "result_id": "conformance_0cf4bc660fc8ccbd793c8a5b",
+  "results": [
+    {
+      "case_id": "valid_upstream_manifest",
+      "error_type": null,
+      "expected_valid": true,
+      "matched": true,
+      "observed_valid": true
+    },
+    {
+      "case_id": "future_suffix_manifest_rejected",
+      "error_type": "LeakageError",
+      "expected_valid": false,
+      "matched": true,
+      "observed_valid": false
+    },
+    {
+      "case_id": "valid_records",
+      "error_type": null,
+      "expected_valid": true,
+      "matched": true,
+      "observed_valid": true
+    },
+    {
+      "case_id": "outcome_token_record_rejected",
+      "error_type": "LeakageError",
+      "expected_valid": false,
+      "matched": true,
+      "observed_valid": false
+    },
+    {
+      "case_id": "valid_training_config",
+      "error_type": null,
+      "expected_valid": true,
+      "matched": true,
+      "observed_valid": true
+    },
+    {
+      "case_id": "nondeterministic_config_rejected",
+      "error_type": "ContractError",
+      "expected_valid": false,
+      "matched": true,
+      "observed_valid": false
+    },
+    {
+      "case_id": "valid_handoff",
+      "error_type": null,
+      "expected_valid": true,
+      "matched": true,
+      "observed_valid": true
+    },
+    {
+      "case_id": "hash_mismatch_handoff_rejected",
+      "error_type": "IntegrityError",
+      "expected_valid": false,
+      "matched": true,
+      "observed_valid": false
+    }
+  ]
+}

@@ -1,0 +1,515 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/tokenizer_spec.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "exact_version": {
+      "type": "string"
+    },
+    "future_suffix_allowed": {
+      "type": "boolean"
+    },
+    "normalization": {
+      "type": "string"
+    },
+    "outcome_tokens_allowed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "special_tokens": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "token_to_id": {
+      "additionalProperties": false,
+      "properties": {
+        "DESC::abstain": {
+          "type": "integer"
+        },
+        "DESC::entry_limit": {
+          "type": "integer"
+        },
+        "DESC::management_none": {
+          "type": "integer"
+        },
+        "DESC::stop_structural": {
+          "type": "integer"
+        },
+        "DESC::target_reward_2": {
+          "type": "integer"
+        },
+        "DESC::target_reward_3": {
+          "type": "integer"
+        },
+        "DOMAIN::EQUITY_INDEX": {
+          "type": "integer"
+        },
+        "DOMAIN::FX_MAJOR": {
+          "type": "integer"
+        },
+        "DOMAIN::PRECIOUS_METAL": {
+          "type": "integer"
+        },
+        "GRAPH_REL::context_composition": {
+          "type": "integer"
+        },
+        "GRAPH_REL::cross_view_alignment": {
+          "type": "integer"
+        },
+        "GRAPH_REL::regime_high": {
+          "type": "integer"
+        },
+        "GRAPH_REL::regime_low": {
+          "type": "integer"
+        },
+        "GRAPH_REL::regime_medium": {
+          "type": "integer"
+        },
+        "GRAPH_REL::temporal_precedence": {
+          "type": "integer"
+        },
+        "GRAPH_REL::transition_balanced": {
+          "type": "integer"
+        },
+        "GRAPH_REL::transition_down": {
+          "type": "integer"
+        },
+        "GRAPH_REL::transition_up": {
+          "type": "integer"
+        },
+        "ROLE::development": {
+          "type": "integer"
+        },
+        "ROLE::training": {
+          "type": "integer"
+        },
+        "ROLE::validation": {
+          "type": "integer"
+        },
+        "SYNTHETIC::TRUE": {
+          "type": "integer"
+        },
+        "VIEW::context_ancestry_view::context_family::F1": {
+          "type": "integer"
+        },
+        "VIEW::context_ancestry_view::context_family::F2": {
+          "type": "integer"
+        },
+        "VIEW::context_ancestry_view::context_family::F3": {
+          "type": "integer"
+        },
+        "VIEW::context_ancestry_view::generation_depth::0": {
+          "type": "integer"
+        },
+        "VIEW::context_ancestry_view::generation_depth::1": {
+          "type": "integer"
+        },
+        "VIEW::context_ancestry_view::generation_depth::2": {
+          "type": "integer"
+        },
+        "VIEW::context_ancestry_view::generation_depth::3": {
+          "type": "integer"
+        },
+        "VIEW::execution_view::spread_bucket::normal": {
+          "type": "integer"
+        },
+        "VIEW::execution_view::venue_state::available": {
+          "type": "integer"
+        },
+        "VIEW::higher_timeframe_view::alignment::balanced": {
+          "type": "integer"
+        },
+        "VIEW::higher_timeframe_view::alignment::down": {
+          "type": "integer"
+        },
+        "VIEW::higher_timeframe_view::alignment::up": {
+          "type": "integer"
+        },
+        "VIEW::higher_timeframe_view::compression::FALSE": {
+          "type": "integer"
+        },
+        "VIEW::higher_timeframe_view::compression::TRUE": {
+          "type": "integer"
+        },
+        "VIEW::intermarket_view::agreement::aligned": {
+          "type": "integer"
+        },
+        "VIEW::intermarket_view::agreement::mixed": {
+          "type": "integer"
+        },
+        "VIEW::intermarket_view::lead_lag_bucket::0": {
+          "type": "integer"
+        },
+        "VIEW::intermarket_view::lead_lag_bucket::1": {
+          "type": "integer"
+        },
+        "VIEW::intermarket_view::lead_lag_bucket::2": {
+          "type": "integer"
+        },
+        "VIEW::liquidity_view::depth_bucket::deep": {
+          "type": "integer"
+        },
+        "VIEW::liquidity_view::depth_bucket::normal": {
+          "type": "integer"
+        },
+        "VIEW::liquidity_view::depth_bucket::thin": {
+          "type": "integer"
+        },
+        "VIEW::liquidity_view::sweep_state::absent": {
+          "type": "integer"
+        },
+        "VIEW::liquidity_view::sweep_state::observed": {
+          "type": "integer"
+        },
+        "VIEW::price_view::range_position::0.2": {
+          "type": "integer"
+        },
+        "VIEW::price_view::range_position::0.333": {
+          "type": "integer"
+        },
+        "VIEW::price_view::range_position::0.4": {
+          "type": "integer"
+        },
+        "VIEW::price_view::range_position::0.6": {
+          "type": "integer"
+        },
+        "VIEW::price_view::range_position::0.667": {
+          "type": "integer"
+        },
+        "VIEW::price_view::range_position::0.8": {
+          "type": "integer"
+        },
+        "VIEW::price_view::return_bucket::balanced": {
+          "type": "integer"
+        },
+        "VIEW::price_view::return_bucket::down": {
+          "type": "integer"
+        },
+        "VIEW::price_view::return_bucket::up": {
+          "type": "integer"
+        },
+        "VIEW::price_view::volatility_bucket::high": {
+          "type": "integer"
+        },
+        "VIEW::price_view::volatility_bucket::low": {
+          "type": "integer"
+        },
+        "VIEW::price_view::volatility_bucket::medium": {
+          "type": "integer"
+        },
+        "VIEW::session_view::opening_window::FALSE": {
+          "type": "integer"
+        },
+        "VIEW::session_view::opening_window::TRUE": {
+          "type": "integer"
+        },
+        "VIEW::session_view::session::london": {
+          "type": "integer"
+        },
+        "VIEW::session_view::session::new_york": {
+          "type": "integer"
+        },
+        "VIEW::session_view::session::overlap": {
+          "type": "integer"
+        },
+        "VIEW::structure_view::break_state::confirmed": {
+          "type": "integer"
+        },
+        "VIEW::structure_view::break_state::none": {
+          "type": "integer"
+        },
+        "VIEW::structure_view::swing_count::2": {
+          "type": "integer"
+        },
+        "VIEW::structure_view::swing_count::3": {
+          "type": "integer"
+        },
+        "VIEW::structure_view::swing_count::4": {
+          "type": "integer"
+        },
+        "VIEW::structure_view::swing_count::5": {
+          "type": "integer"
+        },
+        "VIEW::structure_view::trend_state::balanced": {
+          "type": "integer"
+        },
+        "VIEW::structure_view::trend_state::down": {
+          "type": "integer"
+        },
+        "VIEW::structure_view::trend_state::up": {
+          "type": "integer"
+        },
+        "VIEW::time_view::minute_bucket::0": {
+          "type": "integer"
+        },
+        "VIEW::time_view::minute_bucket::1": {
+          "type": "integer"
+        },
+        "VIEW::time_view::minute_bucket::2": {
+          "type": "integer"
+        },
+        "VIEW::time_view::minute_bucket::3": {
+          "type": "integer"
+        },
+        "VIEW::time_view::minute_bucket::4": {
+          "type": "integer"
+        },
+        "VIEW::time_view::minute_bucket::5": {
+          "type": "integer"
+        },
+        "VIEW::time_view::session::london": {
+          "type": "integer"
+        },
+        "VIEW::time_view::session::new_york": {
+          "type": "integer"
+        },
+        "VIEW::time_view::session::overlap": {
+          "type": "integer"
+        },
+        "VIEW::time_view::weekday::monday": {
+          "type": "integer"
+        },
+        "VIEW::treatment_descriptor_view::contains_abstain::TRUE": {
+          "type": "integer"
+        },
+        "VIEW::treatment_descriptor_view::descriptor_count::3": {
+          "type": "integer"
+        },
+        "VIEW_KIND::context_ancestry_view": {
+          "type": "integer"
+        },
+        "VIEW_KIND::execution_view": {
+          "type": "integer"
+        },
+        "VIEW_KIND::higher_timeframe_view": {
+          "type": "integer"
+        },
+        "VIEW_KIND::intermarket_view": {
+          "type": "integer"
+        },
+        "VIEW_KIND::liquidity_view": {
+          "type": "integer"
+        },
+        "VIEW_KIND::price_view": {
+          "type": "integer"
+        },
+        "VIEW_KIND::session_view": {
+          "type": "integer"
+        },
+        "VIEW_KIND::structure_view": {
+          "type": "integer"
+        },
+        "VIEW_KIND::time_view": {
+          "type": "integer"
+        },
+        "VIEW_KIND::treatment_descriptor_view": {
+          "type": "integer"
+        },
+        "VIEW_MASK::context_ancestry_view::PRESENT": {
+          "type": "integer"
+        },
+        "VIEW_MASK::execution_view::PRESENT": {
+          "type": "integer"
+        },
+        "VIEW_MASK::higher_timeframe_view::PRESENT": {
+          "type": "integer"
+        },
+        "VIEW_MASK::intermarket_view::PRESENT": {
+          "type": "integer"
+        },
+        "VIEW_MASK::liquidity_view::PRESENT": {
+          "type": "integer"
+        },
+        "VIEW_MASK::price_view::PRESENT": {
+          "type": "integer"
+        },
+        "VIEW_MASK::session_view::PRESENT": {
+          "type": "integer"
+        },
+        "VIEW_MASK::structure_view::PRESENT": {
+          "type": "integer"
+        },
+        "VIEW_MASK::time_view::PRESENT": {
+          "type": "integer"
+        },
+        "VIEW_MASK::treatment_descriptor_view::PRESENT": {
+          "type": "integer"
+        },
+        "[DESC]": {
+          "type": "integer"
+        },
+        "[GRAPH]": {
+          "type": "integer"
+        },
+        "[MASK]": {
+          "type": "integer"
+        },
+        "[PAD]": {
+          "type": "integer"
+        },
+        "[RECORD]": {
+          "type": "integer"
+        },
+        "[UNK]": {
+          "type": "integer"
+        },
+        "[VIEW]": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "DESC::abstain",
+        "DESC::entry_limit",
+        "DESC::management_none",
+        "DESC::stop_structural",
+        "DESC::target_reward_2",
+        "DESC::target_reward_3",
+        "DOMAIN::EQUITY_INDEX",
+        "DOMAIN::FX_MAJOR",
+        "DOMAIN::PRECIOUS_METAL",
+        "GRAPH_REL::context_composition",
+        "GRAPH_REL::cross_view_alignment",
+        "GRAPH_REL::regime_high",
+        "GRAPH_REL::regime_low",
+        "GRAPH_REL::regime_medium",
+        "GRAPH_REL::temporal_precedence",
+        "GRAPH_REL::transition_balanced",
+        "GRAPH_REL::transition_down",
+        "GRAPH_REL::transition_up",
+        "ROLE::development",
+        "ROLE::training",
+        "ROLE::validation",
+        "SYNTHETIC::TRUE",
+        "VIEW::context_ancestry_view::context_family::F1",
+        "VIEW::context_ancestry_view::context_family::F2",
+        "VIEW::context_ancestry_view::context_family::F3",
+        "VIEW::context_ancestry_view::generation_depth::0",
+        "VIEW::context_ancestry_view::generation_depth::1",
+        "VIEW::context_ancestry_view::generation_depth::2",
+        "VIEW::context_ancestry_view::generation_depth::3",
+        "VIEW::execution_view::spread_bucket::normal",
+        "VIEW::execution_view::venue_state::available",
+        "VIEW::higher_timeframe_view::alignment::balanced",
+        "VIEW::higher_timeframe_view::alignment::down",
+        "VIEW::higher_timeframe_view::alignment::up",
+        "VIEW::higher_timeframe_view::compression::FALSE",
+        "VIEW::higher_timeframe_view::compression::TRUE",
+        "VIEW::intermarket_view::agreement::aligned",
+        "VIEW::intermarket_view::agreement::mixed",
+        "VIEW::intermarket_view::lead_lag_bucket::0",
+        "VIEW::intermarket_view::lead_lag_bucket::1",
+        "VIEW::intermarket_view::lead_lag_bucket::2",
+        "VIEW::liquidity_view::depth_bucket::deep",
+        "VIEW::liquidity_view::depth_bucket::normal",
+        "VIEW::liquidity_view::depth_bucket::thin",
+        "VIEW::liquidity_view::sweep_state::absent",
+        "VIEW::liquidity_view::sweep_state::observed",
+        "VIEW::price_view::range_position::0.2",
+        "VIEW::price_view::range_position::0.333",
+        "VIEW::price_view::range_position::0.4",
+        "VIEW::price_view::range_position::0.6",
+        "VIEW::price_view::range_position::0.667",
+        "VIEW::price_view::range_position::0.8",
+        "VIEW::price_view::return_bucket::balanced",
+        "VIEW::price_view::return_bucket::down",
+        "VIEW::price_view::return_bucket::up",
+        "VIEW::price_view::volatility_bucket::high",
+        "VIEW::price_view::volatility_bucket::low",
+        "VIEW::price_view::volatility_bucket::medium",
+        "VIEW::session_view::opening_window::FALSE",
+        "VIEW::session_view::opening_window::TRUE",
+        "VIEW::session_view::session::london",
+        "VIEW::session_view::session::new_york",
+        "VIEW::session_view::session::overlap",
+        "VIEW::structure_view::break_state::confirmed",
+        "VIEW::structure_view::break_state::none",
+        "VIEW::structure_view::swing_count::2",
+        "VIEW::structure_view::swing_count::3",
+        "VIEW::structure_view::swing_count::4",
+        "VIEW::structure_view::swing_count::5",
+        "VIEW::structure_view::trend_state::balanced",
+        "VIEW::structure_view::trend_state::down",
+        "VIEW::structure_view::trend_state::up",
+        "VIEW::time_view::minute_bucket::0",
+        "VIEW::time_view::minute_bucket::1",
+        "VIEW::time_view::minute_bucket::2",
+        "VIEW::time_view::minute_bucket::3",
+        "VIEW::time_view::minute_bucket::4",
+        "VIEW::time_view::minute_bucket::5",
+        "VIEW::time_view::session::london",
+        "VIEW::time_view::session::new_york",
+        "VIEW::time_view::session::overlap",
+        "VIEW::time_view::weekday::monday",
+        "VIEW::treatment_descriptor_view::contains_abstain::TRUE",
+        "VIEW::treatment_descriptor_view::descriptor_count::3",
+        "VIEW_KIND::context_ancestry_view",
+        "VIEW_KIND::execution_view",
+        "VIEW_KIND::higher_timeframe_view",
+        "VIEW_KIND::intermarket_view",
+        "VIEW_KIND::liquidity_view",
+        "VIEW_KIND::price_view",
+        "VIEW_KIND::session_view",
+        "VIEW_KIND::structure_view",
+        "VIEW_KIND::time_view",
+        "VIEW_KIND::treatment_descriptor_view",
+        "VIEW_MASK::context_ancestry_view::PRESENT",
+        "VIEW_MASK::execution_view::PRESENT",
+        "VIEW_MASK::higher_timeframe_view::PRESENT",
+        "VIEW_MASK::intermarket_view::PRESENT",
+        "VIEW_MASK::liquidity_view::PRESENT",
+        "VIEW_MASK::price_view::PRESENT",
+        "VIEW_MASK::session_view::PRESENT",
+        "VIEW_MASK::structure_view::PRESENT",
+        "VIEW_MASK::time_view::PRESENT",
+        "VIEW_MASK::treatment_descriptor_view::PRESENT",
+        "[DESC]",
+        "[GRAPH]",
+        "[MASK]",
+        "[PAD]",
+        "[RECORD]",
+        "[UNK]",
+        "[VIEW]"
+      ],
+      "type": "object"
+    },
+    "tokenizer_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "tokenizer_id": {
+      "type": "string"
+    },
+    "unknown_policy": {
+      "type": "string"
+    },
+    "vocabulary": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "vocabulary_size": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "exact_version",
+    "future_suffix_allowed",
+    "normalization",
+    "outcome_tokens_allowed",
+    "phase",
+    "special_tokens",
+    "token_to_id",
+    "tokenizer_hash",
+    "tokenizer_id",
+    "unknown_policy",
+    "vocabulary",
+    "vocabulary_size"
+  ],
+  "title": "Tokenizer Spec",
+  "type": "object"
+}

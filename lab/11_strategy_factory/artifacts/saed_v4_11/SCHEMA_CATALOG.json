@@ -1,0 +1,193 @@
+{
+  "catalog_hash": "3c24d39c9ba93f0ce41b10365fc41e16985d20098e5783c2d2e77a2c2594fb87",
+  "catalog_id": "schemacatalog_ffa7d25d74921f8c2c601b9e",
+  "phase": "SAED_V4_11",
+  "schema_count": 37,
+  "schemas": [
+    {
+      "closed_contract": true,
+      "name": "authority_boundary",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/authority_boundary.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "checkpoint_card",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/checkpoint_card.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "checkpoint_registry",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/checkpoint_registry.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "claim_ledger",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/claim_ledger.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "compute_budget",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/compute_budget.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "conformance_results",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/conformance_results.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "conformance_vectors",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/conformance_vectors.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "contamination_audit",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/contamination_audit.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "control_comparison",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/control_comparison.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "corpus_manifest",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/corpus_manifest.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "corpus_membership",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/corpus_membership.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "corpus_records",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/corpus_records.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "curriculum",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/curriculum.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "encoder_checkpoint",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/encoder_checkpoint.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "exposure_ledger",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/exposure_ledger.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "handoff_v4_12",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/handoff_v4_12.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "incident",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/incident.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "integrity_receipt",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/integrity_receipt.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "masking_plan",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/masking_plan.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "membership_audit",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/membership_audit.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "membership_canaries",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/membership_canaries.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "negative_sample_plan",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/negative_sample_plan.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "objective_catalog",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/objective_catalog.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "objective_registry",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/objective_registry.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "rejected_checkpoint_ledger",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/rejected_checkpoint_ledger.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "replay_receipt",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/replay_receipt.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "representation_dossier",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/representation_dossier.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "sbom",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/sbom.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "semantic_diff",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/semantic_diff.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "split_manifest",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/split_manifest.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "split_policy",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/split_policy.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "telemetry",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/telemetry.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "temporal_shuffle_audit",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/temporal_shuffle_audit.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "token_streams",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/token_streams.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "tokenizer_spec",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/tokenizer_spec.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "training_config",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/training_config.schema.json"
+    },
+    {
+      "closed_contract": true,
+      "name": "training_receipt",
+      "path": "lab/11_strategy_factory/schemas/saed_v4_11/training_receipt.schema.json"
+    }
+  ]
+}

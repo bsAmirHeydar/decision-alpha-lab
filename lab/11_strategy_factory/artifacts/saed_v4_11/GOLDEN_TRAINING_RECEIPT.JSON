@@ -1,0 +1,90 @@
+{
+  "compute_budget_hash": "4c2bdbb7f871dc42257f4cd463eb2b233a6d3a035939175ad1df3dd449da7866",
+  "config_hash": "9dad9d5916e3551318e7874bff2c6c029de9bcc90e0c744816388a2c84fb4620",
+  "corpus_manifest_hash": "47fc6f89b7ae5429c7aaf45802b0233560ca4d1ae5e3bdce4322dbc7e5b8361a",
+  "deterministic": true,
+  "elapsed_seconds_accounting": 0.0,
+  "epoch_metrics": [
+    {
+      "encoder_state_hash": "e8bae8011f952969c5f78d85c3ae350e4d53c5dff927d224feabf93bedcbcd84",
+      "epoch": 1,
+      "mean_loss_by_objective": {
+        "obj_cross_view": 2.794971256040034,
+        "obj_masked": 2.7726804888672767,
+        "obj_missing": 2.8005791110332017
+      },
+      "pair_count": 168,
+      "stage_id": "stage_local_semantics"
+    },
+    {
+      "encoder_state_hash": "e80b8335510761411d05e49e9cb1692f0119f7acdfa7efc68ee101370654369b",
+      "epoch": 2,
+      "mean_loss_by_objective": {
+        "obj_cross_view": 2.7634944872200764,
+        "obj_masked": 2.792980196506816,
+        "obj_missing": 2.756052939804841
+      },
+      "pair_count": 168,
+      "stage_id": "stage_local_semantics"
+    },
+    {
+      "encoder_state_hash": "c450e633532a54db11dcefafceb0fee8a97d6a4ea2a3199f6ac96a21ee3316f7",
+      "epoch": 3,
+      "mean_loss_by_objective": {
+        "obj_cross_view": 2.76729187562888,
+        "obj_graph": 2.765691595942762,
+        "obj_masked": 2.7856846310454006
+      },
+      "pair_count": 168,
+      "stage_id": "stage_graph_structure"
+    },
+    {
+      "encoder_state_hash": "90de4c4cec2a3e2ddc119852dd789eff32e13312ce99a4784fb24c27d8488da5",
+      "epoch": 4,
+      "mean_loss_by_objective": {
+        "obj_cross_view": 2.745926477207836,
+        "obj_graph": 2.755743439277757,
+        "obj_masked": 2.7834182656806514
+      },
+      "pair_count": 168,
+      "stage_id": "stage_graph_structure"
+    },
+    {
+      "encoder_state_hash": "0f8df3b90ff4f000623f4c6ca2ac0da151e5f7ce32438fe64705cf6f747cda04",
+      "epoch": 5,
+      "mean_loss_by_objective": {
+        "obj_masked": 2.7732088730882016,
+        "obj_next": 2.6481069392405026,
+        "obj_temporal": 2.6273213752520763,
+        "obj_transition": 2.65161828227707
+      },
+      "pair_count": 123,
+      "stage_id": "stage_temporal_context"
+    },
+    {
+      "encoder_state_hash": "939f1d22532277eddba1be7d23c91cb63f7d419380bd0ba5161ff603525298c9",
+      "epoch": 6,
+      "mean_loss_by_objective": {
+        "obj_masked": 2.7729891965824662,
+        "obj_next": 2.5660213361412105,
+        "obj_temporal": 2.573140028787263,
+        "obj_transition": 2.5543185072482983
+      },
+      "pair_count": 123,
+      "stage_id": "stage_temporal_context"
+    }
+  ],
+  "exposure_ledger_hash": "9e2328970f946701a741e1c7c30e5648c11ca8a626f1f681ca777d8006cadbee",
+  "objective_registry_hash": "6ecbb24819fcc7daeec54ceb2e0877b9a72d07d3ae1bea2324d035ff99c607c6",
+  "outcome_supervision": false,
+  "phase": "SAED_V4_11",
+  "protected_evidence_used": false,
+  "receipt_hash": "e46856769eddbbcdf534aa047af5f764f6cd3007cadd2eae03b4d31a8d799ee1",
+  "receipt_id": "trainingreceipt_5cd4fc916c13d04a8b435ec7",
+  "runtime_authority": false,
+  "split_manifest_hash": "bc72c72c6554d2429026903ba9778643d5638b33a67d0686d7a0fe4b8acf18b6",
+  "status": "completed_reference_synthetic",
+  "tokenizer_hash": "71b0813379929af782ac7403abcd5414e8e8ba961f97cbd5988ab1189d10d89f",
+  "total_pairs": 918,
+  "training_role": "synthetic_reference"
+}

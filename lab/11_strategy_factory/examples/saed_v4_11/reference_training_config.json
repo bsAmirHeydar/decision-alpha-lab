@@ -1,0 +1,86 @@
+{
+  "curriculum": [
+    {
+      "epochs": 2,
+      "max_pairs_per_record": 14,
+      "objective_ids": [
+        "obj_masked",
+        "obj_cross_view",
+        "obj_missing"
+      ],
+      "stage_id": "stage_local_semantics"
+    },
+    {
+      "epochs": 2,
+      "max_pairs_per_record": 14,
+      "objective_ids": [
+        "obj_graph",
+        "obj_cross_view",
+        "obj_masked"
+      ],
+      "stage_id": "stage_graph_structure"
+    },
+    {
+      "epochs": 2,
+      "max_pairs_per_record": 12,
+      "objective_ids": [
+        "obj_next",
+        "obj_temporal",
+        "obj_transition",
+        "obj_masked"
+      ],
+      "stage_id": "stage_temporal_context"
+    }
+  ],
+  "deterministic": true,
+  "embedding_dim": 12,
+  "exact_version": "1.0.0",
+  "learning_rate": 0.035,
+  "max_total_pairs": 1200,
+  "negative_samples": 3,
+  "objectives": [
+    {
+      "enabled": true,
+      "objective_id": "obj_masked",
+      "objective_kind": "masked_span",
+      "weight": 1.0
+    },
+    {
+      "enabled": true,
+      "objective_id": "obj_cross_view",
+      "objective_kind": "cross_view_alignment",
+      "weight": 0.8
+    },
+    {
+      "enabled": true,
+      "objective_id": "obj_graph",
+      "objective_kind": "graph_relation_reconstruction",
+      "weight": 0.7
+    },
+    {
+      "enabled": true,
+      "objective_id": "obj_missing",
+      "objective_kind": "missingness_reconstruction",
+      "weight": 0.4
+    },
+    {
+      "enabled": true,
+      "objective_id": "obj_next",
+      "objective_kind": "next_event",
+      "weight": 0.9
+    },
+    {
+      "enabled": true,
+      "objective_id": "obj_temporal",
+      "objective_kind": "temporal_contrast",
+      "weight": 0.6
+    },
+    {
+      "enabled": true,
+      "objective_id": "obj_transition",
+      "objective_kind": "context_transition",
+      "weight": 0.6
+    }
+  ],
+  "seed": 4112026
+}

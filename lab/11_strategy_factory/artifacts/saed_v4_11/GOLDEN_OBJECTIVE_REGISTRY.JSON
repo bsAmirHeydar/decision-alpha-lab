@@ -1,0 +1,95 @@
+{
+  "curriculum": [
+    {
+      "epochs": 2,
+      "max_pairs_per_record": 14,
+      "objective_ids": [
+        "obj_masked",
+        "obj_cross_view",
+        "obj_missing"
+      ],
+      "stage_id": "stage_local_semantics"
+    },
+    {
+      "epochs": 2,
+      "max_pairs_per_record": 14,
+      "objective_ids": [
+        "obj_graph",
+        "obj_cross_view",
+        "obj_masked"
+      ],
+      "stage_id": "stage_graph_structure"
+    },
+    {
+      "epochs": 2,
+      "max_pairs_per_record": 12,
+      "objective_ids": [
+        "obj_next",
+        "obj_temporal",
+        "obj_transition",
+        "obj_masked"
+      ],
+      "stage_id": "stage_temporal_context"
+    }
+  ],
+  "forbidden_objectives": [
+    "outcome_prediction",
+    "treatment_ranking",
+    "policy_value",
+    "live_fill_prediction"
+  ],
+  "objectives": [
+    {
+      "enabled": true,
+      "objective_id": "obj_masked",
+      "objective_kind": "masked_span",
+      "outcome_supervised": false,
+      "weight": 1.0
+    },
+    {
+      "enabled": true,
+      "objective_id": "obj_cross_view",
+      "objective_kind": "cross_view_alignment",
+      "outcome_supervised": false,
+      "weight": 0.8
+    },
+    {
+      "enabled": true,
+      "objective_id": "obj_graph",
+      "objective_kind": "graph_relation_reconstruction",
+      "outcome_supervised": false,
+      "weight": 0.7
+    },
+    {
+      "enabled": true,
+      "objective_id": "obj_missing",
+      "objective_kind": "missingness_reconstruction",
+      "outcome_supervised": false,
+      "weight": 0.4
+    },
+    {
+      "enabled": true,
+      "objective_id": "obj_next",
+      "objective_kind": "next_event",
+      "outcome_supervised": false,
+      "weight": 0.9
+    },
+    {
+      "enabled": true,
+      "objective_id": "obj_temporal",
+      "objective_kind": "temporal_contrast",
+      "outcome_supervised": false,
+      "weight": 0.6
+    },
+    {
+      "enabled": true,
+      "objective_id": "obj_transition",
+      "objective_kind": "context_transition",
+      "outcome_supervised": false,
+      "weight": 0.6
+    }
+  ],
+  "phase": "SAED_V4_11",
+  "registry_hash": "6ecbb24819fcc7daeec54ceb2e0877b9a72d07d3ae1bea2324d035ff99c607c6",
+  "registry_id": "objectiveregistry_37f3d60076831168292e61ba"
+}

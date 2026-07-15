@@ -1,0 +1,96 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/conformance_results.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "case_count": {
+      "type": "integer"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "result_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "result_id": {
+      "type": "string"
+    },
+    "results": {
+      "items": {
+        "anyOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "case_id": {
+                "type": "string"
+              },
+              "error_type": {
+                "type": "null"
+              },
+              "expected_valid": {
+                "type": "boolean"
+              },
+              "matched": {
+                "type": "boolean"
+              },
+              "observed_valid": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "case_id",
+              "error_type",
+              "expected_valid",
+              "matched",
+              "observed_valid"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "case_id": {
+                "type": "string"
+              },
+              "error_type": {
+                "type": "string"
+              },
+              "expected_valid": {
+                "type": "boolean"
+              },
+              "matched": {
+                "type": "boolean"
+              },
+              "observed_valid": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "case_id",
+              "error_type",
+              "expected_valid",
+              "matched",
+              "observed_valid"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "case_count",
+    "passed",
+    "phase",
+    "result_hash",
+    "result_id",
+    "results"
+  ],
+  "title": "Conformance Results",
+  "type": "object"
+}

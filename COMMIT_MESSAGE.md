@@ -1,12 +1,13 @@
-feat(saed-v4): implement V4-10 baseline and manual program
+feat(strategy-factory): implement SAED V4-11 self-supervised context pretraining
 
-- freeze null and human-authored manual baselines before model training
-- add known-time feature registry and outcome leakage firewall
-- add deterministic manual compiler, interpreter and descriptive traces
-- benchmark frozen baselines on the V4-09 execution digital twin without ranking semantics
-- add complete exposure, integrity, replay, semantic diff and conformance evidence
-- freeze the leakage-safe self-supervised corpus boundary for V4-11
-- add closed JSON schemas, hostile fixtures, Python QA and MQL5 static mirror
-- add comprehensive Obsidian phase delivery and atomic concept documentation
-
-Authority remains reference-only. This commit does not claim model training, real alpha, treatment selection, runtime parity, production authorization or live trading.
+- freeze role-safe corpus, identity-time split and contamination contracts
+- add deterministic multimodal/hypergraph tokenization and masking
+- implement seven self-supervised objectives and staged curriculum
+- add deterministic reference encoder training with complete exposure accounting
+- emit canonical JSON checkpoint, provenance, SBOM and checkpoint card
+- add collapse, structural probe, temporal retrieval and simple-control evidence
+- enforce membership canaries, quarantine and outcome-input exclusion
+- register the admitted synthetic-reference checkpoint immutably
+- add independent replay, semantic diff, integrity receipt and telemetry
+- freeze the V4-12 encoder handoff without decision or execution authority
+- add closed schemas, golden fixtures, negative tests, MQL5 mirrors and Obsidian documentation

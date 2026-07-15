@@ -1,0 +1,10 @@
+{
+  "audit_hash": "562c021e0a071f12fdf9ae200a76f075b602ce49b42a52dc2e88dd4fd469a643",
+  "audit_id": "membershipaudit_5e7d262d94e86bc115369c60",
+  "canary_count": 3,
+  "checkpoint_hash": "aab287ba676dacc6cba84a8671f853a71c721d6f1a5997fd264e0f80cf801e6a",
+  "hits": [],
+  "method": "exact_vocabulary_membership_canary",
+  "passed": true,
+  "phase": "SAED_V4_11"
+}

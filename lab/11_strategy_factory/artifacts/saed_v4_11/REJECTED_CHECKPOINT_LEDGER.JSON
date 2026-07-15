@@ -1,0 +1,25 @@
+{
+  "entries": [
+    {
+      "candidate_id": "candidate_contaminated_canary",
+      "checkpoint_hash": null,
+      "reason_codes": [
+        "MEMBERSHIP_CANARY_PRESENT"
+      ],
+      "status": "rejected"
+    },
+    {
+      "candidate_id": "candidate_nondeterministic_config",
+      "checkpoint_hash": null,
+      "reason_codes": [
+        "DETERMINISM_REQUIRED"
+      ],
+      "status": "rejected"
+    }
+  ],
+  "entry_count": 2,
+  "immutable": true,
+  "ledger_hash": "8898617c20332b3e7abf1512ff93a75fa10bbad0eb680fe4567930e62d3c2c5f",
+  "ledger_id": "rejectedledger_a688acec28f13ebe2d6b3ac1",
+  "phase": "SAED_V4_11"
+}

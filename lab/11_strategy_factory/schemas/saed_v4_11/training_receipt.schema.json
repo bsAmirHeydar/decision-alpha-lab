@@ -1,0 +1,241 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/training_receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "compute_budget_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "config_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "corpus_manifest_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "elapsed_seconds_accounting": {
+      "type": "number"
+    },
+    "epoch_metrics": {
+      "items": {
+        "anyOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "encoder_state_hash": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "epoch": {
+                "type": "integer"
+              },
+              "mean_loss_by_objective": {
+                "additionalProperties": false,
+                "properties": {
+                  "obj_cross_view": {
+                    "type": "number"
+                  },
+                  "obj_masked": {
+                    "type": "number"
+                  },
+                  "obj_missing": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "obj_cross_view",
+                  "obj_masked",
+                  "obj_missing"
+                ],
+                "type": "object"
+              },
+              "pair_count": {
+                "type": "integer"
+              },
+              "stage_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "encoder_state_hash",
+              "epoch",
+              "mean_loss_by_objective",
+              "pair_count",
+              "stage_id"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "encoder_state_hash": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "epoch": {
+                "type": "integer"
+              },
+              "mean_loss_by_objective": {
+                "additionalProperties": false,
+                "properties": {
+                  "obj_cross_view": {
+                    "type": "number"
+                  },
+                  "obj_graph": {
+                    "type": "number"
+                  },
+                  "obj_masked": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "obj_cross_view",
+                  "obj_graph",
+                  "obj_masked"
+                ],
+                "type": "object"
+              },
+              "pair_count": {
+                "type": "integer"
+              },
+              "stage_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "encoder_state_hash",
+              "epoch",
+              "mean_loss_by_objective",
+              "pair_count",
+              "stage_id"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "encoder_state_hash": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "epoch": {
+                "type": "integer"
+              },
+              "mean_loss_by_objective": {
+                "additionalProperties": false,
+                "properties": {
+                  "obj_masked": {
+                    "type": "number"
+                  },
+                  "obj_next": {
+                    "type": "number"
+                  },
+                  "obj_temporal": {
+                    "type": "number"
+                  },
+                  "obj_transition": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "obj_masked",
+                  "obj_next",
+                  "obj_temporal",
+                  "obj_transition"
+                ],
+                "type": "object"
+              },
+              "pair_count": {
+                "type": "integer"
+              },
+              "stage_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "encoder_state_hash",
+              "epoch",
+              "mean_loss_by_objective",
+              "pair_count",
+              "stage_id"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "type": "array"
+    },
+    "exposure_ledger_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "objective_registry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "outcome_supervision": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "protected_evidence_used": {
+      "type": "boolean"
+    },
+    "receipt_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "runtime_authority": {
+      "type": "boolean"
+    },
+    "split_manifest_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "tokenizer_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "total_pairs": {
+      "type": "integer"
+    },
+    "training_role": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "compute_budget_hash",
+    "config_hash",
+    "corpus_manifest_hash",
+    "deterministic",
+    "elapsed_seconds_accounting",
+    "epoch_metrics",
+    "exposure_ledger_hash",
+    "objective_registry_hash",
+    "outcome_supervision",
+    "phase",
+    "protected_evidence_used",
+    "receipt_hash",
+    "receipt_id",
+    "runtime_authority",
+    "split_manifest_hash",
+    "status",
+    "tokenizer_hash",
+    "total_pairs",
+    "training_role"
+  ],
+  "title": "Training Receipt",
+  "type": "object"
+}

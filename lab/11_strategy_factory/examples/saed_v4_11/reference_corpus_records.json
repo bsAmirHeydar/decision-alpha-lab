@@ -1,0 +1,1652 @@
+[
+  {
+    "context_id": "ctx_alpha_00",
+    "descriptor_tokens": [
+      "entry_limit",
+      "stop_structural",
+      "target_reward_2",
+      "management_none",
+      "abstain"
+    ],
+    "domain_id": "FX_MAJOR",
+    "event_time": "2026-01-05T14:30:00Z",
+    "evidence_role": "training",
+    "graph_relations": [
+      "context_composition",
+      "cross_view_alignment",
+      "temporal_precedence",
+      "regime_low",
+      "transition_down"
+    ],
+    "known_time": "2026-01-05T14:30:01Z",
+    "parent_context_id": null,
+    "record_id": "record_alpha_00",
+    "root_context_id": "root_alpha",
+    "source_hashes": [
+      "cb16c9bfbf6183fca5e45aa307b3dab475788f66ea0c323f4f1c653d31fa8b7b",
+      "873c4ac73dfc195915d179fa9e25b6556a64306b49cc92733f268bc871a005c2",
+      "ffe1c4636489e62c1b19b7746d3244aa580f93e3f806747efc0b3b604e8dc3a4"
+    ],
+    "synthetic": true,
+    "views": {
+      "context_ancestry_view": {
+        "context_family": "F1",
+        "generation_depth": 0
+      },
+      "execution_view": {
+        "spread_bucket": "normal",
+        "venue_state": "available"
+      },
+      "higher_timeframe_view": {
+        "alignment": "down",
+        "compression": false
+      },
+      "intermarket_view": {
+        "agreement": "aligned",
+        "lead_lag_bucket": 0
+      },
+      "liquidity_view": {
+        "depth_bucket": "thin",
+        "sweep_state": "absent"
+      },
+      "price_view": {
+        "range_position": 0.2,
+        "return_bucket": "down",
+        "volatility_bucket": "low"
+      },
+      "session_view": {
+        "opening_window": true,
+        "session": "london"
+      },
+      "structure_view": {
+        "break_state": "none",
+        "swing_count": 2,
+        "trend_state": "down"
+      },
+      "time_view": {
+        "minute_bucket": 3,
+        "session": "london",
+        "weekday": "monday"
+      },
+      "treatment_descriptor_view": {
+        "contains_abstain": true,
+        "descriptor_count": 3
+      }
+    }
+  },
+  {
+    "context_id": "ctx_alpha_01",
+    "descriptor_tokens": [
+      "entry_limit",
+      "stop_structural",
+      "target_reward_3",
+      "management_none",
+      "abstain"
+    ],
+    "domain_id": "EQUITY_INDEX",
+    "event_time": "2026-01-05T14:40:00Z",
+    "evidence_role": "training",
+    "graph_relations": [
+      "context_composition",
+      "cross_view_alignment",
+      "temporal_precedence",
+      "regime_medium",
+      "transition_balanced"
+    ],
+    "known_time": "2026-01-05T14:40:01Z",
+    "parent_context_id": "ctx_alpha_00",
+    "record_id": "record_alpha_01",
+    "root_context_id": "root_alpha",
+    "source_hashes": [
+      "4effc18608cf4d7d56eab62673e3bb53984a8d76203693a959d491bc2a659399",
+      "c5c04bdcc03c2a06369706ef6b9284a8e961fb7cd02ca840694d0586e8eb2e86",
+      "2a75b45e42d5e9165d3706198675a7818804510003a5c213c400411d44f55400"
+    ],
+    "synthetic": true,
+    "views": {
+      "context_ancestry_view": {
+        "context_family": "F1",
+        "generation_depth": 1
+      },
+      "execution_view": {
+        "spread_bucket": "normal",
+        "venue_state": "available"
+      },
+      "higher_timeframe_view": {
+        "alignment": "balanced",
+        "compression": true
+      },
+      "intermarket_view": {
+        "agreement": "mixed",
+        "lead_lag_bucket": 1
+      },
+      "liquidity_view": {
+        "depth_bucket": "deep",
+        "sweep_state": "absent"
+      },
+      "price_view": {
+        "range_position": 0.4,
+        "return_bucket": "balanced",
+        "volatility_bucket": "medium"
+      },
+      "session_view": {
+        "opening_window": false,
+        "session": "new_york"
+      },
+      "structure_view": {
+        "break_state": "confirmed",
+        "swing_count": 3,
+        "trend_state": "balanced"
+      },
+      "time_view": {
+        "minute_bucket": 4,
+        "session": "new_york",
+        "weekday": "monday"
+      },
+      "treatment_descriptor_view": {
+        "contains_abstain": true,
+        "descriptor_count": 3
+      }
+    }
+  },
+  {
+    "context_id": "ctx_alpha_02",
+    "descriptor_tokens": [
+      "entry_limit",
+      "stop_structural",
+      "target_reward_2",
+      "management_none",
+      "abstain"
+    ],
+    "domain_id": "PRECIOUS_METAL",
+    "event_time": "2026-01-05T14:50:00Z",
+    "evidence_role": "training",
+    "graph_relations": [
+      "context_composition",
+      "cross_view_alignment",
+      "temporal_precedence",
+      "regime_high",
+      "transition_up"
+    ],
+    "known_time": "2026-01-05T14:50:01Z",
+    "parent_context_id": "ctx_alpha_01",
+    "record_id": "record_alpha_02",
+    "root_context_id": "root_alpha",
+    "source_hashes": [
+      "f6473c55abb395f1b303c2711f3c7bbe45376821e6ab9dfb6cd6b81446b1f9f6",
+      "73ec820e33bedcc8784a369ef69c3f96c493275e3fc9a574b1874d5c6f33ad71",
+      "9c42264bcc9012d6bf7dadb899562379396c19518a3cf462f13ff6a17f69d50a"
+    ],
+    "synthetic": true,
+    "views": {
+      "context_ancestry_view": {
+        "context_family": "F1",
+        "generation_depth": 2
+      },
+      "execution_view": {
+        "spread_bucket": "normal",
+        "venue_state": "available"
+      },
+      "higher_timeframe_view": {
+        "alignment": "up",
+        "compression": false
+      },
+      "intermarket_view": {
+        "agreement": "aligned",
+        "lead_lag_bucket": 2
+      },
+      "liquidity_view": {
+        "depth_bucket": "normal",
+        "sweep_state": "observed"
+      },
+      "price_view": {
+        "range_position": 0.6,
+        "return_bucket": "up",
+        "volatility_bucket": "high"
+      },
+      "session_view": {
+        "opening_window": false,
+        "session": "overlap"
+      },
+      "structure_view": {
+        "break_state": "none",
+        "swing_count": 4,
+        "trend_state": "up"
+      },
+      "time_view": {
+        "minute_bucket": 5,
+        "session": "overlap",
+        "weekday": "monday"
+      },
+      "treatment_descriptor_view": {
+        "contains_abstain": true,
+        "descriptor_count": 3
+      }
+    }
+  },
+  {
+    "context_id": "ctx_alpha_03",
+    "descriptor_tokens": [
+      "entry_limit",
+      "stop_structural",
+      "target_reward_3",
+      "management_none",
+      "abstain"
+    ],
+    "domain_id": "FX_MAJOR",
+    "event_time": "2026-01-05T15:00:00Z",
+    "evidence_role": "training",
+    "graph_relations": [
+      "context_composition",
+      "cross_view_alignment",
+      "temporal_precedence",
+      "regime_low",
+      "transition_down"
+    ],
+    "known_time": "2026-01-05T15:00:01Z",
+    "parent_context_id": "ctx_alpha_02",
+    "record_id": "record_alpha_03",
+    "root_context_id": "root_alpha",
+    "source_hashes": [
+      "9b368b05dda05afce6033dcc095a6220114f781b20c125cf9e62e6a531c5e28b",
+      "6d02e51b9b6d7d842e99f4941c96ca3033392b61e4550f97d6b22a686ae41b72",
+      "a096770f89c6533c80ccb4ad38930db8c162bdc2817dbcede2e118eb0917fceb"
+    ],
+    "synthetic": true,
+    "views": {
+      "context_ancestry_view": {
+        "context_family": "F1",
+        "generation_depth": 3
+      },
+      "execution_view": {
+        "spread_bucket": "normal",
+        "venue_state": "available"
+      },
+      "higher_timeframe_view": {
+        "alignment": "down",
+        "compression": true
+      },
+      "intermarket_view": {
+        "agreement": "mixed",
+        "lead_lag_bucket": 0
+      },
+      "liquidity_view": {
+        "depth_bucket": "thin",
+        "sweep_state": "absent"
+      },
+      "price_view": {
+        "range_position": 0.8,
+        "return_bucket": "down",
+        "volatility_bucket": "low"
+      },
+      "session_view": {
+        "opening_window": false,
+        "session": "london"
+      },
+      "structure_view": {
+        "break_state": "confirmed",
+        "swing_count": 5,
+        "trend_state": "down"
+      },
+      "time_view": {
+        "minute_bucket": 0,
+        "session": "london",
+        "weekday": "monday"
+      },
+      "treatment_descriptor_view": {
+        "contains_abstain": true,
+        "descriptor_count": 3
+      }
+    }
+  },
+  {
+    "context_id": "ctx_beta_00",
+    "descriptor_tokens": [
+      "entry_limit",
+      "stop_structural",
+      "target_reward_2",
+      "management_none",
+      "abstain"
+    ],
+    "domain_id": "EQUITY_INDEX",
+    "event_time": "2026-01-05T14:30:00Z",
+    "evidence_role": "training",
+    "graph_relations": [
+      "context_composition",
+      "cross_view_alignment",
+      "temporal_precedence",
+      "regime_high",
+      "transition_balanced"
+    ],
+    "known_time": "2026-01-05T14:30:01Z",
+    "parent_context_id": null,
+    "record_id": "record_beta_00",
+    "root_context_id": "root_beta",
+    "source_hashes": [
+      "9171b04f21e8b0fcd2ef38ece266c070b3a0066eab6b4fa1930ac38103f354a8",
+      "7ca326e704ce3183644cfc7fc388fa95ea01326adcf8a47d5a76a756469ec0ce",
+      "ad80a4a32bcb5fdc1fe8579b092e712153f7f9db2ea0d4ff108c3f16c93321fb"
+    ],
+    "synthetic": true,
+    "views": {
+      "context_ancestry_view": {
+        "context_family": "F2",
+        "generation_depth": 0
+      },
+      "execution_view": {
+        "spread_bucket": "normal",
+        "venue_state": "available"
+      },
+      "higher_timeframe_view": {
+        "alignment": "balanced",
+        "compression": true
+      },
+      "intermarket_view": {
+        "agreement": "aligned",
+        "lead_lag_bucket": 1
+      },
+      "liquidity_view": {
+        "depth_bucket": "normal",
+        "sweep_state": "absent"
+      },
+      "price_view": {
+        "range_position": 0.2,
+        "return_bucket": "balanced",
+        "volatility_bucket": "high"
+      },
+      "session_view": {
+        "opening_window": true,
+        "session": "new_york"
+      },
+      "structure_view": {
+        "break_state": "none",
+        "swing_count": 2,
+        "trend_state": "balanced"
+      },
+      "time_view": {
+        "minute_bucket": 3,
+        "session": "new_york",
+        "weekday": "monday"
+      },
+      "treatment_descriptor_view": {
+        "contains_abstain": true,
+        "descriptor_count": 3
+      }
+    }
+  },
+  {
+    "context_id": "ctx_beta_01",
+    "descriptor_tokens": [
+      "entry_limit",
+      "stop_structural",
+      "target_reward_3",
+      "management_none",
+      "abstain"
+    ],
+    "domain_id": "PRECIOUS_METAL",
+    "event_time": "2026-01-05T14:40:00Z",
+    "evidence_role": "training",
+    "graph_relations": [
+      "context_composition",
+      "cross_view_alignment",
+      "temporal_precedence",
+      "regime_low",
+      "transition_up"
+    ],
+    "known_time": "2026-01-05T14:40:01Z",
+    "parent_context_id": "ctx_beta_00",
+    "record_id": "record_beta_01",
+    "root_context_id": "root_beta",
+    "source_hashes": [
+      "7be9a43d4f02511b3c1f5a233d71743922044a5c4e9beb98cfb9a62b1e0ddb5f",
+      "b5c589339e2f6063a08022594753d32cde15edb979f536cbd4d3d2594a4d2f00",
+      "c04e21d6c3cde3554fc898422db5e3211f0c93c390bf9fd58e1c5b21b6bd7081"
+    ],
+    "synthetic": true,
+    "views": {
+      "context_ancestry_view": {
+        "context_family": "F2",
+        "generation_depth": 1
+      },
+      "execution_view": {
+        "spread_bucket": "normal",
+        "venue_state": "available"
+      },
+      "higher_timeframe_view": {
+        "alignment": "up",
+        "compression": false
+      },
+      "intermarket_view": {
+        "agreement": "mixed",
+        "lead_lag_bucket": 2
+      },
+      "liquidity_view": {
+        "depth_bucket": "thin",
+        "sweep_state": "absent"
+      },
+      "price_view": {
+        "range_position": 0.4,
+        "return_bucket": "up",
+        "volatility_bucket": "low"
+      },
+      "session_view": {
+        "opening_window": false,
+        "session": "overlap"
+      },
+      "structure_view": {
+        "break_state": "confirmed",
+        "swing_count": 3,
+        "trend_state": "up"
+      },
+      "time_view": {
+        "minute_bucket": 4,
+        "session": "overlap",
+        "weekday": "monday"
+      },
+      "treatment_descriptor_view": {
+        "contains_abstain": true,
+        "descriptor_count": 3
+      }
+    }
+  },
+  {
+    "context_id": "ctx_beta_02",
+    "descriptor_tokens": [
+      "entry_limit",
+      "stop_structural",
+      "target_reward_2",
+      "management_none",
+      "abstain"
+    ],
+    "domain_id": "FX_MAJOR",
+    "event_time": "2026-01-05T14:50:00Z",
+    "evidence_role": "training",
+    "graph_relations": [
+      "context_composition",
+      "cross_view_alignment",
+      "temporal_precedence",
+      "regime_medium",
+      "transition_down"
+    ],
+    "known_time": "2026-01-05T14:50:01Z",
+    "parent_context_id": "ctx_beta_01",
+    "record_id": "record_beta_02",
+    "root_context_id": "root_beta",
+    "source_hashes": [
+      "48221423812632824aff052b11934d18e7cd82fba4e6771f357c6d32c75a814c",
+      "6069021aaf25bc806b6a493e5c99317e20934af8e7875c8eaf165aee0a5ea21a",
+      "492edafb0f1d095389586ad952530c94fdd012d1ef9ece713991f3798a0ceb4f"
+    ],
+    "synthetic": true,
+    "views": {
+      "context_ancestry_view": {
+        "context_family": "F2",
+        "generation_depth": 2
+      },
+      "execution_view": {
+        "spread_bucket": "normal",
+        "venue_state": "available"
+      },
+      "higher_timeframe_view": {
+        "alignment": "down",
+        "compression": true
+      },
+      "intermarket_view": {
+        "agreement": "aligned",
+        "lead_lag_bucket": 0
+      },
+      "liquidity_view": {
+        "depth_bucket": "deep",
+        "sweep_state": "observed"
+      },
+      "price_view": {
+        "range_position": 0.6,
+        "return_bucket": "down",
+        "volatility_bucket": "medium"
+      },
+      "session_view": {
+        "opening_window": false,
+        "session": "london"
+      },
+      "structure_view": {
+        "break_state": "none",
+        "swing_count": 4,
+        "trend_state": "down"
+      },
+      "time_view": {
+        "minute_bucket": 5,
+        "session": "london",
+        "weekday": "monday"
+      },
+      "treatment_descriptor_view": {
+        "contains_abstain": true,
+        "descriptor_count": 3
+      }
+    }
+  },
+  {
+    "context_id": "ctx_beta_03",
+    "descriptor_tokens": [
+      "entry_limit",
+      "stop_structural",
+      "target_reward_3",
+      "management_none",
+      "abstain"
+    ],
+    "domain_id": "EQUITY_INDEX",
+    "event_time": "2026-01-05T15:00:00Z",
+    "evidence_role": "training",
+    "graph_relations": [
+      "context_composition",
+      "cross_view_alignment",
+      "temporal_precedence",
+      "regime_high",
+      "transition_balanced"
+    ],
+    "known_time": "2026-01-05T15:00:01Z",
+    "parent_context_id": "ctx_beta_02",
+    "record_id": "record_beta_03",
+    "root_context_id": "root_beta",
+    "source_hashes": [
+      "9dbf3c2eabe99db6db1ba0e45b0063cccf7ad83b45507a3e1267f5a8d46a6935",
+      "66e773135547073db86952c27739f8bd313f6aaa82c23104f341f9b45a44a5fe",
+      "d554850c164c641b4434fba9ab67e91888ff45e938c857adf5d2fbb7ed5976df"
+    ],
+    "synthetic": true,
+    "views": {
+      "context_ancestry_view": {
+        "context_family": "F2",
+        "generation_depth": 3
+      },
+      "execution_view": {
+        "spread_bucket": "normal",
+        "venue_state": "available"
+      },
+      "higher_timeframe_view": {
+        "alignment": "balanced",
+        "compression": false
+      },
+      "intermarket_view": {
+        "agreement": "mixed",
+        "lead_lag_bucket": 1
+      },
+      "liquidity_view": {
+        "depth_bucket": "normal",
+        "sweep_state": "absent"
+      },
+      "price_view": {
+        "range_position": 0.8,
+        "return_bucket": "balanced",
+        "volatility_bucket": "high"
+      },
+      "session_view": {
+        "opening_window": false,
+        "session": "new_york"
+      },
+      "structure_view": {
+        "break_state": "confirmed",
+        "swing_count": 5,
+        "trend_state": "balanced"
+      },
+      "time_view": {
+        "minute_bucket": 0,
+        "session": "new_york",
+        "weekday": "monday"
+      },
+      "treatment_descriptor_view": {
+        "contains_abstain": true,
+        "descriptor_count": 3
+      }
+    }
+  },
+  {
+    "context_id": "ctx_gamma_00",
+    "descriptor_tokens": [
+      "entry_limit",
+      "stop_structural",
+      "target_reward_2",
+      "management_none",
+      "abstain"
+    ],
+    "domain_id": "PRECIOUS_METAL",
+    "event_time": "2026-01-05T14:30:00Z",
+    "evidence_role": "training",
+    "graph_relations": [
+      "context_composition",
+      "cross_view_alignment",
+      "temporal_precedence",
+      "regime_medium",
+      "transition_up"
+    ],
+    "known_time": "2026-01-05T14:30:01Z",
+    "parent_context_id": null,
+    "record_id": "record_gamma_00",
+    "root_context_id": "root_gamma",
+    "source_hashes": [
+      "2d08b5d721309207afea222ae24cb0c2427c3b79b3a08e77e37c222209e87a45",
+      "bc61bcb548b1db7e57ecfbd73858157a772ffafbe6dfac180d81237b1f12dcdc",
+      "565eedcb770f53f36d75261c5b75eb826d7655329a8067d9110a6ec33c3d9fec"
+    ],
+    "synthetic": true,
+    "views": {
+      "context_ancestry_view": {
+        "context_family": "F3",
+        "generation_depth": 0
+      },
+      "execution_view": {
+        "spread_bucket": "normal",
+        "venue_state": "available"
+      },
+      "higher_timeframe_view": {
+        "alignment": "up",
+        "compression": false
+      },
+      "intermarket_view": {
+        "agreement": "aligned",
+        "lead_lag_bucket": 2
+      },
+      "liquidity_view": {
+        "depth_bucket": "deep",
+        "sweep_state": "absent"
+      },
+      "price_view": {
+        "range_position": 0.2,
+        "return_bucket": "up",
+        "volatility_bucket": "medium"
+      },
+      "session_view": {
+        "opening_window": true,
+        "session": "overlap"
+      },
+      "structure_view": {
+        "break_state": "none",
+        "swing_count": 2,
+        "trend_state": "up"
+      },
+      "time_view": {
+        "minute_bucket": 3,
+        "session": "overlap",
+        "weekday": "monday"
+      },
+      "treatment_descriptor_view": {
+        "contains_abstain": true,
+        "descriptor_count": 3
+      }
+    }
+  },
+  {
+    "context_id": "ctx_gamma_01",
+    "descriptor_tokens": [
+      "entry_limit",
+      "stop_structural",
+      "target_reward_3",
+      "management_none",
+      "abstain"
+    ],
+    "domain_id": "FX_MAJOR",
+    "event_time": "2026-01-05T14:40:00Z",
+    "evidence_role": "training",
+    "graph_relations": [
+      "context_composition",
+      "cross_view_alignment",
+      "temporal_precedence",
+      "regime_high",
+      "transition_down"
+    ],
+    "known_time": "2026-01-05T14:40:01Z",
+    "parent_context_id": "ctx_gamma_00",
+    "record_id": "record_gamma_01",
+    "root_context_id": "root_gamma",
+    "source_hashes": [
+      "20acbd319ff0a7d9b6913bcb058117d3faa78f72b9da4914036c21d45326dc98",
+      "7f20381e9e0a0a584eb349d8699a070610c2dd8f837e8e05ea99d27de4cfffe2",
+      "5a2d9e4cd5a6eade27d03eb6dc20cda2bdac25ef6da7248b9663ace95459f312"
+    ],
+    "synthetic": true,
+    "views": {
+      "context_ancestry_view": {
+        "context_family": "F3",
+        "generation_depth": 1
+      },
+      "execution_view": {
+        "spread_bucket": "normal",
+        "venue_state": "available"
+      },
+      "higher_timeframe_view": {
+        "alignment": "down",
+        "compression": true
+      },
+      "intermarket_view": {
+        "agreement": "mixed",
+        "lead_lag_bucket": 0
+      },
+      "liquidity_view": {
+        "depth_bucket": "normal",
+        "sweep_state": "absent"
+      },
+      "price_view": {
+        "range_position": 0.4,
+        "return_bucket": "down",
+        "volatility_bucket": "high"
+      },
+      "session_view": {
+        "opening_window": false,
+        "session": "london"
+      },
+      "structure_view": {
+        "break_state": "confirmed",
+        "swing_count": 3,
+        "trend_state": "down"
+      },
+      "time_view": {
+        "minute_bucket": 4,
+        "session": "london",
+        "weekday": "monday"
+      },
+      "treatment_descriptor_view": {
+        "contains_abstain": true,
+        "descriptor_count": 3
+      }
+    }
+  },
+  {
+    "context_id": "ctx_gamma_02",
+    "descriptor_tokens": [
+      "entry_limit",
+      "stop_structural",
+      "target_reward_2",
+      "management_none",
+      "abstain"
+    ],
+    "domain_id": "EQUITY_INDEX",
+    "event_time": "2026-01-05T14:50:00Z",
+    "evidence_role": "training",
+    "graph_relations": [
+      "context_composition",
+      "cross_view_alignment",
+      "temporal_precedence",
+      "regime_low",
+      "transition_balanced"
+    ],
+    "known_time": "2026-01-05T14:50:01Z",
+    "parent_context_id": "ctx_gamma_01",
+    "record_id": "record_gamma_02",
+    "root_context_id": "root_gamma",
+    "source_hashes": [
+      "ad8b84b5de0ae8a5db8cffcafc2fc1d5a125756b39034a7939fe499b3a5b44f1",
+      "2c7d37d6475304ed613a62ab1f39a29c8657454e15147ffaa964c4feae392b49",
+      "cd42c96aca9992eb1c6e918c10ea59b1b35c39bff2a0e38e0b0838715b71671c"
+    ],
+    "synthetic": true,
+    "views": {
+      "context_ancestry_view": {
+        "context_family": "F3",
+        "generation_depth": 2
+      },
+      "execution_view": {
+        "spread_bucket": "normal",
+        "venue_state": "available"
+      },
+      "higher_timeframe_view": {
+        "alignment": "balanced",
+        "compression": false
+      },
+      "intermarket_view": {
+        "agreement": "aligned",
+        "lead_lag_bucket": 1
+      },
+      "liquidity_view": {
+        "depth_bucket": "thin",
+        "sweep_state": "observed"
+      },
+      "price_view": {
+        "range_position": 0.6,
+        "return_bucket": "balanced",
+        "volatility_bucket": "low"
+      },
+      "session_view": {
+        "opening_window": false,
+        "session": "new_york"
+      },
+      "structure_view": {
+        "break_state": "none",
+        "swing_count": 4,
+        "trend_state": "balanced"
+      },
+      "time_view": {
+        "minute_bucket": 5,
+        "session": "new_york",
+        "weekday": "monday"
+      },
+      "treatment_descriptor_view": {
+        "contains_abstain": true,
+        "descriptor_count": 3
+      }
+    }
+  },
+  {
+    "context_id": "ctx_gamma_03",
+    "descriptor_tokens": [
+      "entry_limit",
+      "stop_structural",
+      "target_reward_3",
+      "management_none",
+      "abstain"
+    ],
+    "domain_id": "PRECIOUS_METAL",
+    "event_time": "2026-01-05T15:00:00Z",
+    "evidence_role": "training",
+    "graph_relations": [
+      "context_composition",
+      "cross_view_alignment",
+      "temporal_precedence",
+      "regime_medium",
+      "transition_up"
+    ],
+    "known_time": "2026-01-05T15:00:01Z",
+    "parent_context_id": "ctx_gamma_02",
+    "record_id": "record_gamma_03",
+    "root_context_id": "root_gamma",
+    "source_hashes": [
+      "ec490cad905c38cac42f88136c3a3092702bd560554dfa7c17fa8f3b9c7885b4",
+      "58d2dcf013bf144046898f1caa34de316db5cbcc1874f551216561a21b18eb92",
+      "14c264fa467789459259398e6afb49959a70f46aa1eadcaa71b82ca18e85617f"
+    ],
+    "synthetic": true,
+    "views": {
+      "context_ancestry_view": {
+        "context_family": "F3",
+        "generation_depth": 3
+      },
+      "execution_view": {
+        "spread_bucket": "normal",
+        "venue_state": "available"
+      },
+      "higher_timeframe_view": {
+        "alignment": "up",
+        "compression": true
+      },
+      "intermarket_view": {
+        "agreement": "mixed",
+        "lead_lag_bucket": 2
+      },
+      "liquidity_view": {
+        "depth_bucket": "deep",
+        "sweep_state": "absent"
+      },
+      "price_view": {
+        "range_position": 0.8,
+        "return_bucket": "up",
+        "volatility_bucket": "medium"
+      },
+      "session_view": {
+        "opening_window": false,
+        "session": "overlap"
+      },
+      "structure_view": {
+        "break_state": "confirmed",
+        "swing_count": 5,
+        "trend_state": "up"
+      },
+      "time_view": {
+        "minute_bucket": 0,
+        "session": "overlap",
+        "weekday": "monday"
+      },
+      "treatment_descriptor_view": {
+        "contains_abstain": true,
+        "descriptor_count": 3
+      }
+    }
+  },
+  {
+    "context_id": "ctx_delta_00",
+    "descriptor_tokens": [
+      "entry_limit",
+      "stop_structural",
+      "target_reward_2",
+      "management_none",
+      "abstain"
+    ],
+    "domain_id": "FX_MAJOR",
+    "event_time": "2026-01-05T16:10:00Z",
+    "evidence_role": "validation",
+    "graph_relations": [
+      "context_composition",
+      "cross_view_alignment",
+      "temporal_precedence",
+      "regime_low",
+      "transition_down"
+    ],
+    "known_time": "2026-01-05T16:10:01Z",
+    "parent_context_id": null,
+    "record_id": "record_delta_00",
+    "root_context_id": "root_delta",
+    "source_hashes": [
+      "5b8d7927b5d0bdf72c41fb9a0043c7b45b561f3da6e5352f8a539fd0e5dfa0e7",
+      "a91f704c2193a6d75da2198b52e8773a02cf6075246165a3e8d220a54a4b715e",
+      "0bb5cfe59aa06ffc4679d14e72f516b658b08ed3073f4c68e9f913ffb2886a1c"
+    ],
+    "synthetic": true,
+    "views": {
+      "context_ancestry_view": {
+        "context_family": "F1",
+        "generation_depth": 0
+      },
+      "execution_view": {
+        "spread_bucket": "normal",
+        "venue_state": "available"
+      },
+      "higher_timeframe_view": {
+        "alignment": "down",
+        "compression": true
+      },
+      "intermarket_view": {
+        "agreement": "aligned",
+        "lead_lag_bucket": 0
+      },
+      "liquidity_view": {
+        "depth_bucket": "thin",
+        "sweep_state": "absent"
+      },
+      "price_view": {
+        "range_position": 0.2,
+        "return_bucket": "down",
+        "volatility_bucket": "low"
+      },
+      "session_view": {
+        "opening_window": true,
+        "session": "london"
+      },
+      "structure_view": {
+        "break_state": "none",
+        "swing_count": 2,
+        "trend_state": "down"
+      },
+      "time_view": {
+        "minute_bucket": 1,
+        "session": "london",
+        "weekday": "monday"
+      },
+      "treatment_descriptor_view": {
+        "contains_abstain": true,
+        "descriptor_count": 3
+      }
+    }
+  },
+  {
+    "context_id": "ctx_delta_01",
+    "descriptor_tokens": [
+      "entry_limit",
+      "stop_structural",
+      "target_reward_3",
+      "management_none",
+      "abstain"
+    ],
+    "domain_id": "EQUITY_INDEX",
+    "event_time": "2026-01-05T16:20:00Z",
+    "evidence_role": "validation",
+    "graph_relations": [
+      "context_composition",
+      "cross_view_alignment",
+      "temporal_precedence",
+      "regime_medium",
+      "transition_balanced"
+    ],
+    "known_time": "2026-01-05T16:20:01Z",
+    "parent_context_id": "ctx_delta_00",
+    "record_id": "record_delta_01",
+    "root_context_id": "root_delta",
+    "source_hashes": [
+      "d79f9b9abdb66c324924f5a9cb9724302d25f611a10238a63b171f447c98b765",
+      "c9f0c7bdb77cd5588c5d3a68c1b48baf4f3ba7a34770ea6403d5c425beb5cbd5",
+      "d75e90a8f0b2d67e1deb793cfe6df96362e56245457b02b12e7643ff5f927ce0"
+    ],
+    "synthetic": true,
+    "views": {
+      "context_ancestry_view": {
+        "context_family": "F1",
+        "generation_depth": 1
+      },
+      "execution_view": {
+        "spread_bucket": "normal",
+        "venue_state": "available"
+      },
+      "higher_timeframe_view": {
+        "alignment": "balanced",
+        "compression": false
+      },
+      "intermarket_view": {
+        "agreement": "mixed",
+        "lead_lag_bucket": 1
+      },
+      "liquidity_view": {
+        "depth_bucket": "deep",
+        "sweep_state": "absent"
+      },
+      "price_view": {
+        "range_position": 0.4,
+        "return_bucket": "balanced",
+        "volatility_bucket": "medium"
+      },
+      "session_view": {
+        "opening_window": false,
+        "session": "new_york"
+      },
+      "structure_view": {
+        "break_state": "confirmed",
+        "swing_count": 3,
+        "trend_state": "balanced"
+      },
+      "time_view": {
+        "minute_bucket": 2,
+        "session": "new_york",
+        "weekday": "monday"
+      },
+      "treatment_descriptor_view": {
+        "contains_abstain": true,
+        "descriptor_count": 3
+      }
+    }
+  },
+  {
+    "context_id": "ctx_delta_02",
+    "descriptor_tokens": [
+      "entry_limit",
+      "stop_structural",
+      "target_reward_2",
+      "management_none",
+      "abstain"
+    ],
+    "domain_id": "PRECIOUS_METAL",
+    "event_time": "2026-01-05T16:30:00Z",
+    "evidence_role": "validation",
+    "graph_relations": [
+      "context_composition",
+      "cross_view_alignment",
+      "temporal_precedence",
+      "regime_high",
+      "transition_up"
+    ],
+    "known_time": "2026-01-05T16:30:01Z",
+    "parent_context_id": "ctx_delta_01",
+    "record_id": "record_delta_02",
+    "root_context_id": "root_delta",
+    "source_hashes": [
+      "73c0a6c3ac1e1e43f2e8479b8eaf91a7886c2502203da607fe419bc6d65ae987",
+      "31a3559f2fabfd40eced67890915749514e5939857ae56c44a7d82bd09e159e8",
+      "770724edd7e993da54fd83277787b7f3c381bff292d1ed5cce5fce1b64aed4f4"
+    ],
+    "synthetic": true,
+    "views": {
+      "context_ancestry_view": {
+        "context_family": "F1",
+        "generation_depth": 2
+      },
+      "execution_view": {
+        "spread_bucket": "normal",
+        "venue_state": "available"
+      },
+      "higher_timeframe_view": {
+        "alignment": "up",
+        "compression": true
+      },
+      "intermarket_view": {
+        "agreement": "aligned",
+        "lead_lag_bucket": 2
+      },
+      "liquidity_view": {
+        "depth_bucket": "normal",
+        "sweep_state": "observed"
+      },
+      "price_view": {
+        "range_position": 0.6,
+        "return_bucket": "up",
+        "volatility_bucket": "high"
+      },
+      "session_view": {
+        "opening_window": false,
+        "session": "overlap"
+      },
+      "structure_view": {
+        "break_state": "none",
+        "swing_count": 4,
+        "trend_state": "up"
+      },
+      "time_view": {
+        "minute_bucket": 3,
+        "session": "overlap",
+        "weekday": "monday"
+      },
+      "treatment_descriptor_view": {
+        "contains_abstain": true,
+        "descriptor_count": 3
+      }
+    }
+  },
+  {
+    "context_id": "ctx_delta_03",
+    "descriptor_tokens": [
+      "entry_limit",
+      "stop_structural",
+      "target_reward_3",
+      "management_none",
+      "abstain"
+    ],
+    "domain_id": "FX_MAJOR",
+    "event_time": "2026-01-05T16:40:00Z",
+    "evidence_role": "validation",
+    "graph_relations": [
+      "context_composition",
+      "cross_view_alignment",
+      "temporal_precedence",
+      "regime_low",
+      "transition_down"
+    ],
+    "known_time": "2026-01-05T16:40:01Z",
+    "parent_context_id": "ctx_delta_02",
+    "record_id": "record_delta_03",
+    "root_context_id": "root_delta",
+    "source_hashes": [
+      "4107e36a8d02729222481f5f6728a6284bb729472973c5a4dba3f4e2b9a648e7",
+      "23055df595285f394aaf8c4682e20cdbd24fbf4dd9fc006af307f163bd5db00f",
+      "64c87f53f36daeb0ef06c455ce576f6c5eaff65d2b8a363d5ed86e1a1e2fd527"
+    ],
+    "synthetic": true,
+    "views": {
+      "context_ancestry_view": {
+        "context_family": "F1",
+        "generation_depth": 3
+      },
+      "execution_view": {
+        "spread_bucket": "normal",
+        "venue_state": "available"
+      },
+      "higher_timeframe_view": {
+        "alignment": "down",
+        "compression": false
+      },
+      "intermarket_view": {
+        "agreement": "mixed",
+        "lead_lag_bucket": 0
+      },
+      "liquidity_view": {
+        "depth_bucket": "thin",
+        "sweep_state": "absent"
+      },
+      "price_view": {
+        "range_position": 0.8,
+        "return_bucket": "down",
+        "volatility_bucket": "low"
+      },
+      "session_view": {
+        "opening_window": false,
+        "session": "london"
+      },
+      "structure_view": {
+        "break_state": "confirmed",
+        "swing_count": 5,
+        "trend_state": "down"
+      },
+      "time_view": {
+        "minute_bucket": 4,
+        "session": "london",
+        "weekday": "monday"
+      },
+      "treatment_descriptor_view": {
+        "contains_abstain": true,
+        "descriptor_count": 3
+      }
+    }
+  },
+  {
+    "context_id": "ctx_epsilon_00",
+    "descriptor_tokens": [
+      "entry_limit",
+      "stop_structural",
+      "target_reward_2",
+      "management_none",
+      "abstain"
+    ],
+    "domain_id": "EQUITY_INDEX",
+    "event_time": "2026-01-05T17:10:00Z",
+    "evidence_role": "validation",
+    "graph_relations": [
+      "context_composition",
+      "cross_view_alignment",
+      "temporal_precedence",
+      "regime_high",
+      "transition_balanced"
+    ],
+    "known_time": "2026-01-05T17:10:01Z",
+    "parent_context_id": null,
+    "record_id": "record_epsilon_00",
+    "root_context_id": "root_epsilon",
+    "source_hashes": [
+      "c7375ce1e21352f3bc76c8ed5a5eef108c18f9be3deaa214eafd72bab58788b1",
+      "a602eca119adc514d24ffde3e9d9158aaea1dd77ab8da974c39c3c6fba129be2",
+      "920d75481a1874c04e465bbdd08eb83053273b1fb3c2d546d6413c7ffccf4316"
+    ],
+    "synthetic": true,
+    "views": {
+      "context_ancestry_view": {
+        "context_family": "F2",
+        "generation_depth": 0
+      },
+      "execution_view": {
+        "spread_bucket": "normal",
+        "venue_state": "available"
+      },
+      "higher_timeframe_view": {
+        "alignment": "balanced",
+        "compression": false
+      },
+      "intermarket_view": {
+        "agreement": "aligned",
+        "lead_lag_bucket": 1
+      },
+      "liquidity_view": {
+        "depth_bucket": "normal",
+        "sweep_state": "absent"
+      },
+      "price_view": {
+        "range_position": 0.2,
+        "return_bucket": "balanced",
+        "volatility_bucket": "high"
+      },
+      "session_view": {
+        "opening_window": true,
+        "session": "new_york"
+      },
+      "structure_view": {
+        "break_state": "none",
+        "swing_count": 2,
+        "trend_state": "balanced"
+      },
+      "time_view": {
+        "minute_bucket": 1,
+        "session": "new_york",
+        "weekday": "monday"
+      },
+      "treatment_descriptor_view": {
+        "contains_abstain": true,
+        "descriptor_count": 3
+      }
+    }
+  },
+  {
+    "context_id": "ctx_epsilon_01",
+    "descriptor_tokens": [
+      "entry_limit",
+      "stop_structural",
+      "target_reward_3",
+      "management_none",
+      "abstain"
+    ],
+    "domain_id": "PRECIOUS_METAL",
+    "event_time": "2026-01-05T17:20:00Z",
+    "evidence_role": "validation",
+    "graph_relations": [
+      "context_composition",
+      "cross_view_alignment",
+      "temporal_precedence",
+      "regime_low",
+      "transition_up"
+    ],
+    "known_time": "2026-01-05T17:20:01Z",
+    "parent_context_id": "ctx_epsilon_00",
+    "record_id": "record_epsilon_01",
+    "root_context_id": "root_epsilon",
+    "source_hashes": [
+      "cd2f759490ede6e7c97f0a52fe3d5346d29964e56087467e79ad37e89fcb84cd",
+      "04db96d030f1b506e939d9bd86eab2010c938fc220b4d330bfd67b9b89ed6fe6",
+      "cb89efaa0d99fdb5be9e465bcbd198ed51fa1c5adb1d4ae6edd42c6375de3ef9"
+    ],
+    "synthetic": true,
+    "views": {
+      "context_ancestry_view": {
+        "context_family": "F2",
+        "generation_depth": 1
+      },
+      "execution_view": {
+        "spread_bucket": "normal",
+        "venue_state": "available"
+      },
+      "higher_timeframe_view": {
+        "alignment": "up",
+        "compression": true
+      },
+      "intermarket_view": {
+        "agreement": "mixed",
+        "lead_lag_bucket": 2
+      },
+      "liquidity_view": {
+        "depth_bucket": "thin",
+        "sweep_state": "absent"
+      },
+      "price_view": {
+        "range_position": 0.4,
+        "return_bucket": "up",
+        "volatility_bucket": "low"
+      },
+      "session_view": {
+        "opening_window": false,
+        "session": "overlap"
+      },
+      "structure_view": {
+        "break_state": "confirmed",
+        "swing_count": 3,
+        "trend_state": "up"
+      },
+      "time_view": {
+        "minute_bucket": 2,
+        "session": "overlap",
+        "weekday": "monday"
+      },
+      "treatment_descriptor_view": {
+        "contains_abstain": true,
+        "descriptor_count": 3
+      }
+    }
+  },
+  {
+    "context_id": "ctx_epsilon_02",
+    "descriptor_tokens": [
+      "entry_limit",
+      "stop_structural",
+      "target_reward_2",
+      "management_none",
+      "abstain"
+    ],
+    "domain_id": "FX_MAJOR",
+    "event_time": "2026-01-05T17:30:00Z",
+    "evidence_role": "validation",
+    "graph_relations": [
+      "context_composition",
+      "cross_view_alignment",
+      "temporal_precedence",
+      "regime_medium",
+      "transition_down"
+    ],
+    "known_time": "2026-01-05T17:30:01Z",
+    "parent_context_id": "ctx_epsilon_01",
+    "record_id": "record_epsilon_02",
+    "root_context_id": "root_epsilon",
+    "source_hashes": [
+      "efaaa505a38cce303828bacb79509d66edbe473d74f5f503b413e1ccf098caf6",
+      "7d7ca7f71415af877dce71b7b03b1ddc9b7d0048a28f13565fd44270da277ebd",
+      "da2ba1cb773667b0cd5d667098ff2a4c384770fcd8f3c7d0930baf1023f007f1"
+    ],
+    "synthetic": true,
+    "views": {
+      "context_ancestry_view": {
+        "context_family": "F2",
+        "generation_depth": 2
+      },
+      "execution_view": {
+        "spread_bucket": "normal",
+        "venue_state": "available"
+      },
+      "higher_timeframe_view": {
+        "alignment": "down",
+        "compression": false
+      },
+      "intermarket_view": {
+        "agreement": "aligned",
+        "lead_lag_bucket": 0
+      },
+      "liquidity_view": {
+        "depth_bucket": "deep",
+        "sweep_state": "observed"
+      },
+      "price_view": {
+        "range_position": 0.6,
+        "return_bucket": "down",
+        "volatility_bucket": "medium"
+      },
+      "session_view": {
+        "opening_window": false,
+        "session": "london"
+      },
+      "structure_view": {
+        "break_state": "none",
+        "swing_count": 4,
+        "trend_state": "down"
+      },
+      "time_view": {
+        "minute_bucket": 3,
+        "session": "london",
+        "weekday": "monday"
+      },
+      "treatment_descriptor_view": {
+        "contains_abstain": true,
+        "descriptor_count": 3
+      }
+    }
+  },
+  {
+    "context_id": "ctx_epsilon_03",
+    "descriptor_tokens": [
+      "entry_limit",
+      "stop_structural",
+      "target_reward_3",
+      "management_none",
+      "abstain"
+    ],
+    "domain_id": "EQUITY_INDEX",
+    "event_time": "2026-01-05T17:40:00Z",
+    "evidence_role": "validation",
+    "graph_relations": [
+      "context_composition",
+      "cross_view_alignment",
+      "temporal_precedence",
+      "regime_high",
+      "transition_balanced"
+    ],
+    "known_time": "2026-01-05T17:40:01Z",
+    "parent_context_id": "ctx_epsilon_02",
+    "record_id": "record_epsilon_03",
+    "root_context_id": "root_epsilon",
+    "source_hashes": [
+      "d3835b6aa002ad7b39f36ba3715280b9b1937b8b619df919dc0cf6a42e04ae27",
+      "9bae49737e3dcabd28ed2598f8e2c07b39dadffc0f9a9f0a46781fdda15b2448",
+      "6107f24781b0437d63b26cb91ecb91b51d3d60e86d73373b7551326521029fd0"
+    ],
+    "synthetic": true,
+    "views": {
+      "context_ancestry_view": {
+        "context_family": "F2",
+        "generation_depth": 3
+      },
+      "execution_view": {
+        "spread_bucket": "normal",
+        "venue_state": "available"
+      },
+      "higher_timeframe_view": {
+        "alignment": "balanced",
+        "compression": true
+      },
+      "intermarket_view": {
+        "agreement": "mixed",
+        "lead_lag_bucket": 1
+      },
+      "liquidity_view": {
+        "depth_bucket": "normal",
+        "sweep_state": "absent"
+      },
+      "price_view": {
+        "range_position": 0.8,
+        "return_bucket": "balanced",
+        "volatility_bucket": "high"
+      },
+      "session_view": {
+        "opening_window": false,
+        "session": "new_york"
+      },
+      "structure_view": {
+        "break_state": "confirmed",
+        "swing_count": 5,
+        "trend_state": "balanced"
+      },
+      "time_view": {
+        "minute_bucket": 4,
+        "session": "new_york",
+        "weekday": "monday"
+      },
+      "treatment_descriptor_view": {
+        "contains_abstain": true,
+        "descriptor_count": 3
+      }
+    }
+  },
+  {
+    "context_id": "ctx_canary_00",
+    "descriptor_tokens": [
+      "entry_limit",
+      "stop_structural",
+      "target_reward_2",
+      "management_none",
+      "abstain"
+    ],
+    "domain_id": "PRECIOUS_METAL",
+    "event_time": "2026-01-05T14:40:00Z",
+    "evidence_role": "development",
+    "graph_relations": [
+      "context_composition",
+      "cross_view_alignment",
+      "temporal_precedence",
+      "regime_medium",
+      "transition_up"
+    ],
+    "known_time": "2026-01-05T14:40:01Z",
+    "parent_context_id": null,
+    "record_id": "record_canary_00",
+    "root_context_id": "root_canary",
+    "source_hashes": [
+      "0186913d8d99f38615709ce9d9a5bf5c1db9a3a79aa01f4ceacfb1ff37ae1f50",
+      "a58fafee3cbe03d9dc90f1a860dafb245e93906974c05f66083c99a2995361cf",
+      "987345a7c980d0280e6bcefc1206a86598b6f92bf962a7a30effadd9470a9f0c"
+    ],
+    "synthetic": true,
+    "views": {
+      "context_ancestry_view": {
+        "context_family": "F3",
+        "generation_depth": 0
+      },
+      "execution_view": {
+        "spread_bucket": "normal",
+        "venue_state": "available"
+      },
+      "higher_timeframe_view": {
+        "alignment": "up",
+        "compression": true
+      },
+      "intermarket_view": {
+        "agreement": "aligned",
+        "lead_lag_bucket": 2
+      },
+      "liquidity_view": {
+        "depth_bucket": "deep",
+        "sweep_state": "absent"
+      },
+      "price_view": {
+        "range_position": 0.333,
+        "return_bucket": "up",
+        "volatility_bucket": "medium"
+      },
+      "session_view": {
+        "opening_window": true,
+        "session": "overlap"
+      },
+      "structure_view": {
+        "break_state": "none",
+        "swing_count": 2,
+        "trend_state": "up"
+      },
+      "time_view": {
+        "minute_bucket": 4,
+        "session": "overlap",
+        "weekday": "monday"
+      },
+      "treatment_descriptor_view": {
+        "contains_abstain": true,
+        "descriptor_count": 3
+      }
+    }
+  },
+  {
+    "context_id": "ctx_canary_01",
+    "descriptor_tokens": [
+      "entry_limit",
+      "stop_structural",
+      "target_reward_3",
+      "management_none",
+      "abstain"
+    ],
+    "domain_id": "FX_MAJOR",
+    "event_time": "2026-01-05T14:50:00Z",
+    "evidence_role": "development",
+    "graph_relations": [
+      "context_composition",
+      "cross_view_alignment",
+      "temporal_precedence",
+      "regime_high",
+      "transition_down"
+    ],
+    "known_time": "2026-01-05T14:50:01Z",
+    "parent_context_id": "ctx_canary_00",
+    "record_id": "record_canary_01",
+    "root_context_id": "root_canary",
+    "source_hashes": [
+      "598f9193c9cf2495983302e4d85e66564142dfdbacf9dbf54c3a733385d7a3a9",
+      "266d26c95c971bc94133300e337285f06cecbbd1038cbfcbc382c6a04b0c892d",
+      "56937c76d103538461d72d5acada6ccad1bcff5fcbc6c6fdce3f4650b1b65ccc"
+    ],
+    "synthetic": true,
+    "views": {
+      "context_ancestry_view": {
+        "context_family": "F3",
+        "generation_depth": 1
+      },
+      "execution_view": {
+        "spread_bucket": "normal",
+        "venue_state": "available"
+      },
+      "higher_timeframe_view": {
+        "alignment": "down",
+        "compression": false
+      },
+      "intermarket_view": {
+        "agreement": "mixed",
+        "lead_lag_bucket": 0
+      },
+      "liquidity_view": {
+        "depth_bucket": "normal",
+        "sweep_state": "absent"
+      },
+      "price_view": {
+        "range_position": 0.667,
+        "return_bucket": "down",
+        "volatility_bucket": "high"
+      },
+      "session_view": {
+        "opening_window": false,
+        "session": "london"
+      },
+      "structure_view": {
+        "break_state": "confirmed",
+        "swing_count": 3,
+        "trend_state": "down"
+      },
+      "time_view": {
+        "minute_bucket": 5,
+        "session": "london",
+        "weekday": "monday"
+      },
+      "treatment_descriptor_view": {
+        "contains_abstain": true,
+        "descriptor_count": 3
+      }
+    }
+  }
+]

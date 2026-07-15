@@ -1,0 +1,98 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/training_config.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "curriculum": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "epochs": {
+            "type": "integer"
+          },
+          "max_pairs_per_record": {
+            "type": "integer"
+          },
+          "objective_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "stage_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "epochs",
+          "max_pairs_per_record",
+          "objective_ids",
+          "stage_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "embedding_dim": {
+      "type": "integer"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "learning_rate": {
+      "type": "number"
+    },
+    "max_total_pairs": {
+      "type": "integer"
+    },
+    "negative_samples": {
+      "type": "integer"
+    },
+    "objectives": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          },
+          "objective_id": {
+            "type": "string"
+          },
+          "objective_kind": {
+            "type": "string"
+          },
+          "weight": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "enabled",
+          "objective_id",
+          "objective_kind",
+          "weight"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "seed": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "curriculum",
+    "deterministic",
+    "embedding_dim",
+    "exact_version",
+    "learning_rate",
+    "max_total_pairs",
+    "negative_samples",
+    "objectives",
+    "seed"
+  ],
+  "title": "Training Config",
+  "type": "object"
+}

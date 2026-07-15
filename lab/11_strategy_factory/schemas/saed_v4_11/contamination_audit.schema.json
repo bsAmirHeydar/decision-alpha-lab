@@ -1,0 +1,75 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/contamination_audit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "audit_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "audit_id": {
+      "type": "string"
+    },
+    "canary_count": {
+      "type": "integer"
+    },
+    "canary_hits": {
+      "items": {},
+      "type": "array"
+    },
+    "checks": {
+      "additionalProperties": false,
+      "properties": {
+        "forbidden_input_scan": {
+          "type": "boolean"
+        },
+        "future_suffix_forbidden": {
+          "type": "boolean"
+        },
+        "identity_disjoint": {
+          "type": "boolean"
+        },
+        "membership_canaries": {
+          "type": "boolean"
+        },
+        "source_hash_disjoint": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "forbidden_input_scan",
+        "future_suffix_forbidden",
+        "identity_disjoint",
+        "membership_canaries",
+        "source_hash_disjoint"
+      ],
+      "type": "object"
+    },
+    "issue_count": {
+      "type": "integer"
+    },
+    "issues": {
+      "items": {},
+      "type": "array"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "audit_hash",
+    "audit_id",
+    "canary_count",
+    "canary_hits",
+    "checks",
+    "issue_count",
+    "issues",
+    "passed",
+    "phase"
+  ],
+  "title": "Contamination Audit",
+  "type": "object"
+}

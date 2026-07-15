@@ -1,0 +1,48 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/temporal_shuffle_audit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "admission_effect": {
+      "type": "string"
+    },
+    "audit_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "audit_id": {
+      "type": "string"
+    },
+    "future_suffix_used": {
+      "type": "boolean"
+    },
+    "method": {
+      "type": "string"
+    },
+    "ordered_adjacency_score": {
+      "type": "number"
+    },
+    "perturbation_detected": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "shuffled_adjacency_score": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "admission_effect",
+    "audit_hash",
+    "audit_id",
+    "future_suffix_used",
+    "method",
+    "ordered_adjacency_score",
+    "perturbation_detected",
+    "phase",
+    "shuffled_adjacency_score"
+  ],
+  "title": "Temporal Shuffle Audit",
+  "type": "object"
+}

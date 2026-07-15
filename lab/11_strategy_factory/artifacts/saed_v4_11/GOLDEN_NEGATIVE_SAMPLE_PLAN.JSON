@@ -1,0 +1,166 @@
+{
+  "dependency_safe": true,
+  "items": [
+    {
+      "anchor_known_time": "2026-01-05T14:30:01Z",
+      "different_root": true,
+      "negative_known_time": "2026-01-05T14:30:01Z",
+      "negative_tokens": [
+        "VIEW_MASK::intermarket_view::PRESENT",
+        "GRAPH_REL::regime_medium",
+        "VIEW::time_view::minute_bucket::3"
+      ],
+      "positive_token": "DESC::abstain",
+      "record_id": "record_alpha_00",
+      "temporal_negative_record_id": "record_beta_00"
+    },
+    {
+      "anchor_known_time": "2026-01-05T14:30:01Z",
+      "different_root": true,
+      "negative_known_time": "2026-01-05T14:30:01Z",
+      "negative_tokens": [
+        "VIEW::treatment_descriptor_view::contains_abstain::TRUE",
+        "VIEW::execution_view::spread_bucket::normal",
+        "VIEW_KIND::liquidity_view"
+      ],
+      "positive_token": "DESC::abstain",
+      "record_id": "record_beta_00",
+      "temporal_negative_record_id": "record_alpha_00"
+    },
+    {
+      "anchor_known_time": "2026-01-05T14:30:01Z",
+      "different_root": true,
+      "negative_known_time": "2026-01-05T14:30:01Z",
+      "negative_tokens": [
+        "VIEW::context_ancestry_view::context_family::F2",
+        "VIEW::higher_timeframe_view::compression::FALSE",
+        "VIEW::structure_view::break_state::none"
+      ],
+      "positive_token": "DESC::abstain",
+      "record_id": "record_gamma_00",
+      "temporal_negative_record_id": "record_beta_00"
+    },
+    {
+      "anchor_known_time": "2026-01-05T14:40:01Z",
+      "different_root": true,
+      "negative_known_time": "2026-01-05T14:30:01Z",
+      "negative_tokens": [
+        "VIEW_MASK::session_view::PRESENT",
+        "VIEW_MASK::higher_timeframe_view::PRESENT",
+        "VIEW::intermarket_view::agreement::mixed"
+      ],
+      "positive_token": "DESC::abstain",
+      "record_id": "record_alpha_01",
+      "temporal_negative_record_id": "record_beta_00"
+    },
+    {
+      "anchor_known_time": "2026-01-05T14:40:01Z",
+      "different_root": true,
+      "negative_known_time": "2026-01-05T14:40:01Z",
+      "negative_tokens": [
+        "VIEW::price_view::range_position::0.6",
+        "VIEW::price_view::volatility_bucket::high",
+        "GRAPH_REL::cross_view_alignment"
+      ],
+      "positive_token": "DESC::abstain",
+      "record_id": "record_beta_01",
+      "temporal_negative_record_id": "record_alpha_01"
+    },
+    {
+      "anchor_known_time": "2026-01-05T14:40:01Z",
+      "different_root": true,
+      "negative_known_time": "2026-01-05T14:40:01Z",
+      "negative_tokens": [
+        "VIEW_MASK::time_view::PRESENT",
+        "VIEW::structure_view::trend_state::down",
+        "VIEW_KIND::context_ancestry_view"
+      ],
+      "positive_token": "DESC::abstain",
+      "record_id": "record_gamma_01",
+      "temporal_negative_record_id": "record_beta_01"
+    },
+    {
+      "anchor_known_time": "2026-01-05T14:50:01Z",
+      "different_root": true,
+      "negative_known_time": "2026-01-05T14:30:01Z",
+      "negative_tokens": [
+        "VIEW::time_view::weekday::monday",
+        "VIEW_KIND::context_ancestry_view",
+        "VIEW::structure_view::trend_state::balanced"
+      ],
+      "positive_token": "DESC::abstain",
+      "record_id": "record_alpha_02",
+      "temporal_negative_record_id": "record_gamma_00"
+    },
+    {
+      "anchor_known_time": "2026-01-05T14:50:01Z",
+      "different_root": true,
+      "negative_known_time": "2026-01-05T14:40:01Z",
+      "negative_tokens": [
+        "VIEW::higher_timeframe_view::compression::FALSE",
+        "VIEW::higher_timeframe_view::alignment::down",
+        "VIEW::price_view::return_bucket::down"
+      ],
+      "positive_token": "DESC::abstain",
+      "record_id": "record_beta_02",
+      "temporal_negative_record_id": "record_gamma_01"
+    },
+    {
+      "anchor_known_time": "2026-01-05T14:50:01Z",
+      "different_root": true,
+      "negative_known_time": "2026-01-05T14:40:01Z",
+      "negative_tokens": [
+        "VIEW::price_view::volatility_bucket::low",
+        "VIEW::structure_view::trend_state::up",
+        "VIEW_KIND::context_ancestry_view"
+      ],
+      "positive_token": "DESC::abstain",
+      "record_id": "record_gamma_02",
+      "temporal_negative_record_id": "record_alpha_01"
+    },
+    {
+      "anchor_known_time": "2026-01-05T15:00:01Z",
+      "different_root": true,
+      "negative_known_time": "2026-01-05T14:40:01Z",
+      "negative_tokens": [
+        "VIEW::structure_view::swing_count::3",
+        "VIEW::liquidity_view::depth_bucket::thin",
+        "VIEW::price_view::range_position::0.4"
+      ],
+      "positive_token": "DESC::abstain",
+      "record_id": "record_alpha_03",
+      "temporal_negative_record_id": "record_gamma_01"
+    },
+    {
+      "anchor_known_time": "2026-01-05T15:00:01Z",
+      "different_root": true,
+      "negative_known_time": "2026-01-05T15:00:01Z",
+      "negative_tokens": [
+        "VIEW::intermarket_view::lead_lag_bucket::1",
+        "VIEW::structure_view::swing_count::3",
+        "DESC::target_reward_3"
+      ],
+      "positive_token": "DESC::abstain",
+      "record_id": "record_beta_03",
+      "temporal_negative_record_id": "record_gamma_03"
+    },
+    {
+      "anchor_known_time": "2026-01-05T15:00:01Z",
+      "different_root": true,
+      "negative_known_time": "2026-01-05T14:50:01Z",
+      "negative_tokens": [
+        "VIEW::intermarket_view::lead_lag_bucket::1",
+        "VIEW_KIND::liquidity_view",
+        "SYNTHETIC::TRUE"
+      ],
+      "positive_token": "DESC::abstain",
+      "record_id": "record_gamma_03",
+      "temporal_negative_record_id": "record_alpha_02"
+    }
+  ],
+  "negative_count": 3,
+  "phase": "SAED_V4_11",
+  "plan_hash": "d5268e0ba27e29851ab24ad62b5e585afc0646b39806011504227f1f99ea8c8a",
+  "plan_id": "negativeplan_a8fe6d2831ce82d46e005eb7",
+  "seed": 4112026
+}

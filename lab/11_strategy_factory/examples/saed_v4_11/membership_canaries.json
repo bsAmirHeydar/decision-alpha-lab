@@ -1,0 +1,10 @@
+{
+  "admitted_corpus_membership": false,
+  "phase": "SAED_V4_11",
+  "purpose": "membership contamination detection only",
+  "tokens": [
+    "CANARY::PROTECTED_FINAL::001",
+    "CANARY::PROSPECTIVE::002",
+    "CANARY::LIVE::003"
+  ]
+}

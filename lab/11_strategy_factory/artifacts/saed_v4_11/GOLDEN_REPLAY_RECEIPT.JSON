@@ -1,0 +1,15 @@
+{
+  "actual_checkpoint_hash": "aab287ba676dacc6cba84a8671f853a71c721d6f1a5997fd264e0f80cf801e6a",
+  "actual_token_streams_hash": "6771bbf0861efe8c2b1740226e59d4d067a7029b76fc92261b33cb0a6a2d2163",
+  "actual_training_receipt_hash": "e46856769eddbbcdf534aa047af5f764f6cd3007cadd2eae03b4d31a8d799ee1",
+  "deterministic": true,
+  "expected_checkpoint_hash": "aab287ba676dacc6cba84a8671f853a71c721d6f1a5997fd264e0f80cf801e6a",
+  "expected_token_streams_hash": "6771bbf0861efe8c2b1740226e59d4d067a7029b76fc92261b33cb0a6a2d2163",
+  "expected_training_receipt_hash": "e46856769eddbbcdf534aa047af5f764f6cd3007cadd2eae03b4d31a8d799ee1",
+  "external_hardware_reproduction": "not_claimed",
+  "independent_reproduction": true,
+  "passed": true,
+  "phase": "SAED_V4_11",
+  "replay_hash": "1c7ae67b30d5c9fc6cbe66ea03e84e4655f8315748b8dd64c54a82d56d92a4c1",
+  "replay_id": "v411replay_bce41eb5ecb7ad48b21fc8bd"
+}

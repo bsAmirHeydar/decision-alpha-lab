@@ -1,0 +1,51 @@
+{
+  "evidence_scope": "local_reference_synthetic",
+  "external_evidence": {
+    "distributed_training": "not_claimed",
+    "gpu_reproduction": "not_claimed",
+    "live": "not_claimed",
+    "metaeditor_compile": "pending_local_windows",
+    "prospective_paper": "not_claimed",
+    "real_corpus_training": "not_claimed",
+    "shadow": "not_claimed"
+  },
+  "mql5_static_file_count": 10,
+  "obsidian_note_count": 95,
+  "passed": true,
+  "phase": "SAED_V4_11",
+  "results": [
+    {
+      "command": "python tools/strategy_factory/saed_v4_11/validate_saed_v4_11_contracts.py",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_11/check_saed_v4_11_boundaries.py",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_11/validate_saed_v4_11_mql5_static.py",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_11/validate_saed_v4_11_obsidian.py",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_11/run_saed_v4_11_tests.py",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_11/reproduce_saed_v4_11_golden.py",
+      "passed": true,
+      "returncode": 0
+    }
+  ],
+  "schema_pair_count": 37,
+  "test_count": 116,
+  "version": "1.0.0"
+}

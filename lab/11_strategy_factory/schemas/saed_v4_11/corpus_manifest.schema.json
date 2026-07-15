@@ -1,0 +1,132 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/corpus_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_artifact_classes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "domain_count": {
+      "type": "integer"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "future_suffix_allowed": {
+      "type": "boolean"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "manifest_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "manifest_id": {
+      "type": "string"
+    },
+    "outcome_inputs_allowed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "prohibited_artifact_classes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "record_count": {
+      "type": "integer"
+    },
+    "record_merkle_root": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "role_counts": {
+      "additionalProperties": false,
+      "properties": {
+        "development": {
+          "type": "integer"
+        },
+        "training": {
+          "type": "integer"
+        },
+        "validation": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "development",
+        "training",
+        "validation"
+      ],
+      "type": "object"
+    },
+    "root_context_count": {
+      "type": "integer"
+    },
+    "self_supervised_only": {
+      "type": "boolean"
+    },
+    "source_hashes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "synthetic_reference_only": {
+      "type": "boolean"
+    },
+    "upstream_corpus_manifest_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "upstream_corpus_manifest_id": {
+      "type": "string"
+    },
+    "upstream_handoff_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "upstream_handoff_id": {
+      "type": "string"
+    },
+    "upstream_phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "allowed_artifact_classes",
+    "domain_count",
+    "exact_version",
+    "future_suffix_allowed",
+    "limitations",
+    "manifest_hash",
+    "manifest_id",
+    "outcome_inputs_allowed",
+    "phase",
+    "prohibited_artifact_classes",
+    "record_count",
+    "record_merkle_root",
+    "role_counts",
+    "root_context_count",
+    "self_supervised_only",
+    "source_hashes",
+    "synthetic_reference_only",
+    "upstream_corpus_manifest_hash",
+    "upstream_corpus_manifest_id",
+    "upstream_handoff_hash",
+    "upstream_handoff_id",
+    "upstream_phase"
+  ],
+  "title": "Corpus Manifest",
+  "type": "object"
+}

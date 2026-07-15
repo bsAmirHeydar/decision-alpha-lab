@@ -1,0 +1,526 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/corpus_records.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "items": {
+    "anyOf": [
+      {
+        "additionalProperties": false,
+        "properties": {
+          "context_id": {
+            "type": "string"
+          },
+          "descriptor_tokens": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "domain_id": {
+            "type": "string"
+          },
+          "event_time": {
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+            "type": "string"
+          },
+          "evidence_role": {
+            "type": "string"
+          },
+          "graph_relations": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "known_time": {
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+            "type": "string"
+          },
+          "parent_context_id": {
+            "type": "null"
+          },
+          "record_id": {
+            "type": "string"
+          },
+          "root_context_id": {
+            "type": "string"
+          },
+          "source_hashes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "synthetic": {
+            "type": "boolean"
+          },
+          "views": {
+            "additionalProperties": false,
+            "properties": {
+              "context_ancestry_view": {
+                "additionalProperties": false,
+                "properties": {
+                  "context_family": {
+                    "type": "string"
+                  },
+                  "generation_depth": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "context_family",
+                  "generation_depth"
+                ],
+                "type": "object"
+              },
+              "execution_view": {
+                "additionalProperties": false,
+                "properties": {
+                  "spread_bucket": {
+                    "type": "string"
+                  },
+                  "venue_state": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "spread_bucket",
+                  "venue_state"
+                ],
+                "type": "object"
+              },
+              "higher_timeframe_view": {
+                "additionalProperties": false,
+                "properties": {
+                  "alignment": {
+                    "type": "string"
+                  },
+                  "compression": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "alignment",
+                  "compression"
+                ],
+                "type": "object"
+              },
+              "intermarket_view": {
+                "additionalProperties": false,
+                "properties": {
+                  "agreement": {
+                    "type": "string"
+                  },
+                  "lead_lag_bucket": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "agreement",
+                  "lead_lag_bucket"
+                ],
+                "type": "object"
+              },
+              "liquidity_view": {
+                "additionalProperties": false,
+                "properties": {
+                  "depth_bucket": {
+                    "type": "string"
+                  },
+                  "sweep_state": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "depth_bucket",
+                  "sweep_state"
+                ],
+                "type": "object"
+              },
+              "price_view": {
+                "additionalProperties": false,
+                "properties": {
+                  "range_position": {
+                    "type": "number"
+                  },
+                  "return_bucket": {
+                    "type": "string"
+                  },
+                  "volatility_bucket": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "range_position",
+                  "return_bucket",
+                  "volatility_bucket"
+                ],
+                "type": "object"
+              },
+              "session_view": {
+                "additionalProperties": false,
+                "properties": {
+                  "opening_window": {
+                    "type": "boolean"
+                  },
+                  "session": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "opening_window",
+                  "session"
+                ],
+                "type": "object"
+              },
+              "structure_view": {
+                "additionalProperties": false,
+                "properties": {
+                  "break_state": {
+                    "type": "string"
+                  },
+                  "swing_count": {
+                    "type": "integer"
+                  },
+                  "trend_state": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "break_state",
+                  "swing_count",
+                  "trend_state"
+                ],
+                "type": "object"
+              },
+              "time_view": {
+                "additionalProperties": false,
+                "properties": {
+                  "minute_bucket": {
+                    "type": "integer"
+                  },
+                  "session": {
+                    "type": "string"
+                  },
+                  "weekday": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "minute_bucket",
+                  "session",
+                  "weekday"
+                ],
+                "type": "object"
+              },
+              "treatment_descriptor_view": {
+                "additionalProperties": false,
+                "properties": {
+                  "contains_abstain": {
+                    "type": "boolean"
+                  },
+                  "descriptor_count": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "contains_abstain",
+                  "descriptor_count"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "context_ancestry_view",
+              "execution_view",
+              "higher_timeframe_view",
+              "intermarket_view",
+              "liquidity_view",
+              "price_view",
+              "session_view",
+              "structure_view",
+              "time_view",
+              "treatment_descriptor_view"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "context_id",
+          "descriptor_tokens",
+          "domain_id",
+          "event_time",
+          "evidence_role",
+          "graph_relations",
+          "known_time",
+          "parent_context_id",
+          "record_id",
+          "root_context_id",
+          "source_hashes",
+          "synthetic",
+          "views"
+        ],
+        "type": "object"
+      },
+      {
+        "additionalProperties": false,
+        "properties": {
+          "context_id": {
+            "type": "string"
+          },
+          "descriptor_tokens": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "domain_id": {
+            "type": "string"
+          },
+          "event_time": {
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+            "type": "string"
+          },
+          "evidence_role": {
+            "type": "string"
+          },
+          "graph_relations": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "known_time": {
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+            "type": "string"
+          },
+          "parent_context_id": {
+            "type": "string"
+          },
+          "record_id": {
+            "type": "string"
+          },
+          "root_context_id": {
+            "type": "string"
+          },
+          "source_hashes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "synthetic": {
+            "type": "boolean"
+          },
+          "views": {
+            "additionalProperties": false,
+            "properties": {
+              "context_ancestry_view": {
+                "additionalProperties": false,
+                "properties": {
+                  "context_family": {
+                    "type": "string"
+                  },
+                  "generation_depth": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "context_family",
+                  "generation_depth"
+                ],
+                "type": "object"
+              },
+              "execution_view": {
+                "additionalProperties": false,
+                "properties": {
+                  "spread_bucket": {
+                    "type": "string"
+                  },
+                  "venue_state": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "spread_bucket",
+                  "venue_state"
+                ],
+                "type": "object"
+              },
+              "higher_timeframe_view": {
+                "additionalProperties": false,
+                "properties": {
+                  "alignment": {
+                    "type": "string"
+                  },
+                  "compression": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "alignment",
+                  "compression"
+                ],
+                "type": "object"
+              },
+              "intermarket_view": {
+                "additionalProperties": false,
+                "properties": {
+                  "agreement": {
+                    "type": "string"
+                  },
+                  "lead_lag_bucket": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "agreement",
+                  "lead_lag_bucket"
+                ],
+                "type": "object"
+              },
+              "liquidity_view": {
+                "additionalProperties": false,
+                "properties": {
+                  "depth_bucket": {
+                    "type": "string"
+                  },
+                  "sweep_state": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "depth_bucket",
+                  "sweep_state"
+                ],
+                "type": "object"
+              },
+              "price_view": {
+                "additionalProperties": false,
+                "properties": {
+                  "range_position": {
+                    "type": "number"
+                  },
+                  "return_bucket": {
+                    "type": "string"
+                  },
+                  "volatility_bucket": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "range_position",
+                  "return_bucket",
+                  "volatility_bucket"
+                ],
+                "type": "object"
+              },
+              "session_view": {
+                "additionalProperties": false,
+                "properties": {
+                  "opening_window": {
+                    "type": "boolean"
+                  },
+                  "session": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "opening_window",
+                  "session"
+                ],
+                "type": "object"
+              },
+              "structure_view": {
+                "additionalProperties": false,
+                "properties": {
+                  "break_state": {
+                    "type": "string"
+                  },
+                  "swing_count": {
+                    "type": "integer"
+                  },
+                  "trend_state": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "break_state",
+                  "swing_count",
+                  "trend_state"
+                ],
+                "type": "object"
+              },
+              "time_view": {
+                "additionalProperties": false,
+                "properties": {
+                  "minute_bucket": {
+                    "type": "integer"
+                  },
+                  "session": {
+                    "type": "string"
+                  },
+                  "weekday": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "minute_bucket",
+                  "session",
+                  "weekday"
+                ],
+                "type": "object"
+              },
+              "treatment_descriptor_view": {
+                "additionalProperties": false,
+                "properties": {
+                  "contains_abstain": {
+                    "type": "boolean"
+                  },
+                  "descriptor_count": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "contains_abstain",
+                  "descriptor_count"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "context_ancestry_view",
+              "execution_view",
+              "higher_timeframe_view",
+              "intermarket_view",
+              "liquidity_view",
+              "price_view",
+              "session_view",
+              "structure_view",
+              "time_view",
+              "treatment_descriptor_view"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "context_id",
+          "descriptor_tokens",
+          "domain_id",
+          "event_time",
+          "evidence_role",
+          "graph_relations",
+          "known_time",
+          "parent_context_id",
+          "record_id",
+          "root_context_id",
+          "source_hashes",
+          "synthetic",
+          "views"
+        ],
+        "type": "object"
+      }
+    ]
+  },
+  "title": "Corpus Records",
+  "type": "array"
+}

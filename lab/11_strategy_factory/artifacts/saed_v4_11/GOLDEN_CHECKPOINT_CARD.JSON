@@ -1,0 +1,25 @@
+{
+  "card_hash": "f859f7433488e91bf1c13a077d52f715b67ebcdf98d66dc134b0325633d09c2a",
+  "card_id": "checkpointcard_27ea252657f83dd4f1ba083f",
+  "checkpoint_hash": "aab287ba676dacc6cba84a8671f853a71c721d6f1a5997fd264e0f80cf801e6a",
+  "checkpoint_id": "encoderckpt_4fcfb52d3410bbedce23761e",
+  "dimension": 12,
+  "evidence_scope": "synthetic_reference",
+  "intended_use": "offline representation research and V4-12 sequence-model input only",
+  "known_limitations": [
+    "Synthetic corpus metrics are conformance evidence, not economic evidence.",
+    "Probe labels are non-outcome structural labels."
+  ],
+  "model_family": "deterministic_reference_sgns",
+  "phase": "SAED_V4_11",
+  "prohibited_uses": [
+    "treatment ranking",
+    "treatment selection",
+    "risk allocation",
+    "runtime activation",
+    "order placement"
+  ],
+  "representation_dossier_hash": "5f001b01531fadaeb367b7f4ddb5f7dd6757ead33722de5d0a676ac96ecdd163",
+  "training_receipt_hash": "e46856769eddbbcdf534aa047af5f764f6cd3007cadd2eae03b4d31a8d799ee1",
+  "vocabulary_size": 111
+}

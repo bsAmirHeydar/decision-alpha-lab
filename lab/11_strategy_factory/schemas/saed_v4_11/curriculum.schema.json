@@ -1,0 +1,57 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/curriculum.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "curriculum": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "epochs": {
+            "type": "integer"
+          },
+          "max_pairs_per_record": {
+            "type": "integer"
+          },
+          "objective_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "stage_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "epochs",
+          "max_pairs_per_record",
+          "objective_ids",
+          "stage_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "outcome_supervision": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "progression": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "curriculum",
+    "outcome_supervision",
+    "phase",
+    "progression"
+  ],
+  "title": "Curriculum",
+  "type": "object"
+}

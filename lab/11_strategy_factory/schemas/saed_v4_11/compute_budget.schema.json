@@ -1,0 +1,52 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/compute_budget.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "budget_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "budget_id": {
+      "type": "string"
+    },
+    "budget_scope": {
+      "type": "string"
+    },
+    "external_network_allowed": {
+      "type": "boolean"
+    },
+    "gpu_required": {
+      "type": "boolean"
+    },
+    "max_embedding_dimension": {
+      "type": "integer"
+    },
+    "max_epochs": {
+      "type": "integer"
+    },
+    "max_training_pairs": {
+      "type": "integer"
+    },
+    "max_wall_seconds": {
+      "type": "number"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "budget_hash",
+    "budget_id",
+    "budget_scope",
+    "external_network_allowed",
+    "gpu_required",
+    "max_embedding_dimension",
+    "max_epochs",
+    "max_training_pairs",
+    "max_wall_seconds",
+    "phase"
+  ],
+  "title": "Compute Budget",
+  "type": "object"
+}

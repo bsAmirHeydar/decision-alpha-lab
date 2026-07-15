@@ -1,0 +1,229 @@
+{
+  "entries": [
+    {
+      "context_id": "ctx_alpha_00",
+      "domain_id": "FX_MAJOR",
+      "event_time": "2026-01-05T14:30:00Z",
+      "evidence_role": "training",
+      "known_time": "2026-01-05T14:30:01Z",
+      "record_hash": "2c9bb98cadd979616b56b3ff4bb296b14d6ceae33dd522ae73decfe5a2658070",
+      "record_id": "record_alpha_00",
+      "root_context_id": "root_alpha"
+    },
+    {
+      "context_id": "ctx_alpha_01",
+      "domain_id": "EQUITY_INDEX",
+      "event_time": "2026-01-05T14:40:00Z",
+      "evidence_role": "training",
+      "known_time": "2026-01-05T14:40:01Z",
+      "record_hash": "4c28b46d15fa81b919d4709797ff7b0d5763c27cc3a564851cab223c4ff8c432",
+      "record_id": "record_alpha_01",
+      "root_context_id": "root_alpha"
+    },
+    {
+      "context_id": "ctx_alpha_02",
+      "domain_id": "PRECIOUS_METAL",
+      "event_time": "2026-01-05T14:50:00Z",
+      "evidence_role": "training",
+      "known_time": "2026-01-05T14:50:01Z",
+      "record_hash": "1919a33bc7d06a2dfb8c8281a1c0132934ecb01687d11626423800ee58e0d848",
+      "record_id": "record_alpha_02",
+      "root_context_id": "root_alpha"
+    },
+    {
+      "context_id": "ctx_alpha_03",
+      "domain_id": "FX_MAJOR",
+      "event_time": "2026-01-05T15:00:00Z",
+      "evidence_role": "training",
+      "known_time": "2026-01-05T15:00:01Z",
+      "record_hash": "2477145ba5be18a15cbb0979eb9c91b346a549aa76578e1ee9c97f3aa7c89970",
+      "record_id": "record_alpha_03",
+      "root_context_id": "root_alpha"
+    },
+    {
+      "context_id": "ctx_beta_00",
+      "domain_id": "EQUITY_INDEX",
+      "event_time": "2026-01-05T14:30:00Z",
+      "evidence_role": "training",
+      "known_time": "2026-01-05T14:30:01Z",
+      "record_hash": "b005a10402e80376cd404e70d1bc6274d45c4e2f4dd81ee100dd22e6142b2d21",
+      "record_id": "record_beta_00",
+      "root_context_id": "root_beta"
+    },
+    {
+      "context_id": "ctx_beta_01",
+      "domain_id": "PRECIOUS_METAL",
+      "event_time": "2026-01-05T14:40:00Z",
+      "evidence_role": "training",
+      "known_time": "2026-01-05T14:40:01Z",
+      "record_hash": "3702a3ad7a291e6b4d93db055bb23e2100528b0bce67b0b2679eb95d5d51892a",
+      "record_id": "record_beta_01",
+      "root_context_id": "root_beta"
+    },
+    {
+      "context_id": "ctx_beta_02",
+      "domain_id": "FX_MAJOR",
+      "event_time": "2026-01-05T14:50:00Z",
+      "evidence_role": "training",
+      "known_time": "2026-01-05T14:50:01Z",
+      "record_hash": "85afeaec4a9dc77b8cc1ce15bc584c02553e9885dce29849bd4c9e21807e93bc",
+      "record_id": "record_beta_02",
+      "root_context_id": "root_beta"
+    },
+    {
+      "context_id": "ctx_beta_03",
+      "domain_id": "EQUITY_INDEX",
+      "event_time": "2026-01-05T15:00:00Z",
+      "evidence_role": "training",
+      "known_time": "2026-01-05T15:00:01Z",
+      "record_hash": "be4abb4926bb022aa1655298080fb7e62aabbe47abfd97845331886aaa640d35",
+      "record_id": "record_beta_03",
+      "root_context_id": "root_beta"
+    },
+    {
+      "context_id": "ctx_canary_00",
+      "domain_id": "PRECIOUS_METAL",
+      "event_time": "2026-01-05T14:40:00Z",
+      "evidence_role": "development",
+      "known_time": "2026-01-05T14:40:01Z",
+      "record_hash": "1d945155c437faed1d7fe833ce6088c39f6c215469195a607e2fee9890a6f96d",
+      "record_id": "record_canary_00",
+      "root_context_id": "root_canary"
+    },
+    {
+      "context_id": "ctx_canary_01",
+      "domain_id": "FX_MAJOR",
+      "event_time": "2026-01-05T14:50:00Z",
+      "evidence_role": "development",
+      "known_time": "2026-01-05T14:50:01Z",
+      "record_hash": "a2e403aa6c5b3fbb9e21d117823946b99ae0580f3c8a3effcd4c868cea9523c3",
+      "record_id": "record_canary_01",
+      "root_context_id": "root_canary"
+    },
+    {
+      "context_id": "ctx_delta_00",
+      "domain_id": "FX_MAJOR",
+      "event_time": "2026-01-05T16:10:00Z",
+      "evidence_role": "validation",
+      "known_time": "2026-01-05T16:10:01Z",
+      "record_hash": "819357dbd45008e8b6bba24d665e84e1059baac868dd8a0479b42d0a93373a86",
+      "record_id": "record_delta_00",
+      "root_context_id": "root_delta"
+    },
+    {
+      "context_id": "ctx_delta_01",
+      "domain_id": "EQUITY_INDEX",
+      "event_time": "2026-01-05T16:20:00Z",
+      "evidence_role": "validation",
+      "known_time": "2026-01-05T16:20:01Z",
+      "record_hash": "8900234f5dacb98a98769e74b9afe63dabd8da97fac6d8d00d602c40a52b6643",
+      "record_id": "record_delta_01",
+      "root_context_id": "root_delta"
+    },
+    {
+      "context_id": "ctx_delta_02",
+      "domain_id": "PRECIOUS_METAL",
+      "event_time": "2026-01-05T16:30:00Z",
+      "evidence_role": "validation",
+      "known_time": "2026-01-05T16:30:01Z",
+      "record_hash": "add8d228d0b420a79d5d01982905694ae6a55035d3383efcbb4608ef4647f10a",
+      "record_id": "record_delta_02",
+      "root_context_id": "root_delta"
+    },
+    {
+      "context_id": "ctx_delta_03",
+      "domain_id": "FX_MAJOR",
+      "event_time": "2026-01-05T16:40:00Z",
+      "evidence_role": "validation",
+      "known_time": "2026-01-05T16:40:01Z",
+      "record_hash": "2e5a5c16a8a5fb6290639f7eafb8308bd613d107e36580d9ac75702a00d7fab0",
+      "record_id": "record_delta_03",
+      "root_context_id": "root_delta"
+    },
+    {
+      "context_id": "ctx_epsilon_00",
+      "domain_id": "EQUITY_INDEX",
+      "event_time": "2026-01-05T17:10:00Z",
+      "evidence_role": "validation",
+      "known_time": "2026-01-05T17:10:01Z",
+      "record_hash": "f46eb6c2e5ce8036ee279f1695db2bace7a8b473323cfc160d36366a74093f00",
+      "record_id": "record_epsilon_00",
+      "root_context_id": "root_epsilon"
+    },
+    {
+      "context_id": "ctx_epsilon_01",
+      "domain_id": "PRECIOUS_METAL",
+      "event_time": "2026-01-05T17:20:00Z",
+      "evidence_role": "validation",
+      "known_time": "2026-01-05T17:20:01Z",
+      "record_hash": "087bfc7b934ca374134ef694c01fbec66e82777439bf9b1f422f6f2eb08f89b8",
+      "record_id": "record_epsilon_01",
+      "root_context_id": "root_epsilon"
+    },
+    {
+      "context_id": "ctx_epsilon_02",
+      "domain_id": "FX_MAJOR",
+      "event_time": "2026-01-05T17:30:00Z",
+      "evidence_role": "validation",
+      "known_time": "2026-01-05T17:30:01Z",
+      "record_hash": "c1ef4708e2e6d84f42b1565154d700e1a3fc70f5484b88445871e9824e743bba",
+      "record_id": "record_epsilon_02",
+      "root_context_id": "root_epsilon"
+    },
+    {
+      "context_id": "ctx_epsilon_03",
+      "domain_id": "EQUITY_INDEX",
+      "event_time": "2026-01-05T17:40:00Z",
+      "evidence_role": "validation",
+      "known_time": "2026-01-05T17:40:01Z",
+      "record_hash": "6fede1115d6025b8125999493294d839d57483ec79d70ce62d21d42e29001258",
+      "record_id": "record_epsilon_03",
+      "root_context_id": "root_epsilon"
+    },
+    {
+      "context_id": "ctx_gamma_00",
+      "domain_id": "PRECIOUS_METAL",
+      "event_time": "2026-01-05T14:30:00Z",
+      "evidence_role": "training",
+      "known_time": "2026-01-05T14:30:01Z",
+      "record_hash": "42a67439d03c7f872142befe46757b2849371e4828fe2acb7f01d8f520543656",
+      "record_id": "record_gamma_00",
+      "root_context_id": "root_gamma"
+    },
+    {
+      "context_id": "ctx_gamma_01",
+      "domain_id": "FX_MAJOR",
+      "event_time": "2026-01-05T14:40:00Z",
+      "evidence_role": "training",
+      "known_time": "2026-01-05T14:40:01Z",
+      "record_hash": "7c942149b1dd07eb9af05aad77a08285eb693dcb5473a3e3afc14d9e2a1c6482",
+      "record_id": "record_gamma_01",
+      "root_context_id": "root_gamma"
+    },
+    {
+      "context_id": "ctx_gamma_02",
+      "domain_id": "EQUITY_INDEX",
+      "event_time": "2026-01-05T14:50:00Z",
+      "evidence_role": "training",
+      "known_time": "2026-01-05T14:50:01Z",
+      "record_hash": "ae2ec6e5786f7f1f951d9e22c89c4825c10b97c6ac0679e5050581deebb4c549",
+      "record_id": "record_gamma_02",
+      "root_context_id": "root_gamma"
+    },
+    {
+      "context_id": "ctx_gamma_03",
+      "domain_id": "PRECIOUS_METAL",
+      "event_time": "2026-01-05T15:00:00Z",
+      "evidence_role": "training",
+      "known_time": "2026-01-05T15:00:01Z",
+      "record_hash": "a99b41cca5455f786f14bcef545963f0fb85e00a5db3f166dde98e0d00bc4f14",
+      "record_id": "record_gamma_03",
+      "root_context_id": "root_gamma"
+    }
+  ],
+  "future_suffix_allowed": false,
+  "membership_hash": "297d31a098ff88cb4e6b62179c52ebb85c144ce23f987ea59264ed81acb20a2c",
+  "membership_id": "membership_f0ab702b1f1ab8d14ac4ed25",
+  "phase": "SAED_V4_11",
+  "record_count": 22
+}

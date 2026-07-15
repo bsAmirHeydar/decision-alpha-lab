@@ -1,0 +1,70 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/replay_receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actual_checkpoint_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "actual_token_streams_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "actual_training_receipt_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "expected_checkpoint_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "expected_token_streams_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "expected_training_receipt_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "external_hardware_reproduction": {
+      "type": "string"
+    },
+    "independent_reproduction": {
+      "type": "boolean"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "replay_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "replay_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "actual_checkpoint_hash",
+    "actual_token_streams_hash",
+    "actual_training_receipt_hash",
+    "deterministic",
+    "expected_checkpoint_hash",
+    "expected_token_streams_hash",
+    "expected_training_receipt_hash",
+    "external_hardware_reproduction",
+    "independent_reproduction",
+    "passed",
+    "phase",
+    "replay_hash",
+    "replay_id"
+  ],
+  "title": "Replay Receipt",
+  "type": "object"
+}

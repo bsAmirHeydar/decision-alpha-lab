@@ -1,0 +1,11 @@
+{
+  "admission_effect": "diagnostic_only",
+  "audit_hash": "3f77cdc9f10dfd99a376bf13b59c1a72b909569f0acefac663a38a6f164e5e5a",
+  "audit_id": "temporalshuffle_6b1f124bec846fe56594f664",
+  "future_suffix_used": false,
+  "method": "deterministic_reverse_order",
+  "ordered_adjacency_score": 0.0,
+  "perturbation_detected": false,
+  "phase": "SAED_V4_11",
+  "shuffled_adjacency_score": 0.0
+}

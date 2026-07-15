@@ -1,0 +1,132 @@
+{
+  "accepted_for_reference_registry": true,
+  "checkpoint_hash": "aab287ba676dacc6cba84a8671f853a71c721d6f1a5997fd264e0f80cf801e6a",
+  "claims": {
+    "outcome_prediction": false,
+    "production_authorization": false,
+    "real_alpha": false
+  },
+  "collapse": {
+    "collapsed": false,
+    "mean_dimension_variance": 0.011703125250930693,
+    "mean_pairwise_cosine": 0.8521710494619282,
+    "minimum_dimension_variance": 0.007006953312802171,
+    "record_count": 20,
+    "unique_embedding_fraction": 1.0
+  },
+  "control_name": "trained_reference",
+  "dossier_hash": "5f001b01531fadaeb367b7f4ddb5f7dd6757ead33722de5d0a676ac96ecdd163",
+  "dossier_id": "representationdossier_9829bba65ec9f7cf6de1dd09",
+  "leakage_probe": {
+    "checked_tokens": 111,
+    "hits": [],
+    "passed": true
+  },
+  "limitations": [
+    "Synthetic corpus metrics are conformance evidence, not economic evidence.",
+    "Probe labels are non-outcome structural labels."
+  ],
+  "linear_probe": {
+    "accuracy": 1.0,
+    "evaluation_count": 8,
+    "label_kind": "domain_id",
+    "outcome_label": false,
+    "predictions": [
+      {
+        "actual": "FX_MAJOR",
+        "predicted": "FX_MAJOR",
+        "record_id": "record_delta_00",
+        "scores": {
+          "EQUITY_INDEX": 0.7904370127658494,
+          "FX_MAJOR": 0.8945172822796004,
+          "PRECIOUS_METAL": 0.8278009202677854
+        }
+      },
+      {
+        "actual": "EQUITY_INDEX",
+        "predicted": "EQUITY_INDEX",
+        "record_id": "record_delta_01",
+        "scores": {
+          "EQUITY_INDEX": 0.9217568864025635,
+          "FX_MAJOR": 0.8691603859202215,
+          "PRECIOUS_METAL": 0.8515854900887471
+        }
+      },
+      {
+        "actual": "PRECIOUS_METAL",
+        "predicted": "PRECIOUS_METAL",
+        "record_id": "record_delta_02",
+        "scores": {
+          "EQUITY_INDEX": 0.8572933907640777,
+          "FX_MAJOR": 0.9097145785914738,
+          "PRECIOUS_METAL": 0.9682841772640263
+        }
+      },
+      {
+        "actual": "FX_MAJOR",
+        "predicted": "FX_MAJOR",
+        "record_id": "record_delta_03",
+        "scores": {
+          "EQUITY_INDEX": 0.9170907565202189,
+          "FX_MAJOR": 0.9812890644651587,
+          "PRECIOUS_METAL": 0.9179605583684672
+        }
+      },
+      {
+        "actual": "EQUITY_INDEX",
+        "predicted": "EQUITY_INDEX",
+        "record_id": "record_epsilon_00",
+        "scores": {
+          "EQUITY_INDEX": 0.8917022010624683,
+          "FX_MAJOR": 0.836744253177461,
+          "PRECIOUS_METAL": 0.7953020421972299
+        }
+      },
+      {
+        "actual": "PRECIOUS_METAL",
+        "predicted": "PRECIOUS_METAL",
+        "record_id": "record_epsilon_01",
+        "scores": {
+          "EQUITY_INDEX": 0.8966077651024035,
+          "FX_MAJOR": 0.947337411092591,
+          "PRECIOUS_METAL": 0.9558385230658762
+        }
+      },
+      {
+        "actual": "FX_MAJOR",
+        "predicted": "FX_MAJOR",
+        "record_id": "record_epsilon_02",
+        "scores": {
+          "EQUITY_INDEX": 0.9136992412559316,
+          "FX_MAJOR": 0.9542864746875483,
+          "PRECIOUS_METAL": 0.8935861073209179
+        }
+      },
+      {
+        "actual": "EQUITY_INDEX",
+        "predicted": "EQUITY_INDEX",
+        "record_id": "record_epsilon_03",
+        "scores": {
+          "EQUITY_INDEX": 0.969634338288577,
+          "FX_MAJOR": 0.9455811339809085,
+          "PRECIOUS_METAL": 0.9197554929026587
+        }
+      }
+    ],
+    "train_count": 12
+  },
+  "phase": "SAED_V4_11",
+  "random_label_probe": {
+    "accuracy": 0.75,
+    "admission_effect": "diagnostic_only",
+    "chance_reference": 0.5,
+    "evaluation_count": 8,
+    "random_labels": true
+  },
+  "temporal_retrieval": {
+    "eligible": 15,
+    "hits": 0,
+    "k": 2,
+    "recall_at_k": 0.0
+  }
+}

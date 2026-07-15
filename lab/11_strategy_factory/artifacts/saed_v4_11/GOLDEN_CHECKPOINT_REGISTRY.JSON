@@ -1,0 +1,25 @@
+{
+  "admitted_count": 1,
+  "baseline_preserved": true,
+  "entries": [
+    {
+      "checkpoint_hash": "aab287ba676dacc6cba84a8671f853a71c721d6f1a5997fd264e0f80cf801e6a",
+      "checkpoint_id": "encoderckpt_4fcfb52d3410bbedce23761e",
+      "contamination_audit_hash": "f6db40d5da7795dd57bdb3af86511c4afaf5a00e018398c93e650a0e287546ad",
+      "control_comparison_hash": "affafe34b19bdd8608ae604afda98f52f4eb15ddc43148a51477a9f56da7c5b0",
+      "dossier_hash": "5f001b01531fadaeb367b7f4ddb5f7dd6757ead33722de5d0a676ac96ecdd163",
+      "evidence_scope": "synthetic_reference",
+      "membership_audit_hash": "562c021e0a071f12fdf9ae200a76f075b602ce49b42a52dc2e88dd4fd469a643",
+      "promotion_authority": false,
+      "reasons": [],
+      "runtime_authority": false,
+      "status": "admitted_reference_synthetic"
+    }
+  ],
+  "entry_count": 1,
+  "immutable": true,
+  "phase": "SAED_V4_11",
+  "registry_hash": "844d91a09d044b254ec918d6519f2ba35980d0dd42d91f1e2f4264c15704f414",
+  "registry_id": "checkpointregistry_05825044bd218f241aac37db",
+  "rejected_count": 0
+}

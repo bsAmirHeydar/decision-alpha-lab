@@ -1,0 +1,79 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/corpus_membership.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "entries": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "context_id": {
+            "type": "string"
+          },
+          "domain_id": {
+            "type": "string"
+          },
+          "event_time": {
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+            "type": "string"
+          },
+          "evidence_role": {
+            "type": "string"
+          },
+          "known_time": {
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+            "type": "string"
+          },
+          "record_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "record_id": {
+            "type": "string"
+          },
+          "root_context_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "context_id",
+          "domain_id",
+          "event_time",
+          "evidence_role",
+          "known_time",
+          "record_hash",
+          "record_id",
+          "root_context_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "future_suffix_allowed": {
+      "type": "boolean"
+    },
+    "membership_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "membership_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "record_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "entries",
+    "future_suffix_allowed",
+    "membership_hash",
+    "membership_id",
+    "phase",
+    "record_count"
+  ],
+  "title": "Corpus Membership",
+  "type": "object"
+}

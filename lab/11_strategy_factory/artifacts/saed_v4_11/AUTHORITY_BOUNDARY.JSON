@@ -1,0 +1,29 @@
+{
+  "authority": "reference_synthetic_only",
+  "boundary_hash": "a3418ef3415466ea5f860bb41ed9616bbcd90dafd8e2ad249ba7f4f5793dfd7f",
+  "boundary_id": "authorityboundary_c511857ab75db30cb8a54919",
+  "capabilities": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "build_role_safe_corpus": true,
+    "emit_v4_12_reference_handoff": true,
+    "evaluate_representation_offline": true,
+    "predict_outcomes": false,
+    "rank_treatments": false,
+    "read_frozen_v4_10_handoff": true,
+    "register_research_checkpoint": true,
+    "select_treatment": false,
+    "send_order": false,
+    "tokenize_known_time_inputs": true,
+    "train_production_model": false,
+    "train_reference_synthetic_encoder": true,
+    "use_execution_twin_as_input": false,
+    "use_outcome_cube_as_input": false,
+    "use_prospective_shadow_live": false,
+    "use_protected_final": false
+  },
+  "execution_authority": false,
+  "fail_closed": true,
+  "phase": "SAED_V4_11",
+  "runtime_authority": false
+}

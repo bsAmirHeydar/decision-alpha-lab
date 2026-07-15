@@ -1,0 +1,121 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/authority_boundary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "type": "string"
+    },
+    "boundary_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "boundary_id": {
+      "type": "string"
+    },
+    "capabilities": {
+      "additionalProperties": false,
+      "properties": {
+        "activate_runtime": {
+          "type": "boolean"
+        },
+        "allocate_risk": {
+          "type": "boolean"
+        },
+        "build_role_safe_corpus": {
+          "type": "boolean"
+        },
+        "emit_v4_12_reference_handoff": {
+          "type": "boolean"
+        },
+        "evaluate_representation_offline": {
+          "type": "boolean"
+        },
+        "predict_outcomes": {
+          "type": "boolean"
+        },
+        "rank_treatments": {
+          "type": "boolean"
+        },
+        "read_frozen_v4_10_handoff": {
+          "type": "boolean"
+        },
+        "register_research_checkpoint": {
+          "type": "boolean"
+        },
+        "select_treatment": {
+          "type": "boolean"
+        },
+        "send_order": {
+          "type": "boolean"
+        },
+        "tokenize_known_time_inputs": {
+          "type": "boolean"
+        },
+        "train_production_model": {
+          "type": "boolean"
+        },
+        "train_reference_synthetic_encoder": {
+          "type": "boolean"
+        },
+        "use_execution_twin_as_input": {
+          "type": "boolean"
+        },
+        "use_outcome_cube_as_input": {
+          "type": "boolean"
+        },
+        "use_prospective_shadow_live": {
+          "type": "boolean"
+        },
+        "use_protected_final": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "activate_runtime",
+        "allocate_risk",
+        "build_role_safe_corpus",
+        "emit_v4_12_reference_handoff",
+        "evaluate_representation_offline",
+        "predict_outcomes",
+        "rank_treatments",
+        "read_frozen_v4_10_handoff",
+        "register_research_checkpoint",
+        "select_treatment",
+        "send_order",
+        "tokenize_known_time_inputs",
+        "train_production_model",
+        "train_reference_synthetic_encoder",
+        "use_execution_twin_as_input",
+        "use_outcome_cube_as_input",
+        "use_prospective_shadow_live",
+        "use_protected_final"
+      ],
+      "type": "object"
+    },
+    "execution_authority": {
+      "type": "boolean"
+    },
+    "fail_closed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "runtime_authority": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "authority",
+    "boundary_hash",
+    "boundary_id",
+    "capabilities",
+    "execution_authority",
+    "fail_closed",
+    "phase",
+    "runtime_authority"
+  ],
+  "title": "Authority Boundary",
+  "type": "object"
+}

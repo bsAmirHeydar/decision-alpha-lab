@@ -1,0 +1,73 @@
+{
+  "claims": [
+    {
+      "basis": "schemas and validators",
+      "claim": "closed_contracts",
+      "supported": true
+    },
+    {
+      "basis": "golden replay",
+      "claim": "deterministic_reference_pretraining",
+      "supported": true
+    },
+    {
+      "basis": "synthetic reference checkpoint",
+      "claim": "learned_reference_representation",
+      "supported": true
+    },
+    {
+      "basis": "contamination and split audits",
+      "claim": "role_safe_corpus",
+      "supported": true
+    },
+    {
+      "basis": "forbidden by phase boundary",
+      "claim": "outcome_supervision",
+      "supported": false
+    },
+    {
+      "basis": "no external corpus evidence",
+      "claim": "real_corpus_training",
+      "supported": false
+    },
+    {
+      "basis": "reference implementation only",
+      "claim": "distributed_training",
+      "supported": false
+    },
+    {
+      "basis": "not measured or claimed",
+      "claim": "real_alpha",
+      "supported": false
+    },
+    {
+      "basis": "forbidden authority",
+      "claim": "treatment_ranking",
+      "supported": false
+    },
+    {
+      "basis": "forbidden authority",
+      "claim": "treatment_selection",
+      "supported": false
+    },
+    {
+      "basis": "not a runtime phase",
+      "claim": "runtime_parity",
+      "supported": false
+    },
+    {
+      "basis": "requires later qualification",
+      "claim": "production_authorization",
+      "supported": false
+    },
+    {
+      "basis": "forbidden authority",
+      "claim": "live_trading",
+      "supported": false
+    }
+  ],
+  "ledger_hash": "7846f2796b904c304246d9b6f721a9d663479398a4afe568c2f61a0f841bed68",
+  "ledger_id": "claimledger_e4618648eecf37b0751b0b8c",
+  "phase": "SAED_V4_11",
+  "synthetic_reference_only": true
+}

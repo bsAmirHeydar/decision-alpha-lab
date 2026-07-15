@@ -1,0 +1,822 @@
+{
+  "cases": [
+    {
+      "case_id": "valid_upstream_manifest",
+      "expected_valid": true,
+      "kind": "upstream_manifest",
+      "payload": {
+        "execution_authority": false,
+        "forbidden_objectives": [
+          "outcome_prediction",
+          "treatment_ranking",
+          "policy_value",
+          "live_fill_prediction"
+        ],
+        "future_suffix_allowed": false,
+        "included_artifacts": [
+          {
+            "artifact_class": "multimodal_view_package",
+            "artifact_hash": "f2f93f882badf60347cf7576bf207938e484d13604b202ec0b095aca17a97fc8",
+            "artifact_id": "viewpkg_d1b1bacaedb23935d8710739",
+            "known_as_of": "2026-01-05T14:30:01Z",
+            "role": "self_supervised_input"
+          },
+          {
+            "artifact_class": "semantic_temporal_hypergraph",
+            "artifact_hash": "f1e4e5c60b9146161a6f5db9d82bb9ef53e9d0045e772562136451b7897b011a",
+            "artifact_id": "sthypergraph_dc8e94b87be99ebc734b4f19",
+            "known_as_of": "2026-01-05T14:30:01Z",
+            "role": "self_supervised_structure"
+          },
+          {
+            "artifact_class": "action_lattice_descriptors",
+            "artifact_hash": "36064af68c599c537eb794c7c03fd4be36d754131d3a0f99871131aff1a4a935",
+            "artifact_id": "actionlattice_528364e6e465e466be5577f4",
+            "known_as_of": null,
+            "role": "descriptor_vocabulary_only"
+          }
+        ],
+        "label_semantics": "none",
+        "manifest_hash": "22a1cc435d62bdfe96b662036d00e71ce4ef00365f2c7074a7fbf0471f06d68f",
+        "manifest_id": "pretraincorpus_233b419fc86b48466c11376d",
+        "masked_objective_boundary": [
+          "feature_value_masking",
+          "view_presence_prediction",
+          "temporal_order_consistency",
+          "graph_relation_reconstruction"
+        ],
+        "phase": "SAED_V4_10",
+        "prohibited_input_artifact_classes": [
+          "outcome_cube",
+          "execution_twin",
+          "benchmark_result",
+          "protected_final",
+          "prospective",
+          "shadow",
+          "live"
+        ],
+        "selection_authority": false,
+        "self_supervised_only": true,
+        "split_policy": "identity_and_time_partition_required_before_training",
+        "target_phase": "SAED_V4_11",
+        "training_authority": false
+      }
+    },
+    {
+      "case_id": "future_suffix_manifest_rejected",
+      "expected_valid": false,
+      "kind": "upstream_manifest",
+      "payload": {
+        "execution_authority": false,
+        "forbidden_objectives": [
+          "outcome_prediction",
+          "treatment_ranking",
+          "policy_value",
+          "live_fill_prediction"
+        ],
+        "future_suffix_allowed": true,
+        "included_artifacts": [
+          {
+            "artifact_class": "multimodal_view_package",
+            "artifact_hash": "f2f93f882badf60347cf7576bf207938e484d13604b202ec0b095aca17a97fc8",
+            "artifact_id": "viewpkg_d1b1bacaedb23935d8710739",
+            "known_as_of": "2026-01-05T14:30:01Z",
+            "role": "self_supervised_input"
+          },
+          {
+            "artifact_class": "semantic_temporal_hypergraph",
+            "artifact_hash": "f1e4e5c60b9146161a6f5db9d82bb9ef53e9d0045e772562136451b7897b011a",
+            "artifact_id": "sthypergraph_dc8e94b87be99ebc734b4f19",
+            "known_as_of": "2026-01-05T14:30:01Z",
+            "role": "self_supervised_structure"
+          },
+          {
+            "artifact_class": "action_lattice_descriptors",
+            "artifact_hash": "36064af68c599c537eb794c7c03fd4be36d754131d3a0f99871131aff1a4a935",
+            "artifact_id": "actionlattice_528364e6e465e466be5577f4",
+            "known_as_of": null,
+            "role": "descriptor_vocabulary_only"
+          }
+        ],
+        "label_semantics": "none",
+        "manifest_hash": "22a1cc435d62bdfe96b662036d00e71ce4ef00365f2c7074a7fbf0471f06d68f",
+        "manifest_id": "pretraincorpus_233b419fc86b48466c11376d",
+        "masked_objective_boundary": [
+          "feature_value_masking",
+          "view_presence_prediction",
+          "temporal_order_consistency",
+          "graph_relation_reconstruction"
+        ],
+        "phase": "SAED_V4_10",
+        "prohibited_input_artifact_classes": [
+          "outcome_cube",
+          "execution_twin",
+          "benchmark_result",
+          "protected_final",
+          "prospective",
+          "shadow",
+          "live"
+        ],
+        "selection_authority": false,
+        "self_supervised_only": true,
+        "split_policy": "identity_and_time_partition_required_before_training",
+        "target_phase": "SAED_V4_11",
+        "training_authority": false
+      }
+    },
+    {
+      "case_id": "valid_records",
+      "expected_valid": true,
+      "kind": "records",
+      "payload": [
+        {
+          "context_id": "ctx_alpha_00",
+          "descriptor_tokens": [
+            "entry_limit",
+            "stop_structural",
+            "target_reward_2",
+            "management_none",
+            "abstain"
+          ],
+          "domain_id": "FX_MAJOR",
+          "event_time": "2026-01-05T14:30:00Z",
+          "evidence_role": "training",
+          "graph_relations": [
+            "context_composition",
+            "cross_view_alignment",
+            "temporal_precedence",
+            "regime_low",
+            "transition_down"
+          ],
+          "known_time": "2026-01-05T14:30:01Z",
+          "parent_context_id": null,
+          "record_id": "record_alpha_00",
+          "root_context_id": "root_alpha",
+          "source_hashes": [
+            "cb16c9bfbf6183fca5e45aa307b3dab475788f66ea0c323f4f1c653d31fa8b7b",
+            "873c4ac73dfc195915d179fa9e25b6556a64306b49cc92733f268bc871a005c2",
+            "ffe1c4636489e62c1b19b7746d3244aa580f93e3f806747efc0b3b604e8dc3a4"
+          ],
+          "synthetic": true,
+          "views": {
+            "context_ancestry_view": {
+              "context_family": "F1",
+              "generation_depth": 0
+            },
+            "execution_view": {
+              "spread_bucket": "normal",
+              "venue_state": "available"
+            },
+            "higher_timeframe_view": {
+              "alignment": "down",
+              "compression": false
+            },
+            "intermarket_view": {
+              "agreement": "aligned",
+              "lead_lag_bucket": 0
+            },
+            "liquidity_view": {
+              "depth_bucket": "thin",
+              "sweep_state": "absent"
+            },
+            "price_view": {
+              "range_position": 0.2,
+              "return_bucket": "down",
+              "volatility_bucket": "low"
+            },
+            "session_view": {
+              "opening_window": true,
+              "session": "london"
+            },
+            "structure_view": {
+              "break_state": "none",
+              "swing_count": 2,
+              "trend_state": "down"
+            },
+            "time_view": {
+              "minute_bucket": 3,
+              "session": "london",
+              "weekday": "monday"
+            },
+            "treatment_descriptor_view": {
+              "contains_abstain": true,
+              "descriptor_count": 3
+            }
+          }
+        },
+        {
+          "context_id": "ctx_alpha_01",
+          "descriptor_tokens": [
+            "entry_limit",
+            "stop_structural",
+            "target_reward_3",
+            "management_none",
+            "abstain"
+          ],
+          "domain_id": "EQUITY_INDEX",
+          "event_time": "2026-01-05T14:40:00Z",
+          "evidence_role": "training",
+          "graph_relations": [
+            "context_composition",
+            "cross_view_alignment",
+            "temporal_precedence",
+            "regime_medium",
+            "transition_balanced"
+          ],
+          "known_time": "2026-01-05T14:40:01Z",
+          "parent_context_id": "ctx_alpha_00",
+          "record_id": "record_alpha_01",
+          "root_context_id": "root_alpha",
+          "source_hashes": [
+            "4effc18608cf4d7d56eab62673e3bb53984a8d76203693a959d491bc2a659399",
+            "c5c04bdcc03c2a06369706ef6b9284a8e961fb7cd02ca840694d0586e8eb2e86",
+            "2a75b45e42d5e9165d3706198675a7818804510003a5c213c400411d44f55400"
+          ],
+          "synthetic": true,
+          "views": {
+            "context_ancestry_view": {
+              "context_family": "F1",
+              "generation_depth": 1
+            },
+            "execution_view": {
+              "spread_bucket": "normal",
+              "venue_state": "available"
+            },
+            "higher_timeframe_view": {
+              "alignment": "balanced",
+              "compression": true
+            },
+            "intermarket_view": {
+              "agreement": "mixed",
+              "lead_lag_bucket": 1
+            },
+            "liquidity_view": {
+              "depth_bucket": "deep",
+              "sweep_state": "absent"
+            },
+            "price_view": {
+              "range_position": 0.4,
+              "return_bucket": "balanced",
+              "volatility_bucket": "medium"
+            },
+            "session_view": {
+              "opening_window": false,
+              "session": "new_york"
+            },
+            "structure_view": {
+              "break_state": "confirmed",
+              "swing_count": 3,
+              "trend_state": "balanced"
+            },
+            "time_view": {
+              "minute_bucket": 4,
+              "session": "new_york",
+              "weekday": "monday"
+            },
+            "treatment_descriptor_view": {
+              "contains_abstain": true,
+              "descriptor_count": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "outcome_token_record_rejected",
+      "expected_valid": false,
+      "kind": "records",
+      "payload": [
+        {
+          "context_id": "ctx_alpha_00",
+          "descriptor_tokens": [
+            "entry_limit",
+            "stop_structural",
+            "target_reward_2",
+            "management_none",
+            "abstain"
+          ],
+          "domain_id": "FX_MAJOR",
+          "event_time": "2026-01-05T14:30:00Z",
+          "evidence_role": "training",
+          "graph_relations": [
+            "context_composition",
+            "cross_view_alignment",
+            "temporal_precedence",
+            "regime_low",
+            "transition_down"
+          ],
+          "known_time": "2026-01-05T14:30:01Z",
+          "parent_context_id": null,
+          "record_id": "record_alpha_00",
+          "root_context_id": "root_alpha",
+          "source_hashes": [
+            "cb16c9bfbf6183fca5e45aa307b3dab475788f66ea0c323f4f1c653d31fa8b7b",
+            "873c4ac73dfc195915d179fa9e25b6556a64306b49cc92733f268bc871a005c2",
+            "ffe1c4636489e62c1b19b7746d3244aa580f93e3f806747efc0b3b604e8dc3a4"
+          ],
+          "synthetic": true,
+          "views": {
+            "context_ancestry_view": {
+              "context_family": "F1",
+              "generation_depth": 0
+            },
+            "execution_view": {
+              "spread_bucket": "normal",
+              "venue_state": "available"
+            },
+            "higher_timeframe_view": {
+              "alignment": "down",
+              "compression": false
+            },
+            "intermarket_view": {
+              "agreement": "aligned",
+              "lead_lag_bucket": 0
+            },
+            "liquidity_view": {
+              "depth_bucket": "thin",
+              "sweep_state": "absent"
+            },
+            "price_view": {
+              "outcome_cube_hint": "forbidden",
+              "range_position": 0.2,
+              "return_bucket": "down",
+              "volatility_bucket": "low"
+            },
+            "session_view": {
+              "opening_window": true,
+              "session": "london"
+            },
+            "structure_view": {
+              "break_state": "none",
+              "swing_count": 2,
+              "trend_state": "down"
+            },
+            "time_view": {
+              "minute_bucket": 3,
+              "session": "london",
+              "weekday": "monday"
+            },
+            "treatment_descriptor_view": {
+              "contains_abstain": true,
+              "descriptor_count": 3
+            }
+          }
+        },
+        {
+          "context_id": "ctx_alpha_01",
+          "descriptor_tokens": [
+            "entry_limit",
+            "stop_structural",
+            "target_reward_3",
+            "management_none",
+            "abstain"
+          ],
+          "domain_id": "EQUITY_INDEX",
+          "event_time": "2026-01-05T14:40:00Z",
+          "evidence_role": "training",
+          "graph_relations": [
+            "context_composition",
+            "cross_view_alignment",
+            "temporal_precedence",
+            "regime_medium",
+            "transition_balanced"
+          ],
+          "known_time": "2026-01-05T14:40:01Z",
+          "parent_context_id": "ctx_alpha_00",
+          "record_id": "record_alpha_01",
+          "root_context_id": "root_alpha",
+          "source_hashes": [
+            "4effc18608cf4d7d56eab62673e3bb53984a8d76203693a959d491bc2a659399",
+            "c5c04bdcc03c2a06369706ef6b9284a8e961fb7cd02ca840694d0586e8eb2e86",
+            "2a75b45e42d5e9165d3706198675a7818804510003a5c213c400411d44f55400"
+          ],
+          "synthetic": true,
+          "views": {
+            "context_ancestry_view": {
+              "context_family": "F1",
+              "generation_depth": 1
+            },
+            "execution_view": {
+              "spread_bucket": "normal",
+              "venue_state": "available"
+            },
+            "higher_timeframe_view": {
+              "alignment": "balanced",
+              "compression": true
+            },
+            "intermarket_view": {
+              "agreement": "mixed",
+              "lead_lag_bucket": 1
+            },
+            "liquidity_view": {
+              "depth_bucket": "deep",
+              "sweep_state": "absent"
+            },
+            "price_view": {
+              "range_position": 0.4,
+              "return_bucket": "balanced",
+              "volatility_bucket": "medium"
+            },
+            "session_view": {
+              "opening_window": false,
+              "session": "new_york"
+            },
+            "structure_view": {
+              "break_state": "confirmed",
+              "swing_count": 3,
+              "trend_state": "balanced"
+            },
+            "time_view": {
+              "minute_bucket": 4,
+              "session": "new_york",
+              "weekday": "monday"
+            },
+            "treatment_descriptor_view": {
+              "contains_abstain": true,
+              "descriptor_count": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case_id": "valid_training_config",
+      "expected_valid": true,
+      "kind": "training_config",
+      "payload": {
+        "curriculum": [
+          {
+            "epochs": 2,
+            "max_pairs_per_record": 14,
+            "objective_ids": [
+              "obj_masked",
+              "obj_cross_view",
+              "obj_missing"
+            ],
+            "stage_id": "stage_local_semantics"
+          },
+          {
+            "epochs": 2,
+            "max_pairs_per_record": 14,
+            "objective_ids": [
+              "obj_graph",
+              "obj_cross_view",
+              "obj_masked"
+            ],
+            "stage_id": "stage_graph_structure"
+          },
+          {
+            "epochs": 2,
+            "max_pairs_per_record": 12,
+            "objective_ids": [
+              "obj_next",
+              "obj_temporal",
+              "obj_transition",
+              "obj_masked"
+            ],
+            "stage_id": "stage_temporal_context"
+          }
+        ],
+        "deterministic": true,
+        "embedding_dim": 12,
+        "exact_version": "1.0.0",
+        "learning_rate": 0.035,
+        "max_total_pairs": 1200,
+        "negative_samples": 3,
+        "objectives": [
+          {
+            "enabled": true,
+            "objective_id": "obj_masked",
+            "objective_kind": "masked_span",
+            "weight": 1.0
+          },
+          {
+            "enabled": true,
+            "objective_id": "obj_cross_view",
+            "objective_kind": "cross_view_alignment",
+            "weight": 0.8
+          },
+          {
+            "enabled": true,
+            "objective_id": "obj_graph",
+            "objective_kind": "graph_relation_reconstruction",
+            "weight": 0.7
+          },
+          {
+            "enabled": true,
+            "objective_id": "obj_missing",
+            "objective_kind": "missingness_reconstruction",
+            "weight": 0.4
+          },
+          {
+            "enabled": true,
+            "objective_id": "obj_next",
+            "objective_kind": "next_event",
+            "weight": 0.9
+          },
+          {
+            "enabled": true,
+            "objective_id": "obj_temporal",
+            "objective_kind": "temporal_contrast",
+            "weight": 0.6
+          },
+          {
+            "enabled": true,
+            "objective_id": "obj_transition",
+            "objective_kind": "context_transition",
+            "weight": 0.6
+          }
+        ],
+        "seed": 4112026
+      }
+    },
+    {
+      "case_id": "nondeterministic_config_rejected",
+      "expected_valid": false,
+      "kind": "training_config",
+      "payload": {
+        "curriculum": [
+          {
+            "epochs": 2,
+            "max_pairs_per_record": 14,
+            "objective_ids": [
+              "obj_masked",
+              "obj_cross_view",
+              "obj_missing"
+            ],
+            "stage_id": "stage_local_semantics"
+          },
+          {
+            "epochs": 2,
+            "max_pairs_per_record": 14,
+            "objective_ids": [
+              "obj_graph",
+              "obj_cross_view",
+              "obj_masked"
+            ],
+            "stage_id": "stage_graph_structure"
+          },
+          {
+            "epochs": 2,
+            "max_pairs_per_record": 12,
+            "objective_ids": [
+              "obj_next",
+              "obj_temporal",
+              "obj_transition",
+              "obj_masked"
+            ],
+            "stage_id": "stage_temporal_context"
+          }
+        ],
+        "deterministic": false,
+        "embedding_dim": 12,
+        "exact_version": "1.0.0",
+        "learning_rate": 0.035,
+        "max_total_pairs": 1200,
+        "negative_samples": 3,
+        "objectives": [
+          {
+            "enabled": true,
+            "objective_id": "obj_masked",
+            "objective_kind": "masked_span",
+            "weight": 1.0
+          },
+          {
+            "enabled": true,
+            "objective_id": "obj_cross_view",
+            "objective_kind": "cross_view_alignment",
+            "weight": 0.8
+          },
+          {
+            "enabled": true,
+            "objective_id": "obj_graph",
+            "objective_kind": "graph_relation_reconstruction",
+            "weight": 0.7
+          },
+          {
+            "enabled": true,
+            "objective_id": "obj_missing",
+            "objective_kind": "missingness_reconstruction",
+            "weight": 0.4
+          },
+          {
+            "enabled": true,
+            "objective_id": "obj_next",
+            "objective_kind": "next_event",
+            "weight": 0.9
+          },
+          {
+            "enabled": true,
+            "objective_id": "obj_temporal",
+            "objective_kind": "temporal_contrast",
+            "weight": 0.6
+          },
+          {
+            "enabled": true,
+            "objective_id": "obj_transition",
+            "objective_kind": "context_transition",
+            "weight": 0.6
+          }
+        ],
+        "seed": 4112026
+      }
+    },
+    {
+      "case_id": "valid_handoff",
+      "companion": {
+        "execution_authority": false,
+        "forbidden_objectives": [
+          "outcome_prediction",
+          "treatment_ranking",
+          "policy_value",
+          "live_fill_prediction"
+        ],
+        "future_suffix_allowed": false,
+        "included_artifacts": [
+          {
+            "artifact_class": "multimodal_view_package",
+            "artifact_hash": "f2f93f882badf60347cf7576bf207938e484d13604b202ec0b095aca17a97fc8",
+            "artifact_id": "viewpkg_d1b1bacaedb23935d8710739",
+            "known_as_of": "2026-01-05T14:30:01Z",
+            "role": "self_supervised_input"
+          },
+          {
+            "artifact_class": "semantic_temporal_hypergraph",
+            "artifact_hash": "f1e4e5c60b9146161a6f5db9d82bb9ef53e9d0045e772562136451b7897b011a",
+            "artifact_id": "sthypergraph_dc8e94b87be99ebc734b4f19",
+            "known_as_of": "2026-01-05T14:30:01Z",
+            "role": "self_supervised_structure"
+          },
+          {
+            "artifact_class": "action_lattice_descriptors",
+            "artifact_hash": "36064af68c599c537eb794c7c03fd4be36d754131d3a0f99871131aff1a4a935",
+            "artifact_id": "actionlattice_528364e6e465e466be5577f4",
+            "known_as_of": null,
+            "role": "descriptor_vocabulary_only"
+          }
+        ],
+        "label_semantics": "none",
+        "manifest_hash": "22a1cc435d62bdfe96b662036d00e71ce4ef00365f2c7074a7fbf0471f06d68f",
+        "manifest_id": "pretraincorpus_233b419fc86b48466c11376d",
+        "masked_objective_boundary": [
+          "feature_value_masking",
+          "view_presence_prediction",
+          "temporal_order_consistency",
+          "graph_relation_reconstruction"
+        ],
+        "phase": "SAED_V4_10",
+        "prohibited_input_artifact_classes": [
+          "outcome_cube",
+          "execution_twin",
+          "benchmark_result",
+          "protected_final",
+          "prospective",
+          "shadow",
+          "live"
+        ],
+        "selection_authority": false,
+        "self_supervised_only": true,
+        "split_policy": "identity_and_time_partition_required_before_training",
+        "target_phase": "SAED_V4_11",
+        "training_authority": false
+      },
+      "expected_valid": true,
+      "kind": "handoff",
+      "payload": {
+        "authority": {
+          "activate_runtime": false,
+          "allocate_risk": false,
+          "build_self_supervised_pretraining_reference": true,
+          "rank_treatments": false,
+          "read_frozen_baselines": true,
+          "read_frozen_pretraining_corpus": true,
+          "select_treatment": false,
+          "send_order": false,
+          "use_outcomes_as_pretraining_inputs": false
+        },
+        "baseline_registry_hash": "88522688bb643b1ae8e4376f90beaf58fd023cbb230f00886a832ac3b7b6c1f6",
+        "baseline_registry_id": "baselineregistry_f42de7ffd9914b8876b97c02",
+        "benchmark_hash": "6cb178499f1cd4bc2c58edc287b30054a3460b3fd3867d9906c2bae0dc110159",
+        "entry_gates": {
+          "baseline_frozen": true,
+          "future_suffix_forbidden": true,
+          "manual_program_replayable": true,
+          "outcomes_excluded_from_pretraining_inputs": true,
+          "self_supervised_corpus_boundary_frozen": true,
+          "training_authority_granted": false
+        },
+        "handoff_hash": "37dd4ae64cfb8f9dc43464798a8c93fdd5b166287ec190dca757319ab8a66d01",
+        "handoff_id": "v410to11_59eb77a154bf16f2fbaf19b2",
+        "integrity_receipt_hash": "bb300647e267f5be22ac45127cfc71c6d8545195a5fa0842fad9fa0b40832626",
+        "limitations": [
+          "V4-11 must not mutate V4-10 baseline identities.",
+          "Outcome cube and execution twin are excluded from self-supervised encoder inputs.",
+          "Any future supervised or decision objective requires a later explicit phase and evidence-role gate."
+        ],
+        "next_phase": "SAED_V4_11",
+        "phase": "SAED_V4_10",
+        "pretraining_corpus_manifest_hash": "22a1cc435d62bdfe96b662036d00e71ce4ef00365f2c7074a7fbf0471f06d68f",
+        "pretraining_corpus_manifest_id": "pretraincorpus_233b419fc86b48466c11376d"
+      }
+    },
+    {
+      "case_id": "hash_mismatch_handoff_rejected",
+      "companion": {
+        "execution_authority": false,
+        "forbidden_objectives": [
+          "outcome_prediction",
+          "treatment_ranking",
+          "policy_value",
+          "live_fill_prediction"
+        ],
+        "future_suffix_allowed": false,
+        "included_artifacts": [
+          {
+            "artifact_class": "multimodal_view_package",
+            "artifact_hash": "f2f93f882badf60347cf7576bf207938e484d13604b202ec0b095aca17a97fc8",
+            "artifact_id": "viewpkg_d1b1bacaedb23935d8710739",
+            "known_as_of": "2026-01-05T14:30:01Z",
+            "role": "self_supervised_input"
+          },
+          {
+            "artifact_class": "semantic_temporal_hypergraph",
+            "artifact_hash": "f1e4e5c60b9146161a6f5db9d82bb9ef53e9d0045e772562136451b7897b011a",
+            "artifact_id": "sthypergraph_dc8e94b87be99ebc734b4f19",
+            "known_as_of": "2026-01-05T14:30:01Z",
+            "role": "self_supervised_structure"
+          },
+          {
+            "artifact_class": "action_lattice_descriptors",
+            "artifact_hash": "36064af68c599c537eb794c7c03fd4be36d754131d3a0f99871131aff1a4a935",
+            "artifact_id": "actionlattice_528364e6e465e466be5577f4",
+            "known_as_of": null,
+            "role": "descriptor_vocabulary_only"
+          }
+        ],
+        "label_semantics": "none",
+        "manifest_hash": "22a1cc435d62bdfe96b662036d00e71ce4ef00365f2c7074a7fbf0471f06d68f",
+        "manifest_id": "pretraincorpus_233b419fc86b48466c11376d",
+        "masked_objective_boundary": [
+          "feature_value_masking",
+          "view_presence_prediction",
+          "temporal_order_consistency",
+          "graph_relation_reconstruction"
+        ],
+        "phase": "SAED_V4_10",
+        "prohibited_input_artifact_classes": [
+          "outcome_cube",
+          "execution_twin",
+          "benchmark_result",
+          "protected_final",
+          "prospective",
+          "shadow",
+          "live"
+        ],
+        "selection_authority": false,
+        "self_supervised_only": true,
+        "split_policy": "identity_and_time_partition_required_before_training",
+        "target_phase": "SAED_V4_11",
+        "training_authority": false
+      },
+      "expected_valid": false,
+      "kind": "handoff",
+      "payload": {
+        "authority": {
+          "activate_runtime": false,
+          "allocate_risk": false,
+          "build_self_supervised_pretraining_reference": true,
+          "rank_treatments": false,
+          "read_frozen_baselines": true,
+          "read_frozen_pretraining_corpus": true,
+          "select_treatment": false,
+          "send_order": false,
+          "use_outcomes_as_pretraining_inputs": false
+        },
+        "baseline_registry_hash": "88522688bb643b1ae8e4376f90beaf58fd023cbb230f00886a832ac3b7b6c1f6",
+        "baseline_registry_id": "baselineregistry_f42de7ffd9914b8876b97c02",
+        "benchmark_hash": "6cb178499f1cd4bc2c58edc287b30054a3460b3fd3867d9906c2bae0dc110159",
+        "entry_gates": {
+          "baseline_frozen": true,
+          "future_suffix_forbidden": true,
+          "manual_program_replayable": true,
+          "outcomes_excluded_from_pretraining_inputs": true,
+          "self_supervised_corpus_boundary_frozen": true,
+          "training_authority_granted": false
+        },
+        "handoff_hash": "37dd4ae64cfb8f9dc43464798a8c93fdd5b166287ec190dca757319ab8a66d01",
+        "handoff_id": "v410to11_59eb77a154bf16f2fbaf19b2",
+        "integrity_receipt_hash": "bb300647e267f5be22ac45127cfc71c6d8545195a5fa0842fad9fa0b40832626",
+        "limitations": [
+          "V4-11 must not mutate V4-10 baseline identities.",
+          "Outcome cube and execution twin are excluded from self-supervised encoder inputs.",
+          "Any future supervised or decision objective requires a later explicit phase and evidence-role gate."
+        ],
+        "next_phase": "SAED_V4_11",
+        "phase": "SAED_V4_10",
+        "pretraining_corpus_manifest_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "pretraining_corpus_manifest_id": "pretraincorpus_233b419fc86b48466c11376d"
+      }
+    }
+  ],
+  "phase": "SAED_V4_11"
+}

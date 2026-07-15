@@ -1,0 +1,12 @@
+{
+  "budget_hash": "4c2bdbb7f871dc42257f4cd463eb2b233a6d3a035939175ad1df3dd449da7866",
+  "budget_id": "computebudget_f0f1b757d20019b1ea2b6d11",
+  "budget_scope": "reference_synthetic",
+  "external_network_allowed": false,
+  "gpu_required": false,
+  "max_embedding_dimension": 12,
+  "max_epochs": 6,
+  "max_training_pairs": 1200,
+  "max_wall_seconds": 30.0,
+  "phase": "SAED_V4_11"
+}

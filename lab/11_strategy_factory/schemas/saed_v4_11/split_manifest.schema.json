@@ -1,0 +1,160 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/split_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assignments": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "context_id": {
+            "type": "string"
+          },
+          "event_time": {
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+            "type": "string"
+          },
+          "known_time": {
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+            "type": "string"
+          },
+          "record_id": {
+            "type": "string"
+          },
+          "root_context_id": {
+            "type": "string"
+          },
+          "split": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "context_id",
+          "event_time",
+          "known_time",
+          "record_id",
+          "root_context_id",
+          "split"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "counts": {
+      "additionalProperties": false,
+      "properties": {
+        "quarantine": {
+          "type": "integer"
+        },
+        "test": {
+          "type": "integer"
+        },
+        "train": {
+          "type": "integer"
+        },
+        "validation": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "quarantine",
+        "test",
+        "train",
+        "validation"
+      ],
+      "type": "object"
+    },
+    "future_suffix_allowed": {
+      "type": "boolean"
+    },
+    "identity_disjoint": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "policy": {
+      "additionalProperties": false,
+      "properties": {
+        "descendant_cross_split_allowed": {
+          "type": "boolean"
+        },
+        "future_suffix_allowed": {
+          "type": "boolean"
+        },
+        "quarantine_known_time_max": {
+          "type": "string"
+        },
+        "quarantine_roots": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "test_known_time_max": {
+          "type": "string"
+        },
+        "test_roots": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "train_known_time_max": {
+          "type": "string"
+        },
+        "train_roots": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "validation_known_time_max": {
+          "type": "string"
+        },
+        "validation_roots": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "descendant_cross_split_allowed",
+        "future_suffix_allowed",
+        "quarantine_known_time_max",
+        "quarantine_roots",
+        "test_known_time_max",
+        "test_roots",
+        "train_known_time_max",
+        "train_roots",
+        "validation_known_time_max",
+        "validation_roots"
+      ],
+      "type": "object"
+    },
+    "split_manifest_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "split_manifest_id": {
+      "type": "string"
+    },
+    "time_bounded": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "assignments",
+    "counts",
+    "future_suffix_allowed",
+    "identity_disjoint",
+    "phase",
+    "policy",
+    "split_manifest_hash",
+    "split_manifest_id",
+    "time_bounded"
+  ],
+  "title": "Split Manifest",
+  "type": "object"
+}

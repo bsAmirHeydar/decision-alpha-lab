@@ -1,0 +1,127 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/token_streams.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "phase": {
+      "type": "string"
+    },
+    "stream_count": {
+      "type": "integer"
+    },
+    "streams": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "context_id": {
+            "type": "string"
+          },
+          "domain_id": {
+            "type": "string"
+          },
+          "event_time": {
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+            "type": "string"
+          },
+          "known_time": {
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+            "type": "string"
+          },
+          "record_id": {
+            "type": "string"
+          },
+          "root_context_id": {
+            "type": "string"
+          },
+          "split": {
+            "type": "string"
+          },
+          "token_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "tokens": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "view_masks": {
+            "additionalProperties": false,
+            "properties": {
+              "context_ancestry_view": {
+                "type": "integer"
+              },
+              "execution_view": {
+                "type": "integer"
+              },
+              "higher_timeframe_view": {
+                "type": "integer"
+              },
+              "intermarket_view": {
+                "type": "integer"
+              },
+              "liquidity_view": {
+                "type": "integer"
+              },
+              "price_view": {
+                "type": "integer"
+              },
+              "session_view": {
+                "type": "integer"
+              },
+              "structure_view": {
+                "type": "integer"
+              },
+              "time_view": {
+                "type": "integer"
+              },
+              "treatment_descriptor_view": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "context_ancestry_view",
+              "execution_view",
+              "higher_timeframe_view",
+              "intermarket_view",
+              "liquidity_view",
+              "price_view",
+              "session_view",
+              "structure_view",
+              "time_view",
+              "treatment_descriptor_view"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "context_id",
+          "domain_id",
+          "event_time",
+          "known_time",
+          "record_id",
+          "root_context_id",
+          "split",
+          "token_hash",
+          "tokens",
+          "view_masks"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "streams_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "stream_count",
+    "streams",
+    "streams_hash"
+  ],
+  "title": "Token Streams",
+  "type": "object"
+}

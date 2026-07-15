@@ -1,0 +1,108 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/masking_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "future_suffix_allowed": {
+      "type": "boolean"
+    },
+    "items": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "masked_tokens": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "masking_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "masking_id": {
+            "type": "string"
+          },
+          "positions": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array"
+          },
+          "record_id": {
+            "type": "string"
+          },
+          "seeded": {
+            "type": "boolean"
+          },
+          "source_token_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "targets": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "position": {
+                  "type": "integer"
+                },
+                "token": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "position",
+                "token"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "masked_tokens",
+          "masking_hash",
+          "masking_id",
+          "positions",
+          "record_id",
+          "seeded",
+          "source_token_hash",
+          "targets"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "plan_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "plan_id": {
+      "type": "string"
+    },
+    "ratio": {
+      "type": "number"
+    },
+    "record_count": {
+      "type": "integer"
+    },
+    "seed": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "future_suffix_allowed",
+    "items",
+    "phase",
+    "plan_hash",
+    "plan_id",
+    "ratio",
+    "record_count",
+    "seed"
+  ],
+  "title": "Masking Plan",
+  "type": "object"
+}

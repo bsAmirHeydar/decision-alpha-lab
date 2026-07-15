@@ -1,0 +1,10 @@
+{
+  "change_count": 0,
+  "changes": [],
+  "decision_equivalent": true,
+  "diff_hash": "ab35fd85c8d765b38cc617c844e914f8c61e06bb0d51cc6b137d7fae736299f3",
+  "diff_id": "v411diff_805afef4b4617079ebadf5cc",
+  "left_checkpoint_hash": "aab287ba676dacc6cba84a8671f853a71c721d6f1a5997fd264e0f80cf801e6a",
+  "phase": "SAED_V4_11",
+  "right_checkpoint_hash": "aab287ba676dacc6cba84a8671f853a71c721d6f1a5997fd264e0f80cf801e6a"
+}

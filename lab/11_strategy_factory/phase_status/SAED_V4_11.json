@@ -1,0 +1,35 @@
+{
+  "authority": "reference_synthetic_only",
+  "checkpoint_registry_hash": "844d91a09d044b254ec918d6519f2ba35980d0dd42d91f1e2f4264c15704f414",
+  "claims": {
+    "closed_contracts": true,
+    "deterministic_reference_pretraining": true,
+    "learned_reference_representation": true,
+    "live_trading": false,
+    "outcome_supervision": false,
+    "production_authorization": false,
+    "real_alpha": false,
+    "real_corpus_training": false,
+    "runtime_parity": false,
+    "treatment_ranking": false,
+    "treatment_selection": false
+  },
+  "external_evidence": {
+    "distributed_training": "not_claimed",
+    "live": "not_claimed",
+    "metaeditor_compile": "pending_local_windows",
+    "prospective_paper": "not_claimed",
+    "real_corpus_reproduction": "not_claimed",
+    "shadow": "not_claimed"
+  },
+  "golden_checkpoint_hash": "aab287ba676dacc6cba84a8671f853a71c721d6f1a5997fd264e0f80cf801e6a",
+  "golden_checkpoint_id": "encoderckpt_4fcfb52d3410bbedce23761e",
+  "implementation_status": "implemented_reference_synthetic",
+  "next_phase": "SAED_V4_12",
+  "phase": "SAED_V4_11",
+  "qa_status": "passed_local_reference",
+  "title": "Self-Supervised Context Pretraining",
+  "upstream_phase": "SAED_V4_10",
+  "v4_12_handoff_hash": "52d2950fea7ba89cdef7f16927e262ae111edaf0e497229e7e33c7cafaf1ed6d",
+  "version": "1.0.0"
+}

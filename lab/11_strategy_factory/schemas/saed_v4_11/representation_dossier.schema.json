@@ -1,0 +1,248 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/representation_dossier.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accepted_for_reference_registry": {
+      "type": "boolean"
+    },
+    "checkpoint_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "claims": {
+      "additionalProperties": false,
+      "properties": {
+        "outcome_prediction": {
+          "type": "boolean"
+        },
+        "production_authorization": {
+          "type": "boolean"
+        },
+        "real_alpha": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "outcome_prediction",
+        "production_authorization",
+        "real_alpha"
+      ],
+      "type": "object"
+    },
+    "collapse": {
+      "additionalProperties": false,
+      "properties": {
+        "collapsed": {
+          "type": "boolean"
+        },
+        "mean_dimension_variance": {
+          "type": "number"
+        },
+        "mean_pairwise_cosine": {
+          "type": "number"
+        },
+        "minimum_dimension_variance": {
+          "type": "number"
+        },
+        "record_count": {
+          "type": "integer"
+        },
+        "unique_embedding_fraction": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "collapsed",
+        "mean_dimension_variance",
+        "mean_pairwise_cosine",
+        "minimum_dimension_variance",
+        "record_count",
+        "unique_embedding_fraction"
+      ],
+      "type": "object"
+    },
+    "control_name": {
+      "type": "string"
+    },
+    "dossier_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "dossier_id": {
+      "type": "string"
+    },
+    "leakage_probe": {
+      "additionalProperties": false,
+      "properties": {
+        "checked_tokens": {
+          "type": "integer"
+        },
+        "hits": {
+          "items": {},
+          "type": "array"
+        },
+        "passed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "checked_tokens",
+        "hits",
+        "passed"
+      ],
+      "type": "object"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "linear_probe": {
+      "additionalProperties": false,
+      "properties": {
+        "accuracy": {
+          "type": "number"
+        },
+        "evaluation_count": {
+          "type": "integer"
+        },
+        "label_kind": {
+          "type": "string"
+        },
+        "outcome_label": {
+          "type": "boolean"
+        },
+        "predictions": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "actual": {
+                "type": "string"
+              },
+              "predicted": {
+                "type": "string"
+              },
+              "record_id": {
+                "type": "string"
+              },
+              "scores": {
+                "additionalProperties": false,
+                "properties": {
+                  "EQUITY_INDEX": {
+                    "type": "number"
+                  },
+                  "FX_MAJOR": {
+                    "type": "number"
+                  },
+                  "PRECIOUS_METAL": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "EQUITY_INDEX",
+                  "FX_MAJOR",
+                  "PRECIOUS_METAL"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "actual",
+              "predicted",
+              "record_id",
+              "scores"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "train_count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "accuracy",
+        "evaluation_count",
+        "label_kind",
+        "outcome_label",
+        "predictions",
+        "train_count"
+      ],
+      "type": "object"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "random_label_probe": {
+      "additionalProperties": false,
+      "properties": {
+        "accuracy": {
+          "type": "number"
+        },
+        "admission_effect": {
+          "type": "string"
+        },
+        "chance_reference": {
+          "type": "number"
+        },
+        "evaluation_count": {
+          "type": "integer"
+        },
+        "random_labels": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "accuracy",
+        "admission_effect",
+        "chance_reference",
+        "evaluation_count",
+        "random_labels"
+      ],
+      "type": "object"
+    },
+    "temporal_retrieval": {
+      "additionalProperties": false,
+      "properties": {
+        "eligible": {
+          "type": "integer"
+        },
+        "hits": {
+          "type": "integer"
+        },
+        "k": {
+          "type": "integer"
+        },
+        "recall_at_k": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "eligible",
+        "hits",
+        "k",
+        "recall_at_k"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "accepted_for_reference_registry",
+    "checkpoint_hash",
+    "claims",
+    "collapse",
+    "control_name",
+    "dossier_hash",
+    "dossier_id",
+    "leakage_probe",
+    "limitations",
+    "linear_probe",
+    "phase",
+    "random_label_probe",
+    "temporal_retrieval"
+  ],
+  "title": "Representation Dossier",
+  "type": "object"
+}

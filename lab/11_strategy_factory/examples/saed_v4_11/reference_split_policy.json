@@ -1,0 +1,22 @@
+{
+  "descendant_cross_split_allowed": false,
+  "future_suffix_allowed": false,
+  "quarantine_known_time_max": "2026-01-05T16:00:00Z",
+  "quarantine_roots": [
+    "root_canary"
+  ],
+  "test_known_time_max": "2026-01-05T18:00:00Z",
+  "test_roots": [
+    "root_epsilon"
+  ],
+  "train_known_time_max": "2026-01-05T16:00:00Z",
+  "train_roots": [
+    "root_alpha",
+    "root_beta",
+    "root_gamma"
+  ],
+  "validation_known_time_max": "2026-01-05T17:00:00Z",
+  "validation_roots": [
+    "root_delta"
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/negative_sample_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "dependency_safe": {
+      "type": "boolean"
+    },
+    "items": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "anchor_known_time": {
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+            "type": "string"
+          },
+          "different_root": {
+            "type": "boolean"
+          },
+          "negative_known_time": {
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$",
+            "type": "string"
+          },
+          "negative_tokens": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "positive_token": {
+            "type": "string"
+          },
+          "record_id": {
+            "type": "string"
+          },
+          "temporal_negative_record_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "anchor_known_time",
+          "different_root",
+          "negative_known_time",
+          "negative_tokens",
+          "positive_token",
+          "record_id",
+          "temporal_negative_record_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "negative_count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "plan_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "plan_id": {
+      "type": "string"
+    },
+    "seed": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "dependency_safe",
+    "items",
+    "negative_count",
+    "phase",
+    "plan_hash",
+    "plan_id",
+    "seed"
+  ],
+  "title": "Negative Sample Plan",
+  "type": "object"
+}

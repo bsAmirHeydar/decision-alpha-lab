@@ -1,0 +1,16 @@
+{
+  "artifact_ids": [],
+  "authority_escalation": false,
+  "containment_actions": [
+    "quarantine_corpus",
+    "block_checkpoint_registration",
+    "preserve_hash_ledger"
+  ],
+  "detected_at": null,
+  "incident_id": "INCIDENT_TEMPLATE",
+  "phase": "SAED_V4_11",
+  "reason_codes": [],
+  "runtime_impact": "none_by_design",
+  "severity": "unassigned",
+  "status": "template"
+}

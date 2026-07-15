@@ -1,0 +1,88 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-11/sbom.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "checkpoint_format": {
+      "type": "string"
+    },
+    "dependencies": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "scope": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "required",
+          "scope"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "external_network_required": {
+      "type": "boolean"
+    },
+    "format": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "pickle_or_opaque_binary_checkpoint": {
+      "type": "boolean"
+    },
+    "runtime": {
+      "additionalProperties": false,
+      "properties": {
+        "python_implementation": {
+          "type": "string"
+        },
+        "python_major_minor": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "python_implementation",
+        "python_major_minor"
+      ],
+      "type": "object"
+    },
+    "sbom_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "sbom_id": {
+      "type": "string"
+    },
+    "source_files": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "checkpoint_format",
+    "dependencies",
+    "external_network_required",
+    "format",
+    "phase",
+    "pickle_or_opaque_binary_checkpoint",
+    "runtime",
+    "sbom_hash",
+    "sbom_id",
+    "source_files"
+  ],
+  "title": "Sbom",
+  "type": "object"
+}

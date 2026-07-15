@@ -1,0 +1,214 @@
+{
+  "assignments": [
+    {
+      "context_id": "ctx_alpha_00",
+      "event_time": "2026-01-05T14:30:00Z",
+      "known_time": "2026-01-05T14:30:01Z",
+      "record_id": "record_alpha_00",
+      "root_context_id": "root_alpha",
+      "split": "train"
+    },
+    {
+      "context_id": "ctx_beta_00",
+      "event_time": "2026-01-05T14:30:00Z",
+      "known_time": "2026-01-05T14:30:01Z",
+      "record_id": "record_beta_00",
+      "root_context_id": "root_beta",
+      "split": "train"
+    },
+    {
+      "context_id": "ctx_gamma_00",
+      "event_time": "2026-01-05T14:30:00Z",
+      "known_time": "2026-01-05T14:30:01Z",
+      "record_id": "record_gamma_00",
+      "root_context_id": "root_gamma",
+      "split": "train"
+    },
+    {
+      "context_id": "ctx_alpha_01",
+      "event_time": "2026-01-05T14:40:00Z",
+      "known_time": "2026-01-05T14:40:01Z",
+      "record_id": "record_alpha_01",
+      "root_context_id": "root_alpha",
+      "split": "train"
+    },
+    {
+      "context_id": "ctx_beta_01",
+      "event_time": "2026-01-05T14:40:00Z",
+      "known_time": "2026-01-05T14:40:01Z",
+      "record_id": "record_beta_01",
+      "root_context_id": "root_beta",
+      "split": "train"
+    },
+    {
+      "context_id": "ctx_canary_00",
+      "event_time": "2026-01-05T14:40:00Z",
+      "known_time": "2026-01-05T14:40:01Z",
+      "record_id": "record_canary_00",
+      "root_context_id": "root_canary",
+      "split": "quarantine"
+    },
+    {
+      "context_id": "ctx_gamma_01",
+      "event_time": "2026-01-05T14:40:00Z",
+      "known_time": "2026-01-05T14:40:01Z",
+      "record_id": "record_gamma_01",
+      "root_context_id": "root_gamma",
+      "split": "train"
+    },
+    {
+      "context_id": "ctx_alpha_02",
+      "event_time": "2026-01-05T14:50:00Z",
+      "known_time": "2026-01-05T14:50:01Z",
+      "record_id": "record_alpha_02",
+      "root_context_id": "root_alpha",
+      "split": "train"
+    },
+    {
+      "context_id": "ctx_beta_02",
+      "event_time": "2026-01-05T14:50:00Z",
+      "known_time": "2026-01-05T14:50:01Z",
+      "record_id": "record_beta_02",
+      "root_context_id": "root_beta",
+      "split": "train"
+    },
+    {
+      "context_id": "ctx_canary_01",
+      "event_time": "2026-01-05T14:50:00Z",
+      "known_time": "2026-01-05T14:50:01Z",
+      "record_id": "record_canary_01",
+      "root_context_id": "root_canary",
+      "split": "quarantine"
+    },
+    {
+      "context_id": "ctx_gamma_02",
+      "event_time": "2026-01-05T14:50:00Z",
+      "known_time": "2026-01-05T14:50:01Z",
+      "record_id": "record_gamma_02",
+      "root_context_id": "root_gamma",
+      "split": "train"
+    },
+    {
+      "context_id": "ctx_alpha_03",
+      "event_time": "2026-01-05T15:00:00Z",
+      "known_time": "2026-01-05T15:00:01Z",
+      "record_id": "record_alpha_03",
+      "root_context_id": "root_alpha",
+      "split": "train"
+    },
+    {
+      "context_id": "ctx_beta_03",
+      "event_time": "2026-01-05T15:00:00Z",
+      "known_time": "2026-01-05T15:00:01Z",
+      "record_id": "record_beta_03",
+      "root_context_id": "root_beta",
+      "split": "train"
+    },
+    {
+      "context_id": "ctx_gamma_03",
+      "event_time": "2026-01-05T15:00:00Z",
+      "known_time": "2026-01-05T15:00:01Z",
+      "record_id": "record_gamma_03",
+      "root_context_id": "root_gamma",
+      "split": "train"
+    },
+    {
+      "context_id": "ctx_delta_00",
+      "event_time": "2026-01-05T16:10:00Z",
+      "known_time": "2026-01-05T16:10:01Z",
+      "record_id": "record_delta_00",
+      "root_context_id": "root_delta",
+      "split": "validation"
+    },
+    {
+      "context_id": "ctx_delta_01",
+      "event_time": "2026-01-05T16:20:00Z",
+      "known_time": "2026-01-05T16:20:01Z",
+      "record_id": "record_delta_01",
+      "root_context_id": "root_delta",
+      "split": "validation"
+    },
+    {
+      "context_id": "ctx_delta_02",
+      "event_time": "2026-01-05T16:30:00Z",
+      "known_time": "2026-01-05T16:30:01Z",
+      "record_id": "record_delta_02",
+      "root_context_id": "root_delta",
+      "split": "validation"
+    },
+    {
+      "context_id": "ctx_delta_03",
+      "event_time": "2026-01-05T16:40:00Z",
+      "known_time": "2026-01-05T16:40:01Z",
+      "record_id": "record_delta_03",
+      "root_context_id": "root_delta",
+      "split": "validation"
+    },
+    {
+      "context_id": "ctx_epsilon_00",
+      "event_time": "2026-01-05T17:10:00Z",
+      "known_time": "2026-01-05T17:10:01Z",
+      "record_id": "record_epsilon_00",
+      "root_context_id": "root_epsilon",
+      "split": "test"
+    },
+    {
+      "context_id": "ctx_epsilon_01",
+      "event_time": "2026-01-05T17:20:00Z",
+      "known_time": "2026-01-05T17:20:01Z",
+      "record_id": "record_epsilon_01",
+      "root_context_id": "root_epsilon",
+      "split": "test"
+    },
+    {
+      "context_id": "ctx_epsilon_02",
+      "event_time": "2026-01-05T17:30:00Z",
+      "known_time": "2026-01-05T17:30:01Z",
+      "record_id": "record_epsilon_02",
+      "root_context_id": "root_epsilon",
+      "split": "test"
+    },
+    {
+      "context_id": "ctx_epsilon_03",
+      "event_time": "2026-01-05T17:40:00Z",
+      "known_time": "2026-01-05T17:40:01Z",
+      "record_id": "record_epsilon_03",
+      "root_context_id": "root_epsilon",
+      "split": "test"
+    }
+  ],
+  "counts": {
+    "quarantine": 2,
+    "test": 4,
+    "train": 12,
+    "validation": 4
+  },
+  "future_suffix_allowed": false,
+  "identity_disjoint": true,
+  "phase": "SAED_V4_11",
+  "policy": {
+    "descendant_cross_split_allowed": false,
+    "future_suffix_allowed": false,
+    "quarantine_known_time_max": "2026-01-05T16:00:00Z",
+    "quarantine_roots": [
+      "root_canary"
+    ],
+    "test_known_time_max": "2026-01-05T18:00:00Z",
+    "test_roots": [
+      "root_epsilon"
+    ],
+    "train_known_time_max": "2026-01-05T16:00:00Z",
+    "train_roots": [
+      "root_alpha",
+      "root_beta",
+      "root_gamma"
+    ],
+    "validation_known_time_max": "2026-01-05T17:00:00Z",
+    "validation_roots": [
+      "root_delta"
+    ]
+  },
+  "split_manifest_hash": "bc72c72c6554d2429026903ba9778643d5638b33a67d0686d7a0fe4b8acf18b6",
+  "split_manifest_id": "splitmanifest_cccbc07837b88d3a24c071e1",
+  "time_bounded": true
+}
