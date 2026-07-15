@@ -1,0 +1,5 @@
+#ifndef ALPHALAB_QUALIFICATION_PROSPECTIVE_STAGE_MQH
+#define ALPHALAB_QUALIFICATION_PROSPECTIVE_STAGE_MQH
+struct ALProspectiveStageEvidence { int sessions; long decision_events; int order_intents; int broker_rejections; int reconciliation_mismatches; int duplicate_actions; int critical_incidents; double realized_risk; double allowed_risk; string approval_id; };
+bool ALProspectiveStagePasses(const ALProspectiveStageEvidence &evidence,const int min_sessions,const long min_events,const double max_reject_rate,const bool approval_required){ const double reject_rate=(evidence.order_intents>0 ? (double)evidence.broker_rejections/(double)evidence.order_intents : 0.0); return evidence.sessions>=min_sessions && evidence.decision_events>=min_events && reject_rate<=max_reject_rate && evidence.reconciliation_mismatches==0 && evidence.duplicate_actions==0 && evidence.critical_incidents==0 && evidence.realized_risk<=evidence.allowed_risk && (!approval_required || StringLen(evidence.approval_id)>0); }
+#endif

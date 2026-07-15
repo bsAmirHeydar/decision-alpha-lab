@@ -1,0 +1,71 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/v3/qualification_rollback_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "activation_allowed": {
+      "type": "boolean"
+    },
+    "artifact_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "artifact_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "captured_at_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "environment_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "evidence_hashes": {
+      "items": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "payload": {
+      "type": "object"
+    },
+    "policy_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "reason_codes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "pass",
+        "fail",
+        "pending",
+        "not_applicable",
+        "qualified",
+        "blocked",
+        "hold"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "artifact_id",
+    "artifact_hash"
+  ],
+  "title": "UCE-I18 Rollback Plan",
+  "type": "object"
+}

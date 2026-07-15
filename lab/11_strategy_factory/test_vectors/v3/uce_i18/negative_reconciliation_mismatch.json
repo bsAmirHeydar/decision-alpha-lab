@@ -1,0 +1,9 @@
+{
+  "artifact_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+  "artifact_id": "reconcile-fail",
+  "reason_codes": [
+    "reservation_ledger_mismatch"
+  ],
+  "schema_version": "1.0.0",
+  "status": "fail"
+}

@@ -1,0 +1,61 @@
+{
+  "activation_allowed": false,
+  "phase_id": "UCE-I18",
+  "residual_risks": [
+    "MQL5 syntax and terminal behavior require supported MetaEditor compile evidence",
+    "broker execution and reconciliation require account-specific external runs",
+    "soak/chaos/recovery and prospective evidence remain external hard gates"
+  ],
+  "results": [
+    {
+      "check": "python_compile",
+      "scope": "20 Python modules",
+      "status": "pass"
+    },
+    {
+      "check": "focused_pytest",
+      "command": "python -m pytest -q --import-mode=importlib lab/11_strategy_factory/tests/phase_uce_i18_production_qualification",
+      "status": "pass",
+      "tests": 114
+    },
+    {
+      "check": "boundary_scan",
+      "status": "pass"
+    },
+    {
+      "check": "mql5_static_authority_scan",
+      "diagnostics": 3,
+      "includes": 15,
+      "status": "pass"
+    },
+    {
+      "atomic_docs": 12,
+      "check": "delivery_validation",
+      "delivery_docs": 51,
+      "schemas": 28,
+      "status": "pass"
+    },
+    {
+      "check": "uce_i17_regression",
+      "status": "pass",
+      "tests": 87
+    },
+    {
+      "check": "secret_pattern_scan",
+      "status": "pass"
+    },
+    {
+      "check": "external_evidence_evaluator_smoke",
+      "status": "pass_on_synthetic_fixture"
+    },
+    {
+      "check": "metaeditor_compile",
+      "status": "pending_local_windows"
+    },
+    {
+      "check": "real_terminal_broker_paper_live",
+      "status": "pending_external"
+    }
+  ],
+  "status": "pass_reference_external_evidence_pending"
+}

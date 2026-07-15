@@ -1,0 +1,9 @@
+{
+  "artifact_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "artifact_id": "missing-compile",
+  "reason_codes": [
+    "metaeditor_compile_evidence_missing"
+  ],
+  "schema_version": "1.0.0",
+  "status": "pending"
+}

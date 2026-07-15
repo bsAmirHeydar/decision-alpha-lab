@@ -1,0 +1,10 @@
+{
+  "activation_allowed": false,
+  "artifact_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+  "artifact_id": "unapproved-live",
+  "reason_codes": [
+    "micro_live_human_approval_missing"
+  ],
+  "schema_version": "1.0.0",
+  "status": "fail"
+}
