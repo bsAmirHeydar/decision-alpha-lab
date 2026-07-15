@@ -1,0 +1,35 @@
+{
+  "capabilities": [
+    "account.hedging",
+    "exit.market",
+    "exit.partial",
+    "exit.take_profit",
+    "order.expiration",
+    "order.limit",
+    "order.market",
+    "order.stop",
+    "platform.mt5",
+    "protection.modify_stop",
+    "protection.server_stop"
+  ],
+  "diagnostic_only": true,
+  "exact_version": "1.0.0",
+  "maximum_entry_legs": 8,
+  "order_types": [
+    "limit",
+    "market",
+    "stop"
+  ],
+  "profile_hash": "e3def3e44dd20f33d24f83cc1a6dcfe6f1a512c8cd8851cbee1c93ed5c8894cb",
+  "profile_id": "capability_e3def3e44dd20f33d24f83cc",
+  "profile_name": "mt5.hedging.reference",
+  "supports_expiration": true,
+  "supports_partial_exit": true,
+  "supports_server_stop": true,
+  "supports_trailing": true,
+  "time_in_force": [
+    "day",
+    "gtc",
+    "specified"
+  ]
+}

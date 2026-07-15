@@ -1,0 +1,173 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_06/treatment_dsl_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_evidence_roles": {
+      "items": {
+        "enum": [
+          "development",
+          "calibration",
+          "selection_validation",
+          "locked_final",
+          "prospective",
+          "shadow",
+          "micro_live",
+          "live",
+          "synthetic_stress",
+          "external_static",
+          "external_actual"
+        ],
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "allowed_units": {
+      "items": {
+        "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "deterministic_partition_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "exact_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "maximum_components_per_program": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "maximum_constraints_per_program": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "maximum_parameters_per_program": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "maximum_programs": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "maximum_states_per_program": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "maximum_transitions_per_program": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "policy_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "policy_name": {
+      "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+      "type": "string"
+    },
+    "prohibited_identifier_tokens": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "prohibited_parameter_tokens": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "require_abstain": {
+      "type": "boolean"
+    },
+    "require_exact_hypergraph_handoff": {
+      "type": "boolean"
+    },
+    "require_skip": {
+      "type": "boolean"
+    },
+    "required_component_kinds": {
+      "items": {
+        "enum": [
+          "action",
+          "payoff",
+          "direction",
+          "entry",
+          "trigger",
+          "stop",
+          "target",
+          "exit",
+          "trail",
+          "management",
+          "time",
+          "cost",
+          "capability"
+        ],
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "singleton_component_kinds": {
+      "items": {
+        "enum": [
+          "action",
+          "payoff",
+          "direction",
+          "entry",
+          "trigger",
+          "stop",
+          "target",
+          "exit",
+          "trail",
+          "management",
+          "time",
+          "cost",
+          "capability"
+        ],
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "policy_name",
+    "exact_version",
+    "maximum_programs",
+    "maximum_components_per_program",
+    "maximum_parameters_per_program",
+    "maximum_constraints_per_program",
+    "maximum_states_per_program",
+    "maximum_transitions_per_program",
+    "allowed_units",
+    "allowed_evidence_roles",
+    "required_component_kinds",
+    "singleton_component_kinds",
+    "prohibited_identifier_tokens",
+    "prohibited_parameter_tokens",
+    "require_skip",
+    "require_abstain",
+    "require_exact_hypergraph_handoff",
+    "deterministic_partition_count",
+    "policy_id",
+    "policy_hash"
+  ],
+  "title": "Treatment DSL Policy",
+  "type": "object"
+}

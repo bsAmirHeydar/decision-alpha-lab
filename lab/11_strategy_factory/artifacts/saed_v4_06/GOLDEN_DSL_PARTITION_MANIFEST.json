@@ -1,0 +1,21 @@
+{
+  "assignments": [
+    [
+      "treatment_4915f03a0e7f66bad7086cd9",
+      3
+    ],
+    [
+      "treatment_b5c4b61c1c42006375e4c043",
+      3
+    ],
+    [
+      "treatment_ff49b948e2f26a960977b909",
+      1
+    ]
+  ],
+  "manifest_hash": "208919037c92a547b3ca1ffef87c5937641b353cb966aa9258058584a43fc872",
+  "manifest_id": "dslpartition_208919037c92a547b3ca1ffe",
+  "package_hash": "78a62bd2a7dc04f993a0367f3fbf67ef04feb4f2326680791909c018ef3cd6d7",
+  "package_id": "dslpackage_80c6fa27d023df637649b5da",
+  "partition_count": 8
+}

@@ -1,0 +1,68 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_06/dsl_telemetry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "abstain_present": {
+      "type": "boolean"
+    },
+    "authority_violation_count": {
+      "type": "integer"
+    },
+    "bound_descriptor_count": {
+      "type": "integer"
+    },
+    "component_count": {
+      "type": "integer"
+    },
+    "constraint_count": {
+      "type": "integer"
+    },
+    "package_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "package_id": {
+      "type": "string"
+    },
+    "parameter_count": {
+      "type": "integer"
+    },
+    "program_count": {
+      "type": "integer"
+    },
+    "rejected_program_count": {
+      "type": "integer"
+    },
+    "skip_present": {
+      "type": "boolean"
+    },
+    "state_count": {
+      "type": "integer"
+    },
+    "telemetry_id": {
+      "type": "string"
+    },
+    "transition_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "telemetry_id",
+    "package_id",
+    "package_hash",
+    "program_count",
+    "component_count",
+    "parameter_count",
+    "constraint_count",
+    "state_count",
+    "transition_count",
+    "bound_descriptor_count",
+    "rejected_program_count",
+    "skip_present",
+    "abstain_present",
+    "authority_violation_count"
+  ],
+  "title": "DSL Telemetry",
+  "type": "object"
+}

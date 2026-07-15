@@ -1,0 +1,13 @@
+{
+  "abstain_present": true,
+  "baseline_package_hash": "78a62bd2a7dc04f993a0367f3fbf67ef04feb4f2326680791909c018ef3cd6d7",
+  "binding_count": 1,
+  "order_authority": false,
+  "ordering_invariant": true,
+  "phase": "SAED_V4_06",
+  "program_count": 3,
+  "reordered_package_hash": "78a62bd2a7dc04f993a0367f3fbf67ef04feb4f2326680791909c018ef3cd6d7",
+  "runtime_authority": false,
+  "selection_authority": false,
+  "skip_present": true
+}

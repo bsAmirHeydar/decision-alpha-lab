@@ -1,0 +1,28 @@
+{
+  "components": [
+    {
+      "exact_version": "1.0.0",
+      "parameters": {},
+      "primitive_id": "action.skip",
+      "slot": "action"
+    }
+  ],
+  "constraints": [],
+  "descriptor_id": null,
+  "evidence_role": "development",
+  "exact_version": "1.0.0",
+  "known_as_of": "2026-01-05T14:30:01Z",
+  "limitations": [
+    "Skip is a mandatory non-executing action."
+  ],
+  "program_name": "system.skip",
+  "semantic_labels": {
+    "action_class": "skip"
+  },
+  "side_scope": [
+    "none"
+  ],
+  "source_artifact_hash": "46e720654c1a56d9e12e4fccce51c1079197323df60a7c990bc0af2b70c37901",
+  "states": [],
+  "transitions": []
+}

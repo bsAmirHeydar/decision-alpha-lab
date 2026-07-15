@@ -1,0 +1,66 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_06/program_validation_result.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "checked_component_count": {
+      "type": "integer"
+    },
+    "checked_constraint_count": {
+      "type": "integer"
+    },
+    "checked_parameter_count": {
+      "type": "integer"
+    },
+    "checked_state_count": {
+      "type": "integer"
+    },
+    "checked_transition_count": {
+      "type": "integer"
+    },
+    "diagnostics": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "exact_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "program_name": {
+      "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+      "type": "string"
+    },
+    "reason_codes": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "status": {
+      "enum": [
+        "accepted",
+        "rejected",
+        "quarantined"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "program_name",
+    "exact_version",
+    "status",
+    "reason_codes",
+    "diagnostics",
+    "checked_component_count",
+    "checked_parameter_count",
+    "checked_constraint_count",
+    "checked_state_count",
+    "checked_transition_count"
+  ],
+  "title": "Program Validation Result",
+  "type": "object"
+}

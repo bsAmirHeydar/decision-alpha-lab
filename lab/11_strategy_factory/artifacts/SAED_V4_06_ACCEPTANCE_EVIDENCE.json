@@ -1,0 +1,12 @@
+{
+  "authority_preserved": true,
+  "closed_contracts": "pass",
+  "determinism": "pass",
+  "future_suffix_sensitivity": "pass",
+  "integrity_receipt_id": "dslintegrity_0d33fb16707b5cd00aeb1000",
+  "metaeditor_compile": "pending_local_windows",
+  "package_hash": "78a62bd2a7dc04f993a0367f3fbf67ef04feb4f2326680791909c018ef3cd6d7",
+  "phase": "SAED_V4_06",
+  "production_authorization": false,
+  "status": "accepted_reference_only"
+}

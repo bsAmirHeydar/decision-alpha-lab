@@ -1,7 +1,8 @@
-feat(saed-v4): implement V4-05 semantic-temporal hypergraph
+feat(strategy-factory): implement SAED V4-06 Treatment DSL V4
 
-- add deterministic bitemporal node and hyperedge construction over V4-04 packages
-- freeze closed semantic registry, relation rules, authority, schemas, and support policy
-- add integrity, replay, diff, incidence baseline, bounded query, partitioning, and telemetry
-- add diagnostic-only MQL5 mirror, hostile tests, QA tooling, and detailed Obsidian delivery notes
-- preserve UCEE authority and deny training, treatment, risk, runtime, and execution powers
+- add finite exact-versioned Treatment primitive registry and institutional policy
+- add closed source grammar, static analysis, canonical identities and descriptor binding
+- add integrity, replay, diff, partition, telemetry, exposure and V4-07 handoff artifacts
+- add closed schemas, golden/negative fixtures, exhaustive Python tests and diagnostic MQL5 mirrors
+- add comprehensive Obsidian implementation and atomic-concept documentation
+- preserve UCEE authority and deny training, selection, sizing, runtime and order powers

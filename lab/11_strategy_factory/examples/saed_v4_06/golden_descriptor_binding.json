@@ -1,0 +1,18 @@
+{
+  "binding_hash": "acef29ab57859bf5febb2d6b117687b1f4a71e76a159598e39953f25beec2a6a",
+  "binding_id": "dslbinding_3f3df585e46b408fe20cd70b",
+  "descriptor_id": "treatment_approved_001",
+  "evidence_role": "development",
+  "graph_node_hash": "d805caf85c7ca750966d8e0d992c8d16fc4c55bee1a74656b3b98042c0263862",
+  "graph_node_id": "hnode_db9741f041e3403bd842f67e",
+  "known_as_of": "2026-01-05T14:30:01Z",
+  "matched_labels": [
+    "entry_mechanism",
+    "path_dependent",
+    "payoff_profile"
+  ],
+  "program_hash": "47f4144af29572660a024a550565edd53282b46c67f9f78881fbe193490afef8",
+  "program_id": "treatment_ff49b948e2f26a960977b909",
+  "reason_codes": [],
+  "status": "bound"
+}

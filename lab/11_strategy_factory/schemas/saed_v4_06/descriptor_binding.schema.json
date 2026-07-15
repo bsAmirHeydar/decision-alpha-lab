@@ -1,0 +1,89 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_06/descriptor_binding.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "binding_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "binding_id": {
+      "type": "string"
+    },
+    "descriptor_id": {
+      "type": "string"
+    },
+    "evidence_role": {
+      "enum": [
+        "development",
+        "calibration",
+        "selection_validation",
+        "locked_final",
+        "prospective",
+        "shadow",
+        "micro_live",
+        "live",
+        "synthetic_stress",
+        "external_static",
+        "external_actual"
+      ],
+      "type": "string"
+    },
+    "graph_node_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "graph_node_id": {
+      "type": "string"
+    },
+    "known_as_of": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "matched_labels": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "program_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "program_id": {
+      "type": "string"
+    },
+    "reason_codes": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "status": {
+      "enum": [
+        "bound",
+        "unbound",
+        "rejected"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "binding_id",
+    "descriptor_id",
+    "graph_node_id",
+    "graph_node_hash",
+    "program_id",
+    "program_hash",
+    "status",
+    "evidence_role",
+    "known_as_of",
+    "matched_labels",
+    "reason_codes",
+    "binding_hash"
+  ],
+  "title": "Descriptor Binding",
+  "type": "object"
+}

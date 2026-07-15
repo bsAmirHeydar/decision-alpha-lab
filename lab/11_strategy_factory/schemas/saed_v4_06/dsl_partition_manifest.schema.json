@@ -1,0 +1,53 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_06/dsl_partition_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assignments": {
+      "items": {
+        "items": false,
+        "maxItems": 2,
+        "minItems": 2,
+        "prefixItems": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "integer"
+          }
+        ],
+        "type": "array"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "manifest_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "manifest_id": {
+      "type": "string"
+    },
+    "package_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "package_id": {
+      "type": "string"
+    },
+    "partition_count": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "manifest_id",
+    "package_id",
+    "package_hash",
+    "partition_count",
+    "assignments",
+    "manifest_hash"
+  ],
+  "title": "DSL Partition Manifest",
+  "type": "object"
+}

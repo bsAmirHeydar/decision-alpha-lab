@@ -1,0 +1,11 @@
+{
+  "ledger_version": "1.0.0",
+  "model_trials": 0,
+  "negative_fixture_count": 12,
+  "orders_sent": 0,
+  "phase": "SAED_V4_06",
+  "program_source_count": 3,
+  "protected_evaluation_queries": 0,
+  "runtime_activations": 0,
+  "treatment_selections": 0
+}

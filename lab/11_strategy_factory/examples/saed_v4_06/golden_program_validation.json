@@ -1,0 +1,12 @@
+{
+  "checked_component_count": 12,
+  "checked_constraint_count": 4,
+  "checked_parameter_count": 22,
+  "checked_state_count": 4,
+  "checked_transition_count": 3,
+  "diagnostics": [],
+  "exact_version": "1.0.0",
+  "program_name": "context.breakout.p3",
+  "reason_codes": [],
+  "status": "accepted"
+}

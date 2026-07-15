@@ -1,0 +1,29 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_06/state_definition.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "initial",
+        "active",
+        "terminal"
+      ],
+      "type": "string"
+    },
+    "state_name": {
+      "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "state_name",
+    "kind",
+    "description"
+  ],
+  "title": "State Definition",
+  "type": "object"
+}

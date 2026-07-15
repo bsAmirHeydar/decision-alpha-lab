@@ -1,0 +1,215 @@
+{
+  "components": [
+    {
+      "exact_version": "1.0.0",
+      "parameters": {
+        "maximum_holding_ms": 1800000,
+        "minimum_reward_r": "2.0"
+      },
+      "primitive_id": "payoff.asymmetric_r_multiple",
+      "slot": "payoff"
+    },
+    {
+      "exact_version": "1.0.0",
+      "parameters": {
+        "direction_source": "context"
+      },
+      "primitive_id": "direction.context_declared",
+      "slot": "direction"
+    },
+    {
+      "exact_version": "1.0.0",
+      "parameters": {
+        "buffer_points": "2.0",
+        "reference_feature": "structure_view:breakout_level",
+        "ttl_ms": 300000
+      },
+      "primitive_id": "entry.breakout_stop",
+      "slot": "entry"
+    },
+    {
+      "exact_version": "1.0.0",
+      "parameters": {
+        "expected_value": "confirmed",
+        "feature_ref": "structure_view:breakout_state",
+        "operator": "eq"
+      },
+      "primitive_id": "trigger.context_feature",
+      "slot": "trigger"
+    },
+    {
+      "exact_version": "1.0.0",
+      "parameters": {
+        "buffer_points": "1.0",
+        "reference_feature": "structure_view:invalidation_level"
+      },
+      "primitive_id": "stop.context_invalidation",
+      "slot": "stop"
+    },
+    {
+      "exact_version": "1.0.0",
+      "parameters": {
+        "reward_r": "3.0"
+      },
+      "primitive_id": "target.fixed_r_multiple",
+      "slot": "target"
+    },
+    {
+      "exact_version": "1.0.0",
+      "parameters": {
+        "maximum_holding_ms": 1800000
+      },
+      "primitive_id": "exit.time_stop",
+      "slot": "exit"
+    },
+    {
+      "exact_version": "1.0.0",
+      "parameters": {
+        "activation_r": "1.0",
+        "offset_points": "0"
+      },
+      "primitive_id": "trail.break_even",
+      "slot": "trail"
+    },
+    {
+      "exact_version": "1.0.0",
+      "parameters": {
+        "activation_r": "1.5",
+        "quantity_fraction": "0.5"
+      },
+      "primitive_id": "management.partial_scale",
+      "slot": "management"
+    },
+    {
+      "exact_version": "1.0.0",
+      "parameters": {
+        "duration_ms": 7200000,
+        "session_id": "new_york",
+        "start_offset_ms": 0
+      },
+      "primitive_id": "time.session_window",
+      "slot": "time"
+    },
+    {
+      "exact_version": "1.0.0",
+      "parameters": {
+        "maximum_spread_points": "3.0"
+      },
+      "primitive_id": "cost.maximum_spread",
+      "slot": "cost"
+    },
+    {
+      "exact_version": "1.0.0",
+      "parameters": {
+        "required_profile": "mt5_hedging_reference"
+      },
+      "primitive_id": "capability.mt5_hedging",
+      "slot": "capability"
+    }
+  ],
+  "constraints": [
+    {
+      "constraint_name": "entry_requires_breakout_confirmation",
+      "description": "The declared breakout must be confirmed at known time.",
+      "kind": "feature_predicate",
+      "left_ref": "feature:structure_view:breakout_state",
+      "operator": "eq",
+      "right_ref": null,
+      "right_value": "confirmed",
+      "severity": "error"
+    },
+    {
+      "constraint_name": "target_not_below_payoff_floor",
+      "description": "Target R must not be below the payoff floor.",
+      "kind": "parameter_relation",
+      "left_ref": "component:target.reward_r",
+      "operator": "ge",
+      "right_ref": "component:payoff.minimum_reward_r",
+      "right_value": null,
+      "severity": "error"
+    },
+    {
+      "constraint_name": "partial_exit_capability",
+      "description": "Partial management requires an approved partial-exit capability.",
+      "kind": "capability_required",
+      "left_ref": "capability:exit.partial",
+      "operator": "exists",
+      "right_ref": null,
+      "right_value": null,
+      "severity": "error"
+    },
+    {
+      "constraint_name": "break_even_guard",
+      "description": "Break-even transition cannot arm before 1R.",
+      "kind": "state_transition_guard",
+      "left_ref": "component:trail.activation_r",
+      "operator": "ge",
+      "right_ref": null,
+      "right_value": "1.0",
+      "severity": "error"
+    }
+  ],
+  "descriptor_id": "unknown_descriptor",
+  "evidence_role": "development",
+  "exact_version": "1.0.0",
+  "known_as_of": "2026-01-05T14:30:01Z",
+  "limitations": [
+    "Reference Treatment semantics only; no selection, sizing, runtime activation, or order authority."
+  ],
+  "program_name": "context.breakout.p3",
+  "semantic_labels": {
+    "entry_mechanism": "breakout",
+    "path_dependent": true,
+    "payoff_profile": "P3"
+  },
+  "side_scope": [
+    "long",
+    "short"
+  ],
+  "source_artifact_hash": "9b414411a8cbcba00013a4090f55033b7b3e78f375b9fe35f7b5373df9bab37d",
+  "states": [
+    {
+      "description": "Program is declared but no entry path is active.",
+      "kind": "initial",
+      "state_name": "armed"
+    },
+    {
+      "description": "Entry condition has produced an accepted path state.",
+      "kind": "active",
+      "state_name": "entered"
+    },
+    {
+      "description": "The path has crossed the declared management threshold.",
+      "kind": "active",
+      "state_name": "managed"
+    },
+    {
+      "description": "The declarative path has reached a terminal state.",
+      "kind": "terminal",
+      "state_name": "closed"
+    }
+  ],
+  "transitions": [
+    {
+      "from_state": "armed",
+      "guard_constraint": "entry_requires_breakout_confirmation",
+      "terminal_action": null,
+      "to_state": "entered",
+      "transition_name": "arm_to_entered"
+    },
+    {
+      "from_state": "entered",
+      "guard_constraint": "break_even_guard",
+      "terminal_action": null,
+      "to_state": "managed",
+      "transition_name": "entered_to_managed"
+    },
+    {
+      "from_state": "managed",
+      "guard_constraint": null,
+      "terminal_action": "exit",
+      "to_state": "closed",
+      "transition_name": "managed_to_closed"
+    }
+  ]
+}

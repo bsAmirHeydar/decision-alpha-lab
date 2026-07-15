@@ -1,0 +1,83 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_06/authority_boundary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "activate_runtime": {
+      "type": "boolean"
+    },
+    "allocate_risk": {
+      "type": "boolean"
+    },
+    "bind_external_descriptor": {
+      "type": "boolean"
+    },
+    "canonicalize_program": {
+      "type": "boolean"
+    },
+    "define_finite_dsl": {
+      "type": "boolean"
+    },
+    "generate_unbounded_actions": {
+      "type": "boolean"
+    },
+    "infer_context_truth": {
+      "type": "boolean"
+    },
+    "mutate_hypergraph": {
+      "type": "boolean"
+    },
+    "mutate_ucee_truth": {
+      "type": "boolean"
+    },
+    "network_access": {
+      "type": "boolean"
+    },
+    "read_handoff": {
+      "type": "boolean"
+    },
+    "read_hypergraph": {
+      "type": "boolean"
+    },
+    "replay_and_diff": {
+      "type": "boolean"
+    },
+    "select_treatment": {
+      "type": "boolean"
+    },
+    "send_order": {
+      "type": "boolean"
+    },
+    "solve_action_lattice": {
+      "type": "boolean"
+    },
+    "train_model": {
+      "type": "boolean"
+    },
+    "validate_program": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "read_hypergraph",
+    "read_handoff",
+    "define_finite_dsl",
+    "canonicalize_program",
+    "validate_program",
+    "bind_external_descriptor",
+    "replay_and_diff",
+    "mutate_ucee_truth",
+    "mutate_hypergraph",
+    "infer_context_truth",
+    "generate_unbounded_actions",
+    "solve_action_lattice",
+    "select_treatment",
+    "train_model",
+    "allocate_risk",
+    "activate_runtime",
+    "send_order",
+    "network_access"
+  ],
+  "title": "V4-06 Authority Boundary",
+  "type": "object"
+}

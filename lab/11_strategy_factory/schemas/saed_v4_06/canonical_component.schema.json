@@ -1,0 +1,63 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_06/canonical_component.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "component_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "action",
+        "payoff",
+        "direction",
+        "entry",
+        "trigger",
+        "stop",
+        "target",
+        "exit",
+        "trail",
+        "management",
+        "time",
+        "cost",
+        "capability"
+      ],
+      "type": "string"
+    },
+    "parameters": {
+      "additionalProperties": {
+        "type": [
+          "string",
+          "number",
+          "integer",
+          "boolean",
+          "null",
+          "array",
+          "object"
+        ]
+      },
+      "type": "object"
+    },
+    "primitive_definition_id": {
+      "type": "string"
+    },
+    "primitive_key": {
+      "type": "string"
+    },
+    "slot": {
+      "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "slot",
+    "primitive_definition_id",
+    "primitive_key",
+    "kind",
+    "parameters",
+    "component_hash"
+  ],
+  "title": "Canonical Component",
+  "type": "object"
+}

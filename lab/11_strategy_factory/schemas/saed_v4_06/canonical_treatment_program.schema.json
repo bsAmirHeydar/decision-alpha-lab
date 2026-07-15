@@ -1,0 +1,350 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_06/canonical_treatment_program.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capability_profile_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "components": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "component_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "action",
+              "payoff",
+              "direction",
+              "entry",
+              "trigger",
+              "stop",
+              "target",
+              "exit",
+              "trail",
+              "management",
+              "time",
+              "cost",
+              "capability"
+            ],
+            "type": "string"
+          },
+          "parameters": {
+            "additionalProperties": {
+              "type": [
+                "string",
+                "number",
+                "integer",
+                "boolean",
+                "null",
+                "array",
+                "object"
+              ]
+            },
+            "type": "object"
+          },
+          "primitive_definition_id": {
+            "type": "string"
+          },
+          "primitive_key": {
+            "type": "string"
+          },
+          "slot": {
+            "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "slot",
+          "primitive_definition_id",
+          "primitive_key",
+          "kind",
+          "parameters",
+          "component_hash"
+        ],
+        "title": "Canonical Component",
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "constraints": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "constraint_name": {
+            "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "requires_component",
+              "excludes_component",
+              "parameter_relation",
+              "feature_predicate",
+              "capability_required",
+              "state_transition_guard"
+            ],
+            "type": "string"
+          },
+          "left_ref": {
+            "type": "string"
+          },
+          "operator": {
+            "enum": [
+              "eq",
+              "ne",
+              "lt",
+              "le",
+              "gt",
+              "ge",
+              "in",
+              "exists"
+            ],
+            "type": "string"
+          },
+          "right_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "right_value": {
+            "type": [
+              "string",
+              "number",
+              "integer",
+              "boolean",
+              "null",
+              "array",
+              "object"
+            ]
+          },
+          "severity": {
+            "enum": [
+              "info",
+              "warning",
+              "error"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "constraint_name",
+          "kind",
+          "left_ref",
+          "operator",
+          "right_value",
+          "right_ref",
+          "severity",
+          "description"
+        ],
+        "title": "Constraint Declaration",
+        "type": "object"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "descriptor_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "evidence_role": {
+      "enum": [
+        "development",
+        "calibration",
+        "selection_validation",
+        "locked_final",
+        "prospective",
+        "shadow",
+        "micro_live",
+        "live",
+        "synthetic_stress",
+        "external_static",
+        "external_actual"
+      ],
+      "type": "string"
+    },
+    "exact_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "known_as_of": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "program_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "program_id": {
+      "type": "string"
+    },
+    "program_name": {
+      "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+      "type": "string"
+    },
+    "reason_codes": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "registry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "semantic_labels": {
+      "additionalProperties": {
+        "type": [
+          "string",
+          "number",
+          "integer",
+          "boolean",
+          "null",
+          "array",
+          "object"
+        ]
+      },
+      "type": "object"
+    },
+    "side_scope": {
+      "items": {
+        "enum": [
+          "long",
+          "short",
+          "none"
+        ],
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "source_artifact_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "states": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "initial",
+              "active",
+              "terminal"
+            ],
+            "type": "string"
+          },
+          "state_name": {
+            "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "state_name",
+          "kind",
+          "description"
+        ],
+        "title": "State Definition",
+        "type": "object"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "status": {
+      "enum": [
+        "accepted",
+        "rejected",
+        "quarantined"
+      ],
+      "type": "string"
+    },
+    "transitions": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "from_state": {
+            "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+            "type": "string"
+          },
+          "guard_constraint": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "terminal_action": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "to_state": {
+            "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+            "type": "string"
+          },
+          "transition_name": {
+            "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "transition_name",
+          "from_state",
+          "to_state",
+          "guard_constraint",
+          "terminal_action"
+        ],
+        "title": "Transition Definition",
+        "type": "object"
+      },
+      "minItems": 0,
+      "type": "array"
+    }
+  },
+  "required": [
+    "program_id",
+    "program_name",
+    "exact_version",
+    "descriptor_id",
+    "side_scope",
+    "components",
+    "constraints",
+    "states",
+    "transitions",
+    "semantic_labels",
+    "evidence_role",
+    "known_as_of",
+    "source_artifact_hash",
+    "registry_hash",
+    "capability_profile_hash",
+    "status",
+    "reason_codes",
+    "limitations",
+    "program_hash"
+  ],
+  "title": "Canonical Treatment Program",
+  "type": "object"
+}

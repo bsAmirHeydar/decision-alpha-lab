@@ -1,0 +1,40 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_06/transition_definition.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "from_state": {
+      "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+      "type": "string"
+    },
+    "guard_constraint": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "terminal_action": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "to_state": {
+      "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+      "type": "string"
+    },
+    "transition_name": {
+      "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "transition_name",
+    "from_state",
+    "to_state",
+    "guard_constraint",
+    "terminal_action"
+  ],
+  "title": "Transition Definition",
+  "type": "object"
+}

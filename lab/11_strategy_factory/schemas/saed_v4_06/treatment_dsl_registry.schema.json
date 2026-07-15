@@ -1,0 +1,315 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_06/treatment_dsl_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "activate_runtime": {
+          "type": "boolean"
+        },
+        "allocate_risk": {
+          "type": "boolean"
+        },
+        "bind_external_descriptor": {
+          "type": "boolean"
+        },
+        "canonicalize_program": {
+          "type": "boolean"
+        },
+        "define_finite_dsl": {
+          "type": "boolean"
+        },
+        "generate_unbounded_actions": {
+          "type": "boolean"
+        },
+        "infer_context_truth": {
+          "type": "boolean"
+        },
+        "mutate_hypergraph": {
+          "type": "boolean"
+        },
+        "mutate_ucee_truth": {
+          "type": "boolean"
+        },
+        "network_access": {
+          "type": "boolean"
+        },
+        "read_handoff": {
+          "type": "boolean"
+        },
+        "read_hypergraph": {
+          "type": "boolean"
+        },
+        "replay_and_diff": {
+          "type": "boolean"
+        },
+        "select_treatment": {
+          "type": "boolean"
+        },
+        "send_order": {
+          "type": "boolean"
+        },
+        "solve_action_lattice": {
+          "type": "boolean"
+        },
+        "train_model": {
+          "type": "boolean"
+        },
+        "validate_program": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "read_hypergraph",
+        "read_handoff",
+        "define_finite_dsl",
+        "canonicalize_program",
+        "validate_program",
+        "bind_external_descriptor",
+        "replay_and_diff",
+        "mutate_ucee_truth",
+        "mutate_hypergraph",
+        "infer_context_truth",
+        "generate_unbounded_actions",
+        "solve_action_lattice",
+        "select_treatment",
+        "train_model",
+        "allocate_risk",
+        "activate_runtime",
+        "send_order",
+        "network_access"
+      ],
+      "title": "V4-06 Authority Boundary",
+      "type": "object"
+    },
+    "exact_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "primitives": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "exact_version": {
+            "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+            "type": "string"
+          },
+          "family": {
+            "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "action",
+              "payoff",
+              "direction",
+              "entry",
+              "trigger",
+              "stop",
+              "target",
+              "exit",
+              "trail",
+              "management",
+              "time",
+              "cost",
+              "capability"
+            ],
+            "type": "string"
+          },
+          "parameters": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "allowed_values": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "minItems": 0,
+                  "type": "array"
+                },
+                "default": {
+                  "type": [
+                    "string",
+                    "number",
+                    "integer",
+                    "boolean",
+                    "null",
+                    "array",
+                    "object"
+                  ]
+                },
+                "description": {
+                  "type": "string"
+                },
+                "identity_affecting": {
+                  "type": "boolean"
+                },
+                "maximum": {
+                  "type": [
+                    "string",
+                    "number",
+                    "integer",
+                    "boolean",
+                    "null",
+                    "array",
+                    "object"
+                  ]
+                },
+                "minimum": {
+                  "type": [
+                    "string",
+                    "number",
+                    "integer",
+                    "boolean",
+                    "null",
+                    "array",
+                    "object"
+                  ]
+                },
+                "monotonic_direction": {
+                  "enum": [
+                    "none",
+                    "increasing",
+                    "decreasing"
+                  ],
+                  "type": "string"
+                },
+                "name": {
+                  "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+                  "type": "string"
+                },
+                "parameter_type": {
+                  "enum": [
+                    "boolean",
+                    "integer",
+                    "decimal",
+                    "string",
+                    "enum",
+                    "duration_ms"
+                  ],
+                  "type": "string"
+                },
+                "required": {
+                  "type": "boolean"
+                },
+                "units": {
+                  "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "parameter_type",
+                "units",
+                "default",
+                "minimum",
+                "maximum",
+                "allowed_values",
+                "required",
+                "identity_affecting",
+                "monotonic_direction",
+                "description"
+              ],
+              "title": "Parameter Definition",
+              "type": "object"
+            },
+            "minItems": 0,
+            "type": "array"
+          },
+          "path_dependent": {
+            "type": "boolean"
+          },
+          "primitive_id": {
+            "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+            "type": "string"
+          },
+          "required_capabilities": {
+            "items": {
+              "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+              "type": "string"
+            },
+            "minItems": 0,
+            "type": "array"
+          },
+          "semantic_labels": {
+            "additionalProperties": {
+              "type": [
+                "string",
+                "number",
+                "integer",
+                "boolean",
+                "null",
+                "array",
+                "object"
+              ]
+            },
+            "type": "object"
+          },
+          "supported_sides": {
+            "items": {
+              "enum": [
+                "long",
+                "short",
+                "none"
+              ],
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "primitive_id",
+          "exact_version",
+          "kind",
+          "family",
+          "parameters",
+          "required_capabilities",
+          "supported_sides",
+          "semantic_labels",
+          "path_dependent",
+          "description"
+        ],
+        "title": "Primitive Definition",
+        "type": "object"
+      },
+      "minItems": 2,
+      "type": "array"
+    },
+    "registry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "registry_name": {
+      "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "registry_name",
+    "exact_version",
+    "primitives",
+    "authority",
+    "limitations",
+    "registry_id",
+    "registry_hash"
+  ],
+  "title": "Treatment DSL Registry",
+  "type": "object"
+}

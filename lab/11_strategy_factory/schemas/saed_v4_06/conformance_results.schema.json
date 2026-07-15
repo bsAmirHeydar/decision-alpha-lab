@@ -1,0 +1,57 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_06/conformance_results.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "abstain_present": {
+      "type": "boolean"
+    },
+    "baseline_package_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "binding_count": {
+      "type": "integer"
+    },
+    "order_authority": {
+      "const": false
+    },
+    "ordering_invariant": {
+      "type": "boolean"
+    },
+    "phase": {
+      "const": "SAED_V4_06"
+    },
+    "program_count": {
+      "type": "integer"
+    },
+    "reordered_package_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "runtime_authority": {
+      "const": false
+    },
+    "selection_authority": {
+      "const": false
+    },
+    "skip_present": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "phase",
+    "baseline_package_hash",
+    "reordered_package_hash",
+    "ordering_invariant",
+    "program_count",
+    "binding_count",
+    "skip_present",
+    "abstain_present",
+    "selection_authority",
+    "runtime_authority",
+    "order_authority"
+  ],
+  "title": "V4-06 Conformance Results",
+  "type": "object"
+}

@@ -1,0 +1,21 @@
+{
+  "binding_hashes": [
+    "acef29ab57859bf5febb2d6b117687b1f4a71e76a159598e39953f25beec2a6a"
+  ],
+  "capability_profile_hash": "e3def3e44dd20f33d24f83cc1a6dcfe6f1a512c8cd8851cbee1c93ed5c8894cb",
+  "lineage_root": "4c786521e5633d9a41383549fb450371d817d2c3cfd95940e14706618969965b",
+  "package_hash": "78a62bd2a7dc04f993a0367f3fbf67ef04feb4f2326680791909c018ef3cd6d7",
+  "package_id": "dslpackage_80c6fa27d023df637649b5da",
+  "policy_hash": "6f72beb88a6efc42eca3b4f6550b827cc794fd1936ce65125bd89f9e39797f1a",
+  "program_hashes": [
+    "47f4144af29572660a024a550565edd53282b46c67f9f78881fbe193490afef8",
+    "5a5842b12a9af20dbe67568a44b6490c058426595e513c15030d5b867677debc",
+    "eee4cb5903762fde208f0e98050e6fd80bd227cbc913d99884749067ea703a1e"
+  ],
+  "reason_codes": [],
+  "receipt_id": "dslintegrity_0d33fb16707b5cd00aeb1000",
+  "registry_hash": "32476a1e4b79ed2a4b8eab77e0f4fcdbecdd66dd95ad09c44ee67ab103ba345a",
+  "source_graph_hash": "f1e4e5c60b9146161a6f5db9d82bb9ef53e9d0045e772562136451b7897b011a",
+  "source_handoff_hash": "f70e0307fb169ac625dbf964981c91cd4bea86969cfc6cb92a29dc02949983db",
+  "verified": true
+}

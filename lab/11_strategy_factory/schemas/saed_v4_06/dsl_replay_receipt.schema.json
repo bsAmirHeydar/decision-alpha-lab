@@ -1,0 +1,37 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_06/dsl_replay_receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "differing_paths": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "identical": {
+      "type": "boolean"
+    },
+    "original_package_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "rebuilt_package_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "replay_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "replay_id",
+    "original_package_hash",
+    "rebuilt_package_hash",
+    "identical",
+    "differing_paths"
+  ],
+  "title": "DSL Replay Receipt",
+  "type": "object"
+}

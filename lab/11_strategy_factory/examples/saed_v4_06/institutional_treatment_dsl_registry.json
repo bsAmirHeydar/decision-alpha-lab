@@ -1,0 +1,718 @@
+{
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "bind_external_descriptor": true,
+    "canonicalize_program": true,
+    "define_finite_dsl": true,
+    "generate_unbounded_actions": false,
+    "infer_context_truth": false,
+    "mutate_hypergraph": false,
+    "mutate_ucee_truth": false,
+    "network_access": false,
+    "read_handoff": true,
+    "read_hypergraph": true,
+    "replay_and_diff": true,
+    "select_treatment": false,
+    "send_order": false,
+    "solve_action_lattice": false,
+    "train_model": false,
+    "validate_program": true
+  },
+  "exact_version": "1.0.0",
+  "limitations": [
+    "Capital sizing, portfolio allocation, runtime activation and broker orders are outside V4-06 authority.",
+    "The registry is a finite declaration surface, not a generator of arbitrary actions."
+  ],
+  "primitives": [
+    {
+      "description": "Withhold decision because support or certainty is insufficient.",
+      "exact_version": "1.0.0",
+      "family": "abstain",
+      "kind": "action",
+      "parameters": [],
+      "path_dependent": false,
+      "primitive_id": "action.abstain",
+      "required_capabilities": [],
+      "semantic_labels": {},
+      "supported_sides": [
+        "none"
+      ]
+    },
+    {
+      "description": "Do not create an executable path.",
+      "exact_version": "1.0.0",
+      "family": "skip",
+      "kind": "action",
+      "parameters": [],
+      "path_dependent": false,
+      "primitive_id": "action.skip",
+      "required_capabilities": [],
+      "semantic_labels": {},
+      "supported_sides": [
+        "none"
+      ]
+    },
+    {
+      "description": "",
+      "exact_version": "1.0.0",
+      "family": "mt5_hedging",
+      "kind": "capability",
+      "parameters": [
+        {
+          "allowed_values": [
+            "mt5_hedging_reference"
+          ],
+          "default": "mt5_hedging_reference",
+          "description": "",
+          "identity_affecting": true,
+          "maximum": null,
+          "minimum": null,
+          "monotonic_direction": "none",
+          "name": "required_profile",
+          "parameter_type": "enum",
+          "required": false,
+          "units": "enum"
+        }
+      ],
+      "path_dependent": false,
+      "primitive_id": "capability.mt5_hedging",
+      "required_capabilities": [
+        "account.hedging",
+        "platform.mt5"
+      ],
+      "semantic_labels": {},
+      "supported_sides": [
+        "long",
+        "short"
+      ]
+    },
+    {
+      "description": "",
+      "exact_version": "1.0.0",
+      "family": "spread_guard",
+      "kind": "cost",
+      "parameters": [
+        {
+          "allowed_values": [],
+          "default": "3.0",
+          "description": "",
+          "identity_affecting": true,
+          "maximum": "10000",
+          "minimum": "0",
+          "monotonic_direction": "none",
+          "name": "maximum_spread_points",
+          "parameter_type": "decimal",
+          "required": false,
+          "units": "points"
+        }
+      ],
+      "path_dependent": false,
+      "primitive_id": "cost.maximum_spread",
+      "required_capabilities": [],
+      "semantic_labels": {},
+      "supported_sides": [
+        "long",
+        "short"
+      ]
+    },
+    {
+      "description": "",
+      "exact_version": "1.0.0",
+      "family": "context_declared",
+      "kind": "direction",
+      "parameters": [
+        {
+          "allowed_values": [
+            "context",
+            "manual"
+          ],
+          "default": "context",
+          "description": "",
+          "identity_affecting": true,
+          "maximum": null,
+          "minimum": null,
+          "monotonic_direction": "none",
+          "name": "direction_source",
+          "parameter_type": "enum",
+          "required": false,
+          "units": "enum"
+        }
+      ],
+      "path_dependent": false,
+      "primitive_id": "direction.context_declared",
+      "required_capabilities": [],
+      "semantic_labels": {},
+      "supported_sides": [
+        "long",
+        "short"
+      ]
+    },
+    {
+      "description": "",
+      "exact_version": "1.0.0",
+      "family": "breakout",
+      "kind": "entry",
+      "parameters": [
+        {
+          "allowed_values": [],
+          "default": "2.0",
+          "description": "",
+          "identity_affecting": true,
+          "maximum": "10000",
+          "minimum": "0",
+          "monotonic_direction": "none",
+          "name": "buffer_points",
+          "parameter_type": "decimal",
+          "required": false,
+          "units": "points"
+        },
+        {
+          "allowed_values": [],
+          "default": "structure_view:breakout_level",
+          "description": "",
+          "identity_affecting": true,
+          "maximum": null,
+          "minimum": null,
+          "monotonic_direction": "none",
+          "name": "reference_feature",
+          "parameter_type": "string",
+          "required": true,
+          "units": "feature_ref"
+        },
+        {
+          "allowed_values": [],
+          "default": 300000,
+          "description": "",
+          "identity_affecting": true,
+          "maximum": 86400000,
+          "minimum": 1,
+          "monotonic_direction": "none",
+          "name": "ttl_ms",
+          "parameter_type": "duration_ms",
+          "required": false,
+          "units": "milliseconds"
+        }
+      ],
+      "path_dependent": false,
+      "primitive_id": "entry.breakout_stop",
+      "required_capabilities": [
+        "order.expiration",
+        "order.stop"
+      ],
+      "semantic_labels": {
+        "entry_mechanism": "breakout"
+      },
+      "supported_sides": [
+        "long",
+        "short"
+      ]
+    },
+    {
+      "description": "",
+      "exact_version": "1.0.0",
+      "family": "market",
+      "kind": "entry",
+      "parameters": [
+        {
+          "allowed_values": [],
+          "default": 1000,
+          "description": "",
+          "identity_affecting": true,
+          "maximum": 60000,
+          "minimum": 0,
+          "monotonic_direction": "none",
+          "name": "maximum_quote_age_ms",
+          "parameter_type": "duration_ms",
+          "required": false,
+          "units": "milliseconds"
+        }
+      ],
+      "path_dependent": false,
+      "primitive_id": "entry.market",
+      "required_capabilities": [
+        "order.market"
+      ],
+      "semantic_labels": {
+        "entry_mechanism": "market"
+      },
+      "supported_sides": [
+        "long",
+        "short"
+      ]
+    },
+    {
+      "description": "",
+      "exact_version": "1.0.0",
+      "family": "passive",
+      "kind": "entry",
+      "parameters": [
+        {
+          "allowed_values": [],
+          "default": "5.0",
+          "description": "",
+          "identity_affecting": true,
+          "maximum": "100000",
+          "minimum": "0",
+          "monotonic_direction": "none",
+          "name": "offset_points",
+          "parameter_type": "decimal",
+          "required": false,
+          "units": "points"
+        },
+        {
+          "allowed_values": [],
+          "default": 300000,
+          "description": "",
+          "identity_affecting": true,
+          "maximum": 86400000,
+          "minimum": 1,
+          "monotonic_direction": "none",
+          "name": "ttl_ms",
+          "parameter_type": "duration_ms",
+          "required": false,
+          "units": "milliseconds"
+        }
+      ],
+      "path_dependent": false,
+      "primitive_id": "entry.passive_limit",
+      "required_capabilities": [
+        "order.expiration",
+        "order.limit"
+      ],
+      "semantic_labels": {
+        "entry_mechanism": "passive"
+      },
+      "supported_sides": [
+        "long",
+        "short"
+      ]
+    },
+    {
+      "description": "",
+      "exact_version": "1.0.0",
+      "family": "time_stop",
+      "kind": "exit",
+      "parameters": [
+        {
+          "allowed_values": [],
+          "default": 1800000,
+          "description": "",
+          "identity_affecting": true,
+          "maximum": 86400000,
+          "minimum": 1000,
+          "monotonic_direction": "none",
+          "name": "maximum_holding_ms",
+          "parameter_type": "duration_ms",
+          "required": false,
+          "units": "milliseconds"
+        }
+      ],
+      "path_dependent": true,
+      "primitive_id": "exit.time_stop",
+      "required_capabilities": [
+        "exit.market"
+      ],
+      "semantic_labels": {},
+      "supported_sides": [
+        "long",
+        "short"
+      ]
+    },
+    {
+      "description": "",
+      "exact_version": "1.0.0",
+      "family": "none",
+      "kind": "management",
+      "parameters": [],
+      "path_dependent": false,
+      "primitive_id": "management.none",
+      "required_capabilities": [],
+      "semantic_labels": {},
+      "supported_sides": [
+        "long",
+        "short"
+      ]
+    },
+    {
+      "description": "",
+      "exact_version": "1.0.0",
+      "family": "partial_scale",
+      "kind": "management",
+      "parameters": [
+        {
+          "allowed_values": [],
+          "default": "1.5",
+          "description": "",
+          "identity_affecting": true,
+          "maximum": "20",
+          "minimum": "0.1",
+          "monotonic_direction": "none",
+          "name": "activation_r",
+          "parameter_type": "decimal",
+          "required": false,
+          "units": "r_multiple"
+        },
+        {
+          "allowed_values": [],
+          "default": "0.5",
+          "description": "",
+          "identity_affecting": true,
+          "maximum": "0.99",
+          "minimum": "0.01",
+          "monotonic_direction": "none",
+          "name": "quantity_fraction",
+          "parameter_type": "decimal",
+          "required": false,
+          "units": "fraction"
+        }
+      ],
+      "path_dependent": true,
+      "primitive_id": "management.partial_scale",
+      "required_capabilities": [
+        "exit.partial"
+      ],
+      "semantic_labels": {},
+      "supported_sides": [
+        "long",
+        "short"
+      ]
+    },
+    {
+      "description": "",
+      "exact_version": "1.0.0",
+      "family": "asymmetric",
+      "kind": "payoff",
+      "parameters": [
+        {
+          "allowed_values": [],
+          "default": 1800000,
+          "description": "",
+          "identity_affecting": true,
+          "maximum": 86400000,
+          "minimum": 1000,
+          "monotonic_direction": "none",
+          "name": "maximum_holding_ms",
+          "parameter_type": "duration_ms",
+          "required": false,
+          "units": "milliseconds"
+        },
+        {
+          "allowed_values": [],
+          "default": "2.0",
+          "description": "",
+          "identity_affecting": true,
+          "maximum": "20",
+          "minimum": "0.1",
+          "monotonic_direction": "increasing",
+          "name": "minimum_reward_r",
+          "parameter_type": "decimal",
+          "required": false,
+          "units": "r_multiple"
+        }
+      ],
+      "path_dependent": false,
+      "primitive_id": "payoff.asymmetric_r_multiple",
+      "required_capabilities": [],
+      "semantic_labels": {
+        "payoff_profile": "P3"
+      },
+      "supported_sides": [
+        "long",
+        "short"
+      ]
+    },
+    {
+      "description": "",
+      "exact_version": "1.0.0",
+      "family": "context_invalidation",
+      "kind": "stop",
+      "parameters": [
+        {
+          "allowed_values": [],
+          "default": "1.0",
+          "description": "",
+          "identity_affecting": true,
+          "maximum": "10000",
+          "minimum": "0",
+          "monotonic_direction": "none",
+          "name": "buffer_points",
+          "parameter_type": "decimal",
+          "required": false,
+          "units": "points"
+        },
+        {
+          "allowed_values": [],
+          "default": "structure_view:invalidation_level",
+          "description": "",
+          "identity_affecting": true,
+          "maximum": null,
+          "minimum": null,
+          "monotonic_direction": "none",
+          "name": "reference_feature",
+          "parameter_type": "string",
+          "required": true,
+          "units": "feature_ref"
+        }
+      ],
+      "path_dependent": false,
+      "primitive_id": "stop.context_invalidation",
+      "required_capabilities": [
+        "protection.server_stop"
+      ],
+      "semantic_labels": {},
+      "supported_sides": [
+        "long",
+        "short"
+      ]
+    },
+    {
+      "description": "",
+      "exact_version": "1.0.0",
+      "family": "fixed_distance",
+      "kind": "stop",
+      "parameters": [
+        {
+          "allowed_values": [],
+          "default": "100",
+          "description": "",
+          "identity_affecting": true,
+          "maximum": "1000000",
+          "minimum": "1",
+          "monotonic_direction": "increasing",
+          "name": "distance_points",
+          "parameter_type": "decimal",
+          "required": false,
+          "units": "points"
+        }
+      ],
+      "path_dependent": false,
+      "primitive_id": "stop.fixed_distance",
+      "required_capabilities": [
+        "protection.server_stop"
+      ],
+      "semantic_labels": {},
+      "supported_sides": [
+        "long",
+        "short"
+      ]
+    },
+    {
+      "description": "",
+      "exact_version": "1.0.0",
+      "family": "fixed_r",
+      "kind": "target",
+      "parameters": [
+        {
+          "allowed_values": [],
+          "default": "3.0",
+          "description": "",
+          "identity_affecting": true,
+          "maximum": "20",
+          "minimum": "0.1",
+          "monotonic_direction": "increasing",
+          "name": "reward_r",
+          "parameter_type": "decimal",
+          "required": false,
+          "units": "r_multiple"
+        }
+      ],
+      "path_dependent": false,
+      "primitive_id": "target.fixed_r_multiple",
+      "required_capabilities": [
+        "exit.take_profit"
+      ],
+      "semantic_labels": {},
+      "supported_sides": [
+        "long",
+        "short"
+      ]
+    },
+    {
+      "description": "",
+      "exact_version": "1.0.0",
+      "family": "session_window",
+      "kind": "time",
+      "parameters": [
+        {
+          "allowed_values": [],
+          "default": 7200000,
+          "description": "",
+          "identity_affecting": true,
+          "maximum": 86400000,
+          "minimum": 1000,
+          "monotonic_direction": "none",
+          "name": "duration_ms",
+          "parameter_type": "duration_ms",
+          "required": false,
+          "units": "milliseconds"
+        },
+        {
+          "allowed_values": [
+            "asia",
+            "london",
+            "new_york",
+            "overlap"
+          ],
+          "default": "new_york",
+          "description": "",
+          "identity_affecting": true,
+          "maximum": null,
+          "minimum": null,
+          "monotonic_direction": "none",
+          "name": "session_id",
+          "parameter_type": "enum",
+          "required": false,
+          "units": "enum"
+        },
+        {
+          "allowed_values": [],
+          "default": 0,
+          "description": "",
+          "identity_affecting": true,
+          "maximum": 86400000,
+          "minimum": 0,
+          "monotonic_direction": "none",
+          "name": "start_offset_ms",
+          "parameter_type": "duration_ms",
+          "required": false,
+          "units": "milliseconds"
+        }
+      ],
+      "path_dependent": false,
+      "primitive_id": "time.session_window",
+      "required_capabilities": [],
+      "semantic_labels": {},
+      "supported_sides": [
+        "long",
+        "short"
+      ]
+    },
+    {
+      "description": "",
+      "exact_version": "1.0.0",
+      "family": "break_even",
+      "kind": "trail",
+      "parameters": [
+        {
+          "allowed_values": [],
+          "default": "1.0",
+          "description": "",
+          "identity_affecting": true,
+          "maximum": "10",
+          "minimum": "0.1",
+          "monotonic_direction": "none",
+          "name": "activation_r",
+          "parameter_type": "decimal",
+          "required": false,
+          "units": "r_multiple"
+        },
+        {
+          "allowed_values": [],
+          "default": "0",
+          "description": "",
+          "identity_affecting": true,
+          "maximum": "1000",
+          "minimum": "0",
+          "monotonic_direction": "none",
+          "name": "offset_points",
+          "parameter_type": "decimal",
+          "required": false,
+          "units": "points"
+        }
+      ],
+      "path_dependent": true,
+      "primitive_id": "trail.break_even",
+      "required_capabilities": [
+        "protection.modify_stop"
+      ],
+      "semantic_labels": {},
+      "supported_sides": [
+        "long",
+        "short"
+      ]
+    },
+    {
+      "description": "",
+      "exact_version": "1.0.0",
+      "family": "none",
+      "kind": "trail",
+      "parameters": [],
+      "path_dependent": false,
+      "primitive_id": "trail.none",
+      "required_capabilities": [],
+      "semantic_labels": {},
+      "supported_sides": [
+        "long",
+        "short"
+      ]
+    },
+    {
+      "description": "",
+      "exact_version": "1.0.0",
+      "family": "feature_predicate",
+      "kind": "trigger",
+      "parameters": [
+        {
+          "allowed_values": [],
+          "default": "confirmed",
+          "description": "",
+          "identity_affecting": true,
+          "maximum": null,
+          "minimum": null,
+          "monotonic_direction": "none",
+          "name": "expected_value",
+          "parameter_type": "string",
+          "required": false,
+          "units": "scalar"
+        },
+        {
+          "allowed_values": [],
+          "default": "structure_view:breakout_state",
+          "description": "",
+          "identity_affecting": true,
+          "maximum": null,
+          "minimum": null,
+          "monotonic_direction": "none",
+          "name": "feature_ref",
+          "parameter_type": "string",
+          "required": true,
+          "units": "feature_ref"
+        },
+        {
+          "allowed_values": [
+            "eq",
+            "exists",
+            "ge",
+            "gt",
+            "in",
+            "le",
+            "lt",
+            "ne"
+          ],
+          "default": "eq",
+          "description": "",
+          "identity_affecting": true,
+          "maximum": null,
+          "minimum": null,
+          "monotonic_direction": "none",
+          "name": "operator",
+          "parameter_type": "enum",
+          "required": false,
+          "units": "enum"
+        }
+      ],
+      "path_dependent": false,
+      "primitive_id": "trigger.context_feature",
+      "required_capabilities": [],
+      "semantic_labels": {},
+      "supported_sides": [
+        "long",
+        "short"
+      ]
+    }
+  ],
+  "registry_hash": "32476a1e4b79ed2a4b8eab77e0f4fcdbecdd66dd95ad09c44ee67ab103ba345a",
+  "registry_id": "dslreg_32476a1e4b79ed2a4b8eab77",
+  "registry_name": "institutional.treatment_dsl"
+}

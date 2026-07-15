@@ -1,0 +1,28 @@
+{
+  "components": [
+    {
+      "exact_version": "1.0.0",
+      "parameters": {},
+      "primitive_id": "action.abstain",
+      "slot": "action"
+    }
+  ],
+  "constraints": [],
+  "descriptor_id": null,
+  "evidence_role": "development",
+  "exact_version": "1.0.0",
+  "known_as_of": "2026-01-05T14:30:01Z",
+  "limitations": [
+    "Abstain is a mandatory non-executing support response."
+  ],
+  "program_name": "system.abstain",
+  "semantic_labels": {
+    "action_class": "abstain"
+  },
+  "side_scope": [
+    "none"
+  ],
+  "source_artifact_hash": "31fe398788001c395c05621243c8ea886762f857fb36d86d907526812b3ba656",
+  "states": [],
+  "transitions": []
+}

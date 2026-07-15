@@ -1,0 +1,49 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_06/schema_catalog.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "phase": {
+      "const": "SAED_V4_06"
+    },
+    "schemas": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "closed": {
+            "type": "boolean"
+          },
+          "draft": {
+            "type": "string"
+          },
+          "schema_name": {
+            "type": "string"
+          },
+          "schema_path": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "schema_name",
+          "schema_path",
+          "closed",
+          "draft"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "version",
+    "schemas"
+  ],
+  "title": "V4-06 Schema Catalog",
+  "type": "object"
+}

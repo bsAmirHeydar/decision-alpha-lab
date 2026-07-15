@@ -1,0 +1,197 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_06/v4_06_to_v4_07_handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "activate_runtime": {
+          "type": "boolean"
+        },
+        "allocate_risk": {
+          "type": "boolean"
+        },
+        "generate_unbounded_actions": {
+          "type": "boolean"
+        },
+        "mutate_treatment_dsl": {
+          "type": "boolean"
+        },
+        "read_frozen_treatment_dsl": {
+          "type": "boolean"
+        },
+        "select_treatment": {
+          "type": "boolean"
+        },
+        "send_order": {
+          "type": "boolean"
+        },
+        "solve_bounded_action_lattice": {
+          "type": "boolean"
+        },
+        "train_model": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "read_frozen_treatment_dsl",
+        "solve_bounded_action_lattice",
+        "mutate_treatment_dsl",
+        "generate_unbounded_actions",
+        "select_treatment",
+        "train_model",
+        "allocate_risk",
+        "activate_runtime",
+        "send_order"
+      ],
+      "type": "object"
+    },
+    "binding_hashes": {
+      "items": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "binding_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "capability_profile_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "capability_profile_id": {
+      "type": "string"
+    },
+    "evidence_role": {
+      "enum": [
+        "development",
+        "calibration",
+        "selection_validation",
+        "locked_final",
+        "prospective",
+        "shadow",
+        "micro_live",
+        "live",
+        "synthetic_stress",
+        "external_static",
+        "external_actual"
+      ],
+      "type": "string"
+    },
+    "handoff_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "integrity_receipt_id": {
+      "type": "string"
+    },
+    "known_as_of": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "next_phase": {
+      "const": "SAED_V4_07"
+    },
+    "package_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "package_id": {
+      "type": "string"
+    },
+    "phase": {
+      "const": "SAED_V4_06"
+    },
+    "policy_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "program_hashes": {
+      "items": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "program_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "registry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "source_graph_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "source_graph_id": {
+      "type": "string"
+    },
+    "source_handoff_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "source_handoff_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "next_phase",
+    "package_id",
+    "package_hash",
+    "registry_id",
+    "registry_hash",
+    "policy_id",
+    "policy_hash",
+    "capability_profile_id",
+    "capability_profile_hash",
+    "source_graph_id",
+    "source_graph_hash",
+    "source_handoff_id",
+    "source_handoff_hash",
+    "evidence_role",
+    "known_as_of",
+    "program_ids",
+    "program_hashes",
+    "binding_ids",
+    "binding_hashes",
+    "integrity_receipt_id",
+    "authority",
+    "limitations",
+    "handoff_id",
+    "handoff_hash"
+  ],
+  "title": "V4-06 to V4-07 Handoff",
+  "type": "object"
+}

@@ -1,0 +1,21 @@
+{
+  "activate_runtime": false,
+  "allocate_risk": false,
+  "authority_preserved": true,
+  "exact_versions_required": true,
+  "finite_program_space": true,
+  "handoff_status": "ready_reference_only",
+  "integrity_required": true,
+  "metaeditor_compile": "pending_local_windows",
+  "phase": "SAED_V4_06_HANDOFF_TO_V4_07",
+  "production_authorization": false,
+  "select_treatment": false,
+  "send_order": false,
+  "solve_action_lattice": false,
+  "source_package_hash": "78a62bd2a7dc04f993a0367f3fbf67ef04feb4f2326680791909c018ef3cd6d7",
+  "source_phase": "SAED_V4_06",
+  "target_phase": "SAED_V4_07",
+  "title": "Treatment DSL V4 To Constraint Solver And Action Lattice",
+  "train_model": false,
+  "version": "1.0.0"
+}

@@ -1,0 +1,48 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_06/exposure_ledger.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ledger_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "model_trials": {
+      "const": 0
+    },
+    "negative_fixture_count": {
+      "type": "integer"
+    },
+    "orders_sent": {
+      "const": 0
+    },
+    "phase": {
+      "const": "SAED_V4_06"
+    },
+    "program_source_count": {
+      "type": "integer"
+    },
+    "protected_evaluation_queries": {
+      "const": 0
+    },
+    "runtime_activations": {
+      "const": 0
+    },
+    "treatment_selections": {
+      "const": 0
+    }
+  },
+  "required": [
+    "phase",
+    "ledger_version",
+    "program_source_count",
+    "negative_fixture_count",
+    "protected_evaluation_queries",
+    "model_trials",
+    "treatment_selections",
+    "runtime_activations",
+    "orders_sent"
+  ],
+  "title": "V4-06 Exposure Ledger",
+  "type": "object"
+}

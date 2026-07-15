@@ -1,0 +1,81 @@
+{
+  "allowed_evidence_roles": [
+    "calibration",
+    "development",
+    "external_actual",
+    "external_static",
+    "locked_final",
+    "prospective",
+    "selection_validation",
+    "shadow"
+  ],
+  "allowed_units": [
+    "boolean",
+    "decimal",
+    "enum",
+    "feature_ref",
+    "fraction",
+    "integer",
+    "milliseconds",
+    "points",
+    "r_multiple",
+    "scalar",
+    "unitless"
+  ],
+  "deterministic_partition_count": 8,
+  "exact_version": "1.0.0",
+  "maximum_components_per_program": 16,
+  "maximum_constraints_per_program": 64,
+  "maximum_parameters_per_program": 128,
+  "maximum_programs": 4096,
+  "maximum_states_per_program": 32,
+  "maximum_transitions_per_program": 64,
+  "policy_hash": "6f72beb88a6efc42eca3b4f6550b827cc794fd1936ce65125bd89f9e39797f1a",
+  "policy_id": "dslpolicy_6f72beb88a6efc42eca3b4f6",
+  "policy_name": "institutional.treatment_dsl.policy",
+  "prohibited_identifier_tokens": [
+    "forward_return",
+    "future",
+    "label",
+    "outcome",
+    "realized"
+  ],
+  "prohibited_parameter_tokens": [
+    "allocation",
+    "capital",
+    "equity_fraction",
+    "leverage",
+    "lot",
+    "position_size",
+    "risk_cash",
+    "volume"
+  ],
+  "require_abstain": true,
+  "require_exact_hypergraph_handoff": true,
+  "require_skip": true,
+  "required_component_kinds": [
+    "capability",
+    "cost",
+    "direction",
+    "entry",
+    "payoff",
+    "stop",
+    "target",
+    "time"
+  ],
+  "singleton_component_kinds": [
+    "action",
+    "capability",
+    "cost",
+    "direction",
+    "entry",
+    "exit",
+    "management",
+    "payoff",
+    "stop",
+    "target",
+    "time",
+    "trail",
+    "trigger"
+  ]
+}

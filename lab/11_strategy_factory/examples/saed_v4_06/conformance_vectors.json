@@ -1,0 +1,31 @@
+{
+  "phase": "SAED_V4_06",
+  "vectors": [
+    {
+      "expected": "accepted",
+      "package_hash": "78a62bd2a7dc04f993a0367f3fbf67ef04feb4f2326680791909c018ef3cd6d7",
+      "vector_id": "golden_build"
+    },
+    {
+      "expected": "identical",
+      "package_hash": "78a62bd2a7dc04f993a0367f3fbf67ef04feb4f2326680791909c018ef3cd6d7",
+      "vector_id": "source_order_permutation"
+    },
+    {
+      "expected": "rejected",
+      "reason": "unknown_parameter",
+      "vector_id": "unknown_parameter"
+    },
+    {
+      "expected": "rejected",
+      "reason": "constraint_prohibited_future_or_outcome_ref",
+      "vector_id": "future_outcome_constraint"
+    },
+    {
+      "expected": "rejected",
+      "reason": "cyclic_management_state_machine",
+      "vector_id": "cyclic_state_machine"
+    }
+  ],
+  "version": "1.0.0"
+}

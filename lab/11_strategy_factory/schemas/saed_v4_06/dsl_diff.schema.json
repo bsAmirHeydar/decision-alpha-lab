@@ -1,0 +1,66 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_06/dsl_diff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "added_program_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "changed_binding_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "changed_program_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "classification": {
+      "enum": [
+        "identical",
+        "metadata_only",
+        "semantic"
+      ],
+      "type": "string"
+    },
+    "diff_id": {
+      "type": "string"
+    },
+    "left_package_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "removed_program_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "right_package_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "diff_id",
+    "left_package_hash",
+    "right_package_hash",
+    "classification",
+    "added_program_ids",
+    "removed_program_ids",
+    "changed_program_ids",
+    "changed_binding_ids"
+  ],
+  "title": "DSL Semantic Diff",
+  "type": "object"
+}

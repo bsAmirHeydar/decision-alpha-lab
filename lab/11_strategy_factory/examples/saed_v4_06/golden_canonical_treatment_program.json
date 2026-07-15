@@ -1,0 +1,247 @@
+{
+  "capability_profile_hash": "e3def3e44dd20f33d24f83cc1a6dcfe6f1a512c8cd8851cbee1c93ed5c8894cb",
+  "components": [
+    {
+      "component_hash": "2a0fbed0d543fc48f2689e75c3df36205c11f24dd5251ff40d38811698c1a427",
+      "kind": "capability",
+      "parameters": {
+        "required_profile": "mt5_hedging_reference"
+      },
+      "primitive_definition_id": "dslprim_0c89e5b425c7e233ea1d3758",
+      "primitive_key": "capability.mt5_hedging@1.0.0",
+      "slot": "capability"
+    },
+    {
+      "component_hash": "461a3ff201d29daf8125ed4ace9d75488bfcb3822f0c3422a1158926bbe42885",
+      "kind": "cost",
+      "parameters": {
+        "maximum_spread_points": "3.0"
+      },
+      "primitive_definition_id": "dslprim_3f02fa64c5906095e191a43f",
+      "primitive_key": "cost.maximum_spread@1.0.0",
+      "slot": "cost"
+    },
+    {
+      "component_hash": "c207e35b23927de2370be04b9bf5420984d2400adbbd5afae7e5a544bbd6550a",
+      "kind": "direction",
+      "parameters": {
+        "direction_source": "context"
+      },
+      "primitive_definition_id": "dslprim_f75c30463102d3b37c1b8b7c",
+      "primitive_key": "direction.context_declared@1.0.0",
+      "slot": "direction"
+    },
+    {
+      "component_hash": "ac7399df195df3a89c67921f93516873560c1500eaf09a7824d78e20f678bf5e",
+      "kind": "entry",
+      "parameters": {
+        "buffer_points": "2.0",
+        "reference_feature": "structure_view:breakout_level",
+        "ttl_ms": 300000
+      },
+      "primitive_definition_id": "dslprim_4eaa57f7e0fdbd75396ca1ba",
+      "primitive_key": "entry.breakout_stop@1.0.0",
+      "slot": "entry"
+    },
+    {
+      "component_hash": "20467ca1b50983eb91dfa05041d2443efcae44d3ab65d85a953fa3768fa6bea2",
+      "kind": "exit",
+      "parameters": {
+        "maximum_holding_ms": 1800000
+      },
+      "primitive_definition_id": "dslprim_d49625cc76388a38e60462bc",
+      "primitive_key": "exit.time_stop@1.0.0",
+      "slot": "exit"
+    },
+    {
+      "component_hash": "f44c233318fc150580e7e1f51903a9a37ec672218b04607dd31ebbbfb00724ac",
+      "kind": "management",
+      "parameters": {
+        "activation_r": "1.5",
+        "quantity_fraction": "0.5"
+      },
+      "primitive_definition_id": "dslprim_176377c248f3d413b2cf67c6",
+      "primitive_key": "management.partial_scale@1.0.0",
+      "slot": "management"
+    },
+    {
+      "component_hash": "cbe3d1ddb92e332449b48f4832e6b1335ec8e8c601a5d998c7bf3d131e7901a3",
+      "kind": "payoff",
+      "parameters": {
+        "maximum_holding_ms": 1800000,
+        "minimum_reward_r": "2.0"
+      },
+      "primitive_definition_id": "dslprim_953bed4a8de33d5aa9e9be99",
+      "primitive_key": "payoff.asymmetric_r_multiple@1.0.0",
+      "slot": "payoff"
+    },
+    {
+      "component_hash": "640f79552d36dc3e0377657e7d85d89ea0b445748f8d90cff03f4ce3d055b37a",
+      "kind": "stop",
+      "parameters": {
+        "buffer_points": "1.0",
+        "reference_feature": "structure_view:invalidation_level"
+      },
+      "primitive_definition_id": "dslprim_076bd66c11982d1b477adf0a",
+      "primitive_key": "stop.context_invalidation@1.0.0",
+      "slot": "stop"
+    },
+    {
+      "component_hash": "16f97d52eba862fa89931156b68f0b825846edbed5a2dc53de744c459a68c777",
+      "kind": "target",
+      "parameters": {
+        "reward_r": "3.0"
+      },
+      "primitive_definition_id": "dslprim_0b6f17d84e93faf6b9a0fd20",
+      "primitive_key": "target.fixed_r_multiple@1.0.0",
+      "slot": "target"
+    },
+    {
+      "component_hash": "df3a9092e806e0d644109e58b5d4483a90919f87619fb6b1d01eb6e8b344b206",
+      "kind": "time",
+      "parameters": {
+        "duration_ms": 7200000,
+        "session_id": "new_york",
+        "start_offset_ms": 0
+      },
+      "primitive_definition_id": "dslprim_e9e6a85b395cfbd075abe5f4",
+      "primitive_key": "time.session_window@1.0.0",
+      "slot": "time"
+    },
+    {
+      "component_hash": "c87e61c14b1df8da9054737f410b70555789b2bb4a424a2d9062fe2a49979ba7",
+      "kind": "trail",
+      "parameters": {
+        "activation_r": "1.0",
+        "offset_points": "0"
+      },
+      "primitive_definition_id": "dslprim_1c5faf20a5b0fb0e78f24c1b",
+      "primitive_key": "trail.break_even@1.0.0",
+      "slot": "trail"
+    },
+    {
+      "component_hash": "5c732c62c783306e409d2fa35a6e26b51b5cae20d110e6ebe706c9023bcafc8b",
+      "kind": "trigger",
+      "parameters": {
+        "expected_value": "confirmed",
+        "feature_ref": "structure_view:breakout_state",
+        "operator": "eq"
+      },
+      "primitive_definition_id": "dslprim_9e076aba77045440ce9535c8",
+      "primitive_key": "trigger.context_feature@1.0.0",
+      "slot": "trigger"
+    }
+  ],
+  "constraints": [
+    {
+      "constraint_name": "break_even_guard",
+      "description": "Break-even transition cannot arm before 1R.",
+      "kind": "state_transition_guard",
+      "left_ref": "component:trail.activation_r",
+      "operator": "ge",
+      "right_ref": null,
+      "right_value": "1.0",
+      "severity": "error"
+    },
+    {
+      "constraint_name": "entry_requires_breakout_confirmation",
+      "description": "The declared breakout must be confirmed at known time.",
+      "kind": "feature_predicate",
+      "left_ref": "feature:structure_view:breakout_state",
+      "operator": "eq",
+      "right_ref": null,
+      "right_value": "confirmed",
+      "severity": "error"
+    },
+    {
+      "constraint_name": "partial_exit_capability",
+      "description": "Partial management requires an approved partial-exit capability.",
+      "kind": "capability_required",
+      "left_ref": "capability:exit.partial",
+      "operator": "exists",
+      "right_ref": null,
+      "right_value": null,
+      "severity": "error"
+    },
+    {
+      "constraint_name": "target_not_below_payoff_floor",
+      "description": "Target R must not be below the payoff floor.",
+      "kind": "parameter_relation",
+      "left_ref": "component:target.reward_r",
+      "operator": "ge",
+      "right_ref": "component:payoff.minimum_reward_r",
+      "right_value": null,
+      "severity": "error"
+    }
+  ],
+  "descriptor_id": "treatment_approved_001",
+  "evidence_role": "development",
+  "exact_version": "1.0.0",
+  "known_as_of": "2026-01-05T14:30:01Z",
+  "limitations": [
+    "Reference Treatment semantics only; no selection, sizing, runtime activation, or order authority.",
+    "The program cannot allocate capital, select itself, activate runtime, or send orders.",
+    "V4-06 defines and validates a finite program; it does not solve an action lattice."
+  ],
+  "program_hash": "47f4144af29572660a024a550565edd53282b46c67f9f78881fbe193490afef8",
+  "program_id": "treatment_ff49b948e2f26a960977b909",
+  "program_name": "context.breakout.p3",
+  "reason_codes": [],
+  "registry_hash": "32476a1e4b79ed2a4b8eab77e0f4fcdbecdd66dd95ad09c44ee67ab103ba345a",
+  "semantic_labels": {
+    "entry_mechanism": "breakout",
+    "path_dependent": true,
+    "payoff_profile": "P3"
+  },
+  "side_scope": [
+    "long",
+    "short"
+  ],
+  "source_artifact_hash": "9b414411a8cbcba00013a4090f55033b7b3e78f375b9fe35f7b5373df9bab37d",
+  "states": [
+    {
+      "description": "Program is declared but no entry path is active.",
+      "kind": "initial",
+      "state_name": "armed"
+    },
+    {
+      "description": "The declarative path has reached a terminal state.",
+      "kind": "terminal",
+      "state_name": "closed"
+    },
+    {
+      "description": "Entry condition has produced an accepted path state.",
+      "kind": "active",
+      "state_name": "entered"
+    },
+    {
+      "description": "The path has crossed the declared management threshold.",
+      "kind": "active",
+      "state_name": "managed"
+    }
+  ],
+  "status": "accepted",
+  "transitions": [
+    {
+      "from_state": "armed",
+      "guard_constraint": "entry_requires_breakout_confirmation",
+      "terminal_action": null,
+      "to_state": "entered",
+      "transition_name": "arm_to_entered"
+    },
+    {
+      "from_state": "entered",
+      "guard_constraint": "break_even_guard",
+      "terminal_action": null,
+      "to_state": "managed",
+      "transition_name": "entered_to_managed"
+    },
+    {
+      "from_state": "managed",
+      "guard_constraint": null,
+      "terminal_action": "exit",
+      "to_state": "closed",
+      "transition_name": "managed_to_closed"
+    }
+  ]
+}

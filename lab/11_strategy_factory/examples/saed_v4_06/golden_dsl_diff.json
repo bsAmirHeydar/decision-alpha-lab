@@ -1,0 +1,10 @@
+{
+  "added_program_ids": [],
+  "changed_binding_ids": [],
+  "changed_program_ids": [],
+  "classification": "identical",
+  "diff_id": "dsldiff_7faece033b3601b5c7918720",
+  "left_package_hash": "78a62bd2a7dc04f993a0367f3fbf67ef04feb4f2326680791909c018ef3cd6d7",
+  "removed_program_ids": [],
+  "right_package_hash": "78a62bd2a7dc04f993a0367f3fbf67ef04feb4f2326680791909c018ef3cd6d7"
+}

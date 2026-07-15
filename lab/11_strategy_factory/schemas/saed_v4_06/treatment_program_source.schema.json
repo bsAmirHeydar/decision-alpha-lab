@@ -1,0 +1,1151 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_06/treatment_program_source.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "components": {
+      "items": {
+        "oneOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "exact_version": {
+                "const": "1.0.0"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {},
+                "required": [],
+                "type": "object"
+              },
+              "primitive_id": {
+                "const": "action.abstain"
+              },
+              "slot": {
+                "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "slot",
+              "primitive_id",
+              "exact_version",
+              "parameters"
+            ],
+            "title": "Component action.abstain",
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "exact_version": {
+                "const": "1.0.0"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {},
+                "required": [],
+                "type": "object"
+              },
+              "primitive_id": {
+                "const": "action.skip"
+              },
+              "slot": {
+                "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "slot",
+              "primitive_id",
+              "exact_version",
+              "parameters"
+            ],
+            "title": "Component action.skip",
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "exact_version": {
+                "const": "1.0.0"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "required_profile": {
+                    "type": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "null",
+                      "array",
+                      "object"
+                    ]
+                  }
+                },
+                "required": [
+                  "required_profile"
+                ],
+                "type": "object"
+              },
+              "primitive_id": {
+                "const": "capability.mt5_hedging"
+              },
+              "slot": {
+                "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "slot",
+              "primitive_id",
+              "exact_version",
+              "parameters"
+            ],
+            "title": "Component capability.mt5_hedging",
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "exact_version": {
+                "const": "1.0.0"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "maximum_spread_points": {
+                    "type": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "null",
+                      "array",
+                      "object"
+                    ]
+                  }
+                },
+                "required": [
+                  "maximum_spread_points"
+                ],
+                "type": "object"
+              },
+              "primitive_id": {
+                "const": "cost.maximum_spread"
+              },
+              "slot": {
+                "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "slot",
+              "primitive_id",
+              "exact_version",
+              "parameters"
+            ],
+            "title": "Component cost.maximum_spread",
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "exact_version": {
+                "const": "1.0.0"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "direction_source": {
+                    "type": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "null",
+                      "array",
+                      "object"
+                    ]
+                  }
+                },
+                "required": [
+                  "direction_source"
+                ],
+                "type": "object"
+              },
+              "primitive_id": {
+                "const": "direction.context_declared"
+              },
+              "slot": {
+                "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "slot",
+              "primitive_id",
+              "exact_version",
+              "parameters"
+            ],
+            "title": "Component direction.context_declared",
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "exact_version": {
+                "const": "1.0.0"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "buffer_points": {
+                    "type": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "null",
+                      "array",
+                      "object"
+                    ]
+                  },
+                  "reference_feature": {
+                    "type": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "null",
+                      "array",
+                      "object"
+                    ]
+                  },
+                  "ttl_ms": {
+                    "type": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "null",
+                      "array",
+                      "object"
+                    ]
+                  }
+                },
+                "required": [
+                  "buffer_points",
+                  "reference_feature",
+                  "ttl_ms"
+                ],
+                "type": "object"
+              },
+              "primitive_id": {
+                "const": "entry.breakout_stop"
+              },
+              "slot": {
+                "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "slot",
+              "primitive_id",
+              "exact_version",
+              "parameters"
+            ],
+            "title": "Component entry.breakout_stop",
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "exact_version": {
+                "const": "1.0.0"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "maximum_quote_age_ms": {
+                    "type": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "null",
+                      "array",
+                      "object"
+                    ]
+                  }
+                },
+                "required": [
+                  "maximum_quote_age_ms"
+                ],
+                "type": "object"
+              },
+              "primitive_id": {
+                "const": "entry.market"
+              },
+              "slot": {
+                "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "slot",
+              "primitive_id",
+              "exact_version",
+              "parameters"
+            ],
+            "title": "Component entry.market",
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "exact_version": {
+                "const": "1.0.0"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "offset_points": {
+                    "type": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "null",
+                      "array",
+                      "object"
+                    ]
+                  },
+                  "ttl_ms": {
+                    "type": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "null",
+                      "array",
+                      "object"
+                    ]
+                  }
+                },
+                "required": [
+                  "offset_points",
+                  "ttl_ms"
+                ],
+                "type": "object"
+              },
+              "primitive_id": {
+                "const": "entry.passive_limit"
+              },
+              "slot": {
+                "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "slot",
+              "primitive_id",
+              "exact_version",
+              "parameters"
+            ],
+            "title": "Component entry.passive_limit",
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "exact_version": {
+                "const": "1.0.0"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "maximum_holding_ms": {
+                    "type": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "null",
+                      "array",
+                      "object"
+                    ]
+                  }
+                },
+                "required": [
+                  "maximum_holding_ms"
+                ],
+                "type": "object"
+              },
+              "primitive_id": {
+                "const": "exit.time_stop"
+              },
+              "slot": {
+                "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "slot",
+              "primitive_id",
+              "exact_version",
+              "parameters"
+            ],
+            "title": "Component exit.time_stop",
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "exact_version": {
+                "const": "1.0.0"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {},
+                "required": [],
+                "type": "object"
+              },
+              "primitive_id": {
+                "const": "management.none"
+              },
+              "slot": {
+                "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "slot",
+              "primitive_id",
+              "exact_version",
+              "parameters"
+            ],
+            "title": "Component management.none",
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "exact_version": {
+                "const": "1.0.0"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "activation_r": {
+                    "type": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "null",
+                      "array",
+                      "object"
+                    ]
+                  },
+                  "quantity_fraction": {
+                    "type": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "null",
+                      "array",
+                      "object"
+                    ]
+                  }
+                },
+                "required": [
+                  "activation_r",
+                  "quantity_fraction"
+                ],
+                "type": "object"
+              },
+              "primitive_id": {
+                "const": "management.partial_scale"
+              },
+              "slot": {
+                "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "slot",
+              "primitive_id",
+              "exact_version",
+              "parameters"
+            ],
+            "title": "Component management.partial_scale",
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "exact_version": {
+                "const": "1.0.0"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "maximum_holding_ms": {
+                    "type": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "null",
+                      "array",
+                      "object"
+                    ]
+                  },
+                  "minimum_reward_r": {
+                    "type": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "null",
+                      "array",
+                      "object"
+                    ]
+                  }
+                },
+                "required": [
+                  "maximum_holding_ms",
+                  "minimum_reward_r"
+                ],
+                "type": "object"
+              },
+              "primitive_id": {
+                "const": "payoff.asymmetric_r_multiple"
+              },
+              "slot": {
+                "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "slot",
+              "primitive_id",
+              "exact_version",
+              "parameters"
+            ],
+            "title": "Component payoff.asymmetric_r_multiple",
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "exact_version": {
+                "const": "1.0.0"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "buffer_points": {
+                    "type": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "null",
+                      "array",
+                      "object"
+                    ]
+                  },
+                  "reference_feature": {
+                    "type": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "null",
+                      "array",
+                      "object"
+                    ]
+                  }
+                },
+                "required": [
+                  "buffer_points",
+                  "reference_feature"
+                ],
+                "type": "object"
+              },
+              "primitive_id": {
+                "const": "stop.context_invalidation"
+              },
+              "slot": {
+                "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "slot",
+              "primitive_id",
+              "exact_version",
+              "parameters"
+            ],
+            "title": "Component stop.context_invalidation",
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "exact_version": {
+                "const": "1.0.0"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "distance_points": {
+                    "type": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "null",
+                      "array",
+                      "object"
+                    ]
+                  }
+                },
+                "required": [
+                  "distance_points"
+                ],
+                "type": "object"
+              },
+              "primitive_id": {
+                "const": "stop.fixed_distance"
+              },
+              "slot": {
+                "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "slot",
+              "primitive_id",
+              "exact_version",
+              "parameters"
+            ],
+            "title": "Component stop.fixed_distance",
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "exact_version": {
+                "const": "1.0.0"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "reward_r": {
+                    "type": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "null",
+                      "array",
+                      "object"
+                    ]
+                  }
+                },
+                "required": [
+                  "reward_r"
+                ],
+                "type": "object"
+              },
+              "primitive_id": {
+                "const": "target.fixed_r_multiple"
+              },
+              "slot": {
+                "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "slot",
+              "primitive_id",
+              "exact_version",
+              "parameters"
+            ],
+            "title": "Component target.fixed_r_multiple",
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "exact_version": {
+                "const": "1.0.0"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "duration_ms": {
+                    "type": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "null",
+                      "array",
+                      "object"
+                    ]
+                  },
+                  "session_id": {
+                    "type": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "null",
+                      "array",
+                      "object"
+                    ]
+                  },
+                  "start_offset_ms": {
+                    "type": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "null",
+                      "array",
+                      "object"
+                    ]
+                  }
+                },
+                "required": [
+                  "duration_ms",
+                  "session_id",
+                  "start_offset_ms"
+                ],
+                "type": "object"
+              },
+              "primitive_id": {
+                "const": "time.session_window"
+              },
+              "slot": {
+                "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "slot",
+              "primitive_id",
+              "exact_version",
+              "parameters"
+            ],
+            "title": "Component time.session_window",
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "exact_version": {
+                "const": "1.0.0"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "activation_r": {
+                    "type": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "null",
+                      "array",
+                      "object"
+                    ]
+                  },
+                  "offset_points": {
+                    "type": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "null",
+                      "array",
+                      "object"
+                    ]
+                  }
+                },
+                "required": [
+                  "activation_r",
+                  "offset_points"
+                ],
+                "type": "object"
+              },
+              "primitive_id": {
+                "const": "trail.break_even"
+              },
+              "slot": {
+                "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "slot",
+              "primitive_id",
+              "exact_version",
+              "parameters"
+            ],
+            "title": "Component trail.break_even",
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "exact_version": {
+                "const": "1.0.0"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {},
+                "required": [],
+                "type": "object"
+              },
+              "primitive_id": {
+                "const": "trail.none"
+              },
+              "slot": {
+                "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "slot",
+              "primitive_id",
+              "exact_version",
+              "parameters"
+            ],
+            "title": "Component trail.none",
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "exact_version": {
+                "const": "1.0.0"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "expected_value": {
+                    "type": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "null",
+                      "array",
+                      "object"
+                    ]
+                  },
+                  "feature_ref": {
+                    "type": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "null",
+                      "array",
+                      "object"
+                    ]
+                  },
+                  "operator": {
+                    "type": [
+                      "string",
+                      "number",
+                      "integer",
+                      "boolean",
+                      "null",
+                      "array",
+                      "object"
+                    ]
+                  }
+                },
+                "required": [
+                  "expected_value",
+                  "feature_ref",
+                  "operator"
+                ],
+                "type": "object"
+              },
+              "primitive_id": {
+                "const": "trigger.context_feature"
+              },
+              "slot": {
+                "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "slot",
+              "primitive_id",
+              "exact_version",
+              "parameters"
+            ],
+            "title": "Component trigger.context_feature",
+            "type": "object"
+          }
+        ],
+        "title": "Program Component Source"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "constraints": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "constraint_name": {
+            "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "requires_component",
+              "excludes_component",
+              "parameter_relation",
+              "feature_predicate",
+              "capability_required",
+              "state_transition_guard"
+            ],
+            "type": "string"
+          },
+          "left_ref": {
+            "type": "string"
+          },
+          "operator": {
+            "enum": [
+              "eq",
+              "ne",
+              "lt",
+              "le",
+              "gt",
+              "ge",
+              "in",
+              "exists"
+            ],
+            "type": "string"
+          },
+          "right_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "right_value": {
+            "type": [
+              "string",
+              "number",
+              "integer",
+              "boolean",
+              "null",
+              "array",
+              "object"
+            ]
+          },
+          "severity": {
+            "enum": [
+              "info",
+              "warning",
+              "error"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "constraint_name",
+          "kind",
+          "left_ref",
+          "operator",
+          "right_value",
+          "right_ref",
+          "severity",
+          "description"
+        ],
+        "title": "Constraint Declaration",
+        "type": "object"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "descriptor_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "evidence_role": {
+      "enum": [
+        "development",
+        "calibration",
+        "selection_validation",
+        "locked_final",
+        "prospective",
+        "shadow",
+        "micro_live",
+        "live",
+        "synthetic_stress",
+        "external_static",
+        "external_actual"
+      ],
+      "type": "string"
+    },
+    "exact_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "known_as_of": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "program_name": {
+      "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+      "type": "string"
+    },
+    "semantic_labels": {
+      "additionalProperties": {
+        "type": [
+          "string",
+          "number",
+          "integer",
+          "boolean",
+          "null",
+          "array",
+          "object"
+        ]
+      },
+      "type": "object"
+    },
+    "side_scope": {
+      "items": {
+        "enum": [
+          "long",
+          "short",
+          "none"
+        ],
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "source_artifact_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "states": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "initial",
+              "active",
+              "terminal"
+            ],
+            "type": "string"
+          },
+          "state_name": {
+            "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "state_name",
+          "kind",
+          "description"
+        ],
+        "title": "State Definition",
+        "type": "object"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "transitions": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "from_state": {
+            "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+            "type": "string"
+          },
+          "guard_constraint": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "terminal_action": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "to_state": {
+            "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+            "type": "string"
+          },
+          "transition_name": {
+            "pattern": "^[a-z][a-z0-9_.-]{1,127}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "transition_name",
+          "from_state",
+          "to_state",
+          "guard_constraint",
+          "terminal_action"
+        ],
+        "title": "Transition Definition",
+        "type": "object"
+      },
+      "minItems": 0,
+      "type": "array"
+    }
+  },
+  "required": [
+    "program_name",
+    "exact_version",
+    "descriptor_id",
+    "side_scope",
+    "components",
+    "constraints",
+    "states",
+    "transitions",
+    "semantic_labels",
+    "evidence_role",
+    "known_as_of",
+    "source_artifact_hash",
+    "limitations"
+  ],
+  "title": "Treatment Program Source",
+  "type": "object"
+}
