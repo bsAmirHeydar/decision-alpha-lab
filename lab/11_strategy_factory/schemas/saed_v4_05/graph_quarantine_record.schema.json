@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "created_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "graph_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "quarantine_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reason_codes": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "release_allowed": {
+      "const": false
+    },
+    "review_required": {
+      "const": true
+    },
+    "source_package_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "quarantine_id",
+    "graph_id",
+    "source_package_hash",
+    "reason_codes",
+    "created_at",
+    "release_allowed",
+    "review_required"
+  ],
+  "title": "Graph Quarantine Record",
+  "type": "object"
+}

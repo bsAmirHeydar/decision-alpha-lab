@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "active_edge_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "degraded_node_ids": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^hnode_[0-9a-f]{24}$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "edge_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "missing_required_relations": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "missing_required_views": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "node_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "reasons": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "required_relation_present": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "required_relation_total": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "status": {
+      "enum": [
+        "supported",
+        "degraded",
+        "unsupported"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "status",
+    "node_count",
+    "edge_count",
+    "active_edge_count",
+    "required_relation_total",
+    "required_relation_present",
+    "missing_required_relations",
+    "missing_required_views",
+    "degraded_node_ids",
+    "reasons"
+  ],
+  "title": "Graph Support Assessment",
+  "type": "object"
+}

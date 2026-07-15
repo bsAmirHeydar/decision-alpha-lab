@@ -1,0 +1,72 @@
+{
+  "commands": [
+    {
+      "command": "python tools/strategy_factory/saed_v4_05/run_saed_v4_05_tests.py",
+      "result": "89 passed"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_05/validate_saed_v4_05_contracts.py",
+      "result": "23 closed schemas and 11 golden contracts validated"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_05/check_saed_v4_05_boundaries.py",
+      "result": "28 Python modules passed"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_05/validate_saed_v4_05_obsidian.py",
+      "result": "68 notes validated; no broken targets"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_05/validate_saed_v4_05_mql5_static.py",
+      "result": "13 diagnostic-only files passed"
+    },
+    {
+      "command": "python -m compileall -q lab/11_strategy_factory/python/saed_v4_semantic_hypergraph",
+      "result": "pass"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_05/validate_saed_v4_05_delivery.py",
+      "result": "199 indexed files and 198 hashes validated"
+    }
+  ],
+  "executed_on": "2026-07-15",
+  "external_evidence": {
+    "independent_reproduction": "pending_external",
+    "large_scale_performance": "pending_external",
+    "metaeditor_compile": "pending_local_windows",
+    "production_authorization": false,
+    "runtime_parity": "not_in_scope"
+  },
+  "golden_graph_hash": "f1e4e5c60b9146161a6f5db9d82bb9ef53e9d0045e772562136451b7897b011a",
+  "phase": "SAED_V4_05",
+  "python_runtime": "CPython 3.13",
+  "residual_risks": [
+    "Semantic relation rules are hand-authored and may be incomplete.",
+    "No learned graph encoder or causal graph is implemented in V4-05.",
+    "Static MQL5 validation cannot prove MetaEditor or terminal behavior.",
+    "Large-scale graph fleet performance and transport robustness remain unverified externally."
+  ],
+  "status": "pass_reference_implementation",
+  "test_scope": [
+    "golden deterministic build",
+    "closed registry and policy",
+    "authority denial",
+    "future and known-time rejection",
+    "Evidence Role isolation",
+    "source package integrity",
+    "node/edge/graph hash and lineage validation",
+    "incidence and arity",
+    "support and mask behavior",
+    "replay and semantic diff",
+    "non-learned projection",
+    "bounded query",
+    "deterministic partitioning",
+    "telemetry",
+    "handoff",
+    "schemas",
+    "negative fixtures",
+    "MQL5 static safety",
+    "Obsidian links"
+  ],
+  "version": "1.0.0"
+}

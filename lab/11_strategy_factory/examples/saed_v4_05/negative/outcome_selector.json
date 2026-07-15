@@ -1,0 +1,6 @@
+{
+  "expected": "reject",
+  "feature_id": "future_outcome",
+  "mutation": "outcome_selector",
+  "view_name": "price_view"
+}

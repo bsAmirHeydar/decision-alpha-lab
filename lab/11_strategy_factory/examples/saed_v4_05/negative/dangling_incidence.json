@@ -1,0 +1,5 @@
+{
+  "expected": "reject",
+  "mutation": "dangling_incidence",
+  "node_id": "unknown_node"
+}

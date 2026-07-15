@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "context",
+        "view",
+        "feature",
+        "source_artifact",
+        "temporal_anchor",
+        "external_context_reference",
+        "treatment_descriptor"
+      ],
+      "type": "string"
+    },
+    "prohibited_attributes": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "required_attributes": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "kind",
+    "required_attributes",
+    "prohibited_attributes",
+    "description"
+  ],
+  "title": "Node Type Definition",
+  "type": "object"
+}

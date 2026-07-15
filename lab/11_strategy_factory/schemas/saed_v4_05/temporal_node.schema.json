@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "attributes": {
+      "additionalProperties": {
+        "type": [
+          "string",
+          "number",
+          "integer",
+          "boolean",
+          "null",
+          "array",
+          "object"
+        ]
+      },
+      "type": "object"
+    },
+    "event_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "evidence_role": {
+      "enum": [
+        "development",
+        "calibration",
+        "selection_validation",
+        "locked_final",
+        "prospective",
+        "shadow",
+        "micro_live",
+        "live",
+        "synthetic_stress",
+        "external_static",
+        "external_actual"
+      ],
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "context",
+        "view",
+        "feature",
+        "source_artifact",
+        "temporal_anchor",
+        "external_context_reference",
+        "treatment_descriptor"
+      ],
+      "type": "string"
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "masked": {
+      "type": "boolean"
+    },
+    "missing": {
+      "type": "boolean"
+    },
+    "node_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "node_id": {
+      "minLength": 1,
+      "pattern": "^hnode_[0-9a-f]{24}$",
+      "type": "string"
+    },
+    "quality": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "semantic_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_hashes": {
+      "items": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "node_id",
+    "kind",
+    "semantic_key",
+    "event_time",
+    "known_time",
+    "evidence_role",
+    "quality",
+    "missing",
+    "masked",
+    "source_hashes",
+    "attributes",
+    "node_hash"
+  ],
+  "title": "Temporal Node",
+  "type": "object"
+}

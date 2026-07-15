@@ -1,0 +1,10 @@
+{
+  "authority_preserved": true,
+  "graph_hash": "f1e4e5c60b9146161a6f5db9d82bb9ef53e9d0045e772562136451b7897b011a",
+  "handoff_hash": "f70e0307fb169ac625dbf964981c91cd4bea86969cfc6cb92a29dc02949983db",
+  "handoff_id": "v405to06_543db10b249d347d4dc99f69",
+  "handoff_status": "ready_reference_only",
+  "next_phase": "SAED_V4_06",
+  "phase": "SAED_V4_05",
+  "production_authorization": false
+}

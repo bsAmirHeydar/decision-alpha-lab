@@ -1,0 +1,26 @@
+{
+  "allow_degraded_views": true,
+  "deterministic_partition_count": 16,
+  "exact_version": "1.0.0",
+  "include_missing_feature_nodes": true,
+  "include_source_artifact_nodes": true,
+  "include_temporal_cohorts": true,
+  "maximum_edge_arity": 512,
+  "maximum_edges": 8192,
+  "maximum_nodes": 4096,
+  "minimum_feature_quality": 0.5,
+  "policy_name": "institutional_semantic_temporal_hypergraph_policy",
+  "prohibited_feature_tokens": [
+    "future",
+    "target",
+    "label",
+    "outcome",
+    "realized_pnl",
+    "forward_return"
+  ],
+  "required_view_names": [
+    "price_view",
+    "structure_view",
+    "time_view"
+  ]
+}

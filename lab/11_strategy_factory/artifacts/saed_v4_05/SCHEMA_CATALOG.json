@@ -1,0 +1,29 @@
+{
+  "phase": "SAED_V4_05",
+  "schema_count": 23,
+  "schemas": [
+    "graph_build_policy.schema.json",
+    "graph_diff.schema.json",
+    "graph_integrity_receipt.schema.json",
+    "graph_projection.schema.json",
+    "graph_quarantine_record.schema.json",
+    "graph_query.schema.json",
+    "graph_query_result.schema.json",
+    "graph_release_manifest.schema.json",
+    "graph_replay_receipt.schema.json",
+    "graph_support_assessment.schema.json",
+    "hypergraph_authority_boundary.schema.json",
+    "hypergraph_incident.schema.json",
+    "hypergraph_telemetry.schema.json",
+    "node_type_definition.schema.json",
+    "partition_manifest.schema.json",
+    "relation_definition.schema.json",
+    "selector.schema.json",
+    "semantic_registry.schema.json",
+    "semantic_relation_rule.schema.json",
+    "semantic_temporal_hypergraph.schema.json",
+    "temporal_hyperedge.schema.json",
+    "temporal_node.schema.json",
+    "v4_05_to_v4_06_handoff.schema.json"
+  ]
+}

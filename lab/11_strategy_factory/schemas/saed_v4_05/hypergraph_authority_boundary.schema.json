@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "activate_runtime": {
+      "type": "boolean"
+    },
+    "allocate_risk": {
+      "type": "boolean"
+    },
+    "build_hypergraph": {
+      "type": "boolean"
+    },
+    "fit_adaptive_statistics": {
+      "type": "boolean"
+    },
+    "generate_treatment": {
+      "type": "boolean"
+    },
+    "infer_canonical_relations": {
+      "type": "boolean"
+    },
+    "learn_edges": {
+      "type": "boolean"
+    },
+    "mutate_ucee_truth": {
+      "type": "boolean"
+    },
+    "mutate_view_artifacts": {
+      "type": "boolean"
+    },
+    "network_access": {
+      "type": "boolean"
+    },
+    "project_baseline": {
+      "type": "boolean"
+    },
+    "query_hypergraph": {
+      "type": "boolean"
+    },
+    "read_multimodal_package": {
+      "type": "boolean"
+    },
+    "read_view_lineage": {
+      "type": "boolean"
+    },
+    "replay_hypergraph": {
+      "type": "boolean"
+    },
+    "select_treatment": {
+      "type": "boolean"
+    },
+    "send_order": {
+      "type": "boolean"
+    },
+    "train_model": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "read_multimodal_package",
+    "read_view_lineage",
+    "build_hypergraph",
+    "replay_hypergraph",
+    "query_hypergraph",
+    "project_baseline",
+    "mutate_ucee_truth",
+    "mutate_view_artifacts",
+    "infer_canonical_relations",
+    "fit_adaptive_statistics",
+    "learn_edges",
+    "train_model",
+    "generate_treatment",
+    "select_treatment",
+    "allocate_risk",
+    "activate_runtime",
+    "send_order",
+    "network_access"
+  ],
+  "title": "Hypergraph Authority Boundary",
+  "type": "object"
+}

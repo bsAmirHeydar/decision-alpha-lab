@@ -1,0 +1,5 @@
+{
+  "expected": "reject",
+  "mutation": "tampered_package_hash",
+  "package_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+}

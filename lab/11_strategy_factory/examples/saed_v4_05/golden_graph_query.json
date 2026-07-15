@@ -1,0 +1,17 @@
+{
+  "direction": "incident",
+  "include_masked": false,
+  "maximum_hops": 1,
+  "maximum_results": 100,
+  "node_kinds": [
+    "context",
+    "view"
+  ],
+  "query_id": "query_ef488fa0e66b5224ab7f00f7",
+  "relation_kinds": [
+    "context_composition"
+  ],
+  "seed_node_ids": [
+    "hnode_9a8c4de17e7838143714187e"
+  ]
+}

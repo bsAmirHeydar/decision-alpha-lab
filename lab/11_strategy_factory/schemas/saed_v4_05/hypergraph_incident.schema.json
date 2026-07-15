@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "enum": [
+        "reject",
+        "quarantine",
+        "rollback",
+        "investigate"
+      ],
+      "type": "string"
+    },
+    "category": {
+      "enum": [
+        "contract",
+        "temporal",
+        "integrity",
+        "authority",
+        "capacity",
+        "security"
+      ],
+      "type": "string"
+    },
+    "detected_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "evidence_hashes": {
+      "items": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "graph_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "incident_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "resolved": {
+      "type": "boolean"
+    },
+    "severity": {
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "incident_id",
+    "graph_id",
+    "severity",
+    "category",
+    "detected_at",
+    "evidence_hashes",
+    "action",
+    "resolved"
+  ],
+  "title": "Hypergraph Incident",
+  "type": "object"
+}

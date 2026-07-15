@@ -1,0 +1,52 @@
+{
+  "golden_graph_hash": "f1e4e5c60b9146161a6f5db9d82bb9ef53e9d0045e772562136451b7897b011a",
+  "phase": "SAED_V4_05",
+  "vectors": [
+    {
+      "claim": "deterministic closed-registry graph construction",
+      "expected": "pass",
+      "id": "golden_build"
+    },
+    {
+      "claim": "no future event or known-time incidence",
+      "expected": "reject",
+      "id": "future_suffix"
+    },
+    {
+      "claim": "evidence-role isolation",
+      "expected": "reject",
+      "id": "cross_role"
+    },
+    {
+      "claim": "closed relation catalog",
+      "expected": "reject",
+      "id": "unknown_relation"
+    },
+    {
+      "claim": "evaluation outcome exclusion",
+      "expected": "reject",
+      "id": "outcome_selector"
+    },
+    {
+      "claim": "exact source package hash binding",
+      "expected": "reject",
+      "id": "tampered_package"
+    },
+    {
+      "claim": "decision-equivalent deterministic replay",
+      "expected": "pass",
+      "id": "replay"
+    },
+    {
+      "claim": "non-learned incidence baseline retained",
+      "expected": "pass",
+      "id": "projection"
+    },
+    {
+      "claim": "no training, treatment, risk, runtime or order authority",
+      "expected": "reject",
+      "id": "authority"
+    }
+  ],
+  "version": "1.0.0"
+}

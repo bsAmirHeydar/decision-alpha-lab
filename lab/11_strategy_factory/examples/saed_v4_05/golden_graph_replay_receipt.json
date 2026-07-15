@@ -1,0 +1,9 @@
+{
+  "expected_graph_hash": "f1e4e5c60b9146161a6f5db9d82bb9ef53e9d0045e772562136451b7897b011a",
+  "graph_id": "sthypergraph_dc8e94b87be99ebc734b4f19",
+  "observed_graph_hash": "f1e4e5c60b9146161a6f5db9d82bb9ef53e9d0045e772562136451b7897b011a",
+  "policy_hash": "3c4bf8a9d3c7301daa98a159704e1825343a88142e239bb143f1096f528a0621",
+  "registry_hash": "0a5098dd988ed6e551dee638d643f0950091a424a36109d191942652b1959757",
+  "source_package_hash": "a764fd870ec1bd9f0d827849ce0b2e3bd0823ee016879fe4bb7e4b43d67c16ba",
+  "status": "pass"
+}

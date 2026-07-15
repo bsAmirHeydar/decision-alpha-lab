@@ -1,0 +1,5 @@
+{
+  "expected": "reject",
+  "mutation": "unknown_relation",
+  "relation_kind": "learned_correlation"
+}

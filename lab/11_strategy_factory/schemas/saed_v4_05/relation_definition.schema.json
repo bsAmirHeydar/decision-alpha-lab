@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allow_repeated_kind": {
+      "type": "boolean"
+    },
+    "allowed_node_kinds": {
+      "items": {
+        "enum": [
+          "context",
+          "view",
+          "feature",
+          "source_artifact",
+          "temporal_anchor",
+          "external_context_reference",
+          "treatment_descriptor"
+        ],
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "context_composition",
+        "view_composition",
+        "source_provenance",
+        "temporal_cohort",
+        "cross_view_alignment",
+        "semantic_family",
+        "context_ancestry",
+        "treatment_descriptor_binding"
+      ],
+      "type": "string"
+    },
+    "maximum_arity": {
+      "minimum": 2,
+      "type": "integer"
+    },
+    "minimum_arity": {
+      "minimum": 2,
+      "type": "integer"
+    },
+    "required": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "kind",
+    "allowed_node_kinds",
+    "minimum_arity",
+    "maximum_arity",
+    "required",
+    "allow_repeated_kind",
+    "description"
+  ],
+  "title": "Relation Definition",
+  "type": "object"
+}

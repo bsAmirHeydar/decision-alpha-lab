@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "edge_ids": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^hedge_[0-9a-f]{24}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "graph_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "graph_id": {
+      "minLength": 1,
+      "pattern": "^sthypergraph_[0-9a-f]{24}$",
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "incidence",
+        "clique",
+        "star"
+      ],
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "node_ids": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^hnode_[0-9a-f]{24}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "projection_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "projection_id": {
+      "minLength": 1,
+      "pattern": "^graphprojection_[0-9a-f]{24}$",
+      "type": "string"
+    },
+    "rows": {
+      "items": {
+        "items": {
+          "enum": [
+            -1,
+            0,
+            1
+          ],
+          "type": "integer"
+        },
+        "minItems": 0,
+        "type": "array"
+      },
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "projection_id",
+    "graph_id",
+    "graph_hash",
+    "kind",
+    "node_ids",
+    "edge_ids",
+    "rows",
+    "projection_hash",
+    "limitations"
+  ],
+  "title": "Graph Projection",
+  "type": "object"
+}

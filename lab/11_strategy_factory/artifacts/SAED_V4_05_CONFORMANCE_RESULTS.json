@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "closed_relation_catalog": true,
+    "deterministic_rebuild": true,
+    "hash_bound_source": true,
+    "no_execution_authority": true,
+    "no_training_authority": true,
+    "no_treatment_selection_authority": true,
+    "order_invariant_registry_rules": true
+  },
+  "graph_hash": "f1e4e5c60b9146161a6f5db9d82bb9ef53e9d0045e772562136451b7897b011a",
+  "graph_id": "sthypergraph_dc8e94b87be99ebc734b4f19",
+  "phase": "SAED_V4_05",
+  "status": "pass"
+}

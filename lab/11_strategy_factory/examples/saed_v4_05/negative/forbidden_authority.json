@@ -1,0 +1,5 @@
+{
+  "expected": "reject",
+  "mutation": "forbidden_authority",
+  "train_model": true
+}

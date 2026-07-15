@@ -1,0 +1,22 @@
+{
+  "edge_ids": [
+    "hedge_45130767089b9573b2557cc1"
+  ],
+  "graph_id": "sthypergraph_dc8e94b87be99ebc734b4f19",
+  "node_ids": [
+    "hnode_2557d4da8802659cc32a5736",
+    "hnode_33d421ba8f81e3394b669fd2",
+    "hnode_55a7c340b38cb5ed3a66e454",
+    "hnode_7df3cd6f952e00f2f2620309",
+    "hnode_985b2ef08cfae777ce3e889e",
+    "hnode_9a8c4de17e7838143714187e",
+    "hnode_9bac8ae2de112db13edfe134",
+    "hnode_a9c32095266dfcdf3c330fee",
+    "hnode_d16ee24394c09b6f2af2e99b",
+    "hnode_d1f2b0b3951cd681eb6acd6f",
+    "hnode_ef64c9affc5ba30803bcda66"
+  ],
+  "query_id": "query_ef488fa0e66b5224ab7f00f7",
+  "result_hash": "50f3bd456fca6537f58c2ee7d0b07a27b5e359d62f20b42555cdab3603011849",
+  "truncated": false
+}

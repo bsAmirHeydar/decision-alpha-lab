@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "direction": {
+      "enum": [
+        "incident",
+        "members"
+      ],
+      "type": "string"
+    },
+    "include_masked": {
+      "type": "boolean"
+    },
+    "maximum_hops": {
+      "maximum": 8,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "maximum_results": {
+      "maximum": 10000,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "node_kinds": {
+      "items": {
+        "enum": [
+          "context",
+          "view",
+          "feature",
+          "source_artifact",
+          "temporal_anchor",
+          "external_context_reference",
+          "treatment_descriptor"
+        ],
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "query_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "relation_kinds": {
+      "items": {
+        "enum": [
+          "context_composition",
+          "view_composition",
+          "source_provenance",
+          "temporal_cohort",
+          "cross_view_alignment",
+          "semantic_family",
+          "context_ancestry",
+          "treatment_descriptor_binding"
+        ],
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "seed_node_ids": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^hnode_[0-9a-f]{24}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "query_id",
+    "seed_node_ids",
+    "relation_kinds",
+    "node_kinds",
+    "direction",
+    "maximum_hops",
+    "maximum_results",
+    "include_masked"
+  ],
+  "title": "Graph Query",
+  "type": "object"
+}

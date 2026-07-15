@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "expected_graph_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "graph_id": {
+      "minLength": 1,
+      "pattern": "^sthypergraph_[0-9a-f]{24}$",
+      "type": "string"
+    },
+    "observed_graph_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "policy_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "registry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "source_package_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "pass",
+        "fail"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "graph_id",
+    "expected_graph_hash",
+    "observed_graph_hash",
+    "source_package_hash",
+    "registry_hash",
+    "policy_hash",
+    "status"
+  ],
+  "title": "Graph Replay Receipt",
+  "type": "object"
+}

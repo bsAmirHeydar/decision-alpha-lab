@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "edge_ids": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^hedge_[0-9a-f]{24}$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "graph_id": {
+      "minLength": 1,
+      "pattern": "^sthypergraph_[0-9a-f]{24}$",
+      "type": "string"
+    },
+    "node_ids": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^hnode_[0-9a-f]{24}$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "query_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "result_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "truncated": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "query_id",
+    "graph_id",
+    "node_ids",
+    "edge_ids",
+    "truncated",
+    "result_hash"
+  ],
+  "title": "Graph Query Result",
+  "type": "object"
+}

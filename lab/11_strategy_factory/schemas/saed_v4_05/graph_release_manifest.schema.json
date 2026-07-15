@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "graph_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "integrity_receipt_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "metaeditor_compile": {
+      "enum": [
+        "pending_local_windows",
+        "pass",
+        "fail"
+      ],
+      "type": "string"
+    },
+    "phase": {
+      "const": "SAED_V4_05"
+    },
+    "policy_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "production_authorization": {
+      "const": false
+    },
+    "qa_status": {
+      "enum": [
+        "pass",
+        "fail"
+      ],
+      "type": "string"
+    },
+    "registry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "release_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "release_id",
+    "phase",
+    "version",
+    "graph_hash",
+    "registry_hash",
+    "policy_hash",
+    "integrity_receipt_id",
+    "qa_status",
+    "metaeditor_compile",
+    "production_authorization"
+  ],
+  "title": "Graph Release Manifest",
+  "type": "object"
+}

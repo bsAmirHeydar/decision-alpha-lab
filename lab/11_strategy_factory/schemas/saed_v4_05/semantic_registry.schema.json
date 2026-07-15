@@ -1,0 +1,315 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "activate_runtime": {
+          "type": "boolean"
+        },
+        "allocate_risk": {
+          "type": "boolean"
+        },
+        "build_hypergraph": {
+          "type": "boolean"
+        },
+        "fit_adaptive_statistics": {
+          "type": "boolean"
+        },
+        "generate_treatment": {
+          "type": "boolean"
+        },
+        "infer_canonical_relations": {
+          "type": "boolean"
+        },
+        "learn_edges": {
+          "type": "boolean"
+        },
+        "mutate_ucee_truth": {
+          "type": "boolean"
+        },
+        "mutate_view_artifacts": {
+          "type": "boolean"
+        },
+        "network_access": {
+          "type": "boolean"
+        },
+        "project_baseline": {
+          "type": "boolean"
+        },
+        "query_hypergraph": {
+          "type": "boolean"
+        },
+        "read_multimodal_package": {
+          "type": "boolean"
+        },
+        "read_view_lineage": {
+          "type": "boolean"
+        },
+        "replay_hypergraph": {
+          "type": "boolean"
+        },
+        "select_treatment": {
+          "type": "boolean"
+        },
+        "send_order": {
+          "type": "boolean"
+        },
+        "train_model": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "read_multimodal_package",
+        "read_view_lineage",
+        "build_hypergraph",
+        "replay_hypergraph",
+        "query_hypergraph",
+        "project_baseline",
+        "mutate_ucee_truth",
+        "mutate_view_artifacts",
+        "infer_canonical_relations",
+        "fit_adaptive_statistics",
+        "learn_edges",
+        "train_model",
+        "generate_treatment",
+        "select_treatment",
+        "allocate_risk",
+        "activate_runtime",
+        "send_order",
+        "network_access"
+      ],
+      "title": "Hypergraph Authority Boundary",
+      "type": "object"
+    },
+    "exact_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "node_types": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "context",
+              "view",
+              "feature",
+              "source_artifact",
+              "temporal_anchor",
+              "external_context_reference",
+              "treatment_descriptor"
+            ],
+            "type": "string"
+          },
+          "prohibited_attributes": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 0,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "required_attributes": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 0,
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "kind",
+          "required_attributes",
+          "prohibited_attributes",
+          "description"
+        ],
+        "title": "Node Type Definition",
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "registry_name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "relations": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "allow_repeated_kind": {
+            "type": "boolean"
+          },
+          "allowed_node_kinds": {
+            "items": {
+              "enum": [
+                "context",
+                "view",
+                "feature",
+                "source_artifact",
+                "temporal_anchor",
+                "external_context_reference",
+                "treatment_descriptor"
+              ],
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "description": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "context_composition",
+              "view_composition",
+              "source_provenance",
+              "temporal_cohort",
+              "cross_view_alignment",
+              "semantic_family",
+              "context_ancestry",
+              "treatment_descriptor_binding"
+            ],
+            "type": "string"
+          },
+          "maximum_arity": {
+            "minimum": 2,
+            "type": "integer"
+          },
+          "minimum_arity": {
+            "minimum": 2,
+            "type": "integer"
+          },
+          "required": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "kind",
+          "allowed_node_kinds",
+          "minimum_arity",
+          "maximum_arity",
+          "required",
+          "allow_repeated_kind",
+          "description"
+        ],
+        "title": "Relation Definition",
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "rules": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "exact_version": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "include_context": {
+            "type": "boolean"
+          },
+          "minimum_members": {
+            "minimum": 2,
+            "type": "integer"
+          },
+          "relation_kind": {
+            "enum": [
+              "context_composition",
+              "view_composition",
+              "source_provenance",
+              "temporal_cohort",
+              "cross_view_alignment",
+              "semantic_family",
+              "context_ancestry",
+              "treatment_descriptor_binding"
+            ],
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "rule_name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "selectors": {
+            "items": {
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "additionalProperties": false,
+              "properties": {
+                "feature_id": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "view_name": {
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "view_name",
+                "feature_id"
+              ],
+              "title": "Semantic Selector",
+              "type": "object"
+            },
+            "minItems": 1,
+            "type": "array"
+          }
+        },
+        "required": [
+          "rule_name",
+          "exact_version",
+          "relation_kind",
+          "selectors",
+          "include_context",
+          "minimum_members",
+          "required",
+          "description"
+        ],
+        "title": "Semantic Relation Rule",
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "registry_name",
+    "exact_version",
+    "node_types",
+    "relations",
+    "rules",
+    "authority",
+    "limitations"
+  ],
+  "title": "Semantic Registry",
+  "type": "object"
+}

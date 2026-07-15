@@ -1,0 +1,12 @@
+{
+  "authority_violation_count": 0,
+  "degraded_node_count": 0,
+  "deterministic": true,
+  "edge_count": 63,
+  "graph_id": "sthypergraph_dc8e94b87be99ebc734b4f19",
+  "masked_edge_count": 0,
+  "node_count": 95,
+  "operation": "build_hypergraph",
+  "source_package_id": "viewpkg_b0318f75fb5c4c420c48b8e5",
+  "telemetry_hash": "03a4261655febaa5209649c1ec0fea909ac25e5fe78aa37dd6df5934b953e8d9"
+}

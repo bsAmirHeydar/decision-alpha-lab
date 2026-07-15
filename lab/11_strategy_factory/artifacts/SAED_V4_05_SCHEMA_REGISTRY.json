@@ -1,0 +1,144 @@
+{
+  "entries": [
+    {
+      "closed": true,
+      "name": "graph_build_policy.schema.json",
+      "sha256": "63df82fa25a91c726eba4259a1123f4345b802f8011bc160fc79eb9ffa81c2c7",
+      "title": "Graph Build Policy"
+    },
+    {
+      "closed": true,
+      "name": "graph_diff.schema.json",
+      "sha256": "3305c752a76a856727094083f29acdce7c838bd97f69602a4c4c0fc4de66d76c",
+      "title": "Graph Diff"
+    },
+    {
+      "closed": true,
+      "name": "graph_integrity_receipt.schema.json",
+      "sha256": "6249c69c6f7b044cea9f4a8e820bbabeedd2a990e624281bc80847b11093ebf4",
+      "title": "Graph Integrity Receipt"
+    },
+    {
+      "closed": true,
+      "name": "graph_projection.schema.json",
+      "sha256": "57ef96e854089594c67fd004e16de6dfd000a5a71df71398ad0379e8990be161",
+      "title": "Graph Projection"
+    },
+    {
+      "closed": true,
+      "name": "graph_quarantine_record.schema.json",
+      "sha256": "f42efe5b96d3eae4bc3c9dbaccadeff5b0f149a5a3b3829a346691509273f6ff",
+      "title": "Graph Quarantine Record"
+    },
+    {
+      "closed": true,
+      "name": "graph_query.schema.json",
+      "sha256": "96233eb286f8d8e2da3d9c4986987313b9750be23b6fabe48dcbe3c9d700055c",
+      "title": "Graph Query"
+    },
+    {
+      "closed": true,
+      "name": "graph_query_result.schema.json",
+      "sha256": "437933dfcbeb5c89a3476792c818a59039e692dc19e6ab27e2be3303050666c1",
+      "title": "Graph Query Result"
+    },
+    {
+      "closed": true,
+      "name": "graph_release_manifest.schema.json",
+      "sha256": "e90c2bcce7b6ff16f7590696397d130fcfbfa65036fe293ee81d3487eb5001fd",
+      "title": "Graph Release Manifest"
+    },
+    {
+      "closed": true,
+      "name": "graph_replay_receipt.schema.json",
+      "sha256": "22cf2c595988bbf2af1f092212a103f1721ae6a311dab8de8a593238ab3f932a",
+      "title": "Graph Replay Receipt"
+    },
+    {
+      "closed": true,
+      "name": "graph_support_assessment.schema.json",
+      "sha256": "1ef3ffe4c29d0cd412879a08afc6ef2ea3c9a2c96335e41709239d89f97673f8",
+      "title": "Graph Support Assessment"
+    },
+    {
+      "closed": true,
+      "name": "hypergraph_authority_boundary.schema.json",
+      "sha256": "16375d85e1b18e1f2c7b42e0b57c3302ac26a553ff9808b373c3c275b2d681f5",
+      "title": "Hypergraph Authority Boundary"
+    },
+    {
+      "closed": true,
+      "name": "hypergraph_incident.schema.json",
+      "sha256": "5d30b9b8f086f454a5527a4acd0bc9f5a81b089246614ae030d3ae227a91404b",
+      "title": "Hypergraph Incident"
+    },
+    {
+      "closed": true,
+      "name": "hypergraph_telemetry.schema.json",
+      "sha256": "9039096a3b9a11ca418f6176ab0540205d05232282f23d3b7dfffd0a4a19b5a6",
+      "title": "Hypergraph Telemetry"
+    },
+    {
+      "closed": true,
+      "name": "node_type_definition.schema.json",
+      "sha256": "a0a583f915dc3a0164281261f2dfc5f2d997583f8d21ecaa84a69daa0494b623",
+      "title": "Node Type Definition"
+    },
+    {
+      "closed": true,
+      "name": "partition_manifest.schema.json",
+      "sha256": "2e893a87e7c41b1459326e3b28d9f017908c23cc4bf4fa779974f6f832866299",
+      "title": "Graph Partition Manifest"
+    },
+    {
+      "closed": true,
+      "name": "relation_definition.schema.json",
+      "sha256": "20b50629fb63354e20bbe06ed01c93320a843eefbaa3c081566d4b55edbdba0a",
+      "title": "Relation Definition"
+    },
+    {
+      "closed": true,
+      "name": "selector.schema.json",
+      "sha256": "0408e8a6a8623d0a91cf6fe84c1c0b86a08ffd24b3f03252a185ca47bb92127b",
+      "title": "Semantic Selector"
+    },
+    {
+      "closed": true,
+      "name": "semantic_registry.schema.json",
+      "sha256": "6238c8cf6b25fd2ccaf0e31b817119c6d563c5107f406923b749cd6a2f54212d",
+      "title": "Semantic Registry"
+    },
+    {
+      "closed": true,
+      "name": "semantic_relation_rule.schema.json",
+      "sha256": "6c74731f644edbfdd5e42c40a3da3ed767fd54d53842c678b12fd95ee93bfd72",
+      "title": "Semantic Relation Rule"
+    },
+    {
+      "closed": true,
+      "name": "semantic_temporal_hypergraph.schema.json",
+      "sha256": "bf0a2091836200af7e8c730179ee143b0909725befacfca41fa54fafbfad3905",
+      "title": "Semantic Temporal Hypergraph"
+    },
+    {
+      "closed": true,
+      "name": "temporal_hyperedge.schema.json",
+      "sha256": "f4aca27bf2e8d5758b0d4449e2b0f7a7ed6d3c8873615f692233b4b3602d9366",
+      "title": "Temporal Hyperedge"
+    },
+    {
+      "closed": true,
+      "name": "temporal_node.schema.json",
+      "sha256": "d6f27d2bd7e58672c1ce843e99ec3e7e54dc87250777627e558c29fc17f657cb",
+      "title": "Temporal Node"
+    },
+    {
+      "closed": true,
+      "name": "v4_05_to_v4_06_handoff.schema.json",
+      "sha256": "4343fc6460b31cfd25d4a7df1041a2f8e47a5cddea04272f536c8059c5becc1a",
+      "title": "V4-05 To V4-06 Handoff"
+    }
+  ],
+  "phase": "SAED_V4_05",
+  "schema_count": 23
+}

@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "component_root": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "edge_hashes": {
+      "items": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "graph_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "graph_id": {
+      "minLength": 1,
+      "pattern": "^sthypergraph_[0-9a-f]{24}$",
+      "type": "string"
+    },
+    "node_hashes": {
+      "items": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "policy_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "registry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "source_package_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "status": {
+      "const": "pass"
+    }
+  },
+  "required": [
+    "graph_id",
+    "graph_hash",
+    "source_package_hash",
+    "registry_hash",
+    "policy_hash",
+    "node_hashes",
+    "edge_hashes",
+    "component_root",
+    "status"
+  ],
+  "title": "Graph Integrity Receipt",
+  "type": "object"
+}

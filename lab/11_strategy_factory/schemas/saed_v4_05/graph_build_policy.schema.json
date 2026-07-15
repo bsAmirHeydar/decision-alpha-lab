@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allow_degraded_views": {
+      "type": "boolean"
+    },
+    "deterministic_partition_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "exact_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "include_missing_feature_nodes": {
+      "type": "boolean"
+    },
+    "include_source_artifact_nodes": {
+      "type": "boolean"
+    },
+    "include_temporal_cohorts": {
+      "type": "boolean"
+    },
+    "maximum_edge_arity": {
+      "minimum": 2,
+      "type": "integer"
+    },
+    "maximum_edges": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "maximum_nodes": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "minimum_feature_quality": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "policy_name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "prohibited_feature_tokens": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "required_view_names": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "policy_name",
+    "exact_version",
+    "required_view_names",
+    "allow_degraded_views",
+    "minimum_feature_quality",
+    "include_missing_feature_nodes",
+    "include_source_artifact_nodes",
+    "include_temporal_cohorts",
+    "maximum_nodes",
+    "maximum_edges",
+    "maximum_edge_arity",
+    "prohibited_feature_tokens",
+    "deterministic_partition_count"
+  ],
+  "title": "Graph Build Policy",
+  "type": "object"
+}

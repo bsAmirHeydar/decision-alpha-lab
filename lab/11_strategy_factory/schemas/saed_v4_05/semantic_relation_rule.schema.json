@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "exact_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "include_context": {
+      "type": "boolean"
+    },
+    "minimum_members": {
+      "minimum": 2,
+      "type": "integer"
+    },
+    "relation_kind": {
+      "enum": [
+        "context_composition",
+        "view_composition",
+        "source_provenance",
+        "temporal_cohort",
+        "cross_view_alignment",
+        "semantic_family",
+        "context_ancestry",
+        "treatment_descriptor_binding"
+      ],
+      "type": "string"
+    },
+    "required": {
+      "type": "boolean"
+    },
+    "rule_name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "selectors": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "feature_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "view_name": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "view_name",
+          "feature_id"
+        ],
+        "title": "Semantic Selector",
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "rule_name",
+    "exact_version",
+    "relation_kind",
+    "selectors",
+    "include_context",
+    "minimum_members",
+    "required",
+    "description"
+  ],
+  "title": "Semantic Relation Rule",
+  "type": "object"
+}

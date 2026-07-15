@@ -1,0 +1,5 @@
+{
+  "event_time": "2027-01-01T00:00:00Z",
+  "expected": "reject",
+  "mutation": "future_node"
+}

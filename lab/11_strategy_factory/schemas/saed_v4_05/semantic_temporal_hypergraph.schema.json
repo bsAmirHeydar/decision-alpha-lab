@@ -1,0 +1,429 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "edges": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "active": {
+            "type": "boolean"
+          },
+          "edge_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "edge_id": {
+            "minLength": 1,
+            "pattern": "^hedge_[0-9a-f]{24}$",
+            "type": "string"
+          },
+          "event_time_end": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "event_time_start": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "evidence_role": {
+            "enum": [
+              "development",
+              "calibration",
+              "selection_validation",
+              "locked_final",
+              "prospective",
+              "shadow",
+              "micro_live",
+              "live",
+              "synthetic_stress",
+              "external_static",
+              "external_actual"
+            ],
+            "type": "string"
+          },
+          "known_time": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "mask": {
+            "enum": [
+              0,
+              1
+            ],
+            "type": "integer"
+          },
+          "member_node_ids": {
+            "items": {
+              "minLength": 1,
+              "pattern": "^hnode_[0-9a-f]{24}$",
+              "type": "string"
+            },
+            "minItems": 2,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "quality": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          "reason_codes": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 0,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "relation_kind": {
+            "enum": [
+              "context_composition",
+              "view_composition",
+              "source_provenance",
+              "temporal_cohort",
+              "cross_view_alignment",
+              "semantic_family",
+              "context_ancestry",
+              "treatment_descriptor_binding"
+            ],
+            "type": "string"
+          },
+          "source_rule_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "edge_id",
+          "relation_kind",
+          "member_node_ids",
+          "event_time_start",
+          "event_time_end",
+          "known_time",
+          "evidence_role",
+          "active",
+          "mask",
+          "quality",
+          "source_rule_id",
+          "reason_codes",
+          "edge_hash"
+        ],
+        "title": "Temporal Hyperedge",
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "event_as_of": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "evidence_role": {
+      "enum": [
+        "development",
+        "calibration",
+        "selection_validation",
+        "locked_final",
+        "prospective",
+        "shadow",
+        "micro_live",
+        "live",
+        "synthetic_stress",
+        "external_static",
+        "external_actual"
+      ],
+      "type": "string"
+    },
+    "graph_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "graph_id": {
+      "minLength": 1,
+      "pattern": "^sthypergraph_[0-9a-f]{24}$",
+      "type": "string"
+    },
+    "graph_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "known_as_of": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "lineage_root": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "nodes": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "attributes": {
+            "additionalProperties": {
+              "type": [
+                "string",
+                "number",
+                "integer",
+                "boolean",
+                "null",
+                "array",
+                "object"
+              ]
+            },
+            "type": "object"
+          },
+          "event_time": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "evidence_role": {
+            "enum": [
+              "development",
+              "calibration",
+              "selection_validation",
+              "locked_final",
+              "prospective",
+              "shadow",
+              "micro_live",
+              "live",
+              "synthetic_stress",
+              "external_static",
+              "external_actual"
+            ],
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "context",
+              "view",
+              "feature",
+              "source_artifact",
+              "temporal_anchor",
+              "external_context_reference",
+              "treatment_descriptor"
+            ],
+            "type": "string"
+          },
+          "known_time": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "masked": {
+            "type": "boolean"
+          },
+          "missing": {
+            "type": "boolean"
+          },
+          "node_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "node_id": {
+            "minLength": 1,
+            "pattern": "^hnode_[0-9a-f]{24}$",
+            "type": "string"
+          },
+          "quality": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          "semantic_key": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "source_hashes": {
+            "items": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "minItems": 0,
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "node_id",
+          "kind",
+          "semantic_key",
+          "event_time",
+          "known_time",
+          "evidence_role",
+          "quality",
+          "missing",
+          "masked",
+          "source_hashes",
+          "attributes",
+          "node_hash"
+        ],
+        "title": "Temporal Node",
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "policy_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "pattern": "^graphpolicy_[0-9a-f]{24}$",
+      "type": "string"
+    },
+    "registry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "registry_id": {
+      "minLength": 1,
+      "pattern": "^semreg_[0-9a-f]{24}$",
+      "type": "string"
+    },
+    "source_package_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "source_package_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "complete",
+        "degraded",
+        "unsupported",
+        "quarantined"
+      ],
+      "type": "string"
+    },
+    "support": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "active_edge_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "degraded_node_ids": {
+          "items": {
+            "minLength": 1,
+            "pattern": "^hnode_[0-9a-f]{24}$",
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "edge_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "missing_required_relations": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "missing_required_views": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "node_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "reasons": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "required_relation_present": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "required_relation_total": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "status": {
+          "enum": [
+            "supported",
+            "degraded",
+            "unsupported"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "node_count",
+        "edge_count",
+        "active_edge_count",
+        "required_relation_total",
+        "required_relation_present",
+        "missing_required_relations",
+        "missing_required_views",
+        "degraded_node_ids",
+        "reasons"
+      ],
+      "title": "Graph Support Assessment",
+      "type": "object"
+    },
+    "twin_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "graph_id",
+    "graph_version",
+    "registry_id",
+    "registry_hash",
+    "policy_id",
+    "policy_hash",
+    "source_package_id",
+    "source_package_hash",
+    "twin_id",
+    "known_as_of",
+    "event_as_of",
+    "evidence_role",
+    "status",
+    "nodes",
+    "edges",
+    "support",
+    "lineage_root",
+    "graph_hash",
+    "limitations"
+  ],
+  "title": "Semantic Temporal Hypergraph",
+  "type": "object"
+}

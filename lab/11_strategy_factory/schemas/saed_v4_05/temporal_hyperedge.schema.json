@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "active": {
+      "type": "boolean"
+    },
+    "edge_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "edge_id": {
+      "minLength": 1,
+      "pattern": "^hedge_[0-9a-f]{24}$",
+      "type": "string"
+    },
+    "event_time_end": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "event_time_start": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "evidence_role": {
+      "enum": [
+        "development",
+        "calibration",
+        "selection_validation",
+        "locked_final",
+        "prospective",
+        "shadow",
+        "micro_live",
+        "live",
+        "synthetic_stress",
+        "external_static",
+        "external_actual"
+      ],
+      "type": "string"
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "mask": {
+      "enum": [
+        0,
+        1
+      ],
+      "type": "integer"
+    },
+    "member_node_ids": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^hnode_[0-9a-f]{24}$",
+        "type": "string"
+      },
+      "minItems": 2,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "quality": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "reason_codes": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "relation_kind": {
+      "enum": [
+        "context_composition",
+        "view_composition",
+        "source_provenance",
+        "temporal_cohort",
+        "cross_view_alignment",
+        "semantic_family",
+        "context_ancestry",
+        "treatment_descriptor_binding"
+      ],
+      "type": "string"
+    },
+    "source_rule_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "edge_id",
+    "relation_kind",
+    "member_node_ids",
+    "event_time_start",
+    "event_time_end",
+    "known_time",
+    "evidence_role",
+    "active",
+    "mask",
+    "quality",
+    "source_rule_id",
+    "reason_codes",
+    "edge_hash"
+  ],
+  "title": "Temporal Hyperedge",
+  "type": "object"
+}

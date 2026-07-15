@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority_violation_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "degraded_node_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "deterministic": {
+      "const": true
+    },
+    "edge_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "graph_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "masked_edge_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "node_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "operation": {
+      "const": "build_hypergraph"
+    },
+    "source_package_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "telemetry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "operation",
+    "graph_id",
+    "source_package_id",
+    "node_count",
+    "edge_count",
+    "masked_edge_count",
+    "degraded_node_count",
+    "deterministic",
+    "authority_violation_count",
+    "telemetry_hash"
+  ],
+  "title": "Hypergraph Telemetry",
+  "type": "object"
+}

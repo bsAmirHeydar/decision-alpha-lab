@@ -1,0 +1,299 @@
+{
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "build_hypergraph": true,
+    "fit_adaptive_statistics": false,
+    "generate_treatment": false,
+    "infer_canonical_relations": false,
+    "learn_edges": false,
+    "mutate_ucee_truth": false,
+    "mutate_view_artifacts": false,
+    "network_access": false,
+    "project_baseline": true,
+    "query_hypergraph": true,
+    "read_multimodal_package": true,
+    "read_view_lineage": true,
+    "replay_hypergraph": true,
+    "select_treatment": false,
+    "send_order": false,
+    "train_model": false
+  },
+  "exact_version": "1.0.0",
+  "limitations": [
+    "Relations are deterministic and allowlisted; no edge is learned.",
+    "The registry creates derived representation only and cannot mutate canonical Context truth.",
+    "Treatment descriptor relations are read-only and carry no selection authority."
+  ],
+  "node_types": [
+    {
+      "description": "Closed V4-05 context node type.",
+      "kind": "context",
+      "prohibited_attributes": [],
+      "required_attributes": []
+    },
+    {
+      "description": "Closed V4-05 view node type.",
+      "kind": "view",
+      "prohibited_attributes": [],
+      "required_attributes": []
+    },
+    {
+      "description": "Closed V4-05 feature node type.",
+      "kind": "feature",
+      "prohibited_attributes": [],
+      "required_attributes": []
+    },
+    {
+      "description": "Closed V4-05 source_artifact node type.",
+      "kind": "source_artifact",
+      "prohibited_attributes": [],
+      "required_attributes": []
+    },
+    {
+      "description": "Closed V4-05 temporal_anchor node type.",
+      "kind": "temporal_anchor",
+      "prohibited_attributes": [],
+      "required_attributes": []
+    },
+    {
+      "description": "Closed V4-05 external_context_reference node type.",
+      "kind": "external_context_reference",
+      "prohibited_attributes": [],
+      "required_attributes": []
+    },
+    {
+      "description": "Closed V4-05 treatment_descriptor node type.",
+      "kind": "treatment_descriptor",
+      "prohibited_attributes": [],
+      "required_attributes": []
+    }
+  ],
+  "registry_name": "institutional_semantic_temporal_hypergraph_registry",
+  "relations": [
+    {
+      "allow_repeated_kind": true,
+      "allowed_node_kinds": [
+        "context",
+        "view"
+      ],
+      "description": "Context and its exact-version view members.",
+      "kind": "context_composition",
+      "maximum_arity": 32,
+      "minimum_arity": 2,
+      "required": true
+    },
+    {
+      "allow_repeated_kind": true,
+      "allowed_node_kinds": [
+        "view",
+        "feature"
+      ],
+      "description": "View and its deterministic feature members.",
+      "kind": "view_composition",
+      "maximum_arity": 256,
+      "minimum_arity": 2,
+      "required": true
+    },
+    {
+      "allow_repeated_kind": true,
+      "allowed_node_kinds": [
+        "feature",
+        "source_artifact"
+      ],
+      "description": "Feature and the source artifacts that support it.",
+      "kind": "source_provenance",
+      "maximum_arity": 64,
+      "minimum_arity": 2,
+      "required": false
+    },
+    {
+      "allow_repeated_kind": true,
+      "allowed_node_kinds": [
+        "temporal_anchor",
+        "feature"
+      ],
+      "description": "Features sharing an exact visible event-time anchor.",
+      "kind": "temporal_cohort",
+      "maximum_arity": 512,
+      "minimum_arity": 2,
+      "required": false
+    },
+    {
+      "allow_repeated_kind": true,
+      "allowed_node_kinds": [
+        "context",
+        "view"
+      ],
+      "description": "Package-level exact-boundary alignment across views.",
+      "kind": "cross_view_alignment",
+      "maximum_arity": 32,
+      "minimum_arity": 3,
+      "required": true
+    },
+    {
+      "allow_repeated_kind": true,
+      "allowed_node_kinds": [
+        "context",
+        "feature"
+      ],
+      "description": "Explicit allowlisted semantic family; never inferred as canonical truth.",
+      "kind": "semantic_family",
+      "maximum_arity": 64,
+      "minimum_arity": 2,
+      "required": false
+    },
+    {
+      "allow_repeated_kind": true,
+      "allowed_node_kinds": [
+        "context",
+        "external_context_reference",
+        "feature"
+      ],
+      "description": "Read-only ancestry relation represented by approved View features.",
+      "kind": "context_ancestry",
+      "maximum_arity": 16,
+      "minimum_arity": 2,
+      "required": false
+    },
+    {
+      "allow_repeated_kind": true,
+      "allowed_node_kinds": [
+        "context",
+        "treatment_descriptor",
+        "feature"
+      ],
+      "description": "Read-only binding to an externally approved Treatment descriptor.",
+      "kind": "treatment_descriptor_binding",
+      "maximum_arity": 32,
+      "minimum_arity": 2,
+      "required": false
+    }
+  ],
+  "rules": [
+    {
+      "description": "Explicit relation across visible price and execution-state features.",
+      "exact_version": "1.0.0",
+      "include_context": true,
+      "minimum_members": 4,
+      "relation_kind": "semantic_family",
+      "required": true,
+      "rule_name": "market_price_execution_state",
+      "selectors": [
+        {
+          "feature_id": "mid",
+          "view_name": "price_view"
+        },
+        {
+          "feature_id": "spread",
+          "view_name": "price_view"
+        },
+        {
+          "feature_id": "spread_points",
+          "view_name": "execution_view"
+        },
+        {
+          "feature_id": "estimated_slippage_points",
+          "view_name": "execution_view"
+        },
+        {
+          "feature_id": "latency_ms",
+          "view_name": "execution_view"
+        }
+      ]
+    },
+    {
+      "description": "Explicit relation across visible temporal and session features.",
+      "exact_version": "1.0.0",
+      "include_context": true,
+      "minimum_members": 5,
+      "relation_kind": "semantic_family",
+      "required": true,
+      "rule_name": "context_time_session_state",
+      "selectors": [
+        {
+          "feature_id": "hour_utc",
+          "view_name": "time_view"
+        },
+        {
+          "feature_id": "weekday_utc",
+          "view_name": "time_view"
+        },
+        {
+          "feature_id": "seconds_since_context_start",
+          "view_name": "time_view"
+        },
+        {
+          "feature_id": "session_id",
+          "view_name": "session_view"
+        },
+        {
+          "feature_id": "session_open",
+          "view_name": "session_view"
+        },
+        {
+          "feature_id": "minutes_from_open",
+          "view_name": "session_view"
+        }
+      ]
+    },
+    {
+      "description": "Explicit relation across current structure and ancestry descriptors.",
+      "exact_version": "1.0.0",
+      "include_context": true,
+      "minimum_members": 3,
+      "relation_kind": "semantic_family",
+      "required": false,
+      "rule_name": "structure_ancestry_state",
+      "selectors": [
+        {
+          "feature_id": "lifecycle_state",
+          "view_name": "structure_view"
+        },
+        {
+          "feature_id": "twin_state",
+          "view_name": "structure_view"
+        },
+        {
+          "feature_id": "context_family",
+          "view_name": "context_ancestry_view"
+        },
+        {
+          "feature_id": "generation_depth",
+          "view_name": "context_ancestry_view"
+        }
+      ]
+    },
+    {
+      "description": "Explicit relation across intermarket and liquidity descriptors.",
+      "exact_version": "1.0.0",
+      "include_context": true,
+      "minimum_members": 3,
+      "relation_kind": "semantic_family",
+      "required": false,
+      "rule_name": "intermarket_liquidity_state",
+      "selectors": [
+        {
+          "feature_id": "cross_market_state",
+          "view_name": "intermarket_view"
+        },
+        {
+          "feature_id": "related_symbol_score",
+          "view_name": "intermarket_view"
+        },
+        {
+          "feature_id": "liquidity_state",
+          "view_name": "liquidity_view"
+        },
+        {
+          "feature_id": "quote_rate",
+          "view_name": "liquidity_view"
+        },
+        {
+          "feature_id": "trade_rate",
+          "view_name": "liquidity_view"
+        }
+      ]
+    }
+  ]
+}

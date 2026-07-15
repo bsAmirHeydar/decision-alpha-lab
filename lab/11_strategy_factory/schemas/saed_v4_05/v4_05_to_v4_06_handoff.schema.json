@@ -1,0 +1,222 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "activate_runtime": {
+          "type": "boolean"
+        },
+        "allocate_risk": {
+          "type": "boolean"
+        },
+        "bind_external_treatment_dsl": {
+          "type": "boolean"
+        },
+        "generate_treatment": {
+          "type": "boolean"
+        },
+        "mutate_graph": {
+          "type": "boolean"
+        },
+        "mutate_ucee_truth": {
+          "type": "boolean"
+        },
+        "read_hypergraph": {
+          "type": "boolean"
+        },
+        "select_treatment": {
+          "type": "boolean"
+        },
+        "send_order": {
+          "type": "boolean"
+        },
+        "train_model": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "read_hypergraph",
+        "bind_external_treatment_dsl",
+        "mutate_ucee_truth",
+        "mutate_graph",
+        "generate_treatment",
+        "select_treatment",
+        "train_model",
+        "allocate_risk",
+        "activate_runtime",
+        "send_order"
+      ],
+      "title": "V4-06 Handoff Authority",
+      "type": "object"
+    },
+    "edge_hashes": {
+      "items": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "edge_ids": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^hedge_[0-9a-f]{24}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "event_as_of": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "evidence_role": {
+      "enum": [
+        "development",
+        "calibration",
+        "selection_validation",
+        "locked_final",
+        "prospective",
+        "shadow",
+        "micro_live",
+        "live",
+        "synthetic_stress",
+        "external_static",
+        "external_actual"
+      ],
+      "type": "string"
+    },
+    "graph_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "graph_id": {
+      "minLength": 1,
+      "pattern": "^sthypergraph_[0-9a-f]{24}$",
+      "type": "string"
+    },
+    "handoff_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "handoff_id": {
+      "minLength": 1,
+      "pattern": "^v405to06_[0-9a-f]{24}$",
+      "type": "string"
+    },
+    "integrity_receipt_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "known_as_of": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "next_phase": {
+      "const": "SAED_V4_06"
+    },
+    "node_hashes": {
+      "items": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "node_ids": {
+      "items": {
+        "minLength": 1,
+        "pattern": "^hnode_[0-9a-f]{24}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "phase": {
+      "const": "SAED_V4_05"
+    },
+    "policy_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "pattern": "^graphpolicy_[0-9a-f]{24}$",
+      "type": "string"
+    },
+    "registry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "registry_id": {
+      "minLength": 1,
+      "pattern": "^semreg_[0-9a-f]{24}$",
+      "type": "string"
+    },
+    "source_package_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "source_package_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "complete",
+        "degraded",
+        "unsupported",
+        "quarantined"
+      ],
+      "type": "string"
+    },
+    "twin_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "next_phase",
+    "graph_id",
+    "graph_hash",
+    "source_package_id",
+    "source_package_hash",
+    "registry_id",
+    "registry_hash",
+    "policy_id",
+    "policy_hash",
+    "twin_id",
+    "known_as_of",
+    "event_as_of",
+    "evidence_role",
+    "status",
+    "node_ids",
+    "node_hashes",
+    "edge_ids",
+    "edge_hashes",
+    "integrity_receipt_id",
+    "authority",
+    "limitations",
+    "handoff_id",
+    "handoff_hash"
+  ],
+  "title": "V4-05 To V4-06 Handoff",
+  "type": "object"
+}
