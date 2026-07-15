@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_order_types": {
+      "items": {
+        "enum": [
+          "market",
+          "limit",
+          "stop"
+        ],
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "broker_id": {
+      "type": "string"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "freeze_level_points": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "maximum_deviation_points": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "maximum_open_orders": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "maximum_volume": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "minimum_volume": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "partial_fills_allowed": {
+      "type": "boolean"
+    },
+    "stop_level_points": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "volume_step": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "broker_id",
+    "exact_version",
+    "minimum_volume",
+    "maximum_volume",
+    "volume_step",
+    "maximum_deviation_points",
+    "maximum_open_orders",
+    "stop_level_points",
+    "freeze_level_points",
+    "partial_fills_allowed",
+    "allowed_order_types"
+  ],
+  "title": "broker_profile.schema.json",
+  "type": "object"
+}

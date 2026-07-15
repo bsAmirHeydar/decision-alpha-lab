@@ -1,0 +1,127 @@
+{
+  "adverse_selection": {
+    "base_points": 0.01,
+    "latency_coefficient": 0.02,
+    "non_fill_coefficient": 0.03
+  },
+  "allowed_evidence_roles": [
+    "development",
+    "training",
+    "validation"
+  ],
+  "broker": {
+    "allowed_order_types": [
+      "market",
+      "limit",
+      "stop"
+    ],
+    "broker_id": "REFERENCE_BROKER",
+    "exact_version": "1.0.0",
+    "freeze_level_points": 0.0,
+    "maximum_deviation_points": 50.0,
+    "maximum_open_orders": 100,
+    "maximum_volume": 100.0,
+    "minimum_volume": 0.01,
+    "partial_fills_allowed": true,
+    "stop_level_points": 0.0,
+    "volume_step": 0.01
+  },
+  "evidence_class": "reference_synthetic",
+  "exact_version": "1.0.0",
+  "fill_hazard": {
+    "base_probability": 0.995,
+    "latency_sensitivity": 0.06,
+    "minimum_probability": 0.05,
+    "queue_sensitivity": 0.08,
+    "spread_sensitivity": 0.004
+  },
+  "impact": {
+    "linear_points_per_unit": 0.005,
+    "square_root_points_per_sqrt_unit": 0.02,
+    "temporary_decay_fraction": 0.5
+  },
+  "latency": {
+    "acknowledgement_ms": 24,
+    "cancel_ms": 28,
+    "fill_ms": 35,
+    "jitter_ms": 12,
+    "latency_points_per_second": 0.04,
+    "submit_ms": 18
+  },
+  "maximum_lifecycle_events_per_row": 16,
+  "maximum_scenarios": 32,
+  "maximum_source_rows": 10000,
+  "notional_units": 1.0,
+  "order_volume": 0.1,
+  "point_size": 0.1,
+  "profile_name": "reference_execution_twin",
+  "queue": {
+    "base_queue_units": 0.35,
+    "maximum_partial_fills": 4,
+    "participation_rate": 0.8,
+    "uncertainty_units": 0.2
+  },
+  "scenarios": [
+    {
+      "impact_multiplier": 1.0,
+      "kind": "nominal",
+      "latency_multiplier": 1.0,
+      "partial_fill_cap": 1.0,
+      "queue_multiplier": 1.0,
+      "rejection_threshold": 0.0,
+      "scenario_id": "nominal",
+      "spread_multiplier": 1.0
+    },
+    {
+      "impact_multiplier": 1.0,
+      "kind": "latency_stress",
+      "latency_multiplier": 3.0,
+      "partial_fill_cap": 1.0,
+      "queue_multiplier": 1.0,
+      "rejection_threshold": 0.0,
+      "scenario_id": "latency_x3",
+      "spread_multiplier": 1.0
+    },
+    {
+      "impact_multiplier": 1.0,
+      "kind": "spread_stress",
+      "latency_multiplier": 1.0,
+      "partial_fill_cap": 1.0,
+      "queue_multiplier": 1.0,
+      "rejection_threshold": 0.0,
+      "scenario_id": "spread_x2",
+      "spread_multiplier": 2.0
+    },
+    {
+      "impact_multiplier": 1.5,
+      "kind": "partial_fill_stress",
+      "latency_multiplier": 1.5,
+      "partial_fill_cap": 0.6,
+      "queue_multiplier": 4.0,
+      "rejection_threshold": 0.02,
+      "scenario_id": "queue_x4_partial",
+      "spread_multiplier": 1.5
+    },
+    {
+      "impact_multiplier": 2.5,
+      "kind": "combined_stress",
+      "latency_multiplier": 5.0,
+      "partial_fill_cap": 0.4,
+      "queue_multiplier": 6.0,
+      "rejection_threshold": 0.08,
+      "scenario_id": "combined_severe",
+      "spread_multiplier": 3.0
+    },
+    {
+      "impact_multiplier": 1.0,
+      "kind": "nominal",
+      "latency_multiplier": 1.0,
+      "partial_fill_cap": 1.0,
+      "queue_multiplier": 1.0,
+      "rejection_threshold": 0.0,
+      "scenario_id": "nominal",
+      "spread_multiplier": 1.0
+    }
+  ],
+  "synthetic_watermark": true
+}

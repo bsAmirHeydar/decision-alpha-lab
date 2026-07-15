@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "feasible": {
+      "type": "boolean"
+    },
+    "normalized_volume": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "reason_codes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "feasible",
+    "reason_codes",
+    "normalized_volume"
+  ],
+  "title": "Broker Feasibility",
+  "type": "object"
+}

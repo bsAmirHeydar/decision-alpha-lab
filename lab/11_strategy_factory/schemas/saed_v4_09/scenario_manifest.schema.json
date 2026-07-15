@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "manifest_hash": {
+      "type": "string"
+    },
+    "manifest_id": {
+      "type": "string"
+    },
+    "phase": {
+      "enum": [
+        "SAED_V4_09"
+      ],
+      "type": "string"
+    },
+    "profile_hash": {
+      "type": "string"
+    },
+    "profile_id": {
+      "type": "string"
+    },
+    "scenario_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "scenario_hashes": {
+      "type": "object"
+    },
+    "scenario_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "phase",
+    "profile_id",
+    "profile_hash",
+    "scenario_count",
+    "scenario_ids",
+    "scenario_hashes",
+    "manifest_id",
+    "manifest_hash"
+  ],
+  "title": "Scenario Manifest",
+  "type": "object"
+}

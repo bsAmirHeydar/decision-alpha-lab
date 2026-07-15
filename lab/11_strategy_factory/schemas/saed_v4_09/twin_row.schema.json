@@ -1,0 +1,227 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acknowledgement_latency_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "action_class": {
+      "type": "string"
+    },
+    "adjusted_gross_r": {
+      "minimum": -1000000,
+      "type": "number"
+    },
+    "adjusted_net_r": {
+      "minimum": -1000000,
+      "type": "number"
+    },
+    "adverse_selection_points": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "broker_feasible": {
+      "type": "boolean"
+    },
+    "broker_reason_codes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "fill_fraction": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "fill_latency_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "fill_probability": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "incremental_execution_cost_points": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "incremental_execution_cost_r": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "incremental_spread_points": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "latency_slippage_points": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "lifecycle_events": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "event_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "previous_event_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "quantity_fraction": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "sequence": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "state": {
+            "type": "string"
+          },
+          "time_ms": {
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "sequence",
+          "state",
+          "time_ms",
+          "quantity_fraction",
+          "reason",
+          "previous_event_hash",
+          "event_hash"
+        ],
+        "title": "SAED V4-09 Contract",
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "market_impact_points": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "node_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "node_id": {
+      "type": "string"
+    },
+    "normalized_volume": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "queue_ahead_units": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "queue_uncertainty_draw": {
+      "maximum": 1,
+      "minimum": -1,
+      "type": "number"
+    },
+    "scenario_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "scenario_id": {
+      "type": "string"
+    },
+    "source_gross_r": {
+      "minimum": -1000000,
+      "type": "number"
+    },
+    "source_net_r": {
+      "minimum": -1000000,
+      "type": "number"
+    },
+    "source_row_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "source_row_id": {
+      "type": "string"
+    },
+    "source_spread_points": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "status": {
+      "type": "string"
+    },
+    "submit_latency_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "synthetic_watermark": {
+      "type": "boolean"
+    },
+    "total_to_fill_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "twin_row_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "twin_row_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "source_row_id",
+    "source_row_hash",
+    "node_id",
+    "node_hash",
+    "action_class",
+    "scenario_id",
+    "scenario_hash",
+    "status",
+    "broker_feasible",
+    "broker_reason_codes",
+    "normalized_volume",
+    "fill_probability",
+    "fill_fraction",
+    "queue_ahead_units",
+    "queue_uncertainty_draw",
+    "submit_latency_ms",
+    "acknowledgement_latency_ms",
+    "fill_latency_ms",
+    "total_to_fill_ms",
+    "source_spread_points",
+    "incremental_spread_points",
+    "latency_slippage_points",
+    "market_impact_points",
+    "adverse_selection_points",
+    "incremental_execution_cost_points",
+    "incremental_execution_cost_r",
+    "source_gross_r",
+    "source_net_r",
+    "adjusted_gross_r",
+    "adjusted_net_r",
+    "lifecycle_events",
+    "synthetic_watermark",
+    "limitations",
+    "twin_row_id",
+    "twin_row_hash"
+  ],
+  "title": "Execution Twin Row",
+  "type": "object"
+}

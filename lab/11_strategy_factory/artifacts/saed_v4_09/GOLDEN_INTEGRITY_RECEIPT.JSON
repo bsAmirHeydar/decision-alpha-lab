@@ -1,0 +1,16 @@
+{
+  "complete_exposure": true,
+  "execution_authority": false,
+  "profile_hash": "ceeada104007ad46784665c29dc3b776a870d8b9682276810ed394a50889b61e",
+  "receipt_hash": "ec760f0888876e9b765637049a0259a168cf47634bb9166ac658e3dfe2cb0f76",
+  "receipt_id": "exectwinintegrity_7b66268910ee44f6125788b1",
+  "row_merkle_root": "51b68194e57a8455fcf480ab0caea4eeeedb99f290ae2cdc20765ae44aee4435",
+  "selection_authority": false,
+  "shadow_replacement": false,
+  "source_cube_hash": "c3ee355c2112015682e08e0fc6bc98d6f77798a58df4ddd38898a08ace3deed4",
+  "source_handoff_hash": "4a6e5e228d6e9006fe2e51ed51d7a747b1ae4b0a873ce24e5431a33aeaaea254",
+  "synthetic_watermark": true,
+  "twin_hash": "a59809328ba595ad3d323dd97ffa847a811d9c1e81e07c49bfbe7d18f0ed0826",
+  "twin_id": "executiontwin_1f50bc21a120752b32ed02ce",
+  "twin_row_count": 190
+}

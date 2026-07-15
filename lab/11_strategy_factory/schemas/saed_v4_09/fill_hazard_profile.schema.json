@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "base_probability": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "latency_sensitivity": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "minimum_probability": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "queue_sensitivity": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "spread_sensitivity": {
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "base_probability",
+    "spread_sensitivity",
+    "queue_sensitivity",
+    "latency_sensitivity",
+    "minimum_probability"
+  ],
+  "title": "fill_hazard_profile.schema.json",
+  "type": "object"
+}

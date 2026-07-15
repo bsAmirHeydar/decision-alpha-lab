@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "impact_multiplier": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "kind": {
+      "enum": [
+        "broker_reject_stress",
+        "combined_stress",
+        "latency_stress",
+        "nominal",
+        "partial_fill_stress",
+        "queue_stress",
+        "spread_stress"
+      ],
+      "type": "string"
+    },
+    "latency_multiplier": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "partial_fill_cap": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "queue_multiplier": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "rejection_threshold": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "scenario_id": {
+      "type": "string"
+    },
+    "spread_multiplier": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "scenario_id",
+    "kind",
+    "latency_multiplier",
+    "spread_multiplier",
+    "queue_multiplier",
+    "impact_multiplier",
+    "rejection_threshold",
+    "partial_fill_cap"
+  ],
+  "title": "scenario.schema.json",
+  "type": "object"
+}

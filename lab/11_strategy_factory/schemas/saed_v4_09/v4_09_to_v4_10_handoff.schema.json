@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "type": "object"
+    },
+    "complete_exposure": {
+      "type": "boolean"
+    },
+    "evidence_class": {
+      "type": "string"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "integrity_receipt_hash": {
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "next_phase": {
+      "enum": [
+        "SAED_V4_10"
+      ],
+      "type": "string"
+    },
+    "phase": {
+      "enum": [
+        "SAED_V4_09"
+      ],
+      "type": "string"
+    },
+    "profile_hash": {
+      "type": "string"
+    },
+    "source_cube_hash": {
+      "type": "string"
+    },
+    "source_cube_id": {
+      "type": "string"
+    },
+    "synthetic_watermark": {
+      "type": "boolean"
+    },
+    "twin_hash": {
+      "type": "string"
+    },
+    "twin_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "next_phase",
+    "authority",
+    "twin_id",
+    "twin_hash",
+    "integrity_receipt_hash",
+    "source_cube_id",
+    "source_cube_hash",
+    "profile_hash",
+    "complete_exposure",
+    "evidence_class",
+    "synthetic_watermark",
+    "limitations",
+    "handoff_id",
+    "handoff_hash"
+  ],
+  "title": "v4_09_to_v4_10_handoff.schema.json",
+  "type": "object"
+}

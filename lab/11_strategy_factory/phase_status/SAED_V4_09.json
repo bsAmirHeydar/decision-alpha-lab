@@ -1,0 +1,38 @@
+{
+  "authority": "reference_only",
+  "claims": {
+    "calibrated_broker_forecast": false,
+    "live_trading": false,
+    "production_authorization": false,
+    "prospective_success": false,
+    "real_alpha": false,
+    "reference_implementation": true,
+    "runtime_parity": false,
+    "shadow_replacement": false
+  },
+  "completed_capabilities": [
+    "closed execution twin profile",
+    "deterministic latency and jitter realization",
+    "queue uncertainty projection",
+    "fill hazard baseline",
+    "market impact and adverse selection stress",
+    "broker constraint evaluation",
+    "partial fill and cancel lifecycle",
+    "complete source-row by scenario exposure",
+    "integrity receipt and deterministic replay",
+    "V4-10 handoff"
+  ],
+  "external_evidence": {
+    "broker_calibration": "pending_external",
+    "cross_broker_transport": "pending_external",
+    "i18_qualification": "pending_future_phase",
+    "metaeditor_compile": "pending_local_windows",
+    "prospective_paper": "not_replaced",
+    "shadow": "not_replaced"
+  },
+  "implementation_status": "implemented_reference",
+  "next_phase": "SAED_V4_10",
+  "phase": "SAED_V4_09",
+  "title": "Execution Digital Twin",
+  "version": "1.0.0"
+}

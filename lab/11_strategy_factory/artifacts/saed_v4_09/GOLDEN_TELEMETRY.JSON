@@ -1,0 +1,18 @@
+{
+  "broker_infeasible_count": 0,
+  "complete_exposure": true,
+  "full_fill_count": 0,
+  "order_projection_count": 180,
+  "partial_fill_count": 165,
+  "rejected_count": 1,
+  "scenario_count": 5,
+  "shadow_replacement": false,
+  "source_row_count": 38,
+  "synthetic_watermark": true,
+  "telemetry_hash": "0cc393fb146b336c07e9f6c7275f243db7cfefc776e1dafa169fb031288d7ac0",
+  "telemetry_id": "exectwintelemetry_97524410c53e7d0b89362513",
+  "twin_hash": "a59809328ba595ad3d323dd97ffa847a811d9c1e81e07c49bfbe7d18f0ed0826",
+  "twin_id": "executiontwin_1f50bc21a120752b32ed02ce",
+  "twin_row_count": 190,
+  "unfilled_count": 14
+}

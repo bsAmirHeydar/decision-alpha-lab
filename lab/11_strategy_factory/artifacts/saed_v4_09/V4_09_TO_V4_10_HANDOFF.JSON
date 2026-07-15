@@ -1,0 +1,33 @@
+{
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "build_baseline_and_manual_program": true,
+    "mutate_execution_twin": false,
+    "rank_treatments": false,
+    "read_frozen_execution_twin": true,
+    "read_scenario_surfaces": true,
+    "read_source_outcome_cube_identity": true,
+    "replace_shadow_or_prospective": false,
+    "select_treatment": false,
+    "send_order": false
+  },
+  "complete_exposure": true,
+  "evidence_class": "reference_synthetic",
+  "handoff_hash": "b9bf1d800e28d1fe53e510ba86c33f5967dd475270ae08e987c3623e3760e623",
+  "handoff_id": "v409to10_77cffc094ff02c0e793aaa6b",
+  "integrity_receipt_hash": "ec760f0888876e9b765637049a0259a168cf47634bb9166ac658e3dfe2cb0f76",
+  "limitations": [
+    "V4-10 must preserve V4-09 twin identity and source row/scenario coverage.",
+    "Synthetic execution stress cannot be used as positive promotion evidence.",
+    "Manual and baseline programs remain non-authoritative until later UCEE admission and qualification."
+  ],
+  "next_phase": "SAED_V4_10",
+  "phase": "SAED_V4_09",
+  "profile_hash": "ceeada104007ad46784665c29dc3b776a870d8b9682276810ed394a50889b61e",
+  "source_cube_hash": "c3ee355c2112015682e08e0fc6bc98d6f77798a58df4ddd38898a08ace3deed4",
+  "source_cube_id": "outcomecube_c3ee355c2112015682e08e0f",
+  "synthetic_watermark": true,
+  "twin_hash": "a59809328ba595ad3d323dd97ffa847a811d9c1e81e07c49bfbe7d18f0ed0826",
+  "twin_id": "executiontwin_1f50bc21a120752b32ed02ce"
+}

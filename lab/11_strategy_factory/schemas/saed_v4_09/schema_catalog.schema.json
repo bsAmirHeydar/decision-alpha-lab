@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "phase": {
+      "type": "string"
+    },
+    "schemas": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "version",
+    "schemas"
+  ],
+  "title": "schema_catalog.schema.json",
+  "type": "object"
+}

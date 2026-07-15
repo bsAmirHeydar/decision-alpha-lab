@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acknowledgement_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "cancel_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "fill_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "jitter_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "latency_points_per_second": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "submit_ms": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "submit_ms",
+    "acknowledgement_ms",
+    "fill_ms",
+    "cancel_ms",
+    "jitter_ms",
+    "latency_points_per_second"
+  ],
+  "title": "latency_profile.schema.json",
+  "type": "object"
+}

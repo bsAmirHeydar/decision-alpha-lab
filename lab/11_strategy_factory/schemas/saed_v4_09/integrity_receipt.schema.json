@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "complete_exposure": {
+      "type": "boolean"
+    },
+    "execution_authority": {
+      "type": "boolean"
+    },
+    "profile_hash": {
+      "type": "string"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "row_merkle_root": {
+      "type": "string"
+    },
+    "selection_authority": {
+      "type": "boolean"
+    },
+    "shadow_replacement": {
+      "type": "boolean"
+    },
+    "source_cube_hash": {
+      "type": "string"
+    },
+    "source_handoff_hash": {
+      "type": "string"
+    },
+    "synthetic_watermark": {
+      "type": "boolean"
+    },
+    "twin_hash": {
+      "type": "string"
+    },
+    "twin_id": {
+      "type": "string"
+    },
+    "twin_row_count": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "twin_id",
+    "twin_hash",
+    "source_cube_hash",
+    "source_handoff_hash",
+    "profile_hash",
+    "row_merkle_root",
+    "twin_row_count",
+    "complete_exposure",
+    "shadow_replacement",
+    "selection_authority",
+    "execution_authority",
+    "synthetic_watermark",
+    "receipt_id",
+    "receipt_hash"
+  ],
+  "title": "integrity_receipt.schema.json",
+  "type": "object"
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "broker_infeasible_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "complete_exposure": {
+      "type": "boolean"
+    },
+    "full_fill_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "order_projection_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "partial_fill_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "rejected_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "scenario_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "shadow_replacement": {
+      "type": "boolean"
+    },
+    "source_row_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "synthetic_watermark": {
+      "type": "boolean"
+    },
+    "telemetry_hash": {
+      "type": "string"
+    },
+    "telemetry_id": {
+      "type": "string"
+    },
+    "twin_hash": {
+      "type": "string"
+    },
+    "twin_id": {
+      "type": "string"
+    },
+    "twin_row_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "unfilled_count": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "twin_id",
+    "twin_hash",
+    "source_row_count",
+    "scenario_count",
+    "twin_row_count",
+    "order_projection_count",
+    "full_fill_count",
+    "partial_fill_count",
+    "unfilled_count",
+    "rejected_count",
+    "broker_infeasible_count",
+    "complete_exposure",
+    "synthetic_watermark",
+    "shadow_replacement",
+    "telemetry_id",
+    "telemetry_hash"
+  ],
+  "title": "telemetry.schema.json",
+  "type": "object"
+}

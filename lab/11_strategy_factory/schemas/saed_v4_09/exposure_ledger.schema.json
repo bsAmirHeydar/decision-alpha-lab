@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "complete": {
+      "type": "boolean"
+    },
+    "duplicate_pairs": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "expected_pair_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "missing_pairs": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "observed_pair_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "status_counts": {
+      "type": "object"
+    },
+    "unexpected_pairs": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "expected_pair_count",
+    "observed_pair_count",
+    "missing_pairs",
+    "unexpected_pairs",
+    "duplicate_pairs",
+    "status_counts",
+    "complete",
+    "ledger_id",
+    "ledger_hash"
+  ],
+  "title": "Execution Twin Exposure Ledger",
+  "type": "object"
+}

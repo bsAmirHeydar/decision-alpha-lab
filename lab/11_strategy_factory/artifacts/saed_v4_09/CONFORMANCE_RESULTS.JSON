@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "phase": "SAED_V4_09",
+  "results": [
+    {
+      "detail": "ce2acc5139b3e97334b9b32c0a880a94fe7a4e988352ed73171ec862229b46ea",
+      "passed": true,
+      "vector_id": "nominal_only"
+    },
+    {
+      "detail": "db119b7e513a8b6d1b470785e8ace78d90bbadcf9c5b8998196271fe3e2d973c",
+      "passed": true,
+      "vector_id": "latency_and_spread"
+    },
+    {
+      "detail": "a59809328ba595ad3d323dd97ffa847a811d9c1e81e07c49bfbe7d18f0ed0826",
+      "passed": true,
+      "vector_id": "complete_reference_matrix"
+    }
+  ]
+}

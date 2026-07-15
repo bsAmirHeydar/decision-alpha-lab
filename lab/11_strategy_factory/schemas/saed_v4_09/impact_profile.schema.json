@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "linear_points_per_unit": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "square_root_points_per_sqrt_unit": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "temporary_decay_fraction": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "linear_points_per_unit",
+    "square_root_points_per_sqrt_unit",
+    "temporary_decay_fraction"
+  ],
+  "title": "Impact Profile",
+  "type": "object"
+}

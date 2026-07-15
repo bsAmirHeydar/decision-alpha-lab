@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ranking_semantics": {
+      "enum": [
+        "none"
+      ],
+      "type": "string"
+    },
+    "scenario_summaries": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "twin_hash": {
+      "type": "string"
+    },
+    "twin_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "twin_id",
+    "twin_hash",
+    "scenario_summaries",
+    "ranking_semantics"
+  ],
+  "title": "Execution Twin Summary",
+  "type": "object"
+}

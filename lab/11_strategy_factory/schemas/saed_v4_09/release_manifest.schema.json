@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_hashes": {
+      "type": "object"
+    },
+    "claims": {
+      "type": "object"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "version",
+    "artifact_hashes",
+    "claims"
+  ],
+  "title": "release_manifest.schema.json",
+  "type": "object"
+}

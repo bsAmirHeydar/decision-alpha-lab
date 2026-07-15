@@ -1,0 +1,17 @@
+{
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "build_execution_digital_twin": true,
+    "rank_treatments": false,
+    "replace_shadow_or_prospective": false,
+    "select_treatment": false,
+    "send_order": false,
+    "stress_execution_assumptions": true
+  },
+  "claims": {
+    "production_authorization": false,
+    "reference_only": true
+  },
+  "phase": "SAED_V4_09"
+}

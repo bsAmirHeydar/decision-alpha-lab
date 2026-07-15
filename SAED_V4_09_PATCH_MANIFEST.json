@@ -1,0 +1,23 @@
+{
+  "authority": "reference_only",
+  "complete_exposure": true,
+  "created": "2026-07-15",
+  "downstream": "SAED_V4_10",
+  "file_count": 226,
+  "golden_twin_hash": "a59809328ba595ad3d323dd97ffa847a811d9c1e81e07c49bfbe7d18f0ed0826",
+  "hash_count": 225,
+  "hash_ledger": "SAED_V4_09_FILE_HASHES.sha256",
+  "installation_index": "SAED_V4_09_FILE_INDEX.txt",
+  "patch_id": "saed-v4-09-execution-digital-twin-v1.0.0",
+  "phase": "SAED_V4_09",
+  "production_authorization": false,
+  "qa_report": "SAED_V4_09_QA_REPORT.json",
+  "scenario_count": 5,
+  "shadow_replacement": false,
+  "source_cube_hash": "c3ee355c2112015682e08e0fc6bc98d6f77798a58df4ddd38898a08ace3deed4",
+  "source_row_count": 38,
+  "synthetic_watermark": true,
+  "twin_row_count": 190,
+  "upstream": "SAED_V4_08",
+  "version": "1.0.0"
+}

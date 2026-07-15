@@ -1,0 +1,45 @@
+{
+  "checks": {
+    "authority_boundary": "passed",
+    "complete_scenario_exposure": "passed",
+    "deterministic_replay": "passed",
+    "golden_reproduction": "passed",
+    "json_schema_draft_2020_12": "passed",
+    "mql5_static": "passed",
+    "obsidian_frontmatter": "passed",
+    "semantic_diff": "passed",
+    "shadow_non_substitution": "passed",
+    "synthetic_watermark": "passed"
+  },
+  "claims": {
+    "calibrated_broker_forecast": false,
+    "live_trading": false,
+    "production_authorization": false,
+    "real_alpha": false,
+    "reference_implementation": true,
+    "runtime_parity": false
+  },
+  "counts": {
+    "closed_schemas_validated": 28,
+    "mql5_files_static_validated": 13,
+    "obsidian_notes_validated": 87,
+    "python_tests_passed": 51,
+    "scenarios": 5,
+    "source_rows": 38,
+    "twin_rows": 190
+  },
+  "executed_on": "2026-07-15",
+  "external_evidence": {
+    "broker_calibration": "pending_external",
+    "cross_broker_transport": "pending_external",
+    "i18_production_qualification": "pending_future_phase",
+    "metaeditor_compile": "pending_local_windows",
+    "prospective_paper": "not_replaced",
+    "shadow": "not_replaced"
+  },
+  "golden_twin_hash": "a59809328ba595ad3d323dd97ffa847a811d9c1e81e07c49bfbe7d18f0ed0826",
+  "phase": "SAED_V4_09",
+  "source_cube_hash": "c3ee355c2112015682e08e0fc6bc98d6f77798a58df4ddd38898a08ace3deed4",
+  "status": "passed",
+  "version": "1.0.0"
+}

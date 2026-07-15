@@ -1,16 +1,9 @@
-feat(strategy-factory): implement SAED V4-08 executable path outcome cube
+feat(saed-v4): implement V4-09 execution digital twin
 
-Implement the governed deterministic bridge from the V4-07 action lattice to the V4-09 execution digital twin.
-
-- freeze known-time context, market-path, outcome-policy and cost-registry contracts
-- compile every action node into a bounded executable path specification
-- simulate entry, stop, target, partial, trail, time, gap and ambiguity semantics
-- preserve Skip and Abstain as explicit non-order counterfactual outcomes
-- add side-aware spread, slippage, commission and net-R economics
-- add immutable path-event ledgers, MFE/MAE, complete exposure and row Merkle integrity
-- add deterministic replay, semantic diff, partitioning, telemetry and quarantine
-- add CLI, closed schemas, golden/negative fixtures, conformance vectors and tests
-- add diagnostic-only MQL5 mirrors and detailed Obsidian implementation notes
-- emit a bounded reference-only V4-09 handoff
-
-Evidence remains reference-only. MetaEditor compilation, broker calibration, external reproduction, prospective performance, real alpha, runtime activation and production authorization remain pending.
+- consume immutable V4-08 outcome cube and exact authority handoff
+- add closed execution profile, latency, queue, hazard, impact, adverse-selection and broker constraints
+- preserve every source row across a complete deterministic scenario matrix
+- add partial-fill lifecycle chains, incremental cost projections, replay, semantic diff and Merkle integrity
+- enforce synthetic watermarking and ADR V4-014 shadow non-substitution
+- add schemas, golden/negative fixtures, conformance vectors, tests, QA tooling and MQL5 diagnostics
+- hand off immutable execution surfaces to V4-10 baseline and manual program

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "phase": {
+      "enum": [
+        "SAED_V4_09"
+      ],
+      "type": "string"
+    },
+    "profiles": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "profiles",
+    "registry_id",
+    "registry_hash"
+  ],
+  "title": "Execution Twin Profile Registry",
+  "type": "object"
+}

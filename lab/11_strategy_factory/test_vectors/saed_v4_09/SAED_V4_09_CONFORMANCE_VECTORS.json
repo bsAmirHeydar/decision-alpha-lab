@@ -1,0 +1,28 @@
+{
+  "phase": "SAED_V4_09",
+  "vectors": [
+    {
+      "scenario_ids": [
+        "nominal"
+      ],
+      "vector_id": "nominal_only"
+    },
+    {
+      "scenario_ids": [
+        "latency_x3",
+        "spread_x2"
+      ],
+      "vector_id": "latency_and_spread"
+    },
+    {
+      "scenario_ids": [
+        "nominal",
+        "latency_x3",
+        "spread_x2",
+        "queue_x4_partial",
+        "combined_severe"
+      ],
+      "vector_id": "complete_reference_matrix"
+    }
+  ]
+}

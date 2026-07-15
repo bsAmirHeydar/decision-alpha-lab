@@ -1,0 +1,16 @@
+{
+  "complete": true,
+  "duplicate_pairs": [],
+  "expected_pair_count": 190,
+  "ledger_hash": "62386f271eb6a61c3335816218e0c7b0bcf57cd39bc122639fed67eb31cc9e07",
+  "ledger_id": "exectwinexposure_18f23eb2548341d33ea78b22",
+  "missing_pairs": [],
+  "observed_pair_count": 190,
+  "status_counts": {
+    "non_order": 10,
+    "partially_filled": 165,
+    "rejected": 1,
+    "unfilled": 14
+  },
+  "unexpected_pairs": []
+}

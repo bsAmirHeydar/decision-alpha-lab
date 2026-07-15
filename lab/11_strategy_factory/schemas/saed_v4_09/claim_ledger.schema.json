@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "blocked_claims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "external_gates": {
+      "type": "object"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "phase": {
+      "enum": [
+        "SAED_V4_09"
+      ],
+      "type": "string"
+    },
+    "proven_claims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "phase",
+    "proven_claims",
+    "blocked_claims",
+    "external_gates",
+    "ledger_id",
+    "ledger_hash"
+  ],
+  "title": "Claim Ledger",
+  "type": "object"
+}

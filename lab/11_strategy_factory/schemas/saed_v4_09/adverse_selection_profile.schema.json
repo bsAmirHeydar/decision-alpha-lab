@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "base_points": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "latency_coefficient": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "non_fill_coefficient": {
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "base_points",
+    "latency_coefficient",
+    "non_fill_coefficient"
+  ],
+  "title": "Adverse Selection Profile",
+  "type": "object"
+}

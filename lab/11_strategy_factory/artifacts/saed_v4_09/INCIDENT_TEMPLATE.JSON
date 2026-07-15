@@ -1,0 +1,10 @@
+{
+  "detail": "Populate on fail-closed quarantine.",
+  "phase": "SAED_V4_09",
+  "quarantine_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "quarantine_id": "exectwinquarantine_template",
+  "reason_code": "TEMPLATE",
+  "recovery_authority": false,
+  "source_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "source_ref": "TEMPLATE"
+}

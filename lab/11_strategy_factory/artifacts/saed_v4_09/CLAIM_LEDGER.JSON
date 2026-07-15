@@ -1,0 +1,31 @@
+{
+  "blocked_claims": [
+    "real alpha",
+    "calibrated broker fill forecast",
+    "cross-broker transport",
+    "prospective success",
+    "shadow replacement",
+    "runtime parity",
+    "production authorization",
+    "live trading"
+  ],
+  "external_gates": {
+    "broker_calibration": "pending_external",
+    "cross_broker_transport": "pending_external",
+    "i18_qualification": "pending_future_phase",
+    "metaeditor_compile": "pending_local_windows",
+    "prospective_paper": "not_replaced",
+    "shadow": "not_replaced"
+  },
+  "ledger_hash": "66ea8f46c13c5b56b50db1962e291eee6c8b6a4033b5c078e0412624de016525",
+  "ledger_id": "exectwinclaims_f0f8b9d50b37cd3ed2e99bcb",
+  "phase": "SAED_V4_09",
+  "proven_claims": [
+    "closed-contract reference implementation",
+    "deterministic replay",
+    "complete source-row by scenario exposure",
+    "authority boundary enforcement",
+    "synthetic watermark enforcement",
+    "MQL5 static diagnostics"
+  ]
+}

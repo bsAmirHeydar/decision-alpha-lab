@@ -1,0 +1,15 @@
+{
+  "phase": "SAED_V4_09",
+  "profiles": [
+    {
+      "evidence_class": "reference_synthetic",
+      "exact_version": "1.0.0",
+      "profile_hash": "ceeada104007ad46784665c29dc3b776a870d8b9682276810ed394a50889b61e",
+      "profile_id": "exectwinprofile_ceeada104007ad46784665c2",
+      "profile_name": "reference_execution_twin",
+      "synthetic_watermark": true
+    }
+  ],
+  "registry_hash": "0b46b59bb595e100a5ccbc2d760dbac097f37883826dad91bfdd216b294ea975",
+  "registry_id": "exectwinprofileregistry_428f15b19b50f253c3e1fa6e"
+}

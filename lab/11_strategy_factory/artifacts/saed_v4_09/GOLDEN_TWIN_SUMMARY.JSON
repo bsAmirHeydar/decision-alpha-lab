@@ -1,0 +1,57 @@
+{
+  "ranking_semantics": "none",
+  "scenario_summaries": [
+    {
+      "broker_infeasible_rate": 0.0,
+      "fill_rate": 0.3111111111111111,
+      "mean_adjusted_net_r": 0.5818188749608889,
+      "mean_incremental_cost_r": 0.03622852362813889,
+      "order_row_count": 36,
+      "rejection_rate": 0.0,
+      "row_count": 38,
+      "scenario_id": "combined_severe"
+    },
+    {
+      "broker_infeasible_rate": 0.0,
+      "fill_rate": 0.9531693115428332,
+      "mean_adjusted_net_r": 1.8952593151041945,
+      "mean_incremental_cost_r": 0.004936740734333333,
+      "order_row_count": 36,
+      "rejection_rate": 0.0,
+      "row_count": 38,
+      "scenario_id": "latency_x3"
+    },
+    {
+      "broker_infeasible_rate": 0.0,
+      "fill_rate": 0.9613650354510833,
+      "mean_adjusted_net_r": 1.9115134837597223,
+      "mean_incremental_cost_r": 0.0038154743855,
+      "order_row_count": 36,
+      "rejection_rate": 0.0,
+      "row_count": 38,
+      "scenario_id": "nominal"
+    },
+    {
+      "broker_infeasible_rate": 0.0,
+      "fill_rate": 0.5166666666666666,
+      "mean_adjusted_net_r": 1.012595563290389,
+      "mean_incremental_cost_r": 0.016688828243972224,
+      "order_row_count": 36,
+      "rejection_rate": 0.027777777777777776,
+      "row_count": 38,
+      "scenario_id": "queue_x4_partial"
+    },
+    {
+      "broker_infeasible_rate": 0.0,
+      "fill_rate": 0.9067392843888334,
+      "mean_adjusted_net_r": 1.7583218874822777,
+      "mean_incremental_cost_r": 0.049457755513777776,
+      "order_row_count": 36,
+      "rejection_rate": 0.0,
+      "row_count": 38,
+      "scenario_id": "spread_x2"
+    }
+  ],
+  "twin_hash": "a59809328ba595ad3d323dd97ffa847a811d9c1e81e07c49bfbe7d18f0ed0826",
+  "twin_id": "executiontwin_1f50bc21a120752b32ed02ce"
+}

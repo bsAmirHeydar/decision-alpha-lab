@@ -1,0 +1,380 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adverse_selection": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "base_points": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "latency_coefficient": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "non_fill_coefficient": {
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "base_points",
+        "latency_coefficient",
+        "non_fill_coefficient"
+      ],
+      "title": "SAED V4-09 Contract",
+      "type": "object"
+    },
+    "allowed_evidence_roles": {
+      "items": {
+        "enum": [
+          "development",
+          "training",
+          "validation",
+          "protected_final",
+          "prospective",
+          "shadow",
+          "live"
+        ],
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "broker": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "allowed_order_types": {
+          "items": {
+            "enum": [
+              "market",
+              "limit",
+              "stop"
+            ],
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "broker_id": {
+          "type": "string"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "freeze_level_points": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "maximum_deviation_points": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "maximum_open_orders": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "maximum_volume": {
+          "exclusiveMinimum": 0,
+          "type": "number"
+        },
+        "minimum_volume": {
+          "exclusiveMinimum": 0,
+          "type": "number"
+        },
+        "partial_fills_allowed": {
+          "type": "boolean"
+        },
+        "stop_level_points": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "volume_step": {
+          "exclusiveMinimum": 0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "broker_id",
+        "exact_version",
+        "minimum_volume",
+        "maximum_volume",
+        "volume_step",
+        "maximum_deviation_points",
+        "maximum_open_orders",
+        "stop_level_points",
+        "freeze_level_points",
+        "partial_fills_allowed",
+        "allowed_order_types"
+      ],
+      "title": "SAED V4-09 Contract",
+      "type": "object"
+    },
+    "evidence_class": {
+      "enum": [
+        "reference_synthetic",
+        "calibrated_research",
+        "external_qualified"
+      ],
+      "type": "string"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "fill_hazard": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "base_probability": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "latency_sensitivity": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "minimum_probability": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "queue_sensitivity": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "spread_sensitivity": {
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "base_probability",
+        "spread_sensitivity",
+        "queue_sensitivity",
+        "latency_sensitivity",
+        "minimum_probability"
+      ],
+      "title": "SAED V4-09 Contract",
+      "type": "object"
+    },
+    "impact": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "linear_points_per_unit": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "square_root_points_per_sqrt_unit": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "temporary_decay_fraction": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "linear_points_per_unit",
+        "square_root_points_per_sqrt_unit",
+        "temporary_decay_fraction"
+      ],
+      "title": "SAED V4-09 Contract",
+      "type": "object"
+    },
+    "latency": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "acknowledgement_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "cancel_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "fill_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "jitter_ms": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "latency_points_per_second": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "submit_ms": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "submit_ms",
+        "acknowledgement_ms",
+        "fill_ms",
+        "cancel_ms",
+        "jitter_ms",
+        "latency_points_per_second"
+      ],
+      "title": "SAED V4-09 Contract",
+      "type": "object"
+    },
+    "maximum_lifecycle_events_per_row": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "maximum_scenarios": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "maximum_source_rows": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "notional_units": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "order_volume": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "point_size": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "profile_name": {
+      "type": "string"
+    },
+    "queue": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "base_queue_units": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "maximum_partial_fills": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "participation_rate": {
+          "exclusiveMinimum": 0,
+          "maximum": 1,
+          "type": "number"
+        },
+        "uncertainty_units": {
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "base_queue_units",
+        "uncertainty_units",
+        "participation_rate",
+        "maximum_partial_fills"
+      ],
+      "title": "SAED V4-09 Contract",
+      "type": "object"
+    },
+    "scenarios": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "impact_multiplier": {
+            "exclusiveMinimum": 0,
+            "type": "number"
+          },
+          "kind": {
+            "enum": [
+              "broker_reject_stress",
+              "combined_stress",
+              "latency_stress",
+              "nominal",
+              "partial_fill_stress",
+              "queue_stress",
+              "spread_stress"
+            ],
+            "type": "string"
+          },
+          "latency_multiplier": {
+            "exclusiveMinimum": 0,
+            "type": "number"
+          },
+          "partial_fill_cap": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          "queue_multiplier": {
+            "exclusiveMinimum": 0,
+            "type": "number"
+          },
+          "rejection_threshold": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          "scenario_id": {
+            "type": "string"
+          },
+          "spread_multiplier": {
+            "exclusiveMinimum": 0,
+            "type": "number"
+          }
+        },
+        "required": [
+          "scenario_id",
+          "kind",
+          "latency_multiplier",
+          "spread_multiplier",
+          "queue_multiplier",
+          "impact_multiplier",
+          "rejection_threshold",
+          "partial_fill_cap"
+        ],
+        "title": "SAED V4-09 Contract",
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "synthetic_watermark": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "profile_name",
+    "exact_version",
+    "evidence_class",
+    "synthetic_watermark",
+    "point_size",
+    "notional_units",
+    "order_volume",
+    "latency",
+    "queue",
+    "fill_hazard",
+    "impact",
+    "adverse_selection",
+    "broker",
+    "scenarios",
+    "maximum_source_rows",
+    "maximum_scenarios",
+    "maximum_lifecycle_events_per_row",
+    "allowed_evidence_roles"
+  ],
+  "title": "Execution Twin Profile",
+  "type": "object"
+}

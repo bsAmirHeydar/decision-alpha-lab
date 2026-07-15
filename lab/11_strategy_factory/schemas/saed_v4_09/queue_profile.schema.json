@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "base_queue_units": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "maximum_partial_fills": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "participation_rate": {
+      "exclusiveMinimum": 0,
+      "maximum": 1,
+      "type": "number"
+    },
+    "uncertainty_units": {
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "base_queue_units",
+    "uncertainty_units",
+    "participation_rate",
+    "maximum_partial_fills"
+  ],
+  "title": "queue_profile.schema.json",
+  "type": "object"
+}

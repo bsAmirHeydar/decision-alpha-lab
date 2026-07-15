@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actual_twin_hash": {
+      "type": "string"
+    },
+    "expected_twin_hash": {
+      "type": "string"
+    },
+    "matched": {
+      "type": "boolean"
+    },
+    "replay_hash": {
+      "type": "string"
+    },
+    "replay_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "expected_twin_hash",
+    "actual_twin_hash",
+    "matched",
+    "replay_id",
+    "replay_hash"
+  ],
+  "title": "replay_receipt.schema.json",
+  "type": "object"
+}

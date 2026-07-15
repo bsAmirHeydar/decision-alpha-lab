@@ -1,0 +1,22 @@
+{
+  "manifest_hash": "96cd827e65b3f9e6da9cf7f470e1ee9418c2a6002e0867ca62d5d9b079092760",
+  "manifest_id": "exectwinscenarios_b2114f7870e304a1373d5859",
+  "phase": "SAED_V4_09",
+  "profile_hash": "ceeada104007ad46784665c29dc3b776a870d8b9682276810ed394a50889b61e",
+  "profile_id": "exectwinprofile_ceeada104007ad46784665c2",
+  "scenario_count": 5,
+  "scenario_hashes": {
+    "combined_severe": "b4a8a976f7b045fcd1ccd76d334559728abca47dc0a3337d2c26f87e2b949a72",
+    "latency_x3": "38be3180c15d85bc70139494745d7a7dc0d249b83bf0ebafb05d4af93de4b348",
+    "nominal": "bf49cce0dd0a5e74bb688e0acb9e2383a5566667431608c0bb6a2c667767cc45",
+    "queue_x4_partial": "3d451fa3f894f4fbcfd4a1672284c0e5dd47e671f938ecd81bf68ab0cfd824ed",
+    "spread_x2": "1fa0a99c61c4b5542face0f1ef091cc226fc832ef71ae6dde88602638fa6ba09"
+  },
+  "scenario_ids": [
+    "combined_severe",
+    "latency_x3",
+    "nominal",
+    "queue_x4_partial",
+    "spread_x2"
+  ]
+}

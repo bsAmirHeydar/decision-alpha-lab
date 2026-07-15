@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "detail": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "quarantine_hash": {
+      "type": "string"
+    },
+    "quarantine_id": {
+      "type": "string"
+    },
+    "reason_code": {
+      "type": "string"
+    },
+    "recovery_authority": {
+      "type": "boolean"
+    },
+    "source_hash": {
+      "type": "string"
+    },
+    "source_ref": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "source_ref",
+    "source_hash",
+    "reason_code",
+    "detail",
+    "recovery_authority",
+    "quarantine_id",
+    "quarantine_hash"
+  ],
+  "title": "incident_record.schema.json",
+  "type": "object"
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "added_pairs": {
+      "type": "array"
+    },
+    "changed_pairs": {
+      "type": "array"
+    },
+    "equivalent": {
+      "type": "boolean"
+    },
+    "left_twin_hash": {},
+    "removed_pairs": {
+      "type": "array"
+    },
+    "right_twin_hash": {}
+  },
+  "required": [
+    "left_twin_hash",
+    "right_twin_hash",
+    "added_pairs",
+    "removed_pairs",
+    "changed_pairs",
+    "equivalent"
+  ],
+  "title": "semantic_diff.schema.json",
+  "type": "object"
+}
