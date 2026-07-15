@@ -1,0 +1,68 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/golden_truncation_reports.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed golden reference contract. Unknown fields fail validation. This schema does not confer production authority.",
+  "properties": {
+    "count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "reports": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_id": {
+            "type": "string"
+          },
+          "mean_max_abs_diff": {
+            "type": "number"
+          },
+          "report_hash": {
+            "type": "string"
+          },
+          "rows": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "max_abs_diff": {
+                  "type": "number"
+                },
+                "sequence_id": {
+                  "type": "string"
+                },
+                "split": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "max_abs_diff",
+                "sequence_id",
+                "split"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "mean_max_abs_diff",
+          "report_hash",
+          "rows"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "count",
+    "phase",
+    "reports"
+  ],
+  "title": "SAED V4-12 Golden Truncation Reports",
+  "type": "object"
+}

@@ -1,0 +1,27 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/example_negative_vectors.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Closed SAED V4-12 example input contract.",
+  "items": {
+    "additionalProperties": false,
+    "properties": {
+      "case_id": {
+        "type": "string"
+      },
+      "expected_error": {
+        "type": "string"
+      },
+      "mutation": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "case_id",
+      "expected_error",
+      "mutation"
+    ],
+    "type": "object"
+  },
+  "title": "Example Negative Vectors",
+  "type": "array"
+}

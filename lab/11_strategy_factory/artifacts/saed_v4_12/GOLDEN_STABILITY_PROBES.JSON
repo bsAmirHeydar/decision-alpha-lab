@@ -1,0 +1,60 @@
+{
+  "count": 6,
+  "phase": "SAED_V4_12",
+  "reports": [
+    {
+      "candidate_id": "v412_ema_recurrent_s17",
+      "epsilon": 1e-07,
+      "finite_and_bounded": true,
+      "max_state_delta": 1.2681985135654106e-08,
+      "probe_hash": "2dd84c00a7484cf16de77c0c733667b4cf65b3e2da8401aefcf1a2cdade09cc6",
+      "probe_id": "stabilityprobe_2dd84c00a7484cf16de77c0c",
+      "sequence_id": "seq_60ddeccf9e37bc61613093b7"
+    },
+    {
+      "candidate_id": "v412_causal_convolution_s19",
+      "epsilon": 1e-07,
+      "finite_and_bounded": true,
+      "max_state_delta": 9.602839424679988e-09,
+      "probe_hash": "66b3abaa5303af0210461c9b3a7a11e2e84f36426fbc581ad74a512d7c588ee8",
+      "probe_id": "stabilityprobe_66b3abaa5303af0210461c9b",
+      "sequence_id": "seq_60ddeccf9e37bc61613093b7"
+    },
+    {
+      "candidate_id": "v412_diagonal_ssm_s23",
+      "epsilon": 1e-07,
+      "finite_and_bounded": true,
+      "max_state_delta": 9.390672554669688e-09,
+      "probe_hash": "39b8afc973502f785d07c47a189451ed8050639fc9a734386187796595191b3c",
+      "probe_id": "stabilityprobe_39b8afc973502f785d07c47a",
+      "sequence_id": "seq_60ddeccf9e37bc61613093b7"
+    },
+    {
+      "candidate_id": "v412_selective_ssm_s29",
+      "epsilon": 1e-07,
+      "finite_and_bounded": true,
+      "max_state_delta": 2.360599027882715e-09,
+      "probe_hash": "c7ecd25d05773664ef41c9354303a4514f05d258d95163ec633d7f568f5bbb85",
+      "probe_id": "stabilityprobe_c7ecd25d05773664ef41c935",
+      "sequence_id": "seq_60ddeccf9e37bc61613093b7"
+    },
+    {
+      "candidate_id": "v412_local_attention_s31",
+      "epsilon": 1e-07,
+      "finite_and_bounded": true,
+      "max_state_delta": 9.634335095334845e-09,
+      "probe_hash": "9925cb1942e6271edfa2ee548a48792224cbd8f1fe345ba3c6803dcbd56cad4b",
+      "probe_id": "stabilityprobe_9925cb1942e6271edfa2ee54",
+      "sequence_id": "seq_60ddeccf9e37bc61613093b7"
+    },
+    {
+      "candidate_id": "v412_hybrid_s37",
+      "epsilon": 1e-07,
+      "finite_and_bounded": true,
+      "max_state_delta": 8.332905285061976e-09,
+      "probe_hash": "e5961382de1a665798ef83c91056fa2ff6d79422a63be4a65c065dca19983e39",
+      "probe_id": "stabilityprobe_e5961382de1a665798ef83c9",
+      "sequence_id": "seq_60ddeccf9e37bc61613093b7"
+    }
+  ]
+}

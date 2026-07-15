@@ -1,0 +1,48 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/provenance.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed golden reference contract. Unknown fields fail validation. This schema does not confer production authority.",
+  "properties": {
+    "code_version": {
+      "type": "string"
+    },
+    "configuration_hash": {
+      "type": "string"
+    },
+    "environment": {
+      "type": "string"
+    },
+    "evidence_scope": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "provenance_hash": {
+      "type": "string"
+    },
+    "provenance_id": {
+      "type": "string"
+    },
+    "source_revision": {
+      "type": "string"
+    },
+    "upstream_binding_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "code_version",
+    "configuration_hash",
+    "environment",
+    "evidence_scope",
+    "phase",
+    "provenance_hash",
+    "provenance_id",
+    "source_revision",
+    "upstream_binding_hash"
+  ],
+  "title": "SAED V4-12 Provenance",
+  "type": "object"
+}

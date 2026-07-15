@@ -1,0 +1,65 @@
+{
+  "admission_scope": "synthetic_reference_challenger",
+  "admitted_count": 6,
+  "entries": [
+    {
+      "architecture": "selective_ssm",
+      "candidate_id": "v412_selective_ssm_s29",
+      "checkpoint_hash": "57a7b59e3a60e3ca58972beafc907702ae8e51ff2ba7e768d33e982f491e76dd",
+      "checkpoint_id": "sequenceckpt_57a7b59e3a60e3ca58972bea",
+      "production_eligible": false,
+      "runtime_authority": false,
+      "state": "admitted_reference"
+    },
+    {
+      "architecture": "local_causal_attention",
+      "candidate_id": "v412_local_attention_s31",
+      "checkpoint_hash": "7476e0179912f0bcccb5aa0cac20bfac773ae531ff1d2759dcee13bd3c403ea2",
+      "checkpoint_id": "sequenceckpt_7476e0179912f0bcccb5aa0c",
+      "production_eligible": false,
+      "runtime_authority": false,
+      "state": "admitted_reference"
+    },
+    {
+      "architecture": "causal_convolution",
+      "candidate_id": "v412_causal_convolution_s19",
+      "checkpoint_hash": "84214ac88bf87a6bbec1f4b9f20d0ce405ead09375a7e9abf37c75b192316f89",
+      "checkpoint_id": "sequenceckpt_84214ac88bf87a6bbec1f4b9",
+      "production_eligible": false,
+      "runtime_authority": false,
+      "state": "admitted_reference"
+    },
+    {
+      "architecture": "diagonal_ssm",
+      "candidate_id": "v412_diagonal_ssm_s23",
+      "checkpoint_hash": "9d4cd9a8736922455435b0739886e15d4f7fe8619d26ec595ed86f072ee0a07b",
+      "checkpoint_id": "sequenceckpt_9d4cd9a8736922455435b073",
+      "production_eligible": false,
+      "runtime_authority": false,
+      "state": "admitted_reference"
+    },
+    {
+      "architecture": "hybrid_ssm_attention",
+      "candidate_id": "v412_hybrid_s37",
+      "checkpoint_hash": "a91a9da295118dc351f1f94a8ffe6e42d4ec7537a7e4c89e7555f9521fa1afa1",
+      "checkpoint_id": "sequenceckpt_a91a9da295118dc351f1f94a",
+      "production_eligible": false,
+      "runtime_authority": false,
+      "state": "admitted_reference"
+    },
+    {
+      "architecture": "ema_recurrent",
+      "candidate_id": "v412_ema_recurrent_s17",
+      "checkpoint_hash": "ed8c13bf7bf2134c4ef3243262b114afe8f0f68abb60fcfe948c0d325d5d2b25",
+      "checkpoint_id": "sequenceckpt_ed8c13bf7bf2134c4ef32432",
+      "production_eligible": false,
+      "runtime_authority": false,
+      "state": "admitted_reference"
+    }
+  ],
+  "immutable": true,
+  "phase": "SAED_V4_12",
+  "reference_champion_id": "v412_ema_recurrent_s17",
+  "registry_hash": "d4eabc60a2d86c173f7c69834842018993d304fff3f0d4bb53e418ba213ee5a1",
+  "registry_id": "seqregistry_d4eabc60a2d86c173f7c6983"
+}

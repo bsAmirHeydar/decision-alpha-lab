@@ -1,0 +1,36 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/frozen_encoder_binding.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed golden reference contract. Unknown fields fail validation. This schema does not confer production authority.",
+  "properties": {
+    "binding_hash": {
+      "type": "string"
+    },
+    "checkpoint_hash": {
+      "type": "string"
+    },
+    "dimension": {
+      "type": "integer"
+    },
+    "frozen": {
+      "type": "boolean"
+    },
+    "trainable_parameters": {
+      "type": "integer"
+    },
+    "vocabulary_size": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "binding_hash",
+    "checkpoint_hash",
+    "dimension",
+    "frozen",
+    "trainable_parameters",
+    "vocabulary_size"
+  ],
+  "title": "SAED V4-12 Frozen Encoder Binding",
+  "type": "object"
+}

@@ -1,0 +1,48 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/golden_reset_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed golden reference contract. Unknown fields fail validation. This schema does not confer production authority.",
+  "properties": {
+    "fail_closed_on_corruption": {
+      "type": "boolean"
+    },
+    "gap_reset_seconds": {
+      "type": "integer"
+    },
+    "policy_hash": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "reset_on_context_boundary": {
+      "type": "boolean"
+    },
+    "reset_on_domain_change": {
+      "type": "boolean"
+    },
+    "reset_on_root_change": {
+      "type": "boolean"
+    },
+    "reset_on_session_boundary": {
+      "type": "boolean"
+    },
+    "restart_requires_snapshot_hash": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "fail_closed_on_corruption",
+    "gap_reset_seconds",
+    "policy_hash",
+    "policy_id",
+    "reset_on_context_boundary",
+    "reset_on_domain_change",
+    "reset_on_root_change",
+    "reset_on_session_boundary",
+    "restart_requires_snapshot_hash"
+  ],
+  "title": "SAED V4-12 Golden Reset Policy",
+  "type": "object"
+}

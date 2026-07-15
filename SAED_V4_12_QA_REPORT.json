@@ -1,0 +1,65 @@
+{
+  "evidence_scope": "local_reference_synthetic",
+  "external_evidence": {
+    "distributed_training": "not_claimed",
+    "gpu_reproduction": "not_claimed",
+    "live": "not_claimed",
+    "metaeditor_compile": "pending_local_windows",
+    "micro_live": "not_claimed",
+    "prospective_paper": "not_claimed",
+    "real_corpus_training": "not_claimed",
+    "runtime_differential_parity": "not_claimed",
+    "shadow": "not_claimed"
+  },
+  "mql5_static_file_count": 10,
+  "obsidian_note_count": 97,
+  "passed": true,
+  "phase": "SAED_V4_12",
+  "results": [
+    {
+      "command": "python tools/strategy_factory/saed_v4_12/validate_saed_v4_12_contracts.py",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "V4-12 contracts validated: 43 document/schema pairs"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_12/check_saed_v4_12_boundaries.py",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "V4-12 Python and authority boundaries passed"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_12/validate_saed_v4_12_mql5_static.py",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "V4-12 MQL5 static validation passed: 10 files"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_12/validate_saed_v4_12_obsidian.py",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "V4-12 Obsidian validation passed: 97 notes"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_12/run_saed_v4_12_tests.py",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "........................................................................ [ 66%]\n....................................                                     [100%]\n108 passed in 1.98s"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_12/reproduce_saed_v4_12_golden.py",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "V4-12 golden reproduction passed: 5 critical artifacts"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_12/validate_saed_v4_12_status.py",
+      "passed": true,
+      "returncode": 0,
+      "stdout": "V4-12 phase status passed"
+    }
+  ],
+  "schema_pair_count": 43,
+  "test_count": 108,
+  "version": "1.0.0"
+}

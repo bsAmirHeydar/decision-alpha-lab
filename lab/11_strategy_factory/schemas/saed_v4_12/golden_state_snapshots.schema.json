@@ -1,0 +1,68 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/golden_state_snapshots.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed golden reference contract. Unknown fields fail validation. This schema does not confer production authority.",
+  "properties": {
+    "count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "snapshots": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_id": {
+            "type": "string"
+          },
+          "hidden": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "history": {
+            "items": {},
+            "type": "array"
+          },
+          "point_id": {
+            "type": "string"
+          },
+          "sequence_id": {
+            "type": "string"
+          },
+          "snapshot_hash": {
+            "type": "string"
+          },
+          "snapshot_id": {
+            "type": "string"
+          },
+          "step_count": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "hidden",
+          "history",
+          "point_id",
+          "sequence_id",
+          "snapshot_hash",
+          "snapshot_id",
+          "step_count"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "count",
+    "phase",
+    "snapshots"
+  ],
+  "title": "SAED V4-12 Golden State Snapshots",
+  "type": "object"
+}

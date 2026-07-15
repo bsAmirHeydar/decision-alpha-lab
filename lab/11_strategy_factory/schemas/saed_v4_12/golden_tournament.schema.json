@@ -1,0 +1,80 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/golden_tournament.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed golden reference contract. Unknown fields fail validation. This schema does not confer production authority.",
+  "properties": {
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "production_promotion": {
+      "type": "boolean"
+    },
+    "reference_champion_id": {
+      "type": "string"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "architecture": {
+            "type": "string"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "research_eligible": {
+            "type": "boolean"
+          },
+          "state_collapsed": {
+            "type": "boolean"
+          },
+          "streaming_parity": {
+            "type": "boolean"
+          },
+          "test_mse": {
+            "type": "number"
+          },
+          "validation_mse": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "architecture",
+          "candidate_id",
+          "research_eligible",
+          "state_collapsed",
+          "streaming_parity",
+          "test_mse",
+          "validation_mse"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "tournament_hash": {
+      "type": "string"
+    },
+    "tournament_id": {
+      "type": "string"
+    },
+    "treatment_authority": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "baseline_preserved",
+    "decision",
+    "production_promotion",
+    "reference_champion_id",
+    "rows",
+    "tournament_hash",
+    "tournament_id",
+    "treatment_authority"
+  ],
+  "title": "SAED V4-12 Golden Tournament",
+  "type": "object"
+}

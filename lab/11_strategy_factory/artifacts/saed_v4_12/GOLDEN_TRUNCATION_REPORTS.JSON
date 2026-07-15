@@ -1,0 +1,198 @@
+{
+  "count": 6,
+  "phase": "SAED_V4_12",
+  "reports": [
+    {
+      "candidate_id": "v412_ema_recurrent_s17",
+      "mean_max_abs_diff": 5.938768662496443e-05,
+      "report_hash": "6294a8e79eb9f813bb4e81ce88bcc603956644e2be36188f85961c3103637e66",
+      "rows": [
+        {
+          "max_abs_diff": 5.85320796892427e-05,
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train"
+        },
+        {
+          "max_abs_diff": 6.0691079893337584e-05,
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train"
+        },
+        {
+          "max_abs_diff": 5.970052070261404e-05,
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation"
+        },
+        {
+          "max_abs_diff": 5.3967649553511164e-05,
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test"
+        },
+        {
+          "max_abs_diff": 6.404710328611666e-05,
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train"
+        }
+      ]
+    },
+    {
+      "candidate_id": "v412_causal_convolution_s19",
+      "mean_max_abs_diff": 5.992813429047499e-05,
+      "report_hash": "b5395efaebc46e230fde43fdcce5868879ae9588de379128d555dbef0b573e5d",
+      "rows": [
+        {
+          "max_abs_diff": 8.42070573614899e-05,
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train"
+        },
+        {
+          "max_abs_diff": 2.807192376264034e-05,
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train"
+        },
+        {
+          "max_abs_diff": 9.4933445059623e-05,
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation"
+        },
+        {
+          "max_abs_diff": 4.2702757184966134e-05,
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test"
+        },
+        {
+          "max_abs_diff": 4.972548808365555e-05,
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train"
+        }
+      ]
+    },
+    {
+      "candidate_id": "v412_diagonal_ssm_s23",
+      "mean_max_abs_diff": 0.0002512720074279684,
+      "report_hash": "a271bc14304e0d02cb521584d639d417f6602afa538639b00b08f954abc58245",
+      "rows": [
+        {
+          "max_abs_diff": 0.0002581401363479269,
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train"
+        },
+        {
+          "max_abs_diff": 0.00024038712028287817,
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train"
+        },
+        {
+          "max_abs_diff": 0.00025562974954024395,
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation"
+        },
+        {
+          "max_abs_diff": 0.0002464072527611511,
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test"
+        },
+        {
+          "max_abs_diff": 0.00025579577820764206,
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train"
+        }
+      ]
+    },
+    {
+      "candidate_id": "v412_selective_ssm_s29",
+      "mean_max_abs_diff": 2.978532857167461e-05,
+      "report_hash": "365469365498ba23c3c161f3169f4e45316f51a29f55ad6526de095a895b3943",
+      "rows": [
+        {
+          "max_abs_diff": 3.110199510222627e-05,
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train"
+        },
+        {
+          "max_abs_diff": 2.9313923222053055e-05,
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train"
+        },
+        {
+          "max_abs_diff": 2.972054504360097e-05,
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation"
+        },
+        {
+          "max_abs_diff": 2.8101906066614092e-05,
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test"
+        },
+        {
+          "max_abs_diff": 3.068827342387866e-05,
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train"
+        }
+      ]
+    },
+    {
+      "candidate_id": "v412_local_attention_s31",
+      "mean_max_abs_diff": 3.61178357099267e-05,
+      "report_hash": "ff4501e0f0c65cdb5338089616b9c7f3bb3cb7e9844a10a13f75af746624f426",
+      "rows": [
+        {
+          "max_abs_diff": 3.53600906101547e-05,
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train"
+        },
+        {
+          "max_abs_diff": 3.086865818033996e-05,
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train"
+        },
+        {
+          "max_abs_diff": 3.695343830823622e-05,
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation"
+        },
+        {
+          "max_abs_diff": 3.0372558457371357e-05,
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test"
+        },
+        {
+          "max_abs_diff": 4.703443299353127e-05,
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train"
+        }
+      ]
+    },
+    {
+      "candidate_id": "v412_hybrid_s37",
+      "mean_max_abs_diff": 0.00015318188954132356,
+      "report_hash": "efe3710fd246b7589e3fae93376915f5c0ff7c9cdd5f4966fa8ef8fca97ad203",
+      "rows": [
+        {
+          "max_abs_diff": 0.00015210484995935303,
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train"
+        },
+        {
+          "max_abs_diff": 0.0001682979451646735,
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train"
+        },
+        {
+          "max_abs_diff": 0.00013756300086856157,
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation"
+        },
+        {
+          "max_abs_diff": 0.00015426006154398847,
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test"
+        },
+        {
+          "max_abs_diff": 0.00015368359017004125,
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train"
+        }
+      ]
+    }
+  ]
+}

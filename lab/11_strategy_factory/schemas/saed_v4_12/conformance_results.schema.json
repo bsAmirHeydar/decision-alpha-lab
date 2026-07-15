@@ -1,0 +1,59 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/conformance_results.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed golden reference contract. Unknown fields fail validation. This schema does not confer production authority.",
+  "properties": {
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_id": {
+            "type": "string"
+          },
+          "last_output": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "max_abs_diff": {
+            "type": "number"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "vector_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "last_output",
+          "max_abs_diff",
+          "passed",
+          "vector_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "vector_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "passed",
+    "phase",
+    "rows",
+    "vector_count"
+  ],
+  "title": "SAED V4-12 Conformance Results",
+  "type": "object"
+}

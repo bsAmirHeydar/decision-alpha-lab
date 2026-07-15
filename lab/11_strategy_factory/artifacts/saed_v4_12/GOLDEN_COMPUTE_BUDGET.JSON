@@ -1,0 +1,12 @@
+{
+  "budget_hash": "143f093a1a1e41650164265585cdc391ca1fdcbaee309cc1d2026a7093d9df0c",
+  "budget_id": "seqbudget_143f093a1a1e416501642655",
+  "candidate_count_limit": 6,
+  "context_step_limit": 16,
+  "distributed_workers": 1,
+  "gpu_hours": 0.0,
+  "retry_limit": 0,
+  "state_dim_limit": 10,
+  "training_pair_limit": 128,
+  "wall_clock_seconds_limit": 60
+}

@@ -1,0 +1,40 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/example_reference_reset_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-12 example input contract.",
+  "properties": {
+    "fail_closed_on_corruption": {
+      "type": "boolean"
+    },
+    "gap_reset_seconds": {
+      "type": "integer"
+    },
+    "reset_on_context_boundary": {
+      "type": "boolean"
+    },
+    "reset_on_domain_change": {
+      "type": "boolean"
+    },
+    "reset_on_root_change": {
+      "type": "boolean"
+    },
+    "reset_on_session_boundary": {
+      "type": "boolean"
+    },
+    "restart_requires_snapshot_hash": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "fail_closed_on_corruption",
+    "gap_reset_seconds",
+    "reset_on_context_boundary",
+    "reset_on_domain_change",
+    "reset_on_root_change",
+    "reset_on_session_boundary",
+    "restart_requires_snapshot_hash"
+  ],
+  "title": "Example Reference Reset Policy",
+  "type": "object"
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "architecture": "ema_recurrent",
+    "candidate_id": "v412_ema_recurrent_s17",
+    "context_steps": 16,
+    "enabled": true,
+    "seed": 17,
+    "state_dim": 10
+  },
+  {
+    "architecture": "causal_convolution",
+    "candidate_id": "v412_causal_convolution_s19",
+    "context_steps": 16,
+    "enabled": true,
+    "seed": 19,
+    "state_dim": 10
+  },
+  {
+    "architecture": "diagonal_ssm",
+    "candidate_id": "v412_diagonal_ssm_s23",
+    "context_steps": 16,
+    "enabled": true,
+    "seed": 23,
+    "state_dim": 10
+  },
+  {
+    "architecture": "selective_ssm",
+    "candidate_id": "v412_selective_ssm_s29",
+    "context_steps": 16,
+    "enabled": true,
+    "seed": 29,
+    "state_dim": 10
+  },
+  {
+    "architecture": "local_causal_attention",
+    "candidate_id": "v412_local_attention_s31",
+    "context_steps": 16,
+    "enabled": true,
+    "seed": 31,
+    "state_dim": 10
+  },
+  {
+    "architecture": "hybrid_ssm_attention",
+    "candidate_id": "v412_hybrid_s37",
+    "context_steps": 16,
+    "enabled": true,
+    "seed": 37,
+    "state_dim": 10
+  }
+]

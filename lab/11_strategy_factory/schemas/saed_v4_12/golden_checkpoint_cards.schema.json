@@ -1,0 +1,126 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/golden_checkpoint_cards.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed golden reference contract. Unknown fields fail validation. This schema does not confer production authority.",
+  "properties": {
+    "cards": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "architecture": {
+            "type": "string"
+          },
+          "authority": {
+            "type": "string"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "card_hash": {
+            "type": "string"
+          },
+          "card_id": {
+            "type": "string"
+          },
+          "checkpoint_hash": {
+            "type": "string"
+          },
+          "checkpoint_id": {
+            "type": "string"
+          },
+          "evidence_scope": {
+            "type": "string"
+          },
+          "real_alpha_claimed": {
+            "type": "boolean"
+          },
+          "runtime_authority": {
+            "type": "boolean"
+          },
+          "state_collapsed": {
+            "type": "boolean"
+          },
+          "streaming_parity_passed": {
+            "type": "boolean"
+          },
+          "test_metrics": {
+            "additionalProperties": false,
+            "properties": {
+              "count": {
+                "type": "integer"
+              },
+              "mean_cosine": {
+                "type": "number"
+              },
+              "mean_mse": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "count",
+              "mean_cosine",
+              "mean_mse"
+            ],
+            "type": "object"
+          },
+          "training_receipt_hash": {
+            "type": "string"
+          },
+          "validation_metrics": {
+            "additionalProperties": false,
+            "properties": {
+              "count": {
+                "type": "integer"
+              },
+              "mean_cosine": {
+                "type": "number"
+              },
+              "mean_mse": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "count",
+              "mean_cosine",
+              "mean_mse"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "architecture",
+          "authority",
+          "candidate_id",
+          "card_hash",
+          "card_id",
+          "checkpoint_hash",
+          "checkpoint_id",
+          "evidence_scope",
+          "real_alpha_claimed",
+          "runtime_authority",
+          "state_collapsed",
+          "streaming_parity_passed",
+          "test_metrics",
+          "training_receipt_hash",
+          "validation_metrics"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "cards",
+    "count",
+    "phase"
+  ],
+  "title": "SAED V4-12 Golden Checkpoint Cards",
+  "type": "object"
+}

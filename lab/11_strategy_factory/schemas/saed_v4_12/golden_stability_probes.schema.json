@@ -1,0 +1,60 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/golden_stability_probes.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed golden reference contract. Unknown fields fail validation. This schema does not confer production authority.",
+  "properties": {
+    "count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "reports": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_id": {
+            "type": "string"
+          },
+          "epsilon": {
+            "type": "number"
+          },
+          "finite_and_bounded": {
+            "type": "boolean"
+          },
+          "max_state_delta": {
+            "type": "number"
+          },
+          "probe_hash": {
+            "type": "string"
+          },
+          "probe_id": {
+            "type": "string"
+          },
+          "sequence_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "epsilon",
+          "finite_and_bounded",
+          "max_state_delta",
+          "probe_hash",
+          "probe_id",
+          "sequence_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "count",
+    "phase",
+    "reports"
+  ],
+  "title": "SAED V4-12 Golden Stability Probes",
+  "type": "object"
+}

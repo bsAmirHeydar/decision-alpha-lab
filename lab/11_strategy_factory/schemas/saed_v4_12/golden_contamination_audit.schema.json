@@ -1,0 +1,60 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/golden_contamination_audit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed golden reference contract. Unknown fields fail validation. This schema does not confer production authority.",
+  "properties": {
+    "audit_hash": {
+      "type": "string"
+    },
+    "audit_id": {
+      "type": "string"
+    },
+    "future_suffix_allowed": {
+      "type": "boolean"
+    },
+    "identity_tokens_detected": {
+      "type": "boolean"
+    },
+    "outcome_inputs_detected": {
+      "type": "boolean"
+    },
+    "overlaps": {
+      "additionalProperties": false,
+      "properties": {
+        "train_test": {
+          "items": {},
+          "type": "array"
+        },
+        "train_validation": {
+          "items": {},
+          "type": "array"
+        },
+        "validation_test": {
+          "items": {},
+          "type": "array"
+        }
+      },
+      "required": [
+        "train_test",
+        "train_validation",
+        "validation_test"
+      ],
+      "type": "object"
+    },
+    "passed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "audit_hash",
+    "audit_id",
+    "future_suffix_allowed",
+    "identity_tokens_detected",
+    "outcome_inputs_detected",
+    "overlaps",
+    "passed"
+  ],
+  "title": "SAED V4-12 Golden Contamination Audit",
+  "type": "object"
+}

@@ -1,0 +1,66 @@
+{
+  "certificates": [
+    {
+      "candidate_id": "v412_ema_recurrent_s17",
+      "certificate_hash": "874a0191a20a1441e57a1fe0324d834a10c93e11a5ec300bf0afed4cc0b0b642",
+      "certificate_id": "chunkparity_874a0191a20a1441e57a1fe0",
+      "chunk_size": 2,
+      "max_abs_diff": 0.0,
+      "passed": true,
+      "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+      "tolerance": 1e-10
+    },
+    {
+      "candidate_id": "v412_causal_convolution_s19",
+      "certificate_hash": "d272a2cc374553a20163254d010901897f48eb02749bb5b6e58f57a2d60af9c1",
+      "certificate_id": "chunkparity_d272a2cc374553a20163254d",
+      "chunk_size": 2,
+      "max_abs_diff": 0.0,
+      "passed": true,
+      "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+      "tolerance": 1e-10
+    },
+    {
+      "candidate_id": "v412_diagonal_ssm_s23",
+      "certificate_hash": "2b70ae882466ac787db2a040607d1fe23a2fcc3968e3e954edac22a2675de192",
+      "certificate_id": "chunkparity_2b70ae882466ac787db2a040",
+      "chunk_size": 2,
+      "max_abs_diff": 0.0,
+      "passed": true,
+      "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+      "tolerance": 1e-10
+    },
+    {
+      "candidate_id": "v412_selective_ssm_s29",
+      "certificate_hash": "4a004d46750bee70bd0cd35cc1ec18b1c94a99ebbaa8ad66271c311dc138d8b0",
+      "certificate_id": "chunkparity_4a004d46750bee70bd0cd35c",
+      "chunk_size": 2,
+      "max_abs_diff": 0.0,
+      "passed": true,
+      "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+      "tolerance": 1e-10
+    },
+    {
+      "candidate_id": "v412_local_attention_s31",
+      "certificate_hash": "567f6db98fe5d949616c8b410b1cd5f5583729be5ef8fbc90a9d5a36198db077",
+      "certificate_id": "chunkparity_567f6db98fe5d949616c8b41",
+      "chunk_size": 2,
+      "max_abs_diff": 0.0,
+      "passed": true,
+      "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+      "tolerance": 1e-10
+    },
+    {
+      "candidate_id": "v412_hybrid_s37",
+      "certificate_hash": "b32852220285621cf9629915b9beb863221cf472a65875bcf3cc16a0de5f6a5f",
+      "certificate_id": "chunkparity_b32852220285621cf9629915",
+      "chunk_size": 2,
+      "max_abs_diff": 0.0,
+      "passed": true,
+      "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+      "tolerance": 1e-10
+    }
+  ],
+  "count": 6,
+  "phase": "SAED_V4_12"
+}

@@ -1,0 +1,13 @@
+{
+  "audit_hash": "6d71a492fc6099ad7b33f394d2de077f64f236d75e4bc39bec6c6412ee097951",
+  "audit_id": "seqcontam_6d71a492fc6099ad7b33f394",
+  "future_suffix_allowed": false,
+  "identity_tokens_detected": false,
+  "outcome_inputs_detected": false,
+  "overlaps": {
+    "train_test": [],
+    "train_validation": [],
+    "validation_test": []
+  },
+  "passed": true
+}

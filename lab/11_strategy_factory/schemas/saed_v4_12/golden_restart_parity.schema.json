@@ -1,0 +1,60 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/golden_restart_parity.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed golden reference contract. Unknown fields fail validation. This schema does not confer production authority.",
+  "properties": {
+    "certificates": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_id": {
+            "type": "string"
+          },
+          "cut": {
+            "type": "integer"
+          },
+          "max_abs_diff": {
+            "type": "number"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "sequence_id": {
+            "type": "string"
+          },
+          "snapshot_hash": {
+            "type": "string"
+          },
+          "tolerance": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "cut",
+          "max_abs_diff",
+          "passed",
+          "sequence_id",
+          "snapshot_hash",
+          "tolerance"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "certificates",
+    "count",
+    "phase"
+  ],
+  "title": "SAED V4-12 Golden Restart Parity",
+  "type": "object"
+}

@@ -1,0 +1,52 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/golden_compute_budget.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed golden reference contract. Unknown fields fail validation. This schema does not confer production authority.",
+  "properties": {
+    "budget_hash": {
+      "type": "string"
+    },
+    "budget_id": {
+      "type": "string"
+    },
+    "candidate_count_limit": {
+      "type": "integer"
+    },
+    "context_step_limit": {
+      "type": "integer"
+    },
+    "distributed_workers": {
+      "type": "integer"
+    },
+    "gpu_hours": {
+      "type": "number"
+    },
+    "retry_limit": {
+      "type": "integer"
+    },
+    "state_dim_limit": {
+      "type": "integer"
+    },
+    "training_pair_limit": {
+      "type": "integer"
+    },
+    "wall_clock_seconds_limit": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "budget_hash",
+    "budget_id",
+    "candidate_count_limit",
+    "context_step_limit",
+    "distributed_workers",
+    "gpu_hours",
+    "retry_limit",
+    "state_dim_limit",
+    "training_pair_limit",
+    "wall_clock_seconds_limit"
+  ],
+  "title": "SAED V4-12 Golden Compute Budget",
+  "type": "object"
+}

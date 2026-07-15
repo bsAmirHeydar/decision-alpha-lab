@@ -1,0 +1,48 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/example_reference_sequence_spec.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-12 example input contract.",
+  "properties": {
+    "causal": {
+      "type": "boolean"
+    },
+    "chunk_size": {
+      "type": "integer"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "frozen_encoder": {
+      "type": "boolean"
+    },
+    "gap_reset_seconds": {
+      "type": "integer"
+    },
+    "input_dim": {
+      "type": "integer"
+    },
+    "local_attention_window": {
+      "type": "integer"
+    },
+    "max_context_steps": {
+      "type": "integer"
+    },
+    "state_dim": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "causal",
+    "chunk_size",
+    "exact_version",
+    "frozen_encoder",
+    "gap_reset_seconds",
+    "input_dim",
+    "local_attention_window",
+    "max_context_steps",
+    "state_dim"
+  ],
+  "title": "Example Reference Sequence Spec",
+  "type": "object"
+}

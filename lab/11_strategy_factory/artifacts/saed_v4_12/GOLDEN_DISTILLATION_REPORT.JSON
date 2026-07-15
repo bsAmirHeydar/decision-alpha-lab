@@ -1,0 +1,130 @@
+{
+  "bounded_runtime_representation": true,
+  "distillation_hash": "eab8c7dfc7bcc0eafead3282a35547814e4ebaba7c3c3f80c300566a38a15553",
+  "mql5_export_claimed": false,
+  "report_hash": "be28ab3394fad46ce07f4d89a44645aa6788809e9016f4d48858105265ff6906",
+  "report_id": "distillreport_be28ab3394fad46ce07f4d89",
+  "row_count": 20,
+  "rows": [
+    {
+      "runtime_norm": 0.010706228125067404,
+      "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+      "source_norm": 0.04572054067055973,
+      "step": 0
+    },
+    {
+      "runtime_norm": 0.010473573847413431,
+      "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+      "source_norm": 0.0454534117169737,
+      "step": 1
+    },
+    {
+      "runtime_norm": 0.010647247929648362,
+      "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+      "source_norm": 0.04554257899613999,
+      "step": 2
+    },
+    {
+      "runtime_norm": 0.010889430447369106,
+      "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+      "source_norm": 0.047453348756314406,
+      "step": 3
+    },
+    {
+      "runtime_norm": 0.010674866827905348,
+      "sequence_id": "seq_91d8a7d77683359c845cd428",
+      "source_norm": 0.04371446906579464,
+      "step": 0
+    },
+    {
+      "runtime_norm": 0.01035692477121467,
+      "sequence_id": "seq_91d8a7d77683359c845cd428",
+      "source_norm": 0.044813804359757736,
+      "step": 1
+    },
+    {
+      "runtime_norm": 0.01057186591977172,
+      "sequence_id": "seq_91d8a7d77683359c845cd428",
+      "source_norm": 0.04625210791848726,
+      "step": 2
+    },
+    {
+      "runtime_norm": 0.011234033281854228,
+      "sequence_id": "seq_91d8a7d77683359c845cd428",
+      "source_norm": 0.04523355438955158,
+      "step": 3
+    },
+    {
+      "runtime_norm": 0.010788996049702964,
+      "sequence_id": "seq_502ba1c3c219167524f775b7",
+      "source_norm": 0.04742140120361098,
+      "step": 0
+    },
+    {
+      "runtime_norm": 0.010482664363646258,
+      "sequence_id": "seq_502ba1c3c219167524f775b7",
+      "source_norm": 0.04520479987511259,
+      "step": 1
+    },
+    {
+      "runtime_norm": 0.010919236603919963,
+      "sequence_id": "seq_502ba1c3c219167524f775b7",
+      "source_norm": 0.047108135431430255,
+      "step": 2
+    },
+    {
+      "runtime_norm": 0.011255573498591256,
+      "sequence_id": "seq_502ba1c3c219167524f775b7",
+      "source_norm": 0.04820914151815167,
+      "step": 3
+    },
+    {
+      "runtime_norm": 0.01107910635043713,
+      "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+      "source_norm": 0.04472408338168399,
+      "step": 0
+    },
+    {
+      "runtime_norm": 0.010141492911842655,
+      "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+      "source_norm": 0.045612430766326914,
+      "step": 1
+    },
+    {
+      "runtime_norm": 0.011038500796245741,
+      "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+      "source_norm": 0.046785592338004854,
+      "step": 2
+    },
+    {
+      "runtime_norm": 0.011230262719647431,
+      "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+      "source_norm": 0.04645321908155553,
+      "step": 3
+    },
+    {
+      "runtime_norm": 0.010394854246438164,
+      "sequence_id": "seq_47555046777e522927489320",
+      "source_norm": 0.04233012581958445,
+      "step": 0
+    },
+    {
+      "runtime_norm": 0.010766917051842071,
+      "sequence_id": "seq_47555046777e522927489320",
+      "source_norm": 0.0455289246139925,
+      "step": 1
+    },
+    {
+      "runtime_norm": 0.011832063287799018,
+      "sequence_id": "seq_47555046777e522927489320",
+      "source_norm": 0.049312710037886974,
+      "step": 2
+    },
+    {
+      "runtime_norm": 0.010664280969289616,
+      "sequence_id": "seq_47555046777e522927489320",
+      "source_norm": 0.04448627064217156,
+      "step": 3
+    }
+  ]
+}

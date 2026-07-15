@@ -1,0 +1,66 @@
+{
+  "certificates": [
+    {
+      "candidate_id": "v412_ema_recurrent_s17",
+      "certificate_hash": "2ccf9a1dadb21e00d4a5c520c29b9bdfa173445585b5cb86dac5cd8912b6dc7e",
+      "certificate_id": "streamparity_2ccf9a1dadb21e00d4a5c520",
+      "max_abs_diff": 0.0,
+      "passed": true,
+      "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+      "step_count": 4,
+      "tolerance": 1e-10
+    },
+    {
+      "candidate_id": "v412_causal_convolution_s19",
+      "certificate_hash": "862a14cd802d6f667493c63c4c44ced85d47c6e8a8aba4181d975a2cf1a8fe4e",
+      "certificate_id": "streamparity_862a14cd802d6f667493c63c",
+      "max_abs_diff": 0.0,
+      "passed": true,
+      "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+      "step_count": 4,
+      "tolerance": 1e-10
+    },
+    {
+      "candidate_id": "v412_diagonal_ssm_s23",
+      "certificate_hash": "ab394c2dd219b347a8655b2d433bc002aec29e4f2e2e65dec35276c3536a18fc",
+      "certificate_id": "streamparity_ab394c2dd219b347a8655b2d",
+      "max_abs_diff": 0.0,
+      "passed": true,
+      "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+      "step_count": 4,
+      "tolerance": 1e-10
+    },
+    {
+      "candidate_id": "v412_selective_ssm_s29",
+      "certificate_hash": "2d13b89311c44661f8f682bda1e419f485d89935dc8c5f0a15499b48b9141196",
+      "certificate_id": "streamparity_2d13b89311c44661f8f682bd",
+      "max_abs_diff": 0.0,
+      "passed": true,
+      "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+      "step_count": 4,
+      "tolerance": 1e-10
+    },
+    {
+      "candidate_id": "v412_local_attention_s31",
+      "certificate_hash": "3b2644eba92e86534700f8fe310692a864b483958aeed147e2ba04537c637ccc",
+      "certificate_id": "streamparity_3b2644eba92e86534700f8fe",
+      "max_abs_diff": 0.0,
+      "passed": true,
+      "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+      "step_count": 4,
+      "tolerance": 1e-10
+    },
+    {
+      "candidate_id": "v412_hybrid_s37",
+      "certificate_hash": "2c988d25fbaaa31bfd21c335fd2d8d68da88b8eacba01ede70d43564c50819a7",
+      "certificate_id": "streamparity_2c988d25fbaaa31bfd21c335",
+      "max_abs_diff": 0.0,
+      "passed": true,
+      "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+      "step_count": 4,
+      "tolerance": 1e-10
+    }
+  ],
+  "count": 6,
+  "phase": "SAED_V4_12"
+}

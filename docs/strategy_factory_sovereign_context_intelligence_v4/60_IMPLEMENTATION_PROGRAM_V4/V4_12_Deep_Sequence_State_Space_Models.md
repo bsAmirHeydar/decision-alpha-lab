@@ -1,58 +1,47 @@
 ---
 title: V4-12 Deep Sequence State Space Models
-status: canonical
-version: 4.0.0
+status: implemented-reference
+version: 4.1.0
 created: '2026-07-13'
-updated: '2026-07-13'
-capability_tier: core-production
-tags:
-  - saed-v4
-  - implementation
-  - roadmap
+updated: '2026-07-15'
+capability_tier: governed-challenger
+tags: [saed-v4, implementation, roadmap, implemented-reference]
 ---
 
-# Phase V4-12: Deep Sequence State Space Models
+# Phase V4-12: Deep Sequence and State-Space Models
 
-## Mission
+## Implementation status
 
-Implement this phase as an additive, closed-contract capability that preserves UCEE authority and can be independently validated.
+SAED V4-12 now has a complete deterministic synthetic-reference implementation. It consumes the exact frozen V4-11 tokenizer and encoder hashes, compiles causal root-context sequences, evaluates six architecture families, fits self-supervised next-representation readouts, proves streaming/chunk/restart parity, records state probes and ablations, registers conformant research checkpoints, creates a bounded distilled state and freezes the V4-13 handoff.
 
-## Entry gates
+## Delivered architecture families
 
-- Prior phase artifacts are immutable and hash verified.
-- Data roles, support, treatment universe and authority are frozen.
-- Golden and negative fixtures exist.
-- Compute, exposure and review budgets are approved.
+1. EMA recurrent baseline.
+2. Causal convolution baseline.
+3. Diagonal continuous-time state-space model.
+4. Selective state-space model.
+5. Local causal attention.
+6. Hybrid selective-SSM and local-attention model.
 
-## Engineering slices
+## Closed evidence boundary
 
-1. Contract and schema freeze.
-2. Deterministic reference implementation.
-3. Golden, negative and mutation tests.
-4. Distributed or advanced challenger implementation.
-5. Model-risk and security review.
-6. Independent reproduction.
-7. Evidence bundle and handoff.
+The implementation uses the synthetic V4-11 corpus only. Sequence cores are deterministic fixed reference parameterizations; only closed-form next-representation readouts are fitted. No outcome cube, execution twin, protected-final, prospective, shadow or live artifact is an input. No real alpha, treatment ranking, runtime parity or production authorization is claimed.
 
-## Acceptance gates
+## Acceptance evidence
 
-- Zero unknown fields in closed contracts.
-- No future-suffix sensitivity.
-- Deterministic identity and replay.
-- Complete trial/exposure accounting.
-- Baseline preserved.
-- Fail-closed fallback verified.
-- UCEE compatibility and no central-engine mutation.
-- Actual external/MetaEditor evidence distinguished from static evidence.
+- Closed schemas and unknown-field rejection.
+- Exact V4-11 hash binding.
+- Known-time and future-suffix invariance.
+- Batch/streaming, chunk and snapshot/restart parity.
+- State collapse, stability and truncation controls.
+- Baseline preservation and fixed-budget tournament.
+- Canonical checkpoint registry, integrity receipt and independent replay.
+- Python authority boundary, Obsidian and MQL5 static validation.
 
-## Deliverables
+## Next phase
 
-- Source modules and tests.
-- Schemas and examples.
-- Obsidian implementation documentation.
-- QA report, inventory, file index and hash ledger.
-- Handoff to the next phase.
+The next phase is [[V4_13_Graph_And_Hypergraph_Models|V4-13 Graph and Hypergraph Models]]. It may read the exact V4-12 registry, champion and distilled-state hashes to build reference graph challengers. It may not mutate V4-12 evidence or infer decision authority from synthetic-reference ranking.
 
-## Non-goals
+## Detailed delivery
 
-This architecture phase does not claim real alpha, prospective success, runtime parity or production authorization unless actual evidence is attached.
+See [[README|SAED V4-12 Delivery Index]] under `62_PHASE_DELIVERIES_V4/V4_12`.

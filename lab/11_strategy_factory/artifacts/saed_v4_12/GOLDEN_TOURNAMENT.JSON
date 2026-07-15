@@ -1,0 +1,65 @@
+{
+  "baseline_preserved": true,
+  "decision": "research_reference_only",
+  "production_promotion": false,
+  "reference_champion_id": "v412_ema_recurrent_s17",
+  "rows": [
+    {
+      "architecture": "ema_recurrent",
+      "candidate_id": "v412_ema_recurrent_s17",
+      "research_eligible": true,
+      "state_collapsed": false,
+      "streaming_parity": true,
+      "test_mse": 5.5111764025761624e-05,
+      "validation_mse": 9.04337615491407e-05
+    },
+    {
+      "architecture": "diagonal_ssm",
+      "candidate_id": "v412_diagonal_ssm_s23",
+      "research_eligible": true,
+      "state_collapsed": false,
+      "streaming_parity": true,
+      "test_mse": 5.53241121391483e-05,
+      "validation_mse": 9.14018728447273e-05
+    },
+    {
+      "architecture": "local_causal_attention",
+      "candidate_id": "v412_local_attention_s31",
+      "research_eligible": true,
+      "state_collapsed": false,
+      "streaming_parity": true,
+      "test_mse": 5.534319989359596e-05,
+      "validation_mse": 9.140832937580784e-05
+    },
+    {
+      "architecture": "hybrid_ssm_attention",
+      "candidate_id": "v412_hybrid_s37",
+      "research_eligible": true,
+      "state_collapsed": false,
+      "streaming_parity": true,
+      "test_mse": 5.5345954066711125e-05,
+      "validation_mse": 9.142969909914506e-05
+    },
+    {
+      "architecture": "causal_convolution",
+      "candidate_id": "v412_causal_convolution_s19",
+      "research_eligible": true,
+      "state_collapsed": false,
+      "streaming_parity": true,
+      "test_mse": 5.535218082790631e-05,
+      "validation_mse": 9.14410896529355e-05
+    },
+    {
+      "architecture": "selective_ssm",
+      "candidate_id": "v412_selective_ssm_s29",
+      "research_eligible": true,
+      "state_collapsed": false,
+      "streaming_parity": true,
+      "test_mse": 5.5380697512853704e-05,
+      "validation_mse": 9.152650217775472e-05
+    }
+  ],
+  "tournament_hash": "1220b5fb00913111f71811becae5803497bef3a9f98fd539ef52a18d2f4f6015",
+  "tournament_id": "seqtournament_1220b5fb00913111f71811be",
+  "treatment_authority": false
+}

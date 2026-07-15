@@ -1,0 +1,179 @@
+{
+  "pairs": [
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/AUTHORITY_BOUNDARY.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/authority_boundary.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/CLAIM_LEDGER.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/claim_ledger.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/CONFORMANCE_RESULTS.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/conformance_results.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/FROZEN_ENCODER_BINDING.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/frozen_encoder_binding.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/GOLDEN_ABLATION_REPORT.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/golden_ablation_report.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/GOLDEN_BASELINE_CONTROL.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/golden_baseline_control.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/GOLDEN_CANDIDATE_CHECKPOINTS.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/golden_candidate_checkpoints.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/GOLDEN_CANDIDATE_METRICS.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/golden_candidate_metrics.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/GOLDEN_CHECKPOINT_CARDS.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/golden_checkpoint_cards.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/GOLDEN_CHECKPOINT_REGISTRY.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/golden_checkpoint_registry.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/GOLDEN_CHUNKED_PARITY.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/golden_chunked_parity.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/GOLDEN_COMPUTE_BUDGET.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/golden_compute_budget.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/GOLDEN_CONTAMINATION_AUDIT.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/golden_contamination_audit.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/GOLDEN_DISTILLATION.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/golden_distillation.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/GOLDEN_DISTILLATION_REPORT.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/golden_distillation_report.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/GOLDEN_FUTURE_SUFFIX_AUDITS.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/golden_future_suffix_audits.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/GOLDEN_INTEGRITY_RECEIPT.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/golden_integrity_receipt.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/GOLDEN_REPLAY_RECEIPT.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/golden_replay_receipt.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/GOLDEN_RESET_POLICY.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/golden_reset_policy.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/GOLDEN_RESTART_PARITY.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/golden_restart_parity.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/GOLDEN_SEMANTIC_DIFF.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/golden_semantic_diff.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/GOLDEN_SEQUENCE_EXAMPLES.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/golden_sequence_examples.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/GOLDEN_SEQUENCE_MANIFEST.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/golden_sequence_manifest.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/GOLDEN_STABILITY_PROBES.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/golden_stability_probes.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/GOLDEN_STATE_PROBES.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/golden_state_probes.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/GOLDEN_STATE_SNAPSHOTS.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/golden_state_snapshots.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/GOLDEN_STREAMING_PARITY.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/golden_streaming_parity.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/GOLDEN_TELEMETRY.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/golden_telemetry.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/GOLDEN_TOURNAMENT.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/golden_tournament.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/GOLDEN_TRAINING_RECEIPTS.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/golden_training_receipts.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/GOLDEN_TRUNCATION_REPORTS.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/golden_truncation_reports.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/INCIDENT_TEMPLATE.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/incident_template.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/PROVENANCE.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/provenance.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/SBOM.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/sbom.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/UPSTREAM_VALIDATION.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/upstream_validation.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/V4_12_TO_V4_13_HANDOFF.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/v4_12_to_v4_13_handoff.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/examples/saed_v4_12/reference_sequence_spec.json",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/example_reference_sequence_spec.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/examples/saed_v4_12/reference_candidate_catalog.json",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/example_reference_candidate_catalog.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/examples/saed_v4_12/reference_reset_policy.json",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/example_reference_reset_policy.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/examples/saed_v4_12/conformance_vectors.json",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/example_conformance_vectors.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/examples/saed_v4_12/negative_vectors.json",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/example_negative_vectors.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/examples/saed_v4_12/reference_compute_envelope.json",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/example_reference_compute_envelope.schema.json"
+    },
+    {
+      "document": "lab/11_strategy_factory/artifacts/saed_v4_12/CONTRACT_VALIDATION_MAP.JSON",
+      "schema": "lab/11_strategy_factory/schemas/saed_v4_12/contract_validation_map.schema.json"
+    }
+  ],
+  "phase": "SAED_V4_12",
+  "schema_count": 43,
+  "unknown_fields_allowed": false
+}

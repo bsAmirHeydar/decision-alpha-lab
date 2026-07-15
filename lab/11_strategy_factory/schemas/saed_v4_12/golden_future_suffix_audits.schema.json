@@ -1,0 +1,60 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/golden_future_suffix_audits.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed golden reference contract. Unknown fields fail validation. This schema does not confer production authority.",
+  "properties": {
+    "audits": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "audit_hash": {
+            "type": "string"
+          },
+          "audit_id": {
+            "type": "string"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "future_suffix_sensitivity": {
+            "type": "boolean"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "prefix_length": {
+            "type": "integer"
+          },
+          "sequence_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "audit_hash",
+          "audit_id",
+          "candidate_id",
+          "future_suffix_sensitivity",
+          "passed",
+          "prefix_length",
+          "sequence_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "audits",
+    "count",
+    "phase"
+  ],
+  "title": "SAED V4-12 Golden Future Suffix Audits",
+  "type": "object"
+}

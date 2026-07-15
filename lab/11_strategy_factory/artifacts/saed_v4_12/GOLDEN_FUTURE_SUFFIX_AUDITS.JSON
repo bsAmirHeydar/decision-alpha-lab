@@ -1,0 +1,60 @@
+{
+  "audits": [
+    {
+      "audit_hash": "5f1c8d0f40236827d205a8a999e5bc603cd2168b2579a12ab0947065bd364f31",
+      "audit_id": "futuresuffix_5f1c8d0f40236827d205a8a9",
+      "candidate_id": "v412_ema_recurrent_s17",
+      "future_suffix_sensitivity": false,
+      "passed": true,
+      "prefix_length": 4,
+      "sequence_id": "seq_60ddeccf9e37bc61613093b7"
+    },
+    {
+      "audit_hash": "748928d5eaae1dd575a07b7008ad69a493d7201b2225cb1a37922f1862f06b86",
+      "audit_id": "futuresuffix_748928d5eaae1dd575a07b70",
+      "candidate_id": "v412_causal_convolution_s19",
+      "future_suffix_sensitivity": false,
+      "passed": true,
+      "prefix_length": 4,
+      "sequence_id": "seq_60ddeccf9e37bc61613093b7"
+    },
+    {
+      "audit_hash": "dd55a074b4c14743c5b06eacabf67c431df24b69f622b4c9f1b3f25ab5298e2f",
+      "audit_id": "futuresuffix_dd55a074b4c14743c5b06eac",
+      "candidate_id": "v412_diagonal_ssm_s23",
+      "future_suffix_sensitivity": false,
+      "passed": true,
+      "prefix_length": 4,
+      "sequence_id": "seq_60ddeccf9e37bc61613093b7"
+    },
+    {
+      "audit_hash": "f906d36f0d646a104d21eecb03f5307fef26f9786b78593cc1d6c19a93db2ca9",
+      "audit_id": "futuresuffix_f906d36f0d646a104d21eecb",
+      "candidate_id": "v412_selective_ssm_s29",
+      "future_suffix_sensitivity": false,
+      "passed": true,
+      "prefix_length": 4,
+      "sequence_id": "seq_60ddeccf9e37bc61613093b7"
+    },
+    {
+      "audit_hash": "23581af3b506d27e6abf14e9cb9b360373a2204115ff3b7f21bb1fdb3632e5eb",
+      "audit_id": "futuresuffix_23581af3b506d27e6abf14e9",
+      "candidate_id": "v412_local_attention_s31",
+      "future_suffix_sensitivity": false,
+      "passed": true,
+      "prefix_length": 4,
+      "sequence_id": "seq_60ddeccf9e37bc61613093b7"
+    },
+    {
+      "audit_hash": "62d8441572f19574d210ed35ffb57501a7288d3163ab2b5bb5ae6e836bdda40c",
+      "audit_id": "futuresuffix_62d8441572f19574d210ed35",
+      "candidate_id": "v412_hybrid_s37",
+      "future_suffix_sensitivity": false,
+      "passed": true,
+      "prefix_length": 4,
+      "sequence_id": "seq_60ddeccf9e37bc61613093b7"
+    }
+  ],
+  "count": 6,
+  "phase": "SAED_V4_12"
+}

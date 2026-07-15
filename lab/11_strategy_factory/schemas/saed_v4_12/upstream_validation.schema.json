@@ -1,0 +1,45 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/upstream_validation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed golden reference contract. Unknown fields fail validation. This schema does not confer production authority.",
+  "properties": {
+    "frozen": {
+      "type": "boolean"
+    },
+    "gate_count": {
+      "type": "integer"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "verified_hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "checkpoint_registry_hash": {
+          "type": "string"
+        },
+        "encoder_checkpoint_hash": {
+          "type": "string"
+        },
+        "tokenizer_hash": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "checkpoint_registry_hash",
+        "encoder_checkpoint_hash",
+        "tokenizer_hash"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "frozen",
+    "gate_count",
+    "passed",
+    "verified_hashes"
+  ],
+  "title": "SAED V4-12 Upstream Validation",
+  "type": "object"
+}

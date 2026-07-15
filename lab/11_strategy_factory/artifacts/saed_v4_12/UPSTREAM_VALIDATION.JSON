@@ -1,0 +1,10 @@
+{
+  "frozen": true,
+  "gate_count": 7,
+  "passed": true,
+  "verified_hashes": {
+    "checkpoint_registry_hash": "844d91a09d044b254ec918d6519f2ba35980d0dd42d91f1e2f4264c15704f414",
+    "encoder_checkpoint_hash": "aab287ba676dacc6cba84a8671f853a71c721d6f1a5997fd264e0f80cf801e6a",
+    "tokenizer_hash": "71b0813379929af782ac7403abcd5414e8e8ba961f97cbd5988ab1189d10d89f"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "candidate_limit": 6,
+  "context_step_limit": 16,
+  "distributed_workers": 1,
+  "gpu_hours": 0.0,
+  "state_dim_limit": 10,
+  "training_pair_limit": 128,
+  "wall_clock_seconds_limit": 60
+}

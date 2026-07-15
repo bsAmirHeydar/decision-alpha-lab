@@ -1,0 +1,67 @@
+{
+  "authority": {
+    "decision_authority": false,
+    "execution_authority": false,
+    "research_reference_only": true,
+    "runtime_authority": false
+  },
+  "claims": {
+    "deep_sequence_reference_implemented": true,
+    "live_trading": false,
+    "outcome_prediction_authority": false,
+    "production_authorization": false,
+    "real_alpha": false,
+    "real_corpus_training": false,
+    "restart_snapshot_reference": true,
+    "runtime_parity": false,
+    "state_space_reference_implemented": true,
+    "streaming_batch_parity_reference": true,
+    "synthetic_self_supervised_readout": true,
+    "treatment_ranking": false,
+    "treatment_selection": false
+  },
+  "date": "2026-07-15",
+  "external_evidence": {
+    "distributed_training": "not_claimed",
+    "gpu_reproduction": "not_claimed",
+    "live": "not_claimed",
+    "metaeditor_compile": "pending_local_windows",
+    "micro_live": "not_claimed",
+    "prospective_paper": "not_claimed",
+    "real_corpus_training": "not_claimed",
+    "runtime_differential_parity": "not_claimed",
+    "shadow": "not_claimed"
+  },
+  "handoff_hash": "43e6bbde6f4c40fc38b90812d0891f82991100597ccef83eee302c296b8b5e42",
+  "handoff_id": "v412to13_43e6bbde6f4c40fc38b90812",
+  "implementation_status": "implemented_reference_synthetic",
+  "next_phase": "SAED_V4_13",
+  "phase": "SAED_V4_12",
+  "qa": {
+    "closed_schema_pairs": 43,
+    "golden_reproduction": true,
+    "mql5_static_files": 10,
+    "obsidian_notes": 97,
+    "passed": true,
+    "python_tests": 108
+  },
+  "reference_champion_id": "v412_ema_recurrent_s17",
+  "registry_hash": "d4eabc60a2d86c173f7c69834842018993d304fff3f0d4bb53e418ba213ee5a1",
+  "registry_id": "seqregistry_d4eabc60a2d86c173f7c6983",
+  "scope": {
+    "ablation": true,
+    "architecture_family_count": 6,
+    "causal_sequence_compiler": true,
+    "chunk_parity": true,
+    "distillation": true,
+    "frozen_v4_11_binding": true,
+    "immutable_registry": true,
+    "restart_parity": true,
+    "self_supervised_readout": true,
+    "state_probes": true,
+    "streaming_parity": true
+  },
+  "title": "Deep Sequence and State-Space Models",
+  "upstream_phase": "SAED_V4_11",
+  "version": "1.0.0"
+}

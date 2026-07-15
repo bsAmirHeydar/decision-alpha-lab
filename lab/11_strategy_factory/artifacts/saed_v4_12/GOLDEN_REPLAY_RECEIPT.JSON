@@ -1,0 +1,9 @@
+{
+  "bit_exact": true,
+  "environment_class": "local_cpu_reference",
+  "external_gpu_reproduction": false,
+  "first_hash": "54b4b76942aa433b3440fb99265c29a6e8d3c973d28616fb94ea2fed7b555984",
+  "replay_hash": "823f2ce9f317318e4e392ce70a2887d99b5b869b82515a4b92d90ad90890a62d",
+  "replay_id": "seqreplay_823f2ce9f317318e4e392ce7",
+  "second_hash": "54b4b76942aa433b3440fb99265c29a6e8d3c973d28616fb94ea2fed7b555984"
+}

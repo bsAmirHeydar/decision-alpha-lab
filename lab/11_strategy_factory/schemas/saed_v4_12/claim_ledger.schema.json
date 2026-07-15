@@ -1,0 +1,93 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/claim_ledger.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed golden reference contract. Unknown fields fail validation. This schema does not confer production authority.",
+  "properties": {
+    "admitted_reference_count": {
+      "type": "integer"
+    },
+    "claims": {
+      "additionalProperties": false,
+      "properties": {
+        "deep_sequence_reference_implemented": {
+          "type": "boolean"
+        },
+        "live_trading": {
+          "type": "boolean"
+        },
+        "outcome_prediction_authority": {
+          "type": "boolean"
+        },
+        "production_authorization": {
+          "type": "boolean"
+        },
+        "real_alpha": {
+          "type": "boolean"
+        },
+        "real_corpus_training": {
+          "type": "boolean"
+        },
+        "restart_snapshot_reference": {
+          "type": "boolean"
+        },
+        "runtime_parity": {
+          "type": "boolean"
+        },
+        "state_space_reference_implemented": {
+          "type": "boolean"
+        },
+        "streaming_batch_parity_reference": {
+          "type": "boolean"
+        },
+        "synthetic_self_supervised_readout": {
+          "type": "boolean"
+        },
+        "treatment_ranking": {
+          "type": "boolean"
+        },
+        "treatment_selection": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "deep_sequence_reference_implemented",
+        "live_trading",
+        "outcome_prediction_authority",
+        "production_authorization",
+        "real_alpha",
+        "real_corpus_training",
+        "restart_snapshot_reference",
+        "runtime_parity",
+        "state_space_reference_implemented",
+        "streaming_batch_parity_reference",
+        "synthetic_self_supervised_readout",
+        "treatment_ranking",
+        "treatment_selection"
+      ],
+      "type": "object"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "reference_champion_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "admitted_reference_count",
+    "claims",
+    "ledger_hash",
+    "ledger_id",
+    "phase",
+    "reference_champion_id"
+  ],
+  "title": "SAED V4-12 Claim Ledger",
+  "type": "object"
+}

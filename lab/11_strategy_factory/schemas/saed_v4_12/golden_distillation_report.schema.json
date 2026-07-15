@@ -1,0 +1,64 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/golden_distillation_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed golden reference contract. Unknown fields fail validation. This schema does not confer production authority.",
+  "properties": {
+    "bounded_runtime_representation": {
+      "type": "boolean"
+    },
+    "distillation_hash": {
+      "type": "string"
+    },
+    "mql5_export_claimed": {
+      "type": "boolean"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "row_count": {
+      "type": "integer"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "runtime_norm": {
+            "type": "number"
+          },
+          "sequence_id": {
+            "type": "string"
+          },
+          "source_norm": {
+            "type": "number"
+          },
+          "step": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "runtime_norm",
+          "sequence_id",
+          "source_norm",
+          "step"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "bounded_runtime_representation",
+    "distillation_hash",
+    "mql5_export_claimed",
+    "report_hash",
+    "report_id",
+    "row_count",
+    "rows"
+  ],
+  "title": "SAED V4-12 Golden Distillation Report",
+  "type": "object"
+}

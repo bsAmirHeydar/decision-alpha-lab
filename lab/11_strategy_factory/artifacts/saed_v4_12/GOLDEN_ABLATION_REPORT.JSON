@@ -1,0 +1,51 @@
+{
+  "baseline_preserved": true,
+  "identity_feature_present": false,
+  "outcome_feature_present": false,
+  "report_hash": "f89941cba0db8e4e3986261e6194390fb2a62953dcc99f108c89b045f2de2d91",
+  "report_id": "ablation_f89941cba0db8e4e3986261e",
+  "rows": [
+    {
+      "architecture": "ema_recurrent",
+      "baseline_candidate_id": "v412_ema_recurrent_s17",
+      "candidate_id": "v412_ema_recurrent_s17",
+      "delta_vs_baseline": 0.0,
+      "validation_mse": 9.04337615491407e-05
+    },
+    {
+      "architecture": "causal_convolution",
+      "baseline_candidate_id": "v412_ema_recurrent_s17",
+      "candidate_id": "v412_causal_convolution_s19",
+      "delta_vs_baseline": 1.007328103794797e-06,
+      "validation_mse": 9.14410896529355e-05
+    },
+    {
+      "architecture": "diagonal_ssm",
+      "baseline_candidate_id": "v412_ema_recurrent_s17",
+      "candidate_id": "v412_diagonal_ssm_s23",
+      "delta_vs_baseline": 9.681112955865924e-07,
+      "validation_mse": 9.14018728447273e-05
+    },
+    {
+      "architecture": "selective_ssm",
+      "baseline_candidate_id": "v412_ema_recurrent_s17",
+      "candidate_id": "v412_selective_ssm_s29",
+      "delta_vs_baseline": 1.092740628614016e-06,
+      "validation_mse": 9.152650217775472e-05
+    },
+    {
+      "architecture": "local_causal_attention",
+      "baseline_candidate_id": "v412_ema_recurrent_s17",
+      "candidate_id": "v412_local_attention_s31",
+      "delta_vs_baseline": 9.745678266671366e-07,
+      "validation_mse": 9.140832937580784e-05
+    },
+    {
+      "architecture": "hybrid_ssm_attention",
+      "baseline_candidate_id": "v412_ema_recurrent_s17",
+      "candidate_id": "v412_hybrid_s37",
+      "delta_vs_baseline": 9.959375500043606e-07,
+      "validation_mse": 9.142969909914506e-05
+    }
+  ]
+}

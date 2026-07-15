@@ -1,0 +1,100 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/golden_sequence_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed golden reference contract. Unknown fields fail validation. This schema does not confer production authority.",
+  "properties": {
+    "future_suffix_allowed": {
+      "type": "boolean"
+    },
+    "identity_tokens_allowed": {
+      "type": "boolean"
+    },
+    "manifest_hash": {
+      "type": "string"
+    },
+    "manifest_id": {
+      "type": "string"
+    },
+    "outcome_inputs_allowed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "sequence_count": {
+      "type": "integer"
+    },
+    "sequence_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "source_hashes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "split_counts": {
+      "additionalProperties": false,
+      "properties": {
+        "test": {
+          "type": "integer"
+        },
+        "train": {
+          "type": "integer"
+        },
+        "validation": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "test",
+        "train",
+        "validation"
+      ],
+      "type": "object"
+    },
+    "upstream_hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "checkpoint_registry_hash": {
+          "type": "string"
+        },
+        "encoder_checkpoint_hash": {
+          "type": "string"
+        },
+        "tokenizer_hash": {
+          "type": "string"
+        },
+        "v4_11_handoff_hash": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "checkpoint_registry_hash",
+        "encoder_checkpoint_hash",
+        "tokenizer_hash",
+        "v4_11_handoff_hash"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "future_suffix_allowed",
+    "identity_tokens_allowed",
+    "manifest_hash",
+    "manifest_id",
+    "outcome_inputs_allowed",
+    "phase",
+    "sequence_count",
+    "sequence_ids",
+    "source_hashes",
+    "split_counts",
+    "upstream_hashes"
+  ],
+  "title": "SAED V4-12 Golden Sequence Manifest",
+  "type": "object"
+}

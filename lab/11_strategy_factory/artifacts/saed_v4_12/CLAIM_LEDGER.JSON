@@ -1,0 +1,22 @@
+{
+  "admitted_reference_count": 6,
+  "claims": {
+    "deep_sequence_reference_implemented": true,
+    "live_trading": false,
+    "outcome_prediction_authority": false,
+    "production_authorization": false,
+    "real_alpha": false,
+    "real_corpus_training": false,
+    "restart_snapshot_reference": true,
+    "runtime_parity": false,
+    "state_space_reference_implemented": true,
+    "streaming_batch_parity_reference": true,
+    "synthetic_self_supervised_readout": true,
+    "treatment_ranking": false,
+    "treatment_selection": false
+  },
+  "ledger_hash": "9d37e53974df4c9d0e44fe59a0ffdeb4ac1a51c130f3a06076ab839653e748f0",
+  "ledger_id": "seqclaims_9d37e53974df4c9d0e44fe59",
+  "phase": "SAED_V4_12",
+  "reference_champion_id": "v412_ema_recurrent_s17"
+}

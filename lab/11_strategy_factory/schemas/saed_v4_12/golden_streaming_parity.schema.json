@@ -1,0 +1,64 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/golden_streaming_parity.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed golden reference contract. Unknown fields fail validation. This schema does not confer production authority.",
+  "properties": {
+    "certificates": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_id": {
+            "type": "string"
+          },
+          "certificate_hash": {
+            "type": "string"
+          },
+          "certificate_id": {
+            "type": "string"
+          },
+          "max_abs_diff": {
+            "type": "number"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "sequence_id": {
+            "type": "string"
+          },
+          "step_count": {
+            "type": "integer"
+          },
+          "tolerance": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "certificate_hash",
+          "certificate_id",
+          "max_abs_diff",
+          "passed",
+          "sequence_id",
+          "step_count",
+          "tolerance"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "certificates",
+    "count",
+    "phase"
+  ],
+  "title": "SAED V4-12 Golden Streaming Parity",
+  "type": "object"
+}

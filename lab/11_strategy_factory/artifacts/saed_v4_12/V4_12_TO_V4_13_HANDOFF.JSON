@@ -1,0 +1,39 @@
+{
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "build_reference_graph_hypergraph_challengers": true,
+    "mutate_v4_12_evidence": false,
+    "predict_outcomes": false,
+    "rank_treatments": false,
+    "read_frozen_sequence_states": true,
+    "select_treatment": false,
+    "send_order": false
+  },
+  "distillation_hash": "eab8c7dfc7bcc0eafead3282a35547814e4ebaba7c3c3f80c300566a38a15553",
+  "entry_gates": {
+    "baseline_preserved": true,
+    "causal_sequence_compilation_passed": true,
+    "frozen_v4_11_binding_verified": true,
+    "future_suffix_forbidden": true,
+    "outcome_supervision_absent": true,
+    "restart_snapshot_parity_passed": true,
+    "streaming_batch_parity_passed": true
+  },
+  "handoff_hash": "43e6bbde6f4c40fc38b90812d0891f82991100597ccef83eee302c296b8b5e42",
+  "handoff_id": "v412to13_43e6bbde6f4c40fc38b90812",
+  "integrity_receipt_hash": "ea9a7c7ee711722dd7ae968e53f6fac01b82224056d840e8285bdec5f3f5a092",
+  "limitations": [
+    "Synthetic reference sequences only.",
+    "Core sequence parameters are deterministic reference initializations; only self-supervised readouts are fitted.",
+    "No real-data, GPU, distributed, MetaEditor, prospective, shadow or live evidence is claimed."
+  ],
+  "next_phase": "SAED_V4_13",
+  "phase": "SAED_V4_12",
+  "reference_champion_id": "v412_ema_recurrent_s17",
+  "sequence_checkpoint_registry_hash": "d4eabc60a2d86c173f7c69834842018993d304fff3f0d4bb53e418ba213ee5a1",
+  "sequence_checkpoint_registry_id": "seqregistry_d4eabc60a2d86c173f7c6983",
+  "sequence_manifest_hash": "3c0aefae409ca3246b432ec9ae6ac2be3465c0195f9880ceb7d22f96a0ec2728",
+  "sequence_manifest_id": "v412sequences_3c0aefae409ca3246b432ec9",
+  "upstream_v4_11_handoff_hash": "52d2950fea7ba89cdef7f16927e262ae111edaf0e497229e7e33c7cafaf1ed6d"
+}

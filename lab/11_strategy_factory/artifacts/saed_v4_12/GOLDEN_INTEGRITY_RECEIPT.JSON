@@ -1,0 +1,114 @@
+{
+  "artifact_count": 26,
+  "canonicalization": "sorted_compact_json_v1",
+  "entries": [
+    {
+      "content_hash": "5ad7643bfaac824eff634d5d6ce7d274293d6f3784e07d86b219291c1d263304",
+      "name": "ablation_report"
+    },
+    {
+      "content_hash": "6068e05e8ae192f3da560eea0995d5e39e0dd4421ea462400a7cff80c9c923fa",
+      "name": "baseline_control"
+    },
+    {
+      "content_hash": "80199799b751d4a1e3febfb0c802bd0536c532aa09e55ccc8ff6a9e04bfc31f2",
+      "name": "candidate_checkpoints"
+    },
+    {
+      "content_hash": "f433f68e8aa0363717b1659f005a40b4db70bd2a11fd934c6e93dd4fb21d6b24",
+      "name": "candidate_metrics"
+    },
+    {
+      "content_hash": "c3a33baa9b8b410540f4060d6863b5e6ad2826b2f3e8298f55af908b10fa78bd",
+      "name": "checkpoint_cards"
+    },
+    {
+      "content_hash": "274f7f1887714338e432ec99302cdc69aabf0f0552a08f805480844ddaabf405",
+      "name": "checkpoint_registry"
+    },
+    {
+      "content_hash": "08a9040fad8e8a8719a0dba2b8b92912c09ea2f51d80999ca84c8fe8049d2565",
+      "name": "chunked_parity"
+    },
+    {
+      "content_hash": "e58eb858c95a9231c95d5ef5eea8566aa61ccfc4b37bc6d1ddcc2b711639eff7",
+      "name": "compute_budget"
+    },
+    {
+      "content_hash": "3d0e814a686a5d5f050c82d76035bfa9c99fc5f69628ea8fe54497f581311423",
+      "name": "contamination_audit"
+    },
+    {
+      "content_hash": "6b063817eb4dcb5cc002d9a02f4481b9ec2a8f3d510963c37c5299d8928054d8",
+      "name": "distillation"
+    },
+    {
+      "content_hash": "315b7375be40df1267aae7f1dcb557f2f1cd98cb2ecbb671b0c9ada9c2a9dc1e",
+      "name": "distillation_report"
+    },
+    {
+      "content_hash": "04a2a72935fdd64f6725de3260f68207405de22ba795a12672bf1683430711a9",
+      "name": "frozen_encoder_binding"
+    },
+    {
+      "content_hash": "314189d226fbf10c35ad1cd409e8b7fe048ecff7d20b5a6b05cc5fc0fc2f5163",
+      "name": "future_suffix_audits"
+    },
+    {
+      "content_hash": "f904dac9523ab089103cc4392bbf6f8f90e5d12da478c8b2dfdefc764ff1c4b0",
+      "name": "incident_template"
+    },
+    {
+      "content_hash": "e7e1649364e5e3c4a13dac6771d33db03c740bc062968c5401901f97cb4c0626",
+      "name": "reset_policy"
+    },
+    {
+      "content_hash": "7ad0d2edb7cdb0cc52050cc8e0a108f273fe5e9018530eef8551d52418a6b9c0",
+      "name": "restart_parity"
+    },
+    {
+      "content_hash": "7db4eeb32164835603e9f5260d7d91fc94077cccaaea6cbbbbac3f8e72e4fb04",
+      "name": "sbom"
+    },
+    {
+      "content_hash": "21a1b5093f73ad132cad1f658944385d5379c6161d7e1abec173c3b61b1cf860",
+      "name": "sequence_manifest"
+    },
+    {
+      "content_hash": "1b015fab9247508f8f530176d4cd21da7dea1bfc5d5d4225ec2d09e867afaa92",
+      "name": "stability_probes"
+    },
+    {
+      "content_hash": "3dbb4eda0c7871c7c98e158e04bdf07146d1b2ae6704da753e7eb1d01fef2a87",
+      "name": "state_probes"
+    },
+    {
+      "content_hash": "644c6b359dd2898aeee5785ec3328d0065835f6c7f0a551a0e812309db4837c5",
+      "name": "state_snapshots"
+    },
+    {
+      "content_hash": "14582fd696d66d67a02e45781f5576aed8245beb732d83764d221c94e6f47ec1",
+      "name": "streaming_parity"
+    },
+    {
+      "content_hash": "54b4b76942aa433b3440fb99265c29a6e8d3c973d28616fb94ea2fed7b555984",
+      "name": "tournament"
+    },
+    {
+      "content_hash": "407146e77c8312449e520a5edef04485c946cd92bee6bebaf40e53a4ca1fed89",
+      "name": "training_receipts"
+    },
+    {
+      "content_hash": "ac5164a6701b26c1b1bf80def2a86cca0000835b6f2df662d2320c2c38f76b6e",
+      "name": "truncation_reports"
+    },
+    {
+      "content_hash": "ff00ed627a84d5379e740bf6b2138f5e0decc276fce75fc2e61dd37c2ceb55b4",
+      "name": "upstream_validation"
+    }
+  ],
+  "merkle_root": "4d34c6f508d322f9e1aedef8b89d5f8870dd1e6b518566dd4b7b4e8e6df5a6ef",
+  "phase": "SAED_V4_12",
+  "receipt_hash": "ea9a7c7ee711722dd7ae968e53f6fac01b82224056d840e8285bdec5f3f5a092",
+  "receipt_id": "seqintegrity_ea9a7c7ee711722dd7ae968e"
+}

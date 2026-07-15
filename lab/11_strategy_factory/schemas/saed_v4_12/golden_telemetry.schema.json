@@ -1,0 +1,57 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/golden_telemetry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed golden reference contract. Unknown fields fail validation. This schema does not confer production authority.",
+  "properties": {
+    "admitted_reference_count": {
+      "type": "integer"
+    },
+    "alerts": {
+      "items": {},
+      "type": "array"
+    },
+    "candidate_count": {
+      "type": "integer"
+    },
+    "parity_fail_count": {
+      "type": "integer"
+    },
+    "parity_pass_count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "reference_champion_id": {
+      "type": "string"
+    },
+    "runtime_activation": {
+      "type": "boolean"
+    },
+    "sequence_count": {
+      "type": "integer"
+    },
+    "telemetry_hash": {
+      "type": "string"
+    },
+    "telemetry_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "admitted_reference_count",
+    "alerts",
+    "candidate_count",
+    "parity_fail_count",
+    "parity_pass_count",
+    "phase",
+    "reference_champion_id",
+    "runtime_activation",
+    "sequence_count",
+    "telemetry_hash",
+    "telemetry_id"
+  ],
+  "title": "SAED V4-12 Golden Telemetry",
+  "type": "object"
+}

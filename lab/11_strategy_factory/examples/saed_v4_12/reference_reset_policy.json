@@ -1,0 +1,9 @@
+{
+  "fail_closed_on_corruption": true,
+  "gap_reset_seconds": 7200,
+  "reset_on_context_boundary": false,
+  "reset_on_domain_change": true,
+  "reset_on_root_change": true,
+  "reset_on_session_boundary": true,
+  "restart_requires_snapshot_hash": true
+}

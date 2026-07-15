@@ -1,0 +1,8 @@
+{
+  "binding_hash": "2ab6b8040006ed5a8105859048ea6272667443d493deda8a028212d981031e9f",
+  "checkpoint_hash": "aab287ba676dacc6cba84a8671f853a71c721d6f1a5997fd264e0f80cf801e6a",
+  "dimension": 12,
+  "frozen": true,
+  "trainable_parameters": 0,
+  "vocabulary_size": 111
+}

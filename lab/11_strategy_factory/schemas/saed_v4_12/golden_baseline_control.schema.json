@@ -1,0 +1,48 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/golden_baseline_control.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed golden reference contract. Unknown fields fail validation. This schema does not confer production authority.",
+  "properties": {
+    "advanced_model_required": {
+      "type": "boolean"
+    },
+    "baseline_candidate_id": {
+      "type": "string"
+    },
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "baseline_validation_mse": {
+      "type": "number"
+    },
+    "champion_candidate_id": {
+      "type": "string"
+    },
+    "champion_validation_mse": {
+      "type": "number"
+    },
+    "control_hash": {
+      "type": "string"
+    },
+    "control_id": {
+      "type": "string"
+    },
+    "promotion_inference_forbidden": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "advanced_model_required",
+    "baseline_candidate_id",
+    "baseline_preserved",
+    "baseline_validation_mse",
+    "champion_candidate_id",
+    "champion_validation_mse",
+    "control_hash",
+    "control_id",
+    "promotion_inference_forbidden"
+  ],
+  "title": "SAED V4-12 Golden Baseline Control",
+  "type": "object"
+}

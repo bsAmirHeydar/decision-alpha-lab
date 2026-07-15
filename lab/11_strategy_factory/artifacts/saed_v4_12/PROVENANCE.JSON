@@ -1,0 +1,11 @@
+{
+  "code_version": "1.0.0",
+  "configuration_hash": "ea5453eac7690f1cedf2250c2a2fbfcc00daf99f117e39b1c00139923746a26f",
+  "environment": "python_standard_library_reference",
+  "evidence_scope": "synthetic_reference",
+  "phase": "SAED_V4_12",
+  "provenance_hash": "b0ec80c3a5654a33e9897d4ad17c2961fea3c2d38f7347331ea366c7c4e36276",
+  "provenance_id": "seqprov_b0ec80c3a5654a33e9897d4a",
+  "source_revision": "patch_payload",
+  "upstream_binding_hash": "2ab6b8040006ed5a8105859048ea6272667443d493deda8a028212d981031e9f"
+}

@@ -1,0 +1,156 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/golden_candidate_metrics.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed golden reference contract. Unknown fields fail validation. This schema does not confer production authority.",
+  "properties": {
+    "count": {
+      "type": "integer"
+    },
+    "metrics": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "architecture": {
+            "type": "string"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "metric_hash": {
+            "type": "string"
+          },
+          "metric_id": {
+            "type": "string"
+          },
+          "row_hash": {
+            "type": "string"
+          },
+          "rows": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "cosine": {
+                  "type": "number"
+                },
+                "mse": {
+                  "type": "number"
+                },
+                "sequence_id": {
+                  "type": "string"
+                },
+                "split": {
+                  "type": "string"
+                },
+                "step": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "cosine",
+                "mse",
+                "sequence_id",
+                "split",
+                "step"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "summary": {
+            "additionalProperties": false,
+            "properties": {
+              "test": {
+                "additionalProperties": false,
+                "properties": {
+                  "count": {
+                    "type": "integer"
+                  },
+                  "mean_cosine": {
+                    "type": "number"
+                  },
+                  "mean_mse": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "count",
+                  "mean_cosine",
+                  "mean_mse"
+                ],
+                "type": "object"
+              },
+              "train": {
+                "additionalProperties": false,
+                "properties": {
+                  "count": {
+                    "type": "integer"
+                  },
+                  "mean_cosine": {
+                    "type": "number"
+                  },
+                  "mean_mse": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "count",
+                  "mean_cosine",
+                  "mean_mse"
+                ],
+                "type": "object"
+              },
+              "validation": {
+                "additionalProperties": false,
+                "properties": {
+                  "count": {
+                    "type": "integer"
+                  },
+                  "mean_cosine": {
+                    "type": "number"
+                  },
+                  "mean_mse": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "count",
+                  "mean_cosine",
+                  "mean_mse"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "test",
+              "train",
+              "validation"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "architecture",
+          "candidate_id",
+          "metric_hash",
+          "metric_id",
+          "row_hash",
+          "rows",
+          "summary"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "count",
+    "metrics",
+    "phase"
+  ],
+  "title": "SAED V4-12 Golden Candidate Metrics",
+  "type": "object"
+}

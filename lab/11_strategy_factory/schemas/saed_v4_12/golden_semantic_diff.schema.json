@@ -1,0 +1,37 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/golden_semantic_diff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed golden reference contract. Unknown fields fail validation. This schema does not confer production authority.",
+  "properties": {
+    "changed_paths": {
+      "items": {},
+      "type": "array"
+    },
+    "diff_hash": {
+      "type": "string"
+    },
+    "diff_id": {
+      "type": "string"
+    },
+    "equal": {
+      "type": "boolean"
+    },
+    "left_hash": {
+      "type": "string"
+    },
+    "right_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "changed_paths",
+    "diff_hash",
+    "diff_id",
+    "equal",
+    "left_hash",
+    "right_hash"
+  ],
+  "title": "SAED V4-12 Golden Semantic Diff",
+  "type": "object"
+}

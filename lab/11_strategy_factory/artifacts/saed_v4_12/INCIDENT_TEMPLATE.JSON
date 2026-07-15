@@ -1,0 +1,21 @@
+{
+  "execution_kill_switch_required": false,
+  "immediate_actions": [
+    "quarantine_checkpoint",
+    "disable_reference_handoff",
+    "preserve_logs",
+    "replay_from_frozen_inputs"
+  ],
+  "incident_classes": [
+    "causal_mask_breach",
+    "state_leakage",
+    "reset_mismatch",
+    "streaming_parity_failure",
+    "snapshot_corruption",
+    "numerical_instability",
+    "upstream_hash_mismatch"
+  ],
+  "phase": "SAED_V4_12",
+  "template_hash": "dae15cf4a7074bde9dff8fbd8ffb534172cad7726e49b694be642a4cb4ae6cd4",
+  "template_id": "seqincident_dae15cf4a7074bde9dff8fbd"
+}

@@ -1,0 +1,13 @@
+{
+  "checkpoint_format": "canonical_json",
+  "dynamic_code_loading": false,
+  "external_runtime_dependencies": [],
+  "network_access_required": false,
+  "optional_accelerators": [],
+  "phase": "SAED_V4_12",
+  "pickle_allowed": false,
+  "runtime": "python-standard-library",
+  "sbom_hash": "69074fe76428d9e9de2a6151d7c25ca5aac45eff91f531e191f97f92bc0b45e6",
+  "sbom_id": "seqsbom_69074fe76428d9e9de2a6151",
+  "supply_chain_state": "reference_local"
+}

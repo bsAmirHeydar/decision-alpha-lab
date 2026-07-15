@@ -1,0 +1,1032 @@
+{
+  "count": 6,
+  "phase": "SAED_V4_12",
+  "reports": [
+    {
+      "candidate_id": "v412_ema_recurrent_s17",
+      "collapsed": false,
+      "probe_hash": "295a228c7a2b611cec3785f883b4845ebcc0b5af2d9651d4d94c82c76c2b1041",
+      "probe_id": "stateprobe_295a228c7a2b611cec3785f8",
+      "row_count": 20,
+      "rows": [
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "state_mean": -0.0021231576740691305,
+          "state_norm": 0.04572054067055973,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "state_mean": -0.002091273660894079,
+          "state_norm": 0.0454534117169737,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "state_mean": -0.0033161472061165797,
+          "state_norm": 0.04554257899613999,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "state_mean": -0.003605660435032746,
+          "state_norm": 0.047453348756314406,
+          "step": 3
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "state_mean": -0.001259823927073912,
+          "state_norm": 0.04371446906579464,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "state_mean": -0.0020142175145901344,
+          "state_norm": 0.044813804359757736,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "state_mean": -0.002144023866316629,
+          "state_norm": 0.04625210791848726,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "state_mean": -0.0013101592131056165,
+          "state_norm": 0.04523355438955158,
+          "step": 3
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "state_mean": -0.002433458556003426,
+          "state_norm": 0.04742140120361098,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "state_mean": -0.0015131750667540724,
+          "state_norm": 0.04520479987511259,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "state_mean": -0.004076407067522176,
+          "state_norm": 0.047108135431430255,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "state_mean": -0.00322397641954658,
+          "state_norm": 0.04820914151815167,
+          "step": 3
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "state_mean": -0.00026276663523942004,
+          "state_norm": 0.04472408338168399,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "state_mean": -0.0025737390715448337,
+          "state_norm": 0.045612430766326914,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "state_mean": -0.0017436549274578873,
+          "state_norm": 0.046785592338004854,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "state_mean": -0.002085888331626032,
+          "state_norm": 0.04645321908155553,
+          "step": 3
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "state_mean": -0.0022239519059986173,
+          "state_norm": 0.04233012581958445,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "state_mean": -0.0022261524621078298,
+          "state_norm": 0.0455289246139925,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "state_mean": -0.0014367095481416868,
+          "state_norm": 0.049312710037886974,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "state_mean": -0.0035001567310995775,
+          "state_norm": 0.04448627064217156,
+          "step": 3
+        }
+      ],
+      "state_norm_max": 0.049312710037886974,
+      "state_norm_min": 0.04233012581958445
+    },
+    {
+      "candidate_id": "v412_causal_convolution_s19",
+      "collapsed": false,
+      "probe_hash": "e798360450360c913f8b85cef460c70a1b9a5ed5326b3b2b14fd7a8bfe7a58eb",
+      "probe_id": "stateprobe_e798360450360c913f8b85ce",
+      "row_count": 20,
+      "rows": [
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "state_mean": -0.0023778708002378016,
+          "state_norm": 0.024592131470444763,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "state_mean": -0.002049618158722435,
+          "state_norm": 0.022276313281920906,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "state_mean": -0.002289784869883499,
+          "state_norm": 0.023086311659776662,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "state_mean": -0.00202749454879151,
+          "state_norm": 0.020744122921851866,
+          "step": 3
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "state_mean": -0.0020485184635366622,
+          "state_norm": 0.024015875735634008,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "state_mean": -0.0020770827496622837,
+          "state_norm": 0.02302058421894944,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "state_mean": -0.002144208724412127,
+          "state_norm": 0.022934063084102358,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "state_mean": -0.0022103650160843766,
+          "state_norm": 0.02201503578603334,
+          "step": 3
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "state_mean": -0.0021497309289515783,
+          "state_norm": 0.023117979897254667,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "state_mean": -0.001906664920968773,
+          "state_norm": 0.02108244941977131,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "state_mean": -0.002132724482316931,
+          "state_norm": 0.021903963780991735,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "state_mean": -0.0019788133290722524,
+          "state_norm": 0.0200305643558684,
+          "step": 3
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "state_mean": -0.0019088407337301146,
+          "state_norm": 0.023386358365852945,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "state_mean": -0.0019606757266225775,
+          "state_norm": 0.02178177532233143,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "state_mean": -0.002040896207554378,
+          "state_norm": 0.022232808366772744,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "state_mean": -0.002144717977568317,
+          "state_norm": 0.020694915405325382,
+          "step": 3
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "state_mean": -0.0022467536509736606,
+          "state_norm": 0.02484122840409245,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "state_mean": -0.0023300522919166853,
+          "state_norm": 0.022935397875628833,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "state_mean": -0.0022696473341680757,
+          "state_norm": 0.02357153649619169,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "state_mean": -0.0023401184776796966,
+          "state_norm": 0.02171844428701233,
+          "step": 3
+        }
+      ],
+      "state_norm_max": 0.02484122840409245,
+      "state_norm_min": 0.0200305643558684
+    },
+    {
+      "candidate_id": "v412_diagonal_ssm_s23",
+      "collapsed": false,
+      "probe_hash": "53564b84e9bef89868b8e5a6e7262a31fb353a4d56447e52fc4e8a0072e3d014",
+      "probe_id": "stateprobe_53564b84e9bef89868b8e5a6",
+      "row_count": 20,
+      "rows": [
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "state_mean": -9.120040754588229e-05,
+          "state_norm": 0.0033731841320603544,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "state_mean": 0.0005755117152983667,
+          "state_norm": 0.006262609301610054,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "state_mean": 0.0010992172373690194,
+          "state_norm": 0.010342569103113423,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "state_mean": 0.0012687985756822848,
+          "state_norm": 0.012399500909504469,
+          "step": 3
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "state_mean": -0.0002630197945735233,
+          "state_norm": 0.0033095244370389834,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "state_mean": 0.00046017621216824106,
+          "state_norm": 0.0060345921511237854,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "state_mean": 0.0008381531034974121,
+          "state_norm": 0.011105494493431827,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "state_mean": 0.0010008002077508398,
+          "state_norm": 0.01434558248199752,
+          "step": 3
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "state_mean": -9.785120334772441e-05,
+          "state_norm": 0.003646094382543302,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "state_mean": 0.00042287003243352765,
+          "state_norm": 0.007347941065941125,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "state_mean": 0.0007522499190443383,
+          "state_norm": 0.010966913853049542,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "state_mean": 0.001001247164688086,
+          "state_norm": 0.013216908368982245,
+          "step": 3
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "state_mean": -0.0004459749868111657,
+          "state_norm": 0.003983349077228002,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "state_mean": 0.00012847348247039584,
+          "state_norm": 0.006487262699628524,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "state_mean": 0.00041813661398333433,
+          "state_norm": 0.011756371643937346,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "state_mean": 0.0006262605704001636,
+          "state_norm": 0.014732163169378887,
+          "step": 3
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "state_mean": -2.9290346206050104e-05,
+          "state_norm": 0.002385055759628365,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "state_mean": 0.0005342784612191256,
+          "state_norm": 0.006576955367035506,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "state_mean": 0.0010306172796997364,
+          "state_norm": 0.011676188093454623,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "state_mean": 0.0011115845433199675,
+          "state_norm": 0.012452667697576586,
+          "step": 3
+        }
+      ],
+      "state_norm_max": 0.014732163169378887,
+      "state_norm_min": 0.002385055759628365
+    },
+    {
+      "candidate_id": "v412_selective_ssm_s29",
+      "collapsed": false,
+      "probe_hash": "2f9df1e57f4f913df300bb09460133f12c08448775ecbdadae1a0d29ea6e9337",
+      "probe_id": "stateprobe_2f9df1e57f4f913df300bb09",
+      "row_count": 20,
+      "rows": [
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "state_mean": 3.1487220881363934e-07,
+          "state_norm": 3.4900546241172022e-06,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "state_mean": 9.976026906532965e-06,
+          "state_norm": 0.002100031104840467,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "state_mean": 8.332190010143152e-05,
+          "state_norm": 0.0038956548100214945,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "state_mean": 0.00021520557452206178,
+          "state_norm": 0.005242968546776498,
+          "step": 3
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "state_mean": 1.6413809288317103e-07,
+          "state_norm": 4.069519784306371e-06,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "state_mean": 5.820772189892187e-05,
+          "state_norm": 0.0019491852440581335,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "state_mean": 0.00014387647292183454,
+          "state_norm": 0.0036774346332785275,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "state_mean": 0.00014949992439722027,
+          "state_norm": 0.005646421412192262,
+          "step": 3
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "state_mean": 3.7502167275918076e-07,
+          "state_norm": 3.258037798151792e-06,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "state_mean": 3.220026236945528e-05,
+          "state_norm": 0.0020276022266651787,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "state_mean": 0.0001532488671838715,
+          "state_norm": 0.003727839004443954,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "state_mean": 0.0002775028957486749,
+          "state_norm": 0.005194922421600899,
+          "step": 3
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "state_mean": 1.4820666040288856e-07,
+          "state_norm": 4.1604205815905505e-06,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "state_mean": 0.00012086001030524481,
+          "state_norm": 0.0017308243947679466,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "state_mean": 0.0002092734535676711,
+          "state_norm": 0.00354877007349471,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "state_mean": 0.00024818517835218095,
+          "state_norm": 0.005412653207692951,
+          "step": 3
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "state_mean": 2.011961620585778e-07,
+          "state_norm": 3.3721022735453308e-06,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "state_mean": 2.5215847182444424e-05,
+          "state_norm": 0.002040808131439485,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "state_mean": 0.00011782712918608226,
+          "state_norm": 0.0038575045513988527,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "state_mean": 0.00018417870876968155,
+          "state_norm": 0.005208855561963571,
+          "step": 3
+        }
+      ],
+      "state_norm_max": 0.005646421412192262,
+      "state_norm_min": 3.258037798151792e-06
+    },
+    {
+      "candidate_id": "v412_local_attention_s31",
+      "collapsed": false,
+      "probe_hash": "a8b3ffe8773851c432eabd790d1a2a7f39a87fa0fe733a5bfe5c8999ebae361c",
+      "probe_id": "stateprobe_a8b3ffe8773851c432eabd79",
+      "row_count": 20,
+      "rows": [
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "state_mean": 0.0018764687931087966,
+          "state_norm": 0.0267016913712791,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "state_mean": 0.0005912741592043449,
+          "state_norm": 0.02508252093183762,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "state_mean": 0.0006627493699483203,
+          "state_norm": 0.023886218887346832,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "state_mean": 0.0004122730366229747,
+          "state_norm": 0.023562160611116604,
+          "step": 3
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "state_mean": 0.00170489085303593,
+          "state_norm": 0.0268308262746889,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "state_mean": 0.0011818180669352775,
+          "state_norm": 0.026019861499599024,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "state_mean": 0.000912604391711418,
+          "state_norm": 0.024930153096496314,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "state_mean": 0.0007111546165797995,
+          "state_norm": 0.025360828726480763,
+          "step": 3
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "state_mean": 0.001533184635360407,
+          "state_norm": 0.02405885363921025,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "state_mean": 0.00043316825502541555,
+          "state_norm": 0.0236368175800526,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "state_mean": 0.0004218137865484915,
+          "state_norm": 0.022551617498426137,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "state_mean": 0.0003784668744963466,
+          "state_norm": 0.02297204232049901,
+          "step": 3
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "state_mean": 0.0019791536305974185,
+          "state_norm": 0.02715650435828286,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "state_mean": 0.0010236981256207833,
+          "state_norm": 0.02433244956472063,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "state_mean": 0.0008775109711231223,
+          "state_norm": 0.024638723955727453,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "state_mean": 0.0006773455401078019,
+          "state_norm": 0.024570503378734704,
+          "step": 3
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "state_mean": 0.0010309039619494013,
+          "state_norm": 0.02426141173820141,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "state_mean": 0.0005339257714606923,
+          "state_norm": 0.023474634784868647,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "state_mean": 0.0008103352463647153,
+          "state_norm": 0.025463885421940495,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "state_mean": 0.0003115596176825825,
+          "state_norm": 0.024160886784638114,
+          "step": 3
+        }
+      ],
+      "state_norm_max": 0.02715650435828286,
+      "state_norm_min": 0.022551617498426137
+    },
+    {
+      "candidate_id": "v412_hybrid_s37",
+      "collapsed": false,
+      "probe_hash": "1f2c32a084b46aa87ca3096584ebe45c58489c02b9e0f62cad0271232cdd114c",
+      "probe_id": "stateprobe_1f2c32a084b46aa87ca30965",
+      "row_count": 20,
+      "rows": [
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "state_mean": -0.0009666514917255738,
+          "state_norm": 0.011629309527547843,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "state_mean": -0.0015670512835719709,
+          "state_norm": 0.017575448541515187,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "state_mean": -0.0019301158119889978,
+          "state_norm": 0.020982785156866593,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "state_mean": -0.0021678740365569664,
+          "state_norm": 0.022840481974042013,
+          "step": 3
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "state_mean": -0.0009363129592118418,
+          "state_norm": 0.012552966246931264,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "state_mean": -0.001540392213819362,
+          "state_norm": 0.018566835163636875,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "state_mean": -0.001956794415930152,
+          "state_norm": 0.021608073652725584,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "state_mean": -0.0021841072418792174,
+          "state_norm": 0.023485535034489993,
+          "step": 3
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "state_mean": -0.0011320900680182083,
+          "state_norm": 0.0110140538820108,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "state_mean": -0.0017152698214116368,
+          "state_norm": 0.016782066462767847,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "state_mean": -0.0021244348297255067,
+          "state_norm": 0.0204273676056955,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "state_mean": -0.0023432160880798285,
+          "state_norm": 0.022476215001523487,
+          "step": 3
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "state_mean": -0.0009899728506879233,
+          "state_norm": 0.011937929226205998,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "state_mean": -0.0016374028312858932,
+          "state_norm": 0.017753374037286426,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "state_mean": -0.002072572035360879,
+          "state_norm": 0.021013362142818494,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "state_mean": -0.002327060508777896,
+          "state_norm": 0.023161400234586134,
+          "step": 3
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "state_mean": -0.0007721914996897108,
+          "state_norm": 0.011924540901087802,
+          "step": 0
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "state_mean": -0.0015632921380096371,
+          "state_norm": 0.017598839101239806,
+          "step": 1
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "state_mean": -0.0018721024803989468,
+          "state_norm": 0.021123021773644297,
+          "step": 2
+        },
+        {
+          "domain_id": "MULTI_DOMAIN",
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "state_mean": -0.0021074708656023027,
+          "state_norm": 0.02289411198441375,
+          "step": 3
+        }
+      ],
+      "state_norm_max": 0.023485535034489993,
+      "state_norm_min": 0.0110140538820108
+    }
+  ]
+}

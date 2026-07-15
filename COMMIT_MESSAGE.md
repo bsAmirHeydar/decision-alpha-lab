@@ -1,13 +1,17 @@
-feat(strategy-factory): implement SAED V4-11 self-supervised context pretraining
+feat(strategy-factory): implement SAED V4-12 deep sequence and state-space models
 
-- freeze role-safe corpus, identity-time split and contamination contracts
-- add deterministic multimodal/hypergraph tokenization and masking
-- implement seven self-supervised objectives and staged curriculum
-- add deterministic reference encoder training with complete exposure accounting
-- emit canonical JSON checkpoint, provenance, SBOM and checkpoint card
-- add collapse, structural probe, temporal retrieval and simple-control evidence
-- enforce membership canaries, quarantine and outcome-input exclusion
-- register the admitted synthetic-reference checkpoint immutably
-- add independent replay, semantic diff, integrity receipt and telemetry
-- freeze the V4-12 encoder handoff without decision or execution authority
-- add closed schemas, golden fixtures, negative tests, MQL5 mirrors and Obsidian documentation
+- bind causal sequence construction to exact frozen V4-11 tokenizer and encoder hashes
+- add strict known-time, identity, outcome and execution-input firewalls
+- implement EMA recurrent and causal convolution baselines
+- implement diagonal and selective continuous-time state-space challengers
+- implement bounded local causal attention and hybrid SSM-attention challengers
+- add deterministic SHA-256 parameter initialization and canonical model specifications
+- fit self-supervised next-representation readouts with complete pair exposure ledgers
+- prove batch/streaming, chunk-boundary and snapshot/restart parity
+- add reset, gap, corruption, numerical stability and future-suffix controls
+- add state probes, collapse checks, truncation sensitivity and architecture ablations
+- run a fixed-budget synthetic-reference tournament while preserving the simple baseline
+- register conformant checkpoints as immutable research references without runtime authority
+- add bounded state distillation, canonical checkpoints, integrity receipt and independent replay
+- freeze the V4-13 graph/hypergraph handoff with no decision or execution authority
+- add closed schemas, golden fixtures, mutation tests, MQL5 static mirrors and detailed Obsidian documentation

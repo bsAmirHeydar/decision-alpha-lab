@@ -1,0 +1,792 @@
+{
+  "count": 6,
+  "metrics": [
+    {
+      "architecture": "ema_recurrent",
+      "candidate_id": "v412_ema_recurrent_s17",
+      "metric_hash": "cb9a8bacb35cd466d8f4f031c5b8e63a8acd1699662601d4bc866463e749a59c",
+      "metric_id": "seqmetrics_cb9a8bacb35cd466d8f4f031",
+      "row_hash": "3568ec3c929a38092a7e82469d2164004c6d11edf83902b2540d0e2707320367",
+      "rows": [
+        {
+          "cosine": 0.9712501073267452,
+          "mse": 7.058850625006103e-05,
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "step": 0
+        },
+        {
+          "cosine": 0.9564046344435246,
+          "mse": 0.00011635855883931693,
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "step": 1
+        },
+        {
+          "cosine": 0.9740886357336033,
+          "mse": 6.348552309089892e-05,
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "step": 2
+        },
+        {
+          "cosine": 0.9864446987986176,
+          "mse": 3.3256116387078524e-05,
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "step": 0
+        },
+        {
+          "cosine": 0.9817442616534305,
+          "mse": 4.837083019451046e-05,
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "step": 1
+        },
+        {
+          "cosine": 0.9796041271837174,
+          "mse": 6.531847532033931e-05,
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "step": 2
+        },
+        {
+          "cosine": 0.9703861468969495,
+          "mse": 7.270380670514054e-05,
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "step": 0
+        },
+        {
+          "cosine": 0.9439591012826039,
+          "mse": 0.00015252713213591791,
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "step": 1
+        },
+        {
+          "cosine": 0.9821442559539771,
+          "mse": 4.6070345806363685e-05,
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "step": 2
+        },
+        {
+          "cosine": 0.983572340161795,
+          "mse": 4.526168836134348e-05,
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "step": 0
+        },
+        {
+          "cosine": 0.977172218961395,
+          "mse": 7.678790473546807e-05,
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "step": 1
+        },
+        {
+          "cosine": 0.9853916069143879,
+          "mse": 4.328569898047333e-05,
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "step": 2
+        },
+        {
+          "cosine": 0.9839518176727163,
+          "mse": 4.178777028097512e-05,
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "step": 0
+        },
+        {
+          "cosine": 0.9655642515998994,
+          "mse": 0.00011176998333134709,
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "step": 1
+        },
+        {
+          "cosine": 0.9523313914715106,
+          "mse": 0.00011515829775870444,
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "step": 2
+        }
+      ],
+      "summary": {
+        "test": {
+          "count": 3,
+          "mean_cosine": 0.9820453886791926,
+          "mean_mse": 5.5111764025761624e-05
+        },
+        "train": {
+          "count": 9,
+          "mean_cosine": 0.9723759917648628,
+          "mean_mse": 7.401045127258132e-05
+        },
+        "validation": {
+          "count": 3,
+          "mean_cosine": 0.9654965013778435,
+          "mean_mse": 9.04337615491407e-05
+        }
+      }
+    },
+    {
+      "architecture": "causal_convolution",
+      "candidate_id": "v412_causal_convolution_s19",
+      "metric_hash": "d26a536983c2b9d8f0b2ee218146c7ed3d84341c012e8a7e733c935d8e616f56",
+      "metric_id": "seqmetrics_d26a536983c2b9d8f0b2ee21",
+      "row_hash": "183450fdf02100b3676e268b289f58961109c477c9267a7f8f13c5e222a6bc11",
+      "rows": [
+        {
+          "cosine": 0.9706946612698328,
+          "mse": 7.195357653180677e-05,
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "step": 0
+        },
+        {
+          "cosine": 0.9556750029984366,
+          "mse": 0.00011825581179126877,
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "step": 1
+        },
+        {
+          "cosine": 0.9738700072427754,
+          "mse": 6.401978160272334e-05,
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "step": 2
+        },
+        {
+          "cosine": 0.986348140625515,
+          "mse": 3.3502181861778206e-05,
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "step": 0
+        },
+        {
+          "cosine": 0.9816676385501159,
+          "mse": 4.857174691623055e-05,
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "step": 1
+        },
+        {
+          "cosine": 0.9795406592808179,
+          "mse": 6.548254136165659e-05,
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "step": 2
+        },
+        {
+          "cosine": 0.969786550515304,
+          "mse": 7.418332371651267e-05,
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "step": 0
+        },
+        {
+          "cosine": 0.9436482979366343,
+          "mse": 0.00015334643944139428,
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "step": 1
+        },
+        {
+          "cosine": 0.981858158935324,
+          "mse": 4.679350580089953e-05,
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "step": 2
+        },
+        {
+          "cosine": 0.9835158788979766,
+          "mse": 4.5447645201110224e-05,
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "step": 0
+        },
+        {
+          "cosine": 0.977176159811838,
+          "mse": 7.678760328049871e-05,
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "step": 1
+        },
+        {
+          "cosine": 0.9851802818718114,
+          "mse": 4.382129400211e-05,
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "step": 2
+        },
+        {
+          "cosine": 0.9836629649141714,
+          "mse": 4.2517217815596864e-05,
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "step": 0
+        },
+        {
+          "cosine": 0.9653516605184482,
+          "mse": 0.0001123936813511103,
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "step": 1
+        },
+        {
+          "cosine": 0.9519586857197303,
+          "mse": 0.00011608858893298851,
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "step": 2
+        }
+      ],
+      "summary": {
+        "test": {
+          "count": 3,
+          "mean_cosine": 0.9819574401938754,
+          "mean_mse": 5.535218082790631e-05
+        },
+        "train": {
+          "count": 9,
+          "mean_cosine": 0.9720854912355382,
+          "mean_mse": 7.475390312946221e-05
+        },
+        "validation": {
+          "count": 3,
+          "mean_cosine": 0.9650976691290875,
+          "mean_mse": 9.14410896529355e-05
+        }
+      }
+    },
+    {
+      "architecture": "diagonal_ssm",
+      "candidate_id": "v412_diagonal_ssm_s23",
+      "metric_hash": "83e5375610c812ecf813fb85ab1a2d87b1a006985c2f4f095ea813f44e22217d",
+      "metric_id": "seqmetrics_83e5375610c812ecf813fb85",
+      "row_hash": "df313499b2c8bc571d3795568f78e81c347068a31e359921649878fe680c349c",
+      "rows": [
+        {
+          "cosine": 0.9706936602531876,
+          "mse": 7.195678373364039e-05,
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "step": 0
+        },
+        {
+          "cosine": 0.9555881815359065,
+          "mse": 0.00011848063207857376,
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "step": 1
+        },
+        {
+          "cosine": 0.9740428005891515,
+          "mse": 6.360547754815723e-05,
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "step": 2
+        },
+        {
+          "cosine": 0.9864877660374081,
+          "mse": 3.315575773986148e-05,
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "step": 0
+        },
+        {
+          "cosine": 0.9816374069545902,
+          "mse": 4.865204389771611e-05,
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "step": 1
+        },
+        {
+          "cosine": 0.9795097170309837,
+          "mse": 6.556503909389953e-05,
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "step": 2
+        },
+        {
+          "cosine": 0.9698154293697003,
+          "mse": 7.411382459490241e-05,
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "step": 0
+        },
+        {
+          "cosine": 0.9435182137084069,
+          "mse": 0.00015368784422463988,
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "step": 1
+        },
+        {
+          "cosine": 0.982011121226433,
+          "mse": 4.640394971463963e-05,
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "step": 2
+        },
+        {
+          "cosine": 0.9835668586531687,
+          "mse": 4.530993186222579e-05,
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "step": 0
+        },
+        {
+          "cosine": 0.9771282915404116,
+          "mse": 7.692776335512271e-05,
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "step": 1
+        },
+        {
+          "cosine": 0.9852125968614702,
+          "mse": 4.37346412000964e-05,
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "step": 2
+        },
+        {
+          "cosine": 0.9837764088992992,
+          "mse": 4.2230115374581234e-05,
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "step": 0
+        },
+        {
+          "cosine": 0.9653410716297259,
+          "mse": 0.00011242035028754899,
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "step": 1
+        },
+        {
+          "cosine": 0.9523782586135553,
+          "mse": 0.00011509410848209473,
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "step": 2
+        }
+      ],
+      "summary": {
+        "test": {
+          "count": 3,
+          "mean_cosine": 0.9819692490183503,
+          "mean_mse": 5.53241121391483e-05
+        },
+        "train": {
+          "count": 9,
+          "mean_cosine": 0.9721616968382008,
+          "mean_mse": 7.457336758178594e-05
+        },
+        "validation": {
+          "count": 3,
+          "mean_cosine": 0.9651149214348468,
+          "mean_mse": 9.14018728447273e-05
+        }
+      }
+    },
+    {
+      "architecture": "selective_ssm",
+      "candidate_id": "v412_selective_ssm_s29",
+      "metric_hash": "78deb983baff4ca33402a330b2ae4c9ab670a2b1be7dc2aba2ab0c79a010bbd3",
+      "metric_id": "seqmetrics_78deb983baff4ca33402a330",
+      "row_hash": "97c2e4da671aa543cd5d6f185d04579cbf0f9f0eec6e128a00e1d4f0867680d3",
+      "rows": [
+        {
+          "cosine": 0.970649253532863,
+          "mse": 7.207173309653615e-05,
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "step": 0
+        },
+        {
+          "cosine": 0.9555728152869937,
+          "mse": 0.00011852055500764619,
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "step": 1
+        },
+        {
+          "cosine": 0.9738785905523856,
+          "mse": 6.400173295262498e-05,
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "step": 2
+        },
+        {
+          "cosine": 0.9863117049433759,
+          "mse": 3.358629442749153e-05,
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "step": 0
+        },
+        {
+          "cosine": 0.9816282165334842,
+          "mse": 4.867555438257511e-05,
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "step": 1
+        },
+        {
+          "cosine": 0.9795052258167802,
+          "mse": 6.558958420272401e-05,
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "step": 2
+        },
+        {
+          "cosine": 0.9698135042542642,
+          "mse": 7.412220144083442e-05,
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "step": 0
+        },
+        {
+          "cosine": 0.9434951602687702,
+          "mse": 0.00015374866789094377,
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "step": 1
+        },
+        {
+          "cosine": 0.9818914907869809,
+          "mse": 4.670863720148599e-05,
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "step": 2
+        },
+        {
+          "cosine": 0.9835283854165089,
+          "mse": 4.540663099292615e-05,
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "step": 0
+        },
+        {
+          "cosine": 0.9771217728726477,
+          "mse": 7.694995924616234e-05,
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "step": 1
+        },
+        {
+          "cosine": 0.9851966471273986,
+          "mse": 4.378550229947261e-05,
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "step": 2
+        },
+        {
+          "cosine": 0.9836513931534161,
+          "mse": 4.254571728729475e-05,
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "step": 0
+        },
+        {
+          "cosine": 0.9653452724797305,
+          "mse": 0.0001124135089528788,
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "step": 1
+        },
+        {
+          "cosine": 0.9519579890022125,
+          "mse": 0.00011609372679745446,
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "step": 2
+        }
+      ],
+      "summary": {
+        "test": {
+          "count": 3,
+          "mean_cosine": 0.9819489351388517,
+          "mean_mse": 5.5380697512853704e-05
+        },
+        "train": {
+          "count": 9,
+          "mean_cosine": 0.9720556068112491,
+          "mean_mse": 7.483315634524733e-05
+        },
+        "validation": {
+          "count": 3,
+          "mean_cosine": 0.9650667184366718,
+          "mean_mse": 9.152650217775472e-05
+        }
+      }
+    },
+    {
+      "architecture": "local_causal_attention",
+      "candidate_id": "v412_local_attention_s31",
+      "metric_hash": "f26e7d0bf3405582d737a130fa9136218d1726034d20a9e639209226bed83833",
+      "metric_id": "seqmetrics_f26e7d0bf3405582d737a130",
+      "row_hash": "0a5f03b3c3cd008a866c9b59fb6b051399a658ed7bf2dd21a08e474c9e75943e",
+      "rows": [
+        {
+          "cosine": 0.970784867649609,
+          "mse": 7.172018406671006e-05,
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "step": 0
+        },
+        {
+          "cosine": 0.9556348928728372,
+          "mse": 0.0001183593901010512,
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "step": 1
+        },
+        {
+          "cosine": 0.9738582884155276,
+          "mse": 6.405947631696856e-05,
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "step": 2
+        },
+        {
+          "cosine": 0.9863050634932465,
+          "mse": 3.359324114983833e-05,
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "step": 0
+        },
+        {
+          "cosine": 0.9816581540158992,
+          "mse": 4.859755400377091e-05,
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "step": 1
+        },
+        {
+          "cosine": 0.9795286323975235,
+          "mse": 6.550642861794831e-05,
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "step": 2
+        },
+        {
+          "cosine": 0.9699191476183289,
+          "mse": 7.384935473327821e-05,
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "step": 0
+        },
+        {
+          "cosine": 0.9435185667506332,
+          "mse": 0.00015368701343891175,
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "step": 1
+        },
+        {
+          "cosine": 0.9818986406827908,
+          "mse": 4.6688619955233584e-05,
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "step": 2
+        },
+        {
+          "cosine": 0.9835354610213707,
+          "mse": 4.5352879365981564e-05,
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "step": 0
+        },
+        {
+          "cosine": 0.9771366655804653,
+          "mse": 7.690136320709006e-05,
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "step": 1
+        },
+        {
+          "cosine": 0.9851961027611237,
+          "mse": 4.377535710771624e-05,
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "step": 2
+        },
+        {
+          "cosine": 0.9836863916319946,
+          "mse": 4.245885600188461e-05,
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "step": 0
+        },
+        {
+          "cosine": 0.9654130357343257,
+          "mse": 0.00011219776356650322,
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "step": 1
+        },
+        {
+          "cosine": 0.9519231216465209,
+          "mse": 0.00011618007086702224,
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "step": 2
+        }
+      ],
+      "summary": {
+        "test": {
+          "count": 3,
+          "mean_cosine": 0.9819560764543199,
+          "mean_mse": 5.534319989359596e-05
+        },
+        "train": {
+          "count": 9,
+          "mean_cosine": 0.9720880497619427,
+          "mean_mse": 7.474144052129972e-05
+        },
+        "validation": {
+          "count": 3,
+          "mean_cosine": 0.9651121183505843,
+          "mean_mse": 9.140832937580784e-05
+        }
+      }
+    },
+    {
+      "architecture": "hybrid_ssm_attention",
+      "candidate_id": "v412_hybrid_s37",
+      "metric_hash": "1bd87b0e8bc17a54102deb34aa851f4d0c8a3e00b71f3516496b8c15aefaf38f",
+      "metric_id": "seqmetrics_1bd87b0e8bc17a54102deb34",
+      "row_hash": "1fae92efa7b1bdc227eaed071304f4386e17ce4fea42b98cfa8bbfef74e25ce2",
+      "rows": [
+        {
+          "cosine": 0.9707374461619943,
+          "mse": 7.184597858880718e-05,
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "step": 0
+        },
+        {
+          "cosine": 0.955575638519148,
+          "mse": 0.00011851316057613568,
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "step": 1
+        },
+        {
+          "cosine": 0.9739780665252908,
+          "mse": 6.376460699600826e-05,
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "split": "train",
+          "step": 2
+        },
+        {
+          "cosine": 0.9864098301241523,
+          "mse": 3.334201743771455e-05,
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "step": 0
+        },
+        {
+          "cosine": 0.9816296463671446,
+          "mse": 4.867030951771129e-05,
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "step": 1
+        },
+        {
+          "cosine": 0.979499539752706,
+          "mse": 6.558971836887074e-05,
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "split": "train",
+          "step": 2
+        },
+        {
+          "cosine": 0.9698502116580395,
+          "mse": 7.402172022249265e-05,
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "step": 0
+        },
+        {
+          "cosine": 0.9435054907151769,
+          "mse": 0.0001537216330267297,
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "step": 1
+        },
+        {
+          "cosine": 0.9819553542708487,
+          "mse": 4.6545744048212855e-05,
+          "sequence_id": "seq_502ba1c3c219167524f775b7",
+          "split": "validation",
+          "step": 2
+        },
+        {
+          "cosine": 0.9835565622986446,
+          "mse": 4.532070378405072e-05,
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "step": 0
+        },
+        {
+          "cosine": 0.9771292518326968,
+          "mse": 7.69252959000991e-05,
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "step": 1
+        },
+        {
+          "cosine": 0.9851908479887542,
+          "mse": 4.379186251598355e-05,
+          "sequence_id": "seq_91933677cbd7c57caf3a53c0",
+          "split": "test",
+          "step": 2
+        },
+        {
+          "cosine": 0.9837388539186785,
+          "mse": 4.232643723177531e-05,
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "step": 0
+        },
+        {
+          "cosine": 0.9653409471494824,
+          "mse": 0.00011242315722523255,
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "step": 1
+        },
+        {
+          "cosine": 0.9521254245701958,
+          "mse": 0.00011570861252337654,
+          "sequence_id": "seq_47555046777e522927489320",
+          "split": "train",
+          "step": 2
+        }
+      ],
+      "summary": {
+        "test": {
+          "count": 3,
+          "mean_cosine": 0.9819588873733652,
+          "mean_mse": 5.5345954066711125e-05
+        },
+        "train": {
+          "count": 9,
+          "mean_cosine": 0.9721150436765326,
+          "mean_mse": 7.46871109406258e-05
+        },
+        "validation": {
+          "count": 3,
+          "mean_cosine": 0.9651036855480216,
+          "mean_mse": 9.142969909914506e-05
+        }
+      }
+    }
+  ],
+  "phase": "SAED_V4_12"
+}

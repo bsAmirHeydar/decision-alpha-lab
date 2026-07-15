@@ -1,0 +1,11 @@
+{
+  "advanced_model_required": false,
+  "baseline_candidate_id": "v412_ema_recurrent_s17",
+  "baseline_preserved": true,
+  "baseline_validation_mse": 9.04337615491407e-05,
+  "champion_candidate_id": "v412_ema_recurrent_s17",
+  "champion_validation_mse": 9.04337615491407e-05,
+  "control_hash": "9b4003da221f6529e4e466f901524770332680f32a98547ec2c43215b5eaf23d",
+  "control_id": "baselinecontrol_9b4003da221f6529e4e466f9",
+  "promotion_inference_forbidden": true
+}

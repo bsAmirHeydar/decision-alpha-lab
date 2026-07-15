@@ -1,0 +1,103 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/golden_sequence_examples.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed golden reference contract. Unknown fields fail validation. This schema does not confer production authority.",
+  "properties": {
+    "phase": {
+      "type": "string"
+    },
+    "sequence_count": {
+      "type": "integer"
+    },
+    "sequences": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "domain_id": {
+            "type": "string"
+          },
+          "points": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "context_id": {
+                  "type": "string"
+                },
+                "domain_id": {
+                  "type": "string"
+                },
+                "event_time": {
+                  "type": "string"
+                },
+                "known_time": {
+                  "type": "string"
+                },
+                "record_id": {
+                  "type": "string"
+                },
+                "root_context_id": {
+                  "type": "string"
+                },
+                "split": {
+                  "type": "string"
+                },
+                "token_hash": {
+                  "type": "string"
+                },
+                "vector": {
+                  "items": {
+                    "type": "number"
+                  },
+                  "type": "array"
+                }
+              },
+              "required": [
+                "context_id",
+                "domain_id",
+                "event_time",
+                "known_time",
+                "record_id",
+                "root_context_id",
+                "split",
+                "token_hash",
+                "vector"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "root_context_id": {
+            "type": "string"
+          },
+          "sequence_id": {
+            "type": "string"
+          },
+          "source_hash": {
+            "type": "string"
+          },
+          "split": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "domain_id",
+          "points",
+          "root_context_id",
+          "sequence_id",
+          "source_hash",
+          "split"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "phase",
+    "sequence_count",
+    "sequences"
+  ],
+  "title": "SAED V4-12 Golden Sequence Examples",
+  "type": "object"
+}

@@ -1,0 +1,30 @@
+{
+  "authority": "reference_synthetic_only",
+  "capabilities": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "build_reference_sequence_challengers": true,
+    "compile_known_time_sequences": true,
+    "emit_research_checkpoint": true,
+    "emit_v4_13_handoff": true,
+    "evaluate_streaming_parity": true,
+    "fine_tune_real_or_protected_data": false,
+    "fit_self_supervised_readouts": true,
+    "mutate_v4_11_artifacts": false,
+    "predict_trade_outcomes": false,
+    "rank_treatments": false,
+    "read_frozen_v4_11_encoder": true,
+    "read_frozen_v4_11_tokenizer": true,
+    "select_treatment": false,
+    "send_order": false,
+    "use_execution_twin_as_input": false,
+    "use_outcome_cube_as_input": false,
+    "use_prospective_shadow_live": false,
+    "use_protected_final": false
+  },
+  "decision_authority": false,
+  "execution_authority": false,
+  "fail_closed": true,
+  "phase": "SAED_V4_12",
+  "runtime_authority": false
+}

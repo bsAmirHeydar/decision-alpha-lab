@@ -1,0 +1,56 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/golden_integrity_receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed golden reference contract. Unknown fields fail validation. This schema does not confer production authority.",
+  "properties": {
+    "artifact_count": {
+      "type": "integer"
+    },
+    "canonicalization": {
+      "type": "string"
+    },
+    "entries": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "content_hash": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "content_hash",
+          "name"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "merkle_root": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_count",
+    "canonicalization",
+    "entries",
+    "merkle_root",
+    "phase",
+    "receipt_hash",
+    "receipt_id"
+  ],
+  "title": "SAED V4-12 Golden Integrity Receipt",
+  "type": "object"
+}

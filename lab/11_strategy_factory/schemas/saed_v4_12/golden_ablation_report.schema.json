@@ -1,0 +1,64 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/golden_ablation_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed golden reference contract. Unknown fields fail validation. This schema does not confer production authority.",
+  "properties": {
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "identity_feature_present": {
+      "type": "boolean"
+    },
+    "outcome_feature_present": {
+      "type": "boolean"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "architecture": {
+            "type": "string"
+          },
+          "baseline_candidate_id": {
+            "type": "string"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "delta_vs_baseline": {
+            "type": "number"
+          },
+          "validation_mse": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "architecture",
+          "baseline_candidate_id",
+          "candidate_id",
+          "delta_vs_baseline",
+          "validation_mse"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "baseline_preserved",
+    "identity_feature_present",
+    "outcome_feature_present",
+    "report_hash",
+    "report_id",
+    "rows"
+  ],
+  "title": "SAED V4-12 Golden Ablation Report",
+  "type": "object"
+}

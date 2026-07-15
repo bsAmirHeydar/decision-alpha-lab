@@ -1,0 +1,4 @@
+PHASE="SAED_V4_12"
+VERSION="1.0.0"
+NEXT_PHASE="SAED_V4_13"
+IMPLEMENTATION_STATUS="implemented_reference_synthetic"

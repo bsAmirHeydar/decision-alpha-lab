@@ -1,0 +1,11 @@
+{
+  "fail_closed_on_corruption": true,
+  "gap_reset_seconds": 7200,
+  "policy_hash": "23f7137c418f61c4a5cd32b46ba9e3cde9ab7534631005c7e7e198f61e8e996a",
+  "policy_id": "resetpolicy_23f7137c418f61c4a5cd32b4",
+  "reset_on_context_boundary": false,
+  "reset_on_domain_change": true,
+  "reset_on_root_change": true,
+  "reset_on_session_boundary": true,
+  "restart_requires_snapshot_hash": true
+}

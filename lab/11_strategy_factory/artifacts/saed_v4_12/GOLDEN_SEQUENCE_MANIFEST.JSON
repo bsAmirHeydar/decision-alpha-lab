@@ -1,0 +1,34 @@
+{
+  "future_suffix_allowed": false,
+  "identity_tokens_allowed": false,
+  "manifest_hash": "3c0aefae409ca3246b432ec9ae6ac2be3465c0195f9880ceb7d22f96a0ec2728",
+  "manifest_id": "v412sequences_3c0aefae409ca3246b432ec9",
+  "outcome_inputs_allowed": false,
+  "phase": "SAED_V4_12",
+  "sequence_count": 5,
+  "sequence_ids": [
+    "seq_60ddeccf9e37bc61613093b7",
+    "seq_91d8a7d77683359c845cd428",
+    "seq_502ba1c3c219167524f775b7",
+    "seq_91933677cbd7c57caf3a53c0",
+    "seq_47555046777e522927489320"
+  ],
+  "source_hashes": [
+    "60ddeccf9e37bc61613093b794e23a15faa8fb9c7be5b4055a10bf8665afdceb",
+    "91d8a7d77683359c845cd4285e37f2b40ad1a5b5c5d5385c3219fc5a16a791e1",
+    "502ba1c3c219167524f775b7fcd1737e7b973ac167e3f826a2d3ef737983adfb",
+    "91933677cbd7c57caf3a53c0e079f96f24483dee0f743cbed785af2d503657a4",
+    "47555046777e52292748932065400e41eb459030763053ef50b11173917d331f"
+  ],
+  "split_counts": {
+    "test": 1,
+    "train": 3,
+    "validation": 1
+  },
+  "upstream_hashes": {
+    "checkpoint_registry_hash": "844d91a09d044b254ec918d6519f2ba35980d0dd42d91f1e2f4264c15704f414",
+    "encoder_checkpoint_hash": "aab287ba676dacc6cba84a8671f853a71c721d6f1a5997fd264e0f80cf801e6a",
+    "tokenizer_hash": "71b0813379929af782ac7403abcd5414e8e8ba961f97cbd5988ab1189d10d89f",
+    "v4_11_handoff_hash": "52d2950fea7ba89cdef7f16927e262ae111edaf0e497229e7e33c7cafaf1ed6d"
+  }
+}

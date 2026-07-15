@@ -1,0 +1,11 @@
+{
+  "causal": true,
+  "chunk_size": 2,
+  "exact_version": "1.0.0",
+  "frozen_encoder": true,
+  "gap_reset_seconds": 7200,
+  "input_dim": 12,
+  "local_attention_window": 4,
+  "max_context_steps": 16,
+  "state_dim": 10
+}

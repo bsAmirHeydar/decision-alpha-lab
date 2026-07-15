@@ -1,0 +1,13 @@
+{
+  "admitted_reference_count": 6,
+  "alerts": [],
+  "candidate_count": 6,
+  "parity_fail_count": 0,
+  "parity_pass_count": 6,
+  "phase": "SAED_V4_12",
+  "reference_champion_id": "v412_ema_recurrent_s17",
+  "runtime_activation": false,
+  "sequence_count": 5,
+  "telemetry_hash": "2838d0357bec5abd38dc597f2c122870ef2ee71b681dc4d79bf0b94d0c51d2e8",
+  "telemetry_id": "seqtelemetry_2838d0357bec5abd38dc597f"
+}

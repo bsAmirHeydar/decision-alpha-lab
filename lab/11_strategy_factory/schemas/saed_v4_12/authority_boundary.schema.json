@@ -1,0 +1,125 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/authority_boundary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed golden reference contract. Unknown fields fail validation. This schema does not confer production authority.",
+  "properties": {
+    "authority": {
+      "type": "string"
+    },
+    "capabilities": {
+      "additionalProperties": false,
+      "properties": {
+        "activate_runtime": {
+          "type": "boolean"
+        },
+        "allocate_risk": {
+          "type": "boolean"
+        },
+        "build_reference_sequence_challengers": {
+          "type": "boolean"
+        },
+        "compile_known_time_sequences": {
+          "type": "boolean"
+        },
+        "emit_research_checkpoint": {
+          "type": "boolean"
+        },
+        "emit_v4_13_handoff": {
+          "type": "boolean"
+        },
+        "evaluate_streaming_parity": {
+          "type": "boolean"
+        },
+        "fine_tune_real_or_protected_data": {
+          "type": "boolean"
+        },
+        "fit_self_supervised_readouts": {
+          "type": "boolean"
+        },
+        "mutate_v4_11_artifacts": {
+          "type": "boolean"
+        },
+        "predict_trade_outcomes": {
+          "type": "boolean"
+        },
+        "rank_treatments": {
+          "type": "boolean"
+        },
+        "read_frozen_v4_11_encoder": {
+          "type": "boolean"
+        },
+        "read_frozen_v4_11_tokenizer": {
+          "type": "boolean"
+        },
+        "select_treatment": {
+          "type": "boolean"
+        },
+        "send_order": {
+          "type": "boolean"
+        },
+        "use_execution_twin_as_input": {
+          "type": "boolean"
+        },
+        "use_outcome_cube_as_input": {
+          "type": "boolean"
+        },
+        "use_prospective_shadow_live": {
+          "type": "boolean"
+        },
+        "use_protected_final": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "activate_runtime",
+        "allocate_risk",
+        "build_reference_sequence_challengers",
+        "compile_known_time_sequences",
+        "emit_research_checkpoint",
+        "emit_v4_13_handoff",
+        "evaluate_streaming_parity",
+        "fine_tune_real_or_protected_data",
+        "fit_self_supervised_readouts",
+        "mutate_v4_11_artifacts",
+        "predict_trade_outcomes",
+        "rank_treatments",
+        "read_frozen_v4_11_encoder",
+        "read_frozen_v4_11_tokenizer",
+        "select_treatment",
+        "send_order",
+        "use_execution_twin_as_input",
+        "use_outcome_cube_as_input",
+        "use_prospective_shadow_live",
+        "use_protected_final"
+      ],
+      "type": "object"
+    },
+    "decision_authority": {
+      "type": "boolean"
+    },
+    "execution_authority": {
+      "type": "boolean"
+    },
+    "fail_closed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "runtime_authority": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "authority",
+    "capabilities",
+    "decision_authority",
+    "execution_authority",
+    "fail_closed",
+    "phase",
+    "runtime_authority"
+  ],
+  "title": "SAED V4-12 Authority Boundary",
+  "type": "object"
+}

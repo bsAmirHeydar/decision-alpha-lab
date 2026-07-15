@@ -1,0 +1,42 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/incident_template.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed golden reference contract. Unknown fields fail validation. This schema does not confer production authority.",
+  "properties": {
+    "execution_kill_switch_required": {
+      "type": "boolean"
+    },
+    "immediate_actions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "incident_classes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "template_hash": {
+      "type": "string"
+    },
+    "template_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "execution_kill_switch_required",
+    "immediate_actions",
+    "incident_classes",
+    "phase",
+    "template_hash",
+    "template_id"
+  ],
+  "title": "SAED V4-12 Incident Template",
+  "type": "object"
+}

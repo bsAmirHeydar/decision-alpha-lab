@@ -1,0 +1,32 @@
+[
+  {
+    "case_id": "future_known_time",
+    "expected_error": "CausalityError",
+    "mutation": "known_time_before_event_time"
+  },
+  {
+    "case_id": "outcome_token",
+    "expected_error": "CausalityError",
+    "mutation": "append_OUTCOME_token"
+  },
+  {
+    "case_id": "identity_token",
+    "expected_error": "CausalityError",
+    "mutation": "append_CONTEXT_ID_token"
+  },
+  {
+    "case_id": "checkpoint_hash",
+    "expected_error": "IntegrityError",
+    "mutation": "change_encoder_checkpoint_hash"
+  },
+  {
+    "case_id": "snapshot_hash",
+    "expected_error": "IntegrityError",
+    "mutation": "change_snapshot_hidden"
+  },
+  {
+    "case_id": "unknown_candidate",
+    "expected_error": "ContractError",
+    "mutation": "architecture_unknown"
+  }
+]

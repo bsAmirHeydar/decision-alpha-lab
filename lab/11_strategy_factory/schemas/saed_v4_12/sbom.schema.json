@@ -1,0 +1,58 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/sbom.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed golden reference contract. Unknown fields fail validation. This schema does not confer production authority.",
+  "properties": {
+    "checkpoint_format": {
+      "type": "string"
+    },
+    "dynamic_code_loading": {
+      "type": "boolean"
+    },
+    "external_runtime_dependencies": {
+      "items": {},
+      "type": "array"
+    },
+    "network_access_required": {
+      "type": "boolean"
+    },
+    "optional_accelerators": {
+      "items": {},
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "pickle_allowed": {
+      "type": "boolean"
+    },
+    "runtime": {
+      "type": "string"
+    },
+    "sbom_hash": {
+      "type": "string"
+    },
+    "sbom_id": {
+      "type": "string"
+    },
+    "supply_chain_state": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "checkpoint_format",
+    "dynamic_code_loading",
+    "external_runtime_dependencies",
+    "network_access_required",
+    "optional_accelerators",
+    "phase",
+    "pickle_allowed",
+    "runtime",
+    "sbom_hash",
+    "sbom_id",
+    "supply_chain_state"
+  ],
+  "title": "SAED V4-12 Sbom",
+  "type": "object"
+}

@@ -1,0 +1,96 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-12/golden_training_receipts.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed golden reference contract. Unknown fields fail validation. This schema does not confer production authority.",
+  "properties": {
+    "count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "receipts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_id": {
+            "type": "string"
+          },
+          "checkpoint_hash": {
+            "type": "string"
+          },
+          "deterministic": {
+            "type": "boolean"
+          },
+          "exposure_count": {
+            "type": "integer"
+          },
+          "ledger": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "input_known_time": {
+                  "type": "string"
+                },
+                "input_record_id": {
+                  "type": "string"
+                },
+                "sequence_id": {
+                  "type": "string"
+                },
+                "target_known_time": {
+                  "type": "string"
+                },
+                "target_record_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "input_known_time",
+                "input_record_id",
+                "sequence_id",
+                "target_known_time",
+                "target_record_id"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "optimizer": {
+            "type": "string"
+          },
+          "pair_count": {
+            "type": "integer"
+          },
+          "receipt_hash": {
+            "type": "string"
+          },
+          "receipt_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "checkpoint_hash",
+          "deterministic",
+          "exposure_count",
+          "ledger",
+          "optimizer",
+          "pair_count",
+          "receipt_hash",
+          "receipt_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "count",
+    "phase",
+    "receipts"
+  ],
+  "title": "SAED V4-12 Golden Training Receipts",
+  "type": "object"
+}

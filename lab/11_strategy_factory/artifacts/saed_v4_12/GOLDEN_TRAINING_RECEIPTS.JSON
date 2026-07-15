@@ -1,0 +1,456 @@
+{
+  "count": 6,
+  "phase": "SAED_V4_12",
+  "receipts": [
+    {
+      "candidate_id": "v412_ema_recurrent_s17",
+      "checkpoint_hash": "ed8c13bf7bf2134c4ef3243262b114afe8f0f68abb60fcfe948c0d325d5d2b25",
+      "deterministic": true,
+      "exposure_count": 9,
+      "ledger": [
+        {
+          "input_known_time": "2026-01-05T14:30:01Z",
+          "input_record_id": "record_alpha_00",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "target_known_time": "2026-01-05T14:40:01Z",
+          "target_record_id": "record_alpha_01"
+        },
+        {
+          "input_known_time": "2026-01-05T14:40:01Z",
+          "input_record_id": "record_alpha_01",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "target_known_time": "2026-01-05T14:50:01Z",
+          "target_record_id": "record_alpha_02"
+        },
+        {
+          "input_known_time": "2026-01-05T14:50:01Z",
+          "input_record_id": "record_alpha_02",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "target_known_time": "2026-01-05T15:00:01Z",
+          "target_record_id": "record_alpha_03"
+        },
+        {
+          "input_known_time": "2026-01-05T14:30:01Z",
+          "input_record_id": "record_beta_00",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "target_known_time": "2026-01-05T14:40:01Z",
+          "target_record_id": "record_beta_01"
+        },
+        {
+          "input_known_time": "2026-01-05T14:40:01Z",
+          "input_record_id": "record_beta_01",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "target_known_time": "2026-01-05T14:50:01Z",
+          "target_record_id": "record_beta_02"
+        },
+        {
+          "input_known_time": "2026-01-05T14:50:01Z",
+          "input_record_id": "record_beta_02",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "target_known_time": "2026-01-05T15:00:01Z",
+          "target_record_id": "record_beta_03"
+        },
+        {
+          "input_known_time": "2026-01-05T14:30:01Z",
+          "input_record_id": "record_gamma_00",
+          "sequence_id": "seq_47555046777e522927489320",
+          "target_known_time": "2026-01-05T14:40:01Z",
+          "target_record_id": "record_gamma_01"
+        },
+        {
+          "input_known_time": "2026-01-05T14:40:01Z",
+          "input_record_id": "record_gamma_01",
+          "sequence_id": "seq_47555046777e522927489320",
+          "target_known_time": "2026-01-05T14:50:01Z",
+          "target_record_id": "record_gamma_02"
+        },
+        {
+          "input_known_time": "2026-01-05T14:50:01Z",
+          "input_record_id": "record_gamma_02",
+          "sequence_id": "seq_47555046777e522927489320",
+          "target_known_time": "2026-01-05T15:00:01Z",
+          "target_record_id": "record_gamma_03"
+        }
+      ],
+      "optimizer": "closed_form_ridge",
+      "pair_count": 9,
+      "receipt_hash": "913ae6d5ede8beeae43f24893c533df0716d1f10d9e44ee4adc920c796f46051",
+      "receipt_id": "seqtrain_af62cead2901ee4639adcc01"
+    },
+    {
+      "candidate_id": "v412_causal_convolution_s19",
+      "checkpoint_hash": "84214ac88bf87a6bbec1f4b9f20d0ce405ead09375a7e9abf37c75b192316f89",
+      "deterministic": true,
+      "exposure_count": 9,
+      "ledger": [
+        {
+          "input_known_time": "2026-01-05T14:30:01Z",
+          "input_record_id": "record_alpha_00",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "target_known_time": "2026-01-05T14:40:01Z",
+          "target_record_id": "record_alpha_01"
+        },
+        {
+          "input_known_time": "2026-01-05T14:40:01Z",
+          "input_record_id": "record_alpha_01",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "target_known_time": "2026-01-05T14:50:01Z",
+          "target_record_id": "record_alpha_02"
+        },
+        {
+          "input_known_time": "2026-01-05T14:50:01Z",
+          "input_record_id": "record_alpha_02",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "target_known_time": "2026-01-05T15:00:01Z",
+          "target_record_id": "record_alpha_03"
+        },
+        {
+          "input_known_time": "2026-01-05T14:30:01Z",
+          "input_record_id": "record_beta_00",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "target_known_time": "2026-01-05T14:40:01Z",
+          "target_record_id": "record_beta_01"
+        },
+        {
+          "input_known_time": "2026-01-05T14:40:01Z",
+          "input_record_id": "record_beta_01",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "target_known_time": "2026-01-05T14:50:01Z",
+          "target_record_id": "record_beta_02"
+        },
+        {
+          "input_known_time": "2026-01-05T14:50:01Z",
+          "input_record_id": "record_beta_02",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "target_known_time": "2026-01-05T15:00:01Z",
+          "target_record_id": "record_beta_03"
+        },
+        {
+          "input_known_time": "2026-01-05T14:30:01Z",
+          "input_record_id": "record_gamma_00",
+          "sequence_id": "seq_47555046777e522927489320",
+          "target_known_time": "2026-01-05T14:40:01Z",
+          "target_record_id": "record_gamma_01"
+        },
+        {
+          "input_known_time": "2026-01-05T14:40:01Z",
+          "input_record_id": "record_gamma_01",
+          "sequence_id": "seq_47555046777e522927489320",
+          "target_known_time": "2026-01-05T14:50:01Z",
+          "target_record_id": "record_gamma_02"
+        },
+        {
+          "input_known_time": "2026-01-05T14:50:01Z",
+          "input_record_id": "record_gamma_02",
+          "sequence_id": "seq_47555046777e522927489320",
+          "target_known_time": "2026-01-05T15:00:01Z",
+          "target_record_id": "record_gamma_03"
+        }
+      ],
+      "optimizer": "closed_form_ridge",
+      "pair_count": 9,
+      "receipt_hash": "ab961efe259b71f82610a360427c223f2ec55df6b15a3e7900f237edcdfb8245",
+      "receipt_id": "seqtrain_af62cead2901ee4639adcc01"
+    },
+    {
+      "candidate_id": "v412_diagonal_ssm_s23",
+      "checkpoint_hash": "9d4cd9a8736922455435b0739886e15d4f7fe8619d26ec595ed86f072ee0a07b",
+      "deterministic": true,
+      "exposure_count": 9,
+      "ledger": [
+        {
+          "input_known_time": "2026-01-05T14:30:01Z",
+          "input_record_id": "record_alpha_00",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "target_known_time": "2026-01-05T14:40:01Z",
+          "target_record_id": "record_alpha_01"
+        },
+        {
+          "input_known_time": "2026-01-05T14:40:01Z",
+          "input_record_id": "record_alpha_01",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "target_known_time": "2026-01-05T14:50:01Z",
+          "target_record_id": "record_alpha_02"
+        },
+        {
+          "input_known_time": "2026-01-05T14:50:01Z",
+          "input_record_id": "record_alpha_02",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "target_known_time": "2026-01-05T15:00:01Z",
+          "target_record_id": "record_alpha_03"
+        },
+        {
+          "input_known_time": "2026-01-05T14:30:01Z",
+          "input_record_id": "record_beta_00",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "target_known_time": "2026-01-05T14:40:01Z",
+          "target_record_id": "record_beta_01"
+        },
+        {
+          "input_known_time": "2026-01-05T14:40:01Z",
+          "input_record_id": "record_beta_01",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "target_known_time": "2026-01-05T14:50:01Z",
+          "target_record_id": "record_beta_02"
+        },
+        {
+          "input_known_time": "2026-01-05T14:50:01Z",
+          "input_record_id": "record_beta_02",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "target_known_time": "2026-01-05T15:00:01Z",
+          "target_record_id": "record_beta_03"
+        },
+        {
+          "input_known_time": "2026-01-05T14:30:01Z",
+          "input_record_id": "record_gamma_00",
+          "sequence_id": "seq_47555046777e522927489320",
+          "target_known_time": "2026-01-05T14:40:01Z",
+          "target_record_id": "record_gamma_01"
+        },
+        {
+          "input_known_time": "2026-01-05T14:40:01Z",
+          "input_record_id": "record_gamma_01",
+          "sequence_id": "seq_47555046777e522927489320",
+          "target_known_time": "2026-01-05T14:50:01Z",
+          "target_record_id": "record_gamma_02"
+        },
+        {
+          "input_known_time": "2026-01-05T14:50:01Z",
+          "input_record_id": "record_gamma_02",
+          "sequence_id": "seq_47555046777e522927489320",
+          "target_known_time": "2026-01-05T15:00:01Z",
+          "target_record_id": "record_gamma_03"
+        }
+      ],
+      "optimizer": "closed_form_ridge",
+      "pair_count": 9,
+      "receipt_hash": "e62bef33413df35e50c1526ddb0af976030331367ff430b68a0686ed95575bfe",
+      "receipt_id": "seqtrain_af62cead2901ee4639adcc01"
+    },
+    {
+      "candidate_id": "v412_selective_ssm_s29",
+      "checkpoint_hash": "57a7b59e3a60e3ca58972beafc907702ae8e51ff2ba7e768d33e982f491e76dd",
+      "deterministic": true,
+      "exposure_count": 9,
+      "ledger": [
+        {
+          "input_known_time": "2026-01-05T14:30:01Z",
+          "input_record_id": "record_alpha_00",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "target_known_time": "2026-01-05T14:40:01Z",
+          "target_record_id": "record_alpha_01"
+        },
+        {
+          "input_known_time": "2026-01-05T14:40:01Z",
+          "input_record_id": "record_alpha_01",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "target_known_time": "2026-01-05T14:50:01Z",
+          "target_record_id": "record_alpha_02"
+        },
+        {
+          "input_known_time": "2026-01-05T14:50:01Z",
+          "input_record_id": "record_alpha_02",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "target_known_time": "2026-01-05T15:00:01Z",
+          "target_record_id": "record_alpha_03"
+        },
+        {
+          "input_known_time": "2026-01-05T14:30:01Z",
+          "input_record_id": "record_beta_00",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "target_known_time": "2026-01-05T14:40:01Z",
+          "target_record_id": "record_beta_01"
+        },
+        {
+          "input_known_time": "2026-01-05T14:40:01Z",
+          "input_record_id": "record_beta_01",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "target_known_time": "2026-01-05T14:50:01Z",
+          "target_record_id": "record_beta_02"
+        },
+        {
+          "input_known_time": "2026-01-05T14:50:01Z",
+          "input_record_id": "record_beta_02",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "target_known_time": "2026-01-05T15:00:01Z",
+          "target_record_id": "record_beta_03"
+        },
+        {
+          "input_known_time": "2026-01-05T14:30:01Z",
+          "input_record_id": "record_gamma_00",
+          "sequence_id": "seq_47555046777e522927489320",
+          "target_known_time": "2026-01-05T14:40:01Z",
+          "target_record_id": "record_gamma_01"
+        },
+        {
+          "input_known_time": "2026-01-05T14:40:01Z",
+          "input_record_id": "record_gamma_01",
+          "sequence_id": "seq_47555046777e522927489320",
+          "target_known_time": "2026-01-05T14:50:01Z",
+          "target_record_id": "record_gamma_02"
+        },
+        {
+          "input_known_time": "2026-01-05T14:50:01Z",
+          "input_record_id": "record_gamma_02",
+          "sequence_id": "seq_47555046777e522927489320",
+          "target_known_time": "2026-01-05T15:00:01Z",
+          "target_record_id": "record_gamma_03"
+        }
+      ],
+      "optimizer": "closed_form_ridge",
+      "pair_count": 9,
+      "receipt_hash": "696768540521130d2a55ecf9ec1de9329207335eb0b3c93b01a5bc9bb1327889",
+      "receipt_id": "seqtrain_af62cead2901ee4639adcc01"
+    },
+    {
+      "candidate_id": "v412_local_attention_s31",
+      "checkpoint_hash": "7476e0179912f0bcccb5aa0cac20bfac773ae531ff1d2759dcee13bd3c403ea2",
+      "deterministic": true,
+      "exposure_count": 9,
+      "ledger": [
+        {
+          "input_known_time": "2026-01-05T14:30:01Z",
+          "input_record_id": "record_alpha_00",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "target_known_time": "2026-01-05T14:40:01Z",
+          "target_record_id": "record_alpha_01"
+        },
+        {
+          "input_known_time": "2026-01-05T14:40:01Z",
+          "input_record_id": "record_alpha_01",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "target_known_time": "2026-01-05T14:50:01Z",
+          "target_record_id": "record_alpha_02"
+        },
+        {
+          "input_known_time": "2026-01-05T14:50:01Z",
+          "input_record_id": "record_alpha_02",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "target_known_time": "2026-01-05T15:00:01Z",
+          "target_record_id": "record_alpha_03"
+        },
+        {
+          "input_known_time": "2026-01-05T14:30:01Z",
+          "input_record_id": "record_beta_00",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "target_known_time": "2026-01-05T14:40:01Z",
+          "target_record_id": "record_beta_01"
+        },
+        {
+          "input_known_time": "2026-01-05T14:40:01Z",
+          "input_record_id": "record_beta_01",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "target_known_time": "2026-01-05T14:50:01Z",
+          "target_record_id": "record_beta_02"
+        },
+        {
+          "input_known_time": "2026-01-05T14:50:01Z",
+          "input_record_id": "record_beta_02",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "target_known_time": "2026-01-05T15:00:01Z",
+          "target_record_id": "record_beta_03"
+        },
+        {
+          "input_known_time": "2026-01-05T14:30:01Z",
+          "input_record_id": "record_gamma_00",
+          "sequence_id": "seq_47555046777e522927489320",
+          "target_known_time": "2026-01-05T14:40:01Z",
+          "target_record_id": "record_gamma_01"
+        },
+        {
+          "input_known_time": "2026-01-05T14:40:01Z",
+          "input_record_id": "record_gamma_01",
+          "sequence_id": "seq_47555046777e522927489320",
+          "target_known_time": "2026-01-05T14:50:01Z",
+          "target_record_id": "record_gamma_02"
+        },
+        {
+          "input_known_time": "2026-01-05T14:50:01Z",
+          "input_record_id": "record_gamma_02",
+          "sequence_id": "seq_47555046777e522927489320",
+          "target_known_time": "2026-01-05T15:00:01Z",
+          "target_record_id": "record_gamma_03"
+        }
+      ],
+      "optimizer": "closed_form_ridge",
+      "pair_count": 9,
+      "receipt_hash": "c946ec2e8c414965ccbfff0036c7a84c926a7ad2cb3719e03749f6f3a959d655",
+      "receipt_id": "seqtrain_af62cead2901ee4639adcc01"
+    },
+    {
+      "candidate_id": "v412_hybrid_s37",
+      "checkpoint_hash": "a91a9da295118dc351f1f94a8ffe6e42d4ec7537a7e4c89e7555f9521fa1afa1",
+      "deterministic": true,
+      "exposure_count": 9,
+      "ledger": [
+        {
+          "input_known_time": "2026-01-05T14:30:01Z",
+          "input_record_id": "record_alpha_00",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "target_known_time": "2026-01-05T14:40:01Z",
+          "target_record_id": "record_alpha_01"
+        },
+        {
+          "input_known_time": "2026-01-05T14:40:01Z",
+          "input_record_id": "record_alpha_01",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "target_known_time": "2026-01-05T14:50:01Z",
+          "target_record_id": "record_alpha_02"
+        },
+        {
+          "input_known_time": "2026-01-05T14:50:01Z",
+          "input_record_id": "record_alpha_02",
+          "sequence_id": "seq_60ddeccf9e37bc61613093b7",
+          "target_known_time": "2026-01-05T15:00:01Z",
+          "target_record_id": "record_alpha_03"
+        },
+        {
+          "input_known_time": "2026-01-05T14:30:01Z",
+          "input_record_id": "record_beta_00",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "target_known_time": "2026-01-05T14:40:01Z",
+          "target_record_id": "record_beta_01"
+        },
+        {
+          "input_known_time": "2026-01-05T14:40:01Z",
+          "input_record_id": "record_beta_01",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "target_known_time": "2026-01-05T14:50:01Z",
+          "target_record_id": "record_beta_02"
+        },
+        {
+          "input_known_time": "2026-01-05T14:50:01Z",
+          "input_record_id": "record_beta_02",
+          "sequence_id": "seq_91d8a7d77683359c845cd428",
+          "target_known_time": "2026-01-05T15:00:01Z",
+          "target_record_id": "record_beta_03"
+        },
+        {
+          "input_known_time": "2026-01-05T14:30:01Z",
+          "input_record_id": "record_gamma_00",
+          "sequence_id": "seq_47555046777e522927489320",
+          "target_known_time": "2026-01-05T14:40:01Z",
+          "target_record_id": "record_gamma_01"
+        },
+        {
+          "input_known_time": "2026-01-05T14:40:01Z",
+          "input_record_id": "record_gamma_01",
+          "sequence_id": "seq_47555046777e522927489320",
+          "target_known_time": "2026-01-05T14:50:01Z",
+          "target_record_id": "record_gamma_02"
+        },
+        {
+          "input_known_time": "2026-01-05T14:50:01Z",
+          "input_record_id": "record_gamma_02",
+          "sequence_id": "seq_47555046777e522927489320",
+          "target_known_time": "2026-01-05T15:00:01Z",
+          "target_record_id": "record_gamma_03"
+        }
+      ],
+      "optimizer": "closed_form_ridge",
+      "pair_count": 9,
+      "receipt_hash": "2f9bd29dc667ebec8cb701d2f6c01ad333c4227d0899d0b48fe033a252de518b",
+      "receipt_id": "seqtrain_af62cead2901ee4639adcc01"
+    }
+  ]
+}
