@@ -1,0 +1,48 @@
+{
+  "audits": [
+    {
+      "candidate_id": "v413_relation_mean_s11",
+      "existing_embedding_hash": "127385153d25db83b6a31f0bece9ce1e11b46de048ec84bd419e3be4a52e1a29",
+      "future_suffix_rejected": true,
+      "max_existing_diff": 0.0,
+      "passed": true
+    },
+    {
+      "candidate_id": "v413_rgcn_s13",
+      "existing_embedding_hash": "15ef9ce97e6edd1fe38ec38e1ad4a10b4cc9c8256e895805eb066d3f0fe8575e",
+      "future_suffix_rejected": true,
+      "max_existing_diff": 0.0,
+      "passed": true
+    },
+    {
+      "candidate_id": "v413_gat_s17",
+      "existing_embedding_hash": "d66e7681cf0e252a4c51bb5bfb1af1e6ba957ca49280e5e997fb12d82f94cd64",
+      "future_suffix_rejected": true,
+      "max_existing_diff": 0.0,
+      "passed": true
+    },
+    {
+      "candidate_id": "v413_hyperdiff_s19",
+      "existing_embedding_hash": "3c386e2c9bb9b05185275c5bcb83b20ebf62f2c094beef51781eecd3eb0b3dd3",
+      "future_suffix_rejected": true,
+      "max_existing_diff": 0.0,
+      "passed": true
+    },
+    {
+      "candidate_id": "v413_tgm_s23",
+      "existing_embedding_hash": "765adb9f1316715f246a94a1a5ecf8b1d3c6fdb9661ae1c07f85bfa018c8a8b1",
+      "future_suffix_rejected": true,
+      "max_existing_diff": 0.0,
+      "passed": true
+    },
+    {
+      "candidate_id": "v413_heterofusion_s29",
+      "existing_embedding_hash": "1c022dd102eac9b2bc660cc6eaa7b03dba08a22d79023041346ff522635fd1e3",
+      "future_suffix_rejected": true,
+      "max_existing_diff": 0.0,
+      "passed": true
+    }
+  ],
+  "count": 6,
+  "phase": "SAED_V4_13"
+}

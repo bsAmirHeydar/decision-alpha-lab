@@ -1,0 +1,145 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-13/v4_13_to_v4_14_handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed synthetic-reference contract. Unknown fields fail validation and no production authority is conferred.",
+  "properties": {
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "activate_runtime": {
+          "type": "boolean"
+        },
+        "allocate_risk": {
+          "type": "boolean"
+        },
+        "build_reference_foundation_model_adapters": {
+          "type": "boolean"
+        },
+        "mutate_v4_13_evidence": {
+          "type": "boolean"
+        },
+        "predict_outcomes": {
+          "type": "boolean"
+        },
+        "rank_treatments": {
+          "type": "boolean"
+        },
+        "read_frozen_graph_embeddings": {
+          "type": "boolean"
+        },
+        "read_frozen_graph_registry": {
+          "type": "boolean"
+        },
+        "select_treatment": {
+          "type": "boolean"
+        },
+        "send_order": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "activate_runtime",
+        "allocate_risk",
+        "build_reference_foundation_model_adapters",
+        "mutate_v4_13_evidence",
+        "predict_outcomes",
+        "rank_treatments",
+        "read_frozen_graph_embeddings",
+        "read_frozen_graph_registry",
+        "select_treatment",
+        "send_order"
+      ],
+      "type": "object"
+    },
+    "compiled_graph_hash": {
+      "type": "string"
+    },
+    "entry_gates": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_preserved": {
+          "type": "boolean"
+        },
+        "deterministic_replay_passed": {
+          "type": "boolean"
+        },
+        "frozen_upstream_binding_verified": {
+          "type": "boolean"
+        },
+        "future_suffix_forbidden": {
+          "type": "boolean"
+        },
+        "graph_registry_admitted": {
+          "type": "boolean"
+        },
+        "known_time_graph_compilation_passed": {
+          "type": "boolean"
+        },
+        "outcome_supervision_absent": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "baseline_preserved",
+        "deterministic_replay_passed",
+        "frozen_upstream_binding_verified",
+        "future_suffix_forbidden",
+        "graph_registry_admitted",
+        "known_time_graph_compilation_passed",
+        "outcome_supervision_absent"
+      ],
+      "type": "object"
+    },
+    "graph_checkpoint_registry_hash": {
+      "type": "string"
+    },
+    "graph_checkpoint_registry_id": {
+      "type": "string"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "integrity_receipt_hash": {
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "reference_champion_id": {
+      "type": "string"
+    },
+    "upstream_v4_12_handoff_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "authority",
+    "compiled_graph_hash",
+    "entry_gates",
+    "graph_checkpoint_registry_hash",
+    "graph_checkpoint_registry_id",
+    "handoff_hash",
+    "handoff_id",
+    "integrity_receipt_hash",
+    "limitations",
+    "next_phase",
+    "phase",
+    "reference_champion_id",
+    "upstream_v4_12_handoff_hash"
+  ],
+  "title": "SAED V4-13 V4 13 To V4 14 Handoff",
+  "type": "object"
+}

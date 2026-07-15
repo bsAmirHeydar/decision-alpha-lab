@@ -1,0 +1,22 @@
+{
+  "compiled_graph_hash": "195676e24b2b8872a4388208bf9ac62cfb0946b6d643dbe9e78a51a08e25cff9",
+  "compiled_graph_id": "modelgraph_78ff7a58d4002c5058ca027f",
+  "evidence_scope": "synthetic_reference_only",
+  "execution_authority": false,
+  "network_access": false,
+  "phase": "SAED_V4_13",
+  "provenance_hash": "9e10fc7f299a62d71a0b37cd55eee3b73f2e57135d361edb2055f55a5ec57ca8",
+  "provenance_id": "graphprov_ba138804af3eebf223a7f2dc",
+  "registry_hash": "0c632e65e364859395845fbf5cf0f4991d80006a339c313ce825469ddfd34459",
+  "registry_id": "graphregistry_9c5b7f7af62f26399ecfc979",
+  "tournament_hash": "a7be83375b0540e4b92cec8032d3ad2ff4c413d5aaf0254666c6f8b8a152cf25",
+  "tournament_id": "graphtournament_7220c089a190c256f1e43032",
+  "upstream_validation": {
+    "frozen": true,
+    "gate_count": 7,
+    "passed": true,
+    "v4_05_graph_hash": "f1e4e5c60b9146161a6f5db9d82bb9ef53e9d0045e772562136451b7897b011a",
+    "v4_12_distillation_hash": "eab8c7dfc7bcc0eafead3282a35547814e4ebaba7c3c3f80c300566a38a15553",
+    "v4_12_registry_hash": "d4eabc60a2d86c173f7c69834842018993d304fff3f0d4bb53e418ba213ee5a1"
+  }
+}

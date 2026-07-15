@@ -1,0 +1,12 @@
+{
+  "exact_version": "1.0.0",
+  "frozen_upstream": true,
+  "hidden_dim": 12,
+  "input_dim": 16,
+  "known_time_only": true,
+  "layers": 2,
+  "max_clique_degree": 16,
+  "max_hyperedges": 128,
+  "max_nodes": 256,
+  "output_dim": 8
+}

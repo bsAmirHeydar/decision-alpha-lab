@@ -1,0 +1,32 @@
+[
+  {
+    "name": "masked_node_reconstruction",
+    "outcome_free": true,
+    "train_only": true,
+    "weight": 1.0
+  },
+  {
+    "name": "relation_type_prediction",
+    "outcome_free": true,
+    "train_only": true,
+    "weight": 1.0
+  },
+  {
+    "name": "hyperedge_membership",
+    "outcome_free": true,
+    "train_only": true,
+    "weight": 1.0
+  },
+  {
+    "name": "temporal_consistency",
+    "outcome_free": true,
+    "train_only": true,
+    "weight": 0.5
+  },
+  {
+    "name": "sequence_state_alignment",
+    "outcome_free": true,
+    "train_only": true,
+    "weight": 0.5
+  }
+]

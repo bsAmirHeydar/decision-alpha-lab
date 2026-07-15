@@ -1,0 +1,80 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-13/golden_checkpoint_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed synthetic-reference contract. Unknown fields fail validation and no production authority is conferred.",
+  "properties": {
+    "admission_scope": {
+      "type": "string"
+    },
+    "admitted_count": {
+      "type": "integer"
+    },
+    "entries": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "architecture": {
+            "type": "string"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "checkpoint_hash": {
+            "type": "string"
+          },
+          "checkpoint_id": {
+            "type": "string"
+          },
+          "production_eligible": {
+            "type": "boolean"
+          },
+          "runtime_authority": {
+            "type": "boolean"
+          },
+          "state": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "architecture",
+          "candidate_id",
+          "checkpoint_hash",
+          "checkpoint_id",
+          "production_eligible",
+          "runtime_authority",
+          "state"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "reference_champion_id": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "admission_scope",
+    "admitted_count",
+    "entries",
+    "immutable",
+    "phase",
+    "reference_champion_id",
+    "registry_hash",
+    "registry_id"
+  ],
+  "title": "SAED V4-13 Golden Checkpoint Registry",
+  "type": "object"
+}

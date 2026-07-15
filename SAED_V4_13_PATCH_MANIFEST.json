@@ -1,0 +1,40 @@
+{
+  "authority": {
+    "decision_authority": false,
+    "execution_authority": false,
+    "research_reference_only": true,
+    "runtime_authority": false
+  },
+  "created": "2026-07-15",
+  "external_evidence": {
+    "distributed_training": "not_claimed",
+    "gpu_reproduction": "not_claimed",
+    "live": "not_claimed",
+    "metaeditor_compile": "pending_local_windows",
+    "micro_live": "not_claimed",
+    "prospective_paper": "not_claimed",
+    "real_corpus_training": "not_claimed",
+    "runtime_differential_parity": "not_claimed",
+    "shadow": "not_claimed"
+  },
+  "file_count": 184,
+  "handoff_hash": "b5cb4b4a05746717c9f8c1854be98929a0d2c671ca86bb34bddd9b66d1efcce2",
+  "hash_count": 183,
+  "implementation_status": "implemented_reference_synthetic",
+  "mql5_static_file_count": 12,
+  "next_phase": "SAED_V4_14",
+  "obsidian_note_count": 64,
+  "patch_id": "decision-alpha-lab-saed-v4-13-graph-hypergraph-models-v1.0.0",
+  "phase": "SAED_V4_13",
+  "qa_passed": true,
+  "reference_champion_id": "v413_gat_s17",
+  "registry_hash": "0c632e65e364859395845fbf5cf0f4991d80006a339c313ce825469ddfd34459",
+  "schema_pair_count": 27,
+  "test_count": 79,
+  "title": "Graph and Hypergraph Models",
+  "upstream_phases": [
+    "SAED_V4_05",
+    "SAED_V4_12"
+  ],
+  "version": "1.0.0"
+}

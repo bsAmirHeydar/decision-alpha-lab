@@ -1,0 +1,31 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-13/example_reference_objective_catalog.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Closed SAED V4-13 input example.",
+  "items": {
+    "additionalProperties": false,
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "outcome_free": {
+        "type": "boolean"
+      },
+      "train_only": {
+        "type": "boolean"
+      },
+      "weight": {
+        "type": "number"
+      }
+    },
+    "required": [
+      "name",
+      "outcome_free",
+      "train_only",
+      "weight"
+    ],
+    "type": "object"
+  },
+  "title": "Example Reference Objective Catalog",
+  "type": "array"
+}

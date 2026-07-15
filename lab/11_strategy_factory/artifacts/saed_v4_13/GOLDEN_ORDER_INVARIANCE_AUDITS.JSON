@@ -1,0 +1,36 @@
+{
+  "audits": [
+    {
+      "candidate_id": "v413_relation_mean_s11",
+      "max_diff": 0.0,
+      "passed": true
+    },
+    {
+      "candidate_id": "v413_rgcn_s13",
+      "max_diff": 0.0,
+      "passed": true
+    },
+    {
+      "candidate_id": "v413_gat_s17",
+      "max_diff": 0.0,
+      "passed": true
+    },
+    {
+      "candidate_id": "v413_hyperdiff_s19",
+      "max_diff": 0.0,
+      "passed": true
+    },
+    {
+      "candidate_id": "v413_tgm_s23",
+      "max_diff": 0.0,
+      "passed": true
+    },
+    {
+      "candidate_id": "v413_heterofusion_s29",
+      "max_diff": 0.0,
+      "passed": true
+    }
+  ],
+  "count": 6,
+  "phase": "SAED_V4_13"
+}

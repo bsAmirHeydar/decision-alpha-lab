@@ -1,0 +1,36 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-13/upstream_validation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed synthetic-reference contract. Unknown fields fail validation and no production authority is conferred.",
+  "properties": {
+    "frozen": {
+      "type": "boolean"
+    },
+    "gate_count": {
+      "type": "integer"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "v4_05_graph_hash": {
+      "type": "string"
+    },
+    "v4_12_distillation_hash": {
+      "type": "string"
+    },
+    "v4_12_registry_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "frozen",
+    "gate_count",
+    "passed",
+    "v4_05_graph_hash",
+    "v4_12_distillation_hash",
+    "v4_12_registry_hash"
+  ],
+  "title": "SAED V4-13 Upstream Validation",
+  "type": "object"
+}

@@ -1,0 +1,22 @@
+{
+  "claims": {
+    "deterministic_replay": true,
+    "frozen_upstream_binding": true,
+    "future_suffix_invariance": true,
+    "graph_hypergraph_reference_implemented": true,
+    "hypergraph_message_passing": true,
+    "known_time_graph_compilation": true,
+    "live_trading": false,
+    "outcome_prediction_authority": false,
+    "production_authorization": false,
+    "real_alpha": false,
+    "relation_aware_message_passing": true,
+    "risk_allocation": false,
+    "runtime_activation": false,
+    "self_supervised_graph_objectives": true,
+    "temporal_graph_reference": true,
+    "treatment_ranking": false,
+    "treatment_selection": false
+  },
+  "phase": "SAED_V4_13"
+}

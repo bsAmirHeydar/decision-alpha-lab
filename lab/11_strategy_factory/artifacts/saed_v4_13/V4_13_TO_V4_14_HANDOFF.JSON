@@ -1,0 +1,38 @@
+{
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "build_reference_foundation_model_adapters": true,
+    "mutate_v4_13_evidence": false,
+    "predict_outcomes": false,
+    "rank_treatments": false,
+    "read_frozen_graph_embeddings": true,
+    "read_frozen_graph_registry": true,
+    "select_treatment": false,
+    "send_order": false
+  },
+  "compiled_graph_hash": "195676e24b2b8872a4388208bf9ac62cfb0946b6d643dbe9e78a51a08e25cff9",
+  "entry_gates": {
+    "baseline_preserved": true,
+    "deterministic_replay_passed": true,
+    "frozen_upstream_binding_verified": true,
+    "future_suffix_forbidden": true,
+    "graph_registry_admitted": true,
+    "known_time_graph_compilation_passed": true,
+    "outcome_supervision_absent": true
+  },
+  "graph_checkpoint_registry_hash": "0c632e65e364859395845fbf5cf0f4991d80006a339c313ce825469ddfd34459",
+  "graph_checkpoint_registry_id": "graphregistry_9c5b7f7af62f26399ecfc979",
+  "handoff_hash": "b5cb4b4a05746717c9f8c1854be98929a0d2c671ca86bb34bddd9b66d1efcce2",
+  "handoff_id": "v413to14_6778c6278fd58a1c7172c390",
+  "integrity_receipt_hash": "3357d173355b3c9c58c4513dd02c3701522b459431f221f4298ccf520e4872af",
+  "limitations": [
+    "Synthetic frozen graph and sequence-state evidence only.",
+    "Graph cores use deterministic reference parameterizations and closed-form readouts; no production-scale GNN training is claimed.",
+    "No real-data, GPU, distributed, MetaEditor, prospective, shadow, micro-live or live evidence is claimed."
+  ],
+  "next_phase": "SAED_V4_14",
+  "phase": "SAED_V4_13",
+  "reference_champion_id": "v413_gat_s17",
+  "upstream_v4_12_handoff_hash": "43e6bbde6f4c40fc38b90812d0891f82991100597ccef83eee302c296b8b5e42"
+}

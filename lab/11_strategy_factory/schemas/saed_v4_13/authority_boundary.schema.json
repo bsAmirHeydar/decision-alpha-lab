@@ -1,0 +1,129 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-13/authority_boundary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed synthetic-reference contract. Unknown fields fail validation and no production authority is conferred.",
+  "properties": {
+    "authority": {
+      "type": "string"
+    },
+    "capabilities": {
+      "additionalProperties": false,
+      "properties": {
+        "activate_runtime": {
+          "type": "boolean"
+        },
+        "allocate_risk": {
+          "type": "boolean"
+        },
+        "build_reference_graph_hypergraph_challengers": {
+          "type": "boolean"
+        },
+        "compile_known_time_graph_views": {
+          "type": "boolean"
+        },
+        "emit_research_checkpoint": {
+          "type": "boolean"
+        },
+        "emit_v4_14_handoff": {
+          "type": "boolean"
+        },
+        "fit_self_supervised_readouts": {
+          "type": "boolean"
+        },
+        "infer_new_canonical_relations": {
+          "type": "boolean"
+        },
+        "mutate_v4_05_graph": {
+          "type": "boolean"
+        },
+        "mutate_v4_12_artifacts": {
+          "type": "boolean"
+        },
+        "predict_trade_outcomes": {
+          "type": "boolean"
+        },
+        "rank_treatments": {
+          "type": "boolean"
+        },
+        "read_frozen_v4_05_hypergraph": {
+          "type": "boolean"
+        },
+        "read_frozen_v4_12_distilled_states": {
+          "type": "boolean"
+        },
+        "read_frozen_v4_12_sequence_registry": {
+          "type": "boolean"
+        },
+        "select_treatment": {
+          "type": "boolean"
+        },
+        "send_order": {
+          "type": "boolean"
+        },
+        "use_execution_twin_as_input": {
+          "type": "boolean"
+        },
+        "use_outcome_cube_as_input": {
+          "type": "boolean"
+        },
+        "use_prospective_shadow_live": {
+          "type": "boolean"
+        },
+        "use_protected_final": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "activate_runtime",
+        "allocate_risk",
+        "build_reference_graph_hypergraph_challengers",
+        "compile_known_time_graph_views",
+        "emit_research_checkpoint",
+        "emit_v4_14_handoff",
+        "fit_self_supervised_readouts",
+        "infer_new_canonical_relations",
+        "mutate_v4_05_graph",
+        "mutate_v4_12_artifacts",
+        "predict_trade_outcomes",
+        "rank_treatments",
+        "read_frozen_v4_05_hypergraph",
+        "read_frozen_v4_12_distilled_states",
+        "read_frozen_v4_12_sequence_registry",
+        "select_treatment",
+        "send_order",
+        "use_execution_twin_as_input",
+        "use_outcome_cube_as_input",
+        "use_prospective_shadow_live",
+        "use_protected_final"
+      ],
+      "type": "object"
+    },
+    "decision_authority": {
+      "type": "boolean"
+    },
+    "execution_authority": {
+      "type": "boolean"
+    },
+    "fail_closed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "runtime_authority": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "authority",
+    "capabilities",
+    "decision_authority",
+    "execution_authority",
+    "fail_closed",
+    "phase",
+    "runtime_authority"
+  ],
+  "title": "SAED V4-13 Authority Boundary",
+  "type": "object"
+}

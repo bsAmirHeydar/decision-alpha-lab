@@ -1,0 +1,93 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-13/claim_ledger.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed synthetic-reference contract. Unknown fields fail validation and no production authority is conferred.",
+  "properties": {
+    "claims": {
+      "additionalProperties": false,
+      "properties": {
+        "deterministic_replay": {
+          "type": "boolean"
+        },
+        "frozen_upstream_binding": {
+          "type": "boolean"
+        },
+        "future_suffix_invariance": {
+          "type": "boolean"
+        },
+        "graph_hypergraph_reference_implemented": {
+          "type": "boolean"
+        },
+        "hypergraph_message_passing": {
+          "type": "boolean"
+        },
+        "known_time_graph_compilation": {
+          "type": "boolean"
+        },
+        "live_trading": {
+          "type": "boolean"
+        },
+        "outcome_prediction_authority": {
+          "type": "boolean"
+        },
+        "production_authorization": {
+          "type": "boolean"
+        },
+        "real_alpha": {
+          "type": "boolean"
+        },
+        "relation_aware_message_passing": {
+          "type": "boolean"
+        },
+        "risk_allocation": {
+          "type": "boolean"
+        },
+        "runtime_activation": {
+          "type": "boolean"
+        },
+        "self_supervised_graph_objectives": {
+          "type": "boolean"
+        },
+        "temporal_graph_reference": {
+          "type": "boolean"
+        },
+        "treatment_ranking": {
+          "type": "boolean"
+        },
+        "treatment_selection": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "deterministic_replay",
+        "frozen_upstream_binding",
+        "future_suffix_invariance",
+        "graph_hypergraph_reference_implemented",
+        "hypergraph_message_passing",
+        "known_time_graph_compilation",
+        "live_trading",
+        "outcome_prediction_authority",
+        "production_authorization",
+        "real_alpha",
+        "relation_aware_message_passing",
+        "risk_allocation",
+        "runtime_activation",
+        "self_supervised_graph_objectives",
+        "temporal_graph_reference",
+        "treatment_ranking",
+        "treatment_selection"
+      ],
+      "type": "object"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "claims",
+    "phase"
+  ],
+  "title": "SAED V4-13 Claim Ledger",
+  "type": "object"
+}

@@ -1,0 +1,11 @@
+{
+  "distributed_runtime_required": false,
+  "gpu_required": false,
+  "network_access": false,
+  "optional_test_dependency": [
+    "pytest"
+  ],
+  "phase": "SAED_V4_13",
+  "required_external_runtime_dependencies": [],
+  "runtime": "python_standard_library"
+}

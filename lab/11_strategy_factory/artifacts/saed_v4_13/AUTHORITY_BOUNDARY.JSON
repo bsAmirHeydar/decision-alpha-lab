@@ -1,0 +1,31 @@
+{
+  "authority": "reference_synthetic_only",
+  "capabilities": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "build_reference_graph_hypergraph_challengers": true,
+    "compile_known_time_graph_views": true,
+    "emit_research_checkpoint": true,
+    "emit_v4_14_handoff": true,
+    "fit_self_supervised_readouts": true,
+    "infer_new_canonical_relations": false,
+    "mutate_v4_05_graph": false,
+    "mutate_v4_12_artifacts": false,
+    "predict_trade_outcomes": false,
+    "rank_treatments": false,
+    "read_frozen_v4_05_hypergraph": true,
+    "read_frozen_v4_12_distilled_states": true,
+    "read_frozen_v4_12_sequence_registry": true,
+    "select_treatment": false,
+    "send_order": false,
+    "use_execution_twin_as_input": false,
+    "use_outcome_cube_as_input": false,
+    "use_prospective_shadow_live": false,
+    "use_protected_final": false
+  },
+  "decision_authority": false,
+  "execution_authority": false,
+  "fail_closed": true,
+  "phase": "SAED_V4_13",
+  "runtime_authority": false
+}

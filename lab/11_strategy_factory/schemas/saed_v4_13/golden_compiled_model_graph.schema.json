@@ -1,0 +1,564 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-13/golden_compiled_model_graph.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed synthetic-reference contract. Unknown fields fail validation and no production authority is conferred.",
+  "properties": {
+    "compiled_graph_hash": {
+      "type": "string"
+    },
+    "compiled_graph_id": {
+      "type": "string"
+    },
+    "degree": {
+      "additionalProperties": false,
+      "properties": {
+        "hnode_00110bc3ea681e81ba68a085": {
+          "type": "integer"
+        },
+        "hnode_01e6479ae95a6ce9e5d057ed": {
+          "type": "integer"
+        },
+        "hnode_031f8fb0480cac44f2dbdb85": {
+          "type": "integer"
+        },
+        "hnode_0526f2abf25be51e3e05d9fb": {
+          "type": "integer"
+        },
+        "hnode_05f1a20cff1569050e746a9d": {
+          "type": "integer"
+        },
+        "hnode_0a84fc405f23d4de0bf5e4fc": {
+          "type": "integer"
+        },
+        "hnode_0cbb0933f81d88ed68f8f707": {
+          "type": "integer"
+        },
+        "hnode_123821e5b3053803c2ece88e": {
+          "type": "integer"
+        },
+        "hnode_17ec3cb4b581c7ec3c4f935d": {
+          "type": "integer"
+        },
+        "hnode_1865b9bc1c2a336e0e395676": {
+          "type": "integer"
+        },
+        "hnode_19173b5f27e8931b2ebc642d": {
+          "type": "integer"
+        },
+        "hnode_19781e7b2cff1014bc928175": {
+          "type": "integer"
+        },
+        "hnode_1b801e68d1bf80405c55d616": {
+          "type": "integer"
+        },
+        "hnode_1bc8acaa3fa5da4246c8a1cf": {
+          "type": "integer"
+        },
+        "hnode_1ef6fb9c8032bbe2e04a496c": {
+          "type": "integer"
+        },
+        "hnode_2557d4da8802659cc32a5736": {
+          "type": "integer"
+        },
+        "hnode_2633ec3e9c8e44ef0c34476c": {
+          "type": "integer"
+        },
+        "hnode_265e6d4327fde40007eeea97": {
+          "type": "integer"
+        },
+        "hnode_30c5bda98d6d191ca6fc448e": {
+          "type": "integer"
+        },
+        "hnode_33d421ba8f81e3394b669fd2": {
+          "type": "integer"
+        },
+        "hnode_34df566cfe3bc604c589da83": {
+          "type": "integer"
+        },
+        "hnode_370a6b7ae5b1c42281850370": {
+          "type": "integer"
+        },
+        "hnode_3d0f19c8362d3a78f8107769": {
+          "type": "integer"
+        },
+        "hnode_3f3ccb22249703683b7c6585": {
+          "type": "integer"
+        },
+        "hnode_3fc7e480dfbcb62c6457a421": {
+          "type": "integer"
+        },
+        "hnode_423b7e759ed818736d52c09f": {
+          "type": "integer"
+        },
+        "hnode_42b95523c973457f0f2a0cfe": {
+          "type": "integer"
+        },
+        "hnode_42b95d7070ed93717d64a4a8": {
+          "type": "integer"
+        },
+        "hnode_44bedef8300302283c711287": {
+          "type": "integer"
+        },
+        "hnode_45f7f9bc66ee253d19d0ecb1": {
+          "type": "integer"
+        },
+        "hnode_4cb2a9105d13ba0f05f1f371": {
+          "type": "integer"
+        },
+        "hnode_4d7125c8b9785cfd50df4094": {
+          "type": "integer"
+        },
+        "hnode_4dfb48ca30c67e9e332cae7b": {
+          "type": "integer"
+        },
+        "hnode_4f5c54f657bdc74e9d52519b": {
+          "type": "integer"
+        },
+        "hnode_503ae63bba72c9a51fa44159": {
+          "type": "integer"
+        },
+        "hnode_5132712346db8ffe5f0fb3bc": {
+          "type": "integer"
+        },
+        "hnode_525e0533c8b16e3899eadff5": {
+          "type": "integer"
+        },
+        "hnode_545e62023ef7943324310be6": {
+          "type": "integer"
+        },
+        "hnode_55a7c340b38cb5ed3a66e454": {
+          "type": "integer"
+        },
+        "hnode_5bcf58a532294c9f73a0131f": {
+          "type": "integer"
+        },
+        "hnode_5c187232a88f708f06d371c2": {
+          "type": "integer"
+        },
+        "hnode_5c362c52238147c3240b5aa7": {
+          "type": "integer"
+        },
+        "hnode_5c53cf618f2e22c63acb1a71": {
+          "type": "integer"
+        },
+        "hnode_5cd6961a1362d3d34a723645": {
+          "type": "integer"
+        },
+        "hnode_6c35454b1e2ead578407eeaf": {
+          "type": "integer"
+        },
+        "hnode_6ee9dcb3ecef3da4d967ce4d": {
+          "type": "integer"
+        },
+        "hnode_7414e9d2367e6e1e66f43934": {
+          "type": "integer"
+        },
+        "hnode_7df3cd6f952e00f2f2620309": {
+          "type": "integer"
+        },
+        "hnode_80b84a39bf24225f2dc94a64": {
+          "type": "integer"
+        },
+        "hnode_85421f2b947ffb2610c7cd02": {
+          "type": "integer"
+        },
+        "hnode_8ca9ac53d3792f46147a569b": {
+          "type": "integer"
+        },
+        "hnode_8f6d7296052dda2f1d5444f7": {
+          "type": "integer"
+        },
+        "hnode_9270cb804f8874ce436d332d": {
+          "type": "integer"
+        },
+        "hnode_9593c71cd1e40f7b97337d33": {
+          "type": "integer"
+        },
+        "hnode_972bc872c56efbc8d0d8ec53": {
+          "type": "integer"
+        },
+        "hnode_979374f47264e9a0817c15e9": {
+          "type": "integer"
+        },
+        "hnode_980fc718e471b4a834904ad9": {
+          "type": "integer"
+        },
+        "hnode_985b2ef08cfae777ce3e889e": {
+          "type": "integer"
+        },
+        "hnode_9a8c4de17e7838143714187e": {
+          "type": "integer"
+        },
+        "hnode_9adac7871d3666d33dab2280": {
+          "type": "integer"
+        },
+        "hnode_9b74b45b7e4bada62dbf597b": {
+          "type": "integer"
+        },
+        "hnode_9bac8ae2de112db13edfe134": {
+          "type": "integer"
+        },
+        "hnode_9d8a426beb219edca7da7df3": {
+          "type": "integer"
+        },
+        "hnode_9e303a2422fbd1444c40c747": {
+          "type": "integer"
+        },
+        "hnode_a32e1b8587b57a093a5a4464": {
+          "type": "integer"
+        },
+        "hnode_a81603227ff0c4ea447ac81f": {
+          "type": "integer"
+        },
+        "hnode_a9c32095266dfcdf3c330fee": {
+          "type": "integer"
+        },
+        "hnode_acf02b32e2f7190c24c9c29a": {
+          "type": "integer"
+        },
+        "hnode_b0bbc1dd0ad867be74b0d603": {
+          "type": "integer"
+        },
+        "hnode_b3dce853750bd6f206ac768e": {
+          "type": "integer"
+        },
+        "hnode_b78a7a6a4650b10e66224eb4": {
+          "type": "integer"
+        },
+        "hnode_bb35e7a50ed39937ec86f163": {
+          "type": "integer"
+        },
+        "hnode_c6119c6c3b88f2684619e829": {
+          "type": "integer"
+        },
+        "hnode_ca58bfd0876ab023fd217701": {
+          "type": "integer"
+        },
+        "hnode_cc8aa19af35a530926358072": {
+          "type": "integer"
+        },
+        "hnode_cca9a52b95b29d9f05340d85": {
+          "type": "integer"
+        },
+        "hnode_cef302578e85fd878460c57b": {
+          "type": "integer"
+        },
+        "hnode_cfcf09587dabd79e2e30bd05": {
+          "type": "integer"
+        },
+        "hnode_d16ee24394c09b6f2af2e99b": {
+          "type": "integer"
+        },
+        "hnode_d1f2b0b3951cd681eb6acd6f": {
+          "type": "integer"
+        },
+        "hnode_d4a437310cc583fc4d34470e": {
+          "type": "integer"
+        },
+        "hnode_d7a7dfbb6ee976b2a477af8b": {
+          "type": "integer"
+        },
+        "hnode_d7e9124084211337c2e18fe4": {
+          "type": "integer"
+        },
+        "hnode_db9741f041e3403bd842f67e": {
+          "type": "integer"
+        },
+        "hnode_e19a92e834fd6506f0f721f9": {
+          "type": "integer"
+        },
+        "hnode_e4e6bd190573cc26909ed683": {
+          "type": "integer"
+        },
+        "hnode_eeb8781b93764479bccccaad": {
+          "type": "integer"
+        },
+        "hnode_ef64c9affc5ba30803bcda66": {
+          "type": "integer"
+        },
+        "hnode_f0551382eb275e6354206914": {
+          "type": "integer"
+        },
+        "hnode_f539875e41d5799c04a9e737": {
+          "type": "integer"
+        },
+        "hnode_f58dee02635a30640f8af146": {
+          "type": "integer"
+        },
+        "hnode_f7455445b77750f43ee1061e": {
+          "type": "integer"
+        },
+        "hnode_f8b3b36fdfe2a159ced84b90": {
+          "type": "integer"
+        },
+        "hnode_fb06d42baaf79ebd31b59fcd": {
+          "type": "integer"
+        },
+        "hnode_ffcd1e05be6bc001539c9b61": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "hnode_00110bc3ea681e81ba68a085",
+        "hnode_01e6479ae95a6ce9e5d057ed",
+        "hnode_031f8fb0480cac44f2dbdb85",
+        "hnode_0526f2abf25be51e3e05d9fb",
+        "hnode_05f1a20cff1569050e746a9d",
+        "hnode_0a84fc405f23d4de0bf5e4fc",
+        "hnode_0cbb0933f81d88ed68f8f707",
+        "hnode_123821e5b3053803c2ece88e",
+        "hnode_17ec3cb4b581c7ec3c4f935d",
+        "hnode_1865b9bc1c2a336e0e395676",
+        "hnode_19173b5f27e8931b2ebc642d",
+        "hnode_19781e7b2cff1014bc928175",
+        "hnode_1b801e68d1bf80405c55d616",
+        "hnode_1bc8acaa3fa5da4246c8a1cf",
+        "hnode_1ef6fb9c8032bbe2e04a496c",
+        "hnode_2557d4da8802659cc32a5736",
+        "hnode_2633ec3e9c8e44ef0c34476c",
+        "hnode_265e6d4327fde40007eeea97",
+        "hnode_30c5bda98d6d191ca6fc448e",
+        "hnode_33d421ba8f81e3394b669fd2",
+        "hnode_34df566cfe3bc604c589da83",
+        "hnode_370a6b7ae5b1c42281850370",
+        "hnode_3d0f19c8362d3a78f8107769",
+        "hnode_3f3ccb22249703683b7c6585",
+        "hnode_3fc7e480dfbcb62c6457a421",
+        "hnode_423b7e759ed818736d52c09f",
+        "hnode_42b95523c973457f0f2a0cfe",
+        "hnode_42b95d7070ed93717d64a4a8",
+        "hnode_44bedef8300302283c711287",
+        "hnode_45f7f9bc66ee253d19d0ecb1",
+        "hnode_4cb2a9105d13ba0f05f1f371",
+        "hnode_4d7125c8b9785cfd50df4094",
+        "hnode_4dfb48ca30c67e9e332cae7b",
+        "hnode_4f5c54f657bdc74e9d52519b",
+        "hnode_503ae63bba72c9a51fa44159",
+        "hnode_5132712346db8ffe5f0fb3bc",
+        "hnode_525e0533c8b16e3899eadff5",
+        "hnode_545e62023ef7943324310be6",
+        "hnode_55a7c340b38cb5ed3a66e454",
+        "hnode_5bcf58a532294c9f73a0131f",
+        "hnode_5c187232a88f708f06d371c2",
+        "hnode_5c362c52238147c3240b5aa7",
+        "hnode_5c53cf618f2e22c63acb1a71",
+        "hnode_5cd6961a1362d3d34a723645",
+        "hnode_6c35454b1e2ead578407eeaf",
+        "hnode_6ee9dcb3ecef3da4d967ce4d",
+        "hnode_7414e9d2367e6e1e66f43934",
+        "hnode_7df3cd6f952e00f2f2620309",
+        "hnode_80b84a39bf24225f2dc94a64",
+        "hnode_85421f2b947ffb2610c7cd02",
+        "hnode_8ca9ac53d3792f46147a569b",
+        "hnode_8f6d7296052dda2f1d5444f7",
+        "hnode_9270cb804f8874ce436d332d",
+        "hnode_9593c71cd1e40f7b97337d33",
+        "hnode_972bc872c56efbc8d0d8ec53",
+        "hnode_979374f47264e9a0817c15e9",
+        "hnode_980fc718e471b4a834904ad9",
+        "hnode_985b2ef08cfae777ce3e889e",
+        "hnode_9a8c4de17e7838143714187e",
+        "hnode_9adac7871d3666d33dab2280",
+        "hnode_9b74b45b7e4bada62dbf597b",
+        "hnode_9bac8ae2de112db13edfe134",
+        "hnode_9d8a426beb219edca7da7df3",
+        "hnode_9e303a2422fbd1444c40c747",
+        "hnode_a32e1b8587b57a093a5a4464",
+        "hnode_a81603227ff0c4ea447ac81f",
+        "hnode_a9c32095266dfcdf3c330fee",
+        "hnode_acf02b32e2f7190c24c9c29a",
+        "hnode_b0bbc1dd0ad867be74b0d603",
+        "hnode_b3dce853750bd6f206ac768e",
+        "hnode_b78a7a6a4650b10e66224eb4",
+        "hnode_bb35e7a50ed39937ec86f163",
+        "hnode_c6119c6c3b88f2684619e829",
+        "hnode_ca58bfd0876ab023fd217701",
+        "hnode_cc8aa19af35a530926358072",
+        "hnode_cca9a52b95b29d9f05340d85",
+        "hnode_cef302578e85fd878460c57b",
+        "hnode_cfcf09587dabd79e2e30bd05",
+        "hnode_d16ee24394c09b6f2af2e99b",
+        "hnode_d1f2b0b3951cd681eb6acd6f",
+        "hnode_d4a437310cc583fc4d34470e",
+        "hnode_d7a7dfbb6ee976b2a477af8b",
+        "hnode_d7e9124084211337c2e18fe4",
+        "hnode_db9741f041e3403bd842f67e",
+        "hnode_e19a92e834fd6506f0f721f9",
+        "hnode_e4e6bd190573cc26909ed683",
+        "hnode_eeb8781b93764479bccccaad",
+        "hnode_ef64c9affc5ba30803bcda66",
+        "hnode_f0551382eb275e6354206914",
+        "hnode_f539875e41d5799c04a9e737",
+        "hnode_f58dee02635a30640f8af146",
+        "hnode_f7455445b77750f43ee1061e",
+        "hnode_f8b3b36fdfe2a159ced84b90",
+        "hnode_fb06d42baaf79ebd31b59fcd",
+        "hnode_ffcd1e05be6bc001539c9b61"
+      ],
+      "type": "object"
+    },
+    "frozen": {
+      "type": "boolean"
+    },
+    "hyperedges": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "edge_id": {
+            "type": "string"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "member_node_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "quality": {
+            "type": "number"
+          },
+          "relation_kind": {
+            "type": "string"
+          },
+          "source_edge_hash": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "edge_id",
+          "known_time",
+          "member_node_ids",
+          "quality",
+          "relation_kind",
+          "source_edge_hash"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "known_as_of": {
+      "type": "string"
+    },
+    "nodes": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "event_time": {
+            "type": "string"
+          },
+          "feature": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "quality": {
+            "type": "number"
+          },
+          "semantic_key": {
+            "type": "string"
+          },
+          "sequence_state": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "source_node_hash": {
+            "type": "string"
+          },
+          "split": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "event_time",
+          "feature",
+          "kind",
+          "known_time",
+          "node_id",
+          "quality",
+          "semantic_key",
+          "sequence_state",
+          "source_node_hash",
+          "split"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "pair_edges": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "relation_kinds": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "source": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "relation_kinds",
+          "source",
+          "target"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "relation_kinds": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "sequence_distillation_hash": {
+      "type": "string"
+    },
+    "source_graph_hash": {
+      "type": "string"
+    },
+    "source_graph_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "compiled_graph_hash",
+    "compiled_graph_id",
+    "degree",
+    "frozen",
+    "hyperedges",
+    "known_as_of",
+    "nodes",
+    "pair_edges",
+    "phase",
+    "relation_kinds",
+    "sequence_distillation_hash",
+    "source_graph_hash",
+    "source_graph_id"
+  ],
+  "title": "SAED V4-13 Golden Compiled Model Graph",
+  "type": "object"
+}

@@ -1,0 +1,92 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-13/golden_candidate_checkpoints.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed synthetic-reference contract. Unknown fields fail validation and no production authority is conferred.",
+  "properties": {
+    "checkpoints": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "architecture": {
+            "type": "string"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "checkpoint_hash": {
+            "type": "string"
+          },
+          "checkpoint_id": {
+            "type": "string"
+          },
+          "compiled_graph_hash": {
+            "type": "string"
+          },
+          "composite_score": {
+            "type": "number"
+          },
+          "embedding_hash": {
+            "type": "string"
+          },
+          "evaluation_hash": {
+            "type": "string"
+          },
+          "hidden_dim": {
+            "type": "integer"
+          },
+          "layers": {
+            "type": "integer"
+          },
+          "output_dim": {
+            "type": "integer"
+          },
+          "phase": {
+            "type": "string"
+          },
+          "production_eligible": {
+            "type": "boolean"
+          },
+          "runtime_authority": {
+            "type": "boolean"
+          },
+          "seed": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "architecture",
+          "candidate_id",
+          "checkpoint_hash",
+          "checkpoint_id",
+          "compiled_graph_hash",
+          "composite_score",
+          "embedding_hash",
+          "evaluation_hash",
+          "hidden_dim",
+          "layers",
+          "output_dim",
+          "phase",
+          "production_eligible",
+          "runtime_authority",
+          "seed"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "checkpoints",
+    "count",
+    "phase"
+  ],
+  "title": "SAED V4-13 Golden Candidate Checkpoints",
+  "type": "object"
+}

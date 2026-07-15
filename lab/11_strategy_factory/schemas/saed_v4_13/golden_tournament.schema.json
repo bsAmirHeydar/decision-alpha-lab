@@ -1,0 +1,76 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-13/golden_tournament.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed synthetic-reference contract. Unknown fields fail validation and no production authority is conferred.",
+  "properties": {
+    "baseline_id": {
+      "type": "string"
+    },
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "baseline_score": {
+      "type": "number"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authority": {
+      "type": "boolean"
+    },
+    "ranking": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "architecture": {
+            "type": "string"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "composite_score": {
+            "type": "number"
+          },
+          "rank": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "architecture",
+          "candidate_id",
+          "composite_score",
+          "rank"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "reference_champion_id": {
+      "type": "string"
+    },
+    "selection_scope": {
+      "type": "string"
+    },
+    "tournament_hash": {
+      "type": "string"
+    },
+    "tournament_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "baseline_id",
+    "baseline_preserved",
+    "baseline_score",
+    "phase",
+    "production_authority",
+    "ranking",
+    "reference_champion_id",
+    "selection_scope",
+    "tournament_hash",
+    "tournament_id"
+  ],
+  "title": "SAED V4-13 Golden Tournament",
+  "type": "object"
+}

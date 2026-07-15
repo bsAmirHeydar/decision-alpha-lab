@@ -1,0 +1,37 @@
+[
+  {
+    "case_id": "unknown_candidate_field",
+    "expected_error": "ContractError",
+    "mutation": "append_unknown_field"
+  },
+  {
+    "case_id": "future_known_node",
+    "expected_error": "CausalityError",
+    "mutation": "known_time_after_cutoff"
+  },
+  {
+    "case_id": "dangling_member",
+    "expected_error": "TopologyError",
+    "mutation": "replace_member_node_id"
+  },
+  {
+    "case_id": "forbidden_outcome_key",
+    "expected_error": "ContaminationError",
+    "mutation": "append_outcome"
+  },
+  {
+    "case_id": "v412_registry_hash",
+    "expected_error": "IntegrityError",
+    "mutation": "change_registry_hash"
+  },
+  {
+    "case_id": "v405_graph_hash",
+    "expected_error": "IntegrityError",
+    "mutation": "change_graph_hash"
+  },
+  {
+    "case_id": "authority_escalation",
+    "expected_error": "AuthorityError",
+    "mutation": "select_treatment_true"
+  }
+]

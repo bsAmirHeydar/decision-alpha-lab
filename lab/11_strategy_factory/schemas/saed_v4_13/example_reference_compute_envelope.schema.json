@@ -1,0 +1,44 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-13/example_reference_compute_envelope.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-13 input example.",
+  "properties": {
+    "candidate_limit": {
+      "type": "integer"
+    },
+    "distributed_workers": {
+      "type": "integer"
+    },
+    "exposure_budget_units": {
+      "type": "integer"
+    },
+    "gpu_hours": {
+      "type": "number"
+    },
+    "hyperedge_limit": {
+      "type": "integer"
+    },
+    "node_limit": {
+      "type": "integer"
+    },
+    "pair_edge_limit": {
+      "type": "integer"
+    },
+    "wall_clock_seconds_limit": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "candidate_limit",
+    "distributed_workers",
+    "exposure_budget_units",
+    "gpu_hours",
+    "hyperedge_limit",
+    "node_limit",
+    "pair_edge_limit",
+    "wall_clock_seconds_limit"
+  ],
+  "title": "Example Reference Compute Envelope",
+  "type": "object"
+}

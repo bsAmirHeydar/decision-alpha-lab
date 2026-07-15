@@ -1,0 +1,40 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-13/golden_replay_receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed synthetic-reference contract. Unknown fields fail validation and no production authority is conferred.",
+  "properties": {
+    "first_hash": {
+      "type": "string"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "replay_hash": {
+      "type": "string"
+    },
+    "replay_id": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "string"
+    },
+    "second_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "first_hash",
+    "passed",
+    "phase",
+    "replay_hash",
+    "replay_id",
+    "scope",
+    "second_hash"
+  ],
+  "title": "SAED V4-13 Golden Replay Receipt",
+  "type": "object"
+}

@@ -1,0 +1,49 @@
+{
+  "baseline_id": "v413_relation_mean_s11",
+  "baseline_preserved": true,
+  "baseline_score": 0.8115057598052942,
+  "phase": "SAED_V4_13",
+  "production_authority": false,
+  "ranking": [
+    {
+      "architecture": "graph_attention",
+      "candidate_id": "v413_gat_s17",
+      "composite_score": 0.8572145148126203,
+      "rank": 1
+    },
+    {
+      "architecture": "heterogeneous_graph_fusion",
+      "candidate_id": "v413_heterofusion_s29",
+      "composite_score": 0.8412794629395015,
+      "rank": 2
+    },
+    {
+      "architecture": "relation_mean_baseline",
+      "candidate_id": "v413_relation_mean_s11",
+      "composite_score": 0.8115057598052942,
+      "rank": 3
+    },
+    {
+      "architecture": "hypergraph_diffusion",
+      "candidate_id": "v413_hyperdiff_s19",
+      "composite_score": 0.8109778917601865,
+      "rank": 4
+    },
+    {
+      "architecture": "temporal_graph_memory",
+      "candidate_id": "v413_tgm_s23",
+      "composite_score": 0.8070865567834667,
+      "rank": 5
+    },
+    {
+      "architecture": "relational_gcn",
+      "candidate_id": "v413_rgcn_s13",
+      "composite_score": 0.8049783813923471,
+      "rank": 6
+    }
+  ],
+  "reference_champion_id": "v413_gat_s17",
+  "selection_scope": "synthetic_reference_only",
+  "tournament_hash": "a7be83375b0540e4b92cec8032d3ad2ff4c413d5aaf0254666c6f8b8a152cf25",
+  "tournament_id": "graphtournament_7220c089a190c256f1e43032"
+}

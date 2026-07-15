@@ -1,0 +1,47 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-13/example_reference_candidate_catalog.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Closed SAED V4-13 input example.",
+  "items": {
+    "additionalProperties": false,
+    "properties": {
+      "architecture": {
+        "type": "string"
+      },
+      "candidate_id": {
+        "type": "string"
+      },
+      "dropout": {
+        "type": "number"
+      },
+      "enabled": {
+        "type": "boolean"
+      },
+      "hidden_dim": {
+        "type": "integer"
+      },
+      "layers": {
+        "type": "integer"
+      },
+      "output_dim": {
+        "type": "integer"
+      },
+      "seed": {
+        "type": "integer"
+      }
+    },
+    "required": [
+      "architecture",
+      "candidate_id",
+      "dropout",
+      "enabled",
+      "hidden_dim",
+      "layers",
+      "output_dim",
+      "seed"
+    ],
+    "type": "object"
+  },
+  "title": "Example Reference Candidate Catalog",
+  "type": "array"
+}

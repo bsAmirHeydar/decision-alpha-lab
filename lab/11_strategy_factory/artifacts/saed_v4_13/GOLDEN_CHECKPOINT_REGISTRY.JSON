@@ -1,0 +1,65 @@
+{
+  "admission_scope": "synthetic_reference_challenger",
+  "admitted_count": 6,
+  "entries": [
+    {
+      "architecture": "relation_mean_baseline",
+      "candidate_id": "v413_relation_mean_s11",
+      "checkpoint_hash": "b61640280c2f4be0b795dae57109aff1fc68439c0a0c745a1348ebda539bc88b",
+      "checkpoint_id": "graphckpt_044b00a1ce4eef5f889c0cf9",
+      "production_eligible": false,
+      "runtime_authority": false,
+      "state": "admitted_reference"
+    },
+    {
+      "architecture": "hypergraph_diffusion",
+      "candidate_id": "v413_hyperdiff_s19",
+      "checkpoint_hash": "2620490eb31db871f6f6092883d1d49059b1bec673991140ca4362365bc94d74",
+      "checkpoint_id": "graphckpt_2f19a7062ad72746b741eaf8",
+      "production_eligible": false,
+      "runtime_authority": false,
+      "state": "admitted_reference"
+    },
+    {
+      "architecture": "graph_attention",
+      "candidate_id": "v413_gat_s17",
+      "checkpoint_hash": "8863837ddc199b5fd8b3751338f4ef051a5cee092450103b8a4219dd3f0e503b",
+      "checkpoint_id": "graphckpt_405d2ae0a681e345306b0a51",
+      "production_eligible": false,
+      "runtime_authority": false,
+      "state": "admitted_reference"
+    },
+    {
+      "architecture": "relational_gcn",
+      "candidate_id": "v413_rgcn_s13",
+      "checkpoint_hash": "254e3b42b9fd46c27921eda19dac46b043c6bf7668b98400a9032b8ab937b85d",
+      "checkpoint_id": "graphckpt_4666195250b14af416deb407",
+      "production_eligible": false,
+      "runtime_authority": false,
+      "state": "admitted_reference"
+    },
+    {
+      "architecture": "heterogeneous_graph_fusion",
+      "candidate_id": "v413_heterofusion_s29",
+      "checkpoint_hash": "0f7236322dae527a913700a47f6d4ae4893e37e92173c94afc8eb98ebb623042",
+      "checkpoint_id": "graphckpt_b16c4a9cd6bc34216e9cb01d",
+      "production_eligible": false,
+      "runtime_authority": false,
+      "state": "admitted_reference"
+    },
+    {
+      "architecture": "temporal_graph_memory",
+      "candidate_id": "v413_tgm_s23",
+      "checkpoint_hash": "2846b75633b86d0924c48ea83853eb726b839b69170ae04b84487b7567c4c9be",
+      "checkpoint_id": "graphckpt_f59aefc08301fdfdcbb93f2f",
+      "production_eligible": false,
+      "runtime_authority": false,
+      "state": "admitted_reference"
+    }
+  ],
+  "immutable": true,
+  "phase": "SAED_V4_13",
+  "reference_champion_id": "v413_gat_s17",
+  "registry_hash": "0c632e65e364859395845fbf5cf0f4991d80006a339c313ce825469ddfd34459",
+  "registry_id": "graphregistry_9c5b7f7af62f26399ecfc979"
+}

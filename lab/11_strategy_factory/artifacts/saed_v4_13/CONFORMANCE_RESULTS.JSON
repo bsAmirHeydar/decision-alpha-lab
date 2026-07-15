@@ -1,0 +1,56 @@
+{
+  "count": 6,
+  "passed": true,
+  "phase": "SAED_V4_13",
+  "result_hash": "f52d149895f0b2cdd6fc9b05a10a0d8f425d54e76a3e47acc957172af78eb696",
+  "results": [
+    {
+      "candidate_id": "v413_relation_mean_s11",
+      "embedding_hash": "127385153d25db83b6a31f0bece9ce1e11b46de048ec84bd419e3be4a52e1a29",
+      "passed": true,
+      "repeat_hash": "127385153d25db83b6a31f0bece9ce1e11b46de048ec84bd419e3be4a52e1a29",
+      "tolerance": 1e-12,
+      "vector_id": "v413_conf_00"
+    },
+    {
+      "candidate_id": "v413_rgcn_s13",
+      "embedding_hash": "15ef9ce97e6edd1fe38ec38e1ad4a10b4cc9c8256e895805eb066d3f0fe8575e",
+      "passed": true,
+      "repeat_hash": "15ef9ce97e6edd1fe38ec38e1ad4a10b4cc9c8256e895805eb066d3f0fe8575e",
+      "tolerance": 1e-12,
+      "vector_id": "v413_conf_01"
+    },
+    {
+      "candidate_id": "v413_gat_s17",
+      "embedding_hash": "d66e7681cf0e252a4c51bb5bfb1af1e6ba957ca49280e5e997fb12d82f94cd64",
+      "passed": true,
+      "repeat_hash": "d66e7681cf0e252a4c51bb5bfb1af1e6ba957ca49280e5e997fb12d82f94cd64",
+      "tolerance": 1e-12,
+      "vector_id": "v413_conf_02"
+    },
+    {
+      "candidate_id": "v413_hyperdiff_s19",
+      "embedding_hash": "3c386e2c9bb9b05185275c5bcb83b20ebf62f2c094beef51781eecd3eb0b3dd3",
+      "passed": true,
+      "repeat_hash": "3c386e2c9bb9b05185275c5bcb83b20ebf62f2c094beef51781eecd3eb0b3dd3",
+      "tolerance": 1e-12,
+      "vector_id": "v413_conf_03"
+    },
+    {
+      "candidate_id": "v413_tgm_s23",
+      "embedding_hash": "765adb9f1316715f246a94a1a5ecf8b1d3c6fdb9661ae1c07f85bfa018c8a8b1",
+      "passed": true,
+      "repeat_hash": "765adb9f1316715f246a94a1a5ecf8b1d3c6fdb9661ae1c07f85bfa018c8a8b1",
+      "tolerance": 1e-12,
+      "vector_id": "v413_conf_04"
+    },
+    {
+      "candidate_id": "v413_heterofusion_s29",
+      "embedding_hash": "1c022dd102eac9b2bc660cc6eaa7b03dba08a22d79023041346ff522635fd1e3",
+      "passed": true,
+      "repeat_hash": "1c022dd102eac9b2bc660cc6eaa7b03dba08a22d79023041346ff522635fd1e3",
+      "tolerance": 1e-12,
+      "vector_id": "v413_conf_05"
+    }
+  ]
+}

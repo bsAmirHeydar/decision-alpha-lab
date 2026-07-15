@@ -1,0 +1,44 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-13/golden_order_invariance_audits.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed synthetic-reference contract. Unknown fields fail validation and no production authority is conferred.",
+  "properties": {
+    "audits": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_id": {
+            "type": "string"
+          },
+          "max_diff": {
+            "type": "number"
+          },
+          "passed": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "max_diff",
+          "passed"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "audits",
+    "count",
+    "phase"
+  ],
+  "title": "SAED V4-13 Golden Order Invariance Audits",
+  "type": "object"
+}

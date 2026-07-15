@@ -1,0 +1,93 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-13/provenance.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed synthetic-reference contract. Unknown fields fail validation and no production authority is conferred.",
+  "properties": {
+    "compiled_graph_hash": {
+      "type": "string"
+    },
+    "compiled_graph_id": {
+      "type": "string"
+    },
+    "evidence_scope": {
+      "type": "string"
+    },
+    "execution_authority": {
+      "type": "boolean"
+    },
+    "network_access": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "provenance_hash": {
+      "type": "string"
+    },
+    "provenance_id": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "tournament_hash": {
+      "type": "string"
+    },
+    "tournament_id": {
+      "type": "string"
+    },
+    "upstream_validation": {
+      "additionalProperties": false,
+      "properties": {
+        "frozen": {
+          "type": "boolean"
+        },
+        "gate_count": {
+          "type": "integer"
+        },
+        "passed": {
+          "type": "boolean"
+        },
+        "v4_05_graph_hash": {
+          "type": "string"
+        },
+        "v4_12_distillation_hash": {
+          "type": "string"
+        },
+        "v4_12_registry_hash": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "frozen",
+        "gate_count",
+        "passed",
+        "v4_05_graph_hash",
+        "v4_12_distillation_hash",
+        "v4_12_registry_hash"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "compiled_graph_hash",
+    "compiled_graph_id",
+    "evidence_scope",
+    "execution_authority",
+    "network_access",
+    "phase",
+    "provenance_hash",
+    "provenance_id",
+    "registry_hash",
+    "registry_id",
+    "tournament_hash",
+    "tournament_id",
+    "upstream_validation"
+  ],
+  "title": "SAED V4-13 Provenance",
+  "type": "object"
+}

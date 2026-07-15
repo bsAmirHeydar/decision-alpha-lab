@@ -1,0 +1,30 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-13/golden_contamination_audit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed synthetic-reference contract. Unknown fields fail validation and no production authority is conferred.",
+  "properties": {
+    "documented_boundary_tokens": {
+      "items": {},
+      "type": "array"
+    },
+    "forbidden_input_hits": {
+      "items": {},
+      "type": "array"
+    },
+    "outcome_supervision": {
+      "type": "boolean"
+    },
+    "passed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "documented_boundary_tokens",
+    "forbidden_input_hits",
+    "outcome_supervision",
+    "passed"
+  ],
+  "title": "SAED V4-13 Golden Contamination Audit",
+  "type": "object"
+}

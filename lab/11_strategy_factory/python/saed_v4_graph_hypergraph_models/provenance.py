@@ -1,0 +1,3 @@
+from .canonical import content_hash,stable_id
+def build(upstream_validation,graph,tournament,registry):
+    doc={'phase':'SAED_V4_13','upstream_validation':upstream_validation,'compiled_graph_id':graph['compiled_graph_id'],'compiled_graph_hash':graph['compiled_graph_hash'],'tournament_id':tournament['tournament_id'],'tournament_hash':tournament['tournament_hash'],'registry_id':registry['registry_id'],'registry_hash':registry['registry_hash'],'evidence_scope':'synthetic_reference_only','network_access':False,'execution_authority':False};doc['provenance_hash']=content_hash(doc);doc['provenance_id']=stable_id('graphprov',doc);return doc

@@ -1,0 +1,10 @@
+{
+  "candidate_limit": 6,
+  "distributed_workers": 1,
+  "exposure_budget_units": 1536,
+  "gpu_hours": 0.0,
+  "hyperedge_limit": 128,
+  "node_limit": 256,
+  "pair_edge_limit": 4096,
+  "wall_clock_seconds_limit": 90
+}

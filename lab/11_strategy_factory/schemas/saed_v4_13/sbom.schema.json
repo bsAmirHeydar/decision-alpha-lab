@@ -1,0 +1,44 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-13/sbom.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed synthetic-reference contract. Unknown fields fail validation and no production authority is conferred.",
+  "properties": {
+    "distributed_runtime_required": {
+      "type": "boolean"
+    },
+    "gpu_required": {
+      "type": "boolean"
+    },
+    "network_access": {
+      "type": "boolean"
+    },
+    "optional_test_dependency": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "required_external_runtime_dependencies": {
+      "items": {},
+      "type": "array"
+    },
+    "runtime": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "distributed_runtime_required",
+    "gpu_required",
+    "network_access",
+    "optional_test_dependency",
+    "phase",
+    "required_external_runtime_dependencies",
+    "runtime"
+  ],
+  "title": "SAED V4-13 Sbom",
+  "type": "object"
+}

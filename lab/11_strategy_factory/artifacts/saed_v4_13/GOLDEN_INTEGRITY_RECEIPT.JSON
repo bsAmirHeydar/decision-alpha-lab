@@ -1,0 +1,42 @@
+{
+  "entries": [
+    {
+      "hash": "e9abb42f631d87bdfc72ae21a5fcb5540c59ece25581b0d21c1fd88d49a91e48",
+      "name": "budget"
+    },
+    {
+      "hash": "a5be152e5f62149e5ef7a43806182420963c555b5141388305e81c6c7895ad5d",
+      "name": "candidate_metrics"
+    },
+    {
+      "hash": "df550564411d1ffd24b5ea9d19c4b9a060b3a24cee5c4b71d422911df9acf24e",
+      "name": "checkpoint_registry"
+    },
+    {
+      "hash": "dcf2171df3b9a9b67000e80922d445539c72a394820d2f0843f3007cacfa23df",
+      "name": "compiled_graph"
+    },
+    {
+      "hash": "6051ebc0d5907f0bbd11c3baab04f9f484a03ccdd075d26e733f7f7b5ee464c7",
+      "name": "contamination_audit"
+    },
+    {
+      "hash": "7014de74bb45e5fd6d3c9d5c239c5ae4ea6157cd09883411a97fe02f00210730",
+      "name": "future_suffix_audits"
+    },
+    {
+      "hash": "0dea5555e4e5b570725dbc3100752d4bd43c610e4fa3e1f5e0a1a15af7b868a5",
+      "name": "order_invariance_audits"
+    },
+    {
+      "hash": "706a561ab955401345f6ca071a415512643fed06ba23e42d570ce1bb26c0cea7",
+      "name": "tournament"
+    }
+  ],
+  "entry_count": 8,
+  "immutable": true,
+  "merkle_root": "d7ff2ca1d4d5f43461666ab3fe239d24ca7ab39eee3677a897452fb46b026457",
+  "phase": "SAED_V4_13",
+  "receipt_hash": "3357d173355b3c9c58c4513dd02c3701522b459431f221f4298ccf520e4872af",
+  "receipt_id": "graphintegrity_f8d177a451404a6703c0f086"
+}

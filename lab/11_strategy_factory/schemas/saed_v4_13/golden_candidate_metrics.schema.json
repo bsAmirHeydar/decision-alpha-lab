@@ -1,0 +1,186 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-13/golden_candidate_metrics.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed synthetic-reference contract. Unknown fields fail validation and no production authority is conferred.",
+  "properties": {
+    "count": {
+      "type": "integer"
+    },
+    "metrics": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "architecture": {
+            "type": "string"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "composite_score": {
+            "type": "number"
+          },
+          "evaluation_hash": {
+            "type": "string"
+          },
+          "objectives": {
+            "additionalProperties": false,
+            "properties": {
+              "hyperedge_membership": {
+                "additionalProperties": false,
+                "properties": {
+                  "negative_count": {
+                    "type": "integer"
+                  },
+                  "pairwise_auc": {
+                    "type": "number"
+                  },
+                  "positive_count": {
+                    "type": "integer"
+                  },
+                  "score": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "negative_count",
+                  "pairwise_auc",
+                  "positive_count",
+                  "score"
+                ],
+                "type": "object"
+              },
+              "masked_node_reconstruction": {
+                "additionalProperties": false,
+                "properties": {
+                  "eval_count": {
+                    "type": "integer"
+                  },
+                  "mse": {
+                    "type": "number"
+                  },
+                  "readout_hash": {
+                    "type": "string"
+                  },
+                  "score": {
+                    "type": "number"
+                  },
+                  "train_count": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "eval_count",
+                  "mse",
+                  "readout_hash",
+                  "score",
+                  "train_count"
+                ],
+                "type": "object"
+              },
+              "relation_type_prediction": {
+                "additionalProperties": false,
+                "properties": {
+                  "accuracy": {
+                    "type": "number"
+                  },
+                  "centroid_hash": {
+                    "type": "string"
+                  },
+                  "pair_count": {
+                    "type": "integer"
+                  },
+                  "relation_count": {
+                    "type": "integer"
+                  },
+                  "score": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "accuracy",
+                  "centroid_hash",
+                  "pair_count",
+                  "relation_count",
+                  "score"
+                ],
+                "type": "object"
+              },
+              "sequence_state_alignment": {
+                "additionalProperties": false,
+                "properties": {
+                  "mean_alignment_unit": {
+                    "type": "number"
+                  },
+                  "node_count": {
+                    "type": "integer"
+                  },
+                  "score": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "mean_alignment_unit",
+                  "node_count",
+                  "score"
+                ],
+                "type": "object"
+              },
+              "temporal_consistency": {
+                "additionalProperties": false,
+                "properties": {
+                  "mean_neighbor_cosine_unit": {
+                    "type": "number"
+                  },
+                  "pair_count": {
+                    "type": "integer"
+                  },
+                  "score": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "mean_neighbor_cosine_unit",
+                  "pair_count",
+                  "score"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "hyperedge_membership",
+              "masked_node_reconstruction",
+              "relation_type_prediction",
+              "sequence_state_alignment",
+              "temporal_consistency"
+            ],
+            "type": "object"
+          },
+          "outcome_supervision": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "architecture",
+          "candidate_id",
+          "composite_score",
+          "evaluation_hash",
+          "objectives",
+          "outcome_supervision"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "count",
+    "metrics",
+    "phase"
+  ],
+  "title": "SAED V4-13 Golden Candidate Metrics",
+  "type": "object"
+}

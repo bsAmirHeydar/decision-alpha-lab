@@ -1,0 +1,8 @@
+{
+  "frozen": true,
+  "gate_count": 7,
+  "passed": true,
+  "v4_05_graph_hash": "f1e4e5c60b9146161a6f5db9d82bb9ef53e9d0045e772562136451b7897b011a",
+  "v4_12_distillation_hash": "eab8c7dfc7bcc0eafead3282a35547814e4ebaba7c3c3f80c300566a38a15553",
+  "v4_12_registry_hash": "d4eabc60a2d86c173f7c69834842018993d304fff3f0d4bb53e418ba213ee5a1"
+}

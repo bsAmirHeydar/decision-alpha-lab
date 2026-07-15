@@ -1,0 +1,98 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-13/golden_compute_budget.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed synthetic-reference contract. Unknown fields fail validation and no production authority is conferred.",
+  "properties": {
+    "checks": {
+      "additionalProperties": false,
+      "properties": {
+        "candidates": {
+          "type": "boolean"
+        },
+        "distributed_workers": {
+          "type": "boolean"
+        },
+        "gpu_hours": {
+          "type": "boolean"
+        },
+        "hyperedges": {
+          "type": "boolean"
+        },
+        "nodes": {
+          "type": "boolean"
+        },
+        "pair_edges": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "candidates",
+        "distributed_workers",
+        "gpu_hours",
+        "hyperedges",
+        "nodes",
+        "pair_edges"
+      ],
+      "type": "object"
+    },
+    "envelope": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_limit": {
+          "type": "integer"
+        },
+        "distributed_workers": {
+          "type": "integer"
+        },
+        "exposure_budget_units": {
+          "type": "integer"
+        },
+        "gpu_hours": {
+          "type": "number"
+        },
+        "hyperedge_limit": {
+          "type": "integer"
+        },
+        "node_limit": {
+          "type": "integer"
+        },
+        "pair_edge_limit": {
+          "type": "integer"
+        },
+        "wall_clock_seconds_limit": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "candidate_limit",
+        "distributed_workers",
+        "exposure_budget_units",
+        "gpu_hours",
+        "hyperedge_limit",
+        "node_limit",
+        "pair_edge_limit",
+        "wall_clock_seconds_limit"
+      ],
+      "type": "object"
+    },
+    "exposure_units": {
+      "type": "integer"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "trial_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "checks",
+    "envelope",
+    "exposure_units",
+    "passed",
+    "trial_count"
+  ],
+  "title": "SAED V4-13 Golden Compute Budget",
+  "type": "object"
+}

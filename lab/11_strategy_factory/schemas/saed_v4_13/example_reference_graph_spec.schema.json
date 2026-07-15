@@ -1,0 +1,52 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-13/example_reference_graph_spec.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-13 input example.",
+  "properties": {
+    "exact_version": {
+      "type": "string"
+    },
+    "frozen_upstream": {
+      "type": "boolean"
+    },
+    "hidden_dim": {
+      "type": "integer"
+    },
+    "input_dim": {
+      "type": "integer"
+    },
+    "known_time_only": {
+      "type": "boolean"
+    },
+    "layers": {
+      "type": "integer"
+    },
+    "max_clique_degree": {
+      "type": "integer"
+    },
+    "max_hyperedges": {
+      "type": "integer"
+    },
+    "max_nodes": {
+      "type": "integer"
+    },
+    "output_dim": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "exact_version",
+    "frozen_upstream",
+    "hidden_dim",
+    "input_dim",
+    "known_time_only",
+    "layers",
+    "max_clique_degree",
+    "max_hyperedges",
+    "max_nodes",
+    "output_dim"
+  ],
+  "title": "Example Reference Graph Spec",
+  "type": "object"
+}

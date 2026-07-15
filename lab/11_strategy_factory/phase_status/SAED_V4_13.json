@@ -1,0 +1,73 @@
+{
+  "authority": {
+    "decision_authority": false,
+    "execution_authority": false,
+    "research_reference_only": true,
+    "runtime_authority": false
+  },
+  "claims": {
+    "deterministic_replay": true,
+    "frozen_upstream_binding": true,
+    "future_suffix_invariance": true,
+    "graph_hypergraph_reference_implemented": true,
+    "hypergraph_message_passing": true,
+    "known_time_graph_compilation": true,
+    "live_trading": false,
+    "outcome_prediction_authority": false,
+    "production_authorization": false,
+    "real_alpha": false,
+    "relation_aware_message_passing": true,
+    "risk_allocation": false,
+    "runtime_activation": false,
+    "self_supervised_graph_objectives": true,
+    "temporal_graph_reference": true,
+    "treatment_ranking": false,
+    "treatment_selection": false
+  },
+  "date": "2026-07-15",
+  "external_evidence": {
+    "distributed_training": "not_claimed",
+    "gpu_reproduction": "not_claimed",
+    "live": "not_claimed",
+    "metaeditor_compile": "pending_local_windows",
+    "micro_live": "not_claimed",
+    "prospective_paper": "not_claimed",
+    "real_corpus_training": "not_claimed",
+    "runtime_differential_parity": "not_claimed",
+    "shadow": "not_claimed"
+  },
+  "handoff_hash": "b5cb4b4a05746717c9f8c1854be98929a0d2c671ca86bb34bddd9b66d1efcce2",
+  "handoff_id": "v413to14_6778c6278fd58a1c7172c390",
+  "implementation_status": "implemented_reference_synthetic",
+  "next_phase": "SAED_V4_14",
+  "phase": "SAED_V4_13",
+  "qa": {
+    "closed_schema_pairs": 27,
+    "golden_reproduction": true,
+    "mql5_static_files": 12,
+    "obsidian_notes": 64,
+    "passed": true,
+    "python_tests": 79
+  },
+  "reference_champion_id": "v413_gat_s17",
+  "registry_hash": "0c632e65e364859395845fbf5cf0f4991d80006a339c313ce825469ddfd34459",
+  "registry_id": "graphregistry_9c5b7f7af62f26399ecfc979",
+  "scope": {
+    "architecture_family_count": 6,
+    "baseline_preservation": true,
+    "contamination_firewall": true,
+    "frozen_graph_binding": true,
+    "frozen_sequence_state_binding": true,
+    "future_suffix_audit": true,
+    "immutable_registry": true,
+    "known_time_graph_compiler": true,
+    "objective_count": 5,
+    "order_invariance": true
+  },
+  "title": "Graph and Hypergraph Models",
+  "upstream_phases": [
+    "SAED_V4_05",
+    "SAED_V4_12"
+  ],
+  "version": "1.0.0"
+}

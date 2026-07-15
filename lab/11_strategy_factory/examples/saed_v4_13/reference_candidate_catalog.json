@@ -1,0 +1,62 @@
+[
+  {
+    "architecture": "relation_mean_baseline",
+    "candidate_id": "v413_relation_mean_s11",
+    "dropout": 0.0,
+    "enabled": true,
+    "hidden_dim": 12,
+    "layers": 2,
+    "output_dim": 8,
+    "seed": 11
+  },
+  {
+    "architecture": "relational_gcn",
+    "candidate_id": "v413_rgcn_s13",
+    "dropout": 0.0,
+    "enabled": true,
+    "hidden_dim": 12,
+    "layers": 2,
+    "output_dim": 8,
+    "seed": 13
+  },
+  {
+    "architecture": "graph_attention",
+    "candidate_id": "v413_gat_s17",
+    "dropout": 0.0,
+    "enabled": true,
+    "hidden_dim": 12,
+    "layers": 2,
+    "output_dim": 8,
+    "seed": 17
+  },
+  {
+    "architecture": "hypergraph_diffusion",
+    "candidate_id": "v413_hyperdiff_s19",
+    "dropout": 0.0,
+    "enabled": true,
+    "hidden_dim": 12,
+    "layers": 2,
+    "output_dim": 8,
+    "seed": 19
+  },
+  {
+    "architecture": "temporal_graph_memory",
+    "candidate_id": "v413_tgm_s23",
+    "dropout": 0.0,
+    "enabled": true,
+    "hidden_dim": 12,
+    "layers": 2,
+    "output_dim": 8,
+    "seed": 23
+  },
+  {
+    "architecture": "heterogeneous_graph_fusion",
+    "candidate_id": "v413_heterofusion_s29",
+    "dropout": 0.0,
+    "enabled": true,
+    "hidden_dim": 12,
+    "layers": 2,
+    "output_dim": 8,
+    "seed": 29
+  }
+]

@@ -1,0 +1,240 @@
+{
+  "count": 6,
+  "metrics": [
+    {
+      "architecture": "relation_mean_baseline",
+      "candidate_id": "v413_relation_mean_s11",
+      "composite_score": 0.8115057598052942,
+      "evaluation_hash": "915d085708a4a1b7b055206140ea192175d9b3b354d7a3bc6026383f124bfd90",
+      "objectives": {
+        "hyperedge_membership": {
+          "negative_count": 63,
+          "pairwise_auc": 0.9214432686654909,
+          "positive_count": 216,
+          "score": 0.9214432686654909
+        },
+        "masked_node_reconstruction": {
+          "eval_count": 14,
+          "mse": 0.006476530024476549,
+          "readout_hash": "9de6edd4796752647942040ceff0776a637f33470d8478e022153d369c41f977",
+          "score": 0.9935651455038709,
+          "train_count": 81
+        },
+        "relation_type_prediction": {
+          "accuracy": 0.6289473684210526,
+          "centroid_hash": "38f1252ac3e8eb424c704f60ba9b17cc049d99315ff46d584db52fb6874ce1d7",
+          "pair_count": 760,
+          "relation_count": 8,
+          "score": 0.6289473684210526
+        },
+        "sequence_state_alignment": {
+          "mean_alignment_unit": 0.439949867071896,
+          "node_count": 95,
+          "score": 0.439949867071896
+        },
+        "temporal_consistency": {
+          "mean_neighbor_cosine_unit": 0.9641846461896281,
+          "pair_count": 760,
+          "score": 0.9641846461896281
+        }
+      },
+      "outcome_supervision": false
+    },
+    {
+      "architecture": "relational_gcn",
+      "candidate_id": "v413_rgcn_s13",
+      "composite_score": 0.8049783813923471,
+      "evaluation_hash": "14c7c3e3eb0058d7279b597ddae631e0d87e7de51b65e4f0d9e43149c0c3803e",
+      "objectives": {
+        "hyperedge_membership": {
+          "negative_count": 63,
+          "pairwise_auc": 0.8686801881246325,
+          "positive_count": 216,
+          "score": 0.8686801881246325
+        },
+        "masked_node_reconstruction": {
+          "eval_count": 14,
+          "mse": 0.0015797762219611489,
+          "readout_hash": "ccf1e1cc20c4600820ae305d6e6261145ffa5390c1027d21481cf69989ea913b",
+          "score": 0.9984227155345327,
+          "train_count": 81
+        },
+        "relation_type_prediction": {
+          "accuracy": 0.7868421052631579,
+          "centroid_hash": "5415671f0c21f1a3b84017f2f0d1a28bd5e5d4d3e1cee6f1afb38c70e38bb7ed",
+          "pair_count": 760,
+          "relation_count": 8,
+          "score": 0.7868421052631579
+        },
+        "sequence_state_alignment": {
+          "mean_alignment_unit": 0.1933130378149711,
+          "node_count": 95,
+          "score": 0.1933130378149711
+        },
+        "temporal_consistency": {
+          "mean_neighbor_cosine_unit": 0.9386239954791595,
+          "pair_count": 760,
+          "score": 0.9386239954791595
+        }
+      },
+      "outcome_supervision": false
+    },
+    {
+      "architecture": "graph_attention",
+      "candidate_id": "v413_gat_s17",
+      "composite_score": 0.8572145148126203,
+      "evaluation_hash": "8ad18a3f3cda54677c339d1f08978088136e3bb77ec40fb873a7c34a4e40e786",
+      "objectives": {
+        "hyperedge_membership": {
+          "negative_count": 63,
+          "pairwise_auc": 0.9327601410934744,
+          "positive_count": 216,
+          "score": 0.9327601410934744
+        },
+        "masked_node_reconstruction": {
+          "eval_count": 14,
+          "mse": 0.006837560225799686,
+          "readout_hash": "dae89ed4e5192ec96a65d969f169ffa8a9178ef006e9883143f0044aefb8720b",
+          "score": 0.9932088745037816,
+          "train_count": 81
+        },
+        "relation_type_prediction": {
+          "accuracy": 0.6078947368421053,
+          "centroid_hash": "1b90d7c020606a9d27ae40c25194b8b882e30330953159d022410ab0053a344e",
+          "pair_count": 760,
+          "relation_count": 8,
+          "score": 0.6078947368421053
+        },
+        "sequence_state_alignment": {
+          "mean_alignment_unit": 0.8012336113980367,
+          "node_count": 95,
+          "score": 0.8012336113980367
+        },
+        "temporal_consistency": {
+          "mean_neighbor_cosine_unit": 0.9887550022242031,
+          "pair_count": 760,
+          "score": 0.9887550022242031
+        }
+      },
+      "outcome_supervision": false
+    },
+    {
+      "architecture": "hypergraph_diffusion",
+      "candidate_id": "v413_hyperdiff_s19",
+      "composite_score": 0.8109778917601865,
+      "evaluation_hash": "15579d454d58a5c56940fcd05a34b65aad0c4776e6008e08b7817650ea1e7859",
+      "objectives": {
+        "hyperedge_membership": {
+          "negative_count": 63,
+          "pairwise_auc": 0.9061581422692534,
+          "positive_count": 216,
+          "score": 0.9061581422692534
+        },
+        "masked_node_reconstruction": {
+          "eval_count": 14,
+          "mse": 0.007009479199604664,
+          "readout_hash": "d56238d1c99f00fa3e5dca3e5e817a525f84faa8748bbbb389dc12bf78827172",
+          "score": 0.9930393116009434,
+          "train_count": 81
+        },
+        "relation_type_prediction": {
+          "accuracy": 0.48157894736842105,
+          "centroid_hash": "172c367397bf4ce10ae1ab6a1af6d2249b6728fca66f757687dcae34e94d3c55",
+          "pair_count": 760,
+          "relation_count": 8,
+          "score": 0.48157894736842105
+        },
+        "sequence_state_alignment": {
+          "mean_alignment_unit": 0.7675250593504571,
+          "node_count": 95,
+          "score": 0.7675250593504571
+        },
+        "temporal_consistency": {
+          "mean_neighbor_cosine_unit": 0.9587452722537991,
+          "pair_count": 760,
+          "score": 0.9587452722537991
+        }
+      },
+      "outcome_supervision": false
+    },
+    {
+      "architecture": "temporal_graph_memory",
+      "candidate_id": "v413_tgm_s23",
+      "composite_score": 0.8070865567834667,
+      "evaluation_hash": "9e8f0da5e96f6d89199274c74e39d0e361d59368ac6cc8f1472f04fb6c1ccacc",
+      "objectives": {
+        "hyperedge_membership": {
+          "negative_count": 63,
+          "pairwise_auc": 0.910787771898883,
+          "positive_count": 216,
+          "score": 0.910787771898883
+        },
+        "masked_node_reconstruction": {
+          "eval_count": 14,
+          "mse": 0.005553359062785452,
+          "readout_hash": "3d93799ff2e883bf01627cbe7c21c47a4019d7052748c789046c958978e34a60",
+          "score": 0.9944773104154698,
+          "train_count": 81
+        },
+        "relation_type_prediction": {
+          "accuracy": 0.5736842105263158,
+          "centroid_hash": "f5b662ea61b48983a1d393c1b95ae8cabdf9b01411868ef339100f582dca47fd",
+          "pair_count": 760,
+          "relation_count": 8,
+          "score": 0.5736842105263158
+        },
+        "sequence_state_alignment": {
+          "mean_alignment_unit": 0.5108240859894947,
+          "node_count": 95,
+          "score": 0.5108240859894947
+        },
+        "temporal_consistency": {
+          "mean_neighbor_cosine_unit": 0.9879697825969014,
+          "pair_count": 760,
+          "score": 0.9879697825969014
+        }
+      },
+      "outcome_supervision": false
+    },
+    {
+      "architecture": "heterogeneous_graph_fusion",
+      "candidate_id": "v413_heterofusion_s29",
+      "composite_score": 0.8412794629395015,
+      "evaluation_hash": "750c41c90c7968d78c17c37d6f92eee35b448bb528899fb1c30456c3ba4a8d59",
+      "objectives": {
+        "hyperedge_membership": {
+          "negative_count": 63,
+          "pairwise_auc": 0.9199000587889476,
+          "positive_count": 216,
+          "score": 0.9199000587889476
+        },
+        "masked_node_reconstruction": {
+          "eval_count": 14,
+          "mse": 0.002396715076805234,
+          "readout_hash": "50d42dcaa00bf09139a65c63dd8e2ebdaaf8e47583a4b42f1db5e248fcf79ba6",
+          "score": 0.9976090154319575,
+          "train_count": 81
+        },
+        "relation_type_prediction": {
+          "accuracy": 0.7710526315789473,
+          "centroid_hash": "3eaf3246dd091420c15afa02931677f280ea31c0a09a33e39ca52ddc531ea25e",
+          "pair_count": 760,
+          "relation_count": 8,
+          "score": 0.7710526315789473
+        },
+        "sequence_state_alignment": {
+          "mean_alignment_unit": 0.39217748167456323,
+          "node_count": 95,
+          "score": 0.39217748167456323
+        },
+        "temporal_consistency": {
+          "mean_neighbor_cosine_unit": 0.9609348102417442,
+          "pair_count": 760,
+          "score": 0.9609348102417442
+        }
+      },
+      "outcome_supervision": false
+    }
+  ],
+  "phase": "SAED_V4_13"
+}

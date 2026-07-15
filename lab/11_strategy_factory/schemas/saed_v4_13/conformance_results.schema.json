@@ -1,0 +1,64 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-13/conformance_results.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed synthetic-reference contract. Unknown fields fail validation and no production authority is conferred.",
+  "properties": {
+    "count": {
+      "type": "integer"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "result_hash": {
+      "type": "string"
+    },
+    "results": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_id": {
+            "type": "string"
+          },
+          "embedding_hash": {
+            "type": "string"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "repeat_hash": {
+            "type": "string"
+          },
+          "tolerance": {
+            "type": "number"
+          },
+          "vector_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "embedding_hash",
+          "passed",
+          "repeat_hash",
+          "tolerance",
+          "vector_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "count",
+    "passed",
+    "phase",
+    "result_hash",
+    "results"
+  ],
+  "title": "SAED V4-13 Conformance Results",
+  "type": "object"
+}

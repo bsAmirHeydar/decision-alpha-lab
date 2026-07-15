@@ -1,58 +1,47 @@
 ---
 title: V4-13 Graph And Hypergraph Models
-status: canonical
+status: implemented-reference
 version: 4.0.0
 created: '2026-07-13'
-updated: '2026-07-13'
+updated: '2026-07-15'
 capability_tier: core-production
-tags:
-  - saed-v4
-  - implementation
-  - roadmap
+implementation_version: 1.0.0
+tags: [saed-v4, implementation, roadmap, graph-learning, hypergraph-learning]
 ---
-
 # Phase V4-13: Graph And Hypergraph Models
 
-## Mission
+## Implementation status
 
-Implement this phase as an additive, closed-contract capability that preserves UCEE authority and can be independently validated.
+SAED V4-13 now has a complete deterministic synthetic-reference implementation. It binds exact frozen V4-05 graph integrity and V4-12 sequence registry/distillation evidence, compiles a known-time model graph, evaluates six graph architecture families on five outcome-free objectives, proves future-suffix rejection and node-order invariance, preserves the simple baseline, registers immutable research checkpoints and freezes the V4-14 handoff.
 
-## Entry gates
+## Delivered architecture families
 
-- Prior phase artifacts are immutable and hash verified.
-- Data roles, support, treatment universe and authority are frozen.
-- Golden and negative fixtures exist.
-- Compute, exposure and review budgets are approved.
+1. Relation mean baseline.
+2. Relational graph convolution.
+3. Bounded graph attention.
+4. Native hypergraph diffusion.
+5. Temporal graph memory.
+6. Heterogeneous graph and sequence-state fusion.
 
-## Engineering slices
+## Closed evidence boundary
 
-1. Contract and schema freeze.
-2. Deterministic reference implementation.
-3. Golden, negative and mutation tests.
-4. Distributed or advanced challenger implementation.
-5. Model-risk and security review.
-6. Independent reproduction.
-7. Evidence bundle and handoff.
+The implementation uses frozen synthetic-reference artifacts only. It does not consume an Outcome Cube, execution evidence, protected-final data, prospective paper, shadow or live evidence. No real alpha, causal treatment value, treatment ranking, runtime parity or production authorization is claimed.
 
-## Acceptance gates
+## Acceptance evidence
 
-- Zero unknown fields in closed contracts.
-- No future-suffix sensitivity.
-- Deterministic identity and replay.
-- Complete trial/exposure accounting.
-- Baseline preserved.
-- Fail-closed fallback verified.
-- UCEE compatibility and no central-engine mutation.
-- Actual external/MetaEditor evidence distinguished from static evidence.
+- Closed schemas and unknown-field rejection.
+- Exact V4-05 and V4-12 hash binding.
+- Known-time topology and forbidden-supervision firewall.
+- Deterministic graph compilation and replay.
+- Future-suffix rejection and storage-order invariance.
+- Fixed compute/exposure accounting and baseline preservation.
+- Immutable checkpoint registry and Merkle integrity receipt.
+- Python tests, Obsidian validation and MQL5 static mirrors.
 
-## Deliverables
+## Next phase
 
-- Source modules and tests.
-- Schemas and examples.
-- Obsidian implementation documentation.
-- QA report, inventory, file index and hash ledger.
-- Handoff to the next phase.
+The next phase is [[V4_14_Foundation_Model_Adapters|V4-14 Foundation Model Adapters]]. It may read exact frozen graph embeddings and checkpoint registry hashes. It may not mutate V4-13 evidence or infer decision authority.
 
-## Non-goals
+## Detailed delivery
 
-This architecture phase does not claim real alpha, prospective success, runtime parity or production authorization unless actual evidence is attached.
+See [[README|SAED V4-13 Delivery Index]] under `62_PHASE_DELIVERIES_V4/V4_13`.

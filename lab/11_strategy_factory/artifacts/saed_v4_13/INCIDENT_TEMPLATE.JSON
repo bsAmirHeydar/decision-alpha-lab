@@ -1,0 +1,21 @@
+{
+  "execution_action": "none",
+  "incident_classes": [
+    "upstream_hash_mismatch",
+    "future_known_graph_record",
+    "dangling_hyperedge",
+    "unknown_relation",
+    "checkpoint_mutation",
+    "replay_divergence",
+    "forbidden_supervision",
+    "authority_escalation"
+  ],
+  "phase": "SAED_V4_13",
+  "required_actions": [
+    "fail_closed",
+    "quarantine_artifact",
+    "preserve_evidence",
+    "revoke_handoff",
+    "open_root_cause_review"
+  ]
+}
