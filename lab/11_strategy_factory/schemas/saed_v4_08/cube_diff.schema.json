@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "changed_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "changed_rows": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "diff_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "diff_id": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "left_cube_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "ranking_semantics": {
+      "const": "none"
+    },
+    "right_cube_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "left_cube_hash",
+    "right_cube_hash",
+    "changed_rows",
+    "changed_count",
+    "ranking_semantics",
+    "diff_id",
+    "diff_hash"
+  ],
+  "title": "Cube Diff",
+  "type": "object"
+}

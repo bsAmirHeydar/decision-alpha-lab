@@ -1,0 +1,15 @@
+{
+  "exact_version": "1.0.0",
+  "models": [
+    {
+      "commission_r": 0.01,
+      "entry_slippage_points": 0.1,
+      "exact_version": "1.0.0",
+      "exit_slippage_points": 0.1,
+      "model_id": "fixed_conservative",
+      "other_r": 0.0,
+      "spread_multiplier": 1.0
+    }
+  ],
+  "registry_name": "saed.v4.08.reference.costs"
+}

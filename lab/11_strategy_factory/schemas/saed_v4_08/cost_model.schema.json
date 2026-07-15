@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "commission_r": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "entry_slippage_points": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "exact_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "exit_slippage_points": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "model_id": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "other_r": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "spread_multiplier": {
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "model_id",
+    "exact_version",
+    "spread_multiplier",
+    "entry_slippage_points",
+    "exit_slippage_points",
+    "commission_r",
+    "other_r"
+  ],
+  "title": "Cost Model",
+  "type": "object"
+}

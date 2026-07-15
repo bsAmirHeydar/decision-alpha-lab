@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action_class": {
+      "enum": [
+        "ordinary",
+        "skip",
+        "abstain"
+      ]
+    },
+    "direction": {
+      "enum": [
+        1,
+        -1
+      ],
+      "type": "integer"
+    },
+    "entry_expiration_ms": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "entry_price": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "maximum_holding_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "node_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "node_id": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "partial_activation_r": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "partial_fraction": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "source_component_hashes": {
+      "items": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "spec_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "spec_id": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "stop_price": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "target_price": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "trail_activation_r": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "trigger_expected": {},
+    "trigger_operator": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "trigger_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "node_id",
+    "node_hash",
+    "action_class",
+    "direction",
+    "trigger_ref",
+    "trigger_operator",
+    "trigger_expected",
+    "entry_price",
+    "entry_expiration_ms",
+    "stop_price",
+    "target_price",
+    "maximum_holding_ms",
+    "partial_fraction",
+    "partial_activation_r",
+    "trail_activation_r",
+    "source_component_hashes",
+    "spec_id",
+    "spec_hash"
+  ],
+  "title": "Execution Spec",
+  "type": "object"
+}

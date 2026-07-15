@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "type": "object"
+    },
+    "complete_exposure": {
+      "type": "boolean"
+    },
+    "cube_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "cube_id": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "evidence_role": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "handoff_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "handoff_id": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "integrity_receipt_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "known_as_of": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "next_phase": {
+      "const": "SAED_V4_09"
+    },
+    "phase": {
+      "const": "SAED_V4_08"
+    }
+  },
+  "required": [
+    "phase",
+    "next_phase",
+    "authority",
+    "cube_id",
+    "cube_hash",
+    "integrity_receipt_hash",
+    "complete_exposure",
+    "evidence_role",
+    "known_as_of",
+    "limitations",
+    "handoff_id",
+    "handoff_hash"
+  ],
+  "title": "V4-08 to V4-09 Handoff",
+  "type": "object"
+}

@@ -1,0 +1,28 @@
+{
+  "authority": "reference_only",
+  "completed_capabilities": [
+    "known-time context snapshot",
+    "post-decision market path",
+    "deferred predicate evaluation",
+    "execution spec compilation",
+    "counterfactual path simulation",
+    "gap and ambiguity policy",
+    "cost economics",
+    "path event ledger",
+    "MFE/MAE and net R",
+    "complete exposure ledger",
+    "cube integrity and replay",
+    "V4-09 handoff"
+  ],
+  "external_reproduction": "pending_external",
+  "implementation_status": "reference_implementation_complete",
+  "metaeditor_compile": "pending_local_windows",
+  "next_phase": "SAED_V4_09",
+  "phase": "SAED_V4_08",
+  "production_authorization": false,
+  "qa_status": "repository_qa_passed",
+  "real_alpha_claimed": false,
+  "runtime_parity_claimed": false,
+  "title": "Executable Path Outcome Cube",
+  "version": "1.0.0"
+}

@@ -1,0 +1,24 @@
+{
+  "closed_count": 36,
+  "cube_hash": "c3ee355c2112015682e08e0fc6bc98d6f77798a58df4ddd38898a08ace3deed4",
+  "cube_id": "outcomecube_c3ee355c2112015682e08e0f",
+  "descriptive_only": true,
+  "exit_reason_counts": {
+    "abstain_action": 1,
+    "skip_action": 1,
+    "target": 16,
+    "time": 20
+  },
+  "net_r_max": 2.6364285714285716,
+  "net_r_mean": 1.9931856261022927,
+  "net_r_min": 1.6542857142857144,
+  "ranking_authority": false,
+  "row_count": 38,
+  "status_counts": {
+    "abstained": 1,
+    "closed": 36,
+    "skipped": 1
+  },
+  "summary_hash": "c9e20c343a829b59dc469d454d2c4d79862ce30219f18206560fce1aadc87bbc",
+  "summary_id": "cubesummary_9fec2b9942f5b9d428ce649c"
+}

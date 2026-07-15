@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adverse_points": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "event_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "favorable_points": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "kind": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "price": {
+      "type": "number"
+    },
+    "remaining_fraction": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "sequence": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "time_ms": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "sequence",
+    "kind",
+    "time_ms",
+    "price",
+    "favorable_points",
+    "adverse_points",
+    "remaining_fraction",
+    "event_hash"
+  ],
+  "title": "Path Event",
+  "type": "object"
+}

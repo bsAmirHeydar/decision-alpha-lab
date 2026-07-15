@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "phase": {
+      "const": "SAED_V4_08"
+    },
+    "schema_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "schemas": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "phase",
+    "schema_count",
+    "schemas"
+  ],
+  "title": "Schema Catalog",
+  "type": "object"
+}

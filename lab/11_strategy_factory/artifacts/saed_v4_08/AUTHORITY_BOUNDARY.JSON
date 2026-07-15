@@ -1,0 +1,18 @@
+{
+  "activate_runtime": false,
+  "allocate_risk": false,
+  "build_executable_path_outcome_cube": true,
+  "compile_executable_path_specs": true,
+  "emit_v4_09_handoff": true,
+  "evaluate_deferred_known_time_predicates": true,
+  "mutate_action_lattice": false,
+  "network_access": false,
+  "rank_treatments": false,
+  "read_frozen_action_lattice": true,
+  "read_v4_07_handoff": true,
+  "select_treatment": false,
+  "send_order": false,
+  "simulate_counterfactual_paths": true,
+  "train_model": false,
+  "use_future_information_at_decision_time": false
+}

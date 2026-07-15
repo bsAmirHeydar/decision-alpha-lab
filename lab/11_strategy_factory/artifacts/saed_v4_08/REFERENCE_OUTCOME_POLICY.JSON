@@ -1,0 +1,20 @@
+{
+  "allowed_evidence_roles": [
+    "development",
+    "test",
+    "validation",
+    "prospective"
+  ],
+  "ambiguity_policy": "stop_first",
+  "exact_version": "1.0.0",
+  "fail_on_symbol_mismatch": true,
+  "gap_policy": "conservative_open",
+  "maximum_observations": 4096,
+  "maximum_path_events_per_row": 64,
+  "maximum_rows": 1024,
+  "minimum_fidelity": "bar",
+  "policy_name": "saed.v4.08.reference.conservative",
+  "require_complete_exposure": true,
+  "require_skip_and_abstain": true,
+  "strict_monotonic_sequences": true
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "expected_cube_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "integrity_receipt": {
+      "type": "object"
+    },
+    "match": {
+      "type": "boolean"
+    },
+    "observed_cube_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "expected_cube_hash",
+    "observed_cube_hash",
+    "match",
+    "integrity_receipt"
+  ],
+  "title": "Cube Replay Receipt",
+  "type": "object"
+}

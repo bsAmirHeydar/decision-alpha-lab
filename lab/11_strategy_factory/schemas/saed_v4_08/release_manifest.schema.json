@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "const": "reference_only"
+    },
+    "file_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "golden_cube_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "hash_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "phase": {
+      "const": "SAED_V4_08"
+    },
+    "production_authorization": {
+      "const": false
+    },
+    "version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "version",
+    "authority",
+    "production_authorization",
+    "file_count",
+    "hash_count",
+    "golden_cube_hash"
+  ],
+  "title": "Release Manifest",
+  "type": "object"
+}

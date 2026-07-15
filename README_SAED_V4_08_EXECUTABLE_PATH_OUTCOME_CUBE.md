@@ -1,0 +1,5 @@
+# SAED V4-08 — Executable Path Outcome Cube
+
+This patch implements the governed deterministic outcome-evidence bridge between the V4-07 frozen action lattice and the V4-09 Execution Digital Twin. It adds known-time context snapshots, bounded post-decision market paths, deferred-predicate evaluation, action-node-to-execution-spec compilation, side-aware entry/stop/target semantics, partial and trailing management, exact-versioned gap and intrabar ambiguity policies, spread/slippage/commission economics, immutable path-event ledgers, MFE/MAE and R-multiple outcomes, complete exposure accounting, cube identity, row Merkle integrity, deterministic replay/diff/partitioning, telemetry, quarantine, CLI, closed schemas, golden and negative fixtures, conformance tests, diagnostic-only MQL5 mirrors, extensive Obsidian documentation and a bounded V4-09 handoff.
+
+The patch does not train models, rank or select treatments, allocate capital, activate runtime or place orders. MetaEditor compilation, broker calibration, external reproduction, prospective performance, real alpha and production authorization remain pending evidence gates.

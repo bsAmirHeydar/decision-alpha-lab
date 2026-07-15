@@ -1,0 +1,10 @@
+{
+  "containment": "fail_closed_quarantine",
+  "detected_at": "1970-01-01T00:00:00Z",
+  "incident_id": "incident_template",
+  "phase": "SAED_V4_08",
+  "reason_code": "UNASSIGNED",
+  "resolved": false,
+  "severity": "unassigned",
+  "source_hashes": []
+}

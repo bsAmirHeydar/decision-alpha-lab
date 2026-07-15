@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_passed": {
+      "type": "boolean"
+    },
+    "passed_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "phase": {
+      "const": "SAED_V4_08"
+    },
+    "results": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "vector_count": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "phase",
+    "vector_count",
+    "passed_count",
+    "all_passed",
+    "results"
+  ],
+  "title": "Conformance Results",
+  "type": "object"
+}

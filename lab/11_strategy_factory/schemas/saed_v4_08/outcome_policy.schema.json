@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_evidence_roles": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "ambiguity_policy": {
+      "enum": [
+        "stop_first",
+        "target_first",
+        "exclude",
+        "require_higher_fidelity"
+      ]
+    },
+    "exact_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "fail_on_symbol_mismatch": {
+      "type": "boolean"
+    },
+    "gap_policy": {
+      "enum": [
+        "conservative_open",
+        "requested_price",
+        "exclude"
+      ]
+    },
+    "maximum_observations": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "maximum_path_events_per_row": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "maximum_rows": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "minimum_fidelity": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "policy_name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "require_complete_exposure": {
+      "type": "boolean"
+    },
+    "require_skip_and_abstain": {
+      "type": "boolean"
+    },
+    "strict_monotonic_sequences": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "policy_name",
+    "exact_version",
+    "ambiguity_policy",
+    "gap_policy",
+    "minimum_fidelity",
+    "maximum_observations",
+    "maximum_path_events_per_row",
+    "maximum_rows",
+    "strict_monotonic_sequences",
+    "fail_on_symbol_mismatch",
+    "require_complete_exposure",
+    "require_skip_and_abstain",
+    "allowed_evidence_roles"
+  ],
+  "title": "Outcome Policy",
+  "type": "object"
+}

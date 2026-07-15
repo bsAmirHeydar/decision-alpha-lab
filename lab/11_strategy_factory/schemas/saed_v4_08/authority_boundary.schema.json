@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "activate_runtime": {
+      "type": "boolean"
+    },
+    "allocate_risk": {
+      "type": "boolean"
+    },
+    "build_executable_path_outcome_cube": {
+      "type": "boolean"
+    },
+    "compile_executable_path_specs": {
+      "type": "boolean"
+    },
+    "emit_v4_09_handoff": {
+      "type": "boolean"
+    },
+    "evaluate_deferred_known_time_predicates": {
+      "type": "boolean"
+    },
+    "mutate_action_lattice": {
+      "type": "boolean"
+    },
+    "network_access": {
+      "type": "boolean"
+    },
+    "rank_treatments": {
+      "type": "boolean"
+    },
+    "read_frozen_action_lattice": {
+      "type": "boolean"
+    },
+    "read_v4_07_handoff": {
+      "type": "boolean"
+    },
+    "select_treatment": {
+      "type": "boolean"
+    },
+    "send_order": {
+      "type": "boolean"
+    },
+    "simulate_counterfactual_paths": {
+      "type": "boolean"
+    },
+    "train_model": {
+      "type": "boolean"
+    },
+    "use_future_information_at_decision_time": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "read_frozen_action_lattice",
+    "read_v4_07_handoff",
+    "evaluate_deferred_known_time_predicates",
+    "compile_executable_path_specs",
+    "simulate_counterfactual_paths",
+    "build_executable_path_outcome_cube",
+    "emit_v4_09_handoff",
+    "train_model",
+    "select_treatment",
+    "rank_treatments",
+    "allocate_risk",
+    "activate_runtime",
+    "send_order",
+    "mutate_action_lattice",
+    "use_future_information_at_decision_time",
+    "network_access"
+  ],
+  "title": "Authority Boundary",
+  "type": "object"
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "complete": {
+      "type": "boolean"
+    },
+    "duplicate_node_ids": {
+      "items": {
+        "minLength": 8,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "expected_node_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "expected_node_ids": {
+      "items": {
+        "minLength": 8,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "ledger_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "ledger_id": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "missing_node_ids": {
+      "items": {
+        "minLength": 8,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "observed_node_ids": {
+      "items": {
+        "minLength": 8,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "observed_row_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "status_counts": {
+      "additionalProperties": {
+        "minimum": 0,
+        "type": "integer"
+      },
+      "type": "object"
+    },
+    "unexpected_node_ids": {
+      "items": {
+        "minLength": 8,
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "expected_node_count",
+    "observed_row_count",
+    "expected_node_ids",
+    "observed_node_ids",
+    "missing_node_ids",
+    "duplicate_node_ids",
+    "unexpected_node_ids",
+    "status_counts",
+    "complete",
+    "ledger_id",
+    "ledger_hash"
+  ],
+  "title": "Exposure Ledger",
+  "type": "object"
+}

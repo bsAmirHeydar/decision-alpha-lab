@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "feature_ref": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "observed_at_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "source_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "value": {}
+  },
+  "required": [
+    "feature_ref",
+    "value",
+    "observed_at_ms",
+    "source_hash"
+  ],
+  "title": "Feature Observation",
+  "type": "object"
+}

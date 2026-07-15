@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ask": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "bid": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "close": {
+      "type": "number"
+    },
+    "fidelity": {
+      "enum": [
+        "tick",
+        "bid_ask",
+        "bar",
+        "synthetic",
+        "unknown"
+      ]
+    },
+    "high": {
+      "type": "number"
+    },
+    "interval_close_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "interval_open_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "low": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "observed_at_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "open": {
+      "type": "number"
+    },
+    "sequence": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "source_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "spread_points": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "symbol": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "sequence",
+    "symbol",
+    "observed_at_ms",
+    "interval_open_ms",
+    "interval_close_ms",
+    "open",
+    "high",
+    "low",
+    "close",
+    "bid",
+    "ask",
+    "spread_points",
+    "fidelity",
+    "source_hash"
+  ],
+  "title": "Price Observation",
+  "type": "object"
+}

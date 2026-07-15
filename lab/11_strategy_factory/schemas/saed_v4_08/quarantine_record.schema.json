@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "detail": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "fail_closed": {
+      "const": true
+    },
+    "phase": {
+      "const": "SAED_V4_08"
+    },
+    "production_authorization": {
+      "const": false
+    },
+    "quarantine_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "quarantine_id": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "reason_code": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_hashes": {
+      "items": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "phase",
+    "reason_code",
+    "detail",
+    "source_hashes",
+    "fail_closed",
+    "production_authorization",
+    "quarantine_id",
+    "quarantine_hash"
+  ],
+  "title": "Quarantine Record",
+  "type": "object"
+}

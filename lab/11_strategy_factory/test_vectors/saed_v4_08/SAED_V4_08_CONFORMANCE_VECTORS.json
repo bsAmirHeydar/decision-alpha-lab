@@ -1,0 +1,103 @@
+{
+  "phase": "SAED_V4_08",
+  "vectors": [
+    {
+      "expected_hash": "c0d3547d401ade7877a430e57e77d3b857ef83766876bc848cda4f9790ab9e24",
+      "input": {
+        "context_event_id": "ctxevt_golden_breakout_20260105_143000",
+        "decision_time_ms": 1767623400000,
+        "direction": 1,
+        "evidence_role": "development",
+        "features": [
+          {
+            "feature_ref": "structure_view:breakout_level",
+            "observed_at_ms": 1767623399000,
+            "source_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "value": 100.0
+          },
+          {
+            "feature_ref": "structure_view:invalidation_level",
+            "observed_at_ms": 1767623399000,
+            "source_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "value": 95.0
+          },
+          {
+            "feature_ref": "structure_view:breakout_state",
+            "observed_at_ms": 1767623400000,
+            "source_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+            "value": "confirmed"
+          }
+        ],
+        "known_as_of": "2026-01-05T14:30:00Z",
+        "source_package_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "symbol": "ALPHA.TEST"
+      },
+      "vector_id": "v408_vector_001"
+    },
+    {
+      "expected_hash": "20803bb6b1994c051436252ecb3aa80514548cb52b91d3b495ae0d160e35c882",
+      "input": {
+        "ask": 102.1,
+        "bid": 101.9,
+        "close": 102.0,
+        "fidelity": "bid_ask",
+        "high": 102.5,
+        "interval_close_ms": 1767623460000,
+        "interval_open_ms": 1767623400000,
+        "low": 99.5,
+        "observed_at_ms": 1767623460000,
+        "open": 100.0,
+        "sequence": 0,
+        "source_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "spread_points": 0.2,
+        "symbol": "ALPHA.TEST"
+      },
+      "vector_id": "v408_vector_002"
+    },
+    {
+      "expected_hash": "d84e43f4b2ef9bbbb0346516cffbbdfba894c7439cae3979725a63c476eef36c",
+      "input": {
+        "allowed_evidence_roles": [
+          "development",
+          "test",
+          "validation",
+          "prospective"
+        ],
+        "ambiguity_policy": "stop_first",
+        "exact_version": "1.0.0",
+        "fail_on_symbol_mismatch": true,
+        "gap_policy": "conservative_open",
+        "maximum_observations": 4096,
+        "maximum_path_events_per_row": 64,
+        "maximum_rows": 1024,
+        "minimum_fidelity": "bar",
+        "policy_name": "saed.v4.08.reference.conservative",
+        "require_complete_exposure": true,
+        "require_skip_and_abstain": true,
+        "strict_monotonic_sequences": true
+      },
+      "vector_id": "v408_vector_003"
+    },
+    {
+      "expected_hash": "d635ee655d169192d9f151ece93de9d7587cf279e5b4b0004d7cb98c76303cfa",
+      "input": {
+        "commission_r": 0.01,
+        "entry_slippage_points": 0.1,
+        "exact_version": "1.0.0",
+        "exit_slippage_points": 0.1,
+        "model_id": "fixed_conservative",
+        "other_r": 0.0,
+        "spread_multiplier": 1.0
+      },
+      "vector_id": "v408_vector_004"
+    },
+    {
+      "expected_hash": "e7db8f6dff0c0560ea42bfc16cea29ea797fc008c89e58b0a7d1132debf36993",
+      "input": {
+        "node_id": "x",
+        "status": "skip"
+      },
+      "vector_id": "v408_vector_005"
+    }
+  ]
+}

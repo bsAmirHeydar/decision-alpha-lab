@@ -1,0 +1,26 @@
+{
+  "checks": {
+    "boundary_guard": "passed",
+    "closed_schemas": "passed_27",
+    "delivery_hashes": "passed_226_indexed_225_hashed",
+    "golden_reproduction": "passed",
+    "mql5_static": "passed_16_files",
+    "obsidian_validation": "passed_89_notes",
+    "pytest": "passed_48"
+  },
+  "complete_exposure": true,
+  "expected_row_count": 38,
+  "external_gates": {
+    "broker_calibration": "pending_external",
+    "independent_reproduction": "pending_external",
+    "metaeditor_compile": "pending_local_windows",
+    "prospective_performance": "not_claimed",
+    "runtime_parity": "not_claimed"
+  },
+  "generated_at": "2026-07-15T00:00:00Z",
+  "golden_cube_hash": "c3ee355c2112015682e08e0fc6bc98d6f77798a58df4ddd38898a08ace3deed4",
+  "phase": "SAED_V4_08",
+  "production_authorization": false,
+  "reference_implementation": true,
+  "version": "1.0.0"
+}

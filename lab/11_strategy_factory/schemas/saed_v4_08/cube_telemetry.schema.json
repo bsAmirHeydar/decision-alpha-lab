@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "abstain_rows": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "ambiguous_rows": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "complete_exposure": {
+      "type": "boolean"
+    },
+    "cube_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "filled_rows": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "ordinary_rows": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "path_events": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "production_authorization": {
+      "const": false
+    },
+    "rows": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "skip_rows": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "source_observations": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "telemetry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "telemetry_id": {
+      "minLength": 8,
+      "type": "string"
+    }
+  },
+  "required": [
+    "cube_hash",
+    "rows",
+    "ordinary_rows",
+    "skip_rows",
+    "abstain_rows",
+    "filled_rows",
+    "ambiguous_rows",
+    "path_events",
+    "source_observations",
+    "complete_exposure",
+    "production_authorization",
+    "telemetry_id",
+    "telemetry_hash"
+  ],
+  "title": "Cube Telemetry",
+  "type": "object"
+}

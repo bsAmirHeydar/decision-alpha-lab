@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "observations": {
+      "items": {
+        "$ref": "price_observation.schema.json"
+      },
+      "type": "array"
+    },
+    "path_id": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "symbol": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "path_id",
+    "symbol",
+    "observations"
+  ],
+  "title": "Market Path",
+  "type": "object"
+}

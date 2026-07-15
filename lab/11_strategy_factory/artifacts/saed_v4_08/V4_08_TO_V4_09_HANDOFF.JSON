@@ -1,0 +1,30 @@
+{
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "build_execution_digital_twin": true,
+    "mutate_outcome_cube": false,
+    "rank_treatments": false,
+    "read_cost_breakdowns": true,
+    "read_frozen_outcome_cube": true,
+    "read_path_events": true,
+    "select_treatment": false,
+    "send_order": false,
+    "use_future_information_at_decision_time": false
+  },
+  "complete_exposure": true,
+  "cube_hash": "c3ee355c2112015682e08e0fc6bc98d6f77798a58df4ddd38898a08ace3deed4",
+  "cube_id": "outcomecube_c3ee355c2112015682e08e0f",
+  "evidence_role": "development",
+  "handoff_hash": "4a6e5e228d6e9006fe2e51ed51d7a747b1ae4b0a873ce24e5431a33aeaaea254",
+  "handoff_id": "v408to09_b756900ac3823f8b6f6c1f5b",
+  "integrity_receipt_hash": "ce3fdd594d12f58b3858f6cabeb291c0600f47e47b20f04edf5fbc9586f14ae1",
+  "known_as_of": "2026-01-05T14:30:00Z",
+  "limitations": [
+    "V4-09 must preserve every row and path identity.",
+    "Execution digital twin calibration must not retroactively mutate V4-08 outcomes.",
+    "No runtime or capital authority is transferred."
+  ],
+  "next_phase": "SAED_V4_09",
+  "phase": "SAED_V4_08"
+}

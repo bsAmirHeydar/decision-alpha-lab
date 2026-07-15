@@ -1,0 +1,71 @@
+{
+  "manifest_hash": "a37a76b613b18c05f040246b96308c605dd3522a51ff1502ccad3233b0e2aae3",
+  "manifest_id": "cubepartition_b66d0eedcd814883065c0dfb",
+  "merge_order": "node_id_ascending",
+  "partition_count": 4,
+  "partitions": [
+    {
+      "node_count": 10,
+      "node_ids": [
+        "actionnode_0d44661e4cf21353e89757e0",
+        "actionnode_2018078801c50c7e9b0c2605",
+        "actionnode_37aeb454e80560b6d2691625",
+        "actionnode_4cb0a0e5e1625cb5c1370929",
+        "actionnode_77be9094957f6d85bb9fdac9",
+        "actionnode_8d3c45ee7d7cabba9952addd",
+        "actionnode_a9808ee1a413e6db8ff1a485",
+        "actionnode_b12f2926ed526f082d704cf8",
+        "actionnode_dcb8b44bb310ed209b8a3a99",
+        "actionnode_f3e1466d92882b4713cc6ba5"
+      ],
+      "partition_id": 0
+    },
+    {
+      "node_count": 10,
+      "node_ids": [
+        "actionnode_0ffef8dcec05a9a0f821dd52",
+        "actionnode_2856e689cb5610ea8e402656",
+        "actionnode_3ade69187cb685478ae05256",
+        "actionnode_62e666e3163304c31250a828",
+        "actionnode_7c3cde8b2a64a1cf6f387c59",
+        "actionnode_8dbe975ad6178f69c28203ee",
+        "actionnode_ad48e95c6e2a17d7c80f01b4",
+        "actionnode_bebf453765f33f0e81c185d5",
+        "actionnode_df5186f3aa38f40361b2fa3a",
+        "actionnode_fa0788810b1682e8d958f919"
+      ],
+      "partition_id": 1
+    },
+    {
+      "node_count": 9,
+      "node_ids": [
+        "actionnode_120319e7bf052c5b59edcb0e",
+        "actionnode_2d1775d0e30f24f0a65db66d",
+        "actionnode_496db51b3645c35888443683",
+        "actionnode_69e957a950b70ef444c128a5",
+        "actionnode_81ed6e9c75a5e8ae3830473e",
+        "actionnode_9ebe31d099e01333cbe278d2",
+        "actionnode_ad5add81130e9f207f1e30ac",
+        "actionnode_c163b2a3fe00d97c7f7f00f9",
+        "actionnode_e9b6293535f45b5d4030a3ef"
+      ],
+      "partition_id": 2
+    },
+    {
+      "node_count": 9,
+      "node_ids": [
+        "actionnode_1544c46d40e75ca84ecd89c5",
+        "actionnode_348e77b31763ff7bf828f740",
+        "actionnode_4c73baef4f5559e495ee835b",
+        "actionnode_6d4a031e82f2e23be44fd838",
+        "actionnode_83d1868660199f0c42fe2fb1",
+        "actionnode_a155ce30ae0d1175e6bc748d",
+        "actionnode_b0f42a555fcecfa23b2509d6",
+        "actionnode_c8ef889ebad7e1cadf843dc7",
+        "actionnode_ebf55bc02918af8741ba211d"
+      ],
+      "partition_id": 3
+    }
+  ],
+  "source_lattice_hash": "36064af68c599c537eb794c7c03fd4be36d754131d3a0f99871131aff1a4a935"
+}

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context_event_id": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "decision_time_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "direction": {
+      "enum": [
+        1,
+        -1
+      ],
+      "type": "integer"
+    },
+    "evidence_role": {
+      "enum": [
+        "development",
+        "validation",
+        "test",
+        "prospective"
+      ]
+    },
+    "features": {
+      "items": {
+        "$ref": "feature_observation.schema.json"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "known_as_of": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_package_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "symbol": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "context_event_id",
+    "symbol",
+    "direction",
+    "decision_time_ms",
+    "known_as_of",
+    "evidence_role",
+    "source_package_hash",
+    "features"
+  ],
+  "title": "Context Snapshot",
+  "type": "object"
+}

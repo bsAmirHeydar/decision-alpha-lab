@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "exact_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "models": {
+      "items": {
+        "$ref": "cost_model.schema.json"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "registry_name": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "registry_name",
+    "exact_version",
+    "models"
+  ],
+  "title": "Cost Registry",
+  "type": "object"
+}

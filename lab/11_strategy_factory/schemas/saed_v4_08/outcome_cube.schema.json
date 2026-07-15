@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "abstain_row_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "complete_exposure": {
+      "type": "boolean"
+    },
+    "context_snapshot_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "context_snapshot_id": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "cost_registry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "cube_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "cube_id": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "decision_time_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "evidence_role": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "execution_authority": {
+      "const": false
+    },
+    "exposure_ledger": {
+      "$ref": "exposure_ledger.schema.json"
+    },
+    "known_as_of": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "observation_window_end_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "observation_window_start_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "ordinary_row_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "phase": {
+      "const": "SAED_V4_08"
+    },
+    "policy_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "policy_id": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "ranking_semantics": {
+      "const": "none"
+    },
+    "row_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "rows": {
+      "items": {
+        "$ref": "outcome_row.schema.json"
+      },
+      "type": "array"
+    },
+    "selection_authority": {
+      "const": false
+    },
+    "skip_row_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "source_handoff_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "source_lattice_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "source_lattice_id": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "phase",
+    "version",
+    "cube_id",
+    "cube_hash",
+    "context_snapshot_id",
+    "context_snapshot_hash",
+    "source_lattice_id",
+    "source_lattice_hash",
+    "source_handoff_hash",
+    "policy_id",
+    "policy_hash",
+    "cost_registry_hash",
+    "evidence_role",
+    "known_as_of",
+    "decision_time_ms",
+    "observation_window_start_ms",
+    "observation_window_end_ms",
+    "row_count",
+    "ordinary_row_count",
+    "skip_row_count",
+    "abstain_row_count",
+    "complete_exposure",
+    "selection_authority",
+    "execution_authority",
+    "ranking_semantics",
+    "rows",
+    "exposure_ledger",
+    "limitations"
+  ],
+  "title": "Executable Path Outcome Cube",
+  "type": "object"
+}

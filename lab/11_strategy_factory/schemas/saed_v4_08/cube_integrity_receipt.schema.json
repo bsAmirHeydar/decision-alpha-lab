@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "complete_exposure": {
+      "type": "boolean"
+    },
+    "context_snapshot_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "cost_registry_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "cube_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "cube_id": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "execution_authority": {
+      "const": false
+    },
+    "policy_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "receipt_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "receipt_id": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "row_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "row_merkle_root": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "selection_authority": {
+      "const": false
+    },
+    "source_lattice_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "cube_id",
+    "cube_hash",
+    "row_count",
+    "row_merkle_root",
+    "source_lattice_hash",
+    "context_snapshot_hash",
+    "policy_hash",
+    "cost_registry_hash",
+    "complete_exposure",
+    "selection_authority",
+    "execution_authority",
+    "receipt_id",
+    "receipt_hash"
+  ],
+  "title": "Cube Integrity Receipt",
+  "type": "object"
+}

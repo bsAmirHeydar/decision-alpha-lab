@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "commission_r": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "cost_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "cost_model_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "entry_slippage_points": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "entry_spread_points": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "exit_slippage_points": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "exit_spread_points": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "other_r": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "total_cost_points": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "total_cost_r": {
+      "minimum": 0,
+      "type": "number"
+    }
+  },
+  "required": [
+    "entry_spread_points",
+    "exit_spread_points",
+    "entry_slippage_points",
+    "exit_slippage_points",
+    "commission_r",
+    "other_r",
+    "total_cost_points",
+    "total_cost_r",
+    "cost_model_hash",
+    "cost_hash"
+  ],
+  "title": "Cost Breakdown",
+  "type": "object"
+}

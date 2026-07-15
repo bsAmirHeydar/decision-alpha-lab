@@ -1,0 +1,70 @@
+{
+  "observations": [
+    {
+      "ask": 102.1,
+      "bid": 101.9,
+      "close": 102.0,
+      "fidelity": "bid_ask",
+      "high": 102.5,
+      "interval_close_ms": 1767623460000,
+      "interval_open_ms": 1767623400000,
+      "low": 99.5,
+      "observed_at_ms": 1767623460000,
+      "open": 100.0,
+      "sequence": 0,
+      "source_hash": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "spread_points": 0.2,
+      "symbol": "ALPHA.TEST"
+    },
+    {
+      "ask": 107.1,
+      "bid": 106.9,
+      "close": 107.0,
+      "fidelity": "bid_ask",
+      "high": 108.0,
+      "interval_close_ms": 1767623520000,
+      "interval_open_ms": 1767623460000,
+      "low": 101.5,
+      "observed_at_ms": 1767623520000,
+      "open": 102.0,
+      "sequence": 1,
+      "source_hash": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "spread_points": 0.2,
+      "symbol": "ALPHA.TEST"
+    },
+    {
+      "ask": 118.1,
+      "bid": 117.9,
+      "close": 118.0,
+      "fidelity": "bid_ask",
+      "high": 120.0,
+      "interval_close_ms": 1767623580000,
+      "interval_open_ms": 1767623520000,
+      "low": 106.0,
+      "observed_at_ms": 1767623580000,
+      "open": 107.0,
+      "sequence": 2,
+      "source_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+      "spread_points": 0.2,
+      "symbol": "ALPHA.TEST"
+    },
+    {
+      "ask": 123.1,
+      "bid": 122.9,
+      "close": 123.0,
+      "fidelity": "bid_ask",
+      "high": 125.0,
+      "interval_close_ms": 1767623640000,
+      "interval_open_ms": 1767623580000,
+      "low": 117.0,
+      "observed_at_ms": 1767623640000,
+      "open": 118.0,
+      "sequence": 3,
+      "source_hash": "2222222222222222222222222222222222222222222222222222222222222222",
+      "spread_points": 0.2,
+      "symbol": "ALPHA.TEST"
+    }
+  ],
+  "path_id": "marketpath_golden_001",
+  "symbol": "ALPHA.TEST"
+}

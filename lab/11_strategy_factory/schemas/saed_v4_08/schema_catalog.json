@@ -1,0 +1,33 @@
+{
+  "phase": "SAED_V4_08",
+  "schema_count": 27,
+  "schemas": [
+    "authority_boundary",
+    "conformance_results",
+    "conformance_vectors",
+    "context_snapshot",
+    "cost_breakdown",
+    "cost_model",
+    "cost_registry",
+    "cube_diff",
+    "cube_integrity_receipt",
+    "cube_partition_manifest",
+    "cube_replay_receipt",
+    "cube_summary",
+    "cube_telemetry",
+    "execution_spec",
+    "exposure_ledger",
+    "feature_observation",
+    "incident_record",
+    "market_path",
+    "outcome_cube",
+    "outcome_policy",
+    "outcome_row",
+    "path_event",
+    "price_observation",
+    "quarantine_record",
+    "release_manifest",
+    "schema_catalog",
+    "v4_08_to_v4_09_handoff"
+  ]
+}

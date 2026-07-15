@@ -1,0 +1,29 @@
+{
+  "context_event_id": "ctxevt_golden_breakout_20260105_143000",
+  "decision_time_ms": 1767623400000,
+  "direction": 1,
+  "evidence_role": "development",
+  "features": [
+    {
+      "feature_ref": "structure_view:breakout_level",
+      "observed_at_ms": 1767623400001,
+      "source_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "value": 100.0
+    },
+    {
+      "feature_ref": "structure_view:invalidation_level",
+      "observed_at_ms": 1767623399000,
+      "source_hash": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "value": 95.0
+    },
+    {
+      "feature_ref": "structure_view:breakout_state",
+      "observed_at_ms": 1767623400000,
+      "source_hash": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "value": "confirmed"
+    }
+  ],
+  "known_as_of": "2026-01-05T14:30:00Z",
+  "source_package_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "symbol": "ALPHA.TEST"
+}

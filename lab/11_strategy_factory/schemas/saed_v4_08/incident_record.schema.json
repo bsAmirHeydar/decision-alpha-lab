@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "containment": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "detected_at": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "incident_id": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "phase": {
+      "const": "SAED_V4_08"
+    },
+    "reason_code": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "resolved": {
+      "type": "boolean"
+    },
+    "severity": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_hashes": {
+      "items": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "phase",
+    "incident_id",
+    "severity",
+    "reason_code",
+    "detected_at",
+    "source_hashes",
+    "containment",
+    "resolved"
+  ],
+  "title": "Incident Record",
+  "type": "object"
+}

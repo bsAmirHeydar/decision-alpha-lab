@@ -1,0 +1,38 @@
+{
+  "all_passed": true,
+  "passed_count": 5,
+  "phase": "SAED_V4_08",
+  "results": [
+    {
+      "expected_hash": "c0d3547d401ade7877a430e57e77d3b857ef83766876bc848cda4f9790ab9e24",
+      "observed_hash": "c0d3547d401ade7877a430e57e77d3b857ef83766876bc848cda4f9790ab9e24",
+      "passed": true,
+      "vector_id": "v408_vector_001"
+    },
+    {
+      "expected_hash": "20803bb6b1994c051436252ecb3aa80514548cb52b91d3b495ae0d160e35c882",
+      "observed_hash": "20803bb6b1994c051436252ecb3aa80514548cb52b91d3b495ae0d160e35c882",
+      "passed": true,
+      "vector_id": "v408_vector_002"
+    },
+    {
+      "expected_hash": "d84e43f4b2ef9bbbb0346516cffbbdfba894c7439cae3979725a63c476eef36c",
+      "observed_hash": "d84e43f4b2ef9bbbb0346516cffbbdfba894c7439cae3979725a63c476eef36c",
+      "passed": true,
+      "vector_id": "v408_vector_003"
+    },
+    {
+      "expected_hash": "d635ee655d169192d9f151ece93de9d7587cf279e5b4b0004d7cb98c76303cfa",
+      "observed_hash": "d635ee655d169192d9f151ece93de9d7587cf279e5b4b0004d7cb98c76303cfa",
+      "passed": true,
+      "vector_id": "v408_vector_004"
+    },
+    {
+      "expected_hash": "e7db8f6dff0c0560ea42bfc16cea29ea797fc008c89e58b0a7d1132debf36993",
+      "observed_hash": "e7db8f6dff0c0560ea42bfc16cea29ea797fc008c89e58b0a7d1132debf36993",
+      "passed": true,
+      "vector_id": "v408_vector_005"
+    }
+  ],
+  "vector_count": 5
+}

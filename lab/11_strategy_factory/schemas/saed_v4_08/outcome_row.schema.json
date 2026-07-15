@@ -1,0 +1,184 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action_class": {
+      "enum": [
+        "ordinary",
+        "skip",
+        "abstain"
+      ]
+    },
+    "ambiguous": {
+      "type": "boolean"
+    },
+    "cost": {
+      "$ref": "cost_breakdown.schema.json"
+    },
+    "entry_price": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "entry_time_ms": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "exit_price": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "exit_reason": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "exit_time_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "filled": {
+      "type": "boolean"
+    },
+    "gross_points": {
+      "type": "number"
+    },
+    "gross_r": {
+      "type": "number"
+    },
+    "holding_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "limitations": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "mae_points": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "mae_r": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "mfe_points": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "mfe_r": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "net_r": {
+      "type": "number"
+    },
+    "node_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "node_id": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "path_events": {
+      "items": {
+        "$ref": "path_event.schema.json"
+      },
+      "type": "array"
+    },
+    "remaining_fraction": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "row_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "row_id": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "source_observation_hashes": {
+      "items": {
+        "pattern": "^[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "spec_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "status": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "stop_price": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "target_price": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "time_to_fill_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "trigger_satisfied": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "node_id",
+    "node_hash",
+    "action_class",
+    "status",
+    "exit_reason",
+    "filled",
+    "ambiguous",
+    "trigger_satisfied",
+    "entry_time_ms",
+    "entry_price",
+    "exit_time_ms",
+    "exit_price",
+    "stop_price",
+    "target_price",
+    "gross_points",
+    "gross_r",
+    "net_r",
+    "mfe_points",
+    "mae_points",
+    "mfe_r",
+    "mae_r",
+    "holding_ms",
+    "time_to_fill_ms",
+    "remaining_fraction",
+    "cost",
+    "path_events",
+    "source_observation_hashes",
+    "spec_hash",
+    "limitations",
+    "row_id",
+    "row_hash"
+  ],
+  "title": "Outcome Row",
+  "type": "object"
+}

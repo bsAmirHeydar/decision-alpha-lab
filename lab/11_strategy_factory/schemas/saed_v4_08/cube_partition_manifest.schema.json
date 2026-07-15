@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "manifest_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "manifest_id": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "merge_order": {
+      "const": "node_id_ascending"
+    },
+    "partition_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "partitions": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "source_lattice_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "source_lattice_hash",
+    "partition_count",
+    "partitions",
+    "merge_order",
+    "manifest_id",
+    "manifest_hash"
+  ],
+  "title": "Cube Partition Manifest",
+  "type": "object"
+}

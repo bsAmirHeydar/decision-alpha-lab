@@ -1,0 +1,15 @@
+{
+  "complete_exposure": true,
+  "context_snapshot_hash": "28764af0fb5108a0f6be1299d52bf17b12a3bc65a84b00dd77893478e63fd5c3",
+  "cost_registry_hash": "eceb731d0fc07047f3d1787157ee4fae9968e116a9c4f1cd538a32b0fc061325",
+  "cube_hash": "c3ee355c2112015682e08e0fc6bc98d6f77798a58df4ddd38898a08ace3deed4",
+  "cube_id": "outcomecube_c3ee355c2112015682e08e0f",
+  "execution_authority": false,
+  "policy_hash": "2ebb0302f17fba27bedc59e17d479e10153793a257b635cd7889f2490a30f2ba",
+  "receipt_hash": "ce3fdd594d12f58b3858f6cabeb291c0600f47e47b20f04edf5fbc9586f14ae1",
+  "receipt_id": "cubeintegrity_f712c65420a336088a1e4868",
+  "row_count": 38,
+  "row_merkle_root": "7b41e30b41d1edd1d03c5e91812c7e7fb851f81fd7f89d42cca7bdd367703b70",
+  "selection_authority": false,
+  "source_lattice_hash": "36064af68c599c537eb794c7c03fd4be36d754131d3a0f99871131aff1a4a935"
+}

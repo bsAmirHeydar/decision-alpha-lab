@@ -1,0 +1,15 @@
+{
+  "abstain_rows": 1,
+  "ambiguous_rows": 0,
+  "complete_exposure": true,
+  "cube_hash": "c3ee355c2112015682e08e0fc6bc98d6f77798a58df4ddd38898a08ace3deed4",
+  "filled_rows": 36,
+  "ordinary_rows": 36,
+  "path_events": 412,
+  "production_authorization": false,
+  "rows": 38,
+  "skip_rows": 1,
+  "source_observations": 4,
+  "telemetry_hash": "697981a8dc3bc12a8ae8788bda7c3cf9332c5fa78a0b6b1e944079e30d8c1ad2",
+  "telemetry_id": "cubetelemetry_afc58570353f58415182d7f3"
+}

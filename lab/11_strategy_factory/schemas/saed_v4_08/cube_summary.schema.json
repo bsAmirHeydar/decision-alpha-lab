@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "closed_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "cube_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "cube_id": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "descriptive_only": {
+      "const": true
+    },
+    "exit_reason_counts": {
+      "type": "object"
+    },
+    "net_r_max": {
+      "type": "number"
+    },
+    "net_r_mean": {
+      "type": "number"
+    },
+    "net_r_min": {
+      "type": "number"
+    },
+    "ranking_authority": {
+      "const": false
+    },
+    "row_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "status_counts": {
+      "type": "object"
+    },
+    "summary_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "summary_id": {
+      "minLength": 8,
+      "type": "string"
+    }
+  },
+  "required": [
+    "cube_id",
+    "cube_hash",
+    "row_count",
+    "closed_count",
+    "status_counts",
+    "exit_reason_counts",
+    "net_r_min",
+    "net_r_max",
+    "net_r_mean",
+    "descriptive_only",
+    "ranking_authority",
+    "summary_id",
+    "summary_hash"
+  ],
+  "title": "Cube Summary",
+  "type": "object"
+}
