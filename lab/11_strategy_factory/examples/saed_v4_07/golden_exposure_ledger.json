@@ -1,0 +1,531 @@
+{
+  "complete_accounting": true,
+  "exposure_count": 74,
+  "ledger_hash": "4d897d6fabf1dc78803b01fd23fce2ed5b3bb3ed85a513694a193899cb435857",
+  "ledger_id": "latticeexposure_4d897d6fabf1dc78803b01fd",
+  "rows": [
+    {
+      "candidate_hash": "01fb59977b91ae320d2d2d629680714f9ccdf6f05a2aa2336ebf9dae72e223bd",
+      "candidate_id": "candidate_01fb59977b91ae320d2d2d62",
+      "failed_constraints": [
+        "break_even_guard",
+        "target_not_below_payoff_floor"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "0350b786951a0ce0d2dee361b03f2adaa482a056b5a26d4f2b0a3c2ca3c6d9eb",
+      "candidate_id": "candidate_0350b786951a0ce0d2dee361",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "0385f51abb6915cd7fbe54e10270b1423736368ec72f7ce2af7f8bf153fc8b19",
+      "candidate_id": "candidate_0385f51abb6915cd7fbe54e1",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "04e2dfc1f1f611b4bc034c32c2e6767b53491503f2d81f7ab5ea1b0d08b94001",
+      "candidate_id": "candidate_04e2dfc1f1f611b4bc034c32",
+      "failed_constraints": [
+        "target_not_below_payoff_floor"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "088fe9ec069214af6b4b5bbd7c320304370e657e249f0e32fb8e4f0684c026a3",
+      "candidate_id": "candidate_088fe9ec069214af6b4b5bbd",
+      "failed_constraints": [
+        "break_even_guard"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "091d63f6482576704cd2a329ebd832942b6426a4ac5a486e4698a357dfbb9956",
+      "candidate_id": "candidate_091d63f6482576704cd2a329",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "0a004d8b8810c1463fae337340a7f1bd9c956a12a63633436e19ecf448fc909e",
+      "candidate_id": "candidate_0a004d8b8810c1463fae3373",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "0d9bab76504d43b59f5e31596f381869c58891110757b6267056d0bdf49eb834",
+      "candidate_id": "candidate_0d9bab76504d43b59f5e3159",
+      "failed_constraints": [
+        "break_even_guard"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "0fa8369b682cc7a0a39e18570e406e578dcde3c073d745468fffc63212629833",
+      "candidate_id": "candidate_0fa8369b682cc7a0a39e1857",
+      "failed_constraints": [
+        "target_not_below_payoff_floor"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "108e55a7f9d7ca644bbe3c543979af1a92264ff61172ab2a414a37bc14441e74",
+      "candidate_id": "candidate_108e55a7f9d7ca644bbe3c54",
+      "failed_constraints": [
+        "target_not_below_payoff_floor"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "18a3eaa465f47a29cd7f92308b9a482aabbd0d9321efeda38f9d3ec3f8f4a477",
+      "candidate_id": "candidate_18a3eaa465f47a29cd7f9230",
+      "failed_constraints": [
+        "break_even_guard",
+        "target_not_below_payoff_floor"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "1a7c8ee0ae2fb6c24b26a5dd8ff12b66d716f485df3f2aff48f5d40cf244ad17",
+      "candidate_id": "candidate_1a7c8ee0ae2fb6c24b26a5dd",
+      "failed_constraints": [
+        "break_even_guard"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "1c3472f09fac091f0bef51445d235e1907032f229c5c7355d02d32c7c8be5313",
+      "candidate_id": "candidate_1c3472f09fac091f0bef5144",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "1cba8835a4028062ff8b73ccf506f9f232ade784adb3f601bf79c34337a2065e",
+      "candidate_id": "candidate_1cba8835a4028062ff8b73cc",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "204207fe133c7185d31750ab3a15641f6f7bd12ac20f48e0f5d24c3810a67877",
+      "candidate_id": "candidate_204207fe133c7185d31750ab",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "20b8e519c0d9915d855c5a589b4fe38810507a6aef54518db437fab59a33ffea",
+      "candidate_id": "candidate_20b8e519c0d9915d855c5a58",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "23b2d7e6d9b069e1044cc2e13c88b6e6240c53c643864abc71140e16b2da026d",
+      "candidate_id": "candidate_23b2d7e6d9b069e1044cc2e1",
+      "failed_constraints": [
+        "break_even_guard"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "23b97bc34af34f980391261539ba60a7371aaf3ce8a93565fa3ebbf29ad8f0a0",
+      "candidate_id": "candidate_23b97bc34af34f9803912615",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "26aa54eee978052ffd2dfa014ee59f5338f27e14a21c3d288aec4e2c2fd6f7ea",
+      "candidate_id": "candidate_26aa54eee978052ffd2dfa01",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "2a9e0b0088b3a58dd9966913fd4b09847204cdb36ef01b7a921c5500bd0553dd",
+      "candidate_id": "candidate_2a9e0b0088b3a58dd9966913",
+      "failed_constraints": [
+        "break_even_guard",
+        "target_not_below_payoff_floor"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "2c2201889a0daccdec37f47c3a0885c46efc23da97d182db8a09778d5f3697ff",
+      "candidate_id": "candidate_2c2201889a0daccdec37f47c",
+      "failed_constraints": [
+        "target_not_below_payoff_floor"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "311d88f051bc9e846bf705cd1a58a9736e70659a6c709812d7253f5095264ec6",
+      "candidate_id": "candidate_311d88f051bc9e846bf705cd",
+      "failed_constraints": [
+        "break_even_guard"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "3bf399ebb3395bb951da1e4d78a788be8b0c0012c5333f752111afa62c720fc4",
+      "candidate_id": "candidate_3bf399ebb3395bb951da1e4d",
+      "failed_constraints": [
+        "target_not_below_payoff_floor"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "48533fd37cedc901db4eb25daf273a6a8e4464d4cb8ad5a0b44276d143d99867",
+      "candidate_id": "candidate_48533fd37cedc901db4eb25d",
+      "failed_constraints": [
+        "target_not_below_payoff_floor"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "4996b0cd934143e51de0ac4e04b09cbc68c42ad0c74774a1ccbca80903aaf28c",
+      "candidate_id": "candidate_4996b0cd934143e51de0ac4e",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "4acfd74e54b31021f7fbe27430cf8488dee6de579f4f615a1cc7d69b5b1cc6c4",
+      "candidate_id": "candidate_4acfd74e54b31021f7fbe274",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "4b656bef1f9829e52daa745d75589bebdaed302ea1bcd91141aea28b5c75fd98",
+      "candidate_id": "candidate_4b656bef1f9829e52daa745d",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "4cd8640f76cd13418b8fbc31dfa256404bf74df5d19bdf9f26ed27707d10cb38",
+      "candidate_id": "candidate_4cd8640f76cd13418b8fbc31",
+      "failed_constraints": [
+        "break_even_guard",
+        "target_not_below_payoff_floor"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "51087af3232b1bd08612544980e015f8658879dfe80de5616842ea93fde7d323",
+      "candidate_id": "candidate_51087af3232b1bd086125449",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "5d6d27ab09a5b2c8f2a4637a332625797ba02b199b41f76eff0b44e4723ac784",
+      "candidate_id": "candidate_5d6d27ab09a5b2c8f2a4637a",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "697686ac7017cd33cab14a2f3d90980183af6082aebcbd1909134bbb9e8399b5",
+      "candidate_id": "candidate_697686ac7017cd33cab14a2f",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "6cc71c1b37b9e3be35f101fb65122a66701a7d74d2427fcefa33c90261d9a0ba",
+      "candidate_id": "candidate_6cc71c1b37b9e3be35f101fb",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "6eafd10e240c5fcad7fdfc2745dfbbe8be06d470073b6cc838027bff38fa3ac8",
+      "candidate_id": "candidate_6eafd10e240c5fcad7fdfc27",
+      "failed_constraints": [
+        "break_even_guard"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "7b454117dbbb50f4a11c1bf0b6b53044b88e8db0413f95cc392a59bdf25cff3a",
+      "candidate_id": "candidate_7b454117dbbb50f4a11c1bf0",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "7c7794649cea3681a7db71a087c3ecd55d0725368637eb68225a9008f67b2233",
+      "candidate_id": "candidate_7c7794649cea3681a7db71a0",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "7e509111a7a853976c61e2d9a522455274731d90ad8fa716ab2b071c5c2558de",
+      "candidate_id": "candidate_7e509111a7a853976c61e2d9",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "802c6eb5bbce85608fa0d1361e356b571ea98ef8a9edbee94469b07e5d2fb17b",
+      "candidate_id": "candidate_802c6eb5bbce85608fa0d136",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "805ad97a4d90b5934902ae4a5dd3168247cbdff802109fefcc9a1fada15ab687",
+      "candidate_id": "candidate_805ad97a4d90b5934902ae4a",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "84a7c4766aac56fda0b8c24be4d53feea5a3cd93b45c4bc5041390deb211a7c7",
+      "candidate_id": "candidate_84a7c4766aac56fda0b8c24b",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "856422fc198ed0d39203b78408641809848e13de3432be90feae818f364a1cbe",
+      "candidate_id": "candidate_856422fc198ed0d39203b784",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "8c3b8d5346b4f3e4ad1939f44de99e03209686d4889fd1b7d54350a35523c272",
+      "candidate_id": "candidate_8c3b8d5346b4f3e4ad1939f4",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "8d739229bf40eccd090aa743621aee16d7eb8f36dc8686b59bc258479d37d303",
+      "candidate_id": "candidate_8d739229bf40eccd090aa743",
+      "failed_constraints": [
+        "break_even_guard",
+        "target_not_below_payoff_floor"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "8ed7d8f5855350483ffdd3b3b779779707c2de70f4d0944d17bc96e3c75b8666",
+      "candidate_id": "candidate_8ed7d8f5855350483ffdd3b3",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "900354315c5f02cf1ceba6934f7f11c6ae14980c8606807b9709be91a79e770d",
+      "candidate_id": "candidate_900354315c5f02cf1ceba693",
+      "failed_constraints": [
+        "target_not_below_payoff_floor"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "924b3a24aa3f4da40474325cb4b2e11f88ef8d2eea2b8127031210f682657aa8",
+      "candidate_id": "candidate_924b3a24aa3f4da40474325c",
+      "failed_constraints": [
+        "break_even_guard"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "92ccc58cd265693419d2cd0b8c4e1b6228f6647c2718f7a1430b87c803622e39",
+      "candidate_id": "candidate_92ccc58cd265693419d2cd0b",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "95f52637a2821fb725814700759979ea7f8ddae26a8bcaff88a899e79ecbbd19",
+      "candidate_id": "candidate_95f52637a2821fb725814700",
+      "failed_constraints": [
+        "break_even_guard"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "9b5f22c5f788f559768bbe3d4bef158752c794c2c316f690bff03662d6b1549b",
+      "candidate_id": "candidate_9b5f22c5f788f559768bbe3d",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "a02708060f5da585044bd352896e0922aa2204970ccb43a705ebdfb9ccf3053c",
+      "candidate_id": "candidate_a02708060f5da585044bd352",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "a30f09bf17fb53c7dcce7bd7f9387629606567f54f76a96c9920e2012db70dbc",
+      "candidate_id": "candidate_a30f09bf17fb53c7dcce7bd7",
+      "failed_constraints": [
+        "break_even_guard"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "a4b9b99ef93b3ae703b284ece1b5161bae7431ffa065a747fe299acf65800d13",
+      "candidate_id": "candidate_a4b9b99ef93b3ae703b284ec",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "a902541e37b4d5dbd63765f31a1c95c500c3049f424f4331f6ef13209850d04b",
+      "candidate_id": "candidate_a902541e37b4d5dbd63765f3",
+      "failed_constraints": [
+        "target_not_below_payoff_floor"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "aec5e28912a98b7df0076f84b56c5895d0360e50f2c8c6fddecf2a05881eb9d8",
+      "candidate_id": "candidate_aec5e28912a98b7df0076f84",
+      "failed_constraints": [
+        "break_even_guard"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "b32e4d871b22bd10616c322a1c9a65e6ddd3696a61571511570cd1380b3a734c",
+      "candidate_id": "candidate_b32e4d871b22bd10616c322a",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "b630e8aea76673db45782d45852157e37709eed2a04bd5662805bc8be0bc5684",
+      "candidate_id": "candidate_b630e8aea76673db45782d45",
+      "failed_constraints": [
+        "target_not_below_payoff_floor"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "b771bdf64ff2fb2e779a4462a154f114c13d9673c84d10e7779eaafa2c64c345",
+      "candidate_id": "candidate_b771bdf64ff2fb2e779a4462",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "b7f15e81b20c82b98adbfb236b8e257fb1701328ed7bf77f57b831e8a09e3e40",
+      "candidate_id": "candidate_b7f15e81b20c82b98adbfb23",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "b978c10dc8afb7128191109a8d88f416f3e04ce4d022c20a4e521557f2b0917d",
+      "candidate_id": "candidate_b978c10dc8afb7128191109a",
+      "failed_constraints": [
+        "break_even_guard"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "be0b02a33b22229ce47ba8de2292826a9f2c37ae8874e82b555bfb630452bf08",
+      "candidate_id": "candidate_be0b02a33b22229ce47ba8de",
+      "failed_constraints": [
+        "break_even_guard"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "be0f210f0e1922ed0387e66bb58af90be075429adadae9be5b776b9d2d52461c",
+      "candidate_id": "candidate_be0f210f0e1922ed0387e66b",
+      "failed_constraints": [
+        "break_even_guard"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "cf093c46e3af1d98b1195bea729ffa1c7043c79e583e1874711748c9cda4214a",
+      "candidate_id": "candidate_cf093c46e3af1d98b1195bea",
+      "failed_constraints": [
+        "break_even_guard"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "d03ddd7b043cafd0773b1169ebd49c771ec73ca2b231427165a998c0a409a933",
+      "candidate_id": "candidate_d03ddd7b043cafd0773b1169",
+      "failed_constraints": [
+        "break_even_guard"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "d2dd0f26e3c165f97e15f76fdbc6d3105081d5ad886dc52ca9e0c02c9a9204cd",
+      "candidate_id": "candidate_d2dd0f26e3c165f97e15f76f",
+      "failed_constraints": [
+        "break_even_guard",
+        "target_not_below_payoff_floor"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "db1bc3bb35b1bc4c50402e6850696e59c082b1f63c5956ed54a508b4d75df5b6",
+      "candidate_id": "candidate_db1bc3bb35b1bc4c50402e68",
+      "failed_constraints": [
+        "break_even_guard"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "e31887d4f8d84311d3b82823e7d0a4da4b3de2f2ca736370a39a1452c3337324",
+      "candidate_id": "candidate_e31887d4f8d84311d3b82823",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "e751480a680e0380d5cdd080fd9df10e417d3a01a0edbb3d5527556d34a00677",
+      "candidate_id": "candidate_e751480a680e0380d5cdd080",
+      "failed_constraints": [
+        "target_not_below_payoff_floor"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "eb47f4aec8705aa6245ba82b4a2a213571a6c5a6e09c8aca4bfebb4af5735efd",
+      "candidate_id": "candidate_eb47f4aec8705aa6245ba82b",
+      "failed_constraints": [
+        "break_even_guard"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "ec96d057748535528a61369025ab56d5fd9f83eeabb54bed32e00f89beada9a2",
+      "candidate_id": "candidate_ec96d057748535528a613690",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "eee94a8ccbc9449e2a58b607b5ee52dc186b22d98c02c4814cea5845ef687122",
+      "candidate_id": "candidate_eee94a8ccbc9449e2a58b607",
+      "failed_constraints": [
+        "target_not_below_payoff_floor"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "f4319f23285dd97ad9e89e0c5c298d6a6ec18f8d69d21874efd931328787e532",
+      "candidate_id": "candidate_f4319f23285dd97ad9e89e0c",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "f663f05180304aa73e9649aacc41845a5ed9445aedee6b9ed8dff2df64ce1ee3",
+      "candidate_id": "candidate_f663f05180304aa73e9649aa",
+      "failed_constraints": [
+        "target_not_below_payoff_floor"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "f7407b6d6ac69a033e0be74c0c8d7ac561768f961f4ee8f2154e2863a4b911d0",
+      "candidate_id": "candidate_f7407b6d6ac69a033e0be74c",
+      "failed_constraints": [
+        "break_even_guard"
+      ],
+      "status": "pruned"
+    },
+    {
+      "candidate_hash": "f98b83c28395bd9effc2b3817e021f0dbc2dcee3e3d069f0597cc4d44dd83736",
+      "candidate_id": "candidate_f98b83c28395bd9effc2b381",
+      "failed_constraints": [],
+      "status": "feasible"
+    },
+    {
+      "candidate_hash": "fd6c246f131315d3747991a33704c64bc89042ce0a441604b4cae0e89f3d817f",
+      "candidate_id": "candidate_fd6c246f131315d3747991a3",
+      "failed_constraints": [],
+      "status": "feasible"
+    }
+  ],
+  "solver_result_hash": "2d54244b79d7719c6e4333515014dbea5ac02494da9b65075f73c7c1e6e4adab"
+}

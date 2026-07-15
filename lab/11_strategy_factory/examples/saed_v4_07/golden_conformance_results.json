@@ -1,0 +1,43 @@
+{
+  "failed_count": 0,
+  "passed_count": 5,
+  "result_hash": "e0005ca88f09a7e6a18d51d4226fa6dff746ce8c8f55d8b362c53f3f54fc719e",
+  "result_id": "latticeconf_e0005ca88f09a7e6a18d51d4",
+  "rows": [
+    {
+      "actual_error_type": null,
+      "actual_status": "accepted",
+      "expected_status": "accepted",
+      "passed": true,
+      "vector_id": "golden_accept"
+    },
+    {
+      "actual_error_type": "DomainError",
+      "actual_status": "rejected",
+      "expected_status": "rejected",
+      "passed": true,
+      "vector_id": "unknown_program"
+    },
+    {
+      "actual_error_type": "DomainError",
+      "actual_status": "rejected",
+      "expected_status": "rejected",
+      "passed": true,
+      "vector_id": "unbounded_domain"
+    },
+    {
+      "actual_error_type": "ContractError",
+      "actual_status": "rejected",
+      "expected_status": "rejected",
+      "passed": true,
+      "vector_id": "missing_skip"
+    },
+    {
+      "actual_error_type": "IntegrityError",
+      "actual_status": "rejected",
+      "expected_status": "rejected",
+      "passed": true,
+      "vector_id": "tampered_request"
+    }
+  ]
+}

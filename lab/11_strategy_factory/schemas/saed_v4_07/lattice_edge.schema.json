@@ -1,0 +1,64 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_07/lattice_edge.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "edge_hash": {
+      "type": "string"
+    },
+    "edge_id": {
+      "type": "string"
+    },
+    "edge_kind": {
+      "type": "string"
+    },
+    "mutation": {
+      "additionalProperties": false,
+      "properties": {
+        "from_index": {
+          "type": "integer"
+        },
+        "from_value": {
+          "type": "string"
+        },
+        "parameter_ref": {
+          "type": "string"
+        },
+        "to_index": {
+          "type": "integer"
+        },
+        "to_value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "from_index",
+        "from_value",
+        "parameter_ref",
+        "to_index",
+        "to_value"
+      ],
+      "type": "object"
+    },
+    "semantic_claim": {
+      "type": "string"
+    },
+    "source_node_id": {
+      "type": "string"
+    },
+    "target_node_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "edge_hash",
+    "edge_id",
+    "edge_kind",
+    "mutation",
+    "semantic_claim",
+    "source_node_id",
+    "target_node_id"
+  ],
+  "title": "Lattice Edge",
+  "type": "object"
+}

@@ -1,0 +1,18 @@
+{
+  "action_class_counts": {
+    "abstain": 1,
+    "ordinary": 36,
+    "skip": 1
+  },
+  "candidate_count": 74,
+  "deferred_constraint_count": 36,
+  "edge_count": 121,
+  "feasible_count": 38,
+  "lattice_hash": "36064af68c599c537eb794c7c03fd4be36d754131d3a0f99871131aff1a4a935",
+  "node_count": 38,
+  "production_metric": false,
+  "pruned_count": 36,
+  "solver_result_hash": "2d54244b79d7719c6e4333515014dbea5ac02494da9b65075f73c7c1e6e4adab",
+  "telemetry_hash": "4e927b8f58505fcd8fc4c62bc479e16d3c9577a93f0e72650f2ffc98bebf8f0e",
+  "telemetry_id": "latticetelemetry_4e927b8f58505fcd8fc4c62b"
+}

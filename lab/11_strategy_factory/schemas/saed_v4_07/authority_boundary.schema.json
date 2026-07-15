@@ -1,0 +1,75 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_07/authority_boundary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "activate_runtime": {
+      "type": "boolean"
+    },
+    "allocate_risk": {
+      "type": "boolean"
+    },
+    "build_action_lattice": {
+      "type": "boolean"
+    },
+    "emit_v4_08_handoff": {
+      "type": "boolean"
+    },
+    "enumerate_bounded_candidates": {
+      "type": "boolean"
+    },
+    "evaluate_structural_constraints": {
+      "type": "boolean"
+    },
+    "generate_unbounded_actions": {
+      "type": "boolean"
+    },
+    "mutate_treatment_dsl": {
+      "type": "boolean"
+    },
+    "network_access": {
+      "type": "boolean"
+    },
+    "rank_by_realized_outcome": {
+      "type": "boolean"
+    },
+    "read_frozen_treatment_dsl": {
+      "type": "boolean"
+    },
+    "read_semantic_temporal_hypergraph": {
+      "type": "boolean"
+    },
+    "select_treatment": {
+      "type": "boolean"
+    },
+    "send_order": {
+      "type": "boolean"
+    },
+    "train_model": {
+      "type": "boolean"
+    },
+    "use_future_outcomes": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "activate_runtime",
+    "allocate_risk",
+    "build_action_lattice",
+    "emit_v4_08_handoff",
+    "enumerate_bounded_candidates",
+    "evaluate_structural_constraints",
+    "generate_unbounded_actions",
+    "mutate_treatment_dsl",
+    "network_access",
+    "rank_by_realized_outcome",
+    "read_frozen_treatment_dsl",
+    "read_semantic_temporal_hypergraph",
+    "select_treatment",
+    "send_order",
+    "train_model",
+    "use_future_outcomes"
+  ],
+  "title": "Authority Boundary",
+  "type": "object"
+}

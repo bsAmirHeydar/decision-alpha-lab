@@ -1,0 +1,15 @@
+{
+  "evidence_class": "reference_implementation",
+  "external_reproduction": "pending_external",
+  "handoff_hash": "ea7d38807c25cb5ad5c4cc288c7089595954fa41459b6e188b9a720d4c5426a1",
+  "integrity_receipt_hash": "ee7a00b43abcf431cc7e61f3a1868232a3625417ad5035ce118f2b2c4aec3874",
+  "lattice_hash": "36064af68c599c537eb794c7c03fd4be36d754131d3a0f99871131aff1a4a935",
+  "metaeditor_compile": "pending_local_windows",
+  "phase": "SAED_V4_07",
+  "production_authorization": false,
+  "release_hash": "d1ec0c3d0e5bbf95a9e1e4cc02a68f16cf681fc765cae2872ec5a15244a55683",
+  "release_id": "v407release_d1ec0c3d0e5bbf95a9e1e4cc",
+  "rollback_strategy": "remove indexed files and restore prior pyproject/commit message from version control",
+  "solver_result_hash": "2d54244b79d7719c6e4333515014dbea5ac02494da9b65075f73c7c1e6e4adab",
+  "version": "1.0.0"
+}

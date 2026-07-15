@@ -1,0 +1,43 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_07/lattice_replay_receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "first_lattice_hash": {
+      "type": "string"
+    },
+    "first_result_hash": {
+      "type": "string"
+    },
+    "identical": {
+      "type": "boolean"
+    },
+    "replay_hash": {
+      "type": "string"
+    },
+    "replay_id": {
+      "type": "string"
+    },
+    "second_lattice_hash": {
+      "type": "string"
+    },
+    "second_result_hash": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "first_lattice_hash",
+    "first_result_hash",
+    "identical",
+    "replay_hash",
+    "replay_id",
+    "second_lattice_hash",
+    "second_result_hash",
+    "status"
+  ],
+  "title": "Lattice Replay Receipt",
+  "type": "object"
+}

@@ -1,0 +1,106 @@
+{
+  "assignment_method": "sha256_prefix_modulo",
+  "lattice_hash": "36064af68c599c537eb794c7c03fd4be36d754131d3a0f99871131aff1a4a935",
+  "manifest_hash": "31c759a1c39a21dbb019f8559b686ca1b88a4a87b24ebacc09f624112163fedf",
+  "manifest_id": "latticepartition_31c759a1c39a21dbb019f855",
+  "partition_count": 8,
+  "partition_hashes": [
+    "e0db08e48186c84cdb6712062f4ae99f62b9af6896ce60d552f415b4d1db2d64",
+    "82172f663ccfdab5539fd98772bb71e6e8c36c0c08939f1bc8cf0133dfacbc23",
+    "3319c3cb8c2c4cd243c91a7def5d3a6dc370b375244f16faf6677e8561fbfd30",
+    "e11de0aa02021fabe43e675fe47c7817a0c830e733cd7ce4c361f1259d423e89",
+    "7a2c7bb16f761c29b0ff25b5d93f855b18eff6877e12190b15ce99955403c1a3",
+    "bfec4faae14258f50c47dd4744153404ae9c10aacc9423d2b46a939b7e325eae",
+    "225f24a56dd18231fbc273bf400e69595613898f8784a6109996e8a3399344cb",
+    "88a9a0d04c6701fc336f173496bed5067e9a0294dc63cea1abae332b6b44f8b2"
+  ],
+  "partition_root": "1f4919d8a205ec3a8cff73fa9fcba064e8e34591ef704fbd3d9cf577087338b2",
+  "partitions": [
+    {
+      "node_ids": [
+        "actionnode_496db51b3645c35888443683",
+        "actionnode_4c73baef4f5559e495ee835b",
+        "actionnode_4cb0a0e5e1625cb5c1370929",
+        "actionnode_77be9094957f6d85bb9fdac9",
+        "actionnode_ad5add81130e9f207f1e30ac",
+        "actionnode_f3e1466d92882b4713cc6ba5"
+      ],
+      "partition_hash": "e0db08e48186c84cdb6712062f4ae99f62b9af6896ce60d552f415b4d1db2d64",
+      "partition_id": 0
+    },
+    {
+      "node_ids": [
+        "actionnode_81ed6e9c75a5e8ae3830473e",
+        "actionnode_b0f42a555fcecfa23b2509d6"
+      ],
+      "partition_hash": "82172f663ccfdab5539fd98772bb71e6e8c36c0c08939f1bc8cf0133dfacbc23",
+      "partition_id": 1
+    },
+    {
+      "node_ids": [
+        "actionnode_120319e7bf052c5b59edcb0e",
+        "actionnode_348e77b31763ff7bf828f740",
+        "actionnode_83d1868660199f0c42fe2fb1",
+        "actionnode_a155ce30ae0d1175e6bc748d",
+        "actionnode_c163b2a3fe00d97c7f7f00f9",
+        "actionnode_dcb8b44bb310ed209b8a3a99"
+      ],
+      "partition_hash": "3319c3cb8c2c4cd243c91a7def5d3a6dc370b375244f16faf6677e8561fbfd30",
+      "partition_id": 2
+    },
+    {
+      "node_ids": [
+        "actionnode_0ffef8dcec05a9a0f821dd52",
+        "actionnode_62e666e3163304c31250a828",
+        "actionnode_69e957a950b70ef444c128a5",
+        "actionnode_a9808ee1a413e6db8ff1a485",
+        "actionnode_fa0788810b1682e8d958f919"
+      ],
+      "partition_hash": "e11de0aa02021fabe43e675fe47c7817a0c830e733cd7ce4c361f1259d423e89",
+      "partition_id": 3
+    },
+    {
+      "node_ids": [
+        "actionnode_2856e689cb5610ea8e402656",
+        "actionnode_ad48e95c6e2a17d7c80f01b4",
+        "actionnode_b12f2926ed526f082d704cf8",
+        "actionnode_c8ef889ebad7e1cadf843dc7",
+        "actionnode_df5186f3aa38f40361b2fa3a"
+      ],
+      "partition_hash": "7a2c7bb16f761c29b0ff25b5d93f855b18eff6877e12190b15ce99955403c1a3",
+      "partition_id": 4
+    },
+    {
+      "node_ids": [
+        "actionnode_0d44661e4cf21353e89757e0",
+        "actionnode_1544c46d40e75ca84ecd89c5",
+        "actionnode_2018078801c50c7e9b0c2605",
+        "actionnode_7c3cde8b2a64a1cf6f387c59",
+        "actionnode_e9b6293535f45b5d4030a3ef"
+      ],
+      "partition_hash": "bfec4faae14258f50c47dd4744153404ae9c10aacc9423d2b46a939b7e325eae",
+      "partition_id": 5
+    },
+    {
+      "node_ids": [
+        "actionnode_2d1775d0e30f24f0a65db66d",
+        "actionnode_37aeb454e80560b6d2691625",
+        "actionnode_3ade69187cb685478ae05256",
+        "actionnode_8d3c45ee7d7cabba9952addd",
+        "actionnode_9ebe31d099e01333cbe278d2",
+        "actionnode_bebf453765f33f0e81c185d5"
+      ],
+      "partition_hash": "225f24a56dd18231fbc273bf400e69595613898f8784a6109996e8a3399344cb",
+      "partition_id": 6
+    },
+    {
+      "node_ids": [
+        "actionnode_6d4a031e82f2e23be44fd838",
+        "actionnode_8dbe975ad6178f69c28203ee",
+        "actionnode_ebf55bc02918af8741ba211d"
+      ],
+      "partition_hash": "88a9a0d04c6701fc336f173496bed5067e9a0294dc63cea1abae332b6b44f8b2",
+      "partition_id": 7
+    }
+  ]
+}

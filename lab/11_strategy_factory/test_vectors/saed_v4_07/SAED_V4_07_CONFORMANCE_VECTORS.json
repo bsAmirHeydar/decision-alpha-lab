@@ -1,0 +1,36 @@
+{
+  "exact_version": "1.0.0",
+  "suite_name": "saed_v4_07_core_conformance",
+  "vectors": [
+    {
+      "expected_error_type": null,
+      "expected_status": "accepted",
+      "fixture": "golden",
+      "vector_id": "golden_accept"
+    },
+    {
+      "expected_error_type": "DomainError",
+      "expected_status": "rejected",
+      "fixture": "negative/unknown_program.json",
+      "vector_id": "unknown_program"
+    },
+    {
+      "expected_error_type": "DomainError",
+      "expected_status": "rejected",
+      "fixture": "negative/unbounded_domain.json",
+      "vector_id": "unbounded_domain"
+    },
+    {
+      "expected_error_type": "ContractError",
+      "expected_status": "rejected",
+      "fixture": "negative/missing_skip.json",
+      "vector_id": "missing_skip"
+    },
+    {
+      "expected_error_type": "IntegrityError",
+      "expected_status": "rejected",
+      "fixture": "negative/tampered_request_hash.json",
+      "vector_id": "tampered_request"
+    }
+  ]
+}

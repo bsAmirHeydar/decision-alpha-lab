@@ -1,0 +1,10 @@
+{
+  "constraint_name": "break_even_guard",
+  "evaluation_hash": "546b503cf6f830223c6994760028c7bd81307791937979c11a5f08aeeaec226f",
+  "evaluation_id": "ceval_546b503cf6f830223c699476",
+  "expected_value": "1.0",
+  "observed_value": "1.5",
+  "operator": "ge",
+  "reason_code": "CONSTRAINT_SATISFIED",
+  "status": "satisfied"
+}

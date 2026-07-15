@@ -1,0 +1,62 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_07/exposure_ledger.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "complete_accounting": {
+      "type": "boolean"
+    },
+    "exposure_count": {
+      "type": "integer"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_hash": {
+            "type": "string"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "failed_constraints": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "candidate_hash",
+          "candidate_id",
+          "failed_constraints",
+          "status"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "solver_result_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "complete_accounting",
+    "exposure_count",
+    "ledger_hash",
+    "ledger_id",
+    "rows",
+    "solver_result_hash"
+  ],
+  "title": "Exposure Ledger",
+  "type": "object"
+}

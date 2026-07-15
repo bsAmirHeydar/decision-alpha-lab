@@ -1,0 +1,39 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_07/feasibility_certificate.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_hash": {
+      "type": "string"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "deferred_constraints": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "failed_constraints": {
+      "items": {},
+      "type": "array"
+    },
+    "structurally_feasible": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "candidate_hash",
+    "certificate_hash",
+    "certificate_id",
+    "deferred_constraints",
+    "failed_constraints",
+    "structurally_feasible"
+  ],
+  "title": "Feasibility Certificate",
+  "type": "object"
+}

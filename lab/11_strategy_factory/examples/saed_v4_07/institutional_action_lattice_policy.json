@@ -1,0 +1,63 @@
+{
+  "allowed_evidence_roles": [
+    "development"
+  ],
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "build_action_lattice": true,
+    "emit_v4_08_handoff": true,
+    "enumerate_bounded_candidates": true,
+    "evaluate_structural_constraints": true,
+    "generate_unbounded_actions": false,
+    "mutate_treatment_dsl": false,
+    "network_access": false,
+    "rank_by_realized_outcome": false,
+    "read_frozen_treatment_dsl": true,
+    "read_semantic_temporal_hypergraph": true,
+    "select_treatment": false,
+    "send_order": false,
+    "train_model": false,
+    "use_future_outcomes": false
+  },
+  "budget": {
+    "deterministic_partition_count": 8,
+    "maximum_candidates": 128,
+    "maximum_constraint_evaluations": 512,
+    "maximum_domains_per_program": 8,
+    "maximum_edges": 256,
+    "maximum_feasible_nodes": 64,
+    "maximum_values_per_domain": 16,
+    "operation_budget": 2048
+  },
+  "exact_version": "1.0.0",
+  "limitations": [
+    "Count-based deterministic budgets govern reference solving; wall-clock timing is observational only.",
+    "Structural adjacency is not preference, ranking or expected value.",
+    "No model, selection, capital, runtime or execution authority."
+  ],
+  "permit_deferred_feature_constraints": true,
+  "policy_hash": "94f677710738ce29bc818d6b2ba382f2b866f1e3402d7c82d07773d616ead119",
+  "policy_id": "latticepolicy_94f677710738ce29bc818d6b",
+  "policy_name": "institutional.bounded.action_lattice",
+  "prohibited_identifier_tokens": [
+    "future",
+    "forward_return",
+    "outcome",
+    "realized",
+    "label",
+    "pnl",
+    "profit",
+    "loss",
+    "capital",
+    "allocation",
+    "volume",
+    "lot",
+    "leverage",
+    "position_size"
+  ],
+  "require_abstain": true,
+  "require_adjacent_atomic_edges": true,
+  "require_skip": true,
+  "require_source_value_in_domain": true
+}

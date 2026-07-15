@@ -1,0 +1,11 @@
+{
+  "containment": "quarantine_and_abort",
+  "detection": "hash verification",
+  "incident_class": "integrity_mismatch",
+  "incident_hash": "549523330875f03e6c3d9956e8e9d3004823797f81f6556e512b6005662765ec",
+  "incident_id": "latticeincident_549523330875f03e6c3d9956",
+  "live_impact": "none_reference_phase",
+  "phase": "SAED_V4_07",
+  "recovery": "restore immutable upstream artifacts and reproduce golden output",
+  "severity": "critical"
+}

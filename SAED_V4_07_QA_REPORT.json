@@ -1,0 +1,60 @@
+{
+  "counts": {
+    "atomic_notes": 24,
+    "mql5_files": 17,
+    "phase_notes": 64,
+    "python_modules": 34,
+    "schemas": 28,
+    "tests_files": 16
+  },
+  "evidence_class": "internal_reference",
+  "external_gates": {
+    "independent_reproduction": "pending_external",
+    "metaeditor_compile": "pending_local_windows",
+    "production_authorization": false
+  },
+  "generated_at": "2026-07-15",
+  "golden_counts": {
+    "candidates": 74,
+    "edges": 121,
+    "feasible": 38,
+    "nodes": 38,
+    "pruned": 36
+  },
+  "limitations": [
+    "MetaEditor compilation remains pending on a local Windows/MT5 toolchain.",
+    "Independent external reproduction remains pending.",
+    "Reference structural feasibility does not establish outcome value, real alpha or production authorization."
+  ],
+  "phase": "SAED_V4_07",
+  "status": "passed_internal_reference_qa",
+  "tests": {
+    "authority_boundary_scan": {
+      "python_module_count": 34,
+      "status": "passed"
+    },
+    "closed_schema_validation": {
+      "example_count": 22,
+      "schema_count": 28,
+      "status": "passed"
+    },
+    "golden_reproduction": {
+      "status": "passed"
+    },
+    "mql5_static_validation": {
+      "file_count": 17,
+      "status": "passed"
+    },
+    "obsidian_validation": {
+      "atomic_note_count": 24,
+      "note_count": 88,
+      "phase_note_count": 64,
+      "status": "passed"
+    },
+    "python_pytest": {
+      "count": 250,
+      "status": "passed"
+    }
+  },
+  "version": "1.0.0"
+}

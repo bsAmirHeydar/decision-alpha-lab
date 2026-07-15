@@ -1,0 +1,80 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_07/budget_ledger.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "budget_enforcement": {
+      "type": "string"
+    },
+    "candidates_enumerated": {
+      "type": "integer"
+    },
+    "constraint_evaluations": {
+      "type": "integer"
+    },
+    "deterministic_operations": {
+      "type": "integer"
+    },
+    "edges_emitted": {
+      "type": "integer"
+    },
+    "feasible_nodes": {
+      "type": "integer"
+    },
+    "limits": {
+      "additionalProperties": false,
+      "properties": {
+        "deterministic_partition_count": {
+          "type": "integer"
+        },
+        "maximum_candidates": {
+          "type": "integer"
+        },
+        "maximum_constraint_evaluations": {
+          "type": "integer"
+        },
+        "maximum_domains_per_program": {
+          "type": "integer"
+        },
+        "maximum_edges": {
+          "type": "integer"
+        },
+        "maximum_feasible_nodes": {
+          "type": "integer"
+        },
+        "maximum_values_per_domain": {
+          "type": "integer"
+        },
+        "operation_budget": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "deterministic_partition_count",
+        "maximum_candidates",
+        "maximum_constraint_evaluations",
+        "maximum_domains_per_program",
+        "maximum_edges",
+        "maximum_feasible_nodes",
+        "maximum_values_per_domain",
+        "operation_budget"
+      ],
+      "type": "object"
+    },
+    "wall_clock_ms_observed": {
+      "type": "null"
+    }
+  },
+  "required": [
+    "budget_enforcement",
+    "candidates_enumerated",
+    "constraint_evaluations",
+    "deterministic_operations",
+    "edges_emitted",
+    "feasible_nodes",
+    "limits",
+    "wall_clock_ms_observed"
+  ],
+  "title": "Budget Ledger",
+  "type": "object"
+}

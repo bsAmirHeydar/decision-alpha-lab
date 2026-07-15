@@ -1,0 +1,58 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_07/schema_catalog.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "additional_properties_default": {
+      "type": "boolean"
+    },
+    "catalog_name": {
+      "type": "string"
+    },
+    "closed_contracts": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "schemas": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "example": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "example",
+          "name",
+          "path"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "additional_properties_default",
+    "catalog_name",
+    "closed_contracts",
+    "exact_version",
+    "phase",
+    "schemas"
+  ],
+  "title": "Schema Catalog",
+  "type": "object"
+}

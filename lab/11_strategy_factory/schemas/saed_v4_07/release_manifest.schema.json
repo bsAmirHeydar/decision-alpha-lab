@@ -1,0 +1,63 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_07/release_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "evidence_class": {
+      "type": "string"
+    },
+    "external_reproduction": {
+      "type": "string"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "integrity_receipt_hash": {
+      "type": "string"
+    },
+    "lattice_hash": {
+      "type": "string"
+    },
+    "metaeditor_compile": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorization": {
+      "type": "boolean"
+    },
+    "release_hash": {
+      "type": "string"
+    },
+    "release_id": {
+      "type": "string"
+    },
+    "rollback_strategy": {
+      "type": "string"
+    },
+    "solver_result_hash": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "evidence_class",
+    "external_reproduction",
+    "handoff_hash",
+    "integrity_receipt_hash",
+    "lattice_hash",
+    "metaeditor_compile",
+    "phase",
+    "production_authorization",
+    "release_hash",
+    "release_id",
+    "rollback_strategy",
+    "solver_result_hash",
+    "version"
+  ],
+  "title": "Release Manifest",
+  "type": "object"
+}

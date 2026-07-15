@@ -1,0 +1,50 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_07/conformance_vectors.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "exact_version": {
+      "type": "string"
+    },
+    "suite_name": {
+      "type": "string"
+    },
+    "vectors": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "expected_error_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "expected_status": {
+            "type": "string"
+          },
+          "fixture": {
+            "type": "string"
+          },
+          "vector_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "expected_error_type",
+          "expected_status",
+          "fixture",
+          "vector_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "exact_version",
+    "suite_name",
+    "vectors"
+  ],
+  "title": "Conformance Vectors",
+  "type": "object"
+}

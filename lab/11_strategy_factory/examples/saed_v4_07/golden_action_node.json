@@ -1,0 +1,172 @@
+{
+  "action_class": "ordinary",
+  "candidate_hash": "1c3472f09fac091f0bef51445d235e1907032f229c5c7355d02d32c7c8be5313",
+  "candidate_id": "candidate_1c3472f09fac091f0bef5144",
+  "domain_indices": {
+    "component:entry.buffer_points": 0,
+    "component:management.quantity_fraction": 0,
+    "component:target.reward_r": 3,
+    "component:trail.activation_r": 2
+  },
+  "evidence_role": "development",
+  "execution_authority": false,
+  "feasibility_certificate": {
+    "candidate_hash": "1c3472f09fac091f0bef51445d235e1907032f229c5c7355d02d32c7c8be5313",
+    "certificate_hash": "49d8b027103d5c977cb9d49d1c07a6c4772aa083a4f93bbca569a68d32173096",
+    "certificate_id": "feascert_49d8b027103d5c977cb9d49d",
+    "deferred_constraints": [
+      "entry_requires_breakout_confirmation"
+    ],
+    "failed_constraints": [],
+    "structurally_feasible": true
+  },
+  "instantiated_components": [
+    {
+      "component_hash": "2a0fbed0d543fc48f2689e75c3df36205c11f24dd5251ff40d38811698c1a427",
+      "kind": "capability",
+      "parameters": {
+        "required_profile": "mt5_hedging_reference"
+      },
+      "primitive_definition_id": "dslprim_0c89e5b425c7e233ea1d3758",
+      "primitive_key": "capability.mt5_hedging@1.0.0",
+      "slot": "capability"
+    },
+    {
+      "component_hash": "461a3ff201d29daf8125ed4ace9d75488bfcb3822f0c3422a1158926bbe42885",
+      "kind": "cost",
+      "parameters": {
+        "maximum_spread_points": "3.0"
+      },
+      "primitive_definition_id": "dslprim_3f02fa64c5906095e191a43f",
+      "primitive_key": "cost.maximum_spread@1.0.0",
+      "slot": "cost"
+    },
+    {
+      "component_hash": "c207e35b23927de2370be04b9bf5420984d2400adbbd5afae7e5a544bbd6550a",
+      "kind": "direction",
+      "parameters": {
+        "direction_source": "context"
+      },
+      "primitive_definition_id": "dslprim_f75c30463102d3b37c1b8b7c",
+      "primitive_key": "direction.context_declared@1.0.0",
+      "slot": "direction"
+    },
+    {
+      "component_hash": "f1bf65dfcc58a7b37540f6dc7e852357ece10f676e4fbd4a8bf800fd2c701d07",
+      "kind": "entry",
+      "parameters": {
+        "buffer_points": "1.0",
+        "reference_feature": "structure_view:breakout_level",
+        "ttl_ms": 300000
+      },
+      "primitive_definition_id": "dslprim_4eaa57f7e0fdbd75396ca1ba",
+      "primitive_key": "entry.breakout_stop@1.0.0",
+      "slot": "entry"
+    },
+    {
+      "component_hash": "20467ca1b50983eb91dfa05041d2443efcae44d3ab65d85a953fa3768fa6bea2",
+      "kind": "exit",
+      "parameters": {
+        "maximum_holding_ms": 1800000
+      },
+      "primitive_definition_id": "dslprim_d49625cc76388a38e60462bc",
+      "primitive_key": "exit.time_stop@1.0.0",
+      "slot": "exit"
+    },
+    {
+      "component_hash": "cc2b671ff73db297dbb10cf3925832e6a2d458065100d309441feedc4afd67c9",
+      "kind": "management",
+      "parameters": {
+        "activation_r": "1.5",
+        "quantity_fraction": "0.25"
+      },
+      "primitive_definition_id": "dslprim_176377c248f3d413b2cf67c6",
+      "primitive_key": "management.partial_scale@1.0.0",
+      "slot": "management"
+    },
+    {
+      "component_hash": "cbe3d1ddb92e332449b48f4832e6b1335ec8e8c601a5d998c7bf3d131e7901a3",
+      "kind": "payoff",
+      "parameters": {
+        "maximum_holding_ms": 1800000,
+        "minimum_reward_r": "2.0"
+      },
+      "primitive_definition_id": "dslprim_953bed4a8de33d5aa9e9be99",
+      "primitive_key": "payoff.asymmetric_r_multiple@1.0.0",
+      "slot": "payoff"
+    },
+    {
+      "component_hash": "640f79552d36dc3e0377657e7d85d89ea0b445748f8d90cff03f4ce3d055b37a",
+      "kind": "stop",
+      "parameters": {
+        "buffer_points": "1.0",
+        "reference_feature": "structure_view:invalidation_level"
+      },
+      "primitive_definition_id": "dslprim_076bd66c11982d1b477adf0a",
+      "primitive_key": "stop.context_invalidation@1.0.0",
+      "slot": "stop"
+    },
+    {
+      "component_hash": "f457b9ff1569f961b91024eed622b81ae9eac43b5d3a7e59b67597842e144f64",
+      "kind": "target",
+      "parameters": {
+        "reward_r": "4.0"
+      },
+      "primitive_definition_id": "dslprim_0b6f17d84e93faf6b9a0fd20",
+      "primitive_key": "target.fixed_r_multiple@1.0.0",
+      "slot": "target"
+    },
+    {
+      "component_hash": "df3a9092e806e0d644109e58b5d4483a90919f87619fb6b1d01eb6e8b344b206",
+      "kind": "time",
+      "parameters": {
+        "duration_ms": 7200000,
+        "session_id": "new_york",
+        "start_offset_ms": 0
+      },
+      "primitive_definition_id": "dslprim_e9e6a85b395cfbd075abe5f4",
+      "primitive_key": "time.session_window@1.0.0",
+      "slot": "time"
+    },
+    {
+      "component_hash": "ad8004ca3baa88d2ae5a53ec8193588c19d237758bfcf5d796fde2050286b1c1",
+      "kind": "trail",
+      "parameters": {
+        "activation_r": "1.5",
+        "offset_points": "0"
+      },
+      "primitive_definition_id": "dslprim_1c5faf20a5b0fb0e78f24c1b",
+      "primitive_key": "trail.break_even@1.0.0",
+      "slot": "trail"
+    },
+    {
+      "component_hash": "5c732c62c783306e409d2fa35a6e26b51b5cae20d110e6ebe706c9023bcafc8b",
+      "kind": "trigger",
+      "parameters": {
+        "expected_value": "confirmed",
+        "feature_ref": "structure_view:breakout_state",
+        "operator": "eq"
+      },
+      "primitive_definition_id": "dslprim_9e076aba77045440ce9535c8",
+      "primitive_key": "trigger.context_feature@1.0.0",
+      "slot": "trigger"
+    }
+  ],
+  "known_as_of": "2026-01-05T14:30:01Z",
+  "limitations": [
+    "Structural feasibility is not outcome value.",
+    "Node identity conveys no preference, ranking, capital or execution authority."
+  ],
+  "node_hash": "6f87977362334045772990e4d091b360bfe7c39b00a58494d78cadcde1444084",
+  "node_id": "actionnode_0d44661e4cf21353e89757e0",
+  "parameter_assignments": {
+    "component:entry.buffer_points": "1.0",
+    "component:management.quantity_fraction": "0.25",
+    "component:target.reward_r": "4.0",
+    "component:trail.activation_r": "1.5"
+  },
+  "program_hash": "47f4144af29572660a024a550565edd53282b46c67f9f78881fbe193490afef8",
+  "program_id": "treatment_ff49b948e2f26a960977b909",
+  "program_name": "context.breakout.p3",
+  "selection_authority": false
+}

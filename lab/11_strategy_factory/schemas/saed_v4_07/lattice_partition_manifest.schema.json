@@ -1,0 +1,69 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_07/lattice_partition_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assignment_method": {
+      "type": "string"
+    },
+    "lattice_hash": {
+      "type": "string"
+    },
+    "manifest_hash": {
+      "type": "string"
+    },
+    "manifest_id": {
+      "type": "string"
+    },
+    "partition_count": {
+      "type": "integer"
+    },
+    "partition_hashes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "partition_root": {
+      "type": "string"
+    },
+    "partitions": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "node_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "partition_hash": {
+            "type": "string"
+          },
+          "partition_id": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "node_ids",
+          "partition_hash",
+          "partition_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "assignment_method",
+    "lattice_hash",
+    "manifest_hash",
+    "manifest_id",
+    "partition_count",
+    "partition_hashes",
+    "partition_root",
+    "partitions"
+  ],
+  "title": "Lattice Partition Manifest",
+  "type": "object"
+}

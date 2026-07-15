@@ -1,0 +1,16 @@
+{
+  "domain_registry_hash": "4b8036d4fd53f9f48985d04d7fc98b9b21a9e3f4c503e9b40bf41553a629f3be",
+  "external_reproduction": false,
+  "lattice_hash": "36064af68c599c537eb794c7c03fd4be36d754131d3a0f99871131aff1a4a935",
+  "lineage_root": "31c1ff422be9e369323684e63c7e38764462cbe91effb7d9df65daf94d48557b",
+  "metaeditor_compile": false,
+  "policy_hash": "94f677710738ce29bc818d6b2ba382f2b866f1e3402d7c82d07773d616ead119",
+  "production_authorization": false,
+  "receipt_hash": "ee7a00b43abcf431cc7e61f3a1868232a3625417ad5035ce118f2b2c4aec3874",
+  "receipt_id": "latticeintegrity_ee7a00b43abcf431cc7e61f3",
+  "request_hash": "6ecf87c4b3cc1e9f42204588b0fb16084746ab1aa960e6b7a342bba15a09365f",
+  "solver_result_hash": "2d54244b79d7719c6e4333515014dbea5ac02494da9b65075f73c7c1e6e4adab",
+  "source_handoff_hash": "4fa74972cd75c836c2c08f402a63501e4b8f866a5d7bde792d10d5bb2c59cfb5",
+  "source_package_hash": "78a62bd2a7dc04f993a0367f3fbf67ef04feb4f2326680791909c018ef3cd6d7",
+  "verification_status": "verified_reference"
+}

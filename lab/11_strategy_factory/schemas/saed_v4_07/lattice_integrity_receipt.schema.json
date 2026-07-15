@@ -1,0 +1,67 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_07/lattice_integrity_receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "domain_registry_hash": {
+      "type": "string"
+    },
+    "external_reproduction": {
+      "type": "boolean"
+    },
+    "lattice_hash": {
+      "type": "string"
+    },
+    "lineage_root": {
+      "type": "string"
+    },
+    "metaeditor_compile": {
+      "type": "boolean"
+    },
+    "policy_hash": {
+      "type": "string"
+    },
+    "production_authorization": {
+      "type": "boolean"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "request_hash": {
+      "type": "string"
+    },
+    "solver_result_hash": {
+      "type": "string"
+    },
+    "source_handoff_hash": {
+      "type": "string"
+    },
+    "source_package_hash": {
+      "type": "string"
+    },
+    "verification_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "domain_registry_hash",
+    "external_reproduction",
+    "lattice_hash",
+    "lineage_root",
+    "metaeditor_compile",
+    "policy_hash",
+    "production_authorization",
+    "receipt_hash",
+    "receipt_id",
+    "request_hash",
+    "solver_result_hash",
+    "source_handoff_hash",
+    "source_package_hash",
+    "verification_status"
+  ],
+  "title": "Lattice Integrity Receipt",
+  "type": "object"
+}

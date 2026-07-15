@@ -1,0 +1,10 @@
+{
+  "first_lattice_hash": "36064af68c599c537eb794c7c03fd4be36d754131d3a0f99871131aff1a4a935",
+  "first_result_hash": "2d54244b79d7719c6e4333515014dbea5ac02494da9b65075f73c7c1e6e4adab",
+  "identical": true,
+  "replay_hash": "03bed225a30618daf9874d8145cb8b88c328ca6749d79bba0ed530f4a70e5c91",
+  "replay_id": "latticereplay_03bed225a30618daf9874d81",
+  "second_lattice_hash": "36064af68c599c537eb794c7c03fd4be36d754131d3a0f99871131aff1a4a935",
+  "second_result_hash": "2d54244b79d7719c6e4333515014dbea5ac02494da9b65075f73c7c1e6e4adab",
+  "status": "passed"
+}

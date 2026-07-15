@@ -1,0 +1,15 @@
+{
+  "edge_hash": "014d05bcba9b19341ea50f7ed4f8db68851bd1ee62c887fa59c9f44e53acdbf3",
+  "edge_id": "latticeedge_014d05bcba9b19341ea50f7e",
+  "edge_kind": "atomic_parameter_step",
+  "mutation": {
+    "from_index": 0,
+    "from_value": "1.0",
+    "parameter_ref": "component:entry.buffer_points",
+    "to_index": 1,
+    "to_value": "2.0"
+  },
+  "semantic_claim": "adjacency_only_not_preference",
+  "source_node_id": "actionnode_df5186f3aa38f40361b2fa3a",
+  "target_node_id": "actionnode_c163b2a3fe00d97c7f7f00f9"
+}

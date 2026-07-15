@@ -1,0 +1,2 @@
+def authority_assertions(result:dict,lattice:dict)->dict:
+    return {'selection_authority_absent':not result['selection_authority'] and not lattice['selection_authority'],'execution_authority_absent':not result['execution_authority'] and not lattice['execution_authority'],'mandatory_fallback_present':lattice['contains_skip'] and lattice['contains_abstain'],'complete_candidate_accounting':result['candidate_count']==result['feasible_count']+result['pruned_count']}

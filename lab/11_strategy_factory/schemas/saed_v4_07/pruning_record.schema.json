@@ -1,0 +1,38 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_07/pruning_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_hash": {
+      "type": "string"
+    },
+    "candidate_id": {
+      "type": "string"
+    },
+    "failed_constraints": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "reason_code": {
+      "type": "string"
+    },
+    "record_hash": {
+      "type": "string"
+    },
+    "record_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "candidate_hash",
+    "candidate_id",
+    "failed_constraints",
+    "reason_code",
+    "record_hash",
+    "record_id"
+  ],
+  "title": "Pruning Record",
+  "type": "object"
+}

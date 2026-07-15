@@ -3,8 +3,8 @@ requires=["setuptools>=68","wheel"]
 build-backend="setuptools.build_meta"
 [project]
 name="decision-alpha-lab-strategy-factory"
-version="0.36.0"
-description="MQL5-first Strategy Factory with UCEE v3 governance and SAED V4-06 finite exact-versioned Treatment DSL"
+version="0.37.0"
+description="MQL5-first Strategy Factory with UCEE v3 governance and SAED V4-07 bounded deterministic action lattice"
 requires-python=">=3.10"
 [project.scripts]
 strategy-factory-statistics="strategy_factory_statistics.cli:main"
@@ -34,9 +34,10 @@ strategy-factory-runtime-v3="strategy_factory_runtime_v3.cli:main"
 strategy-factory-tournament-v3="strategy_factory_tournament_v3.cli:main"
 saed-v4-hypergraph="saed_v4_semantic_hypergraph.cli:main"
 saed-v4-treatment-dsl="saed_v4_treatment_dsl.cli:main"
+saed-v4-action-lattice="saed_v4_action_lattice.cli:main"
 [tool.setuptools.packages.find]
 where=["."]
-include=["strategy_factory_contracts*","strategy_factory_runtime*","strategy_factory_market*","strategy_factory_plugins*","strategy_factory_generation*","strategy_factory_anatomy*","strategy_factory_context*","strategy_factory_candidate*","strategy_factory_outcome*","strategy_factory_research*","strategy_factory_statistics*","strategy_factory_validation*","strategy_factory_training*","strategy_factory_governance*","strategy_factory_inference*","strategy_factory_decision*","strategy_factory_execution*","strategy_factory_live*","strategy_factory_monitoring*","strategy_factory_integration*","strategy_factory_contracts_v3*","strategy_factory_contexts_v3*","strategy_factory_treatments_v3*","strategy_factory_treatment_compiler_v3*","strategy_factory_economics_v3*","strategy_factory_dataset_v3*","strategy_factory_trainers_v3*","strategy_factory_classical_v3*","strategy_factory_advanced_tasks_v3*","strategy_factory_deep_views_v3*","strategy_factory_experiments_v3*","strategy_factory_promotion_v3*","strategy_factory_policy_v3*","strategy_factory_runtime_v3*","strategy_factory_tournament_v3*","saed_v4_semantic_hypergraph*","saed_v4_treatment_dsl*"]
+include=["strategy_factory_contracts*","strategy_factory_runtime*","strategy_factory_market*","strategy_factory_plugins*","strategy_factory_generation*","strategy_factory_anatomy*","strategy_factory_context*","strategy_factory_candidate*","strategy_factory_outcome*","strategy_factory_research*","strategy_factory_statistics*","strategy_factory_validation*","strategy_factory_training*","strategy_factory_governance*","strategy_factory_inference*","strategy_factory_decision*","strategy_factory_execution*","strategy_factory_live*","strategy_factory_monitoring*","strategy_factory_integration*","strategy_factory_contracts_v3*","strategy_factory_contexts_v3*","strategy_factory_treatments_v3*","strategy_factory_treatment_compiler_v3*","strategy_factory_economics_v3*","strategy_factory_dataset_v3*","strategy_factory_trainers_v3*","strategy_factory_classical_v3*","strategy_factory_advanced_tasks_v3*","strategy_factory_deep_views_v3*","strategy_factory_experiments_v3*","strategy_factory_promotion_v3*","strategy_factory_policy_v3*","strategy_factory_runtime_v3*","strategy_factory_tournament_v3*","saed_v4_semantic_hypergraph*","saed_v4_treatment_dsl*","saed_v4_action_lattice*"]
 
 [project.optional-dependencies]
 ucee-classical=["numpy>=1.26","scikit-learn>=1.4","scipy>=1.11"]

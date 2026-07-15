@@ -1,0 +1,17 @@
+{
+  "authority": "reference_only",
+  "created": "2026-07-15",
+  "downstream": "SAED_V4_08",
+  "file_count": 287,
+  "golden_lattice_hash": "36064af68c599c537eb794c7c03fd4be36d754131d3a0f99871131aff1a4a935",
+  "golden_solver_result_hash": "2d54244b79d7719c6e4333515014dbea5ac02494da9b65075f73c7c1e6e4adab",
+  "hash_count": 286,
+  "hash_ledger": "SAED_V4_07_FILE_HASHES.sha256",
+  "installation_index": "SAED_V4_07_FILE_INDEX.txt",
+  "patch_id": "saed-v4-07-constraint-solver-action-lattice-v1.0.0",
+  "phase": "SAED_V4_07",
+  "production_authorization": false,
+  "qa_report": "SAED_V4_07_QA_REPORT.json",
+  "upstream": "SAED_V4_06",
+  "version": "1.0.0"
+}

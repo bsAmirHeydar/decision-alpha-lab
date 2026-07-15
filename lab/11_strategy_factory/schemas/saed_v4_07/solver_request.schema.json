@@ -1,0 +1,90 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_07/solver_request.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "domain_registry_hash": {
+      "type": "string"
+    },
+    "domain_registry_id": {
+      "type": "string"
+    },
+    "evidence_role": {
+      "type": "string"
+    },
+    "execution_requested": {
+      "type": "boolean"
+    },
+    "known_as_of": {
+      "type": "string"
+    },
+    "partition_count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "policy_hash": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "request_hash": {
+      "type": "string"
+    },
+    "request_id": {
+      "type": "string"
+    },
+    "request_version": {
+      "type": "string"
+    },
+    "requested_program_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "selection_requested": {
+      "type": "boolean"
+    },
+    "solver_mode": {
+      "type": "string"
+    },
+    "source_handoff_hash": {
+      "type": "string"
+    },
+    "source_handoff_id": {
+      "type": "string"
+    },
+    "source_package_hash": {
+      "type": "string"
+    },
+    "source_package_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "domain_registry_hash",
+    "domain_registry_id",
+    "evidence_role",
+    "execution_requested",
+    "known_as_of",
+    "partition_count",
+    "phase",
+    "policy_hash",
+    "policy_id",
+    "request_hash",
+    "request_id",
+    "request_version",
+    "requested_program_ids",
+    "selection_requested",
+    "solver_mode",
+    "source_handoff_hash",
+    "source_handoff_id",
+    "source_package_hash",
+    "source_package_id"
+  ],
+  "title": "Solver Request",
+  "type": "object"
+}

@@ -1,0 +1,58 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_07/parameter_domain.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "domain_hash": {
+      "type": "string"
+    },
+    "domain_id": {
+      "type": "string"
+    },
+    "domain_name": {
+      "type": "string"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "include_source_value": {
+      "type": "boolean"
+    },
+    "monotonic_semantics": {
+      "type": "string"
+    },
+    "ordered_values": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "parameter_ref": {
+      "type": "string"
+    },
+    "program_id": {
+      "type": "string"
+    },
+    "value_type": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "description",
+    "domain_hash",
+    "domain_id",
+    "domain_name",
+    "exact_version",
+    "include_source_value",
+    "monotonic_semantics",
+    "ordered_values",
+    "parameter_ref",
+    "program_id",
+    "value_type"
+  ],
+  "title": "Parameter Domain",
+  "type": "object"
+}

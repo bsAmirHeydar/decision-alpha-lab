@@ -1,0 +1,62 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_07/conformance_results.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "failed_count": {
+      "type": "integer"
+    },
+    "passed_count": {
+      "type": "integer"
+    },
+    "result_hash": {
+      "type": "string"
+    },
+    "result_id": {
+      "type": "string"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "actual_error_type": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "actual_status": {
+            "type": "string"
+          },
+          "expected_status": {
+            "type": "string"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "vector_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "actual_error_type",
+          "actual_status",
+          "expected_status",
+          "passed",
+          "vector_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "failed_count",
+    "passed_count",
+    "result_hash",
+    "result_id",
+    "rows"
+  ],
+  "title": "Conformance Results",
+  "type": "object"
+}

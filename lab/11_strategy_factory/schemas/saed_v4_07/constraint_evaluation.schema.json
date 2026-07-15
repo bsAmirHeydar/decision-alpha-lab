@@ -1,0 +1,43 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_07/constraint_evaluation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "constraint_name": {
+      "type": "string"
+    },
+    "evaluation_hash": {
+      "type": "string"
+    },
+    "evaluation_id": {
+      "type": "string"
+    },
+    "expected_value": {
+      "type": "string"
+    },
+    "observed_value": {
+      "type": "string"
+    },
+    "operator": {
+      "type": "string"
+    },
+    "reason_code": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "constraint_name",
+    "evaluation_hash",
+    "evaluation_id",
+    "expected_value",
+    "observed_value",
+    "operator",
+    "reason_code",
+    "status"
+  ],
+  "title": "Constraint Evaluation",
+  "type": "object"
+}

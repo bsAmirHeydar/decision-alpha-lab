@@ -1,0 +1,557 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_07/solver_result.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "activate_runtime": {
+          "type": "boolean"
+        },
+        "allocate_risk": {
+          "type": "boolean"
+        },
+        "build_action_lattice": {
+          "type": "boolean"
+        },
+        "emit_v4_08_handoff": {
+          "type": "boolean"
+        },
+        "enumerate_bounded_candidates": {
+          "type": "boolean"
+        },
+        "evaluate_structural_constraints": {
+          "type": "boolean"
+        },
+        "generate_unbounded_actions": {
+          "type": "boolean"
+        },
+        "mutate_treatment_dsl": {
+          "type": "boolean"
+        },
+        "network_access": {
+          "type": "boolean"
+        },
+        "rank_by_realized_outcome": {
+          "type": "boolean"
+        },
+        "read_frozen_treatment_dsl": {
+          "type": "boolean"
+        },
+        "read_semantic_temporal_hypergraph": {
+          "type": "boolean"
+        },
+        "select_treatment": {
+          "type": "boolean"
+        },
+        "send_order": {
+          "type": "boolean"
+        },
+        "train_model": {
+          "type": "boolean"
+        },
+        "use_future_outcomes": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "activate_runtime",
+        "allocate_risk",
+        "build_action_lattice",
+        "emit_v4_08_handoff",
+        "enumerate_bounded_candidates",
+        "evaluate_structural_constraints",
+        "generate_unbounded_actions",
+        "mutate_treatment_dsl",
+        "network_access",
+        "rank_by_realized_outcome",
+        "read_frozen_treatment_dsl",
+        "read_semantic_temporal_hypergraph",
+        "select_treatment",
+        "send_order",
+        "train_model",
+        "use_future_outcomes"
+      ],
+      "type": "object"
+    },
+    "budget_ledger": {
+      "additionalProperties": false,
+      "properties": {
+        "budget_enforcement": {
+          "type": "string"
+        },
+        "candidates_enumerated": {
+          "type": "integer"
+        },
+        "constraint_evaluations": {
+          "type": "integer"
+        },
+        "deterministic_operations": {
+          "type": "integer"
+        },
+        "edges_emitted": {
+          "type": "integer"
+        },
+        "feasible_nodes": {
+          "type": "integer"
+        },
+        "limits": {
+          "additionalProperties": false,
+          "properties": {
+            "deterministic_partition_count": {
+              "type": "integer"
+            },
+            "maximum_candidates": {
+              "type": "integer"
+            },
+            "maximum_constraint_evaluations": {
+              "type": "integer"
+            },
+            "maximum_domains_per_program": {
+              "type": "integer"
+            },
+            "maximum_edges": {
+              "type": "integer"
+            },
+            "maximum_feasible_nodes": {
+              "type": "integer"
+            },
+            "maximum_values_per_domain": {
+              "type": "integer"
+            },
+            "operation_budget": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "deterministic_partition_count",
+            "maximum_candidates",
+            "maximum_constraint_evaluations",
+            "maximum_domains_per_program",
+            "maximum_edges",
+            "maximum_feasible_nodes",
+            "maximum_values_per_domain",
+            "operation_budget"
+          ],
+          "type": "object"
+        },
+        "wall_clock_ms_observed": {
+          "type": "null"
+        }
+      },
+      "required": [
+        "budget_enforcement",
+        "candidates_enumerated",
+        "constraint_evaluations",
+        "deterministic_operations",
+        "edges_emitted",
+        "feasible_nodes",
+        "limits",
+        "wall_clock_ms_observed"
+      ],
+      "type": "object"
+    },
+    "candidate_count": {
+      "type": "integer"
+    },
+    "domain_hashes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "domain_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "domain_registry_hash": {
+      "type": "string"
+    },
+    "domain_registry_id": {
+      "type": "string"
+    },
+    "evidence_role": {
+      "type": "string"
+    },
+    "execution_authority": {
+      "type": "boolean"
+    },
+    "feasible_candidates": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "action_class": {
+            "type": "string"
+          },
+          "candidate_hash": {
+            "type": "string"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "constraint_evaluations": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "constraint_name": {
+                  "type": "string"
+                },
+                "evaluation_hash": {
+                  "type": "string"
+                },
+                "evaluation_id": {
+                  "type": "string"
+                },
+                "expected_value": {
+                  "type": "string"
+                },
+                "observed_value": {
+                  "type": [
+                    "null",
+                    "string"
+                  ]
+                },
+                "operator": {
+                  "type": "string"
+                },
+                "reason_code": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "constraint_name",
+                "evaluation_hash",
+                "evaluation_id",
+                "expected_value",
+                "observed_value",
+                "operator",
+                "reason_code",
+                "status"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "domain_indices": {
+            "additionalProperties": false,
+            "properties": {
+              "component:entry.buffer_points": {
+                "type": "integer"
+              },
+              "component:management.quantity_fraction": {
+                "type": "integer"
+              },
+              "component:target.reward_r": {
+                "type": "integer"
+              },
+              "component:trail.activation_r": {
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "evidence_role": {
+            "type": "string"
+          },
+          "failed_constraints": {
+            "items": {},
+            "type": "array"
+          },
+          "instantiated_components": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "component_hash": {
+                  "type": "string"
+                },
+                "kind": {
+                  "type": "string"
+                },
+                "parameters": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "activation_r": {
+                      "type": "string"
+                    },
+                    "buffer_points": {
+                      "type": "string"
+                    },
+                    "direction_source": {
+                      "type": "string"
+                    },
+                    "duration_ms": {
+                      "type": "integer"
+                    },
+                    "expected_value": {
+                      "type": "string"
+                    },
+                    "feature_ref": {
+                      "type": "string"
+                    },
+                    "maximum_holding_ms": {
+                      "type": "integer"
+                    },
+                    "maximum_spread_points": {
+                      "type": "string"
+                    },
+                    "minimum_reward_r": {
+                      "type": "string"
+                    },
+                    "offset_points": {
+                      "type": "string"
+                    },
+                    "operator": {
+                      "type": "string"
+                    },
+                    "quantity_fraction": {
+                      "type": "string"
+                    },
+                    "reference_feature": {
+                      "type": "string"
+                    },
+                    "required_profile": {
+                      "type": "string"
+                    },
+                    "reward_r": {
+                      "type": "string"
+                    },
+                    "session_id": {
+                      "type": "string"
+                    },
+                    "start_offset_ms": {
+                      "type": "integer"
+                    },
+                    "ttl_ms": {
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                },
+                "primitive_definition_id": {
+                  "type": "string"
+                },
+                "primitive_key": {
+                  "type": "string"
+                },
+                "slot": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "component_hash",
+                "kind",
+                "parameters",
+                "primitive_definition_id",
+                "primitive_key",
+                "slot"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "known_as_of": {
+            "type": "string"
+          },
+          "parameter_assignments": {
+            "additionalProperties": false,
+            "properties": {
+              "component:entry.buffer_points": {
+                "type": "string"
+              },
+              "component:management.quantity_fraction": {
+                "type": "string"
+              },
+              "component:target.reward_r": {
+                "type": "string"
+              },
+              "component:trail.activation_r": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "program_hash": {
+            "type": "string"
+          },
+          "program_id": {
+            "type": "string"
+          },
+          "program_name": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "action_class",
+          "candidate_hash",
+          "candidate_id",
+          "constraint_evaluations",
+          "domain_indices",
+          "evidence_role",
+          "failed_constraints",
+          "instantiated_components",
+          "known_as_of",
+          "parameter_assignments",
+          "program_hash",
+          "program_id",
+          "program_name",
+          "status"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "feasible_count": {
+      "type": "integer"
+    },
+    "known_as_of": {
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "policy_hash": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "pruned_count": {
+      "type": "integer"
+    },
+    "pruning_ledger": {
+      "additionalProperties": false,
+      "properties": {
+        "ledger_hash": {
+          "type": "string"
+        },
+        "ledger_id": {
+          "type": "string"
+        },
+        "record_count": {
+          "type": "integer"
+        },
+        "record_hashes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "records": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "candidate_hash": {
+                "type": "string"
+              },
+              "candidate_id": {
+                "type": "string"
+              },
+              "failed_constraints": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "reason_code": {
+                "type": "string"
+              },
+              "record_hash": {
+                "type": "string"
+              },
+              "record_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "candidate_hash",
+              "candidate_id",
+              "failed_constraints",
+              "reason_code",
+              "record_hash",
+              "record_id"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "ledger_hash",
+        "ledger_id",
+        "record_count",
+        "record_hashes",
+        "records"
+      ],
+      "type": "object"
+    },
+    "request_hash": {
+      "type": "string"
+    },
+    "request_id": {
+      "type": "string"
+    },
+    "selection_authority": {
+      "type": "boolean"
+    },
+    "solver_result_hash": {
+      "type": "string"
+    },
+    "solver_result_id": {
+      "type": "string"
+    },
+    "source_handoff_hash": {
+      "type": "string"
+    },
+    "source_handoff_id": {
+      "type": "string"
+    },
+    "source_package_hash": {
+      "type": "string"
+    },
+    "source_package_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "authority",
+    "budget_ledger",
+    "candidate_count",
+    "domain_hashes",
+    "domain_ids",
+    "domain_registry_hash",
+    "domain_registry_id",
+    "evidence_role",
+    "execution_authority",
+    "feasible_candidates",
+    "feasible_count",
+    "known_as_of",
+    "limitations",
+    "policy_hash",
+    "policy_id",
+    "pruned_count",
+    "pruning_ledger",
+    "request_hash",
+    "request_id",
+    "selection_authority",
+    "solver_result_hash",
+    "solver_result_id",
+    "source_handoff_hash",
+    "source_handoff_id",
+    "source_package_hash",
+    "source_package_id"
+  ],
+  "title": "Solver Result",
+  "type": "object"
+}

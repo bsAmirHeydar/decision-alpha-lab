@@ -1,0 +1,43 @@
+{
+  "acceptance": {
+    "closed_contracts": {
+      "example_count": 22,
+      "schema_count": 28,
+      "status": "passed"
+    },
+    "complete_candidate_accounting": true,
+    "deterministic_identity_and_replay": true,
+    "external_reproduction": "pending_external",
+    "fail_closed_budget_enforcement": true,
+    "golden_reproduction": "passed",
+    "mandatory_skip_and_abstain": true,
+    "metaeditor_compile": "pending_local_windows",
+    "mql5_static_validation": {
+      "count": 17,
+      "status": "passed"
+    },
+    "no_future_suffix_sensitivity": true,
+    "no_selection_or_execution_authority": true,
+    "obsidian_validation": {
+      "count": 88,
+      "status": "passed"
+    },
+    "python_reference_tests": {
+      "count": 250,
+      "status": "passed"
+    }
+  },
+  "entry_gate": "V4-06 package and handoff hash verified",
+  "evidence_class": "internal_reference",
+  "implementation_status": "reference_implementation_complete",
+  "limitations": [
+    "Reference implementation only.",
+    "No executable path outcome cube yet.",
+    "No model training, treatment selection, capital allocation, runtime activation or order authority."
+  ],
+  "next_phase": "SAED_V4_08",
+  "phase": "SAED_V4_07",
+  "production_authorization": false,
+  "title": "Constraint Solver And Action Lattice",
+  "version": "1.0.0"
+}

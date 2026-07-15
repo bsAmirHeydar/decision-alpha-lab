@@ -1,0 +1,182 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_07/action_lattice_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_evidence_roles": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "activate_runtime": {
+          "type": "boolean"
+        },
+        "allocate_risk": {
+          "type": "boolean"
+        },
+        "build_action_lattice": {
+          "type": "boolean"
+        },
+        "emit_v4_08_handoff": {
+          "type": "boolean"
+        },
+        "enumerate_bounded_candidates": {
+          "type": "boolean"
+        },
+        "evaluate_structural_constraints": {
+          "type": "boolean"
+        },
+        "generate_unbounded_actions": {
+          "type": "boolean"
+        },
+        "mutate_treatment_dsl": {
+          "type": "boolean"
+        },
+        "network_access": {
+          "type": "boolean"
+        },
+        "rank_by_realized_outcome": {
+          "type": "boolean"
+        },
+        "read_frozen_treatment_dsl": {
+          "type": "boolean"
+        },
+        "read_semantic_temporal_hypergraph": {
+          "type": "boolean"
+        },
+        "select_treatment": {
+          "type": "boolean"
+        },
+        "send_order": {
+          "type": "boolean"
+        },
+        "train_model": {
+          "type": "boolean"
+        },
+        "use_future_outcomes": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "activate_runtime",
+        "allocate_risk",
+        "build_action_lattice",
+        "emit_v4_08_handoff",
+        "enumerate_bounded_candidates",
+        "evaluate_structural_constraints",
+        "generate_unbounded_actions",
+        "mutate_treatment_dsl",
+        "network_access",
+        "rank_by_realized_outcome",
+        "read_frozen_treatment_dsl",
+        "read_semantic_temporal_hypergraph",
+        "select_treatment",
+        "send_order",
+        "train_model",
+        "use_future_outcomes"
+      ],
+      "type": "object"
+    },
+    "budget": {
+      "additionalProperties": false,
+      "properties": {
+        "deterministic_partition_count": {
+          "type": "integer"
+        },
+        "maximum_candidates": {
+          "type": "integer"
+        },
+        "maximum_constraint_evaluations": {
+          "type": "integer"
+        },
+        "maximum_domains_per_program": {
+          "type": "integer"
+        },
+        "maximum_edges": {
+          "type": "integer"
+        },
+        "maximum_feasible_nodes": {
+          "type": "integer"
+        },
+        "maximum_values_per_domain": {
+          "type": "integer"
+        },
+        "operation_budget": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "deterministic_partition_count",
+        "maximum_candidates",
+        "maximum_constraint_evaluations",
+        "maximum_domains_per_program",
+        "maximum_edges",
+        "maximum_feasible_nodes",
+        "maximum_values_per_domain",
+        "operation_budget"
+      ],
+      "type": "object"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "permit_deferred_feature_constraints": {
+      "type": "boolean"
+    },
+    "policy_hash": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "policy_name": {
+      "type": "string"
+    },
+    "prohibited_identifier_tokens": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "require_abstain": {
+      "type": "boolean"
+    },
+    "require_adjacent_atomic_edges": {
+      "type": "boolean"
+    },
+    "require_skip": {
+      "type": "boolean"
+    },
+    "require_source_value_in_domain": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "allowed_evidence_roles",
+    "authority",
+    "budget",
+    "exact_version",
+    "limitations",
+    "permit_deferred_feature_constraints",
+    "policy_hash",
+    "policy_id",
+    "policy_name",
+    "prohibited_identifier_tokens",
+    "require_abstain",
+    "require_adjacent_atomic_edges",
+    "require_skip",
+    "require_source_value_in_domain"
+  ],
+  "title": "Action Lattice Policy",
+  "type": "object"
+}

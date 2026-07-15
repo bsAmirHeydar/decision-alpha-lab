@@ -1,0 +1,47 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_07/incident_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "containment": {
+      "type": "string"
+    },
+    "detection": {
+      "type": "string"
+    },
+    "incident_class": {
+      "type": "string"
+    },
+    "incident_hash": {
+      "type": "string"
+    },
+    "incident_id": {
+      "type": "string"
+    },
+    "live_impact": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "recovery": {
+      "type": "string"
+    },
+    "severity": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "containment",
+    "detection",
+    "incident_class",
+    "incident_hash",
+    "incident_id",
+    "live_impact",
+    "phase",
+    "recovery",
+    "severity"
+  ],
+  "title": "Incident Record",
+  "type": "object"
+}

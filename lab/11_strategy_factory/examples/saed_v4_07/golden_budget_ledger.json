@@ -1,0 +1,19 @@
+{
+  "budget_enforcement": "deterministic_count_based",
+  "candidates_enumerated": 74,
+  "constraint_evaluations": 288,
+  "deterministic_operations": 362,
+  "edges_emitted": 121,
+  "feasible_nodes": 38,
+  "limits": {
+    "deterministic_partition_count": 8,
+    "maximum_candidates": 128,
+    "maximum_constraint_evaluations": 512,
+    "maximum_domains_per_program": 8,
+    "maximum_edges": 256,
+    "maximum_feasible_nodes": 64,
+    "maximum_values_per_domain": 16,
+    "operation_budget": 2048
+  },
+  "wall_clock_ms_observed": null
+}

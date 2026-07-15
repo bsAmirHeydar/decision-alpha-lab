@@ -1,0 +1,39 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_07/quarantine_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "detail": {
+      "type": "string"
+    },
+    "quarantine_hash": {
+      "type": "string"
+    },
+    "quarantine_id": {
+      "type": "string"
+    },
+    "reason_code": {
+      "type": "string"
+    },
+    "release_allowed": {
+      "type": "boolean"
+    },
+    "source_hash": {
+      "type": "string"
+    },
+    "source_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "detail",
+    "quarantine_hash",
+    "quarantine_id",
+    "reason_code",
+    "release_allowed",
+    "source_hash",
+    "source_id"
+  ],
+  "title": "Quarantine Record",
+  "type": "object"
+}

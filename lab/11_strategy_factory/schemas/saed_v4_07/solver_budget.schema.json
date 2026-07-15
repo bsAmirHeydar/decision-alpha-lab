@@ -1,0 +1,43 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_07/solver_budget.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "deterministic_partition_count": {
+      "type": "integer"
+    },
+    "maximum_candidates": {
+      "type": "integer"
+    },
+    "maximum_constraint_evaluations": {
+      "type": "integer"
+    },
+    "maximum_domains_per_program": {
+      "type": "integer"
+    },
+    "maximum_edges": {
+      "type": "integer"
+    },
+    "maximum_feasible_nodes": {
+      "type": "integer"
+    },
+    "maximum_values_per_domain": {
+      "type": "integer"
+    },
+    "operation_budget": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "deterministic_partition_count",
+    "maximum_candidates",
+    "maximum_constraint_evaluations",
+    "maximum_domains_per_program",
+    "maximum_edges",
+    "maximum_feasible_nodes",
+    "maximum_values_per_domain",
+    "operation_budget"
+  ],
+  "title": "Solver Budget",
+  "type": "object"
+}

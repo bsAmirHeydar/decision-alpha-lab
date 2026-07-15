@@ -1,0 +1,25 @@
+{
+  "domain_registry_hash": "4b8036d4fd53f9f48985d04d7fc98b9b21a9e3f4c503e9b40bf41553a629f3be",
+  "domain_registry_id": "domainreg_4b8036d4fd53f9f48985d04d",
+  "evidence_role": "development",
+  "execution_requested": false,
+  "known_as_of": "2026-01-05T14:30:01Z",
+  "partition_count": 8,
+  "phase": "SAED_V4_07",
+  "policy_hash": "94f677710738ce29bc818d6b2ba382f2b866f1e3402d7c82d07773d616ead119",
+  "policy_id": "latticepolicy_94f677710738ce29bc818d6b",
+  "request_hash": "6ecf87c4b3cc1e9f42204588b0fb16084746ab1aa960e6b7a342bba15a09365f",
+  "request_id": "solverrequest_6ecf87c4b3cc1e9f42204588",
+  "request_version": "1.0.0",
+  "requested_program_ids": [
+    "treatment_4915f03a0e7f66bad7086cd9",
+    "treatment_b5c4b61c1c42006375e4c043",
+    "treatment_ff49b948e2f26a960977b909"
+  ],
+  "selection_requested": false,
+  "solver_mode": "deterministic_reference",
+  "source_handoff_hash": "4fa74972cd75c836c2c08f402a63501e4b8f866a5d7bde792d10d5bb2c59cfb5",
+  "source_handoff_id": "v406to07_fdf0bab506df7a784f045920",
+  "source_package_hash": "78a62bd2a7dc04f993a0367f3fbf67ef04feb4f2326680791909c018ef3cd6d7",
+  "source_package_id": "dslpackage_80c6fa27d023df637649b5da"
+}

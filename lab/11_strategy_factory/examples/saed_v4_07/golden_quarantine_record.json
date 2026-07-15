@@ -1,0 +1,9 @@
+{
+  "detail": "Illustrative quarantine record; the golden request itself is accepted.",
+  "quarantine_hash": "05e0d674fce111b28e51f333191d7c697cb15157122d61280a296860f47f9e51",
+  "quarantine_id": "latticequarantine_05e0d674fce111b28e51f333",
+  "reason_code": "EXAMPLE_FAIL_CLOSED",
+  "release_allowed": false,
+  "source_hash": "6ecf87c4b3cc1e9f42204588b0fb16084746ab1aa960e6b7a342bba15a09365f",
+  "source_id": "solverrequest_6ecf87c4b3cc1e9f42204588"
+}

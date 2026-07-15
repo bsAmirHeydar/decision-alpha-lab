@@ -1,0 +1,76 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_07/lattice_telemetry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action_class_counts": {
+      "additionalProperties": false,
+      "properties": {
+        "abstain": {
+          "type": "integer"
+        },
+        "ordinary": {
+          "type": "integer"
+        },
+        "skip": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "abstain",
+        "ordinary",
+        "skip"
+      ],
+      "type": "object"
+    },
+    "candidate_count": {
+      "type": "integer"
+    },
+    "deferred_constraint_count": {
+      "type": "integer"
+    },
+    "edge_count": {
+      "type": "integer"
+    },
+    "feasible_count": {
+      "type": "integer"
+    },
+    "lattice_hash": {
+      "type": "string"
+    },
+    "node_count": {
+      "type": "integer"
+    },
+    "production_metric": {
+      "type": "boolean"
+    },
+    "pruned_count": {
+      "type": "integer"
+    },
+    "solver_result_hash": {
+      "type": "string"
+    },
+    "telemetry_hash": {
+      "type": "string"
+    },
+    "telemetry_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "action_class_counts",
+    "candidate_count",
+    "deferred_constraint_count",
+    "edge_count",
+    "feasible_count",
+    "lattice_hash",
+    "node_count",
+    "production_metric",
+    "pruned_count",
+    "solver_result_hash",
+    "telemetry_hash",
+    "telemetry_id"
+  ],
+  "title": "Lattice Telemetry",
+  "type": "object"
+}

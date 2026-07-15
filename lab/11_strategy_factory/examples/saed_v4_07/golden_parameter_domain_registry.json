@@ -1,0 +1,82 @@
+{
+  "domains": [
+    {
+      "description": "Finite engineering sensitivity domain for the declared entry buffer.",
+      "domain_hash": "fd79a9dbd22fb87e2d94e44058294e2e4529f066ef88c2766fa11b825067cf03",
+      "domain_id": "domain_fd79a9dbd22fb87e2d94e440",
+      "domain_name": "entry_buffer_points",
+      "exact_version": "1.0.0",
+      "include_source_value": true,
+      "monotonic_semantics": "structural_only",
+      "ordered_values": [
+        "1.0",
+        "2.0",
+        "3.0"
+      ],
+      "parameter_ref": "component:entry.buffer_points",
+      "program_id": "treatment_ff49b948e2f26a960977b909",
+      "value_type": "decimal_string"
+    },
+    {
+      "description": "Finite target declaration domain; infeasible values are pruned by frozen payoff constraints.",
+      "domain_hash": "88215de1c8e455c73f7fea825e2021dbabff04204c50288fb18b8a98d0ee1f58",
+      "domain_id": "domain_88215de1c8e455c73f7fea82",
+      "domain_name": "target_reward_r",
+      "exact_version": "1.0.0",
+      "include_source_value": true,
+      "monotonic_semantics": "structural_only",
+      "ordered_values": [
+        "1.0",
+        "2.0",
+        "3.0",
+        "4.0"
+      ],
+      "parameter_ref": "component:target.reward_r",
+      "program_id": "treatment_ff49b948e2f26a960977b909",
+      "value_type": "decimal_string"
+    },
+    {
+      "description": "Finite trail activation domain; values below the frozen guard are pruned.",
+      "domain_hash": "7273d1cbb12147151019bf8020776696e7998097bf5f5ecf63319afe7aaf0930",
+      "domain_id": "domain_7273d1cbb12147151019bf80",
+      "domain_name": "trail_activation_r",
+      "exact_version": "1.0.0",
+      "include_source_value": true,
+      "monotonic_semantics": "structural_only",
+      "ordered_values": [
+        "0.5",
+        "1.0",
+        "1.5"
+      ],
+      "parameter_ref": "component:trail.activation_r",
+      "program_id": "treatment_ff49b948e2f26a960977b909",
+      "value_type": "decimal_string"
+    },
+    {
+      "description": "Finite declaration fraction; no position sizing or capital semantics are implied.",
+      "domain_hash": "44ef345a52a327716b711f6c4c412e2021f354d11db56084058f062021b6bd83",
+      "domain_id": "domain_44ef345a52a327716b711f6c",
+      "domain_name": "management_quantity_fraction",
+      "exact_version": "1.0.0",
+      "include_source_value": true,
+      "monotonic_semantics": "structural_only",
+      "ordered_values": [
+        "0.25",
+        "0.5"
+      ],
+      "parameter_ref": "component:management.quantity_fraction",
+      "program_id": "treatment_ff49b948e2f26a960977b909",
+      "value_type": "decimal_string"
+    }
+  ],
+  "exact_version": "1.0.0",
+  "limitations": [
+    "All domains are finite, explicit and exact-versioned.",
+    "Domain order supports adjacency only and does not encode preference."
+  ],
+  "registry_hash": "4b8036d4fd53f9f48985d04d7fc98b9b21a9e3f4c503e9b40bf41553a629f3be",
+  "registry_id": "domainreg_4b8036d4fd53f9f48985d04d",
+  "registry_name": "institutional.saed_v4_07.parameter_domains",
+  "source_package_hash": "78a62bd2a7dc04f993a0367f3fbf67ef04feb4f2326680791909c018ef3cd6d7",
+  "source_package_id": "dslpackage_80c6fa27d023df637649b5da"
+}

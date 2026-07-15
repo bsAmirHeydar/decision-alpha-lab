@@ -1,0 +1,101 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_07/parameter_domain_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "domains": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "domain_hash": {
+            "type": "string"
+          },
+          "domain_id": {
+            "type": "string"
+          },
+          "domain_name": {
+            "type": "string"
+          },
+          "exact_version": {
+            "type": "string"
+          },
+          "include_source_value": {
+            "type": "boolean"
+          },
+          "monotonic_semantics": {
+            "type": "string"
+          },
+          "ordered_values": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "parameter_ref": {
+            "type": "string"
+          },
+          "program_id": {
+            "type": "string"
+          },
+          "value_type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "description",
+          "domain_hash",
+          "domain_id",
+          "domain_name",
+          "exact_version",
+          "include_source_value",
+          "monotonic_semantics",
+          "ordered_values",
+          "parameter_ref",
+          "program_id",
+          "value_type"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "registry_name": {
+      "type": "string"
+    },
+    "source_package_hash": {
+      "type": "string"
+    },
+    "source_package_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "domains",
+    "exact_version",
+    "limitations",
+    "registry_hash",
+    "registry_id",
+    "registry_name",
+    "source_package_hash",
+    "source_package_id"
+  ],
+  "title": "Parameter Domain Registry",
+  "type": "object"
+}

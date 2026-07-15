@@ -1,0 +1,107 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_07/v4_07_to_v4_08_handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "activate_runtime": {
+          "type": "boolean"
+        },
+        "allocate_risk": {
+          "type": "boolean"
+        },
+        "build_executable_path_outcome_cube": {
+          "type": "boolean"
+        },
+        "mutate_action_lattice": {
+          "type": "boolean"
+        },
+        "read_feasibility_certificates": {
+          "type": "boolean"
+        },
+        "read_frozen_action_lattice": {
+          "type": "boolean"
+        },
+        "select_treatment": {
+          "type": "boolean"
+        },
+        "send_order": {
+          "type": "boolean"
+        },
+        "train_model": {
+          "type": "boolean"
+        },
+        "use_future_information_at_decision_time": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "activate_runtime",
+        "allocate_risk",
+        "build_executable_path_outcome_cube",
+        "mutate_action_lattice",
+        "read_feasibility_certificates",
+        "read_frozen_action_lattice",
+        "select_treatment",
+        "send_order",
+        "train_model",
+        "use_future_information_at_decision_time"
+      ],
+      "type": "object"
+    },
+    "evidence_role": {
+      "type": "string"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "integrity_receipt_hash": {
+      "type": "string"
+    },
+    "known_as_of": {
+      "type": "string"
+    },
+    "lattice_hash": {
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "partition_manifest_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "solver_result_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "authority",
+    "evidence_role",
+    "handoff_hash",
+    "handoff_id",
+    "integrity_receipt_hash",
+    "known_as_of",
+    "lattice_hash",
+    "limitations",
+    "next_phase",
+    "partition_manifest_hash",
+    "phase",
+    "solver_result_hash"
+  ],
+  "title": "V4 07 To V4 08 Handoff",
+  "type": "object"
+}

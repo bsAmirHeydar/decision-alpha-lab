@@ -1,0 +1,392 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_07/action_lattice.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "contains_abstain": {
+      "type": "boolean"
+    },
+    "contains_skip": {
+      "type": "boolean"
+    },
+    "edge_count": {
+      "type": "integer"
+    },
+    "edge_merkle_root": {
+      "type": "string"
+    },
+    "edges": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "edge_hash": {
+            "type": "string"
+          },
+          "edge_id": {
+            "type": "string"
+          },
+          "edge_kind": {
+            "type": "string"
+          },
+          "mutation": {
+            "anyOf": [
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "from_index": {
+                    "type": "integer"
+                  },
+                  "from_value": {
+                    "type": "string"
+                  },
+                  "parameter_ref": {
+                    "type": "string"
+                  },
+                  "to_index": {
+                    "type": "integer"
+                  },
+                  "to_value": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "from_index",
+                  "from_value",
+                  "parameter_ref",
+                  "to_index",
+                  "to_value"
+                ],
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "semantic_claim": {
+            "type": "string"
+          },
+          "source_node_id": {
+            "type": "string"
+          },
+          "target_node_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "edge_hash",
+          "edge_id",
+          "edge_kind",
+          "mutation",
+          "semantic_claim",
+          "source_node_id",
+          "target_node_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "execution_authority": {
+      "type": "boolean"
+    },
+    "is_dag": {
+      "type": "boolean"
+    },
+    "lattice_hash": {
+      "type": "string"
+    },
+    "lattice_id": {
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "node_count": {
+      "type": "integer"
+    },
+    "node_merkle_root": {
+      "type": "string"
+    },
+    "nodes": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "action_class": {
+            "type": "string"
+          },
+          "candidate_hash": {
+            "type": "string"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "domain_indices": {
+            "additionalProperties": false,
+            "properties": {
+              "component:entry.buffer_points": {
+                "type": "integer"
+              },
+              "component:management.quantity_fraction": {
+                "type": "integer"
+              },
+              "component:target.reward_r": {
+                "type": "integer"
+              },
+              "component:trail.activation_r": {
+                "type": "integer"
+              }
+            },
+            "type": "object"
+          },
+          "evidence_role": {
+            "type": "string"
+          },
+          "execution_authority": {
+            "type": "boolean"
+          },
+          "feasibility_certificate": {
+            "additionalProperties": false,
+            "properties": {
+              "candidate_hash": {
+                "type": "string"
+              },
+              "certificate_hash": {
+                "type": "string"
+              },
+              "certificate_id": {
+                "type": "string"
+              },
+              "deferred_constraints": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "failed_constraints": {
+                "items": {},
+                "type": "array"
+              },
+              "structurally_feasible": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "candidate_hash",
+              "certificate_hash",
+              "certificate_id",
+              "deferred_constraints",
+              "failed_constraints",
+              "structurally_feasible"
+            ],
+            "type": "object"
+          },
+          "instantiated_components": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "component_hash": {
+                  "type": "string"
+                },
+                "kind": {
+                  "type": "string"
+                },
+                "parameters": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "activation_r": {
+                      "type": "string"
+                    },
+                    "buffer_points": {
+                      "type": "string"
+                    },
+                    "direction_source": {
+                      "type": "string"
+                    },
+                    "duration_ms": {
+                      "type": "integer"
+                    },
+                    "expected_value": {
+                      "type": "string"
+                    },
+                    "feature_ref": {
+                      "type": "string"
+                    },
+                    "maximum_holding_ms": {
+                      "type": "integer"
+                    },
+                    "maximum_spread_points": {
+                      "type": "string"
+                    },
+                    "minimum_reward_r": {
+                      "type": "string"
+                    },
+                    "offset_points": {
+                      "type": "string"
+                    },
+                    "operator": {
+                      "type": "string"
+                    },
+                    "quantity_fraction": {
+                      "type": "string"
+                    },
+                    "reference_feature": {
+                      "type": "string"
+                    },
+                    "required_profile": {
+                      "type": "string"
+                    },
+                    "reward_r": {
+                      "type": "string"
+                    },
+                    "session_id": {
+                      "type": "string"
+                    },
+                    "start_offset_ms": {
+                      "type": "integer"
+                    },
+                    "ttl_ms": {
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                },
+                "primitive_definition_id": {
+                  "type": "string"
+                },
+                "primitive_key": {
+                  "type": "string"
+                },
+                "slot": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "component_hash",
+                "kind",
+                "parameters",
+                "primitive_definition_id",
+                "primitive_key",
+                "slot"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "known_as_of": {
+            "type": "string"
+          },
+          "limitations": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "node_hash": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "parameter_assignments": {
+            "additionalProperties": false,
+            "properties": {
+              "component:entry.buffer_points": {
+                "type": "string"
+              },
+              "component:management.quantity_fraction": {
+                "type": "string"
+              },
+              "component:target.reward_r": {
+                "type": "string"
+              },
+              "component:trail.activation_r": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "program_hash": {
+            "type": "string"
+          },
+          "program_id": {
+            "type": "string"
+          },
+          "program_name": {
+            "type": "string"
+          },
+          "selection_authority": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "action_class",
+          "candidate_hash",
+          "candidate_id",
+          "domain_indices",
+          "evidence_role",
+          "execution_authority",
+          "feasibility_certificate",
+          "instantiated_components",
+          "known_as_of",
+          "limitations",
+          "node_hash",
+          "node_id",
+          "parameter_assignments",
+          "program_hash",
+          "program_id",
+          "program_name",
+          "selection_authority"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "outcome_semantics": {
+      "type": "string"
+    },
+    "preference_semantics": {
+      "type": "string"
+    },
+    "selection_authority": {
+      "type": "boolean"
+    },
+    "source_result_hash": {
+      "type": "string"
+    },
+    "source_result_id": {
+      "type": "string"
+    },
+    "topological_order": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "contains_abstain",
+    "contains_skip",
+    "edge_count",
+    "edge_merkle_root",
+    "edges",
+    "execution_authority",
+    "is_dag",
+    "lattice_hash",
+    "lattice_id",
+    "limitations",
+    "node_count",
+    "node_merkle_root",
+    "nodes",
+    "outcome_semantics",
+    "preference_semantics",
+    "selection_authority",
+    "source_result_hash",
+    "source_result_id",
+    "topological_order"
+  ],
+  "title": "Action Lattice",
+  "type": "object"
+}

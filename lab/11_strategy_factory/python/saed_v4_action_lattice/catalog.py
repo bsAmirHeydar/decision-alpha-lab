@@ -1,0 +1,2 @@
+SCHEMA_NAMES=(
+'authority_boundary','parameter_domain','parameter_domain_registry','solver_budget','action_lattice_policy','solver_request','constraint_evaluation','feasibility_certificate','action_node','lattice_edge','pruning_record','pruning_ledger','budget_ledger','solver_result','action_lattice','lattice_integrity_receipt','lattice_replay_receipt','lattice_diff','lattice_partition_manifest','lattice_telemetry','exposure_ledger','quarantine_record','incident_record','release_manifest','v4_07_to_v4_08_handoff','conformance_vectors','conformance_results','schema_catalog')

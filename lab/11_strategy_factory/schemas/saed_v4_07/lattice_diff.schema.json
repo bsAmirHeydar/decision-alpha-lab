@@ -1,0 +1,46 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_07/lattice_diff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "added_node_ids": {
+      "items": {},
+      "type": "array"
+    },
+    "changed_node_ids": {
+      "items": {},
+      "type": "array"
+    },
+    "diff_class": {
+      "type": "string"
+    },
+    "diff_hash": {
+      "type": "string"
+    },
+    "diff_id": {
+      "type": "string"
+    },
+    "left_lattice_hash": {
+      "type": "string"
+    },
+    "removed_node_ids": {
+      "items": {},
+      "type": "array"
+    },
+    "right_lattice_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "added_node_ids",
+    "changed_node_ids",
+    "diff_class",
+    "diff_hash",
+    "diff_id",
+    "left_lattice_hash",
+    "removed_node_ids",
+    "right_lattice_hash"
+  ],
+  "title": "Lattice Diff",
+  "type": "object"
+}
