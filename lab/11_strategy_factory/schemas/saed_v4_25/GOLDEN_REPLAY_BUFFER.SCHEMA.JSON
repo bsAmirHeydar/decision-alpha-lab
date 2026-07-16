@@ -1,0 +1,100 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-25/golden_replay_buffer.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract or evidence artifact. Unknown object fields are rejected.",
+  "properties": {
+    "capacity": {
+      "type": "integer"
+    },
+    "contexts_covered": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "drift_classes_covered": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "entries": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "context_id": {
+            "type": "string"
+          },
+          "decision_time": {
+            "type": "string"
+          },
+          "drift_class": {
+            "type": "string"
+          },
+          "query_outcomes_stored": {
+            "type": "boolean"
+          },
+          "rank": {
+            "type": "integer"
+          },
+          "replay_entry_id": {
+            "type": "string"
+          },
+          "support_features_hash_only": {
+            "type": "boolean"
+          },
+          "task_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "context_id",
+          "decision_time",
+          "drift_class",
+          "query_outcomes_stored",
+          "rank",
+          "replay_entry_id",
+          "support_features_hash_only",
+          "task_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "entry_count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "protected_query_outcomes_stored": {
+      "type": "boolean"
+    },
+    "replay_buffer_hash": {
+      "type": "string"
+    },
+    "replay_buffer_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "capacity",
+    "contexts_covered",
+    "deterministic",
+    "drift_classes_covered",
+    "entries",
+    "entry_count",
+    "phase",
+    "protected_query_outcomes_stored",
+    "replay_buffer_hash",
+    "replay_buffer_id"
+  ],
+  "title": "SAED V4-25 GOLDEN_REPLAY_BUFFER",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_25"
+}

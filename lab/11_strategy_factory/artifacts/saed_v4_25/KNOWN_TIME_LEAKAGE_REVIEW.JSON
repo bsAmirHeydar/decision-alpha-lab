@@ -1,0 +1,15 @@
+{
+  "adaptation_uses_query_outcomes": false,
+  "cluster_role_separation_verified": true,
+  "current_task_outcome_mutation_changes_current_calibration_state": false,
+  "current_task_outcome_mutation_changes_future_retrospective_states": true,
+  "decision_artifacts_use_query_outcomes": false,
+  "future_source_queries": 0,
+  "future_suffix_queries": 0,
+  "known_time_order_verified": true,
+  "passed": true,
+  "phase": "SAED_V4_25",
+  "protected_evidence_queries": 0,
+  "strict_chronology_verified": true,
+  "transfer_source_uses_query_outcomes": false
+}

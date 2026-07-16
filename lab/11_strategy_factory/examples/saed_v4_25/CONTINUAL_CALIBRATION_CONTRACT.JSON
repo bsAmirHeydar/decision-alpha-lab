@@ -1,0 +1,10 @@
+{
+  "alpha": 0.1,
+  "exact_version": "1.0.0",
+  "fail_closed": true,
+  "finite_sample_correction": true,
+  "minimum_residuals": 24,
+  "no_runtime_mutation": true,
+  "past_only": true,
+  "window_tasks": 6
+}

@@ -1,0 +1,43 @@
+{
+  "complete": true,
+  "ledger_hash": "178dee1c1762426701479b1d784b055a17cb83d2f685d132fcab6bca04b13a31",
+  "phase": "SAED_V4_25",
+  "trials": [
+    {
+      "family": "chronological_cluster_safe_meta_dataset",
+      "promotion_eligible": false,
+      "status": "completed",
+      "trial_id": "trial_meta_dataset_001"
+    },
+    {
+      "family": "support_ood_distance_transfer_mapping",
+      "promotion_eligible": false,
+      "status": "completed",
+      "trial_id": "trial_transfer_map_001"
+    },
+    {
+      "family": "regularized_empirical_bayes_linear",
+      "promotion_eligible": false,
+      "status": "completed",
+      "trial_id": "trial_adaptation_001"
+    },
+    {
+      "family": "past_only_sliding_conformal_calibration",
+      "promotion_eligible": false,
+      "status": "completed",
+      "trial_id": "trial_continual_calibration_001"
+    },
+    {
+      "family": "deterministic_stratified_rehearsal",
+      "promotion_eligible": false,
+      "status": "completed",
+      "trial_id": "trial_replay_001"
+    },
+    {
+      "family": "offline_safe_recalibration",
+      "promotion_eligible": false,
+      "status": "completed",
+      "trial_id": "trial_recalibration_grid_001"
+    }
+  ]
+}

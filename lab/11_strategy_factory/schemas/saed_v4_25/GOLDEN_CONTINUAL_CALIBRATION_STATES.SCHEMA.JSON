@@ -1,0 +1,63 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-25/golden_continual_calibration_states.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Closed deterministic research-only contract or evidence artifact. Unknown object fields are rejected.",
+  "items": {
+    "additionalProperties": false,
+    "properties": {
+      "calibration_state_hash": {
+        "type": "string"
+      },
+      "calibration_state_id": {
+        "type": "string"
+      },
+      "downside_quantile": {
+        "oneOf": [
+          {
+            "type": "null"
+          },
+          {
+            "type": "number"
+          }
+        ]
+      },
+      "history_task_ids": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "past_only": {
+        "type": "boolean"
+      },
+      "ready": {
+        "type": "boolean"
+      },
+      "residual_count": {
+        "type": "integer"
+      },
+      "runtime_mutation": {
+        "type": "boolean"
+      },
+      "task_id": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "calibration_state_hash",
+      "calibration_state_id",
+      "downside_quantile",
+      "history_task_ids",
+      "past_only",
+      "ready",
+      "residual_count",
+      "runtime_mutation",
+      "task_id"
+    ],
+    "type": "object"
+  },
+  "title": "SAED V4-25 GOLDEN_CONTINUAL_CALIBRATION_STATES",
+  "type": "array",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_25"
+}

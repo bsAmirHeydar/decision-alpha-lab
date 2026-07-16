@@ -1,0 +1,59 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-25/recalibration_experiment_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract or evidence artifact. Unknown object fields are rejected.",
+  "properties": {
+    "candidate_prior_strength_grid": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "candidate_ridge_grid": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "candidate_window_grid": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "deterministic_tie_break": {
+      "type": "string"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "hidden_evaluation_queries": {
+      "type": "integer"
+    },
+    "maximum_trials": {
+      "type": "integer"
+    },
+    "online_mutation_forbidden": {
+      "type": "boolean"
+    },
+    "selection_role": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "candidate_prior_strength_grid",
+    "candidate_ridge_grid",
+    "candidate_window_grid",
+    "deterministic_tie_break",
+    "exact_version",
+    "hidden_evaluation_queries",
+    "maximum_trials",
+    "online_mutation_forbidden",
+    "selection_role"
+  ],
+  "title": "SAED V4-25 RECALIBRATION_EXPERIMENT_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_25"
+}

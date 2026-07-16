@@ -1,0 +1,75 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-25/golden_transfer_evaluations.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Closed deterministic research-only contract or evidence artifact. Unknown object fields are rejected.",
+  "items": {
+    "additionalProperties": false,
+    "properties": {
+      "baseline_predictions": {
+        "items": {
+          "type": "number"
+        },
+        "type": "array"
+      },
+      "baseline_utility": {
+        "type": "number"
+      },
+      "cluster_id": {
+        "type": "string"
+      },
+      "context_id": {
+        "type": "string"
+      },
+      "evaluation_hash": {
+        "type": "string"
+      },
+      "evaluation_id": {
+        "type": "string"
+      },
+      "promotion_eligible": {
+        "type": "boolean"
+      },
+      "query_outcomes_used_only_for_retrospective_evaluation": {
+        "type": "boolean"
+      },
+      "role": {
+        "type": "string"
+      },
+      "task_id": {
+        "type": "string"
+      },
+      "transfer_predictions": {
+        "items": {
+          "type": "number"
+        },
+        "type": "array"
+      },
+      "transfer_utility": {
+        "type": "number"
+      },
+      "utility_delta": {
+        "type": "number"
+      }
+    },
+    "required": [
+      "baseline_predictions",
+      "baseline_utility",
+      "cluster_id",
+      "context_id",
+      "evaluation_hash",
+      "evaluation_id",
+      "promotion_eligible",
+      "query_outcomes_used_only_for_retrospective_evaluation",
+      "role",
+      "task_id",
+      "transfer_predictions",
+      "transfer_utility",
+      "utility_delta"
+    ],
+    "type": "object"
+  },
+  "title": "SAED V4-25 GOLDEN_TRANSFER_EVALUATIONS",
+  "type": "array",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_25"
+}

@@ -1,0 +1,58 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-25/upstream_intake.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract or evidence artifact. Unknown object fields are rejected.",
+  "properties": {
+    "certificate_hash": {
+      "type": "string"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "hash_verified": {
+      "type": "boolean"
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "online_policy_mutation_denied": {
+      "type": "boolean"
+    },
+    "promotion_denied": {
+      "type": "boolean"
+    },
+    "required_phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "research_policy_id": {
+      "type": "string"
+    },
+    "runtime_denied": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "certificate_hash",
+    "exact_version",
+    "handoff_hash",
+    "hash_verified",
+    "immutable",
+    "online_policy_mutation_denied",
+    "promotion_denied",
+    "required_phase",
+    "research_only",
+    "research_policy_id",
+    "runtime_denied"
+  ],
+  "title": "SAED V4-25 UPSTREAM_INTAKE",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_25"
+}

@@ -1,0 +1,57 @@
+{
+  "allowed_roles": [
+    "meta_train",
+    "meta_validation",
+    "transfer_test",
+    "drift_reference"
+  ],
+  "cluster_role_separation_required": true,
+  "exact_version": "1.0.0",
+  "feature_names": [
+    "price_displacement",
+    "structure_alignment",
+    "time_pressure",
+    "liquidity_state",
+    "execution_quality",
+    "ancestry_depth"
+  ],
+  "future_suffix_forbidden": true,
+  "minimum_clusters": 16,
+  "minimum_contexts": 4,
+  "minimum_tasks": 40,
+  "minimum_tasks_per_role": 8,
+  "parameter_names": [
+    "price_displacement",
+    "structure_alignment",
+    "time_pressure",
+    "liquidity_state",
+    "execution_quality",
+    "ancestry_depth"
+  ],
+  "protected_evidence_forbidden": true,
+  "query_outcomes_protected_during_adaptation": true,
+  "required_fields": [
+    "baseline_parameters",
+    "cluster_id",
+    "conformal_value_lower_bound",
+    "context_id",
+    "decision_time",
+    "feature_known_at",
+    "feature_summary",
+    "future_suffix_accessed",
+    "ood_pvalue",
+    "outcome_observed_at",
+    "protected_evidence_accessed",
+    "query_features",
+    "query_targets",
+    "regime",
+    "role",
+    "support_features",
+    "support_score",
+    "support_targets",
+    "task_id",
+    "window_end",
+    "window_start"
+  ],
+  "strict_chronology": true
+}

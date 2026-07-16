@@ -1,0 +1,58 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-25/security_review.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract or evidence artifact. Unknown object fields are rejected.",
+  "properties": {
+    "broker_credentials_present": {
+      "type": "boolean"
+    },
+    "dependency_scope": {
+      "type": "string"
+    },
+    "metaeditor_compile": {
+      "type": "string"
+    },
+    "mql5_scope": {
+      "type": "string"
+    },
+    "network_access": {
+      "type": "boolean"
+    },
+    "online_policy_mutation_surface_present": {
+      "type": "boolean"
+    },
+    "order_submission_surface_present": {
+      "type": "boolean"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "runtime_endpoints_present": {
+      "type": "boolean"
+    },
+    "signing_material_present": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "broker_credentials_present",
+    "dependency_scope",
+    "metaeditor_compile",
+    "mql5_scope",
+    "network_access",
+    "online_policy_mutation_surface_present",
+    "order_submission_surface_present",
+    "passed",
+    "phase",
+    "runtime_endpoints_present",
+    "signing_material_present"
+  ],
+  "title": "SAED V4-25 SECURITY_REVIEW",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_25"
+}

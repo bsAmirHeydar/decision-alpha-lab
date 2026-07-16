@@ -1,0 +1,53 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-25/drift_taxonomy_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract or evidence artifact. Unknown object fields are rejected.",
+  "properties": {
+    "allowed_classes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "fail_closed_to_novel": {
+      "type": "boolean"
+    },
+    "gradual_threshold": {
+      "type": "number"
+    },
+    "minimum_segment_tasks": {
+      "type": "integer"
+    },
+    "recurrence_similarity_threshold": {
+      "type": "number"
+    },
+    "stationary_threshold": {
+      "type": "number"
+    },
+    "sudden_threshold": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "allowed_classes",
+    "deterministic",
+    "exact_version",
+    "fail_closed_to_novel",
+    "gradual_threshold",
+    "minimum_segment_tasks",
+    "recurrence_similarity_threshold",
+    "stationary_threshold",
+    "sudden_threshold"
+  ],
+  "title": "SAED V4-25 DRIFT_TAXONOMY_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_25"
+}

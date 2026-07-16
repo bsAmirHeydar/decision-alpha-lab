@@ -1,0 +1,54 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-25/golden_trial_ledger.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract or evidence artifact. Unknown object fields are rejected.",
+  "properties": {
+    "complete": {
+      "type": "boolean"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "trials": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "family": {
+            "type": "string"
+          },
+          "promotion_eligible": {
+            "type": "boolean"
+          },
+          "status": {
+            "type": "string"
+          },
+          "trial_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "family",
+          "promotion_eligible",
+          "status",
+          "trial_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "complete",
+    "ledger_hash",
+    "phase",
+    "trials"
+  ],
+  "title": "SAED V4-25 GOLDEN_TRIAL_LEDGER",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_25"
+}

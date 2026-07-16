@@ -1,0 +1,58 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-25/transfer_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract or evidence artifact. Unknown object fields are rejected.",
+  "properties": {
+    "deterministic": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "future_source_forbidden": {
+      "type": "boolean"
+    },
+    "maximum_meta_distance": {
+      "type": "number"
+    },
+    "maximum_sources": {
+      "type": "integer"
+    },
+    "minimum_source_ood_pvalue": {
+      "type": "number"
+    },
+    "minimum_source_support": {
+      "type": "number"
+    },
+    "negative_transfer_guard_required": {
+      "type": "boolean"
+    },
+    "safe_fallback": {
+      "type": "string"
+    },
+    "same_cluster_forbidden": {
+      "type": "boolean"
+    },
+    "source_query_outcomes_forbidden": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "deterministic",
+    "exact_version",
+    "future_source_forbidden",
+    "maximum_meta_distance",
+    "maximum_sources",
+    "minimum_source_ood_pvalue",
+    "minimum_source_support",
+    "negative_transfer_guard_required",
+    "safe_fallback",
+    "same_cluster_forbidden",
+    "source_query_outcomes_forbidden"
+  ],
+  "title": "SAED V4-25 TRANSFER_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_25"
+}

@@ -1,0 +1,82 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-25/meta_dataset_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract or evidence artifact. Unknown object fields are rejected.",
+  "properties": {
+    "allowed_roles": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "cluster_role_separation_required": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "feature_names": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "future_suffix_forbidden": {
+      "type": "boolean"
+    },
+    "minimum_clusters": {
+      "type": "integer"
+    },
+    "minimum_contexts": {
+      "type": "integer"
+    },
+    "minimum_tasks": {
+      "type": "integer"
+    },
+    "minimum_tasks_per_role": {
+      "type": "integer"
+    },
+    "parameter_names": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "protected_evidence_forbidden": {
+      "type": "boolean"
+    },
+    "query_outcomes_protected_during_adaptation": {
+      "type": "boolean"
+    },
+    "required_fields": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "strict_chronology": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "allowed_roles",
+    "cluster_role_separation_required",
+    "exact_version",
+    "feature_names",
+    "future_suffix_forbidden",
+    "minimum_clusters",
+    "minimum_contexts",
+    "minimum_tasks",
+    "minimum_tasks_per_role",
+    "parameter_names",
+    "protected_evidence_forbidden",
+    "query_outcomes_protected_during_adaptation",
+    "required_fields",
+    "strict_chronology"
+  ],
+  "title": "SAED V4-25 META_DATASET_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_25"
+}

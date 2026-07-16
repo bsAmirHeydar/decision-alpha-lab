@@ -1,0 +1,159 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-25/golden_drift_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract or evidence artifact. Unknown object fields are rejected.",
+  "properties": {
+    "class_counts": {
+      "additionalProperties": false,
+      "properties": {
+        "novel": {
+          "type": "integer"
+        },
+        "recurring": {
+          "type": "integer"
+        },
+        "stationary": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "novel",
+        "recurring",
+        "stationary"
+      ],
+      "type": "object"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "drift_report_hash": {
+      "type": "string"
+    },
+    "drift_report_id": {
+      "type": "string"
+    },
+    "events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "context_id": {
+            "type": "string"
+          },
+          "deterministic": {
+            "type": "boolean"
+          },
+          "drift_class": {
+            "type": "string"
+          },
+          "drift_event_hash": {
+            "type": "string"
+          },
+          "drift_event_id": {
+            "type": "string"
+          },
+          "fail_closed": {
+            "type": "boolean"
+          },
+          "meta_distance": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "number"
+              }
+            ]
+          },
+          "predecessor_task_id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "recurrence_similarity": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "number"
+              }
+            ]
+          },
+          "task_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "context_id",
+          "deterministic",
+          "drift_class",
+          "drift_event_hash",
+          "drift_event_id",
+          "fail_closed",
+          "meta_distance",
+          "predecessor_task_id",
+          "recurrence_similarity",
+          "task_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "segments": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "context_id": {
+            "type": "string"
+          },
+          "drift_class": {
+            "type": "string"
+          },
+          "segment_id": {
+            "type": "string"
+          },
+          "task_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "context_id",
+          "drift_class",
+          "segment_id",
+          "task_ids"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "taxonomy_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "class_counts",
+    "deterministic",
+    "drift_report_hash",
+    "drift_report_id",
+    "events",
+    "phase",
+    "segments",
+    "taxonomy_hash"
+  ],
+  "title": "SAED V4-25 GOLDEN_DRIFT_REPORT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_25"
+}

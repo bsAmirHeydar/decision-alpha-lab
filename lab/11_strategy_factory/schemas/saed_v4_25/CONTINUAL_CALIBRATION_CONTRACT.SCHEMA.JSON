@@ -1,0 +1,46 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-25/continual_calibration_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract or evidence artifact. Unknown object fields are rejected.",
+  "properties": {
+    "alpha": {
+      "type": "number"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "fail_closed": {
+      "type": "boolean"
+    },
+    "finite_sample_correction": {
+      "type": "boolean"
+    },
+    "minimum_residuals": {
+      "type": "integer"
+    },
+    "no_runtime_mutation": {
+      "type": "boolean"
+    },
+    "past_only": {
+      "type": "boolean"
+    },
+    "window_tasks": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "alpha",
+    "exact_version",
+    "fail_closed",
+    "finite_sample_correction",
+    "minimum_residuals",
+    "no_runtime_mutation",
+    "past_only",
+    "window_tasks"
+  ],
+  "title": "SAED V4-25 CONTINUAL_CALIBRATION_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_25"
+}

@@ -1,0 +1,42 @@
+{
+  "cluster_count": 48,
+  "cluster_role_separation": true,
+  "context_count": 4,
+  "context_counts": {
+    "divergence": 12,
+    "flag": 12,
+    "hook": 12,
+    "timing": 12
+  },
+  "dataset_hash": "b04b960ada27ef7d1a91876548b4bc3de9bb396825326511909c9b206f8a5ecf",
+  "dataset_id": "meta_dataset_eb57e2438d033a47ffd6230e",
+  "feature_names": [
+    "price_displacement",
+    "structure_alignment",
+    "time_pressure",
+    "liquidity_state",
+    "execution_quality",
+    "ancestry_depth"
+  ],
+  "future_suffix_queries": 0,
+  "parameter_names": [
+    "price_displacement",
+    "structure_alignment",
+    "time_pressure",
+    "liquidity_state",
+    "execution_quality",
+    "ancestry_depth"
+  ],
+  "phase": "SAED_V4_25",
+  "protected_evidence_queries": 0,
+  "query_outcomes_protected_during_adaptation": true,
+  "role_counts": {
+    "drift_reference": 12,
+    "meta_train": 12,
+    "meta_validation": 12,
+    "transfer_test": 12
+  },
+  "strict_chronology": true,
+  "summary_hash": "c7bbc63a8f2b16bf6e6c8f1a566bf409a1e0486a10cdeacabec7d864aa66929b",
+  "task_count": 48
+}

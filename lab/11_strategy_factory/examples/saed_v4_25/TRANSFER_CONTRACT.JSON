@@ -1,0 +1,13 @@
+{
+  "deterministic": true,
+  "exact_version": "1.0.0",
+  "future_source_forbidden": true,
+  "maximum_meta_distance": 4.0,
+  "maximum_sources": 5,
+  "minimum_source_ood_pvalue": 0.04,
+  "minimum_source_support": 0.45,
+  "negative_transfer_guard_required": true,
+  "safe_fallback": "scratch_baseline",
+  "same_cluster_forbidden": true,
+  "source_query_outcomes_forbidden": true
+}

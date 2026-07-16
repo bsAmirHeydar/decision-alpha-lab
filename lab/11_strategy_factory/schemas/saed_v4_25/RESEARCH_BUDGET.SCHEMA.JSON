@@ -1,0 +1,66 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-25/research_budget.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract or evidence artifact. Unknown object fields are rejected.",
+  "properties": {
+    "exact_version": {
+      "type": "string"
+    },
+    "failure_budget": {
+      "type": "integer"
+    },
+    "maximum_adaptations": {
+      "type": "integer"
+    },
+    "maximum_bootstrap_draws": {
+      "type": "integer"
+    },
+    "maximum_hidden_evaluation_queries": {
+      "type": "integer"
+    },
+    "maximum_online_policy_mutations": {
+      "type": "integer"
+    },
+    "maximum_order_submissions": {
+      "type": "integer"
+    },
+    "maximum_protected_evidence_exposures": {
+      "type": "integer"
+    },
+    "maximum_recalibration_trials": {
+      "type": "integer"
+    },
+    "maximum_replay_entries": {
+      "type": "integer"
+    },
+    "maximum_runtime_compilations": {
+      "type": "integer"
+    },
+    "maximum_source_evaluations": {
+      "type": "integer"
+    },
+    "maximum_tasks": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "exact_version",
+    "failure_budget",
+    "maximum_adaptations",
+    "maximum_bootstrap_draws",
+    "maximum_hidden_evaluation_queries",
+    "maximum_online_policy_mutations",
+    "maximum_order_submissions",
+    "maximum_protected_evidence_exposures",
+    "maximum_recalibration_trials",
+    "maximum_replay_entries",
+    "maximum_runtime_compilations",
+    "maximum_source_evaluations",
+    "maximum_tasks"
+  ],
+  "title": "SAED V4-25 RESEARCH_BUDGET",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_25"
+}

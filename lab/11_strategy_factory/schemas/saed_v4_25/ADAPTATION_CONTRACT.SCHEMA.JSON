@@ -1,0 +1,50 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-25/adaptation_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract or evidence artifact. Unknown object fields are rejected.",
+  "properties": {
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "maximum_parameter_delta": {
+      "type": "number"
+    },
+    "method": {
+      "type": "string"
+    },
+    "minimum_support_rows": {
+      "type": "integer"
+    },
+    "prior_strength": {
+      "type": "number"
+    },
+    "query_outcomes_forbidden": {
+      "type": "boolean"
+    },
+    "ridge_penalty": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "baseline_preserved",
+    "deterministic",
+    "exact_version",
+    "maximum_parameter_delta",
+    "method",
+    "minimum_support_rows",
+    "prior_strength",
+    "query_outcomes_forbidden",
+    "ridge_penalty"
+  ],
+  "title": "SAED V4-25 ADAPTATION_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_25"
+}

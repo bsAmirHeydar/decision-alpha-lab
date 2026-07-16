@@ -1,0 +1,125 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-25/meta_task_records.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Closed deterministic research-only contract or evidence artifact. Unknown object fields are rejected.",
+  "items": {
+    "additionalProperties": false,
+    "properties": {
+      "baseline_parameters": {
+        "items": {
+          "type": "number"
+        },
+        "type": "array"
+      },
+      "cluster_id": {
+        "type": "string"
+      },
+      "conformal_value_lower_bound": {
+        "type": "number"
+      },
+      "context_id": {
+        "type": "string"
+      },
+      "decision_time": {
+        "type": "string"
+      },
+      "feature_known_at": {
+        "type": "string"
+      },
+      "feature_summary": {
+        "items": {
+          "type": "number"
+        },
+        "type": "array"
+      },
+      "future_suffix_accessed": {
+        "type": "boolean"
+      },
+      "ood_pvalue": {
+        "type": "number"
+      },
+      "outcome_observed_at": {
+        "type": "string"
+      },
+      "protected_evidence_accessed": {
+        "type": "boolean"
+      },
+      "query_features": {
+        "items": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "type": "array"
+      },
+      "query_targets": {
+        "items": {
+          "type": "number"
+        },
+        "type": "array"
+      },
+      "regime": {
+        "type": "string"
+      },
+      "role": {
+        "type": "string"
+      },
+      "support_features": {
+        "items": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "type": "array"
+      },
+      "support_score": {
+        "type": "number"
+      },
+      "support_targets": {
+        "items": {
+          "type": "number"
+        },
+        "type": "array"
+      },
+      "task_id": {
+        "type": "string"
+      },
+      "window_end": {
+        "type": "string"
+      },
+      "window_start": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "baseline_parameters",
+      "cluster_id",
+      "conformal_value_lower_bound",
+      "context_id",
+      "decision_time",
+      "feature_known_at",
+      "feature_summary",
+      "future_suffix_accessed",
+      "ood_pvalue",
+      "outcome_observed_at",
+      "protected_evidence_accessed",
+      "query_features",
+      "query_targets",
+      "regime",
+      "role",
+      "support_features",
+      "support_score",
+      "support_targets",
+      "task_id",
+      "window_end",
+      "window_start"
+    ],
+    "type": "object"
+  },
+  "title": "SAED V4-25 META_TASK_RECORDS",
+  "type": "array",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_25"
+}

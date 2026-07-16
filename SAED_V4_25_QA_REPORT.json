@@ -1,0 +1,85 @@
+{
+  "phase": "SAED_V4_25",
+  "title": "Continual Meta And Transfer",
+  "version": "1.0.0",
+  "passed": true,
+  "created": "2026-07-16",
+  "scope": "local deterministic reference implementation",
+  "checks": {
+    "python_tests": {
+      "passed": true,
+      "count": 170,
+      "command": "python tools/strategy_factory/saed_v4_25/run_saed_v4_25_tests.py"
+    },
+    "closed_schema_pairs": {
+      "passed": true,
+      "count": 36,
+      "unknown_fields_rejected": true,
+      "command": "python tools/strategy_factory/saed_v4_25/validate_saed_v4_25_contracts.py"
+    },
+    "phase_status": {
+      "passed": true,
+      "command": "python tools/strategy_factory/saed_v4_25/validate_saed_v4_25_status.py"
+    },
+    "obsidian": {
+      "passed": true,
+      "notes": 255,
+      "broken_links": 0,
+      "command": "python tools/strategy_factory/saed_v4_25/validate_saed_v4_25_obsidian.py"
+    },
+    "mql5_static": {
+      "passed": true,
+      "files": 22,
+      "forbidden_execution_surfaces": 0,
+      "command": "python tools/strategy_factory/saed_v4_25/validate_saed_v4_25_mql5_static.py"
+    },
+    "authority_boundaries": {
+      "passed": true,
+      "hidden_evaluation_queries": 0,
+      "protected_evidence_exposures": 0,
+      "runtime_compilations": 0,
+      "order_submissions": 0,
+      "online_policy_mutations": 0,
+      "command": "python tools/strategy_factory/saed_v4_25/check_saed_v4_25_boundaries.py"
+    },
+    "golden_reproduction": {
+      "passed": true,
+      "exact_artifacts": 20,
+      "command": "python tools/strategy_factory/saed_v4_25/reproduce_saed_v4_25_golden.py"
+    },
+    "known_time": {
+      "passed": true,
+      "query_outcome_adaptation_invariance": true,
+      "current_outcome_calibration_invariance": true,
+      "future_source_prohibition": true,
+      "cluster_role_separation": true
+    },
+    "transfer_and_forgetting": {
+      "passed": true,
+      "negative_transfer_fail_closed": true,
+      "forward_transfer_reference_gate": true,
+      "backward_transfer_reference_gate": true,
+      "mean_forgetting_reference_gate": true,
+      "worst_task_forgetting_reference_gate": true
+    }
+  },
+  "external_evidence": {
+    "metaeditor_compile": "pending_local_windows",
+    "python_mql5_runtime_parity": "not_claimed",
+    "broker_qualification": "not_claimed",
+    "prospective_shadow": "not_claimed",
+    "independent_external_reproduction": "pending_external"
+  },
+  "claims_excluded": [
+    "real_alpha",
+    "prospective_success",
+    "promotion_authorization",
+    "runtime_compilation",
+    "runtime_parity",
+    "risk_allocation",
+    "broker_execution",
+    "production_authorization",
+    "online_learning",
+    "live_trading"
+  ]
+}

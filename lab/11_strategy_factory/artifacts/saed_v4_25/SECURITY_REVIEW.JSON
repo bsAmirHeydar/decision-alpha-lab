@@ -1,0 +1,13 @@
+{
+  "broker_credentials_present": false,
+  "dependency_scope": "python_standard_library_plus_test_only_jsonschema_pytest",
+  "metaeditor_compile": "pending_local_windows",
+  "mql5_scope": "static_contract_mirror_only",
+  "network_access": false,
+  "online_policy_mutation_surface_present": false,
+  "order_submission_surface_present": false,
+  "passed": true,
+  "phase": "SAED_V4_25",
+  "runtime_endpoints_present": false,
+  "signing_material_present": false
+}

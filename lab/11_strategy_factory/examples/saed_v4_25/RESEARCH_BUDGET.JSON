@@ -1,0 +1,15 @@
+{
+  "exact_version": "1.0.0",
+  "failure_budget": 0,
+  "maximum_adaptations": 64,
+  "maximum_bootstrap_draws": 500,
+  "maximum_hidden_evaluation_queries": 0,
+  "maximum_online_policy_mutations": 0,
+  "maximum_order_submissions": 0,
+  "maximum_protected_evidence_exposures": 0,
+  "maximum_recalibration_trials": 32,
+  "maximum_replay_entries": 16,
+  "maximum_runtime_compilations": 0,
+  "maximum_source_evaluations": 1000,
+  "maximum_tasks": 64
+}

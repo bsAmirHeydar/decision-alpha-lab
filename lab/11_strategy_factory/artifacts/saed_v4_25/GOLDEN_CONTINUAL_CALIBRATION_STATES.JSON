@@ -1,0 +1,844 @@
+[
+  {
+    "calibration_state_hash": "fece36706d6a582ab35fc07e6dafabe79fa60198e95f44c275ef61cbbdec428e",
+    "calibration_state_id": "continual_calibration_fa1b585642f40d4325424266",
+    "downside_quantile": null,
+    "history_task_ids": [],
+    "past_only": true,
+    "ready": false,
+    "residual_count": 0,
+    "runtime_mutation": false,
+    "task_id": "task_001_hook_meta_train"
+  },
+  {
+    "calibration_state_hash": "a8db3c07bf9332b6c7f07ae95ee94df47979941992b6d1105efc0063ec91d678",
+    "calibration_state_id": "continual_calibration_05852da3dd1a3cc671a98798",
+    "downside_quantile": null,
+    "history_task_ids": [
+      "task_001_hook_meta_train"
+    ],
+    "past_only": true,
+    "ready": false,
+    "residual_count": 18,
+    "runtime_mutation": false,
+    "task_id": "task_002_flag_meta_train"
+  },
+  {
+    "calibration_state_hash": "0b9a44232a14cf5c079977d9eda07cc6a6db2ee9ffb0750f74ae83d9a22d859b",
+    "calibration_state_id": "continual_calibration_fe1a8408d4f21bfa74adaf91",
+    "downside_quantile": 0.05098645167022744,
+    "history_task_ids": [
+      "task_001_hook_meta_train",
+      "task_002_flag_meta_train"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 36,
+    "runtime_mutation": false,
+    "task_id": "task_003_divergence_meta_train"
+  },
+  {
+    "calibration_state_hash": "0481edb63c53ddecb5593ee6b1aa675768affc2ced8592e19d04d9aa3ac98727",
+    "calibration_state_id": "continual_calibration_85b6398543ab174b524b6a5d",
+    "downside_quantile": 0.06646444886527998,
+    "history_task_ids": [
+      "task_001_hook_meta_train",
+      "task_002_flag_meta_train",
+      "task_003_divergence_meta_train"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 54,
+    "runtime_mutation": false,
+    "task_id": "task_004_timing_meta_train"
+  },
+  {
+    "calibration_state_hash": "2ad0abfe5f4fdbd1ea462144959fdab52375d3f95fee7d37f0a6d1db6e585796",
+    "calibration_state_id": "continual_calibration_6aea5157f5490528c49f5f67",
+    "downside_quantile": 0.06408396774172014,
+    "history_task_ids": [
+      "task_001_hook_meta_train",
+      "task_002_flag_meta_train",
+      "task_003_divergence_meta_train",
+      "task_004_timing_meta_train"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 72,
+    "runtime_mutation": false,
+    "task_id": "task_005_hook_meta_train"
+  },
+  {
+    "calibration_state_hash": "147fe7393e75e31d1e99d38a6047c2a570dc6034cab04d3bd25a978eee221f2b",
+    "calibration_state_id": "continual_calibration_f73c049882d7830e83172227",
+    "downside_quantile": 0.05056541995860144,
+    "history_task_ids": [
+      "task_001_hook_meta_train",
+      "task_002_flag_meta_train",
+      "task_003_divergence_meta_train",
+      "task_004_timing_meta_train",
+      "task_005_hook_meta_train"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 90,
+    "runtime_mutation": false,
+    "task_id": "task_006_flag_meta_train"
+  },
+  {
+    "calibration_state_hash": "c56ffc1c3edd13f3611d34e3b93ad1e1037a62a2630e1bb4f79dc3ca19ce7d3c",
+    "calibration_state_id": "continual_calibration_02b4f4afd389261637eef9ee",
+    "downside_quantile": 0.04680068416910725,
+    "history_task_ids": [
+      "task_001_hook_meta_train",
+      "task_002_flag_meta_train",
+      "task_003_divergence_meta_train",
+      "task_004_timing_meta_train",
+      "task_005_hook_meta_train",
+      "task_006_flag_meta_train"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_007_divergence_meta_train"
+  },
+  {
+    "calibration_state_hash": "7c7cf0a30a707c6f5b4b6ac0f6c17d06fa9df14c69df428061a8a47e79043aae",
+    "calibration_state_id": "continual_calibration_36013f959c3beed8da6ef067",
+    "downside_quantile": 0.055241901683883834,
+    "history_task_ids": [
+      "task_002_flag_meta_train",
+      "task_003_divergence_meta_train",
+      "task_004_timing_meta_train",
+      "task_005_hook_meta_train",
+      "task_006_flag_meta_train",
+      "task_007_divergence_meta_train"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_008_timing_meta_train"
+  },
+  {
+    "calibration_state_hash": "223c3b0384ad7c3c809ec724dc020835cc4ab90a7917f42448afb70ded2b942d",
+    "calibration_state_id": "continual_calibration_b355f3b01153b1f18b6674b5",
+    "downside_quantile": 0.047199009323491276,
+    "history_task_ids": [
+      "task_003_divergence_meta_train",
+      "task_004_timing_meta_train",
+      "task_005_hook_meta_train",
+      "task_006_flag_meta_train",
+      "task_007_divergence_meta_train",
+      "task_008_timing_meta_train"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_009_hook_meta_train"
+  },
+  {
+    "calibration_state_hash": "212fc806ef4525f1a9c02bab694038a1e53f16219b5f0953f99723980ad8704b",
+    "calibration_state_id": "continual_calibration_e01938db7c6ea5f0e9d02c38",
+    "downside_quantile": 0.03405048012256898,
+    "history_task_ids": [
+      "task_004_timing_meta_train",
+      "task_005_hook_meta_train",
+      "task_006_flag_meta_train",
+      "task_007_divergence_meta_train",
+      "task_008_timing_meta_train",
+      "task_009_hook_meta_train"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_010_flag_meta_train"
+  },
+  {
+    "calibration_state_hash": "3385f537aa4c9d151241594c183538f73dc1e142f7634a9afc149026ffe4b6fe",
+    "calibration_state_id": "continual_calibration_2a1f6c5d098e55a498727374",
+    "downside_quantile": 0.031263305091081606,
+    "history_task_ids": [
+      "task_005_hook_meta_train",
+      "task_006_flag_meta_train",
+      "task_007_divergence_meta_train",
+      "task_008_timing_meta_train",
+      "task_009_hook_meta_train",
+      "task_010_flag_meta_train"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_011_divergence_meta_train"
+  },
+  {
+    "calibration_state_hash": "4d8c0ce79017c0f81fa8f1a13b39f46515ec76bb61394b06b1e04bdfbc53b6ea",
+    "calibration_state_id": "continual_calibration_e38d314dc6a68311f4efd988",
+    "downside_quantile": 0.03253973890654699,
+    "history_task_ids": [
+      "task_006_flag_meta_train",
+      "task_007_divergence_meta_train",
+      "task_008_timing_meta_train",
+      "task_009_hook_meta_train",
+      "task_010_flag_meta_train",
+      "task_011_divergence_meta_train"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_012_timing_meta_train"
+  },
+  {
+    "calibration_state_hash": "244a629416265d549ed904bba340f474bfa13a456e7f6cc0da5876d7631b79f8",
+    "calibration_state_id": "continual_calibration_84b78d12c97f313a403b075a",
+    "downside_quantile": 0.030259466601365664,
+    "history_task_ids": [
+      "task_007_divergence_meta_train",
+      "task_008_timing_meta_train",
+      "task_009_hook_meta_train",
+      "task_010_flag_meta_train",
+      "task_011_divergence_meta_train",
+      "task_012_timing_meta_train"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_013_hook_meta_validation"
+  },
+  {
+    "calibration_state_hash": "110b77c99e3d0411d05c9f9fc792a9f33d4ec782e738e12e08e318e1433a5168",
+    "calibration_state_id": "continual_calibration_7710ddabce0f69bbdae6fcae",
+    "downside_quantile": 0.0261313731243012,
+    "history_task_ids": [
+      "task_008_timing_meta_train",
+      "task_009_hook_meta_train",
+      "task_010_flag_meta_train",
+      "task_011_divergence_meta_train",
+      "task_012_timing_meta_train",
+      "task_013_hook_meta_validation"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_014_flag_meta_validation"
+  },
+  {
+    "calibration_state_hash": "5132fee212b490da82ef6e671f522337db28d5c7e36b83aaf117488eab01343b",
+    "calibration_state_id": "continual_calibration_3ec53f551d53cb4a6321a627",
+    "downside_quantile": 0.027513160238949418,
+    "history_task_ids": [
+      "task_009_hook_meta_train",
+      "task_010_flag_meta_train",
+      "task_011_divergence_meta_train",
+      "task_012_timing_meta_train",
+      "task_013_hook_meta_validation",
+      "task_014_flag_meta_validation"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_015_divergence_meta_validation"
+  },
+  {
+    "calibration_state_hash": "d7e37acce1d7bc6aeb416ab2c61352490efd258df249828b51301742ef886165",
+    "calibration_state_id": "continual_calibration_9395126c0f160bbbb5379d4a",
+    "downside_quantile": 0.03144270817003857,
+    "history_task_ids": [
+      "task_010_flag_meta_train",
+      "task_011_divergence_meta_train",
+      "task_012_timing_meta_train",
+      "task_013_hook_meta_validation",
+      "task_014_flag_meta_validation",
+      "task_015_divergence_meta_validation"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_016_timing_meta_validation"
+  },
+  {
+    "calibration_state_hash": "54aa16c4bdc11a01467eec35eaa807d18d36239dfee212c44cd575ed0ed12237",
+    "calibration_state_id": "continual_calibration_cab0920eb7b6bd735833e220",
+    "downside_quantile": 0.037311827810026385,
+    "history_task_ids": [
+      "task_011_divergence_meta_train",
+      "task_012_timing_meta_train",
+      "task_013_hook_meta_validation",
+      "task_014_flag_meta_validation",
+      "task_015_divergence_meta_validation",
+      "task_016_timing_meta_validation"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_017_hook_meta_validation"
+  },
+  {
+    "calibration_state_hash": "e9c15393fe3a6a5cbe379734ce0ef0982e1e750bcfd5f980c8ec5d10b0353d79",
+    "calibration_state_id": "continual_calibration_40478f8c8fb428aa823c9942",
+    "downside_quantile": 0.03377533136433898,
+    "history_task_ids": [
+      "task_012_timing_meta_train",
+      "task_013_hook_meta_validation",
+      "task_014_flag_meta_validation",
+      "task_015_divergence_meta_validation",
+      "task_016_timing_meta_validation",
+      "task_017_hook_meta_validation"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_018_flag_meta_validation"
+  },
+  {
+    "calibration_state_hash": "21ec214a58180364c6a0ac626d67a308ca5b55f4b8c19fb574fc7675743b508b",
+    "calibration_state_id": "continual_calibration_f8047b651ad2de33a9a0e587",
+    "downside_quantile": 0.03377533136433898,
+    "history_task_ids": [
+      "task_013_hook_meta_validation",
+      "task_014_flag_meta_validation",
+      "task_015_divergence_meta_validation",
+      "task_016_timing_meta_validation",
+      "task_017_hook_meta_validation",
+      "task_018_flag_meta_validation"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_019_divergence_meta_validation"
+  },
+  {
+    "calibration_state_hash": "20e3f2d1d614e7be5332427124d38d98fd647e019f87854437aad1f2145e305b",
+    "calibration_state_id": "continual_calibration_93232bb1799f2ef6842e9073",
+    "downside_quantile": 0.03821276338632789,
+    "history_task_ids": [
+      "task_014_flag_meta_validation",
+      "task_015_divergence_meta_validation",
+      "task_016_timing_meta_validation",
+      "task_017_hook_meta_validation",
+      "task_018_flag_meta_validation",
+      "task_019_divergence_meta_validation"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_020_timing_meta_validation"
+  },
+  {
+    "calibration_state_hash": "40692a3f4752b8de41efb76bac1093b20b479060ee8518e4df98b18643920ca5",
+    "calibration_state_id": "continual_calibration_4c3fc3d78d4daf2244b6427c",
+    "downside_quantile": 0.03735257342199116,
+    "history_task_ids": [
+      "task_015_divergence_meta_validation",
+      "task_016_timing_meta_validation",
+      "task_017_hook_meta_validation",
+      "task_018_flag_meta_validation",
+      "task_019_divergence_meta_validation",
+      "task_020_timing_meta_validation"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_021_hook_meta_validation"
+  },
+  {
+    "calibration_state_hash": "d2ed4a33e583fd52906d9ea0b97827679b395ab68174e8713505aabfea98a412",
+    "calibration_state_id": "continual_calibration_dd69bfb2f16126ef5d64374a",
+    "downside_quantile": 0.03433945705832215,
+    "history_task_ids": [
+      "task_016_timing_meta_validation",
+      "task_017_hook_meta_validation",
+      "task_018_flag_meta_validation",
+      "task_019_divergence_meta_validation",
+      "task_020_timing_meta_validation",
+      "task_021_hook_meta_validation"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_022_flag_meta_validation"
+  },
+  {
+    "calibration_state_hash": "19c54b9b1aa4c4e2a6a3c5aa9d1b2e631d47fce57c58b8e2f4c3f31d59b449fa",
+    "calibration_state_id": "continual_calibration_9ed6b437191e6a4ca409fb08",
+    "downside_quantile": 0.029636375121038432,
+    "history_task_ids": [
+      "task_017_hook_meta_validation",
+      "task_018_flag_meta_validation",
+      "task_019_divergence_meta_validation",
+      "task_020_timing_meta_validation",
+      "task_021_hook_meta_validation",
+      "task_022_flag_meta_validation"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_023_divergence_meta_validation"
+  },
+  {
+    "calibration_state_hash": "c510680f35c5212183d07c181036c274afc86df29c5f739b0102f11cb424649a",
+    "calibration_state_id": "continual_calibration_a435fcf3ea94064bee0909ab",
+    "downside_quantile": 0.028273861503347653,
+    "history_task_ids": [
+      "task_018_flag_meta_validation",
+      "task_019_divergence_meta_validation",
+      "task_020_timing_meta_validation",
+      "task_021_hook_meta_validation",
+      "task_022_flag_meta_validation",
+      "task_023_divergence_meta_validation"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_024_timing_meta_validation"
+  },
+  {
+    "calibration_state_hash": "fa7383553fd4445bf946dfc8d4a003eb96e4659f3b5a14c33376950e12a848bf",
+    "calibration_state_id": "continual_calibration_8847d6a887b32208dc277d5b",
+    "downside_quantile": 0.029174276142852593,
+    "history_task_ids": [
+      "task_019_divergence_meta_validation",
+      "task_020_timing_meta_validation",
+      "task_021_hook_meta_validation",
+      "task_022_flag_meta_validation",
+      "task_023_divergence_meta_validation",
+      "task_024_timing_meta_validation"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_025_hook_transfer_test"
+  },
+  {
+    "calibration_state_hash": "f2f44c3d16556e4e4d75b05320dc53bace56195a3ef4a405803a13325a5e5132",
+    "calibration_state_id": "continual_calibration_231d4debe73ef1deb0f88553",
+    "downside_quantile": 0.025738002859561578,
+    "history_task_ids": [
+      "task_020_timing_meta_validation",
+      "task_021_hook_meta_validation",
+      "task_022_flag_meta_validation",
+      "task_023_divergence_meta_validation",
+      "task_024_timing_meta_validation",
+      "task_025_hook_transfer_test"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_026_flag_transfer_test"
+  },
+  {
+    "calibration_state_hash": "0647d61e3596c3b2f9a6fa8f9d7f07cf5788c211b915b2083928088c993ecc7b",
+    "calibration_state_id": "continual_calibration_d7d50be5c43447d782758329",
+    "downside_quantile": 0.029169630655708483,
+    "history_task_ids": [
+      "task_021_hook_meta_validation",
+      "task_022_flag_meta_validation",
+      "task_023_divergence_meta_validation",
+      "task_024_timing_meta_validation",
+      "task_025_hook_transfer_test",
+      "task_026_flag_transfer_test"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_027_divergence_transfer_test"
+  },
+  {
+    "calibration_state_hash": "083eaf341ffda82291da76eb0e29b7c877737341a10fe512f2cdec8b8e1fa957",
+    "calibration_state_id": "continual_calibration_0367e46caa39d9734cfaa91a",
+    "downside_quantile": 0.03234670857201507,
+    "history_task_ids": [
+      "task_022_flag_meta_validation",
+      "task_023_divergence_meta_validation",
+      "task_024_timing_meta_validation",
+      "task_025_hook_transfer_test",
+      "task_026_flag_transfer_test",
+      "task_027_divergence_transfer_test"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_028_timing_transfer_test"
+  },
+  {
+    "calibration_state_hash": "5bebad47534c9055b1bbe316c4cb92f8e18640e12d820eb417543bebf5aadbb1",
+    "calibration_state_id": "continual_calibration_77a412c29f3576ffa30acc2b",
+    "downside_quantile": 0.035851611193166946,
+    "history_task_ids": [
+      "task_023_divergence_meta_validation",
+      "task_024_timing_meta_validation",
+      "task_025_hook_transfer_test",
+      "task_026_flag_transfer_test",
+      "task_027_divergence_transfer_test",
+      "task_028_timing_transfer_test"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_029_hook_transfer_test"
+  },
+  {
+    "calibration_state_hash": "2c9219305853784dbb3d797120ed0d553b1c395e70e22991deffa3240a54df38",
+    "calibration_state_id": "continual_calibration_aa55c0a64ba04a6b58959dd6",
+    "downside_quantile": 0.035851611193166946,
+    "history_task_ids": [
+      "task_024_timing_meta_validation",
+      "task_025_hook_transfer_test",
+      "task_026_flag_transfer_test",
+      "task_027_divergence_transfer_test",
+      "task_028_timing_transfer_test",
+      "task_029_hook_transfer_test"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_030_flag_transfer_test"
+  },
+  {
+    "calibration_state_hash": "7e7871899389f257ad9cf5eae14f358afb0f55b587bce8db8d6ea6cf9191ac80",
+    "calibration_state_id": "continual_calibration_66efe8940a4597eb17d4c999",
+    "downside_quantile": 0.034045166689238855,
+    "history_task_ids": [
+      "task_025_hook_transfer_test",
+      "task_026_flag_transfer_test",
+      "task_027_divergence_transfer_test",
+      "task_028_timing_transfer_test",
+      "task_029_hook_transfer_test",
+      "task_030_flag_transfer_test"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_031_divergence_transfer_test"
+  },
+  {
+    "calibration_state_hash": "e3f3dd0b07d6dc12f81cb29aff2b7d1360cfaf6363f86c6523b87c7b21968e52",
+    "calibration_state_id": "continual_calibration_4620cc6e190dc3c662e79ecb",
+    "downside_quantile": 0.035848853733932984,
+    "history_task_ids": [
+      "task_026_flag_transfer_test",
+      "task_027_divergence_transfer_test",
+      "task_028_timing_transfer_test",
+      "task_029_hook_transfer_test",
+      "task_030_flag_transfer_test",
+      "task_031_divergence_transfer_test"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_032_timing_transfer_test"
+  },
+  {
+    "calibration_state_hash": "bc241ce5ecbba0d9b7cd030f7b70d2c731159853a66d44d6c184ee2106cceab9",
+    "calibration_state_id": "continual_calibration_f87fd85854d39a793b1d6236",
+    "downside_quantile": 0.03245978018313865,
+    "history_task_ids": [
+      "task_027_divergence_transfer_test",
+      "task_028_timing_transfer_test",
+      "task_029_hook_transfer_test",
+      "task_030_flag_transfer_test",
+      "task_031_divergence_transfer_test",
+      "task_032_timing_transfer_test"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_033_hook_transfer_test"
+  },
+  {
+    "calibration_state_hash": "019853ef6cc7e84b172f022dfc0c57ff5ccd97b1cd18f7010ed714740e3f54b0",
+    "calibration_state_id": "continual_calibration_2504feb614269e98423037ca",
+    "downside_quantile": 0.03221870761177013,
+    "history_task_ids": [
+      "task_028_timing_transfer_test",
+      "task_029_hook_transfer_test",
+      "task_030_flag_transfer_test",
+      "task_031_divergence_transfer_test",
+      "task_032_timing_transfer_test",
+      "task_033_hook_transfer_test"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_034_flag_transfer_test"
+  },
+  {
+    "calibration_state_hash": "aee60e5a3719f060725e6e864c1bf90ac2b2e32d32787d1a6b60978c5418af87",
+    "calibration_state_id": "continual_calibration_2a50da96d8153600eee2cfc0",
+    "downside_quantile": 0.025609450182637494,
+    "history_task_ids": [
+      "task_029_hook_transfer_test",
+      "task_030_flag_transfer_test",
+      "task_031_divergence_transfer_test",
+      "task_032_timing_transfer_test",
+      "task_033_hook_transfer_test",
+      "task_034_flag_transfer_test"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_035_divergence_transfer_test"
+  },
+  {
+    "calibration_state_hash": "3f151fe75d4d317bada12115400b4190e156cf13c3b3ae391162129c276d65f1",
+    "calibration_state_id": "continual_calibration_bd0947761ce3875d7fa5b4d8",
+    "downside_quantile": 0.026538585295608798,
+    "history_task_ids": [
+      "task_030_flag_transfer_test",
+      "task_031_divergence_transfer_test",
+      "task_032_timing_transfer_test",
+      "task_033_hook_transfer_test",
+      "task_034_flag_transfer_test",
+      "task_035_divergence_transfer_test"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_036_timing_transfer_test"
+  },
+  {
+    "calibration_state_hash": "30a6ca19334a4bf4c0900c54442c99f788422a82881cbcd1f3b8c774fcaa8108",
+    "calibration_state_id": "continual_calibration_3fae6bbd2eafdb7e3b1997f9",
+    "downside_quantile": 0.026538585295608798,
+    "history_task_ids": [
+      "task_031_divergence_transfer_test",
+      "task_032_timing_transfer_test",
+      "task_033_hook_transfer_test",
+      "task_034_flag_transfer_test",
+      "task_035_divergence_transfer_test",
+      "task_036_timing_transfer_test"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_037_hook_drift_reference"
+  },
+  {
+    "calibration_state_hash": "dd48c4af89877c6194bb5ffa9b7dd2e831b7674fe4554ef5cd98b778ce513a39",
+    "calibration_state_id": "continual_calibration_4957bd508327396f7fa02582",
+    "downside_quantile": 0.020855747703457116,
+    "history_task_ids": [
+      "task_032_timing_transfer_test",
+      "task_033_hook_transfer_test",
+      "task_034_flag_transfer_test",
+      "task_035_divergence_transfer_test",
+      "task_036_timing_transfer_test",
+      "task_037_hook_drift_reference"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_038_flag_drift_reference"
+  },
+  {
+    "calibration_state_hash": "f45050197b066c9f7926ab462d4b926087f6d4eef3f75a817c4251f9f7f817f4",
+    "calibration_state_id": "continual_calibration_95fdcc20b455dc1eb7c7c38b",
+    "downside_quantile": 0.02669304330511655,
+    "history_task_ids": [
+      "task_033_hook_transfer_test",
+      "task_034_flag_transfer_test",
+      "task_035_divergence_transfer_test",
+      "task_036_timing_transfer_test",
+      "task_037_hook_drift_reference",
+      "task_038_flag_drift_reference"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_039_divergence_drift_reference"
+  },
+  {
+    "calibration_state_hash": "068b67196e4268a567ec1a35e7292369aedb701295285c2a5b2c29a278645921",
+    "calibration_state_id": "continual_calibration_c25f6ac5ac3c527b8c7fea4d",
+    "downside_quantile": 0.02926891677664155,
+    "history_task_ids": [
+      "task_034_flag_transfer_test",
+      "task_035_divergence_transfer_test",
+      "task_036_timing_transfer_test",
+      "task_037_hook_drift_reference",
+      "task_038_flag_drift_reference",
+      "task_039_divergence_drift_reference"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_040_timing_drift_reference"
+  },
+  {
+    "calibration_state_hash": "8ebcd439650f978abb3b51386576ddb49b0d3b6d94b9bddc053d7529da27939c",
+    "calibration_state_id": "continual_calibration_d925dece5f3417b832eac641",
+    "downside_quantile": 0.039393959489201366,
+    "history_task_ids": [
+      "task_035_divergence_transfer_test",
+      "task_036_timing_transfer_test",
+      "task_037_hook_drift_reference",
+      "task_038_flag_drift_reference",
+      "task_039_divergence_drift_reference",
+      "task_040_timing_drift_reference"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_041_hook_drift_reference"
+  },
+  {
+    "calibration_state_hash": "bb165df4d0242c0c349ca41df9e880c1bb430d802d2a187bd2e2425888ec3c02",
+    "calibration_state_id": "continual_calibration_b4373f56cde712de2b608057",
+    "downside_quantile": 0.03624854893578504,
+    "history_task_ids": [
+      "task_036_timing_transfer_test",
+      "task_037_hook_drift_reference",
+      "task_038_flag_drift_reference",
+      "task_039_divergence_drift_reference",
+      "task_040_timing_drift_reference",
+      "task_041_hook_drift_reference"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_042_flag_drift_reference"
+  },
+  {
+    "calibration_state_hash": "0590cadae55ca57ca74ee8616bad5049af0b28a0c8775b5563438a91cbe66920",
+    "calibration_state_id": "continual_calibration_63c6dba3dddb16d16cb39818",
+    "downside_quantile": 0.03624854893578504,
+    "history_task_ids": [
+      "task_037_hook_drift_reference",
+      "task_038_flag_drift_reference",
+      "task_039_divergence_drift_reference",
+      "task_040_timing_drift_reference",
+      "task_041_hook_drift_reference",
+      "task_042_flag_drift_reference"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_043_divergence_drift_reference"
+  },
+  {
+    "calibration_state_hash": "228b5783d6cd5fc52a73216e3a1ab8016a6c8178d5b480afe3ca1232281c5561",
+    "calibration_state_id": "continual_calibration_736185b1851e853906e6fc83",
+    "downside_quantile": 0.03822210132138362,
+    "history_task_ids": [
+      "task_038_flag_drift_reference",
+      "task_039_divergence_drift_reference",
+      "task_040_timing_drift_reference",
+      "task_041_hook_drift_reference",
+      "task_042_flag_drift_reference",
+      "task_043_divergence_drift_reference"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_044_timing_drift_reference"
+  },
+  {
+    "calibration_state_hash": "c44e508f9a0ebcaffad485fee84874c718944932e41df81f82daa6095ff8b4e6",
+    "calibration_state_id": "continual_calibration_825ed60ea22b0e6864234ffc",
+    "downside_quantile": 0.03701495744181341,
+    "history_task_ids": [
+      "task_039_divergence_drift_reference",
+      "task_040_timing_drift_reference",
+      "task_041_hook_drift_reference",
+      "task_042_flag_drift_reference",
+      "task_043_divergence_drift_reference",
+      "task_044_timing_drift_reference"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_045_hook_drift_reference"
+  },
+  {
+    "calibration_state_hash": "75197a885b4df55ea4973ec83918968e104fda580f06ea186f998828bf23a1f4",
+    "calibration_state_id": "continual_calibration_7e99d2d8b5d16893ad4a878e",
+    "downside_quantile": 0.03627321754076933,
+    "history_task_ids": [
+      "task_040_timing_drift_reference",
+      "task_041_hook_drift_reference",
+      "task_042_flag_drift_reference",
+      "task_043_divergence_drift_reference",
+      "task_044_timing_drift_reference",
+      "task_045_hook_drift_reference"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_046_flag_drift_reference"
+  },
+  {
+    "calibration_state_hash": "b6c7671c677b6838ea261079bc80953cf7819f270e146a14a36d6906e9101676",
+    "calibration_state_id": "continual_calibration_bf9cc81575780149389eb43e",
+    "downside_quantile": 0.026384567526760216,
+    "history_task_ids": [
+      "task_041_hook_drift_reference",
+      "task_042_flag_drift_reference",
+      "task_043_divergence_drift_reference",
+      "task_044_timing_drift_reference",
+      "task_045_hook_drift_reference",
+      "task_046_flag_drift_reference"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_047_divergence_drift_reference"
+  },
+  {
+    "calibration_state_hash": "ee70d0ff88c443e87d1c53f745a8740d5617c2c22508b16b7c89c15400da1b11",
+    "calibration_state_id": "continual_calibration_4ed935134d7e886bb6c8433e",
+    "downside_quantile": 0.026592575696870104,
+    "history_task_ids": [
+      "task_042_flag_drift_reference",
+      "task_043_divergence_drift_reference",
+      "task_044_timing_drift_reference",
+      "task_045_hook_drift_reference",
+      "task_046_flag_drift_reference",
+      "task_047_divergence_drift_reference"
+    ],
+    "past_only": true,
+    "ready": true,
+    "residual_count": 108,
+    "runtime_mutation": false,
+    "task_id": "task_048_timing_drift_reference"
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "config_hash": "6bb8bbbe26e6fc872e4a89ad8cc35e715cf2b110a2f322198f30234343505f92",
+  "deterministic": true,
+  "future_suffix_queries": 0,
+  "hidden_evaluation_queries": 0,
+  "input_hashes": {
+    "tasks": "b04b960ada27ef7d1a91876548b4bc3de9bb396825326511909c9b206f8a5ecf",
+    "upstream_documents": "bdfde208563966b2a102d91cf29c78cecf45fb4c71cbf47c33ca6b8cc4fe0d24"
+  },
+  "network_access": false,
+  "online_policy_mutations": 0,
+  "order_submissions": 0,
+  "output_hashes": {
+    "adaptations": "cf804ac9590067d43df45acb0265e3a3b5e2ee7587db6b50ac0bf3472d671268",
+    "authority_boundary": "c189cb7f842db305d51448e8c92a62edbdc295b558662e548bc2b788e4357b30",
+    "budget_snapshot": "072ab35929a3a754f165816182d238087e71f2f68cb9ee08ed6d8c88b32aacb4",
+    "certificate": "4f69f025f66e4c230874139c8573d5e79414a6560eeaa64461668ed5b2870092",
+    "continual_calibration_states": "0b284a1a621b2fce029653db576c2e9bad66eab3541df93064238df444b82644",
+    "drift_report": "4b30d2caf1e51f349847f7be30f63aa5091941b18dbc9c304f8f1b1cf0838180",
+    "exposure_ledger": "04a1cfdd3dcf5a0493e5b6d66b37168058c1d93b8eb46c9a1f0d72e197f9a918",
+    "handoff": "95f64c3ff2a4eaef697626d896e72d37094f547d44f0001ab12f4e7fbfd0518d",
+    "meta_dataset_summary": "999829ea66beb5d854972c100cff45679f9dcdad2afd1d1bc1241137d71115dd",
+    "meta_features": "80a67c1244faed5c45b8533512c7fb6db7e4e70562fb54364f9c93f7f93cc621",
+    "negative_transfer_guards": "ea033d02b56cd752f7f73df5ad55a443383b6543bb2150636125f65e437c3ce2",
+    "recalibration_experiment": "0e46ea05b112008f59cf2adaf6820882cac1090bda6a11e2a80487813eb18bc8",
+    "regularizations": "501d8b2e0ffd72f1ea14f954e18df4102095743ea1a02e67f15e09834038f166",
+    "replay_buffer": "9c5185cff01e978caf408096fb585a495537142753271b6e8edefa38e7f9689d",
+    "transfer_evaluations": "a05581ea02ac42a73dd833fc37f2271dd3dba84190c1457ac03c03d1b9eb1c94",
+    "transfer_map": "a5996e1e2985cfdf66f98576d0d00bb05a5895d63422587d3f70bc5584542aab",
+    "transfer_report": "bf1c2ed53328ffdf5573bf34280b57833484709ed364921d0ea228e9beb22828",
+    "trial_ledger": "9286eaeef4dff3d40c204f7d7b1aec32337a0c9d442182cdf30726c1c36468e8",
+    "upstream_receipt": "3998cb63d922927fdd1fa20149e19f65c8015d2ae4c763bb7d4fe0dc77a7b776"
+  },
+  "phase": "SAED_V4_25",
+  "protected_evidence_queries": 0,
+  "replay_hash": "d234b480347de3194422701055c3d42c78ce3592644ed815e571cddd3feecd54",
+  "replay_id": "replay_receipt_ad135604648fb39f6698cc82",
+  "runtime_compilations": 0
+}

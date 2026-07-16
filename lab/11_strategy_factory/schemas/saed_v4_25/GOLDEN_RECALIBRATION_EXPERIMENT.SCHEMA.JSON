@@ -1,0 +1,147 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-25/golden_recalibration_experiment.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract or evidence artifact. Unknown object fields are rejected.",
+  "properties": {
+    "deterministic": {
+      "type": "boolean"
+    },
+    "experiment_hash": {
+      "type": "string"
+    },
+    "experiment_id": {
+      "type": "string"
+    },
+    "hidden_evaluation_queries": {
+      "type": "integer"
+    },
+    "online_policy_mutations": {
+      "type": "integer"
+    },
+    "order_submissions": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "runtime_compilations": {
+      "type": "integer"
+    },
+    "selected_research_configuration": {
+      "additionalProperties": false,
+      "properties": {
+        "hidden_evaluation_queries": {
+          "type": "integer"
+        },
+        "objective": {
+          "type": "number"
+        },
+        "online_mutation": {
+          "type": "boolean"
+        },
+        "prior_strength": {
+          "type": "number"
+        },
+        "promotion_eligible": {
+          "type": "boolean"
+        },
+        "ridge_penalty": {
+          "type": "number"
+        },
+        "trial_id": {
+          "type": "string"
+        },
+        "validation_records": {
+          "type": "integer"
+        },
+        "window_tasks": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "hidden_evaluation_queries",
+        "objective",
+        "online_mutation",
+        "prior_strength",
+        "promotion_eligible",
+        "ridge_penalty",
+        "trial_id",
+        "validation_records",
+        "window_tasks"
+      ],
+      "type": "object"
+    },
+    "selection_role": {
+      "type": "string"
+    },
+    "trial_count": {
+      "type": "integer"
+    },
+    "trials": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "hidden_evaluation_queries": {
+            "type": "integer"
+          },
+          "objective": {
+            "type": "number"
+          },
+          "online_mutation": {
+            "type": "boolean"
+          },
+          "prior_strength": {
+            "type": "number"
+          },
+          "promotion_eligible": {
+            "type": "boolean"
+          },
+          "ridge_penalty": {
+            "type": "number"
+          },
+          "trial_id": {
+            "type": "string"
+          },
+          "validation_records": {
+            "type": "integer"
+          },
+          "window_tasks": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "hidden_evaluation_queries",
+          "objective",
+          "online_mutation",
+          "prior_strength",
+          "promotion_eligible",
+          "ridge_penalty",
+          "trial_id",
+          "validation_records",
+          "window_tasks"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "deterministic",
+    "experiment_hash",
+    "experiment_id",
+    "hidden_evaluation_queries",
+    "online_policy_mutations",
+    "order_submissions",
+    "phase",
+    "runtime_compilations",
+    "selected_research_configuration",
+    "selection_role",
+    "trial_count",
+    "trials"
+  ],
+  "title": "SAED V4-25 GOLDEN_RECALIBRATION_EXPERIMENT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_25"
+}

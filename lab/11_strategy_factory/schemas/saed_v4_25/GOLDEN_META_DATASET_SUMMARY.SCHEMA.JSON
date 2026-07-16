@@ -1,0 +1,126 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-25/golden_meta_dataset_summary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract or evidence artifact. Unknown object fields are rejected.",
+  "properties": {
+    "cluster_count": {
+      "type": "integer"
+    },
+    "cluster_role_separation": {
+      "type": "boolean"
+    },
+    "context_count": {
+      "type": "integer"
+    },
+    "context_counts": {
+      "additionalProperties": false,
+      "properties": {
+        "divergence": {
+          "type": "integer"
+        },
+        "flag": {
+          "type": "integer"
+        },
+        "hook": {
+          "type": "integer"
+        },
+        "timing": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "divergence",
+        "flag",
+        "hook",
+        "timing"
+      ],
+      "type": "object"
+    },
+    "dataset_hash": {
+      "type": "string"
+    },
+    "dataset_id": {
+      "type": "string"
+    },
+    "feature_names": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "future_suffix_queries": {
+      "type": "integer"
+    },
+    "parameter_names": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "protected_evidence_queries": {
+      "type": "integer"
+    },
+    "query_outcomes_protected_during_adaptation": {
+      "type": "boolean"
+    },
+    "role_counts": {
+      "additionalProperties": false,
+      "properties": {
+        "drift_reference": {
+          "type": "integer"
+        },
+        "meta_train": {
+          "type": "integer"
+        },
+        "meta_validation": {
+          "type": "integer"
+        },
+        "transfer_test": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "drift_reference",
+        "meta_train",
+        "meta_validation",
+        "transfer_test"
+      ],
+      "type": "object"
+    },
+    "strict_chronology": {
+      "type": "boolean"
+    },
+    "summary_hash": {
+      "type": "string"
+    },
+    "task_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "cluster_count",
+    "cluster_role_separation",
+    "context_count",
+    "context_counts",
+    "dataset_hash",
+    "dataset_id",
+    "feature_names",
+    "future_suffix_queries",
+    "parameter_names",
+    "phase",
+    "protected_evidence_queries",
+    "query_outcomes_protected_during_adaptation",
+    "role_counts",
+    "strict_chronology",
+    "summary_hash",
+    "task_count"
+  ],
+  "title": "SAED V4-25 GOLDEN_META_DATASET_SUMMARY",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_25"
+}

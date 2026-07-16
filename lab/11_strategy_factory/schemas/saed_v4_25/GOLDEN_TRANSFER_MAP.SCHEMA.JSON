@@ -1,0 +1,143 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-25/golden_transfer_map.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract or evidence artifact. Unknown object fields are rejected.",
+  "properties": {
+    "deterministic": {
+      "type": "boolean"
+    },
+    "edge_count": {
+      "type": "integer"
+    },
+    "edges": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "distance": {
+            "type": "number"
+          },
+          "edge_id": {
+            "type": "string"
+          },
+          "eligible": {
+            "type": "boolean"
+          },
+          "same_context": {
+            "type": "boolean"
+          },
+          "same_regime": {
+            "type": "boolean"
+          },
+          "source_task_id": {
+            "type": "string"
+          },
+          "target_task_id": {
+            "type": "string"
+          },
+          "weight": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "distance",
+          "edge_id",
+          "eligible",
+          "same_context",
+          "same_regime",
+          "source_task_id",
+          "target_task_id",
+          "weight"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "future_source_queries": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "priors": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "fallback_to_scratch": {
+            "type": "boolean"
+          },
+          "prior_parameters": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "source_query_outcomes_accessed": {
+            "type": "boolean"
+          },
+          "source_task_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "source_weights": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "target_task_id": {
+            "type": "string"
+          },
+          "transfer_prior_hash": {
+            "type": "string"
+          },
+          "transfer_prior_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "fallback_to_scratch",
+          "prior_parameters",
+          "source_query_outcomes_accessed",
+          "source_task_ids",
+          "source_weights",
+          "target_task_id",
+          "transfer_prior_hash",
+          "transfer_prior_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "source_query_outcome_queries": {
+      "type": "integer"
+    },
+    "target_count": {
+      "type": "integer"
+    },
+    "transfer_map_hash": {
+      "type": "string"
+    },
+    "transfer_map_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "deterministic",
+    "edge_count",
+    "edges",
+    "future_source_queries",
+    "phase",
+    "priors",
+    "source_query_outcome_queries",
+    "target_count",
+    "transfer_map_hash",
+    "transfer_map_id"
+  ],
+  "title": "SAED V4-25 GOLDEN_TRANSFER_MAP",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_25"
+}

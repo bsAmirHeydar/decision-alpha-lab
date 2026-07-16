@@ -1,0 +1,37 @@
+{
+  "claim_ceiling": "research_only_no_promotion_runtime_risk_execution_or_production_authority",
+  "passed": true,
+  "phase": "SAED_V4_25",
+  "production_authorization": false,
+  "promotion_authority": false,
+  "prospective_success_claim": false,
+  "real_alpha_claim": false,
+  "risks": [
+    {
+      "control": "retrospective_guard_and_scratch_fallback",
+      "residual": "external_validity_unknown",
+      "risk": "negative_transfer"
+    },
+    {
+      "control": "replay_buffer_parameter_anchoring_and_forgetting_gates",
+      "residual": "reference_scale_only",
+      "risk": "catastrophic_forgetting"
+    },
+    {
+      "control": "frozen_taxonomy_novel_fail_closed",
+      "residual": "threshold_misspecification",
+      "risk": "drift_misclassification"
+    },
+    {
+      "control": "chronological_cluster_roles_and_frozen_validation",
+      "residual": "finite_context_diversity",
+      "risk": "meta_overfitting"
+    },
+    {
+      "control": "past_only_sliding_window_and_safe_recalibration_experiments",
+      "residual": "exchangeability_not_guaranteed",
+      "risk": "calibration_staleness"
+    }
+  ],
+  "runtime_parity_claim": false
+}

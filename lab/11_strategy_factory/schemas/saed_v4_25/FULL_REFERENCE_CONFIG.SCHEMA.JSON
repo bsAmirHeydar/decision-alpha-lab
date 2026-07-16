@@ -1,0 +1,532 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-25/full_reference_config.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract or evidence artifact. Unknown object fields are rejected.",
+  "properties": {
+    "adaptation_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_preserved": {
+          "type": "boolean"
+        },
+        "deterministic": {
+          "type": "boolean"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "maximum_parameter_delta": {
+          "type": "number"
+        },
+        "method": {
+          "type": "string"
+        },
+        "minimum_support_rows": {
+          "type": "integer"
+        },
+        "prior_strength": {
+          "type": "number"
+        },
+        "query_outcomes_forbidden": {
+          "type": "boolean"
+        },
+        "ridge_penalty": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "baseline_preserved",
+        "deterministic",
+        "exact_version",
+        "maximum_parameter_delta",
+        "method",
+        "minimum_support_rows",
+        "prior_strength",
+        "query_outcomes_forbidden",
+        "ridge_penalty"
+      ],
+      "type": "object"
+    },
+    "continual_calibration_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "alpha": {
+          "type": "number"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "fail_closed": {
+          "type": "boolean"
+        },
+        "finite_sample_correction": {
+          "type": "boolean"
+        },
+        "minimum_residuals": {
+          "type": "integer"
+        },
+        "no_runtime_mutation": {
+          "type": "boolean"
+        },
+        "past_only": {
+          "type": "boolean"
+        },
+        "window_tasks": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "alpha",
+        "exact_version",
+        "fail_closed",
+        "finite_sample_correction",
+        "minimum_residuals",
+        "no_runtime_mutation",
+        "past_only",
+        "window_tasks"
+      ],
+      "type": "object"
+    },
+    "drift_taxonomy_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_classes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "deterministic": {
+          "type": "boolean"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "fail_closed_to_novel": {
+          "type": "boolean"
+        },
+        "gradual_threshold": {
+          "type": "number"
+        },
+        "minimum_segment_tasks": {
+          "type": "integer"
+        },
+        "recurrence_similarity_threshold": {
+          "type": "number"
+        },
+        "stationary_threshold": {
+          "type": "number"
+        },
+        "sudden_threshold": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "allowed_classes",
+        "deterministic",
+        "exact_version",
+        "fail_closed_to_novel",
+        "gradual_threshold",
+        "minimum_segment_tasks",
+        "recurrence_similarity_threshold",
+        "stationary_threshold",
+        "sudden_threshold"
+      ],
+      "type": "object"
+    },
+    "forgetting_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "bootstrap_draws": {
+          "type": "integer"
+        },
+        "cluster_bootstrap_required": {
+          "type": "boolean"
+        },
+        "confidence_level": {
+          "type": "number"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "maximum_mean_forgetting": {
+          "type": "number"
+        },
+        "maximum_worst_task_forgetting": {
+          "type": "number"
+        },
+        "minimum_backward_transfer": {
+          "type": "number"
+        },
+        "minimum_forward_transfer": {
+          "type": "number"
+        },
+        "negative_transfer_fails_closed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "bootstrap_draws",
+        "cluster_bootstrap_required",
+        "confidence_level",
+        "exact_version",
+        "maximum_mean_forgetting",
+        "maximum_worst_task_forgetting",
+        "minimum_backward_transfer",
+        "minimum_forward_transfer",
+        "negative_transfer_fails_closed"
+      ],
+      "type": "object"
+    },
+    "meta_dataset_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_roles": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "cluster_role_separation_required": {
+          "type": "boolean"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "feature_names": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "future_suffix_forbidden": {
+          "type": "boolean"
+        },
+        "minimum_clusters": {
+          "type": "integer"
+        },
+        "minimum_contexts": {
+          "type": "integer"
+        },
+        "minimum_tasks": {
+          "type": "integer"
+        },
+        "minimum_tasks_per_role": {
+          "type": "integer"
+        },
+        "parameter_names": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "protected_evidence_forbidden": {
+          "type": "boolean"
+        },
+        "query_outcomes_protected_during_adaptation": {
+          "type": "boolean"
+        },
+        "required_fields": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "strict_chronology": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "allowed_roles",
+        "cluster_role_separation_required",
+        "exact_version",
+        "feature_names",
+        "future_suffix_forbidden",
+        "minimum_clusters",
+        "minimum_contexts",
+        "minimum_tasks",
+        "minimum_tasks_per_role",
+        "parameter_names",
+        "protected_evidence_forbidden",
+        "query_outcomes_protected_during_adaptation",
+        "required_fields",
+        "strict_chronology"
+      ],
+      "type": "object"
+    },
+    "recalibration_experiment_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_prior_strength_grid": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "candidate_ridge_grid": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "candidate_window_grid": {
+          "items": {
+            "type": "integer"
+          },
+          "type": "array"
+        },
+        "deterministic_tie_break": {
+          "type": "string"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "hidden_evaluation_queries": {
+          "type": "integer"
+        },
+        "maximum_trials": {
+          "type": "integer"
+        },
+        "online_mutation_forbidden": {
+          "type": "boolean"
+        },
+        "selection_role": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidate_prior_strength_grid",
+        "candidate_ridge_grid",
+        "candidate_window_grid",
+        "deterministic_tie_break",
+        "exact_version",
+        "hidden_evaluation_queries",
+        "maximum_trials",
+        "online_mutation_forbidden",
+        "selection_role"
+      ],
+      "type": "object"
+    },
+    "replay_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "capacity": {
+          "type": "integer"
+        },
+        "deterministic": {
+          "type": "boolean"
+        },
+        "diversity_weight": {
+          "type": "number"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "minimum_per_context": {
+          "type": "integer"
+        },
+        "minimum_per_drift_class": {
+          "type": "integer"
+        },
+        "protected_query_outcomes_forbidden": {
+          "type": "boolean"
+        },
+        "recency_weight": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "capacity",
+        "deterministic",
+        "diversity_weight",
+        "exact_version",
+        "minimum_per_context",
+        "minimum_per_drift_class",
+        "protected_query_outcomes_forbidden",
+        "recency_weight"
+      ],
+      "type": "object"
+    },
+    "research_budget": {
+      "additionalProperties": false,
+      "properties": {
+        "exact_version": {
+          "type": "string"
+        },
+        "failure_budget": {
+          "type": "integer"
+        },
+        "maximum_adaptations": {
+          "type": "integer"
+        },
+        "maximum_bootstrap_draws": {
+          "type": "integer"
+        },
+        "maximum_hidden_evaluation_queries": {
+          "type": "integer"
+        },
+        "maximum_online_policy_mutations": {
+          "type": "integer"
+        },
+        "maximum_order_submissions": {
+          "type": "integer"
+        },
+        "maximum_protected_evidence_exposures": {
+          "type": "integer"
+        },
+        "maximum_recalibration_trials": {
+          "type": "integer"
+        },
+        "maximum_replay_entries": {
+          "type": "integer"
+        },
+        "maximum_runtime_compilations": {
+          "type": "integer"
+        },
+        "maximum_source_evaluations": {
+          "type": "integer"
+        },
+        "maximum_tasks": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "exact_version",
+        "failure_budget",
+        "maximum_adaptations",
+        "maximum_bootstrap_draws",
+        "maximum_hidden_evaluation_queries",
+        "maximum_online_policy_mutations",
+        "maximum_order_submissions",
+        "maximum_protected_evidence_exposures",
+        "maximum_recalibration_trials",
+        "maximum_replay_entries",
+        "maximum_runtime_compilations",
+        "maximum_source_evaluations",
+        "maximum_tasks"
+      ],
+      "type": "object"
+    },
+    "transfer_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "deterministic": {
+          "type": "boolean"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "future_source_forbidden": {
+          "type": "boolean"
+        },
+        "maximum_meta_distance": {
+          "type": "number"
+        },
+        "maximum_sources": {
+          "type": "integer"
+        },
+        "minimum_source_ood_pvalue": {
+          "type": "number"
+        },
+        "minimum_source_support": {
+          "type": "number"
+        },
+        "negative_transfer_guard_required": {
+          "type": "boolean"
+        },
+        "safe_fallback": {
+          "type": "string"
+        },
+        "same_cluster_forbidden": {
+          "type": "boolean"
+        },
+        "source_query_outcomes_forbidden": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "deterministic",
+        "exact_version",
+        "future_source_forbidden",
+        "maximum_meta_distance",
+        "maximum_sources",
+        "minimum_source_ood_pvalue",
+        "minimum_source_support",
+        "negative_transfer_guard_required",
+        "safe_fallback",
+        "same_cluster_forbidden",
+        "source_query_outcomes_forbidden"
+      ],
+      "type": "object"
+    },
+    "upstream_intake": {
+      "additionalProperties": false,
+      "properties": {
+        "certificate_hash": {
+          "type": "string"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "handoff_hash": {
+          "type": "string"
+        },
+        "hash_verified": {
+          "type": "boolean"
+        },
+        "immutable": {
+          "type": "boolean"
+        },
+        "online_policy_mutation_denied": {
+          "type": "boolean"
+        },
+        "promotion_denied": {
+          "type": "boolean"
+        },
+        "required_phase": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "research_policy_id": {
+          "type": "string"
+        },
+        "runtime_denied": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "certificate_hash",
+        "exact_version",
+        "handoff_hash",
+        "hash_verified",
+        "immutable",
+        "online_policy_mutation_denied",
+        "promotion_denied",
+        "required_phase",
+        "research_only",
+        "research_policy_id",
+        "runtime_denied"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "adaptation_contract",
+    "continual_calibration_contract",
+    "drift_taxonomy_contract",
+    "forgetting_contract",
+    "meta_dataset_contract",
+    "recalibration_experiment_contract",
+    "replay_contract",
+    "research_budget",
+    "transfer_contract",
+    "upstream_intake"
+  ],
+  "title": "SAED V4-25 FULL_REFERENCE_CONFIG",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_25"
+}

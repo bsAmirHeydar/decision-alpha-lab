@@ -1,0 +1,138 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-25/v4_25_to_v4_26_handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract or evidence artifact. Unknown object fields are rejected.",
+  "properties": {
+    "allowed_next_work": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "decision": {
+          "type": "boolean"
+        },
+        "execution": {
+          "type": "boolean"
+        },
+        "production": {
+          "type": "boolean"
+        },
+        "promotion": {
+          "type": "boolean"
+        },
+        "risk_allocation": {
+          "type": "boolean"
+        },
+        "runtime": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "decision",
+        "execution",
+        "production",
+        "promotion",
+        "risk_allocation",
+        "runtime"
+      ],
+      "type": "object"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "drift_report_hash": {
+      "type": "string"
+    },
+    "entry_gates": {
+      "additionalProperties": false,
+      "properties": {
+        "continual_meta_transfer_certificate_verified": {
+          "type": "boolean"
+        },
+        "frozen_adaptation_artifacts_available": {
+          "type": "boolean"
+        },
+        "frozen_drift_segments_available": {
+          "type": "boolean"
+        },
+        "frozen_replay_artifacts_available": {
+          "type": "boolean"
+        },
+        "frozen_transfer_artifacts_available": {
+          "type": "boolean"
+        },
+        "promotion_denied": {
+          "type": "boolean"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "runtime_denied": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "continual_meta_transfer_certificate_verified",
+        "frozen_adaptation_artifacts_available",
+        "frozen_drift_segments_available",
+        "frozen_replay_artifacts_available",
+        "frozen_transfer_artifacts_available",
+        "promotion_denied",
+        "research_only",
+        "runtime_denied"
+      ],
+      "type": "object"
+    },
+    "forbidden_next_work": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "transfer_report_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "allowed_next_work",
+    "authority",
+    "certificate_hash",
+    "certificate_id",
+    "drift_report_hash",
+    "entry_gates",
+    "forbidden_next_work",
+    "handoff_hash",
+    "handoff_id",
+    "next_phase",
+    "phase",
+    "research_only",
+    "transfer_report_hash"
+  ],
+  "title": "SAED V4-25 V4_25_TO_V4_26_HANDOFF",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_25"
+}

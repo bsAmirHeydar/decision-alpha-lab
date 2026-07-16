@@ -1,0 +1,24 @@
+{
+  "accepted_for_transfer_research": true,
+  "backward_transfer": 0.06472632543343922,
+  "bootstrap_draws": 400,
+  "cluster_bootstrap": true,
+  "confidence_level": 0.95,
+  "evaluation_count": 48,
+  "forward_transfer": 0.06613637565656467,
+  "forward_transfer_ci_lower": 0.06552045657538084,
+  "forward_transfer_ci_upper": 0.06689814776750108,
+  "gates": {
+    "backward_transfer": true,
+    "forward_transfer": true,
+    "mean_forgetting": true,
+    "worst_task_forgetting": true
+  },
+  "mean_forgetting": 0.0,
+  "meta_validation_mean_delta": 0.06556473603563469,
+  "negative_transfer_count": 0,
+  "phase": "SAED_V4_25",
+  "transfer_report_hash": "430e04c620b64822dbdc84fe33b48b00d7462c2f1e155f8209e4340246dcb223",
+  "transfer_report_id": "transfer_report_d6197bceac336de60f0eaabf",
+  "worst_task_forgetting": 0.0
+}

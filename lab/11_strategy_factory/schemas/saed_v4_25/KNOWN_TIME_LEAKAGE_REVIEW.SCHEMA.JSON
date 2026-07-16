@@ -1,0 +1,66 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-25/known_time_leakage_review.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract or evidence artifact. Unknown object fields are rejected.",
+  "properties": {
+    "adaptation_uses_query_outcomes": {
+      "type": "boolean"
+    },
+    "cluster_role_separation_verified": {
+      "type": "boolean"
+    },
+    "current_task_outcome_mutation_changes_current_calibration_state": {
+      "type": "boolean"
+    },
+    "current_task_outcome_mutation_changes_future_retrospective_states": {
+      "type": "boolean"
+    },
+    "decision_artifacts_use_query_outcomes": {
+      "type": "boolean"
+    },
+    "future_source_queries": {
+      "type": "integer"
+    },
+    "future_suffix_queries": {
+      "type": "integer"
+    },
+    "known_time_order_verified": {
+      "type": "boolean"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "protected_evidence_queries": {
+      "type": "integer"
+    },
+    "strict_chronology_verified": {
+      "type": "boolean"
+    },
+    "transfer_source_uses_query_outcomes": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "adaptation_uses_query_outcomes",
+    "cluster_role_separation_verified",
+    "current_task_outcome_mutation_changes_current_calibration_state",
+    "current_task_outcome_mutation_changes_future_retrospective_states",
+    "decision_artifacts_use_query_outcomes",
+    "future_source_queries",
+    "future_suffix_queries",
+    "known_time_order_verified",
+    "passed",
+    "phase",
+    "protected_evidence_queries",
+    "strict_chronology_verified",
+    "transfer_source_uses_query_outcomes"
+  ],
+  "title": "SAED V4-25 KNOWN_TIME_LEAKAGE_REVIEW",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_25"
+}

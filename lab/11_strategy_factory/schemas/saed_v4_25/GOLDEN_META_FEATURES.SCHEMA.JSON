@@ -1,0 +1,68 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-25/golden_meta_features.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Closed deterministic research-only contract or evidence artifact. Unknown object fields are rejected.",
+  "items": {
+    "additionalProperties": false,
+    "properties": {
+      "cluster_id": {
+        "type": "string"
+      },
+      "context_id": {
+        "type": "string"
+      },
+      "decision_time": {
+        "type": "string"
+      },
+      "future_suffix_accessed": {
+        "type": "boolean"
+      },
+      "meta_feature_hash": {
+        "type": "string"
+      },
+      "meta_feature_id": {
+        "type": "string"
+      },
+      "protected_evidence_accessed": {
+        "type": "boolean"
+      },
+      "regime": {
+        "type": "string"
+      },
+      "task_id": {
+        "type": "string"
+      },
+      "uses_query_outcomes": {
+        "type": "boolean"
+      },
+      "uses_support_outcomes": {
+        "type": "boolean"
+      },
+      "vector": {
+        "items": {
+          "type": "number"
+        },
+        "type": "array"
+      }
+    },
+    "required": [
+      "cluster_id",
+      "context_id",
+      "decision_time",
+      "future_suffix_accessed",
+      "meta_feature_hash",
+      "meta_feature_id",
+      "protected_evidence_accessed",
+      "regime",
+      "task_id",
+      "uses_query_outcomes",
+      "uses_support_outcomes",
+      "vector"
+    ],
+    "type": "object"
+  },
+  "title": "SAED V4-25 GOLDEN_META_FEATURES",
+  "type": "array",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_25"
+}

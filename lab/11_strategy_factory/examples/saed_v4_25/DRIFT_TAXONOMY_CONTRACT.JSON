@@ -1,0 +1,17 @@
+{
+  "allowed_classes": [
+    "stationary",
+    "gradual",
+    "sudden",
+    "recurring",
+    "novel"
+  ],
+  "deterministic": true,
+  "exact_version": "1.0.0",
+  "fail_closed_to_novel": true,
+  "gradual_threshold": 0.38,
+  "minimum_segment_tasks": 2,
+  "recurrence_similarity_threshold": 0.995,
+  "stationary_threshold": 0.16,
+  "sudden_threshold": 0.85
+}

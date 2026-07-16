@@ -1,0 +1,107 @@
+{
+  "certificate": {
+    "abstention_policy_id": "abstention_policy_0ca1f07a7aa32735a0c4d79b",
+    "accepted_for_conformal_ood_selective_research": true,
+    "authority_boundary": {
+      "authority": {
+        "decision": false,
+        "execution": false,
+        "online_learning": false,
+        "production": false,
+        "promotion": false,
+        "risk_allocation": false,
+        "runtime": false
+      },
+      "boundary_hash": "16771ce8be7d28d7e017ab498b31986fceee8234e15e4c29e4a91a87ebe3c945",
+      "phase": "SAED_V4_24",
+      "research_only": true,
+      "safe_action": "skip",
+      "ucee_authority_preserved": true
+    },
+    "certificate_hash": "6ebe377b7eade1b1b7c34d9afd99ef99eccdc3a1d061bfc65136ab9172d40cca",
+    "certificate_id": "conformal_ood_selective_certificate_e6f8f2bdc8976416596c4837",
+    "conditional_coverage_claim": false,
+    "conformal_calibrator_id": "conformal_calibrator_e0cbdab77d781018a9536506",
+    "drift_status": "breach",
+    "evidence_hashes": {
+      "abstention_policy": "fb3b7a3460a53bab7caed80d89a17819a9232cf90f97ca40b031403f9fc7c5ae",
+      "budget_ledger": "73639adf254b290177a295ef184f92b2ff2b41df341e21f0aa15ba62bdc84512",
+      "conformal_calibrator": "a48d727ed15328a7a3340017d2e0ae2fcdd7b401b064b8371a3ce1e9f5ad765b",
+      "coverage_risk_frontier": "46b0f27df6fb8c1550369e2943fdba190d70faf11667ff697904f606c55ed06b",
+      "dataset_summary": "6d69e7f36cf9b141ec64cfb2418945cb1e1877942e123107d642263fe348425d",
+      "drift_report": "2cf906bcdede212c830eb7cce8ffaa0cde6e6e6b824f8297526daa539dec645c",
+      "exposure_ledger": "76c0c80f1396317758cf685a9a925e84f084f859f200eb1a7c30d72d400f9014",
+      "ood_detector": "bf83b7c1d9c1ca2ee72439aef2bf1cab6f99ef080a62e606cca133a452942420",
+      "retrospective_coverage": "91c76c59017b670b8bc2cc59cf8ca11bd0bb70db4ee2adabe4d052c4b16ffe2d",
+      "trial_ledger": "7a3841c12d5a14c17e0acde4a24e6e84826042ab915bc83688b52602e31bb01a",
+      "upstream_receipt": "1b39aab365ad50a088aa5e3580d83a7ec57c09b4c5814e0681394d45c40fdbad"
+    },
+    "execution_authority": false,
+    "gates": {
+      "abstention_policy_present": true,
+      "authority_zero": true,
+      "baseline_preserved": true,
+      "budget_respected": true,
+      "cluster_role_separation_verified": true,
+      "conformal_calibrated": true,
+      "coverage_risk_reported": true,
+      "drift_diagnostics_present": true,
+      "exposure_zero": true,
+      "known_time_verified": true,
+      "ood_calibrated": true,
+      "retrospective_coverage_reported": true,
+      "upstream_verified": true
+    },
+    "ood_detector_id": "ood_detector_4bb4f37a9cd8fb46693eb28f",
+    "phase": "SAED_V4_24",
+    "production_authority": false,
+    "promotion_authority": false,
+    "prospective_success_claim": false,
+    "real_alpha_claim": false,
+    "research_policy_id": "manual_baseline_policy_e64f2e661aebe39abaded8b9",
+    "risk_allocation_authority": false,
+    "runtime_executable": false,
+    "selection_is_research_only": true,
+    "version": "1.0.0"
+  },
+  "handoff": {
+    "allowed_next_work": [
+      "continual_calibration_research",
+      "meta_learning_dataset_design",
+      "transfer_shift_mapping",
+      "drift_segment_taxonomy",
+      "safe_recalibration_experiments"
+    ],
+    "authority": {
+      "decision": false,
+      "execution": false,
+      "production": false,
+      "promotion": false,
+      "risk_allocation": false,
+      "runtime": false
+    },
+    "certificate_hash": "6ebe377b7eade1b1b7c34d9afd99ef99eccdc3a1d061bfc65136ab9172d40cca",
+    "entry_gates": {
+      "abstention_policy_available": true,
+      "conformal_certificate_verified": true,
+      "coverage_risk_frontier_available": true,
+      "drift_diagnostics_available": true,
+      "promotion_denied": true,
+      "research_only": true,
+      "runtime_denied": true
+    },
+    "forbidden_next_work": [
+      "promotion_authorization",
+      "runtime_compilation",
+      "risk_allocation",
+      "order_submission",
+      "online_policy_mutation"
+    ],
+    "handoff_hash": "0b725c4f934f7c88a7677703f2eefef57b88c7c2aba49a81b454a3e70b5b9ebf",
+    "handoff_id": "v4_24_to_v4_25_ce9b2d6c24f4f15aaefa4c38",
+    "next_phase": "SAED_V4_25",
+    "phase": "SAED_V4_24",
+    "research_only": true,
+    "research_policy_id": "manual_baseline_policy_e64f2e661aebe39abaded8b9"
+  }
+}

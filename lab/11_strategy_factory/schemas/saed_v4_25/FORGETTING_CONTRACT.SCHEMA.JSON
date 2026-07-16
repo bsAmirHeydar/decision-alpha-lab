@@ -1,0 +1,50 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-25/forgetting_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract or evidence artifact. Unknown object fields are rejected.",
+  "properties": {
+    "bootstrap_draws": {
+      "type": "integer"
+    },
+    "cluster_bootstrap_required": {
+      "type": "boolean"
+    },
+    "confidence_level": {
+      "type": "number"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "maximum_mean_forgetting": {
+      "type": "number"
+    },
+    "maximum_worst_task_forgetting": {
+      "type": "number"
+    },
+    "minimum_backward_transfer": {
+      "type": "number"
+    },
+    "minimum_forward_transfer": {
+      "type": "number"
+    },
+    "negative_transfer_fails_closed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "bootstrap_draws",
+    "cluster_bootstrap_required",
+    "confidence_level",
+    "exact_version",
+    "maximum_mean_forgetting",
+    "maximum_worst_task_forgetting",
+    "minimum_backward_transfer",
+    "minimum_forward_transfer",
+    "negative_transfer_fails_closed"
+  ],
+  "title": "SAED V4-25 FORGETTING_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_25"
+}

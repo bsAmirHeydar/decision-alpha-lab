@@ -1,0 +1,103 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-25/golden_transfer_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract or evidence artifact. Unknown object fields are rejected.",
+  "properties": {
+    "accepted_for_transfer_research": {
+      "type": "boolean"
+    },
+    "backward_transfer": {
+      "type": "number"
+    },
+    "bootstrap_draws": {
+      "type": "integer"
+    },
+    "cluster_bootstrap": {
+      "type": "boolean"
+    },
+    "confidence_level": {
+      "type": "number"
+    },
+    "evaluation_count": {
+      "type": "integer"
+    },
+    "forward_transfer": {
+      "type": "number"
+    },
+    "forward_transfer_ci_lower": {
+      "type": "number"
+    },
+    "forward_transfer_ci_upper": {
+      "type": "number"
+    },
+    "gates": {
+      "additionalProperties": false,
+      "properties": {
+        "backward_transfer": {
+          "type": "boolean"
+        },
+        "forward_transfer": {
+          "type": "boolean"
+        },
+        "mean_forgetting": {
+          "type": "boolean"
+        },
+        "worst_task_forgetting": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "backward_transfer",
+        "forward_transfer",
+        "mean_forgetting",
+        "worst_task_forgetting"
+      ],
+      "type": "object"
+    },
+    "mean_forgetting": {
+      "type": "number"
+    },
+    "meta_validation_mean_delta": {
+      "type": "number"
+    },
+    "negative_transfer_count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "transfer_report_hash": {
+      "type": "string"
+    },
+    "transfer_report_id": {
+      "type": "string"
+    },
+    "worst_task_forgetting": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "accepted_for_transfer_research",
+    "backward_transfer",
+    "bootstrap_draws",
+    "cluster_bootstrap",
+    "confidence_level",
+    "evaluation_count",
+    "forward_transfer",
+    "forward_transfer_ci_lower",
+    "forward_transfer_ci_upper",
+    "gates",
+    "mean_forgetting",
+    "meta_validation_mean_delta",
+    "negative_transfer_count",
+    "phase",
+    "transfer_report_hash",
+    "transfer_report_id",
+    "worst_task_forgetting"
+  ],
+  "title": "SAED V4-25 GOLDEN_TRANSFER_REPORT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_25"
+}

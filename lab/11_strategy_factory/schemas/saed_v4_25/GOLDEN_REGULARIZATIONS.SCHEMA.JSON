@@ -1,0 +1,63 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-25/golden_regularizations.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Closed deterministic research-only contract or evidence artifact. Unknown object fields are rejected.",
+  "items": {
+    "additionalProperties": false,
+    "properties": {
+      "adaptation_id": {
+        "type": "string"
+      },
+      "anchor_strength": {
+        "type": "number"
+      },
+      "anchored_parameters": {
+        "items": {
+          "type": "number"
+        },
+        "type": "array"
+      },
+      "baseline_preserved": {
+        "type": "boolean"
+      },
+      "importance_diagonal": {
+        "items": {
+          "type": "number"
+        },
+        "type": "array"
+      },
+      "quadratic_penalty": {
+        "type": "number"
+      },
+      "regularization_hash": {
+        "type": "string"
+      },
+      "regularization_id": {
+        "type": "string"
+      },
+      "runtime_mutation": {
+        "type": "boolean"
+      },
+      "task_id": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "adaptation_id",
+      "anchor_strength",
+      "anchored_parameters",
+      "baseline_preserved",
+      "importance_diagonal",
+      "quadratic_penalty",
+      "regularization_hash",
+      "regularization_id",
+      "runtime_mutation",
+      "task_id"
+    ],
+    "type": "object"
+  },
+  "title": "SAED V4-25 GOLDEN_REGULARIZATIONS",
+  "type": "array",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_25"
+}

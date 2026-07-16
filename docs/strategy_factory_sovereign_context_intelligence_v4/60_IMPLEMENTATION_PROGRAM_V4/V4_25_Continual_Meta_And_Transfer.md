@@ -1,58 +1,44 @@
 ---
 title: V4-25 Continual Meta And Transfer
-status: canonical
-version: 4.0.0
-created: '2026-07-13'
-updated: '2026-07-13'
-capability_tier: core-production
-tags:
-  - saed-v4
-  - implementation
-  - roadmap
+status: accepted-reference
+version: 1.0.0
+created: '2026-07-16'
+updated: '2026-07-16'
+capability_tier: research-reference
+phase: SAED_V4_25
+tags: [saed-v4, implementation, continual-learning, meta-learning, transfer-learning]
 ---
 
 # Phase V4-25: Continual Meta And Transfer
 
 ## Mission
 
-Implement this phase as an additive, closed-contract capability that preserves UCEE authority and can be independently validated.
+Implement a deterministic, closed-contract research capability for chronological meta-datasets, drift segmentation, historical source selection, cold-start priors, support-only adaptation, bounded continual regularization, past-only calibration, replay, forgetting measurement, negative-transfer control, and offline safe recalibration.
 
-## Entry gates
+The phase consumes the immutable [[V4_24_Conformal_OOD_And_Selective_Control]] certificate and handoff. It produces frozen evidence for [[V4_26_Mechanistic_Interpretability]]. UCEE remains authority of record.
 
-- Prior phase artifacts are immutable and hash verified.
-- Data roles, support, treatment universe and authority are frozen.
-- Golden and negative fixtures exist.
-- Compute, exposure and review budgets are approved.
+## Implemented capability
 
-## Engineering slices
+- exact V4-24 hash and scope verification;
+- chronological, cluster-safe task dataset;
+- support/query evidence separation;
+- deterministic stationary, gradual, sudden, recurring, and novel drift taxonomy;
+- frozen meta-feature representation;
+- source eligibility, distance, weighting, transfer graph, and scratch fallback;
+- regularized empirical-Bayes support adaptation;
+- diagonal importance anchoring and bounded parameter movement;
+- past-only finite-sample continual calibration;
+- deterministic context/drift-diverse replay buffer;
+- retrospective forward transfer, backward transfer, and forgetting metrics;
+- cluster-bootstrap uncertainty;
+- negative-transfer fail-closed guard;
+- finite offline recalibration grid;
+- trial, exposure, budget, security, model-risk, replay, certificate, and handoff evidence.
 
-1. Contract and schema freeze.
-2. Deterministic reference implementation.
-3. Golden, negative and mutation tests.
-4. Distributed or advanced challenger implementation.
-5. Model-risk and security review.
-6. Independent reproduction.
-7. Evidence bundle and handoff.
+## Acceptance state
 
-## Acceptance gates
+The local deterministic reference implementation is accepted when all Python tests, closed schemas, Obsidian links, MQL5 static checks, authority boundaries, golden reproduction, status checks, and delivery hashes pass. MetaEditor compilation remains `pending_local_windows`; runtime parity, broker qualification, prospective shadow, real alpha, promotion, and production authorization are not claimed.
 
-- Zero unknown fields in closed contracts.
-- No future-suffix sensitivity.
-- Deterministic identity and replay.
-- Complete trial/exposure accounting.
-- Baseline preserved.
-- Fail-closed fallback verified.
-- UCEE compatibility and no central-engine mutation.
-- Actual external/MetaEditor evidence distinguished from static evidence.
+## Complete delivery
 
-## Deliverables
-
-- Source modules and tests.
-- Schemas and examples.
-- Obsidian implementation documentation.
-- QA report, inventory, file index and hash ledger.
-- Handoff to the next phase.
-
-## Non-goals
-
-This architecture phase does not claim real alpha, prospective success, runtime parity or production authorization unless actual evidence is attached.
+See [[00_MOC_V4_25_Continual_Meta_And_Transfer]] and [[00_MOC_V4_25_Atomic_Concepts]].

@@ -1,0 +1,44 @@
+{
+  "allowed_next_work": [
+    "frozen_feature_attribution",
+    "transfer_pathway_attribution",
+    "adaptation_parameter_mechanism_analysis",
+    "continual_calibration_component_analysis",
+    "counterfactual_mechanism_probes",
+    "mechanistic_failure_catalogue"
+  ],
+  "authority": {
+    "decision": false,
+    "execution": false,
+    "production": false,
+    "promotion": false,
+    "risk_allocation": false,
+    "runtime": false
+  },
+  "certificate_hash": "c8f942ede4435348382cf3b37e692b73d8f51235a8841bc82ba4df4362b03a8d",
+  "certificate_id": "continual_meta_transfer_certificate_fee0cec3d6bc4049d744397a",
+  "drift_report_hash": "4c91edb6915d14ed23ca3a558bf00bd35c29e42443fc77fc88d59bafdea0ffb6",
+  "entry_gates": {
+    "continual_meta_transfer_certificate_verified": true,
+    "frozen_adaptation_artifacts_available": true,
+    "frozen_drift_segments_available": true,
+    "frozen_replay_artifacts_available": true,
+    "frozen_transfer_artifacts_available": true,
+    "promotion_denied": true,
+    "research_only": true,
+    "runtime_denied": true
+  },
+  "forbidden_next_work": [
+    "promotion_authorization",
+    "runtime_compilation",
+    "risk_allocation",
+    "order_submission",
+    "online_policy_mutation"
+  ],
+  "handoff_hash": "feb08e6c361c30cce166c19229abe4123021a3e864c063f2ddae13dce88c8c03",
+  "handoff_id": "v4_25_to_v4_26_cc55e25cb1a470cf85ad26ec",
+  "next_phase": "SAED_V4_26",
+  "phase": "SAED_V4_25",
+  "research_only": true,
+  "transfer_report_hash": "430e04c620b64822dbdc84fe33b48b00d7462c2f1e155f8209e4340246dcb223"
+}

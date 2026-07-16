@@ -1,3 +1,10 @@
-feat(saed-v4): implement V4-24 conformal OOD selective control
+feat(saed-v4): implement V4-25 continual meta and transfer
 
-Add closed known-time calibration contracts, future-outcome-invariant one-sided split/Mondrian conformal lower bounds, support-aware robust OOD detection, fail-closed selective action control, cluster-bootstrap coverage-risk frontier, abstention calibration, drift containment, bounded ledgers, deterministic certificates, static MQL5 mirrors, exhaustive QA, detailed Obsidian documentation and the narrow V4-25 handoff.
+- verify immutable V4-24 selective-control evidence and authority boundary
+- add chronological cluster-safe meta-task dataset contracts
+- implement deterministic drift taxonomy, meta-features, and transfer mapping
+- add support-only bounded adaptation and continual regularization
+- add past-only calibration, replay, forgetting metrics, and negative-transfer guards
+- add offline safe-recalibration research and complete budget/exposure ledgers
+- add 170 tests, 36 closed schemas, 255 Obsidian notes, and 22 MQL5 static files
+- issue content-addressed research certificate and V4-26 interpretability handoff

@@ -1,0 +1,22 @@
+{
+  "authority": {
+    "decision": false,
+    "execution": false,
+    "online_learning": false,
+    "order_submission": false,
+    "production": false,
+    "promotion": false,
+    "risk_allocation": false,
+    "runtime": false
+  },
+  "boundary_hash": "8efcab039f47096ec043b1dd24256b29d1aca12352b921c460a4edef514ee229",
+  "boundary_id": "authority_boundary_f732453b4e6e60ee86c2edb8",
+  "broker_credentials_present": false,
+  "central_engine_mutation": false,
+  "network_access": false,
+  "phase": "SAED_V4_25",
+  "research_only": true,
+  "safe_fallback": "scratch_baseline_or_skip",
+  "signing_material_present": false,
+  "ucee_authority_preserved": true
+}

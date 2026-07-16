@@ -1,0 +1,141 @@
+{
+  "capacity": 12,
+  "contexts_covered": [
+    "divergence",
+    "flag",
+    "hook",
+    "timing"
+  ],
+  "deterministic": true,
+  "drift_classes_covered": [
+    "novel",
+    "stationary"
+  ],
+  "entries": [
+    {
+      "context_id": "timing",
+      "decision_time": "2024-03-18T00:00:00Z",
+      "drift_class": "stationary",
+      "query_outcomes_stored": false,
+      "rank": 0,
+      "replay_entry_id": "replay_entry_3ffbf70109059f4110c231d3",
+      "support_features_hash_only": true,
+      "task_id": "task_012_timing_meta_train"
+    },
+    {
+      "context_id": "divergence",
+      "decision_time": "2024-03-11T00:00:00Z",
+      "drift_class": "stationary",
+      "query_outcomes_stored": false,
+      "rank": 1,
+      "replay_entry_id": "replay_entry_42c7ae871701dbc6425c124e",
+      "support_features_hash_only": true,
+      "task_id": "task_011_divergence_meta_train"
+    },
+    {
+      "context_id": "flag",
+      "decision_time": "2024-03-04T00:00:00Z",
+      "drift_class": "stationary",
+      "query_outcomes_stored": false,
+      "rank": 2,
+      "replay_entry_id": "replay_entry_fd16193607760121001f651d",
+      "support_features_hash_only": true,
+      "task_id": "task_010_flag_meta_train"
+    },
+    {
+      "context_id": "hook",
+      "decision_time": "2024-02-26T00:00:00Z",
+      "drift_class": "stationary",
+      "query_outcomes_stored": false,
+      "rank": 3,
+      "replay_entry_id": "replay_entry_217ff4e42cdd73a1eef735f6",
+      "support_features_hash_only": true,
+      "task_id": "task_009_hook_meta_train"
+    },
+    {
+      "context_id": "timing",
+      "decision_time": "2024-01-22T00:00:00Z",
+      "drift_class": "novel",
+      "query_outcomes_stored": false,
+      "rank": 4,
+      "replay_entry_id": "replay_entry_bfeb1324c2ae880fe313e1d4",
+      "support_features_hash_only": true,
+      "task_id": "task_004_timing_meta_train"
+    },
+    {
+      "context_id": "hook",
+      "decision_time": "2024-01-01T00:00:00Z",
+      "drift_class": "novel",
+      "query_outcomes_stored": false,
+      "rank": 5,
+      "replay_entry_id": "replay_entry_b05ceb217edfb119fe1b76a0",
+      "support_features_hash_only": true,
+      "task_id": "task_001_hook_meta_train"
+    },
+    {
+      "context_id": "flag",
+      "decision_time": "2024-02-05T00:00:00Z",
+      "drift_class": "stationary",
+      "query_outcomes_stored": false,
+      "rank": 6,
+      "replay_entry_id": "replay_entry_34ee5d6320b028309cec311b",
+      "support_features_hash_only": true,
+      "task_id": "task_006_flag_meta_train"
+    },
+    {
+      "context_id": "flag",
+      "decision_time": "2024-01-08T00:00:00Z",
+      "drift_class": "novel",
+      "query_outcomes_stored": false,
+      "rank": 7,
+      "replay_entry_id": "replay_entry_fe3b8805704e1d69da29fee7",
+      "support_features_hash_only": true,
+      "task_id": "task_002_flag_meta_train"
+    },
+    {
+      "context_id": "divergence",
+      "decision_time": "2024-01-15T00:00:00Z",
+      "drift_class": "novel",
+      "query_outcomes_stored": false,
+      "rank": 8,
+      "replay_entry_id": "replay_entry_52bead0979a5f15f1843b401",
+      "support_features_hash_only": true,
+      "task_id": "task_003_divergence_meta_train"
+    },
+    {
+      "context_id": "divergence",
+      "decision_time": "2024-02-12T00:00:00Z",
+      "drift_class": "stationary",
+      "query_outcomes_stored": false,
+      "rank": 9,
+      "replay_entry_id": "replay_entry_9c8f34bcfaa3703e1f8f6a09",
+      "support_features_hash_only": true,
+      "task_id": "task_007_divergence_meta_train"
+    },
+    {
+      "context_id": "timing",
+      "decision_time": "2024-02-19T00:00:00Z",
+      "drift_class": "stationary",
+      "query_outcomes_stored": false,
+      "rank": 10,
+      "replay_entry_id": "replay_entry_a0ae9b7957a75eb963fddf5e",
+      "support_features_hash_only": true,
+      "task_id": "task_008_timing_meta_train"
+    },
+    {
+      "context_id": "hook",
+      "decision_time": "2024-01-29T00:00:00Z",
+      "drift_class": "stationary",
+      "query_outcomes_stored": false,
+      "rank": 11,
+      "replay_entry_id": "replay_entry_9ae40ed08e9ba0fc7a15529d",
+      "support_features_hash_only": true,
+      "task_id": "task_005_hook_meta_train"
+    }
+  ],
+  "entry_count": 12,
+  "phase": "SAED_V4_25",
+  "protected_query_outcomes_stored": false,
+  "replay_buffer_hash": "a6b32e56c854eec3e7e571aa68844559bb752707b4eb4c9b56fb0731044e34a8",
+  "replay_buffer_id": "replay_buffer_109cab480a429adc233b4c36"
+}

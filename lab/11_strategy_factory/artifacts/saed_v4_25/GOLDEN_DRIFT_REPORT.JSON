@@ -1,0 +1,976 @@
+{
+  "class_counts": {
+    "novel": 4,
+    "recurring": 1,
+    "stationary": 43
+  },
+  "deterministic": true,
+  "drift_report_hash": "4c91edb6915d14ed23ca3a558bf00bd35c29e42443fc77fc88d59bafdea0ffb6",
+  "drift_report_id": "drift_report_8d8707c793341a94edd3077b",
+  "events": [
+    {
+      "context_id": "hook",
+      "deterministic": true,
+      "drift_class": "novel",
+      "drift_event_hash": "2a044ce1e49228960b52840ac5af6d07934455e49aa16cfaedafa1ef43792acf",
+      "drift_event_id": "drift_event_e4060b4347733dc828133be8",
+      "fail_closed": true,
+      "meta_distance": null,
+      "predecessor_task_id": null,
+      "recurrence_similarity": null,
+      "task_id": "task_001_hook_meta_train"
+    },
+    {
+      "context_id": "flag",
+      "deterministic": true,
+      "drift_class": "novel",
+      "drift_event_hash": "f26c403468c79a19e4d06fe434ab9b9e1a6065059f627613a7868fd483db4bfc",
+      "drift_event_id": "drift_event_c562587eb6655ad5b5f437a8",
+      "fail_closed": true,
+      "meta_distance": null,
+      "predecessor_task_id": null,
+      "recurrence_similarity": null,
+      "task_id": "task_002_flag_meta_train"
+    },
+    {
+      "context_id": "divergence",
+      "deterministic": true,
+      "drift_class": "novel",
+      "drift_event_hash": "d8998b40a4f1caece8bf5276279dcf7a29d27368421001695b50a8a0180b75b4",
+      "drift_event_id": "drift_event_92903dca1a8bf76c14bc237b",
+      "fail_closed": true,
+      "meta_distance": null,
+      "predecessor_task_id": null,
+      "recurrence_similarity": null,
+      "task_id": "task_003_divergence_meta_train"
+    },
+    {
+      "context_id": "timing",
+      "deterministic": true,
+      "drift_class": "novel",
+      "drift_event_hash": "424d65fddda8a905d97804d34ff540ad19180fe6abc4f331848c2703563a597a",
+      "drift_event_id": "drift_event_e93bdbf375e3bdb6812c27f1",
+      "fail_closed": true,
+      "meta_distance": null,
+      "predecessor_task_id": null,
+      "recurrence_similarity": null,
+      "task_id": "task_004_timing_meta_train"
+    },
+    {
+      "context_id": "hook",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "eb608cb5fbea8707d4859e911be89146fb8ce8912e50c1eefff4b5067890ad4f",
+      "drift_event_id": "drift_event_e64c3bd75f62a720ffbbd151",
+      "fail_closed": false,
+      "meta_distance": 0.0654109417265837,
+      "predecessor_task_id": "task_001_hook_meta_train",
+      "recurrence_similarity": 0.9999556391819264,
+      "task_id": "task_005_hook_meta_train"
+    },
+    {
+      "context_id": "flag",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "ea5e0dff80f1f45977bb2ba2da4925df98e467c1e583ded09c0cb02101e802f3",
+      "drift_event_id": "drift_event_a8c7efe133860f8b43b4d011",
+      "fail_closed": false,
+      "meta_distance": 0.04515383185848066,
+      "predecessor_task_id": "task_002_flag_meta_train",
+      "recurrence_similarity": 0.9999788652973534,
+      "task_id": "task_006_flag_meta_train"
+    },
+    {
+      "context_id": "divergence",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "994c9b4326e429c10f66b182f7e711ef8f5985e609e0e5e3abcd31b04d2da566",
+      "drift_event_id": "drift_event_de0bdb5d11aeaf5aee93d5ec",
+      "fail_closed": false,
+      "meta_distance": 0.04042122802000185,
+      "predecessor_task_id": "task_003_divergence_meta_train",
+      "recurrence_similarity": 0.9999830586299115,
+      "task_id": "task_007_divergence_meta_train"
+    },
+    {
+      "context_id": "timing",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "5da6ffb0823ba2457866992bfafcccf3e476a9b370051391a6c876ff785062c8",
+      "drift_event_id": "drift_event_bdff9d95b41dc6df0c30d1f8",
+      "fail_closed": false,
+      "meta_distance": 0.038651805758001985,
+      "predecessor_task_id": "task_004_timing_meta_train",
+      "recurrence_similarity": 0.9999845303301191,
+      "task_id": "task_008_timing_meta_train"
+    },
+    {
+      "context_id": "hook",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "cef6df318db834723244af61b5af6e0d9e2c8dff594f63ebebf445332201280e",
+      "drift_event_id": "drift_event_0b422d337edd6e07c18f290c",
+      "fail_closed": false,
+      "meta_distance": 0.03652172369192267,
+      "predecessor_task_id": "task_005_hook_meta_train",
+      "recurrence_similarity": 0.9999861805187329,
+      "task_id": "task_009_hook_meta_train"
+    },
+    {
+      "context_id": "flag",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "eef2bf44bed3f14a5cf0c2a61e9cedc0a68650f2da676155ab8fa573cbc5d50f",
+      "drift_event_id": "drift_event_7513c4ee390af72fbd486e3d",
+      "fail_closed": false,
+      "meta_distance": 0.06036099879566098,
+      "predecessor_task_id": "task_006_flag_meta_train",
+      "recurrence_similarity": 0.9999622273921762,
+      "task_id": "task_010_flag_meta_train"
+    },
+    {
+      "context_id": "divergence",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "c661c66af4cd534cfb20495e237c041704647dca4ffb08f331ca34e0d491a1a4",
+      "drift_event_id": "drift_event_d7f3e9b80af06cd298e5290e",
+      "fail_closed": false,
+      "meta_distance": 0.04153753259595606,
+      "predecessor_task_id": "task_007_divergence_meta_train",
+      "recurrence_similarity": 0.9999821479700984,
+      "task_id": "task_011_divergence_meta_train"
+    },
+    {
+      "context_id": "timing",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "a0cca6372e67bdb3dbd0b38ca1b00231278ef3829d8b58b2714f41e961489c92",
+      "drift_event_id": "drift_event_237a7ce06f4987568c1c21c0",
+      "fail_closed": false,
+      "meta_distance": 0.04358858888321264,
+      "predecessor_task_id": "task_008_timing_meta_train",
+      "recurrence_similarity": 0.9999803165766122,
+      "task_id": "task_012_timing_meta_train"
+    },
+    {
+      "context_id": "hook",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "7edc4a44b50a4e74effc4f47379f1e16ee42fbdccd2ccd2df04fab5028ac0cda",
+      "drift_event_id": "drift_event_ac90c331853bdc29c13aaf37",
+      "fail_closed": false,
+      "meta_distance": 0.037466613163504886,
+      "predecessor_task_id": "task_009_hook_meta_train",
+      "recurrence_similarity": 0.9999854434593338,
+      "task_id": "task_013_hook_meta_validation"
+    },
+    {
+      "context_id": "flag",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "2054a0606d4b28d8a41ace76a98f62b25788a3fc019dca4fece98fb23849bfc6",
+      "drift_event_id": "drift_event_a11a37bf9dfaa232d354582d",
+      "fail_closed": false,
+      "meta_distance": 0.03658383868038667,
+      "predecessor_task_id": "task_010_flag_meta_train",
+      "recurrence_similarity": 0.9999861215986037,
+      "task_id": "task_014_flag_meta_validation"
+    },
+    {
+      "context_id": "divergence",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "aded83c56e5414ddc7aa83cdeca8b92893ccd305ee3a1ae539c441e210b4f56e",
+      "drift_event_id": "drift_event_fb91a7f0080fdfb6e2535faa",
+      "fail_closed": false,
+      "meta_distance": 0.05898862612634824,
+      "predecessor_task_id": "task_011_divergence_meta_train",
+      "recurrence_similarity": 0.9999639399113501,
+      "task_id": "task_015_divergence_meta_validation"
+    },
+    {
+      "context_id": "timing",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "0c563c58d813d5f9f5223a149126ef2f9ec62596133236fd09cb8109585d680c",
+      "drift_event_id": "drift_event_a8f9b77b4d08b258d804e482",
+      "fail_closed": false,
+      "meta_distance": 0.03487552705989278,
+      "predecessor_task_id": "task_012_timing_meta_train",
+      "recurrence_similarity": 0.999987417222102,
+      "task_id": "task_016_timing_meta_validation"
+    },
+    {
+      "context_id": "hook",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "b5434234c42af65450e1f9aea044986464e9b37dd9caa8084806980c911b01c0",
+      "drift_event_id": "drift_event_e5a321bda499b52a22d4fced",
+      "fail_closed": false,
+      "meta_distance": 0.09425246178647108,
+      "predecessor_task_id": "task_013_hook_meta_validation",
+      "recurrence_similarity": 0.9999884668808622,
+      "task_id": "task_017_hook_meta_validation"
+    },
+    {
+      "context_id": "flag",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "f9b7f2e74c9549377a23fa21ff090f15fcd3ee29ac0e18f6894cbace00626d7b",
+      "drift_event_id": "drift_event_1920967b64d62f6b0caa1cf5",
+      "fail_closed": false,
+      "meta_distance": 0.09400321341127474,
+      "predecessor_task_id": "task_014_flag_meta_validation",
+      "recurrence_similarity": 0.9999888321531052,
+      "task_id": "task_018_flag_meta_validation"
+    },
+    {
+      "context_id": "divergence",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "9ebb5e5788d4cd8beef9d40305170225e8f44e72875b3a1e49047a0037ba0167",
+      "drift_event_id": "drift_event_c8b9fc854478b93efb744f10",
+      "fail_closed": false,
+      "meta_distance": 0.09280444610478762,
+      "predecessor_task_id": "task_015_divergence_meta_validation",
+      "recurrence_similarity": 0.9999925602735783,
+      "task_id": "task_019_divergence_meta_validation"
+    },
+    {
+      "context_id": "timing",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "5d3b39ee6b5d136abd454794eccd63ad5919a4e88dd05df03b2ad5ed710ee644",
+      "drift_event_id": "drift_event_cc4675ffe500d85e5e6222a5",
+      "fail_closed": false,
+      "meta_distance": 0.1041208264008736,
+      "predecessor_task_id": "task_016_timing_meta_validation",
+      "recurrence_similarity": 0.9999930070845335,
+      "task_id": "task_020_timing_meta_validation"
+    },
+    {
+      "context_id": "hook",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "cc0dbc54434a9cd04e0c5877d8f831db8f1ad394839ffc3255a134350b479861",
+      "drift_event_id": "drift_event_01e33024e68fa6fd34cabbc9",
+      "fail_closed": false,
+      "meta_distance": 0.03830203473104726,
+      "predecessor_task_id": "task_017_hook_meta_validation",
+      "recurrence_similarity": 0.9999847866601247,
+      "task_id": "task_021_hook_meta_validation"
+    },
+    {
+      "context_id": "flag",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "5d09458813f0b9d68fc8f0a64db061d7baf5a076a58b2d86d0acff197c3ff3ab",
+      "drift_event_id": "drift_event_cdd27f99410f1ea96950e352",
+      "fail_closed": false,
+      "meta_distance": 0.0362501043155535,
+      "predecessor_task_id": "task_018_flag_meta_validation",
+      "recurrence_similarity": 0.9999879357238384,
+      "task_id": "task_022_flag_meta_validation"
+    },
+    {
+      "context_id": "divergence",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "5e4db6d405336e38fb2d560e5f71f60c8c3763eda8479bc059cf11af1c8dcf5b",
+      "drift_event_id": "drift_event_a7d161be191c092d7bd1452b",
+      "fail_closed": false,
+      "meta_distance": 0.04119087088444069,
+      "predecessor_task_id": "task_019_divergence_meta_validation",
+      "recurrence_similarity": 0.9999864179487716,
+      "task_id": "task_023_divergence_meta_validation"
+    },
+    {
+      "context_id": "timing",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "bef1f80cce39699531f7dd551e35d447346890abc5a61f59b1989b896f300a57",
+      "drift_event_id": "drift_event_716f8efc719f0efc186db1f9",
+      "fail_closed": false,
+      "meta_distance": 0.04102299920857192,
+      "predecessor_task_id": "task_020_timing_meta_validation",
+      "recurrence_similarity": 0.9999882813634613,
+      "task_id": "task_024_timing_meta_validation"
+    },
+    {
+      "context_id": "hook",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "e3a28630c680d36a526cb26dfe492ab56a79b6ce2f5289fe6cbea2d2cc5ec78c",
+      "drift_event_id": "drift_event_546d0e5e24686932dad606a2",
+      "fail_closed": false,
+      "meta_distance": 0.06148655568321116,
+      "predecessor_task_id": "task_021_hook_meta_validation",
+      "recurrence_similarity": 0.9999926961590003,
+      "task_id": "task_025_hook_transfer_test"
+    },
+    {
+      "context_id": "flag",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "247f17d0c454ea0ca634d5f69b0357a0a6abec4bccb3d75882c895480cde1f08",
+      "drift_event_id": "drift_event_4583aabd28c75afd482120a5",
+      "fail_closed": false,
+      "meta_distance": 0.04018236357001015,
+      "predecessor_task_id": "task_022_flag_meta_validation",
+      "recurrence_similarity": 0.9999832635181132,
+      "task_id": "task_026_flag_transfer_test"
+    },
+    {
+      "context_id": "divergence",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "de7e2260afa8cc8ee768790054671b72297e37f2a82a8904a49aa57e9933d940",
+      "drift_event_id": "drift_event_5737cd53462de64df723072f",
+      "fail_closed": false,
+      "meta_distance": 0.040001857413585966,
+      "predecessor_task_id": "task_023_divergence_meta_validation",
+      "recurrence_similarity": 0.9999928701753691,
+      "task_id": "task_027_divergence_transfer_test"
+    },
+    {
+      "context_id": "timing",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "da525fd67f47ca762ee255c9ba85040081188d2151b84f6bb0a2d6c21ce92fb0",
+      "drift_event_id": "drift_event_e1e73827343ba9bcb841f427",
+      "fail_closed": false,
+      "meta_distance": 0.04024087575575772,
+      "predecessor_task_id": "task_024_timing_meta_validation",
+      "recurrence_similarity": 0.9999922062783392,
+      "task_id": "task_028_timing_transfer_test"
+    },
+    {
+      "context_id": "hook",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "abc4a36c36846f8be55db1be9f5ce8bec31c9c476b5813868deed0f85c54a9ef",
+      "drift_event_id": "drift_event_a57f882d60f262936b737075",
+      "fail_closed": false,
+      "meta_distance": 0.04338320913720243,
+      "predecessor_task_id": "task_025_hook_transfer_test",
+      "recurrence_similarity": 0.9999851922886417,
+      "task_id": "task_029_hook_transfer_test"
+    },
+    {
+      "context_id": "flag",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "340945ad167b846a8216246e553b9fa08b271d4806a40d5a8af3e51184ea57c7",
+      "drift_event_id": "drift_event_115bc3295493a98266138f75",
+      "fail_closed": false,
+      "meta_distance": 0.06424159727652436,
+      "predecessor_task_id": "task_026_flag_transfer_test",
+      "recurrence_similarity": 0.9999845543716464,
+      "task_id": "task_030_flag_transfer_test"
+    },
+    {
+      "context_id": "divergence",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "5c1aaec4c1d0bc576e28cf4a8074b5b11eec920cc98601eb3e4c36947ed6aa80",
+      "drift_event_id": "drift_event_6b3f44b98c129cc6360e3e17",
+      "fail_closed": false,
+      "meta_distance": 0.038853354908835507,
+      "predecessor_task_id": "task_027_divergence_transfer_test",
+      "recurrence_similarity": 0.9999843782891853,
+      "task_id": "task_031_divergence_transfer_test"
+    },
+    {
+      "context_id": "timing",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "ecf620f961b5f9182e33305d59fa782451546be59a362f11797a2651ca4158d9",
+      "drift_event_id": "drift_event_8294c5e2677118070b69085f",
+      "fail_closed": false,
+      "meta_distance": 0.03871138926734306,
+      "predecessor_task_id": "task_028_timing_transfer_test",
+      "recurrence_similarity": 0.9999928122963325,
+      "task_id": "task_032_timing_transfer_test"
+    },
+    {
+      "context_id": "hook",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "ba706e847486dbaa2548ec814dff2e2ee2eb592dd7b7a80d1466a1df9f52a62a",
+      "drift_event_id": "drift_event_4da1904b53af42ed4c823c75",
+      "fail_closed": false,
+      "meta_distance": 0.08917056427678637,
+      "predecessor_task_id": "task_029_hook_transfer_test",
+      "recurrence_similarity": 0.9999927880665337,
+      "task_id": "task_033_hook_transfer_test"
+    },
+    {
+      "context_id": "flag",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "431fce519edbd338d4f7f7ead75aea52aa8e5766dd5e3d9078e374d08e029c28",
+      "drift_event_id": "drift_event_6a67201b12bc979219ef5d2f",
+      "fail_closed": false,
+      "meta_distance": 0.08938646358166223,
+      "predecessor_task_id": "task_030_flag_transfer_test",
+      "recurrence_similarity": 0.9999923650151211,
+      "task_id": "task_034_flag_transfer_test"
+    },
+    {
+      "context_id": "divergence",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "061157b944b422ecc6330c58ef1596dfa0c5155167eacf090362dd48c88235e7",
+      "drift_event_id": "drift_event_e19edf40da8aa6a0f4ba6498",
+      "fail_closed": false,
+      "meta_distance": 0.10294587968548057,
+      "predecessor_task_id": "task_031_divergence_transfer_test",
+      "recurrence_similarity": 0.9999885395939887,
+      "task_id": "task_035_divergence_transfer_test"
+    },
+    {
+      "context_id": "timing",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "6fdc6485110245481acde8db65feb8a70c17fe8bb7f13ab2017e1b0962512cb5",
+      "drift_event_id": "drift_event_64a8a2bd6ab8a137d0211c92",
+      "fail_closed": false,
+      "meta_distance": 0.09072090597441618,
+      "predecessor_task_id": "task_032_timing_transfer_test",
+      "recurrence_similarity": 0.9999775786070646,
+      "task_id": "task_036_timing_transfer_test"
+    },
+    {
+      "context_id": "hook",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "2cb2de1f1245dd56c93cc73cf2b324334200285e226bc03f31705c80fb3666af",
+      "drift_event_id": "drift_event_41fcbaa1fe29aa680a499746",
+      "fail_closed": false,
+      "meta_distance": 0.03639430927351892,
+      "predecessor_task_id": "task_033_hook_transfer_test",
+      "recurrence_similarity": 0.9999883628207804,
+      "task_id": "task_037_hook_drift_reference"
+    },
+    {
+      "context_id": "flag",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "9f1840bad322d20f1bb49a63390fdfe10a03199c1da6aa6fd3ac1eca9f24d08d",
+      "drift_event_id": "drift_event_c94fdca9b2354ffd5db0ce79",
+      "fail_closed": false,
+      "meta_distance": 0.035200949572827045,
+      "predecessor_task_id": "task_034_flag_transfer_test",
+      "recurrence_similarity": 0.9999928377538475,
+      "task_id": "task_038_flag_drift_reference"
+    },
+    {
+      "context_id": "divergence",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "c03a41bd5b3401b469b8c50b387da5b120376c6084c7eb418dc714c2edae5546",
+      "drift_event_id": "drift_event_687853f2d498a25192d21d27",
+      "fail_closed": false,
+      "meta_distance": 0.035438667338006144,
+      "predecessor_task_id": "task_035_divergence_transfer_test",
+      "recurrence_similarity": 0.9999928713863266,
+      "task_id": "task_039_divergence_drift_reference"
+    },
+    {
+      "context_id": "timing",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "489f16b10ef93b0f0957bb68471e4f45e546efb154acc5f3db392ca41298d90d",
+      "drift_event_id": "drift_event_f201d5e19fb31c4a4076ad4f",
+      "fail_closed": false,
+      "meta_distance": 0.060599248378987926,
+      "predecessor_task_id": "task_036_timing_transfer_test",
+      "recurrence_similarity": 0.9999925655484303,
+      "task_id": "task_040_timing_drift_reference"
+    },
+    {
+      "context_id": "hook",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "85c79054af29ef78967668aff3644139dd9f3e9b3ee1db7fc3f819073d8ecb1d",
+      "drift_event_id": "drift_event_03b3cf3b167fcace133684ee",
+      "fail_closed": false,
+      "meta_distance": 0.041684316831118284,
+      "predecessor_task_id": "task_037_hook_drift_reference",
+      "recurrence_similarity": 0.9999839451099046,
+      "task_id": "task_041_hook_drift_reference"
+    },
+    {
+      "context_id": "flag",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "a89e4cf99c70d469652651804df30e3fb41a290f681b3eba0e7b42c1085d84eb",
+      "drift_event_id": "drift_event_6a6fd0e7614420a678d15bba",
+      "fail_closed": false,
+      "meta_distance": 0.04117758931910686,
+      "predecessor_task_id": "task_038_flag_drift_reference",
+      "recurrence_similarity": 0.9999887960672219,
+      "task_id": "task_042_flag_drift_reference"
+    },
+    {
+      "context_id": "divergence",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "863153b53e53c0efe50e7de6dfe5bedbfa743e0d236710e49117481d10364196",
+      "drift_event_id": "drift_event_88ee67395ab70c4c796cce45",
+      "fail_closed": false,
+      "meta_distance": 0.034933173229009615,
+      "predecessor_task_id": "task_039_divergence_drift_reference",
+      "recurrence_similarity": 0.999988692832955,
+      "task_id": "task_043_divergence_drift_reference"
+    },
+    {
+      "context_id": "timing",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "dcba6206074d21ab8a6909a16f9f8eedb7ea1f40de35d396b0d9e367bb10b185",
+      "drift_event_id": "drift_event_6b6f4b96ad060167cc9ada06",
+      "fail_closed": false,
+      "meta_distance": 0.035604911210540297,
+      "predecessor_task_id": "task_040_timing_drift_reference",
+      "recurrence_similarity": 0.999988877734846,
+      "task_id": "task_044_timing_drift_reference"
+    },
+    {
+      "context_id": "hook",
+      "deterministic": true,
+      "drift_class": "recurring",
+      "drift_event_hash": "c8873cf09c01a6158f984bd397f872cb7e0a4591c8e98ebe0cadb014ee7af17d",
+      "drift_event_id": "drift_event_323367aa3740accb32cf8dd1",
+      "fail_closed": false,
+      "meta_distance": 0.21049752647683626,
+      "predecessor_task_id": "task_041_hook_drift_reference",
+      "recurrence_similarity": 0.9996841680749899,
+      "task_id": "task_045_hook_drift_reference"
+    },
+    {
+      "context_id": "flag",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "aecf631c54a82f9f4ef81a936cc6429308aec9cc1081313431320f9a1cae52cd",
+      "drift_event_id": "drift_event_6f0937ecdc58a034c3c92239",
+      "fail_closed": false,
+      "meta_distance": 0.10700408866924371,
+      "predecessor_task_id": "task_042_flag_drift_reference",
+      "recurrence_similarity": 0.999885873557221,
+      "task_id": "task_046_flag_drift_reference"
+    },
+    {
+      "context_id": "divergence",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "6749359d55fa7ec24e23cf749adb4234d925b565d117010720923936aa48379a",
+      "drift_event_id": "drift_event_4e548c4ee43f93e34d402824",
+      "fail_closed": false,
+      "meta_distance": 0.04255040838323481,
+      "predecessor_task_id": "task_043_divergence_drift_reference",
+      "recurrence_similarity": 0.999988410015953,
+      "task_id": "task_047_divergence_drift_reference"
+    },
+    {
+      "context_id": "timing",
+      "deterministic": true,
+      "drift_class": "stationary",
+      "drift_event_hash": "f73dc020a5d4ec7b5a19e0f9542901828147acd449331bdc4d8ae0b8a8086c28",
+      "drift_event_id": "drift_event_65786353f2e7dd64a57add13",
+      "fail_closed": false,
+      "meta_distance": 0.04305062786710541,
+      "predecessor_task_id": "task_044_timing_drift_reference",
+      "recurrence_similarity": 0.9999883839663171,
+      "task_id": "task_048_timing_drift_reference"
+    }
+  ],
+  "phase": "SAED_V4_25",
+  "segments": [
+    {
+      "context_id": "hook",
+      "drift_class": "novel",
+      "segment_id": "drift_segment_460731a72f07b68b554bf53b",
+      "task_ids": [
+        "task_001_hook_meta_train"
+      ]
+    },
+    {
+      "context_id": "flag",
+      "drift_class": "novel",
+      "segment_id": "drift_segment_60f31f7d2ec7a81c241d846b",
+      "task_ids": [
+        "task_002_flag_meta_train"
+      ]
+    },
+    {
+      "context_id": "divergence",
+      "drift_class": "novel",
+      "segment_id": "drift_segment_9a33f7c06db7d8498b556e2f",
+      "task_ids": [
+        "task_003_divergence_meta_train"
+      ]
+    },
+    {
+      "context_id": "timing",
+      "drift_class": "novel",
+      "segment_id": "drift_segment_e9e5afcafe7740af9ef2f5b3",
+      "task_ids": [
+        "task_004_timing_meta_train"
+      ]
+    },
+    {
+      "context_id": "hook",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_4fb021a359b4efedb9730f17",
+      "task_ids": [
+        "task_005_hook_meta_train"
+      ]
+    },
+    {
+      "context_id": "flag",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_8f676b6402310136ca608d80",
+      "task_ids": [
+        "task_006_flag_meta_train"
+      ]
+    },
+    {
+      "context_id": "divergence",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_a8b7d326a3990f6b64f3c885",
+      "task_ids": [
+        "task_007_divergence_meta_train"
+      ]
+    },
+    {
+      "context_id": "timing",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_7a3119890ab2acd8a66694e6",
+      "task_ids": [
+        "task_008_timing_meta_train"
+      ]
+    },
+    {
+      "context_id": "hook",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_bb6b8380189213c3586e348f",
+      "task_ids": [
+        "task_009_hook_meta_train"
+      ]
+    },
+    {
+      "context_id": "flag",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_0de8451c5354c4ef492331d2",
+      "task_ids": [
+        "task_010_flag_meta_train"
+      ]
+    },
+    {
+      "context_id": "divergence",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_6a3791ac3893bfd43682c547",
+      "task_ids": [
+        "task_011_divergence_meta_train"
+      ]
+    },
+    {
+      "context_id": "timing",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_c118dd28756c39f12e471fb2",
+      "task_ids": [
+        "task_012_timing_meta_train"
+      ]
+    },
+    {
+      "context_id": "hook",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_71c11230e101ae1806ba5902",
+      "task_ids": [
+        "task_013_hook_meta_validation"
+      ]
+    },
+    {
+      "context_id": "flag",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_58629dc41064a2b0c97ecd95",
+      "task_ids": [
+        "task_014_flag_meta_validation"
+      ]
+    },
+    {
+      "context_id": "divergence",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_460306c166f9b23ae47cffe5",
+      "task_ids": [
+        "task_015_divergence_meta_validation"
+      ]
+    },
+    {
+      "context_id": "timing",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_390e716106bf42121715f4ed",
+      "task_ids": [
+        "task_016_timing_meta_validation"
+      ]
+    },
+    {
+      "context_id": "hook",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_10fe48865336b4eb35040e0d",
+      "task_ids": [
+        "task_017_hook_meta_validation"
+      ]
+    },
+    {
+      "context_id": "flag",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_063b8dfd29f5dfe633f1f985",
+      "task_ids": [
+        "task_018_flag_meta_validation"
+      ]
+    },
+    {
+      "context_id": "divergence",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_857947f577e301514415ad4a",
+      "task_ids": [
+        "task_019_divergence_meta_validation"
+      ]
+    },
+    {
+      "context_id": "timing",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_78d689f6c9278765302405a4",
+      "task_ids": [
+        "task_020_timing_meta_validation"
+      ]
+    },
+    {
+      "context_id": "hook",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_9810565ffefe83b9290e03f1",
+      "task_ids": [
+        "task_021_hook_meta_validation"
+      ]
+    },
+    {
+      "context_id": "flag",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_96de5c1c0c0048094926c545",
+      "task_ids": [
+        "task_022_flag_meta_validation"
+      ]
+    },
+    {
+      "context_id": "divergence",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_1807f201fefa382e74586fa4",
+      "task_ids": [
+        "task_023_divergence_meta_validation"
+      ]
+    },
+    {
+      "context_id": "timing",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_f79a37925cf4296572c23d37",
+      "task_ids": [
+        "task_024_timing_meta_validation"
+      ]
+    },
+    {
+      "context_id": "hook",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_11db4ece692ea413f984fcc3",
+      "task_ids": [
+        "task_025_hook_transfer_test"
+      ]
+    },
+    {
+      "context_id": "flag",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_5f5092d7be88653f8770f5fe",
+      "task_ids": [
+        "task_026_flag_transfer_test"
+      ]
+    },
+    {
+      "context_id": "divergence",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_c569b2fc1295f56bd773a585",
+      "task_ids": [
+        "task_027_divergence_transfer_test"
+      ]
+    },
+    {
+      "context_id": "timing",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_4a13efe73ae861fa4db9d0c2",
+      "task_ids": [
+        "task_028_timing_transfer_test"
+      ]
+    },
+    {
+      "context_id": "hook",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_bf977264b0c5114934f347ee",
+      "task_ids": [
+        "task_029_hook_transfer_test"
+      ]
+    },
+    {
+      "context_id": "flag",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_32f6f528993acf21da44d7b3",
+      "task_ids": [
+        "task_030_flag_transfer_test"
+      ]
+    },
+    {
+      "context_id": "divergence",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_2deb55f74dd2b153aa0ef21d",
+      "task_ids": [
+        "task_031_divergence_transfer_test"
+      ]
+    },
+    {
+      "context_id": "timing",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_beb3332583498dfd8cab3905",
+      "task_ids": [
+        "task_032_timing_transfer_test"
+      ]
+    },
+    {
+      "context_id": "hook",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_49449e351162aed0f84beb2e",
+      "task_ids": [
+        "task_033_hook_transfer_test"
+      ]
+    },
+    {
+      "context_id": "flag",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_822665f837f24cc604898621",
+      "task_ids": [
+        "task_034_flag_transfer_test"
+      ]
+    },
+    {
+      "context_id": "divergence",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_972ea71342d08cad60ea6eb1",
+      "task_ids": [
+        "task_035_divergence_transfer_test"
+      ]
+    },
+    {
+      "context_id": "timing",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_91e19a55bfbc13a97d8f860d",
+      "task_ids": [
+        "task_036_timing_transfer_test"
+      ]
+    },
+    {
+      "context_id": "hook",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_659566d48123e94a2cd0f25b",
+      "task_ids": [
+        "task_037_hook_drift_reference"
+      ]
+    },
+    {
+      "context_id": "flag",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_d68c71b0f0da69987d00edad",
+      "task_ids": [
+        "task_038_flag_drift_reference"
+      ]
+    },
+    {
+      "context_id": "divergence",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_9fb4f7a4d2267bfa1a2b5141",
+      "task_ids": [
+        "task_039_divergence_drift_reference"
+      ]
+    },
+    {
+      "context_id": "timing",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_68e289ac34da2e9dc5d8b0ff",
+      "task_ids": [
+        "task_040_timing_drift_reference"
+      ]
+    },
+    {
+      "context_id": "hook",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_45789f2c0464683f71548e79",
+      "task_ids": [
+        "task_041_hook_drift_reference"
+      ]
+    },
+    {
+      "context_id": "flag",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_633affd1e2146d7f60353f8f",
+      "task_ids": [
+        "task_042_flag_drift_reference"
+      ]
+    },
+    {
+      "context_id": "divergence",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_a16782513acb722f97351f20",
+      "task_ids": [
+        "task_043_divergence_drift_reference"
+      ]
+    },
+    {
+      "context_id": "timing",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_f6c1bda5e581da68203c0dc2",
+      "task_ids": [
+        "task_044_timing_drift_reference"
+      ]
+    },
+    {
+      "context_id": "hook",
+      "drift_class": "recurring",
+      "segment_id": "drift_segment_0dadaffd38d00c79a3f1d745",
+      "task_ids": [
+        "task_045_hook_drift_reference"
+      ]
+    },
+    {
+      "context_id": "flag",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_10d1dc17352be409892fc8b4",
+      "task_ids": [
+        "task_046_flag_drift_reference"
+      ]
+    },
+    {
+      "context_id": "divergence",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_b05ad591bb297e054fb82fbd",
+      "task_ids": [
+        "task_047_divergence_drift_reference"
+      ]
+    },
+    {
+      "context_id": "timing",
+      "drift_class": "stationary",
+      "segment_id": "drift_segment_d404ab8cce75da06d9c825fd",
+      "task_ids": [
+        "task_048_timing_drift_reference"
+      ]
+    }
+  ],
+  "taxonomy_hash": "e3f424e043a50462d698d1b8ea35d86951e15e672647254f56ed367994713dfb"
+}

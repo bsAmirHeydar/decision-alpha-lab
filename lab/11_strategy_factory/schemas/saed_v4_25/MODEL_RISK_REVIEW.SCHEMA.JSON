@@ -1,0 +1,70 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-25/model_risk_review.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract or evidence artifact. Unknown object fields are rejected.",
+  "properties": {
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorization": {
+      "type": "boolean"
+    },
+    "promotion_authority": {
+      "type": "boolean"
+    },
+    "prospective_success_claim": {
+      "type": "boolean"
+    },
+    "real_alpha_claim": {
+      "type": "boolean"
+    },
+    "risks": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "control": {
+            "type": "string"
+          },
+          "residual": {
+            "type": "string"
+          },
+          "risk": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "control",
+          "residual",
+          "risk"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "runtime_parity_claim": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "claim_ceiling",
+    "passed",
+    "phase",
+    "production_authorization",
+    "promotion_authority",
+    "prospective_success_claim",
+    "real_alpha_claim",
+    "risks",
+    "runtime_parity_claim"
+  ],
+  "title": "SAED V4-25 MODEL_RISK_REVIEW",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_25"
+}

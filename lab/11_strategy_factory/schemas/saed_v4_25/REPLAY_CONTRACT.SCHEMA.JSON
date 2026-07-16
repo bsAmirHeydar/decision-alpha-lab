@@ -1,0 +1,46 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-25/replay_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract or evidence artifact. Unknown object fields are rejected.",
+  "properties": {
+    "capacity": {
+      "type": "integer"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "diversity_weight": {
+      "type": "number"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "minimum_per_context": {
+      "type": "integer"
+    },
+    "minimum_per_drift_class": {
+      "type": "integer"
+    },
+    "protected_query_outcomes_forbidden": {
+      "type": "boolean"
+    },
+    "recency_weight": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "capacity",
+    "deterministic",
+    "diversity_weight",
+    "exact_version",
+    "minimum_per_context",
+    "minimum_per_drift_class",
+    "protected_query_outcomes_forbidden",
+    "recency_weight"
+  ],
+  "title": "SAED V4-25 REPLAY_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_25"
+}

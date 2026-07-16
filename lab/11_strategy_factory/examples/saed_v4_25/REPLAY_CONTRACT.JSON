@@ -1,0 +1,10 @@
+{
+  "capacity": 12,
+  "deterministic": true,
+  "diversity_weight": 1.0,
+  "exact_version": "1.0.0",
+  "minimum_per_context": 1,
+  "minimum_per_drift_class": 1,
+  "protected_query_outcomes_forbidden": true,
+  "recency_weight": 1.0
+}

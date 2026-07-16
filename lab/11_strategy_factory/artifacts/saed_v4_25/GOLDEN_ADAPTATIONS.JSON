@@ -1,0 +1,1682 @@
+[
+  {
+    "adaptation_hash": "273d3eab50afaecc808cf4bac2fa91f1d83d00bb7dd4f98de638cbc59eabdb3d",
+    "adaptation_id": "adaptation_121f4619848fde92aa3f1091",
+    "adapted_parameters": [
+      0.8632903550429736,
+      -0.2937399158384853,
+      0.42718654048190835,
+      0.14374230065705051,
+      0.3118113947708051,
+      -0.15483938252084417
+    ],
+    "baseline_parameters": [
+      1.1110367746201972,
+      -0.47726756432935796,
+      0.6635280002014967,
+      -0.03892006238269824,
+      0.5260268931334215,
+      -0.3269853874549732
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_30e0046d4988de91452ccae3",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.8426448200782048,
+      -0.2784459451309126,
+      0.40749141883860934,
+      0.15896416424369625,
+      0.29396010324058713,
+      -0.14049388210966676
+    ],
+    "support_rows": 24,
+    "task_id": "task_001_hook_meta_train"
+  },
+  {
+    "adaptation_hash": "2e7fc6772cfa93f023ee3e6c12722cefdd3dd161b3a3961c20350473a65cc5e7",
+    "adaptation_id": "adaptation_23e148f179e633cf54d70d1d",
+    "adapted_parameters": [
+      0.6524335458997315,
+      0.371787613604137,
+      -0.11166979502885843,
+      0.28316170936661733,
+      0.20467996585997159,
+      0.051603365171372206
+    ],
+    "baseline_parameters": [
+      0.44103677462019736,
+      0.702732435670642,
+      -0.39647199979850334,
+      0.5710799376173017,
+      -0.00397310686657848,
+      0.3130146125450268
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_07cd5759f4e1b4a5cfaf4c27",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.6142166101730259,
+      0.44254221176526154,
+      -0.1762696112980547,
+      0.31000185701239363,
+      0.17790105525385075,
+      0.08315242789023432
+    ],
+    "support_rows": 24,
+    "task_id": "task_002_flag_meta_train"
+  },
+  {
+    "adaptation_hash": "c65f19488b3dcb5262918d7aace5c1c78852c0ca1dcaf25b3e7d0a2ea13da355",
+    "adaptation_id": "adaptation_1a2c484ccdb20c0235b3ada2",
+    "adapted_parameters": [
+      -0.13158303707436703,
+      0.6758895731771275,
+      0.342695049588445,
+      -0.06861063853184646,
+      0.39648490661319624,
+      0.16212717249629346
+    ],
+    "baseline_parameters": [
+      0.01103677462019742,
+      0.542732435670642,
+      0.6235280002014967,
+      -0.3189200623826982,
+      0.6760268931334216,
+      0.003014612545026829
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_c5536cc26c84231b8b817f15",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      -0.20766547654674897,
+      0.7236073900003474,
+      0.3594177228965041,
+      -0.09609413532485366,
+      0.4074191173327509,
+      0.17664730568419407
+    ],
+    "support_rows": 24,
+    "task_id": "task_003_divergence_meta_train"
+  },
+  {
+    "adaptation_hash": "2999528e221d2aa3b115c6adc2908121b0cf7aae3326efa2c7fd1e4e7410dc79",
+    "adaptation_id": "adaptation_b6b3202b1be009e392cd3bc1",
+    "adapted_parameters": [
+      0.350271180823606,
+      0.15772341962495448,
+      0.7499771340796493,
+      0.24927258307869,
+      -0.1310896352597246,
+      0.35517223407092013
+    ],
+    "baseline_parameters": [
+      0.16103677462019744,
+      0.382732435670642,
+      0.6135280002014967,
+      0.5110799376173017,
+      -0.4039731068665785,
+      0.6330146125450269
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_5df1d2fcdd135c2dc82210bb",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.3350499880028341,
+      0.15042856948816574,
+      0.7877347301376116,
+      0.2638441806524318,
+      -0.17513830844633888,
+      0.38535707537742564
+    ],
+    "support_rows": 24,
+    "task_id": "task_004_timing_meta_train"
+  },
+  {
+    "adaptation_hash": "0b8a393a5f32de4510c02adf1d8361ceb22647a7156cd54a7d2b0b9170b916fa",
+    "adaptation_id": "adaptation_81b8e7bc80715ae32a388a9f",
+    "adapted_parameters": [
+      0.8365971322251963,
+      -0.27755861955041755,
+      0.43303117761183774,
+      0.20744266134912914,
+      0.26190225524165606,
+      -0.10542117834261053
+    ],
+    "baseline_parameters": [
+      1.112732435670642,
+      -0.5189200623826982,
+      0.6530146125450269,
+      0.00473395616558453,
+      0.5363994722277657,
+      -0.3334143229500109
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_a17771f6fc91fb47924b7872",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.8661104739878636,
+      -0.3209490547703724,
+      0.43792354072995665,
+      0.21083200550727887,
+      0.26457105366441386,
+      -0.12385887253873297
+    ],
+    "support_rows": 24,
+    "task_id": "task_005_hook_meta_train"
+  },
+  {
+    "adaptation_hash": "39d6fdcef13bb06b96f23636e1698fc8748dbd0fafef2548c1912460149bbfff",
+    "adaptation_id": "adaptation_568ed012d56d9bbfce5a6186",
+    "adapted_parameters": [
+      0.6385954591109833,
+      0.400943134040911,
+      -0.16595727088403012,
+      0.36812389768475284,
+      0.22791780750918264,
+      0.054087410659810764
+    ],
+    "baseline_parameters": [
+      0.4427324356706421,
+      0.6610799376173018,
+      -0.40698538745497315,
+      0.6147339561655845,
+      0.00639947222776574,
+      0.3065856770499891
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_1bbb0d9d81c95e0c45f4a8d2",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.6424058178200927,
+      0.42462352029837663,
+      -0.21375553389693988,
+      0.3864888732536984,
+      0.22363647350459828,
+      0.055218662024823256
+    ],
+    "support_rows": 24,
+    "task_id": "task_006_flag_meta_train"
+  },
+  {
+    "adaptation_hash": "1c59a61e0cc9a281758636c09626aad09b2596e3b07b44f682e2bd3c1814d717",
+    "adaptation_id": "adaptation_d353c6584ce5bf1cfb1d110e",
+    "adapted_parameters": [
+      -0.1707665457012375,
+      0.6625608216583314,
+      0.3692115731373336,
+      -0.05976299419783923,
+      0.43935366415458643,
+      0.2008803693615579
+    ],
+    "baseline_parameters": [
+      0.012732435670642028,
+      0.5010799376173019,
+      0.6130146125450269,
+      -0.27526604383441544,
+      0.6863994722277658,
+      -0.0034143229500109007
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_22f99044c78bb3a221cde2e4",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      -0.2362334525133941,
+      0.7011510166470634,
+      0.38260101439879113,
+      -0.07964331321988372,
+      0.44774971828636806,
+      0.21739091719076908
+    ],
+    "support_rows": 24,
+    "task_id": "task_007_divergence_meta_train"
+  },
+  {
+    "adaptation_hash": "81f15ca86fc56b368571086ca8b102f5e4088daa30d42144e37c282f94ca7dbc",
+    "adaptation_id": "adaptation_e4e7f9d27cdc24ae0b2af7d0",
+    "adapted_parameters": [
+      0.39470549747906547,
+      0.10911562493428217,
+      0.7547333918574132,
+      0.31670048620013264,
+      -0.16674993738986513,
+      0.37249853115666753
+    ],
+    "baseline_parameters": [
+      0.16273243567064205,
+      0.34107993761730176,
+      0.6030146125450269,
+      0.5547339561655845,
+      -0.39360052777223425,
+      0.6265856770499891
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_500761825241caf63c1bf0cf",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.3921121403561678,
+      0.08781718804899258,
+      0.8002540563583475,
+      0.3205314238756146,
+      -0.19517593639640585,
+      0.3885306920449295
+    ],
+    "support_rows": 24,
+    "task_id": "task_008_timing_meta_train"
+  },
+  {
+    "adaptation_hash": "9153c6956d001df7996d219e1a0c7c55ce4f288938b459103cde7ea51187529d",
+    "adaptation_id": "adaptation_ce4afc78621f8fa12706e0ce",
+    "adapted_parameters": [
+      0.8339436344642212,
+      -0.2577740094733331,
+      0.4001044873029782,
+      0.15219424154253164,
+      0.33286423752390637,
+      -0.11632667587043344
+    ],
+    "baseline_parameters": [
+      1.0935280002014967,
+      -0.5069853874549731,
+      0.6703029621310439,
+      -0.0334143229500109,
+      0.566257196003928,
+      -0.3387746811692919
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_88f5fc08daf3bd5c3a64b170",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.849707568840186,
+      -0.29185905187802413,
+      0.4139837124730564,
+      0.15035959071547064,
+      0.3312968609307912,
+      -0.12451318655596393
+    ],
+    "support_rows": 24,
+    "task_id": "task_009_hook_meta_train"
+  },
+  {
+    "adaptation_hash": "43f0e01c97d6c5b83387f313dcc6fc8feb43a7ede10803b9de4557d7b944db6b",
+    "adaptation_id": "adaptation_7f5d99b9c6ab2129bcd2d662",
+    "adapted_parameters": [
+      0.6224865044279629,
+      0.40838334928881886,
+      -0.15666323567480944,
+      0.3138532928262595,
+      0.24254679133148144,
+      0.05399509587102003
+    ],
+    "baseline_parameters": [
+      0.42352800020149667,
+      0.6730146125450269,
+      -0.3896970378689561,
+      0.5765856770499891,
+      0.036257196003927905,
+      0.3012253188307081
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_7226a8877eef3d03e0df0805",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.6221791805630688,
+      0.42727554763634684,
+      -0.18707369497614085,
+      0.32461657161273266,
+      0.2341663284241949,
+      0.05874342373172271
+    ],
+    "support_rows": 24,
+    "task_id": "task_010_flag_meta_train"
+  },
+  {
+    "adaptation_hash": "01ddc6b7b282da973c276360e0230d377d15579e21308deb5d70ba076135f685",
+    "adaptation_id": "adaptation_147b5627c6b914a3fe403302",
+    "adapted_parameters": [
+      -0.19011255974913988,
+      0.6645564822695129,
+      0.3787694040294847,
+      -0.11333459234856114,
+      0.4814831296906681,
+      0.16731445777543832
+    ],
+    "baseline_parameters": [
+      -0.006471999798503325,
+      0.5130146125450268,
+      0.6303029621310439,
+      -0.3134143229500109,
+      0.7162571960039279,
+      -0.00877468116929192
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_2f0b46ca5042f596f8976210",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      -0.2501655929221924,
+      0.7076465051334836,
+      0.37434512263794123,
+      -0.12190798546528253,
+      0.480565795678481,
+      0.1871424828008333
+    ],
+    "support_rows": 24,
+    "task_id": "task_011_divergence_meta_train"
+  },
+  {
+    "adaptation_hash": "f8eb7e5ec697660341438ebd92b3935d0baaa4451a4c4fc431003e06a24b2810",
+    "adaptation_id": "adaptation_33d0ae77434aab0b593cc7b2",
+    "adapted_parameters": [
+      0.3435447112509913,
+      0.10856544335414209,
+      0.7855931423432921,
+      0.26333887198408396,
+      -0.1372644002085379,
+      0.34865554190835535
+    ],
+    "baseline_parameters": [
+      0.1435280002014967,
+      0.35301461254502686,
+      0.6203029621310439,
+      0.516585677049989,
+      -0.36374280399607206,
+      0.6212253188307081
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_a21a7368620185d8fcc964ea",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.3271838489263644,
+      0.10743323460044693,
+      0.8146342181405507,
+      0.27342965526948565,
+      -0.17349569626459888,
+      0.37343784872933405
+    ],
+    "support_rows": 24,
+    "task_id": "task_012_timing_meta_train"
+  },
+  {
+    "adaptation_hash": "28f6e01b0e27ee0bb3753917722d82e3bd4c40b5b1cae1a0fbaac5fe610dc002",
+    "adaptation_id": "adaptation_5fa0cfe08a1d7c0bd8c38a19",
+    "adapted_parameters": [
+      0.8043149599215863,
+      -0.25688926992009004,
+      0.3831270593916516,
+      0.16270835576944234,
+      0.34715219145735876,
+      -0.1594141487407269
+    ],
+    "baseline_parameters": [
+      1.0710799376173017,
+      -0.47526604383441545,
+      0.6465856770499891,
+      -0.02719758291662666,
+      0.5728236312681907,
+      -0.3426394590501656
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_a79487e26756dabc1e516f16",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.807909938409341,
+      -0.271972302684675,
+      0.37799242977213643,
+      0.17234543934480576,
+      0.336930276673768,
+      -0.16068407367726711
+    ],
+    "support_rows": 24,
+    "task_id": "task_013_hook_meta_validation"
+  },
+  {
+    "adaptation_hash": "d190378cecdf91e7de93ded1f0ec29efc732c8ec61ef39df93c66be0d996d612",
+    "adaptation_id": "adaptation_9d130bafc5c29638ff20a41d",
+    "adapted_parameters": [
+      0.5753639693930848,
+      0.4448046257593853,
+      -0.1752689262487768,
+      0.3245838400625084,
+      0.2157664619913615,
+      0.07266035720489983
+    ],
+    "baseline_parameters": [
+      0.4010799376173018,
+      0.7047339561655845,
+      -0.4134143229500109,
+      0.5828024170833733,
+      0.04282363126819069,
+      0.2973605409498344
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_5f6ac65cb870ffa5905682d3",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.5831567071910388,
+      0.4468192621206176,
+      -0.19066951771402801,
+      0.3274485834896293,
+      0.2129444034014084,
+      0.06857261957069134
+    ],
+    "support_rows": 24,
+    "task_id": "task_014_flag_meta_validation"
+  },
+  {
+    "adaptation_hash": "e528dcd861baa44a718ebc34a1139d9bd9b089d3b928072bce1d60bfdd190d68",
+    "adaptation_id": "adaptation_c72e7c5bb616cfda43714262",
+    "adapted_parameters": [
+      -0.20769981378352773,
+      0.7003398971642196,
+      0.35071986183687753,
+      -0.07986215958711412,
+      0.45896893828644075,
+      0.15415669544463492
+    ],
+    "baseline_parameters": [
+      -0.02892006238269823,
+      0.5447339561655846,
+      0.6065856770499891,
+      -0.30719758291662663,
+      0.7228236312681907,
+      -0.012639459050165613
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_f71f3b58caae4fe96da55d91",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      -0.25034396111071683,
+      0.7291926484803182,
+      0.34414994626684564,
+      -0.08045993794907652,
+      0.45327640032528016,
+      0.1674446478223535
+    ],
+    "support_rows": 24,
+    "task_id": "task_015_divergence_meta_validation"
+  },
+  {
+    "adaptation_hash": "c4ce6b2b7372385f5d5688ec897c703f80f3f79e689c8ca224391dade53e094a",
+    "adaptation_id": "adaptation_c0e1849c3126fb120fa4bf83",
+    "adapted_parameters": [
+      0.3041660611846948,
+      0.16400293009641181,
+      0.7441440340147506,
+      0.25928196086221844,
+      -0.10682650410360589,
+      0.363359069138145
+    ],
+    "baseline_parameters": [
+      0.12107993761730179,
+      0.38473395616558453,
+      0.5965856770499891,
+      0.5228024170833734,
+      -0.3571763687318093,
+      0.6173605409498344
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_0add1641e3899f70c9729836",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.2992369167483715,
+      0.15406326454872601,
+      0.7708081418505378,
+      0.2585056711159552,
+      -0.12352413850522684,
+      0.372840429507611
+    ],
+    "support_rows": 24,
+    "task_id": "task_016_timing_meta_validation"
+  },
+  {
+    "adaptation_hash": "b63856fb1b6d74de9ccce8fa529147cae06e5ecfc86024b0c2fd32b7058a395b",
+    "adaptation_id": "adaptation_f82a6ae3f6ec904cc2b63fae",
+    "adapted_parameters": [
+      0.8061880461959043,
+      -0.27310890300926455,
+      0.4430651498883774,
+      0.19698186208648327,
+      0.28374773537368836,
+      -0.13210499913377036
+    ],
+    "baseline_parameters": [
+      1.0660268931334214,
+      -0.5136005277722342,
+      0.6762571960039279,
+      0.002823631268190685,
+      0.5466912062475557,
+      -0.34470079060232156
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_c37ca45ef23e0269cb686fa5",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.8199624764484663,
+      -0.3092417845944777,
+      0.4597531169274403,
+      0.20048950541254162,
+      0.2776368265006188,
+      -0.14150898982762927
+    ],
+    "support_rows": 24,
+    "task_id": "task_017_hook_meta_validation"
+  },
+  {
+    "adaptation_hash": "fae970c54c4da44661ab4f913832d3e49baa90f2f9374442f95cba3257aefe49",
+    "adaptation_id": "adaptation_fb91b8a1938299c9cb7f593b",
+    "adapted_parameters": [
+      0.5805350474807189,
+      0.4268799454913606,
+      -0.16251558380613765,
+      0.3590279568669586,
+      0.25034909329477906,
+      0.04152016840272693
+    ],
+    "baseline_parameters": [
+      0.3960268931334215,
+      0.6663994722277657,
+      -0.3837428039960721,
+      0.6128236312681907,
+      0.016691206247555657,
+      0.29529920939767845
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_741f8c566b94b964480b8a67",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.5936874103392645,
+      0.43053780220854687,
+      -0.19242960749151358,
+      0.37821106530372733,
+      0.24088839075556837,
+      0.03978124397688847
+    ],
+    "support_rows": 24,
+    "task_id": "task_018_flag_meta_validation"
+  },
+  {
+    "adaptation_hash": "f2ac6ee94886df6ebef338c93e31e490e182be174cccfa7a2e3fc51174db0f28",
+    "adaptation_id": "adaptation_59f1f65da0f3ee53f01977c4",
+    "adapted_parameters": [
+      -0.2313108802120537,
+      0.6797861699709833,
+      0.41485547360154523,
+      -0.08225136115229442,
+      0.47062118453999613,
+      0.19353454057166844
+    ],
+    "baseline_parameters": [
+      -0.03397310686657845,
+      0.5063994722277658,
+      0.6362571960039279,
+      -0.27717636873180934,
+      0.6966912062475556,
+      -0.014700790602321573
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_3d602c99ed21ea83b4f49b0d",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      -0.2773429255987357,
+      0.7072343931629056,
+      0.41381087708558534,
+      -0.08293823475434804,
+      0.4665954862072787,
+      0.21022213662496445
+    ],
+    "support_rows": 24,
+    "task_id": "task_019_divergence_meta_validation"
+  },
+  {
+    "adaptation_hash": "725c2ec09aae1ceb0d8c1c2e688ec296a99cad3bbebdcb81f27b8c1d43022d96",
+    "adaptation_id": "adaptation_5cedd5244351a87ca18cf115",
+    "adapted_parameters": [
+      0.3509047466039291,
+      0.10843267593289777,
+      0.7963009579313636,
+      0.31184454700230396,
+      -0.17154014668629666,
+      0.36864507632400273
+    ],
+    "baseline_parameters": [
+      0.11602689313342157,
+      0.34639947222776574,
+      0.626257196003928,
+      0.5528236312681907,
+      -0.3833087937524443,
+      0.6152992093976785
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_ad04ae89d9db324472a3e440",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.3482169983352491,
+      0.0929948669500768,
+      0.8273992860973705,
+      0.31719021605203523,
+      -0.1932447170848202,
+      0.3791051637950262
+    ],
+    "support_rows": 24,
+    "task_id": "task_020_timing_meta_validation"
+  },
+  {
+    "adaptation_hash": "8a79a07f5d11924fdf2216a8cfd81438304623b04e6fe54d572db110df5fd060",
+    "adaptation_id": "adaptation_bd6df6f21c63dcf7f665f428",
+    "adapted_parameters": [
+      0.8283011634853967,
+      -0.2801821400965502,
+      0.38515953165084876,
+      0.14189878120820548,
+      0.30920232317702084,
+      -0.13558798552452042
+    ],
+    "baseline_parameters": [
+      1.0830146125450268,
+      -0.5134143229500109,
+      0.6412253188307081,
+      -0.04263945905016561,
+      0.5252992093976785,
+      -0.3447944713360779
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_2c3a0b763cd697e3af4dc363",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.8348941562562855,
+      -0.29899213696980464,
+      0.3820235014445344,
+      0.14832357651369885,
+      0.2970353694266991,
+      -0.13598535811168713
+    ],
+    "support_rows": 24,
+    "task_id": "task_021_hook_meta_validation"
+  },
+  {
+    "adaptation_hash": "61407754b52e521776e5e56518b1b6409b1279f1048493f4f2a10f931315387f",
+    "adaptation_id": "adaptation_4662f13b851e2f8c16ee0ffe",
+    "adapted_parameters": [
+      0.5925138414149415,
+      0.4184671668999677,
+      -0.20840608286843906,
+      0.31440096046449634,
+      0.18022716977464937,
+      0.07279215187447485
+    ],
+    "baseline_parameters": [
+      0.41301461254502686,
+      0.6665856770499892,
+      -0.41877468116929195,
+      0.5673605409498343,
+      -0.004700790602321564,
+      0.2952055286639221
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_c318c34812e23d204ebed4e0",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.6061223303066057,
+      0.42262420401013395,
+      -0.2408112901088122,
+      0.31587657659414775,
+      0.18163007622023455,
+      0.06327173341320336
+    ],
+    "support_rows": 24,
+    "task_id": "task_022_flag_meta_validation"
+  },
+  {
+    "adaptation_hash": "724b0a3301a1aeb12c536b8c8f33aa47ff5c86937a93962eb56f6b832d0862de",
+    "adaptation_id": "adaptation_0a0f7793d1a3ef74e5c802de",
+    "adapted_parameters": [
+      -0.2227274249935583,
+      0.6814958134602078,
+      0.3527760600320495,
+      -0.12987580248198552,
+      0.434780856004359,
+      0.18219252096060737
+    ],
+    "baseline_parameters": [
+      -0.016985387454973133,
+      0.506585677049989,
+      0.6012253188307081,
+      -0.3226394590501656,
+      0.6752992093976784,
+      -0.014794471336077919
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_dc29b9cc84b48321734b2759",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      -0.25185331090301444,
+      0.6953986887270142,
+      0.34860547286786747,
+      -0.14495247228885755,
+      0.442206369850144,
+      0.18240422188851418
+    ],
+    "support_rows": 24,
+    "task_id": "task_023_divergence_meta_validation"
+  },
+  {
+    "adaptation_hash": "dd3920875eefbe9d009239e01b436ee6c2af1d517a9714ea3e24221278c695ae",
+    "adaptation_id": "adaptation_068cd3b36270ffd73ff08e22",
+    "adapted_parameters": [
+      0.3070093993405495,
+      0.1357973023047287,
+      0.7587555837781355,
+      0.27175453954311685,
+      -0.192764519534641,
+      0.3629503859690495
+    ],
+    "baseline_parameters": [
+      0.1330146125450269,
+      0.3465856770499891,
+      0.5912253188307082,
+      0.5073605409498343,
+      -0.40470079060232156,
+      0.6152055286639222
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_de2a00b857c049f792a613d8",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.3195329671243318,
+      0.10759956095501585,
+      0.7885448044243971,
+      0.2748722095051986,
+      -0.2185159515160485,
+      0.36690512856402646
+    ],
+    "support_rows": 24,
+    "task_id": "task_024_timing_meta_validation"
+  },
+  {
+    "adaptation_hash": "1015c982df6717b608da224301c40d5c2cde457ec4f2801b67247a6d27425cf1",
+    "adaptation_id": "adaptation_4ed81ca5cd994dbcf12ebfc9",
+    "adapted_parameters": [
+      0.8196347397249455,
+      -0.2469210529534022,
+      0.42333546791123766,
+      0.18060607389377947,
+      0.3107345916902377,
+      -0.14604845611230674
+    ],
+    "baseline_parameters": [
+      1.1064246649679697,
+      -0.47523481610762824,
+      0.6809163909634014,
+      -0.013227355292303289,
+      0.5392954332625962,
+      -0.34291303869789086
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_55b80824a8c254ce7a720df5",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.8400338067682027,
+      -0.2744651892889176,
+      0.42087572940086426,
+      0.1848259299525319,
+      0.31060383491294147,
+      -0.16063764984600123
+    ],
+    "support_rows": 24,
+    "task_id": "task_025_hook_transfer_test"
+  },
+  {
+    "adaptation_hash": "156f0df15e0bd59626ec4584df0d47aa90ee2a4932181f9a635276e5d8eba6a0",
+    "adaptation_id": "adaptation_ec2fcf6d601ec41ac6d14aea",
+    "adapted_parameters": [
+      0.5942969945059372,
+      0.45728709622063535,
+      -0.13915632923865354,
+      0.3396547182698483,
+      0.17405339431070266,
+      0.08540193952096803
+    ],
+    "baseline_parameters": [
+      0.43642466496796967,
+      0.7047651838923717,
+      -0.37908360903659866,
+      0.5967726447076966,
+      0.009295433262596214,
+      0.29708696130210915
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_62efdedd1234615dfa8798d8",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.6200140864463005,
+      0.44699521529757635,
+      -0.15211054515172132,
+      0.3360627292114821,
+      0.18106534933902976,
+      0.06749763510396403
+    ],
+    "support_rows": 24,
+    "task_id": "task_026_flag_transfer_test"
+  },
+  {
+    "adaptation_hash": "b23a70c6be2424d89b187e8e8ed49cca86d9790157b000d936aa533cfad1b05f",
+    "adaptation_id": "adaptation_cfc7032b5596e42a06ba856b",
+    "adapted_parameters": [
+      -0.17654814002521,
+      0.6927524451688986,
+      0.3838564759378471,
+      -0.05564527603781627,
+      0.413708280686314,
+      0.15039398609806706
+    ],
+    "baseline_parameters": [
+      0.006424664967969729,
+      0.5447651838923717,
+      0.6409163909634015,
+      -0.29322735529230326,
+      0.6892954332625962,
+      -0.012913038697890872
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_2d2d4b5b719b1226667356ed",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      -0.2173853516696149,
+      0.7240434312693242,
+      0.37906619116702267,
+      -0.06712090225836949,
+      0.420111218032433,
+      0.15336744321238963
+    ],
+    "support_rows": 24,
+    "task_id": "task_027_divergence_transfer_test"
+  },
+  {
+    "adaptation_hash": "f7e63889d52a8bea3dd95d517249351d61c47132a5eaa53c3f29939b831cf31d",
+    "adaptation_id": "adaptation_b745caddb7f9607dbcea8085",
+    "adapted_parameters": [
+      0.32646775117053584,
+      0.16002527907414404,
+      0.7716665881575141,
+      0.2792015942338608,
+      -0.1355491584557102,
+      0.3556798585211425
+    ],
+    "baseline_parameters": [
+      0.15642466496796975,
+      0.38476518389237174,
+      0.6309163909634015,
+      0.5367726447076967,
+      -0.3907045667374038,
+      0.6170869613021092
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_08702d81889cb4db2caa603e",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.32481594259852353,
+      0.1498130981557545,
+      0.7994038605526547,
+      0.2806739544622512,
+      -0.15546937393939866,
+      0.36442195496416685
+    ],
+    "support_rows": 24,
+    "task_id": "task_028_timing_transfer_test"
+  },
+  {
+    "adaptation_hash": "697376b46b64d9d6e93ec3f49fedcc9227d71030131e1fb578e740e2519761d4",
+    "adaptation_id": "adaptation_028ee7404627f08ac1fa9bea",
+    "adapted_parameters": [
+      0.8543414673240702,
+      -0.287040673228099,
+      0.42494438815896995,
+      0.1805909346093648,
+      0.3076889046215642,
+      -0.12824261143315505
+    ],
+    "baseline_parameters": [
+      1.1147339561655845,
+      -0.5071975829166266,
+      0.6373605409498344,
+      -0.006214332968957764,
+      0.5686278290119837,
+      -0.33920636653309166
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_366fbc9527065edefad4b00f",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.8622654472623267,
+      -0.3047741349495711,
+      0.42329206315023127,
+      0.19176298237596906,
+      0.2941466055579786,
+      -0.12695736923998996
+    ],
+    "support_rows": 24,
+    "task_id": "task_029_hook_transfer_test"
+  },
+  {
+    "adaptation_hash": "846d1a6737a10241008d6c256fa30ca970c64a54a1c12ed221a75e084f4c3c71",
+    "adaptation_id": "adaptation_17cc0b6e2dc8b465df173d12",
+    "adapted_parameters": [
+      0.6301313186873156,
+      0.4329767604062821,
+      -0.20639435097674405,
+      0.36580302952967486,
+      0.25768967926715525,
+      0.04755153064936718
+    ],
+    "baseline_parameters": [
+      0.4447339561655845,
+      0.6728024170833733,
+      -0.42263945905016564,
+      0.6037856670310422,
+      0.03862782901198372,
+      0.30079363346690835
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_92c2b7d29f5d38dc10020ebe",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.6426031018018896,
+      0.43391637046253984,
+      -0.224406829435283,
+      0.3721477682009657,
+      0.25832690242769,
+      0.04134832158980103
+    ],
+    "support_rows": 24,
+    "task_id": "task_030_flag_transfer_test"
+  },
+  {
+    "adaptation_hash": "193073f2a2a8409cb9fad054f2bd820a6e2a05ebea6963c655ab514c58bb8406",
+    "adaptation_id": "adaptation_65a1db5c7701be3a79740935",
+    "adapted_parameters": [
+      -0.18903347497230022,
+      0.6833897554931208,
+      0.3809291282393292,
+      -0.08621796052396602,
+      0.48596292394042384,
+      0.20036817267421536
+    ],
+    "baseline_parameters": [
+      0.014733956165584539,
+      0.5128024170833734,
+      0.5973605409498344,
+      -0.28621433296895776,
+      0.7186278290119837,
+      -0.009206366533091703
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_2083611c67734d5c0c365d8a",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      -0.229986571663264,
+      0.7107308670388574,
+      0.37685193866066286,
+      -0.08729299761728515,
+      0.48247579716734434,
+      0.21748234387038118
+    ],
+    "support_rows": 24,
+    "task_id": "task_031_divergence_transfer_test"
+  },
+  {
+    "adaptation_hash": "d0d06601296fa7455a6369ec52a8a632e609b89364a0b7ad2d3f354c07ee5e33",
+    "adaptation_id": "adaptation_e3c6d1d1c33cbd675e59910b",
+    "adapted_parameters": [
+      0.3821752674796542,
+      0.11120798791068665,
+      0.7649630968741005,
+      0.3037991903534242,
+      -0.1452475145857936,
+      0.37567347308724136
+    ],
+    "baseline_parameters": [
+      0.16473395616558456,
+      0.35280241708337334,
+      0.5873605409498344,
+      0.5437856670310423,
+      -0.3613721709880163,
+      0.6207936334669084
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_c484fba8366cafce5f3f71a0",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.38377964001196424,
+      0.0968804514367789,
+      0.7932986331712238,
+      0.3066383037722303,
+      -0.1649887007862207,
+      0.3860706873026535
+    ],
+    "support_rows": 24,
+    "task_id": "task_032_timing_transfer_test"
+  },
+  {
+    "adaptation_hash": "c1609c7adb24c1d4cb3228ef6f97bc811bac92695e1aeaaef9961fffa962263b",
+    "adaptation_id": "adaptation_0aab53b4b9a522fbce773ce5",
+    "adapted_parameters": [
+      0.8397103564050513,
+      -0.26483764204642457,
+      0.4138764629262787,
+      0.1411773278444438,
+      0.33448701607173853,
+      -0.11726448782669258
+    ],
+    "baseline_parameters": [
+      1.1003029621310438,
+      -0.5187746811692919,
+      0.6839093982101125,
+      -0.04479447133607792,
+      0.5712725881133529,
+      -0.3339697262212904
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_4f157411d0555c1460241951",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.8565540659714808,
+      -0.3005653886586549,
+      0.4281989858444639,
+      0.1400607105021373,
+      0.3325994779489836,
+      -0.12553795804968407
+    ],
+    "support_rows": 24,
+    "task_id": "task_033_hook_transfer_test"
+  },
+  {
+    "adaptation_hash": "e03e9ebbdb1a6b17ce16a7520ec9d4bbf76a0c1b7dd2d2195d871f843800d357",
+    "adaptation_id": "adaptation_f97100a75414e57d9b758ea9",
+    "adapted_parameters": [
+      0.6145522250560861,
+      0.4161589540436551,
+      -0.15866960484805975,
+      0.31746639773535273,
+      0.22322302641926714,
+      0.0784989090259487
+    ],
+    "baseline_parameters": [
+      0.43030296213104385,
+      0.6612253188307081,
+      -0.37609060178988746,
+      0.5652055286639222,
+      0.04127258811335294,
+      0.3060302737787096
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_ff02cd93168730ec061ed790",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.6283426756958762,
+      0.42072890091871695,
+      -0.18824978772782452,
+      0.3213345125822781,
+      0.22775541047368092,
+      0.07044897601890614
+    ],
+    "support_rows": 24,
+    "task_id": "task_034_flag_transfer_test"
+  },
+  {
+    "adaptation_hash": "ff60a9732c8596ad46a10cd754a1c5ae851e5c94c955e30565688cec20f27bb7",
+    "adaptation_id": "adaptation_46fb5bb14fd31beaf4e7d22f",
+    "adapted_parameters": [
+      -0.19693108574068674,
+      0.6640016972074125,
+      0.3899615837226358,
+      -0.13423974087942356,
+      0.4864764403994124,
+      0.18049767626726984
+    ],
+    "baseline_parameters": [
+      0.00030296213104391567,
+      0.5012253188307081,
+      0.6439093982101125,
+      -0.3247944713360779,
+      0.721272588113353,
+      -0.003969726221290437
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_a56c8154331512174631c910",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      -0.23997126326857016,
+      0.6900723531001751,
+      0.386762368507553,
+      -0.1391668628342554,
+      0.483696579115729,
+      0.19609983693470975
+    ],
+    "support_rows": 24,
+    "task_id": "task_035_divergence_transfer_test"
+  },
+  {
+    "adaptation_hash": "5954b1b229d2d5bb0c88e29b451842081bfa8c6977f16253282f3e31a63c62d5",
+    "adaptation_id": "adaptation_4d2c494b7928ef750b871045",
+    "adapted_parameters": [
+      0.34138499663056837,
+      0.10296442905815151,
+      0.7918301073385189,
+      0.26174552295727677,
+      -0.15106695063478798,
+      0.364403846151933
+    ],
+    "baseline_parameters": [
+      0.15030296213104394,
+      0.34122531883070806,
+      0.6339093982101127,
+      0.5052055286639221,
+      -0.35872741188664703,
+      0.6260302737787096
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_b75c8928004b7cd69affc16c",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.3378502038575391,
+      0.08713714018912408,
+      0.822549709356011,
+      0.2628758530890991,
+      -0.17103741528105443,
+      0.3745113225969226
+    ],
+    "support_rows": 24,
+    "task_id": "task_036_timing_transfer_test"
+  },
+  {
+    "adaptation_hash": "499114baca66655c6d3decd7186f14b022be341497d09c490ff06d36b5362978",
+    "adaptation_id": "adaptation_7910283949f409d14bbba6cc",
+    "adapted_parameters": [
+      0.8016527330174211,
+      -0.2671458000621341,
+      0.3803252847480491,
+      0.19035913517039452,
+      0.3272772579962218,
+      -0.13913800507640897
+    ],
+    "baseline_parameters": [
+      1.0763994722277657,
+      -0.4771763687318093,
+      0.6352992093976784,
+      -0.0013721709880162858,
+      0.5434406286574018,
+      -0.3276202655275554
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_f9d0007130c8cbbbe4421edd",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.806173548043683,
+      -0.28494203708785254,
+      0.37667995784774655,
+      0.20094188803467455,
+      0.31652616867206257,
+      -0.13982696760450644
+    ],
+    "support_rows": 24,
+    "task_id": "task_037_hook_drift_reference"
+  },
+  {
+    "adaptation_hash": "03b02d0a4b69bf2c9113f5a5512dd64afad845247242d23d69205d74b79802f7",
+    "adaptation_id": "adaptation_2fb4404082df90a7adafad9c",
+    "adapted_parameters": [
+      0.5715527185910564,
+      0.43678360563563995,
+      -0.1691277593492196,
+      0.34845670317014305,
+      0.186176230688836,
+      0.09052545473980098
+    ],
+    "baseline_parameters": [
+      0.4063994722277658,
+      0.7028236312681907,
+      -0.4247007906023216,
+      0.6086278290119838,
+      0.013440628657401782,
+      0.3123797344724446
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_33fb826144f274b5f254eed9",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.5837274719391693,
+      0.4424112038283174,
+      -0.19863786682776424,
+      0.35289537062465437,
+      0.18811082626185482,
+      0.08235510802383818
+    ],
+    "support_rows": 24,
+    "task_id": "task_038_flag_drift_reference"
+  },
+  {
+    "adaptation_hash": "215204dcf19720d4cbdd3b37c3e7953fdd65084acb5578e9a0afb50876327403",
+    "adaptation_id": "adaptation_6370ddae799c529757aafda0",
+    "adapted_parameters": [
+      -0.21837407607857667,
+      0.7096759973370369,
+      0.3407091041835416,
+      -0.05032845484644341,
+      0.4202120075840164,
+      0.1751014958147456
+    ],
+    "baseline_parameters": [
+      -0.02360052777223426,
+      0.5428236312681907,
+      0.5952992093976784,
+      -0.2813721709880163,
+      0.6934406286574017,
+      0.00237973447244455
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_d9dbe5d04ff0ecfafc6a64b8",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      -0.24710612640609123,
+      0.7259906156950895,
+      0.33538158130008894,
+      -0.05883035333746859,
+      0.4265610178113708,
+      0.17462937919870192
+    ],
+    "support_rows": 24,
+    "task_id": "task_039_divergence_drift_reference"
+  },
+  {
+    "adaptation_hash": "5392a55233a50e94a7552117b4707b2c446211842995748afb013093ce78b8c1",
+    "adaptation_id": "adaptation_10868d7b4575783c53b6e673",
+    "adapted_parameters": [
+      0.283217139355111,
+      0.18142363018244695,
+      0.7350557320890616,
+      0.286388031874356,
+      -0.13456429661081099,
+      0.38118290510169256
+    ],
+    "baseline_parameters": [
+      0.12639947222776576,
+      0.3828236312681907,
+      0.5852992093976785,
+      0.5486278290119837,
+      -0.3865593713425982,
+      0.6323797344724447
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_f90e6e7161b20086ee46f2ad",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.2937757358854532,
+      0.15704614079396031,
+      0.7628095339262947,
+      0.29073355861819505,
+      -0.1554478955699666,
+      0.3866413024735808
+    ],
+    "support_rows": 24,
+    "task_id": "task_040_timing_drift_reference"
+  },
+  {
+    "adaptation_hash": "15da81871cd441e4928b08eb30308c6ca3be32a1f765753e4f191ef7d67c9163",
+    "adaptation_id": "adaptation_8b58fd612d77371bcaff21f8",
+    "adapted_parameters": [
+      0.798836452490359,
+      -0.27590959529774295,
+      0.4665331227431391,
+      0.17816775411941693,
+      0.25475520942348595,
+      -0.09854662673574083
+    ],
+    "baseline_parameters": [
+      1.0650002448362323,
+      -0.5002212827322601,
+      0.6849977965026817,
+      -0.019557451872364684,
+      0.5250061206660345,
+      -0.32066377885059916
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_ebd909b70b4b7f366b915f43",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.8182560046467292,
+      -0.3067236530612541,
+      0.4680103512590863,
+      0.18200587054125544,
+      0.2502164458564125,
+      -0.10964437885904517
+    ],
+    "support_rows": 24,
+    "task_id": "task_041_hook_drift_reference"
+  },
+  {
+    "adaptation_hash": "a3cd8a9e260767f0298f7add26a87373560d67e0d28d558b0da1cb3c2e85ff63",
+    "adaptation_id": "adaptation_75876197d1ff71d3aa8d55ec",
+    "adapted_parameters": [
+      0.5691237805266807,
+      0.4496206671075258,
+      -0.16628487628795285,
+      0.3662740595911798,
+      0.20811039571079432,
+      0.07781414521249222
+    ],
+    "baseline_parameters": [
+      0.39500024483623236,
+      0.6797787172677399,
+      -0.37500220349731833,
+      0.5904425481276353,
+      -0.004993879333965501,
+      0.31933622114940086
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_4659e7e36d30cd1ffbf3b01d",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.5928459976531522,
+      0.4387906396180426,
+      -0.18183064118071587,
+      0.3649599300793299,
+      0.2180311576789745,
+      0.059204550246366755
+    ],
+    "support_rows": 24,
+    "task_id": "task_042_flag_drift_reference"
+  },
+  {
+    "adaptation_hash": "c1347208b8a53897e66461441d7c5a0a187ac8daf83da75c7c5b1f1d22197a5c",
+    "adaptation_id": "adaptation_a639b3d64fb495f2accf002b",
+    "adapted_parameters": [
+      -0.24158937556881618,
+      0.6840288164157668,
+      0.43732767960636537,
+      -0.10695283489968066,
+      0.4484422588475155,
+      0.2266561388748256
+    ],
+    "baseline_parameters": [
+      -0.034999755163767576,
+      0.5197787172677399,
+      0.6449977965026816,
+      -0.2995574518723647,
+      0.6750061206660345,
+      0.009336221149400803
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_12d871d5197476803e05fbea",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      -0.28132613996775013,
+      0.7165108574343928,
+      0.4211778709872203,
+      -0.10850540815337306,
+      0.44761125683608005,
+      0.24058903947092397
+    ],
+    "support_rows": 24,
+    "task_id": "task_043_divergence_drift_reference"
+  },
+  {
+    "adaptation_hash": "8a73e4040c78b2dcaf25af4485bedaebfb96cfe041bac6f17ebb536db5cf5b4d",
+    "adaptation_id": "adaptation_c1311d602c725e52032d4077",
+    "adapted_parameters": [
+      0.33969155540782153,
+      0.11867660394653723,
+      0.8000522617715256,
+      0.28869249241303674,
+      -0.18594913448782452,
+      0.3896056307196075
+    ],
+    "baseline_parameters": [
+      0.11500024483623245,
+      0.3597787172677399,
+      0.6349977965026816,
+      0.5304425481276354,
+      -0.40499387933396547,
+      0.6393362211494009
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_63d2718df34ea5e010eda9fc",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.3390850899166734,
+      0.10510121921441196,
+      0.8301008630403878,
+      0.29094080812250106,
+      -0.2100406330972875,
+      0.4011816131346188
+    ],
+    "support_rows": 24,
+    "task_id": "task_044_timing_drift_reference"
+  },
+  {
+    "adaptation_hash": "5e36da12589acdd0bb05004c7c03868cf9b3387a2f8a79e9be943e5905fdaad9",
+    "adaptation_id": "adaptation_5134aeaf36d2b629616b2726",
+    "adapted_parameters": [
+      0.8295476275904705,
+      -0.2964619632328491,
+      0.3849027233050878,
+      0.1351974782583985,
+      0.32300433950036767,
+      -0.10926400218411825
+    ],
+    "baseline_parameters": [
+      1.076585677049989,
+      -0.5226394590501656,
+      0.6352055286639221,
+      -0.039206366533091674,
+      0.5423797344724446,
+      -0.3136544159309491
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_9b1e0dca4657fea989026c64",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.8352805887587555,
+      -0.3148409428329695,
+      0.37985256625531233,
+      0.14259727532274385,
+      0.3107296754091802,
+      -0.1063387249136732
+    ],
+    "support_rows": 24,
+    "task_id": "task_045_hook_drift_reference"
+  },
+  {
+    "adaptation_hash": "0a1c9f10a2e0b3c5895fcacec4547d283125d5d79ba417b5223c672c45a3f8ce",
+    "adaptation_id": "adaptation_d682248aa02381e32d7f969e",
+    "adapted_parameters": [
+      0.5948550610919174,
+      0.411797502225507,
+      -0.19637399590177781,
+      0.3051533777987011,
+      0.2081817789247077,
+      0.09008719790243258
+    ],
+    "baseline_parameters": [
+      0.4065856770499891,
+      0.6573605409498344,
+      -0.42479447133607795,
+      0.5707936334669084,
+      0.012379734472444559,
+      0.3263455840690509
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_510c1ca7a7b0c3ee6049cd61",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.610606657191687,
+      0.4138377001271683,
+      -0.22923764698069438,
+      0.3197194678811894,
+      0.19456149928952335,
+      0.09225009216973502
+    ],
+    "support_rows": 24,
+    "task_id": "task_046_flag_drift_reference"
+  },
+  {
+    "adaptation_hash": "4545909ce5996d446df386f5a6cd1781c105ba282e420d42ee891f0146c1da5a",
+    "adaptation_id": "adaptation_3bc6c32a14d7f87510ba8956",
+    "adapted_parameters": [
+      -0.22555049324374282,
+      0.667720026235675,
+      0.34860180023328213,
+      -0.12728265418700846,
+      0.4616148539584038,
+      0.1929328352740571
+    ],
+    "baseline_parameters": [
+      -0.02341432295001089,
+      0.49736054094983434,
+      0.5952055286639222,
+      -0.3192063665330917,
+      0.6923797344724446,
+      0.0163455840690509
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_614021c85cf1835eb327c852",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      -0.26944090651313096,
+      0.6936569612846801,
+      0.3418362532024366,
+      -0.1317543447846807,
+      0.456084789734236,
+      0.20939515071388837
+    ],
+    "support_rows": 24,
+    "task_id": "task_047_divergence_drift_reference"
+  },
+  {
+    "adaptation_hash": "c960f6fb293a09b56f90870b28bd14cb2b3f77a6dd6c390bd04f54ddb86a5bb7",
+    "adaptation_id": "adaptation_ac95e7a7349256f1316e4a15",
+    "adapted_parameters": [
+      0.31828445084694007,
+      0.09970915795801305,
+      0.7512672261488839,
+      0.2677237497650882,
+      -0.1689161061554168,
+      0.3872437960334836
+    ],
+    "baseline_parameters": [
+      0.12658567704998913,
+      0.33736054094983436,
+      0.5852055286639222,
+      0.5107936334669083,
+      -0.3876202655275554,
+      0.6463455840690508
+    ],
+    "fallback_to_baseline": false,
+    "prior_id": "transfer_prior_11ae9622382ce5eb9dfba239",
+    "promotion_eligible": false,
+    "query_outcomes_accessed": false,
+    "runtime_executable": false,
+    "support_fit_parameters": [
+      0.3146098482583257,
+      0.08438777893347996,
+      0.7784612532172973,
+      0.2674858598670447,
+      -0.1905273534077652,
+      0.3985222995278365
+    ],
+    "support_rows": 24,
+    "task_id": "task_048_timing_drift_reference"
+  }
+]

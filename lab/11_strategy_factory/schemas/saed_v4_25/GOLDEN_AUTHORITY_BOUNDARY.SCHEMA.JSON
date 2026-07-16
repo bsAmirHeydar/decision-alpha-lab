@@ -1,0 +1,95 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-25/golden_authority_boundary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract or evidence artifact. Unknown object fields are rejected.",
+  "properties": {
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "decision": {
+          "type": "boolean"
+        },
+        "execution": {
+          "type": "boolean"
+        },
+        "online_learning": {
+          "type": "boolean"
+        },
+        "order_submission": {
+          "type": "boolean"
+        },
+        "production": {
+          "type": "boolean"
+        },
+        "promotion": {
+          "type": "boolean"
+        },
+        "risk_allocation": {
+          "type": "boolean"
+        },
+        "runtime": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "decision",
+        "execution",
+        "online_learning",
+        "order_submission",
+        "production",
+        "promotion",
+        "risk_allocation",
+        "runtime"
+      ],
+      "type": "object"
+    },
+    "boundary_hash": {
+      "type": "string"
+    },
+    "boundary_id": {
+      "type": "string"
+    },
+    "broker_credentials_present": {
+      "type": "boolean"
+    },
+    "central_engine_mutation": {
+      "type": "boolean"
+    },
+    "network_access": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "safe_fallback": {
+      "type": "string"
+    },
+    "signing_material_present": {
+      "type": "boolean"
+    },
+    "ucee_authority_preserved": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "authority",
+    "boundary_hash",
+    "boundary_id",
+    "broker_credentials_present",
+    "central_engine_mutation",
+    "network_access",
+    "phase",
+    "research_only",
+    "safe_fallback",
+    "signing_material_present",
+    "ucee_authority_preserved"
+  ],
+  "title": "SAED V4-25 GOLDEN_AUTHORITY_BOUNDARY",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_25"
+}
