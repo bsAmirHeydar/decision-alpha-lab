@@ -1,0 +1,10 @@
+{
+  "contracts_hash": "49ec168dd09a8929cc21a9f0607e165c694a912022b9b5c09fa84db13d3beb82",
+  "events_hash": "be716aac5766a393afee2512103658d791beb405173bba31dbdf348f176b5ca1",
+  "facts_hash": "0381f5abe702a6c09b8e1c226fcfd9084a69f6031ea1c46fb8f0bbdba1b400f0",
+  "reference_projection_hash": "fa56b10d6fcea83de5a71df4ba3580673bd21a9971c090992c372559a321c04d",
+  "reference_proof_hash": "ff3d40400c1bb1160c610295e7709622d31940839f38a4b3bc7d4aed807b62fa",
+  "replay_hash": "163022391e9e3f74db0605ffa6bbc9ff755eebdb70f1e37443e6bba96e67d364",
+  "rules_hash": "334f4c33bd174164e50af08253bfdf5dfb9e84acbc7d61caaf86516b8e6f93ac",
+  "soft_inputs_hash": "2a70b7847d9182aec3726ee8dfaaf59b5fb0c1d58132eab2ca08a0126bbfab1c"
+}

@@ -1,0 +1,50 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/synthetic_events.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "decision_time": {
+      "type": "integer"
+    },
+    "events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "event_id": {
+            "type": "string"
+          },
+          "event_time": {
+            "type": "integer"
+          },
+          "known_time": {
+            "type": "integer"
+          },
+          "predicate_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "event_id",
+          "event_time",
+          "known_time",
+          "predicate_ids"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "synthetic_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "decision_time",
+    "events",
+    "synthetic_only"
+  ],
+  "title": "Synthetic Events",
+  "type": "object"
+}

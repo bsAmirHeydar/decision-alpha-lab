@@ -1,0 +1,47 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/golden_mdl_scorecard.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "complexity_cost": {
+      "type": "number"
+    },
+    "counterexample_count": {
+      "type": "integer"
+    },
+    "error_cost": {
+      "type": "number"
+    },
+    "fidelity": {
+      "type": "number"
+    },
+    "predicate_count": {
+      "type": "integer"
+    },
+    "rule_count": {
+      "type": "integer"
+    },
+    "score_hash": {
+      "type": "string"
+    },
+    "temporal_count": {
+      "type": "integer"
+    },
+    "total_mdl_cost": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "complexity_cost",
+    "counterexample_count",
+    "error_cost",
+    "fidelity",
+    "predicate_count",
+    "rule_count",
+    "score_hash",
+    "temporal_count",
+    "total_mdl_cost"
+  ],
+  "title": "Golden Mdl Scorecard",
+  "type": "object"
+}

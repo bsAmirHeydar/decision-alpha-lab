@@ -1,0 +1,41 @@
+{
+  "decision_time": 100,
+  "events": [
+    {
+      "event_id": "e001",
+      "event_time": 92,
+      "known_time": 92,
+      "predicate_ids": [
+        "p_context_active",
+        "p_support_valid"
+      ]
+    },
+    {
+      "event_id": "e002",
+      "event_time": 94,
+      "known_time": 94,
+      "predicate_ids": [
+        "p_stage_armed",
+        "p_support_valid"
+      ]
+    },
+    {
+      "event_id": "e003",
+      "event_time": 97,
+      "known_time": 97,
+      "predicate_ids": [
+        "p_support_valid"
+      ]
+    },
+    {
+      "event_id": "e004",
+      "event_time": 99,
+      "known_time": 99,
+      "predicate_ids": [
+        "p_stage_triggered",
+        "p_context_active"
+      ]
+    }
+  ],
+  "synthetic_only": true
+}

@@ -1,0 +1,55 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/golden_proof_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "immutable": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "proofs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "directive": {
+            "type": "string"
+          },
+          "proof_hash": {
+            "type": "string"
+          },
+          "proof_id": {
+            "type": "string"
+          },
+          "research_only": {
+            "type": "boolean"
+          },
+          "treatment_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "directive",
+          "proof_hash",
+          "proof_id",
+          "research_only",
+          "treatment_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "registry_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "immutable",
+    "phase",
+    "proofs",
+    "registry_hash"
+  ],
+  "title": "Golden Proof Registry",
+  "type": "object"
+}

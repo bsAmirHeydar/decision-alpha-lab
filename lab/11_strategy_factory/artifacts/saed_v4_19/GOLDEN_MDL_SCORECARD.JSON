@@ -1,0 +1,11 @@
+{
+  "complexity_cost": 2.5,
+  "counterexample_count": 0,
+  "error_cost": 0.0,
+  "fidelity": 1.0,
+  "predicate_count": 3,
+  "rule_count": 1,
+  "score_hash": "f8d1352954d21c318f9dbe9438148d839abb0b2f14280430ee978ba3cbfb2b16",
+  "temporal_count": 0,
+  "total_mdl_cost": 2.5
+}

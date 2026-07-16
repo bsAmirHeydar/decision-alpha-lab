@@ -1,0 +1,55 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/golden_neural_symbolic_disagreement.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "directive": {
+      "type": "string"
+    },
+    "maximum_gap": {
+      "type": "number"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "absolute_gap": {
+            "type": "number"
+          },
+          "neural_score": {
+            "type": "number"
+          },
+          "symbolic_score": {
+            "type": "number"
+          },
+          "treatment_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "absolute_gap",
+          "neural_score",
+          "symbolic_score",
+          "treatment_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "threshold": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "directive",
+    "maximum_gap",
+    "report_hash",
+    "rows",
+    "threshold"
+  ],
+  "title": "Golden Neural Symbolic Disagreement",
+  "type": "object"
+}

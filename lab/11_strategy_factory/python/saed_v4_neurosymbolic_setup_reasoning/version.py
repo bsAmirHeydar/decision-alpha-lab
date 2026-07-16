@@ -1,0 +1,6 @@
+PHASE='SAED_V4_19'
+VERSION='1.0.0'
+TITLE='Neurosymbolic Setup Reasoning'
+EVIDENCE_SCOPE='local_deterministic_synthetic_reference'
+CLAIM_CEILING='synthetic_proof_carrying_reasoning_not_real'
+NEXT_PHASE='SAED_V4_20'

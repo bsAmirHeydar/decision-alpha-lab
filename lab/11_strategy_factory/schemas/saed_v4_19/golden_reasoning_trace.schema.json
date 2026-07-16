@@ -1,0 +1,116 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/golden_reasoning_trace.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "decisions": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "confidence": {
+            "type": "number"
+          },
+          "effect": {
+            "type": "string"
+          },
+          "manual_doctrine": {
+            "type": "boolean"
+          },
+          "priority": {
+            "type": "integer"
+          },
+          "rule_id": {
+            "type": "string"
+          },
+          "subject_id": {
+            "type": "string"
+          },
+          "treatment_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "confidence",
+          "effect",
+          "manual_doctrine",
+          "priority",
+          "rule_id",
+          "subject_id",
+          "treatment_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "inferences": {
+      "type": "integer"
+    },
+    "temporal_results": {
+      "additionalProperties": false,
+      "properties": {
+        "tc_armed_precedes_trigger": {
+          "type": "boolean"
+        },
+        "tc_context_seen": {
+          "type": "boolean"
+        },
+        "tc_support_persistent": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "tc_armed_precedes_trigger",
+        "tc_context_seen",
+        "tc_support_persistent"
+      ],
+      "type": "object"
+    },
+    "trace": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "iteration": {
+            "type": "integer"
+          },
+          "matched": {
+            "type": "boolean"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "rule_hash": {
+            "type": "string"
+          },
+          "rule_id": {
+            "type": "string"
+          },
+          "subject_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "iteration",
+          "matched",
+          "reason",
+          "rule_hash",
+          "rule_id",
+          "subject_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "trace_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "decisions",
+    "inferences",
+    "temporal_results",
+    "trace",
+    "trace_hash"
+  ],
+  "title": "Golden Reasoning Trace",
+  "type": "object"
+}

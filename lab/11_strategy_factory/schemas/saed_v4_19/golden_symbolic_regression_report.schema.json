@@ -1,0 +1,102 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/golden_symbolic_regression_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "champion": {
+      "additionalProperties": false,
+      "properties": {
+        "coefficient": {
+          "type": "number"
+        },
+        "complexity": {
+          "type": "integer"
+        },
+        "features": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "intercept": {
+          "type": "number"
+        },
+        "mdl_cost": {
+          "type": "number"
+        },
+        "model_id": {
+          "type": "string"
+        },
+        "mse": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "coefficient",
+        "complexity",
+        "features",
+        "intercept",
+        "mdl_cost",
+        "model_id",
+        "mse"
+      ],
+      "type": "object"
+    },
+    "model_count": {
+      "type": "integer"
+    },
+    "models": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "coefficient": {
+            "type": "number"
+          },
+          "complexity": {
+            "type": "integer"
+          },
+          "features": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "intercept": {
+            "type": "number"
+          },
+          "mdl_cost": {
+            "type": "number"
+          },
+          "model_id": {
+            "type": "string"
+          },
+          "mse": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "coefficient",
+          "complexity",
+          "features",
+          "intercept",
+          "mdl_cost",
+          "model_id",
+          "mse"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "registry_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "champion",
+    "model_count",
+    "models",
+    "registry_hash"
+  ],
+  "title": "Golden Symbolic Regression Report",
+  "type": "object"
+}

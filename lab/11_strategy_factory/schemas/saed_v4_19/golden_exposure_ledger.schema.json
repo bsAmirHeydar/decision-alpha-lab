@@ -1,0 +1,113 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/golden_exposure_ledger.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "counts": {
+      "additionalProperties": false,
+      "properties": {
+        "counterexamples": {
+          "type": "integer"
+        },
+        "facts": {
+          "type": "integer"
+        },
+        "failures": {
+          "type": "integer"
+        },
+        "hidden_evaluation_queries": {
+          "type": "integer"
+        },
+        "inferences": {
+          "type": "integer"
+        },
+        "neural_queries": {
+          "type": "integer"
+        },
+        "protected_evidence_exposures": {
+          "type": "integer"
+        },
+        "rules": {
+          "type": "integer"
+        },
+        "symbolic_terms": {
+          "type": "integer"
+        },
+        "synthesis_candidates": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "counterexamples",
+        "facts",
+        "failures",
+        "hidden_evaluation_queries",
+        "inferences",
+        "neural_queries",
+        "protected_evidence_exposures",
+        "rules",
+        "symbolic_terms",
+        "synthesis_candidates"
+      ],
+      "type": "object"
+    },
+    "limits": {
+      "additionalProperties": false,
+      "properties": {
+        "max_counterexamples": {
+          "type": "integer"
+        },
+        "max_facts": {
+          "type": "integer"
+        },
+        "max_failures": {
+          "type": "integer"
+        },
+        "max_hidden_evaluation_queries": {
+          "type": "integer"
+        },
+        "max_inferences": {
+          "type": "integer"
+        },
+        "max_neural_queries": {
+          "type": "integer"
+        },
+        "max_rules": {
+          "type": "integer"
+        },
+        "max_symbolic_terms": {
+          "type": "integer"
+        },
+        "max_synthesis_candidates": {
+          "type": "integer"
+        },
+        "protected_evidence_exposure_limit": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "max_counterexamples",
+        "max_facts",
+        "max_failures",
+        "max_hidden_evaluation_queries",
+        "max_inferences",
+        "max_neural_queries",
+        "max_rules",
+        "max_symbolic_terms",
+        "max_synthesis_candidates",
+        "protected_evidence_exposure_limit"
+      ],
+      "type": "object"
+    },
+    "within_budget": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "counts",
+    "limits",
+    "within_budget"
+  ],
+  "title": "Golden Exposure Ledger",
+  "type": "object"
+}

@@ -1,0 +1,14 @@
+{
+  "immutable": true,
+  "phase": "SAED_V4_19",
+  "proofs": [
+    {
+      "directive": "research_recommendation",
+      "proof_hash": "ff3d40400c1bb1160c610295e7709622d31940839f38a4b3bc7d4aed807b62fa",
+      "proof_id": "proof_88f43571f35d4dc86b819bee",
+      "research_only": true,
+      "treatment_id": "treatment_alpha"
+    }
+  ],
+  "registry_hash": "6a097c49bd09f4cca0e22244a0fa3023b287619b23eaaf9fde369a2e2cd88c9e"
+}

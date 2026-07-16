@@ -1,0 +1,47 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/golden_claim_tier_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "claim_tier": {
+      "type": "string"
+    },
+    "live_trading": {
+      "type": "boolean"
+    },
+    "production_authorization": {
+      "type": "boolean"
+    },
+    "production_treatment_selection": {
+      "type": "boolean"
+    },
+    "promotion_authorization": {
+      "type": "boolean"
+    },
+    "real_mechanism_established": {
+      "type": "boolean"
+    },
+    "real_policy_value_established": {
+      "type": "boolean"
+    },
+    "real_setup_validity_established": {
+      "type": "boolean"
+    },
+    "runtime_activation": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "claim_tier",
+    "live_trading",
+    "production_authorization",
+    "production_treatment_selection",
+    "promotion_authorization",
+    "real_mechanism_established",
+    "real_policy_value_established",
+    "real_setup_validity_established",
+    "runtime_activation"
+  ],
+  "title": "Golden Claim Tier Report",
+  "type": "object"
+}

@@ -1,0 +1,27 @@
+{
+  "counts": {
+    "counterexamples": 0,
+    "facts": 10,
+    "failures": 0,
+    "hidden_evaluation_queries": 0,
+    "inferences": 6,
+    "neural_queries": 1,
+    "protected_evidence_exposures": 0,
+    "rules": 6,
+    "symbolic_terms": 7,
+    "synthesis_candidates": 63
+  },
+  "limits": {
+    "max_counterexamples": 128,
+    "max_facts": 512,
+    "max_failures": 8,
+    "max_hidden_evaluation_queries": 0,
+    "max_inferences": 2048,
+    "max_neural_queries": 64,
+    "max_rules": 64,
+    "max_symbolic_terms": 256,
+    "max_synthesis_candidates": 256,
+    "protected_evidence_exposure_limit": 0
+  },
+  "within_budget": true
+}

@@ -1,0 +1,15 @@
+{
+  "deterministic_ties": true,
+  "event_time_field": "event_time",
+  "exact_version": "1.0.0",
+  "future_suffix_forbidden": true,
+  "known_time_field": "known_time",
+  "max_history": 256,
+  "max_window": 32,
+  "operators": [
+    "eventually_within",
+    "precedes",
+    "count_within",
+    "holds_for"
+  ]
+}

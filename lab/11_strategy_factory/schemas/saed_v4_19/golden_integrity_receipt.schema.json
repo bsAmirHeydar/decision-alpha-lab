@@ -1,0 +1,47 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/golden_integrity_receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_count": {
+      "type": "integer"
+    },
+    "artifacts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact_hash": {
+            "type": "string"
+          },
+          "artifact_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "artifact_hash",
+          "artifact_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "receipt_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_count",
+    "artifacts",
+    "immutable",
+    "phase",
+    "receipt_hash"
+  ],
+  "title": "Golden Integrity Receipt",
+  "type": "object"
+}

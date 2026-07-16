@@ -1,0 +1,107 @@
+{
+  "exact_version": "1.0.0",
+  "future_fact_policy": "reject",
+  "missing_value_policy": "abstain",
+  "predicates": [
+    {
+      "concept_id": "context_active",
+      "enabled": true,
+      "negated": false,
+      "operator": "eq",
+      "predicate_id": "p_context_active",
+      "threshold": true,
+      "values": []
+    },
+    {
+      "concept_id": "support_valid",
+      "enabled": true,
+      "negated": false,
+      "operator": "eq",
+      "predicate_id": "p_support_valid",
+      "threshold": true,
+      "values": []
+    },
+    {
+      "concept_id": "setup_stage",
+      "enabled": true,
+      "negated": false,
+      "operator": "eq",
+      "predicate_id": "p_stage_armed",
+      "threshold": "armed",
+      "values": []
+    },
+    {
+      "concept_id": "setup_stage",
+      "enabled": true,
+      "negated": false,
+      "operator": "eq",
+      "predicate_id": "p_stage_triggered",
+      "threshold": "triggered",
+      "values": []
+    },
+    {
+      "concept_id": "structure_alignment",
+      "enabled": true,
+      "negated": false,
+      "operator": "ge",
+      "predicate_id": "p_structure_high",
+      "threshold": 0.65,
+      "values": []
+    },
+    {
+      "concept_id": "time_alignment",
+      "enabled": true,
+      "negated": false,
+      "operator": "ge",
+      "predicate_id": "p_time_high",
+      "threshold": 0.6,
+      "values": []
+    },
+    {
+      "concept_id": "liquidity_clear",
+      "enabled": true,
+      "negated": false,
+      "operator": "eq",
+      "predicate_id": "p_liquidity_clear",
+      "threshold": true,
+      "values": []
+    },
+    {
+      "concept_id": "execution_feasible",
+      "enabled": true,
+      "negated": false,
+      "operator": "eq",
+      "predicate_id": "p_execution_feasible",
+      "threshold": true,
+      "values": []
+    },
+    {
+      "concept_id": "manual_doctrine_pass",
+      "enabled": true,
+      "negated": false,
+      "operator": "eq",
+      "predicate_id": "p_manual_pass",
+      "threshold": true,
+      "values": []
+    },
+    {
+      "concept_id": "setup_coherent",
+      "enabled": true,
+      "negated": false,
+      "operator": "eq",
+      "predicate_id": "p_coherent",
+      "threshold": true,
+      "values": []
+    },
+    {
+      "concept_id": "hard_block",
+      "enabled": true,
+      "negated": false,
+      "operator": "eq",
+      "predicate_id": "p_hard_block",
+      "threshold": true,
+      "values": []
+    }
+  ],
+  "unknown_predicate_policy": "reject"
+}

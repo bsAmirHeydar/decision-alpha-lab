@@ -1,0 +1,76 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/golden_upstream_validation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority_clean": {
+      "type": "boolean"
+    },
+    "entry_gates": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_preserved": {
+          "type": "boolean"
+        },
+        "closed_contracts": {
+          "type": "boolean"
+        },
+        "cross_fitting_complete": {
+          "type": "boolean"
+        },
+        "deterministic_replay": {
+          "type": "boolean"
+        },
+        "immutable_upstream": {
+          "type": "boolean"
+        },
+        "negative_controls_passed": {
+          "type": "boolean"
+        },
+        "overlap_audited": {
+          "type": "boolean"
+        },
+        "research_checkpoints_immutable": {
+          "type": "boolean"
+        },
+        "treatment_universe_frozen": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "baseline_preserved",
+        "closed_contracts",
+        "cross_fitting_complete",
+        "deterministic_replay",
+        "immutable_upstream",
+        "negative_controls_passed",
+        "overlap_audited",
+        "research_checkpoints_immutable",
+        "treatment_universe_frozen"
+      ],
+      "type": "object"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "upstream_handoff_hash": {
+      "type": "string"
+    },
+    "upstream_phase": {
+      "type": "string"
+    },
+    "validated": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "authority_clean",
+    "entry_gates",
+    "phase",
+    "upstream_handoff_hash",
+    "upstream_phase",
+    "validated"
+  ],
+  "title": "Golden Upstream Validation",
+  "type": "object"
+}

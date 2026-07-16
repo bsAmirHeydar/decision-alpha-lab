@@ -1,0 +1,15 @@
+{
+  "p_coherent": 0.88,
+  "p_context_active": 1.0,
+  "p_execution_feasible": 0.94,
+  "p_liquidity_clear": 0.9,
+  "p_manual_pass": 0.0,
+  "p_stage_armed": 0.4,
+  "p_stage_triggered": 0.91,
+  "p_structure_high": 0.86,
+  "p_support_valid": 0.95,
+  "p_time_high": 0.81,
+  "tc_armed_precedes_trigger": 1.0,
+  "tc_context_seen": 1.0,
+  "tc_support_persistent": 1.0
+}

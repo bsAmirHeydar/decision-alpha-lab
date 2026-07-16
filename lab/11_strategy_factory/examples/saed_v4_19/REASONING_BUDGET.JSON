@@ -1,0 +1,12 @@
+{
+  "max_counterexamples": 128,
+  "max_facts": 512,
+  "max_failures": 8,
+  "max_hidden_evaluation_queries": 0,
+  "max_inferences": 2048,
+  "max_neural_queries": 64,
+  "max_rules": 64,
+  "max_symbolic_terms": 256,
+  "max_synthesis_candidates": 256,
+  "protected_evidence_exposure_limit": 0
+}

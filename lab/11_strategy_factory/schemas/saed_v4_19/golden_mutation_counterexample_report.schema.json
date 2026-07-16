@@ -1,0 +1,108 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/golden_mutation_counterexample_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "count": {
+      "type": "integer"
+    },
+    "counterexamples": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "actual": {
+            "type": "boolean"
+          },
+          "counterexample_id": {
+            "type": "string"
+          },
+          "predicate_values": {
+            "additionalProperties": false,
+            "properties": {
+              "p_coherent": {
+                "type": "boolean"
+              },
+              "p_context_active": {
+                "type": "boolean"
+              },
+              "p_execution_feasible": {
+                "type": "boolean"
+              },
+              "p_hard_block": {
+                "type": "boolean"
+              },
+              "p_liquidity_clear": {
+                "type": "boolean"
+              },
+              "p_manual_pass": {
+                "type": "boolean"
+              },
+              "p_stage_armed": {
+                "type": "boolean"
+              },
+              "p_stage_triggered": {
+                "type": "boolean"
+              },
+              "p_structure_high": {
+                "type": "boolean"
+              },
+              "p_support_valid": {
+                "type": "boolean"
+              },
+              "p_time_high": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "p_coherent",
+              "p_context_active",
+              "p_execution_feasible",
+              "p_hard_block",
+              "p_liquidity_clear",
+              "p_manual_pass",
+              "p_stage_armed",
+              "p_stage_triggered",
+              "p_structure_high",
+              "p_support_valid",
+              "p_time_high"
+            ],
+            "type": "object"
+          },
+          "predicted": {
+            "type": "boolean"
+          },
+          "row_id": {
+            "type": "string"
+          },
+          "violated_rule_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "actual",
+          "counterexample_id",
+          "predicate_values",
+          "predicted",
+          "row_id",
+          "violated_rule_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "directive": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "count",
+    "counterexamples",
+    "directive",
+    "report_hash"
+  ],
+  "title": "Golden Mutation Counterexample Report",
+  "type": "object"
+}

@@ -1,0 +1,64 @@
+{
+  "decision_time": 100,
+  "directive": "research_recommendation",
+  "execution_authority": false,
+  "fact_evidence": [
+    {
+      "fact_hash": "058c1990ad042a076904182e63a3a5e2e9caf335208f38e9b13f550ac9c0d2d7",
+      "fact_id": "f_000_context_active"
+    },
+    {
+      "fact_hash": "5c5eb7f277f72dde669bccf703cfbe3144313c46e8a8fd0cb6fdfeafd617f94a",
+      "fact_id": "f_001_support_valid"
+    },
+    {
+      "fact_hash": "412662090f7cfe613b8384271912a156691829e14d9351e02c65e92b50e9f856",
+      "fact_id": "f_002_setup_stage"
+    },
+    {
+      "fact_hash": "317f78f68ca34f5bfc0cd15078600e5ae538be0f7f8a48310620127ee62cbba3",
+      "fact_id": "f_003_structure_alignment"
+    },
+    {
+      "fact_hash": "3f3bcc4ecb4dbb2d6f6268c70354b1d0b6bdfbd961b69bce1673dceda1633b8e",
+      "fact_id": "f_004_time_alignment"
+    },
+    {
+      "fact_hash": "55c370ab59b6ef9af12af7f6d40f2277d29c20589709edbd3da04509c0537442",
+      "fact_id": "f_005_liquidity_clear"
+    },
+    {
+      "fact_hash": "6fdef00880d050ab23e9f48d5901d18e9b86a587d25f7fb2c70c6bbb0dba8afb",
+      "fact_id": "f_006_execution_feasible"
+    },
+    {
+      "fact_hash": "f5d9c340461c0b65968183113e08ae44a5efd6af0258260d9ee4b9f0386f3e92",
+      "fact_id": "f_007_manual_doctrine_pass"
+    },
+    {
+      "fact_hash": "5fb93fd64360269b469c401cf4d2066dae4272d97cfbf6f4ad282238d0830690",
+      "fact_id": "f_008_neural_confidence"
+    },
+    {
+      "fact_hash": "fd04becc1ef050bd969979c10c6f5741e4682750bd632e663b02d690811fae20",
+      "fact_id": "fact_a3020992fea35e9cbc587074"
+    }
+  ],
+  "fired_rule_ids": [
+    "r_derive_coherence",
+    "r_recommend_alpha",
+    "r_recommend_beta"
+  ],
+  "ontology_hash": "96586868fbbea097def9bfe33fdcffea5675dbb85a6002bfe60131f936c6745d",
+  "phase": "SAED_V4_19",
+  "projection_hash": "fa56b10d6fcea83de5a71df4ba3580673bd21a9971c090992c372559a321c04d",
+  "proof_hash": "ff3d40400c1bb1160c610295e7709622d31940839f38a4b3bc7d4aed807b62fa",
+  "proof_id": "proof_88f43571f35d4dc86b819bee",
+  "reason": "bounded_symbolic_projection",
+  "research_only": true,
+  "rule_library_hash": "3d20e37ee02f7e02137571f4589837f16325d40416f2706baef3a5725d25118d",
+  "runtime_executable": false,
+  "subject_id": "occurrence_synthetic_0001",
+  "treatment_id": "treatment_alpha",
+  "upstream_hash": "ea3553db99b3cd98857b49277fd9843031bdbb50e30400ceb7eb936f2fd271f1"
+}

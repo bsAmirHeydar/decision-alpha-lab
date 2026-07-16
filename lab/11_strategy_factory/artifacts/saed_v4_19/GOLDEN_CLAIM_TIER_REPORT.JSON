@@ -1,0 +1,11 @@
+{
+  "claim_tier": "synthetic_proof_carrying_neurosymbolic_reasoning",
+  "live_trading": false,
+  "production_authorization": false,
+  "production_treatment_selection": false,
+  "promotion_authorization": false,
+  "real_mechanism_established": false,
+  "real_policy_value_established": false,
+  "real_setup_validity_established": false,
+  "runtime_activation": false
+}

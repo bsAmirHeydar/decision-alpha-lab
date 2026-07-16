@@ -1,0 +1,97 @@
+{
+  "decisions": [
+    {
+      "confidence": 0.88,
+      "effect": "recommend",
+      "manual_doctrine": false,
+      "priority": 700,
+      "rule_id": "r_recommend_alpha",
+      "subject_id": "occurrence_synthetic_0001",
+      "treatment_id": "treatment_alpha"
+    },
+    {
+      "confidence": 0.82,
+      "effect": "recommend",
+      "manual_doctrine": false,
+      "priority": 650,
+      "rule_id": "r_recommend_beta",
+      "subject_id": "occurrence_synthetic_0001",
+      "treatment_id": "treatment_beta"
+    },
+    {
+      "confidence": 0.88,
+      "effect": "recommend",
+      "manual_doctrine": false,
+      "priority": 700,
+      "rule_id": "r_recommend_alpha",
+      "subject_id": "occurrence_synthetic_0001",
+      "treatment_id": "treatment_alpha"
+    },
+    {
+      "confidence": 0.82,
+      "effect": "recommend",
+      "manual_doctrine": false,
+      "priority": 650,
+      "rule_id": "r_recommend_beta",
+      "subject_id": "occurrence_synthetic_0001",
+      "treatment_id": "treatment_beta"
+    }
+  ],
+  "inferences": 6,
+  "temporal_results": {
+    "tc_armed_precedes_trigger": true,
+    "tc_context_seen": true,
+    "tc_support_persistent": true
+  },
+  "trace": [
+    {
+      "iteration": 0,
+      "matched": true,
+      "reason": "matched",
+      "rule_hash": "da212ee628efd7b831e45bea76e9633367fc650a1c5e4553c6188f973e10a3e2",
+      "rule_id": "r_derive_coherence",
+      "subject_id": "occurrence_synthetic_0001"
+    },
+    {
+      "iteration": 0,
+      "matched": true,
+      "reason": "matched",
+      "rule_hash": "cf1a089c0e8817de4dcf37dd3396968c67c35210223fb5afae2f07c029db85f3",
+      "rule_id": "r_recommend_alpha",
+      "subject_id": "occurrence_synthetic_0001"
+    },
+    {
+      "iteration": 0,
+      "matched": true,
+      "reason": "matched",
+      "rule_hash": "cd58998277d6db89b35354cf8106736164d0b83f6cff976172abb0159f9e6119",
+      "rule_id": "r_recommend_beta",
+      "subject_id": "occurrence_synthetic_0001"
+    },
+    {
+      "iteration": 1,
+      "matched": true,
+      "reason": "matched",
+      "rule_hash": "da212ee628efd7b831e45bea76e9633367fc650a1c5e4553c6188f973e10a3e2",
+      "rule_id": "r_derive_coherence",
+      "subject_id": "occurrence_synthetic_0001"
+    },
+    {
+      "iteration": 1,
+      "matched": true,
+      "reason": "matched",
+      "rule_hash": "cf1a089c0e8817de4dcf37dd3396968c67c35210223fb5afae2f07c029db85f3",
+      "rule_id": "r_recommend_alpha",
+      "subject_id": "occurrence_synthetic_0001"
+    },
+    {
+      "iteration": 1,
+      "matched": true,
+      "reason": "matched",
+      "rule_hash": "cd58998277d6db89b35354cf8106736164d0b83f6cff976172abb0159f9e6119",
+      "rule_id": "r_recommend_beta",
+      "subject_id": "occurrence_synthetic_0001"
+    }
+  ],
+  "trace_hash": "4a5c131398a008e2b074069db0b9361f1b2baf033cdb26a1573a135613c9deea"
+}

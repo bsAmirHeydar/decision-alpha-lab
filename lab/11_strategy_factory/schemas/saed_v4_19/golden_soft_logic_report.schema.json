@@ -1,0 +1,43 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/golden_soft_logic_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "score_hash": {
+      "type": "string"
+    },
+    "scores": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "effect": {
+            "type": "string"
+          },
+          "rule_id": {
+            "type": "string"
+          },
+          "score": {
+            "type": "number"
+          },
+          "treatment_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "effect",
+          "rule_id",
+          "score",
+          "treatment_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "score_hash",
+    "scores"
+  ],
+  "title": "Golden Soft Logic Report",
+  "type": "object"
+}

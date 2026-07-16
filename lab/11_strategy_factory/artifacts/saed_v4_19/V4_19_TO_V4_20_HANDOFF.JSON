@@ -1,0 +1,35 @@
+{
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "assert_real_setup_validity": false,
+    "compile_runtime": false,
+    "read_immutable_neurosymbolic_evidence": true,
+    "select_live_treatment": false,
+    "send_order": false,
+    "sign_promotion": false,
+    "use_as_decision_focused_research_feature": true
+  },
+  "claim_tier": "synthetic_proof_carrying_neurosymbolic_reasoning",
+  "entry_gates": {
+    "baseline_preserved": true,
+    "closed_contracts": true,
+    "counterexample_search_complete": true,
+    "deterministic_replay": true,
+    "known_time_enforced": true,
+    "manual_precedence_verified": true,
+    "ontology_frozen": true,
+    "proof_carrying_envelope_complete": true,
+    "temporal_logic_bounded": true
+  },
+  "handoff_hash": "4587337f4938c60b2964bfb1214780b240b50b953471b62255d8ceb1f9baaceb",
+  "handoff_id": "v419_to_v420_c56fce6ab3741aa6963b6a02",
+  "immutable": true,
+  "integrity_receipt_hash": "5ea57159976700b78dc06f9af7ab2bdd646701b17eef8cbe68a3163f6ba39fa7",
+  "next_phase": "SAED_V4_20",
+  "phase": "SAED_V4_19",
+  "proof_registry_hash": "6a097c49bd09f4cca0e22244a0fa3023b287619b23eaaf9fde369a2e2cd88c9e",
+  "reference_proof_hash": "ff3d40400c1bb1160c610295e7709622d31940839f38a4b3bc7d4aed807b62fa",
+  "research_only": true,
+  "upstream_handoff_hash": "ea3553db99b3cd98857b49277fd9843031bdbb50e30400ceb7eb936f2fd271f1"
+}

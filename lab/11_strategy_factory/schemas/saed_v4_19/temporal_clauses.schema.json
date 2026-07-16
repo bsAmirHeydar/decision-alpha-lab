@@ -1,0 +1,51 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/temporal_clauses.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "clauses": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "clause_id": {
+            "type": "string"
+          },
+          "minimum_count": {
+            "type": "integer"
+          },
+          "operator": {
+            "type": "string"
+          },
+          "predicate_id": {
+            "type": "string"
+          },
+          "secondary_predicate_id": {
+            "type": "string"
+          },
+          "window": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "clause_id",
+          "minimum_count",
+          "operator",
+          "predicate_id",
+          "secondary_predicate_id",
+          "window"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "exact_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "clauses",
+    "exact_version"
+  ],
+  "title": "Temporal Clauses",
+  "type": "object"
+}

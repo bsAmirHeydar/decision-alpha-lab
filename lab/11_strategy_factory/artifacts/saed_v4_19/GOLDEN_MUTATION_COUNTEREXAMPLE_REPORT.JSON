@@ -1,0 +1,327 @@
+{
+  "count": 16,
+  "counterexamples": [
+    {
+      "actual": true,
+      "counterexample_id": "cex_1b0e6e29591e839433ac9f0c",
+      "predicate_values": {
+        "p_coherent": true,
+        "p_context_active": true,
+        "p_execution_feasible": true,
+        "p_hard_block": false,
+        "p_liquidity_clear": false,
+        "p_manual_pass": false,
+        "p_stage_armed": false,
+        "p_stage_triggered": false,
+        "p_structure_high": true,
+        "p_support_valid": true,
+        "p_time_high": true
+      },
+      "predicted": false,
+      "row_id": "row_002__mut_p_liquidity_clear",
+      "violated_rule_id": "program_1efd81ac03493efeb8586988"
+    },
+    {
+      "actual": true,
+      "counterexample_id": "cex_29e76e8edb582f4ae03184a0",
+      "predicate_values": {
+        "p_coherent": true,
+        "p_context_active": true,
+        "p_execution_feasible": false,
+        "p_hard_block": false,
+        "p_liquidity_clear": true,
+        "p_manual_pass": false,
+        "p_stage_armed": false,
+        "p_stage_triggered": false,
+        "p_structure_high": true,
+        "p_support_valid": true,
+        "p_time_high": true
+      },
+      "predicted": false,
+      "row_id": "row_002__mut_p_execution_feasible",
+      "violated_rule_id": "program_1efd81ac03493efeb8586988"
+    },
+    {
+      "actual": true,
+      "counterexample_id": "cex_db50b3ab6e3cf55012627d7c",
+      "predicate_values": {
+        "p_coherent": true,
+        "p_context_active": true,
+        "p_execution_feasible": true,
+        "p_hard_block": false,
+        "p_liquidity_clear": false,
+        "p_manual_pass": false,
+        "p_stage_armed": false,
+        "p_stage_triggered": true,
+        "p_structure_high": true,
+        "p_support_valid": true,
+        "p_time_high": true
+      },
+      "predicted": false,
+      "row_id": "row_003__mut_p_liquidity_clear",
+      "violated_rule_id": "program_1efd81ac03493efeb8586988"
+    },
+    {
+      "actual": true,
+      "counterexample_id": "cex_bba721a358d4c070fda5cf0b",
+      "predicate_values": {
+        "p_coherent": true,
+        "p_context_active": true,
+        "p_execution_feasible": false,
+        "p_hard_block": false,
+        "p_liquidity_clear": true,
+        "p_manual_pass": false,
+        "p_stage_armed": false,
+        "p_stage_triggered": true,
+        "p_structure_high": true,
+        "p_support_valid": true,
+        "p_time_high": true
+      },
+      "predicted": false,
+      "row_id": "row_003__mut_p_execution_feasible",
+      "violated_rule_id": "program_1efd81ac03493efeb8586988"
+    },
+    {
+      "actual": false,
+      "counterexample_id": "cex_9d8c4d73e84be5de7458312e",
+      "predicate_values": {
+        "p_coherent": true,
+        "p_context_active": true,
+        "p_execution_feasible": true,
+        "p_hard_block": false,
+        "p_liquidity_clear": true,
+        "p_manual_pass": false,
+        "p_stage_armed": false,
+        "p_stage_triggered": false,
+        "p_structure_high": true,
+        "p_support_valid": true,
+        "p_time_high": true
+      },
+      "predicted": true,
+      "row_id": "row_004__mut_p_liquidity_clear",
+      "violated_rule_id": "program_1efd81ac03493efeb8586988"
+    },
+    {
+      "actual": false,
+      "counterexample_id": "cex_9561b1f42b9fa8c487d88eda",
+      "predicate_values": {
+        "p_coherent": true,
+        "p_context_active": true,
+        "p_execution_feasible": true,
+        "p_hard_block": false,
+        "p_liquidity_clear": true,
+        "p_manual_pass": false,
+        "p_stage_armed": false,
+        "p_stage_triggered": true,
+        "p_structure_high": true,
+        "p_support_valid": true,
+        "p_time_high": true
+      },
+      "predicted": true,
+      "row_id": "row_006__mut_p_execution_feasible",
+      "violated_rule_id": "program_1efd81ac03493efeb8586988"
+    },
+    {
+      "actual": true,
+      "counterexample_id": "cex_f37c8ae66f72df1507d228be",
+      "predicate_values": {
+        "p_coherent": true,
+        "p_context_active": true,
+        "p_execution_feasible": true,
+        "p_hard_block": false,
+        "p_liquidity_clear": false,
+        "p_manual_pass": false,
+        "p_stage_armed": false,
+        "p_stage_triggered": true,
+        "p_structure_high": true,
+        "p_support_valid": true,
+        "p_time_high": true
+      },
+      "predicted": false,
+      "row_id": "row_009__mut_p_liquidity_clear",
+      "violated_rule_id": "program_1efd81ac03493efeb8586988"
+    },
+    {
+      "actual": true,
+      "counterexample_id": "cex_190f90b1bf9b1e06f6f29413",
+      "predicate_values": {
+        "p_coherent": true,
+        "p_context_active": true,
+        "p_execution_feasible": false,
+        "p_hard_block": false,
+        "p_liquidity_clear": true,
+        "p_manual_pass": false,
+        "p_stage_armed": false,
+        "p_stage_triggered": true,
+        "p_structure_high": true,
+        "p_support_valid": true,
+        "p_time_high": true
+      },
+      "predicted": false,
+      "row_id": "row_009__mut_p_execution_feasible",
+      "violated_rule_id": "program_1efd81ac03493efeb8586988"
+    },
+    {
+      "actual": true,
+      "counterexample_id": "cex_367b78940c64e88e0bc1cca0",
+      "predicate_values": {
+        "p_coherent": true,
+        "p_context_active": true,
+        "p_execution_feasible": true,
+        "p_hard_block": false,
+        "p_liquidity_clear": false,
+        "p_manual_pass": false,
+        "p_stage_armed": false,
+        "p_stage_triggered": false,
+        "p_structure_high": true,
+        "p_support_valid": true,
+        "p_time_high": true
+      },
+      "predicted": false,
+      "row_id": "row_013__mut_p_liquidity_clear",
+      "violated_rule_id": "program_1efd81ac03493efeb8586988"
+    },
+    {
+      "actual": true,
+      "counterexample_id": "cex_900c18e1e2a82e5d38187355",
+      "predicate_values": {
+        "p_coherent": true,
+        "p_context_active": true,
+        "p_execution_feasible": false,
+        "p_hard_block": false,
+        "p_liquidity_clear": true,
+        "p_manual_pass": false,
+        "p_stage_armed": false,
+        "p_stage_triggered": false,
+        "p_structure_high": true,
+        "p_support_valid": true,
+        "p_time_high": true
+      },
+      "predicted": false,
+      "row_id": "row_013__mut_p_execution_feasible",
+      "violated_rule_id": "program_1efd81ac03493efeb8586988"
+    },
+    {
+      "actual": false,
+      "counterexample_id": "cex_a4457975314515d9a30b228e",
+      "predicate_values": {
+        "p_coherent": true,
+        "p_context_active": true,
+        "p_execution_feasible": true,
+        "p_hard_block": false,
+        "p_liquidity_clear": true,
+        "p_manual_pass": false,
+        "p_stage_armed": false,
+        "p_stage_triggered": false,
+        "p_structure_high": true,
+        "p_support_valid": true,
+        "p_time_high": true
+      },
+      "predicted": true,
+      "row_id": "row_016__mut_p_liquidity_clear",
+      "violated_rule_id": "program_1efd81ac03493efeb8586988"
+    },
+    {
+      "actual": true,
+      "counterexample_id": "cex_858451d22d97903879f8b992",
+      "predicate_values": {
+        "p_coherent": true,
+        "p_context_active": true,
+        "p_execution_feasible": true,
+        "p_hard_block": false,
+        "p_liquidity_clear": false,
+        "p_manual_pass": false,
+        "p_stage_armed": false,
+        "p_stage_triggered": false,
+        "p_structure_high": true,
+        "p_support_valid": true,
+        "p_time_high": true
+      },
+      "predicted": false,
+      "row_id": "row_017__mut_p_liquidity_clear",
+      "violated_rule_id": "program_1efd81ac03493efeb8586988"
+    },
+    {
+      "actual": true,
+      "counterexample_id": "cex_a340bf87b14c2ea7cf40e643",
+      "predicate_values": {
+        "p_coherent": true,
+        "p_context_active": true,
+        "p_execution_feasible": false,
+        "p_hard_block": false,
+        "p_liquidity_clear": true,
+        "p_manual_pass": false,
+        "p_stage_armed": false,
+        "p_stage_triggered": false,
+        "p_structure_high": true,
+        "p_support_valid": true,
+        "p_time_high": true
+      },
+      "predicted": false,
+      "row_id": "row_017__mut_p_execution_feasible",
+      "violated_rule_id": "program_1efd81ac03493efeb8586988"
+    },
+    {
+      "actual": false,
+      "counterexample_id": "cex_dd6cb8704cf15a85056ade72",
+      "predicate_values": {
+        "p_coherent": true,
+        "p_context_active": true,
+        "p_execution_feasible": true,
+        "p_hard_block": false,
+        "p_liquidity_clear": true,
+        "p_manual_pass": false,
+        "p_stage_armed": false,
+        "p_stage_triggered": true,
+        "p_structure_high": true,
+        "p_support_valid": true,
+        "p_time_high": true
+      },
+      "predicted": true,
+      "row_id": "row_018__mut_p_execution_feasible",
+      "violated_rule_id": "program_1efd81ac03493efeb8586988"
+    },
+    {
+      "actual": true,
+      "counterexample_id": "cex_222f0c2d3555cf5d44afbab7",
+      "predicate_values": {
+        "p_coherent": true,
+        "p_context_active": true,
+        "p_execution_feasible": true,
+        "p_hard_block": false,
+        "p_liquidity_clear": false,
+        "p_manual_pass": false,
+        "p_stage_armed": false,
+        "p_stage_triggered": false,
+        "p_structure_high": true,
+        "p_support_valid": true,
+        "p_time_high": true
+      },
+      "predicted": false,
+      "row_id": "row_019__mut_p_liquidity_clear",
+      "violated_rule_id": "program_1efd81ac03493efeb8586988"
+    },
+    {
+      "actual": true,
+      "counterexample_id": "cex_743f8dbca6fd7455d9733a11",
+      "predicate_values": {
+        "p_coherent": true,
+        "p_context_active": true,
+        "p_execution_feasible": false,
+        "p_hard_block": false,
+        "p_liquidity_clear": true,
+        "p_manual_pass": false,
+        "p_stage_armed": false,
+        "p_stage_triggered": false,
+        "p_structure_high": true,
+        "p_support_valid": true,
+        "p_time_high": true
+      },
+      "predicted": false,
+      "row_id": "row_019__mut_p_execution_feasible",
+      "violated_rule_id": "program_1efd81ac03493efeb8586988"
+    }
+  ],
+  "directive": "refine",
+  "report_hash": "629043fa14069b39fb91a0a8a24bb70c6ac6246f7fc421fd8b98b61cd111554b"
+}

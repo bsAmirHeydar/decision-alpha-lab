@@ -1,0 +1,145 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/v4_19_to_v4_20_handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "activate_runtime": {
+          "type": "boolean"
+        },
+        "allocate_risk": {
+          "type": "boolean"
+        },
+        "assert_real_setup_validity": {
+          "type": "boolean"
+        },
+        "compile_runtime": {
+          "type": "boolean"
+        },
+        "read_immutable_neurosymbolic_evidence": {
+          "type": "boolean"
+        },
+        "select_live_treatment": {
+          "type": "boolean"
+        },
+        "send_order": {
+          "type": "boolean"
+        },
+        "sign_promotion": {
+          "type": "boolean"
+        },
+        "use_as_decision_focused_research_feature": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "activate_runtime",
+        "allocate_risk",
+        "assert_real_setup_validity",
+        "compile_runtime",
+        "read_immutable_neurosymbolic_evidence",
+        "select_live_treatment",
+        "send_order",
+        "sign_promotion",
+        "use_as_decision_focused_research_feature"
+      ],
+      "type": "object"
+    },
+    "claim_tier": {
+      "type": "string"
+    },
+    "entry_gates": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_preserved": {
+          "type": "boolean"
+        },
+        "closed_contracts": {
+          "type": "boolean"
+        },
+        "counterexample_search_complete": {
+          "type": "boolean"
+        },
+        "deterministic_replay": {
+          "type": "boolean"
+        },
+        "known_time_enforced": {
+          "type": "boolean"
+        },
+        "manual_precedence_verified": {
+          "type": "boolean"
+        },
+        "ontology_frozen": {
+          "type": "boolean"
+        },
+        "proof_carrying_envelope_complete": {
+          "type": "boolean"
+        },
+        "temporal_logic_bounded": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "baseline_preserved",
+        "closed_contracts",
+        "counterexample_search_complete",
+        "deterministic_replay",
+        "known_time_enforced",
+        "manual_precedence_verified",
+        "ontology_frozen",
+        "proof_carrying_envelope_complete",
+        "temporal_logic_bounded"
+      ],
+      "type": "object"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "integrity_receipt_hash": {
+      "type": "string"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "proof_registry_hash": {
+      "type": "string"
+    },
+    "reference_proof_hash": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "upstream_handoff_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "authority",
+    "claim_tier",
+    "entry_gates",
+    "handoff_hash",
+    "handoff_id",
+    "immutable",
+    "integrity_receipt_hash",
+    "next_phase",
+    "phase",
+    "proof_registry_hash",
+    "reference_proof_hash",
+    "research_only",
+    "upstream_handoff_hash"
+  ],
+  "title": "V4 19 To V4 20 Handoff",
+  "type": "object"
+}

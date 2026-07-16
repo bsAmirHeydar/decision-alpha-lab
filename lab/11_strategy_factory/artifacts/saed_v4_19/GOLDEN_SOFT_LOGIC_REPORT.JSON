@@ -1,0 +1,41 @@
+{
+  "score_hash": "1942fd49297480ca494c99f51358ef9a49a70c4e54f9a78d3b2ed8b33610c3b0",
+  "scores": [
+    {
+      "effect": "abstain",
+      "rule_id": "r_abstain_outside_support",
+      "score": 1.0,
+      "treatment_id": "skip"
+    },
+    {
+      "effect": "block",
+      "rule_id": "r_block_no_execution",
+      "score": 1.0,
+      "treatment_id": "skip"
+    },
+    {
+      "effect": "recommend",
+      "rule_id": "r_manual_baseline",
+      "score": 0.0,
+      "treatment_id": "manual_baseline"
+    },
+    {
+      "effect": "derive",
+      "rule_id": "r_derive_coherence",
+      "score": 0.6485346,
+      "treatment_id": ""
+    },
+    {
+      "effect": "recommend",
+      "rule_id": "r_recommend_alpha",
+      "score": 0.6551424,
+      "treatment_id": "treatment_alpha"
+    },
+    {
+      "effect": "recommend",
+      "rule_id": "r_recommend_beta",
+      "score": 0.6172566399999999,
+      "treatment_id": "treatment_beta"
+    }
+  ]
+}

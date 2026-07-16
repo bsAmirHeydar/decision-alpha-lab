@@ -1,0 +1,101 @@
+{
+  "champion": {
+    "coefficient": 0.27188306829083647,
+    "complexity": 3,
+    "features": [
+      "structure_alignment",
+      "support_score",
+      "time_alignment"
+    ],
+    "intercept": -0.23320804198342843,
+    "mdl_cost": 0.10227572183421281,
+    "model_id": "symreg_0823093c56ec8c9eef68f228",
+    "mse": 0.09927572183421281
+  },
+  "model_count": 7,
+  "models": [
+    {
+      "coefficient": 0.27188306829083647,
+      "complexity": 3,
+      "features": [
+        "structure_alignment",
+        "support_score",
+        "time_alignment"
+      ],
+      "intercept": -0.23320804198342843,
+      "mdl_cost": 0.10227572183421281,
+      "model_id": "symreg_0823093c56ec8c9eef68f228",
+      "mse": 0.09927572183421281
+    },
+    {
+      "coefficient": 0.327526090102515,
+      "complexity": 2,
+      "features": [
+        "support_score",
+        "time_alignment"
+      ],
+      "intercept": -0.17343308841740274,
+      "mdl_cost": 0.10346511498442768,
+      "model_id": "symreg_7bac10b4825d8a1b6b10ab5f",
+      "mse": 0.10146511498442767
+    },
+    {
+      "coefficient": 0.2542519621532521,
+      "complexity": 2,
+      "features": [
+        "structure_alignment",
+        "time_alignment"
+      ],
+      "intercept": 0.011018378961482833,
+      "mdl_cost": 0.10671455162319766,
+      "model_id": "symreg_39747d9ceabd508f2a82ac91",
+      "mse": 0.10471455162319766
+    },
+    {
+      "coefficient": 0.31980039236446295,
+      "complexity": 1,
+      "features": [
+        "time_alignment"
+      ],
+      "intercept": 0.1036610562700464,
+      "mdl_cost": 0.10829373026175794,
+      "model_id": "symreg_9817b433c5259346cd966324",
+      "mse": 0.10729373026175794
+    },
+    {
+      "coefficient": 0.26685262471746507,
+      "complexity": 2,
+      "features": [
+        "structure_alignment",
+        "support_score"
+      ],
+      "intercept": -0.0922951992347219,
+      "mdl_cost": 0.10871906264902743,
+      "model_id": "symreg_ea7aedebf216ac2b330a2f4e",
+      "mse": 0.10671906264902743
+    },
+    {
+      "coefficient": 0.41231527093596054,
+      "complexity": 1,
+      "features": [
+        "support_score"
+      ],
+      "intercept": -0.08246305418719213,
+      "mdl_cost": 0.10976910919540228,
+      "model_id": "symreg_3d0cad9c27465743e1e8359d",
+      "mse": 0.10876910919540228
+    },
+    {
+      "coefficient": 0.20042680934487828,
+      "complexity": 1,
+      "features": [
+        "structure_alignment"
+      ],
+      "intercept": 0.16301931873876815,
+      "mdl_cost": 0.11343143199598037,
+      "model_id": "symreg_ff1ccc461a7d991ac26f3100",
+      "mse": 0.11243143199598037
+    }
+  ],
+  "registry_hash": "725df4979cab4fae0511885e8b3918f43772d8bc4e16d7a4b52a387231338669"
+}

@@ -1,0 +1,14 @@
+{
+  "allowed_fields": [
+    "treatment_scores",
+    "support_score",
+    "uncertainty_score"
+  ],
+  "claim_ceiling": "synthetic_associational_feature",
+  "exact_version": "1.0.0",
+  "frozen": true,
+  "gradient_updates_allowed": false,
+  "runtime_queries_allowed": false,
+  "source_phase": "SAED_V4_18",
+  "synthetic_only": true
+}

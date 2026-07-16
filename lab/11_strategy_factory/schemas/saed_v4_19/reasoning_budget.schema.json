@@ -1,0 +1,51 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/reasoning_budget.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "max_counterexamples": {
+      "type": "integer"
+    },
+    "max_facts": {
+      "type": "integer"
+    },
+    "max_failures": {
+      "type": "integer"
+    },
+    "max_hidden_evaluation_queries": {
+      "type": "integer"
+    },
+    "max_inferences": {
+      "type": "integer"
+    },
+    "max_neural_queries": {
+      "type": "integer"
+    },
+    "max_rules": {
+      "type": "integer"
+    },
+    "max_symbolic_terms": {
+      "type": "integer"
+    },
+    "max_synthesis_candidates": {
+      "type": "integer"
+    },
+    "protected_evidence_exposure_limit": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "max_counterexamples",
+    "max_facts",
+    "max_failures",
+    "max_hidden_evaluation_queries",
+    "max_inferences",
+    "max_neural_queries",
+    "max_rules",
+    "max_symbolic_terms",
+    "max_synthesis_candidates",
+    "protected_evidence_exposure_limit"
+  ],
+  "title": "Reasoning Budget",
+  "type": "object"
+}

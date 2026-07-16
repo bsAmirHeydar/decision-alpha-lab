@@ -1,0 +1,70 @@
+{
+  "evidence_scope": "local_deterministic_synthetic_reference",
+  "external_evidence": {
+    "independent_external_replication": "not_claimed",
+    "live": "not_claimed",
+    "metaeditor_compile": "pending_local_windows",
+    "micro_live": "not_claimed",
+    "prospective_paper": "not_claimed",
+    "protected_final_evaluation": "not_claimed",
+    "real_data_setup_validity": "not_claimed",
+    "real_mechanism": "not_claimed",
+    "real_policy_value": "not_claimed",
+    "runtime_differential_parity": "not_claimed",
+    "shadow": "not_claimed"
+  },
+  "passed": true,
+  "phase": "SAED_V4_19",
+  "results": [
+    {
+      "command": "python tools/strategy_factory/saed_v4_19/validate_saed_v4_19_contracts.py",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "SAED V4-19 closed contract validation passed: 37 pairs\n"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_19/check_saed_v4_19_boundaries.py",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "SAED V4-19 authority and dynamic-code boundary passed\n"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_19/validate_saed_v4_19_mql5_static.py",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "SAED V4-19 MQL5 static validation passed: 18 files; MetaEditor compile remains external\n"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_19/validate_saed_v4_19_obsidian.py",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "SAED V4-19 Obsidian validation passed: 110 notes\n"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_19/run_saed_v4_19_tests.py",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "........................................................................ [ 60%]\n...............................................                          [100%]\n119 passed in 0.56s\n"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_19/reproduce_saed_v4_19_golden.py",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "SAED V4-19 golden deterministic replay passed\n"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_19/validate_saed_v4_19_status.py",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "SAED V4-19 phase status validation passed\n"
+    }
+  ],
+  "version": "1.0.0"
+}

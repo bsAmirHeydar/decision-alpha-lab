@@ -1,0 +1,98 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/golden_proof_envelope.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "decision_time": {
+      "type": "integer"
+    },
+    "directive": {
+      "type": "string"
+    },
+    "execution_authority": {
+      "type": "boolean"
+    },
+    "fact_evidence": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "fact_hash": {
+            "type": "string"
+          },
+          "fact_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "fact_hash",
+          "fact_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "fired_rule_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "ontology_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "projection_hash": {
+      "type": "string"
+    },
+    "proof_hash": {
+      "type": "string"
+    },
+    "proof_id": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "rule_library_hash": {
+      "type": "string"
+    },
+    "runtime_executable": {
+      "type": "boolean"
+    },
+    "subject_id": {
+      "type": "string"
+    },
+    "treatment_id": {
+      "type": "string"
+    },
+    "upstream_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "decision_time",
+    "directive",
+    "execution_authority",
+    "fact_evidence",
+    "fired_rule_ids",
+    "ontology_hash",
+    "phase",
+    "projection_hash",
+    "proof_hash",
+    "proof_id",
+    "reason",
+    "research_only",
+    "rule_library_hash",
+    "runtime_executable",
+    "subject_id",
+    "treatment_id",
+    "upstream_hash"
+  ],
+  "title": "Golden Proof Envelope",
+  "type": "object"
+}

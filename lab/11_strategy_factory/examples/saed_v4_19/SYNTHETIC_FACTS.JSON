@@ -1,0 +1,105 @@
+{
+  "decision_time": 100,
+  "facts": [
+    {
+      "concept_id": "context_active",
+      "event_time": 90,
+      "fact_id": "f_000_context_active",
+      "known_time": 90,
+      "polarity": 1,
+      "source_hash": "b5ec9045be8b83add489e0754fd0dba96f70d19f915c61af3d3c33f334124f3c",
+      "subject_id": "occurrence_synthetic_0001",
+      "synthetic_only": true,
+      "value": true
+    },
+    {
+      "concept_id": "support_valid",
+      "event_time": 91,
+      "fact_id": "f_001_support_valid",
+      "known_time": 91,
+      "polarity": 1,
+      "source_hash": "b78e99002d6892e782ece8840fc5fd2bd0d74d24369b78185a0b9a144d9a8a3d",
+      "subject_id": "occurrence_synthetic_0001",
+      "synthetic_only": true,
+      "value": true
+    },
+    {
+      "concept_id": "setup_stage",
+      "event_time": 92,
+      "fact_id": "f_002_setup_stage",
+      "known_time": 92,
+      "polarity": 1,
+      "source_hash": "6ba936eb2f1fa6f8aa1a6e8000a3654a2c2fe3eba25f60f039bb133c02500827",
+      "subject_id": "occurrence_synthetic_0001",
+      "synthetic_only": true,
+      "value": "triggered"
+    },
+    {
+      "concept_id": "structure_alignment",
+      "event_time": 93,
+      "fact_id": "f_003_structure_alignment",
+      "known_time": 93,
+      "polarity": 1,
+      "source_hash": "bb46bb84395ab738d5d3a7cd514b7949946bbf31da3cf53027b9d2d6462f4780",
+      "subject_id": "occurrence_synthetic_0001",
+      "synthetic_only": true,
+      "value": 0.78
+    },
+    {
+      "concept_id": "time_alignment",
+      "event_time": 94,
+      "fact_id": "f_004_time_alignment",
+      "known_time": 94,
+      "polarity": 1,
+      "source_hash": "4dd4d0922399e975d7b39c8dc9c26c457b28d498ad5fb8d373e96d407b33c761",
+      "subject_id": "occurrence_synthetic_0001",
+      "synthetic_only": true,
+      "value": 0.72
+    },
+    {
+      "concept_id": "liquidity_clear",
+      "event_time": 95,
+      "fact_id": "f_005_liquidity_clear",
+      "known_time": 95,
+      "polarity": 1,
+      "source_hash": "e61919855bc2fb59a0b43ddda2452e4d9cdbe2f1bdd99c3a80c20e29ee959827",
+      "subject_id": "occurrence_synthetic_0001",
+      "synthetic_only": true,
+      "value": true
+    },
+    {
+      "concept_id": "execution_feasible",
+      "event_time": 96,
+      "fact_id": "f_006_execution_feasible",
+      "known_time": 96,
+      "polarity": 1,
+      "source_hash": "f2dd8feb8317f57763c56fcfd131db180a51a3a97297fb6b2fcc452a7d910484",
+      "subject_id": "occurrence_synthetic_0001",
+      "synthetic_only": true,
+      "value": true
+    },
+    {
+      "concept_id": "manual_doctrine_pass",
+      "event_time": 97,
+      "fact_id": "f_007_manual_doctrine_pass",
+      "known_time": 97,
+      "polarity": 1,
+      "source_hash": "b1ec96cf122d3d5f21f9e9d3ce8860705a68cf0d064158c15368853785c90ef6",
+      "subject_id": "occurrence_synthetic_0001",
+      "synthetic_only": true,
+      "value": false
+    },
+    {
+      "concept_id": "neural_confidence",
+      "event_time": 98,
+      "fact_id": "f_008_neural_confidence",
+      "known_time": 98,
+      "polarity": 1,
+      "source_hash": "7994ecd2c8462a1add858f29d14f2bf8dfa4e20b0df1505ed3c839e62c7794e2",
+      "subject_id": "occurrence_synthetic_0001",
+      "synthetic_only": true,
+      "value": 0.76
+    }
+  ],
+  "synthetic_only": true
+}

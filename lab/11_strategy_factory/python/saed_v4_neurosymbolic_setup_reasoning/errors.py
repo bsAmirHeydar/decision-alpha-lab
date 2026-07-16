@@ -1,0 +1,12 @@
+class SAEDV419Error(Exception): pass
+class ContractError(SAEDV419Error): pass
+class IntegrityError(SAEDV419Error): pass
+class AuthorityError(SAEDV419Error): pass
+class OntologyError(SAEDV419Error): pass
+class FactError(SAEDV419Error): pass
+class RuleError(SAEDV419Error): pass
+class TemporalLogicError(SAEDV419Error): pass
+class ContradictionError(SAEDV419Error): pass
+class BudgetError(SAEDV419Error): pass
+class ProjectionError(SAEDV419Error): pass
+class ProofError(SAEDV419Error): pass

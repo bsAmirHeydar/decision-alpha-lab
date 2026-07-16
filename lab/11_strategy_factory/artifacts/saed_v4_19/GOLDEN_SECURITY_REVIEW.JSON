@@ -1,0 +1,11 @@
+{
+  "critical_findings": 0,
+  "directive": "continue_reference",
+  "dynamic_code_allowed": false,
+  "future_fact_access_allowed": false,
+  "hidden_evaluation_queries": 0,
+  "manual_doctrine_precedence": true,
+  "ontology_runtime_mutation_allowed": false,
+  "proof_required": true,
+  "protected_evidence_exposure": 0
+}

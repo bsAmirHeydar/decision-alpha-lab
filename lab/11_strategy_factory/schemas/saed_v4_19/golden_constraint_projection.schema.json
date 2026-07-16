@@ -1,0 +1,31 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/golden_constraint_projection.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "directive": {
+      "type": "string"
+    },
+    "projection_hash": {
+      "type": "string"
+    },
+    "proof_required": {
+      "type": "boolean"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "treatment_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "directive",
+    "projection_hash",
+    "proof_required",
+    "reason",
+    "treatment_id"
+  ],
+  "title": "Golden Constraint Projection",
+  "type": "object"
+}

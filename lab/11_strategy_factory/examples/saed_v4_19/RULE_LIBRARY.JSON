@@ -1,0 +1,113 @@
+{
+  "exact_version": "1.0.0",
+  "frozen": true,
+  "rules": [
+    {
+      "conclusion_concept": "setup_coherent",
+      "conclusion_value": true,
+      "conditions": [
+        "p_context_active",
+        "p_support_valid",
+        "p_structure_high",
+        "p_time_high"
+      ],
+      "confidence": 0.98,
+      "effect": "derive",
+      "enabled": true,
+      "manual_doctrine": true,
+      "priority": 100,
+      "rule_id": "r_derive_coherence",
+      "temporal_clauses": [
+        "tc_context_seen"
+      ],
+      "treatment_id": ""
+    },
+    {
+      "conclusion_concept": "hard_block",
+      "conclusion_value": true,
+      "conditions": [
+        "p_context_active"
+      ],
+      "confidence": 1.0,
+      "effect": "block",
+      "enabled": false,
+      "manual_doctrine": true,
+      "priority": 1000,
+      "rule_id": "r_block_no_execution",
+      "temporal_clauses": [],
+      "treatment_id": "skip"
+    },
+    {
+      "conclusion_concept": "candidate_treatment",
+      "conclusion_value": "manual_baseline",
+      "conditions": [
+        "p_manual_pass",
+        "p_support_valid"
+      ],
+      "confidence": 0.93,
+      "effect": "recommend",
+      "enabled": false,
+      "manual_doctrine": true,
+      "priority": 900,
+      "rule_id": "r_manual_baseline",
+      "temporal_clauses": [
+        "tc_context_seen"
+      ],
+      "treatment_id": "manual_baseline"
+    },
+    {
+      "conclusion_concept": "candidate_treatment",
+      "conclusion_value": "treatment_alpha",
+      "conditions": [
+        "p_coherent",
+        "p_liquidity_clear",
+        "p_execution_feasible"
+      ],
+      "confidence": 0.88,
+      "effect": "recommend",
+      "enabled": true,
+      "manual_doctrine": false,
+      "priority": 700,
+      "rule_id": "r_recommend_alpha",
+      "temporal_clauses": [
+        "tc_support_persistent"
+      ],
+      "treatment_id": "treatment_alpha"
+    },
+    {
+      "conclusion_concept": "candidate_treatment",
+      "conclusion_value": "treatment_beta",
+      "conditions": [
+        "p_coherent",
+        "p_stage_triggered",
+        "p_execution_feasible"
+      ],
+      "confidence": 0.82,
+      "effect": "recommend",
+      "enabled": true,
+      "manual_doctrine": false,
+      "priority": 650,
+      "rule_id": "r_recommend_beta",
+      "temporal_clauses": [
+        "tc_armed_precedes_trigger"
+      ],
+      "treatment_id": "treatment_beta"
+    },
+    {
+      "conclusion_concept": "candidate_treatment",
+      "conclusion_value": "skip",
+      "conditions": [
+        "p_context_active"
+      ],
+      "confidence": 1.0,
+      "effect": "abstain",
+      "enabled": false,
+      "manual_doctrine": true,
+      "priority": 1100,
+      "rule_id": "r_abstain_outside_support",
+      "temporal_clauses": [],
+      "treatment_id": "skip"
+    }
+  ],
+  "synthetic_only": true
+}

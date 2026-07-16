@@ -1,0 +1,4 @@
+#ifndef SAED_V4_19_HANDOFF_MQH
+#define SAED_V4_19_HANDOFF_MQH
+#define SAED_V4_19_NEXT_PHASE "SAED_V4_20"
+#endif

@@ -1,0 +1,43 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/golden_replay_bundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "contracts_hash": {
+      "type": "string"
+    },
+    "events_hash": {
+      "type": "string"
+    },
+    "facts_hash": {
+      "type": "string"
+    },
+    "reference_projection_hash": {
+      "type": "string"
+    },
+    "reference_proof_hash": {
+      "type": "string"
+    },
+    "replay_hash": {
+      "type": "string"
+    },
+    "rules_hash": {
+      "type": "string"
+    },
+    "soft_inputs_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "contracts_hash",
+    "events_hash",
+    "facts_hash",
+    "reference_projection_hash",
+    "reference_proof_hash",
+    "replay_hash",
+    "rules_hash",
+    "soft_inputs_hash"
+  ],
+  "title": "Golden Replay Bundle",
+  "type": "object"
+}

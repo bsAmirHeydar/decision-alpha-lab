@@ -1,0 +1,50 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/decision_envelope_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "approved_treatments": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "canonical_baseline": {
+      "type": "string"
+    },
+    "default_fallback": {
+      "type": "string"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "manual_fallback": {
+      "type": "string"
+    },
+    "maximum_disagreement": {
+      "type": "number"
+    },
+    "minimum_symbolic_confidence": {
+      "type": "number"
+    },
+    "proof_required": {
+      "type": "boolean"
+    },
+    "runtime_executable": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "approved_treatments",
+    "canonical_baseline",
+    "default_fallback",
+    "exact_version",
+    "manual_fallback",
+    "maximum_disagreement",
+    "minimum_symbolic_confidence",
+    "proof_required",
+    "runtime_executable"
+  ],
+  "title": "Decision Envelope Contract",
+  "type": "object"
+}

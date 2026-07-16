@@ -1,0 +1,29 @@
+{
+  "clauses": [
+    {
+      "clause_id": "tc_context_seen",
+      "minimum_count": 1,
+      "operator": "eventually_within",
+      "predicate_id": "p_context_active",
+      "secondary_predicate_id": "",
+      "window": 8
+    },
+    {
+      "clause_id": "tc_armed_precedes_trigger",
+      "minimum_count": 1,
+      "operator": "precedes",
+      "predicate_id": "p_stage_armed",
+      "secondary_predicate_id": "p_stage_triggered",
+      "window": 16
+    },
+    {
+      "clause_id": "tc_support_persistent",
+      "minimum_count": 2,
+      "operator": "count_within",
+      "predicate_id": "p_support_valid",
+      "secondary_predicate_id": "",
+      "window": 8
+    }
+  ],
+  "exact_version": "1.0.0"
+}

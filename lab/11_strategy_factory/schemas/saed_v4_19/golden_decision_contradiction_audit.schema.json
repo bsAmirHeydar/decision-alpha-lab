@@ -1,0 +1,28 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/golden_decision_contradiction_audit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "count": {
+      "type": "integer"
+    },
+    "decision_contradictions": {
+      "items": {},
+      "type": "array"
+    },
+    "directive": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "count",
+    "decision_contradictions",
+    "directive",
+    "report_hash"
+  ],
+  "title": "Golden Decision Contradiction Audit",
+  "type": "object"
+}

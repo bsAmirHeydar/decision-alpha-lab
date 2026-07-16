@@ -1,0 +1,20 @@
+{
+  "evidence_scope": "local_deterministic_synthetic_reference",
+  "known_limitations": [
+    "synthetic evidence",
+    "no real setup-validity claim",
+    "no protected evaluation",
+    "no independent external replication",
+    "no runtime parity",
+    "no MetaEditor compile evidence"
+  ],
+  "production_authorization": false,
+  "residual_risks": [
+    "ontology misspecification",
+    "predicate brittleness",
+    "rule incompleteness",
+    "counterexample sparsity",
+    "neural-symbolic calibration mismatch",
+    "transport failure"
+  ]
+}

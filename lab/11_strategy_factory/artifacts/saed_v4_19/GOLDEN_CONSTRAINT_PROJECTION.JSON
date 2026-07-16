@@ -1,0 +1,7 @@
+{
+  "directive": "research_recommendation",
+  "projection_hash": "fa56b10d6fcea83de5a71df4ba3580673bd21a9971c090992c372559a321c04d",
+  "proof_required": true,
+  "reason": "bounded_symbolic_projection",
+  "treatment_id": "treatment_alpha"
+}

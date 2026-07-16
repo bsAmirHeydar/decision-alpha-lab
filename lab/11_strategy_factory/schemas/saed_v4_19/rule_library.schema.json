@@ -1,0 +1,259 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/rule_library.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "exact_version": {
+      "type": "string"
+    },
+    "frozen": {
+      "type": "boolean"
+    },
+    "rules": {
+      "items": {
+        "anyOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "conclusion_concept": {
+                "type": "string"
+              },
+              "conclusion_value": {
+                "type": "boolean"
+              },
+              "conditions": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "confidence": {
+                "type": "number"
+              },
+              "effect": {
+                "type": "string"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "manual_doctrine": {
+                "type": "boolean"
+              },
+              "priority": {
+                "type": "integer"
+              },
+              "rule_id": {
+                "type": "string"
+              },
+              "temporal_clauses": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "treatment_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "conclusion_concept",
+              "conclusion_value",
+              "conditions",
+              "confidence",
+              "effect",
+              "enabled",
+              "manual_doctrine",
+              "priority",
+              "rule_id",
+              "temporal_clauses",
+              "treatment_id"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "conclusion_concept": {
+                "type": "string"
+              },
+              "conclusion_value": {
+                "type": "boolean"
+              },
+              "conditions": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "confidence": {
+                "type": "number"
+              },
+              "effect": {
+                "type": "string"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "manual_doctrine": {
+                "type": "boolean"
+              },
+              "priority": {
+                "type": "integer"
+              },
+              "rule_id": {
+                "type": "string"
+              },
+              "temporal_clauses": {
+                "items": {},
+                "type": "array"
+              },
+              "treatment_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "conclusion_concept",
+              "conclusion_value",
+              "conditions",
+              "confidence",
+              "effect",
+              "enabled",
+              "manual_doctrine",
+              "priority",
+              "rule_id",
+              "temporal_clauses",
+              "treatment_id"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "conclusion_concept": {
+                "type": "string"
+              },
+              "conclusion_value": {
+                "type": "string"
+              },
+              "conditions": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "confidence": {
+                "type": "number"
+              },
+              "effect": {
+                "type": "string"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "manual_doctrine": {
+                "type": "boolean"
+              },
+              "priority": {
+                "type": "integer"
+              },
+              "rule_id": {
+                "type": "string"
+              },
+              "temporal_clauses": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "treatment_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "conclusion_concept",
+              "conclusion_value",
+              "conditions",
+              "confidence",
+              "effect",
+              "enabled",
+              "manual_doctrine",
+              "priority",
+              "rule_id",
+              "temporal_clauses",
+              "treatment_id"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "conclusion_concept": {
+                "type": "string"
+              },
+              "conclusion_value": {
+                "type": "string"
+              },
+              "conditions": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "confidence": {
+                "type": "number"
+              },
+              "effect": {
+                "type": "string"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "manual_doctrine": {
+                "type": "boolean"
+              },
+              "priority": {
+                "type": "integer"
+              },
+              "rule_id": {
+                "type": "string"
+              },
+              "temporal_clauses": {
+                "items": {},
+                "type": "array"
+              },
+              "treatment_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "conclusion_concept",
+              "conclusion_value",
+              "conditions",
+              "confidence",
+              "effect",
+              "enabled",
+              "manual_doctrine",
+              "priority",
+              "rule_id",
+              "temporal_clauses",
+              "treatment_id"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "type": "array"
+    },
+    "synthetic_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "exact_version",
+    "frozen",
+    "rules",
+    "synthetic_only"
+  ],
+  "title": "Rule Library",
+  "type": "object"
+}

@@ -1,0 +1,138 @@
+{
+  "closed_world": true,
+  "concepts": [
+    {
+      "allowed_values": [],
+      "concept_id": "context_active",
+      "description": "context lifecycle active",
+      "known_time_required": true,
+      "required": true,
+      "value_type": "boolean"
+    },
+    {
+      "allowed_values": [],
+      "concept_id": "support_valid",
+      "description": "causal support region valid",
+      "known_time_required": true,
+      "required": true,
+      "value_type": "boolean"
+    },
+    {
+      "allowed_values": [
+        "forming",
+        "armed",
+        "triggered",
+        "invalidated"
+      ],
+      "concept_id": "setup_stage",
+      "description": "canonical setup stage",
+      "known_time_required": true,
+      "required": true,
+      "value_type": "category"
+    },
+    {
+      "allowed_values": [],
+      "concept_id": "structure_alignment",
+      "description": "synthetic structure alignment score",
+      "known_time_required": true,
+      "required": true,
+      "value_type": "number"
+    },
+    {
+      "allowed_values": [],
+      "concept_id": "time_alignment",
+      "description": "synthetic timing alignment score",
+      "known_time_required": true,
+      "required": true,
+      "value_type": "number"
+    },
+    {
+      "allowed_values": [],
+      "concept_id": "liquidity_clear",
+      "description": "synthetic liquidity constraint clear",
+      "known_time_required": true,
+      "required": true,
+      "value_type": "boolean"
+    },
+    {
+      "allowed_values": [],
+      "concept_id": "execution_feasible",
+      "description": "synthetic execution feasibility",
+      "known_time_required": true,
+      "required": true,
+      "value_type": "boolean"
+    },
+    {
+      "allowed_values": [
+        "skip",
+        "manual_baseline",
+        "treatment_alpha",
+        "treatment_beta"
+      ],
+      "concept_id": "candidate_treatment",
+      "description": "synthetic candidate treatment",
+      "known_time_required": true,
+      "required": false,
+      "value_type": "category"
+    },
+    {
+      "allowed_values": [],
+      "concept_id": "manual_doctrine_pass",
+      "description": "manual doctrine acceptance",
+      "known_time_required": true,
+      "required": true,
+      "value_type": "boolean"
+    },
+    {
+      "allowed_values": [],
+      "concept_id": "setup_coherent",
+      "description": "derived setup coherence",
+      "known_time_required": true,
+      "required": false,
+      "value_type": "boolean"
+    },
+    {
+      "allowed_values": [],
+      "concept_id": "hard_block",
+      "description": "derived hard constraint block",
+      "known_time_required": true,
+      "required": false,
+      "value_type": "boolean"
+    },
+    {
+      "allowed_values": [],
+      "concept_id": "neural_confidence",
+      "description": "synthetic frozen neural score",
+      "known_time_required": true,
+      "required": false,
+      "value_type": "number"
+    }
+  ],
+  "exact_version": "1.0.0",
+  "finite": true,
+  "mutable_at_runtime": false,
+  "relations": [
+    {
+      "cardinality": "one_to_one",
+      "relation_id": "context_has_stage",
+      "source_concept": "context_active",
+      "target_concept": "setup_stage",
+      "temporal": true
+    },
+    {
+      "cardinality": "many_to_one",
+      "relation_id": "setup_requires_support",
+      "source_concept": "setup_stage",
+      "target_concept": "support_valid",
+      "temporal": true
+    },
+    {
+      "cardinality": "many_to_one",
+      "relation_id": "setup_recommends_treatment",
+      "source_concept": "setup_coherent",
+      "target_concept": "candidate_treatment",
+      "temporal": true
+    }
+  ],
+  "synthetic_only": true
+}

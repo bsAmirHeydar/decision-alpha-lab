@@ -1,0 +1,46 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/neural_evidence_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_fields": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "frozen": {
+      "type": "boolean"
+    },
+    "gradient_updates_allowed": {
+      "type": "boolean"
+    },
+    "runtime_queries_allowed": {
+      "type": "boolean"
+    },
+    "source_phase": {
+      "type": "string"
+    },
+    "synthetic_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "allowed_fields",
+    "claim_ceiling",
+    "exact_version",
+    "frozen",
+    "gradient_updates_allowed",
+    "runtime_queries_allowed",
+    "source_phase",
+    "synthetic_only"
+  ],
+  "title": "Neural Evidence Contract",
+  "type": "object"
+}

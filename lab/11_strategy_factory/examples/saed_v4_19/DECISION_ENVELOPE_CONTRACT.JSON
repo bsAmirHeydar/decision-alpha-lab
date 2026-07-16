@@ -1,0 +1,16 @@
+{
+  "approved_treatments": [
+    "skip",
+    "manual_baseline",
+    "treatment_alpha",
+    "treatment_beta"
+  ],
+  "canonical_baseline": "skip",
+  "default_fallback": "abstain",
+  "exact_version": "1.0.0",
+  "manual_fallback": "manual_baseline",
+  "maximum_disagreement": 0.35,
+  "minimum_symbolic_confidence": 0.55,
+  "proof_required": true,
+  "runtime_executable": false
+}

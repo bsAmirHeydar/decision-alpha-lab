@@ -1,0 +1,47 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/golden_security_review.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "critical_findings": {
+      "type": "integer"
+    },
+    "directive": {
+      "type": "string"
+    },
+    "dynamic_code_allowed": {
+      "type": "boolean"
+    },
+    "future_fact_access_allowed": {
+      "type": "boolean"
+    },
+    "hidden_evaluation_queries": {
+      "type": "integer"
+    },
+    "manual_doctrine_precedence": {
+      "type": "boolean"
+    },
+    "ontology_runtime_mutation_allowed": {
+      "type": "boolean"
+    },
+    "proof_required": {
+      "type": "boolean"
+    },
+    "protected_evidence_exposure": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "critical_findings",
+    "directive",
+    "dynamic_code_allowed",
+    "future_fact_access_allowed",
+    "hidden_evaluation_queries",
+    "manual_doctrine_precedence",
+    "ontology_runtime_mutation_allowed",
+    "proof_required",
+    "protected_evidence_exposure"
+  ],
+  "title": "Golden Security Review",
+  "type": "object"
+}

@@ -1,0 +1,28 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/golden_fact_contradiction_audit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "contradictions": {
+      "items": {},
+      "type": "array"
+    },
+    "count": {
+      "type": "integer"
+    },
+    "directive": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "contradictions",
+    "count",
+    "directive",
+    "report_hash"
+  ],
+  "title": "Golden Fact Contradiction Audit",
+  "type": "object"
+}

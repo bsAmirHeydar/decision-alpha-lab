@@ -1,0 +1,32 @@
+{
+  "directive": "abstain",
+  "maximum_gap": 0.92,
+  "report_hash": "aa9a1ce315d9d52200af482b5f118dc2e86531f50af061626a40b723d802b658",
+  "rows": [
+    {
+      "absolute_gap": 0.2,
+      "neural_score": 0.2,
+      "symbolic_score": 0.0,
+      "treatment_id": "manual_baseline"
+    },
+    {
+      "absolute_gap": 0.92,
+      "neural_score": 0.08,
+      "symbolic_score": 1.0,
+      "treatment_id": "skip"
+    },
+    {
+      "absolute_gap": 0.13485760000000002,
+      "neural_score": 0.79,
+      "symbolic_score": 0.6551424,
+      "treatment_id": "treatment_alpha"
+    },
+    {
+      "absolute_gap": 0.1072566399999999,
+      "neural_score": 0.51,
+      "symbolic_score": 0.6172566399999999,
+      "treatment_id": "treatment_beta"
+    }
+  ],
+  "threshold": 0.35
+}

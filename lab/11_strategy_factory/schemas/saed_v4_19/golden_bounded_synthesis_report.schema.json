@@ -1,0 +1,110 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/golden_bounded_synthesis_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_count": {
+      "type": "integer"
+    },
+    "candidates": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_id": {
+            "type": "string"
+          },
+          "complexity": {
+            "type": "integer"
+          },
+          "conditions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "fidelity": {
+            "type": "number"
+          },
+          "mdl_score": {
+            "type": "number"
+          },
+          "precision": {
+            "type": "number"
+          },
+          "recall": {
+            "type": "number"
+          },
+          "target_treatment": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "complexity",
+          "conditions",
+          "fidelity",
+          "mdl_score",
+          "precision",
+          "recall",
+          "target_treatment"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "champion": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "type": "string"
+        },
+        "complexity": {
+          "type": "integer"
+        },
+        "conditions": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "fidelity": {
+          "type": "number"
+        },
+        "mdl_score": {
+          "type": "number"
+        },
+        "precision": {
+          "type": "number"
+        },
+        "recall": {
+          "type": "number"
+        },
+        "target_treatment": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidate_id",
+        "complexity",
+        "conditions",
+        "fidelity",
+        "mdl_score",
+        "precision",
+        "recall",
+        "target_treatment"
+      ],
+      "type": "object"
+    },
+    "search_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "candidate_count",
+    "candidates",
+    "champion",
+    "search_hash"
+  ],
+  "title": "Golden Bounded Synthesis Report",
+  "type": "object"
+}

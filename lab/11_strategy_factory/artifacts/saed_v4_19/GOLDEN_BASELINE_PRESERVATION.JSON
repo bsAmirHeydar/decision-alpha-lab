@@ -1,0 +1,17 @@
+{
+  "all_preserved": true,
+  "baselines": [
+    {
+      "baseline_id": "skip_all",
+      "preserved": true,
+      "treatment_id": "skip"
+    },
+    {
+      "baseline_id": "manual_doctrine",
+      "preserved": true,
+      "treatment_id": "manual_baseline"
+    }
+  ],
+  "report_hash": "9a46176e37c27fc627aca3852a2a03572495a46a1f84315f699f31d20020e440",
+  "runtime_replaced": false
+}

@@ -1,0 +1,47 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/golden_baseline_preservation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_preserved": {
+      "type": "boolean"
+    },
+    "baselines": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "baseline_id": {
+            "type": "string"
+          },
+          "preserved": {
+            "type": "boolean"
+          },
+          "treatment_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "baseline_id",
+          "preserved",
+          "treatment_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "runtime_replaced": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "all_preserved",
+    "baselines",
+    "report_hash",
+    "runtime_replaced"
+  ],
+  "title": "Golden Baseline Preservation",
+  "type": "object"
+}

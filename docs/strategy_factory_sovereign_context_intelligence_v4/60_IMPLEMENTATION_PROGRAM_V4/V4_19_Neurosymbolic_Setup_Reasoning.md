@@ -1,58 +1,41 @@
 ---
 title: V4-19 Neurosymbolic Setup Reasoning
-status: canonical
+status: implemented-reference
 version: 4.0.0
 created: '2026-07-13'
-updated: '2026-07-13'
-capability_tier: core-production
-tags:
-  - saed-v4
-  - implementation
-  - roadmap
+updated: '2026-07-16'
+capability_tier: research-reference
+tags: [saed-v4, implementation, neurosymbolic, proof-carrying]
 ---
-
 # Phase V4-19: Neurosymbolic Setup Reasoning
 
 ## Mission
 
-Implement this phase as an additive, closed-contract capability that preserves UCEE authority and can be independently validated.
+Implement a deterministic, closed-contract neurosymbolic reasoning boundary that combines canonical Context doctrine, typed known-time facts, bounded temporal logic, explicit rules, frozen synthetic neural evidence, hard treatment constraints and proof-carrying research recommendations without acquiring treatment-selection, promotion, runtime or execution authority.
 
-## Entry gates
+## Implemented slices
 
-- Prior phase artifacts are immutable and hash verified.
-- Data roles, support, treatment universe and authority are frozen.
-- Golden and negative fixtures exist.
-- Compute, exposure and review budgets are approved.
+1. Immutable V4-18 entry gate and authority firewall.
+2. Closed-world executable ontology and typed fact model.
+3. Closed predicate registry and future-known fact rejection.
+4. Bounded temporal logic with deterministic ties.
+5. Non-recursive rule grammar and manual-doctrine precedence.
+6. Bounded forward chaining, contradiction audits and fail-closed directives.
+7. Differentiable-logic challenger and approved-treatment projection.
+8. Bounded program synthesis, counterexample search and symbolic regression.
+9. Neural-symbolic disagreement controls and selective abstention.
+10. Proof-carrying decision envelope, integrity, provenance and replay.
+11. Baseline preservation, complete exposure accounting and threat model.
+12. Closed schemas, tests, MQL5 static mirror, Obsidian dossier and V4-20 handoff.
 
-## Engineering slices
+## Acceptance evidence
 
-1. Contract and schema freeze.
-2. Deterministic reference implementation.
-3. Golden, negative and mutation tests.
-4. Distributed or advanced challenger implementation.
-5. Model-risk and security review.
-6. Independent reproduction.
-7. Evidence bundle and handoff.
+The local deterministic synthetic reference suite validates contracts, known-time behavior, temporal constraints, rule safety, manual precedence, contradictions, hard projection, synthesis bounds, counterexamples, symbolic regression, disagreement abstention, proof hashes, baseline preservation, zero protected evidence exposure and deterministic replay. MetaEditor compile, runtime parity, protected evaluation, independent external replication, prospective paper, shadow, micro-live and live evidence remain external and unclaimed.
 
-## Acceptance gates
+## Claim ceiling
 
-- Zero unknown fields in closed contracts.
-- No future-suffix sensitivity.
-- Deterministic identity and replay.
-- Complete trial/exposure accounting.
-- Baseline preserved.
-- Fail-closed fallback verified.
-- UCEE compatibility and no central-engine mutation.
-- Actual external/MetaEditor evidence distinguished from static evidence.
+This phase establishes implementation behavior only. It does not establish real setup validity, real causal mechanisms, economic uplift, real policy value, production treatment selection, promotion authorization, runtime activation, production authorization or live trading.
 
-## Deliverables
+## Handoff
 
-- Source modules and tests.
-- Schemas and examples.
-- Obsidian implementation documentation.
-- QA report, inventory, file index and hash ledger.
-- Handoff to the next phase.
-
-## Non-goals
-
-This architecture phase does not claim real alpha, prospective success, runtime parity or production authorization unless actual evidence is attached.
+Only the immutable, research-only proof registry, claim tier, integrity receipt and bounded evidence references may pass to [[V4_20_Decision_Focused_Treatment_Selection]].

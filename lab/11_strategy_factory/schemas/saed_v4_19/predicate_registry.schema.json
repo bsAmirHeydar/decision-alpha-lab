@@ -1,0 +1,146 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/predicate_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "exact_version": {
+      "type": "string"
+    },
+    "future_fact_policy": {
+      "type": "string"
+    },
+    "missing_value_policy": {
+      "type": "string"
+    },
+    "predicates": {
+      "items": {
+        "anyOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "concept_id": {
+                "type": "string"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "negated": {
+                "type": "boolean"
+              },
+              "operator": {
+                "type": "string"
+              },
+              "predicate_id": {
+                "type": "string"
+              },
+              "threshold": {
+                "type": "boolean"
+              },
+              "values": {
+                "items": {},
+                "type": "array"
+              }
+            },
+            "required": [
+              "concept_id",
+              "enabled",
+              "negated",
+              "operator",
+              "predicate_id",
+              "threshold",
+              "values"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "concept_id": {
+                "type": "string"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "negated": {
+                "type": "boolean"
+              },
+              "operator": {
+                "type": "string"
+              },
+              "predicate_id": {
+                "type": "string"
+              },
+              "threshold": {
+                "type": "string"
+              },
+              "values": {
+                "items": {},
+                "type": "array"
+              }
+            },
+            "required": [
+              "concept_id",
+              "enabled",
+              "negated",
+              "operator",
+              "predicate_id",
+              "threshold",
+              "values"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "concept_id": {
+                "type": "string"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "negated": {
+                "type": "boolean"
+              },
+              "operator": {
+                "type": "string"
+              },
+              "predicate_id": {
+                "type": "string"
+              },
+              "threshold": {
+                "type": "number"
+              },
+              "values": {
+                "items": {},
+                "type": "array"
+              }
+            },
+            "required": [
+              "concept_id",
+              "enabled",
+              "negated",
+              "operator",
+              "predicate_id",
+              "threshold",
+              "values"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "type": "array"
+    },
+    "unknown_predicate_policy": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "exact_version",
+    "future_fact_policy",
+    "missing_value_policy",
+    "predicates",
+    "unknown_predicate_policy"
+  ],
+  "title": "Predicate Registry",
+  "type": "object"
+}

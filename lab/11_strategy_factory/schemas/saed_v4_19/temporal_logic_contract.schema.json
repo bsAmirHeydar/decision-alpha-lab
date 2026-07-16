@@ -1,0 +1,46 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/temporal_logic_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "deterministic_ties": {
+      "type": "boolean"
+    },
+    "event_time_field": {
+      "type": "string"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "future_suffix_forbidden": {
+      "type": "boolean"
+    },
+    "known_time_field": {
+      "type": "string"
+    },
+    "max_history": {
+      "type": "integer"
+    },
+    "max_window": {
+      "type": "integer"
+    },
+    "operators": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "deterministic_ties",
+    "event_time_field",
+    "exact_version",
+    "future_suffix_forbidden",
+    "known_time_field",
+    "max_history",
+    "max_window",
+    "operators"
+  ],
+  "title": "Temporal Logic Contract",
+  "type": "object"
+}

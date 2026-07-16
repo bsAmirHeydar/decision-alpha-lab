@@ -1,0 +1,19 @@
+{
+  "allowed_effects": [
+    "derive",
+    "block",
+    "require",
+    "recommend",
+    "abstain",
+    "quarantine"
+  ],
+  "dynamic_code_allowed": false,
+  "exact_version": "1.0.0",
+  "manual_precedence": true,
+  "max_conditions_per_rule": 8,
+  "max_derivation_depth": 4,
+  "max_iterations": 6,
+  "max_rules": 64,
+  "max_temporal_clauses": 4,
+  "recursion_allowed": false
+}

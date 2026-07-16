@@ -1,0 +1,63 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/soft_inputs.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "p_coherent": {
+      "type": "number"
+    },
+    "p_context_active": {
+      "type": "number"
+    },
+    "p_execution_feasible": {
+      "type": "number"
+    },
+    "p_liquidity_clear": {
+      "type": "number"
+    },
+    "p_manual_pass": {
+      "type": "number"
+    },
+    "p_stage_armed": {
+      "type": "number"
+    },
+    "p_stage_triggered": {
+      "type": "number"
+    },
+    "p_structure_high": {
+      "type": "number"
+    },
+    "p_support_valid": {
+      "type": "number"
+    },
+    "p_time_high": {
+      "type": "number"
+    },
+    "tc_armed_precedes_trigger": {
+      "type": "number"
+    },
+    "tc_context_seen": {
+      "type": "number"
+    },
+    "tc_support_persistent": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "p_coherent",
+    "p_context_active",
+    "p_execution_feasible",
+    "p_liquidity_clear",
+    "p_manual_pass",
+    "p_stage_armed",
+    "p_stage_triggered",
+    "p_structure_high",
+    "p_support_valid",
+    "p_time_high",
+    "tc_armed_precedes_trigger",
+    "tc_context_seen",
+    "tc_support_persistent"
+  ],
+  "title": "Soft Inputs",
+  "type": "object"
+}

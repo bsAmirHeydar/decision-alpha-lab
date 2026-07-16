@@ -1,0 +1,54 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/rule_grammar.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_effects": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "dynamic_code_allowed": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "manual_precedence": {
+      "type": "boolean"
+    },
+    "max_conditions_per_rule": {
+      "type": "integer"
+    },
+    "max_derivation_depth": {
+      "type": "integer"
+    },
+    "max_iterations": {
+      "type": "integer"
+    },
+    "max_rules": {
+      "type": "integer"
+    },
+    "max_temporal_clauses": {
+      "type": "integer"
+    },
+    "recursion_allowed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "allowed_effects",
+    "dynamic_code_allowed",
+    "exact_version",
+    "manual_precedence",
+    "max_conditions_per_rule",
+    "max_derivation_depth",
+    "max_iterations",
+    "max_rules",
+    "max_temporal_clauses",
+    "recursion_allowed"
+  ],
+  "title": "Rule Grammar",
+  "type": "object"
+}

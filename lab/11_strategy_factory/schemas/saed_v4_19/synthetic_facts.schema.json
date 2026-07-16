@@ -1,0 +1,159 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/synthetic_facts.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "decision_time": {
+      "type": "integer"
+    },
+    "facts": {
+      "items": {
+        "anyOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "concept_id": {
+                "type": "string"
+              },
+              "event_time": {
+                "type": "integer"
+              },
+              "fact_id": {
+                "type": "string"
+              },
+              "known_time": {
+                "type": "integer"
+              },
+              "polarity": {
+                "type": "integer"
+              },
+              "source_hash": {
+                "type": "string"
+              },
+              "subject_id": {
+                "type": "string"
+              },
+              "synthetic_only": {
+                "type": "boolean"
+              },
+              "value": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "concept_id",
+              "event_time",
+              "fact_id",
+              "known_time",
+              "polarity",
+              "source_hash",
+              "subject_id",
+              "synthetic_only",
+              "value"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "concept_id": {
+                "type": "string"
+              },
+              "event_time": {
+                "type": "integer"
+              },
+              "fact_id": {
+                "type": "string"
+              },
+              "known_time": {
+                "type": "integer"
+              },
+              "polarity": {
+                "type": "integer"
+              },
+              "source_hash": {
+                "type": "string"
+              },
+              "subject_id": {
+                "type": "string"
+              },
+              "synthetic_only": {
+                "type": "boolean"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "concept_id",
+              "event_time",
+              "fact_id",
+              "known_time",
+              "polarity",
+              "source_hash",
+              "subject_id",
+              "synthetic_only",
+              "value"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "concept_id": {
+                "type": "string"
+              },
+              "event_time": {
+                "type": "integer"
+              },
+              "fact_id": {
+                "type": "string"
+              },
+              "known_time": {
+                "type": "integer"
+              },
+              "polarity": {
+                "type": "integer"
+              },
+              "source_hash": {
+                "type": "string"
+              },
+              "subject_id": {
+                "type": "string"
+              },
+              "synthetic_only": {
+                "type": "boolean"
+              },
+              "value": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "concept_id",
+              "event_time",
+              "fact_id",
+              "known_time",
+              "polarity",
+              "source_hash",
+              "subject_id",
+              "synthetic_only",
+              "value"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "type": "array"
+    },
+    "synthetic_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "decision_time",
+    "facts",
+    "synthetic_only"
+  ],
+  "title": "Synthetic Facts",
+  "type": "object"
+}

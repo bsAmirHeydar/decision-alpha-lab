@@ -1,0 +1,84 @@
+{
+  "artifact_count": 19,
+  "artifacts": [
+    {
+      "artifact_hash": "a211846325bdee138407aaa3b70f9739c08cc35d35fb8e0c1fa3886974abeb45",
+      "artifact_id": "GOLDEN_AUTHORITY_BOUNDARY.JSON"
+    },
+    {
+      "artifact_hash": "f53c09f78c3f612e247bf460945815d39a8276efc0f40a328ff2e1115c5c979e",
+      "artifact_id": "GOLDEN_BASELINE_PRESERVATION.JSON"
+    },
+    {
+      "artifact_hash": "d829ad30bb37237f1299dbef1441caff516621375743fbd01ec6596b62c1a2ed",
+      "artifact_id": "GOLDEN_BOUNDED_SYNTHESIS_REPORT.JSON"
+    },
+    {
+      "artifact_hash": "d4ad528f835a10e8d03260fd4e19a6bdac9f42e079d85ffafc5aef8ff383a8b9",
+      "artifact_id": "GOLDEN_CLAIM_TIER_REPORT.JSON"
+    },
+    {
+      "artifact_hash": "15e980755c16340bdd09b173c94e512276859ed44dfe701ffe205de65812fae5",
+      "artifact_id": "GOLDEN_CONSTRAINT_PROJECTION.JSON"
+    },
+    {
+      "artifact_hash": "8e581a94252433036a311ef78b65b0dcf007a67a651536b9bbc0ffe1be1a24c9",
+      "artifact_id": "GOLDEN_COUNTEREXAMPLE_REPORT.JSON"
+    },
+    {
+      "artifact_hash": "f2800829c2651ac2f4ed2d7532e27c28d80a9de2e3d70c870c05d80f7ab9ce16",
+      "artifact_id": "GOLDEN_DECISION_CONTRADICTION_AUDIT.JSON"
+    },
+    {
+      "artifact_hash": "2082792da497f3592b92070f53df605b1a58e483f0baf7bc4f617ab97a9a4f89",
+      "artifact_id": "GOLDEN_EXPOSURE_LEDGER.JSON"
+    },
+    {
+      "artifact_hash": "245001ff6dc93e686f6ea5d9014b896a4eed02fb3f7ea30fa5a1d28de6696396",
+      "artifact_id": "GOLDEN_FACT_CONTRADICTION_AUDIT.JSON"
+    },
+    {
+      "artifact_hash": "d76033f7a5a8c63688df074227e84600b2ff86620bcd9b336b400f306b2f62e0",
+      "artifact_id": "GOLDEN_MDL_SCORECARD.JSON"
+    },
+    {
+      "artifact_hash": "76fdc7b780434c2e2e14fef5465517ae6ba3d2d0f8cf66ec7d69d7c6049f9a6f",
+      "artifact_id": "GOLDEN_MODEL_RISK_DOSSIER.JSON"
+    },
+    {
+      "artifact_hash": "9b7a897c40eaeedbd7bde57b487efb796690c2aaed40d50b4ff0493e0c479582",
+      "artifact_id": "GOLDEN_MUTATION_COUNTEREXAMPLE_REPORT.JSON"
+    },
+    {
+      "artifact_hash": "4967131c840f34fbf25df61bb155f4446acc74690188a9941aa89cd0c09da864",
+      "artifact_id": "GOLDEN_NEURAL_SYMBOLIC_DISAGREEMENT.JSON"
+    },
+    {
+      "artifact_hash": "92d4613930b5318310b5d3c81e0570e5d7c476d30170f227ee79ced79ec64b16",
+      "artifact_id": "GOLDEN_PROOF_ENVELOPE.JSON"
+    },
+    {
+      "artifact_hash": "f5e07ac2186f2634a365068865e522bbd32c0535dcd023f5463cf5821b404db3",
+      "artifact_id": "GOLDEN_REASONING_TRACE.JSON"
+    },
+    {
+      "artifact_hash": "d59a0c95a671c91189e2ece410bb30b932410df584cd606dc4cbcdf30d111e3d",
+      "artifact_id": "GOLDEN_SECURITY_REVIEW.JSON"
+    },
+    {
+      "artifact_hash": "2aa8a482adce20917202c911d5eba0b18e3616c4c41afefa81f130afab36fb81",
+      "artifact_id": "GOLDEN_SOFT_LOGIC_REPORT.JSON"
+    },
+    {
+      "artifact_hash": "b19056a683cd25ecbaeed7047b2a220b19bfe5e76b7d2b005f1aa6e7f7044bae",
+      "artifact_id": "GOLDEN_SYMBOLIC_REGRESSION_REPORT.JSON"
+    },
+    {
+      "artifact_hash": "f12936773b9396082b25177d60d9fe9b832ee52ed715be1b9d6d68b2d5a5ac50",
+      "artifact_id": "GOLDEN_UPSTREAM_VALIDATION.JSON"
+    }
+  ],
+  "immutable": true,
+  "phase": "SAED_V4_19",
+  "receipt_hash": "5ea57159976700b78dc06f9af7ab2bdd646701b17eef8cbe68a3163f6ba39fa7"
+}

@@ -1,0 +1,139 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed-v4-19/ontology_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "closed_world": {
+      "type": "boolean"
+    },
+    "concepts": {
+      "items": {
+        "anyOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "allowed_values": {
+                "items": {},
+                "type": "array"
+              },
+              "concept_id": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "known_time_required": {
+                "type": "boolean"
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "value_type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "allowed_values",
+              "concept_id",
+              "description",
+              "known_time_required",
+              "required",
+              "value_type"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "allowed_values": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "concept_id": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "known_time_required": {
+                "type": "boolean"
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "value_type": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "allowed_values",
+              "concept_id",
+              "description",
+              "known_time_required",
+              "required",
+              "value_type"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "type": "array"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "finite": {
+      "type": "boolean"
+    },
+    "mutable_at_runtime": {
+      "type": "boolean"
+    },
+    "relations": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "cardinality": {
+            "type": "string"
+          },
+          "relation_id": {
+            "type": "string"
+          },
+          "source_concept": {
+            "type": "string"
+          },
+          "target_concept": {
+            "type": "string"
+          },
+          "temporal": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "cardinality",
+          "relation_id",
+          "source_concept",
+          "target_concept",
+          "temporal"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "synthetic_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "closed_world",
+    "concepts",
+    "exact_version",
+    "finite",
+    "mutable_at_runtime",
+    "relations",
+    "synthetic_only"
+  ],
+  "title": "Ontology Contract",
+  "type": "object"
+}
