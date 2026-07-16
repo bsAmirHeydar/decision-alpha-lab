@@ -1,0 +1,9 @@
+{
+  "max_adapter_calls": 8,
+  "max_candidates": 8,
+  "max_exposure_events": 64,
+  "max_failures": 2,
+  "max_retries": 1,
+  "max_total_tokens": 1024,
+  "max_trainable_parameters": 50000
+}

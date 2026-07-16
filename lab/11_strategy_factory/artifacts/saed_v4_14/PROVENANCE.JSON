@@ -1,0 +1,21 @@
+{
+  "code_identity": "saed_v4_foundation_model_adapters@1.0.0",
+  "evidence_scope": "deterministic_synthetic_reference",
+  "external_weights_loaded": false,
+  "foundation_checkpoint_registry_hash": "5818101e502bb359deab92db71123a954144a157bbb6582ae6f6dfafd08f4226",
+  "intake_decision_hashes": [
+    "25108962399ab0ba0b5f82bd379af95025c4634a87d9228917fb42404ff02449",
+    "15375dfff4930604772cda28a495f04ae06d57c5ece6bd0dcf7cbb5c7561dca7",
+    "e9220b23c27f084111b89a448daf3d29e1970e66d5a61c284d940ef16fe92663",
+    "8370e018cc44ac54e1d6f45ac87790d8fd375a317bba9e6a43cf9f78b99fb925",
+    "a18af170fcca4d99981f47bc0f34e521fe74e28e74efe2223ae7815c2ea609ef",
+    "c44445186b75b87844d169f20c9644f630d0d21601b7682763b76ca0e394ccd3"
+  ],
+  "phase": "SAED_V4_14",
+  "provenance_hash": "e768733df0698ab36eef254418628744bc9cdfb696360b4bf119c3f42b045ad1",
+  "provenance_id": "fmprov_50a318bf63bcc69c8661f429",
+  "source_token_sequence_hash": "dbfe27866b1f7d8f3a35b774bf048ce2bbbac56388129515c4c4d486cc2dd2c5",
+  "tournament_hash": "b5d63eefa4de5317bec9da1af4951c3b970be327b1ceec2cdbf864c8145e3541",
+  "upstream_v4_13_handoff_hash": "b5cb4b4a05746717c9f8c1854be98929a0d2c671ca86bb34bddd9b66d1efcce2",
+  "upstream_v4_13_registry_hash": "0c632e65e364859395845fbf5cf0f4991d80006a339c313ce825469ddfd34459"
+}

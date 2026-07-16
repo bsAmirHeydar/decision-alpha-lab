@@ -1,0 +1,46 @@
+{
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "build_reference_multimodal_fusion": true,
+    "invoke_remote_model": false,
+    "load_unapproved_external_weights": false,
+    "mutate_v4_14_evidence": false,
+    "predict_outcomes": false,
+    "rank_treatments": false,
+    "read_frozen_foundation_features": true,
+    "read_frozen_foundation_registry": true,
+    "select_treatment": false,
+    "send_order": false
+  },
+  "calibration_report_hash": "79d111866d7594e760a2e6e39541d18485fa4454ede50b8b07a0347f00210f23",
+  "domain_shift_report_hash": "9139421f4cb93c13ac37c02c85a00c59d3056a3ce960acf6d503c7e9e4deedda",
+  "entry_gates": {
+    "baseline_preserved": true,
+    "deterministic_replay_passed": true,
+    "fail_closed_fallback_verified": true,
+    "foundation_registry_admitted": true,
+    "frozen_v4_13_binding_verified": true,
+    "future_suffix_forbidden": true,
+    "known_time_tokenization_passed": true,
+    "model_intake_closed": true,
+    "outcome_supervision_absent": true,
+    "pretraining_contamination_reviewed": true,
+    "supply_chain_attested": true
+  },
+  "foundation_checkpoint_registry_hash": "5818101e502bb359deab92db71123a954144a157bbb6582ae6f6dfafd08f4226",
+  "foundation_checkpoint_registry_id": "fmregistry_9245dbad970cc78faa0d57ae",
+  "handoff_hash": "78fec567a00db48f34f9e0c3068208343529380b122b657aa04b421be77ac42c",
+  "handoff_id": "v414to15_4c3e98065d48136ada1e6be9",
+  "integrity_receipt_hash": "9df6ae140c51d802a5f7058b23d429ac356d5a3ab7d0d8e5c5b4183386b1e1f9",
+  "limitations": [
+    "All foundation-model families are deterministic local reference emulations; no external checkpoint or remote service was loaded.",
+    "Evaluation is self-supervised over synthetic/frozen upstream evidence and does not establish economic uplift or alpha.",
+    "No real-data, GPU, distributed, MetaEditor, runtime parity, prospective, shadow, micro-live or live evidence is claimed."
+  ],
+  "next_phase": "SAED_V4_15",
+  "phase": "SAED_V4_14",
+  "reference_champion_id": "v414_moirai_s23",
+  "source_token_sequence_hash": "dbfe27866b1f7d8f3a35b774bf048ce2bbbac56388129515c4c4d486cc2dd2c5",
+  "upstream_v4_13_handoff_hash": "b5cb4b4a05746717c9f8c1854be98929a0d2c671ca86bb34bddd9b66d1efcce2"
+}

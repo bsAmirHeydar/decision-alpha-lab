@@ -1,0 +1,364 @@
+{
+  "items": [
+    {
+      "adapter_mode": "causal_linear",
+      "candidate_id": "v414_native_linear_s11",
+      "embedding": [
+        0.00012933432273016507,
+        -0.06767829940550152,
+        -0.004614180355566702,
+        0.0597404370274303,
+        0.008101894969417739,
+        -0.028915642144031507,
+        0.014575192566290801,
+        0.009047026394613803,
+        0.019943269376968033,
+        -0.05444085148069778,
+        0.06855200541950202,
+        0.048528960356519574,
+        0.10173119878019261,
+        -0.044981589406575304,
+        0.026388332282112882,
+        -0.010405671163835237
+      ],
+      "external_model_invoked": false,
+      "external_weights_loaded": false,
+      "family": "native_linear_baseline",
+      "feature_hash": "8b2594bf140bf37687d86d256e33a2abc64b30c1935d2a2286535297a5ade908",
+      "feature_id": "fmfeature_33248bacecd98a9e41624177",
+      "future_suffix_accessed": false,
+      "intake_id": "intake_native_linear",
+      "known_as_of": "2026-01-05T14:30:01Z",
+      "online_learning": false,
+      "phase": "SAED_V4_14",
+      "production_eligible": false,
+      "quantile_forecast": [
+        {
+          "q": 0.1,
+          "value": -0.49292533920015524
+        },
+        {
+          "q": 0.25,
+          "value": -0.15904341114865161
+        },
+        {
+          "q": 0.5,
+          "value": 0.3974264689371878
+        },
+        {
+          "q": 0.75,
+          "value": 0.9538963490230272
+        },
+        {
+          "q": 0.9,
+          "value": 1.2877782770745307
+        }
+      ],
+      "router_weights": [],
+      "runtime_authority": false,
+      "source_token_sequence_hash": "dbfe27866b1f7d8f3a35b774bf048ce2bbbac56388129515c4c4d486cc2dd2c5",
+      "uncertainty_scale": 0.7949569715511993
+    },
+    {
+      "adapter_mode": "frozen_embedding",
+      "candidate_id": "v414_timesfm_s13",
+      "embedding": [
+        0.029380579173840803,
+        -0.007026515358006405,
+        0.015617987755042516,
+        0.015351719922548536,
+        0.034409358462892795,
+        -0.021794881042367747,
+        0.009574926973889513,
+        0.0594018342680009,
+        0.00867127533839906,
+        0.08398543169081006,
+        -0.03049304087698169,
+        -0.00656574516049364,
+        0.038220407717033014,
+        0.010063588543009977,
+        0.08677756752433052,
+        -0.066694875088454
+      ],
+      "external_model_invoked": false,
+      "external_weights_loaded": false,
+      "family": "timesfm_style",
+      "feature_hash": "44a7330d101d456c184c42001ba69c20b7f5d88445b4e4f60b83561cfce6589b",
+      "feature_id": "fmfeature_c9ec9d65d584a7008b7a9ef6",
+      "future_suffix_accessed": false,
+      "intake_id": "intake_timesfm_style",
+      "known_as_of": "2026-01-05T14:30:01Z",
+      "online_learning": false,
+      "phase": "SAED_V4_14",
+      "production_eligible": false,
+      "quantile_forecast": [
+        {
+          "q": 0.1,
+          "value": -0.49173287011395234
+        },
+        {
+          "q": 0.25,
+          "value": -0.1578509420624487
+        },
+        {
+          "q": 0.5,
+          "value": 0.3986189380233907
+        },
+        {
+          "q": 0.75,
+          "value": 0.9550888181092301
+        },
+        {
+          "q": 0.9,
+          "value": 1.2889707461607338
+        }
+      ],
+      "router_weights": [],
+      "runtime_authority": false,
+      "source_token_sequence_hash": "dbfe27866b1f7d8f3a35b774bf048ce2bbbac56388129515c4c4d486cc2dd2c5",
+      "uncertainty_scale": 0.7949569715511993
+    },
+    {
+      "adapter_mode": "zero_shot_distribution",
+      "candidate_id": "v414_chronos_s17",
+      "embedding": [
+        -0.0430472749419453,
+        -0.024224959046615525,
+        0.022174647744034773,
+        0.014373785097859483,
+        -0.001984575276412335,
+        -0.005963786166966855,
+        -0.03872273326064369,
+        -0.02306951476449664,
+        0.0065834064493480084,
+        -0.02036319198527299,
+        0.028463275311405488,
+        -0.02496319016850793,
+        0.07014066167389917,
+        0.02575135259743024,
+        -0.011107533520046998,
+        -0.022138934306907013
+      ],
+      "external_model_invoked": false,
+      "external_weights_loaded": false,
+      "family": "chronos_style",
+      "feature_hash": "698b5d0db796cb9a0984bf8fd81a45d97d7c0a95e76d3b882e2c0cf28af241c4",
+      "feature_id": "fmfeature_7bd05381867a2df5e4726e2a",
+      "future_suffix_accessed": false,
+      "intake_id": "intake_chronos_style",
+      "known_as_of": "2026-01-05T14:30:01Z",
+      "online_learning": false,
+      "phase": "SAED_V4_14",
+      "production_eligible": false,
+      "quantile_forecast": [
+        {
+          "q": 0.1,
+          "value": -0.4920559809925423
+        },
+        {
+          "q": 0.25,
+          "value": -0.15817405294103865
+        },
+        {
+          "q": 0.5,
+          "value": 0.3982958271448008
+        },
+        {
+          "q": 0.75,
+          "value": 0.9547657072306401
+        },
+        {
+          "q": 0.9,
+          "value": 1.2886476352821439
+        }
+      ],
+      "router_weights": [],
+      "runtime_authority": false,
+      "source_token_sequence_hash": "dbfe27866b1f7d8f3a35b774bf048ce2bbbac56388129515c4c4d486cc2dd2c5",
+      "uncertainty_scale": 0.7949569715511993
+    },
+    {
+      "adapter_mode": "masked_representation",
+      "candidate_id": "v414_moment_s19",
+      "embedding": [
+        -0.031539677402342585,
+        0.053211267243538356,
+        0.08628294728072011,
+        5.346043341099549e-06,
+        0.03778662946524449,
+        -0.05469177873584925,
+        -0.04437923538077795,
+        0.05618896117021116,
+        -0.022375636151367426,
+        0.07882902465845404,
+        0.052913791250162025,
+        0.013347298344780375,
+        0.056453611359917985,
+        0.029913694590982587,
+        -0.001847126668000339,
+        0.009118179554922098
+      ],
+      "external_model_invoked": false,
+      "external_weights_loaded": false,
+      "family": "moment_style",
+      "feature_hash": "95e29632516c15a8937f470bbd785f3321297cce518e94bac70cb8ad0b8c6f8d",
+      "feature_id": "fmfeature_3a5668c1906167d174906ece",
+      "future_suffix_accessed": false,
+      "intake_id": "intake_moment_style",
+      "known_as_of": "2026-01-05T14:30:01Z",
+      "online_learning": false,
+      "phase": "SAED_V4_14",
+      "production_eligible": false,
+      "quantile_forecast": [
+        {
+          "q": 0.1,
+          "value": -0.4949265592338278
+        },
+        {
+          "q": 0.25,
+          "value": -0.16104463118232415
+        },
+        {
+          "q": 0.5,
+          "value": 0.39542524890351527
+        },
+        {
+          "q": 0.75,
+          "value": 0.9518951289893547
+        },
+        {
+          "q": 0.9,
+          "value": 1.2857770570408582
+        }
+      ],
+      "router_weights": [],
+      "runtime_authority": false,
+      "source_token_sequence_hash": "dbfe27866b1f7d8f3a35b774bf048ce2bbbac56388129515c4c4d486cc2dd2c5",
+      "uncertainty_scale": 0.7949569715511993
+    },
+    {
+      "adapter_mode": "probabilistic_multiscale",
+      "candidate_id": "v414_moirai_s23",
+      "embedding": [
+        -0.0013254034120458254,
+        0.06806062670874546,
+        0.05831406782405783,
+        -0.004065756640368427,
+        0.002994746984390198,
+        0.013073481637597159,
+        0.030380282100678637,
+        -0.03894283402110216,
+        -0.04635931788235967,
+        -0.026169083319891106,
+        -0.08009799088629159,
+        0.07536467685794669,
+        0.027227027492255623,
+        -0.036657273489183136,
+        0.012127480596381603,
+        0.04675197786622774
+      ],
+      "external_model_invoked": false,
+      "external_weights_loaded": false,
+      "family": "moirai_style",
+      "feature_hash": "e1b0686052e31bc841813951b4fce4c02ac8fce5b357595aaf9845be08c59681",
+      "feature_id": "fmfeature_949212bac08da591eacd4d0c",
+      "future_suffix_accessed": false,
+      "intake_id": "intake_moirai_style",
+      "known_as_of": "2026-01-05T14:30:01Z",
+      "online_learning": false,
+      "phase": "SAED_V4_14",
+      "production_eligible": false,
+      "quantile_forecast": [
+        {
+          "q": 0.1,
+          "value": -0.49529364460621267
+        },
+        {
+          "q": 0.25,
+          "value": -0.16141171655470904
+        },
+        {
+          "q": 0.5,
+          "value": 0.3950581635311304
+        },
+        {
+          "q": 0.75,
+          "value": 0.9515280436169697
+        },
+        {
+          "q": 0.9,
+          "value": 1.2854099716684735
+        }
+      ],
+      "router_weights": [],
+      "runtime_authority": false,
+      "source_token_sequence_hash": "dbfe27866b1f7d8f3a35b774bf048ce2bbbac56388129515c4c4d486cc2dd2c5",
+      "uncertainty_scale": 0.7949569715511993
+    },
+    {
+      "adapter_mode": "sparse_expert_features",
+      "candidate_id": "v414_sparse_moe_s29",
+      "embedding": [
+        -0.03006680750022686,
+        0.02764898916720297,
+        -0.002464685323244334,
+        0.05497550185289247,
+        0.10539423954584454,
+        0.03976411088371567,
+        0.015589175223845248,
+        -0.0936565856221647,
+        -0.052131956282475196,
+        0.044621632656563326,
+        0.0732855889830375,
+        0.041759210959069516,
+        -0.026514708536875344,
+        0.040234065080707614,
+        0.0350030636510853,
+        0.0737262122921684
+      ],
+      "external_model_invoked": false,
+      "external_weights_loaded": false,
+      "family": "sparse_moe_style",
+      "feature_hash": "55c0c52da72d4fd8d90a1e8c2ef5682def180929f839c1468dcadf42722ba01f",
+      "feature_id": "fmfeature_ce46dc6b741f4f8698ef0fa8",
+      "future_suffix_accessed": false,
+      "intake_id": "intake_sparse_moe_style",
+      "known_as_of": "2026-01-05T14:30:01Z",
+      "online_learning": false,
+      "phase": "SAED_V4_14",
+      "production_eligible": false,
+      "quantile_forecast": [
+        {
+          "q": 0.1,
+          "value": -0.5596296102664499
+        },
+        {
+          "q": 0.25,
+          "value": -0.20054768221494634
+        },
+        {
+          "q": 0.5,
+          "value": 0.3979221978708931
+        },
+        {
+          "q": 0.75,
+          "value": 0.9963920779567326
+        },
+        {
+          "q": 0.9,
+          "value": 1.3554740060082362
+        }
+      ],
+      "router_weights": [
+        0.24582678335450758,
+        0.25826037409517855,
+        0.24904019066878524,
+        0.24687265188152868
+      ],
+      "runtime_authority": false,
+      "source_token_sequence_hash": "dbfe27866b1f7d8f3a35b774bf048ce2bbbac56388129515c4c4d486cc2dd2c5",
+      "uncertainty_scale": 0.8549569715511992
+    }
+  ],
+  "phase": "SAED_V4_14"
+}

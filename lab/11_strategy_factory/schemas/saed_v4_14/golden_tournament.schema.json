@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_id": {
+      "type": "string"
+    },
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "baseline_score": {
+      "type": "number"
+    },
+    "economic_uplift_evaluated": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authority": {
+      "type": "boolean"
+    },
+    "ranking": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "adapter_mode": {
+            "type": "string"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "composite_score": {
+            "type": "number"
+          },
+          "family": {
+            "type": "string"
+          },
+          "rank": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "adapter_mode",
+          "candidate_id",
+          "composite_score",
+          "family",
+          "rank"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "reference_champion_id": {
+      "type": "string"
+    },
+    "selection_scope": {
+      "type": "string"
+    },
+    "tournament_hash": {
+      "type": "string"
+    },
+    "tournament_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "baseline_id",
+    "baseline_preserved",
+    "baseline_score",
+    "economic_uplift_evaluated",
+    "phase",
+    "production_authority",
+    "ranking",
+    "reference_champion_id",
+    "selection_scope",
+    "tournament_hash",
+    "tournament_id"
+  ],
+  "title": "SAED V4-14 Golden Tournament",
+  "type": "object"
+}

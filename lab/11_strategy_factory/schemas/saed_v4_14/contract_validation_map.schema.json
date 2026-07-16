@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "closed_contracts": {
+      "type": "boolean"
+    },
+    "contracts": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "document": {
+            "type": "string"
+          },
+          "schema": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "document",
+          "schema"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "unknown_fields_forbidden": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "closed_contracts",
+    "contracts",
+    "phase",
+    "unknown_fields_forbidden"
+  ],
+  "title": "SAED V4-14 Contract Validation Map",
+  "type": "object"
+}

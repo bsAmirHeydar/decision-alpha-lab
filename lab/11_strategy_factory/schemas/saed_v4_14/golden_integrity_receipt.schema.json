@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "closed_bundle": {
+      "type": "boolean"
+    },
+    "component_count": {
+      "type": "number"
+    },
+    "component_hashes": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "adapter_features": {
+          "type": "string"
+        },
+        "calibration_report": {
+          "type": "string"
+        },
+        "candidate_checkpoints": {
+          "type": "string"
+        },
+        "candidate_metrics": {
+          "type": "string"
+        },
+        "checkpoint_registry": {
+          "type": "string"
+        },
+        "compute_exposure_ledger": {
+          "type": "string"
+        },
+        "contamination_audit": {
+          "type": "string"
+        },
+        "domain_shift_report": {
+          "type": "string"
+        },
+        "fail_closed_audits": {
+          "type": "string"
+        },
+        "future_suffix_audits": {
+          "type": "string"
+        },
+        "intake_decisions": {
+          "type": "string"
+        },
+        "supply_chain_attestations": {
+          "type": "string"
+        },
+        "token_sequence": {
+          "type": "string"
+        },
+        "tournament": {
+          "type": "string"
+        },
+        "upstream_validation": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "adapter_features",
+        "calibration_report",
+        "candidate_checkpoints",
+        "candidate_metrics",
+        "checkpoint_registry",
+        "compute_exposure_ledger",
+        "contamination_audit",
+        "domain_shift_report",
+        "fail_closed_audits",
+        "future_suffix_audits",
+        "intake_decisions",
+        "supply_chain_attestations",
+        "token_sequence",
+        "tournament",
+        "upstream_validation"
+      ],
+      "type": "object"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "upstream_mutated": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "closed_bundle",
+    "component_count",
+    "component_hashes",
+    "phase",
+    "receipt_hash",
+    "receipt_id",
+    "upstream_mutated"
+  ],
+  "title": "SAED V4-14 Golden Integrity Receipt",
+  "type": "object"
+}

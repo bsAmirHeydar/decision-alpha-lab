@@ -1,0 +1,32 @@
+[
+  {
+    "expected_error": "ContractError",
+    "mutation": "candidate.family=oracle_v99",
+    "vector_id": "unknown_family"
+  },
+  {
+    "expected_error": "ContractError",
+    "mutation": "intake.remote_inference_forbidden=false",
+    "vector_id": "remote_enabled"
+  },
+  {
+    "expected_error": "ContractError",
+    "mutation": "adapter_config.extra=1",
+    "vector_id": "unknown_field"
+  },
+  {
+    "expected_error": "ContractError",
+    "mutation": "adapter_config.known_time_only=false",
+    "vector_id": "future_flag_off"
+  },
+  {
+    "expected_error": "IntegrityError",
+    "mutation": "handoff.graph_checkpoint_registry_hash=bad",
+    "vector_id": "registry_hash_mismatch"
+  },
+  {
+    "expected_error": "BudgetError",
+    "mutation": "budget.max_total_tokens=1",
+    "vector_id": "budget_exceeded"
+  }
+]

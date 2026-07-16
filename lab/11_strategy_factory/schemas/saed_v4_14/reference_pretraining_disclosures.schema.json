@@ -1,0 +1,47 @@
+{
+  "items": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "additionalProperties": false,
+    "properties": {
+      "contamination_reviewed": {
+        "type": "boolean"
+      },
+      "disclosure_id": {
+        "type": "string"
+      },
+      "evaluation_period_overlap_possible": {
+        "type": "boolean"
+      },
+      "exact_corpus_disclosed": {
+        "type": "boolean"
+      },
+      "intake_id": {
+        "type": "string"
+      },
+      "market_data_possible": {
+        "type": "boolean"
+      },
+      "training_cutoff": {
+        "type": "string"
+      },
+      "unresolved_risks": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      }
+    },
+    "required": [
+      "contamination_reviewed",
+      "disclosure_id",
+      "evaluation_period_overlap_possible",
+      "exact_corpus_disclosed",
+      "intake_id",
+      "market_data_possible",
+      "training_cutoff",
+      "unresolved_risks"
+    ],
+    "type": "object"
+  },
+  "type": "array"
+}

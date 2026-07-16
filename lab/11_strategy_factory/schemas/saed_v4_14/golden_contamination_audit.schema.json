@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_admitted_rows_safe": {
+      "type": "boolean"
+    },
+    "audit_hash": {
+      "type": "string"
+    },
+    "audit_id": {
+      "type": "string"
+    },
+    "known_as_of": {
+      "type": "string"
+    },
+    "outcome_labels_accessed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "protected_evidence_accessed": {
+      "type": "boolean"
+    },
+    "rows": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "action": {
+            "type": "string"
+          },
+          "effective_overlap_risk": {
+            "type": "string"
+          },
+          "evaluation_period_overlap_possible": {
+            "type": "boolean"
+          },
+          "exact_corpus_disclosed": {
+            "type": "boolean"
+          },
+          "family": {
+            "type": "string"
+          },
+          "intake_id": {
+            "type": "string"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "synthetic_reference_adapter": {
+            "type": "boolean"
+          },
+          "training_cutoff": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "action",
+          "effective_overlap_risk",
+          "evaluation_period_overlap_possible",
+          "exact_corpus_disclosed",
+          "family",
+          "intake_id",
+          "passed",
+          "synthetic_reference_adapter",
+          "training_cutoff"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "all_admitted_rows_safe",
+    "audit_hash",
+    "audit_id",
+    "known_as_of",
+    "outcome_labels_accessed",
+    "phase",
+    "protected_evidence_accessed",
+    "rows"
+  ],
+  "title": "SAED V4-14 Golden Contamination Audit",
+  "type": "object"
+}

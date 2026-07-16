@@ -1,0 +1,26 @@
+{
+  "allowed_operations": [
+    "evaluate_self_supervised_objectives",
+    "handoff_frozen_features",
+    "materialize_reference_features",
+    "read_frozen_graph_embeddings",
+    "register_research_checkpoint"
+  ],
+  "capability_tier": "GOVERNED_CHALLENGER",
+  "decision_authority": false,
+  "execution_authority": false,
+  "fail_closed_fallback": "native_linear_baseline_or_abstain",
+  "forbidden_operations": [
+    "activate_runtime",
+    "allocate_risk",
+    "mutate_upstream",
+    "online_learning",
+    "predict_outcome",
+    "rank_treatment",
+    "remote_inference",
+    "select_treatment",
+    "send_order"
+  ],
+  "phase": "SAED_V4_14",
+  "runtime_authority": false
+}

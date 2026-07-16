@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "items": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "audit_hash": {
+            "type": "string"
+          },
+          "audit_id": {
+            "type": "string"
+          },
+          "candidate_authority_granted": {
+            "type": "boolean"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "phase": {
+            "type": "string"
+          },
+          "reasons": {
+            "items": {},
+            "type": "array"
+          },
+          "resolved_path": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "audit_hash",
+          "audit_id",
+          "candidate_authority_granted",
+          "candidate_id",
+          "passed",
+          "phase",
+          "reasons",
+          "resolved_path"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "items",
+    "phase"
+  ],
+  "title": "SAED V4-14 Golden Fail Closed Audits",
+  "type": "object"
+}

@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "items": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "adapter_mode": {
+            "type": "string"
+          },
+          "calibration_score": {
+            "type": "number"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "complexity_score": {
+            "type": "number"
+          },
+          "composite_score": {
+            "type": "number"
+          },
+          "domain_shift_robustness": {
+            "type": "number"
+          },
+          "economic_uplift_claimed": {
+            "type": "boolean"
+          },
+          "evaluation_hash": {
+            "type": "string"
+          },
+          "evaluation_id": {
+            "type": "string"
+          },
+          "family": {
+            "type": "string"
+          },
+          "graph_alignment": {
+            "type": "number"
+          },
+          "masked_latent_reconstruction": {
+            "type": "number"
+          },
+          "outcome_labels_used": {
+            "type": "boolean"
+          },
+          "phase": {
+            "type": "string"
+          },
+          "production_authority": {
+            "type": "boolean"
+          },
+          "temporal_consistency": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "adapter_mode",
+          "calibration_score",
+          "candidate_id",
+          "complexity_score",
+          "composite_score",
+          "domain_shift_robustness",
+          "economic_uplift_claimed",
+          "evaluation_hash",
+          "evaluation_id",
+          "family",
+          "graph_alignment",
+          "masked_latent_reconstruction",
+          "outcome_labels_used",
+          "phase",
+          "production_authority",
+          "temporal_consistency"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "items",
+    "phase"
+  ],
+  "title": "SAED V4-14 Golden Candidate Metrics",
+  "type": "object"
+}

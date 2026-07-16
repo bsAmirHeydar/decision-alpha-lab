@@ -1,0 +1,10 @@
+{
+  "frozen": true,
+  "gate_count": 7,
+  "passed": true,
+  "phase": "SAED_V4_14",
+  "v4_13_compiled_graph_hash": "195676e24b2b8872a4388208bf9ac62cfb0946b6d643dbe9e78a51a08e25cff9",
+  "v4_13_handoff_hash": "b5cb4b4a05746717c9f8c1854be98929a0d2c671ca86bb34bddd9b66d1efcce2",
+  "v4_13_reference_champion_id": "v413_gat_s17",
+  "v4_13_registry_hash": "0c632e65e364859395845fbf5cf0f4991d80006a339c313ce825469ddfd34459"
+}

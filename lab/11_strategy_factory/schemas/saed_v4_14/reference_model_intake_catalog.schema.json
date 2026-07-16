@@ -1,0 +1,80 @@
+{
+  "items": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "additionalProperties": false,
+    "properties": {
+      "architecture_disclosed": {
+        "type": "boolean"
+      },
+      "code_digest": {
+        "type": "string"
+      },
+      "enabled": {
+        "type": "boolean"
+      },
+      "exact_corpus_disclosed": {
+        "type": "boolean"
+      },
+      "family": {
+        "type": "string"
+      },
+      "intake_id": {
+        "type": "string"
+      },
+      "license_id": {
+        "type": "string"
+      },
+      "license_permitted": {
+        "type": "boolean"
+      },
+      "local_execution_only": {
+        "type": "boolean"
+      },
+      "market_data_possible": {
+        "type": "boolean"
+      },
+      "overlap_risk": {
+        "type": "string"
+      },
+      "release": {
+        "type": "string"
+      },
+      "remote_inference_forbidden": {
+        "type": "boolean"
+      },
+      "source_kind": {
+        "type": "string"
+      },
+      "synthetic_reference_adapter": {
+        "type": "boolean"
+      },
+      "tokenizer_digest": {
+        "type": "string"
+      },
+      "weight_digest": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "architecture_disclosed",
+      "code_digest",
+      "enabled",
+      "exact_corpus_disclosed",
+      "family",
+      "intake_id",
+      "license_id",
+      "license_permitted",
+      "local_execution_only",
+      "market_data_possible",
+      "overlap_risk",
+      "release",
+      "remote_inference_forbidden",
+      "source_kind",
+      "synthetic_reference_adapter",
+      "tokenizer_digest",
+      "weight_digest"
+    ],
+    "type": "object"
+  },
+  "type": "array"
+}

@@ -1,0 +1,77 @@
+{
+  "evidence_scope": "local_deterministic_synthetic_reference",
+  "external_evidence": {
+    "distributed_training": "not_claimed",
+    "external_checkpoint_loading": "not_claimed",
+    "gpu_reproduction": "not_claimed",
+    "live": "not_claimed",
+    "metaeditor_compile": "pending_local_windows",
+    "micro_live": "not_claimed",
+    "prospective_paper": "not_claimed",
+    "real_corpus_evaluation": "not_claimed",
+    "runtime_differential_parity": "not_claimed",
+    "shadow": "not_claimed"
+  },
+  "passed": true,
+  "phase": "SAED_V4_14",
+  "results": [
+    {
+      "command": "python tools/strategy_factory/saed_v4_14/validate_saed_v4_14_contracts.py",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "SAED V4-14 closed-contract validation passed: 33 pairs\n"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_14/check_saed_v4_14_boundaries.py",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "SAED V4-14 authority boundary passed: 5 allowed, 9 forbidden\n"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_14/validate_saed_v4_14_mql5_static.py",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "SAED V4-14 MQL5 static validation passed: 12 files\n"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_14/validate_saed_v4_14_obsidian.py",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "SAED V4-14 Obsidian validation passed: 64 notes\n"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_14/run_saed_v4_14_tests.py",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "........................................................................ [ 93%]\n.....                                                                    [100%]\n77 passed in 0.64s\n"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_14/reproduce_saed_v4_14_golden.py",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "SAED V4-14 deterministic golden reproduction passed\n"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_14/validate_saed_v4_14_status.py",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "SAED V4-14 phase status validated\n"
+    }
+  ],
+  "summary": {
+    "closed_schema_pairs": 33,
+    "delivery_validation": "separate_post_hash_gate",
+    "deterministic_golden_reproduction": true,
+    "mql5_static_files_validated": 12,
+    "obsidian_notes_validated": 64,
+    "python_tests_passed": 77
+  },
+  "version": "1.0.0"
+}

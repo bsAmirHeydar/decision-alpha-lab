@@ -1,0 +1,74 @@
+[
+  {
+    "contamination_reviewed": true,
+    "disclosure_id": "disclosure_native_linear_baseline",
+    "evaluation_period_overlap_possible": false,
+    "exact_corpus_disclosed": true,
+    "intake_id": "intake_native_linear",
+    "market_data_possible": false,
+    "training_cutoff": "not_applicable_reference_emulation",
+    "unresolved_risks": [
+      "Reference emulation is not evidence about the corresponding real external model family."
+    ]
+  },
+  {
+    "contamination_reviewed": true,
+    "disclosure_id": "disclosure_timesfm_style",
+    "evaluation_period_overlap_possible": false,
+    "exact_corpus_disclosed": true,
+    "intake_id": "intake_timesfm_style",
+    "market_data_possible": false,
+    "training_cutoff": "not_applicable_reference_emulation",
+    "unresolved_risks": [
+      "Reference emulation is not evidence about the corresponding real external model family."
+    ]
+  },
+  {
+    "contamination_reviewed": true,
+    "disclosure_id": "disclosure_chronos_style",
+    "evaluation_period_overlap_possible": false,
+    "exact_corpus_disclosed": true,
+    "intake_id": "intake_chronos_style",
+    "market_data_possible": false,
+    "training_cutoff": "not_applicable_reference_emulation",
+    "unresolved_risks": [
+      "Reference emulation is not evidence about the corresponding real external model family."
+    ]
+  },
+  {
+    "contamination_reviewed": true,
+    "disclosure_id": "disclosure_moment_style",
+    "evaluation_period_overlap_possible": false,
+    "exact_corpus_disclosed": true,
+    "intake_id": "intake_moment_style",
+    "market_data_possible": false,
+    "training_cutoff": "not_applicable_reference_emulation",
+    "unresolved_risks": [
+      "Reference emulation is not evidence about the corresponding real external model family."
+    ]
+  },
+  {
+    "contamination_reviewed": true,
+    "disclosure_id": "disclosure_moirai_style",
+    "evaluation_period_overlap_possible": false,
+    "exact_corpus_disclosed": true,
+    "intake_id": "intake_moirai_style",
+    "market_data_possible": false,
+    "training_cutoff": "not_applicable_reference_emulation",
+    "unresolved_risks": [
+      "Reference emulation is not evidence about the corresponding real external model family."
+    ]
+  },
+  {
+    "contamination_reviewed": true,
+    "disclosure_id": "disclosure_sparse_moe_style",
+    "evaluation_period_overlap_possible": false,
+    "exact_corpus_disclosed": true,
+    "intake_id": "intake_sparse_moe_style",
+    "market_data_possible": false,
+    "training_cutoff": "not_applicable_reference_emulation",
+    "unresolved_risks": [
+      "Reference emulation is not evidence about the corresponding real external model family."
+    ]
+  }
+]

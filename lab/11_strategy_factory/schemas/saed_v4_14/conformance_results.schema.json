@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "rows": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "expected_allowed": {
+            "type": "boolean"
+          },
+          "operation": {
+            "type": "string"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "vector_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "error",
+          "expected_allowed",
+          "operation",
+          "passed",
+          "vector_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "passed",
+    "phase",
+    "rows"
+  ],
+  "title": "SAED V4-14 Conformance Results",
+  "type": "object"
+}

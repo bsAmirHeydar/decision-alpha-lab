@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "phase": "SAED_V4_14",
+  "rows": [
+    {
+      "error": "",
+      "expected_allowed": true,
+      "operation": "read_frozen_graph_embeddings",
+      "passed": true,
+      "vector_id": "allow_read"
+    },
+    {
+      "error": "",
+      "expected_allowed": true,
+      "operation": "materialize_reference_features",
+      "passed": true,
+      "vector_id": "allow_materialize"
+    },
+    {
+      "error": "",
+      "expected_allowed": true,
+      "operation": "register_research_checkpoint",
+      "passed": true,
+      "vector_id": "allow_register"
+    },
+    {
+      "error": "AuthorityError",
+      "expected_allowed": false,
+      "operation": "predict_outcome",
+      "passed": true,
+      "vector_id": "deny_predict"
+    },
+    {
+      "error": "AuthorityError",
+      "expected_allowed": false,
+      "operation": "select_treatment",
+      "passed": true,
+      "vector_id": "deny_select"
+    },
+    {
+      "error": "AuthorityError",
+      "expected_allowed": false,
+      "operation": "activate_runtime",
+      "passed": true,
+      "vector_id": "deny_runtime"
+    },
+    {
+      "error": "AuthorityError",
+      "expected_allowed": false,
+      "operation": "remote_inference",
+      "passed": true,
+      "vector_id": "deny_remote"
+    },
+    {
+      "error": "AuthorityError",
+      "expected_allowed": false,
+      "operation": "online_learning",
+      "passed": true,
+      "vector_id": "deny_online"
+    }
+  ]
+}

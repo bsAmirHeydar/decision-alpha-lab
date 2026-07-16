@@ -1,0 +1,13 @@
+{
+  "external_model_dependencies": [],
+  "external_weights": [],
+  "license": "repository-governed",
+  "network_dependencies": [],
+  "package": "saed_v4_foundation_model_adapters",
+  "phase": "SAED_V4_14",
+  "runtime_dependencies": [
+    "python_standard_library"
+  ],
+  "supply_chain_scope": "reference_implementation_only",
+  "version": "1.0.0"
+}

@@ -1,0 +1,18 @@
+{
+  "embedding_dim": 16,
+  "exact_version": "1.0.0",
+  "feature_dim": 12,
+  "frozen_upstream": true,
+  "horizon": 4,
+  "known_time_only": true,
+  "local_execution_only": true,
+  "patch_length": 8,
+  "quantiles": [
+    0.1,
+    0.25,
+    0.5,
+    0.75,
+    0.9
+  ],
+  "sequence_length": 64
+}

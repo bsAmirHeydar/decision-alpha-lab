@@ -1,0 +1,4 @@
+def sbom():
+    return {'phase':'SAED_V4_14','package':'saed_v4_foundation_model_adapters','version':'1.0.0','runtime_dependencies':['python_standard_library'],'external_model_dependencies':[],'network_dependencies':[],'external_weights':[],'license':'repository-governed','supply_chain_scope':'reference_implementation_only'}
+def incident_template():
+    return {'phase':'SAED_V4_14','incident_types':['digest_mismatch','license_violation','opaque_pretraining_corpus','evaluation_overlap','remote_inference_attempt','unexpected_network_access','future_suffix_access','domain_shift_breach','calibration_failure','fallback_failure','registry_tamper'],'severity_levels':['low','medium','high','critical'],'mandatory_actions':['quarantine_candidate','freeze_registry','preserve_evidence','revoke_handoff','notify_model_risk_owner','open_independent_review'],'production_impact':'none_reference_phase'}

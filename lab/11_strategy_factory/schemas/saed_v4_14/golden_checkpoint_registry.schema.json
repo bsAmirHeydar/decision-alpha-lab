@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "entries": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "adapter_mode": {
+            "type": "string"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "checkpoint_hash": {
+            "type": "string"
+          },
+          "checkpoint_id": {
+            "type": "string"
+          },
+          "composite_score": {
+            "type": "number"
+          },
+          "family": {
+            "type": "string"
+          },
+          "production_eligible": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "adapter_mode",
+          "candidate_id",
+          "checkpoint_hash",
+          "checkpoint_id",
+          "composite_score",
+          "family",
+          "production_eligible"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "reference_champion_id": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "revocable": {
+      "type": "boolean"
+    },
+    "runtime_authority": {
+      "type": "boolean"
+    },
+    "tournament_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "entries",
+    "immutable",
+    "phase",
+    "reference_champion_id",
+    "registry_hash",
+    "registry_id",
+    "revocable",
+    "runtime_authority",
+    "tournament_hash"
+  ],
+  "title": "SAED V4-14 Golden Checkpoint Registry",
+  "type": "object"
+}

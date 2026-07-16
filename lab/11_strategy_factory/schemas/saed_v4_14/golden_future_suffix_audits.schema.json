@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "items": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "audit_hash": {
+            "type": "string"
+          },
+          "audit_id": {
+            "type": "string"
+          },
+          "base_feature_hash": {
+            "type": "string"
+          },
+          "base_token_hash": {
+            "type": "string"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "cutoff": {
+            "type": "string"
+          },
+          "future_suffix_rejected": {
+            "type": "boolean"
+          },
+          "mutated_feature_hash": {
+            "type": "string"
+          },
+          "mutated_token_hash": {
+            "type": "string"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "phase": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "audit_hash",
+          "audit_id",
+          "base_feature_hash",
+          "base_token_hash",
+          "candidate_id",
+          "cutoff",
+          "future_suffix_rejected",
+          "mutated_feature_hash",
+          "mutated_token_hash",
+          "passed",
+          "phase"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "items",
+    "phase"
+  ],
+  "title": "SAED V4-14 Golden Future Suffix Audits",
+  "type": "object"
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "incident_types": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "mandatory_actions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_impact": {
+      "type": "string"
+    },
+    "severity_levels": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "incident_types",
+    "mandatory_actions",
+    "phase",
+    "production_impact",
+    "severity_levels"
+  ],
+  "title": "SAED V4-14 Incident Template",
+  "type": "object"
+}

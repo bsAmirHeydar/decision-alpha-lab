@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "compiled_graph_hash": {
+      "type": "string"
+    },
+    "feature_dim": {
+      "type": "number"
+    },
+    "future_suffix_accessed": {
+      "type": "boolean"
+    },
+    "known_as_of": {
+      "type": "string"
+    },
+    "normalization": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "sequence_length": {
+      "type": "number"
+    },
+    "source_candidate_id": {
+      "type": "string"
+    },
+    "source_embedding_hash": {
+      "type": "string"
+    },
+    "token_sequence_hash": {
+      "type": "string"
+    },
+    "token_sequence_id": {
+      "type": "string"
+    },
+    "tokens": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "age_seconds": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "feature": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "missing_mask": {
+            "items": {
+              "type": "boolean"
+            },
+            "type": "array"
+          },
+          "raw_feature": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "source_node_id": {
+            "type": "string"
+          },
+          "token_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "age_seconds",
+          "feature",
+          "known_time",
+          "missing_mask",
+          "raw_feature",
+          "source_node_id",
+          "token_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "compiled_graph_hash",
+    "feature_dim",
+    "future_suffix_accessed",
+    "known_as_of",
+    "normalization",
+    "phase",
+    "sequence_length",
+    "source_candidate_id",
+    "source_embedding_hash",
+    "token_sequence_hash",
+    "token_sequence_id",
+    "tokens"
+  ],
+  "title": "SAED V4-14 Golden Token Sequence",
+  "type": "object"
+}

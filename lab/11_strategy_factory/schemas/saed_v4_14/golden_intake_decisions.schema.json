@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "items": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "decision": {
+            "type": "string"
+          },
+          "decision_hash": {
+            "type": "string"
+          },
+          "decision_id": {
+            "type": "string"
+          },
+          "external_weights_loaded": {
+            "type": "boolean"
+          },
+          "family": {
+            "type": "string"
+          },
+          "intake_id": {
+            "type": "string"
+          },
+          "phase": {
+            "type": "string"
+          },
+          "production_eligible": {
+            "type": "boolean"
+          },
+          "reasons": {
+            "items": {},
+            "type": "array"
+          },
+          "synthetic_reference_adapter": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "decision",
+          "decision_hash",
+          "decision_id",
+          "external_weights_loaded",
+          "family",
+          "intake_id",
+          "phase",
+          "production_eligible",
+          "reasons",
+          "synthetic_reference_adapter"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "items",
+    "phase"
+  ],
+  "title": "SAED V4-14 Golden Intake Decisions",
+  "type": "object"
+}

@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_evidence": {
+      "type": "boolean"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "report_type": {
+      "type": "string"
+    },
+    "row_count": {
+      "type": "number"
+    },
+    "rows": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "candidate_id": {
+            "type": "string"
+          },
+          "domain_shift_hash": {
+            "type": "string"
+          },
+          "domain_shift_id": {
+            "type": "string"
+          },
+          "mean_shift": {
+            "type": "number"
+          },
+          "missing_rate": {
+            "type": "number"
+          },
+          "phase": {
+            "type": "string"
+          },
+          "robustness_score": {
+            "type": "number"
+          },
+          "router_concentration": {
+            "type": "number"
+          },
+          "runtime_authority": {
+            "type": "boolean"
+          },
+          "scale_ratio": {
+            "type": "number"
+          },
+          "support_tokens": {
+            "type": "number"
+          },
+          "supported": {
+            "type": "boolean"
+          },
+          "unsupported_action": {
+            "type": "string"
+          },
+          "violations": {
+            "items": {},
+            "type": "array"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "domain_shift_hash",
+          "domain_shift_id",
+          "mean_shift",
+          "missing_rate",
+          "phase",
+          "robustness_score",
+          "router_concentration",
+          "runtime_authority",
+          "scale_ratio",
+          "support_tokens",
+          "supported",
+          "unsupported_action",
+          "violations"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "all_passed",
+    "phase",
+    "production_evidence",
+    "report_hash",
+    "report_id",
+    "report_type",
+    "row_count",
+    "rows"
+  ],
+  "title": "SAED V4-14 Golden Domain Shift Report",
+  "type": "object"
+}

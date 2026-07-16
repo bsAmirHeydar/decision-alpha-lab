@@ -1,0 +1,77 @@
+{
+  "items": [
+    {
+      "decision": "admit_reference",
+      "decision_hash": "8370e018cc44ac54e1d6f45ac87790d8fd375a317bba9e6a43cf9f78b99fb925",
+      "decision_id": "fmintake_4a4761d72fbf06d2fe49b45f",
+      "external_weights_loaded": false,
+      "family": "native_linear_baseline",
+      "intake_id": "intake_native_linear",
+      "phase": "SAED_V4_14",
+      "production_eligible": false,
+      "reasons": [],
+      "synthetic_reference_adapter": true
+    },
+    {
+      "decision": "admit_reference",
+      "decision_hash": "c44445186b75b87844d169f20c9644f630d0d21601b7682763b76ca0e394ccd3",
+      "decision_id": "fmintake_6552c1288873be22da80ff96",
+      "external_weights_loaded": false,
+      "family": "timesfm_style",
+      "intake_id": "intake_timesfm_style",
+      "phase": "SAED_V4_14",
+      "production_eligible": false,
+      "reasons": [],
+      "synthetic_reference_adapter": true
+    },
+    {
+      "decision": "admit_reference",
+      "decision_hash": "25108962399ab0ba0b5f82bd379af95025c4634a87d9228917fb42404ff02449",
+      "decision_id": "fmintake_24e95330b85d4dba563159a7",
+      "external_weights_loaded": false,
+      "family": "chronos_style",
+      "intake_id": "intake_chronos_style",
+      "phase": "SAED_V4_14",
+      "production_eligible": false,
+      "reasons": [],
+      "synthetic_reference_adapter": true
+    },
+    {
+      "decision": "admit_reference",
+      "decision_hash": "e9220b23c27f084111b89a448daf3d29e1970e66d5a61c284d940ef16fe92663",
+      "decision_id": "fmintake_cfb69bf483a1359b487ddd89",
+      "external_weights_loaded": false,
+      "family": "moment_style",
+      "intake_id": "intake_moment_style",
+      "phase": "SAED_V4_14",
+      "production_eligible": false,
+      "reasons": [],
+      "synthetic_reference_adapter": true
+    },
+    {
+      "decision": "admit_reference",
+      "decision_hash": "15375dfff4930604772cda28a495f04ae06d57c5ece6bd0dcf7cbb5c7561dca7",
+      "decision_id": "fmintake_ab4d19319b0173bb430a960e",
+      "external_weights_loaded": false,
+      "family": "moirai_style",
+      "intake_id": "intake_moirai_style",
+      "phase": "SAED_V4_14",
+      "production_eligible": false,
+      "reasons": [],
+      "synthetic_reference_adapter": true
+    },
+    {
+      "decision": "admit_reference",
+      "decision_hash": "a18af170fcca4d99981f47bc0f34e521fe74e28e74efe2223ae7815c2ea609ef",
+      "decision_id": "fmintake_b4471a71390a87ee3c555069",
+      "external_weights_loaded": false,
+      "family": "sparse_moe_style",
+      "intake_id": "intake_sparse_moe_style",
+      "phase": "SAED_V4_14",
+      "production_eligible": false,
+      "reasons": [],
+      "synthetic_reference_adapter": true
+    }
+  ],
+  "phase": "SAED_V4_14"
+}

@@ -1,0 +1,65 @@
+{
+  "items": [
+    {
+      "audit_hash": "b768cafe06e3deb23ab2190abb8a001c6225f35242ef05c78e02a9eab9b9bfd5",
+      "audit_id": "fmfailclosed_31399f7ad16c4e8d89330eee",
+      "candidate_authority_granted": false,
+      "candidate_id": "v414_native_linear_s11",
+      "passed": true,
+      "phase": "SAED_V4_14",
+      "reasons": [],
+      "resolved_path": "candidate_feature"
+    },
+    {
+      "audit_hash": "143e11a08d1464cff2f4c2dda3c85e0d060c431d427092ace48787ded7f2e5ec",
+      "audit_id": "fmfailclosed_881c60eec239273819eeeff8",
+      "candidate_authority_granted": false,
+      "candidate_id": "v414_timesfm_s13",
+      "passed": true,
+      "phase": "SAED_V4_14",
+      "reasons": [],
+      "resolved_path": "candidate_feature"
+    },
+    {
+      "audit_hash": "824ec75ca9a7553dc37ada242f85b50e84becfce8326f365e051b58ec974ea34",
+      "audit_id": "fmfailclosed_025e0782ffe5b7ad87165e3c",
+      "candidate_authority_granted": false,
+      "candidate_id": "v414_chronos_s17",
+      "passed": true,
+      "phase": "SAED_V4_14",
+      "reasons": [],
+      "resolved_path": "candidate_feature"
+    },
+    {
+      "audit_hash": "9d9ad088dff65439fcaa55013f5406a2cd6a3d9dbf2f755d541acc432897a459",
+      "audit_id": "fmfailclosed_19f622c21f6c896f3f048b64",
+      "candidate_authority_granted": false,
+      "candidate_id": "v414_moment_s19",
+      "passed": true,
+      "phase": "SAED_V4_14",
+      "reasons": [],
+      "resolved_path": "candidate_feature"
+    },
+    {
+      "audit_hash": "ac7e3bf166a8270e14fb769ac8ff90165777c7da576fe09ddf9fe8f92c46d246",
+      "audit_id": "fmfailclosed_2ea693421fcff8240b40704e",
+      "candidate_authority_granted": false,
+      "candidate_id": "v414_moirai_s23",
+      "passed": true,
+      "phase": "SAED_V4_14",
+      "reasons": [],
+      "resolved_path": "candidate_feature"
+    },
+    {
+      "audit_hash": "0e8a844f747ddd7c57486091713faf1eba03cdbb6d78f82822ba977a708d753a",
+      "audit_id": "fmfailclosed_265ede03629b570f91ddf814",
+      "candidate_authority_granted": false,
+      "candidate_id": "v414_sparse_moe_s29",
+      "passed": true,
+      "phase": "SAED_V4_14",
+      "reasons": [],
+      "resolved_path": "candidate_feature"
+    }
+  ],
+  "phase": "SAED_V4_14"
+}

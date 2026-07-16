@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "external_model_dependencies": {
+      "items": {},
+      "type": "array"
+    },
+    "external_weights": {
+      "items": {},
+      "type": "array"
+    },
+    "license": {
+      "type": "string"
+    },
+    "network_dependencies": {
+      "items": {},
+      "type": "array"
+    },
+    "package": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "runtime_dependencies": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "supply_chain_scope": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "external_model_dependencies",
+    "external_weights",
+    "license",
+    "network_dependencies",
+    "package",
+    "phase",
+    "runtime_dependencies",
+    "supply_chain_scope",
+    "version"
+  ],
+  "title": "SAED V4-14 Sbom",
+  "type": "object"
+}

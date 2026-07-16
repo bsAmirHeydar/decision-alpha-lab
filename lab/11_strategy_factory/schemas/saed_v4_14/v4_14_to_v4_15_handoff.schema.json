@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "activate_runtime": {
+          "type": "boolean"
+        },
+        "allocate_risk": {
+          "type": "boolean"
+        },
+        "build_reference_multimodal_fusion": {
+          "type": "boolean"
+        },
+        "invoke_remote_model": {
+          "type": "boolean"
+        },
+        "load_unapproved_external_weights": {
+          "type": "boolean"
+        },
+        "mutate_v4_14_evidence": {
+          "type": "boolean"
+        },
+        "predict_outcomes": {
+          "type": "boolean"
+        },
+        "rank_treatments": {
+          "type": "boolean"
+        },
+        "read_frozen_foundation_features": {
+          "type": "boolean"
+        },
+        "read_frozen_foundation_registry": {
+          "type": "boolean"
+        },
+        "select_treatment": {
+          "type": "boolean"
+        },
+        "send_order": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "activate_runtime",
+        "allocate_risk",
+        "build_reference_multimodal_fusion",
+        "invoke_remote_model",
+        "load_unapproved_external_weights",
+        "mutate_v4_14_evidence",
+        "predict_outcomes",
+        "rank_treatments",
+        "read_frozen_foundation_features",
+        "read_frozen_foundation_registry",
+        "select_treatment",
+        "send_order"
+      ],
+      "type": "object"
+    },
+    "calibration_report_hash": {
+      "type": "string"
+    },
+    "domain_shift_report_hash": {
+      "type": "string"
+    },
+    "entry_gates": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "baseline_preserved": {
+          "type": "boolean"
+        },
+        "deterministic_replay_passed": {
+          "type": "boolean"
+        },
+        "fail_closed_fallback_verified": {
+          "type": "boolean"
+        },
+        "foundation_registry_admitted": {
+          "type": "boolean"
+        },
+        "frozen_v4_13_binding_verified": {
+          "type": "boolean"
+        },
+        "future_suffix_forbidden": {
+          "type": "boolean"
+        },
+        "known_time_tokenization_passed": {
+          "type": "boolean"
+        },
+        "model_intake_closed": {
+          "type": "boolean"
+        },
+        "outcome_supervision_absent": {
+          "type": "boolean"
+        },
+        "pretraining_contamination_reviewed": {
+          "type": "boolean"
+        },
+        "supply_chain_attested": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "baseline_preserved",
+        "deterministic_replay_passed",
+        "fail_closed_fallback_verified",
+        "foundation_registry_admitted",
+        "frozen_v4_13_binding_verified",
+        "future_suffix_forbidden",
+        "known_time_tokenization_passed",
+        "model_intake_closed",
+        "outcome_supervision_absent",
+        "pretraining_contamination_reviewed",
+        "supply_chain_attested"
+      ],
+      "type": "object"
+    },
+    "foundation_checkpoint_registry_hash": {
+      "type": "string"
+    },
+    "foundation_checkpoint_registry_id": {
+      "type": "string"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "integrity_receipt_hash": {
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "reference_champion_id": {
+      "type": "string"
+    },
+    "source_token_sequence_hash": {
+      "type": "string"
+    },
+    "upstream_v4_13_handoff_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "authority",
+    "calibration_report_hash",
+    "domain_shift_report_hash",
+    "entry_gates",
+    "foundation_checkpoint_registry_hash",
+    "foundation_checkpoint_registry_id",
+    "handoff_hash",
+    "handoff_id",
+    "integrity_receipt_hash",
+    "limitations",
+    "next_phase",
+    "phase",
+    "reference_champion_id",
+    "source_token_sequence_hash",
+    "upstream_v4_13_handoff_hash"
+  ],
+  "title": "SAED V4-14 V4 14 To V4 15 Handoff",
+  "type": "object"
+}

@@ -1,0 +1,66 @@
+{
+  "entries": [
+    {
+      "adapter_mode": "zero_shot_distribution",
+      "candidate_id": "v414_chronos_s17",
+      "checkpoint_hash": "7c4fd867d14bb597b8c066e3d5468bd6ee9fc7821958cdd69ba22991ff00d909",
+      "checkpoint_id": "fmckpt_469f7b7c5bc4985bc083d9fc",
+      "composite_score": 0.6094700452401113,
+      "family": "chronos_style",
+      "production_eligible": false
+    },
+    {
+      "adapter_mode": "probabilistic_multiscale",
+      "candidate_id": "v414_moirai_s23",
+      "checkpoint_hash": "552cc7b078f267a64b515d6b206c5cde626cbca1d846b063c7a94eb9e9459793",
+      "checkpoint_id": "fmckpt_aa383ccff06246d987e8bd81",
+      "composite_score": 0.6118023272519633,
+      "family": "moirai_style",
+      "production_eligible": false
+    },
+    {
+      "adapter_mode": "masked_representation",
+      "candidate_id": "v414_moment_s19",
+      "checkpoint_hash": "bb5c1963797f02870b8eef17b7da23981cb985b20bd56157bafbcac575caa038",
+      "checkpoint_id": "fmckpt_5f116de43cca5c0ba7a31847",
+      "composite_score": 0.611491843833442,
+      "family": "moment_style",
+      "production_eligible": false
+    },
+    {
+      "adapter_mode": "causal_linear",
+      "candidate_id": "v414_native_linear_s11",
+      "checkpoint_hash": "890f5b83eefb09f9188fa093218973ecd7abf426096e17ddcd1333256e70326c",
+      "checkpoint_id": "fmckpt_60dcd90d35ad75ec892c4594",
+      "composite_score": 0.6095850305686638,
+      "family": "native_linear_baseline",
+      "production_eligible": false
+    },
+    {
+      "adapter_mode": "sparse_expert_features",
+      "candidate_id": "v414_sparse_moe_s29",
+      "checkpoint_hash": "5e886a9a0f21a501620467559df20de3f17d3b2e12dc9b491a79422e71917c49",
+      "checkpoint_id": "fmckpt_7ae533175c1e19b67d84d972",
+      "composite_score": 0.5926194461896228,
+      "family": "sparse_moe_style",
+      "production_eligible": false
+    },
+    {
+      "adapter_mode": "frozen_embedding",
+      "candidate_id": "v414_timesfm_s13",
+      "checkpoint_hash": "647a6759d941a33ad7ba026012daccde61f2bfe5e9ce70b38547d1b3e6d60355",
+      "checkpoint_id": "fmckpt_44b85cf94ead8c0f299d8092",
+      "composite_score": 0.6114153820477278,
+      "family": "timesfm_style",
+      "production_eligible": false
+    }
+  ],
+  "immutable": true,
+  "phase": "SAED_V4_14",
+  "reference_champion_id": "v414_moirai_s23",
+  "registry_hash": "5818101e502bb359deab92db71123a954144a157bbb6582ae6f6dfafd08f4226",
+  "registry_id": "fmregistry_9245dbad970cc78faa0d57ae",
+  "revocable": true,
+  "runtime_authority": false,
+  "tournament_hash": "b5d63eefa4de5317bec9da1af4951c3b970be327b1ceec2cdbf864c8145e3541"
+}

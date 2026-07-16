@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "active_candidate_count": {
+      "type": "number"
+    },
+    "adapter_calls": {
+      "type": "number"
+    },
+    "checks": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "adapter_call_budget": {
+          "type": "boolean"
+        },
+        "candidate_budget": {
+          "type": "boolean"
+        },
+        "exposure_budget": {
+          "type": "boolean"
+        },
+        "token_budget": {
+          "type": "boolean"
+        },
+        "trainable_parameter_budget": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "adapter_call_budget",
+        "candidate_budget",
+        "exposure_budget",
+        "token_budget",
+        "trainable_parameter_budget"
+      ],
+      "type": "object"
+    },
+    "complete_accounting": {
+      "type": "boolean"
+    },
+    "exposure_events": {
+      "type": "number"
+    },
+    "failure_count": {
+      "type": "number"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "retry_count": {
+      "type": "number"
+    },
+    "total_tokens": {
+      "type": "number"
+    },
+    "trainable_parameters": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "active_candidate_count",
+    "adapter_calls",
+    "checks",
+    "complete_accounting",
+    "exposure_events",
+    "failure_count",
+    "ledger_hash",
+    "ledger_id",
+    "phase",
+    "retry_count",
+    "total_tokens",
+    "trainable_parameters"
+  ],
+  "title": "SAED V4-14 Golden Compute Exposure Ledger",
+  "type": "object"
+}

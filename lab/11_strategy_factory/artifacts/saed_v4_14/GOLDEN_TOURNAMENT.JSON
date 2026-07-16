@@ -1,0 +1,56 @@
+{
+  "baseline_id": "v414_native_linear_s11",
+  "baseline_preserved": true,
+  "baseline_score": 0.6095850305686638,
+  "economic_uplift_evaluated": false,
+  "phase": "SAED_V4_14",
+  "production_authority": false,
+  "ranking": [
+    {
+      "adapter_mode": "probabilistic_multiscale",
+      "candidate_id": "v414_moirai_s23",
+      "composite_score": 0.6118023272519633,
+      "family": "moirai_style",
+      "rank": 1
+    },
+    {
+      "adapter_mode": "masked_representation",
+      "candidate_id": "v414_moment_s19",
+      "composite_score": 0.611491843833442,
+      "family": "moment_style",
+      "rank": 2
+    },
+    {
+      "adapter_mode": "frozen_embedding",
+      "candidate_id": "v414_timesfm_s13",
+      "composite_score": 0.6114153820477278,
+      "family": "timesfm_style",
+      "rank": 3
+    },
+    {
+      "adapter_mode": "causal_linear",
+      "candidate_id": "v414_native_linear_s11",
+      "composite_score": 0.6095850305686638,
+      "family": "native_linear_baseline",
+      "rank": 4
+    },
+    {
+      "adapter_mode": "zero_shot_distribution",
+      "candidate_id": "v414_chronos_s17",
+      "composite_score": 0.6094700452401113,
+      "family": "chronos_style",
+      "rank": 5
+    },
+    {
+      "adapter_mode": "sparse_expert_features",
+      "candidate_id": "v414_sparse_moe_s29",
+      "composite_score": 0.5926194461896228,
+      "family": "sparse_moe_style",
+      "rank": 6
+    }
+  ],
+  "reference_champion_id": "v414_moirai_s23",
+  "selection_scope": "synthetic_reference_self_supervised_only",
+  "tournament_hash": "b5d63eefa4de5317bec9da1af4951c3b970be327b1ceec2cdbf864c8145e3541",
+  "tournament_id": "fmtournament_e2250906eb62704205f3bff8"
+}

@@ -1,0 +1,80 @@
+[
+  {
+    "adapter_mode": "causal_linear",
+    "calibration_method": "identity",
+    "candidate_id": "v414_native_linear_s11",
+    "enabled": true,
+    "expert_count": 1,
+    "family": "native_linear_baseline",
+    "intake_id": "intake_native_linear",
+    "missingness_policy": "mask_and_zero",
+    "normalization": "causal_zscore",
+    "seed": 11,
+    "trainable_parameter_budget": 0
+  },
+  {
+    "adapter_mode": "frozen_embedding",
+    "calibration_method": "temperature",
+    "candidate_id": "v414_timesfm_s13",
+    "enabled": true,
+    "expert_count": 1,
+    "family": "timesfm_style",
+    "intake_id": "intake_timesfm_style",
+    "missingness_policy": "mask_and_zero",
+    "normalization": "causal_zscore",
+    "seed": 13,
+    "trainable_parameter_budget": 0
+  },
+  {
+    "adapter_mode": "zero_shot_distribution",
+    "calibration_method": "temperature",
+    "candidate_id": "v414_chronos_s17",
+    "enabled": true,
+    "expert_count": 1,
+    "family": "chronos_style",
+    "intake_id": "intake_chronos_style",
+    "missingness_policy": "mask_and_zero",
+    "normalization": "causal_zscore",
+    "seed": 17,
+    "trainable_parameter_budget": 0
+  },
+  {
+    "adapter_mode": "masked_representation",
+    "calibration_method": "temperature",
+    "candidate_id": "v414_moment_s19",
+    "enabled": true,
+    "expert_count": 1,
+    "family": "moment_style",
+    "intake_id": "intake_moment_style",
+    "missingness_policy": "mask_and_zero",
+    "normalization": "causal_zscore",
+    "seed": 19,
+    "trainable_parameter_budget": 2048
+  },
+  {
+    "adapter_mode": "probabilistic_multiscale",
+    "calibration_method": "temperature",
+    "candidate_id": "v414_moirai_s23",
+    "enabled": true,
+    "expert_count": 1,
+    "family": "moirai_style",
+    "intake_id": "intake_moirai_style",
+    "missingness_policy": "mask_and_zero",
+    "normalization": "causal_zscore",
+    "seed": 23,
+    "trainable_parameter_budget": 4096
+  },
+  {
+    "adapter_mode": "sparse_expert_features",
+    "calibration_method": "temperature",
+    "candidate_id": "v414_sparse_moe_s29",
+    "enabled": true,
+    "expert_count": 4,
+    "family": "sparse_moe_style",
+    "intake_id": "intake_sparse_moe_style",
+    "missingness_policy": "mask_and_zero",
+    "normalization": "causal_zscore",
+    "seed": 29,
+    "trainable_parameter_budget": 8192
+  }
+]

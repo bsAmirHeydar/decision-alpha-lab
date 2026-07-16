@@ -1,0 +1,4 @@
+#ifndef DECISION_ALPHA_LAB_SAED_V4_14_KNOWN_TIME_GUARD_MQH
+#define DECISION_ALPHA_LAB_SAED_V4_14_KNOWN_TIME_GUARD_MQH
+bool SAEDV414KnownTimeAllowed(const datetime known_time,const datetime decision_time){return known_time<=decision_time;}
+#endif

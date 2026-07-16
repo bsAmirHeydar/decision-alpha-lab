@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "claims": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "calibration_diagnostics": {
+          "type": "boolean"
+        },
+        "closed_model_intake_contracts": {
+          "type": "boolean"
+        },
+        "deterministic_reference_adapter_families": {
+          "type": "boolean"
+        },
+        "domain_shift_diagnostics": {
+          "type": "boolean"
+        },
+        "economic_uplift_established": {
+          "type": "boolean"
+        },
+        "fail_closed_fallback": {
+          "type": "boolean"
+        },
+        "foundation_model_adapter_boundary_implemented": {
+          "type": "boolean"
+        },
+        "future_suffix_invariance": {
+          "type": "boolean"
+        },
+        "immutable_checkpoint_registry": {
+          "type": "boolean"
+        },
+        "known_time_tokenization": {
+          "type": "boolean"
+        },
+        "live_trading": {
+          "type": "boolean"
+        },
+        "outcome_prediction_authority": {
+          "type": "boolean"
+        },
+        "pretraining_contamination_firewall": {
+          "type": "boolean"
+        },
+        "production_authorization": {
+          "type": "boolean"
+        },
+        "quantile_feature_materialization": {
+          "type": "boolean"
+        },
+        "real_alpha": {
+          "type": "boolean"
+        },
+        "real_external_model_loaded": {
+          "type": "boolean"
+        },
+        "real_foundation_checkpoint_evaluated": {
+          "type": "boolean"
+        },
+        "risk_allocation": {
+          "type": "boolean"
+        },
+        "runtime_activation": {
+          "type": "boolean"
+        },
+        "supply_chain_attestation_reference": {
+          "type": "boolean"
+        },
+        "treatment_ranking": {
+          "type": "boolean"
+        },
+        "treatment_selection": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "calibration_diagnostics",
+        "closed_model_intake_contracts",
+        "deterministic_reference_adapter_families",
+        "domain_shift_diagnostics",
+        "economic_uplift_established",
+        "fail_closed_fallback",
+        "foundation_model_adapter_boundary_implemented",
+        "future_suffix_invariance",
+        "immutable_checkpoint_registry",
+        "known_time_tokenization",
+        "live_trading",
+        "outcome_prediction_authority",
+        "pretraining_contamination_firewall",
+        "production_authorization",
+        "quantile_feature_materialization",
+        "real_alpha",
+        "real_external_model_loaded",
+        "real_foundation_checkpoint_evaluated",
+        "risk_allocation",
+        "runtime_activation",
+        "supply_chain_attestation_reference",
+        "treatment_ranking",
+        "treatment_selection"
+      ],
+      "type": "object"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "claims",
+    "phase"
+  ],
+  "title": "SAED V4-14 Claim Ledger",
+  "type": "object"
+}

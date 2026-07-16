@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "items": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "attestation_hash": {
+            "type": "string"
+          },
+          "attestation_id": {
+            "type": "string"
+          },
+          "code_digest": {
+            "type": "string"
+          },
+          "decision": {
+            "type": "string"
+          },
+          "external_network_calls": {
+            "type": "boolean"
+          },
+          "external_weights_loaded": {
+            "type": "boolean"
+          },
+          "family": {
+            "type": "string"
+          },
+          "intake_id": {
+            "type": "string"
+          },
+          "license_id": {
+            "type": "string"
+          },
+          "license_permitted": {
+            "type": "boolean"
+          },
+          "local_execution_only": {
+            "type": "boolean"
+          },
+          "phase": {
+            "type": "string"
+          },
+          "production_eligible": {
+            "type": "boolean"
+          },
+          "release": {
+            "type": "string"
+          },
+          "remote_inference_forbidden": {
+            "type": "boolean"
+          },
+          "signature_status": {
+            "type": "string"
+          },
+          "tokenizer_digest": {
+            "type": "string"
+          },
+          "vulnerability_scan": {
+            "type": "string"
+          },
+          "weight_digest": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "attestation_hash",
+          "attestation_id",
+          "code_digest",
+          "decision",
+          "external_network_calls",
+          "external_weights_loaded",
+          "family",
+          "intake_id",
+          "license_id",
+          "license_permitted",
+          "local_execution_only",
+          "phase",
+          "production_eligible",
+          "release",
+          "remote_inference_forbidden",
+          "signature_status",
+          "tokenizer_digest",
+          "vulnerability_scan",
+          "weight_digest"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "items",
+    "phase"
+  ],
+  "title": "SAED V4-14 Golden Supply Chain Attestations",
+  "type": "object"
+}

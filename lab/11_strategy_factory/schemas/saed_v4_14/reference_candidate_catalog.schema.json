@@ -1,0 +1,56 @@
+{
+  "items": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "additionalProperties": false,
+    "properties": {
+      "adapter_mode": {
+        "type": "string"
+      },
+      "calibration_method": {
+        "type": "string"
+      },
+      "candidate_id": {
+        "type": "string"
+      },
+      "enabled": {
+        "type": "boolean"
+      },
+      "expert_count": {
+        "type": "number"
+      },
+      "family": {
+        "type": "string"
+      },
+      "intake_id": {
+        "type": "string"
+      },
+      "missingness_policy": {
+        "type": "string"
+      },
+      "normalization": {
+        "type": "string"
+      },
+      "seed": {
+        "type": "number"
+      },
+      "trainable_parameter_budget": {
+        "type": "number"
+      }
+    },
+    "required": [
+      "adapter_mode",
+      "calibration_method",
+      "candidate_id",
+      "enabled",
+      "expert_count",
+      "family",
+      "intake_id",
+      "missingness_policy",
+      "normalization",
+      "seed",
+      "trainable_parameter_budget"
+    ],
+    "type": "object"
+  },
+  "type": "array"
+}

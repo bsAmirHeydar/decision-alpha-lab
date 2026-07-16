@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_operations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "capability_tier": {
+      "type": "string"
+    },
+    "decision_authority": {
+      "type": "boolean"
+    },
+    "execution_authority": {
+      "type": "boolean"
+    },
+    "fail_closed_fallback": {
+      "type": "string"
+    },
+    "forbidden_operations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "runtime_authority": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "allowed_operations",
+    "capability_tier",
+    "decision_authority",
+    "execution_authority",
+    "fail_closed_fallback",
+    "forbidden_operations",
+    "phase",
+    "runtime_authority"
+  ],
+  "title": "SAED V4-14 Authority Boundary",
+  "type": "object"
+}

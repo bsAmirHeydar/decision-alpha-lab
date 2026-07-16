@@ -1,0 +1,83 @@
+{
+  "authority": {
+    "decision_authority": false,
+    "execution_authority": false,
+    "research_reference_only": true,
+    "runtime_authority": false
+  },
+  "claims": {
+    "calibration_diagnostics": true,
+    "closed_model_intake_contracts": true,
+    "deterministic_reference_adapter_families": true,
+    "domain_shift_diagnostics": true,
+    "economic_uplift_established": false,
+    "fail_closed_fallback": true,
+    "foundation_model_adapter_boundary_implemented": true,
+    "future_suffix_invariance": true,
+    "immutable_checkpoint_registry": true,
+    "known_time_tokenization": true,
+    "live_trading": false,
+    "outcome_prediction_authority": false,
+    "pretraining_contamination_firewall": true,
+    "production_authorization": false,
+    "quantile_feature_materialization": true,
+    "real_alpha": false,
+    "real_external_model_loaded": false,
+    "real_foundation_checkpoint_evaluated": false,
+    "risk_allocation": false,
+    "runtime_activation": false,
+    "supply_chain_attestation_reference": true,
+    "treatment_ranking": false,
+    "treatment_selection": false
+  },
+  "date": "2026-07-16",
+  "external_evidence": {
+    "distributed_training": "not_claimed",
+    "external_checkpoint_loading": "not_claimed",
+    "gpu_reproduction": "not_claimed",
+    "live": "not_claimed",
+    "metaeditor_compile": "pending_local_windows",
+    "micro_live": "not_claimed",
+    "prospective_paper": "not_claimed",
+    "real_corpus_evaluation": "not_claimed",
+    "real_license_review": "not_claimed",
+    "runtime_differential_parity": "not_claimed",
+    "shadow": "not_claimed"
+  },
+  "handoff_hash": "78fec567a00db48f34f9e0c3068208343529380b122b657aa04b421be77ac42c",
+  "handoff_id": "v414to15_4c3e98065d48136ada1e6be9",
+  "implementation_status": "implemented_reference_synthetic",
+  "next_phase": "SAED_V4_15",
+  "phase": "SAED_V4_14",
+  "qa": {
+    "closed_schema_pairs": 33,
+    "golden_reproduction": true,
+    "mql5_static_files": 12,
+    "obsidian_notes": 64,
+    "passed": true,
+    "python_tests": 77
+  },
+  "reference_champion_id": "v414_moirai_s23",
+  "registry_hash": "5818101e502bb359deab92db71123a954144a157bbb6582ae6f6dfafd08f4226",
+  "registry_id": "fmregistry_9245dbad970cc78faa0d57ae",
+  "scope": {
+    "adapter_family_count": 6,
+    "baseline_preservation": true,
+    "calibration_diagnostics": true,
+    "closed_model_intake": true,
+    "compute_exposure_accounting": true,
+    "domain_shift_diagnostics": true,
+    "fail_closed_fallback": true,
+    "future_suffix_audit": true,
+    "immutable_registry": true,
+    "known_time_tokenization": true,
+    "pretraining_contamination_firewall": true,
+    "quantile_features": true,
+    "supply_chain_attestation": true
+  },
+  "title": "Foundation Model Adapters",
+  "upstream_phases": [
+    "SAED_V4_13"
+  ],
+  "version": "1.0.0"
+}

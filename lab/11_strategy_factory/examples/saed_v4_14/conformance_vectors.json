@@ -1,0 +1,42 @@
+[
+  {
+    "expect_allowed": true,
+    "operation": "read_frozen_graph_embeddings",
+    "vector_id": "allow_read"
+  },
+  {
+    "expect_allowed": true,
+    "operation": "materialize_reference_features",
+    "vector_id": "allow_materialize"
+  },
+  {
+    "expect_allowed": true,
+    "operation": "register_research_checkpoint",
+    "vector_id": "allow_register"
+  },
+  {
+    "expect_allowed": false,
+    "operation": "predict_outcome",
+    "vector_id": "deny_predict"
+  },
+  {
+    "expect_allowed": false,
+    "operation": "select_treatment",
+    "vector_id": "deny_select"
+  },
+  {
+    "expect_allowed": false,
+    "operation": "activate_runtime",
+    "vector_id": "deny_runtime"
+  },
+  {
+    "expect_allowed": false,
+    "operation": "remote_inference",
+    "vector_id": "deny_remote"
+  },
+  {
+    "expect_allowed": false,
+    "operation": "online_learning",
+    "vector_id": "deny_online"
+  }
+]

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "max_adapter_calls": {
+      "type": "number"
+    },
+    "max_candidates": {
+      "type": "number"
+    },
+    "max_exposure_events": {
+      "type": "number"
+    },
+    "max_failures": {
+      "type": "number"
+    },
+    "max_retries": {
+      "type": "number"
+    },
+    "max_total_tokens": {
+      "type": "number"
+    },
+    "max_trainable_parameters": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "max_adapter_calls",
+    "max_candidates",
+    "max_exposure_events",
+    "max_failures",
+    "max_retries",
+    "max_total_tokens",
+    "max_trainable_parameters"
+  ],
+  "title": "SAED V4-14 Reference Compute Exposure Budget",
+  "type": "object"
+}

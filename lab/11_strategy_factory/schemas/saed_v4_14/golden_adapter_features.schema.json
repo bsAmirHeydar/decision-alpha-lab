@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "items": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "adapter_mode": {
+            "type": "string"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "embedding": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "external_model_invoked": {
+            "type": "boolean"
+          },
+          "external_weights_loaded": {
+            "type": "boolean"
+          },
+          "family": {
+            "type": "string"
+          },
+          "feature_hash": {
+            "type": "string"
+          },
+          "feature_id": {
+            "type": "string"
+          },
+          "future_suffix_accessed": {
+            "type": "boolean"
+          },
+          "intake_id": {
+            "type": "string"
+          },
+          "known_as_of": {
+            "type": "string"
+          },
+          "online_learning": {
+            "type": "boolean"
+          },
+          "phase": {
+            "type": "string"
+          },
+          "production_eligible": {
+            "type": "boolean"
+          },
+          "quantile_forecast": {
+            "items": {
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "additionalProperties": false,
+              "properties": {
+                "q": {
+                  "type": "number"
+                },
+                "value": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "q",
+                "value"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "router_weights": {
+            "items": {},
+            "type": "array"
+          },
+          "runtime_authority": {
+            "type": "boolean"
+          },
+          "source_token_sequence_hash": {
+            "type": "string"
+          },
+          "uncertainty_scale": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "adapter_mode",
+          "candidate_id",
+          "embedding",
+          "external_model_invoked",
+          "external_weights_loaded",
+          "family",
+          "feature_hash",
+          "feature_id",
+          "future_suffix_accessed",
+          "intake_id",
+          "known_as_of",
+          "online_learning",
+          "phase",
+          "production_eligible",
+          "quantile_forecast",
+          "router_weights",
+          "runtime_authority",
+          "source_token_sequence_hash",
+          "uncertainty_scale"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "items",
+    "phase"
+  ],
+  "title": "SAED V4-14 Golden Adapter Features",
+  "type": "object"
+}

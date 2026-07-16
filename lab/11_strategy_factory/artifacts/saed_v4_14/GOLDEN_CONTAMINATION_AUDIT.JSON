@@ -1,0 +1,77 @@
+{
+  "all_admitted_rows_safe": true,
+  "audit_hash": "41bec9f97863fdb5545736816ccc276d88e732811e5ebbe517cd00b226074607",
+  "audit_id": "fmcontamination_8170bceb1409f448acbf81f3",
+  "known_as_of": "2026-01-05T14:30:01Z",
+  "outcome_labels_accessed": false,
+  "phase": "SAED_V4_14",
+  "protected_evidence_accessed": false,
+  "rows": [
+    {
+      "action": "admit_reference",
+      "effective_overlap_risk": "none",
+      "evaluation_period_overlap_possible": false,
+      "exact_corpus_disclosed": true,
+      "family": "native_linear_baseline",
+      "intake_id": "intake_native_linear",
+      "passed": true,
+      "synthetic_reference_adapter": true,
+      "training_cutoff": "not_applicable_reference_emulation"
+    },
+    {
+      "action": "admit_reference",
+      "effective_overlap_risk": "none",
+      "evaluation_period_overlap_possible": false,
+      "exact_corpus_disclosed": true,
+      "family": "timesfm_style",
+      "intake_id": "intake_timesfm_style",
+      "passed": true,
+      "synthetic_reference_adapter": true,
+      "training_cutoff": "not_applicable_reference_emulation"
+    },
+    {
+      "action": "admit_reference",
+      "effective_overlap_risk": "none",
+      "evaluation_period_overlap_possible": false,
+      "exact_corpus_disclosed": true,
+      "family": "chronos_style",
+      "intake_id": "intake_chronos_style",
+      "passed": true,
+      "synthetic_reference_adapter": true,
+      "training_cutoff": "not_applicable_reference_emulation"
+    },
+    {
+      "action": "admit_reference",
+      "effective_overlap_risk": "none",
+      "evaluation_period_overlap_possible": false,
+      "exact_corpus_disclosed": true,
+      "family": "moment_style",
+      "intake_id": "intake_moment_style",
+      "passed": true,
+      "synthetic_reference_adapter": true,
+      "training_cutoff": "not_applicable_reference_emulation"
+    },
+    {
+      "action": "admit_reference",
+      "effective_overlap_risk": "none",
+      "evaluation_period_overlap_possible": false,
+      "exact_corpus_disclosed": true,
+      "family": "moirai_style",
+      "intake_id": "intake_moirai_style",
+      "passed": true,
+      "synthetic_reference_adapter": true,
+      "training_cutoff": "not_applicable_reference_emulation"
+    },
+    {
+      "action": "admit_reference",
+      "effective_overlap_risk": "none",
+      "evaluation_period_overlap_possible": false,
+      "exact_corpus_disclosed": true,
+      "family": "sparse_moe_style",
+      "intake_id": "intake_sparse_moe_style",
+      "passed": true,
+      "synthetic_reference_adapter": true,
+      "training_cutoff": "not_applicable_reference_emulation"
+    }
+  ]
+}

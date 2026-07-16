@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_evidence": {
+      "type": "boolean"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "report_type": {
+      "type": "string"
+    },
+    "row_count": {
+      "type": "number"
+    },
+    "rows": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "calibration_hash": {
+            "type": "string"
+          },
+          "calibration_id": {
+            "type": "string"
+          },
+          "calibration_method": {
+            "type": "string"
+          },
+          "calibration_score": {
+            "type": "number"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "coverage_gap": {
+            "type": "number"
+          },
+          "expected_interval_mass": {
+            "type": "number"
+          },
+          "interval_covered": {
+            "type": "boolean"
+          },
+          "median_absolute_error": {
+            "type": "number"
+          },
+          "phase": {
+            "type": "string"
+          },
+          "production_evidence": {
+            "type": "boolean"
+          },
+          "quantile_monotonic": {
+            "type": "boolean"
+          },
+          "reference_target": {
+            "type": "number"
+          },
+          "selection_evidence": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "calibration_hash",
+          "calibration_id",
+          "calibration_method",
+          "calibration_score",
+          "candidate_id",
+          "coverage_gap",
+          "expected_interval_mass",
+          "interval_covered",
+          "median_absolute_error",
+          "phase",
+          "production_evidence",
+          "quantile_monotonic",
+          "reference_target",
+          "selection_evidence"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "all_passed",
+    "phase",
+    "production_evidence",
+    "report_hash",
+    "report_id",
+    "report_type",
+    "row_count",
+    "rows"
+  ],
+  "title": "SAED V4-14 Golden Calibration Report",
+  "type": "object"
+}

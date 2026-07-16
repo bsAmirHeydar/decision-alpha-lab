@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "embedding_dim": {
+      "type": "number"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "feature_dim": {
+      "type": "number"
+    },
+    "frozen_upstream": {
+      "type": "boolean"
+    },
+    "horizon": {
+      "type": "number"
+    },
+    "known_time_only": {
+      "type": "boolean"
+    },
+    "local_execution_only": {
+      "type": "boolean"
+    },
+    "patch_length": {
+      "type": "number"
+    },
+    "quantiles": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "sequence_length": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "embedding_dim",
+    "exact_version",
+    "feature_dim",
+    "frozen_upstream",
+    "horizon",
+    "known_time_only",
+    "local_execution_only",
+    "patch_length",
+    "quantiles",
+    "sequence_length"
+  ],
+  "title": "SAED V4-14 Reference Adapter Config",
+  "type": "object"
+}

@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "items": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "adapter_mode": {
+            "type": "string"
+          },
+          "calibration_hash": {
+            "type": "string"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "checkpoint_hash": {
+            "type": "string"
+          },
+          "checkpoint_id": {
+            "type": "string"
+          },
+          "composite_score": {
+            "type": "number"
+          },
+          "domain_shift_hash": {
+            "type": "string"
+          },
+          "evaluation_hash": {
+            "type": "string"
+          },
+          "external_weights_loaded": {
+            "type": "boolean"
+          },
+          "family": {
+            "type": "string"
+          },
+          "feature_hash": {
+            "type": "string"
+          },
+          "intake_decision_hash": {
+            "type": "string"
+          },
+          "intake_id": {
+            "type": "string"
+          },
+          "phase": {
+            "type": "string"
+          },
+          "production_eligible": {
+            "type": "boolean"
+          },
+          "runtime_authority": {
+            "type": "boolean"
+          },
+          "seed": {
+            "type": "number"
+          },
+          "source_token_sequence_hash": {
+            "type": "string"
+          },
+          "supply_chain_attestation_hash": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "adapter_mode",
+          "calibration_hash",
+          "candidate_id",
+          "checkpoint_hash",
+          "checkpoint_id",
+          "composite_score",
+          "domain_shift_hash",
+          "evaluation_hash",
+          "external_weights_loaded",
+          "family",
+          "feature_hash",
+          "intake_decision_hash",
+          "intake_id",
+          "phase",
+          "production_eligible",
+          "runtime_authority",
+          "seed",
+          "source_token_sequence_hash",
+          "supply_chain_attestation_hash"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "items",
+    "phase"
+  ],
+  "title": "SAED V4-14 Golden Candidate Checkpoints",
+  "type": "object"
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "code_identity": {
+      "type": "string"
+    },
+    "evidence_scope": {
+      "type": "string"
+    },
+    "external_weights_loaded": {
+      "type": "boolean"
+    },
+    "foundation_checkpoint_registry_hash": {
+      "type": "string"
+    },
+    "intake_decision_hashes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "provenance_hash": {
+      "type": "string"
+    },
+    "provenance_id": {
+      "type": "string"
+    },
+    "source_token_sequence_hash": {
+      "type": "string"
+    },
+    "tournament_hash": {
+      "type": "string"
+    },
+    "upstream_v4_13_handoff_hash": {
+      "type": "string"
+    },
+    "upstream_v4_13_registry_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "code_identity",
+    "evidence_scope",
+    "external_weights_loaded",
+    "foundation_checkpoint_registry_hash",
+    "intake_decision_hashes",
+    "phase",
+    "provenance_hash",
+    "provenance_id",
+    "source_token_sequence_hash",
+    "tournament_hash",
+    "upstream_v4_13_handoff_hash",
+    "upstream_v4_13_registry_hash"
+  ],
+  "title": "SAED V4-14 Provenance",
+  "type": "object"
+}

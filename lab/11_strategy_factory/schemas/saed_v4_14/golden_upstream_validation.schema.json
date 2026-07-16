@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "frozen": {
+      "type": "boolean"
+    },
+    "gate_count": {
+      "type": "number"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "v4_13_compiled_graph_hash": {
+      "type": "string"
+    },
+    "v4_13_handoff_hash": {
+      "type": "string"
+    },
+    "v4_13_reference_champion_id": {
+      "type": "string"
+    },
+    "v4_13_registry_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "frozen",
+    "gate_count",
+    "passed",
+    "phase",
+    "v4_13_compiled_graph_hash",
+    "v4_13_handoff_hash",
+    "v4_13_reference_champion_id",
+    "v4_13_registry_hash"
+  ],
+  "title": "SAED V4-14 Golden Upstream Validation",
+  "type": "object"
+}

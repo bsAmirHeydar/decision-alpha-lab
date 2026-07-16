@@ -1,0 +1,24 @@
+{
+  "items": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "additionalProperties": false,
+    "properties": {
+      "expect_allowed": {
+        "type": "boolean"
+      },
+      "operation": {
+        "type": "string"
+      },
+      "vector_id": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "expect_allowed",
+      "operation",
+      "vector_id"
+    ],
+    "type": "object"
+  },
+  "type": "array"
+}

@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "max_mean_shift": {
+      "type": "number"
+    },
+    "max_missing_rate": {
+      "type": "number"
+    },
+    "max_router_concentration": {
+      "type": "number"
+    },
+    "max_scale_ratio": {
+      "type": "number"
+    },
+    "min_support_tokens": {
+      "type": "number"
+    },
+    "unsupported_action": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "max_mean_shift",
+    "max_missing_rate",
+    "max_router_concentration",
+    "max_scale_ratio",
+    "min_support_tokens",
+    "unsupported_action"
+  ],
+  "title": "SAED V4-14 Reference Domain Shift Policy",
+  "type": "object"
+}

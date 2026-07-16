@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "deterministic": {
+      "type": "boolean"
+    },
+    "external_state_accessed": {
+      "type": "boolean"
+    },
+    "first_hash": {
+      "type": "string"
+    },
+    "network_accessed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "replay_hash": {
+      "type": "string"
+    },
+    "replay_id": {
+      "type": "string"
+    },
+    "second_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "deterministic",
+    "external_state_accessed",
+    "first_hash",
+    "network_accessed",
+    "phase",
+    "replay_hash",
+    "replay_id",
+    "second_hash"
+  ],
+  "title": "SAED V4-14 Golden Replay Receipt",
+  "type": "object"
+}

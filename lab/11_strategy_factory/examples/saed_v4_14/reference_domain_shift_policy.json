@@ -1,0 +1,8 @@
+{
+  "max_mean_shift": 1.5,
+  "max_missing_rate": 0.05,
+  "max_router_concentration": 0.85,
+  "max_scale_ratio": 6.0,
+  "min_support_tokens": 16,
+  "unsupported_action": "abstain"
+}

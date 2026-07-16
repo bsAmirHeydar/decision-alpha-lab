@@ -1,0 +1,31 @@
+{
+  "incident_types": [
+    "digest_mismatch",
+    "license_violation",
+    "opaque_pretraining_corpus",
+    "evaluation_overlap",
+    "remote_inference_attempt",
+    "unexpected_network_access",
+    "future_suffix_access",
+    "domain_shift_breach",
+    "calibration_failure",
+    "fallback_failure",
+    "registry_tamper"
+  ],
+  "mandatory_actions": [
+    "quarantine_candidate",
+    "freeze_registry",
+    "preserve_evidence",
+    "revoke_handoff",
+    "notify_model_risk_owner",
+    "open_independent_review"
+  ],
+  "phase": "SAED_V4_14",
+  "production_impact": "none_reference_phase",
+  "severity_levels": [
+    "low",
+    "medium",
+    "high",
+    "critical"
+  ]
+}

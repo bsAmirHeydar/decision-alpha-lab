@@ -1,0 +1,66 @@
+{
+  "artifact_inventory": "SAED_V4_14_ARTIFACT_INVENTORY.csv",
+  "authority": {
+    "decision_authority": false,
+    "execution_authority": false,
+    "research_reference_only": true,
+    "runtime_authority": false
+  },
+  "capability": {
+    "adapter_families": 6,
+    "closed_schema_pairs": 33,
+    "deterministic_golden_reproduction": true,
+    "mql5_static_files": 12,
+    "obsidian_notes": 64,
+    "python_tests": 77
+  },
+  "claims_excluded": [
+    "real_external_checkpoint_evaluation",
+    "economic_uplift",
+    "real_alpha",
+    "treatment_selection",
+    "risk_allocation",
+    "runtime_activation",
+    "production_authorization",
+    "live_trading"
+  ],
+  "created": "2026-07-16",
+  "external_evidence": {
+    "distributed_training": "not_claimed",
+    "external_checkpoint_loading": "not_claimed",
+    "gpu_reproduction": "not_claimed",
+    "live": "not_claimed",
+    "metaeditor_compile": "pending_local_windows",
+    "micro_live": "not_claimed",
+    "prospective_paper": "not_claimed",
+    "real_corpus_evaluation": "not_claimed",
+    "real_license_review": "not_claimed",
+    "runtime_differential_parity": "not_claimed",
+    "shadow": "not_claimed"
+  },
+  "file_count": 205,
+  "file_index": "SAED_V4_14_FILE_INDEX.txt",
+  "handoff_hash": "78fec567a00db48f34f9e0c3068208343529380b122b657aa04b421be77ac42c",
+  "hash_count": 204,
+  "hash_ledger": "SAED_V4_14_FILE_HASHES.sha256",
+  "installation": {
+    "commit_message_file": "COMMIT_MESSAGE.md",
+    "delivery_validation_command": "python tools/strategy_factory/saed_v4_14/validate_saed_v4_14_delivery.py",
+    "expand_at_repository_root": true,
+    "full_qa_command": "python tools/strategy_factory/saed_v4_14/run_saed_v4_14_full_qa.py",
+    "remove_zip_after_expand": true,
+    "stage_command": "git add --pathspec-from-file=SAED_V4_14_FILE_INDEX.txt"
+  },
+  "next_phase": "SAED_V4_15",
+  "patch_type": "additive_closed_contract_reference_implementation",
+  "phase": "SAED_V4_14",
+  "qa_passed": true,
+  "qa_report": "SAED_V4_14_QA_REPORT.json",
+  "reference_champion_id": "v414_moirai_s23",
+  "registry_hash": "5818101e502bb359deab92db71123a954144a157bbb6582ae6f6dfafd08f4226",
+  "title": "Foundation Model Adapters",
+  "upstream_required": [
+    "SAED_V4_13"
+  ],
+  "version": "1.0.0"
+}

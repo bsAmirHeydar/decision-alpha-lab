@@ -1,0 +1,25 @@
+{
+  "closed_bundle": true,
+  "component_count": 15,
+  "component_hashes": {
+    "adapter_features": "c69a1ccecd83d1eb0a9d3528cdbb9057129573d9be8fbac2836bb5d90893fc92",
+    "calibration_report": "8cbfffaea04cbe4305772423ee3f8871ed12f11e6301e9f770301115e72d61dc",
+    "candidate_checkpoints": "c4b39de4a002dcf13901eaa5d2a4f8fb5d291e200e817256e33544c791e523f7",
+    "candidate_metrics": "c0304639d816ecefcfe4297560c545ab6fd6b8dc916bc598f8319a705eeffddd",
+    "checkpoint_registry": "22f1aaddecadbe7da311be900157a31215e49f73ba9303724f566afa49e157d7",
+    "compute_exposure_ledger": "6a062acc143270ee26310d87cc6d0920f367e2d7f2ccf10eec6feee5e08add53",
+    "contamination_audit": "926bdc21383ce0897c58a716f1257314a72186d49efd62f59a94e7f0fecc88b6",
+    "domain_shift_report": "1e272ddb2fa95f11790f60cd12e613c6c730408b7a4d35c10ef8340c8abb36bb",
+    "fail_closed_audits": "a88e12074ee19d455c03aee9808ef144efe662860ee93a74e35d1359a339fc33",
+    "future_suffix_audits": "144e4bf5293afc729a510bd91a81d361a8de755fcbb3cefb01f8c486e081d569",
+    "intake_decisions": "0df0238e3fdcbb302a4bf4d32ed0dab9988f95a1c09f8aa3a507f015e9cda824",
+    "supply_chain_attestations": "e31877ba449cf3b5452dfe50752d308b75cd30ca6054851a09b9ceac0fe37ccf",
+    "token_sequence": "84e39d48948c2fe51c5e91064e8f45347a460a904814144a3184a92a6fe3b92a",
+    "tournament": "586aceb5526e3237408cc33fdcf88d4148c487d3842a485d4aa2f9d1c9010da5",
+    "upstream_validation": "273d6d71a8192507c144aaa457e33b3ce55efaf61f2ff761a63712e6e32add50"
+  },
+  "phase": "SAED_V4_14",
+  "receipt_hash": "9df6ae140c51d802a5f7058b23d429ac356d5a3ab7d0d8e5c5b4183386b1e1f9",
+  "receipt_id": "fmreceipt_84bb4f228f356af247746a48",
+  "upstream_mutated": false
+}

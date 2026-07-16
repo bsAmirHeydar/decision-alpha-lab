@@ -1,58 +1,39 @@
 ---
 title: V4-14 Foundation Model Adapters
 status: canonical
-version: 4.0.0
+version: 1.0.0
 created: '2026-07-13'
-updated: '2026-07-13'
-capability_tier: core-production
+updated: '2026-07-16'
+capability_tier: governed-challenger
 tags:
   - saed-v4
   - implementation
-  - roadmap
+  - foundation-model-adapters
 ---
 
 # Phase V4-14: Foundation Model Adapters
 
-## Mission
+## Implemented state
 
-Implement this phase as an additive, closed-contract capability that preserves UCEE authority and can be independently validated.
+SAED V4-14 has a complete deterministic synthetic-reference implementation. It verifies the frozen V4-13 graph handoff, compiles known-time tokens, enforces model-intake and supply-chain controls, evaluates six bounded adapter families, materializes embeddings and quantile features, performs calibration and domain-shift diagnostics, preserves the native baseline, proves future-suffix invariance, verifies fail-closed fallback, registers immutable research checkpoints, and freezes the V4-15 handoff.
 
-## Entry gates
+## Capability boundary
 
-- Prior phase artifacts are immutable and hash verified.
-- Data roles, support, treatment universe and authority are frozen.
-- Golden and negative fixtures exist.
-- Compute, exposure and review budgets are approved.
+The implementation contains no external checkpoint, remote inference, online learning, outcome learner, treatment selector, risk allocator, runtime activation, or order path. Named families are local deterministic reference emulations used to prove contracts and governance. They are not claims about TimesFM, Chronos, MOMENT, Moirai, or any sparse-MoE checkpoint.
 
-## Engineering slices
+## Evidence
 
-1. Contract and schema freeze.
-2. Deterministic reference implementation.
-3. Golden, negative and mutation tests.
-4. Distributed or advanced challenger implementation.
-5. Model-risk and security review.
-6. Independent reproduction.
-7. Evidence bundle and handoff.
+- Closed schemas and exact example contracts.
+- Deterministic Python reference package and CLI.
+- Golden artifacts, negative vectors, future-suffix audit, fail-closed audit, replay receipt, provenance, SBOM, incident template, and claim ledger.
+- Static MQL5 feature-consumption and authority mirrors.
+- Detailed Obsidian implementation notes and atomic concepts.
+- Patch inventory, manifest, SHA-256 ledger, QA report, and delivery validator.
 
-## Acceptance gates
+## Remaining external gates
 
-- Zero unknown fields in closed contracts.
-- No future-suffix sensitivity.
-- Deterministic identity and replay.
-- Complete trial/exposure accounting.
-- Baseline preserved.
-- Fail-closed fallback verified.
-- UCEE compatibility and no central-engine mutation.
-- Actual external/MetaEditor evidence distinguished from static evidence.
+External checkpoint intake, actual license review, real corpus disclosure, real contamination analysis, GPU/distributed reproduction, economic task evaluation, MetaEditor compilation, runtime parity, prospective paper, shadow, micro-live, and live qualification remain outside this evidence class.
 
-## Deliverables
+## Next phase
 
-- Source modules and tests.
-- Schemas and examples.
-- Obsidian implementation documentation.
-- QA report, inventory, file index and hash ledger.
-- Handoff to the next phase.
-
-## Non-goals
-
-This architecture phase does not claim real alpha, prospective success, runtime parity or production authorization unless actual evidence is attached.
+[[V4_15_Multimodal_Fusion_And_Missing_Views|V4-15 Multimodal Fusion and Missing Views]] may read the exact frozen V4-14 feature and checkpoint-registry hashes. It may not mutate V4-14 evidence or inherit decision authority.

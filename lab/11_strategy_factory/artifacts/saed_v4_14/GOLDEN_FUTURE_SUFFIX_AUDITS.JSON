@@ -1,0 +1,83 @@
+{
+  "items": [
+    {
+      "audit_hash": "a82f631f7fc53c4fc8862a3e41b581c1dfa3f1c6ea3263a2189806f7c869c22b",
+      "audit_id": "fmfuture_3cfd40502f3375e09927e2f2",
+      "base_feature_hash": "8b2594bf140bf37687d86d256e33a2abc64b30c1935d2a2286535297a5ade908",
+      "base_token_hash": "dbfe27866b1f7d8f3a35b774bf048ce2bbbac56388129515c4c4d486cc2dd2c5",
+      "candidate_id": "v414_native_linear_s11",
+      "cutoff": "2026-01-05T14:30:01Z",
+      "future_suffix_rejected": true,
+      "mutated_feature_hash": "8b2594bf140bf37687d86d256e33a2abc64b30c1935d2a2286535297a5ade908",
+      "mutated_token_hash": "dbfe27866b1f7d8f3a35b774bf048ce2bbbac56388129515c4c4d486cc2dd2c5",
+      "passed": true,
+      "phase": "SAED_V4_14"
+    },
+    {
+      "audit_hash": "2917163ef2342606882da92f6ec7f9cdefb0bbe24003fc4e957e3d5a2b4f35da",
+      "audit_id": "fmfuture_fcbe64949a8ab31e66bd0068",
+      "base_feature_hash": "44a7330d101d456c184c42001ba69c20b7f5d88445b4e4f60b83561cfce6589b",
+      "base_token_hash": "dbfe27866b1f7d8f3a35b774bf048ce2bbbac56388129515c4c4d486cc2dd2c5",
+      "candidate_id": "v414_timesfm_s13",
+      "cutoff": "2026-01-05T14:30:01Z",
+      "future_suffix_rejected": true,
+      "mutated_feature_hash": "44a7330d101d456c184c42001ba69c20b7f5d88445b4e4f60b83561cfce6589b",
+      "mutated_token_hash": "dbfe27866b1f7d8f3a35b774bf048ce2bbbac56388129515c4c4d486cc2dd2c5",
+      "passed": true,
+      "phase": "SAED_V4_14"
+    },
+    {
+      "audit_hash": "830a3608e63eb315372dca466426314531ff43c6e64f41a4d552ed43c8075237",
+      "audit_id": "fmfuture_c00a1763fee6be59d8d42290",
+      "base_feature_hash": "698b5d0db796cb9a0984bf8fd81a45d97d7c0a95e76d3b882e2c0cf28af241c4",
+      "base_token_hash": "dbfe27866b1f7d8f3a35b774bf048ce2bbbac56388129515c4c4d486cc2dd2c5",
+      "candidate_id": "v414_chronos_s17",
+      "cutoff": "2026-01-05T14:30:01Z",
+      "future_suffix_rejected": true,
+      "mutated_feature_hash": "698b5d0db796cb9a0984bf8fd81a45d97d7c0a95e76d3b882e2c0cf28af241c4",
+      "mutated_token_hash": "dbfe27866b1f7d8f3a35b774bf048ce2bbbac56388129515c4c4d486cc2dd2c5",
+      "passed": true,
+      "phase": "SAED_V4_14"
+    },
+    {
+      "audit_hash": "b7eb09211201dd53b1cd247f5d523b14479656c073bb8491574d45010502fd77",
+      "audit_id": "fmfuture_a3947598fe95c519a0a82d0b",
+      "base_feature_hash": "95e29632516c15a8937f470bbd785f3321297cce518e94bac70cb8ad0b8c6f8d",
+      "base_token_hash": "dbfe27866b1f7d8f3a35b774bf048ce2bbbac56388129515c4c4d486cc2dd2c5",
+      "candidate_id": "v414_moment_s19",
+      "cutoff": "2026-01-05T14:30:01Z",
+      "future_suffix_rejected": true,
+      "mutated_feature_hash": "95e29632516c15a8937f470bbd785f3321297cce518e94bac70cb8ad0b8c6f8d",
+      "mutated_token_hash": "dbfe27866b1f7d8f3a35b774bf048ce2bbbac56388129515c4c4d486cc2dd2c5",
+      "passed": true,
+      "phase": "SAED_V4_14"
+    },
+    {
+      "audit_hash": "9d3feb6b4b544beced9a0887eeb1a890efc268cc724c129bb2dc659736e9322e",
+      "audit_id": "fmfuture_0fa8cbdf0810bc593b45ec3d",
+      "base_feature_hash": "e1b0686052e31bc841813951b4fce4c02ac8fce5b357595aaf9845be08c59681",
+      "base_token_hash": "dbfe27866b1f7d8f3a35b774bf048ce2bbbac56388129515c4c4d486cc2dd2c5",
+      "candidate_id": "v414_moirai_s23",
+      "cutoff": "2026-01-05T14:30:01Z",
+      "future_suffix_rejected": true,
+      "mutated_feature_hash": "e1b0686052e31bc841813951b4fce4c02ac8fce5b357595aaf9845be08c59681",
+      "mutated_token_hash": "dbfe27866b1f7d8f3a35b774bf048ce2bbbac56388129515c4c4d486cc2dd2c5",
+      "passed": true,
+      "phase": "SAED_V4_14"
+    },
+    {
+      "audit_hash": "89bd9908195f164435c45ed48d071344318652bfd59eb9a93a236cee86cec035",
+      "audit_id": "fmfuture_a11081668254b2a225b14a36",
+      "base_feature_hash": "55c0c52da72d4fd8d90a1e8c2ef5682def180929f839c1468dcadf42722ba01f",
+      "base_token_hash": "dbfe27866b1f7d8f3a35b774bf048ce2bbbac56388129515c4c4d486cc2dd2c5",
+      "candidate_id": "v414_sparse_moe_s29",
+      "cutoff": "2026-01-05T14:30:01Z",
+      "future_suffix_rejected": true,
+      "mutated_feature_hash": "55c0c52da72d4fd8d90a1e8c2ef5682def180929f839c1468dcadf42722ba01f",
+      "mutated_token_hash": "dbfe27866b1f7d8f3a35b774bf048ce2bbbac56388129515c4c4d486cc2dd2c5",
+      "passed": true,
+      "phase": "SAED_V4_14"
+    }
+  ],
+  "phase": "SAED_V4_14"
+}

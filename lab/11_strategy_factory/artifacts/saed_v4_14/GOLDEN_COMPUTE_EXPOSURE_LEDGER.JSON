@@ -1,0 +1,20 @@
+{
+  "active_candidate_count": 6,
+  "adapter_calls": 6,
+  "checks": {
+    "adapter_call_budget": true,
+    "candidate_budget": true,
+    "exposure_budget": true,
+    "token_budget": true,
+    "trainable_parameter_budget": true
+  },
+  "complete_accounting": true,
+  "exposure_events": 18,
+  "failure_count": 0,
+  "ledger_hash": "15581395c9a103e372f07adcdd9185bed3b95ff15bb6aae4f2f0db2c49ffb771",
+  "ledger_id": "fmbudget_6133025ff86ef422e8a89777",
+  "phase": "SAED_V4_14",
+  "retry_count": 0,
+  "total_tokens": 384,
+  "trainable_parameters": 14336
+}
