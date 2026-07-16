@@ -1,0 +1,30 @@
+{
+  "$id": "https://decision-alpha-lab.local/saed/v4-21/protected_evidence_firewall_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "forbidden_keys_scanned": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "hidden_evaluation_queries": {
+      "type": "integer"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "protected_evidence_exposures": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "forbidden_keys_scanned",
+    "hidden_evaluation_queries",
+    "passed",
+    "protected_evidence_exposures"
+  ],
+  "title": "PROTECTED_EVIDENCE_FIREWALL_REPORT",
+  "type": "object"
+}

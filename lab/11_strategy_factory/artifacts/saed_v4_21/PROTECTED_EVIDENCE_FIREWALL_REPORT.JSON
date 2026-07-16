@@ -1,0 +1,15 @@
+{
+  "forbidden_keys_scanned": [
+    "api_key",
+    "broker_credential",
+    "hidden_evaluation_label",
+    "live_credential",
+    "password",
+    "protected_final_evidence",
+    "secret",
+    "token"
+  ],
+  "hidden_evaluation_queries": 0,
+  "passed": true,
+  "protected_evidence_exposures": 0
+}

@@ -1,0 +1,25 @@
+{
+  "adversarial_steps": 12,
+  "allocations": 35,
+  "ambiguity_distributions": 14,
+  "candidates": 5,
+  "failures": 0,
+  "hidden_evaluation_queries": 0,
+  "ledger_hash": "d063fe1849f50882e12d632e7524a5dba89569ea2a46bf20107846c57f9ebef2",
+  "limits": {
+    "max_adversarial_steps": 32,
+    "max_allocations": 256,
+    "max_ambiguity_distributions": 64,
+    "max_candidates": 16,
+    "max_failures": 8,
+    "max_hidden_evaluation_queries": 0,
+    "max_objective_evaluations": 10000,
+    "max_scenarios": 32,
+    "max_stability_resamples": 64,
+    "protected_evidence_exposure_limit": 0
+  },
+  "objective_evaluations": 490,
+  "protected_evidence_exposures": 0,
+  "scenarios": 12,
+  "stability_resamples": 12
+}

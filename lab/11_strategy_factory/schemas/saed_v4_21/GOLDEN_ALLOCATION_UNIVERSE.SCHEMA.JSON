@@ -1,0 +1,102 @@
+{
+  "$id": "https://decision-alpha-lab.local/saed/v4-21/golden_allocation_universe.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allocation_count": {
+      "type": "integer"
+    },
+    "allocation_universe_hash": {
+      "type": "string"
+    },
+    "allocations": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "active_count": {
+            "type": "integer"
+          },
+          "active_treatments": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "allocation_id": {
+            "type": "string"
+          },
+          "diversification_penalty": {
+            "type": "number"
+          },
+          "weighted_complexity": {
+            "type": "number"
+          },
+          "weights": {
+            "additionalProperties": false,
+            "properties": {
+              "MANUAL_CORE": {
+                "type": "number"
+              },
+              "SKIP": {
+                "type": "number"
+              },
+              "T_ADAPTIVE": {
+                "type": "number"
+              },
+              "T_BALANCED": {
+                "type": "number"
+              },
+              "T_CONSERVATIVE": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "MANUAL_CORE",
+              "SKIP",
+              "T_ADAPTIVE",
+              "T_BALANCED",
+              "T_CONSERVATIVE"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "active_count",
+          "active_treatments",
+          "allocation_id",
+          "diversification_penalty",
+          "weighted_complexity",
+          "weights"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "grid_step": {
+      "type": "number"
+    },
+    "max_active_treatments": {
+      "type": "integer"
+    },
+    "treatments": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "allocation_count",
+    "allocation_universe_hash",
+    "allocations",
+    "deterministic",
+    "grid_step",
+    "max_active_treatments",
+    "treatments"
+  ],
+  "title": "GOLDEN_ALLOCATION_UNIVERSE",
+  "type": "object"
+}

@@ -1,0 +1,606 @@
+{
+  "allocation_count": 35,
+  "allocation_universe_hash": "767da6457e559429191a025f985df62bf9420fdc43d850187baa6e61cef87852",
+  "allocations": [
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "MANUAL_CORE",
+        "SKIP"
+      ],
+      "allocation_id": "allocation::MANUAL_CORE:0.250000+SKIP:0.750000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 0.25,
+      "weights": {
+        "MANUAL_CORE": 0.25,
+        "SKIP": 0.75,
+        "T_ADAPTIVE": 0.0,
+        "T_BALANCED": 0.0,
+        "T_CONSERVATIVE": 0.0
+      }
+    },
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "MANUAL_CORE",
+        "T_ADAPTIVE"
+      ],
+      "allocation_id": "allocation::MANUAL_CORE:0.250000+T_ADAPTIVE:0.750000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 4.0,
+      "weights": {
+        "MANUAL_CORE": 0.25,
+        "SKIP": 0.0,
+        "T_ADAPTIVE": 0.75,
+        "T_BALANCED": 0.0,
+        "T_CONSERVATIVE": 0.0
+      }
+    },
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "MANUAL_CORE",
+        "T_BALANCED"
+      ],
+      "allocation_id": "allocation::MANUAL_CORE:0.250000+T_BALANCED:0.750000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 2.5,
+      "weights": {
+        "MANUAL_CORE": 0.25,
+        "SKIP": 0.0,
+        "T_ADAPTIVE": 0.0,
+        "T_BALANCED": 0.75,
+        "T_CONSERVATIVE": 0.0
+      }
+    },
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "MANUAL_CORE",
+        "T_CONSERVATIVE"
+      ],
+      "allocation_id": "allocation::MANUAL_CORE:0.250000+T_CONSERVATIVE:0.750000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 1.75,
+      "weights": {
+        "MANUAL_CORE": 0.25,
+        "SKIP": 0.0,
+        "T_ADAPTIVE": 0.0,
+        "T_BALANCED": 0.0,
+        "T_CONSERVATIVE": 0.75
+      }
+    },
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "MANUAL_CORE",
+        "SKIP"
+      ],
+      "allocation_id": "allocation::MANUAL_CORE:0.500000+SKIP:0.500000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 0.5,
+      "weights": {
+        "MANUAL_CORE": 0.5,
+        "SKIP": 0.5,
+        "T_ADAPTIVE": 0.0,
+        "T_BALANCED": 0.0,
+        "T_CONSERVATIVE": 0.0
+      }
+    },
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "MANUAL_CORE",
+        "T_ADAPTIVE"
+      ],
+      "allocation_id": "allocation::MANUAL_CORE:0.500000+T_ADAPTIVE:0.500000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 3.0,
+      "weights": {
+        "MANUAL_CORE": 0.5,
+        "SKIP": 0.0,
+        "T_ADAPTIVE": 0.5,
+        "T_BALANCED": 0.0,
+        "T_CONSERVATIVE": 0.0
+      }
+    },
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "MANUAL_CORE",
+        "T_BALANCED"
+      ],
+      "allocation_id": "allocation::MANUAL_CORE:0.500000+T_BALANCED:0.500000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 2.0,
+      "weights": {
+        "MANUAL_CORE": 0.5,
+        "SKIP": 0.0,
+        "T_ADAPTIVE": 0.0,
+        "T_BALANCED": 0.5,
+        "T_CONSERVATIVE": 0.0
+      }
+    },
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "MANUAL_CORE",
+        "T_CONSERVATIVE"
+      ],
+      "allocation_id": "allocation::MANUAL_CORE:0.500000+T_CONSERVATIVE:0.500000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 1.5,
+      "weights": {
+        "MANUAL_CORE": 0.5,
+        "SKIP": 0.0,
+        "T_ADAPTIVE": 0.0,
+        "T_BALANCED": 0.0,
+        "T_CONSERVATIVE": 0.5
+      }
+    },
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "MANUAL_CORE",
+        "SKIP"
+      ],
+      "allocation_id": "allocation::MANUAL_CORE:0.750000+SKIP:0.250000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 0.75,
+      "weights": {
+        "MANUAL_CORE": 0.75,
+        "SKIP": 0.25,
+        "T_ADAPTIVE": 0.0,
+        "T_BALANCED": 0.0,
+        "T_CONSERVATIVE": 0.0
+      }
+    },
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "MANUAL_CORE",
+        "T_ADAPTIVE"
+      ],
+      "allocation_id": "allocation::MANUAL_CORE:0.750000+T_ADAPTIVE:0.250000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 2.0,
+      "weights": {
+        "MANUAL_CORE": 0.75,
+        "SKIP": 0.0,
+        "T_ADAPTIVE": 0.25,
+        "T_BALANCED": 0.0,
+        "T_CONSERVATIVE": 0.0
+      }
+    },
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "MANUAL_CORE",
+        "T_BALANCED"
+      ],
+      "allocation_id": "allocation::MANUAL_CORE:0.750000+T_BALANCED:0.250000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 1.5,
+      "weights": {
+        "MANUAL_CORE": 0.75,
+        "SKIP": 0.0,
+        "T_ADAPTIVE": 0.0,
+        "T_BALANCED": 0.25,
+        "T_CONSERVATIVE": 0.0
+      }
+    },
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "MANUAL_CORE",
+        "T_CONSERVATIVE"
+      ],
+      "allocation_id": "allocation::MANUAL_CORE:0.750000+T_CONSERVATIVE:0.250000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 1.25,
+      "weights": {
+        "MANUAL_CORE": 0.75,
+        "SKIP": 0.0,
+        "T_ADAPTIVE": 0.0,
+        "T_BALANCED": 0.0,
+        "T_CONSERVATIVE": 0.25
+      }
+    },
+    {
+      "active_count": 1,
+      "active_treatments": [
+        "MANUAL_CORE"
+      ],
+      "allocation_id": "allocation::MANUAL_CORE:1.000000",
+      "diversification_penalty": 0.0,
+      "weighted_complexity": 1.0,
+      "weights": {
+        "MANUAL_CORE": 1.0,
+        "SKIP": 0.0,
+        "T_ADAPTIVE": 0.0,
+        "T_BALANCED": 0.0,
+        "T_CONSERVATIVE": 0.0
+      }
+    },
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "SKIP",
+        "T_ADAPTIVE"
+      ],
+      "allocation_id": "allocation::SKIP:0.250000+T_ADAPTIVE:0.750000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 3.75,
+      "weights": {
+        "MANUAL_CORE": 0.0,
+        "SKIP": 0.25,
+        "T_ADAPTIVE": 0.75,
+        "T_BALANCED": 0.0,
+        "T_CONSERVATIVE": 0.0
+      }
+    },
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "SKIP",
+        "T_BALANCED"
+      ],
+      "allocation_id": "allocation::SKIP:0.250000+T_BALANCED:0.750000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 2.25,
+      "weights": {
+        "MANUAL_CORE": 0.0,
+        "SKIP": 0.25,
+        "T_ADAPTIVE": 0.0,
+        "T_BALANCED": 0.75,
+        "T_CONSERVATIVE": 0.0
+      }
+    },
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "SKIP",
+        "T_CONSERVATIVE"
+      ],
+      "allocation_id": "allocation::SKIP:0.250000+T_CONSERVATIVE:0.750000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 1.5,
+      "weights": {
+        "MANUAL_CORE": 0.0,
+        "SKIP": 0.25,
+        "T_ADAPTIVE": 0.0,
+        "T_BALANCED": 0.0,
+        "T_CONSERVATIVE": 0.75
+      }
+    },
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "SKIP",
+        "T_ADAPTIVE"
+      ],
+      "allocation_id": "allocation::SKIP:0.500000+T_ADAPTIVE:0.500000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 2.5,
+      "weights": {
+        "MANUAL_CORE": 0.0,
+        "SKIP": 0.5,
+        "T_ADAPTIVE": 0.5,
+        "T_BALANCED": 0.0,
+        "T_CONSERVATIVE": 0.0
+      }
+    },
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "SKIP",
+        "T_BALANCED"
+      ],
+      "allocation_id": "allocation::SKIP:0.500000+T_BALANCED:0.500000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 1.5,
+      "weights": {
+        "MANUAL_CORE": 0.0,
+        "SKIP": 0.5,
+        "T_ADAPTIVE": 0.0,
+        "T_BALANCED": 0.5,
+        "T_CONSERVATIVE": 0.0
+      }
+    },
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "SKIP",
+        "T_CONSERVATIVE"
+      ],
+      "allocation_id": "allocation::SKIP:0.500000+T_CONSERVATIVE:0.500000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 1.0,
+      "weights": {
+        "MANUAL_CORE": 0.0,
+        "SKIP": 0.5,
+        "T_ADAPTIVE": 0.0,
+        "T_BALANCED": 0.0,
+        "T_CONSERVATIVE": 0.5
+      }
+    },
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "SKIP",
+        "T_ADAPTIVE"
+      ],
+      "allocation_id": "allocation::SKIP:0.750000+T_ADAPTIVE:0.250000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 1.25,
+      "weights": {
+        "MANUAL_CORE": 0.0,
+        "SKIP": 0.75,
+        "T_ADAPTIVE": 0.25,
+        "T_BALANCED": 0.0,
+        "T_CONSERVATIVE": 0.0
+      }
+    },
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "SKIP",
+        "T_BALANCED"
+      ],
+      "allocation_id": "allocation::SKIP:0.750000+T_BALANCED:0.250000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 0.75,
+      "weights": {
+        "MANUAL_CORE": 0.0,
+        "SKIP": 0.75,
+        "T_ADAPTIVE": 0.0,
+        "T_BALANCED": 0.25,
+        "T_CONSERVATIVE": 0.0
+      }
+    },
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "SKIP",
+        "T_CONSERVATIVE"
+      ],
+      "allocation_id": "allocation::SKIP:0.750000+T_CONSERVATIVE:0.250000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 0.5,
+      "weights": {
+        "MANUAL_CORE": 0.0,
+        "SKIP": 0.75,
+        "T_ADAPTIVE": 0.0,
+        "T_BALANCED": 0.0,
+        "T_CONSERVATIVE": 0.25
+      }
+    },
+    {
+      "active_count": 1,
+      "active_treatments": [
+        "SKIP"
+      ],
+      "allocation_id": "allocation::SKIP:1.000000",
+      "diversification_penalty": 0.0,
+      "weighted_complexity": 0.0,
+      "weights": {
+        "MANUAL_CORE": 0.0,
+        "SKIP": 1.0,
+        "T_ADAPTIVE": 0.0,
+        "T_BALANCED": 0.0,
+        "T_CONSERVATIVE": 0.0
+      }
+    },
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "T_ADAPTIVE",
+        "T_BALANCED"
+      ],
+      "allocation_id": "allocation::T_ADAPTIVE:0.250000+T_BALANCED:0.750000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 3.5,
+      "weights": {
+        "MANUAL_CORE": 0.0,
+        "SKIP": 0.0,
+        "T_ADAPTIVE": 0.25,
+        "T_BALANCED": 0.75,
+        "T_CONSERVATIVE": 0.0
+      }
+    },
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "T_ADAPTIVE",
+        "T_CONSERVATIVE"
+      ],
+      "allocation_id": "allocation::T_ADAPTIVE:0.250000+T_CONSERVATIVE:0.750000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 2.75,
+      "weights": {
+        "MANUAL_CORE": 0.0,
+        "SKIP": 0.0,
+        "T_ADAPTIVE": 0.25,
+        "T_BALANCED": 0.0,
+        "T_CONSERVATIVE": 0.75
+      }
+    },
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "T_ADAPTIVE",
+        "T_BALANCED"
+      ],
+      "allocation_id": "allocation::T_ADAPTIVE:0.500000+T_BALANCED:0.500000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 4.0,
+      "weights": {
+        "MANUAL_CORE": 0.0,
+        "SKIP": 0.0,
+        "T_ADAPTIVE": 0.5,
+        "T_BALANCED": 0.5,
+        "T_CONSERVATIVE": 0.0
+      }
+    },
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "T_ADAPTIVE",
+        "T_CONSERVATIVE"
+      ],
+      "allocation_id": "allocation::T_ADAPTIVE:0.500000+T_CONSERVATIVE:0.500000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 3.5,
+      "weights": {
+        "MANUAL_CORE": 0.0,
+        "SKIP": 0.0,
+        "T_ADAPTIVE": 0.5,
+        "T_BALANCED": 0.0,
+        "T_CONSERVATIVE": 0.5
+      }
+    },
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "T_ADAPTIVE",
+        "T_BALANCED"
+      ],
+      "allocation_id": "allocation::T_ADAPTIVE:0.750000+T_BALANCED:0.250000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 4.5,
+      "weights": {
+        "MANUAL_CORE": 0.0,
+        "SKIP": 0.0,
+        "T_ADAPTIVE": 0.75,
+        "T_BALANCED": 0.25,
+        "T_CONSERVATIVE": 0.0
+      }
+    },
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "T_ADAPTIVE",
+        "T_CONSERVATIVE"
+      ],
+      "allocation_id": "allocation::T_ADAPTIVE:0.750000+T_CONSERVATIVE:0.250000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 4.25,
+      "weights": {
+        "MANUAL_CORE": 0.0,
+        "SKIP": 0.0,
+        "T_ADAPTIVE": 0.75,
+        "T_BALANCED": 0.0,
+        "T_CONSERVATIVE": 0.25
+      }
+    },
+    {
+      "active_count": 1,
+      "active_treatments": [
+        "T_ADAPTIVE"
+      ],
+      "allocation_id": "allocation::T_ADAPTIVE:1.000000",
+      "diversification_penalty": 0.0,
+      "weighted_complexity": 5.0,
+      "weights": {
+        "MANUAL_CORE": 0.0,
+        "SKIP": 0.0,
+        "T_ADAPTIVE": 1.0,
+        "T_BALANCED": 0.0,
+        "T_CONSERVATIVE": 0.0
+      }
+    },
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "T_BALANCED",
+        "T_CONSERVATIVE"
+      ],
+      "allocation_id": "allocation::T_BALANCED:0.250000+T_CONSERVATIVE:0.750000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 2.25,
+      "weights": {
+        "MANUAL_CORE": 0.0,
+        "SKIP": 0.0,
+        "T_ADAPTIVE": 0.0,
+        "T_BALANCED": 0.25,
+        "T_CONSERVATIVE": 0.75
+      }
+    },
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "T_BALANCED",
+        "T_CONSERVATIVE"
+      ],
+      "allocation_id": "allocation::T_BALANCED:0.500000+T_CONSERVATIVE:0.500000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 2.5,
+      "weights": {
+        "MANUAL_CORE": 0.0,
+        "SKIP": 0.0,
+        "T_ADAPTIVE": 0.0,
+        "T_BALANCED": 0.5,
+        "T_CONSERVATIVE": 0.5
+      }
+    },
+    {
+      "active_count": 2,
+      "active_treatments": [
+        "T_BALANCED",
+        "T_CONSERVATIVE"
+      ],
+      "allocation_id": "allocation::T_BALANCED:0.750000+T_CONSERVATIVE:0.250000",
+      "diversification_penalty": 0.005,
+      "weighted_complexity": 2.75,
+      "weights": {
+        "MANUAL_CORE": 0.0,
+        "SKIP": 0.0,
+        "T_ADAPTIVE": 0.0,
+        "T_BALANCED": 0.75,
+        "T_CONSERVATIVE": 0.25
+      }
+    },
+    {
+      "active_count": 1,
+      "active_treatments": [
+        "T_BALANCED"
+      ],
+      "allocation_id": "allocation::T_BALANCED:1.000000",
+      "diversification_penalty": 0.0,
+      "weighted_complexity": 3.0,
+      "weights": {
+        "MANUAL_CORE": 0.0,
+        "SKIP": 0.0,
+        "T_ADAPTIVE": 0.0,
+        "T_BALANCED": 1.0,
+        "T_CONSERVATIVE": 0.0
+      }
+    },
+    {
+      "active_count": 1,
+      "active_treatments": [
+        "T_CONSERVATIVE"
+      ],
+      "allocation_id": "allocation::T_CONSERVATIVE:1.000000",
+      "diversification_penalty": 0.0,
+      "weighted_complexity": 2.0,
+      "weights": {
+        "MANUAL_CORE": 0.0,
+        "SKIP": 0.0,
+        "T_ADAPTIVE": 0.0,
+        "T_BALANCED": 0.0,
+        "T_CONSERVATIVE": 1.0
+      }
+    }
+  ],
+  "deterministic": true,
+  "grid_step": 0.25,
+  "max_active_treatments": 2,
+  "treatments": [
+    "MANUAL_CORE",
+    "SKIP",
+    "T_ADAPTIVE",
+    "T_BALANCED",
+    "T_CONSERVATIVE"
+  ]
+}

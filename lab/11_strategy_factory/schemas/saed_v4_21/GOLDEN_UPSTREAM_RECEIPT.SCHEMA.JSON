@@ -1,0 +1,43 @@
+{
+  "$id": "https://decision-alpha-lab.local/saed/v4-21/golden_upstream_receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "certificate_hash": {
+      "type": "string"
+    },
+    "exposure_ledger_hash": {
+      "type": "string"
+    },
+    "hash_verified": {
+      "type": "boolean"
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "intake_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "certificate_hash",
+    "exposure_ledger_hash",
+    "hash_verified",
+    "immutable",
+    "intake_hash",
+    "phase",
+    "registry_hash",
+    "research_only"
+  ],
+  "title": "GOLDEN_UPSTREAM_RECEIPT",
+  "type": "object"
+}

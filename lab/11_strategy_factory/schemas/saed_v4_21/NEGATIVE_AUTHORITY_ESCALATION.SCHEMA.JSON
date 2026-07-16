@@ -1,0 +1,137 @@
+{
+  "$id": "https://decision-alpha-lab.local/saed/v4-21/negative_authority_escalation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adversary_report_hash": {
+      "type": "string"
+    },
+    "allocation_universe_hash": {
+      "type": "string"
+    },
+    "ambiguity_set_hash": {
+      "type": "string"
+    },
+    "authority_hash": {
+      "type": "string"
+    },
+    "budget_ledger_hash": {
+      "type": "string"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "context_id": {
+      "type": "string"
+    },
+    "decision": {
+      "additionalProperties": false,
+      "properties": {
+        "abstain": {
+          "type": "boolean"
+        },
+        "decision": {
+          "type": "string"
+        },
+        "decision_authority": {
+          "type": "boolean"
+        },
+        "fallback_allocation_id": {
+          "type": "string"
+        },
+        "reasons": {
+          "items": {},
+          "type": "array"
+        },
+        "risk_allocation_authority": {
+          "type": "boolean"
+        },
+        "runtime_executable": {
+          "type": "boolean"
+        },
+        "selected_allocation_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "abstain",
+        "decision",
+        "decision_authority",
+        "fallback_allocation_id",
+        "reasons",
+        "risk_allocation_authority",
+        "runtime_executable",
+        "selected_allocation_id"
+      ],
+      "type": "object"
+    },
+    "decision_authority": {
+      "type": "boolean"
+    },
+    "execution_authority": {
+      "type": "boolean"
+    },
+    "optimization_report_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authority": {
+      "type": "boolean"
+    },
+    "promotion_authority": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "risk_allocation_authority": {
+      "type": "boolean"
+    },
+    "runtime_executable": {
+      "type": "boolean"
+    },
+    "scenario_set_hash": {
+      "type": "string"
+    },
+    "selection_certificate_hash": {
+      "type": "string"
+    },
+    "stability_report_hash": {
+      "type": "string"
+    },
+    "upstream_intake_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "adversary_report_hash",
+    "allocation_universe_hash",
+    "ambiguity_set_hash",
+    "authority_hash",
+    "budget_ledger_hash",
+    "certificate_hash",
+    "certificate_id",
+    "context_id",
+    "decision",
+    "decision_authority",
+    "execution_authority",
+    "optimization_report_hash",
+    "phase",
+    "production_authority",
+    "promotion_authority",
+    "research_only",
+    "risk_allocation_authority",
+    "runtime_executable",
+    "scenario_set_hash",
+    "selection_certificate_hash",
+    "stability_report_hash",
+    "upstream_intake_hash"
+  ],
+  "title": "NEGATIVE_AUTHORITY_ESCALATION",
+  "type": "object"
+}

@@ -1,0 +1,26 @@
+{
+  "deterministic": true,
+  "exact_version": "1.0.0",
+  "future_suffix_forbidden": true,
+  "include_benign_control": true,
+  "include_joint_adverse": true,
+  "include_leave_one_out": true,
+  "max_scenarios": 12,
+  "native_scenarios": [
+    "base",
+    "fast",
+    "gap",
+    "reversal",
+    "wide_spread"
+  ],
+  "protected_evidence_forbidden": true,
+  "shock_axes": [
+    "cost",
+    "tail",
+    "support",
+    "latency",
+    "calibration",
+    "joint",
+    "benign"
+  ]
+}

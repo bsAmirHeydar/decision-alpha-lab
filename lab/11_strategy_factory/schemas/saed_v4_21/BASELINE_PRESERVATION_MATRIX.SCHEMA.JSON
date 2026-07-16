@@ -1,0 +1,82 @@
+{
+  "$id": "https://decision-alpha-lab.local/saed/v4-21/baseline_preservation_matrix.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_allocation_id": {
+      "type": "string"
+    },
+    "baseline_report_hash": {
+      "type": "string"
+    },
+    "canonical_baseline": {
+      "type": "string"
+    },
+    "fail_to_skip": {
+      "type": "boolean"
+    },
+    "manual_baseline_preserved": {
+      "type": "boolean"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "allocation_id": {
+            "type": "string"
+          },
+          "baseline_failures": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "baseline_feasible": {
+            "type": "boolean"
+          },
+          "complexity_delta": {
+            "type": "number"
+          },
+          "cvar_delta": {
+            "type": "number"
+          },
+          "worst_case_delta": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "allocation_id",
+          "baseline_failures",
+          "baseline_feasible",
+          "complexity_delta",
+          "cvar_delta",
+          "worst_case_delta"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "skip_allocation_id": {
+      "type": "string"
+    },
+    "skip_preserved": {
+      "type": "boolean"
+    },
+    "skip_treatment": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "baseline_allocation_id",
+    "baseline_report_hash",
+    "canonical_baseline",
+    "fail_to_skip",
+    "manual_baseline_preserved",
+    "rows",
+    "skip_allocation_id",
+    "skip_preserved",
+    "skip_treatment"
+  ],
+  "title": "BASELINE_PRESERVATION_MATRIX",
+  "type": "object"
+}

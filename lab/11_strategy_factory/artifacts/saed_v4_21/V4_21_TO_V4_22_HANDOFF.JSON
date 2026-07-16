@@ -1,0 +1,44 @@
+{
+  "allowed_next_work": [
+    "synthetic_generative_path_stress",
+    "bounded_path_generator_evaluation",
+    "synthetic_tail_path_coverage",
+    "stress_replay"
+  ],
+  "ambiguity_set_hash": "e1623c62b9c4acaadfda3e15e70bf8fa54aff17240469e39dc3446bcf08fd492",
+  "authority": {
+    "decision": false,
+    "execution": false,
+    "production": false,
+    "promotion": false,
+    "risk_allocation": false,
+    "runtime": false
+  },
+  "budget_ledger_hash": "d063fe1849f50882e12d632e7524a5dba89569ea2a46bf20107846c57f9ebef2",
+  "entry_gates": {
+    "ambiguity_contract_frozen": true,
+    "baseline_preserved": true,
+    "deterministic_replay_verified": true,
+    "future_suffix_invariance_verified": true,
+    "protected_evidence_firewall_verified": true,
+    "qa_passed": true,
+    "robust_objective_frozen": true,
+    "scenario_generator_frozen": true,
+    "upstream_hashes_verified": true
+  },
+  "forbidden_next_work": [
+    "live_data_adaptation",
+    "hidden_evaluation_tuning",
+    "runtime_compilation",
+    "live_risk_allocation",
+    "order_submission"
+  ],
+  "handoff_hash": "ac2f0c59f3b358a3e98dac34029657b05aa406d4a609deafecc721e73b274148",
+  "handoff_id": "v4_21_to_v4_22_c8c45f419011336eca8234c4",
+  "next_phase": "SAED_V4_22",
+  "optimization_report_hash": "bc9fd26d9bdcaa65a33d05f2865ad61b63e9968184ce3f9b122b14dc34507023",
+  "phase": "SAED_V4_21",
+  "research_only": true,
+  "robust_certificate_hash": "953b794d57dbac2ceb93b1c2c2e2f301baf67b9532e747542d711f236c54f736",
+  "scenario_set_hash": "a6bacc0c9f821099dcb64f5a7a2d5db6270be283441a39946dccf91a0d21d5a7"
+}

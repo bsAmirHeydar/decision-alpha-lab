@@ -1,0 +1,145 @@
+{
+  "$id": "https://decision-alpha-lab.local/saed/v4-21/golden_candidate_score_table.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context_id": {
+      "type": "string"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "allowed": {
+            "type": "boolean"
+          },
+          "ambiguity_penalty": {
+            "type": "number"
+          },
+          "complexity": {
+            "type": "integer"
+          },
+          "cvar_utility": {
+            "type": "number"
+          },
+          "expected_utility": {
+            "type": "number"
+          },
+          "lower_confidence_utility": {
+            "type": "number"
+          },
+          "max_drawdown": {
+            "type": "number"
+          },
+          "maximum_regret": {
+            "type": "number"
+          },
+          "mean_regret": {
+            "type": "number"
+          },
+          "mean_reward": {
+            "type": "number"
+          },
+          "mean_utility": {
+            "type": "number"
+          },
+          "negative_complexity": {
+            "type": "integer"
+          },
+          "negative_maximum_regret": {
+            "type": "number"
+          },
+          "path_count": {
+            "type": "integer"
+          },
+          "raw_utility": {
+            "type": "number"
+          },
+          "risk_constraint_failures": {
+            "items": {},
+            "type": "array"
+          },
+          "robust_utility": {
+            "type": "number"
+          },
+          "scenario_utilities": {
+            "additionalProperties": false,
+            "properties": {
+              "base": {
+                "type": "number"
+              },
+              "fast": {
+                "type": "number"
+              },
+              "gap": {
+                "type": "number"
+              },
+              "reversal": {
+                "type": "number"
+              },
+              "wide_spread": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "base",
+              "fast",
+              "gap",
+              "reversal",
+              "wide_spread"
+            ],
+            "type": "object"
+          },
+          "tail_cvar": {
+            "type": "number"
+          },
+          "tail_loss_probability": {
+            "type": "number"
+          },
+          "treatment_id": {
+            "type": "string"
+          },
+          "upper_confidence_utility": {
+            "type": "number"
+          },
+          "utility_std": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "allowed",
+          "ambiguity_penalty",
+          "complexity",
+          "cvar_utility",
+          "expected_utility",
+          "lower_confidence_utility",
+          "max_drawdown",
+          "maximum_regret",
+          "mean_regret",
+          "mean_reward",
+          "mean_utility",
+          "negative_complexity",
+          "negative_maximum_regret",
+          "path_count",
+          "raw_utility",
+          "risk_constraint_failures",
+          "robust_utility",
+          "scenario_utilities",
+          "tail_cvar",
+          "tail_loss_probability",
+          "treatment_id",
+          "upper_confidence_utility",
+          "utility_std"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "context_id",
+    "rows"
+  ],
+  "title": "GOLDEN_CANDIDATE_SCORE_TABLE",
+  "type": "object"
+}

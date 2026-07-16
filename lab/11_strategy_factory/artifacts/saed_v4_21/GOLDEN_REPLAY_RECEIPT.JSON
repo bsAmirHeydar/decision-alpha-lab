@@ -1,0 +1,10 @@
+{
+  "deterministic": true,
+  "future_suffix_used": false,
+  "input_hash": "fcb61211412758441c9fc20548d4e236fb3d63642c9abc7c90048fb0dedb2c6e",
+  "output_hash": "e0e27b63645b4874c0b3f00b11927fb5c3a5c1a0fa705c92109e531804c65d58",
+  "phase": "SAED_V4_21",
+  "protected_evidence_used": false,
+  "receipt_hash": "6073e1509797d330c8ce97ed3e689a2de9deb5226feba749a36c11c9c36cbacc",
+  "research_only": true
+}

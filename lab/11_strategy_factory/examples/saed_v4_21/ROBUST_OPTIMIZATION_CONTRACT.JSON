@@ -1,0 +1,13 @@
+{
+  "baseline_preservation": true,
+  "complexity_penalty": 0.002,
+  "deterministic": true,
+  "diversification_penalty": 0.005,
+  "exact_version": "1.0.0",
+  "fail_closed": true,
+  "grid_step": 0.25,
+  "max_active_treatments": 2,
+  "mixture_allowed": true,
+  "objective": "lexicographic",
+  "runtime_executable": false
+}

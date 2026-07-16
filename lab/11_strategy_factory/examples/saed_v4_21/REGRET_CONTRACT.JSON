@@ -1,0 +1,12 @@
+{
+  "abstain_on_violation": true,
+  "baseline_first_on_tie": true,
+  "baseline_regret_limit": 0.35,
+  "dynamic_regret_budget": 2.0,
+  "exact_version": "1.0.0",
+  "maximum_regret_limit": 0.58,
+  "mean_regret_limit": 0.34,
+  "mode": "baseline_relative",
+  "robust_margin": 0.015,
+  "tie_tolerance": 1e-09
+}

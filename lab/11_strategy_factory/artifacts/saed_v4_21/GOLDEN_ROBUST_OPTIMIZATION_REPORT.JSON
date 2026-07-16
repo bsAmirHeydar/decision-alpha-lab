@@ -1,0 +1,2457 @@
+{
+  "allocation_count": 35,
+  "baseline_report": {
+    "baseline_allocation_id": "allocation::MANUAL_CORE:1.000000",
+    "baseline_report_hash": "812c7e946f7758cf0b28481888e26d3e7da1f9c6b6cc113bab25c593e3a7fe54",
+    "canonical_baseline": "MANUAL_CORE",
+    "fail_to_skip": true,
+    "manual_baseline_preserved": true,
+    "rows": [
+      {
+        "allocation_id": "allocation::MANUAL_CORE:0.250000+SKIP:0.750000",
+        "baseline_failures": [
+          "cvar_non_inferiority"
+        ],
+        "baseline_feasible": false,
+        "complexity_delta": -0.75,
+        "cvar_delta": -0.07122916666666666,
+        "worst_case_delta": -0.05100000000000001
+      },
+      {
+        "allocation_id": "allocation::MANUAL_CORE:0.250000+T_ADAPTIVE:0.750000",
+        "baseline_failures": [
+          "worst_case_non_inferiority"
+        ],
+        "baseline_feasible": false,
+        "complexity_delta": 3.0,
+        "cvar_delta": -0.04350000000000001,
+        "worst_case_delta": -0.12350000000000003
+      },
+      {
+        "allocation_id": "allocation::MANUAL_CORE:0.250000+T_BALANCED:0.750000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 1.5,
+        "cvar_delta": 0.054500000000000014,
+        "worst_case_delta": 0.014499999999999999
+      },
+      {
+        "allocation_id": "allocation::MANUAL_CORE:0.250000+T_CONSERVATIVE:0.750000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 0.75,
+        "cvar_delta": 0.032249999999999994,
+        "worst_case_delta": 0.0385
+      },
+      {
+        "allocation_id": "allocation::MANUAL_CORE:0.500000+SKIP:0.500000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": -0.5,
+        "cvar_delta": -0.044,
+        "worst_case_delta": -0.0040000000000000036
+      },
+      {
+        "allocation_id": "allocation::MANUAL_CORE:0.500000+T_ADAPTIVE:0.500000",
+        "baseline_failures": [
+          "worst_case_non_inferiority"
+        ],
+        "baseline_feasible": false,
+        "complexity_delta": 2.0,
+        "cvar_delta": -0.030666666666666658,
+        "worst_case_delta": -0.08399999999999999
+      },
+      {
+        "allocation_id": "allocation::MANUAL_CORE:0.500000+T_BALANCED:0.500000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 1.0,
+        "cvar_delta": 0.03466666666666667,
+        "worst_case_delta": 0.008
+      },
+      {
+        "allocation_id": "allocation::MANUAL_CORE:0.500000+T_CONSERVATIVE:0.500000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 0.5,
+        "cvar_delta": 0.019833333333333328,
+        "worst_case_delta": 0.024
+      },
+      {
+        "allocation_id": "allocation::MANUAL_CORE:0.750000+SKIP:0.250000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": -0.25,
+        "cvar_delta": -0.024499999999999994,
+        "worst_case_delta": 0.005500000000000005
+      },
+      {
+        "allocation_id": "allocation::MANUAL_CORE:0.750000+T_ADAPTIVE:0.250000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 1.0,
+        "cvar_delta": -0.01783333333333332,
+        "worst_case_delta": -0.04449999999999999
+      },
+      {
+        "allocation_id": "allocation::MANUAL_CORE:0.750000+T_BALANCED:0.250000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 0.5,
+        "cvar_delta": 0.014833333333333344,
+        "worst_case_delta": 0.0015000000000000013
+      },
+      {
+        "allocation_id": "allocation::MANUAL_CORE:0.750000+T_CONSERVATIVE:0.250000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 0.25,
+        "cvar_delta": 0.007416666666666669,
+        "worst_case_delta": 0.009500000000000001
+      },
+      {
+        "allocation_id": "allocation::MANUAL_CORE:1.000000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 0.0,
+        "cvar_delta": 0.0,
+        "worst_case_delta": 0.0
+      },
+      {
+        "allocation_id": "allocation::SKIP:0.250000+T_ADAPTIVE:0.750000",
+        "baseline_failures": [
+          "worst_case_non_inferiority",
+          "cvar_non_inferiority"
+        ],
+        "baseline_feasible": false,
+        "complexity_delta": 2.75,
+        "cvar_delta": -0.063,
+        "worst_case_delta": -0.11300000000000002
+      },
+      {
+        "allocation_id": "allocation::SKIP:0.250000+T_BALANCED:0.750000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 1.25,
+        "cvar_delta": 0.03500000000000001,
+        "worst_case_delta": 0.025
+      },
+      {
+        "allocation_id": "allocation::SKIP:0.250000+T_CONSERVATIVE:0.750000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 0.5,
+        "cvar_delta": 0.012749999999999997,
+        "worst_case_delta": 0.049
+      },
+      {
+        "allocation_id": "allocation::SKIP:0.500000+T_ADAPTIVE:0.500000",
+        "baseline_failures": [
+          "cvar_non_inferiority"
+        ],
+        "baseline_feasible": false,
+        "complexity_delta": 1.5,
+        "cvar_delta": -0.06966666666666665,
+        "worst_case_delta": -0.063
+      },
+      {
+        "allocation_id": "allocation::SKIP:0.500000+T_BALANCED:0.500000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 0.5,
+        "cvar_delta": -0.004333333333333331,
+        "worst_case_delta": 0.029
+      },
+      {
+        "allocation_id": "allocation::SKIP:0.500000+T_CONSERVATIVE:0.500000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 0.0,
+        "cvar_delta": -0.019166666666666665,
+        "worst_case_delta": 0.022499999999999992
+      },
+      {
+        "allocation_id": "allocation::SKIP:0.750000+T_ADAPTIVE:0.250000",
+        "baseline_failures": [
+          "cvar_non_inferiority"
+        ],
+        "baseline_feasible": false,
+        "complexity_delta": 0.25,
+        "cvar_delta": -0.07633333333333334,
+        "worst_case_delta": -0.03800000000000001
+      },
+      {
+        "allocation_id": "allocation::SKIP:0.750000+T_BALANCED:0.250000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": -0.25,
+        "cvar_delta": -0.04622916666666666,
+        "worst_case_delta": -0.019499999999999997
+      },
+      {
+        "allocation_id": "allocation::SKIP:0.750000+T_CONSERVATIVE:0.250000",
+        "baseline_failures": [
+          "cvar_non_inferiority"
+        ],
+        "baseline_feasible": false,
+        "complexity_delta": -0.5,
+        "cvar_delta": -0.05855833333333334,
+        "worst_case_delta": -0.03775000000000001
+      },
+      {
+        "allocation_id": "allocation::SKIP:1.000000",
+        "baseline_failures": [
+          "worst_case_non_inferiority",
+          "cvar_non_inferiority"
+        ],
+        "baseline_feasible": false,
+        "complexity_delta": -1.0,
+        "cvar_delta": -0.11133333333333334,
+        "worst_case_delta": -0.093
+      },
+      {
+        "allocation_id": "allocation::T_ADAPTIVE:0.250000+T_BALANCED:0.750000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 2.5,
+        "cvar_delta": 0.04166666666666668,
+        "worst_case_delta": -0.025
+      },
+      {
+        "allocation_id": "allocation::T_ADAPTIVE:0.250000+T_CONSERVATIVE:0.750000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 1.75,
+        "cvar_delta": 0.019416666666666672,
+        "worst_case_delta": -0.000999999999999994
+      },
+      {
+        "allocation_id": "allocation::T_ADAPTIVE:0.500000+T_BALANCED:0.500000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 3.0,
+        "cvar_delta": 0.009000000000000008,
+        "worst_case_delta": -0.07100000000000001
+      },
+      {
+        "allocation_id": "allocation::T_ADAPTIVE:0.500000+T_CONSERVATIVE:0.500000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 2.5,
+        "cvar_delta": -0.005833333333333333,
+        "worst_case_delta": -0.055
+      },
+      {
+        "allocation_id": "allocation::T_ADAPTIVE:0.750000+T_BALANCED:0.250000",
+        "baseline_failures": [
+          "worst_case_non_inferiority",
+          "complexity_increase"
+        ],
+        "baseline_feasible": false,
+        "complexity_delta": 3.5,
+        "cvar_delta": -0.02366666666666667,
+        "worst_case_delta": -0.11700000000000002
+      },
+      {
+        "allocation_id": "allocation::T_ADAPTIVE:0.750000+T_CONSERVATIVE:0.250000",
+        "baseline_failures": [
+          "worst_case_non_inferiority",
+          "complexity_increase"
+        ],
+        "baseline_feasible": false,
+        "complexity_delta": 3.25,
+        "cvar_delta": -0.031083333333333334,
+        "worst_case_delta": -0.10900000000000001
+      },
+      {
+        "allocation_id": "allocation::T_ADAPTIVE:1.000000",
+        "baseline_failures": [
+          "worst_case_non_inferiority",
+          "cvar_non_inferiority",
+          "complexity_increase"
+        ],
+        "baseline_feasible": false,
+        "complexity_delta": 4.0,
+        "cvar_delta": -0.05133333333333333,
+        "worst_case_delta": -0.158
+      },
+      {
+        "allocation_id": "allocation::T_BALANCED:0.250000+T_CONSERVATIVE:0.750000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 1.25,
+        "cvar_delta": 0.052083333333333336,
+        "worst_case_delta": 0.045
+      },
+      {
+        "allocation_id": "allocation::T_BALANCED:0.500000+T_CONSERVATIVE:0.500000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 1.5,
+        "cvar_delta": 0.05950000000000002,
+        "worst_case_delta": 0.037000000000000005
+      },
+      {
+        "allocation_id": "allocation::T_BALANCED:0.750000+T_CONSERVATIVE:0.250000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 1.75,
+        "cvar_delta": 0.06691666666666668,
+        "worst_case_delta": 0.029000000000000005
+      },
+      {
+        "allocation_id": "allocation::T_BALANCED:1.000000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 2.0,
+        "cvar_delta": 0.07933333333333334,
+        "worst_case_delta": 0.026000000000000002
+      },
+      {
+        "allocation_id": "allocation::T_CONSERVATIVE:1.000000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 1.0,
+        "cvar_delta": 0.04966666666666667,
+        "worst_case_delta": 0.058
+      }
+    ],
+    "skip_allocation_id": "allocation::SKIP:1.000000",
+    "skip_preserved": true,
+    "skip_treatment": "SKIP"
+  },
+  "decision": {
+    "abstain": false,
+    "decision": "research_recommendation",
+    "decision_authority": false,
+    "fallback_allocation_id": "allocation::SKIP:1.000000",
+    "reasons": [],
+    "risk_allocation_authority": false,
+    "runtime_executable": false,
+    "selected_allocation_id": "allocation::T_BALANCED:1.000000"
+  },
+  "feasible_count": 24,
+  "objective": "lexicographic",
+  "optimization_report_hash": "bc9fd26d9bdcaa65a33d05f2865ad61b63e9968184ce3f9b122b14dc34507023",
+  "regret_matrix": {
+    "oracle_utility": {
+      "control::benign": 0.4934646655617222,
+      "native::base": 0.48,
+      "native::fast": 0.45999999999999996,
+      "native::gap": 0.016,
+      "native::reversal": 0.174,
+      "native::wide_spread": 0.274,
+      "shock::calibration_down": 0.3151154606355075,
+      "shock::cost_up": 0.33925,
+      "shock::joint_adverse": 0.17900000000000002,
+      "shock::latency": 0.32525,
+      "shock::support_loss": 0.38050271803371366,
+      "shock::tail_down": 0.32325
+    },
+    "regret_matrix_hash": "dfb6f16d34a95ddee8c55f24d3577e71b67cd5580d12adb611a5ea78a8da20ca",
+    "rows": [
+      {
+        "allocation_id": "allocation::MANUAL_CORE:0.250000+SKIP:0.750000",
+        "maximum_regret": 0.418,
+        "mean_regret": 0.29532908626311033,
+        "scenario_regret": {
+          "control::benign": 0.4099333501854393,
+          "native::base": 0.418,
+          "native::fast": 0.4155,
+          "native::gap": 0.0315,
+          "native::reversal": 0.15699999999999997,
+          "native::wide_spread": 0.23950000000000002,
+          "shock::calibration_down": 0.3065217760117904,
+          "shock::cost_up": 0.3199375,
+          "shock::joint_adverse": 0.272,
+          "shock::latency": 0.3071041666666666,
+          "shock::support_loss": 0.3375147422934277,
+          "shock::tail_down": 0.3294375
+        },
+        "total_regret": 3.543949035157324
+      },
+      {
+        "allocation_id": "allocation::MANUAL_CORE:0.250000+T_ADAPTIVE:0.750000",
+        "maximum_regret": 0.18150000000000005,
+        "mean_regret": 0.07659662471933658,
+        "scenario_regret": {
+          "control::benign": 0.054834851014147645,
+          "native::base": 0.057999999999999996,
+          "native::fast": 0.07050000000000001,
+          "native::gap": 0.18150000000000005,
+          "native::reversal": 0.127,
+          "native::wide_spread": 0.08200000000000002,
+          "shock::calibration_down": 0.06349527518308207,
+          "shock::cost_up": 0.04712500000000003,
+          "shock::joint_adverse": 0.09200000000000003,
+          "shock::latency": 0.051791666666666625,
+          "shock::support_loss": 0.04276270376814251,
+          "shock::tail_down": 0.04814999999999997
+        },
+        "total_regret": 0.9191594966320389
+      },
+      {
+        "allocation_id": "allocation::MANUAL_CORE:0.250000+T_BALANCED:0.750000",
+        "maximum_regret": 0.11999999999999994,
+        "mean_regret": 0.05255329077928578,
+        "scenario_regret": {
+          "control::benign": 0.08339494566206984,
+          "native::base": 0.08499999999999996,
+          "native::fast": 0.11999999999999994,
+          "native::gap": 0.043500000000000004,
+          "native::reversal": 0.026499999999999996,
+          "native::wide_spread": 0.03400000000000003,
+          "shock::calibration_down": 0.04018518053515979,
+          "shock::cost_up": 0.03925000000000001,
+          "shock::joint_adverse": 0.036500000000000005,
+          "shock::latency": 0.03691666666666665,
+          "shock::support_loss": 0.04339269648753308,
+          "shock::tail_down": 0.04199999999999998
+        },
+        "total_regret": 0.6306394893514293
+      },
+      {
+        "allocation_id": "allocation::MANUAL_CORE:0.250000+T_CONSERVATIVE:0.750000",
+        "maximum_regret": 0.24599999999999994,
+        "mean_regret": 0.12247035010897704,
+        "scenario_regret": {
+          "control::benign": 0.18047119023023478,
+          "native::base": 0.1885,
+          "native::fast": 0.24599999999999994,
+          "native::gap": 0.019500000000000003,
+          "native::reversal": 0.0625,
+          "native::wide_spread": 0.0925,
+          "shock::calibration_down": 0.11073393596699496,
+          "shock::cost_up": 0.11781249999999999,
+          "shock::joint_adverse": 0.09125000000000003,
+          "shock::latency": 0.11197916666666669,
+          "shock::support_loss": 0.12618490844382813,
+          "shock::tail_down": 0.1222125
+        },
+        "total_regret": 1.4696442013077244
+      },
+      {
+        "allocation_id": "allocation::MANUAL_CORE:0.500000+SKIP:0.500000",
+        "maximum_regret": 0.366,
+        "mean_regret": 0.24754710217364206,
+        "scenario_regret": {
+          "control::benign": 0.3414020348091564,
+          "native::base": 0.351,
+          "native::fast": 0.366,
+          "native::gap": 0.042,
+          "native::reversal": 0.13499999999999998,
+          "native::wide_spread": 0.2,
+          "shock::calibration_down": 0.2529280913880733,
+          "shock::cost_up": 0.260625,
+          "shock::joint_adverse": 0.22500000000000003,
+          "shock::latency": 0.24895833333333334,
+          "shock::support_loss": 0.27702676655314185,
+          "shock::tail_down": 0.27062499999999995
+        },
+        "total_regret": 2.9705652260837048
+      },
+      {
+        "allocation_id": "allocation::MANUAL_CORE:0.500000+T_ADAPTIVE:0.500000",
+        "maximum_regret": 0.14200000000000002,
+        "mean_regret": 0.10172546114445956,
+        "scenario_regret": {
+          "control::benign": 0.10466970202829529,
+          "native::base": 0.11099999999999999,
+          "native::fast": 0.136,
+          "native::gap": 0.14200000000000002,
+          "native::reversal": 0.11499999999999998,
+          "native::wide_spread": 0.09500000000000003,
+          "shock::calibration_down": 0.09091042416893441,
+          "shock::cost_up": 0.07875000000000004,
+          "shock::joint_adverse": 0.10500000000000002,
+          "shock::latency": 0.07874999999999999,
+          "shock::support_loss": 0.08052540753628495,
+          "shock::tail_down": 0.08310000000000001
+        },
+        "total_regret": 1.2207055337335146
+      },
+      {
+        "allocation_id": "allocation::MANUAL_CORE:0.500000+T_BALANCED:0.500000",
+        "maximum_regret": 0.16899999999999993,
+        "mean_regret": 0.08569657185109236,
+        "scenario_regret": {
+          "control::benign": 0.12370976512691012,
+          "native::base": 0.129,
+          "native::fast": 0.16899999999999993,
+          "native::gap": 0.05,
+          "native::reversal": 0.04799999999999999,
+          "native::wide_spread": 0.063,
+          "shock::calibration_down": 0.07537036107031958,
+          "shock::cost_up": 0.07350000000000001,
+          "shock::joint_adverse": 0.068,
+          "shock::latency": 0.06883333333333336,
+          "shock::support_loss": 0.08094540268254541,
+          "shock::tail_down": 0.07900000000000001
+        },
+        "total_regret": 1.0283588622131083
+      },
+      {
+        "allocation_id": "allocation::MANUAL_CORE:0.500000+T_CONSERVATIVE:0.500000",
+        "maximum_regret": 0.25299999999999995,
+        "mean_regret": 0.1323079447375532,
+        "scenario_regret": {
+          "control::benign": 0.18842726150568667,
+          "native::base": 0.19799999999999995,
+          "native::fast": 0.25299999999999995,
+          "native::gap": 0.034,
+          "native::reversal": 0.07199999999999998,
+          "native::wide_spread": 0.10200000000000004,
+          "shock::calibration_down": 0.12240286469154302,
+          "shock::cost_up": 0.12587500000000001,
+          "shock::joint_adverse": 0.10450000000000004,
+          "shock::latency": 0.11887500000000001,
+          "shock::support_loss": 0.1361402106534087,
+          "shock::tail_down": 0.132475
+        },
+        "total_regret": 1.5876953368506384
+      },
+      {
+        "allocation_id": "allocation::MANUAL_CORE:0.750000+SKIP:0.250000",
+        "maximum_regret": 0.31649999999999995,
+        "mean_regret": 0.19976511808417377,
+        "scenario_regret": {
+          "control::benign": 0.27287071943287344,
+          "native::base": 0.284,
+          "native::fast": 0.31649999999999995,
+          "native::gap": 0.0525,
+          "native::reversal": 0.11299999999999999,
+          "native::wide_spread": 0.16050000000000003,
+          "shock::calibration_down": 0.1993344067643562,
+          "shock::cost_up": 0.20131250000000003,
+          "shock::joint_adverse": 0.17800000000000002,
+          "shock::latency": 0.1908125,
+          "shock::support_loss": 0.21653879081285587,
+          "shock::tail_down": 0.21181249999999996
+        },
+        "total_regret": 2.3971814170100854
+      },
+      {
+        "allocation_id": "allocation::MANUAL_CORE:0.750000+T_ADAPTIVE:0.250000",
+        "maximum_regret": 0.20149999999999996,
+        "mean_regret": 0.12685429756958252,
+        "scenario_regret": {
+          "control::benign": 0.15450455304244293,
+          "native::base": 0.16399999999999998,
+          "native::fast": 0.20149999999999996,
+          "native::gap": 0.1025,
+          "native::reversal": 0.10299999999999998,
+          "native::wide_spread": 0.10800000000000004,
+          "shock::calibration_down": 0.11832557315478678,
+          "shock::cost_up": 0.11037500000000003,
+          "shock::joint_adverse": 0.11800000000000002,
+          "shock::latency": 0.10570833333333332,
+          "shock::support_loss": 0.11828811130442746,
+          "shock::tail_down": 0.11804999999999999
+        },
+        "total_regret": 1.5222515708349904
+      },
+      {
+        "allocation_id": "allocation::MANUAL_CORE:0.750000+T_BALANCED:0.250000",
+        "maximum_regret": 0.21799999999999997,
+        "mean_regret": 0.11883985292289895,
+        "scenario_regret": {
+          "control::benign": 0.16402458459175034,
+          "native::base": 0.173,
+          "native::fast": 0.21799999999999997,
+          "native::gap": 0.0565,
+          "native::reversal": 0.06949999999999998,
+          "native::wide_spread": 0.09200000000000003,
+          "shock::calibration_down": 0.11055554160547937,
+          "shock::cost_up": 0.10775000000000001,
+          "shock::joint_adverse": 0.0995,
+          "shock::latency": 0.10075,
+          "shock::support_loss": 0.11849810887755768,
+          "shock::tail_down": 0.11599999999999999
+        },
+        "total_regret": 1.4260782350747874
+      },
+      {
+        "allocation_id": "allocation::MANUAL_CORE:0.750000+T_CONSERVATIVE:0.250000",
+        "maximum_regret": 0.25999999999999995,
+        "mean_regret": 0.14214553936612936,
+        "scenario_regret": {
+          "control::benign": 0.19638333278113862,
+          "native::base": 0.20749999999999996,
+          "native::fast": 0.25999999999999995,
+          "native::gap": 0.0485,
+          "native::reversal": 0.08149999999999999,
+          "native::wide_spread": 0.11150000000000004,
+          "shock::calibration_down": 0.13407179341609107,
+          "shock::cost_up": 0.13393750000000004,
+          "shock::joint_adverse": 0.11775000000000002,
+          "shock::latency": 0.12577083333333333,
+          "shock::support_loss": 0.14609551286298933,
+          "shock::tail_down": 0.1427375
+        },
+        "total_regret": 1.7057464723935523
+      },
+      {
+        "allocation_id": "allocation::MANUAL_CORE:1.000000",
+        "maximum_regret": 0.26199999999999996,
+        "mean_regret": 0.14698313399470553,
+        "scenario_regret": {
+          "control::benign": 0.19933940405659056,
+          "native::base": 0.21199999999999997,
+          "native::fast": 0.26199999999999996,
+          "native::gap": 0.058,
+          "native::reversal": 0.086,
+          "native::wide_spread": 0.11600000000000002,
+          "shock::calibration_down": 0.14074072214063912,
+          "shock::cost_up": 0.137,
+          "shock::joint_adverse": 0.12600000000000003,
+          "shock::latency": 0.12766666666666665,
+          "shock::support_loss": 0.15105081507256995,
+          "shock::tail_down": 0.14799999999999996
+        },
+        "total_regret": 1.7637976079364663
+      },
+      {
+        "allocation_id": "allocation::SKIP:0.250000+T_ADAPTIVE:0.750000",
+        "maximum_regret": 0.17100000000000004,
+        "mean_regret": 0.12437860880880486,
+        "scenario_regret": {
+          "control::benign": 0.12336616639043058,
+          "native::base": 0.125,
+          "native::fast": 0.12,
+          "native::gap": 0.17100000000000004,
+          "native::reversal": 0.149,
+          "native::wide_spread": 0.12150000000000002,
+          "shock::calibration_down": 0.11708895980679918,
+          "shock::cost_up": 0.10643750000000005,
+          "shock::joint_adverse": 0.139,
+          "shock::latency": 0.1099375,
+          "shock::support_loss": 0.10325067950842842,
+          "shock::tail_down": 0.10696250000000002
+        },
+        "total_regret": 1.4925433057056583
+      },
+      {
+        "allocation_id": "allocation::SKIP:0.250000+T_BALANCED:0.750000",
+        "maximum_regret": 0.16949999999999993,
+        "mean_regret": 0.10033527486875404,
+        "scenario_regret": {
+          "control::benign": 0.15192626103835277,
+          "native::base": 0.15199999999999997,
+          "native::fast": 0.16949999999999993,
+          "native::gap": 0.033,
+          "native::reversal": 0.04849999999999999,
+          "native::wide_spread": 0.07350000000000001,
+          "shock::calibration_down": 0.0937788651588769,
+          "shock::cost_up": 0.0985625,
+          "shock::joint_adverse": 0.08350000000000002,
+          "shock::latency": 0.09506250000000002,
+          "shock::support_loss": 0.103880672227819,
+          "shock::tail_down": 0.10081250000000003
+        },
+        "total_regret": 1.2040232984250485
+      },
+      {
+        "allocation_id": "allocation::SKIP:0.250000+T_CONSERVATIVE:0.750000",
+        "maximum_regret": 0.2955,
+        "mean_regret": 0.17025233419844532,
+        "scenario_regret": {
+          "control::benign": 0.24900250560651765,
+          "native::base": 0.2555,
+          "native::fast": 0.2955,
+          "native::gap": 0.009000000000000001,
+          "native::reversal": 0.08449999999999999,
+          "native::wide_spread": 0.132,
+          "shock::calibration_down": 0.16432762059071207,
+          "shock::cost_up": 0.177125,
+          "shock::joint_adverse": 0.13825000000000004,
+          "shock::latency": 0.17012500000000003,
+          "shock::support_loss": 0.18667288418411404,
+          "shock::tail_down": 0.181025
+        },
+        "total_regret": 2.043028010381344
+      },
+      {
+        "allocation_id": "allocation::SKIP:0.500000+T_ADAPTIVE:0.500000",
+        "maximum_regret": 0.245,
+        "mean_regret": 0.1972894293233961,
+        "scenario_regret": {
+          "control::benign": 0.2417323327808611,
+          "native::base": 0.245,
+          "native::fast": 0.235,
+          "native::gap": 0.121,
+          "native::reversal": 0.15899999999999997,
+          "native::wide_spread": 0.17400000000000002,
+          "shock::calibration_down": 0.19809779341636857,
+          "shock::cost_up": 0.19737500000000002,
+          "shock::joint_adverse": 0.19900000000000004,
+          "shock::latency": 0.19504166666666667,
+          "shock::support_loss": 0.20150135901685684,
+          "shock::tail_down": 0.200725
+        },
+        "total_regret": 2.3674731518807532
+      },
+      {
+        "allocation_id": "allocation::SKIP:0.500000+T_BALANCED:0.500000",
+        "maximum_regret": 0.26799999999999996,
+        "mean_regret": 0.1812605400300289,
+        "scenario_regret": {
+          "control::benign": 0.2607723958794759,
+          "native::base": 0.263,
+          "native::fast": 0.26799999999999996,
+          "native::gap": 0.029,
+          "native::reversal": 0.092,
+          "native::wide_spread": 0.14200000000000002,
+          "shock::calibration_down": 0.18255773031775374,
+          "shock::cost_up": 0.192125,
+          "shock::joint_adverse": 0.162,
+          "shock::latency": 0.18512499999999998,
+          "shock::support_loss": 0.20192135416311724,
+          "shock::tail_down": 0.196625
+        },
+        "total_regret": 2.1751264803603467
+      },
+      {
+        "allocation_id": "allocation::SKIP:0.500000+T_CONSERVATIVE:0.500000",
+        "maximum_regret": 0.352,
+        "mean_regret": 0.22787191291648975,
+        "scenario_regret": {
+          "control::benign": 0.32548989225825253,
+          "native::base": 0.33199999999999996,
+          "native::fast": 0.352,
+          "native::gap": 0.013000000000000001,
+          "native::reversal": 0.11599999999999999,
+          "native::wide_spread": 0.18100000000000002,
+          "shock::calibration_down": 0.2295902339389772,
+          "shock::cost_up": 0.2445,
+          "shock::joint_adverse": 0.19850000000000004,
+          "shock::latency": 0.2351666666666667,
+          "shock::support_loss": 0.2571161621339806,
+          "shock::tail_down": 0.2501
+        },
+        "total_regret": 2.734462954997877
+      },
+      {
+        "allocation_id": "allocation::SKIP:0.750000+T_ADAPTIVE:0.250000",
+        "maximum_regret": 0.365,
+        "mean_regret": 0.27020024983798735,
+        "scenario_regret": {
+          "control::benign": 0.36009849917129166,
+          "native::base": 0.365,
+          "native::fast": 0.35,
+          "native::gap": 0.07100000000000001,
+          "native::reversal": 0.16899999999999998,
+          "native::wide_spread": 0.22650000000000003,
+          "shock::calibration_down": 0.279106627025938,
+          "shock::cost_up": 0.28831249999999997,
+          "shock::joint_adverse": 0.259,
+          "shock::latency": 0.2801458333333333,
+          "shock::support_loss": 0.29975203852528526,
+          "shock::tail_down": 0.29448749999999996
+        },
+        "total_regret": 3.242402998055848
+      },
+      {
+        "allocation_id": "allocation::SKIP:0.750000+T_BALANCED:0.250000",
+        "maximum_regret": 0.374,
+        "mean_regret": 0.26218580519130374,
+        "scenario_regret": {
+          "control::benign": 0.3696185307205991,
+          "native::base": 0.374,
+          "native::fast": 0.36649999999999994,
+          "native::gap": 0.025,
+          "native::reversal": 0.13549999999999998,
+          "native::wide_spread": 0.21050000000000002,
+          "shock::calibration_down": 0.27133659547663064,
+          "shock::cost_up": 0.2856875,
+          "shock::joint_adverse": 0.24050000000000002,
+          "shock::latency": 0.2751875,
+          "shock::support_loss": 0.29996203609841543,
+          "shock::tail_down": 0.29243749999999996
+        },
+        "total_regret": 3.146229662295645
+      },
+      {
+        "allocation_id": "allocation::SKIP:0.750000+T_CONSERVATIVE:0.250000",
+        "maximum_regret": 0.4085,
+        "mean_regret": 0.2854914916345342,
+        "scenario_regret": {
+          "control::benign": 0.40197727890998736,
+          "native::base": 0.4085,
+          "native::fast": 0.4085,
+          "native::gap": 0.017,
+          "native::reversal": 0.1475,
+          "native::wide_spread": 0.23,
+          "shock::calibration_down": 0.29485284728724237,
+          "shock::cost_up": 0.311875,
+          "shock::joint_adverse": 0.25875000000000004,
+          "shock::latency": 0.3002083333333333,
+          "shock::support_loss": 0.32755944008384713,
+          "shock::tail_down": 0.319175
+        },
+        "total_regret": 3.42589789961441
+      },
+      {
+        "allocation_id": "allocation::SKIP:1.000000",
+        "maximum_regret": 0.48,
+        "mean_regret": 0.33811107035257865,
+        "scenario_regret": {
+          "control::benign": 0.4734646655617222,
+          "native::base": 0.48,
+          "native::fast": 0.45999999999999996,
+          "native::gap": 0.016,
+          "native::reversal": 0.174,
+          "native::wide_spread": 0.274,
+          "shock::calibration_down": 0.3551154606355075,
+          "shock::cost_up": 0.37424999999999997,
+          "shock::joint_adverse": 0.31400000000000006,
+          "shock::latency": 0.36024999999999996,
+          "shock::support_loss": 0.39300271803371367,
+          "shock::tail_down": 0.38325
+        },
+        "total_regret": 4.0573328442309435
+      },
+      {
+        "allocation_id": "allocation::T_ADAPTIVE:0.250000+T_BALANCED:0.750000",
+        "maximum_regret": 0.083,
+        "mean_regret": 0.027424454354162797,
+        "scenario_regret": {
+          "control::benign": 0.0335600946479222,
+          "native::base": 0.03199999999999997,
+          "native::fast": 0.05449999999999994,
+          "native::gap": 0.083,
+          "native::reversal": 0.03849999999999998,
+          "native::wide_spread": 0.02100000000000002,
+          "shock::calibration_down": 0.012770031549307448,
+          "shock::cost_up": 0.007625000000000048,
+          "shock::joint_adverse": 0.02350000000000002,
+          "shock::latency": 0.009958333333333347,
+          "shock::support_loss": 0.005629992719390575,
+          "shock::tail_down": 0.007050000000000001
+        },
+        "total_regret": 0.32909345224995357
+      },
+      {
+        "allocation_id": "allocation::T_ADAPTIVE:0.250000+T_CONSERVATIVE:0.750000",
+        "maximum_regret": 0.18049999999999994,
+        "mean_regret": 0.09734151368385406,
+        "scenario_regret": {
+          "control::benign": 0.13063633921608714,
+          "native::base": 0.1355,
+          "native::fast": 0.18049999999999994,
+          "native::gap": 0.059,
+          "native::reversal": 0.07449999999999998,
+          "native::wide_spread": 0.07950000000000002,
+          "shock::calibration_down": 0.08331878698114262,
+          "shock::cost_up": 0.08618749999999997,
+          "shock::joint_adverse": 0.07825000000000003,
+          "shock::latency": 0.08502083333333332,
+          "shock::support_loss": 0.08842220467568562,
+          "shock::tail_down": 0.08726250000000002
+        },
+        "total_regret": 1.1680981642062487
+      },
+      {
+        "allocation_id": "allocation::T_ADAPTIVE:0.500000+T_BALANCED:0.500000",
+        "maximum_regret": 0.129,
+        "mean_regret": 0.035438899000846395,
+        "scenario_regret": {
+          "control::benign": 0.02404006309861484,
+          "native::base": 0.02300000000000002,
+          "native::fast": 0.03799999999999998,
+          "native::gap": 0.129,
+          "native::reversal": 0.072,
+          "native::wide_spread": 0.03700000000000003,
+          "shock::calibration_down": 0.020540063098614836,
+          "shock::cost_up": 0.010250000000000037,
+          "shock::joint_adverse": 0.04200000000000001,
+          "shock::latency": 0.014916666666666634,
+          "shock::support_loss": 0.0054199951462604035,
+          "shock::tail_down": 0.009099999999999997
+        },
+        "total_regret": 0.42526678801015677
+      },
+      {
+        "allocation_id": "allocation::T_ADAPTIVE:0.500000+T_CONSERVATIVE:0.500000",
+        "maximum_regret": 0.122,
+        "mean_regret": 0.08205027188730722,
+        "scenario_regret": {
+          "control::benign": 0.08875755947739139,
+          "native::base": 0.09199999999999997,
+          "native::fast": 0.122,
+          "native::gap": 0.113,
+          "native::reversal": 0.09599999999999999,
+          "native::wide_spread": 0.07600000000000001,
+          "shock::calibration_down": 0.0675725667198383,
+          "shock::cost_up": 0.06262499999999999,
+          "shock::joint_adverse": 0.07850000000000003,
+          "shock::latency": 0.06495833333333334,
+          "shock::support_loss": 0.06061480311712375,
+          "shock::tail_down": 0.06257499999999999
+        },
+        "total_regret": 0.9846032626476867
+      },
+      {
+        "allocation_id": "allocation::T_ADAPTIVE:0.750000+T_BALANCED:0.250000",
+        "maximum_regret": 0.17500000000000004,
+        "mean_regret": 0.04345334364753,
+        "scenario_regret": {
+          "control::benign": 0.014520031549307477,
+          "native::base": 0.014000000000000012,
+          "native::fast": 0.021499999999999964,
+          "native::gap": 0.17500000000000004,
+          "native::reversal": 0.10549999999999998,
+          "native::wide_spread": 0.05300000000000002,
+          "shock::calibration_down": 0.02831009464792228,
+          "shock::cost_up": 0.012875000000000025,
+          "shock::joint_adverse": 0.06050000000000001,
+          "shock::latency": 0.019874999999999976,
+          "shock::support_loss": 0.005209997573130232,
+          "shock::tail_down": 0.011149999999999993
+        },
+        "total_regret": 0.52144012377036
+      },
+      {
+        "allocation_id": "allocation::T_ADAPTIVE:0.750000+T_CONSERVATIVE:0.250000",
+        "maximum_regret": 0.16700000000000004,
+        "mean_regret": 0.06675903009076042,
+        "scenario_regret": {
+          "control::benign": 0.04687877973869575,
+          "native::base": 0.04849999999999999,
+          "native::fast": 0.0635,
+          "native::gap": 0.16700000000000004,
+          "native::reversal": 0.11749999999999998,
+          "native::wide_spread": 0.07250000000000001,
+          "shock::calibration_down": 0.05182634645853401,
+          "shock::cost_up": 0.039062500000000056,
+          "shock::joint_adverse": 0.07875000000000003,
+          "shock::latency": 0.04489583333333336,
+          "shock::support_loss": 0.03280740155856188,
+          "shock::tail_down": 0.03788750000000002
+        },
+        "total_regret": 0.8011083610891251
+      },
+      {
+        "allocation_id": "allocation::T_ADAPTIVE:1.000000",
+        "maximum_regret": 0.21600000000000003,
+        "mean_regret": 0.04646778829421359,
+        "scenario_regret": {
+          "control::benign": 0.0,
+          "native::base": 0.0,
+          "native::fast": 0.0,
+          "native::gap": 0.21600000000000003,
+          "native::reversal": 0.13399999999999998,
+          "native::wide_spread": 0.06400000000000003,
+          "shock::calibration_down": 0.031080126197229718,
+          "shock::cost_up": 0.01050000000000001,
+          "shock::joint_adverse": 0.07400000000000002,
+          "shock::latency": 0.019833333333333314,
+          "shock::support_loss": 0.0,
+          "shock::tail_down": 0.008199999999999985
+        },
+        "total_regret": 0.5576134595305631
+      },
+      {
+        "allocation_id": "allocation::T_BALANCED:0.250000+T_CONSERVATIVE:0.750000",
+        "maximum_regret": 0.19699999999999995,
+        "mean_regret": 0.08932706903717047,
+        "scenario_regret": {
+          "control::benign": 0.1401563707653945,
+          "native::base": 0.14450000000000002,
+          "native::fast": 0.19699999999999995,
+          "native::gap": 0.013000000000000003,
+          "native::reversal": 0.04099999999999998,
+          "native::wide_spread": 0.0635,
+          "shock::calibration_down": 0.0755487554318352,
+          "shock::cost_up": 0.08356249999999998,
+          "shock::joint_adverse": 0.059750000000000025,
+          "shock::latency": 0.08006250000000004,
+          "shock::support_loss": 0.08863220224881585,
+          "shock::tail_down": 0.08521250000000002
+        },
+        "total_regret": 1.0719248284460456
+      },
+      {
+        "allocation_id": "allocation::T_BALANCED:0.500000+T_CONSERVATIVE:0.500000",
+        "maximum_regret": 0.15499999999999997,
+        "mean_regret": 0.06602138259394004,
+        "scenario_regret": {
+          "control::benign": 0.10779762257600622,
+          "native::base": 0.10999999999999999,
+          "native::fast": 0.15499999999999997,
+          "native::gap": 0.021,
+          "native::reversal": 0.028999999999999998,
+          "native::wide_spread": 0.04400000000000001,
+          "shock::calibration_down": 0.05203250362122347,
+          "shock::cost_up": 0.05737500000000001,
+          "shock::joint_adverse": 0.04150000000000001,
+          "shock::latency": 0.05504166666666671,
+          "shock::support_loss": 0.06103479826338415,
+          "shock::tail_down": 0.058475
+        },
+        "total_regret": 0.7922565911272805
+      },
+      {
+        "allocation_id": "allocation::T_BALANCED:0.750000+T_CONSERVATIVE:0.250000",
+        "maximum_regret": 0.11299999999999993,
+        "mean_regret": 0.04271569615070963,
+        "scenario_regret": {
+          "control::benign": 0.07543887438661795,
+          "native::base": 0.07549999999999996,
+          "native::fast": 0.11299999999999993,
+          "native::gap": 0.028999999999999998,
+          "native::reversal": 0.016999999999999987,
+          "native::wide_spread": 0.024500000000000022,
+          "shock::calibration_down": 0.028516251810611737,
+          "shock::cost_up": 0.031187500000000035,
+          "shock::joint_adverse": 0.02325000000000002,
+          "shock::latency": 0.030020833333333385,
+          "shock::support_loss": 0.03343739427795245,
+          "shock::tail_down": 0.03173750000000003
+        },
+        "total_regret": 0.5125883538085155
+      },
+      {
+        "allocation_id": "allocation::T_BALANCED:1.000000",
+        "maximum_regret": 0.06599999999999995,
+        "mean_regret": 0.0144100097074792,
+        "scenario_regret": {
+          "control::benign": 0.03808012619722967,
+          "native::base": 0.035999999999999976,
+          "native::fast": 0.06599999999999995,
+          "native::gap": 0.032,
+          "native::reversal": 0.0,
+          "native::wide_spread": 0.0,
+          "shock::calibration_down": 0.0,
+          "shock::cost_up": 0.0,
+          "shock::joint_adverse": 0.0,
+          "shock::latency": 0.0,
+          "shock::support_loss": 0.000839990292520798,
+          "shock::tail_down": 0.0
+        },
+        "total_regret": 0.1729201164897504
+      },
+      {
+        "allocation_id": "allocation::T_CONSERVATIVE:1.000000",
+        "maximum_regret": 0.23399999999999996,
+        "mean_regret": 0.1076327554804009,
+        "scenario_regret": {
+          "control::benign": 0.16751511895478283,
+          "native::base": 0.174,
+          "native::fast": 0.23399999999999996,
+          "native::gap": 0.0,
+          "native::reversal": 0.04799999999999999,
+          "native::wide_spread": 0.07800000000000001,
+          "shock::calibration_down": 0.0940650072424469,
+          "shock::cost_up": 0.10475000000000001,
+          "shock::joint_adverse": 0.07300000000000004,
+          "shock::latency": 0.10008333333333336,
+          "shock::support_loss": 0.11122960623424749,
+          "shock::tail_down": 0.10695000000000002
+        },
+        "total_regret": 1.2915930657648107
+      }
+    ],
+    "scenario_ids": [
+      "native::base",
+      "native::fast",
+      "native::gap",
+      "native::reversal",
+      "native::wide_spread",
+      "shock::cost_up",
+      "shock::tail_down",
+      "shock::support_loss",
+      "shock::latency",
+      "shock::calibration_down",
+      "shock::joint_adverse",
+      "control::benign"
+    ]
+  },
+  "rows": [
+    {
+      "active_count": 1,
+      "allocation_id": "allocation::T_BALANCED:1.000000",
+      "baseline_gate": {
+        "allocation_id": "allocation::T_BALANCED:1.000000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 2.0,
+        "cvar_delta": 0.07933333333333334,
+        "worst_case_delta": 0.026000000000000002
+      },
+      "best_case_utility": 0.4553845393644925,
+      "constraint_failures": [],
+      "distributionally_robust_utility": 0.25424272731176606,
+      "feasible": true,
+      "maximum_regret": 0.06599999999999995,
+      "mean_regret": 0.0144100097074792,
+      "nominal_utility": 0.29890939397843275,
+      "robust_cvar": 0.11233333333333334,
+      "scenario_utilities": {
+        "control::benign": 0.4553845393644925,
+        "native::base": 0.444,
+        "native::fast": 0.394,
+        "native::gap": -0.016,
+        "native::reversal": 0.174,
+        "native::wide_spread": 0.274,
+        "shock::calibration_down": 0.3151154606355075,
+        "shock::cost_up": 0.33925,
+        "shock::joint_adverse": 0.17900000000000002,
+        "shock::latency": 0.32525,
+        "shock::support_loss": 0.37966272774119286,
+        "shock::tail_down": 0.32325
+      },
+      "utility_mean": 0.29890939397843275,
+      "utility_std": 0.1328171664893905,
+      "weighted_complexity": 3.0,
+      "worst_case_utility": -0.016
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::T_ADAPTIVE:0.250000+T_BALANCED:0.750000",
+      "baseline_gate": {
+        "allocation_id": "allocation::T_ADAPTIVE:0.250000+T_BALANCED:0.750000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 2.5,
+        "cvar_delta": 0.04166666666666668,
+        "worst_case_delta": -0.025
+      },
+      "best_case_utility": 0.4599045709138,
+      "constraint_failures": [],
+      "distributionally_robust_utility": 0.23552828266508247,
+      "feasible": true,
+      "maximum_regret": 0.083,
+      "mean_regret": 0.027424454354162797,
+      "nominal_utility": 0.28589494933174914,
+      "robust_cvar": 0.07466666666666667,
+      "scenario_utilities": {
+        "control::benign": 0.4599045709138,
+        "native::base": 0.448,
+        "native::fast": 0.4055,
+        "native::gap": -0.067,
+        "native::reversal": 0.1355,
+        "native::wide_spread": 0.253,
+        "shock::calibration_down": 0.30234542908620005,
+        "shock::cost_up": 0.33162499999999995,
+        "shock::joint_adverse": 0.1555,
+        "shock::latency": 0.31529166666666664,
+        "shock::support_loss": 0.3748727253143231,
+        "shock::tail_down": 0.3162
+      },
+      "utility_mean": 0.28589494933174914,
+      "utility_std": 0.15020066398440465,
+      "weighted_complexity": 3.5,
+      "worst_case_utility": -0.067
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::T_BALANCED:0.750000+T_CONSERVATIVE:0.250000",
+      "baseline_gate": {
+        "allocation_id": "allocation::T_BALANCED:0.750000+T_CONSERVATIVE:0.250000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 1.75,
+        "cvar_delta": 0.06691666666666668,
+        "worst_case_delta": 0.029000000000000005
+      },
+      "best_case_utility": 0.41802579117510424,
+      "constraint_failures": [],
+      "distributionally_robust_utility": 0.23038704086853562,
+      "feasible": true,
+      "maximum_regret": 0.11299999999999993,
+      "mean_regret": 0.04271569615070963,
+      "nominal_utility": 0.2706037075352023,
+      "robust_cvar": 0.09991666666666667,
+      "scenario_utilities": {
+        "control::benign": 0.41802579117510424,
+        "native::base": 0.4045,
+        "native::fast": 0.34700000000000003,
+        "native::gap": -0.012999999999999998,
+        "native::reversal": 0.157,
+        "native::wide_spread": 0.2495,
+        "shock::calibration_down": 0.28659920882489576,
+        "shock::cost_up": 0.30806249999999996,
+        "shock::joint_adverse": 0.15575,
+        "shock::latency": 0.2952291666666666,
+        "shock::support_loss": 0.3470653237557612,
+        "shock::tail_down": 0.29151249999999995
+      },
+      "utility_mean": 0.2706037075352023,
+      "utility_std": 0.12098853216578612,
+      "weighted_complexity": 2.75,
+      "worst_case_utility": -0.012999999999999998
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::MANUAL_CORE:0.250000+T_BALANCED:0.750000",
+      "baseline_gate": {
+        "allocation_id": "allocation::MANUAL_CORE:0.250000+T_BALANCED:0.750000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 1.5,
+        "cvar_delta": 0.054500000000000014,
+        "worst_case_delta": 0.014499999999999999
+      },
+      "best_case_utility": 0.41006971989965235,
+      "constraint_failures": [],
+      "distributionally_robust_utility": 0.21998277957329282,
+      "feasible": true,
+      "maximum_regret": 0.11999999999999994,
+      "mean_regret": 0.05255329077928578,
+      "nominal_utility": 0.26076611290662616,
+      "robust_cvar": 0.08750000000000001,
+      "scenario_utilities": {
+        "control::benign": 0.41006971989965235,
+        "native::base": 0.395,
+        "native::fast": 0.34,
+        "native::gap": -0.027500000000000004,
+        "native::reversal": 0.1475,
+        "native::wide_spread": 0.24,
+        "shock::calibration_down": 0.2749302801003477,
+        "shock::cost_up": 0.3,
+        "shock::joint_adverse": 0.14250000000000002,
+        "shock::latency": 0.28833333333333333,
+        "shock::support_loss": 0.3371100215461806,
+        "shock::tail_down": 0.28125
+      },
+      "utility_mean": 0.26076611290662616,
+      "utility_std": 0.12272690919548195,
+      "weighted_complexity": 2.5,
+      "worst_case_utility": -0.027500000000000004
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::T_ADAPTIVE:0.500000+T_CONSERVATIVE:0.500000",
+      "baseline_gate": {
+        "allocation_id": "allocation::T_ADAPTIVE:0.500000+T_CONSERVATIVE:0.500000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 2.5,
+        "cvar_delta": -0.005833333333333333,
+        "worst_case_delta": -0.055
+      },
+      "best_case_utility": 0.4047071060843308,
+      "constraint_failures": [],
+      "distributionally_robust_utility": 0.18410246513193804,
+      "feasible": true,
+      "maximum_regret": 0.122,
+      "mean_regret": 0.08205027188730722,
+      "nominal_utility": 0.2312691317986047,
+      "robust_cvar": 0.027166666666666662,
+      "scenario_utilities": {
+        "control::benign": 0.4047071060843308,
+        "native::base": 0.388,
+        "native::fast": 0.33799999999999997,
+        "native::gap": -0.097,
+        "native::reversal": 0.078,
+        "native::wide_spread": 0.198,
+        "shock::calibration_down": 0.2475428939156692,
+        "shock::cost_up": 0.276625,
+        "shock::joint_adverse": 0.10049999999999999,
+        "shock::latency": 0.26029166666666664,
+        "shock::support_loss": 0.3198879149165899,
+        "shock::tail_down": 0.260675
+      },
+      "utility_mean": 0.23126913179860473,
+      "utility_std": 0.14377334316856574,
+      "weighted_complexity": 3.5,
+      "worst_case_utility": -0.097
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::T_ADAPTIVE:0.500000+T_BALANCED:0.500000",
+      "baseline_gate": {
+        "allocation_id": "allocation::T_ADAPTIVE:0.500000+T_BALANCED:0.500000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 3.0,
+        "cvar_delta": 0.009000000000000008,
+        "worst_case_delta": -0.07100000000000001
+      },
+      "best_case_utility": 0.46942460246310735,
+      "constraint_failures": [],
+      "distributionally_robust_utility": 0.22181383801839885,
+      "feasible": true,
+      "maximum_regret": 0.129,
+      "mean_regret": 0.035438899000846395,
+      "nominal_utility": 0.27788050468506553,
+      "robust_cvar": 0.042,
+      "scenario_utilities": {
+        "control::benign": 0.46942460246310735,
+        "native::base": 0.45699999999999996,
+        "native::fast": 0.422,
+        "native::gap": -0.113,
+        "native::reversal": 0.102,
+        "native::wide_spread": 0.237,
+        "shock::calibration_down": 0.29457539753689266,
+        "shock::cost_up": 0.32899999999999996,
+        "shock::joint_adverse": 0.137,
+        "shock::latency": 0.31033333333333335,
+        "shock::support_loss": 0.37508272288745326,
+        "shock::tail_down": 0.31415
+      },
+      "utility_mean": 0.27788050468506553,
+      "utility_std": 0.16773688077944296,
+      "weighted_complexity": 4.0,
+      "worst_case_utility": -0.113
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::MANUAL_CORE:0.500000+T_ADAPTIVE:0.500000",
+      "baseline_gate": {
+        "allocation_id": "allocation::MANUAL_CORE:0.500000+T_ADAPTIVE:0.500000",
+        "baseline_failures": [
+          "worst_case_non_inferiority"
+        ],
+        "baseline_feasible": false,
+        "complexity_delta": 2.0,
+        "cvar_delta": -0.030666666666666658,
+        "worst_case_delta": -0.08399999999999999
+      },
+      "best_case_utility": 0.3887949635334269,
+      "constraint_failures": [
+        "worst_case_non_inferiority"
+      ],
+      "distributionally_robust_utility": 0.16329394254145238,
+      "feasible": false,
+      "maximum_regret": 0.14200000000000002,
+      "mean_regret": 0.10172546114445956,
+      "nominal_utility": 0.21159394254145236,
+      "robust_cvar": 0.0023333333333333353,
+      "scenario_utilities": {
+        "control::benign": 0.3887949635334269,
+        "native::base": 0.369,
+        "native::fast": 0.32399999999999995,
+        "native::gap": -0.126,
+        "native::reversal": 0.05900000000000001,
+        "native::wide_spread": 0.179,
+        "shock::calibration_down": 0.22420503646657308,
+        "shock::cost_up": 0.26049999999999995,
+        "shock::joint_adverse": 0.074,
+        "shock::latency": 0.2465,
+        "shock::support_loss": 0.2999773104974287,
+        "shock::tail_down": 0.24014999999999997
+      },
+      "utility_mean": 0.21159394254145236,
+      "utility_std": 0.14723431329204523,
+      "weighted_complexity": 3.0,
+      "worst_case_utility": -0.126
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::T_BALANCED:0.500000+T_CONSERVATIVE:0.500000",
+      "baseline_gate": {
+        "allocation_id": "allocation::T_BALANCED:0.500000+T_CONSERVATIVE:0.500000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 1.5,
+        "cvar_delta": 0.05950000000000002,
+        "worst_case_delta": 0.037000000000000005
+      },
+      "best_case_utility": 0.38566704298571597,
+      "constraint_failures": [],
+      "distributionally_robust_utility": 0.2115313544253052,
+      "feasible": true,
+      "maximum_regret": 0.15499999999999997,
+      "mean_regret": 0.06602138259394004,
+      "nominal_utility": 0.24729802109197188,
+      "robust_cvar": 0.09250000000000001,
+      "scenario_utilities": {
+        "control::benign": 0.38566704298571597,
+        "native::base": 0.37,
+        "native::fast": 0.305,
+        "native::gap": -0.005,
+        "native::reversal": 0.145,
+        "native::wide_spread": 0.23,
+        "shock::calibration_down": 0.263082957014284,
+        "shock::cost_up": 0.281875,
+        "shock::joint_adverse": 0.1375,
+        "shock::latency": 0.2702083333333333,
+        "shock::support_loss": 0.3194679197703295,
+        "shock::tail_down": 0.264775
+      },
+      "utility_mean": 0.24729802109197188,
+      "utility_std": 0.10933220306596049,
+      "weighted_complexity": 2.5,
+      "worst_case_utility": -0.005
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::T_ADAPTIVE:0.750000+T_CONSERVATIVE:0.250000",
+      "baseline_gate": {
+        "allocation_id": "allocation::T_ADAPTIVE:0.750000+T_CONSERVATIVE:0.250000",
+        "baseline_failures": [
+          "worst_case_non_inferiority",
+          "complexity_increase"
+        ],
+        "baseline_feasible": false,
+        "complexity_delta": 3.25,
+        "cvar_delta": -0.031083333333333334,
+        "worst_case_delta": -0.10900000000000001
+      },
+      "best_case_utility": 0.44658588582302644,
+      "constraint_failures": [
+        "worst_case_non_inferiority",
+        "complexity_increase"
+      ],
+      "distributionally_robust_utility": 0.18924370692848483,
+      "feasible": false,
+      "maximum_regret": 0.16700000000000004,
+      "mean_regret": 0.06675903009076042,
+      "nominal_utility": 0.2465603735951515,
+      "robust_cvar": 0.0019166666666666592,
+      "scenario_utilities": {
+        "control::benign": 0.44658588582302644,
+        "native::base": 0.4315,
+        "native::fast": 0.39649999999999996,
+        "native::gap": -0.15100000000000002,
+        "native::reversal": 0.05650000000000001,
+        "native::wide_spread": 0.2015,
+        "shock::calibration_down": 0.2632891141769735,
+        "shock::cost_up": 0.30018749999999994,
+        "shock::joint_adverse": 0.10024999999999999,
+        "shock::latency": 0.2803541666666666,
+        "shock::support_loss": 0.3476953164751518,
+        "shock::tail_down": 0.28536249999999996
+      },
+      "utility_mean": 0.2465603735951515,
+      "utility_std": 0.17329447954814353,
+      "weighted_complexity": 4.25,
+      "worst_case_utility": -0.15100000000000002
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::MANUAL_CORE:0.500000+T_BALANCED:0.500000",
+      "baseline_gate": {
+        "allocation_id": "allocation::MANUAL_CORE:0.500000+T_BALANCED:0.500000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 1.0,
+        "cvar_delta": 0.03466666666666667,
+        "worst_case_delta": 0.008
+      },
+      "best_case_utility": 0.3697549004348121,
+      "constraint_failures": [],
+      "distributionally_robust_utility": 0.19072283183481956,
+      "feasible": true,
+      "maximum_regret": 0.16899999999999993,
+      "mean_regret": 0.08569657185109236,
+      "nominal_utility": 0.22762283183481954,
+      "robust_cvar": 0.06766666666666667,
+      "scenario_utilities": {
+        "control::benign": 0.3697549004348121,
+        "native::base": 0.351,
+        "native::fast": 0.29100000000000004,
+        "native::gap": -0.034,
+        "native::reversal": 0.126,
+        "native::wide_spread": 0.21100000000000002,
+        "shock::calibration_down": 0.2397450995651879,
+        "shock::cost_up": 0.26575,
+        "shock::joint_adverse": 0.11100000000000002,
+        "shock::latency": 0.2564166666666666,
+        "shock::support_loss": 0.29955731535116825,
+        "shock::tail_down": 0.24424999999999997
+      },
+      "utility_mean": 0.22762283183481957,
+      "utility_std": 0.1128038415754183,
+      "weighted_complexity": 2.0,
+      "worst_case_utility": -0.034
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::SKIP:0.250000+T_BALANCED:0.750000",
+      "baseline_gate": {
+        "allocation_id": "allocation::SKIP:0.250000+T_BALANCED:0.750000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 1.25,
+        "cvar_delta": 0.03500000000000001,
+        "worst_case_delta": 0.025
+      },
+      "best_case_utility": 0.3415384045233694,
+      "constraint_failures": [],
+      "distributionally_robust_utility": 0.17948412881715786,
+      "feasible": true,
+      "maximum_regret": 0.16949999999999993,
+      "mean_regret": 0.10033527486875404,
+      "nominal_utility": 0.21298412881715786,
+      "robust_cvar": 0.068,
+      "scenario_utilities": {
+        "control::benign": 0.3415384045233694,
+        "native::base": 0.328,
+        "native::fast": 0.29050000000000004,
+        "native::gap": -0.017,
+        "native::reversal": 0.1255,
+        "native::wide_spread": 0.2005,
+        "shock::calibration_down": 0.2213365954766306,
+        "shock::cost_up": 0.2406875,
+        "shock::joint_adverse": 0.0955,
+        "shock::latency": 0.23018749999999996,
+        "shock::support_loss": 0.27662204580589467,
+        "shock::tail_down": 0.22243749999999995
+      },
+      "utility_mean": 0.2129841288171579,
+      "utility_std": 0.10248745207899992,
+      "weighted_complexity": 2.25,
+      "worst_case_utility": -0.017
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::SKIP:0.250000+T_ADAPTIVE:0.750000",
+      "baseline_gate": {
+        "allocation_id": "allocation::SKIP:0.250000+T_ADAPTIVE:0.750000",
+        "baseline_failures": [
+          "worst_case_non_inferiority",
+          "cvar_non_inferiority"
+        ],
+        "baseline_feasible": false,
+        "complexity_delta": 2.75,
+        "cvar_delta": -0.063,
+        "worst_case_delta": -0.11300000000000002
+      },
+      "best_case_utility": 0.3700984991712916,
+      "constraint_failures": [
+        "worst_case_non_inferiority",
+        "cvar_non_inferiority"
+      ],
+      "distributionally_robust_utility": 0.13834079487710707,
+      "feasible": false,
+      "maximum_regret": 0.17100000000000004,
+      "mean_regret": 0.12437860880880486,
+      "nominal_utility": 0.18894079487710708,
+      "robust_cvar": -0.03000000000000001,
+      "scenario_utilities": {
+        "control::benign": 0.3700984991712916,
+        "native::base": 0.355,
+        "native::fast": 0.33999999999999997,
+        "native::gap": -0.15500000000000003,
+        "native::reversal": 0.025000000000000005,
+        "native::wide_spread": 0.1525,
+        "shock::calibration_down": 0.19802650082870832,
+        "shock::cost_up": 0.23281249999999995,
+        "shock::joint_adverse": 0.039999999999999994,
+        "shock::latency": 0.2153125,
+        "shock::support_loss": 0.27725203852528524,
+        "shock::tail_down": 0.21628749999999997
+      },
+      "utility_mean": 0.1889407948771071,
+      "utility_std": 0.15466834453964112,
+      "weighted_complexity": 3.75,
+      "worst_case_utility": -0.15500000000000003
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::T_ADAPTIVE:0.750000+T_BALANCED:0.250000",
+      "baseline_gate": {
+        "allocation_id": "allocation::T_ADAPTIVE:0.750000+T_BALANCED:0.250000",
+        "baseline_failures": [
+          "worst_case_non_inferiority",
+          "complexity_increase"
+        ],
+        "baseline_feasible": false,
+        "complexity_delta": 3.5,
+        "cvar_delta": -0.02366666666666667,
+        "worst_case_delta": -0.11700000000000002
+      },
+      "best_case_utility": 0.4789446340124147,
+      "constraint_failures": [
+        "worst_case_non_inferiority",
+        "complexity_increase"
+      ],
+      "distributionally_robust_utility": 0.20809939337171526,
+      "feasible": false,
+      "maximum_regret": 0.17500000000000004,
+      "mean_regret": 0.04345334364753,
+      "nominal_utility": 0.2698660600383819,
+      "robust_cvar": 0.009333333333333327,
+      "scenario_utilities": {
+        "control::benign": 0.4789446340124147,
+        "native::base": 0.46599999999999997,
+        "native::fast": 0.4385,
+        "native::gap": -0.15900000000000003,
+        "native::reversal": 0.0685,
+        "native::wide_spread": 0.221,
+        "shock::calibration_down": 0.2868053659875852,
+        "shock::cost_up": 0.32637499999999997,
+        "shock::joint_adverse": 0.11850000000000001,
+        "shock::latency": 0.305375,
+        "shock::support_loss": 0.37529272046058343,
+        "shock::tail_down": 0.3121
+      },
+      "utility_mean": 0.2698660600383819,
+      "utility_std": 0.18538248258951973,
+      "weighted_complexity": 4.5,
+      "worst_case_utility": -0.15900000000000003
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::T_ADAPTIVE:0.250000+T_CONSERVATIVE:0.750000",
+      "baseline_gate": {
+        "allocation_id": "allocation::T_ADAPTIVE:0.250000+T_CONSERVATIVE:0.750000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 1.75,
+        "cvar_delta": 0.019416666666666672,
+        "worst_case_delta": -0.000999999999999994
+      },
+      "best_case_utility": 0.36282832634563505,
+      "constraint_failures": [],
+      "distributionally_robust_utility": 0.1789612233353912,
+      "feasible": true,
+      "maximum_regret": 0.18049999999999994,
+      "mean_regret": 0.09734151368385406,
+      "nominal_utility": 0.21597789000205786,
+      "robust_cvar": 0.05241666666666667,
+      "scenario_utilities": {
+        "control::benign": 0.36282832634563505,
+        "native::base": 0.3445,
+        "native::fast": 0.2795,
+        "native::gap": -0.043,
+        "native::reversal": 0.0995,
+        "native::wide_spread": 0.1945,
+        "shock::calibration_down": 0.23179667365436488,
+        "shock::cost_up": 0.2530625,
+        "shock::joint_adverse": 0.10074999999999999,
+        "shock::latency": 0.24022916666666666,
+        "shock::support_loss": 0.29208051335802804,
+        "shock::tail_down": 0.23598749999999996
+      },
+      "utility_mean": 0.2159778900020579,
+      "utility_std": 0.11477213592888416,
+      "weighted_complexity": 2.75,
+      "worst_case_utility": -0.043
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::MANUAL_CORE:0.250000+T_ADAPTIVE:0.750000",
+      "baseline_gate": {
+        "allocation_id": "allocation::MANUAL_CORE:0.250000+T_ADAPTIVE:0.750000",
+        "baseline_failures": [
+          "worst_case_non_inferiority"
+        ],
+        "baseline_feasible": false,
+        "complexity_delta": 3.0,
+        "cvar_delta": -0.04350000000000001,
+        "worst_case_delta": -0.12350000000000003
+      },
+      "best_case_utility": 0.43862981454757455,
+      "constraint_failures": [
+        "worst_case_non_inferiority"
+      ],
+      "distributionally_robust_utility": 0.178839445633242,
+      "feasible": false,
+      "maximum_regret": 0.18150000000000005,
+      "mean_regret": 0.07659662471933658,
+      "nominal_utility": 0.23672277896657534,
+      "robust_cvar": -0.010500000000000015,
+      "scenario_utilities": {
+        "control::benign": 0.43862981454757455,
+        "native::base": 0.422,
+        "native::fast": 0.38949999999999996,
+        "native::gap": -0.16550000000000004,
+        "native::reversal": 0.047,
+        "native::wide_spread": 0.192,
+        "shock::calibration_down": 0.2516201854524254,
+        "shock::cost_up": 0.29212499999999997,
+        "shock::joint_adverse": 0.087,
+        "shock::latency": 0.27345833333333336,
+        "shock::support_loss": 0.33774001426557115,
+        "shock::tail_down": 0.2751
+      },
+      "utility_mean": 0.23672277896657537,
+      "utility_std": 0.17501897192948906,
+      "weighted_complexity": 4.0,
+      "worst_case_utility": -0.16550000000000004
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::T_BALANCED:0.250000+T_CONSERVATIVE:0.750000",
+      "baseline_gate": {
+        "allocation_id": "allocation::T_BALANCED:0.250000+T_CONSERVATIVE:0.750000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 1.25,
+        "cvar_delta": 0.052083333333333336,
+        "worst_case_delta": 0.045
+      },
+      "best_case_utility": 0.3533082947963277,
+      "constraint_failures": [],
+      "distributionally_robust_utility": 0.1926756679820748,
+      "feasible": true,
+      "maximum_regret": 0.19699999999999995,
+      "mean_regret": 0.08932706903717047,
+      "nominal_utility": 0.22399233464874146,
+      "robust_cvar": 0.08508333333333333,
+      "scenario_utilities": {
+        "control::benign": 0.3533082947963277,
+        "native::base": 0.33549999999999996,
+        "native::fast": 0.263,
+        "native::gap": 0.0029999999999999975,
+        "native::reversal": 0.133,
+        "native::wide_spread": 0.21050000000000002,
+        "shock::calibration_down": 0.2395667052036723,
+        "shock::cost_up": 0.2556875,
+        "shock::joint_adverse": 0.11925,
+        "shock::latency": 0.24518749999999995,
+        "shock::support_loss": 0.2918705157848978,
+        "shock::tail_down": 0.23803749999999996
+      },
+      "utility_mean": 0.22399233464874146,
+      "utility_std": 0.09790973827533879,
+      "weighted_complexity": 2.25,
+      "worst_case_utility": 0.0029999999999999975
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::MANUAL_CORE:0.750000+T_ADAPTIVE:0.250000",
+      "baseline_gate": {
+        "allocation_id": "allocation::MANUAL_CORE:0.750000+T_ADAPTIVE:0.250000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 1.0,
+        "cvar_delta": -0.01783333333333332,
+        "worst_case_delta": -0.04449999999999999
+      },
+      "best_case_utility": 0.33896011251927927,
+      "constraint_failures": [],
+      "distributionally_robust_utility": 0.14774843944966273,
+      "feasible": true,
+      "maximum_regret": 0.20149999999999996,
+      "mean_regret": 0.12685429756958252,
+      "nominal_utility": 0.18646510611632938,
+      "robust_cvar": 0.015166666666666674,
+      "scenario_utilities": {
+        "control::benign": 0.33896011251927927,
+        "native::base": 0.316,
+        "native::fast": 0.2585,
+        "native::gap": -0.0865,
+        "native::reversal": 0.07100000000000001,
+        "native::wide_spread": 0.16599999999999998,
+        "shock::calibration_down": 0.1967898874807207,
+        "shock::cost_up": 0.22887499999999997,
+        "shock::joint_adverse": 0.061000000000000006,
+        "shock::latency": 0.21954166666666666,
+        "shock::support_loss": 0.2622146067292862,
+        "shock::tail_down": 0.2052
+      },
+      "utility_mean": 0.1864651061163294,
+      "utility_std": 0.11996732021529914,
+      "weighted_complexity": 2.0,
+      "worst_case_utility": -0.0865
+    },
+    {
+      "active_count": 1,
+      "allocation_id": "allocation::T_ADAPTIVE:1.000000",
+      "baseline_gate": {
+        "allocation_id": "allocation::T_ADAPTIVE:1.000000",
+        "baseline_failures": [
+          "worst_case_non_inferiority",
+          "cvar_non_inferiority",
+          "complexity_increase"
+        ],
+        "baseline_feasible": false,
+        "complexity_delta": 4.0,
+        "cvar_delta": -0.05133333333333333,
+        "worst_case_delta": -0.158
+      },
+      "best_case_utility": 0.4934646655617222,
+      "constraint_failures": [
+        "worst_case_non_inferiority",
+        "cvar_non_inferiority",
+        "complexity_increase"
+      ],
+      "distributionally_robust_utility": 0.19938494872503165,
+      "feasible": false,
+      "maximum_regret": 0.21600000000000003,
+      "mean_regret": 0.04646778829421359,
+      "nominal_utility": 0.2668516153916983,
+      "robust_cvar": -0.018333333333333337,
+      "scenario_utilities": {
+        "control::benign": 0.4934646655617222,
+        "native::base": 0.48,
+        "native::fast": 0.45999999999999996,
+        "native::gap": -0.2,
+        "native::reversal": 0.04,
+        "native::wide_spread": 0.21,
+        "shock::calibration_down": 0.2840353344382778,
+        "shock::cost_up": 0.32875,
+        "shock::joint_adverse": 0.105,
+        "shock::latency": 0.30541666666666667,
+        "shock::support_loss": 0.38050271803371366,
+        "shock::tail_down": 0.31505
+      },
+      "utility_mean": 0.2668516153916984,
+      "utility_std": 0.20310896212049723,
+      "weighted_complexity": 5.0,
+      "worst_case_utility": -0.2
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::MANUAL_CORE:0.750000+T_BALANCED:0.250000",
+      "baseline_gate": {
+        "allocation_id": "allocation::MANUAL_CORE:0.750000+T_BALANCED:0.250000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 0.5,
+        "cvar_delta": 0.014833333333333344,
+        "worst_case_delta": 0.0015000000000000013
+      },
+      "best_case_utility": 0.32944008096997185,
+      "constraint_failures": [],
+      "distributionally_robust_utility": 0.16146288409634632,
+      "feasible": true,
+      "maximum_regret": 0.21799999999999997,
+      "mean_regret": 0.11883985292289895,
+      "nominal_utility": 0.194479550763013,
+      "robust_cvar": 0.04783333333333334,
+      "scenario_utilities": {
+        "control::benign": 0.32944008096997185,
+        "native::base": 0.307,
+        "native::fast": 0.242,
+        "native::gap": -0.0405,
+        "native::reversal": 0.10450000000000001,
+        "native::wide_spread": 0.182,
+        "shock::calibration_down": 0.20455991903002813,
+        "shock::cost_up": 0.23149999999999998,
+        "shock::joint_adverse": 0.07950000000000002,
+        "shock::latency": 0.22449999999999998,
+        "shock::support_loss": 0.262004609156156,
+        "shock::tail_down": 0.20725
+      },
+      "utility_mean": 0.19447955076301301,
+      "utility_std": 0.10309625121583456,
+      "weighted_complexity": 1.5,
+      "worst_case_utility": -0.0405
+    },
+    {
+      "active_count": 1,
+      "allocation_id": "allocation::T_CONSERVATIVE:1.000000",
+      "baseline_gate": {
+        "allocation_id": "allocation::T_CONSERVATIVE:1.000000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 1.0,
+        "cvar_delta": 0.04966666666666667,
+        "worst_case_delta": 0.058
+      },
+      "best_case_utility": 0.32594954660693937,
+      "constraint_failures": [],
+      "distributionally_robust_utility": 0.17881998153884437,
+      "feasible": true,
+      "maximum_regret": 0.23399999999999996,
+      "mean_regret": 0.1076327554804009,
+      "nominal_utility": 0.20568664820551105,
+      "robust_cvar": 0.08266666666666667,
+      "scenario_utilities": {
+        "control::benign": 0.32594954660693937,
+        "native::base": 0.306,
+        "native::fast": 0.226,
+        "native::gap": 0.016,
+        "native::reversal": 0.126,
+        "native::wide_spread": 0.196,
+        "shock::calibration_down": 0.2210504533930606,
+        "shock::cost_up": 0.2345,
+        "shock::joint_adverse": 0.10599999999999998,
+        "shock::latency": 0.22516666666666663,
+        "shock::support_loss": 0.26927311179946617,
+        "shock::tail_down": 0.21629999999999996
+      },
+      "utility_mean": 0.20568664820551105,
+      "utility_std": 0.08681349884262374,
+      "weighted_complexity": 2.0,
+      "worst_case_utility": 0.016
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::SKIP:0.500000+T_ADAPTIVE:0.500000",
+      "baseline_gate": {
+        "allocation_id": "allocation::SKIP:0.500000+T_ADAPTIVE:0.500000",
+        "baseline_failures": [
+          "cvar_non_inferiority"
+        ],
+        "baseline_feasible": false,
+        "complexity_delta": 1.5,
+        "cvar_delta": -0.06966666666666665,
+        "worst_case_delta": -0.063
+      },
+      "best_case_utility": 0.2517323327808611,
+      "constraint_failures": [
+        "cvar_non_inferiority"
+      ],
+      "distributionally_robust_utility": 0.08229664102918251,
+      "feasible": false,
+      "maximum_regret": 0.245,
+      "mean_regret": 0.1972894293233961,
+      "nominal_utility": 0.11602997436251583,
+      "robust_cvar": -0.03666666666666667,
+      "scenario_utilities": {
+        "control::benign": 0.2517323327808611,
+        "native::base": 0.235,
+        "native::fast": 0.22499999999999998,
+        "native::gap": -0.105,
+        "native::reversal": 0.015000000000000001,
+        "native::wide_spread": 0.1,
+        "shock::calibration_down": 0.11701766721913891,
+        "shock::cost_up": 0.14187499999999997,
+        "shock::joint_adverse": -0.02000000000000001,
+        "shock::latency": 0.13020833333333331,
+        "shock::support_loss": 0.17900135901685682,
+        "shock::tail_down": 0.12252500000000001
+      },
+      "utility_mean": 0.11602997436251584,
+      "utility_std": 0.10751043511772851,
+      "weighted_complexity": 2.5,
+      "worst_case_utility": -0.105
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::MANUAL_CORE:0.250000+T_CONSERVATIVE:0.750000",
+      "baseline_gate": {
+        "allocation_id": "allocation::MANUAL_CORE:0.250000+T_CONSERVATIVE:0.750000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 0.75,
+        "cvar_delta": 0.032249999999999994,
+        "worst_case_delta": 0.0385
+      },
+      "best_case_utility": 0.3129934753314874,
+      "constraint_failures": [],
+      "distributionally_robust_utility": 0.16341572024360157,
+      "feasible": true,
+      "maximum_regret": 0.24599999999999994,
+      "mean_regret": 0.12247035010897704,
+      "nominal_utility": 0.19084905357693488,
+      "robust_cvar": 0.06524999999999999,
+      "scenario_utilities": {
+        "control::benign": 0.3129934753314874,
+        "native::base": 0.2915,
+        "native::fast": 0.21400000000000002,
+        "native::gap": -0.0035000000000000014,
+        "native::reversal": 0.11149999999999999,
+        "native::wide_spread": 0.18150000000000002,
+        "shock::calibration_down": 0.20438152466851253,
+        "shock::cost_up": 0.2214375,
+        "shock::joint_adverse": 0.08775,
+        "shock::latency": 0.2132708333333333,
+        "shock::support_loss": 0.25431780958988554,
+        "shock::tail_down": 0.20103749999999998
+      },
+      "utility_mean": 0.1908490535769349,
+      "utility_std": 0.08848425137182668,
+      "weighted_complexity": 1.75,
+      "worst_case_utility": -0.0035000000000000014
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::MANUAL_CORE:0.500000+T_CONSERVATIVE:0.500000",
+      "baseline_gate": {
+        "allocation_id": "allocation::MANUAL_CORE:0.500000+T_CONSERVATIVE:0.500000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 0.5,
+        "cvar_delta": 0.019833333333333328,
+        "worst_case_delta": 0.024
+      },
+      "best_case_utility": 0.3050374040560355,
+      "constraint_failures": [],
+      "distributionally_robust_utility": 0.15301145894835874,
+      "feasible": true,
+      "maximum_regret": 0.25299999999999995,
+      "mean_regret": 0.1323079447375532,
+      "nominal_utility": 0.18101145894835874,
+      "robust_cvar": 0.05283333333333332,
+      "scenario_utilities": {
+        "control::benign": 0.3050374040560355,
+        "native::base": 0.28200000000000003,
+        "native::fast": 0.20700000000000002,
+        "native::gap": -0.018000000000000002,
+        "native::reversal": 0.10200000000000001,
+        "native::wide_spread": 0.172,
+        "shock::calibration_down": 0.19271259594396448,
+        "shock::cost_up": 0.21337499999999998,
+        "shock::joint_adverse": 0.07449999999999998,
+        "shock::latency": 0.20637499999999998,
+        "shock::support_loss": 0.24436250738030496,
+        "shock::tail_down": 0.19077499999999997
+      },
+      "utility_mean": 0.18101145894835877,
+      "utility_std": 0.09018521353784617,
+      "weighted_complexity": 1.5,
+      "worst_case_utility": -0.018000000000000002
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::MANUAL_CORE:0.750000+T_CONSERVATIVE:0.250000",
+      "baseline_gate": {
+        "allocation_id": "allocation::MANUAL_CORE:0.750000+T_CONSERVATIVE:0.250000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 0.25,
+        "cvar_delta": 0.007416666666666669,
+        "worst_case_delta": 0.009500000000000001
+      },
+      "best_case_utility": 0.2970813327805836,
+      "constraint_failures": [],
+      "distributionally_robust_utility": 0.14260719765311589,
+      "feasible": true,
+      "maximum_regret": 0.25999999999999995,
+      "mean_regret": 0.14214553936612936,
+      "nominal_utility": 0.17117386431978257,
+      "robust_cvar": 0.04041666666666666,
+      "scenario_utilities": {
+        "control::benign": 0.2970813327805836,
+        "native::base": 0.2725,
+        "native::fast": 0.2,
+        "native::gap": -0.0325,
+        "native::reversal": 0.0925,
+        "native::wide_spread": 0.16249999999999998,
+        "shock::calibration_down": 0.18104366721941642,
+        "shock::cost_up": 0.20531249999999995,
+        "shock::joint_adverse": 0.061250000000000006,
+        "shock::latency": 0.19947916666666665,
+        "shock::support_loss": 0.23440720517072433,
+        "shock::tail_down": 0.1805125
+      },
+      "utility_mean": 0.17117386431978257,
+      "utility_std": 0.09191470818863066,
+      "weighted_complexity": 1.25,
+      "worst_case_utility": -0.0325
+    },
+    {
+      "active_count": 1,
+      "allocation_id": "allocation::MANUAL_CORE:1.000000",
+      "baseline_gate": {
+        "allocation_id": "allocation::MANUAL_CORE:1.000000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 0.0,
+        "cvar_delta": 0.0,
+        "worst_case_delta": 0.0
+      },
+      "best_case_utility": 0.29412526150513163,
+      "constraint_failures": [],
+      "distributionally_robust_utility": 0.1372029363578731,
+      "feasible": true,
+      "maximum_regret": 0.26199999999999996,
+      "mean_regret": 0.14698313399470553,
+      "nominal_utility": 0.1663362696912064,
+      "robust_cvar": 0.032999999999999995,
+      "scenario_utilities": {
+        "control::benign": 0.29412526150513163,
+        "native::base": 0.268,
+        "native::fast": 0.198,
+        "native::gap": -0.042,
+        "native::reversal": 0.088,
+        "native::wide_spread": 0.158,
+        "shock::calibration_down": 0.17437473849486837,
+        "shock::cost_up": 0.20224999999999999,
+        "shock::joint_adverse": 0.053,
+        "shock::latency": 0.19758333333333333,
+        "shock::support_loss": 0.2294519029611437,
+        "shock::tail_down": 0.17525000000000002
+      },
+      "utility_mean": 0.16633626969120643,
+      "utility_std": 0.09367115491139878,
+      "weighted_complexity": 1.0,
+      "worst_case_utility": -0.042
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::SKIP:0.500000+T_BALANCED:0.500000",
+      "baseline_gate": {
+        "allocation_id": "allocation::SKIP:0.500000+T_BALANCED:0.500000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 0.5,
+        "cvar_delta": -0.004333333333333331,
+        "worst_case_delta": 0.029
+      },
+      "best_case_utility": 0.23269226968224627,
+      "constraint_failures": [],
+      "distributionally_robust_utility": 0.1097255303225497,
+      "feasible": true,
+      "maximum_regret": 0.26799999999999996,
+      "mean_regret": 0.1812605400300289,
+      "nominal_utility": 0.13205886365588304,
+      "robust_cvar": 0.028666666666666663,
+      "scenario_utilities": {
+        "control::benign": 0.23269226968224627,
+        "native::base": 0.217,
+        "native::fast": 0.192,
+        "native::gap": -0.013000000000000001,
+        "native::reversal": 0.08199999999999999,
+        "native::wide_spread": 0.132,
+        "shock::calibration_down": 0.13255773031775375,
+        "shock::cost_up": 0.147125,
+        "shock::joint_adverse": 0.017000000000000008,
+        "shock::latency": 0.140125,
+        "shock::support_loss": 0.17858136387059642,
+        "shock::tail_down": 0.126625
+      },
+      "utility_mean": 0.13205886365588304,
+      "utility_std": 0.07398261343214649,
+      "weighted_complexity": 1.5,
+      "worst_case_utility": -0.013000000000000001
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::SKIP:0.250000+T_CONSERVATIVE:0.750000",
+      "baseline_gate": {
+        "allocation_id": "allocation::SKIP:0.250000+T_CONSERVATIVE:0.750000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 0.5,
+        "cvar_delta": 0.012749999999999997,
+        "worst_case_delta": 0.049
+      },
+      "best_case_utility": 0.24446215995520454,
+      "constraint_failures": [],
+      "distributionally_robust_utility": 0.12291706948746663,
+      "feasible": true,
+      "maximum_regret": 0.2955,
+      "mean_regret": 0.17025233419844532,
+      "nominal_utility": 0.1430670694874666,
+      "robust_cvar": 0.04574999999999999,
+      "scenario_utilities": {
+        "control::benign": 0.24446215995520454,
+        "native::base": 0.22449999999999998,
+        "native::fast": 0.1645,
+        "native::gap": 0.006999999999999999,
+        "native::reversal": 0.0895,
+        "native::wide_spread": 0.14200000000000002,
+        "shock::calibration_down": 0.15078784004479542,
+        "shock::cost_up": 0.162125,
+        "shock::joint_adverse": 0.04074999999999999,
+        "shock::latency": 0.15512499999999996,
+        "shock::support_loss": 0.19382983384959962,
+        "shock::tail_down": 0.142225
+      },
+      "utility_mean": 0.14306706948746664,
+      "utility_std": 0.06900002158084179,
+      "weighted_complexity": 1.5,
+      "worst_case_utility": 0.006999999999999999
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::MANUAL_CORE:0.750000+SKIP:0.250000",
+      "baseline_gate": {
+        "allocation_id": "allocation::MANUAL_CORE:0.750000+SKIP:0.250000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": -0.25,
+        "cvar_delta": -0.024499999999999994,
+        "worst_case_delta": 0.005500000000000005
+      },
+      "best_case_utility": 0.22059394612884872,
+      "constraint_failures": [],
+      "distributionally_robust_utility": 0.09170428560173814,
+      "feasible": true,
+      "maximum_regret": 0.31649999999999995,
+      "mean_regret": 0.19976511808417377,
+      "nominal_utility": 0.11355428560173814,
+      "robust_cvar": 0.008500000000000002,
+      "scenario_utilities": {
+        "control::benign": 0.22059394612884872,
+        "native::base": 0.196,
+        "native::fast": 0.14350000000000002,
+        "native::gap": -0.0365,
+        "native::reversal": 0.061000000000000006,
+        "native::wide_spread": 0.11349999999999999,
+        "shock::calibration_down": 0.11578105387115127,
+        "shock::cost_up": 0.13793749999999996,
+        "shock::joint_adverse": 0.0009999999999999992,
+        "shock::latency": 0.1344375,
+        "shock::support_loss": 0.16396392722085779,
+        "shock::tail_down": 0.11143750000000001
+      },
+      "utility_mean": 0.11355428560173815,
+      "utility_std": 0.07427189809342133,
+      "weighted_complexity": 0.75,
+      "worst_case_utility": -0.0365
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::SKIP:0.500000+T_CONSERVATIVE:0.500000",
+      "baseline_gate": {
+        "allocation_id": "allocation::SKIP:0.500000+T_CONSERVATIVE:0.500000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": 0.0,
+        "cvar_delta": -0.019166666666666665,
+        "worst_case_delta": 0.022499999999999992
+      },
+      "best_case_utility": 0.1679747733034697,
+      "constraint_failures": [],
+      "distributionally_robust_utility": 0.06976415743608885,
+      "feasible": true,
+      "maximum_regret": 0.352,
+      "mean_regret": 0.22787191291648975,
+      "nominal_utility": 0.0854474907694222,
+      "robust_cvar": 0.013833333333333331,
+      "scenario_utilities": {
+        "control::benign": 0.1679747733034697,
+        "native::base": 0.148,
+        "native::fast": 0.108,
+        "native::gap": 0.003,
+        "native::reversal": 0.058,
+        "native::wide_spread": 0.093,
+        "shock::calibration_down": 0.08552522669653029,
+        "shock::cost_up": 0.09474999999999999,
+        "shock::joint_adverse": -0.01950000000000001,
+        "shock::latency": 0.09008333333333331,
+        "shock::support_loss": 0.12338655589973307,
+        "shock::tail_down": 0.07314999999999998
+      },
+      "utility_mean": 0.0854474907694222,
+      "utility_std": 0.053557775807237466,
+      "weighted_complexity": 1.0,
+      "worst_case_utility": -0.01950000000000001
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::SKIP:0.750000+T_ADAPTIVE:0.250000",
+      "baseline_gate": {
+        "allocation_id": "allocation::SKIP:0.750000+T_ADAPTIVE:0.250000",
+        "baseline_failures": [
+          "cvar_non_inferiority"
+        ],
+        "baseline_feasible": false,
+        "complexity_delta": 0.25,
+        "cvar_delta": -0.07633333333333334,
+        "worst_case_delta": -0.03800000000000001
+      },
+      "best_case_utility": 0.13336616639043053,
+      "constraint_failures": [
+        "cvar_non_inferiority"
+      ],
+      "distributionally_robust_utility": 0.02375248718125791,
+      "feasible": false,
+      "maximum_regret": 0.365,
+      "mean_regret": 0.27020024983798735,
+      "nominal_utility": 0.04311915384792458,
+      "robust_cvar": -0.043333333333333335,
+      "scenario_utilities": {
+        "control::benign": 0.13336616639043053,
+        "native::base": 0.11499999999999999,
+        "native::fast": 0.10999999999999999,
+        "native::gap": -0.055,
+        "native::reversal": 0.005000000000000001,
+        "native::wide_spread": 0.0475,
+        "shock::calibration_down": 0.03600883360956945,
+        "shock::cost_up": 0.0509375,
+        "shock::joint_adverse": -0.08000000000000002,
+        "shock::latency": 0.04510416666666667,
+        "shock::support_loss": 0.0807506795084284,
+        "shock::tail_down": 0.028762500000000003
+      },
+      "utility_mean": 0.043119153847924585,
+      "utility_std": 0.06451233264559657,
+      "weighted_complexity": 1.25,
+      "worst_case_utility": -0.08000000000000002
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::MANUAL_CORE:0.500000+SKIP:0.500000",
+      "baseline_gate": {
+        "allocation_id": "allocation::MANUAL_CORE:0.500000+SKIP:0.500000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": -0.5,
+        "cvar_delta": -0.044,
+        "worst_case_delta": -0.0040000000000000036
+      },
+      "best_case_utility": 0.15206263075256582,
+      "constraint_failures": [],
+      "distributionally_robust_utility": 0.049205634845603204,
+      "feasible": true,
+      "maximum_regret": 0.366,
+      "mean_regret": 0.24754710217364206,
+      "nominal_utility": 0.06577230151226987,
+      "robust_cvar": -0.011000000000000003,
+      "scenario_utilities": {
+        "control::benign": 0.15206263075256582,
+        "native::base": 0.129,
+        "native::fast": 0.094,
+        "native::gap": -0.026000000000000002,
+        "native::reversal": 0.039,
+        "native::wide_spread": 0.074,
+        "shock::calibration_down": 0.062187369247434184,
+        "shock::cost_up": 0.07862499999999999,
+        "shock::joint_adverse": -0.046000000000000006,
+        "shock::latency": 0.07629166666666666,
+        "shock::support_loss": 0.10347595148057184,
+        "shock::tail_down": 0.05262500000000001
+      },
+      "utility_mean": 0.06577230151226987,
+      "utility_std": 0.05706721475453634,
+      "weighted_complexity": 0.5,
+      "worst_case_utility": -0.046000000000000006
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::SKIP:0.750000+T_BALANCED:0.250000",
+      "baseline_gate": {
+        "allocation_id": "allocation::SKIP:0.750000+T_BALANCED:0.250000",
+        "baseline_failures": [],
+        "baseline_feasible": true,
+        "complexity_delta": -0.25,
+        "cvar_delta": -0.04622916666666666,
+        "worst_case_delta": -0.019499999999999997
+      },
+      "best_case_utility": 0.12384613484112311,
+      "constraint_failures": [],
+      "distributionally_robust_utility": 0.03471693182794151,
+      "feasible": true,
+      "maximum_regret": 0.374,
+      "mean_regret": 0.26218580519130374,
+      "nominal_utility": 0.051133598494608176,
+      "robust_cvar": -0.013229166666666667,
+      "scenario_utilities": {
+        "control::benign": 0.12384613484112311,
+        "native::base": 0.106,
+        "native::fast": 0.0935,
+        "native::gap": -0.009000000000000001,
+        "native::reversal": 0.0385,
+        "native::wide_spread": 0.0635,
+        "shock::calibration_down": 0.04377886515887688,
+        "shock::cost_up": 0.0535625,
+        "shock::joint_adverse": -0.0615,
+        "shock::latency": 0.050062499999999996,
+        "shock::support_loss": 0.0805406819352982,
+        "shock::tail_down": 0.0308125
+      },
+      "utility_mean": 0.05113359849460818,
+      "utility_std": 0.05049403414350874,
+      "weighted_complexity": 0.75,
+      "worst_case_utility": -0.0615
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::SKIP:0.750000+T_CONSERVATIVE:0.250000",
+      "baseline_gate": {
+        "allocation_id": "allocation::SKIP:0.750000+T_CONSERVATIVE:0.250000",
+        "baseline_failures": [
+          "cvar_non_inferiority"
+        ],
+        "baseline_feasible": false,
+        "complexity_delta": -0.5,
+        "cvar_delta": -0.05855833333333334,
+        "worst_case_delta": -0.03775000000000001
+      },
+      "best_case_utility": 0.09148738665173484,
+      "constraint_failures": [
+        "cvar_non_inferiority"
+      ],
+      "distributionally_robust_utility": 0.013236245384711092,
+      "feasible": false,
+      "maximum_regret": 0.4085,
+      "mean_regret": 0.2854914916345342,
+      "nominal_utility": 0.027827912051377763,
+      "robust_cvar": -0.02555833333333334,
+      "scenario_utilities": {
+        "control::benign": 0.09148738665173484,
+        "native::base": 0.0715,
+        "native::fast": 0.051500000000000004,
+        "native::gap": -0.001,
+        "native::reversal": 0.026500000000000003,
+        "native::wide_spread": 0.044000000000000004,
+        "shock::calibration_down": 0.02026261334826515,
+        "shock::cost_up": 0.027374999999999997,
+        "shock::joint_adverse": -0.07975000000000002,
+        "shock::latency": 0.025041666666666657,
+        "shock::support_loss": 0.05294327794986654,
+        "shock::tail_down": 0.0040749999999999936
+      },
+      "utility_mean": 0.027827912051377763,
+      "utility_std": 0.04311473872219653,
+      "weighted_complexity": 0.5,
+      "worst_case_utility": -0.07975000000000002
+    },
+    {
+      "active_count": 2,
+      "allocation_id": "allocation::MANUAL_CORE:0.250000+SKIP:0.750000",
+      "baseline_gate": {
+        "allocation_id": "allocation::MANUAL_CORE:0.250000+SKIP:0.750000",
+        "baseline_failures": [
+          "cvar_non_inferiority"
+        ],
+        "baseline_feasible": false,
+        "complexity_delta": -0.75,
+        "cvar_delta": -0.07122916666666666,
+        "worst_case_delta": -0.05100000000000001
+      },
+      "best_case_utility": 0.0835313153762829,
+      "constraint_failures": [
+        "cvar_non_inferiority"
+      ],
+      "distributionally_robust_utility": 0.0029569840894682685,
+      "feasible": false,
+      "maximum_regret": 0.418,
+      "mean_regret": 0.29532908626311033,
+      "nominal_utility": 0.017990317422801605,
+      "robust_cvar": -0.03822916666666667,
+      "scenario_utilities": {
+        "control::benign": 0.0835313153762829,
+        "native::base": 0.062000000000000006,
+        "native::fast": 0.044500000000000005,
+        "native::gap": -0.0155,
+        "native::reversal": 0.017,
+        "native::wide_spread": 0.0345,
+        "shock::calibration_down": 0.008593684623717094,
+        "shock::cost_up": 0.019312499999999996,
+        "shock::joint_adverse": -0.09300000000000001,
+        "shock::latency": 0.018145833333333333,
+        "shock::support_loss": 0.04298797574028593,
+        "shock::tail_down": -0.006187499999999993
+      },
+      "utility_mean": 0.017990317422801605,
+      "utility_std": 0.044669248065729604,
+      "weighted_complexity": 0.25,
+      "worst_case_utility": -0.09300000000000001
+    },
+    {
+      "active_count": 1,
+      "allocation_id": "allocation::SKIP:1.000000",
+      "baseline_gate": {
+        "allocation_id": "allocation::SKIP:1.000000",
+        "baseline_failures": [
+          "worst_case_non_inferiority",
+          "cvar_non_inferiority"
+        ],
+        "baseline_feasible": false,
+        "complexity_delta": -1.0,
+        "cvar_delta": -0.11133333333333334,
+        "worst_case_delta": -0.093
+      },
+      "best_case_utility": 0.02,
+      "constraint_failures": [
+        "worst_case_non_inferiority",
+        "cvar_non_inferiority"
+      ],
+      "distributionally_robust_utility": -0.03829166666666667,
+      "feasible": false,
+      "maximum_regret": 0.48,
+      "mean_regret": 0.33811107035257865,
+      "nominal_utility": -0.024791666666666667,
+      "robust_cvar": -0.07833333333333334,
+      "scenario_utilities": {
+        "control::benign": 0.02,
+        "native::base": 0.0,
+        "native::fast": 0.0,
+        "native::gap": 0.0,
+        "native::reversal": 0.0,
+        "native::wide_spread": 0.0,
+        "shock::calibration_down": -0.04,
+        "shock::cost_up": -0.035,
+        "shock::joint_adverse": -0.135,
+        "shock::latency": -0.035,
+        "shock::support_loss": -0.0125,
+        "shock::tail_down": -0.06
+      },
+      "utility_mean": -0.024791666666666667,
+      "utility_std": 0.041621376901197236,
+      "weighted_complexity": 0.0,
+      "worst_case_utility": -0.135
+    }
+  ]
+}

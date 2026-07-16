@@ -1,0 +1,43 @@
+{
+  "$id": "https://decision-alpha-lab.local/saed/v4-21/negative_upstream_hash_mismatch.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "exact_version": {
+      "type": "string"
+    },
+    "exposure_ledger_hash": {
+      "type": "string"
+    },
+    "hash_verified": {
+      "type": "boolean"
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "required_phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "selection_certificate_hash": {
+      "type": "string"
+    },
+    "selection_registry_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "exact_version",
+    "exposure_ledger_hash",
+    "hash_verified",
+    "immutable",
+    "required_phase",
+    "research_only",
+    "selection_certificate_hash",
+    "selection_registry_hash"
+  ],
+  "title": "NEGATIVE_UPSTREAM_HASH_MISMATCH",
+  "type": "object"
+}

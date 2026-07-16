@@ -1,0 +1,31 @@
+{
+  "$id": "https://decision-alpha-lab.local/saed/v4-21/objective_freeze_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "frozen_before_evaluation": {
+      "type": "boolean"
+    },
+    "objective": {
+      "type": "string"
+    },
+    "objective_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "runtime_mutation_allowed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "frozen_before_evaluation",
+    "objective",
+    "objective_hash",
+    "phase",
+    "runtime_mutation_allowed"
+  ],
+  "title": "OBJECTIVE_FREEZE_RECORD",
+  "type": "object"
+}

@@ -1,0 +1,55 @@
+{
+  "$id": "https://decision-alpha-lab.local/saed/v4-21/ambiguity_set_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "closed_support": {
+      "type": "boolean"
+    },
+    "cost_shock_bound": {
+      "type": "number"
+    },
+    "data_dependent_radius": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "family": {
+      "type": "string"
+    },
+    "mean_shift_bound": {
+      "type": "number"
+    },
+    "probability_floor": {
+      "type": "number"
+    },
+    "radius": {
+      "type": "number"
+    },
+    "support_shock_bound": {
+      "type": "number"
+    },
+    "synthetic_only": {
+      "type": "boolean"
+    },
+    "tail_shock_bound": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "closed_support",
+    "cost_shock_bound",
+    "data_dependent_radius",
+    "exact_version",
+    "family",
+    "mean_shift_bound",
+    "probability_floor",
+    "radius",
+    "support_shock_bound",
+    "synthetic_only",
+    "tail_shock_bound"
+  ],
+  "title": "AMBIGUITY_SET_CONTRACT",
+  "type": "object"
+}

@@ -1,0 +1,143 @@
+{
+  "$id": "https://decision-alpha-lab.local/saed/v4-21/v4_21_to_v4_22_handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_next_work": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "ambiguity_set_hash": {
+      "type": "string"
+    },
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "decision": {
+          "type": "boolean"
+        },
+        "execution": {
+          "type": "boolean"
+        },
+        "production": {
+          "type": "boolean"
+        },
+        "promotion": {
+          "type": "boolean"
+        },
+        "risk_allocation": {
+          "type": "boolean"
+        },
+        "runtime": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "decision",
+        "execution",
+        "production",
+        "promotion",
+        "risk_allocation",
+        "runtime"
+      ],
+      "type": "object"
+    },
+    "budget_ledger_hash": {
+      "type": "string"
+    },
+    "entry_gates": {
+      "additionalProperties": false,
+      "properties": {
+        "ambiguity_contract_frozen": {
+          "type": "boolean"
+        },
+        "baseline_preserved": {
+          "type": "boolean"
+        },
+        "deterministic_replay_verified": {
+          "type": "boolean"
+        },
+        "future_suffix_invariance_verified": {
+          "type": "boolean"
+        },
+        "protected_evidence_firewall_verified": {
+          "type": "boolean"
+        },
+        "qa_passed": {
+          "type": "boolean"
+        },
+        "robust_objective_frozen": {
+          "type": "boolean"
+        },
+        "scenario_generator_frozen": {
+          "type": "boolean"
+        },
+        "upstream_hashes_verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ambiguity_contract_frozen",
+        "baseline_preserved",
+        "deterministic_replay_verified",
+        "future_suffix_invariance_verified",
+        "protected_evidence_firewall_verified",
+        "qa_passed",
+        "robust_objective_frozen",
+        "scenario_generator_frozen",
+        "upstream_hashes_verified"
+      ],
+      "type": "object"
+    },
+    "forbidden_next_work": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "optimization_report_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "robust_certificate_hash": {
+      "type": "string"
+    },
+    "scenario_set_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "allowed_next_work",
+    "ambiguity_set_hash",
+    "authority",
+    "budget_ledger_hash",
+    "entry_gates",
+    "forbidden_next_work",
+    "handoff_hash",
+    "handoff_id",
+    "next_phase",
+    "optimization_report_hash",
+    "phase",
+    "research_only",
+    "robust_certificate_hash",
+    "scenario_set_hash"
+  ],
+  "title": "V4_21_TO_V4_22_HANDOFF",
+  "type": "object"
+}

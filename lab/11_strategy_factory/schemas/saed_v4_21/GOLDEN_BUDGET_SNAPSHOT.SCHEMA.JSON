@@ -1,0 +1,104 @@
+{
+  "$id": "https://decision-alpha-lab.local/saed/v4-21/golden_budget_snapshot.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adversarial_steps": {
+      "type": "integer"
+    },
+    "allocations": {
+      "type": "integer"
+    },
+    "ambiguity_distributions": {
+      "type": "integer"
+    },
+    "candidates": {
+      "type": "integer"
+    },
+    "failures": {
+      "type": "integer"
+    },
+    "hidden_evaluation_queries": {
+      "type": "integer"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "limits": {
+      "additionalProperties": false,
+      "properties": {
+        "max_adversarial_steps": {
+          "type": "integer"
+        },
+        "max_allocations": {
+          "type": "integer"
+        },
+        "max_ambiguity_distributions": {
+          "type": "integer"
+        },
+        "max_candidates": {
+          "type": "integer"
+        },
+        "max_failures": {
+          "type": "integer"
+        },
+        "max_hidden_evaluation_queries": {
+          "type": "integer"
+        },
+        "max_objective_evaluations": {
+          "type": "integer"
+        },
+        "max_scenarios": {
+          "type": "integer"
+        },
+        "max_stability_resamples": {
+          "type": "integer"
+        },
+        "protected_evidence_exposure_limit": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "max_adversarial_steps",
+        "max_allocations",
+        "max_ambiguity_distributions",
+        "max_candidates",
+        "max_failures",
+        "max_hidden_evaluation_queries",
+        "max_objective_evaluations",
+        "max_scenarios",
+        "max_stability_resamples",
+        "protected_evidence_exposure_limit"
+      ],
+      "type": "object"
+    },
+    "objective_evaluations": {
+      "type": "integer"
+    },
+    "protected_evidence_exposures": {
+      "type": "integer"
+    },
+    "scenarios": {
+      "type": "integer"
+    },
+    "stability_resamples": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "adversarial_steps",
+    "allocations",
+    "ambiguity_distributions",
+    "candidates",
+    "failures",
+    "hidden_evaluation_queries",
+    "ledger_hash",
+    "limits",
+    "objective_evaluations",
+    "protected_evidence_exposures",
+    "scenarios",
+    "stability_resamples"
+  ],
+  "title": "GOLDEN_BUDGET_SNAPSHOT",
+  "type": "object"
+}

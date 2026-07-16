@@ -1,0 +1,112 @@
+{
+  "adversary": {
+    "shock_bound": 0.08,
+    "steps": 12
+  },
+  "ambiguity": {
+    "closed_support": true,
+    "cost_shock_bound": 0.035,
+    "data_dependent_radius": false,
+    "exact_version": "1.0.0",
+    "family": "hybrid",
+    "mean_shift_bound": 0.04,
+    "probability_floor": 0.01,
+    "radius": 0.2,
+    "support_shock_bound": 0.05,
+    "synthetic_only": true,
+    "tail_shock_bound": 0.06
+  },
+  "baseline": {
+    "canonical_baseline": "MANUAL_CORE",
+    "exact_version": "1.0.0",
+    "fail_to_skip": true,
+    "maximum_complexity_increase": 3.0,
+    "minimum_cvar_delta": -0.05,
+    "minimum_worst_case_delta": -0.08,
+    "preserve_manual_baseline": true,
+    "preserve_skip": true,
+    "skip_treatment": "SKIP"
+  },
+  "budget": {
+    "max_adversarial_steps": 32,
+    "max_allocations": 256,
+    "max_ambiguity_distributions": 64,
+    "max_candidates": 16,
+    "max_failures": 8,
+    "max_hidden_evaluation_queries": 0,
+    "max_objective_evaluations": 10000,
+    "max_scenarios": 32,
+    "max_stability_resamples": 64,
+    "protected_evidence_exposure_limit": 0
+  },
+  "exact_version": "1.0.0",
+  "optimization": {
+    "baseline_preservation": true,
+    "complexity_penalty": 0.002,
+    "deterministic": true,
+    "diversification_penalty": 0.005,
+    "exact_version": "1.0.0",
+    "fail_closed": true,
+    "grid_step": 0.25,
+    "max_active_treatments": 2,
+    "mixture_allowed": true,
+    "objective": "lexicographic",
+    "runtime_executable": false
+  },
+  "regret": {
+    "abstain_on_violation": true,
+    "baseline_first_on_tie": true,
+    "baseline_regret_limit": 0.35,
+    "dynamic_regret_budget": 2.0,
+    "exact_version": "1.0.0",
+    "maximum_regret_limit": 0.58,
+    "mean_regret_limit": 0.34,
+    "mode": "baseline_relative",
+    "robust_margin": 0.015,
+    "tie_tolerance": 1e-09
+  },
+  "scenario": {
+    "deterministic": true,
+    "exact_version": "1.0.0",
+    "future_suffix_forbidden": true,
+    "include_benign_control": true,
+    "include_joint_adverse": true,
+    "include_leave_one_out": true,
+    "max_scenarios": 12,
+    "native_scenarios": [
+      "base",
+      "fast",
+      "gap",
+      "reversal",
+      "wide_spread"
+    ],
+    "protected_evidence_forbidden": true,
+    "shock_axes": [
+      "cost",
+      "tail",
+      "support",
+      "latency",
+      "calibration",
+      "joint",
+      "benign"
+    ]
+  },
+  "sensitivity_radii": [
+    0.0,
+    0.05,
+    0.1,
+    0.2,
+    0.3,
+    0.4
+  ],
+  "upstream_intake": {
+    "exact_version": "1.0.0",
+    "exposure_ledger_hash": "8d531655a89d296a0b17f98003edcd1e0eefbc0b64e7b827f31894e929664693",
+    "hash_verified": true,
+    "immutable": true,
+    "required_phase": "SAED_V4_20",
+    "research_only": true,
+    "selection_certificate_hash": "aa7dcddab262160bc86f8a66661696dd334c711787e277e6d90a854ad2e9a39b",
+    "selection_registry_hash": "f05d1c6cb93a5af2dbc65e5734b86f9876153b4f70ba85ad72995aac8b39a257"
+  }
+}

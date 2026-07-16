@@ -1,0 +1,73 @@
+{
+  "$id": "https://decision-alpha-lab.local/saed/v4-21/golden_ambiguity_set.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ambiguity_set_hash": {
+      "type": "string"
+    },
+    "closed_support": {
+      "type": "boolean"
+    },
+    "distribution_count": {
+      "type": "integer"
+    },
+    "distributions": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "distance": {
+            "type": "number"
+          },
+          "distribution_id": {
+            "type": "string"
+          },
+          "family": {
+            "type": "string"
+          },
+          "probabilities": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "distance",
+          "distribution_id",
+          "family",
+          "probabilities"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "family": {
+      "type": "string"
+    },
+    "nominal_probabilities": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "radius": {
+      "type": "number"
+    },
+    "synthetic_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "ambiguity_set_hash",
+    "closed_support",
+    "distribution_count",
+    "distributions",
+    "family",
+    "nominal_probabilities",
+    "radius",
+    "synthetic_only"
+  ],
+  "title": "GOLDEN_AMBIGUITY_SET",
+  "type": "object"
+}

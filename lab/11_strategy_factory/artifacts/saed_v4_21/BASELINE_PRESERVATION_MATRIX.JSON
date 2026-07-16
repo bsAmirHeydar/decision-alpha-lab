@@ -1,0 +1,320 @@
+{
+  "baseline_allocation_id": "allocation::MANUAL_CORE:1.000000",
+  "baseline_report_hash": "812c7e946f7758cf0b28481888e26d3e7da1f9c6b6cc113bab25c593e3a7fe54",
+  "canonical_baseline": "MANUAL_CORE",
+  "fail_to_skip": true,
+  "manual_baseline_preserved": true,
+  "rows": [
+    {
+      "allocation_id": "allocation::MANUAL_CORE:0.250000+SKIP:0.750000",
+      "baseline_failures": [
+        "cvar_non_inferiority"
+      ],
+      "baseline_feasible": false,
+      "complexity_delta": -0.75,
+      "cvar_delta": -0.07122916666666666,
+      "worst_case_delta": -0.05100000000000001
+    },
+    {
+      "allocation_id": "allocation::MANUAL_CORE:0.250000+T_ADAPTIVE:0.750000",
+      "baseline_failures": [
+        "worst_case_non_inferiority"
+      ],
+      "baseline_feasible": false,
+      "complexity_delta": 3.0,
+      "cvar_delta": -0.04350000000000001,
+      "worst_case_delta": -0.12350000000000003
+    },
+    {
+      "allocation_id": "allocation::MANUAL_CORE:0.250000+T_BALANCED:0.750000",
+      "baseline_failures": [],
+      "baseline_feasible": true,
+      "complexity_delta": 1.5,
+      "cvar_delta": 0.054500000000000014,
+      "worst_case_delta": 0.014499999999999999
+    },
+    {
+      "allocation_id": "allocation::MANUAL_CORE:0.250000+T_CONSERVATIVE:0.750000",
+      "baseline_failures": [],
+      "baseline_feasible": true,
+      "complexity_delta": 0.75,
+      "cvar_delta": 0.032249999999999994,
+      "worst_case_delta": 0.0385
+    },
+    {
+      "allocation_id": "allocation::MANUAL_CORE:0.500000+SKIP:0.500000",
+      "baseline_failures": [],
+      "baseline_feasible": true,
+      "complexity_delta": -0.5,
+      "cvar_delta": -0.044,
+      "worst_case_delta": -0.0040000000000000036
+    },
+    {
+      "allocation_id": "allocation::MANUAL_CORE:0.500000+T_ADAPTIVE:0.500000",
+      "baseline_failures": [
+        "worst_case_non_inferiority"
+      ],
+      "baseline_feasible": false,
+      "complexity_delta": 2.0,
+      "cvar_delta": -0.030666666666666658,
+      "worst_case_delta": -0.08399999999999999
+    },
+    {
+      "allocation_id": "allocation::MANUAL_CORE:0.500000+T_BALANCED:0.500000",
+      "baseline_failures": [],
+      "baseline_feasible": true,
+      "complexity_delta": 1.0,
+      "cvar_delta": 0.03466666666666667,
+      "worst_case_delta": 0.008
+    },
+    {
+      "allocation_id": "allocation::MANUAL_CORE:0.500000+T_CONSERVATIVE:0.500000",
+      "baseline_failures": [],
+      "baseline_feasible": true,
+      "complexity_delta": 0.5,
+      "cvar_delta": 0.019833333333333328,
+      "worst_case_delta": 0.024
+    },
+    {
+      "allocation_id": "allocation::MANUAL_CORE:0.750000+SKIP:0.250000",
+      "baseline_failures": [],
+      "baseline_feasible": true,
+      "complexity_delta": -0.25,
+      "cvar_delta": -0.024499999999999994,
+      "worst_case_delta": 0.005500000000000005
+    },
+    {
+      "allocation_id": "allocation::MANUAL_CORE:0.750000+T_ADAPTIVE:0.250000",
+      "baseline_failures": [],
+      "baseline_feasible": true,
+      "complexity_delta": 1.0,
+      "cvar_delta": -0.01783333333333332,
+      "worst_case_delta": -0.04449999999999999
+    },
+    {
+      "allocation_id": "allocation::MANUAL_CORE:0.750000+T_BALANCED:0.250000",
+      "baseline_failures": [],
+      "baseline_feasible": true,
+      "complexity_delta": 0.5,
+      "cvar_delta": 0.014833333333333344,
+      "worst_case_delta": 0.0015000000000000013
+    },
+    {
+      "allocation_id": "allocation::MANUAL_CORE:0.750000+T_CONSERVATIVE:0.250000",
+      "baseline_failures": [],
+      "baseline_feasible": true,
+      "complexity_delta": 0.25,
+      "cvar_delta": 0.007416666666666669,
+      "worst_case_delta": 0.009500000000000001
+    },
+    {
+      "allocation_id": "allocation::MANUAL_CORE:1.000000",
+      "baseline_failures": [],
+      "baseline_feasible": true,
+      "complexity_delta": 0.0,
+      "cvar_delta": 0.0,
+      "worst_case_delta": 0.0
+    },
+    {
+      "allocation_id": "allocation::SKIP:0.250000+T_ADAPTIVE:0.750000",
+      "baseline_failures": [
+        "worst_case_non_inferiority",
+        "cvar_non_inferiority"
+      ],
+      "baseline_feasible": false,
+      "complexity_delta": 2.75,
+      "cvar_delta": -0.063,
+      "worst_case_delta": -0.11300000000000002
+    },
+    {
+      "allocation_id": "allocation::SKIP:0.250000+T_BALANCED:0.750000",
+      "baseline_failures": [],
+      "baseline_feasible": true,
+      "complexity_delta": 1.25,
+      "cvar_delta": 0.03500000000000001,
+      "worst_case_delta": 0.025
+    },
+    {
+      "allocation_id": "allocation::SKIP:0.250000+T_CONSERVATIVE:0.750000",
+      "baseline_failures": [],
+      "baseline_feasible": true,
+      "complexity_delta": 0.5,
+      "cvar_delta": 0.012749999999999997,
+      "worst_case_delta": 0.049
+    },
+    {
+      "allocation_id": "allocation::SKIP:0.500000+T_ADAPTIVE:0.500000",
+      "baseline_failures": [
+        "cvar_non_inferiority"
+      ],
+      "baseline_feasible": false,
+      "complexity_delta": 1.5,
+      "cvar_delta": -0.06966666666666665,
+      "worst_case_delta": -0.063
+    },
+    {
+      "allocation_id": "allocation::SKIP:0.500000+T_BALANCED:0.500000",
+      "baseline_failures": [],
+      "baseline_feasible": true,
+      "complexity_delta": 0.5,
+      "cvar_delta": -0.004333333333333331,
+      "worst_case_delta": 0.029
+    },
+    {
+      "allocation_id": "allocation::SKIP:0.500000+T_CONSERVATIVE:0.500000",
+      "baseline_failures": [],
+      "baseline_feasible": true,
+      "complexity_delta": 0.0,
+      "cvar_delta": -0.019166666666666665,
+      "worst_case_delta": 0.022499999999999992
+    },
+    {
+      "allocation_id": "allocation::SKIP:0.750000+T_ADAPTIVE:0.250000",
+      "baseline_failures": [
+        "cvar_non_inferiority"
+      ],
+      "baseline_feasible": false,
+      "complexity_delta": 0.25,
+      "cvar_delta": -0.07633333333333334,
+      "worst_case_delta": -0.03800000000000001
+    },
+    {
+      "allocation_id": "allocation::SKIP:0.750000+T_BALANCED:0.250000",
+      "baseline_failures": [],
+      "baseline_feasible": true,
+      "complexity_delta": -0.25,
+      "cvar_delta": -0.04622916666666666,
+      "worst_case_delta": -0.019499999999999997
+    },
+    {
+      "allocation_id": "allocation::SKIP:0.750000+T_CONSERVATIVE:0.250000",
+      "baseline_failures": [
+        "cvar_non_inferiority"
+      ],
+      "baseline_feasible": false,
+      "complexity_delta": -0.5,
+      "cvar_delta": -0.05855833333333334,
+      "worst_case_delta": -0.03775000000000001
+    },
+    {
+      "allocation_id": "allocation::SKIP:1.000000",
+      "baseline_failures": [
+        "worst_case_non_inferiority",
+        "cvar_non_inferiority"
+      ],
+      "baseline_feasible": false,
+      "complexity_delta": -1.0,
+      "cvar_delta": -0.11133333333333334,
+      "worst_case_delta": -0.093
+    },
+    {
+      "allocation_id": "allocation::T_ADAPTIVE:0.250000+T_BALANCED:0.750000",
+      "baseline_failures": [],
+      "baseline_feasible": true,
+      "complexity_delta": 2.5,
+      "cvar_delta": 0.04166666666666668,
+      "worst_case_delta": -0.025
+    },
+    {
+      "allocation_id": "allocation::T_ADAPTIVE:0.250000+T_CONSERVATIVE:0.750000",
+      "baseline_failures": [],
+      "baseline_feasible": true,
+      "complexity_delta": 1.75,
+      "cvar_delta": 0.019416666666666672,
+      "worst_case_delta": -0.000999999999999994
+    },
+    {
+      "allocation_id": "allocation::T_ADAPTIVE:0.500000+T_BALANCED:0.500000",
+      "baseline_failures": [],
+      "baseline_feasible": true,
+      "complexity_delta": 3.0,
+      "cvar_delta": 0.009000000000000008,
+      "worst_case_delta": -0.07100000000000001
+    },
+    {
+      "allocation_id": "allocation::T_ADAPTIVE:0.500000+T_CONSERVATIVE:0.500000",
+      "baseline_failures": [],
+      "baseline_feasible": true,
+      "complexity_delta": 2.5,
+      "cvar_delta": -0.005833333333333333,
+      "worst_case_delta": -0.055
+    },
+    {
+      "allocation_id": "allocation::T_ADAPTIVE:0.750000+T_BALANCED:0.250000",
+      "baseline_failures": [
+        "worst_case_non_inferiority",
+        "complexity_increase"
+      ],
+      "baseline_feasible": false,
+      "complexity_delta": 3.5,
+      "cvar_delta": -0.02366666666666667,
+      "worst_case_delta": -0.11700000000000002
+    },
+    {
+      "allocation_id": "allocation::T_ADAPTIVE:0.750000+T_CONSERVATIVE:0.250000",
+      "baseline_failures": [
+        "worst_case_non_inferiority",
+        "complexity_increase"
+      ],
+      "baseline_feasible": false,
+      "complexity_delta": 3.25,
+      "cvar_delta": -0.031083333333333334,
+      "worst_case_delta": -0.10900000000000001
+    },
+    {
+      "allocation_id": "allocation::T_ADAPTIVE:1.000000",
+      "baseline_failures": [
+        "worst_case_non_inferiority",
+        "cvar_non_inferiority",
+        "complexity_increase"
+      ],
+      "baseline_feasible": false,
+      "complexity_delta": 4.0,
+      "cvar_delta": -0.05133333333333333,
+      "worst_case_delta": -0.158
+    },
+    {
+      "allocation_id": "allocation::T_BALANCED:0.250000+T_CONSERVATIVE:0.750000",
+      "baseline_failures": [],
+      "baseline_feasible": true,
+      "complexity_delta": 1.25,
+      "cvar_delta": 0.052083333333333336,
+      "worst_case_delta": 0.045
+    },
+    {
+      "allocation_id": "allocation::T_BALANCED:0.500000+T_CONSERVATIVE:0.500000",
+      "baseline_failures": [],
+      "baseline_feasible": true,
+      "complexity_delta": 1.5,
+      "cvar_delta": 0.05950000000000002,
+      "worst_case_delta": 0.037000000000000005
+    },
+    {
+      "allocation_id": "allocation::T_BALANCED:0.750000+T_CONSERVATIVE:0.250000",
+      "baseline_failures": [],
+      "baseline_feasible": true,
+      "complexity_delta": 1.75,
+      "cvar_delta": 0.06691666666666668,
+      "worst_case_delta": 0.029000000000000005
+    },
+    {
+      "allocation_id": "allocation::T_BALANCED:1.000000",
+      "baseline_failures": [],
+      "baseline_feasible": true,
+      "complexity_delta": 2.0,
+      "cvar_delta": 0.07933333333333334,
+      "worst_case_delta": 0.026000000000000002
+    },
+    {
+      "allocation_id": "allocation::T_CONSERVATIVE:1.000000",
+      "baseline_failures": [],
+      "baseline_feasible": true,
+      "complexity_delta": 1.0,
+      "cvar_delta": 0.04966666666666667,
+      "worst_case_delta": 0.058
+    }
+  ],
+  "skip_allocation_id": "allocation::SKIP:1.000000",
+  "skip_preserved": true,
+  "skip_treatment": "SKIP"
+}

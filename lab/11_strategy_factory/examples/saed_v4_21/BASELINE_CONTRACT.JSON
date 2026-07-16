@@ -1,0 +1,11 @@
+{
+  "canonical_baseline": "MANUAL_CORE",
+  "exact_version": "1.0.0",
+  "fail_to_skip": true,
+  "maximum_complexity_increase": 3.0,
+  "minimum_cvar_delta": -0.05,
+  "minimum_worst_case_delta": -0.08,
+  "preserve_manual_baseline": true,
+  "preserve_skip": true,
+  "skip_treatment": "SKIP"
+}

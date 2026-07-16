@@ -1,0 +1,47 @@
+{
+  "$id": "https://decision-alpha-lab.local/saed/v4-21/baseline_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "canonical_baseline": {
+      "type": "string"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "fail_to_skip": {
+      "type": "boolean"
+    },
+    "maximum_complexity_increase": {
+      "type": "number"
+    },
+    "minimum_cvar_delta": {
+      "type": "number"
+    },
+    "minimum_worst_case_delta": {
+      "type": "number"
+    },
+    "preserve_manual_baseline": {
+      "type": "boolean"
+    },
+    "preserve_skip": {
+      "type": "boolean"
+    },
+    "skip_treatment": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "canonical_baseline",
+    "exact_version",
+    "fail_to_skip",
+    "maximum_complexity_increase",
+    "minimum_cvar_delta",
+    "minimum_worst_case_delta",
+    "preserve_manual_baseline",
+    "preserve_skip",
+    "skip_treatment"
+  ],
+  "title": "BASELINE_CONTRACT",
+  "type": "object"
+}

@@ -1,0 +1,69 @@
+{
+  "research_only": true,
+  "rows": [
+    {
+      "excluded_scenario_id": "control::benign",
+      "mean_utility": 0.2846843807615182,
+      "worst_case_utility": -0.016
+    },
+    {
+      "excluded_scenario_id": "native::base",
+      "mean_utility": 0.285719338885563,
+      "worst_case_utility": -0.016
+    },
+    {
+      "excluded_scenario_id": "native::fast",
+      "mean_utility": 0.2902647934310175,
+      "worst_case_utility": -0.016
+    },
+    {
+      "excluded_scenario_id": "native::gap",
+      "mean_utility": 0.3275375207037448,
+      "worst_case_utility": 0.174
+    },
+    {
+      "excluded_scenario_id": "native::reversal",
+      "mean_utility": 0.31026479343101754,
+      "worst_case_utility": -0.016
+    },
+    {
+      "excluded_scenario_id": "native::wide_spread",
+      "mean_utility": 0.30117388434010844,
+      "worst_case_utility": -0.016
+    },
+    {
+      "excluded_scenario_id": "shock::calibration_down",
+      "mean_utility": 0.29743611519142593,
+      "worst_case_utility": -0.016
+    },
+    {
+      "excluded_scenario_id": "shock::cost_up",
+      "mean_utility": 0.29524206615829024,
+      "worst_case_utility": -0.016
+    },
+    {
+      "excluded_scenario_id": "shock::joint_adverse",
+      "mean_utility": 0.30981024797647205,
+      "worst_case_utility": -0.016
+    },
+    {
+      "excluded_scenario_id": "shock::latency",
+      "mean_utility": 0.29651479343101755,
+      "worst_case_utility": -0.016
+    },
+    {
+      "excluded_scenario_id": "shock::support_loss",
+      "mean_utility": 0.29156818181818184,
+      "worst_case_utility": -0.016
+    },
+    {
+      "excluded_scenario_id": "shock::tail_down",
+      "mean_utility": 0.2966966116128357,
+      "worst_case_utility": -0.016
+    }
+  ],
+  "selected_allocation_id": "allocation::T_BALANCED:1.000000",
+  "stability_report_hash": "8af33a8663ef03c734b0d417cb928c71ee7309f4862e3ac650344116958ecc22",
+  "stable_under_leave_one_out": true,
+  "worst_case_spread": 0.19
+}

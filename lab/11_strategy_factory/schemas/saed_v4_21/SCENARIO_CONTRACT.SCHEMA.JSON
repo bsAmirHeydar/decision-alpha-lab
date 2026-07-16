@@ -1,0 +1,57 @@
+{
+  "$id": "https://decision-alpha-lab.local/saed/v4-21/scenario_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "deterministic": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "future_suffix_forbidden": {
+      "type": "boolean"
+    },
+    "include_benign_control": {
+      "type": "boolean"
+    },
+    "include_joint_adverse": {
+      "type": "boolean"
+    },
+    "include_leave_one_out": {
+      "type": "boolean"
+    },
+    "max_scenarios": {
+      "type": "integer"
+    },
+    "native_scenarios": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "protected_evidence_forbidden": {
+      "type": "boolean"
+    },
+    "shock_axes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "deterministic",
+    "exact_version",
+    "future_suffix_forbidden",
+    "include_benign_control",
+    "include_joint_adverse",
+    "include_leave_one_out",
+    "max_scenarios",
+    "native_scenarios",
+    "protected_evidence_forbidden",
+    "shock_axes"
+  ],
+  "title": "SCENARIO_CONTRACT",
+  "type": "object"
+}

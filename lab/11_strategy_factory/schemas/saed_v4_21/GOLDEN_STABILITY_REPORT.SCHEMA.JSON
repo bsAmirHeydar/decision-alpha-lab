@@ -1,0 +1,55 @@
+{
+  "$id": "https://decision-alpha-lab.local/saed/v4-21/golden_stability_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "research_only": {
+      "type": "boolean"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "excluded_scenario_id": {
+            "type": "string"
+          },
+          "mean_utility": {
+            "type": "number"
+          },
+          "worst_case_utility": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "excluded_scenario_id",
+          "mean_utility",
+          "worst_case_utility"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "selected_allocation_id": {
+      "type": "string"
+    },
+    "stability_report_hash": {
+      "type": "string"
+    },
+    "stable_under_leave_one_out": {
+      "type": "boolean"
+    },
+    "worst_case_spread": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "research_only",
+    "rows",
+    "selected_allocation_id",
+    "stability_report_hash",
+    "stable_under_leave_one_out",
+    "worst_case_spread"
+  ],
+  "title": "GOLDEN_STABILITY_REPORT",
+  "type": "object"
+}

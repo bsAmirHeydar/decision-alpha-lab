@@ -1,0 +1,27 @@
+{
+  "$id": "https://decision-alpha-lab.local/saed/v4-21/determinism_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "passed": {
+      "type": "boolean"
+    },
+    "reference_run_hash": {
+      "type": "string"
+    },
+    "replay_receipt_hash": {
+      "type": "string"
+    },
+    "same_inputs_same_outputs": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "passed",
+    "reference_run_hash",
+    "replay_receipt_hash",
+    "same_inputs_same_outputs"
+  ],
+  "title": "DETERMINISM_REPORT",
+  "type": "object"
+}

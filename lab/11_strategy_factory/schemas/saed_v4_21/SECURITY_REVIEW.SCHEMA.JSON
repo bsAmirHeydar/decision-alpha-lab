@@ -1,0 +1,43 @@
+{
+  "$id": "https://decision-alpha-lab.local/saed/v4-21/security_review.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "credential_access": {
+      "type": "boolean"
+    },
+    "dynamic_code_execution": {
+      "type": "boolean"
+    },
+    "hidden_evaluation_access": {
+      "type": "boolean"
+    },
+    "network_access": {
+      "type": "boolean"
+    },
+    "order_submission": {
+      "type": "boolean"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "protected_evidence_access": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "credential_access",
+    "dynamic_code_execution",
+    "hidden_evaluation_access",
+    "network_access",
+    "order_submission",
+    "passed",
+    "phase",
+    "protected_evidence_access"
+  ],
+  "title": "SECURITY_REVIEW",
+  "type": "object"
+}

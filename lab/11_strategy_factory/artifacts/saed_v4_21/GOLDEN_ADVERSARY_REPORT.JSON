@@ -1,0 +1,82 @@
+{
+  "adversary_report_hash": "4e11953008163c71e89c8beefd5ceb61b1484cfe0344702031f911b6f321c7ba",
+  "bounded": true,
+  "research_only": true,
+  "selected_allocation_id": "allocation::T_BALANCED:1.000000",
+  "shock_bound": 0.08,
+  "trace": [
+    {
+      "adversarial_value": -0.02266666666666667,
+      "bounded_shift": 0.006666666666666667,
+      "scenario_id": "native::gap",
+      "step": 1
+    },
+    {
+      "adversarial_value": -0.02266666666666667,
+      "bounded_shift": 0.013333333333333334,
+      "scenario_id": "native::reversal",
+      "step": 2
+    },
+    {
+      "adversarial_value": -0.02266666666666667,
+      "bounded_shift": 0.02,
+      "scenario_id": "shock::joint_adverse",
+      "step": 3
+    },
+    {
+      "adversarial_value": -0.02266666666666667,
+      "bounded_shift": 0.02666666666666667,
+      "scenario_id": "native::wide_spread",
+      "step": 4
+    },
+    {
+      "adversarial_value": -0.02266666666666667,
+      "bounded_shift": 0.03333333333333333,
+      "scenario_id": "shock::calibration_down",
+      "step": 5
+    },
+    {
+      "adversarial_value": -0.02266666666666667,
+      "bounded_shift": 0.04,
+      "scenario_id": "shock::tail_down",
+      "step": 6
+    },
+    {
+      "adversarial_value": -0.02266666666666667,
+      "bounded_shift": 0.04666666666666667,
+      "scenario_id": "shock::latency",
+      "step": 7
+    },
+    {
+      "adversarial_value": -0.02266666666666667,
+      "bounded_shift": 0.05333333333333334,
+      "scenario_id": "shock::cost_up",
+      "step": 8
+    },
+    {
+      "adversarial_value": -0.02266666666666667,
+      "bounded_shift": 0.06,
+      "scenario_id": "shock::support_loss",
+      "step": 9
+    },
+    {
+      "adversarial_value": -0.02266666666666667,
+      "bounded_shift": 0.06666666666666667,
+      "scenario_id": "native::fast",
+      "step": 10
+    },
+    {
+      "adversarial_value": -0.02266666666666667,
+      "bounded_shift": 0.07333333333333333,
+      "scenario_id": "native::base",
+      "step": 11
+    },
+    {
+      "adversarial_value": -0.02266666666666667,
+      "bounded_shift": 0.08,
+      "scenario_id": "control::benign",
+      "step": 12
+    }
+  ],
+  "worst_adversarial_value": -0.02266666666666667
+}

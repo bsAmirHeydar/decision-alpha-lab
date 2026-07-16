@@ -1,0 +1,12 @@
+{
+  "max_adversarial_steps": 32,
+  "max_allocations": 256,
+  "max_ambiguity_distributions": 64,
+  "max_candidates": 16,
+  "max_failures": 8,
+  "max_hidden_evaluation_queries": 1,
+  "max_objective_evaluations": 10000,
+  "max_scenarios": 32,
+  "max_stability_resamples": 64,
+  "protected_evidence_exposure_limit": 0
+}

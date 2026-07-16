@@ -1,0 +1,6 @@
+PHASE='SAED_V4_21'
+VERSION='1.0.0'
+TITLE='Robust Optimization and Regret'
+EVIDENCE_SCOPE='local_deterministic_synthetic_reference'
+CLAIM_CEILING='synthetic_robust_optimization_not_real_policy_value'
+NEXT_PHASE='SAED_V4_22'

@@ -1,0 +1,10 @@
+{
+  "exact_version": "1.0.0",
+  "exposure_ledger_hash": "8d531655a89d296a0b17f98003edcd1e0eefbc0b64e7b827f31894e929664693",
+  "hash_verified": true,
+  "immutable": true,
+  "required_phase": "SAED_V4_20",
+  "research_only": true,
+  "selection_certificate_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "selection_registry_hash": "f05d1c6cb93a5af2dbc65e5734b86f9876153b4f70ba85ad72995aac8b39a257"
+}

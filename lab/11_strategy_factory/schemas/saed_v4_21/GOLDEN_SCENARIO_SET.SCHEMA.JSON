@@ -1,0 +1,122 @@
+{
+  "$id": "https://decision-alpha-lab.local/saed/v4-21/golden_scenario_set.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context_id": {
+      "type": "string"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "future_suffix_used": {
+      "type": "boolean"
+    },
+    "protected_evidence_used": {
+      "type": "boolean"
+    },
+    "scenario_count": {
+      "type": "integer"
+    },
+    "scenario_set_hash": {
+      "type": "string"
+    },
+    "scenarios": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "family": {
+            "type": "string"
+          },
+          "nominal_probability": {
+            "type": "number"
+          },
+          "scenario_id": {
+            "type": "string"
+          },
+          "shocks": {
+            "additionalProperties": false,
+            "properties": {
+              "cost": {
+                "type": "number"
+              },
+              "latency": {
+                "type": "number"
+              },
+              "mean_shift": {
+                "type": "number"
+              },
+              "support": {
+                "type": "number"
+              },
+              "tail": {
+                "type": "number"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "utilities": {
+            "additionalProperties": false,
+            "properties": {
+              "MANUAL_CORE": {
+                "type": "number"
+              },
+              "SKIP": {
+                "type": "number"
+              },
+              "T_ADAPTIVE": {
+                "type": "number"
+              },
+              "T_BALANCED": {
+                "type": "number"
+              },
+              "T_CONSERVATIVE": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "MANUAL_CORE",
+              "SKIP",
+              "T_ADAPTIVE",
+              "T_BALANCED",
+              "T_CONSERVATIVE"
+            ],
+            "type": "object"
+          },
+          "weight": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "family",
+          "nominal_probability",
+          "scenario_id",
+          "shocks",
+          "utilities",
+          "weight"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "treatments": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "context_id",
+    "deterministic",
+    "future_suffix_used",
+    "protected_evidence_used",
+    "scenario_count",
+    "scenario_set_hash",
+    "scenarios",
+    "treatments"
+  ],
+  "title": "GOLDEN_SCENARIO_SET",
+  "type": "object"
+}

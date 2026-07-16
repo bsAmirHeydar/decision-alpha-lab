@@ -1,0 +1,63 @@
+{
+  "authority": {
+    "decision": false,
+    "execution": false,
+    "production": false,
+    "promotion": false,
+    "risk_allocation": false,
+    "runtime": false
+  },
+  "claim_ceiling": "synthetic_robust_optimization_not_real_policy_value",
+  "claims": {
+    "ambiguity_set_compiler_implemented": true,
+    "baseline_preservation_implemented": true,
+    "bounded_adversary_implemented": true,
+    "bounded_mixture_enumeration_implemented": true,
+    "content_addressed_certificate_implemented": true,
+    "live_trading": false,
+    "production_authorization": false,
+    "production_risk_allocation": false,
+    "production_treatment_selection": false,
+    "real_alpha_established": false,
+    "real_policy_value_established": false,
+    "regret_analysis_implemented": true,
+    "robust_optimization_implemented": true,
+    "runtime_parity_established": false,
+    "stability_analysis_implemented": true
+  },
+  "evidence_scope": "local_deterministic_synthetic_reference",
+  "external_evidence": {
+    "broker_qualification": "not_attached",
+    "metaeditor_compile": "pending_local_windows",
+    "micro_live": "not_authorized",
+    "prospective_paper": "not_attached",
+    "python_mql5_runtime_parity": "not_claimed",
+    "real_market_replay": "not_attached"
+  },
+  "handoff_hash": "ac2f0c59f3b358a3e98dac34029657b05aa406d4a609deafecc721e73b274148",
+  "handoff_id": "v4_21_to_v4_22_c8c45f419011336eca8234c4",
+  "next_phase": "SAED_V4_22",
+  "phase": "SAED_V4_21",
+  "qa": {
+    "boundary_guard": true,
+    "closed_schema_pairs": 41,
+    "golden_reproduction": true,
+    "mql5_static_files": 19,
+    "obsidian_notes": 158,
+    "python_tests": 72
+  },
+  "scope": {
+    "allocations": 35,
+    "ambiguity_distributions": 14,
+    "candidate_treatments": 5,
+    "negative_fixtures": 8,
+    "optimization_objectives": 5,
+    "synthetic_scenarios": 12
+  },
+  "status": "reference_implementation_complete",
+  "title": "Robust Optimization and Regret",
+  "upstream_required": [
+    "SAED_V4_20"
+  ],
+  "version": "1.0.0"
+}

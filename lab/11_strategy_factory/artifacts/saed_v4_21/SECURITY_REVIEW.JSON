@@ -1,0 +1,10 @@
+{
+  "credential_access": false,
+  "dynamic_code_execution": false,
+  "hidden_evaluation_access": false,
+  "network_access": false,
+  "order_submission": false,
+  "passed": true,
+  "phase": "SAED_V4_21",
+  "protected_evidence_access": false
+}

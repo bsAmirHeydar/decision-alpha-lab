@@ -1,0 +1,51 @@
+{
+  "$id": "https://decision-alpha-lab.local/saed/v4-21/regret_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "abstain_on_violation": {
+      "type": "boolean"
+    },
+    "baseline_first_on_tie": {
+      "type": "boolean"
+    },
+    "baseline_regret_limit": {
+      "type": "number"
+    },
+    "dynamic_regret_budget": {
+      "type": "number"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "maximum_regret_limit": {
+      "type": "number"
+    },
+    "mean_regret_limit": {
+      "type": "number"
+    },
+    "mode": {
+      "type": "string"
+    },
+    "robust_margin": {
+      "type": "number"
+    },
+    "tie_tolerance": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "abstain_on_violation",
+    "baseline_first_on_tie",
+    "baseline_regret_limit",
+    "dynamic_regret_budget",
+    "exact_version",
+    "maximum_regret_limit",
+    "mean_regret_limit",
+    "mode",
+    "robust_margin",
+    "tie_tolerance"
+  ],
+  "title": "REGRET_CONTRACT",
+  "type": "object"
+}

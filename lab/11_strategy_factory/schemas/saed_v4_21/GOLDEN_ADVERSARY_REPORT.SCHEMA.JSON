@@ -1,0 +1,63 @@
+{
+  "$id": "https://decision-alpha-lab.local/saed/v4-21/golden_adversary_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adversary_report_hash": {
+      "type": "string"
+    },
+    "bounded": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "selected_allocation_id": {
+      "type": "string"
+    },
+    "shock_bound": {
+      "type": "number"
+    },
+    "trace": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "adversarial_value": {
+            "type": "number"
+          },
+          "bounded_shift": {
+            "type": "number"
+          },
+          "scenario_id": {
+            "type": "string"
+          },
+          "step": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "adversarial_value",
+          "bounded_shift",
+          "scenario_id",
+          "step"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "worst_adversarial_value": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "adversary_report_hash",
+    "bounded",
+    "research_only",
+    "selected_allocation_id",
+    "shock_bound",
+    "trace",
+    "worst_adversarial_value"
+  ],
+  "title": "GOLDEN_ADVERSARY_REPORT",
+  "type": "object"
+}

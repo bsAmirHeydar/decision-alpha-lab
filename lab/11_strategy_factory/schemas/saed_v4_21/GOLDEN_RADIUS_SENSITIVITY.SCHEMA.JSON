@@ -1,0 +1,43 @@
+{
+  "$id": "https://decision-alpha-lab.local/saed/v4-21/golden_radius_sensitivity.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "monotone_nonincreasing": {
+      "type": "boolean"
+    },
+    "radius_sensitivity_hash": {
+      "type": "string"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "conservative_value": {
+            "type": "number"
+          },
+          "radius": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "conservative_value",
+          "radius"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "selected_allocation_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "monotone_nonincreasing",
+    "radius_sensitivity_hash",
+    "rows",
+    "selected_allocation_id"
+  ],
+  "title": "GOLDEN_RADIUS_SENSITIVITY",
+  "type": "object"
+}

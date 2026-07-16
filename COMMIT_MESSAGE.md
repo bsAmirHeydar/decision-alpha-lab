@@ -1,8 +1,12 @@
-feat(strategy-factory): implement SAED V4-20 decision-focused treatment selection
+feat(saed-v4): implement V4-21 robust optimization and regret
 
-- freeze the closed treatment universe and proof-gated action masks
-- add utility, risk, regret, Pareto, calibration and ranking references
-- add bounded set-valued selection, abstention and baseline preservation
-- emit content-addressed non-executable selection certificates
-- add schemas, fixtures, tests, MQL5 static mirrors and Obsidian dossier
-- preserve UCEE authority and deny production/live claims
+- freeze closed ambiguity, scenario, optimization, regret, baseline and budget contracts
+- verify immutable V4-20 selection evidence and authority denials
+- compile bounded synthetic native, shock, joint-adverse and benign scenarios
+- enumerate deterministic pure and bounded-mixture treatment allocations
+- implement maximin, minimax-regret, DRO, robust-CVaR and lexicographic objectives
+- preserve manual and skip baselines with fail-closed abstention
+- add bounded adversarial stress, stability and sensitivity evidence
+- add content-addressed certificate, replay, budget ledger and V4-22 handoff
+- add closed schemas, golden and negative fixtures, tests, QA and static MQL5 mirror
+- add comprehensive Obsidian phase and atomic-concept documentation

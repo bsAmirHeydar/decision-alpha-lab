@@ -1,0 +1,51 @@
+{
+  "$id": "https://decision-alpha-lab.local/saed/v4-21/golden_claim_tier_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "claim_tier": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorization": {
+      "type": "boolean"
+    },
+    "production_risk_allocation": {
+      "type": "boolean"
+    },
+    "production_treatment_selection": {
+      "type": "boolean"
+    },
+    "real_alpha_established": {
+      "type": "boolean"
+    },
+    "real_policy_value_established": {
+      "type": "boolean"
+    },
+    "regret_analysis_implemented": {
+      "type": "boolean"
+    },
+    "robust_optimization_implemented": {
+      "type": "boolean"
+    },
+    "runtime_activation": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "claim_tier",
+    "phase",
+    "production_authorization",
+    "production_risk_allocation",
+    "production_treatment_selection",
+    "real_alpha_established",
+    "real_policy_value_established",
+    "regret_analysis_implemented",
+    "robust_optimization_implemented",
+    "runtime_activation"
+  ],
+  "title": "GOLDEN_CLAIM_TIER_REPORT",
+  "type": "object"
+}

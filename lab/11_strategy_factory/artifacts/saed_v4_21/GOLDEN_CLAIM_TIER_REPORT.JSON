@@ -1,0 +1,12 @@
+{
+  "claim_tier": "local_deterministic_synthetic_reference",
+  "phase": "SAED_V4_21",
+  "production_authorization": false,
+  "production_risk_allocation": false,
+  "production_treatment_selection": false,
+  "real_alpha_established": false,
+  "real_policy_value_established": false,
+  "regret_analysis_implemented": true,
+  "robust_optimization_implemented": true,
+  "runtime_activation": false
+}

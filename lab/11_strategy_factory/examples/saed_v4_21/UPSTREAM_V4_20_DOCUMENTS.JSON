@@ -1,0 +1,242 @@
+{
+  "certificate": {
+    "authority_hash": "9b830a55a6ec4f16894daf30faaebae31119903dcbdf1f2cca3d84ec54779da3",
+    "baseline_report": {
+      "baseline_preserved": true,
+      "best_candidate": "T_BALANCED",
+      "best_minus_baseline": 0.17028494904677183,
+      "best_minus_skip": 0.40976107553672825,
+      "canonical_baseline": "MANUAL_CORE",
+      "decision_abstained": true,
+      "fallback": "skip",
+      "skip_treatment": "SKIP"
+    },
+    "candidate_ranking": [
+      {
+        "allowed": true,
+        "objective_score": 0.3212610755367283,
+        "rank": 1,
+        "selection_probability": 0.24031184196004268,
+        "treatment_id": "T_BALANCED"
+      },
+      {
+        "allowed": true,
+        "objective_score": 0.26588642312930466,
+        "rank": 2,
+        "selection_probability": 0.2232081070044238,
+        "treatment_id": "T_ADAPTIVE"
+      },
+      {
+        "allowed": true,
+        "objective_score": 0.2050753552516194,
+        "rank": 3,
+        "selection_probability": 0.20582434846828024,
+        "treatment_id": "T_CONSERVATIVE"
+      },
+      {
+        "allowed": true,
+        "objective_score": 0.15097612648995645,
+        "rank": 4,
+        "selection_probability": 0.1915005771969565,
+        "treatment_id": "MANUAL_CORE"
+      },
+      {
+        "allowed": true,
+        "objective_score": -0.0885,
+        "rank": 5,
+        "selection_probability": 0.13915512537029667,
+        "treatment_id": "SKIP"
+      }
+    ],
+    "certificate_hash": "aa7dcddab262160bc86f8a66661696dd334c711787e277e6d90a854ad2e9a39b",
+    "certificate_id": "selection_certificate_7a99a10a4ea79b92d0fc7f06",
+    "context_id": "CTX_SYNTH_0001",
+    "decision": {
+      "abstain": true,
+      "context_id": "CTX_SYNTH_0001",
+      "decision": "abstain",
+      "fallback": "skip",
+      "reasons": [
+        "insufficient_objective_margin"
+      ],
+      "selected_treatments": [
+        "SKIP"
+      ],
+      "selection_entropy": 1.5936897794036011,
+      "top_probability": 0.24031184196004268
+    },
+    "decision_authority": false,
+    "execution_authority": false,
+    "mask_hash": "54122860a94b5d4ea2cfd8d4019a9f51aa4306a41031231d44ca473fd7bb0c68",
+    "pareto_treatments": [
+      "MANUAL_CORE",
+      "SKIP",
+      "T_BALANCED",
+      "T_CONSERVATIVE"
+    ],
+    "phase": "SAED_V4_20",
+    "promotion_authority": false,
+    "research_only": true,
+    "runtime_executable": false,
+    "universe_hash": "cc4452b390b9dcd5a8e4406316e25591f8363ad2f8f3c797aca0808a043d0ff7",
+    "upstream_hashes": {
+      "treatment_universe_input_hash": "3477a0eae1133cd071198236aed6951e522d627432a1fa13bf1b87e9a444311d",
+      "v4_18_policy_value_hash": "2459aa07ee55cb1f0dc9e13cf1499df1036e61a59f676150cd0cbb183f7a0ac0",
+      "v4_19_proof_registry_hash": "c943521f4ff848976fce07ced939858934f9e8a0859a621f3ec5801e5e1d7d44"
+    }
+  },
+  "exposure": {
+    "budget_snapshot": {
+      "calibration_iterations": 1,
+      "contexts": 1,
+      "counterfactual_queries": 0,
+      "failures": 0,
+      "hidden_evaluation_queries": 0,
+      "objective_evaluations": 5,
+      "pareto_points": 4,
+      "protected_evidence_exposure": 0,
+      "scenarios": 25,
+      "treatments": 5
+    },
+    "complete": true,
+    "hidden_evaluation_queries": 0,
+    "ledger_hash": "8d531655a89d296a0b17f98003edcd1e0eefbc0b64e7b827f31894e929664693",
+    "phase": "SAED_V4_20",
+    "protected_evidence_exposure": 0,
+    "rows": [
+      {
+        "exposure_class": "synthetic_reference",
+        "hidden_evaluation_queries": 0,
+        "protected": false,
+        "trial_id": "TRIAL_V420_001"
+      },
+      {
+        "exposure_class": "synthetic_reference",
+        "hidden_evaluation_queries": 0,
+        "protected": false,
+        "trial_id": "TRIAL_V420_002"
+      },
+      {
+        "exposure_class": "synthetic_reference",
+        "hidden_evaluation_queries": 0,
+        "protected": false,
+        "trial_id": "TRIAL_V420_003"
+      },
+      {
+        "exposure_class": "synthetic_reference",
+        "hidden_evaluation_queries": 0,
+        "protected": false,
+        "trial_id": "TRIAL_V420_004"
+      },
+      {
+        "exposure_class": "synthetic_reference",
+        "hidden_evaluation_queries": 0,
+        "protected": false,
+        "trial_id": "TRIAL_V420_005"
+      },
+      {
+        "exposure_class": "synthetic_reference",
+        "hidden_evaluation_queries": 0,
+        "protected": false,
+        "trial_id": "TRIAL_V420_006"
+      },
+      {
+        "exposure_class": "synthetic_reference",
+        "hidden_evaluation_queries": 0,
+        "protected": false,
+        "trial_id": "TRIAL_V420_007"
+      },
+      {
+        "exposure_class": "synthetic_reference",
+        "hidden_evaluation_queries": 0,
+        "protected": false,
+        "trial_id": "TRIAL_V420_008"
+      },
+      {
+        "exposure_class": "synthetic_reference",
+        "hidden_evaluation_queries": 0,
+        "protected": false,
+        "trial_id": "TRIAL_V420_009"
+      }
+    ]
+  },
+  "handoff": {
+    "authority": {
+      "activate_runtime": false,
+      "allocate_risk": false,
+      "compile_runtime": false,
+      "select_live_treatment": false,
+      "send_order": false,
+      "sign_promotion": false
+    },
+    "entry_gates": {
+      "abstention_fail_closed": true,
+      "baseline_preserved": true,
+      "closed_contracts": true,
+      "deterministic_replay": true,
+      "pareto_frontier": true,
+      "research_only": true,
+      "set_valued_selection": true,
+      "zero_hidden_evaluation_queries": true,
+      "zero_protected_evidence_exposure": true
+    },
+    "exposure_ledger_hash": "8d531655a89d296a0b17f98003edcd1e0eefbc0b64e7b827f31894e929664693",
+    "handoff_hash": "b4eeab11898c492867071408aad802f8edb5e33443fbef0172b2a87b400a1027",
+    "handoff_id": "v420_to_v421_5f02b52c1dc4bb19702d9e8e",
+    "next_phase": "SAED_V4_21",
+    "phase": "SAED_V4_20",
+    "qa": {
+      "closed_schema_pairs": 40,
+      "golden_reproduction": true,
+      "mql5_static_files": 18,
+      "obsidian_notes": 146,
+      "passed": true,
+      "python_tests": 178
+    },
+    "research_only": true,
+    "selection_certificate_hash": "aa7dcddab262160bc86f8a66661696dd334c711787e277e6d90a854ad2e9a39b",
+    "selection_registry_hash": "f05d1c6cb93a5af2dbc65e5734b86f9876153b4f70ba85ad72995aac8b39a257"
+  },
+  "registry": {
+    "immutable": true,
+    "registry_hash": "f05d1c6cb93a5af2dbc65e5734b86f9876153b4f70ba85ad72995aac8b39a257",
+    "rows": [
+      {
+        "certificate_hash": "70ec122ed411e080a20d42d21fd243ca4d4a810076f50e314fffa51eb601c716",
+        "context_id": "CTX_SYNTH_0007"
+      },
+      {
+        "certificate_hash": "8ce0cfaf2c2637d18f536198d8dfe36fa12ccd1d4a2b46705230fe2980bfce0d",
+        "context_id": "CTX_SYNTH_0002"
+      },
+      {
+        "certificate_hash": "a195e15b609da881c58f8e427f40bf7f8f76269a534a4b9975e78a776dd136d5",
+        "context_id": "CTX_SYNTH_0001"
+      },
+      {
+        "certificate_hash": "aa7dcddab262160bc86f8a66661696dd334c711787e277e6d90a854ad2e9a39b",
+        "context_id": "CTX_SYNTH_0001"
+      },
+      {
+        "certificate_hash": "bd4bf304d7337bbfbe14aaddf71decaeb6ab926c373f96f17ee87d0e0e948dae",
+        "context_id": "CTX_SYNTH_0004"
+      },
+      {
+        "certificate_hash": "c19446a97e4841260ef64d06319a1f0644bf049f26e188d462fb02dc1aa9ffaf",
+        "context_id": "CTX_SYNTH_0005"
+      },
+      {
+        "certificate_hash": "c6a22b77e64f1debda169b1d45bf7db5f860bf1b766d57485b5c00d25236b5c8",
+        "context_id": "CTX_SYNTH_0006"
+      },
+      {
+        "certificate_hash": "cccff8d0ad9908864452de5e6a60e518eca6a7582ad9e30dfdd3a18aee875df4",
+        "context_id": "CTX_SYNTH_0008"
+      },
+      {
+        "certificate_hash": "d8dd9f2741bddd891b3f67b605be94af7910bd55ed99eef161b1148b1121ac1b",
+        "context_id": "CTX_SYNTH_0003"
+      }
+    ]
+  }
+}

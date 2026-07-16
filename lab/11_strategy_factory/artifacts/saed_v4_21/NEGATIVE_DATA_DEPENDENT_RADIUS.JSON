@@ -1,0 +1,13 @@
+{
+  "closed_support": true,
+  "cost_shock_bound": 0.035,
+  "data_dependent_radius": true,
+  "exact_version": "1.0.0",
+  "family": "hybrid",
+  "mean_shift_bound": 0.04,
+  "probability_floor": 0.01,
+  "radius": 0.2,
+  "support_shock_bound": 0.05,
+  "synthetic_only": true,
+  "tail_shock_bound": 0.06
+}

@@ -1,0 +1,471 @@
+{
+  "$id": "https://decision-alpha-lab.local/saed/v4-21/golden_robust_optimization_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allocation_count": {
+      "type": "integer"
+    },
+    "baseline_report": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_allocation_id": {
+          "type": "string"
+        },
+        "baseline_report_hash": {
+          "type": "string"
+        },
+        "canonical_baseline": {
+          "type": "string"
+        },
+        "fail_to_skip": {
+          "type": "boolean"
+        },
+        "manual_baseline_preserved": {
+          "type": "boolean"
+        },
+        "rows": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "allocation_id": {
+                "type": "string"
+              },
+              "baseline_failures": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "baseline_feasible": {
+                "type": "boolean"
+              },
+              "complexity_delta": {
+                "type": "number"
+              },
+              "cvar_delta": {
+                "type": "number"
+              },
+              "worst_case_delta": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "allocation_id",
+              "baseline_failures",
+              "baseline_feasible",
+              "complexity_delta",
+              "cvar_delta",
+              "worst_case_delta"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "skip_allocation_id": {
+          "type": "string"
+        },
+        "skip_preserved": {
+          "type": "boolean"
+        },
+        "skip_treatment": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "baseline_allocation_id",
+        "baseline_report_hash",
+        "canonical_baseline",
+        "fail_to_skip",
+        "manual_baseline_preserved",
+        "rows",
+        "skip_allocation_id",
+        "skip_preserved",
+        "skip_treatment"
+      ],
+      "type": "object"
+    },
+    "decision": {
+      "additionalProperties": false,
+      "properties": {
+        "abstain": {
+          "type": "boolean"
+        },
+        "decision": {
+          "type": "string"
+        },
+        "decision_authority": {
+          "type": "boolean"
+        },
+        "fallback_allocation_id": {
+          "type": "string"
+        },
+        "reasons": {
+          "items": {},
+          "type": "array"
+        },
+        "risk_allocation_authority": {
+          "type": "boolean"
+        },
+        "runtime_executable": {
+          "type": "boolean"
+        },
+        "selected_allocation_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "abstain",
+        "decision",
+        "decision_authority",
+        "fallback_allocation_id",
+        "reasons",
+        "risk_allocation_authority",
+        "runtime_executable",
+        "selected_allocation_id"
+      ],
+      "type": "object"
+    },
+    "feasible_count": {
+      "type": "integer"
+    },
+    "objective": {
+      "type": "string"
+    },
+    "optimization_report_hash": {
+      "type": "string"
+    },
+    "regret_matrix": {
+      "additionalProperties": false,
+      "properties": {
+        "oracle_utility": {
+          "additionalProperties": false,
+          "properties": {
+            "control::benign": {
+              "type": "number"
+            },
+            "native::base": {
+              "type": "number"
+            },
+            "native::fast": {
+              "type": "number"
+            },
+            "native::gap": {
+              "type": "number"
+            },
+            "native::reversal": {
+              "type": "number"
+            },
+            "native::wide_spread": {
+              "type": "number"
+            },
+            "shock::calibration_down": {
+              "type": "number"
+            },
+            "shock::cost_up": {
+              "type": "number"
+            },
+            "shock::joint_adverse": {
+              "type": "number"
+            },
+            "shock::latency": {
+              "type": "number"
+            },
+            "shock::support_loss": {
+              "type": "number"
+            },
+            "shock::tail_down": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "control::benign",
+            "native::base",
+            "native::fast",
+            "native::gap",
+            "native::reversal",
+            "native::wide_spread",
+            "shock::calibration_down",
+            "shock::cost_up",
+            "shock::joint_adverse",
+            "shock::latency",
+            "shock::support_loss",
+            "shock::tail_down"
+          ],
+          "type": "object"
+        },
+        "regret_matrix_hash": {
+          "type": "string"
+        },
+        "rows": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "allocation_id": {
+                "type": "string"
+              },
+              "maximum_regret": {
+                "type": "number"
+              },
+              "mean_regret": {
+                "type": "number"
+              },
+              "scenario_regret": {
+                "additionalProperties": false,
+                "properties": {
+                  "control::benign": {
+                    "type": "number"
+                  },
+                  "native::base": {
+                    "type": "number"
+                  },
+                  "native::fast": {
+                    "type": "number"
+                  },
+                  "native::gap": {
+                    "type": "number"
+                  },
+                  "native::reversal": {
+                    "type": "number"
+                  },
+                  "native::wide_spread": {
+                    "type": "number"
+                  },
+                  "shock::calibration_down": {
+                    "type": "number"
+                  },
+                  "shock::cost_up": {
+                    "type": "number"
+                  },
+                  "shock::joint_adverse": {
+                    "type": "number"
+                  },
+                  "shock::latency": {
+                    "type": "number"
+                  },
+                  "shock::support_loss": {
+                    "type": "number"
+                  },
+                  "shock::tail_down": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "control::benign",
+                  "native::base",
+                  "native::fast",
+                  "native::gap",
+                  "native::reversal",
+                  "native::wide_spread",
+                  "shock::calibration_down",
+                  "shock::cost_up",
+                  "shock::joint_adverse",
+                  "shock::latency",
+                  "shock::support_loss",
+                  "shock::tail_down"
+                ],
+                "type": "object"
+              },
+              "total_regret": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "allocation_id",
+              "maximum_regret",
+              "mean_regret",
+              "scenario_regret",
+              "total_regret"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "scenario_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "oracle_utility",
+        "regret_matrix_hash",
+        "rows",
+        "scenario_ids"
+      ],
+      "type": "object"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "active_count": {
+            "type": "integer"
+          },
+          "allocation_id": {
+            "type": "string"
+          },
+          "baseline_gate": {
+            "additionalProperties": false,
+            "properties": {
+              "allocation_id": {
+                "type": "string"
+              },
+              "baseline_failures": {
+                "items": {},
+                "type": "array"
+              },
+              "baseline_feasible": {
+                "type": "boolean"
+              },
+              "complexity_delta": {
+                "type": "number"
+              },
+              "cvar_delta": {
+                "type": "number"
+              },
+              "worst_case_delta": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "allocation_id",
+              "baseline_failures",
+              "baseline_feasible",
+              "complexity_delta",
+              "cvar_delta",
+              "worst_case_delta"
+            ],
+            "type": "object"
+          },
+          "best_case_utility": {
+            "type": "number"
+          },
+          "constraint_failures": {
+            "items": {},
+            "type": "array"
+          },
+          "distributionally_robust_utility": {
+            "type": "number"
+          },
+          "feasible": {
+            "type": "boolean"
+          },
+          "maximum_regret": {
+            "type": "number"
+          },
+          "mean_regret": {
+            "type": "number"
+          },
+          "nominal_utility": {
+            "type": "number"
+          },
+          "robust_cvar": {
+            "type": "number"
+          },
+          "scenario_utilities": {
+            "additionalProperties": false,
+            "properties": {
+              "control::benign": {
+                "type": "number"
+              },
+              "native::base": {
+                "type": "number"
+              },
+              "native::fast": {
+                "type": "number"
+              },
+              "native::gap": {
+                "type": "number"
+              },
+              "native::reversal": {
+                "type": "number"
+              },
+              "native::wide_spread": {
+                "type": "number"
+              },
+              "shock::calibration_down": {
+                "type": "number"
+              },
+              "shock::cost_up": {
+                "type": "number"
+              },
+              "shock::joint_adverse": {
+                "type": "number"
+              },
+              "shock::latency": {
+                "type": "number"
+              },
+              "shock::support_loss": {
+                "type": "number"
+              },
+              "shock::tail_down": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "control::benign",
+              "native::base",
+              "native::fast",
+              "native::gap",
+              "native::reversal",
+              "native::wide_spread",
+              "shock::calibration_down",
+              "shock::cost_up",
+              "shock::joint_adverse",
+              "shock::latency",
+              "shock::support_loss",
+              "shock::tail_down"
+            ],
+            "type": "object"
+          },
+          "utility_mean": {
+            "type": "number"
+          },
+          "utility_std": {
+            "type": "number"
+          },
+          "weighted_complexity": {
+            "type": "number"
+          },
+          "worst_case_utility": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "active_count",
+          "allocation_id",
+          "baseline_gate",
+          "best_case_utility",
+          "constraint_failures",
+          "distributionally_robust_utility",
+          "feasible",
+          "maximum_regret",
+          "mean_regret",
+          "nominal_utility",
+          "robust_cvar",
+          "scenario_utilities",
+          "utility_mean",
+          "utility_std",
+          "weighted_complexity",
+          "worst_case_utility"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "allocation_count",
+    "baseline_report",
+    "decision",
+    "feasible_count",
+    "objective",
+    "optimization_report_hash",
+    "regret_matrix",
+    "rows"
+  ],
+  "title": "GOLDEN_ROBUST_OPTIMIZATION_REPORT",
+  "type": "object"
+}

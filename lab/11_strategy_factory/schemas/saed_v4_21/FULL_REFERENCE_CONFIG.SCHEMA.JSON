@@ -1,0 +1,384 @@
+{
+  "$id": "https://decision-alpha-lab.local/saed/v4-21/full_reference_config.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adversary": {
+      "additionalProperties": false,
+      "properties": {
+        "shock_bound": {
+          "type": "number"
+        },
+        "steps": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "shock_bound",
+        "steps"
+      ],
+      "type": "object"
+    },
+    "ambiguity": {
+      "additionalProperties": false,
+      "properties": {
+        "closed_support": {
+          "type": "boolean"
+        },
+        "cost_shock_bound": {
+          "type": "number"
+        },
+        "data_dependent_radius": {
+          "type": "boolean"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "family": {
+          "type": "string"
+        },
+        "mean_shift_bound": {
+          "type": "number"
+        },
+        "probability_floor": {
+          "type": "number"
+        },
+        "radius": {
+          "type": "number"
+        },
+        "support_shock_bound": {
+          "type": "number"
+        },
+        "synthetic_only": {
+          "type": "boolean"
+        },
+        "tail_shock_bound": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "closed_support",
+        "cost_shock_bound",
+        "data_dependent_radius",
+        "exact_version",
+        "family",
+        "mean_shift_bound",
+        "probability_floor",
+        "radius",
+        "support_shock_bound",
+        "synthetic_only",
+        "tail_shock_bound"
+      ],
+      "type": "object"
+    },
+    "baseline": {
+      "additionalProperties": false,
+      "properties": {
+        "canonical_baseline": {
+          "type": "string"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "fail_to_skip": {
+          "type": "boolean"
+        },
+        "maximum_complexity_increase": {
+          "type": "number"
+        },
+        "minimum_cvar_delta": {
+          "type": "number"
+        },
+        "minimum_worst_case_delta": {
+          "type": "number"
+        },
+        "preserve_manual_baseline": {
+          "type": "boolean"
+        },
+        "preserve_skip": {
+          "type": "boolean"
+        },
+        "skip_treatment": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "canonical_baseline",
+        "exact_version",
+        "fail_to_skip",
+        "maximum_complexity_increase",
+        "minimum_cvar_delta",
+        "minimum_worst_case_delta",
+        "preserve_manual_baseline",
+        "preserve_skip",
+        "skip_treatment"
+      ],
+      "type": "object"
+    },
+    "budget": {
+      "additionalProperties": false,
+      "properties": {
+        "max_adversarial_steps": {
+          "type": "integer"
+        },
+        "max_allocations": {
+          "type": "integer"
+        },
+        "max_ambiguity_distributions": {
+          "type": "integer"
+        },
+        "max_candidates": {
+          "type": "integer"
+        },
+        "max_failures": {
+          "type": "integer"
+        },
+        "max_hidden_evaluation_queries": {
+          "type": "integer"
+        },
+        "max_objective_evaluations": {
+          "type": "integer"
+        },
+        "max_scenarios": {
+          "type": "integer"
+        },
+        "max_stability_resamples": {
+          "type": "integer"
+        },
+        "protected_evidence_exposure_limit": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "max_adversarial_steps",
+        "max_allocations",
+        "max_ambiguity_distributions",
+        "max_candidates",
+        "max_failures",
+        "max_hidden_evaluation_queries",
+        "max_objective_evaluations",
+        "max_scenarios",
+        "max_stability_resamples",
+        "protected_evidence_exposure_limit"
+      ],
+      "type": "object"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "optimization": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_preservation": {
+          "type": "boolean"
+        },
+        "complexity_penalty": {
+          "type": "number"
+        },
+        "deterministic": {
+          "type": "boolean"
+        },
+        "diversification_penalty": {
+          "type": "number"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "fail_closed": {
+          "type": "boolean"
+        },
+        "grid_step": {
+          "type": "number"
+        },
+        "max_active_treatments": {
+          "type": "integer"
+        },
+        "mixture_allowed": {
+          "type": "boolean"
+        },
+        "objective": {
+          "type": "string"
+        },
+        "runtime_executable": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "baseline_preservation",
+        "complexity_penalty",
+        "deterministic",
+        "diversification_penalty",
+        "exact_version",
+        "fail_closed",
+        "grid_step",
+        "max_active_treatments",
+        "mixture_allowed",
+        "objective",
+        "runtime_executable"
+      ],
+      "type": "object"
+    },
+    "regret": {
+      "additionalProperties": false,
+      "properties": {
+        "abstain_on_violation": {
+          "type": "boolean"
+        },
+        "baseline_first_on_tie": {
+          "type": "boolean"
+        },
+        "baseline_regret_limit": {
+          "type": "number"
+        },
+        "dynamic_regret_budget": {
+          "type": "number"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "maximum_regret_limit": {
+          "type": "number"
+        },
+        "mean_regret_limit": {
+          "type": "number"
+        },
+        "mode": {
+          "type": "string"
+        },
+        "robust_margin": {
+          "type": "number"
+        },
+        "tie_tolerance": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "abstain_on_violation",
+        "baseline_first_on_tie",
+        "baseline_regret_limit",
+        "dynamic_regret_budget",
+        "exact_version",
+        "maximum_regret_limit",
+        "mean_regret_limit",
+        "mode",
+        "robust_margin",
+        "tie_tolerance"
+      ],
+      "type": "object"
+    },
+    "scenario": {
+      "additionalProperties": false,
+      "properties": {
+        "deterministic": {
+          "type": "boolean"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "future_suffix_forbidden": {
+          "type": "boolean"
+        },
+        "include_benign_control": {
+          "type": "boolean"
+        },
+        "include_joint_adverse": {
+          "type": "boolean"
+        },
+        "include_leave_one_out": {
+          "type": "boolean"
+        },
+        "max_scenarios": {
+          "type": "integer"
+        },
+        "native_scenarios": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "protected_evidence_forbidden": {
+          "type": "boolean"
+        },
+        "shock_axes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "deterministic",
+        "exact_version",
+        "future_suffix_forbidden",
+        "include_benign_control",
+        "include_joint_adverse",
+        "include_leave_one_out",
+        "max_scenarios",
+        "native_scenarios",
+        "protected_evidence_forbidden",
+        "shock_axes"
+      ],
+      "type": "object"
+    },
+    "sensitivity_radii": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "upstream_intake": {
+      "additionalProperties": false,
+      "properties": {
+        "exact_version": {
+          "type": "string"
+        },
+        "exposure_ledger_hash": {
+          "type": "string"
+        },
+        "hash_verified": {
+          "type": "boolean"
+        },
+        "immutable": {
+          "type": "boolean"
+        },
+        "required_phase": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "selection_certificate_hash": {
+          "type": "string"
+        },
+        "selection_registry_hash": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "exact_version",
+        "exposure_ledger_hash",
+        "hash_verified",
+        "immutable",
+        "required_phase",
+        "research_only",
+        "selection_certificate_hash",
+        "selection_registry_hash"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "adversary",
+    "ambiguity",
+    "baseline",
+    "budget",
+    "exact_version",
+    "optimization",
+    "regret",
+    "scenario",
+    "sensitivity_radii",
+    "upstream_intake"
+  ],
+  "title": "FULL_REFERENCE_CONFIG",
+  "type": "object"
+}

@@ -1,0 +1,31 @@
+{
+  "monotone_nonincreasing": true,
+  "radius_sensitivity_hash": "5e6d1cd5825032a92a74ab11ef5d18b5c345fad869e8542666de30f11e971a24",
+  "rows": [
+    {
+      "conservative_value": 0.25424272731176606,
+      "radius": 0.0
+    },
+    {
+      "conservative_value": 0.24760186898729653,
+      "radius": 0.05
+    },
+    {
+      "conservative_value": 0.24096101066282702,
+      "radius": 0.1
+    },
+    {
+      "conservative_value": 0.22767929401388795,
+      "radius": 0.2
+    },
+    {
+      "conservative_value": 0.2143975773649489,
+      "radius": 0.3
+    },
+    {
+      "conservative_value": 0.20111586071600987,
+      "radius": 0.4
+    }
+  ],
+  "selected_allocation_id": "allocation::T_BALANCED:1.000000"
+}

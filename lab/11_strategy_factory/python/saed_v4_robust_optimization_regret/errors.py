@@ -1,0 +1,12 @@
+class SAEDV421Error(Exception): pass
+class ContractError(SAEDV421Error): pass
+class IntegrityError(SAEDV421Error): pass
+class AuthorityError(SAEDV421Error): pass
+class UpstreamError(SAEDV421Error): pass
+class AmbiguityError(SAEDV421Error): pass
+class ScenarioError(SAEDV421Error): pass
+class OptimizationError(SAEDV421Error): pass
+class RegretError(SAEDV421Error): pass
+class BaselineError(SAEDV421Error): pass
+class BudgetError(SAEDV421Error): pass
+class CertificateError(SAEDV421Error): pass

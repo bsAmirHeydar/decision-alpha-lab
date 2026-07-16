@@ -1,0 +1,31 @@
+{
+  "$id": "https://decision-alpha-lab.local/saed/v4-21/future_suffix_invariance_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "future_suffix_used": {
+      "type": "boolean"
+    },
+    "mutated_hash": {
+      "type": "string"
+    },
+    "mutation_scope": {
+      "type": "string"
+    },
+    "original_hash": {
+      "type": "string"
+    },
+    "passed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "future_suffix_used",
+    "mutated_hash",
+    "mutation_scope",
+    "original_hash",
+    "passed"
+  ],
+  "title": "FUTURE_SUFFIX_INVARIANCE_REPORT",
+  "type": "object"
+}

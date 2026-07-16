@@ -1,0 +1,43 @@
+{
+  "allowed_operations": [
+    "build_robust_certificate",
+    "build_v4_22_handoff",
+    "compile_synthetic_scenarios",
+    "compute_synthetic_cvar",
+    "compute_synthetic_regret",
+    "compute_synthetic_robust_utility",
+    "enumerate_bounded_allocations",
+    "freeze_ambiguity_set",
+    "preserve_manual_and_skip_baselines",
+    "read_immutable_v4_20_selection",
+    "register_research_checkpoint",
+    "reproduce_golden",
+    "run_synthetic_adversary",
+    "run_synthetic_sensitivity",
+    "solve_reference_robust_program"
+  ],
+  "claim_ceiling": "synthetic_robust_optimization_not_real_policy_value",
+  "execution_authority": false,
+  "forbidden_operations": [
+    "access_live_credentials",
+    "activate_runtime",
+    "allocate_live_risk",
+    "assert_real_alpha",
+    "assert_real_policy_value",
+    "compile_runtime",
+    "learn_from_hidden_evaluation",
+    "mutate_upstream_evidence",
+    "read_protected_final_evidence",
+    "select_live_treatment",
+    "send_order",
+    "sign_promotion"
+  ],
+  "phase": "SAED_V4_21",
+  "production_authority": false,
+  "production_treatment_selection_authority": false,
+  "promotion_authority": false,
+  "real_policy_value_claim_authority": false,
+  "research_reference_only": true,
+  "risk_allocation_authority": false,
+  "runtime_authority": false
+}

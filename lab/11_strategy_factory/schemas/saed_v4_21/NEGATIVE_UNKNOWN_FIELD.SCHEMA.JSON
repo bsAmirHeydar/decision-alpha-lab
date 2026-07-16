@@ -1,0 +1,59 @@
+{
+  "$id": "https://decision-alpha-lab.local/saed/v4-21/negative_unknown_field.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_preservation": {
+      "type": "boolean"
+    },
+    "complexity_penalty": {
+      "type": "number"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "diversification_penalty": {
+      "type": "number"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "fail_closed": {
+      "type": "boolean"
+    },
+    "grid_step": {
+      "type": "number"
+    },
+    "max_active_treatments": {
+      "type": "integer"
+    },
+    "mixture_allowed": {
+      "type": "boolean"
+    },
+    "objective": {
+      "type": "string"
+    },
+    "runtime_executable": {
+      "type": "boolean"
+    },
+    "unknown_field": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "baseline_preservation",
+    "complexity_penalty",
+    "deterministic",
+    "diversification_penalty",
+    "exact_version",
+    "fail_closed",
+    "grid_step",
+    "max_active_treatments",
+    "mixture_allowed",
+    "objective",
+    "runtime_executable",
+    "unknown_field"
+  ],
+  "title": "NEGATIVE_UNKNOWN_FIELD",
+  "type": "object"
+}

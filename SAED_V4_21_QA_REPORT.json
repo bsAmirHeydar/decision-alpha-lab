@@ -1,0 +1,42 @@
+{
+  "checks": {
+    "boundaries": {
+      "boundary_violations": 0,
+      "passed": true
+    },
+    "contracts": {
+      "closed_schema_pairs": 41,
+      "passed": true
+    },
+    "golden_reproduction": {
+      "golden_artifacts": 10,
+      "passed": true,
+      "reference_run_hash": "0916a5abaccede1bd8ea7e587ea9c1d135cc94b78e0098c5e81b4f01ef03017c"
+    },
+    "mql5_static": {
+      "metaeditor_compile": "pending_local_windows",
+      "mql5_static_files": 19,
+      "passed": true
+    },
+    "obsidian": {
+      "obsidian_notes": 158,
+      "passed": true
+    },
+    "python_tests": {
+      "passed": true,
+      "python_tests": 72
+    },
+    "status": {
+      "passed": true,
+      "phase": "SAED_V4_21"
+    }
+  },
+  "closed_schema_pairs": 41,
+  "external_evidence_attached": false,
+  "metaeditor_compile": "pending_local_windows",
+  "mql5_static_files": 19,
+  "obsidian_notes": 158,
+  "passed": true,
+  "phase": "SAED_V4_21",
+  "python_tests": 72
+}

@@ -1,0 +1,4 @@
+#ifndef __DECISION_ALPHA_LAB_SAEDV421VERSION_MQH__
+#define __DECISION_ALPHA_LAB_SAEDV421VERSION_MQH__
+string SAEDV421Version(){return "1.0.0";}
+#endif

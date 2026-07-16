@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "closed_world": {
+      "type": "boolean"
+    },
+    "pair_count": {
+      "type": "integer"
+    },
+    "pairs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "document": {
+            "type": "string"
+          },
+          "schema": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "document",
+          "schema"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "closed_world",
+    "pair_count",
+    "pairs",
+    "phase"
+  ],
+  "type": "object"
+}

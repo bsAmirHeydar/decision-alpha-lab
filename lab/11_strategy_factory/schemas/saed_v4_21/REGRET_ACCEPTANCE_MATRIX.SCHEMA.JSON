@@ -1,0 +1,47 @@
+{
+  "$id": "https://decision-alpha-lab.local/saed/v4-21/regret_acceptance_matrix.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "maximum_regret_limit": {
+      "type": "number"
+    },
+    "mean_regret_limit": {
+      "type": "number"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "allocation_id": {
+            "type": "string"
+          },
+          "maximum_regret": {
+            "type": "number"
+          },
+          "mean_regret": {
+            "type": "number"
+          },
+          "passed": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "allocation_id",
+          "maximum_regret",
+          "mean_regret",
+          "passed"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "maximum_regret_limit",
+    "mean_regret_limit",
+    "rows"
+  ],
+  "title": "REGRET_ACCEPTANCE_MATRIX",
+  "type": "object"
+}
