@@ -1,0 +1,12 @@
+{
+  "censored_rows_allowed": false,
+  "cost_adjusted": true,
+  "exact_version": "1.0.0",
+  "higher_is_better": true,
+  "horizon_bars": 32,
+  "known_time_rule": "available_only_after_declared_horizon",
+  "negative_control_outcome_id": "synthetic_negative_control_outcome",
+  "outcome_id": "synthetic_cost_adjusted_utility",
+  "protected_final_role": false,
+  "utility_unit": "synthetic_r_multiple"
+}

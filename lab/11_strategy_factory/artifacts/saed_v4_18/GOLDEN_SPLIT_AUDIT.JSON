@@ -1,0 +1,44 @@
+{
+  "audit_hash": "bbd053326e26e1544c4e71a7b4a6ada0e06a457686fdb230ffdfe9b330fbd723",
+  "audits": [
+    {
+      "evaluation_rows": 80,
+      "fold_id": "fold_0",
+      "future_training_detected": false,
+      "overlap_rows": 0,
+      "passed": true,
+      "sibling_cluster_splits": 0,
+      "train_rows": 154
+    },
+    {
+      "evaluation_rows": 80,
+      "fold_id": "fold_1",
+      "future_training_detected": false,
+      "overlap_rows": 0,
+      "passed": true,
+      "sibling_cluster_splits": 0,
+      "train_rows": 234
+    },
+    {
+      "evaluation_rows": 80,
+      "fold_id": "fold_2",
+      "future_training_detected": false,
+      "overlap_rows": 0,
+      "passed": true,
+      "sibling_cluster_splits": 0,
+      "train_rows": 314
+    },
+    {
+      "evaluation_rows": 80,
+      "fold_id": "fold_3",
+      "future_training_detected": false,
+      "overlap_rows": 0,
+      "passed": true,
+      "sibling_cluster_splits": 0,
+      "train_rows": 394
+    }
+  ],
+  "fold_count": 4,
+  "passed": true,
+  "phase": "SAED_V4_18"
+}

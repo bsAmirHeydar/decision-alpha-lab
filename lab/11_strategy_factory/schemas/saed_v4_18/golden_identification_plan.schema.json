@@ -1,0 +1,75 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_18/golden_identification_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-18 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "assumptions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "chronology_key": {
+      "type": "string"
+    },
+    "cluster_key": {
+      "type": "string"
+    },
+    "comparison_baseline": {
+      "type": "string"
+    },
+    "cross_fit_folds": {
+      "type": "integer"
+    },
+    "embargo_rows": {
+      "type": "integer"
+    },
+    "estimand": {
+      "type": "string"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "future_training_forbidden": {
+      "type": "boolean"
+    },
+    "min_effective_sample_size": {
+      "type": "number"
+    },
+    "overlap_floor": {
+      "type": "number"
+    },
+    "propensity_clip": {
+      "type": "number"
+    },
+    "purge_rows": {
+      "type": "integer"
+    },
+    "sibling_split_forbidden": {
+      "type": "boolean"
+    },
+    "synthetic_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "assumptions",
+    "chronology_key",
+    "cluster_key",
+    "comparison_baseline",
+    "cross_fit_folds",
+    "embargo_rows",
+    "estimand",
+    "exact_version",
+    "future_training_forbidden",
+    "min_effective_sample_size",
+    "overlap_floor",
+    "propensity_clip",
+    "purge_rows",
+    "sibling_split_forbidden",
+    "synthetic_only"
+  ],
+  "title": "GOLDEN_IDENTIFICATION_PLAN",
+  "type": "object"
+}

@@ -1,0 +1,47 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_18/reference_policy_catalog.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Closed SAED V4-18 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "items": {
+    "additionalProperties": false,
+    "properties": {
+      "abstain_on_support_failure": {
+        "type": "boolean"
+      },
+      "enabled": {
+        "type": "boolean"
+      },
+      "evaluation_only": {
+        "type": "boolean"
+      },
+      "minimum_uplift": {
+        "type": "number"
+      },
+      "policy_id": {
+        "type": "string"
+      },
+      "policy_type": {
+        "type": "string"
+      },
+      "preserve_manual_fallback": {
+        "type": "boolean"
+      },
+      "treatment_id": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "abstain_on_support_failure",
+      "enabled",
+      "evaluation_only",
+      "minimum_uplift",
+      "policy_id",
+      "policy_type",
+      "preserve_manual_fallback",
+      "treatment_id"
+    ],
+    "type": "object"
+  },
+  "title": "reference_policy_catalog",
+  "type": "array"
+}

@@ -1,0 +1,25 @@
+{
+  "phase": "SAED_V4_18",
+  "vectors": [
+    {
+      "expected": "accept",
+      "name": "closed_treatment_registry"
+    },
+    {
+      "expected": "accept",
+      "name": "chronological_cluster_folds"
+    },
+    {
+      "expected": "accept",
+      "name": "overlap_audit"
+    },
+    {
+      "expected": "accept",
+      "name": "cross_fitted_dr_value"
+    },
+    {
+      "expected": "accept",
+      "name": "research_only_handoff"
+    }
+  ]
+}

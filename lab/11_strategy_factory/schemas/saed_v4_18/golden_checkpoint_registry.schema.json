@@ -1,0 +1,88 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_18/golden_checkpoint_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-18 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "checkpoints": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "checkpoint_hash": {
+            "type": "string"
+          },
+          "checkpoint_id": {
+            "type": "string"
+          },
+          "claim_tier": {
+            "type": "string"
+          },
+          "dr_value": {
+            "type": "number"
+          },
+          "lower_bound": {
+            "type": "number"
+          },
+          "phase": {
+            "type": "string"
+          },
+          "policy_id": {
+            "type": "string"
+          },
+          "promotion_authority": {
+            "type": "boolean"
+          },
+          "research_only": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "checkpoint_hash",
+          "checkpoint_id",
+          "claim_tier",
+          "dr_value",
+          "lower_bound",
+          "phase",
+          "policy_id",
+          "promotion_authority",
+          "research_only"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "policy_champion_id": {
+      "type": "string"
+    },
+    "production_registry": {
+      "type": "boolean"
+    },
+    "reference_champion_id": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "checkpoints",
+    "immutable",
+    "phase",
+    "policy_champion_id",
+    "production_registry",
+    "reference_champion_id",
+    "registry_hash",
+    "registry_id"
+  ],
+  "title": "GOLDEN_CHECKPOINT_REGISTRY",
+  "type": "object"
+}

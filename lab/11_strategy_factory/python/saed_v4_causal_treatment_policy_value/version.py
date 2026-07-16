@@ -1,0 +1,6 @@
+PHASE='SAED_V4_18'
+VERSION='1.0.0'
+TITLE='Causal Treatment and Policy Value'
+EVIDENCE_SCOPE='local_deterministic_synthetic_reference'
+CLAIM_CEILING='synthetic_treatment_and_policy_value_not_real'
+NEXT_PHASE='SAED_V4_19'

@@ -1,0 +1,23 @@
+{
+  "assumptions": [
+    "consistency_on_synthetic_benchmark",
+    "conditional_exchangeability_by_construction_only",
+    "positivity_after_clipping",
+    "no_interference_between_synthetic_clusters",
+    "known_time_chronology"
+  ],
+  "chronology_key": "ordinal",
+  "cluster_key": "cluster_id",
+  "comparison_baseline": "t_skip",
+  "cross_fit_folds": 4,
+  "embargo_rows": 2,
+  "estimand": "policy_value",
+  "exact_version": "1.0.0",
+  "future_training_forbidden": true,
+  "min_effective_sample_size": 12.0,
+  "overlap_floor": 0.04,
+  "propensity_clip": 0.03,
+  "purge_rows": 4,
+  "sibling_split_forbidden": true,
+  "synthetic_only": true
+}

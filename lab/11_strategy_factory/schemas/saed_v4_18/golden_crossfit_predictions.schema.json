@@ -1,0 +1,315 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_18/golden_crossfit_predictions.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-18 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "chronological": {
+      "type": "boolean"
+    },
+    "cluster_aware": {
+      "type": "boolean"
+    },
+    "cross_fitted": {
+      "type": "boolean"
+    },
+    "crossfit_hash": {
+      "type": "string"
+    },
+    "models": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "evaluation_rows": {
+            "type": "integer"
+          },
+          "fold_id": {
+            "type": "string"
+          },
+          "propensity_coefficients": {
+            "additionalProperties": false,
+            "properties": {
+              "t_adaptive_a": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "t_adaptive_b": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "t_manual": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "t_skip": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "t_adaptive_a",
+              "t_adaptive_b",
+              "t_manual",
+              "t_skip"
+            ],
+            "type": "object"
+          },
+          "s_learner_coefficients": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "t_learner_coefficients": {
+            "additionalProperties": false,
+            "properties": {
+              "t_adaptive_a": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "t_adaptive_b": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "t_manual": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "t_skip": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "t_adaptive_a",
+              "t_adaptive_b",
+              "t_manual",
+              "t_skip"
+            ],
+            "type": "object"
+          },
+          "train_rows": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "evaluation_rows",
+          "fold_id",
+          "propensity_coefficients",
+          "s_learner_coefficients",
+          "t_learner_coefficients",
+          "train_rows"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "predictions": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "assigned_treatment": {
+            "type": "string"
+          },
+          "cluster_id": {
+            "type": "string"
+          },
+          "environment_id": {
+            "type": "string"
+          },
+          "feature_map": {
+            "additionalProperties": false,
+            "properties": {
+              "context_strength": {
+                "type": "number"
+              },
+              "execution_friction": {
+                "type": "number"
+              },
+              "instrument_z": {
+                "type": "number"
+              },
+              "liquidity_state": {
+                "type": "number"
+              },
+              "negative_control_exposure": {
+                "type": "number"
+              },
+              "structure_state": {
+                "type": "number"
+              },
+              "tail_risk": {
+                "type": "number"
+              },
+              "volatility_state": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "context_strength",
+              "execution_friction",
+              "instrument_z",
+              "liquidity_state",
+              "negative_control_exposure",
+              "structure_state",
+              "tail_risk",
+              "volatility_state"
+            ],
+            "type": "object"
+          },
+          "features": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "fold_id": {
+            "type": "string"
+          },
+          "mu_hat": {
+            "additionalProperties": false,
+            "properties": {
+              "t_adaptive_a": {
+                "type": "number"
+              },
+              "t_adaptive_b": {
+                "type": "number"
+              },
+              "t_manual": {
+                "type": "number"
+              },
+              "t_skip": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "t_adaptive_a",
+              "t_adaptive_b",
+              "t_manual",
+              "t_skip"
+            ],
+            "type": "object"
+          },
+          "mu_s_hat": {
+            "additionalProperties": false,
+            "properties": {
+              "t_adaptive_a": {
+                "type": "number"
+              },
+              "t_adaptive_b": {
+                "type": "number"
+              },
+              "t_manual": {
+                "type": "number"
+              },
+              "t_skip": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "t_adaptive_a",
+              "t_adaptive_b",
+              "t_manual",
+              "t_skip"
+            ],
+            "type": "object"
+          },
+          "negative_control_outcome": {
+            "type": "number"
+          },
+          "observed_outcome": {
+            "type": "number"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "propensities": {
+            "additionalProperties": false,
+            "properties": {
+              "t_adaptive_a": {
+                "type": "number"
+              },
+              "t_adaptive_b": {
+                "type": "number"
+              },
+              "t_manual": {
+                "type": "number"
+              },
+              "t_skip": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "t_adaptive_a",
+              "t_adaptive_b",
+              "t_manual",
+              "t_skip"
+            ],
+            "type": "object"
+          },
+          "row_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "assigned_treatment",
+          "cluster_id",
+          "environment_id",
+          "feature_map",
+          "features",
+          "fold_id",
+          "mu_hat",
+          "mu_s_hat",
+          "negative_control_outcome",
+          "observed_outcome",
+          "ordinal",
+          "propensities",
+          "row_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "row_count": {
+      "type": "integer"
+    },
+    "treatment_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "chronological",
+    "cluster_aware",
+    "cross_fitted",
+    "crossfit_hash",
+    "models",
+    "phase",
+    "predictions",
+    "row_count",
+    "treatment_ids"
+  ],
+  "title": "GOLDEN_CROSSFIT_PREDICTIONS",
+  "type": "object"
+}

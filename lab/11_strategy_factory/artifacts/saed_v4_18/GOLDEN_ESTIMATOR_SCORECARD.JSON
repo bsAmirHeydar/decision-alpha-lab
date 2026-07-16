@@ -1,0 +1,173 @@
+{
+  "baseline_preserved": true,
+  "baseline_treatment_id": "t_skip",
+  "methods": [
+    {
+      "algorithm": "difference_in_means",
+      "cross_fitted": false,
+      "effects": [
+        {
+          "estimate": 0.0,
+          "treatment_id": "t_skip"
+        },
+        {
+          "estimate": 0.20232139082386882,
+          "treatment_id": "t_manual"
+        },
+        {
+          "estimate": -0.07370729134707443,
+          "treatment_id": "t_adaptive_a"
+        },
+        {
+          "estimate": -0.09018099657805159,
+          "treatment_id": "t_adaptive_b"
+        }
+      ],
+      "estimator_id": "est_dim",
+      "orthogonal": false
+    },
+    {
+      "algorithm": "s_learner_ridge",
+      "cross_fitted": true,
+      "effects": [
+        {
+          "estimate": 0.0,
+          "lower_95": 0.0,
+          "standard_error": 0.0,
+          "treatment_id": "t_skip"
+        },
+        {
+          "estimate": 0.15041838036996302,
+          "lower_95": 0.14891021684159614,
+          "standard_error": 0.0007694711879422865,
+          "treatment_id": "t_manual"
+        },
+        {
+          "estimate": -0.04511202551320372,
+          "lower_95": -0.04599088229332572,
+          "standard_error": 0.00044839631638877395,
+          "treatment_id": "t_adaptive_a"
+        },
+        {
+          "estimate": -0.10225946977349624,
+          "lower_95": -0.10288850711598115,
+          "standard_error": 0.0003209374196351511,
+          "treatment_id": "t_adaptive_b"
+        }
+      ],
+      "estimator_id": "est_s_learner",
+      "orthogonal": false
+    },
+    {
+      "algorithm": "t_learner_ridge",
+      "cross_fitted": true,
+      "effects": [
+        {
+          "estimate": 0.0,
+          "lower_95": 0.0,
+          "standard_error": 0.0,
+          "treatment_id": "t_skip"
+        },
+        {
+          "estimate": 0.191353680600524,
+          "lower_95": 0.17251249800626167,
+          "standard_error": 0.00961284826237874,
+          "treatment_id": "t_manual"
+        },
+        {
+          "estimate": -0.12579417448384553,
+          "lower_95": -0.14294611794070056,
+          "standard_error": 0.008750991559619913,
+          "treatment_id": "t_adaptive_a"
+        },
+        {
+          "estimate": -0.12127826911186997,
+          "lower_95": -0.13384211137630644,
+          "standard_error": 0.006410123604304323,
+          "treatment_id": "t_adaptive_b"
+        }
+      ],
+      "estimator_id": "est_t_learner",
+      "orthogonal": false
+    },
+    {
+      "algorithm": "aipw_dr",
+      "cross_fitted": true,
+      "effects": [
+        {
+          "estimand": "ATE_vs_baseline",
+          "estimate": 0.0,
+          "lower_95": 0.0,
+          "row_count": 320,
+          "standard_error": 0.0,
+          "treatment_id": "t_skip",
+          "upper_95": 0.0
+        },
+        {
+          "estimand": "ATE_vs_baseline",
+          "estimate": 0.18687792777262993,
+          "lower_95": 0.16550876104860038,
+          "row_count": 320,
+          "standard_error": 0.010902636083688553,
+          "treatment_id": "t_manual",
+          "upper_95": 0.20824709449665949
+        },
+        {
+          "estimand": "ATE_vs_baseline",
+          "estimate": -0.12397041964013147,
+          "lower_95": -0.1452714096684559,
+          "row_count": 320,
+          "standard_error": 0.010867852055267566,
+          "treatment_id": "t_adaptive_a",
+          "upper_95": -0.10266942961180704
+        },
+        {
+          "estimand": "ATE_vs_baseline",
+          "estimate": -0.11096184537601055,
+          "lower_95": -0.12697708490210158,
+          "row_count": 320,
+          "standard_error": 0.008171040574536242,
+          "treatment_id": "t_adaptive_b",
+          "upper_95": -0.09494660584991951
+        }
+      ],
+      "estimator_id": "est_aipw_dr",
+      "orthogonal": true
+    },
+    {
+      "algorithm": "r_learner_linear_reference_score",
+      "cross_fitted": true,
+      "effects": [
+        {
+          "estimate": 0.0,
+          "lower_95": 0.0,
+          "standard_error": 0.0,
+          "treatment_id": "t_skip"
+        },
+        {
+          "estimate": -0.001128274173766101,
+          "lower_95": -0.0048410076550831835,
+          "standard_error": 0.001894251776182185,
+          "treatment_id": "t_manual"
+        },
+        {
+          "estimate": 0.0007614869548467705,
+          "lower_95": -0.002781003469229058,
+          "standard_error": 0.001807393073508076,
+          "treatment_id": "t_adaptive_a"
+        },
+        {
+          "estimate": 0.003218634511939565,
+          "lower_95": -6.17464165423424e-05,
+          "standard_error": 0.0016736637390213813,
+          "treatment_id": "t_adaptive_b"
+        }
+      ],
+      "estimator_id": "est_r_learner",
+      "orthogonal": true
+    }
+  ],
+  "phase": "SAED_V4_18",
+  "report_hash": "a77a44a677ca5f3e5c286e1596721692848184ff78deeed7e82f9dce1a4d6ca9",
+  "selection_basis": "aipw_dr_only_for_reference_tournament"
+}

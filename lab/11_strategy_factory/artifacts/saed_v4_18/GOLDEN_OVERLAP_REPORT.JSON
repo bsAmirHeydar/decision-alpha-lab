@@ -1,0 +1,58 @@
+{
+  "fallback": "abstain_to_skip_on_unsupported_rows",
+  "minimum_effective_sample_size": 12.0,
+  "overlap_floor": 0.04,
+  "passed": true,
+  "phase": "SAED_V4_18",
+  "report_hash": "0536fe1615c1b4a6f888e6396accd7ad45b2b814793601ce3f8ef8af08636d1b",
+  "treatments": [
+    {
+      "below_floor_share": 0.0,
+      "effective_sample_size": 94.07780148051671,
+      "max": 0.32955820605073216,
+      "median": 0.252913779691572,
+      "min": 0.1968814603582561,
+      "p01": 0.20227958853154848,
+      "p10": 0.21924515033988945,
+      "p90": 0.2900981360491369,
+      "passed": true,
+      "treatment_id": "t_skip"
+    },
+    {
+      "below_floor_share": 0.0,
+      "effective_sample_size": 90.378168162133,
+      "max": 0.3134573034073798,
+      "median": 0.25064572554017944,
+      "min": 0.20128822839235586,
+      "p01": 0.20947782798459744,
+      "p10": 0.22659894257099092,
+      "p90": 0.2824424172937401,
+      "passed": true,
+      "treatment_id": "t_manual"
+    },
+    {
+      "below_floor_share": 0.0,
+      "effective_sample_size": 78.32512029394651,
+      "max": 0.3524537145037539,
+      "median": 0.2533524666029816,
+      "min": 0.18508607784913456,
+      "p01": 0.20600596265301213,
+      "p10": 0.2281490610340537,
+      "p90": 0.28974391345311296,
+      "passed": true,
+      "treatment_id": "t_adaptive_a"
+    },
+    {
+      "below_floor_share": 0.0,
+      "effective_sample_size": 54.75296137280318,
+      "max": 0.2851114316940424,
+      "median": 0.23508740946149503,
+      "min": 0.18877938980379408,
+      "p01": 0.1985167333700908,
+      "p10": 0.21625193751451144,
+      "p90": 0.256401840265754,
+      "passed": true,
+      "treatment_id": "t_adaptive_b"
+    }
+  ]
+}

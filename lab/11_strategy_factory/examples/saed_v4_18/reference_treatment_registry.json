@@ -1,0 +1,57 @@
+{
+  "baseline_treatment_id": "t_skip",
+  "exact_version": "1.0.0",
+  "finite": true,
+  "frozen": true,
+  "manual_treatment_id": "t_manual",
+  "runtime_selectable": false,
+  "treatments": [
+    {
+      "action_atoms": [
+        "skip"
+      ],
+      "description": "No synthetic intervention; canonical baseline.",
+      "enabled": true,
+      "known_time_rule": "known_at_occurrence",
+      "role": "skip",
+      "synthetic_only": true,
+      "treatment_id": "t_skip"
+    },
+    {
+      "action_atoms": [
+        "manual_entry",
+        "bounded_exit"
+      ],
+      "description": "Deterministic manual baseline treatment.",
+      "enabled": true,
+      "known_time_rule": "known_at_occurrence",
+      "role": "manual_baseline",
+      "synthetic_only": true,
+      "treatment_id": "t_manual"
+    },
+    {
+      "action_atoms": [
+        "candidate_a_entry",
+        "candidate_a_exit"
+      ],
+      "description": "Synthetic context-sensitive candidate A.",
+      "enabled": true,
+      "known_time_rule": "known_at_occurrence",
+      "role": "candidate",
+      "synthetic_only": true,
+      "treatment_id": "t_adaptive_a"
+    },
+    {
+      "action_atoms": [
+        "candidate_b_entry",
+        "candidate_b_exit"
+      ],
+      "description": "Synthetic structure-sensitive candidate B.",
+      "enabled": true,
+      "known_time_rule": "known_at_occurrence",
+      "role": "candidate",
+      "synthetic_only": true,
+      "treatment_id": "t_adaptive_b"
+    }
+  ]
+}

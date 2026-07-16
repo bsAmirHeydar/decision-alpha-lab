@@ -1,0 +1,47 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_18/golden_estimator_catalog.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Closed SAED V4-18 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "items": {
+    "additionalProperties": false,
+    "properties": {
+      "algorithm": {
+        "type": "string"
+      },
+      "complexity_tier": {
+        "type": "integer"
+      },
+      "cross_fitted": {
+        "type": "boolean"
+      },
+      "enabled": {
+        "type": "boolean"
+      },
+      "estimator_id": {
+        "type": "string"
+      },
+      "orthogonal": {
+        "type": "boolean"
+      },
+      "ridge": {
+        "type": "number"
+      },
+      "supports_multitreatment": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "algorithm",
+      "complexity_tier",
+      "cross_fitted",
+      "enabled",
+      "estimator_id",
+      "orthogonal",
+      "ridge",
+      "supports_multitreatment"
+    ],
+    "type": "object"
+  },
+  "title": "GOLDEN_ESTIMATOR_CATALOG",
+  "type": "array"
+}

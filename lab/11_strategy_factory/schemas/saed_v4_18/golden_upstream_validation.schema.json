@@ -1,0 +1,52 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_18/golden_upstream_validation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-18 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "claim_tier": {
+      "type": "string"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "hash_verified": {
+      "type": "boolean"
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "integrity_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "protected_evidence_exposures": {
+      "type": "integer"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "upstream_phase": {
+      "type": "string"
+    },
+    "validation_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "claim_tier",
+    "handoff_hash",
+    "hash_verified",
+    "immutable",
+    "integrity_hash",
+    "phase",
+    "protected_evidence_exposures",
+    "registry_hash",
+    "upstream_phase",
+    "validation_hash"
+  ],
+  "title": "GOLDEN_UPSTREAM_VALIDATION",
+  "type": "object"
+}

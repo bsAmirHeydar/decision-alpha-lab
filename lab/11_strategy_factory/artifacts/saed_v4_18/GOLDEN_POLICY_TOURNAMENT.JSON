@@ -1,0 +1,83 @@
+{
+  "baseline_policy_id": "policy_skip_all",
+  "baseline_preserved": true,
+  "candidates": [
+    {
+      "admissible": true,
+      "baseline": true,
+      "lower_bound": -0.14341259302625614,
+      "manual_baseline": false,
+      "policy_id": "policy_skip_all",
+      "score": -0.18586592886264242,
+      "support_rate": 0.296875,
+      "tail_value": -0.28302223890924194
+    },
+    {
+      "admissible": true,
+      "baseline": false,
+      "lower_bound": 0.027544662080691475,
+      "manual_baseline": false,
+      "policy_id": "policy_fixed_manual",
+      "score": -0.03152190588761208,
+      "support_rate": 0.284375,
+      "tail_value": -0.26044378645535704
+    },
+    {
+      "admissible": true,
+      "baseline": false,
+      "lower_bound": -0.28539862009422956,
+      "manual_baseline": false,
+      "policy_id": "policy_fixed_a",
+      "score": -0.39256967827229067,
+      "support_rate": 0.246875,
+      "tail_value": -0.5811403878537406
+    },
+    {
+      "admissible": true,
+      "baseline": false,
+      "lower_bound": -0.26340498564175296,
+      "manual_baseline": false,
+      "policy_id": "policy_fixed_b",
+      "score": -0.35502767593062623,
+      "support_rate": 0.171875,
+      "tail_value": -0.47748460192582187
+    },
+    {
+      "admissible": true,
+      "baseline": false,
+      "lower_bound": -0.006886433194995108,
+      "manual_baseline": true,
+      "policy_id": "policy_manual_rule",
+      "score": -0.04555855108226701,
+      "support_rate": 0.31875,
+      "tail_value": -0.25781411924847936
+    },
+    {
+      "admissible": true,
+      "baseline": false,
+      "lower_bound": 0.05855595276216145,
+      "manual_baseline": false,
+      "policy_id": "policy_uplift_argmax",
+      "score": 0.010091374370877971,
+      "support_rate": 0.3125,
+      "tail_value": -0.18976385594188988
+    },
+    {
+      "admissible": true,
+      "baseline": false,
+      "lower_bound": 0.04098340309823653,
+      "manual_baseline": false,
+      "policy_id": "policy_conservative_lcb",
+      "score": -0.014100353704581677,
+      "support_rate": 0.3375,
+      "tail_value": -0.23389171201878808
+    }
+  ],
+  "manual_fallback_preserved": true,
+  "manual_policy_id": "policy_manual_rule",
+  "phase": "SAED_V4_18",
+  "production_promotion_allowed": false,
+  "reference_champion_id": "policy_uplift_argmax",
+  "tournament_hash": "b6d0b2723618cbe1315479dcce70f01689ccdeda8fa1a6b9dbcbe710600d9ad6",
+  "tournament_id": "v418_tournament_e815a6bf9a00f0e0fd692177"
+}

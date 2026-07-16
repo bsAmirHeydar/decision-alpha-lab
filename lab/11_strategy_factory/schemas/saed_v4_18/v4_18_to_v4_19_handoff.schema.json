@@ -1,0 +1,154 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_18/v4_18_to_v4_19_handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-18 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "activate_runtime": {
+          "type": "boolean"
+        },
+        "assert_real_policy_value": {
+          "type": "boolean"
+        },
+        "assert_real_treatment_effect": {
+          "type": "boolean"
+        },
+        "compile_runtime": {
+          "type": "boolean"
+        },
+        "read_immutable_policy_value_evidence": {
+          "type": "boolean"
+        },
+        "read_immutable_treatment_effect_evidence": {
+          "type": "boolean"
+        },
+        "select_live_treatment": {
+          "type": "boolean"
+        },
+        "send_order": {
+          "type": "boolean"
+        },
+        "sign_promotion": {
+          "type": "boolean"
+        },
+        "use_as_neurosymbolic_research_feature": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "activate_runtime",
+        "assert_real_policy_value",
+        "assert_real_treatment_effect",
+        "compile_runtime",
+        "read_immutable_policy_value_evidence",
+        "read_immutable_treatment_effect_evidence",
+        "select_live_treatment",
+        "send_order",
+        "sign_promotion",
+        "use_as_neurosymbolic_research_feature"
+      ],
+      "type": "object"
+    },
+    "claim_tier": {
+      "type": "string"
+    },
+    "entry_gates": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_preserved": {
+          "type": "boolean"
+        },
+        "closed_contracts": {
+          "type": "boolean"
+        },
+        "cross_fitting_complete": {
+          "type": "boolean"
+        },
+        "deterministic_replay": {
+          "type": "boolean"
+        },
+        "immutable_upstream": {
+          "type": "boolean"
+        },
+        "negative_controls_passed": {
+          "type": "boolean"
+        },
+        "overlap_audited": {
+          "type": "boolean"
+        },
+        "research_checkpoints_immutable": {
+          "type": "boolean"
+        },
+        "treatment_universe_frozen": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "baseline_preserved",
+        "closed_contracts",
+        "cross_fitting_complete",
+        "deterministic_replay",
+        "immutable_upstream",
+        "negative_controls_passed",
+        "overlap_audited",
+        "research_checkpoints_immutable",
+        "treatment_universe_frozen"
+      ],
+      "type": "object"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "integrity_receipt_hash": {
+      "type": "string"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "reference_policy_id": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "upstream_validation_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "authority",
+    "claim_tier",
+    "entry_gates",
+    "handoff_hash",
+    "handoff_id",
+    "immutable",
+    "integrity_receipt_hash",
+    "next_phase",
+    "phase",
+    "reference_policy_id",
+    "registry_hash",
+    "registry_id",
+    "research_only",
+    "upstream_validation_hash"
+  ],
+  "title": "V4_18_TO_V4_19_HANDOFF",
+  "type": "object"
+}

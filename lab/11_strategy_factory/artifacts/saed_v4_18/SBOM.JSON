@@ -1,0 +1,12 @@
+{
+  "gpu_required": false,
+  "mql5_scope": "static_invariant_mirror_only",
+  "network_required": false,
+  "optional_test_dependencies": [
+    "pytest"
+  ],
+  "phase": "SAED_V4_18",
+  "runtime_dependencies": [
+    "python_standard_library"
+  ]
+}

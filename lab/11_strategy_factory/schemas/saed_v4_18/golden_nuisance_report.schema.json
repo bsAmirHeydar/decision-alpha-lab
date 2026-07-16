@@ -1,0 +1,60 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_18/golden_nuisance_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-18 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "folds": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "fold_id": {
+            "type": "string"
+          },
+          "mean_residual": {
+            "type": "number"
+          },
+          "rmse": {
+            "type": "number"
+          },
+          "row_count": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "fold_id",
+          "mean_residual",
+          "rmse",
+          "row_count"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "overall_rmse": {
+      "type": "number"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "row_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "folds",
+    "overall_rmse",
+    "passed",
+    "phase",
+    "report_hash",
+    "row_count"
+  ],
+  "title": "GOLDEN_NUISANCE_REPORT",
+  "type": "object"
+}

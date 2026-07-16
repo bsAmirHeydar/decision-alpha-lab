@@ -1,0 +1,101 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_18/golden_policy_catalog.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-18 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "catalog_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "policies": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "assignment_counts": {
+            "additionalProperties": false,
+            "properties": {
+              "t_adaptive_a": {
+                "type": "integer"
+              },
+              "t_adaptive_b": {
+                "type": "integer"
+              },
+              "t_manual": {
+                "type": "integer"
+              },
+              "t_skip": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "t_adaptive_a",
+              "t_adaptive_b",
+              "t_manual",
+              "t_skip"
+            ],
+            "type": "object"
+          },
+          "assignments": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "reason": {
+                  "type": "string"
+                },
+                "row_id": {
+                  "type": "string"
+                },
+                "selected_treatment": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "reason",
+                "row_id",
+                "selected_treatment"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "evaluation_only": {
+            "type": "boolean"
+          },
+          "policy_id": {
+            "type": "string"
+          },
+          "policy_type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "assignment_counts",
+          "assignments",
+          "evaluation_only",
+          "policy_id",
+          "policy_type"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "policy_count": {
+      "type": "integer"
+    },
+    "runtime_selectable": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "catalog_hash",
+    "phase",
+    "policies",
+    "policy_count",
+    "runtime_selectable"
+  ],
+  "title": "GOLDEN_POLICY_CATALOG",
+  "type": "object"
+}

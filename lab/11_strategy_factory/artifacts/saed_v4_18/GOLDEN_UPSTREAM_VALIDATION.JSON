@@ -1,0 +1,12 @@
+{
+  "claim_tier": "mechanism_compatible_synthetic",
+  "handoff_hash": "6c1af07a2ad12a008cc6bc015da1f454a439295ac178c928e81a862c55f8fe83",
+  "hash_verified": true,
+  "immutable": true,
+  "integrity_hash": "823adf4e88d3beda693ac11449b2bd74cdb994444258ad656392d93f29deafa8",
+  "phase": "SAED_V4_18",
+  "protected_evidence_exposures": 0,
+  "registry_hash": "551159376e66a3a73c7d050748110eab958ea2dfbbe9337616fee26178b70c72",
+  "upstream_phase": "SAED_V4_17",
+  "validation_hash": "d4442c0a27de1b0c82bd9058abb7092ff47282f2b99ccc01d7255e681c32f88e"
+}

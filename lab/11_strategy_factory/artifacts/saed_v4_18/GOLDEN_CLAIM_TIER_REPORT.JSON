@@ -1,0 +1,17 @@
+{
+  "claim_ceiling": "synthetic_treatment_and_policy_value_not_real",
+  "claim_tier": "synthetic_treatment_and_policy_value",
+  "economic_uplift": false,
+  "phase": "SAED_V4_18",
+  "production_authorization": false,
+  "real_alpha": false,
+  "real_policy_value": false,
+  "real_treatment_effect": false,
+  "reasons": [
+    "immutable upstream verified",
+    "cross-fitted synthetic estimators",
+    "overlap and negative-control gates",
+    "baseline preserved"
+  ],
+  "report_hash": "226e36373e260f37c5e55eb3f785b613bc9503ca59c3b96e193fbec9d8ef0616"
+}

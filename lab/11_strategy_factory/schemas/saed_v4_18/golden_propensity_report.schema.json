@@ -1,0 +1,76 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_18/golden_propensity_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-18 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "global_minimum_propensity": {
+      "type": "number"
+    },
+    "overlap_floor": {
+      "type": "number"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "row_count": {
+      "type": "integer"
+    },
+    "treatments": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "below_overlap_floor": {
+            "type": "integer"
+          },
+          "effective_sample_size": {
+            "type": "number"
+          },
+          "maximum_propensity": {
+            "type": "number"
+          },
+          "mean_propensity": {
+            "type": "number"
+          },
+          "minimum_propensity": {
+            "type": "number"
+          },
+          "observed_count": {
+            "type": "integer"
+          },
+          "treatment_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "below_overlap_floor",
+          "effective_sample_size",
+          "maximum_propensity",
+          "mean_propensity",
+          "minimum_propensity",
+          "observed_count",
+          "treatment_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "global_minimum_propensity",
+    "overlap_floor",
+    "passed",
+    "phase",
+    "report_hash",
+    "row_count",
+    "treatments"
+  ],
+  "title": "GOLDEN_PROPENSITY_REPORT",
+  "type": "object"
+}

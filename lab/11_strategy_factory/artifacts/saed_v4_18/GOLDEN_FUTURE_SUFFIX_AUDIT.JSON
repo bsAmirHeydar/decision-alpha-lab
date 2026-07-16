@@ -1,0 +1,45 @@
+{
+  "audit_type": "structural_future_suffix_exclusion",
+  "differential_external_replay_required": true,
+  "folds": [
+    {
+      "evaluation_min": 160,
+      "fold_id": "fold_0",
+      "future_suffix_rows": 240,
+      "future_suffix_rows_in_evaluation": 0,
+      "future_suffix_rows_in_training": 0,
+      "passed": true,
+      "train_max": 153
+    },
+    {
+      "evaluation_min": 240,
+      "fold_id": "fold_1",
+      "future_suffix_rows": 160,
+      "future_suffix_rows_in_evaluation": 0,
+      "future_suffix_rows_in_training": 0,
+      "passed": true,
+      "train_max": 233
+    },
+    {
+      "evaluation_min": 320,
+      "fold_id": "fold_2",
+      "future_suffix_rows": 80,
+      "future_suffix_rows_in_evaluation": 0,
+      "future_suffix_rows_in_training": 0,
+      "passed": true,
+      "train_max": 313
+    },
+    {
+      "evaluation_min": 400,
+      "fold_id": "fold_3",
+      "future_suffix_rows": 0,
+      "future_suffix_rows_in_evaluation": 0,
+      "future_suffix_rows_in_training": 0,
+      "passed": true,
+      "train_max": 393
+    }
+  ],
+  "passed": true,
+  "phase": "SAED_V4_18",
+  "report_hash": "7a289e48c52ae9e21701164ceb4286fe5982a48d094d6918b6aae4aa5f7b9860"
+}

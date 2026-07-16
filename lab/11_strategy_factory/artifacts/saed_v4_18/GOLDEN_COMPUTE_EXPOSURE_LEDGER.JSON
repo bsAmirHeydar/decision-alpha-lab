@@ -1,0 +1,44 @@
+{
+  "exceeded": {
+    "bootstrap_replicates": false,
+    "cross_fit_folds": false,
+    "estimators": false,
+    "failures": false,
+    "hidden_evaluation_queries": false,
+    "policies": false,
+    "protected_evidence_exposures": false,
+    "retries": false,
+    "rows": false,
+    "sensitivity_runs": false,
+    "treatments": false
+  },
+  "ledger_hash": "712b0b8316ecddeb3476f56bdf7c72aa5a7e072cb580e93f58ca24aee0b68988",
+  "limits": {
+    "bootstrap_replicates": 256,
+    "cross_fit_folds": 8,
+    "estimators": 12,
+    "failures": 0,
+    "hidden_evaluation_queries": 0,
+    "policies": 16,
+    "protected_evidence_exposures": 0,
+    "retries": 0,
+    "rows": 640,
+    "sensitivity_runs": 64,
+    "treatments": 8
+  },
+  "passed": true,
+  "phase": "SAED_V4_18",
+  "usage": {
+    "bootstrap_replicates": 64,
+    "cross_fit_folds": 4,
+    "estimators": 5,
+    "failures": 0,
+    "hidden_evaluation_queries": 0,
+    "policies": 7,
+    "protected_evidence_exposures": 0,
+    "retries": 0,
+    "rows": 480,
+    "sensitivity_runs": 19,
+    "treatments": 4
+  }
+}

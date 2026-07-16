@@ -1,0 +1,33 @@
+{
+  "folds": [
+    {
+      "fold_id": "fold_0",
+      "mean_residual": -0.013863528613415877,
+      "rmse": 0.03964921843456915,
+      "row_count": 80
+    },
+    {
+      "fold_id": "fold_1",
+      "mean_residual": -0.004179274807744226,
+      "rmse": 0.03384936778347356,
+      "row_count": 80
+    },
+    {
+      "fold_id": "fold_2",
+      "mean_residual": 0.004710170339630836,
+      "rmse": 0.033338109365907406,
+      "row_count": 80
+    },
+    {
+      "fold_id": "fold_3",
+      "mean_residual": 0.007854353271191597,
+      "rmse": 0.03488491410304226,
+      "row_count": 80
+    }
+  ],
+  "overall_rmse": 0.03551840012543807,
+  "passed": true,
+  "phase": "SAED_V4_18",
+  "report_hash": "d8d1c3fed1ac6abafc6f66f5b2ef51d0bc7133bf472bb20dc02225d0d68a3a9e",
+  "row_count": 320
+}

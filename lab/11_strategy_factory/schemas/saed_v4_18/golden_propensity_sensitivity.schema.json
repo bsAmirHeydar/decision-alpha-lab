@@ -1,0 +1,117 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_18/golden_propensity_sensitivity.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-18 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "grid": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "runs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "clip": {
+            "type": "number"
+          },
+          "values": {
+            "additionalProperties": false,
+            "properties": {
+              "policy_conservative_lcb": {
+                "type": "number"
+              },
+              "policy_fixed_a": {
+                "type": "number"
+              },
+              "policy_fixed_b": {
+                "type": "number"
+              },
+              "policy_fixed_manual": {
+                "type": "number"
+              },
+              "policy_manual_rule": {
+                "type": "number"
+              },
+              "policy_skip_all": {
+                "type": "number"
+              },
+              "policy_uplift_argmax": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "policy_conservative_lcb",
+              "policy_fixed_a",
+              "policy_fixed_b",
+              "policy_fixed_manual",
+              "policy_manual_rule",
+              "policy_skip_all",
+              "policy_uplift_argmax"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "clip",
+          "values"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "sign_stability": {
+      "additionalProperties": false,
+      "properties": {
+        "policy_conservative_lcb": {
+          "type": "boolean"
+        },
+        "policy_fixed_a": {
+          "type": "boolean"
+        },
+        "policy_fixed_b": {
+          "type": "boolean"
+        },
+        "policy_fixed_manual": {
+          "type": "boolean"
+        },
+        "policy_manual_rule": {
+          "type": "boolean"
+        },
+        "policy_skip_all": {
+          "type": "boolean"
+        },
+        "policy_uplift_argmax": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "policy_conservative_lcb",
+        "policy_fixed_a",
+        "policy_fixed_b",
+        "policy_fixed_manual",
+        "policy_manual_rule",
+        "policy_skip_all",
+        "policy_uplift_argmax"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "grid",
+    "phase",
+    "report_hash",
+    "runs",
+    "sign_stability"
+  ],
+  "title": "GOLDEN_PROPENSITY_SENSITIVITY",
+  "type": "object"
+}

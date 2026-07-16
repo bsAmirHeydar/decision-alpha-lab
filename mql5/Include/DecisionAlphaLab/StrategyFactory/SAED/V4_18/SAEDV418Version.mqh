@@ -1,0 +1,5 @@
+#pragma once
+#define SAED_V4_18_PHASE "SAED_V4_18"
+#define SAED_V4_18_VERSION "1.0.0"
+#define SAED_V4_18_RESEARCH_ONLY true
+#define SAED_V4_18_PRODUCTION_AUTHORITY false

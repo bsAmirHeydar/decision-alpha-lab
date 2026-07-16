@@ -1,0 +1,60 @@
+{
+  "environment_count": 4,
+  "environments": [
+    {
+      "environment_id": "env_2",
+      "row_count": 80,
+      "values": {
+        "policy_conservative_lcb": 0.06782395022784364,
+        "policy_fixed_a": -0.19210579181975473,
+        "policy_fixed_b": -0.24300508034424576,
+        "policy_fixed_manual": 0.03136017566026743,
+        "policy_manual_rule": 0.044980491042066945,
+        "policy_skip_all": -0.13120931786673046,
+        "policy_uplift_argmax": 0.07653091073083101
+      }
+    },
+    {
+      "environment_id": "env_3",
+      "row_count": 80,
+      "values": {
+        "policy_conservative_lcb": 0.04146081154849075,
+        "policy_fixed_a": -0.20859614081390498,
+        "policy_fixed_b": -0.22692179755685374,
+        "policy_fixed_manual": 0.018528061367992576,
+        "policy_manual_rule": -0.020104304702520018,
+        "policy_skip_all": -0.12417009097527396,
+        "policy_uplift_argmax": 0.06469066520866575
+      }
+    },
+    {
+      "environment_id": "env_4",
+      "row_count": 80,
+      "values": {
+        "policy_conservative_lcb": 0.07392864528279264,
+        "policy_fixed_a": -0.2834410987010834,
+        "policy_fixed_b": -0.23714429613170113,
+        "policy_fixed_manual": 0.08035782197817146,
+        "policy_manual_rule": 0.03021498917466493,
+        "policy_skip_all": -0.1361584995332099,
+        "policy_uplift_argmax": 0.08843740436173632
+      }
+    },
+    {
+      "environment_id": "env_5",
+      "row_count": 80,
+      "values": {
+        "policy_conservative_lcb": 0.08824476137406961,
+        "policy_fixed_a": -0.33910689176608144,
+        "policy_fixed_b": -0.26414445201154035,
+        "policy_fixed_manual": 0.08989740754378954,
+        "policy_manual_rule": 0.03245445251493345,
+        "policy_skip_all": -0.1358303361650844,
+        "policy_uplift_argmax": 0.10268533467953182
+      }
+    }
+  ],
+  "phase": "SAED_V4_18",
+  "report_hash": "89e545f0d97088d765315e28601cd08f9e8394de1afdaa7a33490d94d809cea0",
+  "transport_claim": false
+}

@@ -1,0 +1,9 @@
+class SAEDV418Error(Exception): pass
+class ContractError(SAEDV418Error): pass
+class IntegrityError(SAEDV418Error): pass
+class AuthorityError(SAEDV418Error): pass
+class SupportError(SAEDV418Error): pass
+class IdentificationError(SAEDV418Error): pass
+class LeakageError(SAEDV418Error): pass
+class BudgetError(SAEDV418Error): pass
+class PolicyError(SAEDV418Error): pass

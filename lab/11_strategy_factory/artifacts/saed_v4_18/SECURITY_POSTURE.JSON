@@ -1,0 +1,26 @@
+{
+  "controls": [
+    "content hashes",
+    "closed schemas",
+    "known-time folds",
+    "authority guard",
+    "fail-closed support fallback"
+  ],
+  "credential_access": false,
+  "dynamic_code_loading": false,
+  "execution": false,
+  "live_account_access": false,
+  "network_access_required": false,
+  "phase": "SAED_V4_18",
+  "posture_hash": "0d4b4bc1c366c830c44194319b35d2ab6111eb6e9cc04eaf92305d2c29617d7f",
+  "protected_evidence_access": false,
+  "runtime_activation": false,
+  "threats": [
+    "artifact substitution",
+    "role contamination",
+    "future leakage",
+    "policy authority escalation",
+    "propensity instability"
+  ],
+  "unsigned_model_loading": false
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "abstain_on_support_failure": true,
+    "enabled": true,
+    "evaluation_only": true,
+    "minimum_uplift": 0.0,
+    "policy_id": "policy_skip_all",
+    "policy_type": "skip_all",
+    "preserve_manual_fallback": true,
+    "treatment_id": "t_skip"
+  },
+  {
+    "abstain_on_support_failure": true,
+    "enabled": true,
+    "evaluation_only": true,
+    "minimum_uplift": 0.0,
+    "policy_id": "policy_fixed_manual",
+    "policy_type": "fixed_treatment",
+    "preserve_manual_fallback": true,
+    "treatment_id": "t_manual"
+  },
+  {
+    "abstain_on_support_failure": true,
+    "enabled": true,
+    "evaluation_only": true,
+    "minimum_uplift": 0.0,
+    "policy_id": "policy_fixed_a",
+    "policy_type": "fixed_treatment",
+    "preserve_manual_fallback": true,
+    "treatment_id": "t_adaptive_a"
+  },
+  {
+    "abstain_on_support_failure": true,
+    "enabled": true,
+    "evaluation_only": true,
+    "minimum_uplift": 0.0,
+    "policy_id": "policy_fixed_b",
+    "policy_type": "fixed_treatment",
+    "preserve_manual_fallback": true,
+    "treatment_id": "t_adaptive_b"
+  },
+  {
+    "abstain_on_support_failure": true,
+    "enabled": true,
+    "evaluation_only": true,
+    "minimum_uplift": 0.0,
+    "policy_id": "policy_manual_rule",
+    "policy_type": "manual_rule",
+    "preserve_manual_fallback": true,
+    "treatment_id": "t_manual"
+  },
+  {
+    "abstain_on_support_failure": true,
+    "enabled": true,
+    "evaluation_only": true,
+    "minimum_uplift": 0.035,
+    "policy_id": "policy_uplift_argmax",
+    "policy_type": "uplift_argmax",
+    "preserve_manual_fallback": true,
+    "treatment_id": "t_skip"
+  },
+  {
+    "abstain_on_support_failure": true,
+    "enabled": true,
+    "evaluation_only": true,
+    "minimum_uplift": 0.045,
+    "policy_id": "policy_conservative_lcb",
+    "policy_type": "conservative_lcb",
+    "preserve_manual_fallback": true,
+    "treatment_id": "t_skip"
+  }
+]

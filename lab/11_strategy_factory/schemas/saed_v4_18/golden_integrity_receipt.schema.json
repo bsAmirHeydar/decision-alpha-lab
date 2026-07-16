@@ -1,0 +1,189 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_18/golden_integrity_receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-18 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "all_hashes_verified": {
+      "type": "boolean"
+    },
+    "artifact_count": {
+      "type": "integer"
+    },
+    "artifact_hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "ate_report": {
+          "type": "string"
+        },
+        "authority_boundary": {
+          "type": "string"
+        },
+        "candidate_checkpoints": {
+          "type": "string"
+        },
+        "cate_report": {
+          "type": "string"
+        },
+        "checkpoint_registry": {
+          "type": "string"
+        },
+        "claim_tier_report": {
+          "type": "string"
+        },
+        "compute_budget": {
+          "type": "string"
+        },
+        "compute_exposure_ledger": {
+          "type": "string"
+        },
+        "cost_stress": {
+          "type": "string"
+        },
+        "crossfit_predictions": {
+          "type": "string"
+        },
+        "estimator_catalog": {
+          "type": "string"
+        },
+        "estimator_scorecard": {
+          "type": "string"
+        },
+        "fail_closed_audits": {
+          "type": "string"
+        },
+        "future_suffix_audit": {
+          "type": "string"
+        },
+        "hidden_confounder_sensitivity": {
+          "type": "string"
+        },
+        "identification_plan": {
+          "type": "string"
+        },
+        "negative_control_report": {
+          "type": "string"
+        },
+        "nuisance_report": {
+          "type": "string"
+        },
+        "outcome_spec": {
+          "type": "string"
+        },
+        "overlap_report": {
+          "type": "string"
+        },
+        "policy_catalog": {
+          "type": "string"
+        },
+        "policy_specs": {
+          "type": "string"
+        },
+        "policy_value_report": {
+          "type": "string"
+        },
+        "propensity_report": {
+          "type": "string"
+        },
+        "propensity_sensitivity": {
+          "type": "string"
+        },
+        "security_posture": {
+          "type": "string"
+        },
+        "split_audit": {
+          "type": "string"
+        },
+        "split_plan": {
+          "type": "string"
+        },
+        "subgroup_report": {
+          "type": "string"
+        },
+        "synthetic_ground_truth": {
+          "type": "string"
+        },
+        "synthetic_treatment_dataset": {
+          "type": "string"
+        },
+        "tournament": {
+          "type": "string"
+        },
+        "transport_report": {
+          "type": "string"
+        },
+        "treatment_ranking": {
+          "type": "string"
+        },
+        "treatment_registry": {
+          "type": "string"
+        },
+        "upstream_validation": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ate_report",
+        "authority_boundary",
+        "candidate_checkpoints",
+        "cate_report",
+        "checkpoint_registry",
+        "claim_tier_report",
+        "compute_budget",
+        "compute_exposure_ledger",
+        "cost_stress",
+        "crossfit_predictions",
+        "estimator_catalog",
+        "estimator_scorecard",
+        "fail_closed_audits",
+        "future_suffix_audit",
+        "hidden_confounder_sensitivity",
+        "identification_plan",
+        "negative_control_report",
+        "nuisance_report",
+        "outcome_spec",
+        "overlap_report",
+        "policy_catalog",
+        "policy_specs",
+        "policy_value_report",
+        "propensity_report",
+        "propensity_sensitivity",
+        "security_posture",
+        "split_audit",
+        "split_plan",
+        "subgroup_report",
+        "synthetic_ground_truth",
+        "synthetic_treatment_dataset",
+        "tournament",
+        "transport_report",
+        "treatment_ranking",
+        "treatment_registry",
+        "upstream_validation"
+      ],
+      "type": "object"
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "all_hashes_verified",
+    "artifact_count",
+    "artifact_hashes",
+    "immutable",
+    "phase",
+    "receipt_hash",
+    "receipt_id"
+  ],
+  "title": "GOLDEN_INTEGRITY_RECEIPT",
+  "type": "object"
+}

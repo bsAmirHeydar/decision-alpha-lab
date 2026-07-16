@@ -1,0 +1,92 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_18/golden_policy_tournament.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-18 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "baseline_policy_id": {
+      "type": "string"
+    },
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "candidates": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "admissible": {
+            "type": "boolean"
+          },
+          "baseline": {
+            "type": "boolean"
+          },
+          "lower_bound": {
+            "type": "number"
+          },
+          "manual_baseline": {
+            "type": "boolean"
+          },
+          "policy_id": {
+            "type": "string"
+          },
+          "score": {
+            "type": "number"
+          },
+          "support_rate": {
+            "type": "number"
+          },
+          "tail_value": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "admissible",
+          "baseline",
+          "lower_bound",
+          "manual_baseline",
+          "policy_id",
+          "score",
+          "support_rate",
+          "tail_value"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "manual_fallback_preserved": {
+      "type": "boolean"
+    },
+    "manual_policy_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_promotion_allowed": {
+      "type": "boolean"
+    },
+    "reference_champion_id": {
+      "type": "string"
+    },
+    "tournament_hash": {
+      "type": "string"
+    },
+    "tournament_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "baseline_policy_id",
+    "baseline_preserved",
+    "candidates",
+    "manual_fallback_preserved",
+    "manual_policy_id",
+    "phase",
+    "production_promotion_allowed",
+    "reference_champion_id",
+    "tournament_hash",
+    "tournament_id"
+  ],
+  "title": "GOLDEN_POLICY_TOURNAMENT",
+  "type": "object"
+}

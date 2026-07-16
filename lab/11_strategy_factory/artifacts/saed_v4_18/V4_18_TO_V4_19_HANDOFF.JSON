@@ -1,0 +1,37 @@
+{
+  "authority": {
+    "activate_runtime": false,
+    "assert_real_policy_value": false,
+    "assert_real_treatment_effect": false,
+    "compile_runtime": false,
+    "read_immutable_policy_value_evidence": true,
+    "read_immutable_treatment_effect_evidence": true,
+    "select_live_treatment": false,
+    "send_order": false,
+    "sign_promotion": false,
+    "use_as_neurosymbolic_research_feature": true
+  },
+  "claim_tier": "synthetic_treatment_and_policy_value",
+  "entry_gates": {
+    "baseline_preserved": true,
+    "closed_contracts": true,
+    "cross_fitting_complete": true,
+    "deterministic_replay": true,
+    "immutable_upstream": true,
+    "negative_controls_passed": true,
+    "overlap_audited": true,
+    "research_checkpoints_immutable": true,
+    "treatment_universe_frozen": true
+  },
+  "handoff_hash": "ea3553db99b3cd98857b49277fd9843031bdbb50e30400ceb7eb936f2fd271f1",
+  "handoff_id": "v418_to_v419_200cbf5caaf778b61c163d64",
+  "immutable": true,
+  "integrity_receipt_hash": "e1b0f2ff453a3ee3b2df74543155a0f0b3d2b68f572a7466ef2691edfa55b8fe",
+  "next_phase": "SAED_V4_19",
+  "phase": "SAED_V4_18",
+  "reference_policy_id": "policy_uplift_argmax",
+  "registry_hash": "9a01a23717f4a9bbff9c01711fd758b53745f0b1e3014053463576e555d01f5b",
+  "registry_id": "v418_registry_64f966374fd9de0d80e629ab",
+  "research_only": true,
+  "upstream_validation_hash": "d4442c0a27de1b0c82bd9058abb7092ff47282f2b99ccc01d7255e681c32f88e"
+}

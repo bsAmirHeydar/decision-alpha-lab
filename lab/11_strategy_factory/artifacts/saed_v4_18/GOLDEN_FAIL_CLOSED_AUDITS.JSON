@@ -1,0 +1,44 @@
+{
+  "case_count": 6,
+  "cases": [
+    {
+      "case": "overlap_failure",
+      "directive": "abstain_to_skip",
+      "mutation": "effective_sample_size_below_floor",
+      "passed": true
+    },
+    {
+      "case": "negative_control_failure",
+      "directive": "reject_or_quarantine",
+      "mutation": "negative_control_value_above_threshold",
+      "passed": true
+    },
+    {
+      "case": "authority_escalation",
+      "directive": "reject",
+      "mutation": "select_live_treatment",
+      "passed": true
+    },
+    {
+      "case": "protected_evidence_exposure",
+      "directive": "quarantine",
+      "mutation": "protected_exposure_nonzero",
+      "passed": true
+    },
+    {
+      "case": "hash_mismatch",
+      "directive": "reject",
+      "mutation": "upstream_hash_changed",
+      "passed": true
+    },
+    {
+      "case": "future_training",
+      "directive": "reject",
+      "mutation": "future_row_enters_training",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "phase": "SAED_V4_18",
+  "report_hash": "9fec0e82bfa607e937e4d105988bc2efd919b88b7e96316594e630664c0031c9"
+}

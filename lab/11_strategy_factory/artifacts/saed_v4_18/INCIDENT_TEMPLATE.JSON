@@ -1,0 +1,10 @@
+{
+  "affected_artifacts": [],
+  "authority_escalation": false,
+  "containment": "quarantine_and_revoke_reference_checkpoint",
+  "incident_id": "TEMPLATE",
+  "phase": "SAED_V4_18",
+  "severity": "unassigned",
+  "status": "template",
+  "trigger": "unassigned"
+}

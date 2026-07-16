@@ -1,0 +1,45 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_18/incident_template.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-18 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "affected_artifacts": {
+      "items": {},
+      "type": "array"
+    },
+    "authority_escalation": {
+      "type": "boolean"
+    },
+    "containment": {
+      "type": "string"
+    },
+    "incident_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "severity": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "trigger": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "affected_artifacts",
+    "authority_escalation",
+    "containment",
+    "incident_id",
+    "phase",
+    "severity",
+    "status",
+    "trigger"
+  ],
+  "title": "INCIDENT_TEMPLATE",
+  "type": "object"
+}

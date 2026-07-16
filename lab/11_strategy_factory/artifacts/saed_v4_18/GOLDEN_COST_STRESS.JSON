@@ -1,0 +1,60 @@
+{
+  "multipliers": [
+    1.0,
+    1.25,
+    1.5,
+    2.0
+  ],
+  "phase": "SAED_V4_18",
+  "report_hash": "f6952b8cd2aefcfd51abd42eaa620ec5103c7405b8e213485fa3bf4e29eb9cc7",
+  "runs": [
+    {
+      "cost_multiplier": 1.0,
+      "values": {
+        "policy_conservative_lcb": 0.06786454210829916,
+        "policy_fixed_a": -0.25581248077520613,
+        "policy_fixed_b": -0.24280390651108524,
+        "policy_fixed_manual": 0.055035866637555254,
+        "policy_manual_rule": 0.021886407007286328,
+        "policy_skip_all": -0.13184206113507468,
+        "policy_uplift_argmax": 0.08308607874519122
+      }
+    },
+    {
+      "cost_multiplier": 1.25,
+      "values": {
+        "policy_conservative_lcb": 0.06459422960829916,
+        "policy_fixed_a": -0.25931248077520613,
+        "policy_fixed_b": -0.24830390651108525,
+        "policy_fixed_manual": 0.05053586663755525,
+        "policy_manual_rule": 0.019416094507286326,
+        "policy_skip_all": -0.13184206113507468,
+        "policy_uplift_argmax": 0.07910014124519123
+      }
+    },
+    {
+      "cost_multiplier": 1.5,
+      "values": {
+        "policy_conservative_lcb": 0.06132391710829917,
+        "policy_fixed_a": -0.26281248077520614,
+        "policy_fixed_b": -0.2538039065110852,
+        "policy_fixed_manual": 0.04603586663755525,
+        "policy_manual_rule": 0.016945782007286324,
+        "policy_skip_all": -0.13184206113507468,
+        "policy_uplift_argmax": 0.07511420374519122
+      }
+    },
+    {
+      "cost_multiplier": 2.0,
+      "values": {
+        "policy_conservative_lcb": 0.054783292108299166,
+        "policy_fixed_a": -0.26981248077520614,
+        "policy_fixed_b": -0.26480390651108526,
+        "policy_fixed_manual": 0.037035866637555245,
+        "policy_manual_rule": 0.012005157007286327,
+        "policy_skip_all": -0.13184206113507468,
+        "policy_uplift_argmax": 0.06714232874519122
+      }
+    }
+  ]
+}

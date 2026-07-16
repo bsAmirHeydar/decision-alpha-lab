@@ -1,0 +1,36 @@
+{
+  "phase": "SAED_V4_18",
+  "production_ranking_authority": false,
+  "ranking": [
+    {
+      "estimate": 0.18687792777262993,
+      "lower_95": 0.16550876104860038,
+      "rank": 1,
+      "research_only": true,
+      "treatment_id": "t_manual"
+    },
+    {
+      "estimate": 0.0,
+      "lower_95": 0.0,
+      "rank": 2,
+      "research_only": true,
+      "treatment_id": "t_skip"
+    },
+    {
+      "estimate": -0.11096184537601055,
+      "lower_95": -0.12697708490210158,
+      "rank": 3,
+      "research_only": true,
+      "treatment_id": "t_adaptive_b"
+    },
+    {
+      "estimate": -0.12397041964013147,
+      "lower_95": -0.1452714096684559,
+      "rank": 4,
+      "research_only": true,
+      "treatment_id": "t_adaptive_a"
+    }
+  ],
+  "ranking_basis": "synthetic_cross_fitted_aipw_lower_95",
+  "report_hash": "6b0311bb2a89ddd75654f0088b0cb6f1126ffef4ce780d0339effd0478002a1e"
+}

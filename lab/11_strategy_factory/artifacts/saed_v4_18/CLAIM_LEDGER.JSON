@@ -1,0 +1,19 @@
+{
+  "allowed_claims": [
+    "closed-contract reference implementation",
+    "deterministic synthetic treatment-effect estimation",
+    "synthetic off-policy policy-value estimation",
+    "baseline-preserving research tournament"
+  ],
+  "forbidden_claims": [
+    "real treatment effect",
+    "real policy value",
+    "economic uplift",
+    "real alpha",
+    "production treatment ranking",
+    "promotion",
+    "runtime activation",
+    "live trading"
+  ],
+  "phase": "SAED_V4_18"
+}

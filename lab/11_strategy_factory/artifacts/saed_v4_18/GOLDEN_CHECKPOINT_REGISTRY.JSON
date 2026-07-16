@@ -1,0 +1,88 @@
+{
+  "checkpoints": [
+    {
+      "checkpoint_hash": "c2ec0a176ea9a67c9e32efa8c71febbb6cf481b5e0c25b68a82e95e97546693f",
+      "checkpoint_id": "v418_checkpoint_df716bed19a508cd4f2f4224",
+      "claim_tier": "synthetic_treatment_and_policy_value",
+      "dr_value": -0.13184206113507468,
+      "lower_bound": -0.14341259302625614,
+      "phase": "SAED_V4_18",
+      "policy_id": "policy_skip_all",
+      "promotion_authority": false,
+      "research_only": true
+    },
+    {
+      "checkpoint_hash": "3bd2e38e19784ec8fcd72daff76f182a64241311b4d4ec4ae7ed94ccf4380c9d",
+      "checkpoint_id": "v418_checkpoint_63aa489d5797086cbd2c05bb",
+      "claim_tier": "synthetic_treatment_and_policy_value",
+      "dr_value": 0.055035866637555254,
+      "lower_bound": 0.027544662080691475,
+      "phase": "SAED_V4_18",
+      "policy_id": "policy_fixed_manual",
+      "promotion_authority": false,
+      "research_only": true
+    },
+    {
+      "checkpoint_hash": "13c883427c4d4082150a75bb28491108095bb76e5865d31a2bf55c48a7b7c31b",
+      "checkpoint_id": "v418_checkpoint_f9ffd6e672d38b387a1c13b4",
+      "claim_tier": "synthetic_treatment_and_policy_value",
+      "dr_value": -0.25581248077520613,
+      "lower_bound": -0.28539862009422956,
+      "phase": "SAED_V4_18",
+      "policy_id": "policy_fixed_a",
+      "promotion_authority": false,
+      "research_only": true
+    },
+    {
+      "checkpoint_hash": "06b15c99d3a37cf7840c7f2d7d772939ea74d5cd654930ccb4487ecaf1cd1e09",
+      "checkpoint_id": "v418_checkpoint_c32d63b7d493224cf14b1e45",
+      "claim_tier": "synthetic_treatment_and_policy_value",
+      "dr_value": -0.24280390651108524,
+      "lower_bound": -0.26340498564175296,
+      "phase": "SAED_V4_18",
+      "policy_id": "policy_fixed_b",
+      "promotion_authority": false,
+      "research_only": true
+    },
+    {
+      "checkpoint_hash": "f6f6d4df72b6d2cb306b3f90b191f23baa4068ecdc42ce36456e2e766bddb6b8",
+      "checkpoint_id": "v418_checkpoint_9ca34a58ef1188f94b78f9c0",
+      "claim_tier": "synthetic_treatment_and_policy_value",
+      "dr_value": 0.021886407007286328,
+      "lower_bound": -0.006886433194995108,
+      "phase": "SAED_V4_18",
+      "policy_id": "policy_manual_rule",
+      "promotion_authority": false,
+      "research_only": true
+    },
+    {
+      "checkpoint_hash": "decf0138fba2b06094e3381d7a0fc6c554a8afa75f0e3dcc120bd99b468fe5ae",
+      "checkpoint_id": "v418_checkpoint_56e45dfadcdf7713bcf172f6",
+      "claim_tier": "synthetic_treatment_and_policy_value",
+      "dr_value": 0.08308607874519122,
+      "lower_bound": 0.05855595276216145,
+      "phase": "SAED_V4_18",
+      "policy_id": "policy_uplift_argmax",
+      "promotion_authority": false,
+      "research_only": true
+    },
+    {
+      "checkpoint_hash": "460498faad1b2d3bea75c832d05625d23e238ef4fd4419eaf422ab7cd2740ece",
+      "checkpoint_id": "v418_checkpoint_9b3929916322b2040f28d659",
+      "claim_tier": "synthetic_treatment_and_policy_value",
+      "dr_value": 0.06786454210829916,
+      "lower_bound": 0.04098340309823653,
+      "phase": "SAED_V4_18",
+      "policy_id": "policy_conservative_lcb",
+      "promotion_authority": false,
+      "research_only": true
+    }
+  ],
+  "immutable": true,
+  "phase": "SAED_V4_18",
+  "policy_champion_id": "policy_uplift_argmax",
+  "production_registry": false,
+  "reference_champion_id": "v418_checkpoint_56e45dfadcdf7713bcf172f6",
+  "registry_hash": "9a01a23717f4a9bbff9c01711fd758b53745f0b1e3014053463576e555d01f5b",
+  "registry_id": "v418_registry_64f966374fd9de0d80e629ab"
+}

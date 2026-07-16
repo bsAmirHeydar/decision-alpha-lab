@@ -1,0 +1,4 @@
+#pragma once
+enum SAEDV418Directive { V418_CONTINUE_REFERENCE=0, V418_BASELINE=1, V418_ABSTAIN=2, V418_MANUAL=3, V418_REJECT=4, V418_QUARANTINE=5 };
+SAEDV418Directive SAEDV418SupportFailureDirective(){ return V418_ABSTAIN; }
+SAEDV418Directive SAEDV418IntegrityFailureDirective(){ return V418_QUARANTINE; }

@@ -1,0 +1,35 @@
+{
+  "phase": "SAED_V4_18",
+  "vectors": [
+    {
+      "expected_error": "ContractError",
+      "mutation": "add_unknown_field",
+      "name": "unknown_field"
+    },
+    {
+      "expected_error": "LeakageError",
+      "mutation": "train_on_future_rows",
+      "name": "future_training"
+    },
+    {
+      "expected_error": "LeakageError",
+      "mutation": "split_cluster_across_train_eval",
+      "name": "sibling_split"
+    },
+    {
+      "expected_error": "BudgetError",
+      "mutation": "set_exposure_one",
+      "name": "protected_exposure"
+    },
+    {
+      "expected_error": "ContractError",
+      "mutation": "enable_runtime_selectable",
+      "name": "runtime_selection"
+    },
+    {
+      "expected_error": "AuthorityError",
+      "mutation": "set_claim_ceiling_real",
+      "name": "real_claim_escalation"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "grid": [
+    0.01,
+    0.03,
+    0.05,
+    0.08,
+    0.12
+  ],
+  "phase": "SAED_V4_18",
+  "report_hash": "8e73603d1cf79e92b77b685b61fc0a167779ca6ea2fb0d89b7087f2a85478685",
+  "runs": [
+    {
+      "clip": 0.01,
+      "values": {
+        "policy_conservative_lcb": 0.06786454210829916,
+        "policy_fixed_a": -0.25581248077520613,
+        "policy_fixed_b": -0.24280390651108524,
+        "policy_fixed_manual": 0.055035866637555254,
+        "policy_manual_rule": 0.021886407007286328,
+        "policy_skip_all": -0.13184206113507468,
+        "policy_uplift_argmax": 0.08308607874519122
+      }
+    },
+    {
+      "clip": 0.03,
+      "values": {
+        "policy_conservative_lcb": 0.06786454210829916,
+        "policy_fixed_a": -0.25581248077520613,
+        "policy_fixed_b": -0.24280390651108524,
+        "policy_fixed_manual": 0.055035866637555254,
+        "policy_manual_rule": 0.021886407007286328,
+        "policy_skip_all": -0.13184206113507468,
+        "policy_uplift_argmax": 0.08308607874519122
+      }
+    },
+    {
+      "clip": 0.05,
+      "values": {
+        "policy_conservative_lcb": 0.06786454210829916,
+        "policy_fixed_a": -0.25581248077520613,
+        "policy_fixed_b": -0.24280390651108524,
+        "policy_fixed_manual": 0.055035866637555254,
+        "policy_manual_rule": 0.021886407007286328,
+        "policy_skip_all": -0.13184206113507468,
+        "policy_uplift_argmax": 0.08308607874519122
+      }
+    },
+    {
+      "clip": 0.08,
+      "values": {
+        "policy_conservative_lcb": 0.06786454210829916,
+        "policy_fixed_a": -0.25581248077520613,
+        "policy_fixed_b": -0.24280390651108524,
+        "policy_fixed_manual": 0.055035866637555254,
+        "policy_manual_rule": 0.021886407007286328,
+        "policy_skip_all": -0.13184206113507468,
+        "policy_uplift_argmax": 0.08308607874519122
+      }
+    },
+    {
+      "clip": 0.12,
+      "values": {
+        "policy_conservative_lcb": 0.06786454210829916,
+        "policy_fixed_a": -0.25581248077520613,
+        "policy_fixed_b": -0.24280390651108524,
+        "policy_fixed_manual": 0.055035866637555254,
+        "policy_manual_rule": 0.021886407007286328,
+        "policy_skip_all": -0.13184206113507468,
+        "policy_uplift_argmax": 0.08308607874519122
+      }
+    }
+  ],
+  "sign_stability": {
+    "policy_conservative_lcb": true,
+    "policy_fixed_a": true,
+    "policy_fixed_b": true,
+    "policy_fixed_manual": true,
+    "policy_manual_rule": true,
+    "policy_skip_all": true,
+    "policy_uplift_argmax": true
+  }
+}

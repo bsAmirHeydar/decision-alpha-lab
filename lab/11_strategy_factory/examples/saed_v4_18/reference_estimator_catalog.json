@@ -1,0 +1,52 @@
+[
+  {
+    "algorithm": "difference_in_means",
+    "complexity_tier": 0,
+    "cross_fitted": false,
+    "enabled": true,
+    "estimator_id": "est_dim",
+    "orthogonal": false,
+    "ridge": 0.0,
+    "supports_multitreatment": true
+  },
+  {
+    "algorithm": "s_learner_ridge",
+    "complexity_tier": 1,
+    "cross_fitted": true,
+    "enabled": true,
+    "estimator_id": "est_s_learner",
+    "orthogonal": false,
+    "ridge": 0.02,
+    "supports_multitreatment": true
+  },
+  {
+    "algorithm": "t_learner_ridge",
+    "complexity_tier": 1,
+    "cross_fitted": true,
+    "enabled": true,
+    "estimator_id": "est_t_learner",
+    "orthogonal": false,
+    "ridge": 0.02,
+    "supports_multitreatment": true
+  },
+  {
+    "algorithm": "r_learner_linear",
+    "complexity_tier": 2,
+    "cross_fitted": true,
+    "enabled": true,
+    "estimator_id": "est_r_learner",
+    "orthogonal": true,
+    "ridge": 0.03,
+    "supports_multitreatment": true
+  },
+  {
+    "algorithm": "aipw_dr",
+    "complexity_tier": 2,
+    "cross_fitted": true,
+    "enabled": true,
+    "estimator_id": "est_aipw_dr",
+    "orthogonal": true,
+    "ridge": 0.02,
+    "supports_multitreatment": true
+  }
+]

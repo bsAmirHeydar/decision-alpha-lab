@@ -1,0 +1,45 @@
+{
+  "baseline_treatment_id": "t_skip",
+  "effects": [
+    {
+      "estimand": "ATE_vs_baseline",
+      "estimate": 0.0,
+      "lower_95": 0.0,
+      "row_count": 320,
+      "standard_error": 0.0,
+      "treatment_id": "t_skip",
+      "upper_95": 0.0
+    },
+    {
+      "estimand": "ATE_vs_baseline",
+      "estimate": 0.18687792777262993,
+      "lower_95": 0.16550876104860038,
+      "row_count": 320,
+      "standard_error": 0.010902636083688553,
+      "treatment_id": "t_manual",
+      "upper_95": 0.20824709449665949
+    },
+    {
+      "estimand": "ATE_vs_baseline",
+      "estimate": -0.12397041964013147,
+      "lower_95": -0.1452714096684559,
+      "row_count": 320,
+      "standard_error": 0.010867852055267566,
+      "treatment_id": "t_adaptive_a",
+      "upper_95": -0.10266942961180704
+    },
+    {
+      "estimand": "ATE_vs_baseline",
+      "estimate": -0.11096184537601055,
+      "lower_95": -0.12697708490210158,
+      "row_count": 320,
+      "standard_error": 0.008171040574536242,
+      "treatment_id": "t_adaptive_b",
+      "upper_95": -0.09494660584991951
+    }
+  ],
+  "estimator": "cross_fitted_aipw_dr",
+  "phase": "SAED_V4_18",
+  "report_hash": "0f332b10d9a5334562fde9ae557459a56da5107186f2fa3b23512df92e780bb7",
+  "synthetic_only": true
+}

@@ -1,0 +1,46 @@
+{
+  "global_minimum_propensity": 0.18508607784913456,
+  "overlap_floor": 0.04,
+  "passed": true,
+  "phase": "SAED_V4_18",
+  "report_hash": "15f00f3a93a4ce373015663a7acae553fffd8b4fc0e171b12fb5bcc4f4ccad33",
+  "row_count": 320,
+  "treatments": [
+    {
+      "below_overlap_floor": 0,
+      "effective_sample_size": 94.07780148051671,
+      "maximum_propensity": 0.32955820605073216,
+      "mean_propensity": 0.2545352480938575,
+      "minimum_propensity": 0.1968814603582561,
+      "observed_count": 95,
+      "treatment_id": "t_skip"
+    },
+    {
+      "below_overlap_floor": 0,
+      "effective_sample_size": 90.378168162133,
+      "maximum_propensity": 0.3134573034073798,
+      "mean_propensity": 0.2530867744776682,
+      "minimum_propensity": 0.20128822839235586,
+      "observed_count": 91,
+      "treatment_id": "t_manual"
+    },
+    {
+      "below_overlap_floor": 0,
+      "effective_sample_size": 78.32512029394651,
+      "maximum_propensity": 0.3524537145037539,
+      "mean_propensity": 0.2566605175664506,
+      "minimum_propensity": 0.18508607784913456,
+      "observed_count": 79,
+      "treatment_id": "t_adaptive_a"
+    },
+    {
+      "below_overlap_floor": 0,
+      "effective_sample_size": 54.75296137280318,
+      "maximum_propensity": 0.2851114316940424,
+      "mean_propensity": 0.2357174598620237,
+      "minimum_propensity": 0.18877938980379408,
+      "observed_count": 55,
+      "treatment_id": "t_adaptive_b"
+    }
+  ]
+}
