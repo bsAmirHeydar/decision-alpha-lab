@@ -1,0 +1,5 @@
+#ifndef SAEDV417FALLBACKPOLICY_MQH
+#define SAEDV417FALLBACKPOLICY_MQH
+#include "SAEDV417Types.mqh"
+int SAEDV417FailClosedDirective(){return SAED_V417_ABSTAIN;}
+#endif

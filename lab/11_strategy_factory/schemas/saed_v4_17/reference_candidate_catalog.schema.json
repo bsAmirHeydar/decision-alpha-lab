@@ -1,0 +1,47 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_17/reference_candidate_catalog.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Closed SAED V4-17 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "items": {
+    "additionalProperties": false,
+    "properties": {
+      "algorithm": {
+        "type": "string"
+      },
+      "candidate_id": {
+        "type": "string"
+      },
+      "complexity_tier": {
+        "type": "integer"
+      },
+      "edge_penalty": {
+        "type": "number"
+      },
+      "enabled": {
+        "type": "boolean"
+      },
+      "falsification_weight": {
+        "type": "number"
+      },
+      "invariance_weight": {
+        "type": "number"
+      },
+      "seed": {
+        "type": "integer"
+      }
+    },
+    "required": [
+      "algorithm",
+      "candidate_id",
+      "complexity_tier",
+      "edge_penalty",
+      "enabled",
+      "falsification_weight",
+      "invariance_weight",
+      "seed"
+    ],
+    "type": "object"
+  },
+  "title": "reference_candidate_catalog",
+  "type": "array"
+}

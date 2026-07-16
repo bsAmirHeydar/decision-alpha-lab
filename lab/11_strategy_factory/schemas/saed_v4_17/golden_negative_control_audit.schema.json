@@ -1,0 +1,60 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_17/golden_negative_control_audit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-17 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "all_passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "absolute_correlation": {
+            "type": "number"
+          },
+          "correlation": {
+            "type": "number"
+          },
+          "exposure": {
+            "type": "string"
+          },
+          "outcome": {
+            "type": "string"
+          },
+          "passed": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "absolute_correlation",
+          "correlation",
+          "exposure",
+          "outcome",
+          "passed"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "test_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "all_passed",
+    "phase",
+    "report_hash",
+    "rows",
+    "test_count"
+  ],
+  "title": "GOLDEN_NEGATIVE_CONTROL_AUDIT",
+  "type": "object"
+}

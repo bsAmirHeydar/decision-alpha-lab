@@ -1,0 +1,98 @@
+{
+  "maximum_absolute_residual_parent_correlation": 4.336717346518563e-07,
+  "phase": "SAED_V4_17",
+  "report_hash": "a1d5f067b8f8cf67a78cf0cf626ba2a7218df879d3ade95e3050c2c89552eca3",
+  "row_count": 18,
+  "rows": [
+    {
+      "parent": "context_state",
+      "residual_parent_correlation": 1.8935635171756986e-07,
+      "target": "structure_state"
+    },
+    {
+      "parent": "context_state",
+      "residual_parent_correlation": -1.0523704648652346e-07,
+      "target": "liquidity_state"
+    },
+    {
+      "parent": "negative_control_exposure",
+      "residual_parent_correlation": 4.474762771685125e-09,
+      "target": "liquidity_state"
+    },
+    {
+      "parent": "liquidity_state",
+      "residual_parent_correlation": -2.6870651421686403e-07,
+      "target": "execution_friction"
+    },
+    {
+      "parent": "context_state",
+      "residual_parent_correlation": 1.624487979491251e-07,
+      "target": "treatment_proxy"
+    },
+    {
+      "parent": "instrument_z",
+      "residual_parent_correlation": 3.1726529468038526e-08,
+      "target": "treatment_proxy"
+    },
+    {
+      "parent": "liquidity_state",
+      "residual_parent_correlation": 1.0538819259162692e-07,
+      "target": "treatment_proxy"
+    },
+    {
+      "parent": "structure_state",
+      "residual_parent_correlation": -1.8746713767846954e-07,
+      "target": "treatment_proxy"
+    },
+    {
+      "parent": "execution_friction",
+      "residual_parent_correlation": -3.344322914130866e-07,
+      "target": "mediator_fill_quality"
+    },
+    {
+      "parent": "instrument_z",
+      "residual_parent_correlation": 2.284215615449659e-09,
+      "target": "mediator_fill_quality"
+    },
+    {
+      "parent": "liquidity_state",
+      "residual_parent_correlation": 4.336717346518563e-07,
+      "target": "mediator_fill_quality"
+    },
+    {
+      "parent": "treatment_proxy",
+      "residual_parent_correlation": 1.7909790250604186e-07,
+      "target": "mediator_fill_quality"
+    },
+    {
+      "parent": "instrument_z",
+      "residual_parent_correlation": -9.215687534442562e-09,
+      "target": "outcome_proxy"
+    },
+    {
+      "parent": "liquidity_state",
+      "residual_parent_correlation": 2.3764079212733882e-08,
+      "target": "outcome_proxy"
+    },
+    {
+      "parent": "mediator_fill_quality",
+      "residual_parent_correlation": 1.803945065205465e-07,
+      "target": "outcome_proxy"
+    },
+    {
+      "parent": "treatment_proxy",
+      "residual_parent_correlation": 1.8609223941785755e-08,
+      "target": "outcome_proxy"
+    },
+    {
+      "parent": "context_state",
+      "residual_parent_correlation": 8.054552682666648e-08,
+      "target": "negative_control_outcome"
+    },
+    {
+      "parent": "instrument_z",
+      "residual_parent_correlation": 3.109827146411532e-09,
+      "target": "negative_control_outcome"
+    }
+  ]
+}

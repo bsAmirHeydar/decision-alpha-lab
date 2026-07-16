@@ -1,0 +1,19 @@
+{
+  "causal_effect_claim_allowed": false,
+  "controls": [
+    "context_state",
+    "structure_state",
+    "liquidity_state",
+    "execution_friction"
+  ],
+  "evaluation_rows": 48,
+  "lower_reference_bound": 0.6478218506336165,
+  "orthogonal_association_score": 0.7070020337670933,
+  "outcome_proxy_id": "outcome_proxy",
+  "phase": "SAED_V4_17",
+  "production_eligible": false,
+  "report_hash": "941da462f654fb7e6da0c981d4b98e6ac0e72154e76db63ba52f5e58e735cebd",
+  "standard_error_reference": 0.0301939709864677,
+  "treatment_proxy_id": "treatment_proxy",
+  "upper_reference_bound": 0.76618221690057
+}

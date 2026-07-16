@@ -1,0 +1,128 @@
+{
+  "causal_interpretation_allowed": false,
+  "equation_count": 7,
+  "phase": "SAED_V4_17",
+  "report_hash": "f445265b833a2dfd9a0580ed45460143e19a9be5ddf036eef8a1993556319ca5",
+  "rows": [
+    {
+      "coefficients": {
+        "context_state": 0.2795735578505097
+      },
+      "fit_rows": 144,
+      "intercept": 0.04993252202322729,
+      "parents": [
+        "context_state"
+      ],
+      "residual_mean": 3.4675361958468426e-10,
+      "residual_std": 0.08977822045187642,
+      "synthetic_reference": true,
+      "target": "structure_state"
+    },
+    {
+      "coefficients": {
+        "context_state": -0.18313027224643028,
+        "negative_control_exposure": 0.03652314586032193
+      },
+      "fit_rows": 144,
+      "intercept": -0.05558987688857311,
+      "parents": [
+        "context_state",
+        "negative_control_exposure"
+      ],
+      "residual_mean": -3.8604080958620934e-10,
+      "residual_std": 0.10630778573196313,
+      "synthetic_reference": true,
+      "target": "liquidity_state"
+    },
+    {
+      "coefficients": {
+        "liquidity_state": -0.41787048226394297
+      },
+      "fit_rows": 144,
+      "intercept": -0.054683634800904476,
+      "parents": [
+        "liquidity_state"
+      ],
+      "residual_mean": -3.797474590522188e-10,
+      "residual_std": 0.09928566790061887,
+      "synthetic_reference": true,
+      "target": "execution_friction"
+    },
+    {
+      "coefficients": {
+        "context_state": 0.6885881348199082,
+        "instrument_z": 0.7295413126545008,
+        "liquidity_state": 0.4111962291729561,
+        "structure_state": -0.6528692044413092
+      },
+      "fit_rows": 144,
+      "intercept": 0.5803934045183187,
+      "parents": [
+        "context_state",
+        "instrument_z",
+        "liquidity_state",
+        "structure_state"
+      ],
+      "residual_mean": 4.03050956730248e-09,
+      "residual_std": 0.2641339301487255,
+      "synthetic_reference": true,
+      "target": "treatment_proxy"
+    },
+    {
+      "coefficients": {
+        "execution_friction": -0.3193463098510364,
+        "instrument_z": 0.013878819972326761,
+        "liquidity_state": 0.4140924102174727,
+        "treatment_proxy": 0.7915874168728317
+      },
+      "fit_rows": 144,
+      "intercept": 0.0313045726750657,
+      "parents": [
+        "execution_friction",
+        "instrument_z",
+        "liquidity_state",
+        "treatment_proxy"
+      ],
+      "residual_mean": 2.1739289436411352e-10,
+      "residual_std": 0.06080326616545708,
+      "synthetic_reference": true,
+      "target": "mediator_fill_quality"
+    },
+    {
+      "coefficients": {
+        "instrument_z": -0.06787767822440427,
+        "liquidity_state": 0.03419106504359446,
+        "mediator_fill_quality": 0.8869271825455376,
+        "treatment_proxy": 0.0875437273264034
+      },
+      "fit_rows": 144,
+      "intercept": -0.04501408611754758,
+      "parents": [
+        "instrument_z",
+        "liquidity_state",
+        "mediator_fill_quality",
+        "treatment_proxy"
+      ],
+      "residual_mean": -3.125978586466531e-10,
+      "residual_std": 0.0855932197915646,
+      "synthetic_reference": true,
+      "target": "outcome_proxy"
+    },
+    {
+      "coefficients": {
+        "context_state": 0.7158770770076357,
+        "instrument_z": 0.1451516748815276
+      },
+      "fit_rows": 144,
+      "intercept": 0.10431543660379763,
+      "parents": [
+        "context_state",
+        "instrument_z"
+      ],
+      "residual_mean": 7.244127420320823e-10,
+      "residual_std": 0.5397826497984533,
+      "synthetic_reference": true,
+      "target": "negative_control_outcome"
+    }
+  ]
+}

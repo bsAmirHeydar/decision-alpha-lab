@@ -1,0 +1,30 @@
+{
+  "phase": "SAED_V4_17",
+  "vectors": [
+    {
+      "expected_error": "ContractError",
+      "mutation": "add_unknown_field",
+      "name": "unknown_field"
+    },
+    {
+      "expected_error": "GraphError",
+      "mutation": "reverse_outcome_to_treatment",
+      "name": "future_edge"
+    },
+    {
+      "expected_error": "GraphError",
+      "mutation": "add_cycle",
+      "name": "cycle"
+    },
+    {
+      "expected_error": "ContractError",
+      "mutation": "set_exposure_one",
+      "name": "protected_exposure"
+    },
+    {
+      "expected_error": "ContractError",
+      "mutation": "set_claim_ceiling_causal",
+      "name": "causal_claim_escalation"
+    }
+  ]
+}

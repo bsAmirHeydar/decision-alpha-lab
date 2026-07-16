@@ -1,0 +1,42 @@
+{
+  "assignment_rule": "closed ordinal ranges over frozen V4-16 rows",
+  "environments": [
+    {
+      "description": "deterministic synthetic chronology block 0",
+      "end_ordinal": 59,
+      "environment_id": "env_0",
+      "protected": false,
+      "start_ordinal": 0,
+      "synthetic_intervention_tag": "low_pressure"
+    },
+    {
+      "description": "deterministic synthetic chronology block 1",
+      "end_ordinal": 119,
+      "environment_id": "env_1",
+      "protected": false,
+      "start_ordinal": 60,
+      "synthetic_intervention_tag": "neutral"
+    },
+    {
+      "description": "deterministic synthetic chronology block 2",
+      "end_ordinal": 179,
+      "environment_id": "env_2",
+      "protected": false,
+      "start_ordinal": 120,
+      "synthetic_intervention_tag": "high_liquidity"
+    },
+    {
+      "description": "deterministic synthetic chronology block 3",
+      "end_ordinal": 239,
+      "environment_id": "env_3",
+      "protected": false,
+      "start_ordinal": 180,
+      "synthetic_intervention_tag": "friction_shift"
+    }
+  ],
+  "exact_version": "1.0.0",
+  "future_suffix_forbidden": true,
+  "immutable": true,
+  "minimum_rows": 30,
+  "transport_claims_allowed": false
+}

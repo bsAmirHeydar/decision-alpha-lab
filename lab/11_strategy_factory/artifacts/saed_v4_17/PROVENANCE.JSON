@@ -1,0 +1,13 @@
+{
+  "dataset_hash": "41bae6cb3cae014d68e4a681fd80b46a5c54de9095ef991ab5d94ba1f5dfd657",
+  "evidence_scope": "local_deterministic_synthetic_reference",
+  "generator": "saed_v4_causal_mechanism_discovery.service.build_reference_bundle",
+  "network_access": false,
+  "phase": "SAED_V4_17",
+  "protected_evidence_access": false,
+  "provenance_hash": "f01ec0d699da0d544724a897804061d2a880da1a6705fa777e710b39712169de",
+  "real_data_access": false,
+  "registry_hash": "551159376e66a3a73c7d050748110eab958ea2dfbbe9337616fee26178b70c72",
+  "upstream_v4_16_handoff_hash": "51d671cc9a952c212da885fe83ee0bd04350de45151792556e12fc9be7937d71",
+  "version": "1.0.0"
+}

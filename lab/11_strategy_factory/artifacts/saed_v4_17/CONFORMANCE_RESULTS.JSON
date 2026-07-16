@@ -1,0 +1,14 @@
+{
+  "cycles_rejected": true,
+  "future_edges_rejected": true,
+  "hidden_evaluation_queries": 0,
+  "negative_controls_enforced": true,
+  "negative_vectors_passed": 5,
+  "passed": true,
+  "phase": "SAED_V4_17",
+  "positive_vectors_passed": 5,
+  "protected_evidence_exposures": 0,
+  "synthetic_claim_ceiling_enforced": true,
+  "unknown_fields_rejected": true,
+  "vector_count": 10
+}

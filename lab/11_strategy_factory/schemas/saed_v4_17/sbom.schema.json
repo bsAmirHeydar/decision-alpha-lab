@@ -1,0 +1,54 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_17/sbom.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-17 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "credential_requirements": {
+      "items": {},
+      "type": "array"
+    },
+    "gpu_requirements": {
+      "items": {},
+      "type": "array"
+    },
+    "language": {
+      "type": "string"
+    },
+    "native_extensions": {
+      "items": {},
+      "type": "array"
+    },
+    "network_dependencies": {
+      "items": {},
+      "type": "array"
+    },
+    "optional_test_dependencies": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "runtime_dependencies": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "credential_requirements",
+    "gpu_requirements",
+    "language",
+    "native_extensions",
+    "network_dependencies",
+    "optional_test_dependencies",
+    "phase",
+    "runtime_dependencies"
+  ],
+  "title": "SBOM",
+  "type": "object"
+}

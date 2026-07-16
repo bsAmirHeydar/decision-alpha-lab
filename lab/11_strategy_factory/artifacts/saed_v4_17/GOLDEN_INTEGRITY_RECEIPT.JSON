@@ -1,0 +1,16 @@
+{
+  "causal_claim_authority": false,
+  "checkpoint_registry_hash": "551159376e66a3a73c7d050748110eab958ea2dfbbe9337616fee26178b70c72",
+  "claim_report_hash": "ea8e795541c117b49eae65155d947253928964796bb609bbb6e66098353b4640",
+  "compute_exposure_ledger_hash": "c8159d9015546c635f47b7510085f96fda71ee6c3d3c6f702b40444b7638beb9",
+  "dataset_hash": "41bae6cb3cae014d68e4a681fd80b46a5c54de9095ef991ab5d94ba1f5dfd657",
+  "deterministic": true,
+  "hidden_evaluation_queries": 0,
+  "phase": "SAED_V4_17",
+  "production_eligible": false,
+  "protected_evidence_exposures": 0,
+  "receipt_hash": "823adf4e88d3beda693ac11449b2bd74cdb994444258ad656392d93f29deafa8",
+  "receipt_id": "v417integrity_e4bd25864ddfbae31dce56e5",
+  "synthetic_only": true,
+  "upstream_v4_16_handoff_hash": "51d671cc9a952c212da885fe83ee0bd04350de45151792556e12fc9be7937d71"
+}

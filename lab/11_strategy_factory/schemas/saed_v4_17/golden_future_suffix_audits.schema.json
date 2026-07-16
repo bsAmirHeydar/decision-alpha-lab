@@ -1,0 +1,56 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_17/golden_future_suffix_audits.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-17 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "all_passed": {
+      "type": "boolean"
+    },
+    "item_count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "future_suffix_accessed": {
+            "type": "boolean"
+          },
+          "known_as_of": {
+            "type": "string"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "row_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "future_suffix_accessed",
+          "known_as_of",
+          "passed",
+          "row_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "all_passed",
+    "item_count",
+    "phase",
+    "report_hash",
+    "rows"
+  ],
+  "title": "GOLDEN_FUTURE_SUFFIX_AUDITS",
+  "type": "object"
+}

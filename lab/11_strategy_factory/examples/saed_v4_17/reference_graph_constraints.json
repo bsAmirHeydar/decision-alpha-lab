@@ -1,0 +1,212 @@
+{
+  "acyclic_required": true,
+  "exact_version": "1.0.0",
+  "forbidden_edges": [
+    [
+      "execution_friction",
+      "context_state"
+    ],
+    [
+      "execution_friction",
+      "instrument_z"
+    ],
+    [
+      "execution_friction",
+      "liquidity_state"
+    ],
+    [
+      "execution_friction",
+      "negative_control_exposure"
+    ],
+    [
+      "execution_friction",
+      "structure_state"
+    ],
+    [
+      "liquidity_state",
+      "context_state"
+    ],
+    [
+      "liquidity_state",
+      "instrument_z"
+    ],
+    [
+      "liquidity_state",
+      "negative_control_exposure"
+    ],
+    [
+      "mediator_fill_quality",
+      "context_state"
+    ],
+    [
+      "mediator_fill_quality",
+      "execution_friction"
+    ],
+    [
+      "mediator_fill_quality",
+      "instrument_z"
+    ],
+    [
+      "mediator_fill_quality",
+      "liquidity_state"
+    ],
+    [
+      "mediator_fill_quality",
+      "negative_control_exposure"
+    ],
+    [
+      "mediator_fill_quality",
+      "structure_state"
+    ],
+    [
+      "mediator_fill_quality",
+      "treatment_proxy"
+    ],
+    [
+      "negative_control_exposure",
+      "mediator_fill_quality"
+    ],
+    [
+      "negative_control_exposure",
+      "outcome_proxy"
+    ],
+    [
+      "negative_control_exposure",
+      "treatment_proxy"
+    ],
+    [
+      "negative_control_outcome",
+      "context_state"
+    ],
+    [
+      "negative_control_outcome",
+      "execution_friction"
+    ],
+    [
+      "negative_control_outcome",
+      "instrument_z"
+    ],
+    [
+      "negative_control_outcome",
+      "liquidity_state"
+    ],
+    [
+      "negative_control_outcome",
+      "mediator_fill_quality"
+    ],
+    [
+      "negative_control_outcome",
+      "negative_control_exposure"
+    ],
+    [
+      "negative_control_outcome",
+      "outcome_proxy"
+    ],
+    [
+      "negative_control_outcome",
+      "structure_state"
+    ],
+    [
+      "negative_control_outcome",
+      "treatment_proxy"
+    ],
+    [
+      "outcome_proxy",
+      "context_state"
+    ],
+    [
+      "outcome_proxy",
+      "execution_friction"
+    ],
+    [
+      "outcome_proxy",
+      "instrument_z"
+    ],
+    [
+      "outcome_proxy",
+      "liquidity_state"
+    ],
+    [
+      "outcome_proxy",
+      "mediator_fill_quality"
+    ],
+    [
+      "outcome_proxy",
+      "negative_control_exposure"
+    ],
+    [
+      "outcome_proxy",
+      "structure_state"
+    ],
+    [
+      "outcome_proxy",
+      "treatment_proxy"
+    ],
+    [
+      "structure_state",
+      "context_state"
+    ],
+    [
+      "structure_state",
+      "instrument_z"
+    ],
+    [
+      "structure_state",
+      "negative_control_exposure"
+    ],
+    [
+      "treatment_proxy",
+      "context_state"
+    ],
+    [
+      "treatment_proxy",
+      "execution_friction"
+    ],
+    [
+      "treatment_proxy",
+      "instrument_z"
+    ],
+    [
+      "treatment_proxy",
+      "liquidity_state"
+    ],
+    [
+      "treatment_proxy",
+      "negative_control_exposure"
+    ],
+    [
+      "treatment_proxy",
+      "structure_state"
+    ]
+  ],
+  "latent_edges_sensitivity_only": true,
+  "max_parents": 4,
+  "negative_controls_disconnected_from_target": true,
+  "no_future_to_past": true,
+  "required_edges": [
+    [
+      "instrument_z",
+      "treatment_proxy"
+    ],
+    [
+      "treatment_proxy",
+      "mediator_fill_quality"
+    ],
+    [
+      "mediator_fill_quality",
+      "outcome_proxy"
+    ]
+  ],
+  "temporal_tiers": {
+    "context_state": 0,
+    "execution_friction": 2,
+    "instrument_z": 0,
+    "liquidity_state": 1,
+    "mediator_fill_quality": 4,
+    "negative_control_exposure": 0,
+    "negative_control_outcome": 5,
+    "outcome_proxy": 5,
+    "structure_state": 1,
+    "treatment_proxy": 3
+  }
+}

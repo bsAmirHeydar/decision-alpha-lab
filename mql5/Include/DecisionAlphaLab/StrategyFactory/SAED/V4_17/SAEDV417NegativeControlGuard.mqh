@@ -1,0 +1,4 @@
+#ifndef SAEDV417NEGATIVECONTROLGUARD_MQH
+#define SAEDV417NEGATIVECONTROLGUARD_MQH
+bool SAEDV417NegativeControlsRequired(){return true;}
+#endif

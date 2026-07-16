@@ -1,0 +1,29 @@
+{
+  "all_passed": true,
+  "phase": "SAED_V4_17",
+  "report_hash": "2472b4e9f51e9854b7d38e2a9704a570782ea8f3abc86eeb391ef3e16e917a8f",
+  "rows": [
+    {
+      "absolute_correlation": 0.02900019869531366,
+      "correlation": 0.02900019869531366,
+      "exposure": "negative_control_exposure",
+      "outcome": "outcome_proxy",
+      "passed": true
+    },
+    {
+      "absolute_correlation": 0.12241560934734565,
+      "correlation": 0.12241560934734565,
+      "exposure": "treatment_proxy",
+      "outcome": "negative_control_outcome",
+      "passed": true
+    },
+    {
+      "absolute_correlation": 0.06399105818009186,
+      "correlation": 0.06399105818009186,
+      "exposure": "negative_control_exposure",
+      "outcome": "negative_control_outcome",
+      "passed": true
+    }
+  ],
+  "test_count": 3
+}

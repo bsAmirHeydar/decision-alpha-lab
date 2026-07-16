@@ -1,0 +1,21 @@
+{
+  "audit_hash": "803fdb853172c086738e0264d77b4f25ab82e76dd94286284fe0a1c1940c999c",
+  "backdoor_candidate_exists": true,
+  "candidate_adjustment_set": [
+    "context_state",
+    "instrument_z",
+    "liquidity_state",
+    "structure_state"
+  ],
+  "identification_claim_allowed": false,
+  "outcome_proxy_id": "outcome_proxy",
+  "phase": "SAED_V4_17",
+  "reason": "graph is synthetic reference evidence and unmeasured confounding remains a sensitivity dimension",
+  "treatment_parents": [
+    "context_state",
+    "instrument_z",
+    "liquidity_state",
+    "structure_state"
+  ],
+  "treatment_proxy_id": "treatment_proxy"
+}

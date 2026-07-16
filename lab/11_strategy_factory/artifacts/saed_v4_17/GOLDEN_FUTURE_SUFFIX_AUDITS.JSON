@@ -1,0 +1,200 @@
+{
+  "all_passed": true,
+  "item_count": 32,
+  "phase": "SAED_V4_17",
+  "report_hash": "265aa98cfb505337d9712e4a822ccb4471c49fcf4baeb82164d5f12e848177fa",
+  "rows": [
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T00:00:00Z",
+      "passed": true,
+      "row_id": "v417row_8e6a50dc60b3b7add759e69e"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T00:05:00Z",
+      "passed": true,
+      "row_id": "v417row_e0c9a43ae01e22b5385f34e0"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T00:10:00Z",
+      "passed": true,
+      "row_id": "v417row_49f7b4a101c293a8a6be5655"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T00:15:00Z",
+      "passed": true,
+      "row_id": "v417row_1072ac05f2e672b29f57a845"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T00:20:00Z",
+      "passed": true,
+      "row_id": "v417row_f0a0cf1a81a267c9aa200376"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T00:25:00Z",
+      "passed": true,
+      "row_id": "v417row_ac47fdd037a29c3446213706"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T00:30:00Z",
+      "passed": true,
+      "row_id": "v417row_fecac66e112420c108201753"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T00:35:00Z",
+      "passed": true,
+      "row_id": "v417row_7847dd970475a49c997717e2"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T00:40:00Z",
+      "passed": true,
+      "row_id": "v417row_660f6214885d74f58016df57"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T00:45:00Z",
+      "passed": true,
+      "row_id": "v417row_3c88757e6281514c72782aba"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T00:50:00Z",
+      "passed": true,
+      "row_id": "v417row_fb6bcdb9f60294500872e1a6"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T00:55:00Z",
+      "passed": true,
+      "row_id": "v417row_a6872dcf34d328b178a85162"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T01:00:00Z",
+      "passed": true,
+      "row_id": "v417row_8a63473f1c4c500a93fc113f"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T01:05:00Z",
+      "passed": true,
+      "row_id": "v417row_aae0ef788c641b5ea378ad4a"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T01:10:00Z",
+      "passed": true,
+      "row_id": "v417row_58a7293bbc2962b9b7c193c5"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T01:15:00Z",
+      "passed": true,
+      "row_id": "v417row_595fdc29928d39c04a992d1f"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T01:20:00Z",
+      "passed": true,
+      "row_id": "v417row_c13172c7b6e74cd9d9a865bb"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T01:25:00Z",
+      "passed": true,
+      "row_id": "v417row_65d04003c5f605b92af0fef2"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T01:30:00Z",
+      "passed": true,
+      "row_id": "v417row_4ecbabc32466a8bb978a4242"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T01:35:00Z",
+      "passed": true,
+      "row_id": "v417row_e6ff4e83635abd98bdb186d6"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T01:40:00Z",
+      "passed": true,
+      "row_id": "v417row_db73d240e97e19321fc17e00"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T01:45:00Z",
+      "passed": true,
+      "row_id": "v417row_773147c4031f36c4f11eda80"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T01:50:00Z",
+      "passed": true,
+      "row_id": "v417row_c9c19be02e0fba68ee1a2964"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T01:55:00Z",
+      "passed": true,
+      "row_id": "v417row_03aac603a541260e6f0624a8"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T02:00:00Z",
+      "passed": true,
+      "row_id": "v417row_580c5947dd4161a2ba58b189"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T02:05:00Z",
+      "passed": true,
+      "row_id": "v417row_d7a4f1f5e3026f41748405f9"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T02:10:00Z",
+      "passed": true,
+      "row_id": "v417row_3a0f08ed72650ce6d840e8ad"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T02:15:00Z",
+      "passed": true,
+      "row_id": "v417row_5168ee1d87fd38c1743e9f6d"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T02:20:00Z",
+      "passed": true,
+      "row_id": "v417row_42d864b8e72cd2137dc56c57"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T02:25:00Z",
+      "passed": true,
+      "row_id": "v417row_76cec08f5cd40619f4705b4c"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T02:30:00Z",
+      "passed": true,
+      "row_id": "v417row_e822368215b4cb95f0e7434b"
+    },
+    {
+      "future_suffix_accessed": false,
+      "known_as_of": "2026-01-06T02:35:00Z",
+      "passed": true,
+      "row_id": "v417row_e6ab2d24a95805b124446d2c"
+    }
+  ]
+}

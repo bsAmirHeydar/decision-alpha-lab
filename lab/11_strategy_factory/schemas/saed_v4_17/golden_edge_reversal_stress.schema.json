@@ -1,0 +1,64 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_17/golden_edge_reversal_stress.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-17 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "all_future_reversals_fail_closed": {
+      "type": "boolean"
+    },
+    "edge_count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "required_response": {
+            "type": "string"
+          },
+          "reversal_would_violate_time": {
+            "type": "boolean"
+          },
+          "reversed_source": {
+            "type": "string"
+          },
+          "reversed_target": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "required_response",
+          "reversal_would_violate_time",
+          "reversed_source",
+          "reversed_target",
+          "source",
+          "target"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "all_future_reversals_fail_closed",
+    "edge_count",
+    "phase",
+    "report_hash",
+    "rows"
+  ],
+  "title": "GOLDEN_EDGE_REVERSAL_STRESS",
+  "type": "object"
+}

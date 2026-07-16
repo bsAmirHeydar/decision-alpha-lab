@@ -1,0 +1,29 @@
+{
+  "algorithms": [
+    "correlation_baseline",
+    "temporal_pc_reference",
+    "invariant_mechanism_reference",
+    "structural_equation_reference",
+    "orthogonal_score_reference"
+  ],
+  "association_threshold": 0.22,
+  "bootstrap_replicates": 64,
+  "claim_ceiling": "mechanism_compatible_synthetic_not_causal",
+  "conditional_independence_threshold": 0.13,
+  "exact_version": "1.0.0",
+  "hidden_confounder_grid": [
+    0.0,
+    0.1,
+    0.2,
+    0.35,
+    0.5,
+    0.7,
+    0.9
+  ],
+  "invariance_mean_tolerance": 0.35,
+  "invariance_scale_tolerance": 0.45,
+  "negative_control_threshold": 0.18,
+  "preserve_baseline": true,
+  "seed": 170417,
+  "synthetic_only": true
+}

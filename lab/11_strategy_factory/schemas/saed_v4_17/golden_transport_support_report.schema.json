@@ -1,0 +1,96 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_17/golden_transport_support_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-17 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "all_ranges_overlap": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "environment_statistics": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "environment_id": {
+                  "type": "string"
+                },
+                "maximum": {
+                  "type": "number"
+                },
+                "mean": {
+                  "type": "number"
+                },
+                "minimum": {
+                  "type": "number"
+                },
+                "rows": {
+                  "type": "integer"
+                },
+                "std": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "environment_id",
+                "maximum",
+                "mean",
+                "minimum",
+                "rows",
+                "std"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "range_overlap": {
+            "type": "boolean"
+          },
+          "transport_supported": {
+            "type": "boolean"
+          },
+          "variable_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "environment_statistics",
+          "range_overlap",
+          "transport_supported",
+          "variable_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "transport_claim_allowed": {
+      "type": "boolean"
+    },
+    "variable_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "all_ranges_overlap",
+    "phase",
+    "reason",
+    "report_hash",
+    "rows",
+    "transport_claim_allowed",
+    "variable_count"
+  ],
+  "title": "GOLDEN_TRANSPORT_SUPPORT_REPORT",
+  "type": "object"
+}

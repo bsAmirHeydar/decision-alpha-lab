@@ -1,0 +1,50 @@
+{
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "assert_real_causality": false,
+    "build_reference_causal_treatment_and_policy_value": true,
+    "estimate_production_treatment_effect": false,
+    "mutate_v4_17_evidence": false,
+    "rank_treatments": false,
+    "read_frozen_causal_mechanism_evidence": true,
+    "select_treatment": false,
+    "send_order": false,
+    "sign_promotion": false
+  },
+  "backdoor_audit_hash": "803fdb853172c086738e0264d77b4f25ab82e76dd94286284fe0a1c1940c999c",
+  "causal_benchmark_dataset_hash": "41bae6cb3cae014d68e4a681fd80b46a5c54de9095ef991ab5d94ba1f5dfd657",
+  "claim_tier_report_hash": "ea8e795541c117b49eae65155d947253928964796bb609bbb6e66098353b4640",
+  "entry_gates": {
+    "acyclicity_verified": true,
+    "association_baseline_preserved": true,
+    "authority_boundary_verified": true,
+    "closed_contracts_verified": true,
+    "deterministic_replay_passed": true,
+    "environment_registry_frozen": true,
+    "future_suffix_forbidden": true,
+    "hidden_confounder_sensitivity_attached": true,
+    "known_time_dataset_passed": true,
+    "negative_controls_passed": true,
+    "protected_evidence_air_gap_verified": true,
+    "synthetic_claim_ceiling_enforced": true,
+    "temporal_precedence_verified": true,
+    "upstream_v4_16_binding_verified": true
+  },
+  "environment_registry_hash": "1759059d54ce4489b1b4a9199bbc4fc62306d67fbc3792bfba9c3b6824e4810a",
+  "frontdoor_audit_hash": "34c7e801f1a81c6f7df99a6dcffc3da19fc71e58643730d9d7577de607c05db9",
+  "handoff_hash": "6c1af07a2ad12a008cc6bc015da1f454a439295ac178c928e81a862c55f8fe83",
+  "handoff_id": "v417to18_fe2295c869fe663a0fd285da",
+  "integrity_receipt_hash": "823adf4e88d3beda693ac11449b2bd74cdb994444258ad656392d93f29deafa8",
+  "limitations": [
+    "All variables, environments, mechanisms, interventions and outcomes in the benchmark are deterministic synthetic reference evidence.",
+    "Graphical compatibility, invariance, negative controls and sensitivity results do not identify a real causal mechanism.",
+    "No real-data, protected-evidence, treatment-effect, uplift, promotion, runtime, portfolio, execution or production evidence is attached."
+  ],
+  "mechanism_checkpoint_registry_hash": "551159376e66a3a73c7d050748110eab958ea2dfbbe9337616fee26178b70c72",
+  "next_phase": "SAED_V4_18",
+  "phase": "SAED_V4_17",
+  "reference_champion_id": "v417_temporal_pc_s23",
+  "upstream_v4_16_handoff_hash": "51d671cc9a952c212da885fe83ee0bd04350de45151792556e12fc9be7937d71",
+  "variable_registry_hash": "6907c3b67346d9f8a0b36e1aa5f54a3cadb8dc65d26c834f8587b772b8f307d2"
+}

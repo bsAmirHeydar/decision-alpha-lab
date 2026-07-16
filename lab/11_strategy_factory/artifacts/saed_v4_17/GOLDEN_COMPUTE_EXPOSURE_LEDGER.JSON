@@ -1,0 +1,32 @@
+{
+  "exceeded": [],
+  "ledger_hash": "c8159d9015546c635f47b7510085f96fda71ee6c3d3c6f702b40444b7638beb9",
+  "limits": {
+    "bootstrap_replicates": 256,
+    "candidates": 16,
+    "conditional_tests": 4096,
+    "edges_evaluated": 2048,
+    "failures": 0,
+    "hidden_evaluation_queries": 0,
+    "protected_evidence_exposures": 0,
+    "retries": 0,
+    "rows": 500,
+    "stress_runs": 32,
+    "variables": 32
+  },
+  "passed": true,
+  "phase": "SAED_V4_17",
+  "usage": {
+    "bootstrap_replicates": 64,
+    "candidates": 5,
+    "conditional_tests": 46,
+    "edges_evaluated": 121,
+    "failures": 0,
+    "hidden_evaluation_queries": 0,
+    "protected_evidence_exposures": 0,
+    "retries": 0,
+    "rows": 240,
+    "stress_runs": 6,
+    "variables": 11
+  }
+}

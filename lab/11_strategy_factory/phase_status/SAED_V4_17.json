@@ -1,0 +1,81 @@
+{
+  "authority": {
+    "causal_claim_authority": false,
+    "decision_authority": false,
+    "execution_authority": false,
+    "production_authority": false,
+    "promotion_authority": false,
+    "research_reference_only": true,
+    "runtime_authority": false
+  },
+  "claims": {
+    "association_baseline_preserved": true,
+    "causal_mechanism_discovery_boundary_implemented": true,
+    "closed_contracts_implemented": true,
+    "deterministic_replay_implemented": true,
+    "economic_uplift_established": false,
+    "hidden_confounder_sensitivity_implemented": true,
+    "invariance_audit_implemented": true,
+    "live_trading": false,
+    "negative_controls_implemented": true,
+    "production_authorization": false,
+    "promotion_authorization": false,
+    "real_alpha": false,
+    "real_causal_mechanism_discovered": false,
+    "runtime_activation": false,
+    "synthetic_benchmark_implemented": true,
+    "temporal_graph_reference_implemented": true,
+    "treatment_effect_identified": false
+  },
+  "date": "2026-07-16",
+  "external_evidence": {
+    "distributed_training": "not_claimed",
+    "gpu_reproduction": "not_claimed",
+    "independent_external_replication": "not_claimed",
+    "live": "not_claimed",
+    "metaeditor_compile": "pending_local_windows",
+    "micro_live": "not_claimed",
+    "prospective_paper": "not_claimed",
+    "protected_final_evaluation": "not_claimed",
+    "real_causal_discovery": "not_claimed",
+    "real_treatment_effect": "not_claimed",
+    "runtime_differential_parity": "not_claimed",
+    "shadow": "not_claimed"
+  },
+  "handoff_hash": "6c1af07a2ad12a008cc6bc015da1f454a439295ac178c928e81a862c55f8fe83",
+  "handoff_id": "v417to18_fe2295c869fe663a0fd285da",
+  "implementation_status": "implemented_reference_synthetic",
+  "next_phase": "SAED_V4_18",
+  "phase": "SAED_V4_17",
+  "qa": {
+    "closed_schema_pairs": 48,
+    "golden_reproduction": true,
+    "mql5_static_files": 17,
+    "obsidian_notes": 91,
+    "passed": true,
+    "python_tests": 90
+  },
+  "reference_champion_id": "v417_temporal_pc_s23",
+  "registry_hash": "551159376e66a3a73c7d050748110eab958ea2dfbbe9337616fee26178b70c72",
+  "registry_id": "v417registry_f25d9084ad198230eafe5e56",
+  "scope": {
+    "candidate_graph_edges": 18,
+    "candidate_models": 5,
+    "closed_schema_pairs": 48,
+    "conditional_independence_tests": 46,
+    "deterministic_replay": true,
+    "environments": 4,
+    "hidden_confounder_grid": 7,
+    "immutable_registry": true,
+    "invariance_mechanisms": 7,
+    "negative_control_tests": 3,
+    "structural_equations": 7,
+    "synthetic_dataset_rows": 240,
+    "variables": 11
+  },
+  "title": "Causal Mechanism Discovery",
+  "upstream_phases": [
+    "SAED_V4_16"
+  ],
+  "version": "1.0.0"
+}

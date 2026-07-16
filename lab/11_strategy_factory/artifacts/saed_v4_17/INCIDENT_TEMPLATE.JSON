@@ -1,0 +1,20 @@
+{
+  "affected_artifacts": [],
+  "causal_claims_revoked": true,
+  "containment": "quarantine",
+  "detected_at": "UNASSIGNED",
+  "execution_blocked": true,
+  "incident_id": "UNASSIGNED",
+  "phase": "SAED_V4_17",
+  "required_reviews": [
+    "data_lineage",
+    "graph_constraints",
+    "negative_controls",
+    "invariance",
+    "hidden_confounder_sensitivity",
+    "authority_boundary"
+  ],
+  "runtime_activation_blocked": true,
+  "severity": "UNASSESSED",
+  "suspected_failure_class": "UNASSIGNED"
+}

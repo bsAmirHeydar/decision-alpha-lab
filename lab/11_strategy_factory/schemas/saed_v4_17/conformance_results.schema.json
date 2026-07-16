@@ -1,0 +1,60 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_17/conformance_results.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-17 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "cycles_rejected": {
+      "type": "boolean"
+    },
+    "future_edges_rejected": {
+      "type": "boolean"
+    },
+    "hidden_evaluation_queries": {
+      "type": "integer"
+    },
+    "negative_controls_enforced": {
+      "type": "boolean"
+    },
+    "negative_vectors_passed": {
+      "type": "integer"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "positive_vectors_passed": {
+      "type": "integer"
+    },
+    "protected_evidence_exposures": {
+      "type": "integer"
+    },
+    "synthetic_claim_ceiling_enforced": {
+      "type": "boolean"
+    },
+    "unknown_fields_rejected": {
+      "type": "boolean"
+    },
+    "vector_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "cycles_rejected",
+    "future_edges_rejected",
+    "hidden_evaluation_queries",
+    "negative_controls_enforced",
+    "negative_vectors_passed",
+    "passed",
+    "phase",
+    "positive_vectors_passed",
+    "protected_evidence_exposures",
+    "synthetic_claim_ceiling_enforced",
+    "unknown_fields_rejected",
+    "vector_count"
+  ],
+  "title": "CONFORMANCE_RESULTS",
+  "type": "object"
+}

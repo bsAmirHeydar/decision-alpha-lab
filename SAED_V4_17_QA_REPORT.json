@@ -1,0 +1,69 @@
+{
+  "evidence_scope": "local_deterministic_synthetic_reference",
+  "external_evidence": {
+    "independent_external_replication": "not_claimed",
+    "live": "not_claimed",
+    "metaeditor_compile": "pending_local_windows",
+    "micro_live": "not_claimed",
+    "prospective_paper": "not_claimed",
+    "protected_final_evaluation": "not_claimed",
+    "real_causal_discovery": "not_claimed",
+    "real_treatment_effect": "not_claimed",
+    "runtime_differential_parity": "not_claimed",
+    "shadow": "not_claimed"
+  },
+  "passed": true,
+  "phase": "SAED_V4_17",
+  "results": [
+    {
+      "command": "python tools/strategy_factory/saed_v4_17/validate_saed_v4_17_contracts.py",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "SAED V4-17 closed-contract validation passed: 48 pairs\n"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_17/check_saed_v4_17_boundaries.py",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "SAED V4-17 authority and dependency boundary passed\n"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_17/validate_saed_v4_17_mql5_static.py",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "SAED V4-17 MQL5 static validation passed: 17 files; MetaEditor compile remains external\n"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_17/validate_saed_v4_17_obsidian.py",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "SAED V4-17 Obsidian validation passed: 91 notes\n"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_17/run_saed_v4_17_tests.py",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "........................................................................ [ 80%]\n..................                                                       [100%]\n90 passed in 6.53s\n"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_17/reproduce_saed_v4_17_golden.py",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "SAED V4-17 golden reproduction passed: 8 content-addressed outputs\n"
+    },
+    {
+      "command": "python tools/strategy_factory/saed_v4_17/validate_saed_v4_17_status.py",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "SAED V4-17 phase status validation passed\n"
+    }
+  ],
+  "version": "1.0.0"
+}

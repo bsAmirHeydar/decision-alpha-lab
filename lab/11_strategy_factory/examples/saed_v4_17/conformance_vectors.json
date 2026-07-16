@@ -1,0 +1,25 @@
+{
+  "phase": "SAED_V4_17",
+  "vectors": [
+    {
+      "expected": "accept",
+      "name": "closed_registry"
+    },
+    {
+      "expected": "accept",
+      "name": "known_time_dataset"
+    },
+    {
+      "expected": "accept",
+      "name": "acyclic_graph"
+    },
+    {
+      "expected": "accept",
+      "name": "negative_controls"
+    },
+    {
+      "expected": "accept",
+      "name": "synthetic_claim_ceiling"
+    }
+  ]
+}

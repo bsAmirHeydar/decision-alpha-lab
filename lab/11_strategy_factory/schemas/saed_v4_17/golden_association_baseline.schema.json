@@ -1,0 +1,131 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_17/golden_association_baseline.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-17 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "graph": {
+      "additionalProperties": false,
+      "properties": {
+        "algorithm": {
+          "type": "string"
+        },
+        "candidate_id": {
+          "type": "string"
+        },
+        "claim_tier": {
+          "type": "string"
+        },
+        "edges": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "evidence_class": {
+                "type": "string"
+              },
+              "score": {
+                "type": "number"
+              },
+              "source": {
+                "type": "string"
+              },
+              "target": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "evidence_class",
+              "score",
+              "source",
+              "target"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "graph_hash": {
+          "type": "string"
+        },
+        "maximum_parent_count": {
+          "type": "integer"
+        },
+        "nodes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "production_eligible": {
+          "type": "boolean"
+        },
+        "topological_order": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "valid": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "algorithm",
+        "candidate_id",
+        "claim_tier",
+        "edges",
+        "graph_hash",
+        "maximum_parent_count",
+        "nodes",
+        "production_eligible",
+        "topological_order",
+        "valid"
+      ],
+      "type": "object"
+    },
+    "pair_count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "absolute_correlation": {
+            "type": "number"
+          },
+          "correlation": {
+            "type": "number"
+          },
+          "variable_a": {
+            "type": "string"
+          },
+          "variable_b": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "absolute_correlation",
+          "correlation",
+          "variable_a",
+          "variable_b"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "graph",
+    "pair_count",
+    "phase",
+    "report_hash",
+    "rows"
+  ],
+  "title": "GOLDEN_ASSOCIATION_BASELINE",
+  "type": "object"
+}

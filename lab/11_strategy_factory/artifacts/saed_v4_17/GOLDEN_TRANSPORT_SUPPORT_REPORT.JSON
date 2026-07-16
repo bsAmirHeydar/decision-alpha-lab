@@ -1,0 +1,322 @@
+{
+  "all_ranges_overlap": true,
+  "phase": "SAED_V4_17",
+  "reason": "synthetic environment overlap is diagnostic only",
+  "report_hash": "b32b63657f2c707a3c200f63c4ffcd527b0bccc02ec307c158db6066c9c49c2b",
+  "rows": [
+    {
+      "environment_statistics": [
+        {
+          "environment_id": "env_0",
+          "maximum": 0.969352205989319,
+          "mean": 0.16881794186495952,
+          "minimum": -0.988172115956798,
+          "rows": 60,
+          "std": 0.5786783340532852
+        },
+        {
+          "environment_id": "env_1",
+          "maximum": 0.897303527034975,
+          "mean": 0.05183093827022472,
+          "minimum": -0.958690428074815,
+          "rows": 60,
+          "std": 0.5585737041929572
+        },
+        {
+          "environment_id": "env_2",
+          "maximum": 0.999349634525503,
+          "mean": -0.04395433875757921,
+          "minimum": -0.982130222188214,
+          "rows": 60,
+          "std": 0.5810096650408095
+        },
+        {
+          "environment_id": "env_3",
+          "maximum": 0.965758389552061,
+          "mean": 0.012185033198492184,
+          "minimum": -0.991121839685813,
+          "rows": 60,
+          "std": 0.5494974870308891
+        }
+      ],
+      "range_overlap": true,
+      "transport_supported": false,
+      "variable_id": "instrument_z"
+    },
+    {
+      "environment_statistics": [
+        {
+          "environment_id": "env_0",
+          "maximum": 0.224682144080695,
+          "mean": -0.009656493046410567,
+          "minimum": -0.233477123542929,
+          "rows": 60,
+          "std": 0.10716688491197805
+        },
+        {
+          "environment_id": "env_1",
+          "maximum": 0.132999134185994,
+          "mean": -0.09010249653921706,
+          "minimum": -0.301574338430983,
+          "rows": 60,
+          "std": 0.10793225141569096
+        },
+        {
+          "environment_id": "env_2",
+          "maximum": 0.233264749693538,
+          "mean": -0.035306651834268295,
+          "minimum": -0.257768283521436,
+          "rows": 60,
+          "std": 0.10627380054120654
+        },
+        {
+          "environment_id": "env_3",
+          "maximum": 0.221616505695641,
+          "mean": -0.05859037297565712,
+          "minimum": -0.313309829372347,
+          "rows": 60,
+          "std": 0.14607598745287215
+        }
+      ],
+      "range_overlap": true,
+      "transport_supported": false,
+      "variable_id": "context_state"
+    },
+    {
+      "environment_statistics": [
+        {
+          "environment_id": "env_0",
+          "maximum": 0.279025536517599,
+          "mean": 0.05617485391352971,
+          "minimum": -0.115265214806107,
+          "rows": 60,
+          "std": 0.09964583422665463
+        },
+        {
+          "environment_id": "env_1",
+          "maximum": 0.241423418622825,
+          "mean": 0.030484493012127325,
+          "minimum": -0.157085228472126,
+          "rows": 60,
+          "std": 0.09103805536282257
+        },
+        {
+          "environment_id": "env_2",
+          "maximum": 0.223044728436399,
+          "mean": 0.031964638579473376,
+          "minimum": -0.154010830231685,
+          "rows": 60,
+          "std": 0.0853678125264849
+        },
+        {
+          "environment_id": "env_3",
+          "maximum": 0.225564268132243,
+          "mean": 0.040811926292427275,
+          "minimum": -0.208273881113715,
+          "rows": 60,
+          "std": 0.10854001949948895
+        }
+      ],
+      "range_overlap": true,
+      "transport_supported": false,
+      "variable_id": "structure_state"
+    },
+    {
+      "environment_statistics": [
+        {
+          "environment_id": "env_0",
+          "maximum": 0.207806126609154,
+          "mean": -0.05046033925477244,
+          "minimum": -0.294062246444894,
+          "rows": 60,
+          "std": 0.11408281549013105
+        },
+        {
+          "environment_id": "env_1",
+          "maximum": 0.195008729577379,
+          "mean": -0.04412740185349281,
+          "minimum": -0.298004318307405,
+          "rows": 60,
+          "std": 0.10179807696010096
+        },
+        {
+          "environment_id": "env_2",
+          "maximum": 0.199911555990258,
+          "mean": -0.039688427873429806,
+          "minimum": -0.276929231200386,
+          "rows": 60,
+          "std": 0.10866596026798253
+        },
+        {
+          "environment_id": "env_3",
+          "maximum": 0.207228218813917,
+          "mean": -0.05115385832300135,
+          "minimum": -0.273753245722185,
+          "rows": 60,
+          "std": 0.11927932846531522
+        }
+      ],
+      "range_overlap": true,
+      "transport_supported": false,
+      "variable_id": "liquidity_state"
+    },
+    {
+      "environment_statistics": [
+        {
+          "environment_id": "env_0",
+          "maximum": 0.171386797951691,
+          "mean": -0.03316786090134205,
+          "minimum": -0.277286483813412,
+          "rows": 60,
+          "std": 0.11760200326751896
+        },
+        {
+          "environment_id": "env_1",
+          "maximum": 0.202413593844011,
+          "mean": -0.03965978877733004,
+          "minimum": -0.263319328653984,
+          "rows": 60,
+          "std": 0.09967589599435206
+        },
+        {
+          "environment_id": "env_2",
+          "maximum": 0.182768877271553,
+          "mean": -0.03914962958615547,
+          "minimum": -0.391096356594311,
+          "rows": 60,
+          "std": 0.12069038877832385
+        },
+        {
+          "environment_id": "env_3",
+          "maximum": 0.18027115937738,
+          "mean": -0.06304037561700795,
+          "minimum": -0.35510029875551,
+          "rows": 60,
+          "std": 0.1215497683094112
+        }
+      ],
+      "range_overlap": true,
+      "transport_supported": false,
+      "variable_id": "execution_friction"
+    },
+    {
+      "environment_statistics": [
+        {
+          "environment_id": "env_0",
+          "maximum": 1.0,
+          "mean": 0.5666666666666667,
+          "minimum": 0.0,
+          "rows": 60,
+          "std": 0.49971743428090815
+        },
+        {
+          "environment_id": "env_1",
+          "maximum": 1.0,
+          "mean": 0.55,
+          "minimum": 0.0,
+          "rows": 60,
+          "std": 0.5016920522135438
+        },
+        {
+          "environment_id": "env_2",
+          "maximum": 1.0,
+          "mean": 0.5666666666666667,
+          "minimum": 0.0,
+          "rows": 60,
+          "std": 0.49971743428090815
+        },
+        {
+          "environment_id": "env_3",
+          "maximum": 1.0,
+          "mean": 0.4666666666666667,
+          "minimum": 0.0,
+          "rows": 60,
+          "std": 0.5030977485864634
+        }
+      ],
+      "range_overlap": true,
+      "transport_supported": false,
+      "variable_id": "treatment_proxy"
+    },
+    {
+      "environment_statistics": [
+        {
+          "environment_id": "env_0",
+          "maximum": 1.04097128722131,
+          "mean": 0.4713515985885965,
+          "minimum": -0.204908645385783,
+          "rows": 60,
+          "std": 0.41282573343675805
+        },
+        {
+          "environment_id": "env_1",
+          "maximum": 1.02140041465003,
+          "mean": 0.4646187384266723,
+          "minimum": -0.116710361063391,
+          "rows": 60,
+          "std": 0.41832914459851084
+        },
+        {
+          "environment_id": "env_2",
+          "maximum": 0.985442393729288,
+          "mean": 0.45542624438939644,
+          "minimum": -0.114193536939565,
+          "rows": 60,
+          "std": 0.409955921910889
+        },
+        {
+          "environment_id": "env_3",
+          "maximum": 1.08007275015337,
+          "mean": 0.3949559015059527,
+          "minimum": -0.220058181459429,
+          "rows": 60,
+          "std": 0.44233086386820225
+        }
+      ],
+      "range_overlap": true,
+      "transport_supported": false,
+      "variable_id": "mediator_fill_quality"
+    },
+    {
+      "environment_statistics": [
+        {
+          "environment_id": "env_0",
+          "maximum": 0.979488185562826,
+          "mean": 0.4065282559261041,
+          "minimum": -0.193701954855542,
+          "rows": 60,
+          "std": 0.38287892894179504
+        },
+        {
+          "environment_id": "env_1",
+          "maximum": 1.04136724742394,
+          "mean": 0.4038054500310693,
+          "minimum": -0.158119166994275,
+          "rows": 60,
+          "std": 0.3907852651633717
+        },
+        {
+          "environment_id": "env_2",
+          "maximum": 0.984436105047111,
+          "mean": 0.41566209432640205,
+          "minimum": -0.234859389134507,
+          "rows": 60,
+          "std": 0.3810519374910589
+        },
+        {
+          "environment_id": "env_3",
+          "maximum": 1.04435016405764,
+          "mean": 0.34721231378072487,
+          "minimum": -0.296293852144239,
+          "rows": 60,
+          "std": 0.43398626398774576
+        }
+      ],
+      "range_overlap": true,
+      "transport_supported": false,
+      "variable_id": "outcome_proxy"
+    }
+  ],
+  "transport_claim_allowed": false,
+  "variable_count": 8
+}

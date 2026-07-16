@@ -1,58 +1,41 @@
 ---
 title: V4-17 Causal Mechanism Discovery
-status: canonical
-version: 4.0.0
+status: implemented-reference
+version: 4.1.0
 created: '2026-07-13'
-updated: '2026-07-13'
-capability_tier: core-production
-tags:
-  - saed-v4
-  - implementation
-  - roadmap
+updated: '2026-07-16'
+capability_tier: research-reference
+tags: [saed-v4, implementation, causal-mechanism-discovery]
 ---
-
 # Phase V4-17: Causal Mechanism Discovery
 
 ## Mission
 
-Implement this phase as an additive, closed-contract capability that preserves UCEE authority and can be independently validated.
+Implement a closed-contract, deterministic and falsifiable causal-mechanism discovery reference layer over immutable V4-16 distributional, survival and tail evidence. The phase separates descriptive association, synthetic mechanism compatibility and real causal identification. Its maximum permitted claim is **mechanism-compatible on deterministic synthetic reference evidence**.
 
-## Entry gates
+## Implemented slices
 
-- Prior phase artifacts are immutable and hash verified.
-- Data roles, support, treatment universe and authority are frozen.
-- Golden and negative fixtures exist.
-- Compute, exposure and review budgets are approved.
+1. Immutable V4-16 handoff and hash validation.
+2. Frozen causal variable and environment registries.
+3. Temporal graph constraints with acyclicity and parent budgets.
+4. Watermarked synthetic causal benchmark with isolated ground truth.
+5. Correlation baseline and temporally constrained conditional-association challenger.
+6. Structural-equation, residual, invariance and orthogonal-score reference diagnostics.
+7. Back-door and front-door compatibility audits without identification claims.
+8. Negative-control exposure and outcome tests.
+9. Hidden-confounder, environment-permutation, edge-reversal and transport-support stress tests.
+10. Claim tiering, baseline-preserving tournament and immutable research checkpoints.
+11. Complete compute/exposure ledger, deterministic replay, integrity receipt and V4-18 handoff.
+12. Static MQL5 invariant mirror, closed schemas, pytest suite and Obsidian implementation dossier.
 
-## Engineering slices
+## Acceptance state
 
-1. Contract and schema freeze.
-2. Deterministic reference implementation.
-3. Golden, negative and mutation tests.
-4. Distributed or advanced challenger implementation.
-5. Model-risk and security review.
-6. Independent reproduction.
-7. Evidence bundle and handoff.
+Reference acceptance is closed by local deterministic synthetic evidence. Real-data causal discovery, protected evaluation, independent external replication, MetaEditor compilation, runtime parity, prospective paper, shadow, micro-live and live evidence are not claimed. Treatment effect and policy value remain V4-18 scope.
 
-## Acceptance gates
+## Authority
 
-- Zero unknown fields in closed contracts.
-- No future-suffix sensitivity.
-- Deterministic identity and replay.
-- Complete trial/exposure accounting.
-- Baseline preserved.
-- Fail-closed fallback verified.
-- UCEE compatibility and no central-engine mutation.
-- Actual external/MetaEditor evidence distinguished from static evidence.
+The phase cannot assert real causality, estimate a production treatment effect, rank or select treatments, allocate risk, sign promotion, compile or activate runtime, access live credentials or send orders.
 
-## Deliverables
+## Delivery
 
-- Source modules and tests.
-- Schemas and examples.
-- Obsidian implementation documentation.
-- QA report, inventory, file index and hash ledger.
-- Handoff to the next phase.
-
-## Non-goals
-
-This architecture phase does not claim real alpha, prospective success, runtime parity or production authorization unless actual evidence is attached.
+See [[00_MOC_V4_17_Causal_Mechanism_Discovery]] and `lab/11_strategy_factory/phase_status/SAED_V4_17.json`.

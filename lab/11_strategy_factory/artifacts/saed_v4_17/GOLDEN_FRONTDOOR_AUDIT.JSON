@@ -1,0 +1,12 @@
+{
+  "audit_hash": "34c7e801f1a81c6f7df99a6dcffc3da19fc71e58643730d9d7577de607c05db9",
+  "candidate_mediators": [
+    "mediator_fill_quality"
+  ],
+  "frontdoor_candidate_exists": true,
+  "frontdoor_identification_claim_allowed": false,
+  "outcome_proxy_id": "outcome_proxy",
+  "phase": "SAED_V4_17",
+  "reason": "front-door graphical compatibility is not identification proof",
+  "treatment_proxy_id": "treatment_proxy"
+}

@@ -1,0 +1,56 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_17/golden_synthetic_ground_truth_graph.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-17 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "claimable_as_real_mechanism": {
+      "type": "boolean"
+    },
+    "edge_count": {
+      "type": "integer"
+    },
+    "edges": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "source": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "source",
+          "target"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "graph_hash": {
+      "type": "string"
+    },
+    "node_count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "synthetic_benchmark_truth_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "claimable_as_real_mechanism",
+    "edge_count",
+    "edges",
+    "graph_hash",
+    "node_count",
+    "phase",
+    "synthetic_benchmark_truth_only"
+  ],
+  "title": "GOLDEN_SYNTHETIC_GROUND_TRUTH_GRAPH",
+  "type": "object"
+}

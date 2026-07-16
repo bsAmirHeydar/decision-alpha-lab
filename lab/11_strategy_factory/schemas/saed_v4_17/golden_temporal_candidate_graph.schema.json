@@ -1,0 +1,146 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_17/golden_temporal_candidate_graph.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-17 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "graph": {
+      "additionalProperties": false,
+      "properties": {
+        "algorithm": {
+          "type": "string"
+        },
+        "candidate_id": {
+          "type": "string"
+        },
+        "claim_tier": {
+          "type": "string"
+        },
+        "edges": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "evidence_class": {
+                "type": "string"
+              },
+              "score": {
+                "type": "number"
+              },
+              "signed_score": {
+                "type": "number"
+              },
+              "source": {
+                "type": "string"
+              },
+              "target": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "evidence_class",
+              "score",
+              "signed_score",
+              "source",
+              "target"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "graph_hash": {
+          "type": "string"
+        },
+        "maximum_parent_count": {
+          "type": "integer"
+        },
+        "nodes": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "production_eligible": {
+          "type": "boolean"
+        },
+        "topological_order": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "valid": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "algorithm",
+        "candidate_id",
+        "claim_tier",
+        "edges",
+        "graph_hash",
+        "maximum_parent_count",
+        "nodes",
+        "production_eligible",
+        "topological_order",
+        "valid"
+      ],
+      "type": "object"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "test_count": {
+      "type": "integer"
+    },
+    "tests": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "conditioning_set": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "independent": {
+            "type": "boolean"
+          },
+          "partial_correlation": {
+            "type": "number"
+          },
+          "raw_correlation": {
+            "type": "number"
+          },
+          "source": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "conditioning_set",
+          "independent",
+          "partial_correlation",
+          "raw_correlation",
+          "source",
+          "target"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "graph",
+    "phase",
+    "report_hash",
+    "test_count",
+    "tests"
+  ],
+  "title": "GOLDEN_TEMPORAL_CANDIDATE_GRAPH",
+  "type": "object"
+}

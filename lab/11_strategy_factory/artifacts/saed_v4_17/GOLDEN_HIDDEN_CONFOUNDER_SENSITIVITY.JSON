@@ -1,0 +1,58 @@
+{
+  "base_association_score": 0.7070020337670933,
+  "phase": "SAED_V4_17",
+  "report_hash": "14b25d32d3fbf331491a404debcceee74efc1a81fa8fff8ff22aeffa6c29c0a1",
+  "robustness_claim_allowed": false,
+  "row_count": 7,
+  "rows": [
+    {
+      "adjusted_association_score": 0.7070020337670933,
+      "confounder_strength": 0.0,
+      "identification_survives": false,
+      "magnitude_retained_fraction": 1.0,
+      "sign_preserved": true
+    },
+    {
+      "adjusted_association_score": 0.6213018303903839,
+      "confounder_strength": 0.1,
+      "identification_survives": false,
+      "magnitude_retained_fraction": 0.8787836536762474,
+      "sign_preserved": true
+    },
+    {
+      "adjusted_association_score": 0.5356016270136746,
+      "confounder_strength": 0.2,
+      "identification_survives": false,
+      "magnitude_retained_fraction": 0.7575673073524951,
+      "sign_preserved": true
+    },
+    {
+      "adjusted_association_score": 0.40705132194861066,
+      "confounder_strength": 0.35,
+      "identification_survives": false,
+      "magnitude_retained_fraction": 0.5757427878668664,
+      "sign_preserved": true
+    },
+    {
+      "adjusted_association_score": 0.2785010168835466,
+      "confounder_strength": 0.5,
+      "identification_survives": false,
+      "magnitude_retained_fraction": 0.39391826838123756,
+      "sign_preserved": true
+    },
+    {
+      "adjusted_association_score": 0.10710061013012802,
+      "confounder_strength": 0.7,
+      "identification_survives": false,
+      "magnitude_retained_fraction": 0.15148557573373267,
+      "sign_preserved": true
+    },
+    {
+      "adjusted_association_score": -0.0642997966232907,
+      "confounder_strength": 0.9,
+      "identification_survives": false,
+      "magnitude_retained_fraction": 0.09094711691377241,
+      "sign_preserved": false
+    }
+  ]
+}

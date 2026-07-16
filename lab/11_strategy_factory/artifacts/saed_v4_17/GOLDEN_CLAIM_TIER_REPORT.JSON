@@ -1,0 +1,11 @@
+{
+  "claim_ceiling": "mechanism_compatible_synthetic_not_causal",
+  "claim_tier": "mechanism_compatible_synthetic",
+  "directive": "continue_reference",
+  "failures": [],
+  "phase": "SAED_V4_17",
+  "production_eligible": false,
+  "real_causal_claim": false,
+  "report_hash": "ea8e795541c117b49eae65155d947253928964796bb609bbb6e66098353b4640",
+  "synthetic_benchmark_f1": 0.5161290322580646
+}

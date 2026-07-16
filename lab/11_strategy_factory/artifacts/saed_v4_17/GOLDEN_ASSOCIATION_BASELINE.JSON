@@ -1,0 +1,360 @@
+{
+  "graph": {
+    "algorithm": "correlation_baseline",
+    "candidate_id": "v417_correlation_baseline",
+    "claim_tier": "associational",
+    "edges": [
+      {
+        "evidence_class": "association_only",
+        "score": 0.3391574485067156,
+        "source": "context_state",
+        "target": "structure_state"
+      },
+      {
+        "evidence_class": "association_only",
+        "score": 0.8016237843337045,
+        "source": "instrument_z",
+        "target": "mediator_fill_quality"
+      },
+      {
+        "evidence_class": "association_only",
+        "score": 0.7482057085185247,
+        "source": "instrument_z",
+        "target": "outcome_proxy"
+      },
+      {
+        "evidence_class": "association_only",
+        "score": 0.8279342272532918,
+        "source": "instrument_z",
+        "target": "treatment_proxy"
+      },
+      {
+        "evidence_class": "association_only",
+        "score": 0.4207898916674233,
+        "source": "liquidity_state",
+        "target": "execution_friction"
+      },
+      {
+        "evidence_class": "association_only",
+        "score": 0.9735814986232995,
+        "source": "mediator_fill_quality",
+        "target": "outcome_proxy"
+      },
+      {
+        "evidence_class": "association_only",
+        "score": 0.9752133443804136,
+        "source": "treatment_proxy",
+        "target": "mediator_fill_quality"
+      },
+      {
+        "evidence_class": "association_only",
+        "score": 0.9489827295282787,
+        "source": "treatment_proxy",
+        "target": "outcome_proxy"
+      }
+    ],
+    "graph_hash": "5905b779068eead7083480850aef9bb8147006adf3240dffad49b3da28c45798",
+    "maximum_parent_count": 3,
+    "nodes": [
+      "instrument_z",
+      "context_state",
+      "structure_state",
+      "liquidity_state",
+      "execution_friction",
+      "treatment_proxy",
+      "mediator_fill_quality",
+      "outcome_proxy",
+      "negative_control_exposure",
+      "negative_control_outcome"
+    ],
+    "production_eligible": false,
+    "topological_order": [
+      "context_state",
+      "instrument_z",
+      "liquidity_state",
+      "execution_friction",
+      "negative_control_exposure",
+      "negative_control_outcome",
+      "structure_state",
+      "treatment_proxy",
+      "mediator_fill_quality",
+      "outcome_proxy"
+    ],
+    "valid": true
+  },
+  "pair_count": 45,
+  "phase": "SAED_V4_17",
+  "report_hash": "4d9c8a2fe1a31217a508f48553b576868a92a024bd5ed6980b3004de5a635706",
+  "rows": [
+    {
+      "absolute_correlation": 0.05512594265295631,
+      "correlation": -0.05512594265295631,
+      "variable_a": "instrument_z",
+      "variable_b": "context_state"
+    },
+    {
+      "absolute_correlation": 0.041409535288593945,
+      "correlation": -0.041409535288593945,
+      "variable_a": "instrument_z",
+      "variable_b": "structure_state"
+    },
+    {
+      "absolute_correlation": 0.03990334329557775,
+      "correlation": -0.03990334329557775,
+      "variable_a": "instrument_z",
+      "variable_b": "liquidity_state"
+    },
+    {
+      "absolute_correlation": 0.05610134402521769,
+      "correlation": 0.05610134402521769,
+      "variable_a": "instrument_z",
+      "variable_b": "execution_friction"
+    },
+    {
+      "absolute_correlation": 0.8279342272532918,
+      "correlation": 0.8279342272532918,
+      "variable_a": "instrument_z",
+      "variable_b": "treatment_proxy"
+    },
+    {
+      "absolute_correlation": 0.8016237843337045,
+      "correlation": 0.8016237843337045,
+      "variable_a": "instrument_z",
+      "variable_b": "mediator_fill_quality"
+    },
+    {
+      "absolute_correlation": 0.7482057085185247,
+      "correlation": 0.7482057085185247,
+      "variable_a": "instrument_z",
+      "variable_b": "outcome_proxy"
+    },
+    {
+      "absolute_correlation": 0.04577915036319357,
+      "correlation": 0.04577915036319357,
+      "variable_a": "instrument_z",
+      "variable_b": "negative_control_exposure"
+    },
+    {
+      "absolute_correlation": 0.14140318287684342,
+      "correlation": 0.14140318287684342,
+      "variable_a": "instrument_z",
+      "variable_b": "negative_control_outcome"
+    },
+    {
+      "absolute_correlation": 0.3391574485067156,
+      "correlation": 0.3391574485067156,
+      "variable_a": "context_state",
+      "variable_b": "structure_state"
+    },
+    {
+      "absolute_correlation": 0.18555749321507603,
+      "correlation": -0.18555749321507603,
+      "variable_a": "context_state",
+      "variable_b": "liquidity_state"
+    },
+    {
+      "absolute_correlation": 0.01621376126893402,
+      "correlation": -0.01621376126893402,
+      "variable_a": "context_state",
+      "variable_b": "execution_friction"
+    },
+    {
+      "absolute_correlation": 0.054946745517352284,
+      "correlation": 0.054946745517352284,
+      "variable_a": "context_state",
+      "variable_b": "treatment_proxy"
+    },
+    {
+      "absolute_correlation": 0.028888028349786463,
+      "correlation": 0.028888028349786463,
+      "variable_a": "context_state",
+      "variable_b": "mediator_fill_quality"
+    },
+    {
+      "absolute_correlation": 0.12781247915623953,
+      "correlation": 0.12781247915623953,
+      "variable_a": "context_state",
+      "variable_b": "outcome_proxy"
+    },
+    {
+      "absolute_correlation": 0.036327688209690095,
+      "correlation": 0.036327688209690095,
+      "variable_a": "context_state",
+      "variable_b": "negative_control_exposure"
+    },
+    {
+      "absolute_correlation": 0.14199356877004135,
+      "correlation": 0.14199356877004135,
+      "variable_a": "context_state",
+      "variable_b": "negative_control_outcome"
+    },
+    {
+      "absolute_correlation": 0.056462918128256726,
+      "correlation": -0.056462918128256726,
+      "variable_a": "structure_state",
+      "variable_b": "liquidity_state"
+    },
+    {
+      "absolute_correlation": 0.0036331526239222227,
+      "correlation": -0.0036331526239222227,
+      "variable_a": "structure_state",
+      "variable_b": "execution_friction"
+    },
+    {
+      "absolute_correlation": 0.11071575877916369,
+      "correlation": -0.11071575877916369,
+      "variable_a": "structure_state",
+      "variable_b": "treatment_proxy"
+    },
+    {
+      "absolute_correlation": 0.10315291204141915,
+      "correlation": -0.10315291204141915,
+      "variable_a": "structure_state",
+      "variable_b": "mediator_fill_quality"
+    },
+    {
+      "absolute_correlation": 0.0825067419638631,
+      "correlation": -0.0825067419638631,
+      "variable_a": "structure_state",
+      "variable_b": "outcome_proxy"
+    },
+    {
+      "absolute_correlation": 0.0070154100774063,
+      "correlation": -0.0070154100774063,
+      "variable_a": "structure_state",
+      "variable_b": "negative_control_exposure"
+    },
+    {
+      "absolute_correlation": 0.06467139312447664,
+      "correlation": 0.06467139312447664,
+      "variable_a": "structure_state",
+      "variable_b": "negative_control_outcome"
+    },
+    {
+      "absolute_correlation": 0.4207898916674233,
+      "correlation": -0.4207898916674233,
+      "variable_a": "liquidity_state",
+      "variable_b": "execution_friction"
+    },
+    {
+      "absolute_correlation": 0.03518656565290503,
+      "correlation": 0.03518656565290503,
+      "variable_a": "liquidity_state",
+      "variable_b": "treatment_proxy"
+    },
+    {
+      "absolute_correlation": 0.1795716465058551,
+      "correlation": 0.1795716465058551,
+      "variable_a": "liquidity_state",
+      "variable_b": "mediator_fill_quality"
+    },
+    {
+      "absolute_correlation": 0.18685898327970857,
+      "correlation": 0.18685898327970857,
+      "variable_a": "liquidity_state",
+      "variable_b": "outcome_proxy"
+    },
+    {
+      "absolute_correlation": 0.18063007310268003,
+      "correlation": 0.18063007310268003,
+      "variable_a": "liquidity_state",
+      "variable_b": "negative_control_exposure"
+    },
+    {
+      "absolute_correlation": 0.07525991173747834,
+      "correlation": -0.07525991173747834,
+      "variable_a": "liquidity_state",
+      "variable_b": "negative_control_outcome"
+    },
+    {
+      "absolute_correlation": 0.008534028148007952,
+      "correlation": 0.008534028148007952,
+      "variable_a": "execution_friction",
+      "variable_b": "treatment_proxy"
+    },
+    {
+      "absolute_correlation": 0.1224111044146987,
+      "correlation": -0.1224111044146987,
+      "variable_a": "execution_friction",
+      "variable_b": "mediator_fill_quality"
+    },
+    {
+      "absolute_correlation": 0.16865134683167207,
+      "correlation": -0.16865134683167207,
+      "variable_a": "execution_friction",
+      "variable_b": "outcome_proxy"
+    },
+    {
+      "absolute_correlation": 0.05814316584701067,
+      "correlation": -0.05814316584701067,
+      "variable_a": "execution_friction",
+      "variable_b": "negative_control_exposure"
+    },
+    {
+      "absolute_correlation": 0.0767165590776061,
+      "correlation": 0.0767165590776061,
+      "variable_a": "execution_friction",
+      "variable_b": "negative_control_outcome"
+    },
+    {
+      "absolute_correlation": 0.9752133443804136,
+      "correlation": 0.9752133443804136,
+      "variable_a": "treatment_proxy",
+      "variable_b": "mediator_fill_quality"
+    },
+    {
+      "absolute_correlation": 0.9489827295282787,
+      "correlation": 0.9489827295282787,
+      "variable_a": "treatment_proxy",
+      "variable_b": "outcome_proxy"
+    },
+    {
+      "absolute_correlation": 0.058698945777831,
+      "correlation": 0.058698945777831,
+      "variable_a": "treatment_proxy",
+      "variable_b": "negative_control_exposure"
+    },
+    {
+      "absolute_correlation": 0.1903253264345485,
+      "correlation": 0.1903253264345485,
+      "variable_a": "treatment_proxy",
+      "variable_b": "negative_control_outcome"
+    },
+    {
+      "absolute_correlation": 0.9735814986232995,
+      "correlation": 0.9735814986232995,
+      "variable_a": "mediator_fill_quality",
+      "variable_b": "outcome_proxy"
+    },
+    {
+      "absolute_correlation": 0.07475946279195159,
+      "correlation": 0.07475946279195159,
+      "variable_a": "mediator_fill_quality",
+      "variable_b": "negative_control_exposure"
+    },
+    {
+      "absolute_correlation": 0.17679694582943054,
+      "correlation": 0.17679694582943054,
+      "variable_a": "mediator_fill_quality",
+      "variable_b": "negative_control_outcome"
+    },
+    {
+      "absolute_correlation": 0.07441967983423886,
+      "correlation": 0.07441967983423886,
+      "variable_a": "outcome_proxy",
+      "variable_b": "negative_control_exposure"
+    },
+    {
+      "absolute_correlation": 0.1690032801602415,
+      "correlation": 0.1690032801602415,
+      "variable_a": "outcome_proxy",
+      "variable_b": "negative_control_outcome"
+    },
+    {
+      "absolute_correlation": 0.09362961517139834,
+      "correlation": 0.09362961517139834,
+      "variable_a": "negative_control_exposure",
+      "variable_b": "negative_control_outcome"
+    }
+  ]
+}

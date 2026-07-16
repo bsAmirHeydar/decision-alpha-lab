@@ -1,0 +1,10 @@
+{
+  "deterministic_replay_passed": true,
+  "first_pass_hash": "43c458ae0516754997e2aa06ff5f90d459ed45e36d64de239d559ef5a39b72e1",
+  "future_suffix_accessed": false,
+  "input_artifact_count": 9,
+  "phase": "SAED_V4_17",
+  "protected_evidence_exposures": 0,
+  "receipt_hash": "c1b39158d9f74adef6add11f5275eb50f26ad5e35bd4db850ded7458a1cc2fd2",
+  "second_pass_hash": "43c458ae0516754997e2aa06ff5f90d459ed45e36d64de239d559ef5a39b72e1"
+}

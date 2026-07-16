@@ -1,0 +1,68 @@
+{
+  "all_passed": true,
+  "phase": "SAED_V4_17",
+  "report_hash": "69390b8eab31c421ed3e431e2dc9b77d443645c08fc6faebb538b767c8536fec",
+  "row_count": 12,
+  "rows": [
+    {
+      "case": "upstream_hash_mismatch",
+      "directive": "quarantine",
+      "passed": true
+    },
+    {
+      "case": "unknown_variable",
+      "directive": "reject",
+      "passed": true
+    },
+    {
+      "case": "unknown_environment",
+      "directive": "reject",
+      "passed": true
+    },
+    {
+      "case": "future_to_past_edge",
+      "directive": "reject",
+      "passed": true
+    },
+    {
+      "case": "cycle_detected",
+      "directive": "reject",
+      "passed": true
+    },
+    {
+      "case": "negative_control_failure",
+      "directive": "quarantine",
+      "passed": true
+    },
+    {
+      "case": "invariance_failure",
+      "directive": "association_fallback",
+      "passed": true
+    },
+    {
+      "case": "insufficient_overlap",
+      "directive": "abstain",
+      "passed": true
+    },
+    {
+      "case": "hidden_confounder_sensitivity_failure",
+      "directive": "association_fallback",
+      "passed": true
+    },
+    {
+      "case": "protected_evidence_request",
+      "directive": "reject",
+      "passed": true
+    },
+    {
+      "case": "causal_claim_escalation",
+      "directive": "reject",
+      "passed": true
+    },
+    {
+      "case": "runtime_compile_request",
+      "directive": "reject",
+      "passed": true
+    }
+  ]
+}

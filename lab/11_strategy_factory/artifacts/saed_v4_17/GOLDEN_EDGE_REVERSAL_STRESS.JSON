@@ -1,0 +1,152 @@
+{
+  "all_future_reversals_fail_closed": true,
+  "edge_count": 18,
+  "phase": "SAED_V4_17",
+  "report_hash": "fa705d13be2ac19ae0b9bfd4fd34f3831c47da6a4317851574f3b895cbce2a74",
+  "rows": [
+    {
+      "required_response": "reject",
+      "reversal_would_violate_time": true,
+      "reversed_source": "liquidity_state",
+      "reversed_target": "context_state",
+      "source": "context_state",
+      "target": "liquidity_state"
+    },
+    {
+      "required_response": "reject",
+      "reversal_would_violate_time": true,
+      "reversed_source": "liquidity_state",
+      "reversed_target": "negative_control_exposure",
+      "source": "negative_control_exposure",
+      "target": "liquidity_state"
+    },
+    {
+      "required_response": "reject",
+      "reversal_would_violate_time": true,
+      "reversed_source": "structure_state",
+      "reversed_target": "context_state",
+      "source": "context_state",
+      "target": "structure_state"
+    },
+    {
+      "required_response": "reject",
+      "reversal_would_violate_time": true,
+      "reversed_source": "execution_friction",
+      "reversed_target": "liquidity_state",
+      "source": "liquidity_state",
+      "target": "execution_friction"
+    },
+    {
+      "required_response": "reject",
+      "reversal_would_violate_time": true,
+      "reversed_source": "treatment_proxy",
+      "reversed_target": "instrument_z",
+      "source": "instrument_z",
+      "target": "treatment_proxy"
+    },
+    {
+      "required_response": "reject",
+      "reversal_would_violate_time": true,
+      "reversed_source": "treatment_proxy",
+      "reversed_target": "structure_state",
+      "source": "structure_state",
+      "target": "treatment_proxy"
+    },
+    {
+      "required_response": "reject",
+      "reversal_would_violate_time": true,
+      "reversed_source": "treatment_proxy",
+      "reversed_target": "context_state",
+      "source": "context_state",
+      "target": "treatment_proxy"
+    },
+    {
+      "required_response": "reject",
+      "reversal_would_violate_time": true,
+      "reversed_source": "treatment_proxy",
+      "reversed_target": "liquidity_state",
+      "source": "liquidity_state",
+      "target": "treatment_proxy"
+    },
+    {
+      "required_response": "reject",
+      "reversal_would_violate_time": true,
+      "reversed_source": "mediator_fill_quality",
+      "reversed_target": "treatment_proxy",
+      "source": "treatment_proxy",
+      "target": "mediator_fill_quality"
+    },
+    {
+      "required_response": "reject",
+      "reversal_would_violate_time": true,
+      "reversed_source": "mediator_fill_quality",
+      "reversed_target": "instrument_z",
+      "source": "instrument_z",
+      "target": "mediator_fill_quality"
+    },
+    {
+      "required_response": "reject",
+      "reversal_would_violate_time": true,
+      "reversed_source": "mediator_fill_quality",
+      "reversed_target": "liquidity_state",
+      "source": "liquidity_state",
+      "target": "mediator_fill_quality"
+    },
+    {
+      "required_response": "reject",
+      "reversal_would_violate_time": true,
+      "reversed_source": "mediator_fill_quality",
+      "reversed_target": "execution_friction",
+      "source": "execution_friction",
+      "target": "mediator_fill_quality"
+    },
+    {
+      "required_response": "reject",
+      "reversal_would_violate_time": true,
+      "reversed_source": "negative_control_outcome",
+      "reversed_target": "context_state",
+      "source": "context_state",
+      "target": "negative_control_outcome"
+    },
+    {
+      "required_response": "reject",
+      "reversal_would_violate_time": true,
+      "reversed_source": "negative_control_outcome",
+      "reversed_target": "instrument_z",
+      "source": "instrument_z",
+      "target": "negative_control_outcome"
+    },
+    {
+      "required_response": "reject",
+      "reversal_would_violate_time": true,
+      "reversed_source": "outcome_proxy",
+      "reversed_target": "mediator_fill_quality",
+      "source": "mediator_fill_quality",
+      "target": "outcome_proxy"
+    },
+    {
+      "required_response": "reject",
+      "reversal_would_violate_time": true,
+      "reversed_source": "outcome_proxy",
+      "reversed_target": "treatment_proxy",
+      "source": "treatment_proxy",
+      "target": "outcome_proxy"
+    },
+    {
+      "required_response": "reject",
+      "reversal_would_violate_time": true,
+      "reversed_source": "outcome_proxy",
+      "reversed_target": "instrument_z",
+      "source": "instrument_z",
+      "target": "outcome_proxy"
+    },
+    {
+      "required_response": "reject",
+      "reversal_would_violate_time": true,
+      "reversed_source": "outcome_proxy",
+      "reversed_target": "liquidity_state",
+      "source": "liquidity_state",
+      "target": "outcome_proxy"
+    }
+  ]
+}

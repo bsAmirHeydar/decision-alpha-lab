@@ -1,0 +1,52 @@
+[
+  {
+    "algorithm": "correlation_baseline",
+    "candidate_id": "v417_corr_baseline_s17",
+    "complexity_tier": 0,
+    "edge_penalty": 0.2,
+    "enabled": true,
+    "falsification_weight": 0.5,
+    "invariance_weight": 0.0,
+    "seed": 17
+  },
+  {
+    "algorithm": "temporal_pc_reference",
+    "candidate_id": "v417_temporal_pc_s23",
+    "complexity_tier": 1,
+    "edge_penalty": 0.35,
+    "enabled": true,
+    "falsification_weight": 0.7,
+    "invariance_weight": 0.5,
+    "seed": 23
+  },
+  {
+    "algorithm": "invariant_mechanism_reference",
+    "candidate_id": "v417_invariant_s31",
+    "complexity_tier": 2,
+    "edge_penalty": 0.4,
+    "enabled": true,
+    "falsification_weight": 0.8,
+    "invariance_weight": 0.9,
+    "seed": 31
+  },
+  {
+    "algorithm": "structural_equation_reference",
+    "candidate_id": "v417_sem_s41",
+    "complexity_tier": 2,
+    "edge_penalty": 0.45,
+    "enabled": true,
+    "falsification_weight": 0.7,
+    "invariance_weight": 0.7,
+    "seed": 41
+  },
+  {
+    "algorithm": "orthogonal_score_reference",
+    "candidate_id": "v417_orthogonal_s47",
+    "complexity_tier": 3,
+    "edge_penalty": 0.5,
+    "enabled": true,
+    "falsification_weight": 1.0,
+    "invariance_weight": 0.8,
+    "seed": 47
+  }
+]

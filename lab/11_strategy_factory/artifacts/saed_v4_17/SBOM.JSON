@@ -1,0 +1,14 @@
+{
+  "credential_requirements": [],
+  "gpu_requirements": [],
+  "language": "python",
+  "native_extensions": [],
+  "network_dependencies": [],
+  "optional_test_dependencies": [
+    "pytest"
+  ],
+  "phase": "SAED_V4_17",
+  "runtime_dependencies": [
+    "python-standard-library"
+  ]
+}

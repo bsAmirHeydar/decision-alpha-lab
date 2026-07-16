@@ -1,0 +1,20 @@
+{
+  "baseline_candidate_id": "v417_corr_baseline_s17",
+  "baseline_preserved": true,
+  "baseline_score": 0.6777676190476192,
+  "candidate_count": 5,
+  "causal_claim_authority": false,
+  "champion_is_research_only": true,
+  "phase": "SAED_V4_17",
+  "production_authority": false,
+  "ranking": [
+    "v417_temporal_pc_s23",
+    "v417_corr_baseline_s17",
+    "v417_invariant_s31",
+    "v417_sem_s41",
+    "v417_orthogonal_s47"
+  ],
+  "reference_champion_id": "v417_temporal_pc_s23",
+  "reference_champion_score": 0.6823793548387097,
+  "tournament_hash": "5f8fd084c326ca1426be73221796dfc89543115392f7527c1a71fb79e779247b"
+}

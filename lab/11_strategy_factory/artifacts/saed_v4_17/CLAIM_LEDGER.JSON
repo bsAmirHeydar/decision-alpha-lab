@@ -1,0 +1,33 @@
+{
+  "claims": [
+    {
+      "claim": "closed causal-mechanism discovery contracts implemented",
+      "status": "supported_local_reference"
+    },
+    {
+      "claim": "deterministic synthetic benchmark and replay implemented",
+      "status": "supported_local_reference"
+    },
+    {
+      "claim": "temporal, invariance, negative-control and sensitivity audits implemented",
+      "status": "supported_local_reference"
+    },
+    {
+      "claim": "real causal mechanism discovered",
+      "status": "not_claimed"
+    },
+    {
+      "claim": "real treatment effect identified",
+      "status": "not_claimed"
+    },
+    {
+      "claim": "economic uplift established",
+      "status": "not_claimed"
+    },
+    {
+      "claim": "production authorization",
+      "status": "not_claimed"
+    }
+  ],
+  "phase": "SAED_V4_17"
+}

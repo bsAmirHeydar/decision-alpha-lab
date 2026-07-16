@@ -1,0 +1,15 @@
+{
+  "feature_dim": 16,
+  "frozen": true,
+  "passed": true,
+  "phase": "SAED_V4_17",
+  "reference_v4_16_champion_id": "v416_tail_robust_s47",
+  "row_count": 240,
+  "synthetic_only": true,
+  "v4_16_dataset_hash": "4dc39f9fe4b5812fc38d315b5d1202d602d99c9b1612f447acd252f3c407f933",
+  "v4_16_handoff_hash": "51d671cc9a952c212da885fe83ee0bd04350de45151792556e12fc9be7937d71",
+  "v4_16_integrity_receipt_hash": "0d2ae364685ed05a312d72e58f46c7f81ae587df33922bc9d1999cf61442ef0a",
+  "v4_16_registry_hash": "22582ca05b714f4141e12009713d9617dc6367d0f3606f709f86a57a2359b44b",
+  "v4_16_tail_calibration_hash": "d0a4779839f3eb49be8f52cdb7ec9680decc59d52e37dd51c08ef212252e6d5a",
+  "v4_16_time_calibration_hash": "eda224d7ecfb0d32fe2b1632975b0cacc8017b1e21a074aeb1f820e8b6c85ae4"
+}

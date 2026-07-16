@@ -1,0 +1,20 @@
+{
+  "causal_claim_from_permutation_allowed": false,
+  "graph_hash_unchanged": true,
+  "marginals_preserved": true,
+  "original_environment_counts": {
+    "env_0": 60,
+    "env_1": 60,
+    "env_2": 60,
+    "env_3": 60
+  },
+  "permuted_environment_counts": {
+    "env_0": 60,
+    "env_1": 60,
+    "env_2": 60,
+    "env_3": 60
+  },
+  "phase": "SAED_V4_17",
+  "report_hash": "3c0ba3cfe33099aab8ee52b47dec874a1e863e93da3fe478a901a878c22168fd",
+  "row_count": 240
+}

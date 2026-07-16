@@ -1,0 +1,152 @@
+{
+  "all_passed": true,
+  "audit_hash": "69604972d3c95931112bc62bc06f279e83c7b5c0eeaf54f51788734731bb6bad",
+  "edge_count": 18,
+  "phase": "SAED_V4_17",
+  "rows": [
+    {
+      "future_to_past": false,
+      "passed": true,
+      "source": "context_state",
+      "source_tier": 0,
+      "target": "liquidity_state",
+      "target_tier": 1
+    },
+    {
+      "future_to_past": false,
+      "passed": true,
+      "source": "negative_control_exposure",
+      "source_tier": 0,
+      "target": "liquidity_state",
+      "target_tier": 1
+    },
+    {
+      "future_to_past": false,
+      "passed": true,
+      "source": "context_state",
+      "source_tier": 0,
+      "target": "structure_state",
+      "target_tier": 1
+    },
+    {
+      "future_to_past": false,
+      "passed": true,
+      "source": "liquidity_state",
+      "source_tier": 1,
+      "target": "execution_friction",
+      "target_tier": 2
+    },
+    {
+      "future_to_past": false,
+      "passed": true,
+      "source": "instrument_z",
+      "source_tier": 0,
+      "target": "treatment_proxy",
+      "target_tier": 3
+    },
+    {
+      "future_to_past": false,
+      "passed": true,
+      "source": "structure_state",
+      "source_tier": 1,
+      "target": "treatment_proxy",
+      "target_tier": 3
+    },
+    {
+      "future_to_past": false,
+      "passed": true,
+      "source": "context_state",
+      "source_tier": 0,
+      "target": "treatment_proxy",
+      "target_tier": 3
+    },
+    {
+      "future_to_past": false,
+      "passed": true,
+      "source": "liquidity_state",
+      "source_tier": 1,
+      "target": "treatment_proxy",
+      "target_tier": 3
+    },
+    {
+      "future_to_past": false,
+      "passed": true,
+      "source": "treatment_proxy",
+      "source_tier": 3,
+      "target": "mediator_fill_quality",
+      "target_tier": 4
+    },
+    {
+      "future_to_past": false,
+      "passed": true,
+      "source": "instrument_z",
+      "source_tier": 0,
+      "target": "mediator_fill_quality",
+      "target_tier": 4
+    },
+    {
+      "future_to_past": false,
+      "passed": true,
+      "source": "liquidity_state",
+      "source_tier": 1,
+      "target": "mediator_fill_quality",
+      "target_tier": 4
+    },
+    {
+      "future_to_past": false,
+      "passed": true,
+      "source": "execution_friction",
+      "source_tier": 2,
+      "target": "mediator_fill_quality",
+      "target_tier": 4
+    },
+    {
+      "future_to_past": false,
+      "passed": true,
+      "source": "context_state",
+      "source_tier": 0,
+      "target": "negative_control_outcome",
+      "target_tier": 5
+    },
+    {
+      "future_to_past": false,
+      "passed": true,
+      "source": "instrument_z",
+      "source_tier": 0,
+      "target": "negative_control_outcome",
+      "target_tier": 5
+    },
+    {
+      "future_to_past": false,
+      "passed": true,
+      "source": "mediator_fill_quality",
+      "source_tier": 4,
+      "target": "outcome_proxy",
+      "target_tier": 5
+    },
+    {
+      "future_to_past": false,
+      "passed": true,
+      "source": "treatment_proxy",
+      "source_tier": 3,
+      "target": "outcome_proxy",
+      "target_tier": 5
+    },
+    {
+      "future_to_past": false,
+      "passed": true,
+      "source": "instrument_z",
+      "source_tier": 0,
+      "target": "outcome_proxy",
+      "target_tier": 5
+    },
+    {
+      "future_to_past": false,
+      "passed": true,
+      "source": "liquidity_state",
+      "source_tier": 1,
+      "target": "outcome_proxy",
+      "target_tier": 5
+    }
+  ]
+}

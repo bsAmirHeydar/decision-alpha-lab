@@ -1,0 +1,6 @@
+PHASE='SAED_V4_17'
+VERSION='1.0.0'
+TITLE='Causal Mechanism Discovery'
+EVIDENCE_SCOPE='local_deterministic_synthetic_reference'
+CLAIM_CEILING='mechanism_compatible_synthetic_not_causal'
+NEXT_PHASE='SAED_V4_18'

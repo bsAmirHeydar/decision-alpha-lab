@@ -1,0 +1,427 @@
+{
+  "invariant_count": 7,
+  "mechanism_count": 7,
+  "phase": "SAED_V4_17",
+  "report_hash": "3fdbc0ec6fa86b209bdc43b287be19c3ca72e603efe91c3a15b32d8e87e8fe05",
+  "rows": [
+    {
+      "environment_statistics": [
+        {
+          "coefficients": [
+            0.05941841291617481,
+            0.3358941985835791
+          ],
+          "environment_id": "env_0",
+          "residual_mean": 9.90306875392477e-10,
+          "residual_std": 0.09291675587621333,
+          "rows": 60
+        },
+        {
+          "coefficients": [
+            0.05678128380810209,
+            0.29185419663575946
+          ],
+          "environment_id": "env_1",
+          "residual_mean": 9.46354733321932e-10,
+          "residual_std": 0.08541454391796108,
+          "rows": 60
+        },
+        {
+          "coefficients": [
+            0.0400997875917588,
+            0.2304140794432204
+          ],
+          "environment_id": "env_2",
+          "residual_mean": 6.683297982164789e-10,
+          "residual_std": 0.08178049534688757,
+          "rows": 60
+        },
+        {
+          "coefficients": [
+            0.10714017890515831,
+            0.1433933671444664
+          ],
+          "environment_id": "env_3",
+          "residual_mean": 8.928348223362822e-09,
+          "residual_std": 0.07094617712013532,
+          "rows": 12
+        }
+      ],
+      "invariant": true,
+      "maximum_coefficient_l1_drift": 0.1201112987140481,
+      "maximum_residual_mean_gap": 8.260018425146344e-09,
+      "maximum_residual_scale_gap": 0.02197057875607801,
+      "parents": [
+        "context_state"
+      ],
+      "target": "structure_state"
+    },
+    {
+      "environment_statistics": [
+        {
+          "coefficients": [
+            -0.052165902632244444,
+            -0.28507685725437976,
+            0.060832777550441176
+          ],
+          "environment_id": "env_0",
+          "residual_mean": -8.694317099310992e-10,
+          "residual_std": 0.10359434560571454,
+          "rows": 60
+        },
+        {
+          "coefficients": [
+            -0.05452384151660902,
+            -0.11394092129242653,
+            0.002318092152600251
+          ],
+          "environment_id": "env_1",
+          "residual_mean": -9.087306903493575e-10,
+          "residual_std": 0.10105047787411785,
+          "rows": 60
+        },
+        {
+          "coefficients": [
+            -0.05786787006850781,
+            -0.3508534730678242,
+            0.0447278913336822
+          ],
+          "environment_id": "env_2",
+          "residual_mean": -9.644644940904705e-10,
+          "residual_std": 0.100040628386682,
+          "rows": 60
+        },
+        {
+          "coefficients": [
+            -0.01720468270966289,
+            0.3328555303869716,
+            0.05728843969690754
+          ],
+          "environment_id": "env_3",
+          "residual_mean": -1.4337235553866605e-09,
+          "residual_std": 0.13589775226378317,
+          "rows": 12
+        }
+      ],
+      "invariant": true,
+      "maximum_coefficient_l1_drift": 0.21881264847248885,
+      "maximum_residual_mean_gap": 5.642918454555613e-10,
+      "maximum_residual_scale_gap": 0.035857123877101174,
+      "parents": [
+        "context_state",
+        "negative_control_exposure"
+      ],
+      "target": "liquidity_state"
+    },
+    {
+      "environment_statistics": [
+        {
+          "coefficients": [
+            -0.060035122535151156,
+            -0.5324431629114231
+          ],
+          "environment_id": "env_0",
+          "residual_mean": -1.0005853745524938e-09,
+          "residual_std": 0.10070032878306043,
+          "rows": 60
+        },
+        {
+          "coefficients": [
+            -0.04967038267935975,
+            -0.22685665390193474
+          ],
+          "environment_id": "env_1",
+          "residual_mean": -8.278397038476622e-10,
+          "residual_std": 0.09696375330059354,
+          "rows": 60
+        },
+        {
+          "coefficients": [
+            -0.06025574235754094,
+            -0.5317951580989111
+          ],
+          "environment_id": "env_2",
+          "residual_mean": -1.0042623586458548e-09,
+          "residual_std": 0.1059561405802885,
+          "rows": 60
+        },
+        {
+          "coefficients": [
+            -0.16122832304600734,
+            -0.8248671020536152
+          ],
+          "environment_id": "env_3",
+          "residual_mean": -1.3435693570438648e-08,
+          "residual_std": 0.10566766150349262,
+          "rows": 12
+        }
+      ],
+      "invariant": true,
+      "maximum_coefficient_l1_drift": 0.19680856982652414,
+      "maximum_residual_mean_gap": 1.2607853866590987e-08,
+      "maximum_residual_scale_gap": 0.008992387279694966,
+      "parents": [
+        "liquidity_state"
+      ],
+      "target": "execution_friction"
+    },
+    {
+      "environment_statistics": [
+        {
+          "coefficients": [
+            0.490887628040881,
+            0.7954372971292101,
+            0.7683271793445251,
+            0.8669805063941175,
+            -0.04448818766611441
+          ],
+          "environment_id": "env_0",
+          "residual_mean": 8.181460405450498e-09,
+          "residual_std": 0.24837270213222212,
+          "rows": 60
+        },
+        {
+          "coefficients": [
+            0.5993940078929476,
+            0.6914988335509014,
+            0.7847110856783482,
+            -0.08282814168974456,
+            -1.0305419594261946
+          ],
+          "environment_id": "env_1",
+          "residual_mean": 9.989900047931618e-09,
+          "residual_std": 0.23514875060517976,
+          "rows": 60
+        },
+        {
+          "coefficients": [
+            0.6624969105618324,
+            0.49625234144598873,
+            0.7091722100320371,
+            0.5122639688169102,
+            -0.8386485926628108
+          ],
+          "environment_id": "env_2",
+          "residual_mean": 1.1041615104641819e-08,
+          "residual_std": 0.2674966679836289,
+          "rows": 60
+        },
+        {
+          "coefficients": [
+            0.5087343669292999,
+            1.144034379316914,
+            0.6046418511406563,
+            0.6053304081760132,
+            -0.32327767847911815
+          ],
+          "environment_id": "env_3",
+          "residual_mean": 4.239453047875467e-08,
+          "residual_std": 0.1406648784053679,
+          "rows": 12
+        }
+      ],
+      "invariant": true,
+      "maximum_coefficient_l1_drift": 0.43293823392162817,
+      "maximum_residual_mean_gap": 3.421307007330417e-08,
+      "maximum_residual_scale_gap": 0.12683178957826102,
+      "parents": [
+        "context_state",
+        "instrument_z",
+        "liquidity_state",
+        "structure_state"
+      ],
+      "target": "treatment_proxy"
+    },
+    {
+      "environment_statistics": [
+        {
+          "coefficients": [
+            0.027981710779432123,
+            -0.4096865934492396,
+            0.04138620776926638,
+            0.3355590653236076,
+            0.7759890869244244
+          ],
+          "environment_id": "env_0",
+          "residual_mean": 4.663619307283355e-10,
+          "residual_std": 0.06067997973980174,
+          "rows": 60
+        },
+        {
+          "coefficients": [
+            0.036994043301873836,
+            -0.2417448867757198,
+            -0.0022973024916480567,
+            0.5353332735287569,
+            0.8032346930743426
+          ],
+          "environment_id": "env_1",
+          "residual_mean": 6.165672736547131e-10,
+          "residual_std": 0.05924005067014629,
+          "rows": 60
+        },
+        {
+          "coefficients": [
+            0.002335834173425755,
+            -0.2952471877502326,
+            -0.00862746645324608,
+            0.4040297114379762,
+            0.8068017910910957
+          ],
+          "environment_id": "env_2",
+          "residual_mean": 3.893051965866978e-11,
+          "residual_std": 0.056642326151938205,
+          "rows": 60
+        },
+        {
+          "coefficients": [
+            -0.03979088427308575,
+            -0.5131440689431072,
+            -0.11735176193537178,
+            0.14864878859092878,
+            1.0319160195219776
+          ],
+          "environment_id": "env_3",
+          "residual_mean": -3.315907090573056e-09,
+          "residual_std": 0.027623254683207824,
+          "rows": 12
+        }
+      ],
+      "invariant": true,
+      "maximum_coefficient_l1_drift": 0.15456104991625114,
+      "maximum_residual_mean_gap": 3.932474364227769e-09,
+      "maximum_residual_scale_gap": 0.03305672505659392,
+      "parents": [
+        "execution_friction",
+        "instrument_z",
+        "liquidity_state",
+        "treatment_proxy"
+      ],
+      "target": "mediator_fill_quality"
+    },
+    {
+      "environment_statistics": [
+        {
+          "coefficients": [
+            -0.009889087252747002,
+            0.0036748923692997842,
+            0.1309329446296793,
+            0.7417961325790641,
+            0.12839485317347374
+          ],
+          "environment_id": "env_0",
+          "residual_mean": -1.648181402989779e-10,
+          "residual_std": 0.09038388557282191,
+          "rows": 60
+        },
+        {
+          "coefficients": [
+            -0.05755554766807386,
+            -0.09663660161858151,
+            0.12516866739578691,
+            0.9040714862788471,
+            0.09426287104504517
+          ],
+          "environment_id": "env_1",
+          "residual_mean": -9.592591142133326e-10,
+          "residual_std": 0.08122261493615543,
+          "rows": 60
+        },
+        {
+          "coefficients": [
+            -0.043405230948669785,
+            -0.0654827978155996,
+            -0.22772529420798182,
+            1.140936067748549,
+            -0.12787273132366803
+          ],
+          "environment_id": "env_2",
+          "residual_mean": -7.23420525798139e-10,
+          "residual_std": 0.08233031807236137,
+          "rows": 60
+        },
+        {
+          "coefficients": [
+            -0.06814380425621787,
+            0.3082773459384375,
+            -0.6926193732972081,
+            2.5447283884610217,
+            -1.7327168515742666
+          ],
+          "environment_id": "env_3",
+          "residual_mean": -5.678650452645151e-09,
+          "residual_std": 0.07302513827047247,
+          "rows": 12
+        }
+      ],
+      "invariant": true,
+      "maximum_coefficient_l1_drift": 0.9700906898258388,
+      "maximum_residual_mean_gap": 5.513832312346173e-09,
+      "maximum_residual_scale_gap": 0.017358747302349445,
+      "parents": [
+        "instrument_z",
+        "liquidity_state",
+        "mediator_fill_quality",
+        "treatment_proxy"
+      ],
+      "target": "outcome_proxy"
+    },
+    {
+      "environment_statistics": [
+        {
+          "coefficients": [
+            0.05600830834481112,
+            1.4446243349022976,
+            0.23678019100578165
+          ],
+          "environment_id": "env_0",
+          "residual_mean": 9.334718056979348e-10,
+          "residual_std": 0.5437485013401924,
+          "rows": 60
+        },
+        {
+          "coefficients": [
+            -0.07336600085890439,
+            -0.7358129231928041,
+            0.13011626634422357
+          ],
+          "environment_id": "env_1",
+          "residual_mean": -1.2227666663922054e-09,
+          "residual_std": 0.5090543999214482,
+          "rows": 60
+        },
+        {
+          "coefficients": [
+            0.186902724296726,
+            1.5548872782097556,
+            0.012179617151589908
+          ],
+          "environment_id": "env_2",
+          "residual_mean": 3.1150453977853617e-09,
+          "residual_std": 0.526581564116248,
+          "rows": 60
+        },
+        {
+          "coefficients": [
+            0.1814714567688509,
+            0.35713244273105893,
+            0.36143529180125644
+          ],
+          "environment_id": "env_3",
+          "residual_mean": 1.5122621291792832e-08,
+          "residual_std": 0.4676935410692847,
+          "rows": 12
+        }
+      ],
+      "invariant": true,
+      "maximum_coefficient_l1_drift": 0.8054918306534584,
+      "maximum_residual_mean_gap": 1.6345387958185037e-08,
+      "maximum_residual_scale_gap": 0.07605496027090769,
+      "parents": [
+        "context_state",
+        "instrument_z"
+      ],
+      "target": "negative_control_outcome"
+    }
+  ]
+}

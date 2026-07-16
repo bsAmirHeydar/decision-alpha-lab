@@ -1,0 +1,662 @@
+{
+  "graph": {
+    "algorithm": "temporal_pc_reference",
+    "candidate_id": "v417_temporal_pc",
+    "claim_tier": "mechanism_compatible_synthetic",
+    "edges": [
+      {
+        "evidence_class": "conditional_association",
+        "score": 0.19881114018622242,
+        "signed_score": -0.19881114018622242,
+        "source": "context_state",
+        "target": "liquidity_state"
+      },
+      {
+        "evidence_class": "conditional_association",
+        "score": 0.19373021046302896,
+        "signed_score": 0.19373021046302896,
+        "source": "negative_control_exposure",
+        "target": "liquidity_state"
+      },
+      {
+        "evidence_class": "conditional_association",
+        "score": 0.33813823315929936,
+        "signed_score": 0.33813823315929936,
+        "source": "context_state",
+        "target": "structure_state"
+      },
+      {
+        "evidence_class": "conditional_association",
+        "score": 0.42973768582570293,
+        "signed_score": -0.42973768582570293,
+        "source": "liquidity_state",
+        "target": "execution_friction"
+      },
+      {
+        "evidence_class": "conditional_association",
+        "score": 0.8334878591612855,
+        "signed_score": 0.8334878591612855,
+        "source": "instrument_z",
+        "target": "treatment_proxy"
+      },
+      {
+        "evidence_class": "conditional_association",
+        "score": 0.2128161826058319,
+        "signed_score": -0.2128161826058319,
+        "source": "structure_state",
+        "target": "treatment_proxy"
+      },
+      {
+        "evidence_class": "conditional_association",
+        "score": 0.17962920318276251,
+        "signed_score": 0.17962920318276251,
+        "source": "context_state",
+        "target": "treatment_proxy"
+      },
+      {
+        "evidence_class": "conditional_association",
+        "score": 0.16099977976611068,
+        "signed_score": 0.16099977976611068,
+        "source": "liquidity_state",
+        "target": "treatment_proxy"
+      },
+      {
+        "evidence_class": "conditional_association",
+        "score": 0.9291430228031375,
+        "signed_score": 0.9291430228031375,
+        "source": "treatment_proxy",
+        "target": "mediator_fill_quality"
+      },
+      {
+        "evidence_class": "conditional_association",
+        "score": 0.8047753573930795,
+        "signed_score": 0.8047753573930795,
+        "source": "instrument_z",
+        "target": "mediator_fill_quality"
+      },
+      {
+        "evidence_class": "conditional_association",
+        "score": 0.38697416713482496,
+        "signed_score": 0.38697416713482496,
+        "source": "liquidity_state",
+        "target": "mediator_fill_quality"
+      },
+      {
+        "evidence_class": "conditional_association",
+        "score": 0.28095316201388754,
+        "signed_score": -0.28095316201388754,
+        "source": "execution_friction",
+        "target": "mediator_fill_quality"
+      },
+      {
+        "evidence_class": "conditional_association",
+        "score": 0.14879791250249702,
+        "signed_score": 0.14879791250249702,
+        "source": "context_state",
+        "target": "negative_control_outcome"
+      },
+      {
+        "evidence_class": "conditional_association",
+        "score": 0.147464553958825,
+        "signed_score": 0.147464553958825,
+        "source": "instrument_z",
+        "target": "negative_control_outcome"
+      },
+      {
+        "evidence_class": "conditional_association",
+        "score": 0.9495256092226432,
+        "signed_score": 0.9495256092226432,
+        "source": "mediator_fill_quality",
+        "target": "outcome_proxy"
+      },
+      {
+        "evidence_class": "conditional_association",
+        "score": 0.8828649069482557,
+        "signed_score": 0.8828649069482557,
+        "source": "treatment_proxy",
+        "target": "outcome_proxy"
+      },
+      {
+        "evidence_class": "conditional_association",
+        "score": 0.7626567116145029,
+        "signed_score": 0.7626567116145029,
+        "source": "instrument_z",
+        "target": "outcome_proxy"
+      },
+      {
+        "evidence_class": "conditional_association",
+        "score": 0.3948210624070598,
+        "signed_score": 0.3948210624070598,
+        "source": "liquidity_state",
+        "target": "outcome_proxy"
+      }
+    ],
+    "graph_hash": "488396a8dfd2cb17c8664337020c2255cde1fa3f64d5817185bb1bcdff867df2",
+    "maximum_parent_count": 4,
+    "nodes": [
+      "instrument_z",
+      "context_state",
+      "structure_state",
+      "liquidity_state",
+      "execution_friction",
+      "treatment_proxy",
+      "mediator_fill_quality",
+      "outcome_proxy",
+      "negative_control_exposure",
+      "negative_control_outcome"
+    ],
+    "production_eligible": false,
+    "topological_order": [
+      "context_state",
+      "instrument_z",
+      "negative_control_exposure",
+      "liquidity_state",
+      "execution_friction",
+      "negative_control_outcome",
+      "structure_state",
+      "treatment_proxy",
+      "mediator_fill_quality",
+      "outcome_proxy"
+    ],
+    "valid": true
+  },
+  "phase": "SAED_V4_17",
+  "report_hash": "1b1bab6a59ad3f383c2a3a95c5eb44583d749bb9f40d7383d992f6fca4c86c68",
+  "test_count": 46,
+  "tests": [
+    {
+      "conditioning_set": [
+        "negative_control_exposure"
+      ],
+      "independent": true,
+      "partial_correlation": -0.05688614300691037,
+      "raw_correlation": -0.05512594265295631,
+      "source": "context_state",
+      "target": "instrument_z"
+    },
+    {
+      "conditioning_set": [
+        "context_state"
+      ],
+      "independent": true,
+      "partial_correlation": 0.04788612367258736,
+      "raw_correlation": 0.04577915036319357,
+      "source": "negative_control_exposure",
+      "target": "instrument_z"
+    },
+    {
+      "conditioning_set": [
+        "negative_control_exposure"
+      ],
+      "independent": true,
+      "partial_correlation": -0.05688614300691037,
+      "raw_correlation": -0.05512594265295631,
+      "source": "instrument_z",
+      "target": "context_state"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z"
+      ],
+      "independent": true,
+      "partial_correlation": 0.038951311073474465,
+      "raw_correlation": 0.036327688209690095,
+      "source": "negative_control_exposure",
+      "target": "context_state"
+    },
+    {
+      "conditioning_set": [
+        "context_state",
+        "negative_control_exposure"
+      ],
+      "independent": true,
+      "partial_correlation": -0.023227596036442633,
+      "raw_correlation": -0.041409535288593945,
+      "source": "instrument_z",
+      "target": "structure_state"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "negative_control_exposure"
+      ],
+      "independent": false,
+      "partial_correlation": 0.33813823315929936,
+      "raw_correlation": 0.3391574485067156,
+      "source": "context_state",
+      "target": "structure_state"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "context_state"
+      ],
+      "independent": true,
+      "partial_correlation": 0.005773178203000057,
+      "raw_correlation": -0.056462918128256726,
+      "source": "liquidity_state",
+      "target": "structure_state"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "context_state"
+      ],
+      "independent": true,
+      "partial_correlation": -0.0194381085636924,
+      "raw_correlation": -0.0070154100774063,
+      "source": "negative_control_exposure",
+      "target": "structure_state"
+    },
+    {
+      "conditioning_set": [
+        "context_state",
+        "negative_control_exposure"
+      ],
+      "independent": true,
+      "partial_correlation": -0.06143099335280652,
+      "raw_correlation": -0.03990334329557775,
+      "source": "instrument_z",
+      "target": "liquidity_state"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "negative_control_exposure"
+      ],
+      "independent": false,
+      "partial_correlation": -0.19881114018622242,
+      "raw_correlation": -0.18555749321507603,
+      "source": "context_state",
+      "target": "liquidity_state"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "context_state"
+      ],
+      "independent": true,
+      "partial_correlation": 0.005773178203000057,
+      "raw_correlation": -0.056462918128256726,
+      "source": "structure_state",
+      "target": "liquidity_state"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "context_state"
+      ],
+      "independent": false,
+      "partial_correlation": 0.19373021046302896,
+      "raw_correlation": 0.18063007310268003,
+      "source": "negative_control_exposure",
+      "target": "liquidity_state"
+    },
+    {
+      "conditioning_set": [
+        "context_state",
+        "negative_control_exposure"
+      ],
+      "independent": true,
+      "partial_correlation": 0.05822045833456612,
+      "raw_correlation": 0.05610134402521769,
+      "source": "instrument_z",
+      "target": "execution_friction"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "negative_control_exposure"
+      ],
+      "independent": true,
+      "partial_correlation": -0.010819084504749468,
+      "raw_correlation": -0.01621376126893402,
+      "source": "context_state",
+      "target": "execution_friction"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "context_state"
+      ],
+      "independent": true,
+      "partial_correlation": 0.0033269269170540993,
+      "raw_correlation": -0.0036331526239222227,
+      "source": "structure_state",
+      "target": "execution_friction"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "context_state"
+      ],
+      "independent": false,
+      "partial_correlation": -0.42973768582570293,
+      "raw_correlation": -0.4207898916674233,
+      "source": "liquidity_state",
+      "target": "execution_friction"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "context_state"
+      ],
+      "independent": true,
+      "partial_correlation": -0.060409424526752645,
+      "raw_correlation": -0.05814316584701067,
+      "source": "negative_control_exposure",
+      "target": "execution_friction"
+    },
+    {
+      "conditioning_set": [
+        "context_state"
+      ],
+      "independent": false,
+      "partial_correlation": 0.8334878591612855,
+      "raw_correlation": 0.8279342272532918,
+      "source": "instrument_z",
+      "target": "treatment_proxy"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z"
+      ],
+      "independent": false,
+      "partial_correlation": 0.17962920318276251,
+      "raw_correlation": 0.054946745517352284,
+      "source": "context_state",
+      "target": "treatment_proxy"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "context_state"
+      ],
+      "independent": false,
+      "partial_correlation": -0.2128161826058319,
+      "raw_correlation": -0.11071575877916369,
+      "source": "structure_state",
+      "target": "treatment_proxy"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "context_state"
+      ],
+      "independent": false,
+      "partial_correlation": 0.16099977976611068,
+      "raw_correlation": 0.03518656565290503,
+      "source": "liquidity_state",
+      "target": "treatment_proxy"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "context_state"
+      ],
+      "independent": true,
+      "partial_correlation": -0.0664329210132649,
+      "raw_correlation": 0.008534028148007952,
+      "source": "execution_friction",
+      "target": "treatment_proxy"
+    },
+    {
+      "conditioning_set": [
+        "context_state"
+      ],
+      "independent": false,
+      "partial_correlation": 0.8047753573930795,
+      "raw_correlation": 0.8016237843337045,
+      "source": "instrument_z",
+      "target": "mediator_fill_quality"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z"
+      ],
+      "independent": true,
+      "partial_correlation": 0.12242565600976846,
+      "raw_correlation": 0.028888028349786463,
+      "source": "context_state",
+      "target": "mediator_fill_quality"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "context_state"
+      ],
+      "independent": false,
+      "partial_correlation": -0.16962553204355885,
+      "raw_correlation": -0.10315291204141915,
+      "source": "structure_state",
+      "target": "mediator_fill_quality"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "context_state"
+      ],
+      "independent": false,
+      "partial_correlation": 0.38697416713482496,
+      "raw_correlation": 0.1795716465058551,
+      "source": "liquidity_state",
+      "target": "mediator_fill_quality"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "context_state"
+      ],
+      "independent": false,
+      "partial_correlation": -0.28095316201388754,
+      "raw_correlation": -0.1224111044146987,
+      "source": "execution_friction",
+      "target": "mediator_fill_quality"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "context_state"
+      ],
+      "independent": false,
+      "partial_correlation": 0.9291430228031375,
+      "raw_correlation": 0.9752133443804136,
+      "source": "treatment_proxy",
+      "target": "mediator_fill_quality"
+    },
+    {
+      "conditioning_set": [
+        "context_state"
+      ],
+      "independent": false,
+      "partial_correlation": 0.7626567116145029,
+      "raw_correlation": 0.7482057085185247,
+      "source": "instrument_z",
+      "target": "outcome_proxy"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z"
+      ],
+      "independent": false,
+      "partial_correlation": 0.25519811885909427,
+      "raw_correlation": 0.12781247915623953,
+      "source": "context_state",
+      "target": "outcome_proxy"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "context_state"
+      ],
+      "independent": false,
+      "partial_correlation": -0.18009084202314188,
+      "raw_correlation": -0.0825067419638631,
+      "source": "structure_state",
+      "target": "outcome_proxy"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "context_state"
+      ],
+      "independent": false,
+      "partial_correlation": 0.3948210624070598,
+      "raw_correlation": 0.18685898327970857,
+      "source": "liquidity_state",
+      "target": "outcome_proxy"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "context_state"
+      ],
+      "independent": false,
+      "partial_correlation": -0.3254075819573982,
+      "raw_correlation": -0.16865134683167207,
+      "source": "execution_friction",
+      "target": "outcome_proxy"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "context_state"
+      ],
+      "independent": false,
+      "partial_correlation": 0.8828649069482557,
+      "raw_correlation": 0.9489827295282787,
+      "source": "treatment_proxy",
+      "target": "outcome_proxy"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "context_state"
+      ],
+      "independent": false,
+      "partial_correlation": 0.9495256092226432,
+      "raw_correlation": 0.9735814986232995,
+      "source": "mediator_fill_quality",
+      "target": "outcome_proxy"
+    },
+    {
+      "conditioning_set": [
+        "context_state"
+      ],
+      "independent": true,
+      "partial_correlation": 0.04788612367258736,
+      "raw_correlation": 0.04577915036319357,
+      "source": "instrument_z",
+      "target": "negative_control_exposure"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z"
+      ],
+      "independent": true,
+      "partial_correlation": 0.038951311073474465,
+      "raw_correlation": 0.036327688209690095,
+      "source": "context_state",
+      "target": "negative_control_exposure"
+    },
+    {
+      "conditioning_set": [
+        "context_state",
+        "negative_control_exposure"
+      ],
+      "independent": false,
+      "partial_correlation": 0.147464553958825,
+      "raw_correlation": 0.14140318287684342,
+      "source": "instrument_z",
+      "target": "negative_control_outcome"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "negative_control_exposure"
+      ],
+      "independent": false,
+      "partial_correlation": 0.14879791250249702,
+      "raw_correlation": 0.14199356877004135,
+      "source": "context_state",
+      "target": "negative_control_outcome"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "context_state"
+      ],
+      "independent": true,
+      "partial_correlation": 0.02163866869550046,
+      "raw_correlation": 0.06467139312447664,
+      "source": "structure_state",
+      "target": "negative_control_outcome"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "context_state"
+      ],
+      "independent": true,
+      "partial_correlation": -0.04312105456826678,
+      "raw_correlation": -0.07525991173747834,
+      "source": "liquidity_state",
+      "target": "negative_control_outcome"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "context_state"
+      ],
+      "independent": true,
+      "partial_correlation": 0.07242859600798529,
+      "raw_correlation": 0.0767165590776061,
+      "source": "execution_friction",
+      "target": "negative_control_outcome"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "context_state"
+      ],
+      "independent": true,
+      "partial_correlation": 0.107696206978609,
+      "raw_correlation": 0.1903253264345485,
+      "source": "treatment_proxy",
+      "target": "negative_control_outcome"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "context_state"
+      ],
+      "independent": true,
+      "partial_correlation": 0.0903657283784621,
+      "raw_correlation": 0.17679694582943054,
+      "source": "mediator_fill_quality",
+      "target": "negative_control_outcome"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "context_state"
+      ],
+      "independent": true,
+      "partial_correlation": 0.06022516077420383,
+      "raw_correlation": 0.1690032801602415,
+      "source": "outcome_proxy",
+      "target": "negative_control_outcome"
+    },
+    {
+      "conditioning_set": [
+        "instrument_z",
+        "context_state"
+      ],
+      "independent": true,
+      "partial_correlation": 0.08325460978817602,
+      "raw_correlation": 0.09362961517139834,
+      "source": "negative_control_exposure",
+      "target": "negative_control_outcome"
+    }
+  ]
+}

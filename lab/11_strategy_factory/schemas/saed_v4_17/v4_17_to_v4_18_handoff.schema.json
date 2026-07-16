@@ -1,0 +1,193 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_17/v4_17_to_v4_18_handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-17 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "activate_runtime": {
+          "type": "boolean"
+        },
+        "allocate_risk": {
+          "type": "boolean"
+        },
+        "assert_real_causality": {
+          "type": "boolean"
+        },
+        "build_reference_causal_treatment_and_policy_value": {
+          "type": "boolean"
+        },
+        "estimate_production_treatment_effect": {
+          "type": "boolean"
+        },
+        "mutate_v4_17_evidence": {
+          "type": "boolean"
+        },
+        "rank_treatments": {
+          "type": "boolean"
+        },
+        "read_frozen_causal_mechanism_evidence": {
+          "type": "boolean"
+        },
+        "select_treatment": {
+          "type": "boolean"
+        },
+        "send_order": {
+          "type": "boolean"
+        },
+        "sign_promotion": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "activate_runtime",
+        "allocate_risk",
+        "assert_real_causality",
+        "build_reference_causal_treatment_and_policy_value",
+        "estimate_production_treatment_effect",
+        "mutate_v4_17_evidence",
+        "rank_treatments",
+        "read_frozen_causal_mechanism_evidence",
+        "select_treatment",
+        "send_order",
+        "sign_promotion"
+      ],
+      "type": "object"
+    },
+    "backdoor_audit_hash": {
+      "type": "string"
+    },
+    "causal_benchmark_dataset_hash": {
+      "type": "string"
+    },
+    "claim_tier_report_hash": {
+      "type": "string"
+    },
+    "entry_gates": {
+      "additionalProperties": false,
+      "properties": {
+        "acyclicity_verified": {
+          "type": "boolean"
+        },
+        "association_baseline_preserved": {
+          "type": "boolean"
+        },
+        "authority_boundary_verified": {
+          "type": "boolean"
+        },
+        "closed_contracts_verified": {
+          "type": "boolean"
+        },
+        "deterministic_replay_passed": {
+          "type": "boolean"
+        },
+        "environment_registry_frozen": {
+          "type": "boolean"
+        },
+        "future_suffix_forbidden": {
+          "type": "boolean"
+        },
+        "hidden_confounder_sensitivity_attached": {
+          "type": "boolean"
+        },
+        "known_time_dataset_passed": {
+          "type": "boolean"
+        },
+        "negative_controls_passed": {
+          "type": "boolean"
+        },
+        "protected_evidence_air_gap_verified": {
+          "type": "boolean"
+        },
+        "synthetic_claim_ceiling_enforced": {
+          "type": "boolean"
+        },
+        "temporal_precedence_verified": {
+          "type": "boolean"
+        },
+        "upstream_v4_16_binding_verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "acyclicity_verified",
+        "association_baseline_preserved",
+        "authority_boundary_verified",
+        "closed_contracts_verified",
+        "deterministic_replay_passed",
+        "environment_registry_frozen",
+        "future_suffix_forbidden",
+        "hidden_confounder_sensitivity_attached",
+        "known_time_dataset_passed",
+        "negative_controls_passed",
+        "protected_evidence_air_gap_verified",
+        "synthetic_claim_ceiling_enforced",
+        "temporal_precedence_verified",
+        "upstream_v4_16_binding_verified"
+      ],
+      "type": "object"
+    },
+    "environment_registry_hash": {
+      "type": "string"
+    },
+    "frontdoor_audit_hash": {
+      "type": "string"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "integrity_receipt_hash": {
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "mechanism_checkpoint_registry_hash": {
+      "type": "string"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "reference_champion_id": {
+      "type": "string"
+    },
+    "upstream_v4_16_handoff_hash": {
+      "type": "string"
+    },
+    "variable_registry_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "authority",
+    "backdoor_audit_hash",
+    "causal_benchmark_dataset_hash",
+    "claim_tier_report_hash",
+    "entry_gates",
+    "environment_registry_hash",
+    "frontdoor_audit_hash",
+    "handoff_hash",
+    "handoff_id",
+    "integrity_receipt_hash",
+    "limitations",
+    "mechanism_checkpoint_registry_hash",
+    "next_phase",
+    "phase",
+    "reference_champion_id",
+    "upstream_v4_16_handoff_hash",
+    "variable_registry_hash"
+  ],
+  "title": "V4_17_TO_V4_18_HANDOFF",
+  "type": "object"
+}

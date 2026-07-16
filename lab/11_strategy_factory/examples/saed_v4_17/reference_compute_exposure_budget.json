@@ -1,0 +1,13 @@
+{
+  "hidden_evaluation_query_limit": 0,
+  "max_bootstrap_replicates": 256,
+  "max_candidates": 16,
+  "max_conditional_tests": 4096,
+  "max_edges_evaluated": 2048,
+  "max_failures": 0,
+  "max_retries": 0,
+  "max_rows": 500,
+  "max_stress_runs": 32,
+  "max_variables": 32,
+  "protected_evidence_exposure_limit": 0
+}

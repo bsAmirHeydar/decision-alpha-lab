@@ -1,0 +1,62 @@
+{
+  "claimable_as_real_mechanism": false,
+  "edge_count": 13,
+  "edges": [
+    {
+      "source": "instrument_z",
+      "target": "treatment_proxy"
+    },
+    {
+      "source": "context_state",
+      "target": "structure_state"
+    },
+    {
+      "source": "context_state",
+      "target": "treatment_proxy"
+    },
+    {
+      "source": "context_state",
+      "target": "outcome_proxy"
+    },
+    {
+      "source": "structure_state",
+      "target": "mediator_fill_quality"
+    },
+    {
+      "source": "structure_state",
+      "target": "outcome_proxy"
+    },
+    {
+      "source": "liquidity_state",
+      "target": "execution_friction"
+    },
+    {
+      "source": "liquidity_state",
+      "target": "mediator_fill_quality"
+    },
+    {
+      "source": "execution_friction",
+      "target": "treatment_proxy"
+    },
+    {
+      "source": "execution_friction",
+      "target": "mediator_fill_quality"
+    },
+    {
+      "source": "execution_friction",
+      "target": "outcome_proxy"
+    },
+    {
+      "source": "treatment_proxy",
+      "target": "mediator_fill_quality"
+    },
+    {
+      "source": "mediator_fill_quality",
+      "target": "outcome_proxy"
+    }
+  ],
+  "graph_hash": "8fc6e130de65009cac738b607fe4ca61d40e39cb23ab44cf3cee263eba299ab9",
+  "node_count": 11,
+  "phase": "SAED_V4_17",
+  "synthetic_benchmark_truth_only": true
+}

@@ -1,0 +1,21 @@
+{
+  "acyclic": true,
+  "audit_hash": "836d114ae3ddaa7e8d025ade842f1fc90b226db5cfa9b3802ab9158f03a5cc64",
+  "candidate_id": "v417_temporal_pc",
+  "edge_count": 18,
+  "node_count": 10,
+  "passed": true,
+  "phase": "SAED_V4_17",
+  "topological_order": [
+    "context_state",
+    "instrument_z",
+    "negative_control_exposure",
+    "liquidity_state",
+    "execution_friction",
+    "negative_control_outcome",
+    "structure_state",
+    "treatment_proxy",
+    "mediator_fill_quality",
+    "outcome_proxy"
+  ]
+}

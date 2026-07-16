@@ -1,0 +1,54 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_17/golden_backdoor_audit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-17 deterministic synthetic reference contract. Unknown fields are forbidden.",
+  "properties": {
+    "audit_hash": {
+      "type": "string"
+    },
+    "backdoor_candidate_exists": {
+      "type": "boolean"
+    },
+    "candidate_adjustment_set": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "identification_claim_allowed": {
+      "type": "boolean"
+    },
+    "outcome_proxy_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "treatment_parents": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "treatment_proxy_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "audit_hash",
+    "backdoor_candidate_exists",
+    "candidate_adjustment_set",
+    "identification_claim_allowed",
+    "outcome_proxy_id",
+    "phase",
+    "reason",
+    "treatment_parents",
+    "treatment_proxy_id"
+  ],
+  "title": "GOLDEN_BACKDOOR_AUDIT",
+  "type": "object"
+}
