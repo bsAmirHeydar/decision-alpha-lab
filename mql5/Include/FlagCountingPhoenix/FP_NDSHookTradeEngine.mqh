@@ -45,6 +45,9 @@ void FP_PrintNDSHookTradeReport(const string tag,
    message += " seq=" + IntegerToString(report.setup.sequence_id);
    message += " family=" + report.setup.family;
    message += " x_count=" + IntegerToString(report.setup.x_count);
+   message += " p04_closed=" + FP_NDSHookTradeBool(report.setup.phase04_x_closed);
+   message += " first_864_touch=" + FP_NDSHookTradeBool(report.setup.first_864_touch_found);
+   message += " funnel={" + FP_NDSHook864CycleR1FunnelSummary(report.funnel) + "}";
    message += " entry=" + DoubleToString(report.setup.entry_price, _Digits);
    message += " stop=" + DoubleToString(report.setup.stop_price, _Digits);
    message += " target=" + DoubleToString(report.setup.target_price, _Digits);

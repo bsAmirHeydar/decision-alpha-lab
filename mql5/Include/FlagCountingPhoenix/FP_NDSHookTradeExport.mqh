@@ -56,7 +56,7 @@ string FP_NDSHookTradeCsvRow(const FP_NDSHookTradeReport &r)
 
 string FP_NDSHook864CycleR1CsvHeader()
 {
-   return "generated_at,version,schema_version,symbol,period,attempted,ok,action,status,reason,managed_pending,managed_positions,foreign_symbol_positions,order_ticket,position_ticket,profile,setup_sequence_id,setup_family,setup_direction,x_count,origin,crown,terminal,terminal_retracement_ratio,entry_ratio,entry_level_untouched,entry,death,stop,target,risk_distance,reward_distance,reward_r,volume,setup_used,setup_key,state_key";
+   return "generated_at,version,schema_version,symbol,period,attempted,ok,action,status,reason,managed_pending,managed_positions,foreign_symbol_positions,order_ticket,position_ticket,profile,setup_sequence_id,setup_family,setup_direction,x_count,origin,crown,terminal,terminal_retracement_ratio,entry_ratio,phase04_evidence_found,phase04_x_closed,x_closure_time,x_closure_price,x_closure_threshold,cycle_dead_after_terminal,first_864_touch_found,first_864_touch_time,first_864_touch_price,entry_level_untouched,entry,death,stop,target,risk_distance,reward_distance,reward_r,volume,setup_used,setup_key,funnel_total,funnel_valid_family,funnel_x34,funnel_p04_found,funnel_x_closed,funnel_alive,funnel_untouched,funnel_ready,funnel_blocker,state_key";
 }
 
 string FP_NDSHook864CycleR1CsvRow(const FP_NDSHookTradeReport &r)
@@ -86,6 +86,15 @@ string FP_NDSHook864CycleR1CsvRow(const FP_NDSHookTradeReport &r)
    s += "," + DoubleToString(r.setup.terminal_price, _Digits);
    s += "," + DoubleToString(r.setup.terminal_retracement_ratio, 8);
    s += "," + DoubleToString(r.setup.entry_ratio, 8);
+   s += "," + FP_NDSHookTradeBool(r.setup.phase04_evidence_found);
+   s += "," + FP_NDSHookTradeBool(r.setup.phase04_x_closed);
+   s += "," + FP_NDSHookTradeCsvSafe(r.setup.x_closure_time > 0 ? TimeToString(r.setup.x_closure_time, TIME_DATE|TIME_SECONDS) : "");
+   s += "," + DoubleToString(r.setup.x_closure_price, _Digits);
+   s += "," + DoubleToString(r.setup.x_closure_threshold_price, _Digits);
+   s += "," + FP_NDSHookTradeBool(r.setup.cycle_dead_after_terminal);
+   s += "," + FP_NDSHookTradeBool(r.setup.first_864_touch_found);
+   s += "," + FP_NDSHookTradeCsvSafe(r.setup.first_864_touch_time > 0 ? TimeToString(r.setup.first_864_touch_time, TIME_DATE|TIME_SECONDS) : "");
+   s += "," + DoubleToString(r.setup.first_864_touch_price, _Digits);
    s += "," + FP_NDSHookTradeBool(r.setup.entry_level_untouched);
    s += "," + DoubleToString(r.setup.entry_price, _Digits);
    s += "," + DoubleToString(r.setup.death_price, _Digits);
@@ -97,6 +106,15 @@ string FP_NDSHook864CycleR1CsvRow(const FP_NDSHookTradeReport &r)
    s += "," + DoubleToString(r.setup.volume, 8);
    s += "," + FP_NDSHookTradeBool(r.setup.already_used);
    s += "," + FP_NDSHookTradeCsvSafe(r.setup.setup_key);
+   s += "," + IntegerToString(r.funnel.sequences_total);
+   s += "," + IntegerToString(r.funnel.valid_family);
+   s += "," + IntegerToString(r.funnel.x3_x4);
+   s += "," + IntegerToString(r.funnel.phase04_evidence_found);
+   s += "," + IntegerToString(r.funnel.phase04_x_closed);
+   s += "," + IntegerToString(r.funnel.alive_after_closure);
+   s += "," + IntegerToString(r.funnel.first_864_untouched);
+   s += "," + IntegerToString(r.funnel.execution_ready);
+   s += "," + FP_NDSHookTradeCsvSafe(r.funnel.dominant_blocker);
    s += "," + FP_NDSHookTradeCsvSafe(r.state_key);
    return s;
 }

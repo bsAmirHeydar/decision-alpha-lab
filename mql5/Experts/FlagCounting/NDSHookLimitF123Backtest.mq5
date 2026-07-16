@@ -1,6 +1,6 @@
 #property strict
-#property version   "1.00"
-#property description "NDS lightweight Strategy Tester executable: valid F3H/HH limit entry, one exposure, same-direction F123 exit."
+#property version   "1.10"
+#property description "NDS profile-aware Strategy Tester executable. Defaults to Hook 86.4 / Phase04 X-closed / x3-x4 / fixed 1R with full diagnostic funnel."
 
 #include "../../Include/FlagCountingPhoenix/FP_NDSBacktestEngine.mqh"
 
@@ -13,12 +13,12 @@
 // ============================================================================
 
 // ------------------------------ Runtime profile -----------------------------
-input FP_NDSBacktestProfile InpBTProfile = FP_NDS_BACKTEST_PROFILE_FAST;
+input FP_NDSBacktestProfile InpBTProfile = FP_NDS_BACKTEST_PROFILE_PARITY;
 input bool InpBTAllowNonTesterDryRun = false;
 input bool InpBTRunOnFirstTick = true;
 input bool InpBTSkipHookRebuildWhilePositionOpen = true;
-input bool InpBTPrintRunSummary = false;
-input int  InpBTPrintEveryNRuns = 250;
+input bool InpBTPrintRunSummary = true;
+input int  InpBTPrintEveryNRuns = 25;
 input bool InpBTPrintSessionSummary = true;
 
 // CUSTOM profile only. FAST and PARITY replace these values deterministically.
@@ -89,7 +89,7 @@ input int    InpBTHookMaxNodes = 20000;
 // ------------------------------ Executable contract -------------------------
 input bool   InpBTTradeEnabled = true;
 input bool   InpBTSendTesterOrders = true;
-input FP_NDSHookTradeProfile InpBTTradeProfile = FP_NDS_HOOK_TRADE_PROFILE_TERMINAL_F123;
+input FP_NDSHookTradeProfile InpBTTradeProfile = FP_NDS_HOOK_TRADE_PROFILE_HOOK_864_CYCLE_R1;
 input double InpBTHookEntryRatio = 0.864;
 input int    InpBTHookEntryMinXCount = 3;
 input int    InpBTHookEntryMaxXCount = 4;

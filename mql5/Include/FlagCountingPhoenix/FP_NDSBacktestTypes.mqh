@@ -4,9 +4,10 @@
 
 #include "FP_NDSHookTradeTypes.mqh"
 #include "FP_HookPhase02Types.mqh"
+#include "FP_HookPhase04Types.mqh"
 
-#define FP_NDS_BACKTEST_VERSION "NDS-BACKTEST-01"
-#define FP_NDS_BACKTEST_SCHEMA_VERSION "nds_lightweight_backtest_v1"
+#define FP_NDS_BACKTEST_VERSION "NDS-BACKTEST-02"
+#define FP_NDS_BACKTEST_SCHEMA_VERSION "nds_lightweight_backtest_v2"
 
 enum FP_NDSBacktestProfile
 {
@@ -66,6 +67,8 @@ struct FP_NDSBacktestRunReport
 
    ulong elapsed_microseconds;
    FP_HookPhase02Report hook_phase02_report;
+   FP_HookPhase03Report hook_phase03_report;
+   FP_HookPhase04Report hook_phase04_report;
    FP_NDSHookTradeReport trade_report;
 };
 
@@ -76,6 +79,22 @@ struct FP_NDSBacktestSessionStats
    ulong failed_runs;
    ulong hook_rebuild_runs;
    ulong position_fast_path_runs;
+
+   // Aggregated diagnostics for rare-entry profiles. These counters make a
+   // zero-trade Strategy Tester run actionable instead of opaque.
+   ulong no_candidate_runs;
+   ulong execution_ready_runs;
+   ulong paper_limit_ready_runs;
+   ulong limit_sent_runs;
+   ulong pending_held_runs;
+   ulong position_held_runs;
+   ulong pending_cancelled_runs;
+   ulong position_closed_runs;
+   ulong blocked_runs;
+   ulong phase04_closed_total;
+   ulong phase04_evidence_total;
+   ulong first_864_untouched_total;
+
    ulong total_microseconds;
    ulong max_microseconds;
    ulong last_microseconds;
@@ -130,6 +149,8 @@ void FP_ResetNDSBacktestRunReport(FP_NDSBacktestRunReport &report)
    report.hook_snapshot_skipped_for_open_position = false;
    report.elapsed_microseconds = 0;
    FP_ResetHookPhase02Report(report.hook_phase02_report);
+   FP_ResetHookPhase03Report(report.hook_phase03_report);
+   FP_ResetHookPhase04Report(report.hook_phase04_report);
    FP_ResetNDSHookTradeReport(report.trade_report);
 }
 
@@ -140,6 +161,18 @@ void FP_ResetNDSBacktestSessionStats(FP_NDSBacktestSessionStats &stats)
    stats.failed_runs = 0;
    stats.hook_rebuild_runs = 0;
    stats.position_fast_path_runs = 0;
+   stats.no_candidate_runs = 0;
+   stats.execution_ready_runs = 0;
+   stats.paper_limit_ready_runs = 0;
+   stats.limit_sent_runs = 0;
+   stats.pending_held_runs = 0;
+   stats.position_held_runs = 0;
+   stats.pending_cancelled_runs = 0;
+   stats.position_closed_runs = 0;
+   stats.blocked_runs = 0;
+   stats.phase04_closed_total = 0;
+   stats.phase04_evidence_total = 0;
+   stats.first_864_untouched_total = 0;
    stats.total_microseconds = 0;
    stats.max_microseconds = 0;
    stats.last_microseconds = 0;

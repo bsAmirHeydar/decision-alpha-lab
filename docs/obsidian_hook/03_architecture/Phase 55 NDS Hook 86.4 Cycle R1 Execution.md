@@ -5,10 +5,10 @@
 Add `HOOK_864_CYCLE_R1` as an opt-in profile inside the existing `FP_NDSHookTrade*` stack.
 
 ```text
-Canonical Hook Phase02
-→ CycleClosed + Confirmed Terminal
-→ x_count 3/4
-→ Terminal progress < 0.864
+Canonical Hook Phase02 identity/family/Terminal/x_count
+→ canonical Phase03 Y reference
+→ canonical Phase04 50% X closure and alive state
+→ no closed-bar 86.4 arrival at or after closure
 → limit at 0.864 Crown→Origin
 → Stop behind Death/Origin
 → attached 1R Target
@@ -16,7 +16,7 @@ Canonical Hook Phase02
 
 ## No parallel canon
 
-The profile may not call market-history APIs, detect pivots, count nodes, reconstruct Hook family, or mutate canonical sequence state. It consumes one `FP_HookPhase02Sequence`.
+The profile may not call market-history APIs, detect pivots, count nodes, reconstruct Hook family, or mutate canonical sequence state. It consumes one `FP_HookPhase02Sequence`, the exact matching `FP_HookPhase04Record`, and the caller-owned canonical closed-rate array. It does not privately call `CopyRates`.
 
 ## Compatibility
 
@@ -29,4 +29,5 @@ The profile may not call market-history APIs, detect pivots, count nodes, recons
 - [[../08_entry_execution/NDS Hook 86.4 Cycle R1 State Machine]]
 - [[../08_entry_execution/NDS Hook 86.4 Cycle R1 Audit Ledger]]
 - [[../08_entry_execution/NDS Hook 86.4 Cycle R1 Operator Checklist]]
+- [[../08_entry_execution/NDS Hook 86.4 No Trade Diagnostic Funnel]]
 - [[../00_mocs/NDS_ENTRY_EXECUTION_MOC]]

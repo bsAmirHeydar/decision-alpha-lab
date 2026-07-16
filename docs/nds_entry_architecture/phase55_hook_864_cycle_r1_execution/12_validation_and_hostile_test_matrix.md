@@ -7,9 +7,11 @@
 - required files and docs;
 - old profile compatibility;
 - exact parameter locks;
-- canonical `cycle_closed`, `resolve_confirmed`, and `x_count` reuse;
-- absence of a second Hook detector/node counter;
-- projection and first-arrival formula;
+- canonical Phase02 identity, terminal, family and `x_count` reuse;
+- canonical Phase03 Y and Phase04 50% closure/death reuse;
+- absence of a second Hook detector, node counter, Y extractor or closure engine;
+- projection and closed-bar post-closure first-arrival formula;
+- dedicated tester profile/PARITY defaults and zero-trade funnel;
 - stable one-attempt identity;
 - structural Stop and fixed Target;
 - shared sizing, lock, exposure, cancellation, and broker paths;
@@ -26,9 +28,12 @@
 | X2 | blocked |
 | X5 | blocked |
 | unconfirmed Terminal | blocked |
-| Cycle not closed | blocked |
-| Terminal at 0.864 | late-level blocked |
-| Terminal beyond 0.864 | late-level blocked |
+| Phase02 terminal unavailable | blocked |
+| Phase04 X not closed | blocked |
+| Phase04 origin-return death | blocked |
+| 86.4 touched on closure candle | first-arrival consumed, blocked |
+| 86.4 touched later after closure | first-arrival consumed, blocked |
+| Terminal ratio beyond 0.864 but post-closure level untouched | not rejected by terminal ratio alone |
 | invalid Crown/Origin | blocked |
 | Buy Limit not below Ask by broker distance | blocked |
 | Sell Limit not above Bid by broker distance | blocked |
@@ -42,7 +47,7 @@
 ## Required external validation
 
 1. MetaEditor compile with zero errors and reviewed warnings.
-2. Lightweight tester run for both profile branches.
+2. Lightweight tester run with `InpBTTradeProfile=HOOK_864_CYCLE_R1`, PARITY history, and reviewed funnel; then regression of the legacy profile.
 3. Python/MQL5 vector parity.
 4. Visual review of Origin/Crown/Terminal/86.4 geometry.
 5. Demo broker pending-fill, SL, TP, cancellation, restart, and duplicate-exposure tests.

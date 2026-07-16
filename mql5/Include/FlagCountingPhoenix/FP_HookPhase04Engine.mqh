@@ -3,6 +3,7 @@
 #property strict
 
 #include "FP_HookPhase04Export.mqh"
+#include "FP_NDSHook864CycleR1Evidence.mqh"
 
 void FP_RunHookPhase04(const string symbol,
                        const ENUM_TIMEFRAMES period,
@@ -20,6 +21,7 @@ void FP_RunHookPhase04(const string symbol,
 
    if(!FP_HookP04ShouldRun(cfg))
    {
+      FP_NDSClearHook864CycleR1EvidenceSnapshot();
       report.status = "HOOK_P04_SKIPPED";
       report.reason = "DISPLAY_FAMILY_RALLY_ONLY_OR_DISABLED";
       report.ok = true;
@@ -96,6 +98,12 @@ void FP_RunHookPhase04(const string symbol,
    FP_HookPhase04Record records[];
    FP_HookP04BuildRecords(rates, copied, p03_records, cfg, records, report);
    FP_HookP04FinalizeReport(report);
+
+   // Read-only handoff to the integrated 86.4 execution profile. This uses the
+   // exact Phase04 records produced above and scans only the same closed-rate
+   // array for first-arrival evidence.
+   FP_NDSCaptureHook864CycleR1EvidenceSnapshot(symbol, period,
+                                                rates, copied, records);
 
    if(cfg.draw_nd || cfg.draw_death || cfg.draw_x_closure || cfg.draw_thresholds)
       FP_HookP04DrawRecords(cfg, records, report);

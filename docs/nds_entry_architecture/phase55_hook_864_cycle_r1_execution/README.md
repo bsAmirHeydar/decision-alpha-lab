@@ -1,8 +1,8 @@
 ---
 title: NDS Phase 55 Hook 86.4 Cycle R1 Execution
 status: implemented_opt_in_reference_qa_pending_metaeditor
-version: 1.0.0
-updated: 2026-07-15
+version: 1.1.0
+updated: 2026-07-16
 ---
 # NDS Phase 55 — Hook 86.4 Cycle R1 Execution
 
@@ -12,11 +12,11 @@ Phase 55 adds one narrow execution profile to the existing NDS Hook trade stack.
 
 ```text
 Canonical FP_HookPhase02Sequence
-→ existing valid-family gate
-→ canonical cycle-closed gate
-→ confirmed terminal
+→ existing valid-family and confirmed-terminal gates
 → canonical x_count ∈ {3,4}
-→ canonical retracement still before 0.864
+→ existing Phase03 Y-axis builder
+→ existing Phase04 50% X-closure lifecycle
+→ closed-bar first-arrival proof after closure
 → limit at crown-to-origin 86.4%
 → stop behind canonical cycle death boundary
 → attached target at exactly 1R
@@ -27,11 +27,13 @@ Canonical FP_HookPhase02Sequence
 
 ```text
 FP_NDS_HOOK_TRADE_PROFILE_HOOK_864_CYCLE_R1
-schema = nds_hook_864_cycle_r1_v1
+schema = nds_hook_864_cycle_r1_v2
 entry_ratio = 0.864
 x_count = 3 or 4
 require_confirmed_terminal = true
-require_level_untouched = true
+require_phase04_x_closed = true
+closure_ratio = 0.50
+require_level_untouched_after_closure = true
 reward_r = 1.0
 ```
 
@@ -59,11 +61,15 @@ These values are not optimization knobs. Inputs remain visible for evidence and 
 14. [[14_persian_strategy_doctrine]]
 15. [[15_compatibility_migration_and_rollback]]
 16. [[16_definition_of_done_limitations_and_residual_risk]]
+17. [[17_no_trade_root_cause_and_engine_fix]]
+18. [[18_phase04_closure_and_first_arrival_contract]]
 
 ## Implementation map
 
 ```text
 FP_NDSHookTradeTypes.mqh
+FP_NDSHook864CycleR1Evidence.mqh
+FP_NDSHook864CycleR1EvidenceEngine.mqh
 FP_NDSHook864CycleR1Rules.mqh
 FP_NDSHookTradeRules.mqh
 FP_NDSHookTradeExecutionCore.mqh
@@ -85,3 +91,17 @@ InpNDSHookTradeProfile = TERMINAL_F123
 ```
 
 Choosing the Phase 55 profile still does not send an order unless both authority inputs are deliberately enabled and all existing broker/risk gates pass.
+
+
+## Dedicated tester defaults
+
+The dedicated Strategy Tester expert now defaults to the intended low-frequency profile:
+
+```text
+Expert = NDSHookLimitF123Backtest
+InpBTProfile = PARITY
+InpBTTradeProfile = HOOK_864_CYCLE_R1
+InpBTPrintRunSummary = true
+```
+
+The central EA remains fail-closed and unchanged by this diagnostic default.

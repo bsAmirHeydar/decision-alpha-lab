@@ -1,8 +1,8 @@
 ---
 title: Phase 55 — NDS Hook 86.4 Cycle R1 Execution
 status: implemented_opt_in
-version: 1.0.0
-updated: 2026-07-15
+version: 1.1.0
+updated: 2026-07-16
 ---
 # Phase 55 — NDS Hook 86.4 Cycle R1 Execution
 
@@ -12,19 +12,22 @@ Phase 55 adds a profile adapter, not a structure detector:
 
 ```text
 existing Hook Phase02 sequence
-→ existing family validity
-→ canonical cycle closure and confirmed Terminal
+→ existing family validity and confirmed Terminal
 → canonical x_count = 3 or 4
-→ untouched crown-to-origin 86.4 level
+→ existing Phase03 Y-axis records
+→ existing Phase04 50% X closure and origin-return death
+→ closed-bar first-arrival proof at 86.4 after closure
 → existing Hook trade execution stack
 ```
 
 ## Single-source guarantees
 
 - Node counting remains owned by Hook Phase02.
-- Cycle closure remains owned by `FP_HookP02SequenceCycleClosed`.
-- Crown, Origin, Terminal, Death, family, and validity remain sequence fields.
-- The new module owns only profile validation and Entry projection.
+- Phase02 terminal availability remains owned by `FP_HookP02SequenceCycleClosed`.
+- Y references remain owned by Hook Phase03.
+- X closure and origin-return death remain owned by Hook Phase04.
+- Crown, Origin, Terminal, family, and validity remain sequence fields.
+- The new bridge owns only exact evidence binding and closed-bar first-arrival observation; it does not own structure.
 - Existing risk, broker, persistence, exposure, cancellation, and audit modules remain authoritative.
 
 ## Executable behavior
@@ -43,3 +46,8 @@ The exact ratio, node window, confirmed-Terminal gate, untouched-level gate, and
 
 - [[../nds_entry_architecture/phase55_hook_864_cycle_r1_execution/README|Phase 55 detailed execution package]]
 - [[../obsidian_hook/03_architecture/Phase 55 NDS Hook 86.4 Cycle R1 Execution|Obsidian architecture note]]
+
+
+## v1.1 no-trade correction
+
+The dedicated tester defaults to PARITY plus `InpBTTradeProfile=HOOK_864_CYCLE_R1` and emits a full Phase02→Phase04→first-arrival→execution funnel. `seq.retracement_ratio` is audit-only and no longer substitutes for actual post-closure price travel.

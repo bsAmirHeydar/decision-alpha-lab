@@ -1,0 +1,53 @@
+{
+  "activation_allowed": false,
+  "environment": {
+    "metaeditor_available": false,
+    "mt5_strategy_tester_available": false,
+    "os": "linux_container",
+    "real_broker_available": false
+  },
+  "external_pending": [
+    "Windows MetaEditor clean compilation",
+    "MQL5 no-order runtime self-test",
+    "MT5 Strategy Tester historical execution",
+    "terminal restart and profile recovery",
+    "demo broker pending order, fill, SL, TP and cancellation"
+  ],
+  "patch_id": "decision-alpha-lab-nds-hook-864-cycle-r1-no-trade-fix-v1.1.0",
+  "qa": {
+    "bounded_qa_stages": {
+      "passed": 9,
+      "status": "pass"
+    },
+    "engineering_policy": {
+      "errors": 0,
+      "status": "pass",
+      "warnings": 0
+    },
+    "python_tests": {
+      "passed": 43,
+      "status": "pass"
+    },
+    "python_compile": {
+      "status": "pass"
+    },
+    "source_contract_static_records": {
+      "failed": 0,
+      "passed": 359,
+      "status": "pass"
+    },
+    "mql5_metaeditor_compile": {
+      "status": "pending_external_windows"
+    }
+  },
+  "root_causes_closed": [
+    "wrong dedicated tester trade-profile default",
+    "sparse FAST default for rare setup",
+    "Phase02 terminal used as final cycle-closure proof",
+    "terminal retracement used as first-arrival proxy",
+    "array-local sequence_id used for cross-engine binding",
+    "opaque zero-trade report without gate funnel"
+  ],
+  "status": "reference_fix_accepted_external_runtime_evidence_pending",
+  "version": "1.1.0"
+}

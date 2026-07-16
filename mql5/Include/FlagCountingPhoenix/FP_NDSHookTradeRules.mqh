@@ -119,7 +119,9 @@ bool FP_NDSHookTradeSequenceEligible(const FP_HookPhase02Sequence &seq,
    return false;
 }
 
-bool FP_NDSHookTradeSelectLatest(const FP_HookPhase02Sequence &sequences[],
+bool FP_NDSHookTradeSelectLatest(const string symbol,
+                                 const ENUM_TIMEFRAMES period,
+                                 const FP_HookPhase02Sequence &sequences[],
                                  const FP_NDSHookTradeConfig &cfg,
                                  FP_HookPhase02Sequence &selected)
 {
@@ -129,7 +131,20 @@ bool FP_NDSHookTradeSelectLatest(const FP_HookPhase02Sequence &sequences[],
 
    for(int i=0; i<ArraySize(sequences); i++)
    {
-      if(!FP_NDSHookTradeSequenceEligible(sequences[i], cfg))
+      bool eligible = false;
+      if(cfg.profile == FP_NDS_HOOK_TRADE_PROFILE_HOOK_864_CYCLE_R1)
+      {
+         FP_NDSHook864CycleR1Evidence evidence;
+         string reason;
+         eligible = FP_NDSHook864CycleR1RuntimeEligible(symbol, period,
+                                                        sequences[i], cfg,
+                                                        evidence, reason);
+      }
+      else
+      {
+         eligible = FP_NDSHookTradeSequenceEligible(sequences[i], cfg);
+      }
+      if(!eligible)
          continue;
 
       datetime t = FP_NDSHookTradeSequenceTime(sequences[i]);
@@ -346,8 +361,7 @@ bool FP_NDSHookTradeBuildSetup(const string symbol,
    setup.terminal_retracement_ratio = seq.retracement_ratio;
    setup.entry_ratio = (cfg.profile == FP_NDS_HOOK_TRADE_PROFILE_HOOK_864_CYCLE_R1 ?
                         cfg.hook_entry_ratio : 0.0);
-   setup.entry_level_untouched = (cfg.profile == FP_NDS_HOOK_TRADE_PROFILE_HOOK_864_CYCLE_R1 ?
-                                  FP_NDSHook864CycleR1LevelUntouched(seq, cfg.hook_entry_ratio) : true);
+   setup.entry_level_untouched = (cfg.profile == FP_NDS_HOOK_TRADE_PROFILE_TERMINAL_F123);
    setup.setup_key = FP_NDSHookTradeBuildSetupKey(symbol, period, seq, cfg);
    setup.broker_comment = FP_NDSHookTradeBuildComment(cfg, seq);
    setup.already_used = FP_NDSHookTradeSetupUsed(cfg, setup.setup_key);
@@ -362,13 +376,25 @@ bool FP_NDSHookTradeBuildSetup(const string symbol,
 
    if(cfg.profile == FP_NDS_HOOK_TRADE_PROFILE_HOOK_864_CYCLE_R1)
    {
+      FP_NDSHook864CycleR1Evidence evidence;
       string profile_reason;
-      if(!FP_NDSHook864CycleR1SequenceEligible(seq, cfg, profile_reason))
+      if(!FP_NDSHook864CycleR1RuntimeEligible(symbol, period, seq, cfg,
+                                               evidence, profile_reason))
       {
          setup.status = "BLOCKED_HOOK_864_PROFILE";
          setup.reason = profile_reason;
          return false;
       }
+      setup.phase04_evidence_found = true;
+      setup.phase04_x_closed = evidence.x_closed;
+      setup.x_closure_time = evidence.x_closure_time;
+      setup.x_closure_price = evidence.x_closure_price;
+      setup.x_closure_threshold_price = evidence.x_closure_threshold_price;
+      setup.cycle_dead_after_terminal = evidence.origin_return_penetrated;
+      setup.first_864_touch_found = evidence.level_touched_after_closure;
+      setup.first_864_touch_time = evidence.first_touch_time;
+      setup.first_864_touch_price = evidence.first_touch_price;
+      setup.entry_level_untouched = !evidence.level_touched_after_closure;
    }
 
    double point = SymbolInfoDouble(symbol, SYMBOL_POINT);

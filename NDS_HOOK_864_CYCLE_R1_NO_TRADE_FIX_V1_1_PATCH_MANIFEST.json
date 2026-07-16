@@ -1,0 +1,34 @@
+{
+  "activation_allowed": false,
+  "authority": {
+    "broker_send_default": false,
+    "central_profile_default": "TERMINAL_F123",
+    "dedicated_tester_profile_default": "HOOK_864_CYCLE_R1",
+    "parallel_hook_detector": false,
+    "parallel_node_counter": false,
+    "parallel_phase04_closure_engine": false
+  },
+  "counts": {
+    "bounded_qa_stages": 9,
+    "modified_or_new_before_index_hash": 38,
+    "new_obisidian_or_engineering_docs": 3,
+    "new_python_log_analyzer_tests": 4,
+    "python_tests": 43,
+    "source_static_fail_records": 0,
+    "source_static_pass_records": 359,
+    "total_patch_files": 40
+  },
+  "dependency": "decision-alpha-lab-nds-hook-864-cycle-r1-v1.0.0",
+  "patch_id": "decision-alpha-lab-nds-hook-864-cycle-r1-no-trade-fix-v1.1.0",
+  "scope": [
+    "dedicated tester profile and history defaults",
+    "canonical Phase03/Phase04 closure integration",
+    "post-closure closed-bar first-arrival evidence",
+    "stable cross-engine sequence identity",
+    "candidate funnel and session diagnostics",
+    "Python parity reference, hostile tests, log analyzer and Obsidian documentation"
+  ],
+  "status": "repository_qa_pass_external_metaeditor_mt5_broker_pending",
+  "test_command": "powershell -ExecutionPolicy Bypass -File tools/flag_counting/run_nds_hook_864_cycle_r1_tests.ps1",
+  "version": "1.1.0"
+}

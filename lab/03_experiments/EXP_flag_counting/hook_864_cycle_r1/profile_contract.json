@@ -2,29 +2,42 @@
   "activation_allowed": false,
   "authority": {
     "broker": "existing_NDS_trade_adapter_only_when_explicitly_enabled",
+    "cycle_closure": "FP_HookPhase03_and_FP_HookPhase04_only",
+    "first_arrival_scan": "closed_MqlRates_after_Phase04_closure_only",
     "hook_detection": "FP_HookPhase02_only",
     "node_count": "FP_HookPhase02Sequence.x_count_only",
     "order_send_default": false,
-    "profile_default": false
+    "profile_default_in_central_ea": false,
+    "profile_default_in_dedicated_backtest": true
   },
   "canonical_inputs": {
     "crown": "cycle_crown_price",
-    "cycle_closed": "FP_HookP02SequenceCycleClosed(sequence)",
     "death": "death_boundary_price_with_origin_fallback",
     "direction": "FP_HookPhase02Sequence.direction",
     "family": "valid_HH_or_F3H_through_existing_selector",
     "node_count": "x_count",
     "origin": "origin_price",
+    "phase02_terminal_available": "FP_HookP02SequenceCycleClosed(sequence)",
+    "phase04_cycle_closed": "FP_HookPhase04Lifecycle.x_closed",
+    "phase04_dead": "FP_HookPhase04Lifecycle.origin_return_penetrated",
     "terminal": "resolve_price",
     "terminal_confirmed": "resolve_confirmed",
-    "terminal_retracement": "retracement_ratio"
+    "terminal_retracement_audit_only": "retracement_ratio"
+  },
+  "cycle_closure": {
+    "origin_return_death_rejects": true,
+    "owner": "FP_HookPhase04",
+    "ratio": 0.5,
+    "requires_x_count_at_least": 3,
+    "requires_y_reference": true
   },
   "entry": {
+    "closure_candle_is_included_in_first_arrival_scan": true,
     "formula": "crown + 0.864 * (origin - crown)",
     "order_type_negative": "SellLimit",
     "order_type_positive": "BuyLimit",
     "ratio": 0.864,
-    "requires_level_untouched": true
+    "requires_level_untouched_after_phase04_closure": true
   },
   "exit": {
     "f123_market_exit": false,
@@ -38,14 +51,24 @@
     "x3_to_x4_second_setup": false
   },
   "node_count": {
-    "allowed": [3, 4],
+    "allowed": [
+      3,
+      4
+    ],
     "origin_is_counted": false
   },
   "profile": "HOOK_864_CYCLE_R1",
-  "schema_version": "nds_hook_864_cycle_r1_profile_contract_v1",
+  "schema_version": "nds_hook_864_cycle_r1_profile_contract_v2",
   "stop": {
     "broker_stop_and_freeze_normalization": true,
     "source": "death_boundary_price_or_origin",
     "structural_side": "behind_cycle"
+  },
+  "tester_defaults": {
+    "expert": "NDSHookLimitF123Backtest",
+    "input_name": "InpBTTradeProfile",
+    "run_funnel_summary": true,
+    "runtime_profile": "PARITY",
+    "trade_profile": "HOOK_864_CYCLE_R1"
   }
 }

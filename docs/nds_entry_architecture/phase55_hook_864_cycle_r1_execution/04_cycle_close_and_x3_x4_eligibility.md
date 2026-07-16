@@ -2,42 +2,60 @@
 
 ## Gate order
 
-The profile evaluates gates in a deterministic order:
+The profile evaluates two authoritative layers.
 
-1. validate exact profile configuration;
-2. require canonical valid/nonfailed Hook family;
-3. require existing HH or F3H family authorization;
-4. require `FP_HookP02SequenceCycleClosed(seq)`;
-5. require `seq.resolve_confirmed`;
-6. require valid Crown;
-7. require `seq.x_count` equal to 3 or 4;
-8. require `MATURE` or `CAPPED` state;
-9. require nonnegative canonical retracement;
-10. compute 86.4 projection and verify it is inside Origin–Crown;
-11. require the canonical Terminal not to have reached 86.4.
+### Phase02 intrinsic layer
+
+1. exact profile configuration;
+2. canonical valid/nonfailed Hook family;
+3. existing HH or F3H family authorization;
+4. Phase02 terminal availability through `FP_HookP02SequenceCycleClosed(seq)`;
+5. confirmed terminal;
+6. valid Crown and Origin;
+7. canonical `x_count` exactly 3 or 4;
+8. `MATURE` or `CAPPED` state;
+9. 86.4 projection inside Origin–Crown.
+
+### Phase04 runtime layer
+
+10. exact matching Phase04 evidence record;
+11. valid Phase04 record and closure candidate;
+12. canonical 50% `x_closed` lifecycle state;
+13. no origin-return death;
+14. matching x-count 3 or 4;
+15. no closed-bar 86.4 touch at or after closure;
+16. existing execution/broker/risk gates.
 
 ## Meaning of cycle closed
 
-Phase 55 does not redefine cycle closure. It consumes the Hook Phase02 closure helper and adds the setup-specific confirmed-Terminal gate. This is intentionally stricter than merely observing three geometric turns.
+Phase02 and Phase04 answer different questions:
+
+- Phase02 terminal availability proves the canonical sequence has reached a usable terminal state.
+- Phase04 `x_closed` proves the X cycle has closed according to the existing Y-reference and 50% closure engine.
+
+Phase 55 consumes both. It does not recalculate nodes, Y extremes, closure, or death.
 
 ## X3 and X4
 
-- X3 may qualify when its confirmed Terminal exists and progress remains below 86.4.
-- X4 may qualify under the same conditions.
+- X3 may qualify after canonical Phase04 closure.
+- X4 may qualify under the same rules.
 - X2 is too early.
 - X5 or later is outside the approved setup.
-- Origin is structural boundary and not an X node.
+- Origin is structural boundary and is not counted as an X node.
+- x3→x4 retains one Hook identity, one attempt and no automatic reprice.
 
 ## First-arrival interpretation
 
-The intended phrase “when it is going to reach 86.4 and node count is three or four” is encoded as:
+The first-arrival gate is based on actual closed price travel after Phase04 closure, not `seq.retracement_ratio`.
 
 ```text
-canonical_terminal_retracement + epsilon < 0.864
+Positive Hook: first low <= Entry
+Negative Hook: first high >= Entry
+scan starts at Phase04 closure candle
 ```
 
-If Terminal has already touched or crossed 86.4, placing a new limit at that price would be retrospective/late and is rejected.
+The closure candle is included. If closure and 86.4 happen in the same closed candle, a new limit would be temporally retrospective and is rejected.
 
 ## Selection behavior
 
-The existing latest-eligible selector remains authoritative. Phase 55 does not rank Hooks by distance, score, or expected return. Existing family and recency semantics remain intact.
+The existing latest-eligible selector remains authoritative. Phase 55 does not rank Hooks by distance, score, or expected return. Existing family, identity, recency, one-exposure and broker semantics remain intact.

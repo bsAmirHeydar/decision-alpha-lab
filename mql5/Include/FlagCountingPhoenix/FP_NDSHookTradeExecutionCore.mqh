@@ -415,8 +415,24 @@ void FP_RunNDSHookTradeExecutionCore(const string symbol,
 
    FP_HookPhase02Sequence sequences[];
    FP_NDSCopyStructureSnapshot(sequences);
+
+   if(cfg.profile == FP_NDS_HOOK_TRADE_PROFILE_HOOK_864_CYCLE_R1)
+   {
+      if(!FP_NDSHook864CycleR1EvidenceSnapshotMatches(symbol, period))
+      {
+         report.ok = false;
+         report.action = FP_NDS_HOOK_TRADE_ACTION_BLOCKED;
+         report.status = "BLOCKED_NO_PHASE04_CLOSURE_SNAPSHOT";
+         report.reason = "phase04_x_closure_evidence_not_ready_for_symbol_timeframe";
+         FP_NDSHookTradeFinalizeReport(report);
+         return;
+      }
+      FP_NDSHook864CycleR1AnalyzeCandidates(symbol, period, sequences, cfg,
+                                             report.funnel);
+   }
+
    FP_HookPhase02Sequence selected;
-   if(!FP_NDSHookTradeSelectLatest(sequences, cfg, selected))
+   if(!FP_NDSHookTradeSelectLatest(symbol, period, sequences, cfg, selected))
    {
       report.ok = true;
       report.action = FP_NDS_HOOK_TRADE_ACTION_NONE;
@@ -424,7 +440,7 @@ void FP_RunNDSHookTradeExecutionCore(const string symbol,
                        "NO_ELIGIBLE_HOOK_864_CYCLE_R1_SETUP" :
                        "NO_VALID_H3F_OR_HH_SETUP");
       report.reason = (cfg.profile == FP_NDS_HOOK_TRADE_PROFILE_HOOK_864_CYCLE_R1 ?
-                       "no_closed_valid_family_with_x3_or_x4_before_864" :
+                       FP_NDSHook864CycleR1FunnelSummary(report.funnel) :
                        "latest_snapshot_has_no_eligible_valid_family");
       FP_NDSHookTradeFinalizeReport(report);
       return;

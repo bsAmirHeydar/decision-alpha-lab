@@ -9,6 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 COMMANDS = (
     [sys.executable, "-m", "unittest", "-v", "tests/flag_counting/test_nds_hook_864_cycle_r1_reference.py"],
+    [sys.executable, "-m", "unittest", "-v", "tests/flag_counting/test_nds_hook_864_tester_log_analyzer.py"],
     [sys.executable, "tools/flag_counting/nds_hook_864_cycle_r1_contract_qa.py", "--root", "."],
     [sys.executable, "tools/flag_counting/nds_hook_trade_contract_qa.py", "--root", "."],
     [sys.executable, "tools/flag_counting/nds_lightweight_backtest_contract_qa.py"],

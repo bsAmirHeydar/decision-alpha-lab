@@ -24,7 +24,10 @@ REQUIRED_FILES = (
     "mql5/Include/FlagCountingPhoenix/FP_HookPhase02Types.mqh",
     "mql5/Include/FlagCountingPhoenix/FP_HookPhase02Rules.mqh",
     "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeTypes.mqh",
+    "mql5/Include/FlagCountingPhoenix/FP_NDSHook864CycleR1Evidence.mqh",
+    "mql5/Include/FlagCountingPhoenix/FP_NDSHook864CycleR1EvidenceEngine.mqh",
     "mql5/Include/FlagCountingPhoenix/FP_NDSHook864CycleR1Rules.mqh",
+    "mql5/Include/FlagCountingPhoenix/FP_HookPhase04Engine.mqh",
     "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeRules.mqh",
     "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeExecutionCore.mqh",
     "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeExport.mqh",
@@ -34,7 +37,9 @@ REQUIRED_FILES = (
     "mql5/Experts/FlagCounting/NDSHookLimitF123Backtest.mq5",
     "mql5/Experts/FlagCounting/NDSHook864CycleR1ContractSelfTest.mq5",
     "tools/flag_counting/nds_hook_864_cycle_r1_reference.py",
+    "tools/flag_counting/analyze_nds_hook_864_tester_log.py",
     "tests/flag_counting/test_nds_hook_864_cycle_r1_reference.py",
+    "tests/flag_counting/test_nds_hook_864_tester_log_analyzer.py",
     "lab/03_experiments/EXP_flag_counting/hook_864_cycle_r1/test_vectors.json",
     "lab/03_experiments/EXP_flag_counting/hook_864_cycle_r1/profile_contract.json",
     "lab/03_experiments/EXP_flag_counting/hook_864_cycle_r1/acceptance_matrix.json",
@@ -46,6 +51,9 @@ REQUIRED_FILES = (
     "docs/obsidian_hook/08_entry_execution/NDS Hook 86.4 Cycle R1 State Machine.md",
     "docs/obsidian_hook/08_entry_execution/NDS Hook 86.4 Cycle R1 Audit Ledger.md",
     "docs/obsidian_hook/08_entry_execution/NDS Hook 86.4 Cycle R1 Operator Checklist.md",
+    "docs/nds_entry_architecture/phase55_hook_864_cycle_r1_execution/17_no_trade_root_cause_and_engine_fix.md",
+    "docs/nds_entry_architecture/phase55_hook_864_cycle_r1_execution/18_phase04_closure_and_first_arrival_contract.md",
+    "docs/obsidian_hook/08_entry_execution/NDS Hook 86.4 No Trade Diagnostic Funnel.md",
 )
 
 
@@ -145,6 +153,9 @@ def run(root: Path) -> list[Check]:
             "required implementation, test, vector, or doctrine file")
 
     types = "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeTypes.mqh"
+    evidence = "mql5/Include/FlagCountingPhoenix/FP_NDSHook864CycleR1Evidence.mqh"
+    evidence_engine = "mql5/Include/FlagCountingPhoenix/FP_NDSHook864CycleR1EvidenceEngine.mqh"
+    phase04_engine = "mql5/Include/FlagCountingPhoenix/FP_HookPhase04Engine.mqh"
     profile = "mql5/Include/FlagCountingPhoenix/FP_NDSHook864CycleR1Rules.mqh"
     rules = "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeRules.mqh"
     core = "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeExecutionCore.mqh"
@@ -163,7 +174,7 @@ def run(root: Path) -> list[Check]:
              "P55_OLD_PROFILE_DEFAULT", "Phase 52 remains the reset/default behavior")
     contains(checks, root, types, "FP_NDS_HOOK_TRADE_PROFILE_HOOK_864_CYCLE_R1 = 1",
              "P55_NEW_PROFILE_EXPLICIT", "86.4 Cycle R1 is an explicit opt-in profile")
-    contains(checks, root, types, 'FP_NDS_HOOK_864_CYCLE_R1_SCHEMA_VERSION "nds_hook_864_cycle_r1_v1"',
+    contains(checks, root, types, 'FP_NDS_HOOK_864_CYCLE_R1_SCHEMA_VERSION "nds_hook_864_cycle_r1_v2"',
              "P55_SCHEMA_VERSIONED", "new profile has a dedicated ledger schema")
     contains(checks, root, engine, "FP_RunNDSHookTradeExecution",
              "P55_GENERIC_ENGINE", "central engine dispatch is profile-neutral")
@@ -190,7 +201,19 @@ def run(root: Path) -> list[Check]:
     contains(checks, root, profile, "MathAbs(cfg.fixed_reward_r - FP_NDS_HOOK_864_REWARD_R)",
              "P55_R_EXACT", "fixed reward is exactly one R")
     contains(checks, root, profile, "FP_HookP02SequenceCycleClosed(seq)",
-             "P55_CANONICAL_CYCLE_CLOSE", "cycle closure comes from canonical Hook Phase02")
+             "P55_PHASE02_TERMINAL_OWNER", "Phase02 terminal availability remains canonical and is not re-detected")
+    contains(checks, root, profile, "FP_NDSHook864CycleR1RuntimeEligible",
+             "P55_RUNTIME_PHASE04_GATE", "execution eligibility requires the Phase04 evidence adapter")
+    contains(checks, root, profile, "evidence.x_closed",
+             "P55_CANONICAL_PHASE04_CLOSURE", "cycle closure is consumed from canonical Phase04 lifecycle evidence")
+    contains(checks, root, profile, "evidence.origin_return_penetrated",
+             "P55_CANONICAL_PHASE04_DEATH", "origin-return death is consumed from canonical Phase04 lifecycle evidence")
+    contains(checks, root, evidence_engine, "FP_HookP03BuildRecords",
+             "P55_REUSE_PHASE03_ENGINE", "tester evidence bridge invokes canonical Phase03 Y-axis builder")
+    contains(checks, root, evidence_engine, "FP_HookP04BuildRecords",
+             "P55_REUSE_PHASE04_ENGINE", "tester evidence bridge invokes canonical Phase04 closure builder")
+    contains(checks, root, phase04_engine, "FP_NDSCaptureHook864CycleR1EvidenceSnapshot",
+             "P55_CENTRAL_PHASE04_WIRING", "central Phase04 engine publishes the exact closure evidence snapshot")
     contains(checks, root, profile, "seq.resolve_confirmed",
              "P55_CANONICAL_TERMINAL", "terminal confirmation comes from canonical sequence")
     contains(checks, root, profile, "seq.x_count",
@@ -205,30 +228,48 @@ def run(root: Path) -> list[Check]:
              "P55_MATURE_STATE", "mature canonical state is accepted")
     contains(checks, root, profile, "FP_HOOK_P02_STATE_CAPPED",
              "P55_CAPPED_STATE", "canonical x4 capped state is accepted")
-    contains(checks, root, profile,
-             "seq.cycle_crown_price + ratio * (seq.origin_price - seq.cycle_crown_price)",
+    contains(checks, root, evidence,
+             "return crown_price + ratio * (origin_price - crown_price);",
              "P55_ENTRY_FORMULA", "entry interpolates crown toward origin at 86.4 percent")
-    contains(checks, root, profile, "seq.retracement_ratio + epsilon < ratio",
-             "P55_FIRST_ARRIVAL", "late orders after touching/crossing 86.4 are rejected")
+    contains(checks, root, evidence, "rates[i].time < closure_time",
+             "P55_FIRST_ARRIVAL_KNOWN_TIME", "first-arrival scan starts at canonical Phase04 closure time")
+    contains(checks, root, evidence, "rates[i].low <= entry_price",
+             "P55_FIRST_ARRIVAL_POSITIVE", "positive first arrival is read from closed-bar lows")
+    contains(checks, root, evidence, "rates[i].high >= entry_price",
+             "P55_FIRST_ARRIVAL_NEGATIVE", "negative first arrival is read from closed-bar highs")
+    contains(checks, root, evidence, "Include the closure candle",
+             "P55_SAME_BAR_FAIL_CLOSED", "same-bar closure and 86.4 arrival is rejected fail-closed")
+    contains(checks, root, evidence, "FP_NDSHook864CycleR1EvidenceIdentityMatches",
+             "P55_STABLE_CROSS_ENGINE_IDENTITY", "Phase02 and Phase04 snapshots bind through stable structural identity")
+    contains(checks, root, evidence, "sequence_id is retained for audit only",
+             "P55_SEQUENCE_ID_NOT_AUTHORITY", "array-local sequence_id is not used as cross-engine authority")
+    contains(checks, root, profile, "first-arrival gate is no longer derived from seq.retracement_ratio",
+             "P55_TERMINAL_RATIO_NOT_FIRST_ARRIVAL", "Phase02 terminal ratio remains audit-only for the post-closure arrival gate")
     contains(checks, root, profile,
              "if(MathAbs(cfg.hook_entry_ratio - FP_NDS_HOOK_864_ENTRY_RATIO) > epsilon)",
              "P55_RATIO_GUARD_SYNTAX", "ratio guard has a complete fail-closed condition")
     contains(checks, root, profile,
              "if(MathAbs(cfg.fixed_reward_r - FP_NDS_HOOK_864_REWARD_R) > epsilon)",
              "P55_REWARD_GUARD_SYNTAX", "reward guard has a complete fail-closed condition")
-    for mql_rel in (types, profile, rules, core, export, engine, backtest_engine, ea, tester, diagnostic):
+    for mql_rel in (types, evidence, evidence_engine, phase04_engine, profile, rules, core, export, engine, backtest_engine, ea, tester, diagnostic):
         add(checks, mql_delimiters_balanced(read(root, mql_rel)),
             "P55_MQL_DELIMITER_BALANCE", mql_rel,
             "modified MQL5 source has balanced parentheses, brackets, and braces")
 
     # No parallel structure detector or node counter.
-    for forbidden in ("CopyRates(", "CopyBuffer(", "iBarShift(", "FP_RunHookPhase02", "ArrayResize(", "for(int", "while("):
+    for forbidden in ("CopyRates(", "CopyBuffer(", "iBarShift(", "FP_RunHookPhase02", "ArrayResize(", "while("):
         excludes(checks, root, profile, forbidden,
                  "P55_NO_PARALLEL_HOOK_ENGINE", f"profile adapter does not own {forbidden}")
     contains(checks, root, rules, "FP_NDSHook864CycleR1SequenceEligible(seq, cfg, profile_reason)",
              "P55_EXISTING_SELECTION_PIPELINE", "existing setup selector delegates to the profile adapter")
     contains(checks, root, rules, "FP_NDSHookTradeFamilyAllowed(seq, cfg)",
              "P55_EXISTING_FAMILY_GATE", "existing HH/F3H family policy is reused")
+    excludes(checks, root, evidence, "CopyRates(",
+             "P55_EVIDENCE_NO_PRIVATE_TIMEBASE", "evidence bridge consumes caller-owned canonical closed rates")
+    excludes(checks, root, evidence_engine, "FP_RunHookPhase02",
+             "P55_EVIDENCE_NO_PHASE02_REBUILD", "evidence engine consumes existing Phase02 sequences")
+    contains(checks, root, profile, "for(int i=0; i<ArraySize(sequences); i++)",
+             "P55_FUNNEL_READ_ONLY_SEQUENCE_TRAVERSAL", "profile loop only audits caller-owned canonical sequences for the diagnostic funnel")
 
     # Setup identity and no reprice/retry after x3 -> x4.
     contains(checks, root, rules, "Stable one-attempt identity belongs to the Hook sequence",
@@ -316,11 +357,25 @@ def run(root: Path) -> list[Check]:
     contains(checks, root, ea, "FP_RunNDSHookTradeExecution",
              "P55_EA_GENERIC_WIRING", "central EA calls profile-neutral trade engine")
     contains(checks, root, tester, "InpBTTradeProfile",
-             "P55_TESTER_PROFILE_INPUT", "lightweight tester can select the new profile")
+             "P55_TESTER_PROFILE_INPUT", "lightweight tester exposes the actual trade-profile input")
+    contains(checks, root, tester, "InpBTTradeProfile = FP_NDS_HOOK_TRADE_PROFILE_HOOK_864_CYCLE_R1",
+             "P55_TESTER_864_DEFAULT", "dedicated tester defaults to the intended 86.4 profile")
+    contains(checks, root, tester, "InpBTProfile = FP_NDS_BACKTEST_PROFILE_PARITY",
+             "P55_TESTER_PARITY_DEFAULT", "rare-entry setup defaults to full parity history/scales rather than sparse FAST scan")
+    contains(checks, root, tester, "InpBTPrintRunSummary = true",
+             "P55_TESTER_FUNNEL_DEFAULT", "dedicated tester prints the candidate funnel by default")
+    contains(checks, root, backtest_engine, "FP_NDSHook864CycleR1FunnelSummary",
+             "P55_ZERO_TRADE_FUNNEL", "zero-trade runs identify their dominant candidate blocker")
+    contains(checks, root, backtest_engine, "phase04_closed_total",
+             "P55_SESSION_PHASE04_COUNTERS", "session summary aggregates closure and first-arrival evidence")
     contains(checks, root, backtest_engine, "FP_RunNDSHookTradeExecutionCore",
              "P55_TESTER_SHARED_CORE", "tester and central EA share the same executable core")
     contains(checks, root, diagnostic, "NDS_HOOK_864_SELFTEST_PASS",
              "P55_MQL5_SELFTEST", "no-order MetaEditor/runtime contract diagnostic is included")
+    contains(checks, root, diagnostic, "FP_NDSHook864CycleR1RuntimeEligible",
+             "P55_MQL5_RUNTIME_SELFTEST", "self-test covers intrinsic plus Phase04 runtime eligibility")
+    contains(checks, root, diagnostic, "same_bar_closure_and_864_touch_should_fail_closed",
+             "P55_MQL5_SAME_BAR_SELFTEST", "self-test covers the same-bar first-arrival failure mode")
     contains(checks, root, "tools/flag_counting/compile_nds_hook_864_cycle_r1.ps1",
              "0 errors?,\\s*0 warnings?",
              "P55_METAEDITOR_COMPILE_GATE", "Windows compile script requires clean zero-error zero-warning logs")
@@ -356,6 +411,12 @@ def run(root: Path) -> list[Check]:
             authority_findings.append(f"token:{token}")
     add(checks, not authority_findings, "P55_REFERENCE_NO_AUTHORITY", reference,
         "reference mirror has no broker, network, subprocess, dynamic-code, or order authority")
+    contains(checks, root, reference, "def intrinsic_eligibility(",
+             "P55_REFERENCE_INTRINSIC_LAYER", "Python mirror separates Phase02 intrinsic validity")
+    contains(checks, root, reference, "def runtime_eligibility(",
+             "P55_REFERENCE_RUNTIME_LAYER", "Python mirror requires Phase04 runtime evidence")
+    contains(checks, root, reference, "def first_touch_after_closure(",
+             "P55_REFERENCE_FIRST_ARRIVAL", "Python mirror scans closed bars from closure time")
 
     if not any(c.status == "FAIL" for c in checks):
         checks.append(Check(

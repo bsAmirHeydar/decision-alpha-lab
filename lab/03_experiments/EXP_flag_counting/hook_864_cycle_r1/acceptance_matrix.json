@@ -2,51 +2,71 @@
   "activation_allowed": false,
   "gates": [
     {
+      "external_status": "not_applicable",
       "gate": "canonical_hook_reuse",
-      "repository_status": "pass",
-      "external_status": "not_applicable"
+      "repository_status": "pass"
     },
     {
+      "external_status": "not_applicable",
       "gate": "python_reference_and_vectors",
-      "repository_status": "pass",
-      "external_status": "not_applicable"
+      "repository_status": "pass"
     },
     {
+      "external_status": "metaeditor_and_tester_pending",
       "gate": "phase52_regression",
-      "repository_status": "pass",
-      "external_status": "metaeditor_and_tester_pending"
+      "repository_status": "pass"
     },
     {
+      "external_status": "pending_windows_metaeditor",
       "gate": "mql5_compile",
-      "repository_status": "static_only",
-      "external_status": "pending_windows_metaeditor"
+      "repository_status": "static_only"
     },
     {
+      "external_status": "pending",
       "gate": "python_mql5_parity",
-      "repository_status": "contract_mirror_ready",
-      "external_status": "pending"
+      "repository_status": "contract_mirror_ready"
     },
     {
+      "external_status": "pending_demo_broker",
       "gate": "pending_fill_sl_tp",
-      "repository_status": "contract_ready",
-      "external_status": "pending_demo_broker"
+      "repository_status": "contract_ready"
     },
     {
+      "external_status": "pending_terminal_restart",
       "gate": "restart_profile_recovery",
-      "repository_status": "contract_ready",
-      "external_status": "pending_terminal_restart"
+      "repository_status": "contract_ready"
     },
     {
+      "external_status": "pending_strategy_tester_and_demo",
       "gate": "x3_x4_no_reprice",
-      "repository_status": "stable_identity_ready",
-      "external_status": "pending_strategy_tester_and_demo"
+      "repository_status": "stable_identity_ready"
     },
     {
+      "external_status": "blocked_until_approval",
       "gate": "live_authority",
-      "repository_status": "default_false",
-      "external_status": "blocked_until_approval"
+      "repository_status": "default_false"
+    },
+    {
+      "external_status": "not_applicable",
+      "gate": "phase04_closure_engine_reuse",
+      "repository_status": "pass"
+    },
+    {
+      "external_status": "strategy_tester_parity_pending",
+      "gate": "closed_bar_first_arrival_scan",
+      "repository_status": "pass"
+    },
+    {
+      "external_status": "tester_log_review_pending",
+      "gate": "zero_trade_diagnostic_funnel",
+      "repository_status": "pass"
+    },
+    {
+      "external_status": "metaeditor_compile_pending",
+      "gate": "dedicated_tester_defaults",
+      "repository_status": "pass"
     }
   ],
   "profile": "HOOK_864_CYCLE_R1",
-  "schema_version": "nds_hook_864_cycle_r1_acceptance_matrix_v1"
+  "schema_version": "nds_hook_864_cycle_r1_acceptance_matrix_v2"
 }

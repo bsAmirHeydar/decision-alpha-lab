@@ -10,6 +10,7 @@
 #include "FP_SequenceEngine.mqh"
 #include "FP_HookPhase02DetectionCore.mqh"
 #include "FP_NDSHookTradeExecutionCore.mqh"
+#include "FP_NDSHook864CycleR1EvidenceEngine.mqh"
 #include "FP_NDSBacktestTypes.mqh"
 
 void FP_NDSBacktestApplyProfile(FP_NDSBacktestRuntimeConfig &cfg)
@@ -87,6 +88,32 @@ void FP_NDSBacktestUpdateStats(const FP_NDSBacktestRunReport &report,
    else stats.failed_runs++;
    if(report.hook_snapshot_rebuilt) stats.hook_rebuild_runs++;
    if(report.hook_snapshot_skipped_for_open_position) stats.position_fast_path_runs++;
+
+   if(report.hook_phase04_report.x_closed_count > 0)
+      stats.phase04_closed_total += (ulong)report.hook_phase04_report.x_closed_count;
+   if(report.trade_report.funnel.phase04_evidence_found > 0)
+      stats.phase04_evidence_total += (ulong)report.trade_report.funnel.phase04_evidence_found;
+   if(report.trade_report.funnel.first_864_untouched > 0)
+      stats.first_864_untouched_total += (ulong)report.trade_report.funnel.first_864_untouched;
+   if(report.trade_report.funnel.execution_ready > 0)
+      stats.execution_ready_runs++;
+   else if(report.trade_report.action == FP_NDS_HOOK_TRADE_ACTION_NONE)
+      stats.no_candidate_runs++;
+
+   if(report.trade_report.action == FP_NDS_HOOK_TRADE_ACTION_PAPER_LIMIT_READY)
+      stats.paper_limit_ready_runs++;
+   else if(report.trade_report.action == FP_NDS_HOOK_TRADE_ACTION_LIMIT_SENT)
+      stats.limit_sent_runs++;
+   else if(report.trade_report.action == FP_NDS_HOOK_TRADE_ACTION_PENDING_HELD)
+      stats.pending_held_runs++;
+   else if(report.trade_report.action == FP_NDS_HOOK_TRADE_ACTION_POSITION_HELD)
+      stats.position_held_runs++;
+   else if(report.trade_report.action == FP_NDS_HOOK_TRADE_ACTION_PENDING_CANCELLED)
+      stats.pending_cancelled_runs++;
+   else if(report.trade_report.action == FP_NDS_HOOK_TRADE_ACTION_POSITION_CLOSED_F3)
+      stats.position_closed_runs++;
+   else if(report.trade_report.action == FP_NDS_HOOK_TRADE_ACTION_BLOCKED)
+      stats.blocked_runs++;
 
    stats.last_microseconds = report.elapsed_microseconds;
    stats.total_microseconds += report.elapsed_microseconds;
@@ -175,22 +202,28 @@ bool FP_RunNDSLightweightBacktestCycle(const string symbol,
    report.event_count = ArraySize(events);
    report.hook_count = ArraySize(hooks);
 
+   FP_HookPhase02Sequence sequences[];
    bool position_fast_path = (runtime_cfg.skip_hook_rebuild_while_position_open &&
                               FP_NDSBacktestManagedPositionExists(trade_cfg));
    if(position_fast_path)
    {
-      // The execution engine handles an open position before consulting the
-      // Hook snapshot. The terminal/F123 profile only needs F events for its
-      // exit; the fixed-R profile only verifies broker-attached protection.
+      // The execution engine handles an open position before consulting Hook
+      // and closure snapshots. The fixed-R profile verifies broker SL/TP only.
       FP_NDSClearStructureSnapshot();
+      FP_NDSClearHook864CycleR1EvidenceSnapshot();
       report.hook_snapshot_skipped_for_open_position = true;
       report.hook_phase02_report.ok = true;
       report.hook_phase02_report.status = "HOOK_P02_SKIPPED_POSITION_FAST_PATH";
-      report.hook_phase02_report.reason = "open_position_requires_f123_exit_only";
+      report.hook_phase02_report.reason = "open_position_uses_existing_exit_ownership";
+      report.hook_phase03_report.ok = true;
+      report.hook_phase03_report.status = "HOOK_P03_SKIPPED_POSITION_FAST_PATH";
+      report.hook_phase03_report.reason = "open_position_no_new_entry_evidence_required";
+      report.hook_phase04_report.ok = true;
+      report.hook_phase04_report.status = "HOOK_P04_SKIPPED_POSITION_FAST_PATH";
+      report.hook_phase04_report.reason = "open_position_no_new_entry_evidence_required";
    }
    else
    {
-      FP_HookPhase02Sequence sequences[];
       FP_RunHookPhase02DetectionCore(symbol, period,
                                      rates, copied,
                                      scales, scale_count,
@@ -200,6 +233,15 @@ bool FP_RunNDSLightweightBacktestCycle(const string symbol,
                                      sequences,
                                      report.hook_phase02_report);
       report.hook_snapshot_rebuilt = true;
+
+      // The 86.4 profile consumes the canonical Phase03/04 closure engines.
+      // The legacy terminal/F123 profile does not require this snapshot, but
+      // building it keeps the tester report comparable across profiles.
+      FP_RunNDSHook864CycleR1EvidenceEngine(symbol, period,
+                                             rates, copied,
+                                             sequences, hook_cfg,
+                                             report.hook_phase03_report,
+                                             report.hook_phase04_report);
    }
 
    FP_RunNDSHookTradeExecutionCore(symbol, period,
@@ -228,6 +270,10 @@ void FP_PrintNDSBacktestRunReport(const string tag,
    message += " events=" + IntegerToString(report.event_count);
    message += " hooks=" + IntegerToString(report.hook_count);
    message += " hook_rebuilt=" + (report.hook_snapshot_rebuilt ? "true" : "false");
+   message += " p02_sequences=" + IntegerToString(report.hook_phase02_report.sequences_total);
+   message += " p03_records=" + IntegerToString(report.hook_phase03_report.records_total);
+   message += " p04_closed=" + IntegerToString(report.hook_phase04_report.x_closed_count);
+   message += " funnel={" + FP_NDSHook864CycleR1FunnelSummary(report.trade_report.funnel) + "}";
    message += " position_fast_path=" + (report.hook_snapshot_skipped_for_open_position ? "true" : "false");
    message += " elapsed_us=" + IntegerToString((long)report.elapsed_microseconds);
    Print(message);
@@ -237,15 +283,28 @@ void FP_PrintNDSBacktestSessionStats(const string tag,
                                      const FP_NDSBacktestSessionStats &stats)
 {
    ulong average = (stats.runs > 0 ? stats.total_microseconds / stats.runs : 0);
-   Print(tag,
-         " runs=", stats.runs,
-         " ok=", stats.successful_runs,
-         " failed=", stats.failed_runs,
-         " hook_rebuilds=", stats.hook_rebuild_runs,
-         " position_fast_paths=", stats.position_fast_path_runs,
-         " avg_us=", average,
-         " max_us=", stats.max_microseconds,
-         " last_us=", stats.last_microseconds);
+   string message = tag;
+   message += " runs=" + IntegerToString((long)stats.runs);
+   message += " ok=" + IntegerToString((long)stats.successful_runs);
+   message += " failed=" + IntegerToString((long)stats.failed_runs);
+   message += " hook_rebuilds=" + IntegerToString((long)stats.hook_rebuild_runs);
+   message += " position_fast_paths=" + IntegerToString((long)stats.position_fast_path_runs);
+   message += " no_candidate_runs=" + IntegerToString((long)stats.no_candidate_runs);
+   message += " ready_runs=" + IntegerToString((long)stats.execution_ready_runs);
+   message += " paper_ready=" + IntegerToString((long)stats.paper_limit_ready_runs);
+   message += " limits_sent=" + IntegerToString((long)stats.limit_sent_runs);
+   message += " pending_held=" + IntegerToString((long)stats.pending_held_runs);
+   message += " position_held=" + IntegerToString((long)stats.position_held_runs);
+   message += " cancelled=" + IntegerToString((long)stats.pending_cancelled_runs);
+   message += " f3_closed=" + IntegerToString((long)stats.position_closed_runs);
+   message += " blocked=" + IntegerToString((long)stats.blocked_runs);
+   message += " p04_closed_total=" + IntegerToString((long)stats.phase04_closed_total);
+   message += " p04_evidence_total=" + IntegerToString((long)stats.phase04_evidence_total);
+   message += " untouched864_total=" + IntegerToString((long)stats.first_864_untouched_total);
+   message += " avg_us=" + IntegerToString((long)average);
+   message += " max_us=" + IntegerToString((long)stats.max_microseconds);
+   message += " last_us=" + IntegerToString((long)stats.last_microseconds);
+   Print(message);
 }
 
 #endif // __FP_NDS_BACKTEST_ENGINE_MQH__

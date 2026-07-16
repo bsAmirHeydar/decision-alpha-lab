@@ -4,14 +4,15 @@
 
 #include "FP_NDSEntryTypes.mqh"
 
-#define FP_NDS_HOOK_TRADE_VERSION "NDS-HOOK-TRADE-02"
-#define FP_NDS_HOOK_TRADE_SCHEMA_VERSION "nds_hook_trade_v2"
+#define FP_NDS_HOOK_TRADE_VERSION "NDS-HOOK-TRADE-03"
+#define FP_NDS_HOOK_TRADE_SCHEMA_VERSION "nds_hook_trade_v3"
 #define FP_NDS_HOOK_TERMINAL_F123_SCHEMA_VERSION "nds_hook_limit_f123_exit_v1"
-#define FP_NDS_HOOK_864_CYCLE_R1_SCHEMA_VERSION "nds_hook_864_cycle_r1_v1"
+#define FP_NDS_HOOK_864_CYCLE_R1_SCHEMA_VERSION "nds_hook_864_cycle_r1_v2"
 #define FP_NDS_HOOK_864_ENTRY_RATIO 0.864
 #define FP_NDS_HOOK_864_MIN_X_COUNT 3
 #define FP_NDS_HOOK_864_MAX_X_COUNT 4
 #define FP_NDS_HOOK_864_REWARD_R 1.0
+#define FP_NDS_HOOK_864_CLOSURE_RATIO 0.50
 
 enum FP_NDSHookTradeProfile
 {
@@ -66,6 +67,8 @@ struct FP_NDSHookTradeConfig
    int hook_entry_max_x_count;
    bool hook_entry_require_confirmed_terminal;
    bool hook_entry_require_level_untouched;
+   bool hook_entry_require_phase04_x_closed;
+   double hook_entry_closure_ratio;
    double fixed_reward_r;
 
    FP_NDSHookTradeSizingMode sizing_mode;
@@ -107,6 +110,15 @@ struct FP_NDSHookTradeSetup
    double terminal_retracement_ratio;
    double entry_ratio;
    bool entry_level_untouched;
+   bool phase04_evidence_found;
+   bool phase04_x_closed;
+   datetime x_closure_time;
+   double x_closure_price;
+   double x_closure_threshold_price;
+   bool cycle_dead_after_terminal;
+   bool first_864_touch_found;
+   datetime first_864_touch_time;
+   double first_864_touch_price;
 
    double entry_price;
    double death_price;
@@ -133,6 +145,25 @@ struct FP_NDSHookTradeExitSignal
    string reason;
 };
 
+
+struct FP_NDSHookTradeCandidateFunnel
+{
+   int sequences_total;
+   int canonical_valid;
+   int valid_family;
+   int family_allowed;
+   int confirmed_terminal;
+   int crown_valid;
+   int x3_x4;
+   int mature_or_capped;
+   int phase04_evidence_found;
+   int phase04_x_closed;
+   int alive_after_closure;
+   int first_864_untouched;
+   int execution_ready;
+   string dominant_blocker;
+};
+
 struct FP_NDSHookTradeReport
 {
    datetime generated_at;
@@ -156,6 +187,7 @@ struct FP_NDSHookTradeReport
    ulong close_ticket;
 
    FP_NDSHookTradeSetup setup;
+   FP_NDSHookTradeCandidateFunnel funnel;
    FP_NDSHookTradeExitSignal exit_signal;
    string state_key;
 };
@@ -180,6 +212,8 @@ void FP_ResetNDSHookTradeConfig(FP_NDSHookTradeConfig &cfg)
    cfg.hook_entry_max_x_count = FP_NDS_HOOK_864_MAX_X_COUNT;
    cfg.hook_entry_require_confirmed_terminal = true;
    cfg.hook_entry_require_level_untouched = true;
+   cfg.hook_entry_require_phase04_x_closed = true;
+   cfg.hook_entry_closure_ratio = FP_NDS_HOOK_864_CLOSURE_RATIO;
    cfg.fixed_reward_r = FP_NDS_HOOK_864_REWARD_R;
 
    cfg.sizing_mode = FP_NDS_HOOK_TRADE_SIZE_FIXED_VOLUME;
@@ -219,6 +253,15 @@ void FP_ResetNDSHookTradeSetup(FP_NDSHookTradeSetup &s)
    s.terminal_retracement_ratio = 0.0;
    s.entry_ratio = 0.0;
    s.entry_level_untouched = false;
+   s.phase04_evidence_found = false;
+   s.phase04_x_closed = false;
+   s.x_closure_time = 0;
+   s.x_closure_price = 0.0;
+   s.x_closure_threshold_price = 0.0;
+   s.cycle_dead_after_terminal = false;
+   s.first_864_touch_found = false;
+   s.first_864_touch_time = 0;
+   s.first_864_touch_price = 0.0;
    s.entry_price = 0.0;
    s.death_price = 0.0;
    s.stop_price = 0.0;
@@ -244,6 +287,25 @@ void FP_ResetNDSHookTradeExitSignal(FP_NDSHookTradeExitSignal &x)
    x.reason = "none";
 }
 
+
+void FP_ResetNDSHookTradeCandidateFunnel(FP_NDSHookTradeCandidateFunnel &f)
+{
+   f.sequences_total = 0;
+   f.canonical_valid = 0;
+   f.valid_family = 0;
+   f.family_allowed = 0;
+   f.confirmed_terminal = 0;
+   f.crown_valid = 0;
+   f.x3_x4 = 0;
+   f.mature_or_capped = 0;
+   f.phase04_evidence_found = 0;
+   f.phase04_x_closed = 0;
+   f.alive_after_closure = 0;
+   f.first_864_untouched = 0;
+   f.execution_ready = 0;
+   f.dominant_blocker = "not_evaluated";
+}
+
 void FP_ResetNDSHookTradeReport(FP_NDSHookTradeReport &r)
 {
    r.generated_at = TimeCurrent();
@@ -264,6 +326,7 @@ void FP_ResetNDSHookTradeReport(FP_NDSHookTradeReport &r)
    r.position_ticket = 0;
    r.close_ticket = 0;
    FP_ResetNDSHookTradeSetup(r.setup);
+   FP_ResetNDSHookTradeCandidateFunnel(r.funnel);
    FP_ResetNDSHookTradeExitSignal(r.exit_signal);
    r.state_key = "";
 }

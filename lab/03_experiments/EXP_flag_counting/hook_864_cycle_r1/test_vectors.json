@@ -1,49 +1,81 @@
 {
-  "schema_version": "nds_hook_864_cycle_r1_vectors_v1",
   "authority": "research_reference_only_no_broker_authority",
+  "closure_ratio": 0.5,
   "entry_ratio": 0.864,
-  "node_count_window": [3, 4],
+  "node_count_window": [
+    3,
+    4
+  ],
   "reward_r": 1.0,
+  "schema_version": "nds_hook_864_cycle_r1_vectors_v2",
   "vectors": [
     {
-      "id": "POS_X3_GOLDEN",
-      "direction": "POSITIVE",
-      "origin": 100.0,
       "crown": 200.0,
-      "terminal_retracement_ratio": 0.70,
-      "x_count": 3,
+      "direction": "POSITIVE",
+      "expected_eligible": true,
       "expected_entry": 113.6,
-      "expected_eligible": true
+      "first_touch_after_closure": false,
+      "id": "POS_X3_PHASE04_CLOSED_UNTOUCHED",
+      "origin": 100.0,
+      "phase04_x_closed": true,
+      "terminal_retracement_ratio": 0.9,
+      "x_count": 3
     },
     {
-      "id": "NEG_X4_GOLDEN",
-      "direction": "NEGATIVE",
-      "origin": 200.0,
       "crown": 100.0,
-      "terminal_retracement_ratio": 0.70,
-      "x_count": 4,
+      "direction": "NEGATIVE",
+      "expected_eligible": true,
       "expected_entry": 186.4,
-      "expected_eligible": true
+      "first_touch_after_closure": false,
+      "id": "NEG_X4_PHASE04_CLOSED_UNTOUCHED",
+      "origin": 200.0,
+      "phase04_x_closed": true,
+      "terminal_retracement_ratio": 0.9,
+      "x_count": 4
     },
     {
+      "expected_eligible": false,
+      "expected_reason": "canonical_x_count_not_3_or_4",
       "id": "REJECT_X2",
-      "x_count": 2,
-      "expected_eligible": false,
-      "expected_reason": "canonical_x_count_not_3_or_4"
+      "x_count": 2
     },
     {
-      "id": "REJECT_ALREADY_TOUCHED",
-      "x_count": 3,
-      "terminal_retracement_ratio": 0.864,
       "expected_eligible": false,
-      "expected_reason": "hook_864_level_already_reached_or_crossed"
+      "expected_reason": "phase04_x_cycle_not_closed",
+      "id": "REJECT_PHASE04_NOT_CLOSED",
+      "phase04_x_closed": false,
+      "x_count": 3
     },
     {
+      "expected_eligible": false,
+      "expected_reason": "hook_864_first_arrival_already_consumed_after_closure",
+      "first_touch_time_equals_closure_time": true,
+      "id": "REJECT_SAME_BAR_FIRST_864_TOUCH",
+      "phase04_x_closed": true,
+      "x_count": 3
+    },
+    {
+      "expected_eligible": false,
+      "expected_reason": "hook_864_first_arrival_already_consumed_after_closure",
+      "first_touch_after_closure": true,
+      "id": "REJECT_LATER_FIRST_864_TOUCH",
+      "phase04_x_closed": true,
+      "x_count": 4
+    },
+    {
+      "expected_eligible": false,
+      "expected_reason": "cycle_dead_by_origin_return_before_entry",
+      "id": "REJECT_ORIGIN_RETURN_DEATH",
+      "origin_return_penetrated": true,
+      "phase04_x_closed": true,
+      "x_count": 4
+    },
+    {
+      "expected_eligible": false,
+      "expected_reason": "canonical_terminal_not_confirmed",
       "id": "REJECT_UNCONFIRMED_TERMINAL",
-      "x_count": 4,
       "resolve_confirmed": false,
-      "expected_eligible": false,
-      "expected_reason": "canonical_terminal_not_confirmed"
+      "x_count": 4
     }
   ]
 }
