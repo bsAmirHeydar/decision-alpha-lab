@@ -1,0 +1,41 @@
+{
+  "phase": "SAED_V4_15",
+  "vectors": [
+    {
+      "expected": "ContractError",
+      "mutation": "add unknown field",
+      "name": "unknown_field",
+      "target": "fusion_config"
+    },
+    {
+      "expected": "abstain",
+      "mutation": "remove price_view",
+      "name": "missing_critical",
+      "target": "view_mask"
+    },
+    {
+      "expected": "quarantine",
+      "mutation": "truncate embedding",
+      "name": "corrupt_dimension",
+      "target": "view_envelope"
+    },
+    {
+      "expected": "filtered",
+      "mutation": "move view after cutoff",
+      "name": "future_suffix",
+      "target": "known_time"
+    },
+    {
+      "expected": "baseline",
+      "mutation": "disable foundation views",
+      "name": "all_foundation_missing",
+      "target": "challenger"
+    },
+    {
+      "expected": "baseline",
+      "mutation": "single dominant gate",
+      "name": "gate_collapse",
+      "target": "fusion_output"
+    }
+  ]
+}

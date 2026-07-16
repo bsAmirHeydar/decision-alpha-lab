@@ -1,0 +1,37 @@
+{
+  "phase": "SAED_V4_15",
+  "vectors": [
+    {
+      "name": "closed_contracts",
+      "passed": true
+    },
+    {
+      "name": "frozen_upstream",
+      "passed": true
+    },
+    {
+      "name": "known_time_only",
+      "passed": true
+    },
+    {
+      "name": "explicit_missingness",
+      "passed": true
+    },
+    {
+      "name": "all_subsets_bounded",
+      "passed": true
+    },
+    {
+      "name": "baseline_preserved",
+      "passed": true
+    },
+    {
+      "name": "no_outcome_supervision",
+      "passed": true
+    },
+    {
+      "name": "no_runtime_authority",
+      "passed": true
+    }
+  ]
+}

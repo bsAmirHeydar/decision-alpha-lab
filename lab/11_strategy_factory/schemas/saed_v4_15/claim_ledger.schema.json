@@ -1,0 +1,139 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/claim_ledger.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "claims": {
+      "additionalProperties": false,
+      "properties": {
+        "attribution_is_diagnostic_not_causal": {
+          "type": "boolean"
+        },
+        "closed_view_and_fusion_contracts": {
+          "type": "boolean"
+        },
+        "disagreement_aware_reference_fusion": {
+          "type": "boolean"
+        },
+        "disagreement_calibration_diagnostics": {
+          "type": "boolean"
+        },
+        "economic_uplift_established": {
+          "type": "boolean"
+        },
+        "evidential_reference_fusion": {
+          "type": "boolean"
+        },
+        "exhaustive_domain_subset_audit": {
+          "type": "boolean"
+        },
+        "exhaustive_foundation_subset_audit": {
+          "type": "boolean"
+        },
+        "explicit_missingness_masks": {
+          "type": "boolean"
+        },
+        "fail_closed_fallback": {
+          "type": "boolean"
+        },
+        "future_suffix_invariance": {
+          "type": "boolean"
+        },
+        "immutable_checkpoint_registry": {
+          "type": "boolean"
+        },
+        "known_time_alignment": {
+          "type": "boolean"
+        },
+        "late_fusion_baseline_preserved": {
+          "type": "boolean"
+        },
+        "live_trading": {
+          "type": "boolean"
+        },
+        "masked_cross_attention_reference": {
+          "type": "boolean"
+        },
+        "multimodal_fusion_boundary_implemented": {
+          "type": "boolean"
+        },
+        "outcome_prediction_authority": {
+          "type": "boolean"
+        },
+        "production_authorization": {
+          "type": "boolean"
+        },
+        "quality_gated_reference_fusion": {
+          "type": "boolean"
+        },
+        "real_alpha": {
+          "type": "boolean"
+        },
+        "real_model_training": {
+          "type": "boolean"
+        },
+        "required_optional_critical_taxonomy": {
+          "type": "boolean"
+        },
+        "risk_allocation": {
+          "type": "boolean"
+        },
+        "runtime_activation": {
+          "type": "boolean"
+        },
+        "structured_view_dropout": {
+          "type": "boolean"
+        },
+        "treatment_ranking": {
+          "type": "boolean"
+        },
+        "treatment_selection": {
+          "type": "boolean"
+        },
+        "view_collapse_detection": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "attribution_is_diagnostic_not_causal",
+        "closed_view_and_fusion_contracts",
+        "disagreement_aware_reference_fusion",
+        "disagreement_calibration_diagnostics",
+        "economic_uplift_established",
+        "evidential_reference_fusion",
+        "exhaustive_domain_subset_audit",
+        "exhaustive_foundation_subset_audit",
+        "explicit_missingness_masks",
+        "fail_closed_fallback",
+        "future_suffix_invariance",
+        "immutable_checkpoint_registry",
+        "known_time_alignment",
+        "late_fusion_baseline_preserved",
+        "live_trading",
+        "masked_cross_attention_reference",
+        "multimodal_fusion_boundary_implemented",
+        "outcome_prediction_authority",
+        "production_authorization",
+        "quality_gated_reference_fusion",
+        "real_alpha",
+        "real_model_training",
+        "required_optional_critical_taxonomy",
+        "risk_allocation",
+        "runtime_activation",
+        "structured_view_dropout",
+        "treatment_ranking",
+        "treatment_selection",
+        "view_collapse_detection"
+      ],
+      "type": "object"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "claims",
+    "phase"
+  ],
+  "type": "object"
+}

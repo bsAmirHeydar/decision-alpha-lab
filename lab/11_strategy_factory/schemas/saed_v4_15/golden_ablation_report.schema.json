@@ -1,0 +1,74 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/golden_ablation_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_id": {
+      "type": "string"
+    },
+    "diagnostic_only": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_eligible": {
+      "type": "boolean"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "row_count": {
+      "type": "integer"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "causal_claim": {
+            "type": "boolean"
+          },
+          "directive": {
+            "type": "string"
+          },
+          "embedding_drift": {
+            "type": "number"
+          },
+          "source_plane": {
+            "type": "string"
+          },
+          "supported": {
+            "type": "boolean"
+          },
+          "view_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "causal_claim",
+          "directive",
+          "embedding_drift",
+          "source_plane",
+          "supported",
+          "view_name"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "candidate_id",
+    "diagnostic_only",
+    "phase",
+    "production_eligible",
+    "report_hash",
+    "report_id",
+    "row_count",
+    "rows"
+  ],
+  "type": "object"
+}

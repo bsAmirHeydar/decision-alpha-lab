@@ -1,0 +1,15 @@
+{
+  "aligned_set_hash": "fa0da7fd046e416b976279853958cc4bcd25d08a29bbbc9c6f91ba877af699a2",
+  "external_models_invoked": false,
+  "known_time_only": true,
+  "outcome_labels_accessed": false,
+  "phase": "SAED_V4_15",
+  "production_eligible": false,
+  "provenance_hash": "3dd611e46383ba676f35b77458e4d77c1d092beaf1cc1e15e0bba97f735f3dd4",
+  "provenance_id": "v415provenance_4d5c13ab49fa98ac50e037c5",
+  "registry_hash": "fce1911080da8f7a36aafb987f039e5a0b16fcbf99ba821bce5483de8675b7fc",
+  "tournament_hash": "98b3362294333b608484975ba5041f7e2fbce9749418b91fc099a32e3f413dbe",
+  "upstream_v4_04_package_hash": "f2f93f882badf60347cf7576bf207938e484d13604b202ec0b095aca17a97fc8",
+  "upstream_v4_14_handoff_hash": "78fec567a00db48f34f9e0c3068208343529380b122b657aa04b421be77ac42c",
+  "version": "1.0.0"
+}

@@ -1,0 +1,117 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/golden_tournament.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_candidate_id": {
+      "type": "string"
+    },
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "economic_promotion": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_eligible": {
+      "type": "boolean"
+    },
+    "promotion_authority": {
+      "type": "boolean"
+    },
+    "ranking": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "reference_champion_id": {
+      "type": "string"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "agreement_score": {
+            "type": "number"
+          },
+          "algorithm": {
+            "type": "string"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "collapse_penalty": {
+            "type": "number"
+          },
+          "domain_subset_robustness": {
+            "type": "number"
+          },
+          "economic_metric": {
+            "type": "boolean"
+          },
+          "embedding_coherence": {
+            "type": "number"
+          },
+          "foundation_subset_robustness": {
+            "type": "number"
+          },
+          "outcome_metric": {
+            "type": "boolean"
+          },
+          "production_eligible": {
+            "type": "boolean"
+          },
+          "reference_score": {
+            "type": "number"
+          },
+          "supported": {
+            "type": "boolean"
+          },
+          "uncertainty_calibration_score": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "agreement_score",
+          "algorithm",
+          "candidate_id",
+          "collapse_penalty",
+          "domain_subset_robustness",
+          "economic_metric",
+          "embedding_coherence",
+          "foundation_subset_robustness",
+          "outcome_metric",
+          "production_eligible",
+          "reference_score",
+          "supported",
+          "uncertainty_calibration_score"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "tournament_hash": {
+      "type": "string"
+    },
+    "tournament_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "baseline_candidate_id",
+    "baseline_preserved",
+    "economic_promotion",
+    "phase",
+    "production_eligible",
+    "promotion_authority",
+    "ranking",
+    "reference_champion_id",
+    "rows",
+    "tournament_hash",
+    "tournament_id"
+  ],
+  "type": "object"
+}

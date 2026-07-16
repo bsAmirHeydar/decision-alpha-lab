@@ -1,0 +1,66 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/golden_permutation_reports.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_hash": {
+      "type": "string"
+    },
+    "item_count": {
+      "type": "integer"
+    },
+    "items": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_id": {
+            "type": "string"
+          },
+          "original_fusion_hash": {
+            "type": "string"
+          },
+          "permutation_invariant": {
+            "type": "boolean"
+          },
+          "phase": {
+            "type": "string"
+          },
+          "production_eligible": {
+            "type": "boolean"
+          },
+          "report_hash": {
+            "type": "string"
+          },
+          "report_id": {
+            "type": "string"
+          },
+          "reversed_fusion_hash": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "original_fusion_hash",
+          "permutation_invariant",
+          "phase",
+          "production_eligible",
+          "report_hash",
+          "report_id",
+          "reversed_fusion_hash"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_hash",
+    "item_count",
+    "items",
+    "phase"
+  ],
+  "type": "object"
+}

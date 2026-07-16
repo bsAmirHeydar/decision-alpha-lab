@@ -1,0 +1,57 @@
+{
+  "artifact_hash": "fdb6b85a0ca9c7fb3708dd0035a28abd2e49e9ad95d409972384505ae2fdf281",
+  "item_count": 5,
+  "items": [
+    {
+      "candidate_id": "v415_late_mean_s11",
+      "original_fusion_hash": "1627f567f16b0e8b8fb9692a4ff61f66a4c4cc942d21d7544bf41f6701e8a190",
+      "permutation_invariant": true,
+      "phase": "SAED_V4_15",
+      "production_eligible": false,
+      "report_hash": "423cdf06efe19a1df11d1cdb4615d29e4caf681f7f2ce05f8c4c28ac310f2278",
+      "report_id": "v415permutation_17faa268793069cae43a9aa3",
+      "reversed_fusion_hash": "34ee467db149fafae76c3f6b631279d74a17800754372554e0d98b114ef85b0e"
+    },
+    {
+      "candidate_id": "v415_quality_gate_s13",
+      "original_fusion_hash": "1eaac452f83ae68ca3dc932ddbdaeaa1a660e35927274e74c976ac2f71f343c9",
+      "permutation_invariant": true,
+      "phase": "SAED_V4_15",
+      "production_eligible": false,
+      "report_hash": "b62b66d9044a89c91e25b3897d8831bb4b9d38552d20817362069eb94ad54ae4",
+      "report_id": "v415permutation_8245db274319ef7d490e5d50",
+      "reversed_fusion_hash": "f465a403e1d2097b5c670c937f002bca778e8a1edf556a5f07e2b0fa3e2366eb"
+    },
+    {
+      "candidate_id": "v415_cross_attention_s17",
+      "original_fusion_hash": "d260e787bec4e90528fd8a53f0d3e8957e58e80f58d891637f7300f9640a7739",
+      "permutation_invariant": true,
+      "phase": "SAED_V4_15",
+      "production_eligible": false,
+      "report_hash": "30131447383365cc5aec1ed628a666201cab6795b807e2e81e67dcdfa8bf2059",
+      "report_id": "v415permutation_5d1268d8e33aedd89f9fa8be",
+      "reversed_fusion_hash": "09bd77bfebccb39ce43d89d384146636ab6a2e0b2e9c15dff1a2578efa875144"
+    },
+    {
+      "candidate_id": "v415_evidential_poe_s19",
+      "original_fusion_hash": "03ddaebc95b2ddca2339d17be6bfd3e94278b8a786ead4ec418dafe1c51838b3",
+      "permutation_invariant": true,
+      "phase": "SAED_V4_15",
+      "production_eligible": false,
+      "report_hash": "06dfe9029f8e0491e8da9a83407221bb041469be47b91996f858529e9a9bc570",
+      "report_id": "v415permutation_0d2054c7d3b3ec8bfc2203c3",
+      "reversed_fusion_hash": "80318fdc149df71c02ae0815704f2d00985f5c101b3891880f91157388f0b8a5"
+    },
+    {
+      "candidate_id": "v415_disagreement_moe_s23",
+      "original_fusion_hash": "298f59d219c24fa9c2f661376bd7d1ebe1f255f58cc3426c3f0e44a0e55a1c43",
+      "permutation_invariant": true,
+      "phase": "SAED_V4_15",
+      "production_eligible": false,
+      "report_hash": "65fc45ddea3b86c190355a6472e44bd064ddc4ea7fd6761ae598ec1dadc45fab",
+      "report_id": "v415permutation_290eee267c066b655a42ca76",
+      "reversed_fusion_hash": "7199c3de84b1c928bd80de8070dd813fda281fa572d659ec1766d0af7a455d86"
+    }
+  ],
+  "phase": "SAED_V4_15"
+}

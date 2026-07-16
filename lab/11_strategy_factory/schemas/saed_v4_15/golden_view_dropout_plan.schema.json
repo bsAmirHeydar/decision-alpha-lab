@@ -1,0 +1,70 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/golden_view_dropout_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "dropout_rate": {
+      "type": "number"
+    },
+    "outcome_conditioned": {
+      "type": "boolean"
+    },
+    "pattern_count": {
+      "type": "integer"
+    },
+    "patterns": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "drop_views": {
+            "items": {},
+            "type": "array"
+          },
+          "expected_directive": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "drop_views",
+          "expected_directive",
+          "name"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "plan_hash": {
+      "type": "string"
+    },
+    "plan_id": {
+      "type": "string"
+    },
+    "production_eligible": {
+      "type": "boolean"
+    },
+    "structured_patterns": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "dropout_rate",
+    "outcome_conditioned",
+    "pattern_count",
+    "patterns",
+    "phase",
+    "plan_hash",
+    "plan_id",
+    "production_eligible",
+    "structured_patterns"
+  ],
+  "type": "object"
+}

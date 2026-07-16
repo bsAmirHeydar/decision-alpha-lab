@@ -1,0 +1,50 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/golden_view_availability_mask.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "items": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "age_seconds": {
+            "type": "integer"
+          },
+          "available": {
+            "type": "boolean"
+          },
+          "quality": {
+            "type": "number"
+          },
+          "source_plane": {
+            "type": "string"
+          },
+          "view_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "age_seconds",
+          "available",
+          "quality",
+          "source_plane",
+          "view_name"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "known_as_of": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "items",
+    "known_as_of",
+    "phase"
+  ],
+  "type": "object"
+}

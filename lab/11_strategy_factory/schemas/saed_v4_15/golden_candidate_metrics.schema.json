@@ -1,0 +1,102 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/golden_candidate_metrics.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "economic_uplift_established": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_eligible": {
+      "type": "boolean"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "row_count": {
+      "type": "integer"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "agreement_score": {
+            "type": "number"
+          },
+          "algorithm": {
+            "type": "string"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "collapse_penalty": {
+            "type": "number"
+          },
+          "domain_subset_robustness": {
+            "type": "number"
+          },
+          "economic_metric": {
+            "type": "boolean"
+          },
+          "embedding_coherence": {
+            "type": "number"
+          },
+          "foundation_subset_robustness": {
+            "type": "number"
+          },
+          "outcome_metric": {
+            "type": "boolean"
+          },
+          "production_eligible": {
+            "type": "boolean"
+          },
+          "reference_score": {
+            "type": "number"
+          },
+          "supported": {
+            "type": "boolean"
+          },
+          "uncertainty_calibration_score": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "agreement_score",
+          "algorithm",
+          "candidate_id",
+          "collapse_penalty",
+          "domain_subset_robustness",
+          "economic_metric",
+          "embedding_coherence",
+          "foundation_subset_robustness",
+          "outcome_metric",
+          "production_eligible",
+          "reference_score",
+          "supported",
+          "uncertainty_calibration_score"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "synthetic_reference_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "economic_uplift_established",
+    "phase",
+    "production_eligible",
+    "report_hash",
+    "report_id",
+    "row_count",
+    "rows",
+    "synthetic_reference_only"
+  ],
+  "type": "object"
+}

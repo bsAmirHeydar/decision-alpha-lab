@@ -1,0 +1,163 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/v4_15_to_v4_16_handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "aligned_view_set_hash": {
+      "type": "string"
+    },
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "activate_runtime": {
+          "type": "boolean"
+        },
+        "allocate_risk": {
+          "type": "boolean"
+        },
+        "build_reference_distributional_survival_tail_models": {
+          "type": "boolean"
+        },
+        "mutate_v4_15_evidence": {
+          "type": "boolean"
+        },
+        "predict_outcomes": {
+          "type": "boolean"
+        },
+        "rank_treatments": {
+          "type": "boolean"
+        },
+        "read_frozen_fusion_features": {
+          "type": "boolean"
+        },
+        "read_frozen_fusion_registry": {
+          "type": "boolean"
+        },
+        "select_treatment": {
+          "type": "boolean"
+        },
+        "send_order": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "activate_runtime",
+        "allocate_risk",
+        "build_reference_distributional_survival_tail_models",
+        "mutate_v4_15_evidence",
+        "predict_outcomes",
+        "rank_treatments",
+        "read_frozen_fusion_features",
+        "read_frozen_fusion_registry",
+        "select_treatment",
+        "send_order"
+      ],
+      "type": "object"
+    },
+    "domain_subset_matrix_hash": {
+      "type": "string"
+    },
+    "entry_gates": {
+      "additionalProperties": false,
+      "properties": {
+        "all_domain_subsets_bounded": {
+          "type": "boolean"
+        },
+        "all_foundation_subsets_bounded": {
+          "type": "boolean"
+        },
+        "baseline_preserved": {
+          "type": "boolean"
+        },
+        "deterministic_replay_passed": {
+          "type": "boolean"
+        },
+        "explicit_missingness_passed": {
+          "type": "boolean"
+        },
+        "frozen_upstream_binding_verified": {
+          "type": "boolean"
+        },
+        "fusion_registry_admitted": {
+          "type": "boolean"
+        },
+        "future_suffix_forbidden": {
+          "type": "boolean"
+        },
+        "known_time_alignment_passed": {
+          "type": "boolean"
+        },
+        "outcome_supervision_absent": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "all_domain_subsets_bounded",
+        "all_foundation_subsets_bounded",
+        "baseline_preserved",
+        "deterministic_replay_passed",
+        "explicit_missingness_passed",
+        "frozen_upstream_binding_verified",
+        "fusion_registry_admitted",
+        "future_suffix_forbidden",
+        "known_time_alignment_passed",
+        "outcome_supervision_absent"
+      ],
+      "type": "object"
+    },
+    "foundation_subset_matrix_hash": {
+      "type": "string"
+    },
+    "fusion_checkpoint_registry_hash": {
+      "type": "string"
+    },
+    "fusion_checkpoint_registry_id": {
+      "type": "string"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "integrity_receipt_hash": {
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "reference_champion_id": {
+      "type": "string"
+    },
+    "upstream_v4_14_handoff_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "aligned_view_set_hash",
+    "authority",
+    "domain_subset_matrix_hash",
+    "entry_gates",
+    "foundation_subset_matrix_hash",
+    "fusion_checkpoint_registry_hash",
+    "fusion_checkpoint_registry_id",
+    "handoff_hash",
+    "handoff_id",
+    "integrity_receipt_hash",
+    "limitations",
+    "next_phase",
+    "phase",
+    "reference_champion_id",
+    "upstream_v4_14_handoff_hash"
+  ],
+  "type": "object"
+}

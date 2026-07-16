@@ -1,0 +1,62 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/provenance.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "aligned_set_hash": {
+      "type": "string"
+    },
+    "external_models_invoked": {
+      "type": "boolean"
+    },
+    "known_time_only": {
+      "type": "boolean"
+    },
+    "outcome_labels_accessed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_eligible": {
+      "type": "boolean"
+    },
+    "provenance_hash": {
+      "type": "string"
+    },
+    "provenance_id": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "tournament_hash": {
+      "type": "string"
+    },
+    "upstream_v4_04_package_hash": {
+      "type": "string"
+    },
+    "upstream_v4_14_handoff_hash": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "aligned_set_hash",
+    "external_models_invoked",
+    "known_time_only",
+    "outcome_labels_accessed",
+    "phase",
+    "production_eligible",
+    "provenance_hash",
+    "provenance_id",
+    "registry_hash",
+    "tournament_hash",
+    "upstream_v4_04_package_hash",
+    "upstream_v4_14_handoff_hash",
+    "version"
+  ],
+  "type": "object"
+}

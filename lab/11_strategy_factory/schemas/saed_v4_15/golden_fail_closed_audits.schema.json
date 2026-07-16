@@ -1,0 +1,82 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/golden_fail_closed_audits.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_hash": {
+      "type": "string"
+    },
+    "item_count": {
+      "type": "integer"
+    },
+    "items": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "all_passed": {
+            "type": "boolean"
+          },
+          "audit_hash": {
+            "type": "string"
+          },
+          "audit_id": {
+            "type": "string"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "phase": {
+            "type": "string"
+          },
+          "production_eligible": {
+            "type": "boolean"
+          },
+          "rows": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "case": {
+                  "type": "string"
+                },
+                "directive": {
+                  "type": "string"
+                },
+                "passed": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "case",
+                "directive",
+                "passed"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "all_passed",
+          "audit_hash",
+          "audit_id",
+          "candidate_id",
+          "phase",
+          "production_eligible",
+          "rows"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_hash",
+    "item_count",
+    "items",
+    "phase"
+  ],
+  "type": "object"
+}

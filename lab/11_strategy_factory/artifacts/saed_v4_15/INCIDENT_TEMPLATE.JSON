@@ -1,0 +1,16 @@
+{
+  "affected_checkpoint_ids": [],
+  "affected_view_ids": [],
+  "containment": [
+    "quarantine_artifacts",
+    "revoke_research_checkpoint",
+    "restore_late_fusion_baseline",
+    "replay_from_frozen_hashes"
+  ],
+  "detected_at": "UNASSIGNED",
+  "execution_action": "none_reference_only",
+  "incident_id": "UNASSIGNED",
+  "phase": "SAED_V4_15",
+  "runtime_action": "none_reference_only",
+  "severity": "UNASSESSED"
+}

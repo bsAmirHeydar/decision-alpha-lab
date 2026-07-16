@@ -1,0 +1,70 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/golden_future_suffix_audits.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_hash": {
+      "type": "string"
+    },
+    "item_count": {
+      "type": "integer"
+    },
+    "items": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "audit_hash": {
+            "type": "string"
+          },
+          "audit_id": {
+            "type": "string"
+          },
+          "base_envelope_hash": {
+            "type": "string"
+          },
+          "future_envelope_hash": {
+            "type": "string"
+          },
+          "future_suffix_accessed": {
+            "type": "boolean"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "phase": {
+            "type": "string"
+          },
+          "production_eligible": {
+            "type": "boolean"
+          },
+          "view_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "audit_hash",
+          "audit_id",
+          "base_envelope_hash",
+          "future_envelope_hash",
+          "future_suffix_accessed",
+          "passed",
+          "phase",
+          "production_eligible",
+          "view_name"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_hash",
+    "item_count",
+    "items",
+    "phase"
+  ],
+  "type": "object"
+}

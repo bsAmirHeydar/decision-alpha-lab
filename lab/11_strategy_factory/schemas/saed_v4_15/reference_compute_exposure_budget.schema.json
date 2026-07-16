@@ -1,0 +1,42 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/reference_compute_exposure_budget.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "max_candidates": {
+      "type": "integer"
+    },
+    "max_domain_subset_evaluations": {
+      "type": "integer"
+    },
+    "max_dropout_patterns": {
+      "type": "integer"
+    },
+    "max_failures": {
+      "type": "integer"
+    },
+    "max_foundation_subset_evaluations": {
+      "type": "integer"
+    },
+    "max_fusion_calls": {
+      "type": "integer"
+    },
+    "max_retries": {
+      "type": "integer"
+    },
+    "max_total_vector_dimensions": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "max_candidates",
+    "max_domain_subset_evaluations",
+    "max_dropout_patterns",
+    "max_failures",
+    "max_foundation_subset_evaluations",
+    "max_fusion_calls",
+    "max_retries",
+    "max_total_vector_dimensions"
+  ],
+  "type": "object"
+}

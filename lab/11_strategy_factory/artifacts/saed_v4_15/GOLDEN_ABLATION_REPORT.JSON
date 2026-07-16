@@ -1,0 +1,139 @@
+{
+  "candidate_id": "v415_disagreement_moe_s23",
+  "diagnostic_only": true,
+  "phase": "SAED_V4_15",
+  "production_eligible": false,
+  "report_hash": "b6fcd4e58b39a30789ef1f4e2857b19c1858a42546314892c1ac5a24f090444e",
+  "report_id": "v415ablation_dd976f1c43579ce9c2eac4af",
+  "row_count": 16,
+  "rows": [
+    {
+      "causal_claim": false,
+      "directive": "fuse",
+      "embedding_drift": 0.11265467010180905,
+      "source_plane": "domain",
+      "supported": true,
+      "view_name": "context_ancestry_view"
+    },
+    {
+      "causal_claim": false,
+      "directive": "fuse",
+      "embedding_drift": 0.1398405426063471,
+      "source_plane": "domain",
+      "supported": true,
+      "view_name": "execution_view"
+    },
+    {
+      "causal_claim": false,
+      "directive": "abstain",
+      "embedding_drift": -1.0,
+      "source_plane": "domain",
+      "supported": false,
+      "view_name": "higher_timeframe_view"
+    },
+    {
+      "causal_claim": false,
+      "directive": "abstain",
+      "embedding_drift": -1.0,
+      "source_plane": "domain",
+      "supported": false,
+      "view_name": "intermarket_view"
+    },
+    {
+      "causal_claim": false,
+      "directive": "abstain",
+      "embedding_drift": -1.0,
+      "source_plane": "domain",
+      "supported": false,
+      "view_name": "liquidity_view"
+    },
+    {
+      "causal_claim": false,
+      "directive": "abstain",
+      "embedding_drift": -1.0,
+      "source_plane": "domain",
+      "supported": false,
+      "view_name": "price_view"
+    },
+    {
+      "causal_claim": false,
+      "directive": "abstain",
+      "embedding_drift": -1.0,
+      "source_plane": "domain",
+      "supported": false,
+      "view_name": "session_view"
+    },
+    {
+      "causal_claim": false,
+      "directive": "abstain",
+      "embedding_drift": -1.0,
+      "source_plane": "domain",
+      "supported": false,
+      "view_name": "structure_view"
+    },
+    {
+      "causal_claim": false,
+      "directive": "abstain",
+      "embedding_drift": -1.0,
+      "source_plane": "domain",
+      "supported": false,
+      "view_name": "time_view"
+    },
+    {
+      "causal_claim": false,
+      "directive": "fuse",
+      "embedding_drift": 0.06911434284442351,
+      "source_plane": "domain",
+      "supported": true,
+      "view_name": "treatment_descriptor_view"
+    },
+    {
+      "causal_claim": false,
+      "directive": "fuse",
+      "embedding_drift": 0.03127396091049533,
+      "source_plane": "foundation",
+      "supported": true,
+      "view_name": "foundation_chronos_style"
+    },
+    {
+      "causal_claim": false,
+      "directive": "fuse",
+      "embedding_drift": 0.03157264270777354,
+      "source_plane": "foundation",
+      "supported": true,
+      "view_name": "foundation_moirai_style"
+    },
+    {
+      "causal_claim": false,
+      "directive": "fuse",
+      "embedding_drift": 0.03270205590151595,
+      "source_plane": "foundation",
+      "supported": true,
+      "view_name": "foundation_moment_style"
+    },
+    {
+      "causal_claim": false,
+      "directive": "fuse",
+      "embedding_drift": 0.03302178422613888,
+      "source_plane": "foundation",
+      "supported": true,
+      "view_name": "foundation_native_linear_baseline"
+    },
+    {
+      "causal_claim": false,
+      "directive": "fuse",
+      "embedding_drift": 0.030432437333744254,
+      "source_plane": "foundation",
+      "supported": true,
+      "view_name": "foundation_sparse_moe_style"
+    },
+    {
+      "causal_claim": false,
+      "directive": "fuse",
+      "embedding_drift": 0.03699495745321743,
+      "source_plane": "foundation",
+      "supported": true,
+      "view_name": "foundation_timesfm_style"
+    }
+  ]
+}

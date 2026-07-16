@@ -1,0 +1,242 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/golden_aligned_view_set.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "aligned_set_hash": {
+      "type": "string"
+    },
+    "aligned_set_id": {
+      "type": "string"
+    },
+    "common_dim": {
+      "type": "integer"
+    },
+    "domain_view_count": {
+      "type": "integer"
+    },
+    "domain_views": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "age_seconds": {
+            "type": "integer"
+          },
+          "available": {
+            "type": "boolean"
+          },
+          "cutoff": {
+            "type": "string"
+          },
+          "embedding": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "embedding_dim": {
+            "type": "integer"
+          },
+          "envelope_hash": {
+            "type": "string"
+          },
+          "envelope_id": {
+            "type": "string"
+          },
+          "feature_count": {
+            "type": "integer"
+          },
+          "future_filtered": {
+            "type": "boolean"
+          },
+          "known_as_of": {
+            "type": "string"
+          },
+          "missing_feature_count": {
+            "type": "integer"
+          },
+          "phase": {
+            "type": "string"
+          },
+          "production_eligible": {
+            "type": "boolean"
+          },
+          "quality": {
+            "type": "number"
+          },
+          "source_plane": {
+            "type": "string"
+          },
+          "source_view_hash": {
+            "type": "string"
+          },
+          "source_view_id": {
+            "type": "string"
+          },
+          "view_kind": {
+            "type": "string"
+          },
+          "view_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "age_seconds",
+          "available",
+          "cutoff",
+          "embedding",
+          "embedding_dim",
+          "envelope_hash",
+          "envelope_id",
+          "feature_count",
+          "future_filtered",
+          "known_as_of",
+          "missing_feature_count",
+          "phase",
+          "production_eligible",
+          "quality",
+          "source_plane",
+          "source_view_hash",
+          "source_view_id",
+          "view_kind",
+          "view_name"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "foundation_view_count": {
+      "type": "integer"
+    },
+    "foundation_views": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "age_seconds": {
+            "type": "integer"
+          },
+          "available": {
+            "type": "boolean"
+          },
+          "embedding": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "embedding_dim": {
+            "type": "integer"
+          },
+          "envelope_hash": {
+            "type": "string"
+          },
+          "envelope_id": {
+            "type": "string"
+          },
+          "external_model_invoked": {
+            "type": "boolean"
+          },
+          "known_as_of": {
+            "type": "string"
+          },
+          "phase": {
+            "type": "string"
+          },
+          "production_eligible": {
+            "type": "boolean"
+          },
+          "quality": {
+            "type": "number"
+          },
+          "source_candidate_id": {
+            "type": "string"
+          },
+          "source_feature_hash": {
+            "type": "string"
+          },
+          "source_feature_id": {
+            "type": "string"
+          },
+          "source_plane": {
+            "type": "string"
+          },
+          "uncertainty": {
+            "type": "number"
+          },
+          "view_kind": {
+            "type": "string"
+          },
+          "view_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "age_seconds",
+          "available",
+          "embedding",
+          "embedding_dim",
+          "envelope_hash",
+          "envelope_id",
+          "external_model_invoked",
+          "known_as_of",
+          "phase",
+          "production_eligible",
+          "quality",
+          "source_candidate_id",
+          "source_feature_hash",
+          "source_feature_id",
+          "source_plane",
+          "uncertainty",
+          "view_kind",
+          "view_name"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "future_suffix_accessed": {
+      "type": "boolean"
+    },
+    "known_as_of": {
+      "type": "string"
+    },
+    "ordered_envelope_hashes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "ordered_envelope_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "outcome_labels_accessed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_eligible": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "aligned_set_hash",
+    "aligned_set_id",
+    "common_dim",
+    "domain_view_count",
+    "domain_views",
+    "foundation_view_count",
+    "foundation_views",
+    "future_suffix_accessed",
+    "known_as_of",
+    "ordered_envelope_hashes",
+    "ordered_envelope_ids",
+    "outcome_labels_accessed",
+    "phase",
+    "production_eligible"
+  ],
+  "type": "object"
+}

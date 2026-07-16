@@ -1,0 +1,30 @@
+{
+  "breaches": [],
+  "ledger_hash": "244b913a7914749e3657184d2a36b242b111652611b3f242f2cc19c9f759f43f",
+  "ledger_id": "v415ledger_9089fa037bfd66a944191470",
+  "limits": {
+    "candidates": 8,
+    "domain_subset_evaluations": 2048,
+    "dropout_patterns": 64,
+    "failures": 0,
+    "foundation_subset_evaluations": 128,
+    "fusion_calls": 32,
+    "retries": 0,
+    "total_vector_dimensions": 1024
+  },
+  "outcome_label_exposures": 0,
+  "passed": true,
+  "phase": "SAED_V4_15",
+  "production_eligible": false,
+  "protected_evidence_exposures": 0,
+  "usage": {
+    "candidates": 5,
+    "domain_subset_evaluations": 1024,
+    "dropout_patterns": 21,
+    "failures": 0,
+    "foundation_subset_evaluations": 64,
+    "fusion_calls": 5,
+    "retries": 0,
+    "total_vector_dimensions": 256
+  }
+}

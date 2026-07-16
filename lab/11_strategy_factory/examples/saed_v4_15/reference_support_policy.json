@@ -1,0 +1,9 @@
+{
+  "baseline_candidate_id": "v415_late_mean_s11",
+  "corrupt_action": "quarantine",
+  "foundation_missing_action": "baseline",
+  "missing_critical_action": "abstain",
+  "missing_required_action": "abstain",
+  "ood_action": "abstain",
+  "stale_required_action": "abstain"
+}

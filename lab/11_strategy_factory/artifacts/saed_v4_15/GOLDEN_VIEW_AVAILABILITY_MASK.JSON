@@ -1,0 +1,118 @@
+{
+  "items": [
+    {
+      "age_seconds": 0,
+      "available": true,
+      "quality": 1.0,
+      "source_plane": "domain",
+      "view_name": "context_ancestry_view"
+    },
+    {
+      "age_seconds": 0,
+      "available": true,
+      "quality": 1.0,
+      "source_plane": "domain",
+      "view_name": "execution_view"
+    },
+    {
+      "age_seconds": 0,
+      "available": true,
+      "quality": 1.0,
+      "source_plane": "domain",
+      "view_name": "higher_timeframe_view"
+    },
+    {
+      "age_seconds": 0,
+      "available": true,
+      "quality": 1.0,
+      "source_plane": "domain",
+      "view_name": "intermarket_view"
+    },
+    {
+      "age_seconds": 0,
+      "available": true,
+      "quality": 1.0,
+      "source_plane": "domain",
+      "view_name": "liquidity_view"
+    },
+    {
+      "age_seconds": 0,
+      "available": true,
+      "quality": 1.0,
+      "source_plane": "domain",
+      "view_name": "price_view"
+    },
+    {
+      "age_seconds": 0,
+      "available": true,
+      "quality": 1.0,
+      "source_plane": "domain",
+      "view_name": "session_view"
+    },
+    {
+      "age_seconds": 0,
+      "available": true,
+      "quality": 1.0,
+      "source_plane": "domain",
+      "view_name": "structure_view"
+    },
+    {
+      "age_seconds": 0,
+      "available": true,
+      "quality": 1.0,
+      "source_plane": "domain",
+      "view_name": "time_view"
+    },
+    {
+      "age_seconds": 0,
+      "available": true,
+      "quality": 1.0,
+      "source_plane": "domain",
+      "view_name": "treatment_descriptor_view"
+    },
+    {
+      "age_seconds": 0,
+      "available": true,
+      "quality": 0.5571164188608941,
+      "source_plane": "foundation",
+      "view_name": "foundation_chronos_style"
+    },
+    {
+      "age_seconds": 0,
+      "available": true,
+      "quality": 0.5571164188608941,
+      "source_plane": "foundation",
+      "view_name": "foundation_moirai_style"
+    },
+    {
+      "age_seconds": 0,
+      "available": true,
+      "quality": 0.5571164188608941,
+      "source_plane": "foundation",
+      "view_name": "foundation_moment_style"
+    },
+    {
+      "age_seconds": 0,
+      "available": true,
+      "quality": 0.5571164188608941,
+      "source_plane": "foundation",
+      "view_name": "foundation_native_linear_baseline"
+    },
+    {
+      "age_seconds": 0,
+      "available": true,
+      "quality": 0.539096062785626,
+      "source_plane": "foundation",
+      "view_name": "foundation_sparse_moe_style"
+    },
+    {
+      "age_seconds": 0,
+      "available": true,
+      "quality": 0.5571164188608941,
+      "source_plane": "foundation",
+      "view_name": "foundation_timesfm_style"
+    }
+  ],
+  "known_as_of": "2026-01-05T14:30:01Z",
+  "phase": "SAED_V4_15"
+}

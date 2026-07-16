@@ -1,0 +1,12 @@
+{
+  "domain_view_count": 10,
+  "foundation_candidate_count": 6,
+  "frozen": true,
+  "known_as_of": "2026-01-05T14:30:01Z",
+  "passed": true,
+  "phase": "SAED_V4_15",
+  "v4_04_package_hash": "f2f93f882badf60347cf7576bf207938e484d13604b202ec0b095aca17a97fc8",
+  "v4_14_handoff_hash": "78fec567a00db48f34f9e0c3068208343529380b122b657aa04b421be77ac42c",
+  "v4_14_registry_hash": "5818101e502bb359deab92db71123a954144a157bbb6582ae6f6dfafd08f4226",
+  "v4_14_token_sequence_hash": "dbfe27866b1f7d8f3a35b774bf048ce2bbbac56388129515c4c4d486cc2dd2c5"
+}

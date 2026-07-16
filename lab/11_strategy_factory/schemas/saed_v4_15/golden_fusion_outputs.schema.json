@@ -1,0 +1,122 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/golden_fusion_outputs.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_hash": {
+      "type": "string"
+    },
+    "item_count": {
+      "type": "integer"
+    },
+    "items": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "algorithm": {
+            "type": "string"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "directive": {
+            "type": "string"
+          },
+          "disagreement": {
+            "type": "number"
+          },
+          "fused_embedding": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "fusion_hash": {
+            "type": "string"
+          },
+          "fusion_id": {
+            "type": "string"
+          },
+          "gate_concentration": {
+            "type": "number"
+          },
+          "known_as_of": {
+            "type": "string"
+          },
+          "phase": {
+            "type": "string"
+          },
+          "production_eligible": {
+            "type": "boolean"
+          },
+          "reasons": {
+            "items": {},
+            "type": "array"
+          },
+          "status": {
+            "type": "string"
+          },
+          "uncertainty": {
+            "type": "number"
+          },
+          "view_collapse": {
+            "type": "boolean"
+          },
+          "view_weights": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "source_plane": {
+                  "type": "string"
+                },
+                "view_name": {
+                  "type": "string"
+                },
+                "weight": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "source_plane",
+                "view_name",
+                "weight"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "algorithm",
+          "candidate_id",
+          "directive",
+          "disagreement",
+          "fused_embedding",
+          "fusion_hash",
+          "fusion_id",
+          "gate_concentration",
+          "known_as_of",
+          "phase",
+          "production_eligible",
+          "reasons",
+          "status",
+          "uncertainty",
+          "view_collapse",
+          "view_weights"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_hash",
+    "item_count",
+    "items",
+    "phase"
+  ],
+  "type": "object"
+}

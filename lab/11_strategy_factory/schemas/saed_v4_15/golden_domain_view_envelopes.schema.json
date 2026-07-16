@@ -1,0 +1,109 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/golden_domain_view_envelopes.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "item_count": {
+      "type": "integer"
+    },
+    "items": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "age_seconds": {
+            "type": "integer"
+          },
+          "available": {
+            "type": "boolean"
+          },
+          "cutoff": {
+            "type": "string"
+          },
+          "embedding": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "embedding_dim": {
+            "type": "integer"
+          },
+          "envelope_hash": {
+            "type": "string"
+          },
+          "envelope_id": {
+            "type": "string"
+          },
+          "feature_count": {
+            "type": "integer"
+          },
+          "future_filtered": {
+            "type": "boolean"
+          },
+          "known_as_of": {
+            "type": "string"
+          },
+          "missing_feature_count": {
+            "type": "integer"
+          },
+          "phase": {
+            "type": "string"
+          },
+          "production_eligible": {
+            "type": "boolean"
+          },
+          "quality": {
+            "type": "number"
+          },
+          "source_plane": {
+            "type": "string"
+          },
+          "source_view_hash": {
+            "type": "string"
+          },
+          "source_view_id": {
+            "type": "string"
+          },
+          "view_kind": {
+            "type": "string"
+          },
+          "view_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "age_seconds",
+          "available",
+          "cutoff",
+          "embedding",
+          "embedding_dim",
+          "envelope_hash",
+          "envelope_id",
+          "feature_count",
+          "future_filtered",
+          "known_as_of",
+          "missing_feature_count",
+          "phase",
+          "production_eligible",
+          "quality",
+          "source_plane",
+          "source_view_hash",
+          "source_view_id",
+          "view_kind",
+          "view_name"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "item_count",
+    "items",
+    "phase"
+  ],
+  "type": "object"
+}

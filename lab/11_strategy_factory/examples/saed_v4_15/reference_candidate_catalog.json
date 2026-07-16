@@ -1,0 +1,52 @@
+[
+  {
+    "algorithm": "late_mean_baseline",
+    "candidate_id": "v415_late_mean_s11",
+    "dropout_enabled": false,
+    "enabled": true,
+    "min_domain_views": 7,
+    "min_foundation_views": 0,
+    "requires_foundation_views": false,
+    "seed": 11
+  },
+  {
+    "algorithm": "quality_gated",
+    "candidate_id": "v415_quality_gate_s13",
+    "dropout_enabled": true,
+    "enabled": true,
+    "min_domain_views": 7,
+    "min_foundation_views": 1,
+    "requires_foundation_views": true,
+    "seed": 13
+  },
+  {
+    "algorithm": "masked_cross_attention_reference",
+    "candidate_id": "v415_cross_attention_s17",
+    "dropout_enabled": true,
+    "enabled": true,
+    "min_domain_views": 7,
+    "min_foundation_views": 2,
+    "requires_foundation_views": true,
+    "seed": 17
+  },
+  {
+    "algorithm": "evidential_product_of_experts",
+    "candidate_id": "v415_evidential_poe_s19",
+    "dropout_enabled": true,
+    "enabled": true,
+    "min_domain_views": 7,
+    "min_foundation_views": 2,
+    "requires_foundation_views": true,
+    "seed": 19
+  },
+  {
+    "algorithm": "disagreement_aware_mixture",
+    "candidate_id": "v415_disagreement_moe_s23",
+    "dropout_enabled": true,
+    "enabled": true,
+    "min_domain_views": 7,
+    "min_foundation_views": 1,
+    "requires_foundation_views": true,
+    "seed": 23
+  }
+]

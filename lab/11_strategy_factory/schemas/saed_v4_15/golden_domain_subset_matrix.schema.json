@@ -1,0 +1,91 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/golden_domain_subset_matrix.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_subsets_bounded": {
+      "type": "boolean"
+    },
+    "expected_subset_count": {
+      "type": "integer"
+    },
+    "matrix_hash": {
+      "type": "string"
+    },
+    "matrix_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_eligible": {
+      "type": "boolean"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "directive": {
+            "type": "string"
+          },
+          "missing_count": {
+            "type": "integer"
+          },
+          "missing_critical": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "missing_required": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "pattern_id": {
+            "type": "string"
+          },
+          "present_count": {
+            "type": "integer"
+          },
+          "supported": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "directive",
+          "missing_count",
+          "missing_critical",
+          "missing_required",
+          "pattern_id",
+          "present_count",
+          "supported"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "subset_count": {
+      "type": "integer"
+    },
+    "view_names": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "all_subsets_bounded",
+    "expected_subset_count",
+    "matrix_hash",
+    "matrix_id",
+    "phase",
+    "production_eligible",
+    "rows",
+    "subset_count",
+    "view_names"
+  ],
+  "type": "object"
+}

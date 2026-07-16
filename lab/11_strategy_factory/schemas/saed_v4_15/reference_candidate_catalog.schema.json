@@ -1,0 +1,45 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/reference_candidate_catalog.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "items": {
+    "additionalProperties": false,
+    "properties": {
+      "algorithm": {
+        "type": "string"
+      },
+      "candidate_id": {
+        "type": "string"
+      },
+      "dropout_enabled": {
+        "type": "boolean"
+      },
+      "enabled": {
+        "type": "boolean"
+      },
+      "min_domain_views": {
+        "type": "integer"
+      },
+      "min_foundation_views": {
+        "type": "integer"
+      },
+      "requires_foundation_views": {
+        "type": "boolean"
+      },
+      "seed": {
+        "type": "integer"
+      }
+    },
+    "required": [
+      "algorithm",
+      "candidate_id",
+      "dropout_enabled",
+      "enabled",
+      "min_domain_views",
+      "min_foundation_views",
+      "requires_foundation_views",
+      "seed"
+    ],
+    "type": "object"
+  },
+  "type": "array"
+}

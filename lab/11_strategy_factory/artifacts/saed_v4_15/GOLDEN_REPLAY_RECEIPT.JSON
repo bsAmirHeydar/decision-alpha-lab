@@ -1,0 +1,9 @@
+{
+  "deterministic": true,
+  "first_hash": "ed08b0b801cfa1748c0146529ebda1f703894f9f805014a9ab2a8ec46302c177",
+  "phase": "SAED_V4_15",
+  "production_eligible": false,
+  "receipt_hash": "d5215dceb63e8b4965f43df4d6bdbdb87e99ccc9c90d138104caa4a19fb35bff",
+  "receipt_id": "v415replay_2487589901ad59f33f0b1533",
+  "second_hash": "ed08b0b801cfa1748c0146529ebda1f703894f9f805014a9ab2a8ec46302c177"
+}

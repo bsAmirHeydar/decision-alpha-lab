@@ -1,0 +1,125 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/golden_compute_exposure_ledger.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "breaches": {
+      "items": {},
+      "type": "array"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "limits": {
+      "additionalProperties": false,
+      "properties": {
+        "candidates": {
+          "type": "integer"
+        },
+        "domain_subset_evaluations": {
+          "type": "integer"
+        },
+        "dropout_patterns": {
+          "type": "integer"
+        },
+        "failures": {
+          "type": "integer"
+        },
+        "foundation_subset_evaluations": {
+          "type": "integer"
+        },
+        "fusion_calls": {
+          "type": "integer"
+        },
+        "retries": {
+          "type": "integer"
+        },
+        "total_vector_dimensions": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "candidates",
+        "domain_subset_evaluations",
+        "dropout_patterns",
+        "failures",
+        "foundation_subset_evaluations",
+        "fusion_calls",
+        "retries",
+        "total_vector_dimensions"
+      ],
+      "type": "object"
+    },
+    "outcome_label_exposures": {
+      "type": "integer"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_eligible": {
+      "type": "boolean"
+    },
+    "protected_evidence_exposures": {
+      "type": "integer"
+    },
+    "usage": {
+      "additionalProperties": false,
+      "properties": {
+        "candidates": {
+          "type": "integer"
+        },
+        "domain_subset_evaluations": {
+          "type": "integer"
+        },
+        "dropout_patterns": {
+          "type": "integer"
+        },
+        "failures": {
+          "type": "integer"
+        },
+        "foundation_subset_evaluations": {
+          "type": "integer"
+        },
+        "fusion_calls": {
+          "type": "integer"
+        },
+        "retries": {
+          "type": "integer"
+        },
+        "total_vector_dimensions": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "candidates",
+        "domain_subset_evaluations",
+        "dropout_patterns",
+        "failures",
+        "foundation_subset_evaluations",
+        "fusion_calls",
+        "retries",
+        "total_vector_dimensions"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "breaches",
+    "ledger_hash",
+    "ledger_id",
+    "limits",
+    "outcome_label_exposures",
+    "passed",
+    "phase",
+    "production_eligible",
+    "protected_evidence_exposures",
+    "usage"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,52 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/authority_boundary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_operations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "attribution_is_causal": {
+      "type": "boolean"
+    },
+    "capability_tier": {
+      "type": "string"
+    },
+    "decision_authority": {
+      "type": "boolean"
+    },
+    "execution_authority": {
+      "type": "boolean"
+    },
+    "fail_closed_fallback": {
+      "type": "string"
+    },
+    "forbidden_operations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "runtime_authority": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "allowed_operations",
+    "attribution_is_causal",
+    "capability_tier",
+    "decision_authority",
+    "execution_authority",
+    "fail_closed_fallback",
+    "forbidden_operations",
+    "phase",
+    "runtime_authority"
+  ],
+  "type": "object"
+}

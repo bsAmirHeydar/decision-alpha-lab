@@ -1,0 +1,86 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/golden_candidate_checkpoints.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_hash": {
+      "type": "string"
+    },
+    "item_count": {
+      "type": "integer"
+    },
+    "items": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "algorithm": {
+            "type": "string"
+          },
+          "aligned_set_hash": {
+            "type": "string"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "checkpoint_hash": {
+            "type": "string"
+          },
+          "checkpoint_id": {
+            "type": "string"
+          },
+          "fusion_hash": {
+            "type": "string"
+          },
+          "phase": {
+            "type": "string"
+          },
+          "production_eligible": {
+            "type": "boolean"
+          },
+          "reference_score": {
+            "type": "number"
+          },
+          "revoked": {
+            "type": "boolean"
+          },
+          "runtime_eligible": {
+            "type": "boolean"
+          },
+          "status": {
+            "type": "string"
+          },
+          "support_audit_hash": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "algorithm",
+          "aligned_set_hash",
+          "candidate_id",
+          "checkpoint_hash",
+          "checkpoint_id",
+          "fusion_hash",
+          "phase",
+          "production_eligible",
+          "reference_score",
+          "revoked",
+          "runtime_eligible",
+          "status",
+          "support_audit_hash"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_hash",
+    "item_count",
+    "items",
+    "phase"
+  ],
+  "type": "object"
+}

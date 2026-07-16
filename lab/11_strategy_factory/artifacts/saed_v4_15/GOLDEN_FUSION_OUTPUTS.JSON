@@ -1,0 +1,587 @@
+{
+  "artifact_hash": "388dfa6bbe6bf6cd6fdfb0bda3056cead608968291e6a857300e9b002b984865",
+  "item_count": 5,
+  "items": [
+    {
+      "algorithm": "late_mean_baseline",
+      "candidate_id": "v415_late_mean_s11",
+      "directive": "fuse",
+      "disagreement": 1.5023814351685723,
+      "fused_embedding": [
+        -0.09908866680196854,
+        -0.025293192278393106,
+        0.07181634144748943,
+        -0.1232478678619893,
+        -0.13634159410119653,
+        0.1054169023654479,
+        0.03981751875587773,
+        -0.3122593886804321,
+        -0.009411838298683717,
+        0.09728599760078828,
+        0.08300012952894115,
+        0.0674636724527982,
+        0.22469411939461956,
+        0.027869773842323378,
+        -0.20998552654651445,
+        0.27965234266265576
+      ],
+      "fusion_hash": "1627f567f16b0e8b8fb9692a4ff61f66a4c4cc942d21d7544bf41f6701e8a190",
+      "fusion_id": "v415fusion_19394b88f9b2049f0ca2fefc",
+      "gate_concentration": 0.0625,
+      "known_as_of": "2026-01-05T14:30:01Z",
+      "phase": "SAED_V4_15",
+      "production_eligible": false,
+      "reasons": [],
+      "status": "supported",
+      "uncertainty": 3.0365503743753397,
+      "view_collapse": false,
+      "view_weights": [
+        {
+          "source_plane": "domain",
+          "view_name": "context_ancestry_view",
+          "weight": 0.0625
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "execution_view",
+          "weight": 0.0625
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "higher_timeframe_view",
+          "weight": 0.0625
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "intermarket_view",
+          "weight": 0.0625
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "liquidity_view",
+          "weight": 0.0625
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "price_view",
+          "weight": 0.0625
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "session_view",
+          "weight": 0.0625
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "structure_view",
+          "weight": 0.0625
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "time_view",
+          "weight": 0.0625
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "treatment_descriptor_view",
+          "weight": 0.0625
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_chronos_style",
+          "weight": 0.0625
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_moirai_style",
+          "weight": 0.0625
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_moment_style",
+          "weight": 0.0625
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_native_linear_baseline",
+          "weight": 0.0625
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_sparse_moe_style",
+          "weight": 0.0625
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_timesfm_style",
+          "weight": 0.0625
+        }
+      ]
+    },
+    {
+      "algorithm": "quality_gated",
+      "candidate_id": "v415_quality_gate_s13",
+      "directive": "fuse",
+      "disagreement": 1.5530787394046184,
+      "fused_embedding": [
+        -0.11640256447794624,
+        -0.03206872736374189,
+        0.08042142063461472,
+        -0.15272947724909836,
+        -0.1700498114363866,
+        0.12847259032375477,
+        0.04822127070267538,
+        -0.3738025336864532,
+        -0.008386347774101072,
+        0.11323098745286862,
+        0.09582636635981513,
+        0.07605757926168341,
+        0.26097890817595554,
+        0.03260226200354226,
+        -0.25708305081297467,
+        0.33469442348419437
+      ],
+      "fusion_hash": "1eaac452f83ae68ca3dc932ddbdaeaa1a660e35927274e74c976ac2f71f343c9",
+      "fusion_id": "v415fusion_2a9bab5eab939390cf5e04ee",
+      "gate_concentration": 0.07504871699042857,
+      "known_as_of": "2026-01-05T14:30:01Z",
+      "phase": "SAED_V4_15",
+      "production_eligible": false,
+      "reasons": [],
+      "status": "supported",
+      "uncertainty": 3.130431726444702,
+      "view_collapse": false,
+      "view_weights": [
+        {
+          "source_plane": "domain",
+          "view_name": "context_ancestry_view",
+          "weight": 0.07504871699042857
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "execution_view",
+          "weight": 0.07504871699042857
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "higher_timeframe_view",
+          "weight": 0.07504871699042857
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "intermarket_view",
+          "weight": 0.07504871699042857
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "liquidity_view",
+          "weight": 0.07504871699042857
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "price_view",
+          "weight": 0.07504871699042857
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "session_view",
+          "weight": 0.07504871699042857
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "structure_view",
+          "weight": 0.07504871699042857
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "time_view",
+          "weight": 0.07504871699042857
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "treatment_descriptor_view",
+          "weight": 0.07504871699042857
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_chronos_style",
+          "weight": 0.04181087244981231
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_moirai_style",
+          "weight": 0.04181087244981231
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_moment_style",
+          "weight": 0.04181087244981231
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_native_linear_baseline",
+          "weight": 0.04181087244981231
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_sparse_moe_style",
+          "weight": 0.04045846784665277
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_timesfm_style",
+          "weight": 0.04181087244981231
+        }
+      ]
+    },
+    {
+      "algorithm": "masked_cross_attention_reference",
+      "candidate_id": "v415_cross_attention_s17",
+      "directive": "fuse",
+      "disagreement": 1.6015429499319338,
+      "fused_embedding": [
+        -0.13863767402093707,
+        -0.03776414118364188,
+        0.0772275376500047,
+        -0.18862443657061354,
+        -0.20022080573938056,
+        0.1560374808646566,
+        0.05100168669424596,
+        -0.425523896463572,
+        -0.005794309763492748,
+        0.11222372683792534,
+        0.09747098220173118,
+        0.07671369492908826,
+        0.27934995546253816,
+        0.03753940949776107,
+        -0.2893612254165803,
+        0.39087050609215057
+      ],
+      "fusion_hash": "d260e787bec4e90528fd8a53f0d3e8957e58e80f58d891637f7300f9640a7739",
+      "fusion_id": "v415fusion_a5aa4936226b2f29e44c84d4",
+      "gate_concentration": 0.09024083024540061,
+      "known_as_of": "2026-01-05T14:30:01Z",
+      "phase": "SAED_V4_15",
+      "production_eligible": false,
+      "reasons": [],
+      "status": "supported",
+      "uncertainty": 3.197428695215836,
+      "view_collapse": false,
+      "view_weights": [
+        {
+          "source_plane": "domain",
+          "view_name": "context_ancestry_view",
+          "weight": 0.0796136784371599
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "execution_view",
+          "weight": 0.08829786047355066
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "higher_timeframe_view",
+          "weight": 0.06888835343799989
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "intermarket_view",
+          "weight": 0.06785473473602026
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "liquidity_view",
+          "weight": 0.08809397015958226
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "price_view",
+          "weight": 0.08521599590370253
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "session_view",
+          "weight": 0.06777246860872829
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "structure_view",
+          "weight": 0.06931323994706841
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "time_view",
+          "weight": 0.09024083024540061
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "treatment_descriptor_view",
+          "weight": 0.07139716848628119
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_chronos_style",
+          "weight": 0.0375452083035918
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_moirai_style",
+          "weight": 0.03762174678001464
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_moment_style",
+          "weight": 0.037415184093845914
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_native_linear_baseline",
+          "weight": 0.0373853839383714
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_sparse_moe_style",
+          "weight": 0.03647522345816612
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_timesfm_style",
+          "weight": 0.036868952990516214
+        }
+      ]
+    },
+    {
+      "algorithm": "evidential_product_of_experts",
+      "candidate_id": "v415_evidential_poe_s19",
+      "directive": "fuse",
+      "disagreement": 1.5159098697995002,
+      "fused_embedding": [
+        -0.10379640787614952,
+        -0.02737378208341896,
+        0.07452356612495264,
+        -0.1318213802777019,
+        -0.1464902246324193,
+        0.11144455750982668,
+        0.042017268129813726,
+        -0.3287497046406899,
+        -0.008778304533426038,
+        0.1015215160827223,
+        0.08610805319527948,
+        0.0697219374413929,
+        0.23553949492483423,
+        0.028869645036508858,
+        -0.22331737971843463,
+        0.2944954436236516
+      ],
+      "fusion_hash": "03ddaebc95b2ddca2339d17be6bfd3e94278b8a786ead4ec418dafe1c51838b3",
+      "fusion_id": "v415fusion_6529910ab085071a90f8b401",
+      "gate_concentration": 0.06602667853814416,
+      "known_as_of": "2026-01-05T14:30:01Z",
+      "phase": "SAED_V4_15",
+      "production_eligible": false,
+      "reasons": [],
+      "status": "supported",
+      "uncertainty": 3.0614646589238577,
+      "view_collapse": false,
+      "view_weights": [
+        {
+          "source_plane": "domain",
+          "view_name": "context_ancestry_view",
+          "weight": 0.06602667853814416
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "execution_view",
+          "weight": 0.06602667853814416
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "higher_timeframe_view",
+          "weight": 0.06602667853814416
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "intermarket_view",
+          "weight": 0.06602667853814416
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "liquidity_view",
+          "weight": 0.06602667853814416
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "price_view",
+          "weight": 0.06602667853814416
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "session_view",
+          "weight": 0.06602667853814416
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "structure_view",
+          "weight": 0.06602667853814416
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "time_view",
+          "weight": 0.06602667853814416
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "treatment_descriptor_view",
+          "weight": 0.06602667853814416
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_chronos_style",
+          "weight": 0.058207361158306214
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_moirai_style",
+          "weight": 0.058207361158306214
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_moment_style",
+          "weight": 0.058207361158306214
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_native_linear_baseline",
+          "weight": 0.058207361158306214
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_sparse_moe_style",
+          "weight": 0.04869640882702728
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_timesfm_style",
+          "weight": 0.058207361158306214
+        }
+      ]
+    },
+    {
+      "algorithm": "disagreement_aware_mixture",
+      "candidate_id": "v415_disagreement_moe_s23",
+      "directive": "fuse",
+      "disagreement": 1.436617325100639,
+      "fused_embedding": [
+        -0.06899832449396069,
+        -0.0312185655470049,
+        0.08689619656394547,
+        -0.06648987718070536,
+        -0.09654020803342014,
+        0.037985542393596174,
+        0.03738886137534826,
+        -0.22057707570219345,
+        -0.027671692103789364,
+        0.106377580341248,
+        0.09470965372806647,
+        0.07180058723391886,
+        0.18777378934124214,
+        0.01057690640716548,
+        -0.1586406896566649,
+        0.17312167696656353
+      ],
+      "fusion_hash": "298f59d219c24fa9c2f661376bd7d1ebe1f255f58cc3426c3f0e44a0e55a1c43",
+      "fusion_id": "v415fusion_71247d4ae1ba4a32f5157f1e",
+      "gate_concentration": 0.1008407006651568,
+      "known_as_of": "2026-01-05T14:30:01Z",
+      "phase": "SAED_V4_15",
+      "production_eligible": false,
+      "reasons": [],
+      "status": "supported",
+      "uncertainty": 2.96197859001859,
+      "view_collapse": false,
+      "view_weights": [
+        {
+          "source_plane": "domain",
+          "view_name": "context_ancestry_view",
+          "weight": 0.0654097660514159
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "execution_view",
+          "weight": 0.036920810318998895
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "higher_timeframe_view",
+          "weight": 0.0854391370137152
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "intermarket_view",
+          "weight": 0.08498145582381113
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "liquidity_view",
+          "weight": 0.03709139467510758
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "price_view",
+          "weight": 0.03455863583963243
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "session_view",
+          "weight": 0.1008407006651568
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "structure_view",
+          "weight": 0.07688528182543854
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "time_view",
+          "weight": 0.035002111672154446
+        },
+        {
+          "source_plane": "domain",
+          "view_name": "treatment_descriptor_view",
+          "weight": 0.09929625793827743
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_chronos_style",
+          "weight": 0.05885177812322389
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_moirai_style",
+          "weight": 0.05883963263640198
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_moment_style",
+          "weight": 0.057335671865513596
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_native_linear_baseline",
+          "weight": 0.0572016518262127
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_sparse_moe_style",
+          "weight": 0.056884871098756604
+        },
+        {
+          "source_plane": "foundation",
+          "view_name": "foundation_timesfm_style",
+          "weight": 0.05446084262618288
+        }
+      ]
+    }
+  ],
+  "phase": "SAED_V4_15"
+}

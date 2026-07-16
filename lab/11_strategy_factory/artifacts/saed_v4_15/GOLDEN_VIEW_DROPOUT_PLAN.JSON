@@ -1,0 +1,176 @@
+{
+  "dropout_rate": 0.2,
+  "outcome_conditioned": false,
+  "pattern_count": 21,
+  "patterns": [
+    {
+      "drop_views": [],
+      "expected_directive": "fuse",
+      "name": "complete"
+    },
+    {
+      "drop_views": [
+        "context_ancestry_view"
+      ],
+      "expected_directive": "fuse",
+      "name": "drop_context_ancestry_view"
+    },
+    {
+      "drop_views": [
+        "execution_view"
+      ],
+      "expected_directive": "fuse",
+      "name": "drop_execution_view"
+    },
+    {
+      "drop_views": [
+        "higher_timeframe_view"
+      ],
+      "expected_directive": "abstain",
+      "name": "drop_higher_timeframe_view"
+    },
+    {
+      "drop_views": [
+        "intermarket_view"
+      ],
+      "expected_directive": "abstain",
+      "name": "drop_intermarket_view"
+    },
+    {
+      "drop_views": [
+        "liquidity_view"
+      ],
+      "expected_directive": "abstain",
+      "name": "drop_liquidity_view"
+    },
+    {
+      "drop_views": [
+        "price_view"
+      ],
+      "expected_directive": "abstain",
+      "name": "drop_price_view"
+    },
+    {
+      "drop_views": [
+        "session_view"
+      ],
+      "expected_directive": "abstain",
+      "name": "drop_session_view"
+    },
+    {
+      "drop_views": [
+        "structure_view"
+      ],
+      "expected_directive": "abstain",
+      "name": "drop_structure_view"
+    },
+    {
+      "drop_views": [
+        "time_view"
+      ],
+      "expected_directive": "abstain",
+      "name": "drop_time_view"
+    },
+    {
+      "drop_views": [
+        "treatment_descriptor_view"
+      ],
+      "expected_directive": "fuse",
+      "name": "drop_treatment_descriptor_view"
+    },
+    {
+      "drop_views": [
+        "foundation_chronos_style"
+      ],
+      "expected_directive": "fuse",
+      "name": "drop_foundation_chronos_style"
+    },
+    {
+      "drop_views": [
+        "foundation_moirai_style"
+      ],
+      "expected_directive": "fuse",
+      "name": "drop_foundation_moirai_style"
+    },
+    {
+      "drop_views": [
+        "foundation_moment_style"
+      ],
+      "expected_directive": "fuse",
+      "name": "drop_foundation_moment_style"
+    },
+    {
+      "drop_views": [
+        "foundation_native_linear_baseline"
+      ],
+      "expected_directive": "fuse",
+      "name": "drop_foundation_native_linear_baseline"
+    },
+    {
+      "drop_views": [
+        "foundation_sparse_moe_style"
+      ],
+      "expected_directive": "fuse",
+      "name": "drop_foundation_sparse_moe_style"
+    },
+    {
+      "drop_views": [
+        "foundation_timesfm_style"
+      ],
+      "expected_directive": "fuse",
+      "name": "drop_foundation_timesfm_style"
+    },
+    {
+      "drop_views": [
+        "context_ancestry_view",
+        "execution_view",
+        "treatment_descriptor_view"
+      ],
+      "expected_directive": "fuse",
+      "name": "drop_all_optional"
+    },
+    {
+      "drop_views": [
+        "foundation_chronos_style",
+        "foundation_moirai_style",
+        "foundation_moment_style",
+        "foundation_native_linear_baseline",
+        "foundation_sparse_moe_style",
+        "foundation_timesfm_style"
+      ],
+      "expected_directive": "fuse",
+      "name": "drop_all_foundation"
+    },
+    {
+      "drop_views": [
+        "execution_view",
+        "liquidity_view"
+      ],
+      "expected_directive": "abstain",
+      "name": "drop_execution_and_liquidity"
+    },
+    {
+      "drop_views": [
+        "time_view",
+        "session_view",
+        "higher_timeframe_view"
+      ],
+      "expected_directive": "abstain",
+      "name": "drop_time_stack"
+    }
+  ],
+  "phase": "SAED_V4_15",
+  "plan_hash": "44ee639c7cfed74c2b703bd22ec1866d9636f412df82e1c86854a507d220a5cb",
+  "plan_id": "v415dropout_3fb86141881ad144a86fcef2",
+  "production_eligible": false,
+  "structured_patterns": [
+    "complete",
+    "single_view_drop",
+    "all_optional_drop",
+    "all_foundation_drop",
+    "execution_liquidity_drop",
+    "time_stack_drop",
+    "corrupt_view",
+    "future_suffix"
+  ]
+}

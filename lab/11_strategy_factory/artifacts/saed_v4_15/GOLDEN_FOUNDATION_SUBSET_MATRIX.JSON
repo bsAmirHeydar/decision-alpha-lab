@@ -1,0 +1,467 @@
+{
+  "all_subsets_bounded": true,
+  "expected_subset_count": 64,
+  "matrix_hash": "9f61c1bd78deea761a9a267a735a6036864d533a6f94de027388759acee699da",
+  "matrix_id": "v415foundationmatrix_3f536284894605c837786dc6",
+  "phase": "SAED_V4_15",
+  "production_eligible": false,
+  "rows": [
+    {
+      "challenger_supported": false,
+      "directive": "baseline_only",
+      "missing_count": 6,
+      "pattern_id": "000000",
+      "present_count": 0
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 5,
+      "pattern_id": "000001",
+      "present_count": 1
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 5,
+      "pattern_id": "000010",
+      "present_count": 1
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 4,
+      "pattern_id": "000011",
+      "present_count": 2
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 5,
+      "pattern_id": "000100",
+      "present_count": 1
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 4,
+      "pattern_id": "000101",
+      "present_count": 2
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 4,
+      "pattern_id": "000110",
+      "present_count": 2
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 3,
+      "pattern_id": "000111",
+      "present_count": 3
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 5,
+      "pattern_id": "001000",
+      "present_count": 1
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 4,
+      "pattern_id": "001001",
+      "present_count": 2
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 4,
+      "pattern_id": "001010",
+      "present_count": 2
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 3,
+      "pattern_id": "001011",
+      "present_count": 3
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 4,
+      "pattern_id": "001100",
+      "present_count": 2
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 3,
+      "pattern_id": "001101",
+      "present_count": 3
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 3,
+      "pattern_id": "001110",
+      "present_count": 3
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 2,
+      "pattern_id": "001111",
+      "present_count": 4
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 5,
+      "pattern_id": "010000",
+      "present_count": 1
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 4,
+      "pattern_id": "010001",
+      "present_count": 2
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 4,
+      "pattern_id": "010010",
+      "present_count": 2
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 3,
+      "pattern_id": "010011",
+      "present_count": 3
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 4,
+      "pattern_id": "010100",
+      "present_count": 2
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 3,
+      "pattern_id": "010101",
+      "present_count": 3
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 3,
+      "pattern_id": "010110",
+      "present_count": 3
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 2,
+      "pattern_id": "010111",
+      "present_count": 4
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 4,
+      "pattern_id": "011000",
+      "present_count": 2
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 3,
+      "pattern_id": "011001",
+      "present_count": 3
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 3,
+      "pattern_id": "011010",
+      "present_count": 3
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 2,
+      "pattern_id": "011011",
+      "present_count": 4
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 3,
+      "pattern_id": "011100",
+      "present_count": 3
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 2,
+      "pattern_id": "011101",
+      "present_count": 4
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 2,
+      "pattern_id": "011110",
+      "present_count": 4
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 1,
+      "pattern_id": "011111",
+      "present_count": 5
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 5,
+      "pattern_id": "100000",
+      "present_count": 1
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 4,
+      "pattern_id": "100001",
+      "present_count": 2
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 4,
+      "pattern_id": "100010",
+      "present_count": 2
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 3,
+      "pattern_id": "100011",
+      "present_count": 3
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 4,
+      "pattern_id": "100100",
+      "present_count": 2
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 3,
+      "pattern_id": "100101",
+      "present_count": 3
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 3,
+      "pattern_id": "100110",
+      "present_count": 3
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 2,
+      "pattern_id": "100111",
+      "present_count": 4
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 4,
+      "pattern_id": "101000",
+      "present_count": 2
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 3,
+      "pattern_id": "101001",
+      "present_count": 3
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 3,
+      "pattern_id": "101010",
+      "present_count": 3
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 2,
+      "pattern_id": "101011",
+      "present_count": 4
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 3,
+      "pattern_id": "101100",
+      "present_count": 3
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 2,
+      "pattern_id": "101101",
+      "present_count": 4
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 2,
+      "pattern_id": "101110",
+      "present_count": 4
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 1,
+      "pattern_id": "101111",
+      "present_count": 5
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 4,
+      "pattern_id": "110000",
+      "present_count": 2
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 3,
+      "pattern_id": "110001",
+      "present_count": 3
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 3,
+      "pattern_id": "110010",
+      "present_count": 3
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 2,
+      "pattern_id": "110011",
+      "present_count": 4
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 3,
+      "pattern_id": "110100",
+      "present_count": 3
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 2,
+      "pattern_id": "110101",
+      "present_count": 4
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 2,
+      "pattern_id": "110110",
+      "present_count": 4
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 1,
+      "pattern_id": "110111",
+      "present_count": 5
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 3,
+      "pattern_id": "111000",
+      "present_count": 3
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 2,
+      "pattern_id": "111001",
+      "present_count": 4
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 2,
+      "pattern_id": "111010",
+      "present_count": 4
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 1,
+      "pattern_id": "111011",
+      "present_count": 5
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 2,
+      "pattern_id": "111100",
+      "present_count": 4
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 1,
+      "pattern_id": "111101",
+      "present_count": 5
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 1,
+      "pattern_id": "111110",
+      "present_count": 5
+    },
+    {
+      "challenger_supported": true,
+      "directive": "challenger_eligible",
+      "missing_count": 0,
+      "pattern_id": "111111",
+      "present_count": 6
+    }
+  ],
+  "subset_count": 64,
+  "view_names": [
+    "foundation_chronos_style",
+    "foundation_moirai_style",
+    "foundation_moment_style",
+    "foundation_native_linear_baseline",
+    "foundation_sparse_moe_style",
+    "foundation_timesfm_style"
+  ]
+}

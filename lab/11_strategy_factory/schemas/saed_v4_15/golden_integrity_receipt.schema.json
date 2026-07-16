@@ -1,0 +1,115 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/golden_integrity_receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_hashes_present": {
+      "type": "boolean"
+    },
+    "artifact_count": {
+      "type": "integer"
+    },
+    "artifact_hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "ablation_report": {
+          "type": "string"
+        },
+        "aligned_view_set": {
+          "type": "string"
+        },
+        "attribution_report": {
+          "type": "string"
+        },
+        "candidate_checkpoints": {
+          "type": "string"
+        },
+        "candidate_metrics": {
+          "type": "string"
+        },
+        "checkpoint_registry": {
+          "type": "string"
+        },
+        "compute_exposure_ledger": {
+          "type": "string"
+        },
+        "disagreement_report": {
+          "type": "string"
+        },
+        "domain_subset_matrix": {
+          "type": "string"
+        },
+        "dropout_plan": {
+          "type": "string"
+        },
+        "fail_closed_audits": {
+          "type": "string"
+        },
+        "foundation_subset_matrix": {
+          "type": "string"
+        },
+        "fusion_outputs": {
+          "type": "string"
+        },
+        "future_suffix_audits": {
+          "type": "string"
+        },
+        "permutation_reports": {
+          "type": "string"
+        },
+        "support_audits": {
+          "type": "string"
+        },
+        "tournament": {
+          "type": "string"
+        },
+        "upstream_validation": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ablation_report",
+        "aligned_view_set",
+        "attribution_report",
+        "candidate_checkpoints",
+        "candidate_metrics",
+        "checkpoint_registry",
+        "compute_exposure_ledger",
+        "disagreement_report",
+        "domain_subset_matrix",
+        "dropout_plan",
+        "fail_closed_audits",
+        "foundation_subset_matrix",
+        "fusion_outputs",
+        "future_suffix_audits",
+        "permutation_reports",
+        "support_audits",
+        "tournament",
+        "upstream_validation"
+      ],
+      "type": "object"
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "all_hashes_present",
+    "artifact_count",
+    "artifact_hashes",
+    "immutable",
+    "phase",
+    "receipt_hash",
+    "receipt_id"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,16 @@
+{
+  "certify_only_trained_subsets": true,
+  "exhaustive_domain_subsets": true,
+  "exhaustive_foundation_subsets": true,
+  "max_missing_optional": 3,
+  "structured_patterns": [
+    "complete",
+    "single_view_drop",
+    "all_optional_drop",
+    "all_foundation_drop",
+    "execution_liquidity_drop",
+    "time_stack_drop",
+    "corrupt_view",
+    "future_suffix"
+  ]
+}

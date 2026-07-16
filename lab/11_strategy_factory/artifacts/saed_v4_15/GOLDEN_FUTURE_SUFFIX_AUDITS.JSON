@@ -1,0 +1,117 @@
+{
+  "artifact_hash": "e46b39a7180ccb520cfb2046fcc10548890b94258b3f48627ff89c464b270bd8",
+  "item_count": 10,
+  "items": [
+    {
+      "audit_hash": "24e9ea330e1306826c05a36b3b17d112b4849c6ad814f958d942ac82e26bd0b4",
+      "audit_id": "v415future_e4afe6ab9f4067739c7a5f78",
+      "base_envelope_hash": "7dcc7c48a225462a8acac6249e047199a52f944817d9c4b1932797b4493a88da",
+      "future_envelope_hash": "aee4250e8a8bccd503afca03b7897e1544d7ab0a1a1974e307900db66945c329",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "phase": "SAED_V4_15",
+      "production_eligible": false,
+      "view_name": "context_ancestry_view"
+    },
+    {
+      "audit_hash": "c2ab0eb3f574e088032097d4b4db8d4dd36948cea1438c89728b23bd3da58b9b",
+      "audit_id": "v415future_d772e2d91675b04bd607835c",
+      "base_envelope_hash": "aaadb1124eb351cac788c8fdd21f7a89c3b6382c0bee36899fb5daecc36243d8",
+      "future_envelope_hash": "a55720cb2f34962404d8b5de0efd62aa63b7caae7acfcac4d80b8a3c9087d71f",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "phase": "SAED_V4_15",
+      "production_eligible": false,
+      "view_name": "execution_view"
+    },
+    {
+      "audit_hash": "1f1ac3f383ce6955274fcb9aff5a640473c8c13ea8b2e37960125b4697e44734",
+      "audit_id": "v415future_48bf361cb71b23fe58be5504",
+      "base_envelope_hash": "e77cf92e29ca4d62e20a4d2b349b62e33e2d653bdcb1daafaa7f14a16d5a7f6a",
+      "future_envelope_hash": "10b4b8469b99878c0f092ac53825ff2f0175fab7e66b1151579cab0366d1a53b",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "phase": "SAED_V4_15",
+      "production_eligible": false,
+      "view_name": "higher_timeframe_view"
+    },
+    {
+      "audit_hash": "00795036e6d53ad1fe4c75a5a3978b0ad7913db15993ccf3a1b37a6a6f107c35",
+      "audit_id": "v415future_d24d10c47bda95e72c4ea324",
+      "base_envelope_hash": "ba46034597d756f6ceebd200b0c459c1d0dbbd0cef5e41e8ffb004f7021f3b62",
+      "future_envelope_hash": "5bd2ecbb304be04ce775dab3852146e57c532c54f5882f9e30772b25c9f99b48",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "phase": "SAED_V4_15",
+      "production_eligible": false,
+      "view_name": "intermarket_view"
+    },
+    {
+      "audit_hash": "97fc252ab975287836a6fb1bce730148027c6a8e59ff636f6c1f3e20f9330a96",
+      "audit_id": "v415future_74ff7d2ace20469d95e85a66",
+      "base_envelope_hash": "5b1725d36ef620484ff1625632f440ce71d11916af183283dc1ec9cf1c8583b8",
+      "future_envelope_hash": "e4c003fc5a1ca3b6001ca8dd808d277aa958b5e360cf51bf2471667e012bbc53",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "phase": "SAED_V4_15",
+      "production_eligible": false,
+      "view_name": "liquidity_view"
+    },
+    {
+      "audit_hash": "7e48643b2cf0adc0c6a963d1dcf63701243854939a953d26e07759c847f9b2ff",
+      "audit_id": "v415future_bfd0c14c1df05d20bdbbf1f2",
+      "base_envelope_hash": "ea329312ee42d5a41e7131c5d9c7803557a1a06eed1595be1050805e5a0160b8",
+      "future_envelope_hash": "05604e60cc490e2982b897490781d0469bc752ef2c58811584df0c7c24bd4123",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "phase": "SAED_V4_15",
+      "production_eligible": false,
+      "view_name": "price_view"
+    },
+    {
+      "audit_hash": "66c9e3115366c46db63424bb527e9a365d2ddab1fa190fc3f84b0b082ec4f644",
+      "audit_id": "v415future_2d61e71e9c5b2362f057e589",
+      "base_envelope_hash": "ad419fab9903603ee08984997eda6d9a788fb9bd614e7172274baa79497ef760",
+      "future_envelope_hash": "6d910c4f466c2d0b2008ca4fe5bf7a4b0b3d087dce6fb1c9d0663a83adfe90cf",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "phase": "SAED_V4_15",
+      "production_eligible": false,
+      "view_name": "session_view"
+    },
+    {
+      "audit_hash": "5e714e2bc8b80387a5d5fd8996f2213211656557e957452deb8e67810dce019f",
+      "audit_id": "v415future_09720c095529ab0ddb647c51",
+      "base_envelope_hash": "c757b8615fd2ef59c370302c4edc336d53826a17b87a040ab75f9f265c084786",
+      "future_envelope_hash": "947393f17039f160ede4361dbf42bb10a65e10b591e733c1cad51d5b115c0c02",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "phase": "SAED_V4_15",
+      "production_eligible": false,
+      "view_name": "structure_view"
+    },
+    {
+      "audit_hash": "5afaff48ebad80ba78bc25c77f5c68383577c1cc3ed03c520ce9f80d5817fdbc",
+      "audit_id": "v415future_4e2505ce2478617ad7937e25",
+      "base_envelope_hash": "3aa99e845bd98e9829cd8d8f3af33ea885fb2541004063d15bccb0b2b3878c55",
+      "future_envelope_hash": "66f39cc88b33474983b9add602b40b7982e8073c330a9dc1ea4304c439fcfa92",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "phase": "SAED_V4_15",
+      "production_eligible": false,
+      "view_name": "time_view"
+    },
+    {
+      "audit_hash": "4083ea8a3a26d7e9ef202089c475e39e2e52ff23d423648b2f076cd653835858",
+      "audit_id": "v415future_a200b4b6bb28091016b478dd",
+      "base_envelope_hash": "7fe79a1cfebe0f5d6446fc5229de854ab4cae9f4e206b87b9ce65b799e8bc46f",
+      "future_envelope_hash": "73f4bac234f144c2ed907aedffa105250ac98c77278d03fa691c1ab0af3a85ff",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "phase": "SAED_V4_15",
+      "production_eligible": false,
+      "view_name": "treatment_descriptor_view"
+    }
+  ],
+  "phase": "SAED_V4_15"
+}

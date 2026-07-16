@@ -1,0 +1,105 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/golden_foundation_view_envelopes.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "item_count": {
+      "type": "integer"
+    },
+    "items": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "age_seconds": {
+            "type": "integer"
+          },
+          "available": {
+            "type": "boolean"
+          },
+          "embedding": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "embedding_dim": {
+            "type": "integer"
+          },
+          "envelope_hash": {
+            "type": "string"
+          },
+          "envelope_id": {
+            "type": "string"
+          },
+          "external_model_invoked": {
+            "type": "boolean"
+          },
+          "known_as_of": {
+            "type": "string"
+          },
+          "phase": {
+            "type": "string"
+          },
+          "production_eligible": {
+            "type": "boolean"
+          },
+          "quality": {
+            "type": "number"
+          },
+          "source_candidate_id": {
+            "type": "string"
+          },
+          "source_feature_hash": {
+            "type": "string"
+          },
+          "source_feature_id": {
+            "type": "string"
+          },
+          "source_plane": {
+            "type": "string"
+          },
+          "uncertainty": {
+            "type": "number"
+          },
+          "view_kind": {
+            "type": "string"
+          },
+          "view_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "age_seconds",
+          "available",
+          "embedding",
+          "embedding_dim",
+          "envelope_hash",
+          "envelope_id",
+          "external_model_invoked",
+          "known_as_of",
+          "phase",
+          "production_eligible",
+          "quality",
+          "source_candidate_id",
+          "source_feature_hash",
+          "source_feature_id",
+          "source_plane",
+          "uncertainty",
+          "view_kind",
+          "view_name"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "item_count",
+    "items",
+    "phase"
+  ],
+  "type": "object"
+}

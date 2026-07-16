@@ -1,0 +1,50 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/golden_upstream_validation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "domain_view_count": {
+      "type": "integer"
+    },
+    "foundation_candidate_count": {
+      "type": "integer"
+    },
+    "frozen": {
+      "type": "boolean"
+    },
+    "known_as_of": {
+      "type": "string"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "v4_04_package_hash": {
+      "type": "string"
+    },
+    "v4_14_handoff_hash": {
+      "type": "string"
+    },
+    "v4_14_registry_hash": {
+      "type": "string"
+    },
+    "v4_14_token_sequence_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "domain_view_count",
+    "foundation_candidate_count",
+    "frozen",
+    "known_as_of",
+    "passed",
+    "phase",
+    "v4_04_package_hash",
+    "v4_14_handoff_hash",
+    "v4_14_registry_hash",
+    "v4_14_token_sequence_hash"
+  ],
+  "type": "object"
+}

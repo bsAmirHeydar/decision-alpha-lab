@@ -1,0 +1,33 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/reference_missingness_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "certify_only_trained_subsets": {
+      "type": "boolean"
+    },
+    "exhaustive_domain_subsets": {
+      "type": "boolean"
+    },
+    "exhaustive_foundation_subsets": {
+      "type": "boolean"
+    },
+    "max_missing_optional": {
+      "type": "integer"
+    },
+    "structured_patterns": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "certify_only_trained_subsets",
+    "exhaustive_domain_subsets",
+    "exhaustive_foundation_subsets",
+    "max_missing_optional",
+    "structured_patterns"
+  ],
+  "type": "object"
+}

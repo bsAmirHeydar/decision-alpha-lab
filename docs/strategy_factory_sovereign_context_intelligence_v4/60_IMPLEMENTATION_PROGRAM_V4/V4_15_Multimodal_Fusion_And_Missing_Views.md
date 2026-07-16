@@ -1,58 +1,39 @@
 ---
 title: V4-15 Multimodal Fusion And Missing Views
 status: canonical
-version: 4.0.0
+version: 1.0.0
 created: '2026-07-13'
-updated: '2026-07-13'
-capability_tier: core-production
+updated: '2026-07-16'
+capability_tier: governed-challenger
 tags:
   - saed-v4
   - implementation
-  - roadmap
+  - multimodal-fusion
 ---
 
 # Phase V4-15: Multimodal Fusion And Missing Views
 
-## Mission
+## Implemented state
 
-Implement this phase as an additive, closed-contract capability that preserves UCEE authority and can be independently validated.
+SAED V4-15 has a complete deterministic synthetic-reference implementation. It verifies the frozen V4-14 foundation-feature handoff and immutable V4-04 domain-view heritage, aligns ten domain and six foundation views into fixed closed envelopes, preserves explicit availability and quality masks, enforces required/optional/critical view policy, enumerates all 1,024 domain subsets and 64 foundation subsets, and evaluates five bounded fusion candidates with baseline, support, uncertainty, disagreement, collapse, dropout, ablation, permutation, future-suffix, and corruption evidence.
 
-## Entry gates
+## Capability boundary
 
-- Prior phase artifacts are immutable and hash verified.
-- Data roles, support, treatment universe and authority are frozen.
-- Golden and negative fixtures exist.
-- Compute, exposure and review budgets are approved.
+The phase contains no real multimodal training, external model inference, outcome learner, treatment selector, risk allocator, runtime activation, or order path. Reference attention, evidential, and mixture algorithms prove contracts and failure behavior only. Gate or attention weights are explicitly non-causal.
 
-## Engineering slices
+## Evidence
 
-1. Contract and schema freeze.
-2. Deterministic reference implementation.
-3. Golden, negative and mutation tests.
-4. Distributed or advanced challenger implementation.
-5. Model-risk and security review.
-6. Independent reproduction.
-7. Evidence bundle and handoff.
+- Closed view, mask, fusion, support, missingness, budget, registry, and handoff contracts.
+- Deterministic Python package and CLI.
+- Golden envelopes, masks, exhaustive subset matrices, dropout plan, outputs, diagnostics, audits, checkpoints, registry, integrity, replay, provenance, SBOM, incident template, and claim ledger.
+- Detailed Obsidian delivery and atomic concepts.
+- Static MQL5 envelope, guard, registry, authority, and telemetry mirrors.
+- Patch inventory, manifest, SHA-256 ledger, QA report, and delivery validator.
 
-## Acceptance gates
+## Remaining external gates
 
-- Zero unknown fields in closed contracts.
-- No future-suffix sensitivity.
-- Deterministic identity and replay.
-- Complete trial/exposure accounting.
-- Baseline preserved.
-- Fail-closed fallback verified.
-- UCEE compatibility and no central-engine mutation.
-- Actual external/MetaEditor evidence distinguished from static evidence.
+Real multimodal training, protected task evaluation, transport evaluation, GPU/distributed reproduction, MetaEditor compilation, runtime parity, prospective paper, shadow, micro-live, and live qualification remain outside this evidence class.
 
-## Deliverables
+## Next phase
 
-- Source modules and tests.
-- Schemas and examples.
-- Obsidian implementation documentation.
-- QA report, inventory, file index and hash ledger.
-- Handoff to the next phase.
-
-## Non-goals
-
-This architecture phase does not claim real alpha, prospective success, runtime parity or production authorization unless actual evidence is attached.
+[[V4_16_Distributional_Survival_And_Tail|V4-16 Distributional, Survival and Tail Models]] may read the exact frozen V4-15 fusion feature and registry hashes. It may not mutate V4-15 evidence or inherit decision authority.

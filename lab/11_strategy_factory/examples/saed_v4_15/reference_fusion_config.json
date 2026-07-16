@@ -1,0 +1,31 @@
+{
+  "common_dim": 16,
+  "critical_view_names": [
+    "price_view",
+    "structure_view",
+    "time_view"
+  ],
+  "disagreement_threshold": 0.42,
+  "exact_version": "1.0.0",
+  "frozen_upstream": true,
+  "known_time_only": true,
+  "max_gate_concentration": 0.65,
+  "max_view_age_seconds": 5,
+  "min_view_quality": 0.6,
+  "modality_dropout_rate": 0.2,
+  "optional_view_names": [
+    "context_ancestry_view",
+    "execution_view",
+    "treatment_descriptor_view"
+  ],
+  "required_view_names": [
+    "higher_timeframe_view",
+    "intermarket_view",
+    "liquidity_view",
+    "price_view",
+    "session_view",
+    "structure_view",
+    "time_view"
+  ],
+  "uncertainty_inflation": 1.25
+}

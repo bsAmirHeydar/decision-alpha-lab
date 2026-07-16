@@ -1,0 +1,50 @@
+{
+  "attention_is_causal": false,
+  "phase": "SAED_V4_15",
+  "production_eligible": false,
+  "report_hash": "25bce60cb7115b402d2beeb7131ddddaefa5b52796f68384bb7dc149101bfdcf",
+  "report_id": "v415disagreement_fb155275f73a4fb94a706a37",
+  "row_count": 5,
+  "rows": [
+    {
+      "calibrated_direction": "uncertainty_non_decreasing_with_disagreement",
+      "candidate_id": "v415_late_mean_s11",
+      "disagreement": 1.5023814351685723,
+      "gate_concentration": 0.0625,
+      "uncertainty": 3.0365503743753397,
+      "view_collapse": false
+    },
+    {
+      "calibrated_direction": "uncertainty_non_decreasing_with_disagreement",
+      "candidate_id": "v415_quality_gate_s13",
+      "disagreement": 1.5530787394046184,
+      "gate_concentration": 0.07504871699042857,
+      "uncertainty": 3.130431726444702,
+      "view_collapse": false
+    },
+    {
+      "calibrated_direction": "uncertainty_non_decreasing_with_disagreement",
+      "candidate_id": "v415_cross_attention_s17",
+      "disagreement": 1.6015429499319338,
+      "gate_concentration": 0.09024083024540061,
+      "uncertainty": 3.197428695215836,
+      "view_collapse": false
+    },
+    {
+      "calibrated_direction": "uncertainty_non_decreasing_with_disagreement",
+      "candidate_id": "v415_evidential_poe_s19",
+      "disagreement": 1.5159098697995002,
+      "gate_concentration": 0.06602667853814416,
+      "uncertainty": 3.0614646589238577,
+      "view_collapse": false
+    },
+    {
+      "calibrated_direction": "uncertainty_non_decreasing_with_disagreement",
+      "candidate_id": "v415_disagreement_moe_s23",
+      "disagreement": 1.436617325100639,
+      "gate_concentration": 0.1008407006651568,
+      "uncertainty": 2.96197859001859,
+      "view_collapse": false
+    }
+  ]
+}

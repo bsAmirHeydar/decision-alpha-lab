@@ -1,0 +1,109 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/golden_support_audits.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_hash": {
+      "type": "string"
+    },
+    "item_count": {
+      "type": "integer"
+    },
+    "items": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "action": {
+            "type": "string"
+          },
+          "audit_hash": {
+            "type": "string"
+          },
+          "audit_id": {
+            "type": "string"
+          },
+          "available_domain_views": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "available_foundation_views": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "corrupt_views": {
+            "items": {},
+            "type": "array"
+          },
+          "domain_available_count": {
+            "type": "integer"
+          },
+          "foundation_available_count": {
+            "type": "integer"
+          },
+          "missing_critical_views": {
+            "items": {},
+            "type": "array"
+          },
+          "missing_required_views": {
+            "items": {},
+            "type": "array"
+          },
+          "phase": {
+            "type": "string"
+          },
+          "production_eligible": {
+            "type": "boolean"
+          },
+          "reasons": {
+            "items": {},
+            "type": "array"
+          },
+          "stale_required_views": {
+            "items": {},
+            "type": "array"
+          },
+          "supported": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "action",
+          "audit_hash",
+          "audit_id",
+          "available_domain_views",
+          "available_foundation_views",
+          "candidate_id",
+          "corrupt_views",
+          "domain_available_count",
+          "foundation_available_count",
+          "missing_critical_views",
+          "missing_required_views",
+          "phase",
+          "production_eligible",
+          "reasons",
+          "stale_required_views",
+          "supported"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_hash",
+    "item_count",
+    "items",
+    "phase"
+  ],
+  "type": "object"
+}

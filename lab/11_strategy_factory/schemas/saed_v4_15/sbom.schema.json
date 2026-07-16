@@ -1,0 +1,56 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/sbom.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "components": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "purpose",
+          "version"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "external_model_dependencies": {
+      "items": {},
+      "type": "array"
+    },
+    "live_credentials_required": {
+      "type": "boolean"
+    },
+    "network_dependencies": {
+      "items": {},
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_eligible": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "components",
+    "external_model_dependencies",
+    "live_credentials_required",
+    "network_dependencies",
+    "phase",
+    "production_eligible"
+  ],
+  "type": "object"
+}

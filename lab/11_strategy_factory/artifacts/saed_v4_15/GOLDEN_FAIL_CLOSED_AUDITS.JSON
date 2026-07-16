@@ -1,0 +1,132 @@
+{
+  "artifact_hash": "932997a51119b2975bee977d21fa6165aaeb78e8dbe9fa0e6513c4e1b76dcf0c",
+  "item_count": 5,
+  "items": [
+    {
+      "all_passed": true,
+      "audit_hash": "8df511d18de5ed702a5a7b8811387fa4559502f8bbbd3ce9e040d710bc8da6c4",
+      "audit_id": "v415failclosed_a5aca8592c9d6c8d1cd70968",
+      "candidate_id": "v415_late_mean_s11",
+      "phase": "SAED_V4_15",
+      "production_eligible": false,
+      "rows": [
+        {
+          "case": "missing_critical_view",
+          "directive": "abstain",
+          "passed": true
+        },
+        {
+          "case": "corrupt_dimension",
+          "directive": "quarantine",
+          "passed": true
+        },
+        {
+          "case": "all_foundation_missing",
+          "directive": "fuse",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "all_passed": true,
+      "audit_hash": "fa5c342d13f774c8da670d7da5544964ac2b2903c67d4b417352635c5bd48388",
+      "audit_id": "v415failclosed_7b807d2d4ee9010267179eb2",
+      "candidate_id": "v415_quality_gate_s13",
+      "phase": "SAED_V4_15",
+      "production_eligible": false,
+      "rows": [
+        {
+          "case": "missing_critical_view",
+          "directive": "abstain",
+          "passed": true
+        },
+        {
+          "case": "corrupt_dimension",
+          "directive": "quarantine",
+          "passed": true
+        },
+        {
+          "case": "all_foundation_missing",
+          "directive": "baseline",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "all_passed": true,
+      "audit_hash": "8a576dc56c15ad509493a792a36f0a2d97227aed01f3deff07edba08949f8787",
+      "audit_id": "v415failclosed_0967dc2e93e09ce4e638f68b",
+      "candidate_id": "v415_cross_attention_s17",
+      "phase": "SAED_V4_15",
+      "production_eligible": false,
+      "rows": [
+        {
+          "case": "missing_critical_view",
+          "directive": "abstain",
+          "passed": true
+        },
+        {
+          "case": "corrupt_dimension",
+          "directive": "quarantine",
+          "passed": true
+        },
+        {
+          "case": "all_foundation_missing",
+          "directive": "baseline",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "all_passed": true,
+      "audit_hash": "7eaea1b86bba088a5297f26306deb93475ba11ae7cb3a4bc58254b88f369c222",
+      "audit_id": "v415failclosed_f515a1c720f115853969ce02",
+      "candidate_id": "v415_evidential_poe_s19",
+      "phase": "SAED_V4_15",
+      "production_eligible": false,
+      "rows": [
+        {
+          "case": "missing_critical_view",
+          "directive": "abstain",
+          "passed": true
+        },
+        {
+          "case": "corrupt_dimension",
+          "directive": "quarantine",
+          "passed": true
+        },
+        {
+          "case": "all_foundation_missing",
+          "directive": "baseline",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "all_passed": true,
+      "audit_hash": "5c2e99ccac9ccecd5e14e3b9e77cf1ca3ebcbd7a964fb91621c137629cef60d5",
+      "audit_id": "v415failclosed_b9e27e4e14d7f30fc852cc5d",
+      "candidate_id": "v415_disagreement_moe_s23",
+      "phase": "SAED_V4_15",
+      "production_eligible": false,
+      "rows": [
+        {
+          "case": "missing_critical_view",
+          "directive": "abstain",
+          "passed": true
+        },
+        {
+          "case": "corrupt_dimension",
+          "directive": "quarantine",
+          "passed": true
+        },
+        {
+          "case": "all_foundation_missing",
+          "directive": "baseline",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "phase": "SAED_V4_15"
+}

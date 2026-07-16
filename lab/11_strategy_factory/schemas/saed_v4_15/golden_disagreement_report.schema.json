@@ -1,0 +1,70 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/golden_disagreement_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "attention_is_causal": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_eligible": {
+      "type": "boolean"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "row_count": {
+      "type": "integer"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "calibrated_direction": {
+            "type": "string"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "disagreement": {
+            "type": "number"
+          },
+          "gate_concentration": {
+            "type": "number"
+          },
+          "uncertainty": {
+            "type": "number"
+          },
+          "view_collapse": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "calibrated_direction",
+          "candidate_id",
+          "disagreement",
+          "gate_concentration",
+          "uncertainty",
+          "view_collapse"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "attention_is_causal",
+    "phase",
+    "production_eligible",
+    "report_hash",
+    "report_id",
+    "row_count",
+    "rows"
+  ],
+  "type": "object"
+}

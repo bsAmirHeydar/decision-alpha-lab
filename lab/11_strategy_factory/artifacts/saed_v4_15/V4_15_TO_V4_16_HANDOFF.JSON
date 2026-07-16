@@ -1,0 +1,43 @@
+{
+  "aligned_view_set_hash": "fa0da7fd046e416b976279853958cc4bcd25d08a29bbbc9c6f91ba877af699a2",
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "build_reference_distributional_survival_tail_models": true,
+    "mutate_v4_15_evidence": false,
+    "predict_outcomes": false,
+    "rank_treatments": false,
+    "read_frozen_fusion_features": true,
+    "read_frozen_fusion_registry": true,
+    "select_treatment": false,
+    "send_order": false
+  },
+  "domain_subset_matrix_hash": "e37f9326c9738625372fbc8159d159aed55977c624e69593ceaaa14bc6b2fb30",
+  "entry_gates": {
+    "all_domain_subsets_bounded": true,
+    "all_foundation_subsets_bounded": true,
+    "baseline_preserved": true,
+    "deterministic_replay_passed": true,
+    "explicit_missingness_passed": true,
+    "frozen_upstream_binding_verified": true,
+    "fusion_registry_admitted": true,
+    "future_suffix_forbidden": true,
+    "known_time_alignment_passed": true,
+    "outcome_supervision_absent": true
+  },
+  "foundation_subset_matrix_hash": "9f61c1bd78deea761a9a267a735a6036864d533a6f94de027388759acee699da",
+  "fusion_checkpoint_registry_hash": "fce1911080da8f7a36aafb987f039e5a0b16fcbf99ba821bce5483de8675b7fc",
+  "fusion_checkpoint_registry_id": "v415registry_a9fddb6ba926198a92df95cd",
+  "handoff_hash": "6f7d0ab2c493b2b2fd35e6351b9b328c068d002df7733822b82b1d42b37e949a",
+  "handoff_id": "v415to16_af6b8e01ec3e24de09a1f6c3",
+  "integrity_receipt_hash": "855db82b903889140b697769778305fd917bfd4d39baa03408e68f36ef74ed88",
+  "limitations": [
+    "Fusion candidates are deterministic local reference implementations over frozen synthetic/development evidence.",
+    "Missing-view certification is architectural and does not establish economic uplift.",
+    "No real-data, distributed, MetaEditor, runtime parity, prospective, shadow, micro-live or live evidence is claimed."
+  ],
+  "next_phase": "SAED_V4_16",
+  "phase": "SAED_V4_15",
+  "reference_champion_id": "v415_disagreement_moe_s23",
+  "upstream_v4_14_handoff_hash": "78fec567a00db48f34f9e0c3068208343529380b122b657aa04b421be77ac42c"
+}

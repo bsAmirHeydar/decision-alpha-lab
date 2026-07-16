@@ -1,0 +1,19 @@
+{
+  "components": [
+    {
+      "name": "python-standard-library",
+      "purpose": "deterministic-reference",
+      "version": "runtime"
+    },
+    {
+      "name": "pytest",
+      "purpose": "tests",
+      "version": "environment"
+    }
+  ],
+  "external_model_dependencies": [],
+  "live_credentials_required": false,
+  "network_dependencies": [],
+  "phase": "SAED_V4_15",
+  "production_eligible": false
+}

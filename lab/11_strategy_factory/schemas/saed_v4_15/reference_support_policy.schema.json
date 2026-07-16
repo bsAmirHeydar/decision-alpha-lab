@@ -1,0 +1,38 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/reference_support_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_candidate_id": {
+      "type": "string"
+    },
+    "corrupt_action": {
+      "type": "string"
+    },
+    "foundation_missing_action": {
+      "type": "string"
+    },
+    "missing_critical_action": {
+      "type": "string"
+    },
+    "missing_required_action": {
+      "type": "string"
+    },
+    "ood_action": {
+      "type": "string"
+    },
+    "stale_required_action": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "baseline_candidate_id",
+    "corrupt_action",
+    "foundation_missing_action",
+    "missing_critical_action",
+    "missing_required_action",
+    "ood_action",
+    "stale_required_action"
+  ],
+  "type": "object"
+}

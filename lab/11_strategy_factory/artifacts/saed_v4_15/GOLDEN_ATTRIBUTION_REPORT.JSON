@@ -1,0 +1,570 @@
+{
+  "attention_or_gate_weights_are_not_causal": true,
+  "phase": "SAED_V4_15",
+  "production_eligible": false,
+  "report_hash": "f36e7059f4809cd82745aef440dcd3e5eebc65651efe372c1c1edffbf1bf0e4c",
+  "report_id": "v415attribution_85a6f3ddba95ff933ceb7ffe",
+  "row_count": 80,
+  "rows": [
+    {
+      "candidate_id": "v415_late_mean_s11",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.0625,
+      "source_plane": "domain",
+      "view_name": "context_ancestry_view"
+    },
+    {
+      "candidate_id": "v415_late_mean_s11",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.0625,
+      "source_plane": "domain",
+      "view_name": "execution_view"
+    },
+    {
+      "candidate_id": "v415_late_mean_s11",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.0625,
+      "source_plane": "domain",
+      "view_name": "higher_timeframe_view"
+    },
+    {
+      "candidate_id": "v415_late_mean_s11",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.0625,
+      "source_plane": "domain",
+      "view_name": "intermarket_view"
+    },
+    {
+      "candidate_id": "v415_late_mean_s11",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.0625,
+      "source_plane": "domain",
+      "view_name": "liquidity_view"
+    },
+    {
+      "candidate_id": "v415_late_mean_s11",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.0625,
+      "source_plane": "domain",
+      "view_name": "price_view"
+    },
+    {
+      "candidate_id": "v415_late_mean_s11",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.0625,
+      "source_plane": "domain",
+      "view_name": "session_view"
+    },
+    {
+      "candidate_id": "v415_late_mean_s11",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.0625,
+      "source_plane": "domain",
+      "view_name": "structure_view"
+    },
+    {
+      "candidate_id": "v415_late_mean_s11",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.0625,
+      "source_plane": "domain",
+      "view_name": "time_view"
+    },
+    {
+      "candidate_id": "v415_late_mean_s11",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.0625,
+      "source_plane": "domain",
+      "view_name": "treatment_descriptor_view"
+    },
+    {
+      "candidate_id": "v415_late_mean_s11",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.0625,
+      "source_plane": "foundation",
+      "view_name": "foundation_chronos_style"
+    },
+    {
+      "candidate_id": "v415_late_mean_s11",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.0625,
+      "source_plane": "foundation",
+      "view_name": "foundation_moirai_style"
+    },
+    {
+      "candidate_id": "v415_late_mean_s11",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.0625,
+      "source_plane": "foundation",
+      "view_name": "foundation_moment_style"
+    },
+    {
+      "candidate_id": "v415_late_mean_s11",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.0625,
+      "source_plane": "foundation",
+      "view_name": "foundation_native_linear_baseline"
+    },
+    {
+      "candidate_id": "v415_late_mean_s11",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.0625,
+      "source_plane": "foundation",
+      "view_name": "foundation_sparse_moe_style"
+    },
+    {
+      "candidate_id": "v415_late_mean_s11",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.0625,
+      "source_plane": "foundation",
+      "view_name": "foundation_timesfm_style"
+    },
+    {
+      "candidate_id": "v415_quality_gate_s13",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.07504871699042857,
+      "source_plane": "domain",
+      "view_name": "context_ancestry_view"
+    },
+    {
+      "candidate_id": "v415_quality_gate_s13",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.07504871699042857,
+      "source_plane": "domain",
+      "view_name": "execution_view"
+    },
+    {
+      "candidate_id": "v415_quality_gate_s13",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.07504871699042857,
+      "source_plane": "domain",
+      "view_name": "higher_timeframe_view"
+    },
+    {
+      "candidate_id": "v415_quality_gate_s13",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.07504871699042857,
+      "source_plane": "domain",
+      "view_name": "intermarket_view"
+    },
+    {
+      "candidate_id": "v415_quality_gate_s13",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.07504871699042857,
+      "source_plane": "domain",
+      "view_name": "liquidity_view"
+    },
+    {
+      "candidate_id": "v415_quality_gate_s13",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.07504871699042857,
+      "source_plane": "domain",
+      "view_name": "price_view"
+    },
+    {
+      "candidate_id": "v415_quality_gate_s13",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.07504871699042857,
+      "source_plane": "domain",
+      "view_name": "session_view"
+    },
+    {
+      "candidate_id": "v415_quality_gate_s13",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.07504871699042857,
+      "source_plane": "domain",
+      "view_name": "structure_view"
+    },
+    {
+      "candidate_id": "v415_quality_gate_s13",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.07504871699042857,
+      "source_plane": "domain",
+      "view_name": "time_view"
+    },
+    {
+      "candidate_id": "v415_quality_gate_s13",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.07504871699042857,
+      "source_plane": "domain",
+      "view_name": "treatment_descriptor_view"
+    },
+    {
+      "candidate_id": "v415_quality_gate_s13",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.04181087244981231,
+      "source_plane": "foundation",
+      "view_name": "foundation_chronos_style"
+    },
+    {
+      "candidate_id": "v415_quality_gate_s13",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.04181087244981231,
+      "source_plane": "foundation",
+      "view_name": "foundation_moirai_style"
+    },
+    {
+      "candidate_id": "v415_quality_gate_s13",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.04181087244981231,
+      "source_plane": "foundation",
+      "view_name": "foundation_moment_style"
+    },
+    {
+      "candidate_id": "v415_quality_gate_s13",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.04181087244981231,
+      "source_plane": "foundation",
+      "view_name": "foundation_native_linear_baseline"
+    },
+    {
+      "candidate_id": "v415_quality_gate_s13",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.04045846784665277,
+      "source_plane": "foundation",
+      "view_name": "foundation_sparse_moe_style"
+    },
+    {
+      "candidate_id": "v415_quality_gate_s13",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.04181087244981231,
+      "source_plane": "foundation",
+      "view_name": "foundation_timesfm_style"
+    },
+    {
+      "candidate_id": "v415_cross_attention_s17",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.0796136784371599,
+      "source_plane": "domain",
+      "view_name": "context_ancestry_view"
+    },
+    {
+      "candidate_id": "v415_cross_attention_s17",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.08829786047355066,
+      "source_plane": "domain",
+      "view_name": "execution_view"
+    },
+    {
+      "candidate_id": "v415_cross_attention_s17",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.06888835343799989,
+      "source_plane": "domain",
+      "view_name": "higher_timeframe_view"
+    },
+    {
+      "candidate_id": "v415_cross_attention_s17",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.06785473473602026,
+      "source_plane": "domain",
+      "view_name": "intermarket_view"
+    },
+    {
+      "candidate_id": "v415_cross_attention_s17",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.08809397015958226,
+      "source_plane": "domain",
+      "view_name": "liquidity_view"
+    },
+    {
+      "candidate_id": "v415_cross_attention_s17",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.08521599590370253,
+      "source_plane": "domain",
+      "view_name": "price_view"
+    },
+    {
+      "candidate_id": "v415_cross_attention_s17",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.06777246860872829,
+      "source_plane": "domain",
+      "view_name": "session_view"
+    },
+    {
+      "candidate_id": "v415_cross_attention_s17",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.06931323994706841,
+      "source_plane": "domain",
+      "view_name": "structure_view"
+    },
+    {
+      "candidate_id": "v415_cross_attention_s17",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.09024083024540061,
+      "source_plane": "domain",
+      "view_name": "time_view"
+    },
+    {
+      "candidate_id": "v415_cross_attention_s17",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.07139716848628119,
+      "source_plane": "domain",
+      "view_name": "treatment_descriptor_view"
+    },
+    {
+      "candidate_id": "v415_cross_attention_s17",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.0375452083035918,
+      "source_plane": "foundation",
+      "view_name": "foundation_chronos_style"
+    },
+    {
+      "candidate_id": "v415_cross_attention_s17",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.03762174678001464,
+      "source_plane": "foundation",
+      "view_name": "foundation_moirai_style"
+    },
+    {
+      "candidate_id": "v415_cross_attention_s17",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.037415184093845914,
+      "source_plane": "foundation",
+      "view_name": "foundation_moment_style"
+    },
+    {
+      "candidate_id": "v415_cross_attention_s17",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.0373853839383714,
+      "source_plane": "foundation",
+      "view_name": "foundation_native_linear_baseline"
+    },
+    {
+      "candidate_id": "v415_cross_attention_s17",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.03647522345816612,
+      "source_plane": "foundation",
+      "view_name": "foundation_sparse_moe_style"
+    },
+    {
+      "candidate_id": "v415_cross_attention_s17",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.036868952990516214,
+      "source_plane": "foundation",
+      "view_name": "foundation_timesfm_style"
+    },
+    {
+      "candidate_id": "v415_evidential_poe_s19",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.06602667853814416,
+      "source_plane": "domain",
+      "view_name": "context_ancestry_view"
+    },
+    {
+      "candidate_id": "v415_evidential_poe_s19",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.06602667853814416,
+      "source_plane": "domain",
+      "view_name": "execution_view"
+    },
+    {
+      "candidate_id": "v415_evidential_poe_s19",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.06602667853814416,
+      "source_plane": "domain",
+      "view_name": "higher_timeframe_view"
+    },
+    {
+      "candidate_id": "v415_evidential_poe_s19",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.06602667853814416,
+      "source_plane": "domain",
+      "view_name": "intermarket_view"
+    },
+    {
+      "candidate_id": "v415_evidential_poe_s19",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.06602667853814416,
+      "source_plane": "domain",
+      "view_name": "liquidity_view"
+    },
+    {
+      "candidate_id": "v415_evidential_poe_s19",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.06602667853814416,
+      "source_plane": "domain",
+      "view_name": "price_view"
+    },
+    {
+      "candidate_id": "v415_evidential_poe_s19",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.06602667853814416,
+      "source_plane": "domain",
+      "view_name": "session_view"
+    },
+    {
+      "candidate_id": "v415_evidential_poe_s19",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.06602667853814416,
+      "source_plane": "domain",
+      "view_name": "structure_view"
+    },
+    {
+      "candidate_id": "v415_evidential_poe_s19",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.06602667853814416,
+      "source_plane": "domain",
+      "view_name": "time_view"
+    },
+    {
+      "candidate_id": "v415_evidential_poe_s19",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.06602667853814416,
+      "source_plane": "domain",
+      "view_name": "treatment_descriptor_view"
+    },
+    {
+      "candidate_id": "v415_evidential_poe_s19",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.058207361158306214,
+      "source_plane": "foundation",
+      "view_name": "foundation_chronos_style"
+    },
+    {
+      "candidate_id": "v415_evidential_poe_s19",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.058207361158306214,
+      "source_plane": "foundation",
+      "view_name": "foundation_moirai_style"
+    },
+    {
+      "candidate_id": "v415_evidential_poe_s19",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.058207361158306214,
+      "source_plane": "foundation",
+      "view_name": "foundation_moment_style"
+    },
+    {
+      "candidate_id": "v415_evidential_poe_s19",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.058207361158306214,
+      "source_plane": "foundation",
+      "view_name": "foundation_native_linear_baseline"
+    },
+    {
+      "candidate_id": "v415_evidential_poe_s19",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.04869640882702728,
+      "source_plane": "foundation",
+      "view_name": "foundation_sparse_moe_style"
+    },
+    {
+      "candidate_id": "v415_evidential_poe_s19",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.058207361158306214,
+      "source_plane": "foundation",
+      "view_name": "foundation_timesfm_style"
+    },
+    {
+      "candidate_id": "v415_disagreement_moe_s23",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.0654097660514159,
+      "source_plane": "domain",
+      "view_name": "context_ancestry_view"
+    },
+    {
+      "candidate_id": "v415_disagreement_moe_s23",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.036920810318998895,
+      "source_plane": "domain",
+      "view_name": "execution_view"
+    },
+    {
+      "candidate_id": "v415_disagreement_moe_s23",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.0854391370137152,
+      "source_plane": "domain",
+      "view_name": "higher_timeframe_view"
+    },
+    {
+      "candidate_id": "v415_disagreement_moe_s23",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.08498145582381113,
+      "source_plane": "domain",
+      "view_name": "intermarket_view"
+    },
+    {
+      "candidate_id": "v415_disagreement_moe_s23",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.03709139467510758,
+      "source_plane": "domain",
+      "view_name": "liquidity_view"
+    },
+    {
+      "candidate_id": "v415_disagreement_moe_s23",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.03455863583963243,
+      "source_plane": "domain",
+      "view_name": "price_view"
+    },
+    {
+      "candidate_id": "v415_disagreement_moe_s23",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.1008407006651568,
+      "source_plane": "domain",
+      "view_name": "session_view"
+    },
+    {
+      "candidate_id": "v415_disagreement_moe_s23",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.07688528182543854,
+      "source_plane": "domain",
+      "view_name": "structure_view"
+    },
+    {
+      "candidate_id": "v415_disagreement_moe_s23",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.035002111672154446,
+      "source_plane": "domain",
+      "view_name": "time_view"
+    },
+    {
+      "candidate_id": "v415_disagreement_moe_s23",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.09929625793827743,
+      "source_plane": "domain",
+      "view_name": "treatment_descriptor_view"
+    },
+    {
+      "candidate_id": "v415_disagreement_moe_s23",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.05885177812322389,
+      "source_plane": "foundation",
+      "view_name": "foundation_chronos_style"
+    },
+    {
+      "candidate_id": "v415_disagreement_moe_s23",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.05883963263640198,
+      "source_plane": "foundation",
+      "view_name": "foundation_moirai_style"
+    },
+    {
+      "candidate_id": "v415_disagreement_moe_s23",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.057335671865513596,
+      "source_plane": "foundation",
+      "view_name": "foundation_moment_style"
+    },
+    {
+      "candidate_id": "v415_disagreement_moe_s23",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.0572016518262127,
+      "source_plane": "foundation",
+      "view_name": "foundation_native_linear_baseline"
+    },
+    {
+      "candidate_id": "v415_disagreement_moe_s23",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.056884871098756604,
+      "source_plane": "foundation",
+      "view_name": "foundation_sparse_moe_style"
+    },
+    {
+      "candidate_id": "v415_disagreement_moe_s23",
+      "causal_interpretation_permitted": false,
+      "diagnostic_weight": 0.05446084262618288,
+      "source_plane": "foundation",
+      "view_name": "foundation_timesfm_style"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "allowed_operations": [
+    "audit_missing_view_subsets",
+    "encode_view_envelopes",
+    "evaluate_reference_fusion",
+    "handoff_frozen_fusion_features",
+    "read_frozen_foundation_features",
+    "read_frozen_view_package",
+    "register_research_checkpoint"
+  ],
+  "attribution_is_causal": false,
+  "capability_tier": "GOVERNED_CHALLENGER",
+  "decision_authority": false,
+  "execution_authority": false,
+  "fail_closed_fallback": "late_mean_baseline_or_abstain",
+  "forbidden_operations": [
+    "activate_runtime",
+    "allocate_risk",
+    "mutate_context_truth",
+    "mutate_upstream",
+    "online_learning",
+    "predict_outcome",
+    "rank_treatment",
+    "remote_inference",
+    "select_treatment",
+    "send_order",
+    "treat_attribution_as_causal"
+  ],
+  "phase": "SAED_V4_15",
+  "runtime_authority": false
+}

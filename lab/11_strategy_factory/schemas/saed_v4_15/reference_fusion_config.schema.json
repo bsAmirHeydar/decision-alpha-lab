@@ -1,0 +1,71 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/reference_fusion_config.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "common_dim": {
+      "type": "integer"
+    },
+    "critical_view_names": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "disagreement_threshold": {
+      "type": "number"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "frozen_upstream": {
+      "type": "boolean"
+    },
+    "known_time_only": {
+      "type": "boolean"
+    },
+    "max_gate_concentration": {
+      "type": "number"
+    },
+    "max_view_age_seconds": {
+      "type": "integer"
+    },
+    "min_view_quality": {
+      "type": "number"
+    },
+    "modality_dropout_rate": {
+      "type": "number"
+    },
+    "optional_view_names": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "required_view_names": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "uncertainty_inflation": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "common_dim",
+    "critical_view_names",
+    "disagreement_threshold",
+    "exact_version",
+    "frozen_upstream",
+    "known_time_only",
+    "max_gate_concentration",
+    "max_view_age_seconds",
+    "min_view_quality",
+    "modality_dropout_rate",
+    "optional_view_names",
+    "required_view_names",
+    "uncertainty_inflation"
+  ],
+  "type": "object"
+}

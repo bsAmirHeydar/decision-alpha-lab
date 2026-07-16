@@ -1,0 +1,66 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_15/golden_attribution_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "attention_or_gate_weights_are_not_causal": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_eligible": {
+      "type": "boolean"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "row_count": {
+      "type": "integer"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_id": {
+            "type": "string"
+          },
+          "causal_interpretation_permitted": {
+            "type": "boolean"
+          },
+          "diagnostic_weight": {
+            "type": "number"
+          },
+          "source_plane": {
+            "type": "string"
+          },
+          "view_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "causal_interpretation_permitted",
+          "diagnostic_weight",
+          "source_plane",
+          "view_name"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "attention_or_gate_weights_are_not_causal",
+    "phase",
+    "production_eligible",
+    "report_hash",
+    "report_id",
+    "row_count",
+    "rows"
+  ],
+  "type": "object"
+}

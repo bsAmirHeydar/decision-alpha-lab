@@ -1,0 +1,10 @@
+{
+  "max_candidates": 8,
+  "max_domain_subset_evaluations": 2048,
+  "max_dropout_patterns": 64,
+  "max_failures": 0,
+  "max_foundation_subset_evaluations": 128,
+  "max_fusion_calls": 32,
+  "max_retries": 0,
+  "max_total_vector_dimensions": 1024
+}
