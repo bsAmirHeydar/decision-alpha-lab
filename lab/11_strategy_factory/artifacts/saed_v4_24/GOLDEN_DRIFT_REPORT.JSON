@@ -1,0 +1,15 @@
+{
+  "action": "research_abstention_only",
+  "breach": true,
+  "mean_score_ratio": 1.4444837643554906,
+  "ood_rate": 0.36666666666666664,
+  "phase": "SAED_V4_24",
+  "population_stability_index": 2.22814323730911,
+  "reasons": [
+    "psi_breach"
+  ],
+  "report_hash": "2cf906bcdede212c830eb7cce8ffaa0cde6e6e6b824f8297526daa539dec645c",
+  "runtime_mutation": false,
+  "status": "breach",
+  "window_count": 30
+}

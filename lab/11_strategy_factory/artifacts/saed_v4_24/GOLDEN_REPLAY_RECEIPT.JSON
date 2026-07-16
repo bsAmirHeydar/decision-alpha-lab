@@ -1,0 +1,36 @@
+{
+  "config_hash": "db875972e150a1044965c952d8fdc52f48204506d376d88791ae11588771a256",
+  "deterministic": true,
+  "future_suffix_queries": 0,
+  "input_hashes": {
+    "records": "9e97dd4e3e1eeb7981d49dac129fc6195d533fa1adfffdf13a2732043f4b8b65",
+    "upstream_documents": "bebcbf00d2a0bf169aaa850f029ee71b8c815605e4407959929aa7e99eccb192"
+  },
+  "network_access": false,
+  "order_submissions": 0,
+  "output_hashes": {
+    "abstention_policy": "7e03fa97870449776874a8b1b2a11ecdd860c6c7407f6a68999691e621d53050",
+    "authority_boundary": "4fad58477422b806d0d8379c53a34d7c8b91fedf6ddf5467413c888189e7ba91",
+    "budget_snapshot": "00f4232d96dee3934827c063942f8ee931c627d10cafa6e4a19d99a31b58c536",
+    "certificate": "97f34012fde079910421b382c0b680d985ae3480da0ab9a4fa4660cdf77388ff",
+    "conformal_bounds": "7f5b393ab0c52c4926d8b3b286ab6fdbe2bd2b217e95396b5379a725052c9013",
+    "conformal_calibrator": "244a6cfb54d19a961294c5c9ff382ba13a04aaa73108afddc00b4f43d5df4e3c",
+    "coverage_risk_frontier": "1679dbc0808638d7c3a0a729a0e9de8d6c9864d9e49de98448c9e11646c77a1a",
+    "dataset_summary": "305343ff4c2fba0cac321d952da077eb922753558dd18ff08d96e9f5f78f3a10",
+    "drift_ood_evaluations": "78327641a66fda7c208104c752c5afecc5837d1ebfdfa677dfa5a6ae20673aed",
+    "drift_report": "276f90617de58b535357b8af31bb8767e16046ae7331d1050464887c3926847e",
+    "exposure_ledger": "9c4706a39c232ed3261859a5b32d7dddba8c12687ca18c4ec10dd0e616e00b9e",
+    "handoff": "ca62a5e115e58f638743808f8f9d8ed5108a4c5265e34a876c2eddbe4991bac9",
+    "ood_detector": "3d7828a7aefe8d82fc30f3da39414c1ec6bc9f61cbc820c83dacfc083f00491b",
+    "retrospective_coverage": "521b34f86ddc675a81023f8f67503caec7a2c099f31dc51b2e94220297e1d718",
+    "selection_ood_evaluations": "ba38370fcbb26f5f7e86c7cfdfa84f9e0272e12c7cb56fb2724d7a8b3fce401a",
+    "selective_decisions": "fd14adab13eee6c1e456b7ab8c3b8e1c3d11b375bcc7fcba31327c6b6c883876",
+    "trial_ledger": "2bf29b9c68b6457675a3bd89b0d37b5e590625819263526b4379321a0ecc988d",
+    "upstream_receipt": "14a622d52708d4fda9ad1b7683b93ddcebe26870faf4dff5563b9f006101221b"
+  },
+  "phase": "SAED_V4_24",
+  "protected_evidence_queries": 0,
+  "random_seed": 424,
+  "replay_hash": "34667aa2bd1adf353bb0747697b4f26fb15d7f0d46533c340e86041eadcc1de9",
+  "runtime_compilations": 0
+}

@@ -1,0 +1,46 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-24/drift_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown object fields are rejected.",
+  "properties": {
+    "action_on_breach": {
+      "type": "string"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "fail_closed": {
+      "type": "boolean"
+    },
+    "maximum_mean_score_ratio": {
+      "type": "number"
+    },
+    "maximum_ood_rate": {
+      "type": "number"
+    },
+    "maximum_psi": {
+      "type": "number"
+    },
+    "minimum_window_records": {
+      "type": "integer"
+    },
+    "runtime_mutation_forbidden": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "action_on_breach",
+    "exact_version",
+    "fail_closed",
+    "maximum_mean_score_ratio",
+    "maximum_ood_rate",
+    "maximum_psi",
+    "minimum_window_records",
+    "runtime_mutation_forbidden"
+  ],
+  "title": "SAED V4-24 DRIFT_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_24"
+}

@@ -1,0 +1,493 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-24/full_reference_config.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown object fields are rejected.",
+  "properties": {
+    "abstention_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "deterministic": {
+          "type": "boolean"
+        },
+        "empty_feasible_set_falls_back": {
+          "type": "boolean"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "minimum_coverage": {
+          "type": "number"
+        },
+        "objective": {
+          "type": "string"
+        },
+        "safe_action": {
+          "type": "string"
+        },
+        "target_risk_upper": {
+          "type": "number"
+        },
+        "tie_break": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "deterministic",
+        "empty_feasible_set_falls_back",
+        "exact_version",
+        "minimum_coverage",
+        "objective",
+        "safe_action",
+        "target_risk_upper",
+        "tie_break"
+      ],
+      "type": "object"
+    },
+    "calibration_dataset_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_roles": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "cluster_role_separation_required": {
+          "type": "boolean"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "feature_known_by_decision": {
+          "type": "boolean"
+        },
+        "feature_names": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "future_suffix_forbidden": {
+          "type": "boolean"
+        },
+        "minimum_clusters": {
+          "type": "integer"
+        },
+        "minimum_records": {
+          "type": "integer"
+        },
+        "minimum_records_per_regime": {
+          "type": "integer"
+        },
+        "outcome_after_decision": {
+          "type": "boolean"
+        },
+        "protected_evidence_forbidden": {
+          "type": "boolean"
+        },
+        "required_fields": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "strict_decision_time_order": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "allowed_roles",
+        "cluster_role_separation_required",
+        "exact_version",
+        "feature_known_by_decision",
+        "feature_names",
+        "future_suffix_forbidden",
+        "minimum_clusters",
+        "minimum_records",
+        "minimum_records_per_regime",
+        "outcome_after_decision",
+        "protected_evidence_forbidden",
+        "required_fields",
+        "strict_decision_time_order"
+      ],
+      "type": "object"
+    },
+    "conformal_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "alpha": {
+          "type": "number"
+        },
+        "deterministic": {
+          "type": "boolean"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "finite_sample_correction": {
+          "type": "boolean"
+        },
+        "minimum_group_size": {
+          "type": "integer"
+        },
+        "mondrian_field": {
+          "type": "string"
+        },
+        "one_sided_lower": {
+          "type": "boolean"
+        },
+        "pooled_fallback": {
+          "type": "boolean"
+        },
+        "score_type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "alpha",
+        "deterministic",
+        "exact_version",
+        "finite_sample_correction",
+        "minimum_group_size",
+        "mondrian_field",
+        "one_sided_lower",
+        "pooled_fallback",
+        "score_type"
+      ],
+      "type": "object"
+    },
+    "coverage_risk_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "aurc_required": {
+          "type": "boolean"
+        },
+        "baseline_comparison_required": {
+          "type": "boolean"
+        },
+        "bootstrap_draws": {
+          "type": "integer"
+        },
+        "cluster_bootstrap_required": {
+          "type": "boolean"
+        },
+        "confidence_level": {
+          "type": "number"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "maximum_selective_risk_upper": {
+          "type": "number"
+        },
+        "minimum_coverage": {
+          "type": "number"
+        },
+        "monotone_envelope_required": {
+          "type": "boolean"
+        },
+        "risk_definition": {
+          "type": "string"
+        },
+        "threshold_grid": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "aurc_required",
+        "baseline_comparison_required",
+        "bootstrap_draws",
+        "cluster_bootstrap_required",
+        "confidence_level",
+        "exact_version",
+        "maximum_selective_risk_upper",
+        "minimum_coverage",
+        "monotone_envelope_required",
+        "risk_definition",
+        "threshold_grid"
+      ],
+      "type": "object"
+    },
+    "drift_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "action_on_breach": {
+          "type": "string"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "fail_closed": {
+          "type": "boolean"
+        },
+        "maximum_mean_score_ratio": {
+          "type": "number"
+        },
+        "maximum_ood_rate": {
+          "type": "number"
+        },
+        "maximum_psi": {
+          "type": "number"
+        },
+        "minimum_window_records": {
+          "type": "integer"
+        },
+        "runtime_mutation_forbidden": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "action_on_breach",
+        "exact_version",
+        "fail_closed",
+        "maximum_mean_score_ratio",
+        "maximum_ood_rate",
+        "maximum_psi",
+        "minimum_window_records",
+        "runtime_mutation_forbidden"
+      ],
+      "type": "object"
+    },
+    "ood_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "alpha": {
+          "type": "number"
+        },
+        "deterministic": {
+          "type": "boolean"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "fail_closed": {
+          "type": "boolean"
+        },
+        "feature_names": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "maximum_feature_missingness": {
+          "type": "number"
+        },
+        "methods": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "minimum_pvalue": {
+          "type": "number"
+        },
+        "nearest_neighbor_weight": {
+          "type": "number"
+        },
+        "robust_scale_floor": {
+          "type": "number"
+        },
+        "support_deficit_weight": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "alpha",
+        "deterministic",
+        "exact_version",
+        "fail_closed",
+        "feature_names",
+        "maximum_feature_missingness",
+        "methods",
+        "minimum_pvalue",
+        "nearest_neighbor_weight",
+        "robust_scale_floor",
+        "support_deficit_weight"
+      ],
+      "type": "object"
+    },
+    "research_budget": {
+      "additionalProperties": false,
+      "properties": {
+        "exact_version": {
+          "type": "string"
+        },
+        "max_bootstrap_draws": {
+          "type": "integer"
+        },
+        "max_conformal_fits": {
+          "type": "integer"
+        },
+        "max_drift_windows": {
+          "type": "integer"
+        },
+        "max_failures": {
+          "type": "integer"
+        },
+        "max_frontier_points": {
+          "type": "integer"
+        },
+        "max_hidden_evaluation_queries": {
+          "type": "integer"
+        },
+        "max_ood_fits": {
+          "type": "integer"
+        },
+        "max_records": {
+          "type": "integer"
+        },
+        "max_selective_evaluations": {
+          "type": "integer"
+        },
+        "order_submission_limit": {
+          "type": "integer"
+        },
+        "protected_evidence_exposure_limit": {
+          "type": "integer"
+        },
+        "runtime_compilation_limit": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "exact_version",
+        "max_bootstrap_draws",
+        "max_conformal_fits",
+        "max_drift_windows",
+        "max_failures",
+        "max_frontier_points",
+        "max_hidden_evaluation_queries",
+        "max_ood_fits",
+        "max_records",
+        "max_selective_evaluations",
+        "order_submission_limit",
+        "protected_evidence_exposure_limit",
+        "runtime_compilation_limit"
+      ],
+      "type": "object"
+    },
+    "selective_control_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_preserved": {
+          "type": "boolean"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "fail_closed": {
+          "type": "boolean"
+        },
+        "maximum_missingness": {
+          "type": "number"
+        },
+        "minimum_ood_pvalue": {
+          "type": "number"
+        },
+        "minimum_support_score": {
+          "type": "number"
+        },
+        "minimum_value_lower_bound": {
+          "type": "number"
+        },
+        "require_action_mask": {
+          "type": "boolean"
+        },
+        "require_conformal_gate": {
+          "type": "boolean"
+        },
+        "require_ood_gate": {
+          "type": "boolean"
+        },
+        "require_support_gate": {
+          "type": "boolean"
+        },
+        "safe_action": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "baseline_preserved",
+        "exact_version",
+        "fail_closed",
+        "maximum_missingness",
+        "minimum_ood_pvalue",
+        "minimum_support_score",
+        "minimum_value_lower_bound",
+        "require_action_mask",
+        "require_conformal_gate",
+        "require_ood_gate",
+        "require_support_gate",
+        "safe_action"
+      ],
+      "type": "object"
+    },
+    "upstream_intake": {
+      "additionalProperties": false,
+      "properties": {
+        "certificate_hash": {
+          "type": "string"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "handoff_hash": {
+          "type": "string"
+        },
+        "hash_verified": {
+          "type": "boolean"
+        },
+        "immutable": {
+          "type": "boolean"
+        },
+        "promotion_denied": {
+          "type": "boolean"
+        },
+        "required_phase": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "research_policy_id": {
+          "type": "string"
+        },
+        "runtime_denied": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "certificate_hash",
+        "exact_version",
+        "handoff_hash",
+        "hash_verified",
+        "immutable",
+        "promotion_denied",
+        "required_phase",
+        "research_only",
+        "research_policy_id",
+        "runtime_denied"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "abstention_contract",
+    "calibration_dataset_contract",
+    "conformal_contract",
+    "coverage_risk_contract",
+    "drift_contract",
+    "ood_contract",
+    "research_budget",
+    "selective_control_contract",
+    "upstream_intake"
+  ],
+  "title": "SAED V4-24 FULL_REFERENCE_CONFIG",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_24"
+}

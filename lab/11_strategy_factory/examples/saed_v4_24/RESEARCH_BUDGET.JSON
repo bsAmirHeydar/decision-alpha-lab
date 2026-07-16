@@ -1,0 +1,15 @@
+{
+  "exact_version": "1.0.0",
+  "max_bootstrap_draws": 5000,
+  "max_conformal_fits": 4,
+  "max_drift_windows": 10,
+  "max_failures": 20,
+  "max_frontier_points": 20,
+  "max_hidden_evaluation_queries": 0,
+  "max_ood_fits": 4,
+  "max_records": 500,
+  "max_selective_evaluations": 200,
+  "order_submission_limit": 0,
+  "protected_evidence_exposure_limit": 0,
+  "runtime_compilation_limit": 0
+}

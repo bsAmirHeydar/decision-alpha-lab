@@ -1,0 +1,4 @@
+#ifndef DECISION_ALPHA_LAB_SAED_V424_SECURITY_MQH
+#define DECISION_ALPHA_LAB_SAED_V424_SECURITY_MQH
+bool SAEDV424SecretsAllowed(){ return false; }
+#endif

@@ -1,0 +1,105 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-24/golden_dataset_summary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown object fields are rejected.",
+  "properties": {
+    "cluster_count": {
+      "type": "integer"
+    },
+    "cluster_role_separation": {
+      "type": "boolean"
+    },
+    "dataset_hash": {
+      "type": "string"
+    },
+    "feature_known_by_decision": {
+      "type": "boolean"
+    },
+    "feature_names": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "future_suffix_access_count": {
+      "type": "integer"
+    },
+    "outcome_after_decision": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "protected_evidence_access_count": {
+      "type": "integer"
+    },
+    "record_count": {
+      "type": "integer"
+    },
+    "regime_counts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "count": {
+            "type": "integer"
+          },
+          "regime": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "count",
+          "regime"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "role_counts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "count": {
+            "type": "integer"
+          },
+          "role": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "count",
+          "role"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "strict_decision_time_order": {
+      "type": "boolean"
+    },
+    "summary_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "cluster_count",
+    "cluster_role_separation",
+    "dataset_hash",
+    "feature_known_by_decision",
+    "feature_names",
+    "future_suffix_access_count",
+    "outcome_after_decision",
+    "phase",
+    "protected_evidence_access_count",
+    "record_count",
+    "regime_counts",
+    "role_counts",
+    "strict_decision_time_order",
+    "summary_hash"
+  ],
+  "title": "SAED V4-24 GOLDEN_DATASET_SUMMARY",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_24"
+}

@@ -1,0 +1,46 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-24/known_time_leakage_review.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown object fields are rejected.",
+  "properties": {
+    "decision_artifact_uses_realized_outcome": {
+      "type": "boolean"
+    },
+    "future_suffix_queries": {
+      "type": "integer"
+    },
+    "outcome_mutation_changes_decisions": {
+      "type": "boolean"
+    },
+    "outcome_mutation_changes_retrospective_risk": {
+      "type": "boolean"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "protected_evidence_queries": {
+      "type": "integer"
+    },
+    "review_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "decision_artifact_uses_realized_outcome",
+    "future_suffix_queries",
+    "outcome_mutation_changes_decisions",
+    "outcome_mutation_changes_retrospective_risk",
+    "passed",
+    "phase",
+    "protected_evidence_queries",
+    "review_hash"
+  ],
+  "title": "SAED V4-24 KNOWN_TIME_LEAKAGE_REVIEW",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_24"
+}

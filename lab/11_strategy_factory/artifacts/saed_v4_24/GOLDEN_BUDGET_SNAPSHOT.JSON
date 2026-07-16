@@ -1,0 +1,707 @@
+{
+  "complete": true,
+  "counts": {
+    "bootstrap_draws": 3000,
+    "conformal_fits": 1,
+    "drift_windows": 1,
+    "failures": 0,
+    "frontier_points": 10,
+    "hidden_evaluation_queries": 0,
+    "ood_fits": 1,
+    "order_submissions": 0,
+    "protected_evidence_exposures": 0,
+    "records": 180,
+    "runtime_compilations": 0,
+    "selective_evaluations": 60
+  },
+  "events": [
+    {
+      "after": 180,
+      "counter": "records",
+      "delta": 180,
+      "detail": "validated calibration research records",
+      "limit": 500,
+      "sequence": 1
+    },
+    {
+      "after": 1,
+      "counter": "conformal_fits",
+      "delta": 1,
+      "detail": "one-sided split/Mondrian conformal fit",
+      "limit": 4,
+      "sequence": 2
+    },
+    {
+      "after": 1,
+      "counter": "ood_fits",
+      "delta": 1,
+      "detail": "robust support-aware OOD fit",
+      "limit": 4,
+      "sequence": 3
+    },
+    {
+      "after": 1,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 4
+    },
+    {
+      "after": 2,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 5
+    },
+    {
+      "after": 3,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 6
+    },
+    {
+      "after": 4,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 7
+    },
+    {
+      "after": 5,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 8
+    },
+    {
+      "after": 6,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 9
+    },
+    {
+      "after": 7,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 10
+    },
+    {
+      "after": 8,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 11
+    },
+    {
+      "after": 9,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 12
+    },
+    {
+      "after": 10,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 13
+    },
+    {
+      "after": 11,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 14
+    },
+    {
+      "after": 12,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 15
+    },
+    {
+      "after": 13,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 16
+    },
+    {
+      "after": 14,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 17
+    },
+    {
+      "after": 15,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 18
+    },
+    {
+      "after": 16,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 19
+    },
+    {
+      "after": 17,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 20
+    },
+    {
+      "after": 18,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 21
+    },
+    {
+      "after": 19,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 22
+    },
+    {
+      "after": 20,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 23
+    },
+    {
+      "after": 21,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 24
+    },
+    {
+      "after": 22,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 25
+    },
+    {
+      "after": 23,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 26
+    },
+    {
+      "after": 24,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 27
+    },
+    {
+      "after": 25,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 28
+    },
+    {
+      "after": 26,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 29
+    },
+    {
+      "after": 27,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 30
+    },
+    {
+      "after": 28,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 31
+    },
+    {
+      "after": 29,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 32
+    },
+    {
+      "after": 30,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 33
+    },
+    {
+      "after": 31,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 34
+    },
+    {
+      "after": 32,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 35
+    },
+    {
+      "after": 33,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 36
+    },
+    {
+      "after": 34,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 37
+    },
+    {
+      "after": 35,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 38
+    },
+    {
+      "after": 36,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 39
+    },
+    {
+      "after": 37,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 40
+    },
+    {
+      "after": 38,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 41
+    },
+    {
+      "after": 39,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 42
+    },
+    {
+      "after": 40,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 43
+    },
+    {
+      "after": 41,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 44
+    },
+    {
+      "after": 42,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 45
+    },
+    {
+      "after": 43,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 46
+    },
+    {
+      "after": 44,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 47
+    },
+    {
+      "after": 45,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 48
+    },
+    {
+      "after": 46,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 49
+    },
+    {
+      "after": 47,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 50
+    },
+    {
+      "after": 48,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 51
+    },
+    {
+      "after": 49,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 52
+    },
+    {
+      "after": 50,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 53
+    },
+    {
+      "after": 51,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 54
+    },
+    {
+      "after": 52,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 55
+    },
+    {
+      "after": 53,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 56
+    },
+    {
+      "after": 54,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 57
+    },
+    {
+      "after": 55,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 58
+    },
+    {
+      "after": 56,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 59
+    },
+    {
+      "after": 57,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 60
+    },
+    {
+      "after": 58,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 61
+    },
+    {
+      "after": 59,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 62
+    },
+    {
+      "after": 60,
+      "counter": "selective_evaluations",
+      "delta": 1,
+      "detail": "selective research decision",
+      "limit": 200,
+      "sequence": 63
+    },
+    {
+      "after": 1,
+      "counter": "frontier_points",
+      "delta": 1,
+      "detail": "coverage-risk threshold",
+      "limit": 20,
+      "sequence": 64
+    },
+    {
+      "after": 300,
+      "counter": "bootstrap_draws",
+      "delta": 300,
+      "detail": "cluster bootstrap",
+      "limit": 5000,
+      "sequence": 65
+    },
+    {
+      "after": 2,
+      "counter": "frontier_points",
+      "delta": 1,
+      "detail": "coverage-risk threshold",
+      "limit": 20,
+      "sequence": 66
+    },
+    {
+      "after": 600,
+      "counter": "bootstrap_draws",
+      "delta": 300,
+      "detail": "cluster bootstrap",
+      "limit": 5000,
+      "sequence": 67
+    },
+    {
+      "after": 3,
+      "counter": "frontier_points",
+      "delta": 1,
+      "detail": "coverage-risk threshold",
+      "limit": 20,
+      "sequence": 68
+    },
+    {
+      "after": 900,
+      "counter": "bootstrap_draws",
+      "delta": 300,
+      "detail": "cluster bootstrap",
+      "limit": 5000,
+      "sequence": 69
+    },
+    {
+      "after": 4,
+      "counter": "frontier_points",
+      "delta": 1,
+      "detail": "coverage-risk threshold",
+      "limit": 20,
+      "sequence": 70
+    },
+    {
+      "after": 1200,
+      "counter": "bootstrap_draws",
+      "delta": 300,
+      "detail": "cluster bootstrap",
+      "limit": 5000,
+      "sequence": 71
+    },
+    {
+      "after": 5,
+      "counter": "frontier_points",
+      "delta": 1,
+      "detail": "coverage-risk threshold",
+      "limit": 20,
+      "sequence": 72
+    },
+    {
+      "after": 1500,
+      "counter": "bootstrap_draws",
+      "delta": 300,
+      "detail": "cluster bootstrap",
+      "limit": 5000,
+      "sequence": 73
+    },
+    {
+      "after": 6,
+      "counter": "frontier_points",
+      "delta": 1,
+      "detail": "coverage-risk threshold",
+      "limit": 20,
+      "sequence": 74
+    },
+    {
+      "after": 1800,
+      "counter": "bootstrap_draws",
+      "delta": 300,
+      "detail": "cluster bootstrap",
+      "limit": 5000,
+      "sequence": 75
+    },
+    {
+      "after": 7,
+      "counter": "frontier_points",
+      "delta": 1,
+      "detail": "coverage-risk threshold",
+      "limit": 20,
+      "sequence": 76
+    },
+    {
+      "after": 2100,
+      "counter": "bootstrap_draws",
+      "delta": 300,
+      "detail": "cluster bootstrap",
+      "limit": 5000,
+      "sequence": 77
+    },
+    {
+      "after": 8,
+      "counter": "frontier_points",
+      "delta": 1,
+      "detail": "coverage-risk threshold",
+      "limit": 20,
+      "sequence": 78
+    },
+    {
+      "after": 2400,
+      "counter": "bootstrap_draws",
+      "delta": 300,
+      "detail": "cluster bootstrap",
+      "limit": 5000,
+      "sequence": 79
+    },
+    {
+      "after": 9,
+      "counter": "frontier_points",
+      "delta": 1,
+      "detail": "coverage-risk threshold",
+      "limit": 20,
+      "sequence": 80
+    },
+    {
+      "after": 2700,
+      "counter": "bootstrap_draws",
+      "delta": 300,
+      "detail": "cluster bootstrap",
+      "limit": 5000,
+      "sequence": 81
+    },
+    {
+      "after": 10,
+      "counter": "frontier_points",
+      "delta": 1,
+      "detail": "coverage-risk threshold",
+      "limit": 20,
+      "sequence": 82
+    },
+    {
+      "after": 3000,
+      "counter": "bootstrap_draws",
+      "delta": 300,
+      "detail": "cluster bootstrap",
+      "limit": 5000,
+      "sequence": 83
+    },
+    {
+      "after": 1,
+      "counter": "drift_windows",
+      "delta": 1,
+      "detail": "OOD drift assessment",
+      "limit": 10,
+      "sequence": 84
+    }
+  ],
+  "ledger_hash": "73639adf254b290177a295ef184f92b2ff2b41df341e21f0aa15ba62bdc84512",
+  "limits": {
+    "bootstrap_draws": 5000,
+    "conformal_fits": 4,
+    "drift_windows": 10,
+    "failures": 20,
+    "frontier_points": 20,
+    "hidden_evaluation_queries": 0,
+    "ood_fits": 4,
+    "order_submissions": 0,
+    "protected_evidence_exposures": 0,
+    "records": 500,
+    "runtime_compilations": 0,
+    "selective_evaluations": 200
+  },
+  "phase": "SAED_V4_24"
+}

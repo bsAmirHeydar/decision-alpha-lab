@@ -1,0 +1,176 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-24/golden_budget_snapshot.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown object fields are rejected.",
+  "properties": {
+    "complete": {
+      "type": "boolean"
+    },
+    "counts": {
+      "additionalProperties": false,
+      "properties": {
+        "bootstrap_draws": {
+          "type": "integer"
+        },
+        "conformal_fits": {
+          "type": "integer"
+        },
+        "drift_windows": {
+          "type": "integer"
+        },
+        "failures": {
+          "type": "integer"
+        },
+        "frontier_points": {
+          "type": "integer"
+        },
+        "hidden_evaluation_queries": {
+          "type": "integer"
+        },
+        "ood_fits": {
+          "type": "integer"
+        },
+        "order_submissions": {
+          "type": "integer"
+        },
+        "protected_evidence_exposures": {
+          "type": "integer"
+        },
+        "records": {
+          "type": "integer"
+        },
+        "runtime_compilations": {
+          "type": "integer"
+        },
+        "selective_evaluations": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "bootstrap_draws",
+        "conformal_fits",
+        "drift_windows",
+        "failures",
+        "frontier_points",
+        "hidden_evaluation_queries",
+        "ood_fits",
+        "order_submissions",
+        "protected_evidence_exposures",
+        "records",
+        "runtime_compilations",
+        "selective_evaluations"
+      ],
+      "type": "object"
+    },
+    "events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "after": {
+            "type": "integer"
+          },
+          "counter": {
+            "type": "string"
+          },
+          "delta": {
+            "type": "integer"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "sequence": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "after",
+          "counter",
+          "delta",
+          "detail",
+          "limit",
+          "sequence"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "limits": {
+      "additionalProperties": false,
+      "properties": {
+        "bootstrap_draws": {
+          "type": "integer"
+        },
+        "conformal_fits": {
+          "type": "integer"
+        },
+        "drift_windows": {
+          "type": "integer"
+        },
+        "failures": {
+          "type": "integer"
+        },
+        "frontier_points": {
+          "type": "integer"
+        },
+        "hidden_evaluation_queries": {
+          "type": "integer"
+        },
+        "ood_fits": {
+          "type": "integer"
+        },
+        "order_submissions": {
+          "type": "integer"
+        },
+        "protected_evidence_exposures": {
+          "type": "integer"
+        },
+        "records": {
+          "type": "integer"
+        },
+        "runtime_compilations": {
+          "type": "integer"
+        },
+        "selective_evaluations": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "bootstrap_draws",
+        "conformal_fits",
+        "drift_windows",
+        "failures",
+        "frontier_points",
+        "hidden_evaluation_queries",
+        "ood_fits",
+        "order_submissions",
+        "protected_evidence_exposures",
+        "records",
+        "runtime_compilations",
+        "selective_evaluations"
+      ],
+      "type": "object"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "complete",
+    "counts",
+    "events",
+    "ledger_hash",
+    "limits",
+    "phase"
+  ],
+  "title": "SAED V4-24 GOLDEN_BUDGET_SNAPSHOT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_24"
+}

@@ -1,0 +1,24 @@
+{
+  "alpha": 0.1,
+  "deterministic": true,
+  "exact_version": "1.0.0",
+  "fail_closed": true,
+  "feature_names": [
+    "momentum",
+    "volatility",
+    "liquidity",
+    "session_progress",
+    "structure_score",
+    "spread_z"
+  ],
+  "maximum_feature_missingness": 0.0,
+  "methods": [
+    "nearest_neighbor",
+    "robust_mad",
+    "support_deficit"
+  ],
+  "minimum_pvalue": 0.05,
+  "nearest_neighbor_weight": 0.25,
+  "robust_scale_floor": 0.01,
+  "support_deficit_weight": 1.5
+}

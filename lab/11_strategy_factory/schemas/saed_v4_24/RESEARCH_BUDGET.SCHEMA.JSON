@@ -1,0 +1,66 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-24/research_budget.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown object fields are rejected.",
+  "properties": {
+    "exact_version": {
+      "type": "string"
+    },
+    "max_bootstrap_draws": {
+      "type": "integer"
+    },
+    "max_conformal_fits": {
+      "type": "integer"
+    },
+    "max_drift_windows": {
+      "type": "integer"
+    },
+    "max_failures": {
+      "type": "integer"
+    },
+    "max_frontier_points": {
+      "type": "integer"
+    },
+    "max_hidden_evaluation_queries": {
+      "type": "integer"
+    },
+    "max_ood_fits": {
+      "type": "integer"
+    },
+    "max_records": {
+      "type": "integer"
+    },
+    "max_selective_evaluations": {
+      "type": "integer"
+    },
+    "order_submission_limit": {
+      "type": "integer"
+    },
+    "protected_evidence_exposure_limit": {
+      "type": "integer"
+    },
+    "runtime_compilation_limit": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "exact_version",
+    "max_bootstrap_draws",
+    "max_conformal_fits",
+    "max_drift_windows",
+    "max_failures",
+    "max_frontier_points",
+    "max_hidden_evaluation_queries",
+    "max_ood_fits",
+    "max_records",
+    "max_selective_evaluations",
+    "order_submission_limit",
+    "protected_evidence_exposure_limit",
+    "runtime_compilation_limit"
+  ],
+  "title": "SAED V4-24 RESEARCH_BUDGET",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_24"
+}

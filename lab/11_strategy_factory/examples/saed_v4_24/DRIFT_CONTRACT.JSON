@@ -1,0 +1,10 @@
+{
+  "action_on_breach": "research_abstention_only",
+  "exact_version": "1.0.0",
+  "fail_closed": true,
+  "maximum_mean_score_ratio": 3.0,
+  "maximum_ood_rate": 0.45,
+  "maximum_psi": 0.6,
+  "minimum_window_records": 30,
+  "runtime_mutation_forbidden": true
+}

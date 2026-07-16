@@ -1,0 +1,106 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-24/golden_coverage_risk_frontier.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown object fields are rejected.",
+  "properties": {
+    "aurc_upper": {
+      "type": "number"
+    },
+    "baseline_risk": {
+      "type": "number"
+    },
+    "cluster_bootstrap_applied": {
+      "type": "boolean"
+    },
+    "frontier_hash": {
+      "type": "string"
+    },
+    "maximum_selective_risk_upper": {
+      "type": "number"
+    },
+    "minimum_coverage": {
+      "type": "number"
+    },
+    "monotone_envelope_applied": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "retrospective_selection_validation_only": {
+      "type": "boolean"
+    },
+    "risk_definition": {
+      "type": "string"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "accepted_count": {
+            "type": "integer"
+          },
+          "bootstrap_draws": {
+            "type": "integer"
+          },
+          "coverage": {
+            "type": "number"
+          },
+          "coverage_gate_passed": {
+            "type": "boolean"
+          },
+          "monotone_risk_upper": {
+            "type": "number"
+          },
+          "risk_upper_gate_passed": {
+            "type": "boolean"
+          },
+          "selective_risk": {
+            "type": "number"
+          },
+          "selective_risk_lower": {
+            "type": "number"
+          },
+          "selective_risk_upper": {
+            "type": "number"
+          },
+          "threshold": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "accepted_count",
+          "bootstrap_draws",
+          "coverage",
+          "coverage_gate_passed",
+          "monotone_risk_upper",
+          "risk_upper_gate_passed",
+          "selective_risk",
+          "selective_risk_lower",
+          "selective_risk_upper",
+          "threshold"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "aurc_upper",
+    "baseline_risk",
+    "cluster_bootstrap_applied",
+    "frontier_hash",
+    "maximum_selective_risk_upper",
+    "minimum_coverage",
+    "monotone_envelope_applied",
+    "phase",
+    "retrospective_selection_validation_only",
+    "risk_definition",
+    "rows"
+  ],
+  "title": "SAED V4-24 GOLDEN_COVERAGE_RISK_FRONTIER",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_24"
+}

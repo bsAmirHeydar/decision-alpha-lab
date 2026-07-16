@@ -1,0 +1,108 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-24/golden_conformal_calibrator.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown object fields are rejected.",
+  "properties": {
+    "alpha": {
+      "type": "number"
+    },
+    "calibrator_hash": {
+      "type": "string"
+    },
+    "calibrator_id": {
+      "type": "string"
+    },
+    "coverage_level": {
+      "type": "number"
+    },
+    "finite_sample_correction": {
+      "type": "boolean"
+    },
+    "groups": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "count": {
+            "type": "integer"
+          },
+          "eligible": {
+            "type": "boolean"
+          },
+          "mean_score": {
+            "type": "number"
+          },
+          "quantile": {
+            "type": "number"
+          },
+          "regime": {
+            "type": "string"
+          },
+          "scores": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "count",
+          "eligible",
+          "mean_score",
+          "quantile",
+          "regime",
+          "scores"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "minimum_group_size": {
+      "type": "integer"
+    },
+    "one_sided_lower": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "pooled_count": {
+      "type": "integer"
+    },
+    "pooled_fallback": {
+      "type": "boolean"
+    },
+    "pooled_quantile": {
+      "type": "number"
+    },
+    "pooled_scores": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "score_type": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "alpha",
+    "calibrator_hash",
+    "calibrator_id",
+    "coverage_level",
+    "finite_sample_correction",
+    "groups",
+    "minimum_group_size",
+    "one_sided_lower",
+    "phase",
+    "pooled_count",
+    "pooled_fallback",
+    "pooled_quantile",
+    "pooled_scores",
+    "score_type"
+  ],
+  "title": "SAED V4-24 GOLDEN_CONFORMAL_CALIBRATOR",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_24"
+}

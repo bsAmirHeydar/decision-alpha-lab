@@ -1,0 +1,74 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-24/golden_retrospective_coverage.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown object fields are rejected.",
+  "properties": {
+    "coverage_hash": {
+      "type": "string"
+    },
+    "decision_authority": {
+      "type": "boolean"
+    },
+    "empirical_coverage": {
+      "type": "number"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "record_count": {
+      "type": "integer"
+    },
+    "retrospective_only": {
+      "type": "boolean"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "covered": {
+            "type": "boolean"
+          },
+          "realized_value": {
+            "type": "number"
+          },
+          "record_id": {
+            "type": "string"
+          },
+          "regime": {
+            "type": "string"
+          },
+          "value_lower_bound": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "covered",
+          "realized_value",
+          "record_id",
+          "regime",
+          "value_lower_bound"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "target_coverage": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "coverage_hash",
+    "decision_authority",
+    "empirical_coverage",
+    "phase",
+    "record_count",
+    "retrospective_only",
+    "rows",
+    "target_coverage"
+  ],
+  "title": "SAED V4-24 GOLDEN_RETROSPECTIVE_COVERAGE",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_24"
+}

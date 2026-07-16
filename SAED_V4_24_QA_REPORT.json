@@ -1,0 +1,59 @@
+{
+  "checks": [
+    {
+      "evidence": "269 passed",
+      "name": "python_tests",
+      "passed": true
+    },
+    {
+      "evidence": "34 documents / 34 closed schemas",
+      "name": "closed_contracts",
+      "passed": true
+    },
+    {
+      "evidence": "247 notes (181 phase delivery + 66 atomic)",
+      "name": "obsidian",
+      "passed": true
+    },
+    {
+      "evidence": "22 files; MetaEditor pending_local_windows",
+      "name": "mql5_static",
+      "passed": true
+    },
+    {
+      "evidence": "research only; decision/promotion/runtime/risk/execution/production denied",
+      "name": "authority_boundary",
+      "passed": true
+    },
+    {
+      "evidence": "future realized-outcome mutation leaves conformal, OOD and selective decisions unchanged",
+      "name": "known_time_invariance",
+      "passed": true
+    },
+    {
+      "evidence": "19 exact artifacts; replay 34667aa2bd1adf353bb0747697b4f26fb15d7f0d46533c340e86041eadcc1de9",
+      "name": "golden_reproduction",
+      "passed": true
+    },
+    {
+      "evidence": "finite-sample conformal bounds, support-aware OOD, fail-closed abstention and cluster-bootstrap coverage-risk frontier",
+      "name": "coverage_ood_selective_control",
+      "passed": true
+    }
+  ],
+  "closed_schema_pairs": 34,
+  "closed_schemas": 34,
+  "evidence_scope": "local_deterministic_known_time_calibration_selective_control_reference",
+  "golden_exact_artifacts": 19,
+  "metaeditor_compile": "pending_local_windows",
+  "mql5_static_files": 22,
+  "obsidian_notes": 247,
+  "passed": true,
+  "phase": "SAED_V4_24",
+  "production_authorization": false,
+  "promotion_authority": false,
+  "python_tests": 269,
+  "real_alpha_claim": false,
+  "runtime_parity": "not_claimed",
+  "version": "1.0.0"
+}

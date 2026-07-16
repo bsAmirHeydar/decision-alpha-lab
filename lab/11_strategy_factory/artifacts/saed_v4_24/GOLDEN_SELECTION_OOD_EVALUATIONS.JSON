@@ -1,0 +1,902 @@
+[
+  {
+    "evaluation_hash": "44d15f2e95c449a2329078c7a9a7a0bc731129657550980d83d0c4691f53e165",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.26373626373626374,
+    "ood_score": 2.2598607814075047,
+    "reason": "in_distribution",
+    "record_id": "record_0091",
+    "score_components": {
+      "nearest_neighbor": 0.4125102065889809,
+      "robust_mad": 1.7398460549700734,
+      "support_deficit": 0.27792478319345726
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "0984c91c4bc263fdb16d7fb746414d01c393955d06fe7bae8a34ed9bf4929c5f",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.12087912087912088,
+    "ood_score": 2.854121492807191,
+    "reason": "in_distribution",
+    "record_id": "record_0092",
+    "score_components": {
+      "nearest_neighbor": 0.3953391986142418,
+      "robust_mad": 2.4134772825876856,
+      "support_deficit": 0.22787294037729677
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "6b04f6785464871caad646e595ecbccd5f154ec580dc3b4c938fad7cbc2a8494",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.8021978021978022,
+    "ood_score": 1.478192046575327,
+    "reason": "in_distribution",
+    "record_id": "record_0093",
+    "score_components": {
+      "nearest_neighbor": 0.2154814625487624,
+      "robust_mad": 1.0117361392148931,
+      "support_deficit": 0.27505702781549557
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "92f67c7f51cd88ae736347c1cebadc484edb3b76d33a901ca162ff6306e9ac03",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.4175824175824176,
+    "ood_score": 1.869370632704058,
+    "reason": "in_distribution",
+    "record_id": "record_0094",
+    "score_components": {
+      "nearest_neighbor": 0.23576501051237334,
+      "robust_mad": 1.3745833483999343,
+      "support_deficit": 0.2905640211173536
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "a8f7564a9492ef166dbc6ada429217f9a5683fb1d02740c553c41ef9ee8f1f04",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.23076923076923078,
+    "ood_score": 2.321368367985442,
+    "reason": "in_distribution",
+    "record_id": "record_0095",
+    "score_components": {
+      "nearest_neighbor": 0.15546751119109842,
+      "robust_mad": 1.8531538630829856,
+      "support_deficit": 0.2862317514031214
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "ba75600ec6e6a290ca898df9f7270ea0734fd74d1e96a25d1b8176d4587084b7",
+    "is_ood": true,
+    "missingness": 0.0,
+    "ood_pvalue": 0.01098901098901099,
+    "ood_score": 4.426245804649222,
+    "reason": "ood_gate",
+    "record_id": "record_0096",
+    "score_components": {
+      "nearest_neighbor": 0.605264049532186,
+      "robust_mad": 3.758555475738043,
+      "support_deficit": 0.3442495443520882
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "7fc86322e62a4d5b2b22f3ff2aecde5144a71e30a47b592d0fec73aff84ffbe5",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.4065934065934066,
+    "ood_score": 1.8781378509506634,
+    "reason": "in_distribution",
+    "record_id": "record_0097",
+    "score_components": {
+      "nearest_neighbor": 0.2388812805066794,
+      "robust_mad": 1.4682547678053866,
+      "support_deficit": 0.2334418420124047
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "76d79b8c4f4b4893d5e08ed1781299329b9bc8f6924718532c97d7b6785b884a",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.17582417582417584,
+    "ood_score": 2.410664652222092,
+    "reason": "in_distribution",
+    "record_id": "record_0098",
+    "score_components": {
+      "nearest_neighbor": 0.4308657533795446,
+      "robust_mad": 1.882132381472869,
+      "support_deficit": 0.2805438882695579
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "edf05caed1db901f473f0583a4fc61415372657b10a77a739c3985b5146878a5",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.7802197802197802,
+    "ood_score": 1.5044889785122637,
+    "reason": "in_distribution",
+    "record_id": "record_0099",
+    "score_components": {
+      "nearest_neighbor": 0.18394993455537387,
+      "robust_mad": 1.036826322559731,
+      "support_deficit": 0.28111678154245956
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "9e61e1a703ffaa0a14ffff4c41a50da7e09599168296dbbf56e551f56e840e79",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.2967032967032967,
+    "ood_score": 2.1687219280848353,
+    "reason": "in_distribution",
+    "record_id": "record_0100",
+    "score_components": {
+      "nearest_neighbor": 0.23567016167383192,
+      "robust_mad": 1.7106268478684168,
+      "support_deficit": 0.26611835986530685
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "bc21439aba3c5d63325d8bd754a8e1eca52a2b6dc182200fd84b6d1e0466a450",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.12087912087912088,
+    "ood_score": 2.7955776997131285,
+    "reason": "in_distribution",
+    "record_id": "record_0101",
+    "score_components": {
+      "nearest_neighbor": 0.5140715478502405,
+      "robust_mad": 2.26023991474846,
+      "support_deficit": 0.2712132653347389
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "1e3fd43b2c381bb9d35ce6dbe6a2c2e3972f921cf63e94fccd79798adee1dad3",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.14285714285714285,
+    "ood_score": 2.4863311683928195,
+    "reason": "in_distribution",
+    "record_id": "record_0102",
+    "score_components": {
+      "nearest_neighbor": 0.44194875139630274,
+      "robust_mad": 1.9324380607656648,
+      "support_deficit": 0.29560394651871935
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "30b441c3819144e69cea5382986d9c291ce34d611d420a990037b6f4a7722178",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.3076923076923077,
+    "ood_score": 2.1399800739290495,
+    "reason": "in_distribution",
+    "record_id": "record_0103",
+    "score_components": {
+      "nearest_neighbor": 0.4562056832727672,
+      "robust_mad": 1.6678969401975028,
+      "support_deficit": 0.23868780860890326
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "98b6c5d7700106f82a0fe711faa5063d2082134c3bcd6e83944cf173c7c62252",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.13186813186813187,
+    "ood_score": 2.6105135987746166,
+    "reason": "in_distribution",
+    "record_id": "record_0104",
+    "score_components": {
+      "nearest_neighbor": 0.32666134798028484,
+      "robust_mad": 2.124588177175649,
+      "support_deficit": 0.26950672306926426
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "b6edd170ea8d0d4c1c207f4950371100a604bd66aad53eb00c5135ff0a7b2956",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 1.0,
+    "ood_score": 0.9961837363004651,
+    "reason": "in_distribution",
+    "record_id": "record_0105",
+    "score_components": {
+      "nearest_neighbor": 0.18073070511949754,
+      "robust_mad": 0.6533812005482171,
+      "support_deficit": 0.19841323964824908
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "27b81886a4b9983933787689d0c7f4c2143419492ae26070e2357d5882f74223",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.3516483516483517,
+    "ood_score": 2.086986590427772,
+    "reason": "in_distribution",
+    "record_id": "record_0106",
+    "score_components": {
+      "nearest_neighbor": 0.37032828734179185,
+      "robust_mad": 1.6089467352859272,
+      "support_deficit": 0.25697185553759794
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "b5f6a28df51e4b683b4d6510c642553259f1bfafcee12674672611d3a573e151",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.12087912087912088,
+    "ood_score": 2.856414726065911,
+    "reason": "in_distribution",
+    "record_id": "record_0107",
+    "score_components": {
+      "nearest_neighbor": 0.40769593108874025,
+      "robust_mad": 2.297788929454418,
+      "support_deficit": 0.3044678758928717
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "9fe9f23aee24241c8543570d75452993c2b7e0f107f82db0aa12ea9f37d087ec",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.46153846153846156,
+    "ood_score": 1.8270947409659315,
+    "reason": "in_distribution",
+    "record_id": "record_0108",
+    "score_components": {
+      "nearest_neighbor": 0.22487389403057015,
+      "robust_mad": 1.3242748400772597,
+      "support_deficit": 0.2977342849206861
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "d100fa84ffa19f70787ea250f439221bb4e48d601891840ffd1142e1761cf1ed",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.38461538461538464,
+    "ood_score": 1.9990863658449602,
+    "reason": "in_distribution",
+    "record_id": "record_0109",
+    "score_components": {
+      "nearest_neighbor": 0.2327372242822734,
+      "robust_mad": 1.6125911999066869,
+      "support_deficit": 0.21887390657847017
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "b005d18032624a223f1a88110d6e597735185d24d5877e16801ef99449ff54e1",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.5604395604395604,
+    "ood_score": 1.7032518695817154,
+    "reason": "in_distribution",
+    "record_id": "record_0110",
+    "score_components": {
+      "nearest_neighbor": 0.2701648075880649,
+      "robust_mad": 1.2743662934312003,
+      "support_deficit": 0.24089624950233257
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "d881b3ab36705dcf61d1f573f4416998a5b779e14e3dfcbb12c2f052f53b41f5",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.9010989010989011,
+    "ood_score": 1.342720955472905,
+    "reason": "in_distribution",
+    "record_id": "record_0111",
+    "score_components": {
+      "nearest_neighbor": 0.2598183984279766,
+      "robust_mad": 0.847715108783658,
+      "support_deficit": 0.2867008313881686
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "de570145e4f021b2c1855d9cee28c51bcbe6c0ea3072e017062ffdf1e8148666",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.4065934065934066,
+    "ood_score": 1.9036841379077314,
+    "reason": "in_distribution",
+    "record_id": "record_0112",
+    "score_components": {
+      "nearest_neighbor": 0.2572727967013715,
+      "robust_mad": 1.4482975418093929,
+      "support_deficit": 0.2607122646153305
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "d643fdf4554a4d1587a0f17e56110457dccaefe95ca9991d1f20804b3d292f29",
+    "is_ood": true,
+    "missingness": 0.0,
+    "ood_pvalue": 0.08791208791208792,
+    "ood_score": 3.2518654352327676,
+    "reason": "ood_gate",
+    "record_id": "record_0113",
+    "score_components": {
+      "nearest_neighbor": 0.49988297001265874,
+      "robust_mad": 2.5183437670651454,
+      "support_deficit": 0.40570061710963845
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "ab18e7ba71300e29e5483af789ca34a92b4a4cefe1038b653870f7d40f3256ff",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.8681318681318682,
+    "ood_score": 1.3796431031681449,
+    "reason": "in_distribution",
+    "record_id": "record_0114",
+    "score_components": {
+      "nearest_neighbor": 0.2205918848989563,
+      "robust_mad": 1.014293633698514,
+      "support_deficit": 0.20680099882992786
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "8c2af07c8b8ce9ae14f8310544b895742bf180ae71c615f23b5f75672ab95585",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.13186813186813187,
+    "ood_score": 2.7362795561614908,
+    "reason": "in_distribution",
+    "record_id": "record_0115",
+    "score_components": {
+      "nearest_neighbor": 0.40506016386718063,
+      "robust_mad": 2.2419966003542995,
+      "support_deficit": 0.2620119432269308
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "d44151a58284f73b88c0b51d4cd1029f6fd0c9b5fe564dd5cf462ac6c48d0398",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.5164835164835165,
+    "ood_score": 1.72669019791517,
+    "reason": "in_distribution",
+    "record_id": "record_0116",
+    "score_components": {
+      "nearest_neighbor": 0.3905014845090008,
+      "robust_mad": 1.2387943836611017,
+      "support_deficit": 0.2601802954178788
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "1104cc152e2cb4b3bca644a6e748f8a9935afdc1c3c085b2ce77a3c7a7114eec",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.8461538461538461,
+    "ood_score": 1.401847928360923,
+    "reason": "in_distribution",
+    "record_id": "record_0117",
+    "score_components": {
+      "nearest_neighbor": 0.21194639824573608,
+      "robust_mad": 1.1261002729446976,
+      "support_deficit": 0.14850737056986096
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "3e9e28d30774a0828d739e1da22404c526d3fd6d5ad784b959c5a6060192c868",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.4175824175824176,
+    "ood_score": 1.8673893317315302,
+    "reason": "in_distribution",
+    "record_id": "record_0118",
+    "score_components": {
+      "nearest_neighbor": 0.25603652201378185,
+      "robust_mad": 1.3731746436634822,
+      "support_deficit": 0.2868037050430684
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "d3897ef81d6f0b5f5fd27012efd6a340059b97ea9f8596895798690b841598dd",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.5824175824175825,
+    "ood_score": 1.6912851003826042,
+    "reason": "in_distribution",
+    "record_id": "record_0119",
+    "score_components": {
+      "nearest_neighbor": 0.377524724054547,
+      "robust_mad": 1.361925210046817,
+      "support_deficit": 0.15665247288143347
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "3ad69d99059834e36e16140a7c3058daa29f2fcbdf31e2c33562bf6946492794",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.13186813186813187,
+    "ood_score": 2.5541905545329033,
+    "reason": "in_distribution",
+    "record_id": "record_0120",
+    "score_components": {
+      "nearest_neighbor": 0.42051961983399383,
+      "robust_mad": 1.9776180929937206,
+      "support_deficit": 0.3142950377204563
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "f51b876ad3ebe31e907cab67e4daaa6d283dd7fed5f67914cde6cc7e009483a7",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.6483516483516484,
+    "ood_score": 1.6269301785992898,
+    "reason": "in_distribution",
+    "record_id": "record_0121",
+    "score_components": {
+      "nearest_neighbor": 0.21655156873137368,
+      "robust_mad": 1.2365663923737582,
+      "support_deficit": 0.22415059602845877
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "61ca84dddfd98b5c4c08489b54292c3e583048aa4f23d4bc3f4045e1ee1acbda",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.13186813186813187,
+    "ood_score": 2.779723146476292,
+    "reason": "in_distribution",
+    "record_id": "record_0122",
+    "score_components": {
+      "nearest_neighbor": 0.34383341824933106,
+      "robust_mad": 2.144620525056935,
+      "support_deficit": 0.36609617790468296
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "91c2c7a386c0d1c8b76c11be61b096cdffc5e59630ed791123da92a4adde29d0",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.8791208791208791,
+    "ood_score": 1.3658226976527619,
+    "reason": "in_distribution",
+    "record_id": "record_0123",
+    "score_components": {
+      "nearest_neighbor": 0.2945218110935539,
+      "robust_mad": 1.0117361392148931,
+      "support_deficit": 0.18697073710965362
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "45419a301f8806a66c054641881aefba54b95bae10fb18e614e7945c047955b5",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.6593406593406593,
+    "ood_score": 1.6091898207795832,
+    "reason": "in_distribution",
+    "record_id": "record_0124",
+    "score_components": {
+      "nearest_neighbor": 0.2896488033376473,
+      "robust_mad": 1.2530899346333007,
+      "support_deficit": 0.1891251235412471
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "a4b57d18c4e126d2f03f546416503084285140874b16115a13539a27ab7deb57",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.4175824175824176,
+    "ood_score": 1.850967611904758,
+    "reason": "in_distribution",
+    "record_id": "record_0125",
+    "score_components": {
+      "nearest_neighbor": 0.24164938322387794,
+      "robust_mad": 1.3322003241039597,
+      "support_deficit": 0.3055699613298858
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "659199690c2bfc662e51a98a6a32e66a86590ae029a3f0e047a17dba86feee67",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.978021978021978,
+    "ood_score": 1.0998644476863477,
+    "reason": "in_distribution",
+    "record_id": "record_0126",
+    "score_components": {
+      "nearest_neighbor": 0.28682143189528353,
+      "robust_mad": 0.6744907594765955,
+      "support_deficit": 0.23577888682395431
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "5afd262ce974be65ef29c1fa20a928dc64619a643b9f7c63ed99c6210ff10023",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.13186813186813187,
+    "ood_score": 2.614779163741771,
+    "reason": "in_distribution",
+    "record_id": "record_0127",
+    "score_components": {
+      "nearest_neighbor": 0.41386339439197,
+      "robust_mad": 2.0281285313489743,
+      "support_deficit": 0.32212318919653615
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "27c3128f191de40005de55716fcfc86e2269312be93c6e791aa7ae2328924a65",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.7362637362637363,
+    "ood_score": 1.5466157163862402,
+    "reason": "in_distribution",
+    "record_id": "record_0128",
+    "score_components": {
+      "nearest_neighbor": 0.12893694445363793,
+      "robust_mad": 1.2180928945536282,
+      "support_deficit": 0.19752572381280165
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "10849d3ba5aedc7f7705511babfbf35884c37e008c4ab23e20ce72186e4ec017",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 1.0,
+    "ood_score": 1.039819371357342,
+    "reason": "in_distribution",
+    "record_id": "record_0129",
+    "score_components": {
+      "nearest_neighbor": 0.11648297285139003,
+      "robust_mad": 0.7789765614072729,
+      "support_deficit": 0.15448137782481441
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "626875ca40a8c0c20fa6c6933c4218246f51c3e3971265d9e12c44ec4823fee9",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.13186813186813187,
+    "ood_score": 2.7196740556430967,
+    "reason": "in_distribution",
+    "record_id": "record_0130",
+    "score_components": {
+      "nearest_neighbor": 0.4255482733265025,
+      "robust_mad": 2.2367148444548484,
+      "support_deficit": 0.2510480952377485
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "f77ea80847e393b9a8430132608030ec3dd8b76847fcc691bd8d25afa25dcac6",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.5054945054945055,
+    "ood_score": 1.75574797652914,
+    "reason": "in_distribution",
+    "record_id": "record_0131",
+    "score_components": {
+      "nearest_neighbor": 0.3109164034466563,
+      "robust_mad": 1.3833492682538602,
+      "support_deficit": 0.1964464049424105
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "29fe9aab42abc6c0740c8bf0494e7129d0570ffac24e60efe73a41c8f34e1568",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.46153846153846156,
+    "ood_score": 1.8348938365143919,
+    "reason": "in_distribution",
+    "record_id": "record_0132",
+    "score_components": {
+      "nearest_neighbor": 0.27739931422162173,
+      "robust_mad": 1.312033698285873,
+      "support_deficit": 0.30234020644874227
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "aac8096a85faf01a869388d8a98fadd6be8f4bb4eecabf32cc3807eb72473c6b",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.5054945054945055,
+    "ood_score": 1.770967327344527,
+    "reason": "in_distribution",
+    "record_id": "record_0133",
+    "score_components": {
+      "nearest_neighbor": 0.280217482294404,
+      "robust_mad": 1.3391170060571194,
+      "support_deficit": 0.24119730047587107
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "f273124979433d8c48be809ab89effb157c22af3f737e0f79635bd77ea23e7b8",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.4065934065934066,
+    "ood_score": 1.9050681024384388,
+    "reason": "in_distribution",
+    "record_id": "record_0134",
+    "score_components": {
+      "nearest_neighbor": 0.29511192289131427,
+      "robust_mad": 1.425459919422778,
+      "support_deficit": 0.27055346819522164
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "aaaba7da49ded512e2fc9c02201fad1bdb74a177737d0db5bf539a24605aeec7",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.34065934065934067,
+    "ood_score": 2.123354376846035,
+    "reason": "in_distribution",
+    "record_id": "record_0135",
+    "score_components": {
+      "nearest_neighbor": 0.19166812275930345,
+      "robust_mad": 1.7599373954987898,
+      "support_deficit": 0.21033330043827947
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "8e1ef84e3636ec1a025594486f1182afaac9a5fd3913c3da0b7c9b4f1a78fdc9",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.8351648351648352,
+    "ood_score": 1.450704804419648,
+    "reason": "in_distribution",
+    "record_id": "record_0136",
+    "score_components": {
+      "nearest_neighbor": 0.2340534818695456,
+      "robust_mad": 0.9937355049911402,
+      "support_deficit": 0.2656372859740809
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "0274d715655984396e8f8d1168f1a8e19cc43cf5881e9913b1a47e4902e8e988",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.4725274725274725,
+    "ood_score": 1.8181193376164788,
+    "reason": "in_distribution",
+    "record_id": "record_0137",
+    "score_components": {
+      "nearest_neighbor": 0.27539080882601213,
+      "robust_mad": 1.2768238309730997,
+      "support_deficit": 0.3149652029579174
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "82ac9edffe72c43ec2a3e3e7adc7e1d4efedecf944e76e2d82accfde06da0f1c",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.6593406593406593,
+    "ood_score": 1.6058266188786658,
+    "reason": "in_distribution",
+    "record_id": "record_0138",
+    "score_components": {
+      "nearest_neighbor": 0.2009318563893213,
+      "robust_mad": 1.223119100946588,
+      "support_deficit": 0.2216497025564984
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "3a74f64d639d42ef2a905b3adb59db73ae225afa1634be4cf2151f7903d6f794",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.6263736263736264,
+    "ood_score": 1.6521210601315524,
+    "reason": "in_distribution",
+    "record_id": "record_0139",
+    "score_components": {
+      "nearest_neighbor": 0.19635283865845624,
+      "robust_mad": 1.2660360129396868,
+      "support_deficit": 0.2246645583515009
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "ca8e2c74d51e74b1daaa9ed5de8f9ecf5a92b5ac0eb89a36ba06a6c61800d344",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.5494505494505495,
+    "ood_score": 1.710081178323632,
+    "reason": "in_distribution",
+    "record_id": "record_0140",
+    "score_components": {
+      "nearest_neighbor": 0.29193419435248114,
+      "robust_mad": 1.2414349386970285,
+      "support_deficit": 0.2637751273589888
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "20658e9d90c23fc42ea7b47ccf99b6404c2b21c3741cdad25de856c5109d59b4",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.8791208791208791,
+    "ood_score": 1.3754470524400522,
+    "reason": "in_distribution",
+    "record_id": "record_0141",
+    "score_components": {
+      "nearest_neighbor": 0.22424254068028085,
+      "robust_mad": 1.0117361392148931,
+      "support_deficit": 0.20510018537005914
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "783f5fb702bc4e2ba7ba1420a7025d58e7981e7eebc96dd0511574531cca34b4",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.34065934065934067,
+    "ood_score": 2.12230209011464,
+    "reason": "in_distribution",
+    "record_id": "record_0142",
+    "score_components": {
+      "nearest_neighbor": 0.22323491744629173,
+      "robust_mad": 1.8180823824422088,
+      "support_deficit": 0.16560731887390567
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "2fec9d91ca2367c4faa92a1c1aa2cec265b9fae61a31b9a073509291b0244251",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.27472527472527475,
+    "ood_score": 2.253394837914175,
+    "reason": "in_distribution",
+    "record_id": "record_0143",
+    "score_components": {
+      "nearest_neighbor": 0.48215701101637987,
+      "robust_mad": 1.7996492256760084,
+      "support_deficit": 0.22213757298938108
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "ac6b544d5ed3adbc997d76b29a841a80e019beaff0ca52dd41102688d1960434",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.4945054945054945,
+    "ood_score": 1.7865809863303381,
+    "reason": "in_distribution",
+    "record_id": "record_0144",
+    "score_components": {
+      "nearest_neighbor": 0.3230574035340272,
+      "robust_mad": 1.3489815189531909,
+      "support_deficit": 0.2378900776624271
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "cbf927a98fa800ec42e7a570007963f6b77492d76e951df786dbfb2b1662713b",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.6483516483516484,
+    "ood_score": 1.6242406228230133,
+    "reason": "in_distribution",
+    "record_id": "record_0145",
+    "score_components": {
+      "nearest_neighbor": 0.3056789844194738,
+      "robust_mad": 1.2365663923737582,
+      "support_deficit": 0.20750298956292446
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "8a11ad4b8f33f0a8f2a7a4e74442ab4522e5f8b0dbf6d5ed060424378ed920ac",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.7362637362637363,
+    "ood_score": 1.550039607826564,
+    "reason": "in_distribution",
+    "record_id": "record_0146",
+    "score_components": {
+      "nearest_neighbor": 0.25155816679473697,
+      "robust_mad": 1.1241512657943258,
+      "support_deficit": 0.2419992002223692
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "3e8ddc5cb1e5a7685acfdcb222d0812ef97b31c3da9c5845fab5e49526b29fdd",
+    "is_ood": true,
+    "missingness": 0.0,
+    "ood_pvalue": 0.02197802197802198,
+    "ood_score": 3.8810685265154197,
+    "reason": "ood_gate",
+    "record_id": "record_0147",
+    "score_components": {
+      "nearest_neighbor": 0.5152001290455467,
+      "robust_mad": 3.210873142520576,
+      "support_deficit": 0.3609302344889712
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "024fbb5729a5f01baafeeb75ed7633af06c2e8a165596d87290a5dcc967623fa",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.5274725274725275,
+    "ood_score": 1.7237167054702702,
+    "reason": "in_distribution",
+    "record_id": "record_0148",
+    "score_components": {
+      "nearest_neighbor": 0.25144218907295,
+      "robust_mad": 1.3383804055745128,
+      "support_deficit": 0.2149838350850133
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "54ec013eb460a8267834cdb21747dc689f6d97631f72bc914bd942b06a34fd3a",
+    "is_ood": false,
+    "missingness": 0.0,
+    "ood_pvalue": 0.15384615384615385,
+    "ood_score": 2.450898185687925,
+    "reason": "in_distribution",
+    "record_id": "record_0149",
+    "score_components": {
+      "nearest_neighbor": 0.43426576391613697,
+      "robust_mad": 1.9041948649980238,
+      "support_deficit": 0.2920912531405778
+    },
+    "uses_outcome_at_decision": false
+  },
+  {
+    "evaluation_hash": "1a4c7ca59b2baa8bccde6387ed818e46651d037e26b4dc5bce9d8765be8ed674",
+    "is_ood": true,
+    "missingness": 0.0,
+    "ood_pvalue": 0.04395604395604396,
+    "ood_score": 3.6441087834356454,
+    "reason": "ood_gate",
+    "record_id": "record_0150",
+    "score_components": {
+      "nearest_neighbor": 0.3008069060864085,
+      "robust_mad": 3.0271217581589256,
+      "support_deficit": 0.36119019917007833
+    },
+    "uses_outcome_at_decision": false
+  }
+]

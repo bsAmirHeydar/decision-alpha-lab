@@ -1,0 +1,70 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-24/golden_drift_ood_evaluations.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Closed deterministic research-only contract. Unknown object fields are rejected.",
+  "items": {
+    "additionalProperties": false,
+    "properties": {
+      "evaluation_hash": {
+        "type": "string"
+      },
+      "is_ood": {
+        "type": "boolean"
+      },
+      "missingness": {
+        "type": "number"
+      },
+      "ood_pvalue": {
+        "type": "number"
+      },
+      "ood_score": {
+        "type": "number"
+      },
+      "reason": {
+        "type": "string"
+      },
+      "record_id": {
+        "type": "string"
+      },
+      "score_components": {
+        "additionalProperties": false,
+        "properties": {
+          "nearest_neighbor": {
+            "type": "number"
+          },
+          "robust_mad": {
+            "type": "number"
+          },
+          "support_deficit": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "nearest_neighbor",
+          "robust_mad",
+          "support_deficit"
+        ],
+        "type": "object"
+      },
+      "uses_outcome_at_decision": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "evaluation_hash",
+      "is_ood",
+      "missingness",
+      "ood_pvalue",
+      "ood_score",
+      "reason",
+      "record_id",
+      "score_components",
+      "uses_outcome_at_decision"
+    ],
+    "type": "object"
+  },
+  "title": "SAED V4-24 GOLDEN_DRIFT_OOD_EVALUATIONS",
+  "type": "array",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_24"
+}

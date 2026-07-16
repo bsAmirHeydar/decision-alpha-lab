@@ -1,0 +1,10 @@
+{
+  "complete": true,
+  "hidden_evaluation_queries": 0,
+  "ledger_hash": "76c0c80f1396317758cf685a9a925e84f084f859f200eb1a7c30d72d400f9014",
+  "online_policy_mutations": 0,
+  "order_submissions": 0,
+  "phase": "SAED_V4_24",
+  "protected_evidence_exposures": 0,
+  "runtime_compilations": 0
+}

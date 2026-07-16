@@ -1,0 +1,25 @@
+{
+  "complete": true,
+  "ledger_hash": "7a3841c12d5a14c17e0acde4a24e6e84826042ab915bc83688b52602e31bb01a",
+  "phase": "SAED_V4_24",
+  "trials": [
+    {
+      "family": "split_mondrian_conformal",
+      "promotion_eligible": false,
+      "status": "completed",
+      "trial_id": "trial_conformal_001"
+    },
+    {
+      "family": "robust_support_aware_ood",
+      "promotion_eligible": false,
+      "status": "completed",
+      "trial_id": "trial_ood_001"
+    },
+    {
+      "family": "coverage_risk_selective_control",
+      "promotion_eligible": false,
+      "status": "completed",
+      "trial_id": "trial_selective_001"
+    }
+  ]
+}

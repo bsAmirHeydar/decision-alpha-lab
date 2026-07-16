@@ -1,0 +1,50 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-24/golden_upstream_receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown object fields are rejected.",
+  "properties": {
+    "authority_verified_zero": {
+      "type": "boolean"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "research_policy_id": {
+      "type": "string"
+    },
+    "scope_verified": {
+      "type": "boolean"
+    },
+    "upstream_phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "authority_verified_zero",
+    "certificate_hash",
+    "handoff_hash",
+    "immutable",
+    "phase",
+    "receipt_hash",
+    "research_policy_id",
+    "scope_verified",
+    "upstream_phase"
+  ],
+  "title": "SAED V4-24 GOLDEN_UPSTREAM_RECEIPT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_24"
+}

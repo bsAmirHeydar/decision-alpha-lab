@@ -1,0 +1,17 @@
+{
+  "accepted_count": 16,
+  "calibrated_coverage": 0.26666666666666666,
+  "calibrated_risk": 0.125,
+  "calibrated_risk_upper": 0.4,
+  "chosen_threshold": 0.0,
+  "full_safe_fallback": false,
+  "minimum_coverage": 0.1,
+  "objective": "maximize_coverage_subject_to_risk_upper",
+  "phase": "SAED_V4_24",
+  "policy_hash": "fb3b7a3460a53bab7caed80d89a17819a9232cf90f97ca40b031403f9fc7c5ae",
+  "policy_id": "abstention_policy_0ca1f07a7aa32735a0c4d79b",
+  "research_only": true,
+  "safe_action": "skip",
+  "target_risk_upper": 0.75,
+  "tie_break": "higher_threshold_then_lower_risk"
+}

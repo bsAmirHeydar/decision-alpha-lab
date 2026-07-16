@@ -1,0 +1,431 @@
+{
+  "coverage_hash": "91c76c59017b670b8bc2cc59cf8ca11bd0bb70db4ee2adabe4d052c4b16ffe2d",
+  "decision_authority": false,
+  "empirical_coverage": 0.9,
+  "phase": "SAED_V4_24",
+  "record_count": 60,
+  "retrospective_only": true,
+  "rows": [
+    {
+      "covered": false,
+      "realized_value": -0.03932272274997001,
+      "record_id": "record_0091",
+      "regime": "trend",
+      "value_lower_bound": 0.0016883176877535433
+    },
+    {
+      "covered": true,
+      "realized_value": 0.07855566414681767,
+      "record_id": "record_0092",
+      "regime": "range",
+      "value_lower_bound": -0.02730021356905242
+    },
+    {
+      "covered": true,
+      "realized_value": 0.0021132738421989553,
+      "record_id": "record_0093",
+      "regime": "transition",
+      "value_lower_bound": -0.06161191982402928
+    },
+    {
+      "covered": true,
+      "realized_value": 0.09280018718172191,
+      "record_id": "record_0094",
+      "regime": "trend",
+      "value_lower_bound": -0.013256398650490095
+    },
+    {
+      "covered": true,
+      "realized_value": 0.06816166722391655,
+      "record_id": "record_0095",
+      "regime": "range",
+      "value_lower_bound": -0.00032606850201641335
+    },
+    {
+      "covered": true,
+      "realized_value": -0.1435945120685575,
+      "record_id": "record_0096",
+      "regime": "transition",
+      "value_lower_bound": -0.19680584923516073
+    },
+    {
+      "covered": true,
+      "realized_value": 0.008743904184054775,
+      "record_id": "record_0097",
+      "regime": "trend",
+      "value_lower_bound": -0.07914851902227252
+    },
+    {
+      "covered": true,
+      "realized_value": -0.04221772104785238,
+      "record_id": "record_0098",
+      "regime": "range",
+      "value_lower_bound": -0.13528546293737165
+    },
+    {
+      "covered": true,
+      "realized_value": -0.01596987878472568,
+      "record_id": "record_0099",
+      "regime": "transition",
+      "value_lower_bound": -0.11030842009917569
+    },
+    {
+      "covered": true,
+      "realized_value": 0.06881218180310768,
+      "record_id": "record_0100",
+      "regime": "trend",
+      "value_lower_bound": 0.03269391309895822
+    },
+    {
+      "covered": true,
+      "realized_value": -0.06409970939960964,
+      "record_id": "record_0101",
+      "regime": "range",
+      "value_lower_bound": -0.14300342361534024
+    },
+    {
+      "covered": false,
+      "realized_value": -0.18233225930649194,
+      "record_id": "record_0102",
+      "regime": "transition",
+      "value_lower_bound": -0.14546543712681992
+    },
+    {
+      "covered": true,
+      "realized_value": 0.26057727976467615,
+      "record_id": "record_0103",
+      "regime": "trend",
+      "value_lower_bound": -0.015900697082828874
+    },
+    {
+      "covered": true,
+      "realized_value": -0.012271691516384964,
+      "record_id": "record_0104",
+      "regime": "range",
+      "value_lower_bound": -0.10170414164169521
+    },
+    {
+      "covered": true,
+      "realized_value": 0.0911088302984322,
+      "record_id": "record_0105",
+      "regime": "transition",
+      "value_lower_bound": -0.045981851309746885
+    },
+    {
+      "covered": true,
+      "realized_value": 0.029152814936661414,
+      "record_id": "record_0106",
+      "regime": "trend",
+      "value_lower_bound": -0.048288854795693864
+    },
+    {
+      "covered": true,
+      "realized_value": -0.0021051559286154996,
+      "record_id": "record_0107",
+      "regime": "range",
+      "value_lower_bound": -0.13939214788687668
+    },
+    {
+      "covered": true,
+      "realized_value": 0.1263745581519295,
+      "record_id": "record_0108",
+      "regime": "transition",
+      "value_lower_bound": -0.07946728898073367
+    },
+    {
+      "covered": true,
+      "realized_value": 0.20036855125446046,
+      "record_id": "record_0109",
+      "regime": "trend",
+      "value_lower_bound": 0.029197922331233445
+    },
+    {
+      "covered": true,
+      "realized_value": 0.051613828089933894,
+      "record_id": "record_0110",
+      "regime": "range",
+      "value_lower_bound": -0.05375538634528709
+    },
+    {
+      "covered": true,
+      "realized_value": 0.04449746036982859,
+      "record_id": "record_0111",
+      "regime": "transition",
+      "value_lower_bound": -0.06144222388383763
+    },
+    {
+      "covered": true,
+      "realized_value": 0.05012260556809385,
+      "record_id": "record_0112",
+      "regime": "trend",
+      "value_lower_bound": -0.06488950671855435
+    },
+    {
+      "covered": true,
+      "realized_value": -0.12374209861186883,
+      "record_id": "record_0113",
+      "regime": "range",
+      "value_lower_bound": -0.18664797427666666
+    },
+    {
+      "covered": true,
+      "realized_value": -0.06200068774496682,
+      "record_id": "record_0114",
+      "regime": "transition",
+      "value_lower_bound": -0.11554772574681214
+    },
+    {
+      "covered": true,
+      "realized_value": -0.041708105621079176,
+      "record_id": "record_0115",
+      "regime": "trend",
+      "value_lower_bound": -0.06332471035952256
+    },
+    {
+      "covered": true,
+      "realized_value": 0.036570299446779725,
+      "record_id": "record_0116",
+      "regime": "range",
+      "value_lower_bound": -0.04666654463523491
+    },
+    {
+      "covered": false,
+      "realized_value": -0.1642534225176132,
+      "record_id": "record_0117",
+      "regime": "transition",
+      "value_lower_bound": -0.11417699610642287
+    },
+    {
+      "covered": true,
+      "realized_value": 0.15337900169495206,
+      "record_id": "record_0118",
+      "regime": "trend",
+      "value_lower_bound": -0.04153148802091998
+    },
+    {
+      "covered": false,
+      "realized_value": -0.0459140074339527,
+      "record_id": "record_0119",
+      "regime": "range",
+      "value_lower_bound": -0.024560403125794425
+    },
+    {
+      "covered": false,
+      "realized_value": -0.22230692344621722,
+      "record_id": "record_0120",
+      "regime": "transition",
+      "value_lower_bound": -0.11138869466201734
+    },
+    {
+      "covered": true,
+      "realized_value": -0.023286002864845355,
+      "record_id": "record_0121",
+      "regime": "trend",
+      "value_lower_bound": -0.06574838786889584
+    },
+    {
+      "covered": true,
+      "realized_value": 0.04685053558133315,
+      "record_id": "record_0122",
+      "regime": "range",
+      "value_lower_bound": -0.043067006137749525
+    },
+    {
+      "covered": true,
+      "realized_value": -0.037825611971105996,
+      "record_id": "record_0123",
+      "regime": "transition",
+      "value_lower_bound": -0.06307613789556213
+    },
+    {
+      "covered": true,
+      "realized_value": 0.14939023398960607,
+      "record_id": "record_0124",
+      "regime": "trend",
+      "value_lower_bound": -0.014521727367123122
+    },
+    {
+      "covered": true,
+      "realized_value": 0.05565958738709119,
+      "record_id": "record_0125",
+      "regime": "range",
+      "value_lower_bound": -0.06304103891787505
+    },
+    {
+      "covered": true,
+      "realized_value": 0.04281897730510558,
+      "record_id": "record_0126",
+      "regime": "transition",
+      "value_lower_bound": -0.07339979676346195
+    },
+    {
+      "covered": true,
+      "realized_value": 0.06106551399223656,
+      "record_id": "record_0127",
+      "regime": "trend",
+      "value_lower_bound": -0.033606598786239644
+    },
+    {
+      "covered": true,
+      "realized_value": 0.0332693512424003,
+      "record_id": "record_0128",
+      "regime": "range",
+      "value_lower_bound": -0.04949985487462211
+    },
+    {
+      "covered": true,
+      "realized_value": 0.02959866969956789,
+      "record_id": "record_0129",
+      "regime": "transition",
+      "value_lower_bound": -0.05904572927854277
+    },
+    {
+      "covered": true,
+      "realized_value": 0.13654065208351202,
+      "record_id": "record_0130",
+      "regime": "trend",
+      "value_lower_bound": 0.057999432239458165
+    },
+    {
+      "covered": true,
+      "realized_value": 0.08407958095557082,
+      "record_id": "record_0131",
+      "regime": "range",
+      "value_lower_bound": -0.135132629256086
+    },
+    {
+      "covered": true,
+      "realized_value": 0.02784403118669762,
+      "record_id": "record_0132",
+      "regime": "transition",
+      "value_lower_bound": -0.07678029063444462
+    },
+    {
+      "covered": true,
+      "realized_value": 0.08740825336820122,
+      "record_id": "record_0133",
+      "regime": "trend",
+      "value_lower_bound": -0.0315151922441818
+    },
+    {
+      "covered": true,
+      "realized_value": 0.032931233018131424,
+      "record_id": "record_0134",
+      "regime": "range",
+      "value_lower_bound": -0.09633866208870118
+    },
+    {
+      "covered": true,
+      "realized_value": 0.10768986365232593,
+      "record_id": "record_0135",
+      "regime": "transition",
+      "value_lower_bound": -0.05223538912007636
+    },
+    {
+      "covered": true,
+      "realized_value": 0.15848224311073994,
+      "record_id": "record_0136",
+      "regime": "trend",
+      "value_lower_bound": -0.005307979570620888
+    },
+    {
+      "covered": true,
+      "realized_value": -0.09003690065856433,
+      "record_id": "record_0137",
+      "regime": "range",
+      "value_lower_bound": -0.14103933536722812
+    },
+    {
+      "covered": true,
+      "realized_value": 0.014206460305066088,
+      "record_id": "record_0138",
+      "regime": "transition",
+      "value_lower_bound": -0.07857413399757987
+    },
+    {
+      "covered": true,
+      "realized_value": 0.10465506521893907,
+      "record_id": "record_0139",
+      "regime": "trend",
+      "value_lower_bound": 0.003756810038445829
+    },
+    {
+      "covered": true,
+      "realized_value": 0.015470923923598768,
+      "record_id": "record_0140",
+      "regime": "range",
+      "value_lower_bound": -0.11201851212700935
+    },
+    {
+      "covered": true,
+      "realized_value": 0.11217723150199828,
+      "record_id": "record_0141",
+      "regime": "transition",
+      "value_lower_bound": -0.045460676527664945
+    },
+    {
+      "covered": true,
+      "realized_value": 0.04832259576694091,
+      "record_id": "record_0142",
+      "regime": "trend",
+      "value_lower_bound": -0.0005658597649381425
+    },
+    {
+      "covered": true,
+      "realized_value": 0.024642173324841025,
+      "record_id": "record_0143",
+      "regime": "range",
+      "value_lower_bound": -0.141131559403641
+    },
+    {
+      "covered": false,
+      "realized_value": -0.11383024285583579,
+      "record_id": "record_0144",
+      "regime": "transition",
+      "value_lower_bound": -0.05914786746138298
+    },
+    {
+      "covered": true,
+      "realized_value": 0.0632967334852498,
+      "record_id": "record_0145",
+      "regime": "trend",
+      "value_lower_bound": -0.0295246068778134
+    },
+    {
+      "covered": true,
+      "realized_value": -0.02540723682538406,
+      "record_id": "record_0146",
+      "regime": "range",
+      "value_lower_bound": -0.07491787529485172
+    },
+    {
+      "covered": true,
+      "realized_value": 0.09125874946470729,
+      "record_id": "record_0147",
+      "regime": "transition",
+      "value_lower_bound": -0.09630995786441411
+    },
+    {
+      "covered": true,
+      "realized_value": -0.018463166474946245,
+      "record_id": "record_0148",
+      "regime": "trend",
+      "value_lower_bound": -0.07461722506104265
+    },
+    {
+      "covered": true,
+      "realized_value": 0.14492739644811453,
+      "record_id": "record_0149",
+      "regime": "range",
+      "value_lower_bound": -0.06945059927754221
+    },
+    {
+      "covered": true,
+      "realized_value": 0.00433173561011955,
+      "record_id": "record_0150",
+      "regime": "transition",
+      "value_lower_bound": -0.09999365274000024
+    }
+  ],
+  "target_coverage": 0.9
+}

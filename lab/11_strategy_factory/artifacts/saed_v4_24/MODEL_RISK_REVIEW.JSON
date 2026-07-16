@@ -1,0 +1,49 @@
+{
+  "accepted_reference_only": true,
+  "open_external_evidence": [
+    "prospective coverage",
+    "independent calibration",
+    "MetaEditor compile",
+    "Python/MQL5 runtime parity",
+    "broker qualification"
+  ],
+  "phase": "SAED_V4_24",
+  "review_hash": "1a4b68f82ebba2db0b8d7a07e31e506acaf7690d6b9b1e068a91c6141669561e",
+  "risks": [
+    {
+      "control": "role separation, Mondrian diagnostics, drift containment, abstention",
+      "risk": "exchangeability_violation",
+      "severity": "critical"
+    },
+    {
+      "control": "no conditional-coverage claim; group minimum and pooled fallback",
+      "risk": "conditional_undercoverage",
+      "severity": "high"
+    },
+    {
+      "control": "minimum group size and content-addressed group counts",
+      "risk": "small_group_instability",
+      "severity": "high"
+    },
+    {
+      "control": "robust, local-distance and support components plus safe fallback",
+      "risk": "OOD_false_negative",
+      "severity": "high"
+    },
+    {
+      "control": "frozen threshold grid and separated selection-validation role",
+      "risk": "coverage_risk_selection_bias",
+      "severity": "high"
+    },
+    {
+      "control": "decision artifacts exclude realized outcome; mutation tests enforce invariance",
+      "risk": "future_outcome_leakage",
+      "severity": "critical"
+    },
+    {
+      "control": "drift diagnostics; no automatic runtime recalibration",
+      "risk": "calibration_aging",
+      "severity": "high"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "alpha": 0.1,
+  "deterministic": true,
+  "exact_version": "1.0.0",
+  "finite_sample_correction": true,
+  "minimum_group_size": 20,
+  "mondrian_field": "regime",
+  "one_sided_lower": true,
+  "pooled_fallback": true,
+  "score_type": "downside_residual"
+}

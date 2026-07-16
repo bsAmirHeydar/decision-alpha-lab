@@ -1,0 +1,45 @@
+{
+  "allowed_roles": [
+    "calibration",
+    "drift_reference",
+    "selection_validation"
+  ],
+  "cluster_role_separation_required": true,
+  "exact_version": "1.0.0",
+  "feature_known_by_decision": true,
+  "feature_names": [
+    "momentum",
+    "volatility",
+    "liquidity",
+    "session_progress",
+    "structure_score",
+    "spread_z"
+  ],
+  "future_suffix_forbidden": true,
+  "minimum_clusters": 9,
+  "minimum_records": 180,
+  "minimum_records_per_regime": 40,
+  "outcome_after_decision": true,
+  "protected_evidence_forbidden": true,
+  "required_fields": [
+    "allowed_actions",
+    "behavior_probability",
+    "candidate_action",
+    "candidate_probability",
+    "cluster_id",
+    "decision_time",
+    "feature_known_at",
+    "features",
+    "future_suffix_accessed",
+    "outcome_observed_at",
+    "policy_id",
+    "predicted_value",
+    "protected_evidence_accessed",
+    "realized_value",
+    "record_id",
+    "regime",
+    "role",
+    "support_score"
+  ],
+  "strict_decision_time_order": true
+}

@@ -1,0 +1,270 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-24/golden_conformal_ood_selective_certificate.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown object fields are rejected.",
+  "properties": {
+    "abstention_policy_id": {
+      "type": "string"
+    },
+    "accepted_for_conformal_ood_selective_research": {
+      "type": "boolean"
+    },
+    "authority_boundary": {
+      "additionalProperties": false,
+      "properties": {
+        "authority": {
+          "additionalProperties": false,
+          "properties": {
+            "decision": {
+              "type": "boolean"
+            },
+            "execution": {
+              "type": "boolean"
+            },
+            "online_learning": {
+              "type": "boolean"
+            },
+            "production": {
+              "type": "boolean"
+            },
+            "promotion": {
+              "type": "boolean"
+            },
+            "risk_allocation": {
+              "type": "boolean"
+            },
+            "runtime": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "decision",
+            "execution",
+            "online_learning",
+            "production",
+            "promotion",
+            "risk_allocation",
+            "runtime"
+          ],
+          "type": "object"
+        },
+        "boundary_hash": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "safe_action": {
+          "type": "string"
+        },
+        "ucee_authority_preserved": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "authority",
+        "boundary_hash",
+        "phase",
+        "research_only",
+        "safe_action",
+        "ucee_authority_preserved"
+      ],
+      "type": "object"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "conditional_coverage_claim": {
+      "type": "boolean"
+    },
+    "conformal_calibrator_id": {
+      "type": "string"
+    },
+    "drift_status": {
+      "type": "string"
+    },
+    "evidence_hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "abstention_policy": {
+          "type": "string"
+        },
+        "budget_ledger": {
+          "type": "string"
+        },
+        "conformal_calibrator": {
+          "type": "string"
+        },
+        "coverage_risk_frontier": {
+          "type": "string"
+        },
+        "dataset_summary": {
+          "type": "string"
+        },
+        "drift_report": {
+          "type": "string"
+        },
+        "exposure_ledger": {
+          "type": "string"
+        },
+        "ood_detector": {
+          "type": "string"
+        },
+        "retrospective_coverage": {
+          "type": "string"
+        },
+        "trial_ledger": {
+          "type": "string"
+        },
+        "upstream_receipt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "abstention_policy",
+        "budget_ledger",
+        "conformal_calibrator",
+        "coverage_risk_frontier",
+        "dataset_summary",
+        "drift_report",
+        "exposure_ledger",
+        "ood_detector",
+        "retrospective_coverage",
+        "trial_ledger",
+        "upstream_receipt"
+      ],
+      "type": "object"
+    },
+    "execution_authority": {
+      "type": "boolean"
+    },
+    "gates": {
+      "additionalProperties": false,
+      "properties": {
+        "abstention_policy_present": {
+          "type": "boolean"
+        },
+        "authority_zero": {
+          "type": "boolean"
+        },
+        "baseline_preserved": {
+          "type": "boolean"
+        },
+        "budget_respected": {
+          "type": "boolean"
+        },
+        "cluster_role_separation_verified": {
+          "type": "boolean"
+        },
+        "conformal_calibrated": {
+          "type": "boolean"
+        },
+        "coverage_risk_reported": {
+          "type": "boolean"
+        },
+        "drift_diagnostics_present": {
+          "type": "boolean"
+        },
+        "exposure_zero": {
+          "type": "boolean"
+        },
+        "known_time_verified": {
+          "type": "boolean"
+        },
+        "ood_calibrated": {
+          "type": "boolean"
+        },
+        "retrospective_coverage_reported": {
+          "type": "boolean"
+        },
+        "upstream_verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "abstention_policy_present",
+        "authority_zero",
+        "baseline_preserved",
+        "budget_respected",
+        "cluster_role_separation_verified",
+        "conformal_calibrated",
+        "coverage_risk_reported",
+        "drift_diagnostics_present",
+        "exposure_zero",
+        "known_time_verified",
+        "ood_calibrated",
+        "retrospective_coverage_reported",
+        "upstream_verified"
+      ],
+      "type": "object"
+    },
+    "ood_detector_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authority": {
+      "type": "boolean"
+    },
+    "promotion_authority": {
+      "type": "boolean"
+    },
+    "prospective_success_claim": {
+      "type": "boolean"
+    },
+    "real_alpha_claim": {
+      "type": "boolean"
+    },
+    "research_policy_id": {
+      "type": "string"
+    },
+    "risk_allocation_authority": {
+      "type": "boolean"
+    },
+    "runtime_executable": {
+      "type": "boolean"
+    },
+    "selection_is_research_only": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "abstention_policy_id",
+    "accepted_for_conformal_ood_selective_research",
+    "authority_boundary",
+    "certificate_hash",
+    "certificate_id",
+    "conditional_coverage_claim",
+    "conformal_calibrator_id",
+    "drift_status",
+    "evidence_hashes",
+    "execution_authority",
+    "gates",
+    "ood_detector_id",
+    "phase",
+    "production_authority",
+    "promotion_authority",
+    "prospective_success_claim",
+    "real_alpha_claim",
+    "research_policy_id",
+    "risk_allocation_authority",
+    "runtime_executable",
+    "selection_is_research_only",
+    "version"
+  ],
+  "title": "SAED V4-24 GOLDEN_CONFORMAL_OOD_SELECTIVE_CERTIFICATE",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_24"
+}

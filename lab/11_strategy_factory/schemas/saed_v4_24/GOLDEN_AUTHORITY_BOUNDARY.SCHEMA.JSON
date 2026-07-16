@@ -1,0 +1,71 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-24/golden_authority_boundary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown object fields are rejected.",
+  "properties": {
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "decision": {
+          "type": "boolean"
+        },
+        "execution": {
+          "type": "boolean"
+        },
+        "online_learning": {
+          "type": "boolean"
+        },
+        "production": {
+          "type": "boolean"
+        },
+        "promotion": {
+          "type": "boolean"
+        },
+        "risk_allocation": {
+          "type": "boolean"
+        },
+        "runtime": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "decision",
+        "execution",
+        "online_learning",
+        "production",
+        "promotion",
+        "risk_allocation",
+        "runtime"
+      ],
+      "type": "object"
+    },
+    "boundary_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "safe_action": {
+      "type": "string"
+    },
+    "ucee_authority_preserved": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "authority",
+    "boundary_hash",
+    "phase",
+    "research_only",
+    "safe_action",
+    "ucee_authority_preserved"
+  ],
+  "title": "SAED V4-24 GOLDEN_AUTHORITY_BOUNDARY",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_24"
+}

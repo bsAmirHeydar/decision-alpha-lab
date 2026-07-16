@@ -1,0 +1,10 @@
+{
+  "deterministic": true,
+  "empty_feasible_set_falls_back": true,
+  "exact_version": "1.0.0",
+  "minimum_coverage": 0.1,
+  "objective": "maximize_coverage_subject_to_risk_upper",
+  "safe_action": "skip",
+  "target_risk_upper": 0.75,
+  "tie_break": "higher_threshold_then_lower_risk"
+}

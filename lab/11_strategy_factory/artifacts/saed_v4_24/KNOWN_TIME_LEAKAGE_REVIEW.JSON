@@ -1,0 +1,10 @@
+{
+  "decision_artifact_uses_realized_outcome": false,
+  "future_suffix_queries": 0,
+  "outcome_mutation_changes_decisions": false,
+  "outcome_mutation_changes_retrospective_risk": true,
+  "passed": true,
+  "phase": "SAED_V4_24",
+  "protected_evidence_queries": 0,
+  "review_hash": "7f79f2bcf5f5834f12571c70d0fe2a76723782de2d70653e8a52f0e356e62b83"
+}

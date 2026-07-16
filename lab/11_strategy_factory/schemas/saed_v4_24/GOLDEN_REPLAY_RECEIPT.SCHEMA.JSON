@@ -1,0 +1,152 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-24/golden_replay_receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown object fields are rejected.",
+  "properties": {
+    "config_hash": {
+      "type": "string"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "future_suffix_queries": {
+      "type": "integer"
+    },
+    "input_hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "records": {
+          "type": "string"
+        },
+        "upstream_documents": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "records",
+        "upstream_documents"
+      ],
+      "type": "object"
+    },
+    "network_access": {
+      "type": "boolean"
+    },
+    "order_submissions": {
+      "type": "integer"
+    },
+    "output_hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "abstention_policy": {
+          "type": "string"
+        },
+        "authority_boundary": {
+          "type": "string"
+        },
+        "budget_snapshot": {
+          "type": "string"
+        },
+        "certificate": {
+          "type": "string"
+        },
+        "conformal_bounds": {
+          "type": "string"
+        },
+        "conformal_calibrator": {
+          "type": "string"
+        },
+        "coverage_risk_frontier": {
+          "type": "string"
+        },
+        "dataset_summary": {
+          "type": "string"
+        },
+        "drift_ood_evaluations": {
+          "type": "string"
+        },
+        "drift_report": {
+          "type": "string"
+        },
+        "exposure_ledger": {
+          "type": "string"
+        },
+        "handoff": {
+          "type": "string"
+        },
+        "ood_detector": {
+          "type": "string"
+        },
+        "retrospective_coverage": {
+          "type": "string"
+        },
+        "selection_ood_evaluations": {
+          "type": "string"
+        },
+        "selective_decisions": {
+          "type": "string"
+        },
+        "trial_ledger": {
+          "type": "string"
+        },
+        "upstream_receipt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "abstention_policy",
+        "authority_boundary",
+        "budget_snapshot",
+        "certificate",
+        "conformal_bounds",
+        "conformal_calibrator",
+        "coverage_risk_frontier",
+        "dataset_summary",
+        "drift_ood_evaluations",
+        "drift_report",
+        "exposure_ledger",
+        "handoff",
+        "ood_detector",
+        "retrospective_coverage",
+        "selection_ood_evaluations",
+        "selective_decisions",
+        "trial_ledger",
+        "upstream_receipt"
+      ],
+      "type": "object"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "protected_evidence_queries": {
+      "type": "integer"
+    },
+    "random_seed": {
+      "type": "integer"
+    },
+    "replay_hash": {
+      "type": "string"
+    },
+    "runtime_compilations": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "config_hash",
+    "deterministic",
+    "future_suffix_queries",
+    "input_hashes",
+    "network_access",
+    "order_submissions",
+    "output_hashes",
+    "phase",
+    "protected_evidence_queries",
+    "random_seed",
+    "replay_hash",
+    "runtime_compilations"
+  ],
+  "title": "SAED V4-24 GOLDEN_REPLAY_RECEIPT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_24"
+}

@@ -1,0 +1,12 @@
+{
+  "certificate_hash": "bb3b6107bb5bf101fd619b11a6703058035ef4f232e332eac44151ad7ec940d6",
+  "exact_version": "1.0.0",
+  "handoff_hash": "5dbc30941c14984b9bc4833af5ee1dce7c3e2fc4a2278445dcd40a3bfdd2ad1b",
+  "hash_verified": true,
+  "immutable": true,
+  "promotion_denied": true,
+  "required_phase": "SAED_V4_23",
+  "research_only": true,
+  "research_policy_id": "manual_baseline_policy_e64f2e661aebe39abaded8b9",
+  "runtime_denied": true
+}

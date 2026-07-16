@@ -1,0 +1,14 @@
+{
+  "authority_leakage": false,
+  "broker_credentials": false,
+  "hidden_evaluation_queries": 0,
+  "network_access": false,
+  "online_policy_mutations": 0,
+  "order_submissions": 0,
+  "passed": true,
+  "phase": "SAED_V4_24",
+  "protected_evidence_exposures": 0,
+  "review_hash": "44cc5a222974abb331c99fc714b0c9a41b2fd746fed870357d70eed091f7b9ee",
+  "runtime_compilations": 0,
+  "signing_material": false
+}

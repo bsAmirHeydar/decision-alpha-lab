@@ -1,0 +1,121 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-24/calibration_selection_drift_records.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Closed deterministic research-only contract. Unknown object fields are rejected.",
+  "items": {
+    "additionalProperties": false,
+    "properties": {
+      "allowed_actions": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "behavior_probability": {
+        "type": "number"
+      },
+      "candidate_action": {
+        "type": "string"
+      },
+      "candidate_probability": {
+        "type": "number"
+      },
+      "cluster_id": {
+        "type": "string"
+      },
+      "decision_time": {
+        "type": "string"
+      },
+      "feature_known_at": {
+        "type": "string"
+      },
+      "features": {
+        "additionalProperties": false,
+        "properties": {
+          "liquidity": {
+            "type": "number"
+          },
+          "momentum": {
+            "type": "number"
+          },
+          "session_progress": {
+            "type": "number"
+          },
+          "spread_z": {
+            "type": "number"
+          },
+          "structure_score": {
+            "type": "number"
+          },
+          "volatility": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "liquidity",
+          "momentum",
+          "session_progress",
+          "spread_z",
+          "structure_score",
+          "volatility"
+        ],
+        "type": "object"
+      },
+      "future_suffix_accessed": {
+        "type": "boolean"
+      },
+      "outcome_observed_at": {
+        "type": "string"
+      },
+      "policy_id": {
+        "type": "string"
+      },
+      "predicted_value": {
+        "type": "number"
+      },
+      "protected_evidence_accessed": {
+        "type": "boolean"
+      },
+      "realized_value": {
+        "type": "number"
+      },
+      "record_id": {
+        "type": "string"
+      },
+      "regime": {
+        "type": "string"
+      },
+      "role": {
+        "type": "string"
+      },
+      "support_score": {
+        "type": "number"
+      }
+    },
+    "required": [
+      "allowed_actions",
+      "behavior_probability",
+      "candidate_action",
+      "candidate_probability",
+      "cluster_id",
+      "decision_time",
+      "feature_known_at",
+      "features",
+      "future_suffix_accessed",
+      "outcome_observed_at",
+      "policy_id",
+      "predicted_value",
+      "protected_evidence_accessed",
+      "realized_value",
+      "record_id",
+      "regime",
+      "role",
+      "support_score"
+    ],
+    "type": "object"
+  },
+  "title": "SAED V4-24 CALIBRATION_SELECTION_DRIFT_RECORDS",
+  "type": "array",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_24"
+}

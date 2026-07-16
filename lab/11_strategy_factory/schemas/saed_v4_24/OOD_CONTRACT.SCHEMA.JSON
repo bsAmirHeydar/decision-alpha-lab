@@ -1,0 +1,64 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-24/ood_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown object fields are rejected.",
+  "properties": {
+    "alpha": {
+      "type": "number"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "fail_closed": {
+      "type": "boolean"
+    },
+    "feature_names": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "maximum_feature_missingness": {
+      "type": "number"
+    },
+    "methods": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "minimum_pvalue": {
+      "type": "number"
+    },
+    "nearest_neighbor_weight": {
+      "type": "number"
+    },
+    "robust_scale_floor": {
+      "type": "number"
+    },
+    "support_deficit_weight": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "alpha",
+    "deterministic",
+    "exact_version",
+    "fail_closed",
+    "feature_names",
+    "maximum_feature_missingness",
+    "methods",
+    "minimum_pvalue",
+    "nearest_neighbor_weight",
+    "robust_scale_floor",
+    "support_deficit_weight"
+  ],
+  "title": "SAED V4-24 OOD_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_24"
+}

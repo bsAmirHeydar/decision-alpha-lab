@@ -1,0 +1,167 @@
+{
+  "abstention_contract": {
+    "deterministic": true,
+    "empty_feasible_set_falls_back": true,
+    "exact_version": "1.0.0",
+    "minimum_coverage": 0.1,
+    "objective": "maximize_coverage_subject_to_risk_upper",
+    "safe_action": "skip",
+    "target_risk_upper": 0.75,
+    "tie_break": "higher_threshold_then_lower_risk"
+  },
+  "calibration_dataset_contract": {
+    "allowed_roles": [
+      "calibration",
+      "drift_reference",
+      "selection_validation"
+    ],
+    "cluster_role_separation_required": true,
+    "exact_version": "1.0.0",
+    "feature_known_by_decision": true,
+    "feature_names": [
+      "momentum",
+      "volatility",
+      "liquidity",
+      "session_progress",
+      "structure_score",
+      "spread_z"
+    ],
+    "future_suffix_forbidden": true,
+    "minimum_clusters": 9,
+    "minimum_records": 180,
+    "minimum_records_per_regime": 40,
+    "outcome_after_decision": true,
+    "protected_evidence_forbidden": true,
+    "required_fields": [
+      "allowed_actions",
+      "behavior_probability",
+      "candidate_action",
+      "candidate_probability",
+      "cluster_id",
+      "decision_time",
+      "feature_known_at",
+      "features",
+      "future_suffix_accessed",
+      "outcome_observed_at",
+      "policy_id",
+      "predicted_value",
+      "protected_evidence_accessed",
+      "realized_value",
+      "record_id",
+      "regime",
+      "role",
+      "support_score"
+    ],
+    "strict_decision_time_order": true
+  },
+  "conformal_contract": {
+    "alpha": 0.1,
+    "deterministic": true,
+    "exact_version": "1.0.0",
+    "finite_sample_correction": true,
+    "minimum_group_size": 20,
+    "mondrian_field": "regime",
+    "one_sided_lower": true,
+    "pooled_fallback": true,
+    "score_type": "downside_residual"
+  },
+  "coverage_risk_contract": {
+    "aurc_required": true,
+    "baseline_comparison_required": true,
+    "bootstrap_draws": 300,
+    "cluster_bootstrap_required": true,
+    "confidence_level": 0.9,
+    "exact_version": "1.0.0",
+    "maximum_selective_risk_upper": 0.75,
+    "minimum_coverage": 0.1,
+    "monotone_envelope_required": true,
+    "risk_definition": "negative_realized_value_rate",
+    "threshold_grid": [
+      0.0,
+      0.01,
+      0.02,
+      0.04,
+      0.06,
+      0.08,
+      0.12,
+      0.18,
+      0.25,
+      0.35
+    ]
+  },
+  "drift_contract": {
+    "action_on_breach": "research_abstention_only",
+    "exact_version": "1.0.0",
+    "fail_closed": true,
+    "maximum_mean_score_ratio": 3.0,
+    "maximum_ood_rate": 0.45,
+    "maximum_psi": 0.6,
+    "minimum_window_records": 30,
+    "runtime_mutation_forbidden": true
+  },
+  "ood_contract": {
+    "alpha": 0.1,
+    "deterministic": true,
+    "exact_version": "1.0.0",
+    "fail_closed": true,
+    "feature_names": [
+      "momentum",
+      "volatility",
+      "liquidity",
+      "session_progress",
+      "structure_score",
+      "spread_z"
+    ],
+    "maximum_feature_missingness": 0.0,
+    "methods": [
+      "nearest_neighbor",
+      "robust_mad",
+      "support_deficit"
+    ],
+    "minimum_pvalue": 0.05,
+    "nearest_neighbor_weight": 0.25,
+    "robust_scale_floor": 0.01,
+    "support_deficit_weight": 1.5
+  },
+  "research_budget": {
+    "exact_version": "1.0.0",
+    "max_bootstrap_draws": 5000,
+    "max_conformal_fits": 4,
+    "max_drift_windows": 10,
+    "max_failures": 20,
+    "max_frontier_points": 20,
+    "max_hidden_evaluation_queries": 0,
+    "max_ood_fits": 4,
+    "max_records": 500,
+    "max_selective_evaluations": 200,
+    "order_submission_limit": 0,
+    "protected_evidence_exposure_limit": 0,
+    "runtime_compilation_limit": 0
+  },
+  "selective_control_contract": {
+    "baseline_preserved": true,
+    "exact_version": "1.0.0",
+    "fail_closed": true,
+    "maximum_missingness": 0.0,
+    "minimum_ood_pvalue": 0.05,
+    "minimum_support_score": 0.35,
+    "minimum_value_lower_bound": -0.04,
+    "require_action_mask": true,
+    "require_conformal_gate": true,
+    "require_ood_gate": true,
+    "require_support_gate": true,
+    "safe_action": "skip"
+  },
+  "upstream_intake": {
+    "certificate_hash": "bb3b6107bb5bf101fd619b11a6703058035ef4f232e332eac44151ad7ec940d6",
+    "exact_version": "1.0.0",
+    "handoff_hash": "5dbc30941c14984b9bc4833af5ee1dce7c3e2fc4a2278445dcd40a3bfdd2ad1b",
+    "hash_verified": true,
+    "immutable": true,
+    "promotion_denied": true,
+    "required_phase": "SAED_V4_23",
+    "research_only": true,
+    "research_policy_id": "manual_baseline_policy_e64f2e661aebe39abaded8b9",
+    "runtime_denied": true
+  }
+}

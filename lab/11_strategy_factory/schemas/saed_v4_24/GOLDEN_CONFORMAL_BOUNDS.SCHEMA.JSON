@@ -1,0 +1,57 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-24/golden_conformal_bounds.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Closed deterministic research-only contract. Unknown object fields are rejected.",
+  "items": {
+    "additionalProperties": false,
+    "properties": {
+      "bound_hash": {
+        "type": "string"
+      },
+      "calibration_count": {
+        "type": "integer"
+      },
+      "coverage_level": {
+        "type": "number"
+      },
+      "predicted_value": {
+        "type": "number"
+      },
+      "quantile": {
+        "type": "number"
+      },
+      "quantile_source": {
+        "type": "string"
+      },
+      "record_id": {
+        "type": "string"
+      },
+      "regime": {
+        "type": "string"
+      },
+      "uses_outcome_at_decision": {
+        "type": "boolean"
+      },
+      "value_lower_bound": {
+        "type": "number"
+      }
+    },
+    "required": [
+      "bound_hash",
+      "calibration_count",
+      "coverage_level",
+      "predicted_value",
+      "quantile",
+      "quantile_source",
+      "record_id",
+      "regime",
+      "uses_outcome_at_decision",
+      "value_lower_bound"
+    ],
+    "type": "object"
+  },
+  "title": "SAED V4-24 GOLDEN_CONFORMAL_BOUNDS",
+  "type": "array",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_24"
+}

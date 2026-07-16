@@ -1,0 +1,46 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-24/golden_exposure_ledger.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown object fields are rejected.",
+  "properties": {
+    "complete": {
+      "type": "boolean"
+    },
+    "hidden_evaluation_queries": {
+      "type": "integer"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "online_policy_mutations": {
+      "type": "integer"
+    },
+    "order_submissions": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "protected_evidence_exposures": {
+      "type": "integer"
+    },
+    "runtime_compilations": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "complete",
+    "hidden_evaluation_queries",
+    "ledger_hash",
+    "online_policy_mutations",
+    "order_submissions",
+    "phase",
+    "protected_evidence_exposures",
+    "runtime_compilations"
+  ],
+  "title": "SAED V4-24 GOLDEN_EXPOSURE_LEDGER",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_24"
+}

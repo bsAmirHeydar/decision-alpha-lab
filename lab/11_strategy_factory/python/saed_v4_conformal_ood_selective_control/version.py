@@ -1,0 +1,6 @@
+PHASE = 'SAED_V4_24'
+VERSION = '1.0.0'
+TITLE = 'Conformal OOD And Selective Control'
+EVIDENCE_SCOPE = 'local_deterministic_calibration_selective_control_reference'
+CLAIM_CEILING = 'research_only_no_promotion_runtime_risk_execution_or_production_authority'
+NEXT_PHASE = 'SAED_V4_25'

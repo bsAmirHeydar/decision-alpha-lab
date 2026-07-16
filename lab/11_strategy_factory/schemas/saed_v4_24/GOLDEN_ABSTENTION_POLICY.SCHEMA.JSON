@@ -1,0 +1,74 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-24/golden_abstention_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown object fields are rejected.",
+  "properties": {
+    "accepted_count": {
+      "type": "integer"
+    },
+    "calibrated_coverage": {
+      "type": "number"
+    },
+    "calibrated_risk": {
+      "type": "number"
+    },
+    "calibrated_risk_upper": {
+      "type": "number"
+    },
+    "chosen_threshold": {
+      "type": "number"
+    },
+    "full_safe_fallback": {
+      "type": "boolean"
+    },
+    "minimum_coverage": {
+      "type": "number"
+    },
+    "objective": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "policy_hash": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "safe_action": {
+      "type": "string"
+    },
+    "target_risk_upper": {
+      "type": "number"
+    },
+    "tie_break": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "accepted_count",
+    "calibrated_coverage",
+    "calibrated_risk",
+    "calibrated_risk_upper",
+    "chosen_threshold",
+    "full_safe_fallback",
+    "minimum_coverage",
+    "objective",
+    "phase",
+    "policy_hash",
+    "policy_id",
+    "research_only",
+    "safe_action",
+    "target_risk_upper",
+    "tie_break"
+  ],
+  "title": "SAED V4-24 GOLDEN_ABSTENTION_POLICY",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_24"
+}

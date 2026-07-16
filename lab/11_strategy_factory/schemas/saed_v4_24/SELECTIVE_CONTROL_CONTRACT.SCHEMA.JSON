@@ -1,0 +1,62 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-24/selective_control_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown object fields are rejected.",
+  "properties": {
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "fail_closed": {
+      "type": "boolean"
+    },
+    "maximum_missingness": {
+      "type": "number"
+    },
+    "minimum_ood_pvalue": {
+      "type": "number"
+    },
+    "minimum_support_score": {
+      "type": "number"
+    },
+    "minimum_value_lower_bound": {
+      "type": "number"
+    },
+    "require_action_mask": {
+      "type": "boolean"
+    },
+    "require_conformal_gate": {
+      "type": "boolean"
+    },
+    "require_ood_gate": {
+      "type": "boolean"
+    },
+    "require_support_gate": {
+      "type": "boolean"
+    },
+    "safe_action": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "baseline_preserved",
+    "exact_version",
+    "fail_closed",
+    "maximum_missingness",
+    "minimum_ood_pvalue",
+    "minimum_support_score",
+    "minimum_value_lower_bound",
+    "require_action_mask",
+    "require_conformal_gate",
+    "require_ood_gate",
+    "require_support_gate",
+    "safe_action"
+  ],
+  "title": "SAED V4-24 SELECTIVE_CONTROL_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_24"
+}

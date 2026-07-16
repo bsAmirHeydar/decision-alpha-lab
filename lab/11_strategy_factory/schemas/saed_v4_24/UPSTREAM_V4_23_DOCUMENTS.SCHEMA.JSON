@@ -1,0 +1,172 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-24/upstream_v4_23_documents.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown object fields are rejected.",
+  "properties": {
+    "certificate": {
+      "additionalProperties": false,
+      "properties": {
+        "accepted_for_offline_policy_research": {
+          "type": "boolean"
+        },
+        "certificate_hash": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "production_authority": {
+          "type": "boolean"
+        },
+        "promotion_authority": {
+          "type": "boolean"
+        },
+        "runtime_executable": {
+          "type": "boolean"
+        },
+        "selection_is_research_only": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "accepted_for_offline_policy_research",
+        "certificate_hash",
+        "phase",
+        "production_authority",
+        "promotion_authority",
+        "runtime_executable",
+        "selection_is_research_only"
+      ],
+      "type": "object"
+    },
+    "handoff": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_next_work": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "authority": {
+          "additionalProperties": false,
+          "properties": {
+            "decision": {
+              "type": "boolean"
+            },
+            "execution": {
+              "type": "boolean"
+            },
+            "production": {
+              "type": "boolean"
+            },
+            "promotion": {
+              "type": "boolean"
+            },
+            "risk_allocation": {
+              "type": "boolean"
+            },
+            "runtime": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "decision",
+            "execution",
+            "production",
+            "promotion",
+            "risk_allocation",
+            "runtime"
+          ],
+          "type": "object"
+        },
+        "certificate_hash": {
+          "type": "string"
+        },
+        "entry_gates": {
+          "additionalProperties": false,
+          "properties": {
+            "offline_policy_certificate_verified": {
+              "type": "boolean"
+            },
+            "ope_intervals_available": {
+              "type": "boolean"
+            },
+            "promotion_denied": {
+              "type": "boolean"
+            },
+            "qa_passed": {
+              "type": "boolean"
+            },
+            "runtime_denied": {
+              "type": "boolean"
+            },
+            "selection_remains_research_only": {
+              "type": "boolean"
+            },
+            "support_uncertainty_available": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "offline_policy_certificate_verified",
+            "ope_intervals_available",
+            "promotion_denied",
+            "qa_passed",
+            "runtime_denied",
+            "selection_remains_research_only",
+            "support_uncertainty_available"
+          ],
+          "type": "object"
+        },
+        "forbidden_next_work": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "handoff_hash": {
+          "type": "string"
+        },
+        "handoff_id": {
+          "type": "string"
+        },
+        "next_phase": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "research_policy_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "allowed_next_work",
+        "authority",
+        "certificate_hash",
+        "entry_gates",
+        "forbidden_next_work",
+        "handoff_hash",
+        "handoff_id",
+        "next_phase",
+        "phase",
+        "research_only",
+        "research_policy_id"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "certificate",
+    "handoff"
+  ],
+  "title": "SAED V4-24 UPSTREAM_V4_23_DOCUMENTS",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_24"
+}

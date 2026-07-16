@@ -1,0 +1,61 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-24/golden_drift_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown object fields are rejected.",
+  "properties": {
+    "action": {
+      "type": "string"
+    },
+    "breach": {
+      "type": "boolean"
+    },
+    "mean_score_ratio": {
+      "type": "number"
+    },
+    "ood_rate": {
+      "type": "number"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "population_stability_index": {
+      "type": "number"
+    },
+    "reasons": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "runtime_mutation": {
+      "type": "boolean"
+    },
+    "status": {
+      "type": "string"
+    },
+    "window_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "action",
+    "breach",
+    "mean_score_ratio",
+    "ood_rate",
+    "phase",
+    "population_stability_index",
+    "reasons",
+    "report_hash",
+    "runtime_mutation",
+    "status",
+    "window_count"
+  ],
+  "title": "SAED V4-24 GOLDEN_DRIFT_REPORT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_24"
+}

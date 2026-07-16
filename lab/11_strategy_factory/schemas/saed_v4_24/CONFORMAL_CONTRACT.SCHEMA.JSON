@@ -1,0 +1,50 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-24/conformal_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown object fields are rejected.",
+  "properties": {
+    "alpha": {
+      "type": "number"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "finite_sample_correction": {
+      "type": "boolean"
+    },
+    "minimum_group_size": {
+      "type": "integer"
+    },
+    "mondrian_field": {
+      "type": "string"
+    },
+    "one_sided_lower": {
+      "type": "boolean"
+    },
+    "pooled_fallback": {
+      "type": "boolean"
+    },
+    "score_type": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "alpha",
+    "deterministic",
+    "exact_version",
+    "finite_sample_correction",
+    "minimum_group_size",
+    "mondrian_field",
+    "one_sided_lower",
+    "pooled_fallback",
+    "score_type"
+  ],
+  "title": "SAED V4-24 CONFORMAL_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_24"
+}

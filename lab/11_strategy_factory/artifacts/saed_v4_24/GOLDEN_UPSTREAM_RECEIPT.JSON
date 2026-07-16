@@ -1,0 +1,11 @@
+{
+  "authority_verified_zero": true,
+  "certificate_hash": "bb3b6107bb5bf101fd619b11a6703058035ef4f232e332eac44151ad7ec940d6",
+  "handoff_hash": "5dbc30941c14984b9bc4833af5ee1dce7c3e2fc4a2278445dcd40a3bfdd2ad1b",
+  "immutable": true,
+  "phase": "SAED_V4_24",
+  "receipt_hash": "1b39aab365ad50a088aa5e3580d83a7ec57c09b4c5814e0681394d45c40fdbad",
+  "research_policy_id": "manual_baseline_policy_e64f2e661aebe39abaded8b9",
+  "scope_verified": true,
+  "upstream_phase": "SAED_V4_23"
+}

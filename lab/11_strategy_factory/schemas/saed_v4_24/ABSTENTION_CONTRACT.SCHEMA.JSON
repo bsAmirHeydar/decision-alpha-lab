@@ -1,0 +1,46 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-24/abstention_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown object fields are rejected.",
+  "properties": {
+    "deterministic": {
+      "type": "boolean"
+    },
+    "empty_feasible_set_falls_back": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "minimum_coverage": {
+      "type": "number"
+    },
+    "objective": {
+      "type": "string"
+    },
+    "safe_action": {
+      "type": "string"
+    },
+    "target_risk_upper": {
+      "type": "number"
+    },
+    "tie_break": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "deterministic",
+    "empty_feasible_set_falls_back",
+    "exact_version",
+    "minimum_coverage",
+    "objective",
+    "safe_action",
+    "target_risk_upper",
+    "tie_break"
+  ],
+  "title": "SAED V4-24 ABSTENTION_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_24"
+}

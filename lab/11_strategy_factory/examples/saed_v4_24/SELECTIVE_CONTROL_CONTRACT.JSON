@@ -1,0 +1,14 @@
+{
+  "baseline_preserved": true,
+  "exact_version": "1.0.0",
+  "fail_closed": true,
+  "maximum_missingness": 0.0,
+  "minimum_ood_pvalue": 0.05,
+  "minimum_support_score": 0.35,
+  "minimum_value_lower_bound": -0.04,
+  "require_action_mask": true,
+  "require_conformal_gate": true,
+  "require_ood_gate": true,
+  "require_support_gate": true,
+  "safe_action": "skip"
+}

@@ -1,0 +1,24 @@
+{
+  "aurc_required": true,
+  "baseline_comparison_required": true,
+  "bootstrap_draws": 300,
+  "cluster_bootstrap_required": true,
+  "confidence_level": 0.9,
+  "exact_version": "1.0.0",
+  "maximum_selective_risk_upper": 0.75,
+  "minimum_coverage": 0.1,
+  "monotone_envelope_required": true,
+  "risk_definition": "negative_realized_value_rate",
+  "threshold_grid": [
+    0.0,
+    0.01,
+    0.02,
+    0.04,
+    0.06,
+    0.08,
+    0.12,
+    0.18,
+    0.25,
+    0.35
+  ]
+}

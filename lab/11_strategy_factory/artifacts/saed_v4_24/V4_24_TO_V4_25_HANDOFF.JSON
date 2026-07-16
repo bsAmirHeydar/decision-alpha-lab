@@ -1,0 +1,40 @@
+{
+  "allowed_next_work": [
+    "continual_calibration_research",
+    "meta_learning_dataset_design",
+    "transfer_shift_mapping",
+    "drift_segment_taxonomy",
+    "safe_recalibration_experiments"
+  ],
+  "authority": {
+    "decision": false,
+    "execution": false,
+    "production": false,
+    "promotion": false,
+    "risk_allocation": false,
+    "runtime": false
+  },
+  "certificate_hash": "6ebe377b7eade1b1b7c34d9afd99ef99eccdc3a1d061bfc65136ab9172d40cca",
+  "entry_gates": {
+    "abstention_policy_available": true,
+    "conformal_certificate_verified": true,
+    "coverage_risk_frontier_available": true,
+    "drift_diagnostics_available": true,
+    "promotion_denied": true,
+    "research_only": true,
+    "runtime_denied": true
+  },
+  "forbidden_next_work": [
+    "promotion_authorization",
+    "runtime_compilation",
+    "risk_allocation",
+    "order_submission",
+    "online_policy_mutation"
+  ],
+  "handoff_hash": "0b725c4f934f7c88a7677703f2eefef57b88c7c2aba49a81b454a3e70b5b9ebf",
+  "handoff_id": "v4_24_to_v4_25_ce9b2d6c24f4f15aaefa4c38",
+  "next_phase": "SAED_V4_25",
+  "phase": "SAED_V4_24",
+  "research_only": true,
+  "research_policy_id": "manual_baseline_policy_e64f2e661aebe39abaded8b9"
+}

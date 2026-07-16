@@ -1,0 +1,51 @@
+{
+  "certificate": {
+    "accepted_for_offline_policy_research": true,
+    "certificate_hash": "bb3b6107bb5bf101fd619b11a6703058035ef4f232e332eac44151ad7ec940d6",
+    "phase": "SAED_V4_23",
+    "production_authority": false,
+    "promotion_authority": false,
+    "runtime_executable": false,
+    "selection_is_research_only": true
+  },
+  "handoff": {
+    "allowed_next_work": [
+      "conformal_value_bounds",
+      "support_aware_ood_detection",
+      "selective_action_control",
+      "abstention_calibration",
+      "coverage_risk_tradeoff"
+    ],
+    "authority": {
+      "decision": false,
+      "execution": false,
+      "production": false,
+      "promotion": false,
+      "risk_allocation": false,
+      "runtime": false
+    },
+    "certificate_hash": "bb3b6107bb5bf101fd619b11a6703058035ef4f232e332eac44151ad7ec940d6",
+    "entry_gates": {
+      "offline_policy_certificate_verified": true,
+      "ope_intervals_available": true,
+      "promotion_denied": true,
+      "qa_passed": true,
+      "runtime_denied": true,
+      "selection_remains_research_only": true,
+      "support_uncertainty_available": true
+    },
+    "forbidden_next_work": [
+      "promotion_authorization",
+      "runtime_compilation",
+      "risk_allocation",
+      "order_submission",
+      "online_policy_learning"
+    ],
+    "handoff_hash": "5dbc30941c14984b9bc4833af5ee1dce7c3e2fc4a2278445dcd40a3bfdd2ad1b",
+    "handoff_id": "v4_23_to_v4_24_ff9654738ff317ef3e655de6",
+    "next_phase": "SAED_V4_24",
+    "phase": "SAED_V4_23",
+    "research_only": true,
+    "research_policy_id": "manual_baseline_policy_e64f2e661aebe39abaded8b9"
+  }
+}

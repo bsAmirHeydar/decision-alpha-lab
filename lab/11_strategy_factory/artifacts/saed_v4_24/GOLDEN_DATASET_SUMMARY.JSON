@@ -1,0 +1,49 @@
+{
+  "cluster_count": 18,
+  "cluster_role_separation": true,
+  "dataset_hash": "9e97dd4e3e1eeb7981d49dac129fc6195d533fa1adfffdf13a2732043f4b8b65",
+  "feature_known_by_decision": true,
+  "feature_names": [
+    "momentum",
+    "volatility",
+    "liquidity",
+    "session_progress",
+    "structure_score",
+    "spread_z"
+  ],
+  "future_suffix_access_count": 0,
+  "outcome_after_decision": true,
+  "phase": "SAED_V4_24",
+  "protected_evidence_access_count": 0,
+  "record_count": 180,
+  "regime_counts": [
+    {
+      "count": 60,
+      "regime": "range"
+    },
+    {
+      "count": 60,
+      "regime": "transition"
+    },
+    {
+      "count": 60,
+      "regime": "trend"
+    }
+  ],
+  "role_counts": [
+    {
+      "count": 90,
+      "role": "calibration"
+    },
+    {
+      "count": 30,
+      "role": "drift_reference"
+    },
+    {
+      "count": 60,
+      "role": "selection_validation"
+    }
+  ],
+  "strict_decision_time_order": true,
+  "summary_hash": "6d69e7f36cf9b141ec64cfb2418945cb1e1877942e123107d642263fe348425d"
+}

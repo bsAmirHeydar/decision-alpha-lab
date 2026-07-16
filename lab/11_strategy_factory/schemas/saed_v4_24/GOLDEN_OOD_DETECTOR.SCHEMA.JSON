@@ -1,0 +1,95 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-24/golden_ood_detector.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown object fields are rejected.",
+  "properties": {
+    "alpha": {
+      "type": "number"
+    },
+    "calibration_count": {
+      "type": "integer"
+    },
+    "calibration_scores": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "detector_hash": {
+      "type": "string"
+    },
+    "detector_id": {
+      "type": "string"
+    },
+    "fail_closed": {
+      "type": "boolean"
+    },
+    "feature_names": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "feature_statistics": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "center": {
+            "type": "number"
+          },
+          "feature": {
+            "type": "string"
+          },
+          "mad": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "center",
+          "feature",
+          "mad"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "maximum_feature_missingness": {
+      "type": "number"
+    },
+    "methods": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "minimum_pvalue": {
+      "type": "number"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "score_threshold": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "alpha",
+    "calibration_count",
+    "calibration_scores",
+    "detector_hash",
+    "detector_id",
+    "fail_closed",
+    "feature_names",
+    "feature_statistics",
+    "maximum_feature_missingness",
+    "methods",
+    "minimum_pvalue",
+    "phase",
+    "score_threshold"
+  ],
+  "title": "SAED V4-24 GOLDEN_OOD_DETECTOR",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_24"
+}

@@ -1,0 +1,61 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-24/coverage_risk_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown object fields are rejected.",
+  "properties": {
+    "aurc_required": {
+      "type": "boolean"
+    },
+    "baseline_comparison_required": {
+      "type": "boolean"
+    },
+    "bootstrap_draws": {
+      "type": "integer"
+    },
+    "cluster_bootstrap_required": {
+      "type": "boolean"
+    },
+    "confidence_level": {
+      "type": "number"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "maximum_selective_risk_upper": {
+      "type": "number"
+    },
+    "minimum_coverage": {
+      "type": "number"
+    },
+    "monotone_envelope_required": {
+      "type": "boolean"
+    },
+    "risk_definition": {
+      "type": "string"
+    },
+    "threshold_grid": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "aurc_required",
+    "baseline_comparison_required",
+    "bootstrap_draws",
+    "cluster_bootstrap_required",
+    "confidence_level",
+    "exact_version",
+    "maximum_selective_risk_upper",
+    "minimum_coverage",
+    "monotone_envelope_required",
+    "risk_definition",
+    "threshold_grid"
+  ],
+  "title": "SAED V4-24 COVERAGE_RISK_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_24"
+}
