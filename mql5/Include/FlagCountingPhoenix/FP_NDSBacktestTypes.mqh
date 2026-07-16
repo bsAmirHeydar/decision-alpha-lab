@@ -6,8 +6,8 @@
 #include "FP_HookPhase02Types.mqh"
 #include "FP_HookPhase04Types.mqh"
 
-#define FP_NDS_BACKTEST_VERSION "NDS-BACKTEST-02"
-#define FP_NDS_BACKTEST_SCHEMA_VERSION "nds_lightweight_backtest_v2"
+#define FP_NDS_BACKTEST_VERSION "NDS-BACKTEST-03"
+#define FP_NDS_BACKTEST_SCHEMA_VERSION "nds_lightweight_backtest_v3"
 
 enum FP_NDSBacktestProfile
 {
@@ -41,6 +41,9 @@ struct FP_NDSBacktestRuntimeConfig
 
    bool run_on_first_tick;
    bool skip_hook_rebuild_while_position_open;
+   // Exact acceleration never changes bars, scales, thresholds, or order model.
+   // It only avoids engines whose outputs cannot affect the current decision.
+   bool exact_acceleration;
    bool print_run_summary;
    int print_every_n_runs;
 };
@@ -64,6 +67,13 @@ struct FP_NDSBacktestRunReport
    int hook_count;
    bool hook_snapshot_rebuilt;
    bool hook_snapshot_skipped_for_open_position;
+   bool exposure_fast_path;
+   string exposure_fast_path_reason;
+   bool f_context_required;
+   bool f_context_built;
+   bool f_context_deferred;
+   bool phase04_candidate_scoped;
+   int phase04_candidate_sequences;
 
    ulong elapsed_microseconds;
    FP_HookPhase02Report hook_phase02_report;
@@ -79,6 +89,10 @@ struct FP_NDSBacktestSessionStats
    ulong failed_runs;
    ulong hook_rebuild_runs;
    ulong position_fast_path_runs;
+   ulong exposure_fast_path_runs;
+   ulong f_context_built_runs;
+   ulong f_context_deferred_runs;
+   ulong phase04_candidate_sequences_total;
 
    // Aggregated diagnostics for rare-entry profiles. These counters make a
    // zero-trade Strategy Tester run actionable instead of opaque.
@@ -126,6 +140,7 @@ void FP_ResetNDSBacktestRuntimeConfig(FP_NDSBacktestRuntimeConfig &cfg)
 
    cfg.run_on_first_tick = true;
    cfg.skip_hook_rebuild_while_position_open = true;
+   cfg.exact_acceleration = true;
    cfg.print_run_summary = false;
    cfg.print_every_n_runs = 250;
 }
@@ -147,6 +162,13 @@ void FP_ResetNDSBacktestRunReport(FP_NDSBacktestRunReport &report)
    report.hook_count = 0;
    report.hook_snapshot_rebuilt = false;
    report.hook_snapshot_skipped_for_open_position = false;
+   report.exposure_fast_path = false;
+   report.exposure_fast_path_reason = "";
+   report.f_context_required = false;
+   report.f_context_built = false;
+   report.f_context_deferred = false;
+   report.phase04_candidate_scoped = false;
+   report.phase04_candidate_sequences = 0;
    report.elapsed_microseconds = 0;
    FP_ResetHookPhase02Report(report.hook_phase02_report);
    FP_ResetHookPhase03Report(report.hook_phase03_report);
@@ -161,6 +183,10 @@ void FP_ResetNDSBacktestSessionStats(FP_NDSBacktestSessionStats &stats)
    stats.failed_runs = 0;
    stats.hook_rebuild_runs = 0;
    stats.position_fast_path_runs = 0;
+   stats.exposure_fast_path_runs = 0;
+   stats.f_context_built_runs = 0;
+   stats.f_context_deferred_runs = 0;
+   stats.phase04_candidate_sequences_total = 0;
    stats.no_candidate_runs = 0;
    stats.execution_ready_runs = 0;
    stats.paper_limit_ready_runs = 0;

@@ -1,7 +1,7 @@
 ---
 title: NDS Phase 55 Hook 86.4 Cycle R1 Execution
 status: implemented_opt_in_reference_qa_pending_metaeditor
-version: 1.1.0
+version: 1.2.0
 updated: 2026-07-16
 ---
 # NDS Phase 55 — Hook 86.4 Cycle R1 Execution
@@ -63,6 +63,8 @@ These values are not optimization knobs. Inputs remain visible for evidence and 
 16. [[16_definition_of_done_limitations_and_residual_risk]]
 17. [[17_no_trade_root_cause_and_engine_fix]]
 18. [[18_phase04_closure_and_first_arrival_contract]]
+19. [[19_v1_1_1_trade_action_compile_hotfix]]
+20. [[20_exact_acceleration_and_maximum_speed_contract]]
 
 ## Implementation map
 
@@ -105,3 +107,8 @@ InpBTPrintRunSummary = true
 ```
 
 The central EA remains fail-closed and unchanged by this diagnostic default.
+
+
+## Exact acceleration v1.2
+
+The PARITY universe remains 5000 closed bars across scales `2,3,5,8,13,21,34,55`. `InpBTExactAcceleration=true` skips only engines whose outputs cannot alter the current decision. See [[20_exact_acceleration_and_maximum_speed_contract]].

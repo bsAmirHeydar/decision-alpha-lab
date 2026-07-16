@@ -38,6 +38,7 @@ The Phase 51 general pipeline stops at a **zero-volume, no-send Command Preview*
 - [[../08_entry_execution/NDS Hook 86.4 Cycle R1 State Machine]]
 - [[../08_entry_execution/NDS Hook 86.4 Cycle R1 Audit Ledger]]
 - [[../08_entry_execution/NDS Hook 86.4 Cycle R1 Operator Checklist]]
+- [[../08_entry_execution/NDS Hook 86.4 Exact Acceleration]]
 - [[../04_debug/NDS Strategy Tester OnInit License Gate]]
 
 ## Implementation

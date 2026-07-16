@@ -1,7 +1,7 @@
 ---
 type: contract
 system: NDS
-phase: 53
+phase: 55
 status: implemented
 ---
 
@@ -20,6 +20,7 @@ status: implemented
 - scales 2, 3, 5, 8, 13, 21, 34, 55
 - 6,000 event/Hook caps
 - production-context comparison profile
+- `InpBTExactAcceleration=true` preserves this complete universe and skips only decision-irrelevant engines
 
 ## CUSTOM
 
@@ -27,7 +28,11 @@ Uses explicit operator inputs.
 
 The algorithms remain shared. FAST may differ only when a required parent lies outside its bounded context.
 
+`Exact Acceleration` is not a fourth data profile. It is a scheduling mode inside the same FAST/PARITY/CUSTOM universe. Turning it off restores the full reference execution path without changing profile inputs.
+
 ## Related
 
 - [[NDS Lightweight Backtest Runtime]]
 - [[NDS Backtest Parity Contract]]
+
+- [[NDS Hook 86.4 Exact Acceleration]]

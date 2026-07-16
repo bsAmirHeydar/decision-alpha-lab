@@ -1,0 +1,16 @@
+{
+  "artifact": "decision-alpha-lab-nds-hook-864-cycle-r1-exact-speed-v1.2.0",
+  "baseline": "NDS Hook 86.4 Cycle R1 v1.1.1",
+  "external_gates": [
+    "MetaEditor clean compile",
+    "MQL5 self-test",
+    "paired MT5 exact/reference parity",
+    "target-agent speed benchmark"
+  ],
+  "file_count": 27,
+  "generated_date": "2026-07-16",
+  "installation_root": "repository root",
+  "rollback": "revert the v1.2 commit; no schema migration required",
+  "scope": "exact Strategy Tester acceleration without data, scale, threshold, tick-model, geometry, or authority reduction",
+  "version": "1.2.0"
+}

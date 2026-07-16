@@ -416,6 +416,8 @@ void FP_RunNDSHookTradeExecutionCore(const string symbol,
    FP_HookPhase02Sequence sequences[];
    FP_NDSCopyStructureSnapshot(sequences);
 
+   FP_HookPhase02Sequence selected;
+   bool selected_found = false;
    if(cfg.profile == FP_NDS_HOOK_TRADE_PROFILE_HOOK_864_CYCLE_R1)
    {
       if(!FP_NDSHook864CycleR1EvidenceSnapshotMatches(symbol, period))
@@ -427,12 +429,16 @@ void FP_RunNDSHookTradeExecutionCore(const string symbol,
          FP_NDSHookTradeFinalizeReport(report);
          return;
       }
-      FP_NDSHook864CycleR1AnalyzeCandidates(symbol, period, sequences, cfg,
-                                             report.funnel);
+      selected_found = FP_NDSHook864CycleR1AnalyzeAndSelectLatest(
+         symbol, period, sequences, cfg, report.funnel, selected);
+   }
+   else
+   {
+      selected_found = FP_NDSHookTradeSelectLatest(symbol, period,
+                                                   sequences, cfg, selected);
    }
 
-   FP_HookPhase02Sequence selected;
-   if(!FP_NDSHookTradeSelectLatest(symbol, period, sequences, cfg, selected))
+   if(!selected_found)
    {
       report.ok = true;
       report.action = FP_NDS_HOOK_TRADE_ACTION_NONE;

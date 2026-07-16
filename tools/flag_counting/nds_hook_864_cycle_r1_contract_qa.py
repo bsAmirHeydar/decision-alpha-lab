@@ -55,6 +55,11 @@ REQUIRED_FILES = (
     "docs/nds_entry_architecture/phase55_hook_864_cycle_r1_execution/17_no_trade_root_cause_and_engine_fix.md",
     "docs/nds_entry_architecture/phase55_hook_864_cycle_r1_execution/18_phase04_closure_and_first_arrival_contract.md",
     "docs/obsidian_hook/08_entry_execution/NDS Hook 86.4 No Trade Diagnostic Funnel.md",
+    "tests/flag_counting/test_nds_hook_864_exact_acceleration.py",
+    "tools/flag_counting/compare_nds_hook_864_acceleration_logs.py",
+    "tests/flag_counting/test_nds_hook_864_acceleration_log_compare.py",
+    "docs/nds_entry_architecture/phase55_hook_864_cycle_r1_execution/20_exact_acceleration_and_maximum_speed_contract.md",
+    "docs/obsidian_hook/08_entry_execution/NDS Hook 86.4 Exact Acceleration.md",
 )
 
 
@@ -197,6 +202,14 @@ def run(root: Path) -> list[Check]:
              "FP_NDS_HOOK_TRADE_ACTION_PAPER_LIMIT_READY",
              "P55_BACKTEST_STALE_ACTION_ALIAS_ABSENT",
              "removed PAPER_LIMIT_READY alias cannot re-enter the compile surface")
+    contains(checks, root, backtest_engine, "FP_NDSBacktestExposureFastPathAvailable",
+             "P55_EXACT_EXPOSURE_FAST_PATH", "pending and fixed-R exposure bypass decision-irrelevant structural rebuilds")
+    contains(checks, root, backtest_engine, "FP_NDSBacktestNeedsOpposingF3Context",
+             "P55_DEMAND_DRIVEN_F_CONTEXT", "F engine is built only when opposing-F3 ownership can alter eligibility")
+    contains(checks, root, evidence_engine, "const bool candidate_scope",
+             "P55_CANDIDATE_SCOPED_PHASE04", "Phase03/04 support exact candidate-scoped acceleration and full parity mode")
+    contains(checks, root, core, "FP_NDSHook864CycleR1AnalyzeAndSelectLatest",
+             "P55_SINGLE_PASS_FUNNEL_SELECTION", "86.4 funnel and latest selection share one evidence pass")
 
     # Compatibility and profile isolation.
     contains(checks, root, types, "FP_NDS_HOOK_TRADE_PROFILE_TERMINAL_F123 = 0",
@@ -262,8 +275,8 @@ def run(root: Path) -> list[Check]:
     contains(checks, root, evidence,
              "return crown_price + ratio * (origin_price - crown_price);",
              "P55_ENTRY_FORMULA", "entry interpolates crown toward origin at 86.4 percent")
-    contains(checks, root, evidence, "rates[i].time < closure_time",
-             "P55_FIRST_ARRIVAL_KNOWN_TIME", "first-arrival scan starts at canonical Phase04 closure time")
+    contains(checks, root, evidence, "FP_NDSHook864CycleR1LowerBoundTime(rates, n, closure_time)",
+             "P55_FIRST_ARRIVAL_KNOWN_TIME", "first-arrival scan starts at canonical Phase04 closure time through an exact lower bound")
     contains(checks, root, evidence, "rates[i].low <= entry_price",
              "P55_FIRST_ARRIVAL_POSITIVE", "positive first arrival is read from closed-bar lows")
     contains(checks, root, evidence, "rates[i].high >= entry_price",

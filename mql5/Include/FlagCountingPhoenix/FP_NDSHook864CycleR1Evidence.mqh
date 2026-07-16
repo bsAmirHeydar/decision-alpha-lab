@@ -17,7 +17,7 @@
 // This module has no order, position, file, network or chart authority.
 // ============================================================================
 
-#define FP_NDS_HOOK_864_EVIDENCE_VERSION "NDS-HOOK-864-EVIDENCE-01"
+#define FP_NDS_HOOK_864_EVIDENCE_VERSION "NDS-HOOK-864-EVIDENCE-02"
 
 struct FP_NDSHook864CycleR1Evidence
 {
@@ -65,6 +65,9 @@ struct FP_NDSHook864CycleR1Evidence
 };
 
 FP_NDSHook864CycleR1Evidence g_fp_nds_hook_864_evidence[];
+// Fast hint keyed by the Phase02 sequence id. Identity is always revalidated
+// before use, so filtered/reindexed callers fall back to structural matching.
+int g_fp_nds_hook_864_evidence_by_sequence_id[];
 string g_fp_nds_hook_864_evidence_symbol = "";
 ENUM_TIMEFRAMES g_fp_nds_hook_864_evidence_period = PERIOD_CURRENT;
 datetime g_fp_nds_hook_864_evidence_captured_at = 0;
@@ -126,10 +129,28 @@ double FP_NDSHook864CycleR1RawEntryFromSequence(const FP_HookPhase02Sequence &se
 void FP_NDSClearHook864CycleR1EvidenceSnapshot()
 {
    ArrayResize(g_fp_nds_hook_864_evidence, 0);
+   ArrayResize(g_fp_nds_hook_864_evidence_by_sequence_id, 0);
    g_fp_nds_hook_864_evidence_symbol = "";
    g_fp_nds_hook_864_evidence_period = PERIOD_CURRENT;
    g_fp_nds_hook_864_evidence_captured_at = 0;
    g_fp_nds_hook_864_evidence_ready = false;
+}
+
+int FP_NDSHook864CycleR1LowerBoundTime(const MqlRates &rates[],
+                                      const int count,
+                                      const datetime target)
+{
+   int left = 0;
+   int right = count;
+   while(left < right)
+   {
+      int middle = left + (right - left) / 2;
+      if(rates[middle].time < target)
+         left = middle + 1;
+      else
+         right = middle;
+   }
+   return left;
 }
 
 bool FP_NDSHook864CycleR1FindFirstTouch(const MqlRates &rates[],
@@ -148,14 +169,12 @@ bool FP_NDSHook864CycleR1FindFirstTouch(const MqlRates &rates[],
       return false;
 
    int n = MathMin(copied, ArraySize(rates));
-   for(int i=0; i<n; i++)
+   int first = FP_NDSHook864CycleR1LowerBoundTime(rates, n, closure_time);
+   for(int i=first; i<n; i++)
    {
       // Include the closure candle. If 50% closure and the 86.4 level occur in
       // the same closed candle, the strategy could not have placed the order
       // after observing closure; that arrival is therefore already consumed.
-      if(rates[i].time < closure_time)
-         continue;
-
       if(direction == FP_HOOK_P02_DIRECTION_POSITIVE)
       {
          if(rates[i].low <= entry_price)
@@ -190,6 +209,19 @@ void FP_NDSCaptureHook864CycleR1EvidenceSnapshot(const string symbol,
 
    int count = ArraySize(records);
    ArrayResize(g_fp_nds_hook_864_evidence, count);
+
+   int max_sequence_id = -1;
+   for(int m=0; m<count; m++)
+   {
+      int candidate_id = records[m].p03.sequence.sequence_id;
+      if(candidate_id > max_sequence_id)
+         max_sequence_id = candidate_id;
+   }
+   if(max_sequence_id >= 0 && max_sequence_id <= 1000000)
+   {
+      ArrayResize(g_fp_nds_hook_864_evidence_by_sequence_id, max_sequence_id + 1);
+      ArrayInitialize(g_fp_nds_hook_864_evidence_by_sequence_id, -1);
+   }
    for(int i=0; i<count; i++)
    {
       FP_NDSHook864CycleR1Evidence e;
@@ -229,13 +261,9 @@ void FP_NDSCaptureHook864CycleR1EvidenceSnapshot(const string symbol,
       e.death_bar_index = life.death_bar_index;
       e.death_price = life.death_price;
 
-      if(e.x_closed)
-      {
-         e.level_touched_after_closure = FP_NDSHook864CycleR1FindFirstTouch(
-            rates, copied, e.direction, e.x_closure_time, e.entry_price,
-            e.first_touch_bar_index, e.first_touch_time, e.first_touch_price);
-      }
-
+      // Dominating invalid/death gates are resolved before the historical
+      // first-touch scan. A dead or invalid cycle can never own an order, so
+      // scanning its remaining history would add cost without decision value.
       if(!e.phase04_record_valid)
          e.status = "PHASE04_RECORD_INVALID";
       else if(e.origin_return_penetrated)
@@ -244,15 +272,29 @@ void FP_NDSCaptureHook864CycleR1EvidenceSnapshot(const string symbol,
          e.status = "PHASE04_NOT_X_CLOSURE_CANDIDATE";
       else if(!e.x_closed)
          e.status = "PHASE04_X_NOT_CLOSED";
-      else if(e.level_touched_after_closure)
-         e.status = "HOOK_864_FIRST_ARRIVAL_ALREADY_CONSUMED";
       else
       {
-         e.status = "PHASE04_X_CLOSED_BEFORE_FIRST_864_TOUCH";
-         e.valid = true;
+         e.level_touched_after_closure = FP_NDSHook864CycleR1FindFirstTouch(
+            rates, copied, e.direction, e.x_closure_time, e.entry_price,
+            e.first_touch_bar_index, e.first_touch_time, e.first_touch_price);
+
+         if(e.level_touched_after_closure)
+            e.status = "HOOK_864_FIRST_ARRIVAL_ALREADY_CONSUMED";
+         else
+         {
+            e.status = "PHASE04_X_CLOSED_BEFORE_FIRST_864_TOUCH";
+            e.valid = true;
+         }
       }
 
       g_fp_nds_hook_864_evidence[i] = e;
+      if(e.sequence_id >= 0 &&
+         e.sequence_id < ArraySize(g_fp_nds_hook_864_evidence_by_sequence_id))
+      {
+         int prior = g_fp_nds_hook_864_evidence_by_sequence_id[e.sequence_id];
+         g_fp_nds_hook_864_evidence_by_sequence_id[e.sequence_id] =
+            (prior == -1 ? i : -2);
+      }
    }
 
    g_fp_nds_hook_864_evidence_symbol = symbol;
@@ -309,6 +351,21 @@ bool FP_NDSFindHook864CycleR1Evidence(const string symbol,
    {
       evidence.status = "PHASE04_EVIDENCE_SNAPSHOT_NOT_READY";
       return false;
+   }
+
+   if(seq.sequence_id >= 0 &&
+      seq.sequence_id < ArraySize(g_fp_nds_hook_864_evidence_by_sequence_id))
+   {
+      int hinted_index = g_fp_nds_hook_864_evidence_by_sequence_id[seq.sequence_id];
+      if(hinted_index >= 0 && hinted_index < ArraySize(g_fp_nds_hook_864_evidence))
+      {
+         FP_NDSHook864CycleR1Evidence hinted = g_fp_nds_hook_864_evidence[hinted_index];
+         if(FP_NDSHook864CycleR1EvidenceIdentityMatches(hinted, seq))
+         {
+            evidence = hinted;
+            return true;
+         }
+      }
    }
 
    for(int i=0; i<ArraySize(g_fp_nds_hook_864_evidence); i++)

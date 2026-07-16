@@ -1,6 +1,6 @@
 #property strict
-#property version   "1.10"
-#property description "NDS profile-aware Strategy Tester executable. Defaults to Hook 86.4 / Phase04 X-closed / x3-x4 / fixed 1R with full diagnostic funnel."
+#property version   "1.20"
+#property description "NDS exact-accelerated Strategy Tester. Demand-driven canonical engines, Hook 86.4 / Phase04 X-closed / x3-x4 / fixed 1R."
 
 #include "../../Include/FlagCountingPhoenix/FP_NDSBacktestEngine.mqh"
 
@@ -17,6 +17,7 @@ input FP_NDSBacktestProfile InpBTProfile = FP_NDS_BACKTEST_PROFILE_PARITY;
 input bool InpBTAllowNonTesterDryRun = false;
 input bool InpBTRunOnFirstTick = true;
 input bool InpBTSkipHookRebuildWhilePositionOpen = true;
+input bool InpBTExactAcceleration = true;
 input bool InpBTPrintRunSummary = true;
 input int  InpBTPrintEveryNRuns = 25;
 input bool InpBTPrintSessionSummary = true;
@@ -152,6 +153,7 @@ void FP_LoadNDSBacktestRuntimeConfig(FP_NDSBacktestRuntimeConfig &cfg)
    cfg.hook_scan_bars = InpBTCustomHookScanBars;
    cfg.run_on_first_tick = InpBTRunOnFirstTick;
    cfg.skip_hook_rebuild_while_position_open = InpBTSkipHookRebuildWhilePositionOpen;
+   cfg.exact_acceleration = InpBTExactAcceleration;
    cfg.print_run_summary = InpBTPrintRunSummary;
    cfg.print_every_n_runs = InpBTPrintEveryNRuns;
    FP_NDSBacktestApplyProfile(cfg);
@@ -387,6 +389,7 @@ int OnInit()
          " trade_profile=", FP_NDSHookTradeProfileName(g_nds_bt_trade_cfg.profile),
          " bars=", g_nds_bt_runtime_cfg.requested_bars,
          " hook_bars=", g_nds_bt_runtime_cfg.hook_scan_bars,
+         " exact_acceleration=", (g_nds_bt_runtime_cfg.exact_acceleration ? "true" : "false"),
          " tester=", (tester_runtime ? "true" : "false"),
          " orders=", (g_nds_bt_trade_cfg.send_live_orders ? "enabled" : "paper_only"));
    return INIT_SUCCEEDED;

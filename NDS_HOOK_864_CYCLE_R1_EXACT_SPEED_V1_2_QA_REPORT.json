@@ -1,0 +1,57 @@
+{
+  "artifact": "NDS Hook 86.4 Cycle R1 Exact Speed",
+  "version": "1.2.0",
+  "baseline": "v1.1.1 compile hotfix",
+  "generated_date": "2026-07-16",
+  "status": "repository_qa_pass_external_metaeditor_mt5_pending",
+  "accuracy_contract": {
+    "parity_bars": 5000,
+    "scales": [2, 3, 5, 8, 13, 21, 34, 55],
+    "closed_bars_only": true,
+    "entry_ratio": 0.864,
+    "x_count": [3, 4],
+    "phase04_closure_ratio": 0.5,
+    "reward_r": 1.0,
+    "tick_model_changed": false,
+    "thresholds_changed": false,
+    "execution_authority_changed": false
+  },
+  "optimizations": [
+    "broker-owned exposure preflight before timebase",
+    "legacy TERMINAL_F123 position F-only path",
+    "demand-driven canonical F1/F2/F3 context",
+    "candidate-scoped canonical Phase03/04",
+    "binary lower-bound first-arrival scan",
+    "sequence-id evidence hint with structural revalidation and fallback",
+    "single-pass funnel and latest-candidate selection",
+    "parallel deterministic non-fail-fast bounded QA"
+  ],
+  "repository_qa": {
+    "commands": 11,
+    "unit_tests": 53,
+    "explicit_pass_records": 371,
+    "explicit_fail_records": 0,
+    "non_blocking_static_advisories": 40,
+    "parallel_elapsed_seconds": 9.26,
+    "serial_elapsed_seconds": 15.74,
+    "parallel_internal_speedup_x": 1.6998,
+    "parallel_internal_reduction_percent": 41.169,
+    "engineering_policy_errors": 0,
+    "engineering_policy_warnings": 0,
+    "mql5_compatibility_errors": 0,
+    "mql5_compatibility_warnings": 0
+  },
+  "external_acceptance": {
+    "metaeditor_compile": "pending_windows_execution",
+    "mql5_contract_self_test": "pending_mt5_execution",
+    "strategy_tester_exact_vs_reference_parity": "pending_target_mt5_execution",
+    "strategy_tester_speed_benchmark": "pending_target_mt5_execution",
+    "broker_evidence": "not_applicable_to_repository_qa"
+  },
+  "claims_not_made": [
+    "no profitability claim",
+    "no production-readiness claim",
+    "no live-authority claim",
+    "no target-machine speedup claim before paired MT5 benchmark"
+  ]
+}

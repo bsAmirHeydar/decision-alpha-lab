@@ -181,22 +181,50 @@ bool FP_NDSHook864CycleR1SequenceEligible(const FP_HookPhase02Sequence &seq,
    return true;
 }
 
-bool FP_NDSHook864CycleR1RuntimeEligible(const string symbol,
-                                         const ENUM_TIMEFRAMES period,
-                                         const FP_HookPhase02Sequence &seq,
-                                         const FP_NDSHookTradeConfig &cfg,
-                                         FP_NDSHook864CycleR1Evidence &evidence,
-                                         string &reason)
+// Demand-driven F-engine gate. This checks whether a sequence that is not
+// already allowed through Hook-after-Hook could become executable solely by
+// receiving canonical opposing-F3 ownership. If no sequence passes this gate,
+// building the heavyweight F1/F2/F3 event graph cannot change the trade result.
+bool FP_NDSHook864CycleR1PotentialOpposingF3Candidate(
+   const FP_HookPhase02Sequence &seq,
+   const FP_NDSHookTradeConfig &cfg)
 {
-   FP_ResetNDSHook864CycleR1Evidence(evidence);
-   if(!FP_NDSHook864CycleR1SequenceEligible(seq, cfg, reason))
+   if(!cfg.allow_hook_after_f3)
+      return false;
+   if(seq.valid_after_hook && cfg.allow_hook_after_hook)
       return false;
 
-   if(!FP_NDSFindHook864CycleR1Evidence(symbol, period, seq, evidence))
-   {
-      reason = evidence.status;
+   string config_reason;
+   if(!FP_NDSHook864CycleR1ConfigValid(cfg, config_reason))
       return false;
-   }
+   if(!seq.valid || seq.hook_failed)
+      return false;
+   if(seq.origin_price <= 0.0 || seq.resolve_price <= 0.0)
+      return false;
+   if(!FP_HookP02SequenceCycleClosed(seq) || !seq.resolve_confirmed)
+      return false;
+   if(!seq.cycle_crown_valid || seq.cycle_crown_price <= 0.0)
+      return false;
+   if(seq.x_count < cfg.hook_entry_min_x_count ||
+      seq.x_count > cfg.hook_entry_max_x_count)
+      return false;
+   if(seq.state != FP_HOOK_P02_STATE_MATURE &&
+      seq.state != FP_HOOK_P02_STATE_CAPPED)
+      return false;
+
+   double raw_entry = FP_NDSHook864CycleR1RawEntry(seq, cfg.hook_entry_ratio);
+   return (raw_entry > 0.0 &&
+           FP_NDSHook864CycleR1EntryInsideCycle(seq, raw_entry));
+}
+
+bool FP_NDSHook864CycleR1RuntimeEligibleWithEvidence(
+   const FP_HookPhase02Sequence &seq,
+   const FP_NDSHookTradeConfig &cfg,
+   const FP_NDSHook864CycleR1Evidence &evidence,
+   string &reason)
+{
+   if(!FP_NDSHook864CycleR1SequenceEligible(seq, cfg, reason))
+      return false;
    if(!evidence.phase04_record_valid)
    {
       reason = "phase04_record_invalid";
@@ -233,6 +261,23 @@ bool FP_NDSHook864CycleR1RuntimeEligible(const string symbol,
    return true;
 }
 
+bool FP_NDSHook864CycleR1RuntimeEligible(const string symbol,
+                                         const ENUM_TIMEFRAMES period,
+                                         const FP_HookPhase02Sequence &seq,
+                                         const FP_NDSHookTradeConfig &cfg,
+                                         FP_NDSHook864CycleR1Evidence &evidence,
+                                         string &reason)
+{
+   FP_ResetNDSHook864CycleR1Evidence(evidence);
+   if(!FP_NDSFindHook864CycleR1Evidence(symbol, period, seq, evidence))
+   {
+      reason = evidence.status;
+      return false;
+   }
+   return FP_NDSHook864CycleR1RuntimeEligibleWithEvidence(seq, cfg,
+                                                          evidence, reason);
+}
+
 string FP_NDSHook864CycleR1FunnelSummary(const FP_NDSHookTradeCandidateFunnel &f)
 {
    string s = "total=" + IntegerToString(f.sequences_total);
@@ -252,14 +297,51 @@ string FP_NDSHook864CycleR1FunnelSummary(const FP_NDSHookTradeCandidateFunnel &f
    return s;
 }
 
-void FP_NDSHook864CycleR1AnalyzeCandidates(const string symbol,
-                                           const ENUM_TIMEFRAMES period,
-                                           const FP_HookPhase02Sequence &sequences[],
-                                           const FP_NDSHookTradeConfig &cfg,
-                                           FP_NDSHookTradeCandidateFunnel &f)
+void FP_NDSHook864CycleR1FinalizeFunnel(
+   FP_NDSHookTradeCandidateFunnel &f)
+{
+   if(f.sequences_total <= 0) f.dominant_blocker = "no_phase02_sequences";
+   else if(f.canonical_valid <= 0) f.dominant_blocker = "all_sequences_invalid_or_failed";
+   else if(f.valid_family <= 0) f.dominant_blocker = "no_valid_hook_family";
+   else if(f.family_allowed <= 0) f.dominant_blocker = "hook_family_disabled_by_config";
+   else if(f.confirmed_terminal <= 0) f.dominant_blocker = "no_confirmed_terminal";
+   else if(f.crown_valid <= 0) f.dominant_blocker = "no_cycle_crown";
+   else if(f.x3_x4 <= 0) f.dominant_blocker = "no_x3_or_x4_sequence";
+   else if(f.mature_or_capped <= 0) f.dominant_blocker = "no_mature_or_capped_sequence";
+   else if(f.phase04_evidence_found <= 0) f.dominant_blocker = "phase04_evidence_missing";
+   else if(f.phase04_x_closed <= 0) f.dominant_blocker = "phase04_x_not_closed";
+   else if(f.alive_after_closure <= 0) f.dominant_blocker = "all_closed_cycles_dead_by_origin_return";
+   else if(f.first_864_untouched <= 0) f.dominant_blocker = "first_864_arrival_already_consumed";
+   else if(f.execution_ready <= 0) f.dominant_blocker = "runtime_contract_rejected";
+   else f.dominant_blocker = "ready_candidate_exists";
+}
+
+datetime FP_NDSHook864CycleR1SelectionTime(
+   const FP_HookPhase02Sequence &seq)
+{
+   if(seq.resolve_time > 0) return seq.resolve_time;
+   if(seq.last_x_time > 0) return seq.last_x_time;
+   return seq.origin_time;
+}
+
+// One pass owns both the diagnostic funnel and latest-candidate selection.
+// The previous path scanned all sequences twice and performed up to three
+// structural evidence searches per candidate. This path performs one evidence
+// lookup and one runtime contract evaluation while preserving the same ordering.
+bool FP_NDSHook864CycleR1AnalyzeAndSelectLatest(
+   const string symbol,
+   const ENUM_TIMEFRAMES period,
+   const FP_HookPhase02Sequence &sequences[],
+   const FP_NDSHookTradeConfig &cfg,
+   FP_NDSHookTradeCandidateFunnel &f,
+   FP_HookPhase02Sequence &selected)
 {
    FP_ResetNDSHookTradeCandidateFunnel(f);
    f.sequences_total = ArraySize(sequences);
+
+   bool found = false;
+   datetime best_time = 0;
+   int best_id = -1;
 
    for(int i=0; i<ArraySize(sequences); i++)
    {
@@ -304,25 +386,35 @@ void FP_NDSHook864CycleR1AnalyzeCandidates(const string symbol,
       f.first_864_untouched++;
 
       string reason;
-      if(FP_NDSHook864CycleR1RuntimeEligible(symbol, period, seq, cfg,
-                                             evidence, reason))
-         f.execution_ready++;
+      if(!FP_NDSHook864CycleR1RuntimeEligibleWithEvidence(seq, cfg,
+                                                          evidence, reason))
+         continue;
+      f.execution_ready++;
+
+      datetime sequence_time = FP_NDSHook864CycleR1SelectionTime(seq);
+      if(!found || sequence_time > best_time ||
+         (sequence_time == best_time && seq.sequence_id > best_id))
+      {
+         selected = seq;
+         best_time = sequence_time;
+         best_id = seq.sequence_id;
+         found = true;
+      }
    }
 
-   if(f.sequences_total <= 0) f.dominant_blocker = "no_phase02_sequences";
-   else if(f.canonical_valid <= 0) f.dominant_blocker = "all_sequences_invalid_or_failed";
-   else if(f.valid_family <= 0) f.dominant_blocker = "no_valid_hook_family";
-   else if(f.family_allowed <= 0) f.dominant_blocker = "hook_family_disabled_by_config";
-   else if(f.confirmed_terminal <= 0) f.dominant_blocker = "no_confirmed_terminal";
-   else if(f.crown_valid <= 0) f.dominant_blocker = "no_cycle_crown";
-   else if(f.x3_x4 <= 0) f.dominant_blocker = "no_x3_or_x4_sequence";
-   else if(f.mature_or_capped <= 0) f.dominant_blocker = "no_mature_or_capped_sequence";
-   else if(f.phase04_evidence_found <= 0) f.dominant_blocker = "phase04_evidence_missing";
-   else if(f.phase04_x_closed <= 0) f.dominant_blocker = "phase04_x_not_closed";
-   else if(f.alive_after_closure <= 0) f.dominant_blocker = "all_closed_cycles_dead_by_origin_return";
-   else if(f.first_864_untouched <= 0) f.dominant_blocker = "first_864_arrival_already_consumed";
-   else if(f.execution_ready <= 0) f.dominant_blocker = "runtime_contract_rejected";
-   else f.dominant_blocker = "ready_candidate_exists";
+   FP_NDSHook864CycleR1FinalizeFunnel(f);
+   return found;
+}
+
+void FP_NDSHook864CycleR1AnalyzeCandidates(const string symbol,
+                                           const ENUM_TIMEFRAMES period,
+                                           const FP_HookPhase02Sequence &sequences[],
+                                           const FP_NDSHookTradeConfig &cfg,
+                                           FP_NDSHookTradeCandidateFunnel &f)
+{
+   FP_HookPhase02Sequence ignored;
+   FP_NDSHook864CycleR1AnalyzeAndSelectLatest(symbol, period, sequences,
+                                              cfg, f, ignored);
 }
 
 #endif // __FP_NDS_HOOK_864_CYCLE_R1_RULES_MQH__
