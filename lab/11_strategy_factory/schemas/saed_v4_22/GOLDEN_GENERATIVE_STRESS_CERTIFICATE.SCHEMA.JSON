@@ -1,0 +1,160 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_22/GOLDEN_GENERATIVE_STRESS_CERTIFICATE.SCHEMA.JSON",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accepted_for_synthetic_stress_falsification": {
+      "type": "boolean"
+    },
+    "adversarial_failure_packet_hash": {
+      "type": "string"
+    },
+    "authority_boundary": {
+      "additionalProperties": false,
+      "properties": {
+        "authority": {
+          "additionalProperties": false,
+          "properties": {
+            "decision": {
+              "type": "boolean"
+            },
+            "execution": {
+              "type": "boolean"
+            },
+            "order_submission": {
+              "type": "boolean"
+            },
+            "positive_alpha_evidence": {
+              "type": "boolean"
+            },
+            "production": {
+              "type": "boolean"
+            },
+            "promotion": {
+              "type": "boolean"
+            },
+            "risk_allocation": {
+              "type": "boolean"
+            },
+            "runtime": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "decision",
+            "execution",
+            "order_submission",
+            "positive_alpha_evidence",
+            "production",
+            "promotion",
+            "risk_allocation",
+            "runtime"
+          ],
+          "type": "object"
+        },
+        "fallbacks": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "synthetic_stress_only": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "authority",
+        "fallbacks",
+        "phase",
+        "research_only",
+        "synthetic_stress_only"
+      ],
+      "type": "object"
+    },
+    "budget_ledger_hash": {
+      "type": "string"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "exploitability_report_hash": {
+      "type": "string"
+    },
+    "fidelity_report_hash": {
+      "type": "string"
+    },
+    "generator_registry_hash": {
+      "type": "string"
+    },
+    "invariant_report_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "positive_alpha_evidence": {
+      "type": "boolean"
+    },
+    "production_authority": {
+      "type": "boolean"
+    },
+    "promotion_authority": {
+      "type": "boolean"
+    },
+    "real_summary_hash": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "rollout_set_hash": {
+      "type": "string"
+    },
+    "runtime_executable": {
+      "type": "boolean"
+    },
+    "stress_library_hash": {
+      "type": "string"
+    },
+    "uncertainty_map_hash": {
+      "type": "string"
+    },
+    "upstream_intake_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "accepted_for_synthetic_stress_falsification",
+    "adversarial_failure_packet_hash",
+    "authority_boundary",
+    "budget_ledger_hash",
+    "certificate_hash",
+    "certificate_id",
+    "exploitability_report_hash",
+    "fidelity_report_hash",
+    "generator_registry_hash",
+    "invariant_report_hash",
+    "phase",
+    "positive_alpha_evidence",
+    "production_authority",
+    "promotion_authority",
+    "real_summary_hash",
+    "research_only",
+    "rollout_set_hash",
+    "runtime_executable",
+    "stress_library_hash",
+    "uncertainty_map_hash",
+    "upstream_intake_hash"
+  ],
+  "title": "SAED V4-22 GOLDEN_GENERATIVE_STRESS_CERTIFICATE",
+  "type": "object"
+}

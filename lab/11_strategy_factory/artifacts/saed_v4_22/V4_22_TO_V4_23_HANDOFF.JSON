@@ -1,0 +1,44 @@
+{
+  "allowed_next_work": [
+    "offline_policy_evaluation_on_immutable_real_replay",
+    "behavior_policy_support_analysis",
+    "conservative_offline_policy_research",
+    "synthetic_stress_challenge_only"
+  ],
+  "authority": {
+    "decision": false,
+    "execution": false,
+    "production": false,
+    "promotion": false,
+    "risk_allocation": false,
+    "runtime": false
+  },
+  "budget_ledger_hash": "a18e3b989ba777c22ceb52df78881b7509fb2ebb361f8e4eecec3fd16a3f2aca",
+  "entry_gates": {
+    "deterministic_replay_verified": true,
+    "exploitability_challenge_passed": true,
+    "future_suffix_invariance_verified": true,
+    "market_invariants_verified": true,
+    "protected_evidence_firewall_verified": true,
+    "qa_passed": true,
+    "real_synthetic_separation_verified": true,
+    "upstream_hashes_verified": true,
+    "watermark_verified": true
+  },
+  "exploitability_report_hash": "9cabbcce8cc719e164e40fc65302d823b6600a11fe665fa6f134309b5348bb67",
+  "fidelity_report_hash": "5f72282670df0f2477d485f8932dd5306b3c67e094fd8a45cb23c2cd0ec36521",
+  "forbidden_next_work": [
+    "synthetic_positive_promotion_evidence",
+    "live_policy_learning",
+    "runtime_compilation",
+    "risk_allocation",
+    "order_submission"
+  ],
+  "generative_stress_certificate_hash": "98dd7ab400bf16bf0d4a4f4d88fefe747ce8c52d3fef26fdf24abf0dc96491a1",
+  "handoff_hash": "0e0e66378e766614f1b143cfabb48d9b8eaa933c830f3bf4d70cd891beb15218",
+  "handoff_id": "v4_22_to_v4_23_386b4dc3c0061471463292ee",
+  "next_phase": "SAED_V4_23",
+  "phase": "SAED_V4_22",
+  "research_only": true,
+  "uncertainty_map_hash": "74cd8a7381031cfa787eabf2092bf0e0d15597dc5bd5a7fb3f40cac92a346599"
+}

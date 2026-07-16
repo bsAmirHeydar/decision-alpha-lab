@@ -1,0 +1,12 @@
+class SAEDV422Error(Exception): pass
+class ContractError(SAEDV422Error): pass
+class IntegrityError(SAEDV422Error): pass
+class AuthorityError(SAEDV422Error): pass
+class UpstreamError(SAEDV422Error): pass
+class BudgetError(SAEDV422Error): pass
+class PathInvariantError(SAEDV422Error): pass
+class GeneratorError(SAEDV422Error): pass
+class StressError(SAEDV422Error): pass
+class FidelityError(SAEDV422Error): pass
+class ExploitabilityError(SAEDV422Error): pass
+class CertificateError(SAEDV422Error): pass

@@ -1,0 +1,23 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_22/NEGATIVE_SYNTHETIC_PROMOTION_EVIDENCE.SCHEMA.JSON",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "expected": {
+      "type": "string"
+    },
+    "fixture": {
+      "type": "string"
+    },
+    "passed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "expected",
+    "fixture",
+    "passed"
+  ],
+  "title": "SAED V4-22 NEGATIVE_SYNTHETIC_PROMOTION_EVIDENCE",
+  "type": "object"
+}

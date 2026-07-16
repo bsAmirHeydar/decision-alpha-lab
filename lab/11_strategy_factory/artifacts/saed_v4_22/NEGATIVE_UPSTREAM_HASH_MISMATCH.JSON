@@ -1,0 +1,5 @@
+{
+  "expected": "UpstreamError",
+  "fixture": "robust_certificate_hash_mismatch",
+  "passed": true
+}

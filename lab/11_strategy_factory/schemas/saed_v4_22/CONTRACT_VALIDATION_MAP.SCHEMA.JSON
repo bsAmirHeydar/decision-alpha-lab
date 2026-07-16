@@ -1,0 +1,33 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_22/CONTRACT_VALIDATION_MAP.SCHEMA.JSON",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_contracts": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "closed_contracts": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_additional_properties_false": {
+      "type": "boolean"
+    },
+    "unknown_fields_rejected": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "artifact_contracts",
+    "closed_contracts",
+    "schema_additional_properties_false",
+    "unknown_fields_rejected"
+  ],
+  "title": "SAED V4-22 CONTRACT_VALIDATION_MAP",
+  "type": "object"
+}

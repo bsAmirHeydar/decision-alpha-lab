@@ -1,0 +1,21 @@
+{
+  "authority": {
+    "decision": false,
+    "execution": false,
+    "order_submission": false,
+    "production": false,
+    "promotion": false,
+    "risk_allocation": false,
+    "runtime": false
+  },
+  "fallbacks": [
+    "skip",
+    "abstain",
+    "manual",
+    "reject",
+    "quarantine"
+  ],
+  "phase": "SAED_V4_22",
+  "research_only": true,
+  "synthetic_positive_evidence": false
+}

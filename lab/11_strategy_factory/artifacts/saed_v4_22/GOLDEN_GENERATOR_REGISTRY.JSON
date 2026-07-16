@@ -1,0 +1,58 @@
+{
+  "generator_count": 6,
+  "generator_registry_hash": "b8f03d50fde0f522603434ba38dc0579981aaa4aa8377b8007677b1fe021388c",
+  "path_count": 18,
+  "registry": [
+    {
+      "action_masked": true,
+      "deterministic": true,
+      "family": "moving_block_bootstrap",
+      "generator_id": "moving_block_bootstrap::member::0",
+      "member": 0,
+      "synthetic_only": true
+    },
+    {
+      "action_masked": true,
+      "deterministic": true,
+      "family": "regime_markov",
+      "generator_id": "regime_markov::member::0",
+      "member": 0,
+      "synthetic_only": true
+    },
+    {
+      "action_masked": true,
+      "deterministic": true,
+      "family": "latent_linear_ensemble",
+      "generator_id": "latent_linear_ensemble::member::0",
+      "member": 0,
+      "synthetic_only": true
+    },
+    {
+      "action_masked": true,
+      "deterministic": true,
+      "family": "latent_linear_ensemble",
+      "generator_id": "latent_linear_ensemble::member::1",
+      "member": 1,
+      "synthetic_only": true
+    },
+    {
+      "action_masked": true,
+      "deterministic": true,
+      "family": "latent_linear_ensemble",
+      "generator_id": "latent_linear_ensemble::member::2",
+      "member": 2,
+      "synthetic_only": true
+    },
+    {
+      "action_masked": true,
+      "deterministic": true,
+      "family": "residual_flow_reference",
+      "generator_id": "residual_flow_reference::member::0",
+      "member": 0,
+      "synthetic_only": true
+    }
+  ],
+  "research_only": true,
+  "rollout_set_hash": "9ca4ec1df32c5f85d41773f3fb877873955eeb649590362aa6dc1e03876391a3",
+  "source_hash": "1734a8a892c3d67e214fe84340fa39e26246d676395c9636976620bd931e3684"
+}

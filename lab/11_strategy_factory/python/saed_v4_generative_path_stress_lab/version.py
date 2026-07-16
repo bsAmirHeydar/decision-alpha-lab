@@ -1,0 +1,6 @@
+PHASE='SAED_V4_22'
+VERSION='1.0.0'
+TITLE='Generative Path Stress Lab'
+EVIDENCE_SCOPE='local_deterministic_synthetic_stress_reference'
+CLAIM_CEILING='synthetic_stress_and_falsification_only_not_positive_alpha_evidence'
+NEXT_PHASE='SAED_V4_23'

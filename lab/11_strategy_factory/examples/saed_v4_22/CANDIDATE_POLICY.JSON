@@ -1,0 +1,19 @@
+{
+  "baseline": {
+    "cost_per_action": 4e-05,
+    "drawdown_penalty": 0.12,
+    "lookback": 8,
+    "policy_id": "MANUAL_CORE",
+    "threshold": 0.00045
+  },
+  "candidate": {
+    "cost_per_action": 5e-05,
+    "drawdown_penalty": 0.15,
+    "lookback": 5,
+    "policy_id": "T_BALANCED",
+    "threshold": 0.00025
+  },
+  "research_only": true,
+  "runtime_executable": false,
+  "selected_allocation_id": "allocation::T_BALANCED:1.000000"
+}

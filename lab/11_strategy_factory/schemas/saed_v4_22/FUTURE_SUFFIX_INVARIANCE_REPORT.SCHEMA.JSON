@@ -1,0 +1,27 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_22/FUTURE_SUFFIX_INVARIANCE_REPORT.SCHEMA.JSON",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "future_suffix_ignored": {
+      "type": "boolean"
+    },
+    "mutated_hash": {
+      "type": "string"
+    },
+    "original_hash": {
+      "type": "string"
+    },
+    "passed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "future_suffix_ignored",
+    "mutated_hash",
+    "original_hash",
+    "passed"
+  ],
+  "title": "SAED V4-22 FUTURE_SUFFIX_INVARIANCE_REPORT",
+  "type": "object"
+}

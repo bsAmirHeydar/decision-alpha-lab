@@ -1,0 +1,24 @@
+{
+  "claim_ceiling": "synthetic_stress_and_falsification_only_not_positive_alpha_evidence",
+  "closed_schemas": 45,
+  "evidence_scope": "local_deterministic_synthetic_stress_reference",
+  "external_blockers": [
+    "actual_metaeditor_compile",
+    "python_mql5_runtime_parity",
+    "real_market_fidelity_validation",
+    "independent_external_reproduction",
+    "prospective_and_production_gates"
+  ],
+  "metaeditor_compile": "pending_local_windows",
+  "mql5_static_files": 20,
+  "next_phase": "SAED_V4_23",
+  "obsidian_notes": 195,
+  "phase": "SAED_V4_22",
+  "production_authorization": false,
+  "python_tests": 136,
+  "real_alpha": false,
+  "runtime_parity": "not_claimed",
+  "status": "REFERENCE_IMPLEMENTATION_ACCEPTED",
+  "title": "Generative Path Stress Lab",
+  "version": "1.0.0"
+}

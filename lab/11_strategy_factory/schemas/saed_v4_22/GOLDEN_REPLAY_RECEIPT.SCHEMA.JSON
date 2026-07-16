@@ -1,0 +1,43 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_22/GOLDEN_REPLAY_RECEIPT.SCHEMA.JSON",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "deterministic": {
+      "type": "boolean"
+    },
+    "external_runtime_evidence": {
+      "type": "boolean"
+    },
+    "input_hash": {
+      "type": "string"
+    },
+    "metaeditor_evidence": {
+      "type": "boolean"
+    },
+    "output_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "replay_command": {
+      "type": "string"
+    },
+    "replay_receipt_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "deterministic",
+    "external_runtime_evidence",
+    "input_hash",
+    "metaeditor_evidence",
+    "output_hash",
+    "phase",
+    "replay_command",
+    "replay_receipt_hash"
+  ],
+  "title": "SAED V4-22 GOLDEN_REPLAY_RECEIPT",
+  "type": "object"
+}

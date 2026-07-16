@@ -1,0 +1,5 @@
+{
+  "expected": "invariant_failure",
+  "fixture": "low_above_high",
+  "passed": true
+}

@@ -1,0 +1,71 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_22/GOLDEN_GENERATOR_REGISTRY.SCHEMA.JSON",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "generator_count": {
+      "type": "integer"
+    },
+    "generator_registry_hash": {
+      "type": "string"
+    },
+    "path_count": {
+      "type": "integer"
+    },
+    "registry": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "action_masked": {
+            "type": "boolean"
+          },
+          "deterministic": {
+            "type": "boolean"
+          },
+          "family": {
+            "type": "string"
+          },
+          "generator_id": {
+            "type": "string"
+          },
+          "member": {
+            "type": "integer"
+          },
+          "synthetic_only": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "action_masked",
+          "deterministic",
+          "family",
+          "generator_id",
+          "member",
+          "synthetic_only"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "rollout_set_hash": {
+      "type": "string"
+    },
+    "source_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "generator_count",
+    "generator_registry_hash",
+    "path_count",
+    "registry",
+    "research_only",
+    "rollout_set_hash",
+    "source_hash"
+  ],
+  "title": "SAED V4-22 GOLDEN_GENERATOR_REGISTRY",
+  "type": "object"
+}

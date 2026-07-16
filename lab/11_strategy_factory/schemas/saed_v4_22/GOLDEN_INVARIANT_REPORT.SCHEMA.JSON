@@ -1,0 +1,64 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_22/GOLDEN_INVARIANT_REPORT.SCHEMA.JSON",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "failed_path_count": {
+      "type": "integer"
+    },
+    "invariant_report_hash": {
+      "type": "string"
+    },
+    "native_report_hash": {
+      "type": "string"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "path_count": {
+      "type": "integer"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "passed": {
+            "type": "boolean"
+          },
+          "path_id": {
+            "type": "string"
+          },
+          "violation_count": {
+            "type": "integer"
+          },
+          "violations": {
+            "items": {},
+            "type": "array"
+          }
+        },
+        "required": [
+          "passed",
+          "path_id",
+          "violation_count",
+          "violations"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "stress_report_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "failed_path_count",
+    "invariant_report_hash",
+    "native_report_hash",
+    "passed",
+    "path_count",
+    "rows",
+    "stress_report_hash"
+  ],
+  "title": "SAED V4-22 GOLDEN_INVARIANT_REPORT",
+  "type": "object"
+}

@@ -1,0 +1,51 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_22/UPSTREAM_INTAKE_CONTRACT.SCHEMA.JSON",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ambiguity_set_hash": {
+      "type": "string"
+    },
+    "budget_ledger_hash": {
+      "type": "string"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "hash_verified": {
+      "type": "boolean"
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "required_phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "robust_certificate_hash": {
+      "type": "string"
+    },
+    "scenario_set_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "ambiguity_set_hash",
+    "budget_ledger_hash",
+    "exact_version",
+    "handoff_hash",
+    "hash_verified",
+    "immutable",
+    "required_phase",
+    "research_only",
+    "robust_certificate_hash",
+    "scenario_set_hash"
+  ],
+  "title": "SAED V4-22 UPSTREAM_INTAKE_CONTRACT",
+  "type": "object"
+}

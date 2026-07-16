@@ -1,0 +1,67 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_22/AUTHORITY_BOUNDARY.SCHEMA.JSON",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "decision": {
+          "type": "boolean"
+        },
+        "execution": {
+          "type": "boolean"
+        },
+        "order_submission": {
+          "type": "boolean"
+        },
+        "production": {
+          "type": "boolean"
+        },
+        "promotion": {
+          "type": "boolean"
+        },
+        "risk_allocation": {
+          "type": "boolean"
+        },
+        "runtime": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "decision",
+        "execution",
+        "order_submission",
+        "production",
+        "promotion",
+        "risk_allocation",
+        "runtime"
+      ],
+      "type": "object"
+    },
+    "fallbacks": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "synthetic_positive_evidence": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "authority",
+    "fallbacks",
+    "phase",
+    "research_only",
+    "synthetic_positive_evidence"
+  ],
+  "title": "SAED V4-22 AUTHORITY_BOUNDARY",
+  "type": "object"
+}

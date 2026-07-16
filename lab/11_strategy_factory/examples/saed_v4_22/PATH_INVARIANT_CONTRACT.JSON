@@ -1,0 +1,12 @@
+{
+  "enforce_bid_ask_order": true,
+  "enforce_finite": true,
+  "enforce_ohlc_geometry": true,
+  "exact_version": "1.0.0",
+  "fail_closed": true,
+  "maximum_liquidity": 1.0,
+  "maximum_relative_spread": 0.08,
+  "maximum_step_return": 0.2,
+  "minimum_liquidity": 0.0,
+  "minimum_price": 1e-06
+}

@@ -1,0 +1,143 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_22/V4_22_TO_V4_23_HANDOFF.SCHEMA.JSON",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_next_work": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "decision": {
+          "type": "boolean"
+        },
+        "execution": {
+          "type": "boolean"
+        },
+        "production": {
+          "type": "boolean"
+        },
+        "promotion": {
+          "type": "boolean"
+        },
+        "risk_allocation": {
+          "type": "boolean"
+        },
+        "runtime": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "decision",
+        "execution",
+        "production",
+        "promotion",
+        "risk_allocation",
+        "runtime"
+      ],
+      "type": "object"
+    },
+    "budget_ledger_hash": {
+      "type": "string"
+    },
+    "entry_gates": {
+      "additionalProperties": false,
+      "properties": {
+        "deterministic_replay_verified": {
+          "type": "boolean"
+        },
+        "exploitability_challenge_passed": {
+          "type": "boolean"
+        },
+        "future_suffix_invariance_verified": {
+          "type": "boolean"
+        },
+        "market_invariants_verified": {
+          "type": "boolean"
+        },
+        "protected_evidence_firewall_verified": {
+          "type": "boolean"
+        },
+        "qa_passed": {
+          "type": "boolean"
+        },
+        "real_synthetic_separation_verified": {
+          "type": "boolean"
+        },
+        "upstream_hashes_verified": {
+          "type": "boolean"
+        },
+        "watermark_verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "deterministic_replay_verified",
+        "exploitability_challenge_passed",
+        "future_suffix_invariance_verified",
+        "market_invariants_verified",
+        "protected_evidence_firewall_verified",
+        "qa_passed",
+        "real_synthetic_separation_verified",
+        "upstream_hashes_verified",
+        "watermark_verified"
+      ],
+      "type": "object"
+    },
+    "exploitability_report_hash": {
+      "type": "string"
+    },
+    "fidelity_report_hash": {
+      "type": "string"
+    },
+    "forbidden_next_work": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "generative_stress_certificate_hash": {
+      "type": "string"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "uncertainty_map_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "allowed_next_work",
+    "authority",
+    "budget_ledger_hash",
+    "entry_gates",
+    "exploitability_report_hash",
+    "fidelity_report_hash",
+    "forbidden_next_work",
+    "generative_stress_certificate_hash",
+    "handoff_hash",
+    "handoff_id",
+    "next_phase",
+    "phase",
+    "research_only",
+    "uncertainty_map_hash"
+  ],
+  "title": "SAED V4-22 V4_22_TO_V4_23_HANDOFF",
+  "type": "object"
+}

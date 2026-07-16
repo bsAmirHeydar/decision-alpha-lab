@@ -1,0 +1,22 @@
+{
+  "material_risks": [
+    "mode_collapse",
+    "tail_smoothing",
+    "invalid_market_states",
+    "simulator_exploitation",
+    "synthetic_evidence_substitution",
+    "trusted_horizon_overstatement"
+  ],
+  "mitigations": [
+    "multi_family_challengers",
+    "hard_invariants",
+    "tail_fidelity",
+    "real_replay_exploitability_test",
+    "watermark_and_claim_ceiling",
+    "uncertainty_horizon_map"
+  ],
+  "phase": "SAED_V4_22",
+  "production_authorization": false,
+  "real_alpha_claim": false,
+  "review_status": "accepted_reference_only"
+}

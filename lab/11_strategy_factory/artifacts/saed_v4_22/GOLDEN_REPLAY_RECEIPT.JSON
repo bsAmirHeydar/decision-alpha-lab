@@ -1,0 +1,10 @@
+{
+  "deterministic": true,
+  "external_runtime_evidence": false,
+  "input_hash": "bf27418263683634667def4de044f900705c9af782a414b3c8637555399afab3",
+  "metaeditor_evidence": false,
+  "output_hash": "b6dae82b749b55f5c5317596643f09f027dd1dbc58ec00bd00180083602ed485",
+  "phase": "SAED_V4_22",
+  "replay_command": "python tools/strategy_factory/saed_v4_22/reproduce_saed_v4_22_golden.py",
+  "replay_receipt_hash": "299e48438b1e4c404c58039806bd682b6528f566edf2bcdcffb4a909b988d9a3"
+}

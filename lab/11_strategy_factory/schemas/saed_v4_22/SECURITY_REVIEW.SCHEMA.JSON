@@ -1,0 +1,43 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_22/SECURITY_REVIEW.SCHEMA.JSON",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_hashing_present": {
+      "type": "boolean"
+    },
+    "broker_credentials_present": {
+      "type": "boolean"
+    },
+    "closed_contracts_present": {
+      "type": "boolean"
+    },
+    "live_credentials_present": {
+      "type": "boolean"
+    },
+    "order_submission_surface_present": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "secret_scan_passed": {
+      "type": "boolean"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_hashing_present",
+    "broker_credentials_present",
+    "closed_contracts_present",
+    "live_credentials_present",
+    "order_submission_surface_present",
+    "phase",
+    "secret_scan_passed",
+    "status"
+  ],
+  "title": "SAED V4-22 SECURITY_REVIEW",
+  "type": "object"
+}

@@ -1,0 +1,69 @@
+{
+  "composite_distance": 0.04870581334243288,
+  "distinguishability_proxy": 0.046443733526371725,
+  "fidelity_report_hash": "5f72282670df0f2477d485f8932dd5306b3c67e094fd8a45cb23c2cd0ec36521",
+  "metrics": {
+    "autocorrelation_error": 0.08772441634439482,
+    "liquidity_error": 0.006528557283047021,
+    "regime_occupancy_l1": 0.39583333333333337,
+    "return_mean_error": 4.1356428651128896e-05,
+    "return_std_error": 1.798307901090812e-06,
+    "spread_error": 7.5009999341455955e-06,
+    "tail_quantile_error": 0.0012592604220202155
+  },
+  "normalized_errors": {
+    "autocorrelation_error": 0.10965552043049352,
+    "liquidity_error": 0.013057114566094041,
+    "regime_occupancy_l1": 0.19791666666666669,
+    "return_mean_error": 0.0041356428651128894,
+    "return_std_error": 5.994359670302707e-05,
+    "spread_error": 0.0003750499967072798,
+    "tail_quantile_error": 0.015740755275252694
+  },
+  "passed": true,
+  "positive_evidence_usable": false,
+  "real_summary": {
+    "liquidity_mean": 0.7521590816805878,
+    "path_count": 6,
+    "regime_occupancy": {
+      "range": 0.5,
+      "trend": 0.25,
+      "volatile": 0.25
+    },
+    "return_autocorr_1": 0.13522665601469308,
+    "return_mean": -6.015933818373465e-05,
+    "return_q01": -0.007390358308799385,
+    "return_q99": 0.007173006516567881,
+    "return_std": 0.0024809115424877324,
+    "spread_mean": 0.00030694746851904335,
+    "step_count": 384,
+    "summary_hash": "afe74c11cb6c99510db9eaf4e837178f7b612d45e8a7d8f513c7362f90a5ad94"
+  },
+  "stress_only_usable": true,
+  "synthetic_summary": {
+    "liquidity_mean": 0.7456305243975407,
+    "path_count": 18,
+    "regime_occupancy": {
+      "range": 0.3611111111111111,
+      "trend": 0.4479166666666667,
+      "volatile": 0.1909722222222222
+    },
+    "return_autocorr_1": 0.2229510723590879,
+    "return_mean": -0.00010151576683486355,
+    "return_q01": -0.006936733012132101,
+    "return_q99": 0.005913746094547666,
+    "return_std": 0.002482709850388823,
+    "spread_mean": 0.00031444846845318894,
+    "step_count": 864,
+    "summary_hash": "cd2604681937f8aafd5cdd4c8b43fbee7895a972c8226924b1acb85531dc70ab"
+  },
+  "thresholds": {
+    "autocorrelation_error": 0.8,
+    "liquidity_error": 0.5,
+    "regime_occupancy_l1": 2.0,
+    "return_mean_error": 0.01,
+    "return_std_error": 0.03,
+    "spread_error": 0.02,
+    "tail_quantile_error": 0.08
+  }
+}

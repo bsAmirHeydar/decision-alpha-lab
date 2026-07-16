@@ -1,0 +1,13 @@
+{
+  "exact_version": "1.0.0",
+  "maximum_autocorrelation_error": 0.8,
+  "maximum_composite_distance": 3.0,
+  "maximum_distinguishability_proxy": 0.9,
+  "maximum_liquidity_error": 0.5,
+  "maximum_regime_occupancy_l1": 2.0,
+  "maximum_return_mean_error": 0.01,
+  "maximum_return_std_error": 0.03,
+  "maximum_spread_error": 0.02,
+  "maximum_tail_quantile_error": 0.08,
+  "minimum_trusted_horizon": 8
+}

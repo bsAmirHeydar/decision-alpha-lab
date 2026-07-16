@@ -1,0 +1,17 @@
+{
+  "liquidity_mean": 0.7521590816805878,
+  "path_count": 6,
+  "regime_occupancy": {
+    "range": 0.5,
+    "trend": 0.25,
+    "volatile": 0.25
+  },
+  "return_autocorr_1": 0.13522665601469308,
+  "return_mean": -6.015933818373465e-05,
+  "return_q01": -0.007390358308799385,
+  "return_q99": 0.007173006516567881,
+  "return_std": 0.0024809115424877324,
+  "spread_mean": 0.00030694746851904335,
+  "step_count": 384,
+  "summary_hash": "afe74c11cb6c99510db9eaf4e837178f7b612d45e8a7d8f513c7362f90a5ad94"
+}

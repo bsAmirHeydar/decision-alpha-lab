@@ -1,0 +1,55 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_22/FIDELITY_CONTRACT.SCHEMA.JSON",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "exact_version": {
+      "type": "string"
+    },
+    "maximum_autocorrelation_error": {
+      "type": "number"
+    },
+    "maximum_composite_distance": {
+      "type": "number"
+    },
+    "maximum_distinguishability_proxy": {
+      "type": "number"
+    },
+    "maximum_liquidity_error": {
+      "type": "number"
+    },
+    "maximum_regime_occupancy_l1": {
+      "type": "number"
+    },
+    "maximum_return_mean_error": {
+      "type": "number"
+    },
+    "maximum_return_std_error": {
+      "type": "number"
+    },
+    "maximum_spread_error": {
+      "type": "number"
+    },
+    "maximum_tail_quantile_error": {
+      "type": "number"
+    },
+    "minimum_trusted_horizon": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "exact_version",
+    "maximum_autocorrelation_error",
+    "maximum_composite_distance",
+    "maximum_distinguishability_proxy",
+    "maximum_liquidity_error",
+    "maximum_regime_occupancy_l1",
+    "maximum_return_mean_error",
+    "maximum_return_std_error",
+    "maximum_spread_error",
+    "maximum_tail_quantile_error",
+    "minimum_trusted_horizon"
+  ],
+  "title": "SAED V4-22 FIDELITY_CONTRACT",
+  "type": "object"
+}

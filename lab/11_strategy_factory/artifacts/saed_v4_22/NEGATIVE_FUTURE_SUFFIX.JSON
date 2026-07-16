@@ -1,0 +1,5 @@
+{
+  "expected": "identical_reference_run_hash",
+  "fixture": "future_suffix_mutation",
+  "passed": true
+}

@@ -1,0 +1,23 @@
+{
+  "adversarial_steps": 16,
+  "failures": 0,
+  "fidelity_evaluations": 1,
+  "generated_paths": 18,
+  "generator_trials": 6,
+  "hidden_evaluation_queries": 0,
+  "ledger_hash": "a18e3b989ba777c22ceb52df78881b7509fb2ebb361f8e4eecec3fd16a3f2aca",
+  "limits": {
+    "max_adversarial_steps": 64,
+    "max_failures": 16,
+    "max_fidelity_evaluations": 32,
+    "max_generated_paths": 64,
+    "max_generator_trials": 32,
+    "max_hidden_evaluation_queries": 0,
+    "max_real_paths": 16,
+    "max_stress_paths": 96,
+    "protected_evidence_exposure_limit": 0
+  },
+  "protected_evidence_exposures": 0,
+  "real_paths": 6,
+  "stress_paths": 64
+}

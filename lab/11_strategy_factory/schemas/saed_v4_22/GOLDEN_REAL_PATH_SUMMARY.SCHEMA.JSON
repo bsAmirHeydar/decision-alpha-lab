@@ -1,0 +1,72 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_22/GOLDEN_REAL_PATH_SUMMARY.SCHEMA.JSON",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "liquidity_mean": {
+      "type": "number"
+    },
+    "path_count": {
+      "type": "integer"
+    },
+    "regime_occupancy": {
+      "additionalProperties": false,
+      "properties": {
+        "range": {
+          "type": "number"
+        },
+        "trend": {
+          "type": "number"
+        },
+        "volatile": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "range",
+        "trend",
+        "volatile"
+      ],
+      "type": "object"
+    },
+    "return_autocorr_1": {
+      "type": "number"
+    },
+    "return_mean": {
+      "type": "number"
+    },
+    "return_q01": {
+      "type": "number"
+    },
+    "return_q99": {
+      "type": "number"
+    },
+    "return_std": {
+      "type": "number"
+    },
+    "spread_mean": {
+      "type": "number"
+    },
+    "step_count": {
+      "type": "integer"
+    },
+    "summary_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "liquidity_mean",
+    "path_count",
+    "regime_occupancy",
+    "return_autocorr_1",
+    "return_mean",
+    "return_q01",
+    "return_q99",
+    "return_std",
+    "spread_mean",
+    "step_count",
+    "summary_hash"
+  ],
+  "title": "SAED V4-22 GOLDEN_REAL_PATH_SUMMARY",
+  "type": "object"
+}

@@ -1,0 +1,51 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_22/PATH_INVARIANT_CONTRACT.SCHEMA.JSON",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "enforce_bid_ask_order": {
+      "type": "boolean"
+    },
+    "enforce_finite": {
+      "type": "boolean"
+    },
+    "enforce_ohlc_geometry": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "fail_closed": {
+      "type": "boolean"
+    },
+    "maximum_liquidity": {
+      "type": "number"
+    },
+    "maximum_relative_spread": {
+      "type": "number"
+    },
+    "maximum_step_return": {
+      "type": "number"
+    },
+    "minimum_liquidity": {
+      "type": "number"
+    },
+    "minimum_price": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "enforce_bid_ask_order",
+    "enforce_finite",
+    "enforce_ohlc_geometry",
+    "exact_version",
+    "fail_closed",
+    "maximum_liquidity",
+    "maximum_relative_spread",
+    "maximum_step_return",
+    "minimum_liquidity",
+    "minimum_price"
+  ],
+  "title": "SAED V4-22 PATH_INVARIANT_CONTRACT",
+  "type": "object"
+}

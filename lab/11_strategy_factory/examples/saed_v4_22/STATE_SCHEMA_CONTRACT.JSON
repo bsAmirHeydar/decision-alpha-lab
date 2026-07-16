@@ -1,0 +1,29 @@
+{
+  "action_fields_forbidden": [
+    "future_return",
+    "future_outcome",
+    "oracle_action",
+    "fill_after_decision"
+  ],
+  "exact_version": "1.0.0",
+  "future_suffix_forbidden": true,
+  "known_time_fields": [
+    "timestamp"
+  ],
+  "maximum_history": 256,
+  "minimum_history": 32,
+  "protected_evidence_forbidden": true,
+  "required_row_fields": [
+    "timestamp",
+    "open",
+    "high",
+    "low",
+    "close",
+    "bid",
+    "ask",
+    "volume",
+    "liquidity",
+    "regime"
+  ],
+  "strict_timestamp_order": true
+}

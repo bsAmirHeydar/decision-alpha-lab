@@ -1,0 +1,206 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_22/GOLDEN_STRESS_LIBRARY.SCHEMA.JSON",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "families": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "path_count": {
+      "type": "integer"
+    },
+    "paths": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "context_id": {
+            "type": "string"
+          },
+          "generator_id": {
+            "type": "string"
+          },
+          "origin": {
+            "type": "string"
+          },
+          "parent_path_id": {
+            "type": "string"
+          },
+          "path_id": {
+            "type": "string"
+          },
+          "research_only": {
+            "type": "boolean"
+          },
+          "rows": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "ask": {
+                  "type": "number"
+                },
+                "bid": {
+                  "type": "number"
+                },
+                "close": {
+                  "type": "number"
+                },
+                "high": {
+                  "type": "number"
+                },
+                "liquidity": {
+                  "type": "number"
+                },
+                "low": {
+                  "type": "number"
+                },
+                "open": {
+                  "type": "number"
+                },
+                "regime": {
+                  "type": "string"
+                },
+                "timestamp": {
+                  "type": "integer"
+                },
+                "volume": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "ask",
+                "bid",
+                "close",
+                "high",
+                "liquidity",
+                "low",
+                "open",
+                "regime",
+                "timestamp",
+                "volume"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "seed": {
+            "type": "integer"
+          },
+          "source_hash": {
+            "type": "string"
+          },
+          "start_time": {
+            "type": "integer"
+          },
+          "step_seconds": {
+            "type": "integer"
+          },
+          "stress_labels": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "family": {
+                  "type": "string"
+                },
+                "pivot_index": {
+                  "type": "integer"
+                },
+                "severity": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "family",
+                "pivot_index",
+                "severity"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "watermark": {
+            "additionalProperties": false,
+            "properties": {
+              "generator_id": {
+                "type": "string"
+              },
+              "positive_promotion_evidence": {
+                "type": "boolean"
+              },
+              "prefix": {
+                "type": "string"
+              },
+              "runtime_eligible": {
+                "type": "boolean"
+              },
+              "seed": {
+                "type": "integer"
+              },
+              "source_hash": {
+                "type": "string"
+              },
+              "watermark_hash": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "generator_id",
+              "positive_promotion_evidence",
+              "prefix",
+              "runtime_eligible",
+              "seed",
+              "source_hash",
+              "watermark_hash"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "context_id",
+          "generator_id",
+          "origin",
+          "parent_path_id",
+          "path_id",
+          "research_only",
+          "rows",
+          "seed",
+          "source_hash",
+          "start_time",
+          "step_seconds",
+          "stress_labels",
+          "watermark"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "severity_levels": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "stress_library_hash": {
+      "type": "string"
+    },
+    "synthetic_positive_evidence": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "families",
+    "path_count",
+    "paths",
+    "research_only",
+    "severity_levels",
+    "stress_library_hash",
+    "synthetic_positive_evidence"
+  ],
+  "title": "SAED V4-22 GOLDEN_STRESS_LIBRARY",
+  "type": "object"
+}

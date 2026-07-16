@@ -1,0 +1,24 @@
+{
+  "adversarial_search_steps": 16,
+  "deterministic": true,
+  "exact_version": "1.0.0",
+  "families": [
+    "gap_down",
+    "gap_up",
+    "volatility_burst",
+    "liquidity_collapse",
+    "spread_blowout",
+    "chop_reversal",
+    "regime_break",
+    "execution_degradation"
+  ],
+  "market_invariants_required": true,
+  "maximum_stress_paths": 64,
+  "preserve_timestamp_grid": true,
+  "preserve_watermark": true,
+  "severity_levels": [
+    0.25,
+    0.5,
+    0.8
+  ]
+}

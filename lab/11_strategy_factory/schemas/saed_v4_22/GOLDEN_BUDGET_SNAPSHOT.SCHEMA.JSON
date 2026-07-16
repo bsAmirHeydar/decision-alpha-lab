@@ -1,0 +1,96 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_22/GOLDEN_BUDGET_SNAPSHOT.SCHEMA.JSON",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adversarial_steps": {
+      "type": "integer"
+    },
+    "failures": {
+      "type": "integer"
+    },
+    "fidelity_evaluations": {
+      "type": "integer"
+    },
+    "generated_paths": {
+      "type": "integer"
+    },
+    "generator_trials": {
+      "type": "integer"
+    },
+    "hidden_evaluation_queries": {
+      "type": "integer"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "limits": {
+      "additionalProperties": false,
+      "properties": {
+        "max_adversarial_steps": {
+          "type": "integer"
+        },
+        "max_failures": {
+          "type": "integer"
+        },
+        "max_fidelity_evaluations": {
+          "type": "integer"
+        },
+        "max_generated_paths": {
+          "type": "integer"
+        },
+        "max_generator_trials": {
+          "type": "integer"
+        },
+        "max_hidden_evaluation_queries": {
+          "type": "integer"
+        },
+        "max_real_paths": {
+          "type": "integer"
+        },
+        "max_stress_paths": {
+          "type": "integer"
+        },
+        "protected_evidence_exposure_limit": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "max_adversarial_steps",
+        "max_failures",
+        "max_fidelity_evaluations",
+        "max_generated_paths",
+        "max_generator_trials",
+        "max_hidden_evaluation_queries",
+        "max_real_paths",
+        "max_stress_paths",
+        "protected_evidence_exposure_limit"
+      ],
+      "type": "object"
+    },
+    "protected_evidence_exposures": {
+      "type": "integer"
+    },
+    "real_paths": {
+      "type": "integer"
+    },
+    "stress_paths": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "adversarial_steps",
+    "failures",
+    "fidelity_evaluations",
+    "generated_paths",
+    "generator_trials",
+    "hidden_evaluation_queries",
+    "ledger_hash",
+    "limits",
+    "protected_evidence_exposures",
+    "real_paths",
+    "stress_paths"
+  ],
+  "title": "SAED V4-22 GOLDEN_BUDGET_SNAPSHOT",
+  "type": "object"
+}

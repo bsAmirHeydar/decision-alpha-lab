@@ -1,0 +1,5 @@
+{
+  "expected": "AuthorityError",
+  "fixture": "protected_final_evidence_key",
+  "passed": true
+}

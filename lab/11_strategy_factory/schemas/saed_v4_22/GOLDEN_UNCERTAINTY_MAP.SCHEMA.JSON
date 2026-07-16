@@ -1,0 +1,59 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_22/GOLDEN_UNCERTAINTY_MAP.SCHEMA.JSON",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "path_count": {
+      "type": "integer"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "ensemble_return_mean": {
+            "type": "number"
+          },
+          "ensemble_return_std": {
+            "type": "number"
+          },
+          "horizon_step": {
+            "type": "integer"
+          },
+          "uncertainty_exceeds_threshold": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "ensemble_return_mean",
+          "ensemble_return_std",
+          "horizon_step",
+          "uncertainty_exceeds_threshold"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "threshold": {
+      "type": "number"
+    },
+    "trusted_horizon": {
+      "type": "integer"
+    },
+    "uncertainty_map_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "path_count",
+    "research_only",
+    "rows",
+    "threshold",
+    "trusted_horizon",
+    "uncertainty_map_hash"
+  ],
+  "title": "SAED V4-22 GOLDEN_UNCERTAINTY_MAP",
+  "type": "object"
+}

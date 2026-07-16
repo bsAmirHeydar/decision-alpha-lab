@@ -1,0 +1,80 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_22/GOLDEN_ADVERSARIAL_FAILURE_PACKET.SCHEMA.JSON",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adversarial_failure_packet_hash": {
+      "type": "string"
+    },
+    "failure_found": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "trial_count": {
+      "type": "integer"
+    },
+    "trials": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_relative_loss": {
+            "type": "number"
+          },
+          "family": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "number"
+          },
+          "step": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "candidate_relative_loss",
+          "family",
+          "severity",
+          "step"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "worst_case": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_relative_loss": {
+          "type": "number"
+        },
+        "family": {
+          "type": "string"
+        },
+        "severity": {
+          "type": "number"
+        },
+        "step": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "candidate_relative_loss",
+        "family",
+        "severity",
+        "step"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "adversarial_failure_packet_hash",
+    "failure_found",
+    "research_only",
+    "trial_count",
+    "trials",
+    "worst_case"
+  ],
+  "title": "SAED V4-22 GOLDEN_ADVERSARIAL_FAILURE_PACKET",
+  "type": "object"
+}

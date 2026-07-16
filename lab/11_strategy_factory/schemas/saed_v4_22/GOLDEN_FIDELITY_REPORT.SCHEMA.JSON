@@ -1,0 +1,286 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_22/GOLDEN_FIDELITY_REPORT.SCHEMA.JSON",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "composite_distance": {
+      "type": "number"
+    },
+    "distinguishability_proxy": {
+      "type": "number"
+    },
+    "fidelity_report_hash": {
+      "type": "string"
+    },
+    "metrics": {
+      "additionalProperties": false,
+      "properties": {
+        "autocorrelation_error": {
+          "type": "number"
+        },
+        "liquidity_error": {
+          "type": "number"
+        },
+        "regime_occupancy_l1": {
+          "type": "number"
+        },
+        "return_mean_error": {
+          "type": "number"
+        },
+        "return_std_error": {
+          "type": "number"
+        },
+        "spread_error": {
+          "type": "number"
+        },
+        "tail_quantile_error": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "autocorrelation_error",
+        "liquidity_error",
+        "regime_occupancy_l1",
+        "return_mean_error",
+        "return_std_error",
+        "spread_error",
+        "tail_quantile_error"
+      ],
+      "type": "object"
+    },
+    "normalized_errors": {
+      "additionalProperties": false,
+      "properties": {
+        "autocorrelation_error": {
+          "type": "number"
+        },
+        "liquidity_error": {
+          "type": "number"
+        },
+        "regime_occupancy_l1": {
+          "type": "number"
+        },
+        "return_mean_error": {
+          "type": "number"
+        },
+        "return_std_error": {
+          "type": "number"
+        },
+        "spread_error": {
+          "type": "number"
+        },
+        "tail_quantile_error": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "autocorrelation_error",
+        "liquidity_error",
+        "regime_occupancy_l1",
+        "return_mean_error",
+        "return_std_error",
+        "spread_error",
+        "tail_quantile_error"
+      ],
+      "type": "object"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "positive_evidence_usable": {
+      "type": "boolean"
+    },
+    "real_summary": {
+      "additionalProperties": false,
+      "properties": {
+        "liquidity_mean": {
+          "type": "number"
+        },
+        "path_count": {
+          "type": "integer"
+        },
+        "regime_occupancy": {
+          "additionalProperties": false,
+          "properties": {
+            "range": {
+              "type": "number"
+            },
+            "trend": {
+              "type": "number"
+            },
+            "volatile": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "range",
+            "trend",
+            "volatile"
+          ],
+          "type": "object"
+        },
+        "return_autocorr_1": {
+          "type": "number"
+        },
+        "return_mean": {
+          "type": "number"
+        },
+        "return_q01": {
+          "type": "number"
+        },
+        "return_q99": {
+          "type": "number"
+        },
+        "return_std": {
+          "type": "number"
+        },
+        "spread_mean": {
+          "type": "number"
+        },
+        "step_count": {
+          "type": "integer"
+        },
+        "summary_hash": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "liquidity_mean",
+        "path_count",
+        "regime_occupancy",
+        "return_autocorr_1",
+        "return_mean",
+        "return_q01",
+        "return_q99",
+        "return_std",
+        "spread_mean",
+        "step_count",
+        "summary_hash"
+      ],
+      "type": "object"
+    },
+    "stress_only_usable": {
+      "type": "boolean"
+    },
+    "synthetic_summary": {
+      "additionalProperties": false,
+      "properties": {
+        "liquidity_mean": {
+          "type": "number"
+        },
+        "path_count": {
+          "type": "integer"
+        },
+        "regime_occupancy": {
+          "additionalProperties": false,
+          "properties": {
+            "range": {
+              "type": "number"
+            },
+            "trend": {
+              "type": "number"
+            },
+            "volatile": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "range",
+            "trend",
+            "volatile"
+          ],
+          "type": "object"
+        },
+        "return_autocorr_1": {
+          "type": "number"
+        },
+        "return_mean": {
+          "type": "number"
+        },
+        "return_q01": {
+          "type": "number"
+        },
+        "return_q99": {
+          "type": "number"
+        },
+        "return_std": {
+          "type": "number"
+        },
+        "spread_mean": {
+          "type": "number"
+        },
+        "step_count": {
+          "type": "integer"
+        },
+        "summary_hash": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "liquidity_mean",
+        "path_count",
+        "regime_occupancy",
+        "return_autocorr_1",
+        "return_mean",
+        "return_q01",
+        "return_q99",
+        "return_std",
+        "spread_mean",
+        "step_count",
+        "summary_hash"
+      ],
+      "type": "object"
+    },
+    "thresholds": {
+      "additionalProperties": false,
+      "properties": {
+        "autocorrelation_error": {
+          "type": "number"
+        },
+        "liquidity_error": {
+          "type": "number"
+        },
+        "regime_occupancy_l1": {
+          "type": "number"
+        },
+        "return_mean_error": {
+          "type": "number"
+        },
+        "return_std_error": {
+          "type": "number"
+        },
+        "spread_error": {
+          "type": "number"
+        },
+        "tail_quantile_error": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "autocorrelation_error",
+        "liquidity_error",
+        "regime_occupancy_l1",
+        "return_mean_error",
+        "return_std_error",
+        "spread_error",
+        "tail_quantile_error"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "composite_distance",
+    "distinguishability_proxy",
+    "fidelity_report_hash",
+    "metrics",
+    "normalized_errors",
+    "passed",
+    "positive_evidence_usable",
+    "real_summary",
+    "stress_only_usable",
+    "synthetic_summary",
+    "thresholds"
+  ],
+  "title": "SAED V4-22 GOLDEN_FIDELITY_REPORT",
+  "type": "object"
+}

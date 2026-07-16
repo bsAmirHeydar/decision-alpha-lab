@@ -1,0 +1,5 @@
+{
+  "expected": "ContractError",
+  "fixture": "generator_program_unknown_field",
+  "passed": true
+}

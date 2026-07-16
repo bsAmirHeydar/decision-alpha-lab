@@ -1,0 +1,5 @@
+{
+  "expected": "validation_failure",
+  "fixture": "missing_synthetic_watermark",
+  "passed": true
+}

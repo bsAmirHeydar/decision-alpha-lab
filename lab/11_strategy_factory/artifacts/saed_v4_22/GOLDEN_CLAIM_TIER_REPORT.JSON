@@ -1,0 +1,13 @@
+{
+  "claim_tier": "local_deterministic_synthetic_stress_reference",
+  "exploitability_challenge_implemented": true,
+  "fidelity_diagnostics_implemented": true,
+  "generative_paths_implemented": true,
+  "phase": "SAED_V4_22",
+  "production_authorization": false,
+  "production_policy_selection": false,
+  "real_alpha_established": false,
+  "runtime_activation": false,
+  "stress_composition_implemented": true,
+  "synthetic_positive_evidence_allowed": false
+}

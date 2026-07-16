@@ -1,0 +1,56 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_22/STATE_SCHEMA_CONTRACT.SCHEMA.JSON",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action_fields_forbidden": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "future_suffix_forbidden": {
+      "type": "boolean"
+    },
+    "known_time_fields": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "maximum_history": {
+      "type": "integer"
+    },
+    "minimum_history": {
+      "type": "integer"
+    },
+    "protected_evidence_forbidden": {
+      "type": "boolean"
+    },
+    "required_row_fields": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "strict_timestamp_order": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "action_fields_forbidden",
+    "exact_version",
+    "future_suffix_forbidden",
+    "known_time_fields",
+    "maximum_history",
+    "minimum_history",
+    "protected_evidence_forbidden",
+    "required_row_fields",
+    "strict_timestamp_order"
+  ],
+  "title": "SAED V4-22 STATE_SCHEMA_CONTRACT",
+  "type": "object"
+}

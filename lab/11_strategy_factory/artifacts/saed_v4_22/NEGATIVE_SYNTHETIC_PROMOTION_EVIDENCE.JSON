@@ -1,0 +1,5 @@
+{
+  "expected": "ContractError",
+  "fixture": "synthetic_gain_is_positive_evidence_true",
+  "passed": true
+}

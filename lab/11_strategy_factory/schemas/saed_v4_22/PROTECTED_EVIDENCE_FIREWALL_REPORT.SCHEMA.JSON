@@ -1,0 +1,31 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_22/PROTECTED_EVIDENCE_FIREWALL_REPORT.SCHEMA.JSON",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "hidden_evaluation_queries": {
+      "type": "integer"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "protected_evidence_exposures": {
+      "type": "integer"
+    },
+    "synthetic_paths_watermarked": {
+      "type": "boolean"
+    },
+    "synthetic_results_excluded_from_positive_promotion_evidence": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "hidden_evaluation_queries",
+    "passed",
+    "protected_evidence_exposures",
+    "synthetic_paths_watermarked",
+    "synthetic_results_excluded_from_positive_promotion_evidence"
+  ],
+  "title": "SAED V4-22 PROTECTED_EVIDENCE_FIREWALL_REPORT",
+  "type": "object"
+}

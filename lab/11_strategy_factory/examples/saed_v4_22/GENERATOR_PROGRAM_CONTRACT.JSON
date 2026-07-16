@@ -1,0 +1,18 @@
+{
+  "action_masked": true,
+  "block_length": 8,
+  "deterministic": true,
+  "ensemble_members": 3,
+  "exact_version": "1.0.0",
+  "families": [
+    "moving_block_bootstrap",
+    "regime_markov",
+    "latent_linear_ensemble",
+    "residual_flow_reference"
+  ],
+  "horizon": 48,
+  "paths_per_family": 3,
+  "seed_namespace": "SAED_V4_22_GOLDEN",
+  "synthetic_positive_evidence_forbidden": true,
+  "watermark_required": true
+}

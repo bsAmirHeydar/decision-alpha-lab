@@ -1,0 +1,5 @@
+{
+  "expected": "BudgetError",
+  "fixture": "generated_paths_over_budget",
+  "passed": true
+}

@@ -1,0 +1,81 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_22/CANDIDATE_POLICY.SCHEMA.JSON",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline": {
+      "additionalProperties": false,
+      "properties": {
+        "cost_per_action": {
+          "type": "number"
+        },
+        "drawdown_penalty": {
+          "type": "number"
+        },
+        "lookback": {
+          "type": "integer"
+        },
+        "policy_id": {
+          "type": "string"
+        },
+        "threshold": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "cost_per_action",
+        "drawdown_penalty",
+        "lookback",
+        "policy_id",
+        "threshold"
+      ],
+      "type": "object"
+    },
+    "candidate": {
+      "additionalProperties": false,
+      "properties": {
+        "cost_per_action": {
+          "type": "number"
+        },
+        "drawdown_penalty": {
+          "type": "number"
+        },
+        "lookback": {
+          "type": "integer"
+        },
+        "policy_id": {
+          "type": "string"
+        },
+        "threshold": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "cost_per_action",
+        "drawdown_penalty",
+        "lookback",
+        "policy_id",
+        "threshold"
+      ],
+      "type": "object"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "runtime_executable": {
+      "type": "boolean"
+    },
+    "selected_allocation_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "baseline",
+    "candidate",
+    "research_only",
+    "runtime_executable",
+    "selected_allocation_id"
+  ],
+  "title": "SAED V4-22 CANDIDATE_POLICY",
+  "type": "object"
+}

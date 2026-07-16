@@ -1,0 +1,10 @@
+{
+  "artifact_hashing_present": true,
+  "broker_credentials_present": false,
+  "closed_contracts_present": true,
+  "live_credentials_present": false,
+  "order_submission_surface_present": false,
+  "phase": "SAED_V4_22",
+  "secret_scan_passed": true,
+  "status": "passed_reference_scope"
+}

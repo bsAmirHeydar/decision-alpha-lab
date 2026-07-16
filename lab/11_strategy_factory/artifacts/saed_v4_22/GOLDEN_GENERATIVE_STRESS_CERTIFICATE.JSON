@@ -1,0 +1,44 @@
+{
+  "accepted_for_synthetic_stress_falsification": true,
+  "adversarial_failure_packet_hash": "d91a3fb254d183184389be1a8b0cdac85c6f5502f21d4797004d78d521efcbc0",
+  "authority_boundary": {
+    "authority": {
+      "decision": false,
+      "execution": false,
+      "order_submission": false,
+      "positive_alpha_evidence": false,
+      "production": false,
+      "promotion": false,
+      "risk_allocation": false,
+      "runtime": false
+    },
+    "fallbacks": [
+      "skip",
+      "abstain",
+      "manual",
+      "reject",
+      "quarantine"
+    ],
+    "phase": "SAED_V4_22",
+    "research_only": true,
+    "synthetic_stress_only": true
+  },
+  "budget_ledger_hash": "a18e3b989ba777c22ceb52df78881b7509fb2ebb361f8e4eecec3fd16a3f2aca",
+  "certificate_hash": "98dd7ab400bf16bf0d4a4f4d88fefe747ce8c52d3fef26fdf24abf0dc96491a1",
+  "certificate_id": "generative_stress_certificate_9c22fe80ab3b7020ce46ee19",
+  "exploitability_report_hash": "9cabbcce8cc719e164e40fc65302d823b6600a11fe665fa6f134309b5348bb67",
+  "fidelity_report_hash": "5f72282670df0f2477d485f8932dd5306b3c67e094fd8a45cb23c2cd0ec36521",
+  "generator_registry_hash": "b8f03d50fde0f522603434ba38dc0579981aaa4aa8377b8007677b1fe021388c",
+  "invariant_report_hash": "91138a8b40f6fd33c2bcf0dd76f4ae51df43f1b07af85f737a8142c10907e208",
+  "phase": "SAED_V4_22",
+  "positive_alpha_evidence": false,
+  "production_authority": false,
+  "promotion_authority": false,
+  "real_summary_hash": "afe74c11cb6c99510db9eaf4e837178f7b612d45e8a7d8f513c7362f90a5ad94",
+  "research_only": true,
+  "rollout_set_hash": "9ca4ec1df32c5f85d41773f3fb877873955eeb649590362aa6dc1e03876391a3",
+  "runtime_executable": false,
+  "stress_library_hash": "278f9b6679a2a900ea9e837400186e70c1710456ba407f95cfeca8bc8f5b7c39",
+  "uncertainty_map_hash": "74cd8a7381031cfa787eabf2092bf0e0d15597dc5bd5a7fb3f40cac92a346599",
+  "upstream_intake_hash": "84b87a692c198a51feb4c1b3a6bc6089222f141cb174b11c135a16a21b34378a"
+}

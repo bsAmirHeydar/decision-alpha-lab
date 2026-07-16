@@ -1,0 +1,433 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_22/FULL_REFERENCE_CONFIG.SCHEMA.JSON",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "budget": {
+      "additionalProperties": false,
+      "properties": {
+        "exact_version": {
+          "type": "string"
+        },
+        "max_adversarial_steps": {
+          "type": "integer"
+        },
+        "max_failures": {
+          "type": "integer"
+        },
+        "max_fidelity_evaluations": {
+          "type": "integer"
+        },
+        "max_generated_paths": {
+          "type": "integer"
+        },
+        "max_generator_trials": {
+          "type": "integer"
+        },
+        "max_hidden_evaluation_queries": {
+          "type": "integer"
+        },
+        "max_real_paths": {
+          "type": "integer"
+        },
+        "max_stress_paths": {
+          "type": "integer"
+        },
+        "protected_evidence_exposure_limit": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "exact_version",
+        "max_adversarial_steps",
+        "max_failures",
+        "max_fidelity_evaluations",
+        "max_generated_paths",
+        "max_generator_trials",
+        "max_hidden_evaluation_queries",
+        "max_real_paths",
+        "max_stress_paths",
+        "protected_evidence_exposure_limit"
+      ],
+      "type": "object"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "exploitability": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_policy_id": {
+          "type": "string"
+        },
+        "candidate_policy_id": {
+          "type": "string"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "fail_closed": {
+          "type": "boolean"
+        },
+        "maximum_exploitation_score": {
+          "type": "number"
+        },
+        "real_replay_required": {
+          "type": "boolean"
+        },
+        "real_transfer_floor": {
+          "type": "number"
+        },
+        "synthetic_advantage_threshold": {
+          "type": "number"
+        },
+        "synthetic_gain_is_positive_evidence": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "baseline_policy_id",
+        "candidate_policy_id",
+        "exact_version",
+        "fail_closed",
+        "maximum_exploitation_score",
+        "real_replay_required",
+        "real_transfer_floor",
+        "synthetic_advantage_threshold",
+        "synthetic_gain_is_positive_evidence"
+      ],
+      "type": "object"
+    },
+    "fidelity": {
+      "additionalProperties": false,
+      "properties": {
+        "exact_version": {
+          "type": "string"
+        },
+        "maximum_autocorrelation_error": {
+          "type": "number"
+        },
+        "maximum_composite_distance": {
+          "type": "number"
+        },
+        "maximum_distinguishability_proxy": {
+          "type": "number"
+        },
+        "maximum_liquidity_error": {
+          "type": "number"
+        },
+        "maximum_regime_occupancy_l1": {
+          "type": "number"
+        },
+        "maximum_return_mean_error": {
+          "type": "number"
+        },
+        "maximum_return_std_error": {
+          "type": "number"
+        },
+        "maximum_spread_error": {
+          "type": "number"
+        },
+        "maximum_tail_quantile_error": {
+          "type": "number"
+        },
+        "minimum_trusted_horizon": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "exact_version",
+        "maximum_autocorrelation_error",
+        "maximum_composite_distance",
+        "maximum_distinguishability_proxy",
+        "maximum_liquidity_error",
+        "maximum_regime_occupancy_l1",
+        "maximum_return_mean_error",
+        "maximum_return_std_error",
+        "maximum_spread_error",
+        "maximum_tail_quantile_error",
+        "minimum_trusted_horizon"
+      ],
+      "type": "object"
+    },
+    "generator_program": {
+      "additionalProperties": false,
+      "properties": {
+        "action_masked": {
+          "type": "boolean"
+        },
+        "block_length": {
+          "type": "integer"
+        },
+        "deterministic": {
+          "type": "boolean"
+        },
+        "ensemble_members": {
+          "type": "integer"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "families": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "horizon": {
+          "type": "integer"
+        },
+        "paths_per_family": {
+          "type": "integer"
+        },
+        "seed_namespace": {
+          "type": "string"
+        },
+        "synthetic_positive_evidence_forbidden": {
+          "type": "boolean"
+        },
+        "watermark_required": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "action_masked",
+        "block_length",
+        "deterministic",
+        "ensemble_members",
+        "exact_version",
+        "families",
+        "horizon",
+        "paths_per_family",
+        "seed_namespace",
+        "synthetic_positive_evidence_forbidden",
+        "watermark_required"
+      ],
+      "type": "object"
+    },
+    "path_invariants": {
+      "additionalProperties": false,
+      "properties": {
+        "enforce_bid_ask_order": {
+          "type": "boolean"
+        },
+        "enforce_finite": {
+          "type": "boolean"
+        },
+        "enforce_ohlc_geometry": {
+          "type": "boolean"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "fail_closed": {
+          "type": "boolean"
+        },
+        "maximum_liquidity": {
+          "type": "number"
+        },
+        "maximum_relative_spread": {
+          "type": "number"
+        },
+        "maximum_step_return": {
+          "type": "number"
+        },
+        "minimum_liquidity": {
+          "type": "number"
+        },
+        "minimum_price": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "enforce_bid_ask_order",
+        "enforce_finite",
+        "enforce_ohlc_geometry",
+        "exact_version",
+        "fail_closed",
+        "maximum_liquidity",
+        "maximum_relative_spread",
+        "maximum_step_return",
+        "minimum_liquidity",
+        "minimum_price"
+      ],
+      "type": "object"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "runtime_executable": {
+      "type": "boolean"
+    },
+    "state_schema": {
+      "additionalProperties": false,
+      "properties": {
+        "action_fields_forbidden": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "future_suffix_forbidden": {
+          "type": "boolean"
+        },
+        "known_time_fields": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "maximum_history": {
+          "type": "integer"
+        },
+        "minimum_history": {
+          "type": "integer"
+        },
+        "protected_evidence_forbidden": {
+          "type": "boolean"
+        },
+        "required_row_fields": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "strict_timestamp_order": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "action_fields_forbidden",
+        "exact_version",
+        "future_suffix_forbidden",
+        "known_time_fields",
+        "maximum_history",
+        "minimum_history",
+        "protected_evidence_forbidden",
+        "required_row_fields",
+        "strict_timestamp_order"
+      ],
+      "type": "object"
+    },
+    "stress_program": {
+      "additionalProperties": false,
+      "properties": {
+        "adversarial_search_steps": {
+          "type": "integer"
+        },
+        "deterministic": {
+          "type": "boolean"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "families": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "market_invariants_required": {
+          "type": "boolean"
+        },
+        "maximum_stress_paths": {
+          "type": "integer"
+        },
+        "preserve_timestamp_grid": {
+          "type": "boolean"
+        },
+        "preserve_watermark": {
+          "type": "boolean"
+        },
+        "severity_levels": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "adversarial_search_steps",
+        "deterministic",
+        "exact_version",
+        "families",
+        "market_invariants_required",
+        "maximum_stress_paths",
+        "preserve_timestamp_grid",
+        "preserve_watermark",
+        "severity_levels"
+      ],
+      "type": "object"
+    },
+    "uncertainty_threshold": {
+      "type": "number"
+    },
+    "upstream_intake": {
+      "additionalProperties": false,
+      "properties": {
+        "ambiguity_set_hash": {
+          "type": "string"
+        },
+        "budget_ledger_hash": {
+          "type": "string"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "handoff_hash": {
+          "type": "string"
+        },
+        "hash_verified": {
+          "type": "boolean"
+        },
+        "immutable": {
+          "type": "boolean"
+        },
+        "required_phase": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "robust_certificate_hash": {
+          "type": "string"
+        },
+        "scenario_set_hash": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ambiguity_set_hash",
+        "budget_ledger_hash",
+        "exact_version",
+        "handoff_hash",
+        "hash_verified",
+        "immutable",
+        "required_phase",
+        "research_only",
+        "robust_certificate_hash",
+        "scenario_set_hash"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "budget",
+    "exact_version",
+    "exploitability",
+    "fidelity",
+    "generator_program",
+    "path_invariants",
+    "research_only",
+    "runtime_executable",
+    "state_schema",
+    "stress_program",
+    "uncertainty_threshold",
+    "upstream_intake"
+  ],
+  "title": "SAED V4-22 FULL_REFERENCE_CONFIG",
+  "type": "object"
+}

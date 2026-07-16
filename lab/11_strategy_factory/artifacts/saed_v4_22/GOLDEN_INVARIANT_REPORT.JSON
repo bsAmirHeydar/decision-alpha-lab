@@ -1,0 +1,502 @@
+{
+  "failed_path_count": 0,
+  "invariant_report_hash": "91138a8b40f6fd33c2bcf0dd76f4ae51df43f1b07af85f737a8142c10907e208",
+  "native_report_hash": "3327ad5dd33015a9772da4f072619cfe8251f05e5aa9d9de5c766896f5cc4fab",
+  "passed": true,
+  "path_count": 82,
+  "rows": [
+    {
+      "passed": true,
+      "path_id": "synthetic_path_82f9de1407758f53e3c97852",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "synthetic_path_21fe3a3ace9bf682bdc30c87",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "synthetic_path_be830f707e7c60a3de0cac12",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "synthetic_path_28189983aa229cef38904315",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "synthetic_path_4496c71fee89f3353ef022ac",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "synthetic_path_ea377a1fa0bcef3f47c6d2ed",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "synthetic_path_5c420e45f865e5a8f25d5a21",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "synthetic_path_6507217dc1f126261ed1ffbd",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "synthetic_path_70940c2627d1e19414abde95",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "synthetic_path_00aca4621b88f3f958280532",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "synthetic_path_aa4daba46dbe7b1ba2d0a40c",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "synthetic_path_1dd773ef406057f2661ba86e",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "synthetic_path_4dba5648d54d5a2555e24fc7",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "synthetic_path_234f3748f330273564a89cfa",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "synthetic_path_b606932bc48baa1b6bcccdf3",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "synthetic_path_a882734190120e6c00c8a797",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "synthetic_path_f0614e15e1c5e11e0ffdfed3",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "synthetic_path_6ec7d23e2ce2b0fff79d7897",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_2bb7f7ef74fa72accbfc976b",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_1d6e46a99336d6006d6bf07f",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_ec13fbc94b030d56616a5abd",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_5cbc1cf91929f07392bf369b",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_a8c92266651f3e981d33ac9a",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_360a6ae432b5ba877a63b251",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_9b32d45ba3be19e1512cfc17",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_2e56f3f5e12bf4f35f6dfb3e",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_1dd2dad2a635463651be25b3",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_c75aa2dc109fb484a249c0d9",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_ec2180e21e13fe0951f7d131",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_b0d04c87be35dbd7331de37f",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_7374b779ce541fc12f3b3417",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_da51baefa573c80fd58cecfc",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_b2ea73bd737dc2f1eecda156",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_14d87c7fc3888cd29172e650",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_6c7c4620fd5612881d2dd439",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_88c13ada84fb258c39cecaae",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_bcbb648820e88bf3a3b5e2cf",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_4abd4434b3b3e6b1100f9d8c",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_316e31fc0aaeb677ccec8745",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_3e4566b1baeee2e49bb8b096",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_c23430f4b734323aedc7ff3e",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_234d8dfed961cef8bca6a251",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_97bb4065131e013f14324e6f",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_987ce6d3bffbc23582262446",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_6479ab83b6db22582e3620af",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_5b9f5afbb2250d79a9fda3ba",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_d17c46db091c18b627b9cacd",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_1c1dc90253747b0d1b0f31ba",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_1bffec7ca4285b62b59f1e11",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_ac2f1aad764e4d5ef59017c7",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_0b33256d78e2dcb71e5d6169",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_7a475dc07097cdda1413a5eb",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_7cb196ecc24c2bb10a01f3c2",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_09a150bce639c1e060a75f89",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_599a75fa09ec06fc8ff572c9",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_2d691a05bb0ebe5ae8596f58",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_9d71f2796f1ecd1eec129e7c",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_8aac5d892f030493a19e20e9",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_96495f1a09de5f2a3facc7aa",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_20b910908f5254a494c66b50",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_591688b1ad36096093923253",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_ceda70a9ae23967f09881e57",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_aef23328e841e9b875b1c556",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_de2dbc71b44d3c836afaf3a3",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_21be67b2872ec944420881f7",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_6d920563bba0e3b7c724fb58",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_ed2e8621b19674e4c82c85a3",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_71e27e91ee110334236578a6",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_21beaf98839fa1380e6bf41e",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_e70902bafe399cf2d275b36a",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_2905c3143d53f9b5ef70204f",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_9677327fb8410eed4228abab",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_f27d741c50837bbc2eb42591",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_e96801c150eaf8730460b025",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_236d8660ca9ef066dcc679bd",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_428830b84e4fedb2ab642539",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_72cfab5e7671946c2509b157",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_037361c53f909b5051ea8e44",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_759cd108039d70c40cde9af5",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_571ae9f5d0c640c73e7f7566",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_6ef4e3464aefb12bcb83f9d9",
+      "violation_count": 0,
+      "violations": []
+    },
+    {
+      "passed": true,
+      "path_id": "stress_path_a4c103772f62450fb84810bd",
+      "violation_count": 0,
+      "violations": []
+    }
+  ],
+  "stress_report_hash": "2e4ceb45c4b1633efa59796318abd908a421286c569b6b72dfcb41fc300b5333"
+}

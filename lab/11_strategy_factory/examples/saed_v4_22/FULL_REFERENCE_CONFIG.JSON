@@ -1,0 +1,137 @@
+{
+  "budget": {
+    "exact_version": "1.0.0",
+    "max_adversarial_steps": 64,
+    "max_failures": 16,
+    "max_fidelity_evaluations": 32,
+    "max_generated_paths": 64,
+    "max_generator_trials": 32,
+    "max_hidden_evaluation_queries": 0,
+    "max_real_paths": 16,
+    "max_stress_paths": 96,
+    "protected_evidence_exposure_limit": 0
+  },
+  "exact_version": "1.0.0",
+  "exploitability": {
+    "baseline_policy_id": "MANUAL_CORE",
+    "candidate_policy_id": "T_BALANCED",
+    "exact_version": "1.0.0",
+    "fail_closed": true,
+    "maximum_exploitation_score": 0.25,
+    "real_replay_required": true,
+    "real_transfer_floor": -0.05,
+    "synthetic_advantage_threshold": 0.2,
+    "synthetic_gain_is_positive_evidence": false
+  },
+  "fidelity": {
+    "exact_version": "1.0.0",
+    "maximum_autocorrelation_error": 0.8,
+    "maximum_composite_distance": 3.0,
+    "maximum_distinguishability_proxy": 0.9,
+    "maximum_liquidity_error": 0.5,
+    "maximum_regime_occupancy_l1": 2.0,
+    "maximum_return_mean_error": 0.01,
+    "maximum_return_std_error": 0.03,
+    "maximum_spread_error": 0.02,
+    "maximum_tail_quantile_error": 0.08,
+    "minimum_trusted_horizon": 8
+  },
+  "generator_program": {
+    "action_masked": true,
+    "block_length": 8,
+    "deterministic": true,
+    "ensemble_members": 3,
+    "exact_version": "1.0.0",
+    "families": [
+      "moving_block_bootstrap",
+      "regime_markov",
+      "latent_linear_ensemble",
+      "residual_flow_reference"
+    ],
+    "horizon": 48,
+    "paths_per_family": 3,
+    "seed_namespace": "SAED_V4_22_GOLDEN",
+    "synthetic_positive_evidence_forbidden": true,
+    "watermark_required": true
+  },
+  "path_invariants": {
+    "enforce_bid_ask_order": true,
+    "enforce_finite": true,
+    "enforce_ohlc_geometry": true,
+    "exact_version": "1.0.0",
+    "fail_closed": true,
+    "maximum_liquidity": 1.0,
+    "maximum_relative_spread": 0.08,
+    "maximum_step_return": 0.2,
+    "minimum_liquidity": 0.0,
+    "minimum_price": 1e-06
+  },
+  "research_only": true,
+  "runtime_executable": false,
+  "state_schema": {
+    "action_fields_forbidden": [
+      "future_return",
+      "future_outcome",
+      "oracle_action",
+      "fill_after_decision"
+    ],
+    "exact_version": "1.0.0",
+    "future_suffix_forbidden": true,
+    "known_time_fields": [
+      "timestamp"
+    ],
+    "maximum_history": 256,
+    "minimum_history": 32,
+    "protected_evidence_forbidden": true,
+    "required_row_fields": [
+      "timestamp",
+      "open",
+      "high",
+      "low",
+      "close",
+      "bid",
+      "ask",
+      "volume",
+      "liquidity",
+      "regime"
+    ],
+    "strict_timestamp_order": true
+  },
+  "stress_program": {
+    "adversarial_search_steps": 16,
+    "deterministic": true,
+    "exact_version": "1.0.0",
+    "families": [
+      "gap_down",
+      "gap_up",
+      "volatility_burst",
+      "liquidity_collapse",
+      "spread_blowout",
+      "chop_reversal",
+      "regime_break",
+      "execution_degradation"
+    ],
+    "market_invariants_required": true,
+    "maximum_stress_paths": 64,
+    "preserve_timestamp_grid": true,
+    "preserve_watermark": true,
+    "severity_levels": [
+      0.25,
+      0.5,
+      0.8
+    ]
+  },
+  "uncertainty_threshold": 0.025,
+  "upstream_intake": {
+    "ambiguity_set_hash": "e1623c62b9c4acaadfda3e15e70bf8fa54aff17240469e39dc3446bcf08fd492",
+    "budget_ledger_hash": "d063fe1849f50882e12d632e7524a5dba89569ea2a46bf20107846c57f9ebef2",
+    "exact_version": "1.0.0",
+    "handoff_hash": "ac2f0c59f3b358a3e98dac34029657b05aa406d4a609deafecc721e73b274148",
+    "hash_verified": true,
+    "immutable": true,
+    "required_phase": "SAED_V4_21",
+    "research_only": true,
+    "robust_certificate_hash": "953b794d57dbac2ceb93b1c2c2e2f301baf67b9532e747542d711f236c54f736",
+    "scenario_set_hash": "a6bacc0c9f821099dcb64f5a7a2d5db6270be283441a39946dccf91a0d21d5a7"
+  }
+}

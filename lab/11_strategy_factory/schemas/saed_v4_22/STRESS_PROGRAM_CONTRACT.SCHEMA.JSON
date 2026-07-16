@@ -1,0 +1,53 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_22/STRESS_PROGRAM_CONTRACT.SCHEMA.JSON",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adversarial_search_steps": {
+      "type": "integer"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "families": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "market_invariants_required": {
+      "type": "boolean"
+    },
+    "maximum_stress_paths": {
+      "type": "integer"
+    },
+    "preserve_timestamp_grid": {
+      "type": "boolean"
+    },
+    "preserve_watermark": {
+      "type": "boolean"
+    },
+    "severity_levels": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "adversarial_search_steps",
+    "deterministic",
+    "exact_version",
+    "families",
+    "market_invariants_required",
+    "maximum_stress_paths",
+    "preserve_timestamp_grid",
+    "preserve_watermark",
+    "severity_levels"
+  ],
+  "title": "SAED V4-22 STRESS_PROGRAM_CONTRACT",
+  "type": "object"
+}

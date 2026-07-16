@@ -1,0 +1,58 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_22/GENERATOR_PROGRAM_CONTRACT.SCHEMA.JSON",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action_masked": {
+      "type": "boolean"
+    },
+    "block_length": {
+      "type": "integer"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "ensemble_members": {
+      "type": "integer"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "families": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "horizon": {
+      "type": "integer"
+    },
+    "paths_per_family": {
+      "type": "integer"
+    },
+    "seed_namespace": {
+      "type": "string"
+    },
+    "synthetic_positive_evidence_forbidden": {
+      "type": "boolean"
+    },
+    "watermark_required": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "action_masked",
+    "block_length",
+    "deterministic",
+    "ensemble_members",
+    "exact_version",
+    "families",
+    "horizon",
+    "paths_per_family",
+    "seed_namespace",
+    "synthetic_positive_evidence_forbidden",
+    "watermark_required"
+  ],
+  "title": "SAED V4-22 GENERATOR_PROGRAM_CONTRACT",
+  "type": "object"
+}

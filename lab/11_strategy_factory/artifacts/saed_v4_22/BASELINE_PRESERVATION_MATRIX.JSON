@@ -1,0 +1,8 @@
+{
+  "baseline_generator": "moving_block_bootstrap",
+  "baseline_paths_present": true,
+  "baseline_policy": "MANUAL_CORE",
+  "baseline_policy_present": true,
+  "challengers_cannot_delete_baselines": true,
+  "passed": true
+}

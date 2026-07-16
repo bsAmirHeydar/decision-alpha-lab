@@ -1,0 +1,41 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_22/MODEL_RISK_REVIEW.SCHEMA.JSON",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "material_risks": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "mitigations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorization": {
+      "type": "boolean"
+    },
+    "real_alpha_claim": {
+      "type": "boolean"
+    },
+    "review_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "material_risks",
+    "mitigations",
+    "phase",
+    "production_authorization",
+    "real_alpha_claim",
+    "review_status"
+  ],
+  "title": "SAED V4-22 MODEL_RISK_REVIEW",
+  "type": "object"
+}

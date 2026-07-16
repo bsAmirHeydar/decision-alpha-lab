@@ -1,0 +1,5 @@
+{
+  "expected": "invariant_failure",
+  "fixture": "duplicate_timestamp",
+  "passed": true
+}

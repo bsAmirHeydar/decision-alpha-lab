@@ -1,0 +1,111 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_22/REAL_REFERENCE_PATHS.SCHEMA.JSON",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context_id": {
+      "type": "string"
+    },
+    "dataset_id": {
+      "type": "string"
+    },
+    "known_time_cutoff": {
+      "type": "integer"
+    },
+    "paths": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "context_id": {
+            "type": "string"
+          },
+          "path_id": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "rows": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "ask": {
+                  "type": "number"
+                },
+                "bid": {
+                  "type": "number"
+                },
+                "close": {
+                  "type": "number"
+                },
+                "high": {
+                  "type": "number"
+                },
+                "liquidity": {
+                  "type": "number"
+                },
+                "low": {
+                  "type": "number"
+                },
+                "open": {
+                  "type": "number"
+                },
+                "regime": {
+                  "type": "string"
+                },
+                "timestamp": {
+                  "type": "integer"
+                },
+                "volume": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "ask",
+                "bid",
+                "close",
+                "high",
+                "liquidity",
+                "low",
+                "open",
+                "regime",
+                "timestamp",
+                "volume"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "start_time": {
+            "type": "integer"
+          },
+          "step_seconds": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "context_id",
+          "path_id",
+          "role",
+          "rows",
+          "start_time",
+          "step_seconds"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "role": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "context_id",
+    "dataset_id",
+    "known_time_cutoff",
+    "paths",
+    "role"
+  ],
+  "title": "SAED V4-22 REAL_REFERENCE_PATHS",
+  "type": "object"
+}

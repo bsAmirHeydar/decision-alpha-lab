@@ -1,0 +1,47 @@
+{
+  "checks": [
+    {
+      "evidence": "136 passed",
+      "name": "python_tests",
+      "passed": true
+    },
+    {
+      "evidence": "45 documents / 45 closed schemas",
+      "name": "closed_contracts",
+      "passed": true
+    },
+    {
+      "evidence": "195 notes",
+      "name": "obsidian",
+      "passed": true
+    },
+    {
+      "evidence": "20 files; MetaEditor pending_local_windows",
+      "name": "mql5_static",
+      "passed": true
+    },
+    {
+      "evidence": "research_only; no central-engine mutation",
+      "name": "authority_boundary",
+      "passed": true
+    },
+    {
+      "evidence": "reference_run_hash d2ff1d2aa17979665e9b60967304e1944d51057a33c392c4edda8bb062bd3696",
+      "name": "golden_reproduction",
+      "passed": true
+    }
+  ],
+  "closed_schema_pairs": 45,
+  "closed_schemas": 45,
+  "evidence_scope": "local_deterministic_synthetic_stress_reference",
+  "metaeditor_compile": "pending_local_windows",
+  "mql5_static_files": 20,
+  "obsidian_notes": 195,
+  "passed": true,
+  "phase": "SAED_V4_22",
+  "production_authorization": false,
+  "python_tests": 136,
+  "real_alpha_claim": false,
+  "runtime_parity": "not_claimed",
+  "version": "1.0.0"
+}

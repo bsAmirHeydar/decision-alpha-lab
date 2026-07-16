@@ -1,0 +1,7 @@
+{
+  "hidden_evaluation_queries": 0,
+  "passed": true,
+  "protected_evidence_exposures": 0,
+  "synthetic_paths_watermarked": true,
+  "synthetic_results_excluded_from_positive_promotion_evidence": true
+}

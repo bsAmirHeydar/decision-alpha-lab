@@ -1,0 +1,110 @@
+{
+  "adversarial_failure_packet_hash": "d91a3fb254d183184389be1a8b0cdac85c6f5502f21d4797004d78d521efcbc0",
+  "failure_found": true,
+  "research_only": true,
+  "trial_count": 16,
+  "trials": [
+    {
+      "candidate_relative_loss": -0.011240535683679422,
+      "family": "gap_down",
+      "severity": 0.25,
+      "step": 1
+    },
+    {
+      "candidate_relative_loss": -0.010841216796866874,
+      "family": "gap_down",
+      "severity": 0.5,
+      "step": 2
+    },
+    {
+      "candidate_relative_loss": -0.01036203413269188,
+      "family": "gap_down",
+      "severity": 0.8,
+      "step": 3
+    },
+    {
+      "candidate_relative_loss": -0.007820207255890737,
+      "family": "gap_up",
+      "severity": 0.25,
+      "step": 4
+    },
+    {
+      "candidate_relative_loss": -0.007820207255890858,
+      "family": "gap_up",
+      "severity": 0.5,
+      "step": 5
+    },
+    {
+      "candidate_relative_loss": -0.007820207255891077,
+      "family": "gap_up",
+      "severity": 0.8,
+      "step": 6
+    },
+    {
+      "candidate_relative_loss": 0.0002975336988973876,
+      "family": "volatility_burst",
+      "severity": 0.25,
+      "step": 7
+    },
+    {
+      "candidate_relative_loss": 0.003380937908030073,
+      "family": "volatility_burst",
+      "severity": 0.5,
+      "step": 8
+    },
+    {
+      "candidate_relative_loss": 0.008303016184949115,
+      "family": "volatility_burst",
+      "severity": 0.8,
+      "step": 9
+    },
+    {
+      "candidate_relative_loss": -0.006493851802641435,
+      "family": "liquidity_collapse",
+      "severity": 0.25,
+      "step": 10
+    },
+    {
+      "candidate_relative_loss": -0.006493851802641435,
+      "family": "liquidity_collapse",
+      "severity": 0.5,
+      "step": 11
+    },
+    {
+      "candidate_relative_loss": -0.006493851802641435,
+      "family": "liquidity_collapse",
+      "severity": 0.8,
+      "step": 12
+    },
+    {
+      "candidate_relative_loss": -0.006493851802641435,
+      "family": "spread_blowout",
+      "severity": 0.25,
+      "step": 13
+    },
+    {
+      "candidate_relative_loss": -0.006493851802641435,
+      "family": "spread_blowout",
+      "severity": 0.5,
+      "step": 14
+    },
+    {
+      "candidate_relative_loss": -0.006493851802641435,
+      "family": "spread_blowout",
+      "severity": 0.8,
+      "step": 15
+    },
+    {
+      "candidate_relative_loss": 0.009831915005587128,
+      "family": "chop_reversal",
+      "severity": 0.25,
+      "step": 16
+    }
+  ],
+  "worst_case": {
+    "candidate_relative_loss": 0.009831915005587128,
+    "family": "chop_reversal",
+    "severity": 0.25,
+    "step": 16
+  }
+}

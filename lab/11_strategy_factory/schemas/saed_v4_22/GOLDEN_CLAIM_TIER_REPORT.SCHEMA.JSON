@@ -1,0 +1,55 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_22/GOLDEN_CLAIM_TIER_REPORT.SCHEMA.JSON",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "claim_tier": {
+      "type": "string"
+    },
+    "exploitability_challenge_implemented": {
+      "type": "boolean"
+    },
+    "fidelity_diagnostics_implemented": {
+      "type": "boolean"
+    },
+    "generative_paths_implemented": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorization": {
+      "type": "boolean"
+    },
+    "production_policy_selection": {
+      "type": "boolean"
+    },
+    "real_alpha_established": {
+      "type": "boolean"
+    },
+    "runtime_activation": {
+      "type": "boolean"
+    },
+    "stress_composition_implemented": {
+      "type": "boolean"
+    },
+    "synthetic_positive_evidence_allowed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "claim_tier",
+    "exploitability_challenge_implemented",
+    "fidelity_diagnostics_implemented",
+    "generative_paths_implemented",
+    "phase",
+    "production_authorization",
+    "production_policy_selection",
+    "real_alpha_established",
+    "runtime_activation",
+    "stress_composition_implemented",
+    "synthetic_positive_evidence_allowed"
+  ],
+  "title": "SAED V4-22 GOLDEN_CLAIM_TIER_REPORT",
+  "type": "object"
+}

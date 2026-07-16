@@ -1,0 +1,35 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_22/BASELINE_PRESERVATION_MATRIX.SCHEMA.JSON",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_generator": {
+      "type": "string"
+    },
+    "baseline_paths_present": {
+      "type": "boolean"
+    },
+    "baseline_policy": {
+      "type": "string"
+    },
+    "baseline_policy_present": {
+      "type": "boolean"
+    },
+    "challengers_cannot_delete_baselines": {
+      "type": "boolean"
+    },
+    "passed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "baseline_generator",
+    "baseline_paths_present",
+    "baseline_policy",
+    "baseline_policy_present",
+    "challengers_cannot_delete_baselines",
+    "passed"
+  ],
+  "title": "SAED V4-22 BASELINE_PRESERVATION_MATRIX",
+  "type": "object"
+}
