@@ -1,0 +1,68 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_16/golden_quantile_crossing_audit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-16 contract generated from the deterministic reference artifact. Unknown fields are forbidden.",
+  "properties": {
+    "all_monotone_after_projection": {
+      "type": "boolean"
+    },
+    "crossing_after_count": {
+      "type": "integer"
+    },
+    "crossing_before_count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "row_count": {
+      "type": "integer"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_id": {
+            "type": "string"
+          },
+          "crossing_after_projection": {
+            "type": "boolean"
+          },
+          "crossing_before_projection": {
+            "type": "boolean"
+          },
+          "monotone_after_projection": {
+            "type": "boolean"
+          },
+          "row_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "crossing_after_projection",
+          "crossing_before_projection",
+          "monotone_after_projection",
+          "row_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "all_monotone_after_projection",
+    "crossing_after_count",
+    "crossing_before_count",
+    "phase",
+    "report_hash",
+    "row_count",
+    "rows"
+  ],
+  "title": "GOLDEN_QUANTILE_CROSSING_AUDIT",
+  "type": "object"
+}

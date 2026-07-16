@@ -1,0 +1,10 @@
+{
+  "decision_equivalent": true,
+  "deterministic": true,
+  "environment_scope": "standard_library_local_cpu",
+  "first_bundle_hash": "5cc4620caed9992d114c2e61d20cb368155fc65e374fa65b3023ea0f322d051b",
+  "phase": "SAED_V4_16",
+  "receipt_hash": "91a491776213daa99d6495d7bcd8f2ad9a5e243ef79f649a151a37ee8efa716d",
+  "replay_id": "v416replay_614663eb777aa69c2294f53b",
+  "second_bundle_hash": "5cc4620caed9992d114c2e61d20cb368155fc65e374fa65b3023ea0f322d051b"
+}

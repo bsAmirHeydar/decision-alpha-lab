@@ -1,0 +1,12 @@
+{
+  "finite": true,
+  "kind": "heavy_tail_benchmark",
+  "lower_tail_expected_shortfall": -12.0,
+  "lower_tail_var": -12,
+  "maximum": 15,
+  "minimum": -12,
+  "passed": true,
+  "phase": "SAED_V4_16",
+  "report_hash": "999825a48c08cb409ba1f03d51593f8968260cd673342a3966585104d63dfb84",
+  "sample_count": 13
+}

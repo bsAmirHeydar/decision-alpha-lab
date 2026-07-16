@@ -1,0 +1,13 @@
+{
+  "audit_hash": "7e943ea1c40e4ccb15666c972eda80430da301d371c4c4f08bbb1277c0e75ca3",
+  "censored_as_outcome_count": 0,
+  "censoring_policy_version": "saed.v4.16.censoring-policy@1.0.0",
+  "interval_censored_count": 60,
+  "observed_count": 213,
+  "passed": true,
+  "phase": "SAED_V4_16",
+  "right_censored_count": 27,
+  "row_count": 240,
+  "violation_count": 0,
+  "violations": []
+}

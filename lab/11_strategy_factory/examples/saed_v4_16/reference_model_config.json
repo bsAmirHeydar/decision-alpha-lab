@@ -1,0 +1,35 @@
+{
+  "calibration_split_only": true,
+  "exact_version": "saed.v4.16.model-config@1.0.0",
+  "horizons_seconds": [
+    60,
+    300,
+    900,
+    1800,
+    3600
+  ],
+  "interval_levels": [
+    0.8,
+    0.9,
+    0.95
+  ],
+  "min_tail_effective_samples": 20,
+  "monotone_quantiles": true,
+  "preserve_empirical_baseline": true,
+  "quantiles": [
+    0.01,
+    0.05,
+    0.1,
+    0.25,
+    0.5,
+    0.75,
+    0.9,
+    0.95,
+    0.99
+  ],
+  "separate_zero_mass": true,
+  "tail_levels": [
+    0.05,
+    0.1
+  ]
+}

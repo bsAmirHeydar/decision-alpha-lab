@@ -1,0 +1,16 @@
+{
+  "administrative_horizon_seconds": 3600,
+  "allow_interval_censoring": true,
+  "allow_right_censoring": true,
+  "censored_is_never_outcome": true,
+  "exact_version": "saed.v4.16.censoring-policy@1.0.0",
+  "informative_sensitivity_factors": [
+    0.5,
+    1.0,
+    2.0
+  ],
+  "ipcw_ceiling": 8.0,
+  "ipcw_floor": 0.05,
+  "known_time_only": true,
+  "observation_interval_seconds": 60
+}

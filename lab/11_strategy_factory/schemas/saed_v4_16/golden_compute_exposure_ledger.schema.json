@@ -1,0 +1,135 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_16/golden_compute_exposure_ledger.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-16 contract generated from the deterministic reference artifact. Unknown fields are forbidden.",
+  "properties": {
+    "actual": {
+      "additionalProperties": false,
+      "properties": {
+        "candidates": {
+          "type": "integer"
+        },
+        "failures": {
+          "type": "integer"
+        },
+        "horizons": {
+          "type": "integer"
+        },
+        "predictions": {
+          "type": "integer"
+        },
+        "protected_evidence_exposures": {
+          "type": "integer"
+        },
+        "quantiles": {
+          "type": "integer"
+        },
+        "retries": {
+          "type": "integer"
+        },
+        "rows": {
+          "type": "integer"
+        },
+        "stress_runs": {
+          "type": "integer"
+        },
+        "tail_levels": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "candidates",
+        "failures",
+        "horizons",
+        "predictions",
+        "protected_evidence_exposures",
+        "quantiles",
+        "retries",
+        "rows",
+        "stress_runs",
+        "tail_levels"
+      ],
+      "type": "object"
+    },
+    "complete_exposure_accounting": {
+      "type": "boolean"
+    },
+    "complete_trial_accounting": {
+      "type": "boolean"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "limits": {
+      "additionalProperties": false,
+      "properties": {
+        "candidates": {
+          "type": "integer"
+        },
+        "failures": {
+          "type": "integer"
+        },
+        "horizons": {
+          "type": "integer"
+        },
+        "predictions": {
+          "type": "integer"
+        },
+        "protected_evidence_exposures": {
+          "type": "integer"
+        },
+        "quantiles": {
+          "type": "integer"
+        },
+        "retries": {
+          "type": "integer"
+        },
+        "rows": {
+          "type": "integer"
+        },
+        "stress_runs": {
+          "type": "integer"
+        },
+        "tail_levels": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "candidates",
+        "failures",
+        "horizons",
+        "predictions",
+        "protected_evidence_exposures",
+        "quantiles",
+        "retries",
+        "rows",
+        "stress_runs",
+        "tail_levels"
+      ],
+      "type": "object"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "violations": {
+      "items": {},
+      "type": "array"
+    }
+  },
+  "required": [
+    "actual",
+    "complete_exposure_accounting",
+    "complete_trial_accounting",
+    "ledger_hash",
+    "limits",
+    "passed",
+    "phase",
+    "violations"
+  ],
+  "title": "GOLDEN_COMPUTE_EXPOSURE_LEDGER",
+  "type": "object"
+}

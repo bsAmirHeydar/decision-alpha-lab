@@ -1,0 +1,137 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_16/golden_integrity_receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-16 contract generated from the deterministic reference artifact. Unknown fields are forbidden.",
+  "properties": {
+    "all_hashes_present": {
+      "type": "boolean"
+    },
+    "artifact_count": {
+      "type": "integer"
+    },
+    "artifact_hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_checkpoints": {
+          "type": "string"
+        },
+        "candidate_metrics": {
+          "type": "string"
+        },
+        "censoring_audit": {
+          "type": "string"
+        },
+        "censoring_policy": {
+          "type": "string"
+        },
+        "checkpoint_registry": {
+          "type": "string"
+        },
+        "competing_risk_simplex_audit": {
+          "type": "string"
+        },
+        "compute_exposure_ledger": {
+          "type": "string"
+        },
+        "distribution_calibration_report": {
+          "type": "string"
+        },
+        "distributional_predictions": {
+          "type": "string"
+        },
+        "event_definition_registry": {
+          "type": "string"
+        },
+        "fail_closed_audits": {
+          "type": "string"
+        },
+        "future_suffix_audits": {
+          "type": "string"
+        },
+        "ipcw_weights": {
+          "type": "string"
+        },
+        "quantile_crossing_audit": {
+          "type": "string"
+        },
+        "risk_set_ledger": {
+          "type": "string"
+        },
+        "stress_tests": {
+          "type": "string"
+        },
+        "survival_dataset": {
+          "type": "string"
+        },
+        "survival_predictions": {
+          "type": "string"
+        },
+        "tail_calibration_report": {
+          "type": "string"
+        },
+        "tail_risk_summaries": {
+          "type": "string"
+        },
+        "time_calibration_report": {
+          "type": "string"
+        },
+        "tournament": {
+          "type": "string"
+        },
+        "upstream_validation": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidate_checkpoints",
+        "candidate_metrics",
+        "censoring_audit",
+        "censoring_policy",
+        "checkpoint_registry",
+        "competing_risk_simplex_audit",
+        "compute_exposure_ledger",
+        "distribution_calibration_report",
+        "distributional_predictions",
+        "event_definition_registry",
+        "fail_closed_audits",
+        "future_suffix_audits",
+        "ipcw_weights",
+        "quantile_crossing_audit",
+        "risk_set_ledger",
+        "stress_tests",
+        "survival_dataset",
+        "survival_predictions",
+        "tail_calibration_report",
+        "tail_risk_summaries",
+        "time_calibration_report",
+        "tournament",
+        "upstream_validation"
+      ],
+      "type": "object"
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "all_hashes_present",
+    "artifact_count",
+    "artifact_hashes",
+    "immutable",
+    "phase",
+    "receipt_hash",
+    "receipt_id"
+  ],
+  "title": "GOLDEN_INTEGRITY_RECEIPT",
+  "type": "object"
+}

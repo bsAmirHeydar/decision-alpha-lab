@@ -1,58 +1,41 @@
 ---
 title: V4-16 Distributional Survival And Tail
-status: canonical
-version: 4.0.0
+status: implemented-reference
+version: 1.0.0
 created: '2026-07-13'
-updated: '2026-07-13'
-capability_tier: core-production
+updated: '2026-07-16'
+capability_tier: governed-challenger
 tags:
   - saed-v4
   - implementation
-  - roadmap
+  - distributional-learning
+  - survival-analysis
+  - tail-risk
 ---
 
-# Phase V4-16: Distributional Survival And Tail
+# Phase V4-16: Distributional, Survival and Tail Models
 
 ## Mission
 
-Implement this phase as an additive, closed-contract capability that preserves UCEE authority and can be independently validated.
+Implement an additive, closed-contract reference capability for event-time, censoring, competing-risk, full-distribution and tail-risk learning while preserving the complete UCEE authority boundary.
 
-## Entry gates
+## Implemented slices
 
-- Prior phase artifacts are immutable and hash verified.
-- Data roles, support, treatment universe and authority are frozen.
-- Golden and negative fixtures exist.
-- Compute, exposure and review budgets are approved.
+1. Frozen V4-15 fusion and registry validation.
+2. Closed event-definition, censoring, dataset, model, tail and compute contracts.
+3. Chronological deterministic synthetic survival dataset with explicit known-time lineage.
+4. Right and interval censoring audit, risk-set ledger and bounded IPCW weights.
+5. Preserved empirical/Kaplan–Meier baseline.
+6. Monotone quantile, zero-inflated, cause-specific hazard, competing-risk and tail-robust reference challengers.
+7. Survival, cumulative-incidence, distribution and tail calibration diagnostics.
+8. Heavy-tail benchmark, best-trade removal, tail-event holdout, competing-event swap and censoring sensitivity.
+9. Complete exposure accounting, immutable checkpoints, replay, integrity and provenance.
+10. Static MQL5 invariant mirrors and a narrow immutable V4-17 handoff.
 
-## Engineering slices
+## Acceptance state
 
-1. Contract and schema freeze.
-2. Deterministic reference implementation.
-3. Golden, negative and mutation tests.
-4. Distributed or advanced challenger implementation.
-5. Model-risk and security review.
-6. Independent reproduction.
-7. Evidence bundle and handoff.
+The local deterministic synthetic-reference acceptance gates are closed. Real-data model training, distributed/GPU reproduction, MetaEditor compilation, runtime differential parity, prospective paper, shadow, micro-live, live evidence, real alpha and production authorization are not claimed.
 
-## Acceptance gates
+## Normative delivery
 
-- Zero unknown fields in closed contracts.
-- No future-suffix sensitivity.
-- Deterministic identity and replay.
-- Complete trial/exposure accounting.
-- Baseline preserved.
-- Fail-closed fallback verified.
-- UCEE compatibility and no central-engine mutation.
-- Actual external/MetaEditor evidence distinguished from static evidence.
-
-## Deliverables
-
-- Source modules and tests.
-- Schemas and examples.
-- Obsidian implementation documentation.
-- QA report, inventory, file index and hash ledger.
-- Handoff to the next phase.
-
-## Non-goals
-
-This architecture phase does not claim real alpha, prospective success, runtime parity or production authorization unless actual evidence is attached.
+See [[00_MOC_V4_16_Distributional_Survival_And_Tail]] and the machine-readable package under `lab/11_strategy_factory`.

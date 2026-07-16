@@ -1,0 +1,32 @@
+{
+  "actual": {
+    "candidates": 5,
+    "failures": 0,
+    "horizons": 5,
+    "predictions": 480,
+    "protected_evidence_exposures": 0,
+    "quantiles": 9,
+    "retries": 0,
+    "rows": 240,
+    "stress_runs": 5,
+    "tail_levels": 2
+  },
+  "complete_exposure_accounting": true,
+  "complete_trial_accounting": true,
+  "ledger_hash": "4c4818529c5d61bc59b3628760074472faa5192c460e02fcc08d6e131f4ad4df",
+  "limits": {
+    "candidates": 8,
+    "failures": 0,
+    "horizons": 8,
+    "predictions": 1000,
+    "protected_evidence_exposures": 0,
+    "quantiles": 16,
+    "retries": 0,
+    "rows": 300,
+    "stress_runs": 12,
+    "tail_levels": 4
+  },
+  "passed": true,
+  "phase": "SAED_V4_16",
+  "violations": []
+}

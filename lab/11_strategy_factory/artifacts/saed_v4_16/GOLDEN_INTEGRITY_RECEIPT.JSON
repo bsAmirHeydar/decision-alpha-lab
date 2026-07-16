@@ -1,0 +1,33 @@
+{
+  "all_hashes_present": true,
+  "artifact_count": 23,
+  "artifact_hashes": {
+    "candidate_checkpoints": "3f068a121332636e39f27c98e738f53fdc93385dbc120fb967325745baff25ff",
+    "candidate_metrics": "ea8bf6cccaeeb18497122758bda43e7ff64476a945caa6a476026e9055018965",
+    "censoring_audit": "b78ee4481e3ebfb924640fcc30d8e0e884953515c79f68065a76052d43f65a54",
+    "censoring_policy": "668c1b9f9d2f3a6995903d7def9865151868137cd91a1a34e1574063ef10b8b0",
+    "checkpoint_registry": "64711f08276d380a841e703e8526978ed3aea6918af778253ab83c7ef1b0a6b8",
+    "competing_risk_simplex_audit": "3b029de11c4de391cea28bb627d58b1fd9ef5830ad71d59bb50350c6ed563095",
+    "compute_exposure_ledger": "ac59bbf83227ba9a5d96774e2d7a86bf9f99f61b91d1b152a9d4c52fdcacb59f",
+    "distribution_calibration_report": "f22d15f3e9ab20e906ad8db922e8034ec6e9d3e6d9c1e5d2de0bd79209f91ded",
+    "distributional_predictions": "9b08df1d047787990c998ddf4077e70d0a8895d61bfdf9400d5b9214e32dd7ad",
+    "event_definition_registry": "49f81ff6252b3bf3c630bcc29611f343ea382d3c3c8b7a2eba1d20a3f1a2dbc9",
+    "fail_closed_audits": "a1a2cdc4f87f524781cdc3798c0eb3b82cef1bf29f29615ce212b7bb804a734a",
+    "future_suffix_audits": "79e23b6eb43f47ab491770ffc249a75daf42cebe69c716b390892c90845bcad2",
+    "ipcw_weights": "77a489c8e3fd16305723ccd90ccec7826eeab9c4f8f414b40321696b59a2df1c",
+    "quantile_crossing_audit": "dd1955e1b5a5cc938b829f695c18924daccdac4424f4dc8aca4afa016d471db9",
+    "risk_set_ledger": "b119ce316f14cbf0d56cd007507f811301c4b94ccbf21d113f9babb5268a09e2",
+    "stress_tests": "8b84d44867c6fcdd921a31ce273f1904909aa563a009ff9e9655495edd8071d3",
+    "survival_dataset": "57c78e7803c2db692edc2f4ba589225ea9da1db29fb49e5312ceef6762938559",
+    "survival_predictions": "04f0b26f9313d5b5f07641c78602de58e3da4a1fcc53c88fba321b3bb323068b",
+    "tail_calibration_report": "6cf3e11923cf771c546fa89107f98dd0f81a3595f73db4e33439d94869c188c4",
+    "tail_risk_summaries": "5b71d8adbe3ae4fd7ab554286d194431f523ecfca7a4a9d926ad69f655d7a09f",
+    "time_calibration_report": "134982c9dbad5fa59ead1e58b8c7e05cf3dcc1be083e46842d5c9b7f93dbdafb",
+    "tournament": "8063b4f386e034030f2f21681ebed07ff907e7bc602c65883c768785bf604409",
+    "upstream_validation": "9dab0437158d478b4b5db29fefd6e34d0163e44a4b51be6c8eabafceadb5383e"
+  },
+  "immutable": true,
+  "phase": "SAED_V4_16",
+  "receipt_hash": "0d2ae364685ed05a312d72e58f46c7f81ae587df33922bc9d1999cf61442ef0a",
+  "receipt_id": "v416integrity_139ae02f7e4a7a2387d91a70"
+}

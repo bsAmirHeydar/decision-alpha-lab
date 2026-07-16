@@ -1,0 +1,14 @@
+{
+  "calibration_rows": 48,
+  "chronological_split": true,
+  "exact_version": "saed.v4.16.dataset-spec@1.0.0",
+  "feature_dim": 16,
+  "frozen_fusion_features": true,
+  "row_count": 240,
+  "seed": 160031,
+  "selection_validation_rows": 48,
+  "spacing_seconds": 300,
+  "start_time": "2026-01-06T00:00:00Z",
+  "synthetic_only": true,
+  "train_rows": 144
+}

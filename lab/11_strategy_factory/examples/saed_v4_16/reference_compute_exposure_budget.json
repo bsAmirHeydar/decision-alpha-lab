@@ -1,0 +1,12 @@
+{
+  "max_candidates": 8,
+  "max_failures": 0,
+  "max_horizons": 8,
+  "max_predictions": 1000,
+  "max_quantiles": 16,
+  "max_retries": 0,
+  "max_rows": 300,
+  "max_stress_runs": 12,
+  "max_tail_levels": 4,
+  "protected_evidence_exposure_limit": 0
+}

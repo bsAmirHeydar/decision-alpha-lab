@@ -1,0 +1,56 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_16/golden_upstream_validation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-16 contract generated from the deterministic reference artifact. Unknown fields are forbidden.",
+  "properties": {
+    "feature_dim": {
+      "type": "integer"
+    },
+    "frozen": {
+      "type": "boolean"
+    },
+    "known_as_of": {
+      "type": "string"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "reference_fusion_candidate_id": {
+      "type": "string"
+    },
+    "v4_15_aligned_set_hash": {
+      "type": "string"
+    },
+    "v4_15_fusion_hash": {
+      "type": "string"
+    },
+    "v4_15_handoff_hash": {
+      "type": "string"
+    },
+    "v4_15_integrity_receipt_hash": {
+      "type": "string"
+    },
+    "v4_15_registry_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "feature_dim",
+    "frozen",
+    "known_as_of",
+    "passed",
+    "phase",
+    "reference_fusion_candidate_id",
+    "v4_15_aligned_set_hash",
+    "v4_15_fusion_hash",
+    "v4_15_handoff_hash",
+    "v4_15_integrity_receipt_hash",
+    "v4_15_registry_hash"
+  ],
+  "title": "GOLDEN_UPSTREAM_VALIDATION",
+  "type": "object"
+}

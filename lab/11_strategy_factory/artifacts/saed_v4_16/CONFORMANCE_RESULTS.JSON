@@ -1,0 +1,13 @@
+{
+  "censored_as_outcome_rejected": true,
+  "competing_risk_simplex_enforced": true,
+  "future_suffix_rejected": true,
+  "negative_vectors_passed": 6,
+  "passed": true,
+  "phase": "SAED_V4_16",
+  "positive_vectors_passed": 7,
+  "protected_evidence_exposures": 0,
+  "quantile_crossing_controlled": true,
+  "unknown_fields_rejected": true,
+  "vector_count": 13
+}

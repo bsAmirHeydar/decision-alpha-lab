@@ -1,0 +1,33 @@
+{
+  "phase": "SAED_V4_16",
+  "vectors": [
+    {
+      "expected": "accept",
+      "name": "closed_event_registry"
+    },
+    {
+      "expected": "accept",
+      "name": "chronological_dataset"
+    },
+    {
+      "expected": "accept",
+      "name": "censored_not_outcome"
+    },
+    {
+      "expected": "accept",
+      "name": "monotone_quantiles"
+    },
+    {
+      "expected": "accept",
+      "name": "competing_risk_simplex"
+    },
+    {
+      "expected": "manual",
+      "name": "tail_sample_insufficient"
+    },
+    {
+      "expected": "quarantine",
+      "name": "future_suffix"
+    }
+  ]
+}

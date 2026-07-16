@@ -1,0 +1,176 @@
+{
+  "all_passed": true,
+  "item_count": 24,
+  "items": [
+    {
+      "feature_known_time": "2026-01-06T00:00:00Z",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "reason": "models consume only frozen feature vector and known-time row fields",
+      "row_id": "v416row_33b811f5853383441f1fbc3c"
+    },
+    {
+      "feature_known_time": "2026-01-06T00:05:00Z",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "reason": "models consume only frozen feature vector and known-time row fields",
+      "row_id": "v416row_2feb48d06511d314c5bc955d"
+    },
+    {
+      "feature_known_time": "2026-01-06T00:10:00Z",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "reason": "models consume only frozen feature vector and known-time row fields",
+      "row_id": "v416row_358a13b19bf644ad31ae7936"
+    },
+    {
+      "feature_known_time": "2026-01-06T00:15:00Z",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "reason": "models consume only frozen feature vector and known-time row fields",
+      "row_id": "v416row_2f3b93f7867b4b5cdd076d77"
+    },
+    {
+      "feature_known_time": "2026-01-06T00:20:00Z",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "reason": "models consume only frozen feature vector and known-time row fields",
+      "row_id": "v416row_327c372ae494ceca1513c8e0"
+    },
+    {
+      "feature_known_time": "2026-01-06T00:25:00Z",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "reason": "models consume only frozen feature vector and known-time row fields",
+      "row_id": "v416row_294af3776757963e2fc3b3c2"
+    },
+    {
+      "feature_known_time": "2026-01-06T00:30:00Z",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "reason": "models consume only frozen feature vector and known-time row fields",
+      "row_id": "v416row_48e84103d94a6c16839d5847"
+    },
+    {
+      "feature_known_time": "2026-01-06T00:35:00Z",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "reason": "models consume only frozen feature vector and known-time row fields",
+      "row_id": "v416row_d4d510a9afe2244c46e65c70"
+    },
+    {
+      "feature_known_time": "2026-01-06T00:40:00Z",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "reason": "models consume only frozen feature vector and known-time row fields",
+      "row_id": "v416row_bfe2b0a1b7060813e3c96a3c"
+    },
+    {
+      "feature_known_time": "2026-01-06T00:45:00Z",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "reason": "models consume only frozen feature vector and known-time row fields",
+      "row_id": "v416row_27c569f4ca40c78ca0e70339"
+    },
+    {
+      "feature_known_time": "2026-01-06T00:50:00Z",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "reason": "models consume only frozen feature vector and known-time row fields",
+      "row_id": "v416row_dd7769801459795f900fb188"
+    },
+    {
+      "feature_known_time": "2026-01-06T00:55:00Z",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "reason": "models consume only frozen feature vector and known-time row fields",
+      "row_id": "v416row_2eadbd97d3e7c13db099089e"
+    },
+    {
+      "feature_known_time": "2026-01-06T01:00:00Z",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "reason": "models consume only frozen feature vector and known-time row fields",
+      "row_id": "v416row_af1dcbde02f23d7bb28a3fc8"
+    },
+    {
+      "feature_known_time": "2026-01-06T01:05:00Z",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "reason": "models consume only frozen feature vector and known-time row fields",
+      "row_id": "v416row_6c43d6c5351d0057fcfe25f2"
+    },
+    {
+      "feature_known_time": "2026-01-06T01:10:00Z",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "reason": "models consume only frozen feature vector and known-time row fields",
+      "row_id": "v416row_4dfc00040b309153a148f7f4"
+    },
+    {
+      "feature_known_time": "2026-01-06T01:15:00Z",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "reason": "models consume only frozen feature vector and known-time row fields",
+      "row_id": "v416row_f822a4bc95a940838357f7ee"
+    },
+    {
+      "feature_known_time": "2026-01-06T01:20:00Z",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "reason": "models consume only frozen feature vector and known-time row fields",
+      "row_id": "v416row_905e7f113e772ab31b78dc07"
+    },
+    {
+      "feature_known_time": "2026-01-06T01:25:00Z",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "reason": "models consume only frozen feature vector and known-time row fields",
+      "row_id": "v416row_15bbedd8aaffd33aefda4cd4"
+    },
+    {
+      "feature_known_time": "2026-01-06T01:30:00Z",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "reason": "models consume only frozen feature vector and known-time row fields",
+      "row_id": "v416row_2823bc8ecf766315582450bc"
+    },
+    {
+      "feature_known_time": "2026-01-06T01:35:00Z",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "reason": "models consume only frozen feature vector and known-time row fields",
+      "row_id": "v416row_6ca9515797eaad2e1cc64d64"
+    },
+    {
+      "feature_known_time": "2026-01-06T01:40:00Z",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "reason": "models consume only frozen feature vector and known-time row fields",
+      "row_id": "v416row_929cf8e75473ea9187a16aa1"
+    },
+    {
+      "feature_known_time": "2026-01-06T01:45:00Z",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "reason": "models consume only frozen feature vector and known-time row fields",
+      "row_id": "v416row_26d00d61be48108f43cd4418"
+    },
+    {
+      "feature_known_time": "2026-01-06T01:50:00Z",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "reason": "models consume only frozen feature vector and known-time row fields",
+      "row_id": "v416row_6ab709917d1e1a93f6dc41c7"
+    },
+    {
+      "feature_known_time": "2026-01-06T01:55:00Z",
+      "future_suffix_accessed": false,
+      "passed": true,
+      "reason": "models consume only frozen feature vector and known-time row fields",
+      "row_id": "v416row_60dba1d8419df9ddfc1039c1"
+    }
+  ],
+  "phase": "SAED_V4_16",
+  "report_hash": "f4a788d7acefc1e3b44ffeddac50dec25c44c7f1ddf9e0b01e9165393bc4c231"
+}

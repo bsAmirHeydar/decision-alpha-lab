@@ -1,0 +1,36 @@
+{
+  "allowed_operations": [
+    "build_synthetic_survival_dataset",
+    "build_v4_17_handoff",
+    "calibrate_reference_outputs",
+    "estimate_synthetic_distributions",
+    "estimate_synthetic_hazards",
+    "fit_reference_distribution_models",
+    "fit_reference_survival_models",
+    "read_frozen_v4_15_fusion_features",
+    "read_frozen_v4_15_registry",
+    "register_research_checkpoint",
+    "reproduce_golden",
+    "run_tail_stress_suite"
+  ],
+  "decision_authority": false,
+  "execution_authority": false,
+  "forbidden_operations": [
+    "access_live_credentials",
+    "activate_runtime",
+    "allocate_risk",
+    "compile_runtime",
+    "mutate_v4_15_evidence",
+    "predict_live_outcomes",
+    "rank_treatments",
+    "select_treatment",
+    "send_order",
+    "sign_promotion",
+    "use_protected_final_evidence"
+  ],
+  "phase": "SAED_V4_16",
+  "production_authority": false,
+  "promotion_authority": false,
+  "research_reference_only": true,
+  "runtime_authority": false
+}

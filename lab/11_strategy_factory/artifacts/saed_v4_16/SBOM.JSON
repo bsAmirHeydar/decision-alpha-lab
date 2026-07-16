@@ -1,0 +1,10 @@
+{
+  "external_dependencies": [],
+  "external_model_weights": [],
+  "language": "python",
+  "live_credentials": false,
+  "network_calls": false,
+  "phase": "SAED_V4_16",
+  "runtime": "standard_library_only",
+  "supply_chain_status": "closed_local_reference"
+}

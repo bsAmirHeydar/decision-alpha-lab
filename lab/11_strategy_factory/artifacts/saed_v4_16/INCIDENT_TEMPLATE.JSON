@@ -1,0 +1,16 @@
+{
+  "affected_artifacts": [],
+  "containment_actions": [
+    "quarantine affected checkpoint",
+    "freeze registry generation",
+    "preserve hashes and logs"
+  ],
+  "detected_at": "UNASSIGNED",
+  "incident_id": "UNASSIGNED",
+  "live_impact": "none_no_live_authority",
+  "phase": "SAED_V4_16",
+  "revocation_required": false,
+  "runtime_impact": "none_reference_only",
+  "severity": "UNASSIGNED",
+  "symptoms": []
+}

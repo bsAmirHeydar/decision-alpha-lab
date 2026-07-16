@@ -1,0 +1,54 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_16/authority_boundary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-16 contract generated from the deterministic reference artifact. Unknown fields are forbidden.",
+  "properties": {
+    "allowed_operations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "decision_authority": {
+      "type": "boolean"
+    },
+    "execution_authority": {
+      "type": "boolean"
+    },
+    "forbidden_operations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authority": {
+      "type": "boolean"
+    },
+    "promotion_authority": {
+      "type": "boolean"
+    },
+    "research_reference_only": {
+      "type": "boolean"
+    },
+    "runtime_authority": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "allowed_operations",
+    "decision_authority",
+    "execution_authority",
+    "forbidden_operations",
+    "phase",
+    "production_authority",
+    "promotion_authority",
+    "research_reference_only",
+    "runtime_authority"
+  ],
+  "title": "AUTHORITY_BOUNDARY",
+  "type": "object"
+}

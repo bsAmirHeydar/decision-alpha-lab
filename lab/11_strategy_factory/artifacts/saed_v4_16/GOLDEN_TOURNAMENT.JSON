@@ -1,0 +1,46 @@
+{
+  "baseline_candidate_id": "v416_empirical_km_s31",
+  "baseline_preserved": true,
+  "baseline_score": 0.4035006404018484,
+  "candidate_count": 5,
+  "phase": "SAED_V4_16",
+  "production_authority": false,
+  "promotion_decision": "not_in_scope",
+  "ranking": [
+    {
+      "algorithm": "tail_robust_reference",
+      "candidate_id": "v416_tail_robust_s47",
+      "rank": 1,
+      "reference_score": 0.5130420349431584
+    },
+    {
+      "algorithm": "monotone_quantile_hazard",
+      "candidate_id": "v416_monotone_hazard_s37",
+      "rank": 2,
+      "reference_score": 0.5084369963771734
+    },
+    {
+      "algorithm": "competing_risk_ensemble",
+      "candidate_id": "v416_competing_ensemble_s43",
+      "rank": 3,
+      "reference_score": 0.5084065750822441
+    },
+    {
+      "algorithm": "zero_inflated_mixture",
+      "candidate_id": "v416_zero_inflated_s41",
+      "rank": 4,
+      "reference_score": 0.44061194367415
+    },
+    {
+      "algorithm": "empirical_km_baseline",
+      "candidate_id": "v416_empirical_km_s31",
+      "rank": 5,
+      "reference_score": 0.4035006404018484
+    }
+  ],
+  "reference_champion_id": "v416_tail_robust_s47",
+  "reference_champion_score": 0.5130420349431584,
+  "synthetic_reference_only": true,
+  "tournament_hash": "343e99f78af2b499a8947c6b198779c5913d186a2abc014178c7e874b59121b2",
+  "tournament_id": "v416tournament_046bd525137200a2831cca5b"
+}

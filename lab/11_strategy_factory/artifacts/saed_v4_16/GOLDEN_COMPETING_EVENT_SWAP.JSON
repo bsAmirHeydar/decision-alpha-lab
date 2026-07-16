@@ -1,0 +1,16 @@
+{
+  "kind": "competing_event_swap",
+  "mutated_causes": [
+    "target",
+    "stop"
+  ],
+  "mutation_detected": true,
+  "passed": true,
+  "phase": "SAED_V4_16",
+  "registry_hash_unchanged": false,
+  "report_hash": "b55d9b16abf36fec8f690b4891ee31af6ab40e4f46f06e9bbb9da5f32ee69e78",
+  "source_causes": [
+    "stop",
+    "target"
+  ]
+}

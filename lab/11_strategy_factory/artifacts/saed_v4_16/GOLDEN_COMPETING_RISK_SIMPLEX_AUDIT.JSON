@@ -1,0 +1,1688 @@
+{
+  "all_simplex_valid": true,
+  "phase": "SAED_V4_16",
+  "report_hash": "5c7dd3cf2d93750ce09b03229a1009ff13f8ec387dc3a294968cff33c0816ec8",
+  "row_count": 240,
+  "rows": [
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_466bb54ca427fb6fd293bcb1",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_2716bdedd6176bbf76af28fd",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_0b0cacfee14ff555739b471b",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_5de76551f0e24820da3548df",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_5f66e1751d849db0e8dc0459",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_d64ef63cb26597139b361e61",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_5dab642d5ca7bd49bd738db6",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_6c373e5a281d49298e2c0d18",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_7f9b9e88cb04a6d4e50cc670",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_ea88499dd2490a5a2fcfb2a5",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_46bd57b41081851afed33499",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_b282b3359a7cd13d67306e2e",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_08498832dab8e9cc4f4e32b9",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_30376738e0028ddb35bbba61",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_d33bb0fc2cbe99d685db0f80",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_bbc00eb5831490c1056a0de4",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_75972a9a7b96e6efa5a468f1",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_0503516729a9bd14550a2983",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_7ea950eead4aeb9749d17261",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_64f5a26754e75f472229acf5",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_ff23500d6cfd87abd0c10da4",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_27456bc02895335f848049f3",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_909df73811d0bbb9cb7f0437",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_7e0f1c4d213fed08aed41da5",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_763448128eb93a5e61c68ec8",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_e5fc90c2b64ad925743d8c78",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_fbc167ea856b0018374b4e3f",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_7ffbc337df86bf9a1bbe52da",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_db7959c50da99abf6f443b07",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_0cd2bd61f5980d82fba7d410",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_88bec49e825dcb557029c259",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_7716d45e4b75684df1936862",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_152fc40e103422ddf76de8f4",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_2778f2596bf0b3a5dfa7b1bf",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_0fad44b576952ef0ab5f290e",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_d0d566bdf189a1afe85a0892",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_acd4548a71deebffe4f3d449",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_ba967a7b6b3c6ece852320f1",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_48efd5e7bcae51237557b90c",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_643a915ed0e2dbc18fdd2cbb",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_18734aabda3654f8dc9824f5",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_822d76a6679fa94f6e880c27",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_eb4a085d1035d8cbddfb9525",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_1411f606646f44e69517c2ba",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_10b97e08cd2d019d19ef2a19",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_8c7a608cc713e3d60b9e44a5",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_6e698cc369256936512e8d07",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "maximum_cumulative_incidence_sum": 0.9193163568821883,
+      "minimum_survival_probability": 0.08068364311781173,
+      "row_id": "v416row_3d855a284194e0c240c2b897",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9191088324710556,
+      "minimum_survival_probability": 0.08089116752894443,
+      "row_id": "v416row_466bb54ca427fb6fd293bcb1",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9189574908365168,
+      "minimum_survival_probability": 0.08104250916348321,
+      "row_id": "v416row_2716bdedd6176bbf76af28fd",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9191308329527466,
+      "minimum_survival_probability": 0.08086916704725344,
+      "row_id": "v416row_0b0cacfee14ff555739b471b",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9190979674307217,
+      "minimum_survival_probability": 0.0809020325692783,
+      "row_id": "v416row_5de76551f0e24820da3548df",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.919227355539121,
+      "minimum_survival_probability": 0.08077264446087895,
+      "row_id": "v416row_5f66e1751d849db0e8dc0459",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9192452425326687,
+      "minimum_survival_probability": 0.0807547574673313,
+      "row_id": "v416row_d64ef63cb26597139b361e61",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9190963194262552,
+      "minimum_survival_probability": 0.08090368057374475,
+      "row_id": "v416row_5dab642d5ca7bd49bd738db6",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9189706327407349,
+      "minimum_survival_probability": 0.08102936725926513,
+      "row_id": "v416row_6c373e5a281d49298e2c0d18",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9189059894281617,
+      "minimum_survival_probability": 0.0810940105718383,
+      "row_id": "v416row_7f9b9e88cb04a6d4e50cc670",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9191576976059743,
+      "minimum_survival_probability": 0.08084230239402568,
+      "row_id": "v416row_ea88499dd2490a5a2fcfb2a5",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9190875154825053,
+      "minimum_survival_probability": 0.08091248451749466,
+      "row_id": "v416row_46bd57b41081851afed33499",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9191994249283137,
+      "minimum_survival_probability": 0.08080057507168625,
+      "row_id": "v416row_b282b3359a7cd13d67306e2e",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.919185690644452,
+      "minimum_survival_probability": 0.08081430935554801,
+      "row_id": "v416row_08498832dab8e9cc4f4e32b9",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9190512172083298,
+      "minimum_survival_probability": 0.08094878279167017,
+      "row_id": "v416row_30376738e0028ddb35bbba61",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9188555571579624,
+      "minimum_survival_probability": 0.08114444284203759,
+      "row_id": "v416row_d33bb0fc2cbe99d685db0f80",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9187536059782393,
+      "minimum_survival_probability": 0.0812463940217607,
+      "row_id": "v416row_bbc00eb5831490c1056a0de4",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9191316743069478,
+      "minimum_survival_probability": 0.08086832569305225,
+      "row_id": "v416row_75972a9a7b96e6efa5a468f1",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9194974720622323,
+      "minimum_survival_probability": 0.08050252793776769,
+      "row_id": "v416row_0503516729a9bd14550a2983",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9196785355213309,
+      "minimum_survival_probability": 0.08032146447866906,
+      "row_id": "v416row_7ea950eead4aeb9749d17261",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9197210224655498,
+      "minimum_survival_probability": 0.08027897753445024,
+      "row_id": "v416row_64f5a26754e75f472229acf5",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9195397559083532,
+      "minimum_survival_probability": 0.08046024409164676,
+      "row_id": "v416row_ff23500d6cfd87abd0c10da4",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9189136298149487,
+      "minimum_survival_probability": 0.08108637018505127,
+      "row_id": "v416row_27456bc02895335f848049f3",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9185993481821811,
+      "minimum_survival_probability": 0.08140065181781886,
+      "row_id": "v416row_909df73811d0bbb9cb7f0437",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9184270026187453,
+      "minimum_survival_probability": 0.08157299738125467,
+      "row_id": "v416row_7e0f1c4d213fed08aed41da5",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9186062965997123,
+      "minimum_survival_probability": 0.08139370340028773,
+      "row_id": "v416row_763448128eb93a5e61c68ec8",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9190572263536616,
+      "minimum_survival_probability": 0.0809427736463384,
+      "row_id": "v416row_e5fc90c2b64ad925743d8c78",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9193945282340176,
+      "minimum_survival_probability": 0.08060547176598243,
+      "row_id": "v416row_fbc167ea856b0018374b4e3f",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9195499262308878,
+      "minimum_survival_probability": 0.08045007376911217,
+      "row_id": "v416row_7ffbc337df86bf9a1bbe52da",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9193618222158908,
+      "minimum_survival_probability": 0.0806381777841092,
+      "row_id": "v416row_db7959c50da99abf6f443b07",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9190429135108416,
+      "minimum_survival_probability": 0.08095708648915845,
+      "row_id": "v416row_0cd2bd61f5980d82fba7d410",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9189080179794117,
+      "minimum_survival_probability": 0.08109198202058832,
+      "row_id": "v416row_88bec49e825dcb557029c259",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9189689971713871,
+      "minimum_survival_probability": 0.08103100282861286,
+      "row_id": "v416row_7716d45e4b75684df1936862",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9190593032935802,
+      "minimum_survival_probability": 0.08094069670641979,
+      "row_id": "v416row_152fc40e103422ddf76de8f4",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9193219618070091,
+      "minimum_survival_probability": 0.08067803819299091,
+      "row_id": "v416row_2778f2596bf0b3a5dfa7b1bf",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9192226581943794,
+      "minimum_survival_probability": 0.08077734180562057,
+      "row_id": "v416row_0fad44b576952ef0ab5f290e",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9191019114974255,
+      "minimum_survival_probability": 0.08089808850257452,
+      "row_id": "v416row_d0d566bdf189a1afe85a0892",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9190872568866191,
+      "minimum_survival_probability": 0.08091274311338092,
+      "row_id": "v416row_acd4548a71deebffe4f3d449",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9191017461881553,
+      "minimum_survival_probability": 0.08089825381184468,
+      "row_id": "v416row_ba967a7b6b3c6ece852320f1",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9190711012843858,
+      "minimum_survival_probability": 0.08092889871561415,
+      "row_id": "v416row_48efd5e7bcae51237557b90c",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.919121844554065,
+      "minimum_survival_probability": 0.08087815544593502,
+      "row_id": "v416row_643a915ed0e2dbc18fdd2cbb",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9192054272286023,
+      "minimum_survival_probability": 0.08079457277139768,
+      "row_id": "v416row_18734aabda3654f8dc9824f5",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9191500418352184,
+      "minimum_survival_probability": 0.08084995816478158,
+      "row_id": "v416row_822d76a6679fa94f6e880c27",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9191143219165401,
+      "minimum_survival_probability": 0.08088567808345992,
+      "row_id": "v416row_eb4a085d1035d8cbddfb9525",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9191459050919832,
+      "minimum_survival_probability": 0.08085409490801676,
+      "row_id": "v416row_1411f606646f44e69517c2ba",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9191240053524671,
+      "minimum_survival_probability": 0.08087599464753292,
+      "row_id": "v416row_10b97e08cd2d019d19ef2a19",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9190640951613108,
+      "minimum_survival_probability": 0.08093590483868918,
+      "row_id": "v416row_8c7a608cc713e3d60b9e44a5",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9191587039451845,
+      "minimum_survival_probability": 0.08084129605481549,
+      "row_id": "v416row_6e698cc369256936512e8d07",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "maximum_cumulative_incidence_sum": 0.9192415758963137,
+      "minimum_survival_probability": 0.08075842410368628,
+      "row_id": "v416row_3d855a284194e0c240c2b897",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9191548765944481,
+      "minimum_survival_probability": 0.08084512340555194,
+      "row_id": "v416row_466bb54ca427fb6fd293bcb1",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9190368421107137,
+      "minimum_survival_probability": 0.08096315788928632,
+      "row_id": "v416row_2716bdedd6176bbf76af28fd",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9191720095936456,
+      "minimum_survival_probability": 0.08082799040635436,
+      "row_id": "v416row_0b0cacfee14ff555739b471b",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9191464134515047,
+      "minimum_survival_probability": 0.08085358654849528,
+      "row_id": "v416row_5de76551f0e24820da3548df",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9192471289315318,
+      "minimum_survival_probability": 0.08075287106846818,
+      "row_id": "v416row_5f66e1751d849db0e8dc0459",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9192610435619704,
+      "minimum_survival_probability": 0.08073895643802964,
+      "row_id": "v416row_d64ef63cb26597139b361e61",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9191451296476021,
+      "minimum_survival_probability": 0.08085487035239791,
+      "row_id": "v416row_5dab642d5ca7bd49bd738db6",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9190471066948607,
+      "minimum_survival_probability": 0.08095289330513933,
+      "row_id": "v416row_6c373e5a281d49298e2c0d18",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9189965827496518,
+      "minimum_survival_probability": 0.08100341725034821,
+      "row_id": "v416row_7f9b9e88cb04a6d4e50cc670",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9191929242206649,
+      "minimum_survival_probability": 0.0808070757793351,
+      "row_id": "v416row_ea88499dd2490a5a2fcfb2a5",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.919138270784905,
+      "minimum_survival_probability": 0.08086172921509505,
+      "row_id": "v416row_46bd57b41081851afed33499",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9192253982131902,
+      "minimum_survival_probability": 0.08077460178680984,
+      "row_id": "v416row_b282b3359a7cd13d67306e2e",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9192147109536294,
+      "minimum_survival_probability": 0.08078528904637061,
+      "row_id": "v416row_08498832dab8e9cc4f4e32b9",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9191099815752614,
+      "minimum_survival_probability": 0.08089001842473864,
+      "row_id": "v416row_30376738e0028ddb35bbba61",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9189571012721114,
+      "minimum_survival_probability": 0.08104289872788861,
+      "row_id": "v416row_d33bb0fc2cbe99d685db0f80",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9188770817940595,
+      "minimum_survival_probability": 0.08112291820594053,
+      "row_id": "v416row_bbc00eb5831490c1056a0de4",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9191726647050379,
+      "minimum_survival_probability": 0.08082733529496211,
+      "row_id": "v416row_75972a9a7b96e6efa5a468f1",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9194572862855319,
+      "minimum_survival_probability": 0.08054271371446808,
+      "row_id": "v416row_0503516729a9bd14550a2983",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9195985193989883,
+      "minimum_survival_probability": 0.08040148060101171,
+      "row_id": "v416row_7ea950eead4aeb9749d17261",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9196317459408448,
+      "minimum_survival_probability": 0.08036825405915515,
+      "row_id": "v416row_64f5a26754e75f472229acf5",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.919490225540152,
+      "minimum_survival_probability": 0.08050977445984797,
+      "row_id": "v416row_ff23500d6cfd87abd0c10da4",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9190025589302688,
+      "minimum_survival_probability": 0.08099744106973117,
+      "row_id": "v416row_27456bc02895335f848049f3",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9187553625126834,
+      "minimum_survival_probability": 0.08124463748731658,
+      "row_id": "v416row_909df73811d0bbb9cb7f0437",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9186181979263454,
+      "minimum_survival_probability": 0.08138180207365464,
+      "row_id": "v416row_7e0f1c4d213fed08aed41da5",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.918760864605965,
+      "minimum_survival_probability": 0.08123913539403504,
+      "row_id": "v416row_763448128eb93a5e61c68ec8",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9191146660523173,
+      "minimum_survival_probability": 0.08088533394768271,
+      "row_id": "v416row_e5fc90c2b64ad925743d8c78",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9193771625911769,
+      "minimum_survival_probability": 0.08062283740882314,
+      "row_id": "v416row_fbc167ea856b0018374b4e3f",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.91949815151876,
+      "minimum_survival_probability": 0.08050184848123998,
+      "row_id": "v416row_7ffbc337df86bf9a1bbe52da",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9193517201386303,
+      "minimum_survival_probability": 0.08064827986136969,
+      "row_id": "v416row_db7959c50da99abf6f443b07",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9191035075123877,
+      "minimum_survival_probability": 0.08089649248761233,
+      "row_id": "v416row_0cd2bd61f5980d82fba7d410",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9189981695751439,
+      "minimum_survival_probability": 0.08100183042485609,
+      "row_id": "v416row_88bec49e825dcb557029c259",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9190458294006946,
+      "minimum_survival_probability": 0.08095417059930543,
+      "row_id": "v416row_7716d45e4b75684df1936862",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9191162850299054,
+      "minimum_survival_probability": 0.08088371497009461,
+      "row_id": "v416row_152fc40e103422ddf76de8f4",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9193207162768765,
+      "minimum_survival_probability": 0.0806792837231235,
+      "row_id": "v416row_2778f2596bf0b3a5dfa7b1bf",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9192434745548754,
+      "minimum_survival_probability": 0.08075652544512457,
+      "row_id": "v416row_0fad44b576952ef0ab5f290e",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9191494857718292,
+      "minimum_survival_probability": 0.0808505142281708,
+      "row_id": "v416row_d0d566bdf189a1afe85a0892",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9191380693072375,
+      "minimum_survival_probability": 0.08086193069276248,
+      "row_id": "v416row_acd4548a71deebffe4f3d449",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9191493570040071,
+      "minimum_survival_probability": 0.08085064299599287,
+      "row_id": "v416row_ba967a7b6b3c6ece852320f1",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9191254804659916,
+      "minimum_survival_probability": 0.08087451953400837,
+      "row_id": "v416row_48efd5e7bcae51237557b90c",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9191650104341743,
+      "minimum_survival_probability": 0.08083498956582569,
+      "row_id": "v416row_643a915ed0e2dbc18fdd2cbb",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9192300685074279,
+      "minimum_survival_probability": 0.08076993149257206,
+      "row_id": "v416row_18734aabda3654f8dc9824f5",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9191869647200175,
+      "minimum_survival_probability": 0.08081303527998251,
+      "row_id": "v416row_822d76a6679fa94f6e880c27",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9191591520075678,
+      "minimum_survival_probability": 0.08084084799243219,
+      "row_id": "v416row_eb4a085d1035d8cbddfb9525",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9191837443333034,
+      "minimum_survival_probability": 0.08081625566669659,
+      "row_id": "v416row_1411f606646f44e69517c2ba",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9191666930967191,
+      "minimum_survival_probability": 0.08083330690328094,
+      "row_id": "v416row_10b97e08cd2d019d19ef2a19",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9191200200713239,
+      "minimum_survival_probability": 0.08087997992867613,
+      "row_id": "v416row_8c7a608cc713e3d60b9e44a5",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9191937075510526,
+      "minimum_survival_probability": 0.08080629244894744,
+      "row_id": "v416row_6e698cc369256936512e8d07",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "maximum_cumulative_incidence_sum": 0.9192581913169487,
+      "minimum_survival_probability": 0.08074180868305125,
+      "row_id": "v416row_3d855a284194e0c240c2b897",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9190628618127898,
+      "minimum_survival_probability": 0.08093713818721016,
+      "row_id": "v416row_466bb54ca427fb6fd293bcb1",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9188785304656734,
+      "minimum_survival_probability": 0.08112146953432664,
+      "row_id": "v416row_2716bdedd6176bbf76af28fd",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.919089708345738,
+      "minimum_survival_probability": 0.080910291654262,
+      "row_id": "v416row_0b0cacfee14ff555739b471b",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9190496073375451,
+      "minimum_survival_probability": 0.08095039266245485,
+      "row_id": "v416row_5de76551f0e24820da3548df",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9192075873644688,
+      "minimum_survival_probability": 0.08079241263553116,
+      "row_id": "v416row_5f66e1751d849db0e8dc0459",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.919229444034128,
+      "minimum_survival_probability": 0.08077055596587202,
+      "row_id": "v416row_d64ef63cb26597139b361e61",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9190475971375188,
+      "minimum_survival_probability": 0.08095240286248118,
+      "row_id": "v416row_5dab642d5ca7bd49bd738db6",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9188945078423943,
+      "minimum_survival_probability": 0.08110549215760565,
+      "row_id": "v416row_6c373e5a281d49298e2c0d18",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9188159829498851,
+      "minimum_survival_probability": 0.08118401705011491,
+      "row_id": "v416row_7f9b9e88cb04a6d4e50cc670",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9191225030757475,
+      "minimum_survival_probability": 0.0808774969242525,
+      "row_id": "v416row_ea88499dd2490a5a2fcfb2a5",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9190368593527414,
+      "minimum_survival_probability": 0.08096314064725862,
+      "row_id": "v416row_46bd57b41081851afed33499",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9191734640280503,
+      "minimum_survival_probability": 0.08082653597194966,
+      "row_id": "v416row_b282b3359a7cd13d67306e2e",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9191566878733356,
+      "minimum_survival_probability": 0.0808433121266644,
+      "row_id": "v416row_08498832dab8e9cc4f4e32b9",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9189926084322332,
+      "minimum_survival_probability": 0.08100739156776682,
+      "row_id": "v416row_30376738e0028ddb35bbba61",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9187548460564038,
+      "minimum_survival_probability": 0.08124515394359622,
+      "row_id": "v416row_d33bb0fc2cbe99d685db0f80",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9186316510808749,
+      "minimum_survival_probability": 0.08136834891912514,
+      "row_id": "v416row_bbc00eb5831490c1056a0de4",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9190907352186036,
+      "minimum_survival_probability": 0.08090926478139637,
+      "row_id": "v416row_75972a9a7b96e6efa5a468f1",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9195376010621066,
+      "minimum_survival_probability": 0.08046239893789342,
+      "row_id": "v416row_0503516729a9bd14550a2983",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9197581159615669,
+      "minimum_survival_probability": 0.08024188403843313,
+      "row_id": "v416row_7ea950eead4aeb9749d17261",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9198096944158831,
+      "minimum_survival_probability": 0.08019030558411688,
+      "row_id": "v416row_64f5a26754e75f472229acf5",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.919589181289592,
+      "minimum_survival_probability": 0.080410818710408,
+      "row_id": "v416row_ff23500d6cfd87abd0c10da4",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.918825255097919,
+      "minimum_survival_probability": 0.08117474490208099,
+      "row_id": "v416row_27456bc02895335f848049f3",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9184464764661838,
+      "minimum_survival_probability": 0.08155352353381617,
+      "row_id": "v416row_909df73811d0bbb9cb7f0437",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9182417708231236,
+      "minimum_survival_probability": 0.08175822917687636,
+      "row_id": "v416row_7e0f1c4d213fed08aed41da5",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9184547811456549,
+      "minimum_survival_probability": 0.08154521885434507,
+      "row_id": "v416row_763448128eb93a5e61c68ec8",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9189999317238349,
+      "minimum_survival_probability": 0.08100006827616513,
+      "row_id": "v416row_e5fc90c2b64ad925743d8c78",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9194118888593096,
+      "minimum_survival_probability": 0.08058811114069042,
+      "row_id": "v416row_fbc167ea856b0018374b4e3f",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9196015812932292,
+      "minimum_survival_probability": 0.08039841870677078,
+      "row_id": "v416row_7ffbc337df86bf9a1bbe52da",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9193719231941772,
+      "minimum_survival_probability": 0.08062807680582285,
+      "row_id": "v416row_db7959c50da99abf6f443b07",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9189824904576653,
+      "minimum_survival_probability": 0.08101750954233466,
+      "row_id": "v416row_0cd2bd61f5980d82fba7d410",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9188184444932079,
+      "minimum_survival_probability": 0.08118155550679207,
+      "row_id": "v416row_88bec49e825dcb557029c259",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9188925190354468,
+      "minimum_survival_probability": 0.08110748096455322,
+      "row_id": "v416row_7716d45e4b75684df1936862",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9190024631025395,
+      "minimum_survival_probability": 0.08099753689746048,
+      "row_id": "v416row_152fc40e103422ddf76de8f4",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9193232073315258,
+      "minimum_survival_probability": 0.08067679266847416,
+      "row_id": "v416row_2778f2596bf0b3a5dfa7b1bf",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.919201847981816,
+      "minimum_survival_probability": 0.08079815201818397,
+      "row_id": "v416row_0fad44b576952ef0ab5f290e",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9190544184761846,
+      "minimum_survival_probability": 0.08094558152381537,
+      "row_id": "v416row_d0d566bdf189a1afe85a0892",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9190365439824761,
+      "minimum_survival_probability": 0.08096345601752386,
+      "row_id": "v416row_acd4548a71deebffe4f3d449",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9190542168179051,
+      "minimum_survival_probability": 0.08094578318209489,
+      "row_id": "v416row_ba967a7b6b3c6ece852320f1",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.919016844707606,
+      "minimum_survival_probability": 0.08098315529239397,
+      "row_id": "v416row_48efd5e7bcae51237557b90c",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9190787388727866,
+      "minimum_survival_probability": 0.08092126112721343,
+      "row_id": "v416row_643a915ed0e2dbc18fdd2cbb",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9191807964423848,
+      "minimum_survival_probability": 0.08081920355761518,
+      "row_id": "v416row_18734aabda3654f8dc9824f5",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9191131560762854,
+      "minimum_survival_probability": 0.08088684392371459,
+      "row_id": "v416row_822d76a6679fa94f6e880c27",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9190695594793565,
+      "minimum_survival_probability": 0.08093044052064347,
+      "row_id": "v416row_eb4a085d1035d8cbddfb9525",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9191081059076948,
+      "minimum_survival_probability": 0.08089189409230524,
+      "row_id": "v416row_1411f606646f44e69517c2ba",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9190813757716287,
+      "minimum_survival_probability": 0.08091862422837126,
+      "row_id": "v416row_10b97e08cd2d019d19ef2a19",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9190083038852763,
+      "minimum_survival_probability": 0.08099169611472368,
+      "row_id": "v416row_8c7a608cc713e3d60b9e44a5",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9191237317971191,
+      "minimum_survival_probability": 0.08087626820288085,
+      "row_id": "v416row_6e698cc369256936512e8d07",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "maximum_cumulative_incidence_sum": 0.9192249634556019,
+      "minimum_survival_probability": 0.0807750365443981,
+      "row_id": "v416row_3d855a284194e0c240c2b897",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9192009767295162,
+      "minimum_survival_probability": 0.08079902327048383,
+      "row_id": "v416row_466bb54ca427fb6fd293bcb1",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9191164955080614,
+      "minimum_survival_probability": 0.0808835044919386,
+      "row_id": "v416row_2716bdedd6176bbf76af28fd",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9192132257781706,
+      "minimum_survival_probability": 0.08078677422182945,
+      "row_id": "v416row_0b0cacfee14ff555739b471b",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9191949250766791,
+      "minimum_survival_probability": 0.0808050749233209,
+      "row_id": "v416row_5de76551f0e24820da3548df",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9192669061561439,
+      "minimum_survival_probability": 0.08073309384385607,
+      "row_id": "v416row_5f66e1751d849db0e8dc0459",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9192768464148828,
+      "minimum_survival_probability": 0.08072315358511717,
+      "row_id": "v416row_d64ef63cb26597139b361e61",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9191940070175953,
+      "minimum_survival_probability": 0.08080599298240465,
+      "row_id": "v416row_5dab642d5ca7bd49bd738db6",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9191238501812516,
+      "minimum_survival_probability": 0.08087614981874836,
+      "row_id": "v416row_6c373e5a281d49298e2c0d18",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9190876311986231,
+      "minimum_survival_probability": 0.08091236880137687,
+      "row_id": "v416row_7f9b9e88cb04a6d4e50cc670",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9192281750944393,
+      "minimum_survival_probability": 0.08077182490556067,
+      "row_id": "v416row_ea88499dd2490a5a2fcfb2a5",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.919189101897431,
+      "minimum_survival_probability": 0.08081089810256903,
+      "row_id": "v416row_46bd57b41081851afed33499",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9192513807435887,
+      "minimum_survival_probability": 0.0807486192564113,
+      "row_id": "v416row_b282b3359a7cd13d67306e2e",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9192437444232964,
+      "minimum_survival_probability": 0.08075625557670363,
+      "row_id": "v416row_08498832dab8e9cc4f4e32b9",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9191688653201693,
+      "minimum_survival_probability": 0.08083113467983072,
+      "row_id": "v416row_30376738e0028ddb35bbba61",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9190592935441615,
+      "minimum_survival_probability": 0.08094070645583851,
+      "row_id": "v416row_d33bb0fc2cbe99d685db0f80",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9190017489595372,
+      "minimum_survival_probability": 0.08099825104046277,
+      "row_id": "v416row_bbc00eb5831490c1056a0de4",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9192136940910611,
+      "minimum_survival_probability": 0.08078630590893887,
+      "row_id": "v416row_75972a9a7b96e6efa5a468f1",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9194170553334629,
+      "minimum_survival_probability": 0.08058294466653715,
+      "row_id": "v416row_0503516729a9bd14550a2983",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9195181584452491,
+      "minimum_survival_probability": 0.08048184155475091,
+      "row_id": "v416row_7ea950eead4aeb9749d17261",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9195419906847176,
+      "minimum_survival_probability": 0.08045800931528235,
+      "row_id": "v416row_64f5a26754e75f472229acf5",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9194406118771484,
+      "minimum_survival_probability": 0.08055938812285157,
+      "row_id": "v416row_ff23500d6cfd87abd0c10da4",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9190919177951833,
+      "minimum_survival_probability": 0.08090808220481671,
+      "row_id": "v416row_27456bc02895335f848049f3",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9189138660292945,
+      "minimum_survival_probability": 0.08108613397070552,
+      "row_id": "v416row_909df73811d0bbb9cb7f0437",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9188141864932844,
+      "minimum_survival_probability": 0.08118581350671561,
+      "row_id": "v416row_7e0f1c4d213fed08aed41da5",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9189178491631579,
+      "minimum_survival_probability": 0.08108215083684212,
+      "row_id": "v416row_763448128eb93a5e61c68ec8",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9191722169934456,
+      "minimum_survival_probability": 0.08082778300655435,
+      "row_id": "v416row_e5fc90c2b64ad925743d8c78",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9193597928690893,
+      "minimum_survival_probability": 0.08064020713091069,
+      "row_id": "v416row_fbc167ea856b0018374b4e3f",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9194462819240304,
+      "minimum_survival_probability": 0.08055371807596956,
+      "row_id": "v416row_7ffbc337df86bf9a1bbe52da",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9193416171471795,
+      "minimum_survival_probability": 0.08065838285282045,
+      "row_id": "v416row_db7959c50da99abf6f443b07",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9191642327733438,
+      "minimum_survival_probability": 0.0808357672266562,
+      "row_id": "v416row_0cd2bd61f5980d82fba7d410",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9190887694654595,
+      "minimum_survival_probability": 0.08091123053454052,
+      "row_id": "v416row_88bec49e825dcb557029c259",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9191229350837317,
+      "minimum_survival_probability": 0.08087706491626834,
+      "row_id": "v416row_7716d45e4b75684df1936862",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9191733752852753,
+      "minimum_survival_probability": 0.08082662471472468,
+      "row_id": "v416row_152fc40e103422ddf76de8f4",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9193194707414742,
+      "minimum_survival_probability": 0.08068052925852576,
+      "row_id": "v416row_2778f2596bf0b3a5dfa7b1bf",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.919264295446816,
+      "minimum_survival_probability": 0.08073570455318402,
+      "row_id": "v416row_0fad44b576952ef0ab5f290e",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9191971220513534,
+      "minimum_survival_probability": 0.0808028779486466,
+      "row_id": "v416row_d0d566bdf189a1afe85a0892",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9191889578030549,
+      "minimum_survival_probability": 0.08081104219694513,
+      "row_id": "v416row_acd4548a71deebffe4f3d449",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9191970299731275,
+      "minimum_survival_probability": 0.08080297002687253,
+      "row_id": "v416row_ba967a7b6b3c6ece852320f1",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9191799535357754,
+      "minimum_survival_probability": 0.08082004646422458,
+      "row_id": "v416row_48efd5e7bcae51237557b90c",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9192082221271719,
+      "minimum_survival_probability": 0.0807917778728281,
+      "row_id": "v416row_643a915ed0e2dbc18fdd2cbb",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9192547175981434,
+      "minimum_survival_probability": 0.08074528240185663,
+      "row_id": "v416row_18734aabda3654f8dc9824f5",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9192239157210634,
+      "minimum_survival_probability": 0.08077608427893657,
+      "row_id": "v416row_822d76a6679fa94f6e880c27",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9192040336409564,
+      "minimum_survival_probability": 0.08079596635904363,
+      "row_id": "v416row_eb4a085d1035d8cbddfb9525",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9192216139353634,
+      "minimum_survival_probability": 0.08077838606463661,
+      "row_id": "v416row_1411f606646f44e69517c2ba",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9192094250904084,
+      "minimum_survival_probability": 0.08079057490959163,
+      "row_id": "v416row_10b97e08cd2d019d19ef2a19",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9191760473873466,
+      "minimum_survival_probability": 0.0808239526126534,
+      "row_id": "v416row_8c7a608cc713e3d60b9e44a5",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9192287349368599,
+      "minimum_survival_probability": 0.08077126506314014,
+      "row_id": "v416row_6e698cc369256936512e8d07",
+      "simplex_valid": true
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "maximum_cumulative_incidence_sum": 0.9192748088953105,
+      "minimum_survival_probability": 0.08072519110468945,
+      "row_id": "v416row_3d855a284194e0c240c2b897",
+      "simplex_valid": true
+    }
+  ]
+}

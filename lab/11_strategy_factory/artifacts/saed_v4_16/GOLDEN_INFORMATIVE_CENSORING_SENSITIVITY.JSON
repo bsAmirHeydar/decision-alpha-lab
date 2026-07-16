@@ -1,0 +1,18 @@
+{
+  "directionally_ordered": true,
+  "factors": [
+    0.5,
+    1.0,
+    2.0
+  ],
+  "kind": "informative_censoring_sensitivity",
+  "passed": true,
+  "phase": "SAED_V4_16",
+  "reference_censor_rate": 0.1125,
+  "report_hash": "3a59ed645195aff2b2ac58fa004fe5be37e4a5776ccd3097ff19ae5decfd4e75",
+  "sensitivity_scores": [
+    0.5,
+    1.0,
+    2.0
+  ]
+}

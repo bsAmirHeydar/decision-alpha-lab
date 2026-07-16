@@ -1,0 +1,14 @@
+{
+  "best_trade_removal_required": true,
+  "cluster_bootstrap_required": true,
+  "exact_version": "saed.v4.16.tail-policy@1.0.0",
+  "expected_shortfall_required": true,
+  "heavy_tail_benchmark_required": true,
+  "insufficient_sample_action": "manual",
+  "lower_tail_levels": [
+    0.05,
+    0.1
+  ],
+  "tail_event_holdout_required": true,
+  "unsupported_extreme_action": "quarantine"
+}

@@ -1,0 +1,18 @@
+{
+  "causes": [
+    "fill",
+    "stop",
+    "target",
+    "trail_exit",
+    "invalidation",
+    "cancellation",
+    "expiry"
+  ],
+  "censor_label": "censored",
+  "exact_version": "saed.v4.16.event-registry@1.0.0",
+  "frozen": true,
+  "interval_censoring_enabled": true,
+  "known_time_only": true,
+  "mutually_exclusive_terminal_causes": true,
+  "time_origin": "context_detection_time"
+}

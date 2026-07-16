@@ -1,0 +1,45 @@
+{
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "assert_causality": false,
+    "build_reference_causal_mechanism_discovery": true,
+    "mutate_v4_16_evidence": false,
+    "rank_treatments": false,
+    "read_frozen_distributional_survival_tail_evidence": true,
+    "select_treatment": false,
+    "send_order": false,
+    "sign_promotion": false
+  },
+  "censoring_policy_hash": "668c1b9f9d2f3a6995903d7def9865151868137cd91a1a34e1574063ef10b8b0",
+  "entry_gates": {
+    "baseline_preserved": true,
+    "censoring_audited": true,
+    "competing_risk_simplex_verified": true,
+    "deterministic_replay_passed": true,
+    "distribution_calibration_bounded": true,
+    "event_registry_frozen": true,
+    "future_suffix_forbidden": true,
+    "known_time_dataset_passed": true,
+    "quantile_crossing_eliminated": true,
+    "tail_stress_suite_passed": true,
+    "upstream_v4_15_binding_verified": true
+  },
+  "event_definition_registry_hash": "49f81ff6252b3bf3c630bcc29611f343ea382d3c3c8b7a2eba1d20a3f1a2dbc9",
+  "handoff_hash": "51d671cc9a952c212da885fe83ee0bd04350de45151792556e12fc9be7937d71",
+  "handoff_id": "v416to17_91d4ccff250116bbdeccd192",
+  "integrity_receipt_hash": "0d2ae364685ed05a312d72e58f46c7f81ae587df33922bc9d1999cf61442ef0a",
+  "limitations": [
+    "All datasets, outcomes, models, metrics and stress results are deterministic synthetic reference evidence.",
+    "No causal, economic uplift, real alpha, promotion, runtime, portfolio, execution or production claim is established.",
+    "No real-data, distributed, GPU, MetaEditor, differential parity, prospective, shadow, micro-live or live evidence is attached."
+  ],
+  "model_checkpoint_registry_hash": "22582ca05b714f4141e12009713d9617dc6367d0f3606f709f86a57a2359b44b",
+  "next_phase": "SAED_V4_17",
+  "phase": "SAED_V4_16",
+  "reference_champion_id": "v416_tail_robust_s47",
+  "survival_dataset_hash": "4dc39f9fe4b5812fc38d315b5d1202d602d99c9b1612f447acd252f3c407f933",
+  "tail_calibration_report_hash": "d0a4779839f3eb49be8f52cdb7ec9680decc59d52e37dd51c08ef212252e6d5a",
+  "time_calibration_report_hash": "eda224d7ecfb0d32fe2b1632975b0cacc8017b1e21a074aeb1f820e8b6c85ae4",
+  "upstream_v4_15_handoff_hash": "6f7d0ab2c493b2b2fd35e6351b9b328c068d002df7733822b82b1d42b37e949a"
+}

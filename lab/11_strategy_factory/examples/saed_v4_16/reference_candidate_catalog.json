@@ -1,0 +1,52 @@
+[
+  {
+    "algorithm": "empirical_km_baseline",
+    "candidate_id": "v416_empirical_km_s31",
+    "distribution_family": "empirical_quantiles",
+    "enabled": true,
+    "feature_scale": 0.0,
+    "seed": 31,
+    "survival_family": "kaplan_meier",
+    "tail_shrinkage": 0.0
+  },
+  {
+    "algorithm": "monotone_quantile_hazard",
+    "candidate_id": "v416_monotone_hazard_s37",
+    "distribution_family": "monotone_quantile",
+    "enabled": true,
+    "feature_scale": 0.45,
+    "seed": 37,
+    "survival_family": "cause_specific_discrete_hazard",
+    "tail_shrinkage": 0.0
+  },
+  {
+    "algorithm": "zero_inflated_mixture",
+    "candidate_id": "v416_zero_inflated_s41",
+    "distribution_family": "zero_inflated_empirical_mixture",
+    "enabled": true,
+    "feature_scale": 0.35,
+    "seed": 41,
+    "survival_family": "discrete_hazard",
+    "tail_shrinkage": 0.05
+  },
+  {
+    "algorithm": "competing_risk_ensemble",
+    "candidate_id": "v416_competing_ensemble_s43",
+    "distribution_family": "quantile_ensemble",
+    "enabled": true,
+    "feature_scale": 0.55,
+    "seed": 43,
+    "survival_family": "aalen_johansen_cause_specific_ensemble",
+    "tail_shrinkage": 0.08
+  },
+  {
+    "algorithm": "tail_robust_reference",
+    "candidate_id": "v416_tail_robust_s47",
+    "distribution_family": "shrunk_tail_quantile",
+    "enabled": true,
+    "feature_scale": 0.25,
+    "seed": 47,
+    "survival_family": "calibrated_discrete_hazard",
+    "tail_shrinkage": 0.18
+  }
+]

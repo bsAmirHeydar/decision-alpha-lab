@@ -1,0 +1,57 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_16/incident_template.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-16 contract generated from the deterministic reference artifact. Unknown fields are forbidden.",
+  "properties": {
+    "affected_artifacts": {
+      "items": {},
+      "type": "array"
+    },
+    "containment_actions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "detected_at": {
+      "type": "string"
+    },
+    "incident_id": {
+      "type": "string"
+    },
+    "live_impact": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "revocation_required": {
+      "type": "boolean"
+    },
+    "runtime_impact": {
+      "type": "string"
+    },
+    "severity": {
+      "type": "string"
+    },
+    "symptoms": {
+      "items": {},
+      "type": "array"
+    }
+  },
+  "required": [
+    "affected_artifacts",
+    "containment_actions",
+    "detected_at",
+    "incident_id",
+    "live_impact",
+    "phase",
+    "revocation_required",
+    "runtime_impact",
+    "severity",
+    "symptoms"
+  ],
+  "title": "INCIDENT_TEMPLATE",
+  "type": "object"
+}

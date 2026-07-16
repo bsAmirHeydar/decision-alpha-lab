@@ -1,0 +1,41 @@
+{
+  "phase": "SAED_V4_16",
+  "vectors": [
+    {
+      "expected_directive": "",
+      "expected_error": "ContractError",
+      "mutation": "add_unknown_cause",
+      "name": "unknown_event_cause"
+    },
+    {
+      "expected_directive": "reject",
+      "expected_error": "",
+      "mutation": "outcome_observed_true_for_censored",
+      "name": "censored_as_loss"
+    },
+    {
+      "expected_directive": "quarantine",
+      "expected_error": "",
+      "mutation": "reverse_quantiles",
+      "name": "quantile_crossing"
+    },
+    {
+      "expected_directive": "quarantine",
+      "expected_error": "",
+      "mutation": "feature_known_after_context",
+      "name": "future_feature"
+    },
+    {
+      "expected_directive": "",
+      "expected_error": "IntegrityError",
+      "mutation": "replace_v4_15_registry_hash",
+      "name": "hash_mismatch"
+    },
+    {
+      "expected_directive": "",
+      "expected_error": "ContractError",
+      "mutation": "protected_exposure_limit_one",
+      "name": "protected_evidence"
+    }
+  ]
+}

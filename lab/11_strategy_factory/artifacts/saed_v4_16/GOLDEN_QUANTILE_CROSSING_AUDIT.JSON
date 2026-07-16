@@ -1,0 +1,1690 @@
+{
+  "all_monotone_after_projection": true,
+  "crossing_after_count": 0,
+  "crossing_before_count": 0,
+  "phase": "SAED_V4_16",
+  "report_hash": "5b17ddef2387c72f034957753630f4850b7bed20d535a963160e27ec42231763",
+  "row_count": 240,
+  "rows": [
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_466bb54ca427fb6fd293bcb1"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_2716bdedd6176bbf76af28fd"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_0b0cacfee14ff555739b471b"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_5de76551f0e24820da3548df"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_5f66e1751d849db0e8dc0459"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_d64ef63cb26597139b361e61"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_5dab642d5ca7bd49bd738db6"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_6c373e5a281d49298e2c0d18"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_7f9b9e88cb04a6d4e50cc670"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_ea88499dd2490a5a2fcfb2a5"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_46bd57b41081851afed33499"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_b282b3359a7cd13d67306e2e"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_08498832dab8e9cc4f4e32b9"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_30376738e0028ddb35bbba61"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_d33bb0fc2cbe99d685db0f80"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_bbc00eb5831490c1056a0de4"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_75972a9a7b96e6efa5a468f1"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_0503516729a9bd14550a2983"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_7ea950eead4aeb9749d17261"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_64f5a26754e75f472229acf5"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_ff23500d6cfd87abd0c10da4"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_27456bc02895335f848049f3"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_909df73811d0bbb9cb7f0437"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_7e0f1c4d213fed08aed41da5"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_763448128eb93a5e61c68ec8"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_e5fc90c2b64ad925743d8c78"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_fbc167ea856b0018374b4e3f"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_7ffbc337df86bf9a1bbe52da"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_db7959c50da99abf6f443b07"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_0cd2bd61f5980d82fba7d410"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_88bec49e825dcb557029c259"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_7716d45e4b75684df1936862"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_152fc40e103422ddf76de8f4"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_2778f2596bf0b3a5dfa7b1bf"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_0fad44b576952ef0ab5f290e"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_d0d566bdf189a1afe85a0892"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_acd4548a71deebffe4f3d449"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_ba967a7b6b3c6ece852320f1"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_48efd5e7bcae51237557b90c"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_643a915ed0e2dbc18fdd2cbb"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_18734aabda3654f8dc9824f5"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_822d76a6679fa94f6e880c27"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_eb4a085d1035d8cbddfb9525"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_1411f606646f44e69517c2ba"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_10b97e08cd2d019d19ef2a19"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_8c7a608cc713e3d60b9e44a5"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_6e698cc369256936512e8d07"
+    },
+    {
+      "candidate_id": "v416_empirical_km_s31",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_3d855a284194e0c240c2b897"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_466bb54ca427fb6fd293bcb1"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_2716bdedd6176bbf76af28fd"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_0b0cacfee14ff555739b471b"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_5de76551f0e24820da3548df"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_5f66e1751d849db0e8dc0459"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_d64ef63cb26597139b361e61"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_5dab642d5ca7bd49bd738db6"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_6c373e5a281d49298e2c0d18"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_7f9b9e88cb04a6d4e50cc670"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_ea88499dd2490a5a2fcfb2a5"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_46bd57b41081851afed33499"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_b282b3359a7cd13d67306e2e"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_08498832dab8e9cc4f4e32b9"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_30376738e0028ddb35bbba61"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_d33bb0fc2cbe99d685db0f80"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_bbc00eb5831490c1056a0de4"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_75972a9a7b96e6efa5a468f1"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_0503516729a9bd14550a2983"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_7ea950eead4aeb9749d17261"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_64f5a26754e75f472229acf5"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_ff23500d6cfd87abd0c10da4"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_27456bc02895335f848049f3"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_909df73811d0bbb9cb7f0437"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_7e0f1c4d213fed08aed41da5"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_763448128eb93a5e61c68ec8"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_e5fc90c2b64ad925743d8c78"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_fbc167ea856b0018374b4e3f"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_7ffbc337df86bf9a1bbe52da"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_db7959c50da99abf6f443b07"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_0cd2bd61f5980d82fba7d410"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_88bec49e825dcb557029c259"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_7716d45e4b75684df1936862"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_152fc40e103422ddf76de8f4"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_2778f2596bf0b3a5dfa7b1bf"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_0fad44b576952ef0ab5f290e"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_d0d566bdf189a1afe85a0892"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_acd4548a71deebffe4f3d449"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_ba967a7b6b3c6ece852320f1"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_48efd5e7bcae51237557b90c"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_643a915ed0e2dbc18fdd2cbb"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_18734aabda3654f8dc9824f5"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_822d76a6679fa94f6e880c27"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_eb4a085d1035d8cbddfb9525"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_1411f606646f44e69517c2ba"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_10b97e08cd2d019d19ef2a19"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_8c7a608cc713e3d60b9e44a5"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_6e698cc369256936512e8d07"
+    },
+    {
+      "candidate_id": "v416_monotone_hazard_s37",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_3d855a284194e0c240c2b897"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_466bb54ca427fb6fd293bcb1"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_2716bdedd6176bbf76af28fd"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_0b0cacfee14ff555739b471b"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_5de76551f0e24820da3548df"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_5f66e1751d849db0e8dc0459"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_d64ef63cb26597139b361e61"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_5dab642d5ca7bd49bd738db6"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_6c373e5a281d49298e2c0d18"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_7f9b9e88cb04a6d4e50cc670"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_ea88499dd2490a5a2fcfb2a5"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_46bd57b41081851afed33499"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_b282b3359a7cd13d67306e2e"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_08498832dab8e9cc4f4e32b9"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_30376738e0028ddb35bbba61"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_d33bb0fc2cbe99d685db0f80"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_bbc00eb5831490c1056a0de4"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_75972a9a7b96e6efa5a468f1"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_0503516729a9bd14550a2983"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_7ea950eead4aeb9749d17261"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_64f5a26754e75f472229acf5"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_ff23500d6cfd87abd0c10da4"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_27456bc02895335f848049f3"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_909df73811d0bbb9cb7f0437"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_7e0f1c4d213fed08aed41da5"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_763448128eb93a5e61c68ec8"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_e5fc90c2b64ad925743d8c78"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_fbc167ea856b0018374b4e3f"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_7ffbc337df86bf9a1bbe52da"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_db7959c50da99abf6f443b07"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_0cd2bd61f5980d82fba7d410"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_88bec49e825dcb557029c259"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_7716d45e4b75684df1936862"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_152fc40e103422ddf76de8f4"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_2778f2596bf0b3a5dfa7b1bf"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_0fad44b576952ef0ab5f290e"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_d0d566bdf189a1afe85a0892"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_acd4548a71deebffe4f3d449"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_ba967a7b6b3c6ece852320f1"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_48efd5e7bcae51237557b90c"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_643a915ed0e2dbc18fdd2cbb"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_18734aabda3654f8dc9824f5"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_822d76a6679fa94f6e880c27"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_eb4a085d1035d8cbddfb9525"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_1411f606646f44e69517c2ba"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_10b97e08cd2d019d19ef2a19"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_8c7a608cc713e3d60b9e44a5"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_6e698cc369256936512e8d07"
+    },
+    {
+      "candidate_id": "v416_zero_inflated_s41",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_3d855a284194e0c240c2b897"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_466bb54ca427fb6fd293bcb1"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_2716bdedd6176bbf76af28fd"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_0b0cacfee14ff555739b471b"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_5de76551f0e24820da3548df"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_5f66e1751d849db0e8dc0459"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_d64ef63cb26597139b361e61"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_5dab642d5ca7bd49bd738db6"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_6c373e5a281d49298e2c0d18"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_7f9b9e88cb04a6d4e50cc670"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_ea88499dd2490a5a2fcfb2a5"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_46bd57b41081851afed33499"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_b282b3359a7cd13d67306e2e"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_08498832dab8e9cc4f4e32b9"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_30376738e0028ddb35bbba61"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_d33bb0fc2cbe99d685db0f80"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_bbc00eb5831490c1056a0de4"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_75972a9a7b96e6efa5a468f1"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_0503516729a9bd14550a2983"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_7ea950eead4aeb9749d17261"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_64f5a26754e75f472229acf5"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_ff23500d6cfd87abd0c10da4"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_27456bc02895335f848049f3"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_909df73811d0bbb9cb7f0437"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_7e0f1c4d213fed08aed41da5"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_763448128eb93a5e61c68ec8"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_e5fc90c2b64ad925743d8c78"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_fbc167ea856b0018374b4e3f"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_7ffbc337df86bf9a1bbe52da"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_db7959c50da99abf6f443b07"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_0cd2bd61f5980d82fba7d410"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_88bec49e825dcb557029c259"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_7716d45e4b75684df1936862"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_152fc40e103422ddf76de8f4"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_2778f2596bf0b3a5dfa7b1bf"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_0fad44b576952ef0ab5f290e"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_d0d566bdf189a1afe85a0892"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_acd4548a71deebffe4f3d449"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_ba967a7b6b3c6ece852320f1"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_48efd5e7bcae51237557b90c"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_643a915ed0e2dbc18fdd2cbb"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_18734aabda3654f8dc9824f5"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_822d76a6679fa94f6e880c27"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_eb4a085d1035d8cbddfb9525"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_1411f606646f44e69517c2ba"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_10b97e08cd2d019d19ef2a19"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_8c7a608cc713e3d60b9e44a5"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_6e698cc369256936512e8d07"
+    },
+    {
+      "candidate_id": "v416_competing_ensemble_s43",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_3d855a284194e0c240c2b897"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_466bb54ca427fb6fd293bcb1"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_2716bdedd6176bbf76af28fd"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_0b0cacfee14ff555739b471b"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_5de76551f0e24820da3548df"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_5f66e1751d849db0e8dc0459"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_d64ef63cb26597139b361e61"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_5dab642d5ca7bd49bd738db6"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_6c373e5a281d49298e2c0d18"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_7f9b9e88cb04a6d4e50cc670"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_ea88499dd2490a5a2fcfb2a5"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_46bd57b41081851afed33499"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_b282b3359a7cd13d67306e2e"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_08498832dab8e9cc4f4e32b9"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_30376738e0028ddb35bbba61"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_d33bb0fc2cbe99d685db0f80"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_bbc00eb5831490c1056a0de4"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_75972a9a7b96e6efa5a468f1"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_0503516729a9bd14550a2983"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_7ea950eead4aeb9749d17261"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_64f5a26754e75f472229acf5"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_ff23500d6cfd87abd0c10da4"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_27456bc02895335f848049f3"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_909df73811d0bbb9cb7f0437"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_7e0f1c4d213fed08aed41da5"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_763448128eb93a5e61c68ec8"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_e5fc90c2b64ad925743d8c78"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_fbc167ea856b0018374b4e3f"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_7ffbc337df86bf9a1bbe52da"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_db7959c50da99abf6f443b07"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_0cd2bd61f5980d82fba7d410"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_88bec49e825dcb557029c259"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_7716d45e4b75684df1936862"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_152fc40e103422ddf76de8f4"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_2778f2596bf0b3a5dfa7b1bf"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_0fad44b576952ef0ab5f290e"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_d0d566bdf189a1afe85a0892"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_acd4548a71deebffe4f3d449"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_ba967a7b6b3c6ece852320f1"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_48efd5e7bcae51237557b90c"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_643a915ed0e2dbc18fdd2cbb"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_18734aabda3654f8dc9824f5"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_822d76a6679fa94f6e880c27"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_eb4a085d1035d8cbddfb9525"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_1411f606646f44e69517c2ba"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_10b97e08cd2d019d19ef2a19"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_8c7a608cc713e3d60b9e44a5"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_6e698cc369256936512e8d07"
+    },
+    {
+      "candidate_id": "v416_tail_robust_s47",
+      "crossing_after_projection": false,
+      "crossing_before_projection": false,
+      "monotone_after_projection": true,
+      "row_id": "v416row_3d855a284194e0c240c2b897"
+    }
+  ]
+}

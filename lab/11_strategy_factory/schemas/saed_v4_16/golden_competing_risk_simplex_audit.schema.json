@@ -1,0 +1,60 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_16/golden_competing_risk_simplex_audit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-16 contract generated from the deterministic reference artifact. Unknown fields are forbidden.",
+  "properties": {
+    "all_simplex_valid": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "row_count": {
+      "type": "integer"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_id": {
+            "type": "string"
+          },
+          "maximum_cumulative_incidence_sum": {
+            "type": "number"
+          },
+          "minimum_survival_probability": {
+            "type": "number"
+          },
+          "row_id": {
+            "type": "string"
+          },
+          "simplex_valid": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "maximum_cumulative_incidence_sum",
+          "minimum_survival_probability",
+          "row_id",
+          "simplex_valid"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "all_simplex_valid",
+    "phase",
+    "report_hash",
+    "row_count",
+    "rows"
+  ],
+  "title": "GOLDEN_COMPETING_RISK_SIMPLEX_AUDIT",
+  "type": "object"
+}

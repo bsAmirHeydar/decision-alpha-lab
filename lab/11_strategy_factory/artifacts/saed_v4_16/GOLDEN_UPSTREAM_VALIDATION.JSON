@@ -1,0 +1,13 @@
+{
+  "feature_dim": 16,
+  "frozen": true,
+  "known_as_of": "2026-01-05T14:30:01Z",
+  "passed": true,
+  "phase": "SAED_V4_16",
+  "reference_fusion_candidate_id": "v415_disagreement_moe_s23",
+  "v4_15_aligned_set_hash": "fa0da7fd046e416b976279853958cc4bcd25d08a29bbbc9c6f91ba877af699a2",
+  "v4_15_fusion_hash": "298f59d219c24fa9c2f661376bd7d1ebe1f255f58cc3426c3f0e44a0e55a1c43",
+  "v4_15_handoff_hash": "6f7d0ab2c493b2b2fd35e6351b9b328c068d002df7733822b82b1d42b37e949a",
+  "v4_15_integrity_receipt_hash": "855db82b903889140b697769778305fd917bfd4d39baa03408e68f36ef74ed88",
+  "v4_15_registry_hash": "fce1911080da8f7a36aafb987f039e5a0b16fcbf99ba821bce5483de8675b7fc"
+}

@@ -1,0 +1,207 @@
+{
+  "phase": "SAED_V4_16",
+  "report_hash": "eda224d7ecfb0d32fe2b1632975b0cacc8017b1e21a074aeb1f820e8b6c85ae4",
+  "row_count": 25,
+  "rows": [
+    {
+      "absolute_calibration_error": 0.0,
+      "candidate_id": "v416_empirical_km_s31",
+      "evaluation_count": 48,
+      "horizon_seconds": 60,
+      "observed_event_rate": 0.0,
+      "predicted_event_probability": 0.0
+    },
+    {
+      "absolute_calibration_error": 0.03472222222222217,
+      "candidate_id": "v416_empirical_km_s31",
+      "evaluation_count": 48,
+      "horizon_seconds": 300,
+      "observed_event_rate": 0.08333333333333333,
+      "predicted_event_probability": 0.04861111111111116
+    },
+    {
+      "absolute_calibration_error": 0.08231209150326796,
+      "candidate_id": "v416_empirical_km_s31",
+      "evaluation_count": 48,
+      "horizon_seconds": 900,
+      "observed_event_rate": 0.2708333333333333,
+      "predicted_event_probability": 0.18852124183006536
+    },
+    {
+      "absolute_calibration_error": 0.01578395851094072,
+      "candidate_id": "v416_empirical_km_s31",
+      "evaluation_count": 48,
+      "horizon_seconds": 1800,
+      "observed_event_rate": 0.4583333333333333,
+      "predicted_event_probability": 0.4425493748223926
+    },
+    {
+      "absolute_calibration_error": 0.08068364311781162,
+      "candidate_id": "v416_empirical_km_s31",
+      "evaluation_count": 48,
+      "horizon_seconds": 3600,
+      "observed_event_rate": 1.0,
+      "predicted_event_probability": 0.9193163568821884
+    },
+    {
+      "absolute_calibration_error": 0.0,
+      "candidate_id": "v416_monotone_hazard_s37",
+      "evaluation_count": 48,
+      "horizon_seconds": 60,
+      "observed_event_rate": 0.0,
+      "predicted_event_probability": 0.0
+    },
+    {
+      "absolute_calibration_error": 0.03488608891023904,
+      "candidate_id": "v416_monotone_hazard_s37",
+      "evaluation_count": 48,
+      "horizon_seconds": 300,
+      "observed_event_rate": 0.08333333333333333,
+      "predicted_event_probability": 0.04844724442309429
+    },
+    {
+      "absolute_calibration_error": 0.08265003282271896,
+      "candidate_id": "v416_monotone_hazard_s37",
+      "evaluation_count": 48,
+      "horizon_seconds": 900,
+      "observed_event_rate": 0.2708333333333333,
+      "predicted_event_probability": 0.18818330051061435
+    },
+    {
+      "absolute_calibration_error": 0.01594943617089989,
+      "candidate_id": "v416_monotone_hazard_s37",
+      "evaluation_count": 48,
+      "horizon_seconds": 1800,
+      "observed_event_rate": 0.4583333333333333,
+      "predicted_event_probability": 0.4423838971624334
+    },
+    {
+      "absolute_calibration_error": 0.08088080413181042,
+      "candidate_id": "v416_monotone_hazard_s37",
+      "evaluation_count": 48,
+      "horizon_seconds": 3600,
+      "observed_event_rate": 1.0,
+      "predicted_event_probability": 0.9191191958681896
+    },
+    {
+      "absolute_calibration_error": 0.0,
+      "candidate_id": "v416_zero_inflated_s41",
+      "evaluation_count": 48,
+      "horizon_seconds": 60,
+      "observed_event_rate": 0.0,
+      "predicted_event_probability": 0.0
+    },
+    {
+      "absolute_calibration_error": 0.03485001783516236,
+      "candidate_id": "v416_zero_inflated_s41",
+      "evaluation_count": 48,
+      "horizon_seconds": 300,
+      "observed_event_rate": 0.08333333333333333,
+      "predicted_event_probability": 0.04848331549817097
+    },
+    {
+      "absolute_calibration_error": 0.08257562888041878,
+      "candidate_id": "v416_zero_inflated_s41",
+      "evaluation_count": 48,
+      "horizon_seconds": 900,
+      "observed_event_rate": 0.2708333333333333,
+      "predicted_event_probability": 0.18825770445291454
+    },
+    {
+      "absolute_calibration_error": 0.01591301234475956,
+      "candidate_id": "v416_zero_inflated_s41",
+      "evaluation_count": 48,
+      "horizon_seconds": 1800,
+      "observed_event_rate": 0.4583333333333333,
+      "predicted_event_probability": 0.44242032098857376
+    },
+    {
+      "absolute_calibration_error": 0.08083738218262626,
+      "candidate_id": "v416_zero_inflated_s41",
+      "evaluation_count": 48,
+      "horizon_seconds": 3600,
+      "observed_event_rate": 1.0,
+      "predicted_event_probability": 0.9191626178173737
+    },
+    {
+      "absolute_calibration_error": 0.0,
+      "candidate_id": "v416_competing_ensemble_s43",
+      "evaluation_count": 48,
+      "horizon_seconds": 60,
+      "observed_event_rate": 0.0,
+      "predicted_event_probability": 0.0
+    },
+    {
+      "absolute_calibration_error": 0.03492183914223062,
+      "candidate_id": "v416_competing_ensemble_s43",
+      "evaluation_count": 48,
+      "horizon_seconds": 300,
+      "observed_event_rate": 0.08333333333333333,
+      "predicted_event_probability": 0.04841149419110271
+    },
+    {
+      "absolute_calibration_error": 0.08272378301718922,
+      "candidate_id": "v416_competing_ensemble_s43",
+      "evaluation_count": 48,
+      "horizon_seconds": 900,
+      "observed_event_rate": 0.2708333333333333,
+      "predicted_event_probability": 0.1881095503161441
+    },
+    {
+      "absolute_calibration_error": 0.015985534998470774,
+      "candidate_id": "v416_competing_ensemble_s43",
+      "evaluation_count": 48,
+      "horizon_seconds": 1800,
+      "observed_event_rate": 0.4583333333333333,
+      "predicted_event_probability": 0.44234779833486254
+    },
+    {
+      "absolute_calibration_error": 0.08092385183718287,
+      "candidate_id": "v416_competing_ensemble_s43",
+      "evaluation_count": 48,
+      "horizon_seconds": 3600,
+      "observed_event_rate": 1.0,
+      "predicted_event_probability": 0.9190761481628171
+    },
+    {
+      "absolute_calibration_error": 0.0,
+      "candidate_id": "v416_tail_robust_s47",
+      "evaluation_count": 48,
+      "horizon_seconds": 60,
+      "observed_event_rate": 0.0,
+      "predicted_event_probability": 0.0
+    },
+    {
+      "absolute_calibration_error": 0.034813691268334675,
+      "candidate_id": "v416_tail_robust_s47",
+      "evaluation_count": 48,
+      "horizon_seconds": 300,
+      "observed_event_rate": 0.08333333333333333,
+      "predicted_event_probability": 0.048519642064998654
+    },
+    {
+      "absolute_calibration_error": 0.0825007062983994,
+      "candidate_id": "v416_tail_robust_s47",
+      "evaluation_count": 48,
+      "horizon_seconds": 900,
+      "observed_event_rate": 0.2708333333333333,
+      "predicted_event_probability": 0.18833262703493392
+    },
+    {
+      "absolute_calibration_error": 0.015876329472539585,
+      "candidate_id": "v416_tail_robust_s47",
+      "evaluation_count": 48,
+      "horizon_seconds": 1800,
+      "observed_event_rate": 0.4583333333333333,
+      "predicted_event_probability": 0.44245700386079373
+    },
+    {
+      "absolute_calibration_error": 0.080793665117044,
+      "candidate_id": "v416_tail_robust_s47",
+      "evaluation_count": 48,
+      "horizon_seconds": 3600,
+      "observed_event_rate": 1.0,
+      "predicted_event_probability": 0.919206334882956
+    }
+  ]
+}

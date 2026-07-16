@@ -1,0 +1,58 @@
+{
+  "all_passed": true,
+  "phase": "SAED_V4_16",
+  "report_hash": "06ae3197c5b61f5dd7a77b48d1b896136bc182ec0c4cdf8930a80d7da987783a",
+  "row_count": 10,
+  "rows": [
+    {
+      "case": "unknown_event_cause",
+      "directive": "reject",
+      "passed": true
+    },
+    {
+      "case": "future_known_feature",
+      "directive": "quarantine",
+      "passed": true
+    },
+    {
+      "case": "censored_as_loss_attempt",
+      "directive": "reject",
+      "passed": true
+    },
+    {
+      "case": "quantile_crossing_unprojected",
+      "directive": "quarantine",
+      "passed": true
+    },
+    {
+      "case": "cumulative_incidence_above_one",
+      "directive": "reject",
+      "passed": true
+    },
+    {
+      "case": "upstream_hash_mismatch",
+      "directive": "quarantine",
+      "passed": true
+    },
+    {
+      "case": "empty_risk_set",
+      "directive": "abstain",
+      "passed": true
+    },
+    {
+      "case": "insufficient_tail_effective_samples",
+      "directive": "manual",
+      "passed": true
+    },
+    {
+      "case": "unsupported_extreme_extrapolation",
+      "directive": "quarantine",
+      "passed": true
+    },
+    {
+      "case": "protected_final_evidence_request",
+      "directive": "reject",
+      "passed": true
+    }
+  ]
+}

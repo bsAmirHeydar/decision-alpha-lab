@@ -1,0 +1,17 @@
+{
+  "checkpoint_registry_hash": "22582ca05b714f4141e12009713d9617dc6367d0f3606f709f86a57a2359b44b",
+  "dataset_hash": "4dc39f9fe4b5812fc38d315b5d1202d602d99c9b1612f447acd252f3c407f933",
+  "evidence_class": "local_deterministic_synthetic_reference",
+  "external_weights_used": false,
+  "phase": "SAED_V4_16",
+  "production_evidence": false,
+  "protected_evidence_used": false,
+  "provenance_hash": "feb674c0eb24e8ac789b816a4abb040b6bd7d1cde8a67548895388512d4a9745",
+  "provenance_id": "v416prov_76fd7361eaad802db2cae0bb",
+  "real_data_used": false,
+  "tournament_hash": "343e99f78af2b499a8947c6b198779c5913d186a2abc014178c7e874b59121b2",
+  "upstream_fusion_hash": "298f59d219c24fa9c2f661376bd7d1ebe1f255f58cc3426c3f0e44a0e55a1c43",
+  "upstream_handoff_hash": "6f7d0ab2c493b2b2fd35e6351b9b328c068d002df7733822b82b1d42b37e949a",
+  "upstream_phase": "SAED_V4_15",
+  "upstream_registry_hash": "fce1911080da8f7a36aafb987f039e5a0b16fcbf99ba821bce5483de8675b7fc"
+}

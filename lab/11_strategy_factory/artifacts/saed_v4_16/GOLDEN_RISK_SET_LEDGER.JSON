@@ -1,0 +1,272 @@
+{
+  "all_risk_sets_nonnegative": true,
+  "empty_risk_set_count": 3,
+  "horizons_seconds": [
+    60,
+    300,
+    900,
+    1800,
+    3600
+  ],
+  "ledger_hash": "b4d65c04c0df04210ec3dc6dd5a5d591e2c73a8005e9425ae1ab074c5e55edc4",
+  "phase": "SAED_V4_16",
+  "row_count": 15,
+  "rows": [
+    {
+      "at_risk": 144,
+      "cause_events": {
+        "cancellation": 0,
+        "expiry": 0,
+        "fill": 0,
+        "invalidation": 0,
+        "stop": 0,
+        "target": 0,
+        "trail_exit": 0
+      },
+      "censored": 0,
+      "horizon_seconds": 60,
+      "observed_events": 0,
+      "risk_set_empty": false,
+      "split": "train"
+    },
+    {
+      "at_risk": 136,
+      "cause_events": {
+        "cancellation": 3,
+        "expiry": 2,
+        "fill": 1,
+        "invalidation": 1,
+        "stop": 0,
+        "target": 0,
+        "trail_exit": 0
+      },
+      "censored": 1,
+      "horizon_seconds": 300,
+      "observed_events": 7,
+      "risk_set_empty": false,
+      "split": "train"
+    },
+    {
+      "at_risk": 115,
+      "cause_events": {
+        "cancellation": 8,
+        "expiry": 6,
+        "fill": 3,
+        "invalidation": 4,
+        "stop": 1,
+        "target": 2,
+        "trail_exit": 3
+      },
+      "censored": 2,
+      "horizon_seconds": 900,
+      "observed_events": 27,
+      "risk_set_empty": false,
+      "split": "train"
+    },
+    {
+      "at_risk": 76,
+      "cause_events": {
+        "cancellation": 14,
+        "expiry": 10,
+        "fill": 8,
+        "invalidation": 8,
+        "stop": 4,
+        "target": 6,
+        "trail_exit": 13
+      },
+      "censored": 5,
+      "horizon_seconds": 1800,
+      "observed_events": 63,
+      "risk_set_empty": false,
+      "split": "train"
+    },
+    {
+      "at_risk": 0,
+      "cause_events": {
+        "cancellation": 23,
+        "expiry": 20,
+        "fill": 16,
+        "invalidation": 17,
+        "stop": 11,
+        "target": 17,
+        "trail_exit": 24
+      },
+      "censored": 16,
+      "horizon_seconds": 3600,
+      "observed_events": 128,
+      "risk_set_empty": true,
+      "split": "train"
+    },
+    {
+      "at_risk": 48,
+      "cause_events": {
+        "cancellation": 0,
+        "expiry": 0,
+        "fill": 0,
+        "invalidation": 0,
+        "stop": 0,
+        "target": 0,
+        "trail_exit": 0
+      },
+      "censored": 0,
+      "horizon_seconds": 60,
+      "observed_events": 0,
+      "risk_set_empty": false,
+      "split": "calibration"
+    },
+    {
+      "at_risk": 47,
+      "cause_events": {
+        "cancellation": 0,
+        "expiry": 0,
+        "fill": 0,
+        "invalidation": 0,
+        "stop": 1,
+        "target": 0,
+        "trail_exit": 0
+      },
+      "censored": 0,
+      "horizon_seconds": 300,
+      "observed_events": 1,
+      "risk_set_empty": false,
+      "split": "calibration"
+    },
+    {
+      "at_risk": 33,
+      "cause_events": {
+        "cancellation": 3,
+        "expiry": 1,
+        "fill": 1,
+        "invalidation": 0,
+        "stop": 4,
+        "target": 2,
+        "trail_exit": 1
+      },
+      "censored": 3,
+      "horizon_seconds": 900,
+      "observed_events": 12,
+      "risk_set_empty": false,
+      "split": "calibration"
+    },
+    {
+      "at_risk": 22,
+      "cause_events": {
+        "cancellation": 3,
+        "expiry": 3,
+        "fill": 1,
+        "invalidation": 2,
+        "stop": 6,
+        "target": 3,
+        "trail_exit": 3
+      },
+      "censored": 5,
+      "horizon_seconds": 1800,
+      "observed_events": 21,
+      "risk_set_empty": false,
+      "split": "calibration"
+    },
+    {
+      "at_risk": 0,
+      "cause_events": {
+        "cancellation": 5,
+        "expiry": 7,
+        "fill": 3,
+        "invalidation": 4,
+        "stop": 11,
+        "target": 7,
+        "trail_exit": 5
+      },
+      "censored": 6,
+      "horizon_seconds": 3600,
+      "observed_events": 42,
+      "risk_set_empty": true,
+      "split": "calibration"
+    },
+    {
+      "at_risk": 48,
+      "cause_events": {
+        "cancellation": 0,
+        "expiry": 0,
+        "fill": 0,
+        "invalidation": 0,
+        "stop": 0,
+        "target": 0,
+        "trail_exit": 0
+      },
+      "censored": 0,
+      "horizon_seconds": 60,
+      "observed_events": 0,
+      "risk_set_empty": false,
+      "split": "selection_validation"
+    },
+    {
+      "at_risk": 44,
+      "cause_events": {
+        "cancellation": 0,
+        "expiry": 0,
+        "fill": 0,
+        "invalidation": 0,
+        "stop": 1,
+        "target": 1,
+        "trail_exit": 2
+      },
+      "censored": 0,
+      "horizon_seconds": 300,
+      "observed_events": 4,
+      "risk_set_empty": false,
+      "split": "selection_validation"
+    },
+    {
+      "at_risk": 35,
+      "cause_events": {
+        "cancellation": 4,
+        "expiry": 2,
+        "fill": 0,
+        "invalidation": 2,
+        "stop": 1,
+        "target": 2,
+        "trail_exit": 2
+      },
+      "censored": 0,
+      "horizon_seconds": 900,
+      "observed_events": 13,
+      "risk_set_empty": false,
+      "split": "selection_validation"
+    },
+    {
+      "at_risk": 26,
+      "cause_events": {
+        "cancellation": 4,
+        "expiry": 3,
+        "fill": 0,
+        "invalidation": 2,
+        "stop": 2,
+        "target": 4,
+        "trail_exit": 4
+      },
+      "censored": 3,
+      "horizon_seconds": 1800,
+      "observed_events": 19,
+      "risk_set_empty": false,
+      "split": "selection_validation"
+    },
+    {
+      "at_risk": 0,
+      "cause_events": {
+        "cancellation": 9,
+        "expiry": 9,
+        "fill": 2,
+        "invalidation": 3,
+        "stop": 4,
+        "target": 9,
+        "trail_exit": 7
+      },
+      "censored": 5,
+      "horizon_seconds": 3600,
+      "observed_events": 43,
+      "risk_set_empty": true,
+      "split": "selection_validation"
+    }
+  ],
+  "time_origin": "context_detection_time"
+}

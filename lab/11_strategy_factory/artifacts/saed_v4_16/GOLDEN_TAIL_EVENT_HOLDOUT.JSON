@@ -1,0 +1,11 @@
+{
+  "evaluation_count": 22,
+  "holdout_is_explicit": true,
+  "kind": "tail_event_holdout",
+  "passed": true,
+  "phase": "SAED_V4_16",
+  "report_hash": "7b226fdd8d42e8f06b56f37d6a40d6ad458e30c97b4d4c273cdf5faf5c5835c0",
+  "tail_event_count": 2,
+  "tail_mean": -1.829453899185245,
+  "tail_threshold": -1.33232057139203
+}

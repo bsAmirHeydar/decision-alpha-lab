@@ -1,0 +1,67 @@
+{
+  "phase": "SAED_V4_16",
+  "report_hash": "e3c046032e39c843df08e11d0f7b7c3512bd71572fd3013fea349b1ee04204b9",
+  "row_count": 6,
+  "rows": [
+    {
+      "effective_samples": 68,
+      "expected_shortfall": -1.73673120668579,
+      "split": "train",
+      "sufficient_samples": true,
+      "tail_level": 0.05,
+      "tail_probability_empirical": 0.058823529411764705,
+      "tail_samples": 4,
+      "value_at_risk": -1.2484402193422786
+    },
+    {
+      "effective_samples": 68,
+      "expected_shortfall": -1.4437974891614633,
+      "split": "train",
+      "sufficient_samples": true,
+      "tail_level": 0.1,
+      "tail_probability_empirical": 0.10294117647058823,
+      "tail_samples": 7,
+      "value_at_risk": -0.9128715934833771
+    },
+    {
+      "effective_samples": 26,
+      "expected_shortfall": -3.7256734630765447,
+      "split": "calibration",
+      "sufficient_samples": true,
+      "tail_level": 0.05,
+      "tail_probability_empirical": 0.07692307692307693,
+      "tail_samples": 2,
+      "value_at_risk": -1.926964920240645
+    },
+    {
+      "effective_samples": 26,
+      "expected_shortfall": -3.0734599265661164,
+      "split": "calibration",
+      "sufficient_samples": true,
+      "tail_level": 0.1,
+      "tail_probability_empirical": 0.11538461538461539,
+      "tail_samples": 3,
+      "value_at_risk": -1.39950057756007
+    },
+    {
+      "effective_samples": 22,
+      "expected_shortfall": -1.829453899185245,
+      "split": "selection_validation",
+      "sufficient_samples": true,
+      "tail_level": 0.05,
+      "tail_probability_empirical": 0.09090909090909091,
+      "tail_samples": 2,
+      "value_at_risk": -1.3125268442502664
+    },
+    {
+      "effective_samples": 22,
+      "expected_shortfall": -1.5317846089757496,
+      "split": "selection_validation",
+      "sufficient_samples": true,
+      "tail_level": 0.1,
+      "tail_probability_empirical": 0.13636363636363635,
+      "tail_samples": 3,
+      "value_at_risk": -0.9333116668314417
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "$id": "https://decision-alpha-lab.local/lab/11_strategy_factory/schemas/saed_v4_16/reference_censoring_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed SAED V4-16 contract generated from the deterministic reference artifact. Unknown fields are forbidden.",
+  "properties": {
+    "administrative_horizon_seconds": {
+      "type": "integer"
+    },
+    "allow_interval_censoring": {
+      "type": "boolean"
+    },
+    "allow_right_censoring": {
+      "type": "boolean"
+    },
+    "censored_is_never_outcome": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "informative_sensitivity_factors": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "ipcw_ceiling": {
+      "type": "number"
+    },
+    "ipcw_floor": {
+      "type": "number"
+    },
+    "known_time_only": {
+      "type": "boolean"
+    },
+    "observation_interval_seconds": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "administrative_horizon_seconds",
+    "allow_interval_censoring",
+    "allow_right_censoring",
+    "censored_is_never_outcome",
+    "exact_version",
+    "informative_sensitivity_factors",
+    "ipcw_ceiling",
+    "ipcw_floor",
+    "known_time_only",
+    "observation_interval_seconds"
+  ],
+  "title": "reference_censoring_policy",
+  "type": "object"
+}

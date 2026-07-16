@@ -1,0 +1,11 @@
+{
+  "baseline_mean": 0.6353213126130066,
+  "best_trade_dependence_detected": true,
+  "delta": -0.21794142732233923,
+  "evaluation_count": 22,
+  "kind": "best_trade_removal",
+  "mean_after_best_trade_removal": 0.4173798852906674,
+  "passed": true,
+  "phase": "SAED_V4_16",
+  "report_hash": "3747e3773af384c4d0cda47a3d1573e306960faeacc581ec4b12e13491216bf0"
+}

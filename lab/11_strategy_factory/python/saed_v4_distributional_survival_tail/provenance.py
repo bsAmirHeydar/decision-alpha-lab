@@ -1,0 +1,4 @@
+from .canonical import content_hash,stable_id
+
+def build(upstream,dataset,tournament,registry):
+    out={'phase':'SAED_V4_16','provenance_id':stable_id('v416prov',{'upstream':upstream,'dataset':dataset['dataset_hash'],'tournament':tournament['tournament_hash']}),'evidence_class':'local_deterministic_synthetic_reference','upstream_phase':'SAED_V4_15','upstream_handoff_hash':upstream['v4_15_handoff_hash'],'upstream_registry_hash':upstream['v4_15_registry_hash'],'upstream_fusion_hash':upstream['v4_15_fusion_hash'],'dataset_hash':dataset['dataset_hash'],'tournament_hash':tournament['tournament_hash'],'checkpoint_registry_hash':registry['registry_hash'],'real_data_used':False,'protected_evidence_used':False,'external_weights_used':False,'production_evidence':False};out['provenance_hash']=content_hash(out);return out
