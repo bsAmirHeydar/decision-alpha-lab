@@ -1,0 +1,14 @@
+{
+  "abstain": true,
+  "context_id": "CTX_SYNTH_0001",
+  "decision": "abstain",
+  "fallback": "skip",
+  "reasons": [
+    "insufficient_objective_margin"
+  ],
+  "selected_treatments": [
+    "SKIP"
+  ],
+  "selection_entropy": 1.5936897794036011,
+  "top_probability": 0.24031184196004268
+}

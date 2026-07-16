@@ -1,0 +1,26 @@
+{
+  "controls": [
+    "baseline_preservation",
+    "set_valued_selection",
+    "abstention",
+    "support_gate",
+    "tail_gate",
+    "regret_reporting",
+    "claim_ceiling",
+    "non_executable_certificate"
+  ],
+  "material_risks": [
+    "synthetic_to_real_gap",
+    "utility_misspecification",
+    "support_shift",
+    "tail_underestimation",
+    "selection_instability",
+    "calibration_error",
+    "causal_identification_error",
+    "proof_adapter_error"
+  ],
+  "phase": "SAED_V4_20",
+  "production_authorization": false,
+  "residual_risk": "high_for_real_use",
+  "review_status": "accepted_reference_only"
+}

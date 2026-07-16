@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context_id": {
+      "type": "string"
+    },
+    "expected_failure": {
+      "type": "string"
+    },
+    "future_suffix_attached": {
+      "type": "boolean"
+    },
+    "known_time": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "context_id",
+    "expected_failure",
+    "future_suffix_attached",
+    "known_time"
+  ],
+  "title": "Negative fixture NEGATIVE_FUTURE_SUFFIX",
+  "type": "object"
+}

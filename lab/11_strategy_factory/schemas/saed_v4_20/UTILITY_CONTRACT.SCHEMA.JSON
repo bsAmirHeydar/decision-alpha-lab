@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "abstention_cost": {
+      "type": "number"
+    },
+    "complexity_weight": {
+      "type": "number"
+    },
+    "cost_weight": {
+      "type": "number"
+    },
+    "drawdown_weight": {
+      "type": "number"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "reward_weight": {
+      "type": "number"
+    },
+    "skip_utility": {
+      "type": "number"
+    },
+    "tail_loss_weight": {
+      "type": "number"
+    },
+    "turnover_weight": {
+      "type": "number"
+    },
+    "utility_ceiling": {
+      "type": "number"
+    },
+    "utility_floor": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "abstention_cost",
+    "complexity_weight",
+    "cost_weight",
+    "drawdown_weight",
+    "exact_version",
+    "reward_weight",
+    "skip_utility",
+    "tail_loss_weight",
+    "turnover_weight",
+    "utility_ceiling",
+    "utility_floor"
+  ],
+  "title": "SAED V4-20 closed schema for UTILITY_CONTRACT",
+  "type": "object"
+}

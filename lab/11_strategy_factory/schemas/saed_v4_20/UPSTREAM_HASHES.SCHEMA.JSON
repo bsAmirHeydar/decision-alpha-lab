@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "treatment_universe_input_hash": {
+      "type": "string"
+    },
+    "v4_18_policy_value_hash": {
+      "type": "string"
+    },
+    "v4_19_proof_registry_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "treatment_universe_input_hash",
+    "v4_18_policy_value_hash",
+    "v4_19_proof_registry_hash"
+  ],
+  "title": "SAED V4-20 closed schema for UPSTREAM_HASHES",
+  "type": "object"
+}

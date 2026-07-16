@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "deterministic": {
+      "type": "boolean"
+    },
+    "future_suffix_sensitive": {
+      "type": "boolean"
+    },
+    "input_hash": {
+      "type": "string"
+    },
+    "output_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "receipt_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "deterministic",
+    "future_suffix_sensitive",
+    "input_hash",
+    "output_hash",
+    "phase",
+    "receipt_hash"
+  ],
+  "title": "SAED V4-20 closed schema for GOLDEN_REPLAY_RECEIPT",
+  "type": "object"
+}

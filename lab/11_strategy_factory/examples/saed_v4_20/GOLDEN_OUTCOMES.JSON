@@ -1,0 +1,167 @@
+{
+  "MANUAL_CORE": {
+    "expected_cost": 0.06,
+    "expected_reward": 0.48,
+    "path_returns": [
+      0.12,
+      0.18,
+      -0.2,
+      0.35,
+      0.22,
+      -0.1,
+      0.28,
+      0.16
+    ],
+    "scenario_utilities": {
+      "base": 0.27,
+      "fast": 0.2,
+      "gap": -0.04,
+      "reversal": 0.09,
+      "wide_spread": 0.16
+    },
+    "tail_threshold": -0.75,
+    "turnover": 0.2,
+    "utility_draws": [
+      0.22,
+      0.3,
+      0.18,
+      0.25,
+      0.27,
+      0.2,
+      0.31,
+      0.24
+    ]
+  },
+  "SKIP": {
+    "expected_cost": 0.0,
+    "expected_reward": 0.0,
+    "path_returns": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "scenario_utilities": {
+      "base": 0.0,
+      "fast": 0.0,
+      "gap": 0.0,
+      "reversal": 0.0,
+      "wide_spread": 0.0
+    },
+    "tail_threshold": -0.75,
+    "turnover": 0.0,
+    "utility_draws": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "T_ADAPTIVE": {
+    "expected_cost": 0.12,
+    "expected_reward": 0.72,
+    "path_returns": [
+      0.28,
+      0.37,
+      -0.55,
+      0.68,
+      0.42,
+      -0.24,
+      0.55,
+      0.3
+    ],
+    "scenario_utilities": {
+      "base": 0.49,
+      "fast": 0.47,
+      "gap": -0.19,
+      "reversal": 0.05,
+      "wide_spread": 0.22
+    },
+    "tail_threshold": -0.75,
+    "turnover": 0.36,
+    "utility_draws": [
+      0.42,
+      0.51,
+      0.28,
+      0.46,
+      0.54,
+      0.22,
+      0.49,
+      0.35
+    ]
+  },
+  "T_BALANCED": {
+    "expected_cost": 0.09,
+    "expected_reward": 0.68,
+    "path_returns": [
+      0.22,
+      0.31,
+      -0.28,
+      0.52,
+      0.38,
+      -0.12,
+      0.43,
+      0.27
+    ],
+    "scenario_utilities": {
+      "base": 0.45,
+      "fast": 0.4,
+      "gap": -0.01,
+      "reversal": 0.18,
+      "wide_spread": 0.28
+    },
+    "tail_threshold": -0.75,
+    "turnover": 0.28,
+    "utility_draws": [
+      0.39,
+      0.46,
+      0.34,
+      0.41,
+      0.48,
+      0.3,
+      0.45,
+      0.38
+    ]
+  },
+  "T_CONSERVATIVE": {
+    "expected_cost": 0.07,
+    "expected_reward": 0.52,
+    "path_returns": [
+      0.16,
+      0.2,
+      -0.16,
+      0.34,
+      0.26,
+      -0.08,
+      0.3,
+      0.19
+    ],
+    "scenario_utilities": {
+      "base": 0.31,
+      "fast": 0.23,
+      "gap": 0.02,
+      "reversal": 0.13,
+      "wide_spread": 0.2
+    },
+    "tail_threshold": -0.75,
+    "turnover": 0.18,
+    "utility_draws": [
+      0.28,
+      0.31,
+      0.24,
+      0.29,
+      0.32,
+      0.25,
+      0.34,
+      0.27
+    ]
+  }
+}

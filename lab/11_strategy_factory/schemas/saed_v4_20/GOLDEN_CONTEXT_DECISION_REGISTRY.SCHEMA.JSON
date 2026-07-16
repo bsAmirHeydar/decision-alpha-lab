@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "immutable": {
+      "type": "boolean"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "rows": {
+      "items": {
+        "anyOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "certificate_hash": {
+                "type": "string"
+              },
+              "context_id": {
+                "type": "string"
+              },
+              "decision": {
+                "additionalProperties": false,
+                "properties": {
+                  "abstain": {
+                    "type": "boolean"
+                  },
+                  "context_id": {
+                    "type": "string"
+                  },
+                  "decision": {
+                    "type": "string"
+                  },
+                  "fallback": {
+                    "type": "string"
+                  },
+                  "reasons": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "selected_treatments": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "selection_entropy": {
+                    "type": "number"
+                  },
+                  "top_probability": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "abstain",
+                  "context_id",
+                  "decision",
+                  "fallback",
+                  "reasons",
+                  "selected_treatments",
+                  "selection_entropy",
+                  "top_probability"
+                ],
+                "type": "object"
+              },
+              "pareto_treatments": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "certificate_hash",
+              "context_id",
+              "decision",
+              "pareto_treatments"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "certificate_hash": {
+                "type": "string"
+              },
+              "context_id": {
+                "type": "string"
+              },
+              "decision": {
+                "additionalProperties": false,
+                "properties": {
+                  "abstain": {
+                    "type": "boolean"
+                  },
+                  "context_id": {
+                    "type": "string"
+                  },
+                  "decision": {
+                    "type": "string"
+                  },
+                  "fallback": {
+                    "type": "string"
+                  },
+                  "reasons": {
+                    "items": {},
+                    "type": "array"
+                  },
+                  "selected_treatments": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "selection_entropy": {
+                    "type": "number"
+                  },
+                  "top_probability": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "abstain",
+                  "context_id",
+                  "decision",
+                  "fallback",
+                  "reasons",
+                  "selected_treatments",
+                  "selection_entropy",
+                  "top_probability"
+                ],
+                "type": "object"
+              },
+              "pareto_treatments": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "certificate_hash",
+              "context_id",
+              "decision",
+              "pareto_treatments"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "immutable",
+    "registry_hash",
+    "rows"
+  ],
+  "title": "SAED V4-20 closed schema for GOLDEN_CONTEXT_DECISION_REGISTRY",
+  "type": "object"
+}

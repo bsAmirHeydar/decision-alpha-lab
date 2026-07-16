@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baselines": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "challenger_requires_noninferiority": {
+      "type": "boolean"
+    },
+    "contexts_checked": {
+      "type": "integer"
+    },
+    "fallback_to_skip_on_hard_failure": {
+      "type": "boolean"
+    },
+    "manual_baseline_always_scored": {
+      "type": "boolean"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "skip_always_available": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "baselines",
+    "challenger_requires_noninferiority",
+    "contexts_checked",
+    "fallback_to_skip_on_hard_failure",
+    "manual_baseline_always_scored",
+    "passed",
+    "phase",
+    "skip_always_available"
+  ],
+  "title": "SAED V4-20 closed schema for BASELINE_PRESERVATION_MATRIX",
+  "type": "object"
+}

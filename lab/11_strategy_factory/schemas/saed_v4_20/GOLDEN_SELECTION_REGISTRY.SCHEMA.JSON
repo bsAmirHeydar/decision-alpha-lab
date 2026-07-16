@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "immutable": {
+      "type": "boolean"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "certificate_hash": {
+            "type": "string"
+          },
+          "context_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "certificate_hash",
+          "context_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "immutable",
+    "registry_hash",
+    "rows"
+  ],
+  "title": "SAED V4-20 closed schema for GOLDEN_SELECTION_REGISTRY",
+  "type": "object"
+}

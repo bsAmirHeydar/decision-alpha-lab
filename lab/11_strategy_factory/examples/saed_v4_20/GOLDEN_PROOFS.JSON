@@ -1,0 +1,32 @@
+[
+  {
+    "proof_hash": "e9c30927fd66f20075637211f53546df367b23ef9dc7463d84e4ad297d504d36",
+    "research_only": true,
+    "treatment_id": "SKIP",
+    "valid": true
+  },
+  {
+    "proof_hash": "c389158a676194291787b04de439695ec68b27d452b2f15ba5a1ed053f9e259c",
+    "research_only": true,
+    "treatment_id": "MANUAL_CORE",
+    "valid": true
+  },
+  {
+    "proof_hash": "acf2eaf0f77126b3b69156ac527f1dc4c6ba9362b5650034ccbebd539875b764",
+    "research_only": true,
+    "treatment_id": "T_CONSERVATIVE",
+    "valid": true
+  },
+  {
+    "proof_hash": "d708a5a26e531a4ab6c2b7ed5fa3f67b8fd81ce45ceb25723fee6176f91f6dc9",
+    "research_only": true,
+    "treatment_id": "T_BALANCED",
+    "valid": true
+  },
+  {
+    "proof_hash": "17c6262aa4943d1838c2ec3ea8f531dbb7a3135797eb280e8ee3d9067cd07337",
+    "research_only": true,
+    "treatment_id": "T_ADAPTIVE",
+    "valid": true
+  }
+]

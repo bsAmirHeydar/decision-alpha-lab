@@ -1,0 +1,29 @@
+{
+  "phase": "SAED_V4_20",
+  "terms": [
+    {
+      "definition": "Closed per-context admissibility map over the frozen treatment universe.",
+      "term": "action mask"
+    },
+    {
+      "definition": "Loss aligned with downstream treatment choice rather than prediction fit alone.",
+      "term": "decision-focused objective"
+    },
+    {
+      "definition": "A bounded set of statistically or operationally indistinguishable admissible treatments.",
+      "term": "set-valued selection"
+    },
+    {
+      "definition": "Selection criterion minimizing the worst scenario shortfall against the scenario oracle.",
+      "term": "minimax regret"
+    },
+    {
+      "definition": "Requirement that uncertainty or non-inferiority failure cannot silently displace the canonical baseline.",
+      "term": "baseline preservation"
+    },
+    {
+      "definition": "Explicit refusal to choose a non-null treatment under ambiguity, support, proof or margin failure.",
+      "term": "abstention"
+    }
+  ]
+}

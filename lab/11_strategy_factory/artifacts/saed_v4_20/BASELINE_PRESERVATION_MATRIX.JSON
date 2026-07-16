@@ -1,0 +1,13 @@
+{
+  "baselines": [
+    "SKIP",
+    "MANUAL_CORE"
+  ],
+  "challenger_requires_noninferiority": true,
+  "contexts_checked": 9,
+  "fallback_to_skip_on_hard_failure": true,
+  "manual_baseline_always_scored": true,
+  "passed": true,
+  "phase": "SAED_V4_20",
+  "skip_always_available": true
+}

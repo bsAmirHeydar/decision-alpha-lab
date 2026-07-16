@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "canonical_baseline": {
+      "type": "string"
+    },
+    "closed_world": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "runtime_mutation_allowed": {
+      "type": "boolean"
+    },
+    "skip_treatment": {
+      "type": "string"
+    },
+    "synthetic_only": {
+      "type": "boolean"
+    },
+    "treatments": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "complexity": {
+            "type": "integer"
+          },
+          "description": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "family": {
+            "type": "string"
+          },
+          "manual_approved": {
+            "type": "boolean"
+          },
+          "max_nominal_risk": {
+            "type": "number"
+          },
+          "treatment_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "complexity",
+          "description",
+          "enabled",
+          "family",
+          "manual_approved",
+          "max_nominal_risk",
+          "treatment_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "canonical_baseline",
+    "closed_world",
+    "exact_version",
+    "runtime_mutation_allowed",
+    "skip_treatment",
+    "synthetic_only",
+    "treatments"
+  ],
+  "title": "SAED V4-20 closed schema for TREATMENT_UNIVERSE_CONTRACT",
+  "type": "object"
+}

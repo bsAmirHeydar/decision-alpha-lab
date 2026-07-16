@@ -1,0 +1,11 @@
+{
+  "components": [
+    "robust_utility",
+    "maximum_regret"
+  ],
+  "frozen_before_evaluation": true,
+  "objective_hash": "354b93d8fc95eec9fcacf410af98cac7c6ca69db67dc4286cb68750ebc91217e",
+  "phase": "SAED_V4_20",
+  "post_hoc_change_allowed": false,
+  "primary_objective": "hybrid"
+}

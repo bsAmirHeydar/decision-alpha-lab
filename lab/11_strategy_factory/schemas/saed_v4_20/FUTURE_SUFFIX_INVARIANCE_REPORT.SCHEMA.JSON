@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "certificate_prefix_invariant": {
+      "type": "boolean"
+    },
+    "decision_prefix_invariant": {
+      "type": "boolean"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "prefix_hash": {
+      "type": "string"
+    },
+    "ranking_prefix_invariant": {
+      "type": "boolean"
+    },
+    "suffix_mutation_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "certificate_prefix_invariant",
+    "decision_prefix_invariant",
+    "passed",
+    "phase",
+    "prefix_hash",
+    "ranking_prefix_invariant",
+    "suffix_mutation_count"
+  ],
+  "title": "SAED V4-20 closed schema for FUTURE_SUFFIX_INVARIANCE_REPORT",
+  "type": "object"
+}

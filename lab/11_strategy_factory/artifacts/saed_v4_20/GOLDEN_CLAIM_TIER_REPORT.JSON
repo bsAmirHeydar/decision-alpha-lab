@@ -1,0 +1,27 @@
+{
+  "claim_hash": "01f5beff5af596bb260ce7115393b12d6210c8f0298e6792e8f214e8c50e3e91",
+  "claim_tier": "local_deterministic_synthetic_reference",
+  "established": [
+    "closed_treatment_universe",
+    "deterministic_action_mask",
+    "synthetic_utility_scoring",
+    "synthetic_risk_adjustment",
+    "synthetic_regret_matrix",
+    "pareto_frontier",
+    "set_valued_selection",
+    "abstention",
+    "baseline_preservation",
+    "selection_certificate"
+  ],
+  "not_established": [
+    "real_policy_value",
+    "real_alpha",
+    "production_treatment_selection",
+    "promotion_authority",
+    "runtime_parity",
+    "production_authorization",
+    "live_readiness"
+  ],
+  "phase": "SAED_V4_20",
+  "research_only": true
+}

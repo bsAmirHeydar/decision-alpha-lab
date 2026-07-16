@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "code_version": {
+      "type": "string"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "input_hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "config": {
+          "type": "string"
+        },
+        "context": {
+          "type": "string"
+        },
+        "outcomes": {
+          "type": "string"
+        },
+        "proofs": {
+          "type": "string"
+        },
+        "upstream_hashes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "config",
+        "context",
+        "outcomes",
+        "proofs",
+        "upstream_hashes"
+      ],
+      "type": "object"
+    },
+    "known_time_only": {
+      "type": "boolean"
+    },
+    "output_hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "certificate": {
+          "type": "string"
+        },
+        "decision": {
+          "type": "string"
+        },
+        "ranking": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "certificate",
+        "decision",
+        "ranking"
+      ],
+      "type": "object"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "protected_evidence_exposure": {
+      "type": "integer"
+    },
+    "provenance_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "code_version",
+    "deterministic",
+    "input_hashes",
+    "known_time_only",
+    "output_hashes",
+    "phase",
+    "protected_evidence_exposure",
+    "provenance_hash"
+  ],
+  "title": "SAED V4-20 closed schema for GOLDEN_PROVENANCE_RECORD",
+  "type": "object"
+}

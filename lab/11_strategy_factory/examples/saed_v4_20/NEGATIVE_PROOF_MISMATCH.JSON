@@ -1,0 +1,6 @@
+{
+  "context_id": "CTX_NEG_PROOF",
+  "expected_failure": "proof_missing_or_mismatched",
+  "proof_hash": "tampered",
+  "treatment_id": "T_BALANCED"
+}

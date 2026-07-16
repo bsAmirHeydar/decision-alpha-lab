@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "activate_runtime": {
+          "type": "boolean"
+        },
+        "allocate_risk": {
+          "type": "boolean"
+        },
+        "compile_runtime": {
+          "type": "boolean"
+        },
+        "select_live_treatment": {
+          "type": "boolean"
+        },
+        "send_order": {
+          "type": "boolean"
+        },
+        "sign_promotion": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "activate_runtime",
+        "allocate_risk",
+        "compile_runtime",
+        "select_live_treatment",
+        "send_order",
+        "sign_promotion"
+      ],
+      "type": "object"
+    },
+    "entry_gates": {
+      "additionalProperties": false,
+      "properties": {
+        "abstention_fail_closed": {
+          "type": "boolean"
+        },
+        "baseline_preserved": {
+          "type": "boolean"
+        },
+        "closed_contracts": {
+          "type": "boolean"
+        },
+        "deterministic_replay": {
+          "type": "boolean"
+        },
+        "pareto_frontier": {
+          "type": "boolean"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "set_valued_selection": {
+          "type": "boolean"
+        },
+        "zero_hidden_evaluation_queries": {
+          "type": "boolean"
+        },
+        "zero_protected_evidence_exposure": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "abstention_fail_closed",
+        "baseline_preserved",
+        "closed_contracts",
+        "deterministic_replay",
+        "pareto_frontier",
+        "research_only",
+        "set_valued_selection",
+        "zero_hidden_evaluation_queries",
+        "zero_protected_evidence_exposure"
+      ],
+      "type": "object"
+    },
+    "exposure_ledger_hash": {
+      "type": "string"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "qa": {
+      "additionalProperties": false,
+      "properties": {
+        "closed_schema_pairs": {
+          "type": "integer"
+        },
+        "golden_reproduction": {
+          "type": "boolean"
+        },
+        "mql5_static_files": {
+          "type": "integer"
+        },
+        "obsidian_notes": {
+          "type": "integer"
+        },
+        "passed": {
+          "type": "boolean"
+        },
+        "python_tests": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "closed_schema_pairs",
+        "golden_reproduction",
+        "mql5_static_files",
+        "obsidian_notes",
+        "passed",
+        "python_tests"
+      ],
+      "type": "object"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "selection_certificate_hash": {
+      "type": "string"
+    },
+    "selection_registry_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "authority",
+    "entry_gates",
+    "exposure_ledger_hash",
+    "handoff_hash",
+    "handoff_id",
+    "next_phase",
+    "phase",
+    "qa",
+    "research_only",
+    "selection_certificate_hash",
+    "selection_registry_hash"
+  ],
+  "title": "SAED V4-20 closed schema for V4_20_TO_V4_21_HANDOFF",
+  "type": "object"
+}

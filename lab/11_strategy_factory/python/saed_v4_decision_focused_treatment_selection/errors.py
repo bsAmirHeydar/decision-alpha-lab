@@ -1,0 +1,14 @@
+class SAEDV420Error(Exception): pass
+class ContractError(SAEDV420Error): pass
+class IntegrityError(SAEDV420Error): pass
+class AuthorityError(SAEDV420Error): pass
+class TreatmentUniverseError(SAEDV420Error): pass
+class ActionMaskError(SAEDV420Error): pass
+class UtilityError(SAEDV420Error): pass
+class OutcomeError(SAEDV420Error): pass
+class RiskError(SAEDV420Error): pass
+class CalibrationError(SAEDV420Error): pass
+class SelectionError(SAEDV420Error): pass
+class BaselineError(SAEDV420Error): pass
+class BudgetError(SAEDV420Error): pass
+class CertificateError(SAEDV420Error): pass

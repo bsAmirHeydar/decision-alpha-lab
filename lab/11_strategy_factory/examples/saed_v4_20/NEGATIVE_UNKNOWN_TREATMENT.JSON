@@ -1,0 +1,5 @@
+{
+  "context_id": "CTX_NEG_UNKNOWN",
+  "expected_failure": "unknown_treatment",
+  "requested_treatment": "T_UNKNOWN"
+}

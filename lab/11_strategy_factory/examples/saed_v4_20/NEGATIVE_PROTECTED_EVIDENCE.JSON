@@ -1,0 +1,4 @@
+{
+  "expected_failure": "forbidden_security_fields",
+  "protected_final_evidence": "forbidden"
+}

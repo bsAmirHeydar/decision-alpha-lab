@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "mutations": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "expected": {
+            "type": "string"
+          },
+          "mutation_id": {
+            "type": "string"
+          },
+          "passed": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "expected",
+          "mutation_id",
+          "passed"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "mutations",
+    "phase"
+  ],
+  "title": "SAED V4-20 closed schema for MUTATION_TEST_MATRIX",
+  "type": "object"
+}

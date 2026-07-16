@@ -1,0 +1,5 @@
+{
+  "all_treatments_disallowed": true,
+  "context_id": "CTX_NEG_MASK",
+  "expected_fallback": "SKIP"
+}

@@ -1,0 +1,86 @@
+{
+  "scenarios": [
+    {
+      "best_utility": 0.49,
+      "regret_by_treatment": {
+        "MANUAL_CORE": 0.21999999999999997,
+        "SKIP": 0.49,
+        "T_ADAPTIVE": 0.0,
+        "T_BALANCED": 0.03999999999999998,
+        "T_CONSERVATIVE": 0.18
+      },
+      "scenario_id": "base"
+    },
+    {
+      "best_utility": 0.47,
+      "regret_by_treatment": {
+        "MANUAL_CORE": 0.26999999999999996,
+        "SKIP": 0.47,
+        "T_ADAPTIVE": 0.0,
+        "T_BALANCED": 0.06999999999999995,
+        "T_CONSERVATIVE": 0.23999999999999996
+      },
+      "scenario_id": "fast"
+    },
+    {
+      "best_utility": 0.02,
+      "regret_by_treatment": {
+        "MANUAL_CORE": 0.06,
+        "SKIP": 0.02,
+        "T_ADAPTIVE": 0.21,
+        "T_BALANCED": 0.03,
+        "T_CONSERVATIVE": 0.0
+      },
+      "scenario_id": "gap"
+    },
+    {
+      "best_utility": 0.18,
+      "regret_by_treatment": {
+        "MANUAL_CORE": 0.09,
+        "SKIP": 0.18,
+        "T_ADAPTIVE": 0.13,
+        "T_BALANCED": 0.0,
+        "T_CONSERVATIVE": 0.04999999999999999
+      },
+      "scenario_id": "reversal"
+    },
+    {
+      "best_utility": 0.28,
+      "regret_by_treatment": {
+        "MANUAL_CORE": 0.12000000000000002,
+        "SKIP": 0.28,
+        "T_ADAPTIVE": 0.060000000000000026,
+        "T_BALANCED": 0.0,
+        "T_CONSERVATIVE": 0.08000000000000002
+      },
+      "scenario_id": "wide_spread"
+    }
+  ],
+  "summary": [
+    {
+      "maximum_regret": 0.26999999999999996,
+      "mean_regret": 0.152,
+      "treatment_id": "MANUAL_CORE"
+    },
+    {
+      "maximum_regret": 0.49,
+      "mean_regret": 0.288,
+      "treatment_id": "SKIP"
+    },
+    {
+      "maximum_regret": 0.21,
+      "mean_regret": 0.08,
+      "treatment_id": "T_ADAPTIVE"
+    },
+    {
+      "maximum_regret": 0.06999999999999995,
+      "mean_regret": 0.027999999999999987,
+      "treatment_id": "T_BALANCED"
+    },
+    {
+      "maximum_regret": 0.23999999999999996,
+      "mean_regret": 0.10999999999999999,
+      "treatment_id": "T_CONSERVATIVE"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "max_calibration_iterations": {
+      "type": "integer"
+    },
+    "max_contexts": {
+      "type": "integer"
+    },
+    "max_counterfactual_queries": {
+      "type": "integer"
+    },
+    "max_failures": {
+      "type": "integer"
+    },
+    "max_hidden_evaluation_queries": {
+      "type": "integer"
+    },
+    "max_objective_evaluations": {
+      "type": "integer"
+    },
+    "max_pareto_points": {
+      "type": "integer"
+    },
+    "max_scenarios": {
+      "type": "integer"
+    },
+    "max_treatments": {
+      "type": "integer"
+    },
+    "protected_evidence_exposure_limit": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "max_calibration_iterations",
+    "max_contexts",
+    "max_counterfactual_queries",
+    "max_failures",
+    "max_hidden_evaluation_queries",
+    "max_objective_evaluations",
+    "max_pareto_points",
+    "max_scenarios",
+    "max_treatments",
+    "protected_evidence_exposure_limit"
+  ],
+  "title": "SAED V4-20 closed schema for SELECTION_BUDGET",
+  "type": "object"
+}

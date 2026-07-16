@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context_id": {
+      "type": "string"
+    },
+    "expected_failure": {
+      "type": "string"
+    },
+    "proof_hash": {
+      "type": "string"
+    },
+    "treatment_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "context_id",
+    "expected_failure",
+    "proof_hash",
+    "treatment_id"
+  ],
+  "title": "Negative fixture NEGATIVE_PROOF_MISMATCH",
+  "type": "object"
+}

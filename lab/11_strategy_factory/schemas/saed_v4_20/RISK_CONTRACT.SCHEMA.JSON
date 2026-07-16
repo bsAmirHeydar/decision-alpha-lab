@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ambiguity_radius": {
+      "type": "number"
+    },
+    "confidence_z": {
+      "type": "number"
+    },
+    "cvar_alpha": {
+      "type": "number"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "maximum_entropy": {
+      "type": "number"
+    },
+    "maximum_set_size": {
+      "type": "integer"
+    },
+    "minimum_margin": {
+      "type": "number"
+    },
+    "regret_weight": {
+      "type": "number"
+    },
+    "tail_weight": {
+      "type": "number"
+    },
+    "uncertainty_weight": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "ambiguity_radius",
+    "confidence_z",
+    "cvar_alpha",
+    "exact_version",
+    "maximum_entropy",
+    "maximum_set_size",
+    "minimum_margin",
+    "regret_weight",
+    "tail_weight",
+    "uncertainty_weight"
+  ],
+  "title": "SAED V4-20 closed schema for RISK_CONTRACT",
+  "type": "object"
+}

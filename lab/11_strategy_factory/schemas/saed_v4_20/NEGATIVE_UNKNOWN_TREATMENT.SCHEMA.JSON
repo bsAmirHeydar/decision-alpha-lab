@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context_id": {
+      "type": "string"
+    },
+    "expected_failure": {
+      "type": "string"
+    },
+    "requested_treatment": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "context_id",
+    "expected_failure",
+    "requested_treatment"
+  ],
+  "title": "Negative fixture NEGATIVE_UNKNOWN_TREATMENT",
+  "type": "object"
+}

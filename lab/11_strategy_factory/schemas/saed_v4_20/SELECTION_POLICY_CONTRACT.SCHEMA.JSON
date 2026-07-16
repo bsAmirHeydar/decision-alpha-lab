@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "abstention_policy": {
+      "type": "string"
+    },
+    "baseline_preservation": {
+      "type": "boolean"
+    },
+    "calibration_method": {
+      "type": "string"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "objective": {
+      "type": "string"
+    },
+    "pareto_required": {
+      "type": "boolean"
+    },
+    "runtime_executable": {
+      "type": "boolean"
+    },
+    "set_valued": {
+      "type": "boolean"
+    },
+    "tie_policy": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "abstention_policy",
+    "baseline_preservation",
+    "calibration_method",
+    "deterministic",
+    "exact_version",
+    "objective",
+    "pareto_required",
+    "runtime_executable",
+    "set_valued",
+    "tie_policy"
+  ],
+  "title": "SAED V4-20 closed schema for SELECTION_POLICY_CONTRACT",
+  "type": "object"
+}

@@ -1,0 +1,80 @@
+{
+  "mutations": [
+    {
+      "expected": "fail_closed",
+      "mutation_id": "unknown_field",
+      "passed": true
+    },
+    {
+      "expected": "fail_closed",
+      "mutation_id": "unknown_treatment",
+      "passed": true
+    },
+    {
+      "expected": "fail_closed",
+      "mutation_id": "proof_hash_mismatch",
+      "passed": true
+    },
+    {
+      "expected": "fail_closed",
+      "mutation_id": "future_known_time",
+      "passed": true
+    },
+    {
+      "expected": "fail_closed",
+      "mutation_id": "empty_mask",
+      "passed": true
+    },
+    {
+      "expected": "fail_closed",
+      "mutation_id": "support_below_floor",
+      "passed": true
+    },
+    {
+      "expected": "fail_closed",
+      "mutation_id": "overlap_below_floor",
+      "passed": true
+    },
+    {
+      "expected": "fail_closed",
+      "mutation_id": "cost_above_limit",
+      "passed": true
+    },
+    {
+      "expected": "fail_closed",
+      "mutation_id": "complexity_above_limit",
+      "passed": true
+    },
+    {
+      "expected": "fail_closed",
+      "mutation_id": "tail_risk_above_limit",
+      "passed": true
+    },
+    {
+      "expected": "fail_closed",
+      "mutation_id": "drawdown_above_limit",
+      "passed": true
+    },
+    {
+      "expected": "fail_closed",
+      "mutation_id": "authority_escalation",
+      "passed": true
+    },
+    {
+      "expected": "fail_closed",
+      "mutation_id": "protected_evidence_field",
+      "passed": true
+    },
+    {
+      "expected": "fail_closed",
+      "mutation_id": "certificate_hash_tamper",
+      "passed": true
+    },
+    {
+      "expected": "fail_closed",
+      "mutation_id": "upstream_hash_tamper",
+      "passed": true
+    }
+  ],
+  "phase": "SAED_V4_20"
+}

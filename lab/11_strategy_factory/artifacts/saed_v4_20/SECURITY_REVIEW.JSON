@@ -1,0 +1,11 @@
+{
+  "dynamic_code": false,
+  "live_credentials": false,
+  "network_access": false,
+  "passed": true,
+  "payload_scan": "passed",
+  "phase": "SAED_V4_20",
+  "protected_evidence": false,
+  "runtime_execution": false,
+  "supply_chain_scope": "stdlib_reference_only"
+}

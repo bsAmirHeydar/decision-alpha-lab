@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "components": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "frozen_before_evaluation": {
+      "type": "boolean"
+    },
+    "objective_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "post_hoc_change_allowed": {
+      "type": "boolean"
+    },
+    "primary_objective": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "components",
+    "frozen_before_evaluation",
+    "objective_hash",
+    "phase",
+    "post_hoc_change_allowed",
+    "primary_objective"
+  ],
+  "title": "SAED V4-20 closed schema for OBJECTIVE_FREEZE_RECORD",
+  "type": "object"
+}

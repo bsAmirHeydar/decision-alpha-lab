@@ -1,0 +1,10 @@
+{
+  "baseline_preserved": true,
+  "best_candidate": "T_BALANCED",
+  "best_minus_baseline": 0.17028494904677183,
+  "best_minus_skip": 0.40976107553672825,
+  "canonical_baseline": "MANUAL_CORE",
+  "decision_abstained": true,
+  "fallback": "skip",
+  "skip_treatment": "SKIP"
+}

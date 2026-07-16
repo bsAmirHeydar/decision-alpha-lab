@@ -1,0 +1,350 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "MANUAL_CORE": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_cost": {
+          "type": "number"
+        },
+        "expected_reward": {
+          "type": "number"
+        },
+        "path_returns": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "scenario_utilities": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "type": "number"
+            },
+            "fast": {
+              "type": "number"
+            },
+            "gap": {
+              "type": "number"
+            },
+            "reversal": {
+              "type": "number"
+            },
+            "wide_spread": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "base",
+            "fast",
+            "gap",
+            "reversal",
+            "wide_spread"
+          ],
+          "type": "object"
+        },
+        "tail_threshold": {
+          "type": "number"
+        },
+        "turnover": {
+          "type": "number"
+        },
+        "utility_draws": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "expected_cost",
+        "expected_reward",
+        "path_returns",
+        "scenario_utilities",
+        "tail_threshold",
+        "turnover",
+        "utility_draws"
+      ],
+      "type": "object"
+    },
+    "SKIP": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_cost": {
+          "type": "number"
+        },
+        "expected_reward": {
+          "type": "number"
+        },
+        "path_returns": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "scenario_utilities": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "type": "number"
+            },
+            "fast": {
+              "type": "number"
+            },
+            "gap": {
+              "type": "number"
+            },
+            "reversal": {
+              "type": "number"
+            },
+            "wide_spread": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "base",
+            "fast",
+            "gap",
+            "reversal",
+            "wide_spread"
+          ],
+          "type": "object"
+        },
+        "tail_threshold": {
+          "type": "number"
+        },
+        "turnover": {
+          "type": "number"
+        },
+        "utility_draws": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "expected_cost",
+        "expected_reward",
+        "path_returns",
+        "scenario_utilities",
+        "tail_threshold",
+        "turnover",
+        "utility_draws"
+      ],
+      "type": "object"
+    },
+    "T_ADAPTIVE": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_cost": {
+          "type": "number"
+        },
+        "expected_reward": {
+          "type": "number"
+        },
+        "path_returns": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "scenario_utilities": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "type": "number"
+            },
+            "fast": {
+              "type": "number"
+            },
+            "gap": {
+              "type": "number"
+            },
+            "reversal": {
+              "type": "number"
+            },
+            "wide_spread": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "base",
+            "fast",
+            "gap",
+            "reversal",
+            "wide_spread"
+          ],
+          "type": "object"
+        },
+        "tail_threshold": {
+          "type": "number"
+        },
+        "turnover": {
+          "type": "number"
+        },
+        "utility_draws": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "expected_cost",
+        "expected_reward",
+        "path_returns",
+        "scenario_utilities",
+        "tail_threshold",
+        "turnover",
+        "utility_draws"
+      ],
+      "type": "object"
+    },
+    "T_BALANCED": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_cost": {
+          "type": "number"
+        },
+        "expected_reward": {
+          "type": "number"
+        },
+        "path_returns": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "scenario_utilities": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "type": "number"
+            },
+            "fast": {
+              "type": "number"
+            },
+            "gap": {
+              "type": "number"
+            },
+            "reversal": {
+              "type": "number"
+            },
+            "wide_spread": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "base",
+            "fast",
+            "gap",
+            "reversal",
+            "wide_spread"
+          ],
+          "type": "object"
+        },
+        "tail_threshold": {
+          "type": "number"
+        },
+        "turnover": {
+          "type": "number"
+        },
+        "utility_draws": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "expected_cost",
+        "expected_reward",
+        "path_returns",
+        "scenario_utilities",
+        "tail_threshold",
+        "turnover",
+        "utility_draws"
+      ],
+      "type": "object"
+    },
+    "T_CONSERVATIVE": {
+      "additionalProperties": false,
+      "properties": {
+        "expected_cost": {
+          "type": "number"
+        },
+        "expected_reward": {
+          "type": "number"
+        },
+        "path_returns": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        },
+        "scenario_utilities": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "type": "number"
+            },
+            "fast": {
+              "type": "number"
+            },
+            "gap": {
+              "type": "number"
+            },
+            "reversal": {
+              "type": "number"
+            },
+            "wide_spread": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "base",
+            "fast",
+            "gap",
+            "reversal",
+            "wide_spread"
+          ],
+          "type": "object"
+        },
+        "tail_threshold": {
+          "type": "number"
+        },
+        "turnover": {
+          "type": "number"
+        },
+        "utility_draws": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "expected_cost",
+        "expected_reward",
+        "path_returns",
+        "scenario_utilities",
+        "tail_threshold",
+        "turnover",
+        "utility_draws"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "MANUAL_CORE",
+    "SKIP",
+    "T_ADAPTIVE",
+    "T_BALANCED",
+    "T_CONSERVATIVE"
+  ],
+  "title": "SAED V4-20 closed schema for GOLDEN_OUTCOMES",
+  "type": "object"
+}

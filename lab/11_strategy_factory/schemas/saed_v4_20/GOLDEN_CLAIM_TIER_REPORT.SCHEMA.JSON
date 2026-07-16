@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "claim_hash": {
+      "type": "string"
+    },
+    "claim_tier": {
+      "type": "string"
+    },
+    "established": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "not_established": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "claim_hash",
+    "claim_tier",
+    "established",
+    "not_established",
+    "phase",
+    "research_only"
+  ],
+  "title": "SAED V4-20 closed schema for GOLDEN_CLAIM_TIER_REPORT",
+  "type": "object"
+}

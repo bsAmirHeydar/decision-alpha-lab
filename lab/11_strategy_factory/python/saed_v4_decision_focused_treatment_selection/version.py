@@ -1,0 +1,6 @@
+PHASE='SAED_V4_20'
+VERSION='1.0.0'
+TITLE='Decision-Focused Treatment Selection'
+EVIDENCE_SCOPE='local_deterministic_synthetic_reference'
+CLAIM_CEILING='synthetic_decision_selection_not_real_policy_value'
+NEXT_PHASE='SAED_V4_21'

@@ -1,0 +1,20 @@
+{
+  "code_version": "1.0.0",
+  "deterministic": true,
+  "input_hashes": {
+    "config": "b469100d55fbed35dbd18f94c76eec895d30dd9d15f05e24355e5e36a9d957bb",
+    "context": "14c43670db7e03ef3bb1ce53ca5de9f75b3fa8db42dd8333094d9b9ff2f7a18b",
+    "outcomes": "f60f1caf88f8d48baac40944d985cfa2f5ecc20bceb1bca1ea181e7eab4b9493",
+    "proofs": "c943521f4ff848976fce07ced939858934f9e8a0859a621f3ec5801e5e1d7d44",
+    "upstream_hashes": "2b9c73b76b6aa0edad563f2ea25a6f972f99cadd6cd4465e48e81b63924cfe59"
+  },
+  "known_time_only": true,
+  "output_hashes": {
+    "certificate": "d174b6116db39f974811feea48e29cc0e709d936b066ee160c9779e9c11eec3d",
+    "decision": "cd6a00c1e7988dcde3e43ad4c14a07831d3a089312f0cad2bfbb2ab3ddda9ae4",
+    "ranking": "54005cdb829715ad5ebe4da3f3b5214f70fb79c36173f7ebf0b24c8569d57f62"
+  },
+  "phase": "SAED_V4_20",
+  "protected_evidence_exposure": 0,
+  "provenance_hash": "4d009883229f48f13c23c9f29ffcd01018573555cf7f0c18855b4ca53b39e362"
+}

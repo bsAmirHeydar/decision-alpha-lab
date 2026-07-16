@@ -1,0 +1,32 @@
+{
+  "context_id": "CTX_SYNTH_0001",
+  "hard_fail_to_skip": true,
+  "mask_hash": "54122860a94b5d4ea2cfd8d4019a9f51aa4306a41031231d44ca473fd7bb0c68",
+  "rows": [
+    {
+      "allowed": true,
+      "reasons": [],
+      "treatment_id": "MANUAL_CORE"
+    },
+    {
+      "allowed": true,
+      "reasons": [],
+      "treatment_id": "SKIP"
+    },
+    {
+      "allowed": true,
+      "reasons": [],
+      "treatment_id": "T_ADAPTIVE"
+    },
+    {
+      "allowed": true,
+      "reasons": [],
+      "treatment_id": "T_BALANCED"
+    },
+    {
+      "allowed": true,
+      "reasons": [],
+      "treatment_id": "T_CONSERVATIVE"
+    }
+  ]
+}

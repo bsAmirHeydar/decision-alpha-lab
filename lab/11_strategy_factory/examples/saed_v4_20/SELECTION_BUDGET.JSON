@@ -1,0 +1,12 @@
+{
+  "max_calibration_iterations": 64,
+  "max_contexts": 64,
+  "max_counterfactual_queries": 4096,
+  "max_failures": 8,
+  "max_hidden_evaluation_queries": 0,
+  "max_objective_evaluations": 4096,
+  "max_pareto_points": 128,
+  "max_scenarios": 1024,
+  "max_treatments": 64,
+  "protected_evidence_exposure_limit": 0
+}

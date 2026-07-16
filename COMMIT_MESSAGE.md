@@ -1,9 +1,8 @@
-feat(saed-v4): implement V4-19 neurosymbolic setup reasoning
+feat(strategy-factory): implement SAED V4-20 decision-focused treatment selection
 
-- freeze closed-world context ontology, predicates and temporal logic
-- add bounded manual-doctrine-first symbolic reasoning and contradictions
-- add differentiable logic, hard projection and fail-closed fallbacks
-- add bounded synthesis, counterexamples, symbolic regression and MDL
-- add frozen neural adapter, disagreement abstention and proof envelopes
-- add schemas, tests, QA, MQL5 static mirror and Obsidian dossier
-- preserve UCEE authority and hand off immutable research evidence to V4-20
+- freeze the closed treatment universe and proof-gated action masks
+- add utility, risk, regret, Pareto, calibration and ranking references
+- add bounded set-valued selection, abstention and baseline preservation
+- emit content-addressed non-executable selection certificates
+- add schemas, fixtures, tests, MQL5 static mirrors and Obsidian dossier
+- preserve UCEE authority and deny production/live claims

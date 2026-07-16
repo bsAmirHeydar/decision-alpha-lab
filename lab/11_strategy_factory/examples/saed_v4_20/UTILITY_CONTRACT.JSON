@@ -1,0 +1,13 @@
+{
+  "abstention_cost": 0.02,
+  "complexity_weight": 0.015,
+  "cost_weight": 1.25,
+  "drawdown_weight": 0.04,
+  "exact_version": "1.0.0",
+  "reward_weight": 1.0,
+  "skip_utility": 0.0,
+  "tail_loss_weight": 0.35,
+  "turnover_weight": 0.04,
+  "utility_ceiling": 5.0,
+  "utility_floor": -5.0
+}

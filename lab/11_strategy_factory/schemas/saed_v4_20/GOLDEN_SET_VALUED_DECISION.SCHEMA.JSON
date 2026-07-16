@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "abstain": {
+      "type": "boolean"
+    },
+    "context_id": {
+      "type": "string"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "fallback": {
+      "type": "string"
+    },
+    "reasons": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "selected_treatments": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "selection_entropy": {
+      "type": "number"
+    },
+    "top_probability": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "abstain",
+    "context_id",
+    "decision",
+    "fallback",
+    "reasons",
+    "selected_treatments",
+    "selection_entropy",
+    "top_probability"
+  ],
+  "title": "SAED V4-20 closed schema for GOLDEN_SET_VALUED_DECISION",
+  "type": "object"
+}

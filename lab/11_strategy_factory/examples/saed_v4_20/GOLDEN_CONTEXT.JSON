@@ -1,0 +1,33 @@
+{
+  "cluster_id": "SYNTH_CLUSTER_A",
+  "context_id": "CTX_SYNTH_0001",
+  "estimated_cost": {
+    "MANUAL_CORE": 0.06,
+    "SKIP": 0.0,
+    "T_ADAPTIVE": 0.12,
+    "T_BALANCED": 0.09,
+    "T_CONSERVATIVE": 0.07
+  },
+  "known_time": "2026-07-16T00:00:00Z",
+  "overlap": {
+    "MANUAL_CORE": 0.82,
+    "SKIP": 1.0,
+    "T_ADAPTIVE": 0.52,
+    "T_BALANCED": 0.65,
+    "T_CONSERVATIVE": 0.71
+  },
+  "proof_hashes": {
+    "MANUAL_CORE": "c389158a676194291787b04de439695ec68b27d452b2f15ba5a1ed053f9e259c",
+    "SKIP": "e9c30927fd66f20075637211f53546df367b23ef9dc7463d84e4ad297d504d36",
+    "T_ADAPTIVE": "17c6262aa4943d1838c2ec3ea8f531dbb7a3135797eb280e8ee3d9067cd07337",
+    "T_BALANCED": "d708a5a26e531a4ab6c2b7ed5fa3f67b8fd81ce45ceb25723fee6176f91f6dc9",
+    "T_CONSERVATIVE": "acf2eaf0f77126b3b69156ac527f1dc4c6ba9362b5650034ccbebd539875b764"
+  },
+  "support": {
+    "MANUAL_CORE": 96,
+    "SKIP": 128,
+    "T_ADAPTIVE": 74,
+    "T_BALANCED": 82,
+    "T_CONSERVATIVE": 88
+  }
+}

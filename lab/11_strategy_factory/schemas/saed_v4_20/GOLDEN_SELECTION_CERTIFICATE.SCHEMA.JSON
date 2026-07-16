@@ -1,0 +1,206 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority_hash": {
+      "type": "string"
+    },
+    "baseline_report": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_preserved": {
+          "type": "boolean"
+        },
+        "best_candidate": {
+          "type": "string"
+        },
+        "best_minus_baseline": {
+          "type": "number"
+        },
+        "best_minus_skip": {
+          "type": "number"
+        },
+        "canonical_baseline": {
+          "type": "string"
+        },
+        "decision_abstained": {
+          "type": "boolean"
+        },
+        "fallback": {
+          "type": "string"
+        },
+        "skip_treatment": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "baseline_preserved",
+        "best_candidate",
+        "best_minus_baseline",
+        "best_minus_skip",
+        "canonical_baseline",
+        "decision_abstained",
+        "fallback",
+        "skip_treatment"
+      ],
+      "type": "object"
+    },
+    "candidate_ranking": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "allowed": {
+            "type": "boolean"
+          },
+          "objective_score": {
+            "type": "number"
+          },
+          "rank": {
+            "type": "integer"
+          },
+          "selection_probability": {
+            "type": "number"
+          },
+          "treatment_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "allowed",
+          "objective_score",
+          "rank",
+          "selection_probability",
+          "treatment_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "context_id": {
+      "type": "string"
+    },
+    "decision": {
+      "additionalProperties": false,
+      "properties": {
+        "abstain": {
+          "type": "boolean"
+        },
+        "context_id": {
+          "type": "string"
+        },
+        "decision": {
+          "type": "string"
+        },
+        "fallback": {
+          "type": "string"
+        },
+        "reasons": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "selected_treatments": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "selection_entropy": {
+          "type": "number"
+        },
+        "top_probability": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "abstain",
+        "context_id",
+        "decision",
+        "fallback",
+        "reasons",
+        "selected_treatments",
+        "selection_entropy",
+        "top_probability"
+      ],
+      "type": "object"
+    },
+    "decision_authority": {
+      "type": "boolean"
+    },
+    "execution_authority": {
+      "type": "boolean"
+    },
+    "mask_hash": {
+      "type": "string"
+    },
+    "pareto_treatments": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "promotion_authority": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "runtime_executable": {
+      "type": "boolean"
+    },
+    "universe_hash": {
+      "type": "string"
+    },
+    "upstream_hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "treatment_universe_input_hash": {
+          "type": "string"
+        },
+        "v4_18_policy_value_hash": {
+          "type": "string"
+        },
+        "v4_19_proof_registry_hash": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "treatment_universe_input_hash",
+        "v4_18_policy_value_hash",
+        "v4_19_proof_registry_hash"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "authority_hash",
+    "baseline_report",
+    "candidate_ranking",
+    "certificate_hash",
+    "certificate_id",
+    "context_id",
+    "decision",
+    "decision_authority",
+    "execution_authority",
+    "mask_hash",
+    "pareto_treatments",
+    "phase",
+    "promotion_authority",
+    "research_only",
+    "runtime_executable",
+    "universe_hash",
+    "upstream_hashes"
+  ],
+  "title": "SAED V4-20 closed schema for GOLDEN_SELECTION_CERTIFICATE",
+  "type": "object"
+}

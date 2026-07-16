@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "expected_failure": {
+      "type": "string"
+    },
+    "protected_final_evidence": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "expected_failure",
+    "protected_final_evidence"
+  ],
+  "title": "Negative fixture NEGATIVE_PROTECTED_EVIDENCE",
+  "type": "object"
+}

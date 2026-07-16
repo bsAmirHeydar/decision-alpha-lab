@@ -1,0 +1,396 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "budget": {
+      "additionalProperties": false,
+      "properties": {
+        "max_calibration_iterations": {
+          "type": "integer"
+        },
+        "max_contexts": {
+          "type": "integer"
+        },
+        "max_counterfactual_queries": {
+          "type": "integer"
+        },
+        "max_failures": {
+          "type": "integer"
+        },
+        "max_hidden_evaluation_queries": {
+          "type": "integer"
+        },
+        "max_objective_evaluations": {
+          "type": "integer"
+        },
+        "max_pareto_points": {
+          "type": "integer"
+        },
+        "max_scenarios": {
+          "type": "integer"
+        },
+        "max_treatments": {
+          "type": "integer"
+        },
+        "protected_evidence_exposure_limit": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "max_calibration_iterations",
+        "max_contexts",
+        "max_counterfactual_queries",
+        "max_failures",
+        "max_hidden_evaluation_queries",
+        "max_objective_evaluations",
+        "max_pareto_points",
+        "max_scenarios",
+        "max_treatments",
+        "protected_evidence_exposure_limit"
+      ],
+      "type": "object"
+    },
+    "calibration_temperature": {
+      "type": "number"
+    },
+    "constraints": {
+      "additionalProperties": false,
+      "properties": {
+        "exact_version": {
+          "type": "string"
+        },
+        "hard_fail_to_skip": {
+          "type": "boolean"
+        },
+        "manual_approval_required": {
+          "type": "boolean"
+        },
+        "maximum_complexity": {
+          "type": "integer"
+        },
+        "maximum_cost": {
+          "type": "number"
+        },
+        "maximum_drawdown": {
+          "type": "number"
+        },
+        "maximum_tail_loss_probability": {
+          "type": "number"
+        },
+        "minimum_overlap": {
+          "type": "number"
+        },
+        "minimum_support": {
+          "type": "integer"
+        },
+        "proof_required": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "exact_version",
+        "hard_fail_to_skip",
+        "manual_approval_required",
+        "maximum_complexity",
+        "maximum_cost",
+        "maximum_drawdown",
+        "maximum_tail_loss_probability",
+        "minimum_overlap",
+        "minimum_support",
+        "proof_required"
+      ],
+      "type": "object"
+    },
+    "decision_problem": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_objectives": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "cluster_field": {
+          "type": "string"
+        },
+        "context_id_field": {
+          "type": "string"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "future_suffix_forbidden": {
+          "type": "boolean"
+        },
+        "known_time_field": {
+          "type": "string"
+        },
+        "maximize": {
+          "type": "boolean"
+        },
+        "outcome_field": {
+          "type": "string"
+        },
+        "primary_objective": {
+          "type": "string"
+        },
+        "protected_evidence_forbidden": {
+          "type": "boolean"
+        },
+        "sample_weight_field": {
+          "type": "string"
+        },
+        "treatment_field": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "allowed_objectives",
+        "cluster_field",
+        "context_id_field",
+        "exact_version",
+        "future_suffix_forbidden",
+        "known_time_field",
+        "maximize",
+        "outcome_field",
+        "primary_objective",
+        "protected_evidence_forbidden",
+        "sample_weight_field",
+        "treatment_field"
+      ],
+      "type": "object"
+    },
+    "risk": {
+      "additionalProperties": false,
+      "properties": {
+        "ambiguity_radius": {
+          "type": "number"
+        },
+        "confidence_z": {
+          "type": "number"
+        },
+        "cvar_alpha": {
+          "type": "number"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "maximum_entropy": {
+          "type": "number"
+        },
+        "maximum_set_size": {
+          "type": "integer"
+        },
+        "minimum_margin": {
+          "type": "number"
+        },
+        "regret_weight": {
+          "type": "number"
+        },
+        "tail_weight": {
+          "type": "number"
+        },
+        "uncertainty_weight": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "ambiguity_radius",
+        "confidence_z",
+        "cvar_alpha",
+        "exact_version",
+        "maximum_entropy",
+        "maximum_set_size",
+        "minimum_margin",
+        "regret_weight",
+        "tail_weight",
+        "uncertainty_weight"
+      ],
+      "type": "object"
+    },
+    "selection_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "abstention_policy": {
+          "type": "string"
+        },
+        "baseline_preservation": {
+          "type": "boolean"
+        },
+        "calibration_method": {
+          "type": "string"
+        },
+        "deterministic": {
+          "type": "boolean"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "objective": {
+          "type": "string"
+        },
+        "pareto_required": {
+          "type": "boolean"
+        },
+        "runtime_executable": {
+          "type": "boolean"
+        },
+        "set_valued": {
+          "type": "boolean"
+        },
+        "tie_policy": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "abstention_policy",
+        "baseline_preservation",
+        "calibration_method",
+        "deterministic",
+        "exact_version",
+        "objective",
+        "pareto_required",
+        "runtime_executable",
+        "set_valued",
+        "tie_policy"
+      ],
+      "type": "object"
+    },
+    "treatment_universe": {
+      "additionalProperties": false,
+      "properties": {
+        "canonical_baseline": {
+          "type": "string"
+        },
+        "closed_world": {
+          "type": "boolean"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "runtime_mutation_allowed": {
+          "type": "boolean"
+        },
+        "skip_treatment": {
+          "type": "string"
+        },
+        "synthetic_only": {
+          "type": "boolean"
+        },
+        "treatments": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "complexity": {
+                "type": "integer"
+              },
+              "description": {
+                "type": "string"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "family": {
+                "type": "string"
+              },
+              "manual_approved": {
+                "type": "boolean"
+              },
+              "max_nominal_risk": {
+                "type": "number"
+              },
+              "treatment_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "complexity",
+              "description",
+              "enabled",
+              "family",
+              "manual_approved",
+              "max_nominal_risk",
+              "treatment_id"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "canonical_baseline",
+        "closed_world",
+        "exact_version",
+        "runtime_mutation_allowed",
+        "skip_treatment",
+        "synthetic_only",
+        "treatments"
+      ],
+      "type": "object"
+    },
+    "utility": {
+      "additionalProperties": false,
+      "properties": {
+        "abstention_cost": {
+          "type": "number"
+        },
+        "complexity_weight": {
+          "type": "number"
+        },
+        "cost_weight": {
+          "type": "number"
+        },
+        "drawdown_weight": {
+          "type": "number"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "reward_weight": {
+          "type": "number"
+        },
+        "skip_utility": {
+          "type": "number"
+        },
+        "tail_loss_weight": {
+          "type": "number"
+        },
+        "turnover_weight": {
+          "type": "number"
+        },
+        "utility_ceiling": {
+          "type": "number"
+        },
+        "utility_floor": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "abstention_cost",
+        "complexity_weight",
+        "cost_weight",
+        "drawdown_weight",
+        "exact_version",
+        "reward_weight",
+        "skip_utility",
+        "tail_loss_weight",
+        "turnover_weight",
+        "utility_ceiling",
+        "utility_floor"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "budget",
+    "calibration_temperature",
+    "constraints",
+    "decision_problem",
+    "risk",
+    "selection_policy",
+    "treatment_universe",
+    "utility"
+  ],
+  "title": "SAED V4-20 closed schema for FULL_REFERENCE_CONFIG",
+  "type": "object"
+}

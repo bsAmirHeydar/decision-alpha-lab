@@ -1,0 +1,75 @@
+{
+  "budget_snapshot": {
+    "calibration_iterations": 1,
+    "contexts": 1,
+    "counterfactual_queries": 0,
+    "failures": 0,
+    "hidden_evaluation_queries": 0,
+    "objective_evaluations": 5,
+    "pareto_points": 4,
+    "protected_evidence_exposure": 0,
+    "scenarios": 25,
+    "treatments": 5
+  },
+  "complete": true,
+  "hidden_evaluation_queries": 0,
+  "ledger_hash": "8d531655a89d296a0b17f98003edcd1e0eefbc0b64e7b827f31894e929664693",
+  "phase": "SAED_V4_20",
+  "protected_evidence_exposure": 0,
+  "rows": [
+    {
+      "exposure_class": "synthetic_reference",
+      "hidden_evaluation_queries": 0,
+      "protected": false,
+      "trial_id": "TRIAL_V420_001"
+    },
+    {
+      "exposure_class": "synthetic_reference",
+      "hidden_evaluation_queries": 0,
+      "protected": false,
+      "trial_id": "TRIAL_V420_002"
+    },
+    {
+      "exposure_class": "synthetic_reference",
+      "hidden_evaluation_queries": 0,
+      "protected": false,
+      "trial_id": "TRIAL_V420_003"
+    },
+    {
+      "exposure_class": "synthetic_reference",
+      "hidden_evaluation_queries": 0,
+      "protected": false,
+      "trial_id": "TRIAL_V420_004"
+    },
+    {
+      "exposure_class": "synthetic_reference",
+      "hidden_evaluation_queries": 0,
+      "protected": false,
+      "trial_id": "TRIAL_V420_005"
+    },
+    {
+      "exposure_class": "synthetic_reference",
+      "hidden_evaluation_queries": 0,
+      "protected": false,
+      "trial_id": "TRIAL_V420_006"
+    },
+    {
+      "exposure_class": "synthetic_reference",
+      "hidden_evaluation_queries": 0,
+      "protected": false,
+      "trial_id": "TRIAL_V420_007"
+    },
+    {
+      "exposure_class": "synthetic_reference",
+      "hidden_evaluation_queries": 0,
+      "protected": false,
+      "trial_id": "TRIAL_V420_008"
+    },
+    {
+      "exposure_class": "synthetic_reference",
+      "hidden_evaluation_queries": 0,
+      "protected": false,
+      "trial_id": "TRIAL_V420_009"
+    }
+  ]
+}

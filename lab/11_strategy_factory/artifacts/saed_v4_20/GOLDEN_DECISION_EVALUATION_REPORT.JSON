@@ -1,0 +1,100 @@
+{
+  "abstention_rate": 0.75,
+  "contexts": 8,
+  "expected_calibration_error": 0.2644034759533461,
+  "maximum_regret": 0.52,
+  "mean_oracle_utility": 0.49,
+  "mean_regret": 0.37,
+  "mean_selected_utility": 0.12,
+  "rows": [
+    {
+      "abstained": true,
+      "context_id": "CTX_SYNTH_0001",
+      "correct": false,
+      "oracle_treatment": "T_ADAPTIVE",
+      "oracle_utility": 0.448,
+      "regret": 0.448,
+      "selected_treatment": "SKIP",
+      "selected_utility": 0.0,
+      "top_probability": 0.23836868966526406
+    },
+    {
+      "abstained": true,
+      "context_id": "CTX_SYNTH_0002",
+      "correct": false,
+      "oracle_treatment": "T_ADAPTIVE",
+      "oracle_utility": 0.45999999999999996,
+      "regret": 0.45999999999999996,
+      "selected_treatment": "SKIP",
+      "selected_utility": 0.0,
+      "top_probability": 0.23887446782689448
+    },
+    {
+      "abstained": true,
+      "context_id": "CTX_SYNTH_0003",
+      "correct": false,
+      "oracle_treatment": "T_ADAPTIVE",
+      "oracle_utility": 0.472,
+      "regret": 0.472,
+      "selected_treatment": "SKIP",
+      "selected_utility": 0.0,
+      "top_probability": 0.23939193407458853
+    },
+    {
+      "abstained": true,
+      "context_id": "CTX_SYNTH_0004",
+      "correct": false,
+      "oracle_treatment": "T_ADAPTIVE",
+      "oracle_utility": 0.484,
+      "regret": 0.484,
+      "selected_treatment": "SKIP",
+      "selected_utility": 0.0,
+      "top_probability": 0.24000720504848813
+    },
+    {
+      "abstained": true,
+      "context_id": "CTX_SYNTH_0005",
+      "correct": false,
+      "oracle_treatment": "T_ADAPTIVE",
+      "oracle_utility": 0.496,
+      "regret": 0.496,
+      "selected_treatment": "SKIP",
+      "selected_utility": 0.0,
+      "top_probability": 0.24061448913628508
+    },
+    {
+      "abstained": false,
+      "context_id": "CTX_SYNTH_0006",
+      "correct": false,
+      "oracle_treatment": "T_ADAPTIVE",
+      "oracle_utility": 0.508,
+      "regret": 0.03999999999999998,
+      "selected_treatment": "T_BALANCED",
+      "selected_utility": 0.468,
+      "top_probability": 0.3099024178186937
+    },
+    {
+      "abstained": true,
+      "context_id": "CTX_SYNTH_0007",
+      "correct": false,
+      "oracle_treatment": "T_ADAPTIVE",
+      "oracle_utility": 0.52,
+      "regret": 0.52,
+      "selected_treatment": "SKIP",
+      "selected_utility": 0.0,
+      "top_probability": 0.29622377902777963
+    },
+    {
+      "abstained": false,
+      "context_id": "CTX_SYNTH_0008",
+      "correct": false,
+      "oracle_treatment": "T_ADAPTIVE",
+      "oracle_utility": 0.532,
+      "regret": 0.040000000000000036,
+      "selected_treatment": "T_BALANCED",
+      "selected_utility": 0.492,
+      "top_probability": 0.31184482502877525
+    }
+  ],
+  "selection_accuracy": 0.0
+}

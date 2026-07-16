@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context_id": {
+      "type": "string"
+    },
+    "treatments": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "context_id",
+    "treatments"
+  ],
+  "title": "SAED V4-20 closed schema for GOLDEN_PARETO_FRONTIER",
+  "type": "object"
+}

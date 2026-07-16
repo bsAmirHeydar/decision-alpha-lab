@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context_id": {
+      "type": "string"
+    },
+    "hard_fail_to_skip": {
+      "type": "boolean"
+    },
+    "mask_hash": {
+      "type": "string"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "allowed": {
+            "type": "boolean"
+          },
+          "reasons": {
+            "items": {},
+            "type": "array"
+          },
+          "treatment_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "allowed",
+          "reasons",
+          "treatment_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "context_id",
+    "hard_fail_to_skip",
+    "mask_hash",
+    "rows"
+  ],
+  "title": "SAED V4-20 closed schema for GOLDEN_ACTION_MASK",
+  "type": "object"
+}

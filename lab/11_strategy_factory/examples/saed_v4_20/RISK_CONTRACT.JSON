@@ -1,0 +1,12 @@
+{
+  "ambiguity_radius": 0.015,
+  "confidence_z": 0.65,
+  "cvar_alpha": 0.2,
+  "exact_version": "1.0.0",
+  "maximum_entropy": 1.7,
+  "maximum_set_size": 3,
+  "minimum_margin": 0.1,
+  "regret_weight": 0.15,
+  "tail_weight": 0.08,
+  "uncertainty_weight": 0.12
+}

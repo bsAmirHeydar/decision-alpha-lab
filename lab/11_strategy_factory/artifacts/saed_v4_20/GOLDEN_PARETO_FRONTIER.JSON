@@ -1,0 +1,9 @@
+{
+  "context_id": "CTX_SYNTH_0001",
+  "treatments": [
+    "MANUAL_CORE",
+    "SKIP",
+    "T_BALANCED",
+    "T_CONSERVATIVE"
+  ]
+}

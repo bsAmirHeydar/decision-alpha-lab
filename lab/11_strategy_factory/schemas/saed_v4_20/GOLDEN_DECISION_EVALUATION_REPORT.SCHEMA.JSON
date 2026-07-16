@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "abstention_rate": {
+      "type": "number"
+    },
+    "contexts": {
+      "type": "integer"
+    },
+    "expected_calibration_error": {
+      "type": "number"
+    },
+    "maximum_regret": {
+      "type": "number"
+    },
+    "mean_oracle_utility": {
+      "type": "number"
+    },
+    "mean_regret": {
+      "type": "number"
+    },
+    "mean_selected_utility": {
+      "type": "number"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "abstained": {
+            "type": "boolean"
+          },
+          "context_id": {
+            "type": "string"
+          },
+          "correct": {
+            "type": "boolean"
+          },
+          "oracle_treatment": {
+            "type": "string"
+          },
+          "oracle_utility": {
+            "type": "number"
+          },
+          "regret": {
+            "type": "number"
+          },
+          "selected_treatment": {
+            "type": "string"
+          },
+          "selected_utility": {
+            "type": "number"
+          },
+          "top_probability": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "abstained",
+          "context_id",
+          "correct",
+          "oracle_treatment",
+          "oracle_utility",
+          "regret",
+          "selected_treatment",
+          "selected_utility",
+          "top_probability"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "selection_accuracy": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "abstention_rate",
+    "contexts",
+    "expected_calibration_error",
+    "maximum_regret",
+    "mean_oracle_utility",
+    "mean_regret",
+    "mean_selected_utility",
+    "rows",
+    "selection_accuracy"
+  ],
+  "title": "SAED V4-20 closed schema for GOLDEN_DECISION_EVALUATION_REPORT",
+  "type": "object"
+}

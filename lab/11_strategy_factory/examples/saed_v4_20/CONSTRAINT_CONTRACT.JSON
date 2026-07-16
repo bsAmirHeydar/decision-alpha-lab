@@ -1,0 +1,12 @@
+{
+  "exact_version": "1.0.0",
+  "hard_fail_to_skip": true,
+  "manual_approval_required": true,
+  "maximum_complexity": 5,
+  "maximum_cost": 0.2,
+  "maximum_drawdown": 3.0,
+  "maximum_tail_loss_probability": 0.35,
+  "minimum_overlap": 0.1,
+  "minimum_support": 20,
+  "proof_required": true
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_treatments_disallowed": {
+      "type": "boolean"
+    },
+    "context_id": {
+      "type": "string"
+    },
+    "expected_fallback": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "all_treatments_disallowed",
+    "context_id",
+    "expected_fallback"
+  ],
+  "title": "Negative fixture NEGATIVE_EMPTY_MASK",
+  "type": "object"
+}

@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cluster_id": {
+      "type": "string"
+    },
+    "context_id": {
+      "type": "string"
+    },
+    "estimated_cost": {
+      "additionalProperties": false,
+      "properties": {
+        "MANUAL_CORE": {
+          "type": "number"
+        },
+        "SKIP": {
+          "type": "number"
+        },
+        "T_ADAPTIVE": {
+          "type": "number"
+        },
+        "T_BALANCED": {
+          "type": "number"
+        },
+        "T_CONSERVATIVE": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "MANUAL_CORE",
+        "SKIP",
+        "T_ADAPTIVE",
+        "T_BALANCED",
+        "T_CONSERVATIVE"
+      ],
+      "type": "object"
+    },
+    "known_time": {
+      "type": "string"
+    },
+    "overlap": {
+      "additionalProperties": false,
+      "properties": {
+        "MANUAL_CORE": {
+          "type": "number"
+        },
+        "SKIP": {
+          "type": "number"
+        },
+        "T_ADAPTIVE": {
+          "type": "number"
+        },
+        "T_BALANCED": {
+          "type": "number"
+        },
+        "T_CONSERVATIVE": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "MANUAL_CORE",
+        "SKIP",
+        "T_ADAPTIVE",
+        "T_BALANCED",
+        "T_CONSERVATIVE"
+      ],
+      "type": "object"
+    },
+    "proof_hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "MANUAL_CORE": {
+          "type": "string"
+        },
+        "SKIP": {
+          "type": "string"
+        },
+        "T_ADAPTIVE": {
+          "type": "string"
+        },
+        "T_BALANCED": {
+          "type": "string"
+        },
+        "T_CONSERVATIVE": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "MANUAL_CORE",
+        "SKIP",
+        "T_ADAPTIVE",
+        "T_BALANCED",
+        "T_CONSERVATIVE"
+      ],
+      "type": "object"
+    },
+    "support": {
+      "additionalProperties": false,
+      "properties": {
+        "MANUAL_CORE": {
+          "type": "integer"
+        },
+        "SKIP": {
+          "type": "integer"
+        },
+        "T_ADAPTIVE": {
+          "type": "integer"
+        },
+        "T_BALANCED": {
+          "type": "integer"
+        },
+        "T_CONSERVATIVE": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "MANUAL_CORE",
+        "SKIP",
+        "T_ADAPTIVE",
+        "T_BALANCED",
+        "T_CONSERVATIVE"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "cluster_id",
+    "context_id",
+    "estimated_cost",
+    "known_time",
+    "overlap",
+    "proof_hashes",
+    "support"
+  ],
+  "title": "SAED V4-20 closed schema for GOLDEN_CONTEXT",
+  "type": "object"
+}

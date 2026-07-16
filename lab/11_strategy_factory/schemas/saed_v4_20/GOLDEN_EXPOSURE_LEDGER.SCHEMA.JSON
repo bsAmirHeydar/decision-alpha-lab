@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "budget_snapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "calibration_iterations": {
+          "type": "integer"
+        },
+        "contexts": {
+          "type": "integer"
+        },
+        "counterfactual_queries": {
+          "type": "integer"
+        },
+        "failures": {
+          "type": "integer"
+        },
+        "hidden_evaluation_queries": {
+          "type": "integer"
+        },
+        "objective_evaluations": {
+          "type": "integer"
+        },
+        "pareto_points": {
+          "type": "integer"
+        },
+        "protected_evidence_exposure": {
+          "type": "integer"
+        },
+        "scenarios": {
+          "type": "integer"
+        },
+        "treatments": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "calibration_iterations",
+        "contexts",
+        "counterfactual_queries",
+        "failures",
+        "hidden_evaluation_queries",
+        "objective_evaluations",
+        "pareto_points",
+        "protected_evidence_exposure",
+        "scenarios",
+        "treatments"
+      ],
+      "type": "object"
+    },
+    "complete": {
+      "type": "boolean"
+    },
+    "hidden_evaluation_queries": {
+      "type": "integer"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "protected_evidence_exposure": {
+      "type": "integer"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "exposure_class": {
+            "type": "string"
+          },
+          "hidden_evaluation_queries": {
+            "type": "integer"
+          },
+          "protected": {
+            "type": "boolean"
+          },
+          "trial_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "exposure_class",
+          "hidden_evaluation_queries",
+          "protected",
+          "trial_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "budget_snapshot",
+    "complete",
+    "hidden_evaluation_queries",
+    "ledger_hash",
+    "phase",
+    "protected_evidence_exposure",
+    "rows"
+  ],
+  "title": "SAED V4-20 closed schema for GOLDEN_EXPOSURE_LEDGER",
+  "type": "object"
+}

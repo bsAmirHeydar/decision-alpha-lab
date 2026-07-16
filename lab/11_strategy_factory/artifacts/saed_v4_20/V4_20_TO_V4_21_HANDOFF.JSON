@@ -1,0 +1,37 @@
+{
+  "authority": {
+    "activate_runtime": false,
+    "allocate_risk": false,
+    "compile_runtime": false,
+    "select_live_treatment": false,
+    "send_order": false,
+    "sign_promotion": false
+  },
+  "entry_gates": {
+    "abstention_fail_closed": true,
+    "baseline_preserved": true,
+    "closed_contracts": true,
+    "deterministic_replay": true,
+    "pareto_frontier": true,
+    "research_only": true,
+    "set_valued_selection": true,
+    "zero_hidden_evaluation_queries": true,
+    "zero_protected_evidence_exposure": true
+  },
+  "exposure_ledger_hash": "8d531655a89d296a0b17f98003edcd1e0eefbc0b64e7b827f31894e929664693",
+  "handoff_hash": "b4eeab11898c492867071408aad802f8edb5e33443fbef0172b2a87b400a1027",
+  "handoff_id": "v420_to_v421_5f02b52c1dc4bb19702d9e8e",
+  "next_phase": "SAED_V4_21",
+  "phase": "SAED_V4_20",
+  "qa": {
+    "closed_schema_pairs": 40,
+    "golden_reproduction": true,
+    "mql5_static_files": 18,
+    "obsidian_notes": 146,
+    "passed": true,
+    "python_tests": 178
+  },
+  "research_only": true,
+  "selection_certificate_hash": "aa7dcddab262160bc86f8a66661696dd334c711787e277e6d90a854ad2e9a39b",
+  "selection_registry_hash": "f05d1c6cb93a5af2dbc65e5734b86f9876153b4f70ba85ad72995aac8b39a257"
+}

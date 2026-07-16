@@ -1,0 +1,21 @@
+{
+  "allowed_objectives": [
+    "expected_utility",
+    "lower_confidence_utility",
+    "cvar_utility",
+    "minimax_regret",
+    "pareto_robust",
+    "hybrid"
+  ],
+  "cluster_field": "cluster_id",
+  "context_id_field": "context_id",
+  "exact_version": "1.0.0",
+  "future_suffix_forbidden": true,
+  "known_time_field": "known_time",
+  "maximize": true,
+  "outcome_field": "realized_utility",
+  "primary_objective": "hybrid",
+  "protected_evidence_forbidden": true,
+  "sample_weight_field": "sample_weight",
+  "treatment_field": "treatment_id"
+}

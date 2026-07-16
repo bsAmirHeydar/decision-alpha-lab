@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_objectives": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "cluster_field": {
+      "type": "string"
+    },
+    "context_id_field": {
+      "type": "string"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "future_suffix_forbidden": {
+      "type": "boolean"
+    },
+    "known_time_field": {
+      "type": "string"
+    },
+    "maximize": {
+      "type": "boolean"
+    },
+    "outcome_field": {
+      "type": "string"
+    },
+    "primary_objective": {
+      "type": "string"
+    },
+    "protected_evidence_forbidden": {
+      "type": "boolean"
+    },
+    "sample_weight_field": {
+      "type": "string"
+    },
+    "treatment_field": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "allowed_objectives",
+    "cluster_field",
+    "context_id_field",
+    "exact_version",
+    "future_suffix_forbidden",
+    "known_time_field",
+    "maximize",
+    "outcome_field",
+    "primary_objective",
+    "protected_evidence_forbidden",
+    "sample_weight_field",
+    "treatment_field"
+  ],
+  "title": "SAED V4-20 closed schema for DECISION_PROBLEM_CONTRACT",
+  "type": "object"
+}

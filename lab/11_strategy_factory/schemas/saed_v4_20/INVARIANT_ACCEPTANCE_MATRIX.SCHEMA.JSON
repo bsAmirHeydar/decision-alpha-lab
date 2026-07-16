@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "evidence_class": {
+            "type": "string"
+          },
+          "invariant_id": {
+            "type": "string"
+          },
+          "passed": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "evidence_class",
+          "invariant_id",
+          "passed"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "all_passed",
+    "phase",
+    "rows"
+  ],
+  "title": "SAED V4-20 closed schema for INVARIANT_ACCEPTANCE_MATRIX",
+  "type": "object"
+}

@@ -1,0 +1,9 @@
+{
+  "certificate_prefix_invariant": true,
+  "decision_prefix_invariant": true,
+  "passed": true,
+  "phase": "SAED_V4_20",
+  "prefix_hash": "a6adeed4b85cabeaefc09aedadce4f82811b6ec5a7b85236bf9120d5a5216c5c",
+  "ranking_prefix_invariant": true,
+  "suffix_mutation_count": 8
+}

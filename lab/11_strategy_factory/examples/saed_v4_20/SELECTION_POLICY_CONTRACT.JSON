@@ -1,0 +1,12 @@
+{
+  "abstention_policy": "combined",
+  "baseline_preservation": true,
+  "calibration_method": "temperature",
+  "deterministic": true,
+  "exact_version": "1.0.0",
+  "objective": "hybrid",
+  "pareto_required": true,
+  "runtime_executable": false,
+  "set_valued": true,
+  "tie_policy": "baseline_first"
+}

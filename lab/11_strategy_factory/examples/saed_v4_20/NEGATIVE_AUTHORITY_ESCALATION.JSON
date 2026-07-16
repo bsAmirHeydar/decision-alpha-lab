@@ -1,0 +1,4 @@
+{
+  "expected_failure": "forbidden_operation",
+  "operation": "select_live_treatment"
+}

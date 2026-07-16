@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "dynamic_code": {
+      "type": "boolean"
+    },
+    "live_credentials": {
+      "type": "boolean"
+    },
+    "network_access": {
+      "type": "boolean"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "payload_scan": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "protected_evidence": {
+      "type": "boolean"
+    },
+    "runtime_execution": {
+      "type": "boolean"
+    },
+    "supply_chain_scope": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "dynamic_code",
+    "live_credentials",
+    "network_access",
+    "passed",
+    "payload_scan",
+    "phase",
+    "protected_evidence",
+    "runtime_execution",
+    "supply_chain_scope"
+  ],
+  "title": "SAED V4-20 closed schema for SECURITY_REVIEW",
+  "type": "object"
+}

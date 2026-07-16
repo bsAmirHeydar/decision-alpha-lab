@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "items": {
+    "additionalProperties": false,
+    "properties": {
+      "proof_hash": {
+        "type": "string"
+      },
+      "research_only": {
+        "type": "boolean"
+      },
+      "treatment_id": {
+        "type": "string"
+      },
+      "valid": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "proof_hash",
+      "research_only",
+      "treatment_id",
+      "valid"
+    ],
+    "type": "object"
+  },
+  "title": "SAED V4-20 closed schema for GOLDEN_PROOFS",
+  "type": "array"
+}

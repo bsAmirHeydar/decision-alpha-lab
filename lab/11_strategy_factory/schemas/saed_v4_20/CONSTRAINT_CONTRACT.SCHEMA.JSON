@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "exact_version": {
+      "type": "string"
+    },
+    "hard_fail_to_skip": {
+      "type": "boolean"
+    },
+    "manual_approval_required": {
+      "type": "boolean"
+    },
+    "maximum_complexity": {
+      "type": "integer"
+    },
+    "maximum_cost": {
+      "type": "number"
+    },
+    "maximum_drawdown": {
+      "type": "number"
+    },
+    "maximum_tail_loss_probability": {
+      "type": "number"
+    },
+    "minimum_overlap": {
+      "type": "number"
+    },
+    "minimum_support": {
+      "type": "integer"
+    },
+    "proof_required": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "exact_version",
+    "hard_fail_to_skip",
+    "manual_approval_required",
+    "maximum_complexity",
+    "maximum_cost",
+    "maximum_drawdown",
+    "maximum_tail_loss_probability",
+    "minimum_overlap",
+    "minimum_support",
+    "proof_required"
+  ],
+  "title": "SAED V4-20 closed schema for CONSTRAINT_CONTRACT",
+  "type": "object"
+}

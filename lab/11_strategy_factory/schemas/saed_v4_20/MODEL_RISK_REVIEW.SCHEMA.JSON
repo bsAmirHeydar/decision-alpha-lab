@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "controls": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "material_risks": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorization": {
+      "type": "boolean"
+    },
+    "residual_risk": {
+      "type": "string"
+    },
+    "review_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "controls",
+    "material_risks",
+    "phase",
+    "production_authorization",
+    "residual_risk",
+    "review_status"
+  ],
+  "title": "SAED V4-20 closed schema for MODEL_RISK_REVIEW",
+  "type": "object"
+}

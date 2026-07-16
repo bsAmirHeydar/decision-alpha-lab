@@ -1,0 +1,194 @@
+{
+  "immutable": true,
+  "registry_hash": "79139455e46daa5e83ad1c61956855f5bbde51b2ee6406717d4b8012335aadf3",
+  "rows": [
+    {
+      "certificate_hash": "70ec122ed411e080a20d42d21fd243ca4d4a810076f50e314fffa51eb601c716",
+      "context_id": "CTX_SYNTH_0007",
+      "decision": {
+        "abstain": true,
+        "context_id": "CTX_SYNTH_0007",
+        "decision": "abstain",
+        "fallback": "skip",
+        "reasons": [
+          "insufficient_objective_margin"
+        ],
+        "selected_treatments": [
+          "SKIP"
+        ],
+        "selection_entropy": 1.3691271220326926,
+        "top_probability": 0.29622377902777963
+      },
+      "pareto_treatments": [
+        "MANUAL_CORE",
+        "SKIP",
+        "T_ADAPTIVE",
+        "T_CONSERVATIVE"
+      ]
+    },
+    {
+      "certificate_hash": "8ce0cfaf2c2637d18f536198d8dfe36fa12ccd1d4a2b46705230fe2980bfce0d",
+      "context_id": "CTX_SYNTH_0002",
+      "decision": {
+        "abstain": true,
+        "context_id": "CTX_SYNTH_0002",
+        "decision": "abstain",
+        "fallback": "skip",
+        "reasons": [
+          "insufficient_objective_margin"
+        ],
+        "selected_treatments": [
+          "SKIP"
+        ],
+        "selection_entropy": 1.596033596084199,
+        "top_probability": 0.23887446782689448
+      },
+      "pareto_treatments": [
+        "MANUAL_CORE",
+        "SKIP",
+        "T_BALANCED",
+        "T_CONSERVATIVE"
+      ]
+    },
+    {
+      "certificate_hash": "a195e15b609da881c58f8e427f40bf7f8f76269a534a4b9975e78a776dd136d5",
+      "context_id": "CTX_SYNTH_0001",
+      "decision": {
+        "abstain": true,
+        "context_id": "CTX_SYNTH_0001",
+        "decision": "abstain",
+        "fallback": "skip",
+        "reasons": [
+          "insufficient_objective_margin"
+        ],
+        "selected_treatments": [
+          "SKIP"
+        ],
+        "selection_entropy": 1.596949243657283,
+        "top_probability": 0.23836868966526406
+      },
+      "pareto_treatments": [
+        "MANUAL_CORE",
+        "SKIP",
+        "T_BALANCED",
+        "T_CONSERVATIVE"
+      ]
+    },
+    {
+      "certificate_hash": "bd4bf304d7337bbfbe14aaddf71decaeb6ab926c373f96f17ee87d0e0e948dae",
+      "context_id": "CTX_SYNTH_0004",
+      "decision": {
+        "abstain": true,
+        "context_id": "CTX_SYNTH_0004",
+        "decision": "abstain",
+        "fallback": "skip",
+        "reasons": [
+          "insufficient_objective_margin"
+        ],
+        "selected_treatments": [
+          "SKIP"
+        ],
+        "selection_entropy": 1.5941646037904653,
+        "top_probability": 0.24000720504848813
+      },
+      "pareto_treatments": [
+        "MANUAL_CORE",
+        "SKIP",
+        "T_BALANCED",
+        "T_CONSERVATIVE"
+      ]
+    },
+    {
+      "certificate_hash": "c19446a97e4841260ef64d06319a1f0644bf049f26e188d462fb02dc1aa9ffaf",
+      "context_id": "CTX_SYNTH_0005",
+      "decision": {
+        "abstain": true,
+        "context_id": "CTX_SYNTH_0005",
+        "decision": "abstain",
+        "fallback": "skip",
+        "reasons": [
+          "insufficient_objective_margin"
+        ],
+        "selected_treatments": [
+          "SKIP"
+        ],
+        "selection_entropy": 1.5932082123338722,
+        "top_probability": 0.24061448913628508
+      },
+      "pareto_treatments": [
+        "MANUAL_CORE",
+        "SKIP",
+        "T_BALANCED",
+        "T_CONSERVATIVE"
+      ]
+    },
+    {
+      "certificate_hash": "c6a22b77e64f1debda169b1d45bf7db5f860bf1b766d57485b5c00d25236b5c8",
+      "context_id": "CTX_SYNTH_0006",
+      "decision": {
+        "abstain": false,
+        "context_id": "CTX_SYNTH_0006",
+        "decision": "single",
+        "fallback": "none",
+        "reasons": [],
+        "selected_treatments": [
+          "T_BALANCED"
+        ],
+        "selection_entropy": 1.3663447071292496,
+        "top_probability": 0.3099024178186937
+      },
+      "pareto_treatments": [
+        "MANUAL_CORE",
+        "SKIP",
+        "T_BALANCED",
+        "T_CONSERVATIVE"
+      ]
+    },
+    {
+      "certificate_hash": "cccff8d0ad9908864452de5e6a60e518eca6a7582ad9e30dfdd3a18aee875df4",
+      "context_id": "CTX_SYNTH_0008",
+      "decision": {
+        "abstain": false,
+        "context_id": "CTX_SYNTH_0008",
+        "decision": "single",
+        "fallback": "none",
+        "reasons": [],
+        "selected_treatments": [
+          "T_BALANCED"
+        ],
+        "selection_entropy": 1.3638772586576324,
+        "top_probability": 0.31184482502877525
+      },
+      "pareto_treatments": [
+        "MANUAL_CORE",
+        "SKIP",
+        "T_BALANCED",
+        "T_CONSERVATIVE"
+      ]
+    },
+    {
+      "certificate_hash": "d8dd9f2741bddd891b3f67b605be94af7910bd55ed99eef161b1148b1121ac1b",
+      "context_id": "CTX_SYNTH_0003",
+      "decision": {
+        "abstain": true,
+        "context_id": "CTX_SYNTH_0003",
+        "decision": "abstain",
+        "fallback": "skip",
+        "reasons": [
+          "insufficient_objective_margin"
+        ],
+        "selected_treatments": [
+          "SKIP"
+        ],
+        "selection_entropy": 1.5950935487323612,
+        "top_probability": 0.23939193407458853
+      },
+      "pareto_treatments": [
+        "MANUAL_CORE",
+        "SKIP",
+        "T_BALANCED",
+        "T_CONSERVATIVE"
+      ]
+    }
+  ]
+}

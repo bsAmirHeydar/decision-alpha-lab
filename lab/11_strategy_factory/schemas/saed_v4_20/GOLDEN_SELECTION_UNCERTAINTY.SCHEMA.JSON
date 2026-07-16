@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "entropy": {
+      "type": "number"
+    },
+    "margin_probability": {
+      "type": "number"
+    },
+    "top_probability": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "entropy",
+    "margin_probability",
+    "top_probability"
+  ],
+  "title": "SAED V4-20 closed schema for GOLDEN_SELECTION_UNCERTAINTY",
+  "type": "object"
+}

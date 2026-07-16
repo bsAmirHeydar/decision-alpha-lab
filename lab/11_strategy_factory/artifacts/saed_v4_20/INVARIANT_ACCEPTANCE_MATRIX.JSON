@@ -1,0 +1,286 @@
+{
+  "all_passed": true,
+  "phase": "SAED_V4_20",
+  "rows": [
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "closed_treatment_universe",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "runtime_universe_mutation_forbidden",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "unknown_treatment_rejected",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "known_time_required",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "future_suffix_forbidden",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "protected_evidence_exposure_zero",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "hidden_evaluation_queries_zero",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "proof_required",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "proof_hash_match_required",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "manual_approval_required",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "minimum_support_enforced",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "minimum_overlap_enforced",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "cost_limit_enforced",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "complexity_limit_enforced",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "tail_probability_limit_enforced",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "drawdown_limit_enforced",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "fail_closed_skip",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "canonical_baseline_present",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "skip_baseline_present",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "baseline_preservation",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "deterministic_ties",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "pareto_required",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "set_valued_selection",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "maximum_set_size_enforced",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "uncertainty_abstention",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "margin_abstention",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "support_abstention",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "proof_abstention",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "selection_entropy_measured",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "calibration_reported",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "regret_reported",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "maximum_regret_reported",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "lower_confidence_utility_reported",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "cvar_utility_reported",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "ambiguity_penalty_reported",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "complexity_penalty_reported",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "cost_penalty_reported",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "turnover_penalty_reported",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "tail_penalty_reported",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "drawdown_penalty_reported",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "objective_is_frozen",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "exposure_ledger_complete",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "trial_ids_complete",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "certificate_content_addressed",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "certificate_non_executable",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "decision_authority_false",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "promotion_authority_false",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "runtime_authority_false",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "execution_authority_false",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "production_authority_false",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "upstream_hashes_bound",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "golden_replay_deterministic",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "negative_fixtures_fail_closed",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "UCEE_boundary_preserved",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "central_engine_unmodified",
+      "passed": true
+    },
+    {
+      "evidence_class": "local_deterministic_synthetic_reference",
+      "invariant_id": "next_phase_handoff_narrow",
+      "passed": true
+    }
+  ]
+}

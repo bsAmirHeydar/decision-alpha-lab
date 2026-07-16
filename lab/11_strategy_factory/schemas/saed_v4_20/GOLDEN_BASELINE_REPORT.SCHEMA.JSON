@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "best_candidate": {
+      "type": "string"
+    },
+    "best_minus_baseline": {
+      "type": "number"
+    },
+    "best_minus_skip": {
+      "type": "number"
+    },
+    "canonical_baseline": {
+      "type": "string"
+    },
+    "decision_abstained": {
+      "type": "boolean"
+    },
+    "fallback": {
+      "type": "string"
+    },
+    "skip_treatment": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "baseline_preserved",
+    "best_candidate",
+    "best_minus_baseline",
+    "best_minus_skip",
+    "canonical_baseline",
+    "decision_abstained",
+    "fallback",
+    "skip_treatment"
+  ],
+  "title": "SAED V4-20 closed schema for GOLDEN_BASELINE_REPORT",
+  "type": "object"
+}

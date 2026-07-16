@@ -1,0 +1,8 @@
+{
+  "deterministic": true,
+  "future_suffix_sensitive": false,
+  "input_hash": "ad96be4a228f5ebc0d5e72b0a2c1b6de5088a5766befb3d500d56559e8c46634",
+  "output_hash": "a6adeed4b85cabeaefc09aedadce4f82811b6ec5a7b85236bf9120d5a5216c5c",
+  "phase": "SAED_V4_20",
+  "receipt_hash": "b69690d15dedae666fc860fe956fde867ce28f9acf3c277a9aacad50e3719f4e"
+}

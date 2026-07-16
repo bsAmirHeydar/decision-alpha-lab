@@ -1,0 +1,63 @@
+{
+  "canonical_baseline": "MANUAL_CORE",
+  "closed_world": true,
+  "enabled_treatments": [
+    "MANUAL_CORE",
+    "SKIP",
+    "T_ADAPTIVE",
+    "T_BALANCED",
+    "T_CONSERVATIVE"
+  ],
+  "exact_version": "1.0.0",
+  "runtime_mutation_allowed": false,
+  "skip_treatment": "SKIP",
+  "synthetic_only": true,
+  "treatments": [
+    {
+      "complexity": 1,
+      "description": "Frozen manual doctrine baseline",
+      "enabled": true,
+      "family": "manual",
+      "manual_approved": true,
+      "max_nominal_risk": 0.25,
+      "treatment_id": "MANUAL_CORE"
+    },
+    {
+      "complexity": 0,
+      "description": "Canonical no-action baseline",
+      "enabled": true,
+      "family": "null",
+      "manual_approved": true,
+      "max_nominal_risk": 0.0,
+      "treatment_id": "SKIP"
+    },
+    {
+      "complexity": 5,
+      "description": "Higher-complexity synthetic adaptive treatment",
+      "enabled": true,
+      "family": "challenger",
+      "manual_approved": true,
+      "max_nominal_risk": 0.45,
+      "treatment_id": "T_ADAPTIVE"
+    },
+    {
+      "complexity": 3,
+      "description": "Balanced synthetic reward-risk treatment",
+      "enabled": true,
+      "family": "bounded",
+      "manual_approved": true,
+      "max_nominal_risk": 0.4,
+      "treatment_id": "T_BALANCED"
+    },
+    {
+      "complexity": 2,
+      "description": "Low-variance synthetic treatment",
+      "enabled": true,
+      "family": "bounded",
+      "manual_approved": true,
+      "max_nominal_risk": 0.3,
+      "treatment_id": "T_CONSERVATIVE"
+    }
+  ],
+  "universe_hash": "cc4452b390b9dcd5a8e4406316e25591f8363ad2f8f3c797aca0808a043d0ff7"
+}

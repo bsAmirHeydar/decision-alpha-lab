@@ -1,0 +1,12 @@
+{
+  "calibration_iterations": 1,
+  "contexts": 1,
+  "counterfactual_queries": 0,
+  "failures": 0,
+  "hidden_evaluation_queries": 0,
+  "objective_evaluations": 5,
+  "pareto_points": 4,
+  "protected_evidence_exposure": 0,
+  "scenarios": 25,
+  "treatments": 5
+}
