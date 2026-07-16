@@ -1,0 +1,46 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/projection_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "exact_version": {
+      "type": "string"
+    },
+    "fail_closed": {
+      "type": "boolean"
+    },
+    "mask_enforced": {
+      "type": "boolean"
+    },
+    "maximum_kl_from_behavior": {
+      "type": "number"
+    },
+    "maximum_l1_from_behavior": {
+      "type": "number"
+    },
+    "minimum_supported_probability": {
+      "type": "number"
+    },
+    "safe_action_floor": {
+      "type": "number"
+    },
+    "support_enforced": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "exact_version",
+    "fail_closed",
+    "mask_enforced",
+    "maximum_kl_from_behavior",
+    "maximum_l1_from_behavior",
+    "minimum_supported_probability",
+    "safe_action_floor",
+    "support_enforced"
+  ],
+  "title": "SAED V4-23 PROJECTION_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

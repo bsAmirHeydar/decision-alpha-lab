@@ -1,0 +1,10 @@
+{
+  "baseline_ope_lower_bound": 0.1861212324818635,
+  "baseline_policy_id": "manual_baseline_policy_e64f2e661aebe39abaded8b9",
+  "immutable": true,
+  "matrix_hash": "7c7dc402473c790647183430c9c0577c9d6c68db78c728adebcec4fecbb445ed",
+  "passed": true,
+  "present": true,
+  "promotion_eligible": false,
+  "runtime_executable": false
+}

@@ -1,0 +1,195 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/golden_fqe_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "bundle_hash": {
+      "type": "string"
+    },
+    "reports": {
+      "additionalProperties": false,
+      "properties": {
+        "manual_baseline_policy_e64f2e661aebe39abaded8b9": {
+          "additionalProperties": false,
+          "properties": {
+            "fqe": {
+              "type": "number"
+            },
+            "fqe_interval": {
+              "additionalProperties": false,
+              "properties": {
+                "draws": {
+                  "type": "integer"
+                },
+                "lower": {
+                  "type": "number"
+                },
+                "mean": {
+                  "type": "number"
+                },
+                "upper": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "draws",
+                "lower",
+                "mean",
+                "upper"
+              ],
+              "type": "object"
+            },
+            "policy_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "fqe",
+            "fqe_interval",
+            "policy_id"
+          ],
+          "type": "object"
+        },
+        "projected_policy_0cd159c178bd099e28663bc1": {
+          "additionalProperties": false,
+          "properties": {
+            "fqe": {
+              "type": "number"
+            },
+            "fqe_interval": {
+              "additionalProperties": false,
+              "properties": {
+                "draws": {
+                  "type": "integer"
+                },
+                "lower": {
+                  "type": "number"
+                },
+                "mean": {
+                  "type": "number"
+                },
+                "upper": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "draws",
+                "lower",
+                "mean",
+                "upper"
+              ],
+              "type": "object"
+            },
+            "policy_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "fqe",
+            "fqe_interval",
+            "policy_id"
+          ],
+          "type": "object"
+        },
+        "projected_policy_1aacba61d46fc10e4ec3dd1d": {
+          "additionalProperties": false,
+          "properties": {
+            "fqe": {
+              "type": "number"
+            },
+            "fqe_interval": {
+              "additionalProperties": false,
+              "properties": {
+                "draws": {
+                  "type": "integer"
+                },
+                "lower": {
+                  "type": "number"
+                },
+                "mean": {
+                  "type": "number"
+                },
+                "upper": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "draws",
+                "lower",
+                "mean",
+                "upper"
+              ],
+              "type": "object"
+            },
+            "policy_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "fqe",
+            "fqe_interval",
+            "policy_id"
+          ],
+          "type": "object"
+        },
+        "projected_policy_c59f24982fd9a5058e292d3d": {
+          "additionalProperties": false,
+          "properties": {
+            "fqe": {
+              "type": "number"
+            },
+            "fqe_interval": {
+              "additionalProperties": false,
+              "properties": {
+                "draws": {
+                  "type": "integer"
+                },
+                "lower": {
+                  "type": "number"
+                },
+                "mean": {
+                  "type": "number"
+                },
+                "upper": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "draws",
+                "lower",
+                "mean",
+                "upper"
+              ],
+              "type": "object"
+            },
+            "policy_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "fqe",
+            "fqe_interval",
+            "policy_id"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "manual_baseline_policy_e64f2e661aebe39abaded8b9",
+        "projected_policy_0cd159c178bd099e28663bc1",
+        "projected_policy_1aacba61d46fc10e4ec3dd1d",
+        "projected_policy_c59f24982fd9a5058e292d3d"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "bundle_hash",
+    "reports"
+  ],
+  "title": "SAED V4-23 GOLDEN_FQE_REPORT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

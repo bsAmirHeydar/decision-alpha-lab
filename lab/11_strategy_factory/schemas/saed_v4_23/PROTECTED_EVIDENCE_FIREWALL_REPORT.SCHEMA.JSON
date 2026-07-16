@@ -1,0 +1,34 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/protected_evidence_firewall_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "forbidden_key_scan_passed": {
+      "type": "boolean"
+    },
+    "hidden_evaluation_queries": {
+      "type": "integer"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "protected_evidence_exposures": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "forbidden_key_scan_passed",
+    "hidden_evaluation_queries",
+    "passed",
+    "phase",
+    "protected_evidence_exposures"
+  ],
+  "title": "SAED V4-23 PROTECTED_EVIDENCE_FIREWALL_REPORT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

@@ -1,0 +1,23 @@
+{
+  "approved_for": "offline_research_only",
+  "controls": [
+    "support_gate",
+    "weight_clipping",
+    "reward_audit",
+    "multiple_ope_estimators",
+    "baseline_preservation",
+    "synthetic_veto_only",
+    "abstention"
+  ],
+  "passed": true,
+  "phase": "SAED_V4_23",
+  "residual_risk": "high_until_prospective_evidence",
+  "risks": [
+    "support_mismatch",
+    "importance_weight_instability",
+    "reward_misspecification",
+    "confounding",
+    "estimator_disagreement",
+    "simulator_exploitation"
+  ]
+}

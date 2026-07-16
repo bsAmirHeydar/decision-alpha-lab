@@ -1,0 +1,13 @@
+{
+  "exact_version": "1.0.0",
+  "max_bootstrap_draws": 5000,
+  "max_candidate_policies": 16,
+  "max_dataset_episodes": 64,
+  "max_failures": 32,
+  "max_hidden_evaluation_queries": 0,
+  "max_ope_evaluations": 16,
+  "max_projection_attempts": 16,
+  "max_synthetic_challenges": 16,
+  "max_training_trials": 16,
+  "protected_evidence_exposure_limit": 0
+}

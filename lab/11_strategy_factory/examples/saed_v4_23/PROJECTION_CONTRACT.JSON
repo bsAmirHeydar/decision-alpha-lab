@@ -1,0 +1,10 @@
+{
+  "exact_version": "1.0.0",
+  "fail_closed": true,
+  "mask_enforced": true,
+  "maximum_kl_from_behavior": 1.5,
+  "maximum_l1_from_behavior": 0.9,
+  "minimum_supported_probability": 0.015,
+  "safe_action_floor": 0.05,
+  "support_enforced": true
+}

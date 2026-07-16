@@ -1,0 +1,9 @@
+{
+  "cluster_aware": true,
+  "deterministic": true,
+  "exact_version": "1.0.0",
+  "maximum_log_ratio": 4.0,
+  "minimum_probability": 0.02,
+  "smoothing": 0.5,
+  "state_conditioned": true
+}

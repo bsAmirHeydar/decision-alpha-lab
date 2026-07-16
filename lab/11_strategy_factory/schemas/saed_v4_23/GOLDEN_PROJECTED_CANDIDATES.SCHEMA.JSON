@@ -1,0 +1,23 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/golden_projected_candidates.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "bundle_hash": {
+      "type": "string"
+    },
+    "candidates": {
+      "items": {},
+      "type": "array"
+    }
+  },
+  "required": [
+    "bundle_hash",
+    "candidates"
+  ],
+  "title": "SAED V4-23 GOLDEN_PROJECTED_CANDIDATES",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

@@ -1,0 +1,9 @@
+{
+  "broker_credentials_present": false,
+  "hidden_evaluation_access": false,
+  "network_calls_required": false,
+  "passed": true,
+  "phase": "SAED_V4_23",
+  "runtime_signing_material_present": false,
+  "secret_scan": true
+}

@@ -1,0 +1,5 @@
+{
+  "case": "promotion_authority",
+  "expected": "AuthorityError",
+  "rejected": true
+}

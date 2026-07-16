@@ -1,0 +1,126 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/v4_23_to_v4_24_handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "allowed_next_work": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "decision": {
+          "type": "boolean"
+        },
+        "execution": {
+          "type": "boolean"
+        },
+        "production": {
+          "type": "boolean"
+        },
+        "promotion": {
+          "type": "boolean"
+        },
+        "risk_allocation": {
+          "type": "boolean"
+        },
+        "runtime": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "decision",
+        "execution",
+        "production",
+        "promotion",
+        "risk_allocation",
+        "runtime"
+      ],
+      "type": "object"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "entry_gates": {
+      "additionalProperties": false,
+      "properties": {
+        "offline_policy_certificate_verified": {
+          "type": "boolean"
+        },
+        "ope_intervals_available": {
+          "type": "boolean"
+        },
+        "promotion_denied": {
+          "type": "boolean"
+        },
+        "qa_passed": {
+          "type": "boolean"
+        },
+        "runtime_denied": {
+          "type": "boolean"
+        },
+        "selection_remains_research_only": {
+          "type": "boolean"
+        },
+        "support_uncertainty_available": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "offline_policy_certificate_verified",
+        "ope_intervals_available",
+        "promotion_denied",
+        "qa_passed",
+        "runtime_denied",
+        "selection_remains_research_only",
+        "support_uncertainty_available"
+      ],
+      "type": "object"
+    },
+    "forbidden_next_work": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "research_policy_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "allowed_next_work",
+    "authority",
+    "certificate_hash",
+    "entry_gates",
+    "forbidden_next_work",
+    "handoff_hash",
+    "handoff_id",
+    "next_phase",
+    "phase",
+    "research_only",
+    "research_policy_id"
+  ],
+  "title": "SAED V4-23 V4_23_TO_V4_24_HANDOFF",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

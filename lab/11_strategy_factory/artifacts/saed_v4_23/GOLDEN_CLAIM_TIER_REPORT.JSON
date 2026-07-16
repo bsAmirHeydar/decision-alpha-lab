@@ -1,0 +1,18 @@
+{
+  "allowed_claims": [
+    "offline_reference_algorithms_implemented",
+    "logged_replay_ope_computed",
+    "support_diagnostics_computed",
+    "synthetic_stress_used_as_veto_only"
+  ],
+  "claim_tier": "research_only",
+  "denied_claims": [
+    "real_alpha",
+    "promotion_authority",
+    "runtime_parity",
+    "production_authorization",
+    "live_trading"
+  ],
+  "evidence_scope": "local_deterministic_logged_replay_and_synthetic_veto_reference",
+  "phase": "SAED_V4_23"
+}

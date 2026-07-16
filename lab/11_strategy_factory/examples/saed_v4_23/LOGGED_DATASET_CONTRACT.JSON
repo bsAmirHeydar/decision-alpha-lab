@@ -1,0 +1,28 @@
+{
+  "allowed_roles": [
+    "training",
+    "calibration",
+    "selection_validation"
+  ],
+  "behavior_probability_required": true,
+  "cluster_identity_required": true,
+  "exact_version": "1.0.0",
+  "future_suffix_forbidden": true,
+  "known_time_required": true,
+  "minimum_episodes": 8,
+  "minimum_steps_per_episode": 6,
+  "protected_evidence_forbidden": true,
+  "required_step_fields": [
+    "t",
+    "state",
+    "action",
+    "reward",
+    "next_state",
+    "done",
+    "behavior_prob",
+    "allowed_actions",
+    "known_at",
+    "reward_components"
+  ],
+  "strict_time_order": true
+}

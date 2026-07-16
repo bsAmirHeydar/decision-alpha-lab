@@ -1,0 +1,102 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/golden_policy_challenge_matrix.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "abstain_if_no_challenger": {
+      "type": "boolean"
+    },
+    "baseline_policy_id": {
+      "type": "string"
+    },
+    "matrix_hash": {
+      "type": "string"
+    },
+    "matrix_id": {
+      "type": "string"
+    },
+    "promotion_authority": {
+      "type": "boolean"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "estimator_spread": {
+            "type": "number"
+          },
+          "family": {
+            "type": "string"
+          },
+          "lower_bound_margin_vs_baseline": {
+            "type": "number"
+          },
+          "ope_lower_bound": {
+            "type": "number"
+          },
+          "ope_upper_bound": {
+            "type": "number"
+          },
+          "policy_id": {
+            "type": "string"
+          },
+          "promotion_eligible": {
+            "type": "boolean"
+          },
+          "research_challenger_passed": {
+            "type": "boolean"
+          },
+          "runtime_executable": {
+            "type": "boolean"
+          },
+          "support_passed": {
+            "type": "boolean"
+          },
+          "synthetic_veto_passed": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "estimator_spread",
+          "family",
+          "lower_bound_margin_vs_baseline",
+          "ope_lower_bound",
+          "ope_upper_bound",
+          "policy_id",
+          "promotion_eligible",
+          "research_challenger_passed",
+          "runtime_executable",
+          "support_passed",
+          "synthetic_veto_passed"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "runtime_authority": {
+      "type": "boolean"
+    },
+    "selected_research_policy_id": {
+      "type": "string"
+    },
+    "selection_is_research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "abstain_if_no_challenger",
+    "baseline_policy_id",
+    "matrix_hash",
+    "matrix_id",
+    "promotion_authority",
+    "rows",
+    "runtime_authority",
+    "selected_research_policy_id",
+    "selection_is_research_only"
+  ],
+  "title": "SAED V4-23 GOLDEN_POLICY_CHALLENGE_MATRIX",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

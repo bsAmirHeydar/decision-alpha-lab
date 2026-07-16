@@ -1,0 +1,58 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/upstream_intake_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "budget_ledger_hash": {
+      "type": "string"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "exploitability_report_hash": {
+      "type": "string"
+    },
+    "fidelity_report_hash": {
+      "type": "string"
+    },
+    "generative_stress_certificate_hash": {
+      "type": "string"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "hash_verified": {
+      "type": "boolean"
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "required_phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "uncertainty_map_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "budget_ledger_hash",
+    "exact_version",
+    "exploitability_report_hash",
+    "fidelity_report_hash",
+    "generative_stress_certificate_hash",
+    "handoff_hash",
+    "hash_verified",
+    "immutable",
+    "required_phase",
+    "research_only",
+    "uncertainty_map_hash"
+  ],
+  "title": "SAED V4-23 UPSTREAM_INTAKE_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

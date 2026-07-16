@@ -1,0 +1,13 @@
+{
+  "budget_ledger_hash": "a18e3b989ba777c22ceb52df78881b7509fb2ebb361f8e4eecec3fd16a3f2aca",
+  "exact_version": "1.0.0",
+  "exploitability_report_hash": "9cabbcce8cc719e164e40fc65302d823b6600a11fe665fa6f134309b5348bb67",
+  "fidelity_report_hash": "5f72282670df0f2477d485f8932dd5306b3c67e094fd8a45cb23c2cd0ec36521",
+  "generative_stress_certificate_hash": "98dd7ab400bf16bf0d4a4f4d88fefe747ce8c52d3fef26fdf24abf0dc96491a1",
+  "handoff_hash": "0e0e66378e766614f1b143cfabb48d9b8eaa933c830f3bf4d70cd891beb15218",
+  "hash_verified": true,
+  "immutable": true,
+  "required_phase": "SAED_V4_22",
+  "research_only": true,
+  "uncertainty_map_hash": "74cd8a7381031cfa787eabf2092bf0e0d15597dc5bd5a7fb3f40cac92a346599"
+}

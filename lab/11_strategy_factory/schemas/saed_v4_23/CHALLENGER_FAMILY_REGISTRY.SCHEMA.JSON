@@ -1,0 +1,33 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/challenger_family_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "baseline_family": {
+      "type": "string"
+    },
+    "families": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "promotion_eligible": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "baseline_family",
+    "families",
+    "promotion_eligible",
+    "research_only"
+  ],
+  "title": "SAED V4-23 CHALLENGER_FAMILY_REGISTRY",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

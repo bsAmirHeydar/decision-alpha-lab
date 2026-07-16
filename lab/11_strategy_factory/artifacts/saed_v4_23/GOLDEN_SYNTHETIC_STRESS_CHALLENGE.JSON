@@ -1,0 +1,54 @@
+{
+  "bundle_hash": "c404ae49c3e114559a1f53c0630a5a10521e8bee4a6c9fc7f5ef9cb42938451d",
+  "positive_evidence_contribution": 0.0,
+  "reports": {
+    "manual_baseline_policy_e64f2e661aebe39abaded8b9": {
+      "candidate_policy_id": "manual_baseline_policy_e64f2e661aebe39abaded8b9",
+      "challenge_hash": "e79aed24f9830b5703c4dc44e723fcdd06d0111c40a6046e1f66e3b5e2d98c85",
+      "challenge_id": "synthetic_veto_afd39cac63fd91b589eb991e",
+      "mean_l1_from_baseline": 0.0,
+      "passed": true,
+      "positive_evidence_contribution": 0.0,
+      "synthetic_positive_evidence": false,
+      "synthetic_veto_score": 0.0,
+      "threshold": 0.85,
+      "upstream_certificate_hash": "98dd7ab400bf16bf0d4a4f4d88fefe747ce8c52d3fef26fdf24abf0dc96491a1"
+    },
+    "projected_policy_0cd159c178bd099e28663bc1": {
+      "candidate_policy_id": "projected_policy_0cd159c178bd099e28663bc1",
+      "challenge_hash": "7656046c41fb4289004e1442d40c945ad792f1c66babac614305c1be7895b50b",
+      "challenge_id": "synthetic_veto_acf23eea122b2110f3aa1465",
+      "mean_l1_from_baseline": 0.19972235983757483,
+      "passed": true,
+      "positive_evidence_contribution": 0.0,
+      "synthetic_positive_evidence": false,
+      "synthetic_veto_score": 0.19972235983757483,
+      "threshold": 0.85,
+      "upstream_certificate_hash": "98dd7ab400bf16bf0d4a4f4d88fefe747ce8c52d3fef26fdf24abf0dc96491a1"
+    },
+    "projected_policy_1aacba61d46fc10e4ec3dd1d": {
+      "candidate_policy_id": "projected_policy_1aacba61d46fc10e4ec3dd1d",
+      "challenge_hash": "3b7883ab860ed9fd0fd46602e27cda6093be9f3dbbcd36c9430d42c165fe1d9c",
+      "challenge_id": "synthetic_veto_b06e5df29a1acb7a2afcd75f",
+      "mean_l1_from_baseline": 0.37911100861350827,
+      "passed": true,
+      "positive_evidence_contribution": 0.0,
+      "synthetic_positive_evidence": false,
+      "synthetic_veto_score": 0.37911100861350827,
+      "threshold": 0.85,
+      "upstream_certificate_hash": "98dd7ab400bf16bf0d4a4f4d88fefe747ce8c52d3fef26fdf24abf0dc96491a1"
+    },
+    "projected_policy_c59f24982fd9a5058e292d3d": {
+      "candidate_policy_id": "projected_policy_c59f24982fd9a5058e292d3d",
+      "challenge_hash": "4d3291a5ca58f5c92833c6668b9c0927e77cdb60d6c11b1793b9d0d9de3b345e",
+      "challenge_id": "synthetic_veto_954ee19824b8b0c110a8868a",
+      "mean_l1_from_baseline": 0.24341051820559442,
+      "passed": true,
+      "positive_evidence_contribution": 0.0,
+      "synthetic_positive_evidence": false,
+      "synthetic_veto_score": 0.24341051820559442,
+      "threshold": 0.85,
+      "upstream_certificate_hash": "98dd7ab400bf16bf0d4a4f4d88fefe747ce8c52d3fef26fdf24abf0dc96491a1"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "accepted_for_offline_policy_research": true,
+  "authority_boundary": {
+    "authority": {
+      "decision": false,
+      "execution": false,
+      "live_policy_update": false,
+      "online_learning": false,
+      "order_submission": false,
+      "production": false,
+      "promotion": false,
+      "risk_allocation": false,
+      "runtime": false
+    },
+    "fallbacks": [
+      "skip",
+      "abstain",
+      "manual_baseline",
+      "reject",
+      "quarantine"
+    ],
+    "offline_only": true,
+    "phase": "SAED_V4_23",
+    "research_only": true
+  },
+  "behavior_policy_hash": "4e99f1a83907dc903b5cf87228ae4f269448191d63efcd1cc795a67827a4cd51",
+  "budget_ledger_hash": "7d5623a799eff4eb790ba2d617f9a1646e5dafc8fd0feb5b01f807ce9d23f334",
+  "certificate_hash": "bb3b6107bb5bf101fd619b11a6703058035ef4f232e332eac44151ad7ec940d6",
+  "certificate_id": "offline_policy_research_certificate_8098792e3d5b98aff80a8caa",
+  "challenge_matrix_hash": "0e400ebe62f91fa82a2208121765e2d279efd02f42f139f0052bde333f0e79b8",
+  "dataset_summary_hash": "a4df3b8c90e5f4f2d9df72290509ca4c0284334084d8aa10399f09fc35e8cd70",
+  "exposure_ledger_hash": "bf5ed9f87302609e2727b98567260cb308c226c9afbed9167e463a2d51e64d5e",
+  "gates": {
+    "baseline_preserved": true,
+    "dataset_validated": true,
+    "exposure_ledger_complete": true,
+    "hidden_evaluation_queries_zero": true,
+    "ope_complete": true,
+    "protected_evidence_exposures_zero": true,
+    "reward_audit_passed": true,
+    "support_reports_complete": true,
+    "synthetic_veto_complete": true,
+    "trial_ledger_complete": true,
+    "upstream_verified": true
+  },
+  "phase": "SAED_V4_23",
+  "production_authority": false,
+  "promotion_authority": false,
+  "prospective_success_claim": false,
+  "real_alpha_claim": false,
+  "research_selected_policy_id": "manual_baseline_policy_e64f2e661aebe39abaded8b9",
+  "reward_audit_hash": "ddfb7873a34790db6dcc3c47d77bbccac3b4f09815e2c85173ba7d6b21ac972b",
+  "runtime_executable": false,
+  "selection_is_research_only": true,
+  "trial_ledger_hash": "719cec56d85e104fa60804179ce41f45f59855f17ee6a7dad74a004ee7e1ed7a",
+  "upstream_receipt_hash": "89a14e077eb58c0bdc8a5aa17358e01b03df0175eeea89d8369eb2f5a4986dce"
+}

@@ -1,0 +1,42 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/support_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "exact_version": {
+      "type": "string"
+    },
+    "fail_closed": {
+      "type": "boolean"
+    },
+    "maximum_importance_weight": {
+      "type": "number"
+    },
+    "maximum_unsupported_mass": {
+      "type": "number"
+    },
+    "minimum_behavior_probability": {
+      "type": "number"
+    },
+    "minimum_effective_sample_size": {
+      "type": "number"
+    },
+    "minimum_state_action_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "exact_version",
+    "fail_closed",
+    "maximum_importance_weight",
+    "maximum_unsupported_mass",
+    "minimum_behavior_probability",
+    "minimum_effective_sample_size",
+    "minimum_state_action_count"
+  ],
+  "title": "SAED V4-23 SUPPORT_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

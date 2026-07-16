@@ -1,0 +1,42 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/action_masks.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "flat": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "trend_down": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "trend_up": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "volatile": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "flat",
+    "trend_down",
+    "trend_up",
+    "volatile"
+  ],
+  "title": "SAED V4-23 ACTION_MASKS",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

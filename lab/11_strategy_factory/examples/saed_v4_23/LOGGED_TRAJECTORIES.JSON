@@ -1,0 +1,4006 @@
+{
+  "action_space_hash": "129b4e8cfdc6984408649351f86e91f7c443e8b66ad73b7e98eb8ef4840978aa",
+  "context_id": "context_reference_001",
+  "dataset_id": "v4_23_logged_replay_fixture",
+  "episodes": [
+    {
+      "cluster_id": "cluster_01",
+      "episode_id": "episode_001",
+      "start_time": "2026-01-01T00:00:00Z",
+      "steps": [
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-01T00:00:00Z",
+          "next_state": "flat",
+          "reward": 0.00321556,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.00321556,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 0
+        },
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-01T01:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.07862701,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.09362701,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 1
+        },
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-01T02:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.23955711,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.25455711,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 2
+        },
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-01T03:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.19031854,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.20531854,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 3
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": false,
+          "known_at": "2026-01-01T04:00:00Z",
+          "next_state": "flat",
+          "reward": 0.01809717,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.01809717,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 4
+        },
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-01T05:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.06070618,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.07570618,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 5
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.13,
+          "done": false,
+          "known_at": "2026-01-01T06:00:00Z",
+          "next_state": "volatile",
+          "reward": -0.22910541,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": -0.21410541,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 6
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.14,
+          "done": true,
+          "known_at": "2026-01-01T07:00:00Z",
+          "next_state": "trend_down",
+          "reward": -0.17225105,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": -0.15225105,
+            "risk_penalty": -0.005
+          },
+          "state": "volatile",
+          "t": 7
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_01",
+      "episode_id": "episode_002",
+      "start_time": "2026-01-02T00:00:00Z",
+      "steps": [
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-02T00:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.21610938,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.23110938,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 0
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.13,
+          "done": false,
+          "known_at": "2026-01-02T01:00:00Z",
+          "next_state": "volatile",
+          "reward": -0.28677836,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": -0.27177836,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 1
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip"
+          ],
+          "behavior_prob": 0.72,
+          "done": false,
+          "known_at": "2026-01-02T02:00:00Z",
+          "next_state": "flat",
+          "reward": 0.04666141,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.04666141,
+            "risk_penalty": 0.0
+          },
+          "state": "volatile",
+          "t": 2
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-02T03:00:00Z",
+          "next_state": "flat",
+          "reward": -0.03391025,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.03391025,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 3
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-02T04:00:00Z",
+          "next_state": "flat",
+          "reward": 0.00814453,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.00814453,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 4
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-02T05:00:00Z",
+          "next_state": "flat",
+          "reward": 0.00172206,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.00172206,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 5
+        },
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-02T06:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.07448771,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.08948771,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 6
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": true,
+          "known_at": "2026-01-02T07:00:00Z",
+          "next_state": "flat",
+          "reward": 0.0046196,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.0046196,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 7
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_01",
+      "episode_id": "episode_003",
+      "start_time": "2026-01-03T00:00:00Z",
+      "steps": [
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-03T00:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.16902222,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.18402222,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 0
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": false,
+          "known_at": "2026-01-03T01:00:00Z",
+          "next_state": "flat",
+          "reward": -0.00333161,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.00333161,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 1
+        },
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-03T02:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.04491019,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.05991019,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 2
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.13,
+          "done": false,
+          "known_at": "2026-01-03T03:00:00Z",
+          "next_state": "volatile",
+          "reward": -0.23681387,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": -0.22181387,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 3
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip"
+          ],
+          "behavior_prob": 0.72,
+          "done": false,
+          "known_at": "2026-01-03T04:00:00Z",
+          "next_state": "flat",
+          "reward": 0.06929263,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.06929263,
+            "risk_penalty": 0.0
+          },
+          "state": "volatile",
+          "t": 4
+        },
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-03T05:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.04631353,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.06131353,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 5
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": false,
+          "known_at": "2026-01-03T06:00:00Z",
+          "next_state": "flat",
+          "reward": 0.04058197,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.04058197,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 6
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": true,
+          "known_at": "2026-01-03T07:00:00Z",
+          "next_state": "trend_down",
+          "reward": -0.00090609,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.01409391,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 7
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_01",
+      "episode_id": "episode_004",
+      "start_time": "2026-01-04T00:00:00Z",
+      "steps": [
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip"
+          ],
+          "behavior_prob": 0.72,
+          "done": false,
+          "known_at": "2026-01-04T00:00:00Z",
+          "next_state": "flat",
+          "reward": -0.00691254,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.00691254,
+            "risk_penalty": 0.0
+          },
+          "state": "volatile",
+          "t": 0
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-04T01:00:00Z",
+          "next_state": "flat",
+          "reward": -0.03368445,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.03368445,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 1
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-04T02:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.0259917,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.0409917,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 2
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-04T03:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.17151894,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.18651894,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 3
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": false,
+          "known_at": "2026-01-04T04:00:00Z",
+          "next_state": "flat",
+          "reward": 0.01834995,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.01834995,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 4
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-04T05:00:00Z",
+          "next_state": "flat",
+          "reward": 0.0164856,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.0164856,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 5
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-04T06:00:00Z",
+          "next_state": "flat",
+          "reward": -0.01514909,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.01514909,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 6
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": true,
+          "known_at": "2026-01-04T07:00:00Z",
+          "next_state": "flat",
+          "reward": -0.00129685,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.00129685,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 7
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_02",
+      "episode_id": "episode_005",
+      "start_time": "2026-01-05T00:00:00Z",
+      "steps": [
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-05T00:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.00747252,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.02247252,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 0
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-05T01:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.2319712,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.2469712,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 1
+        },
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.13,
+          "done": false,
+          "known_at": "2026-01-05T02:00:00Z",
+          "next_state": "volatile",
+          "reward": -0.23926378,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": -0.22426378,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 2
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.14,
+          "done": false,
+          "known_at": "2026-01-05T03:00:00Z",
+          "next_state": "trend_down",
+          "reward": -0.17113927,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": -0.15113927,
+            "risk_penalty": -0.005
+          },
+          "state": "volatile",
+          "t": 3
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-05T04:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.22622123,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.24122123,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 4
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": false,
+          "known_at": "2026-01-05T05:00:00Z",
+          "next_state": "flat",
+          "reward": 0.01684178,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.01684178,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 5
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-05T06:00:00Z",
+          "next_state": "flat",
+          "reward": 0.01118375,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.01118375,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 6
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": true,
+          "known_at": "2026-01-05T07:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.05661279,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.07161279,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 7
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_02",
+      "episode_id": "episode_006",
+      "start_time": "2026-01-06T00:00:00Z",
+      "steps": [
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-06T00:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.20966107,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.22466107,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 0
+        },
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-06T01:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.19338423,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.20838423,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 1
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": false,
+          "known_at": "2026-01-06T02:00:00Z",
+          "next_state": "flat",
+          "reward": 0.01558656,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.01558656,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 2
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-06T03:00:00Z",
+          "next_state": "trend_down",
+          "reward": -0.00497199,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.01002801,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 3
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": false,
+          "known_at": "2026-01-06T04:00:00Z",
+          "next_state": "flat",
+          "reward": -0.0153029,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.0153029,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 4
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-06T05:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.06749198,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.08249198,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 5
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-06T06:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.16958396,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.18458396,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 6
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": true,
+          "known_at": "2026-01-06T07:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.23402635,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.24902635,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 7
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_02",
+      "episode_id": "episode_007",
+      "start_time": "2026-01-07T00:00:00Z",
+      "steps": [
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-07T00:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.19932942,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.21432942,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 0
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-07T01:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.22163444,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.23663444,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 1
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-07T02:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.21346178,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.22846178,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 2
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-07T03:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.21322363,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.22822363,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 3
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-07T04:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.23241751,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.24741751,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 4
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-07T05:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.17350733,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.18850733,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 5
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-07T06:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.17498758,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.18998758,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 6
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": true,
+          "known_at": "2026-01-07T07:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.22504161,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.24004161,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 7
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_02",
+      "episode_id": "episode_008",
+      "start_time": "2026-01-08T00:00:00Z",
+      "steps": [
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.14,
+          "done": false,
+          "known_at": "2026-01-08T00:00:00Z",
+          "next_state": "trend_down",
+          "reward": -0.16335178,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": -0.14335178,
+            "risk_penalty": -0.005
+          },
+          "state": "volatile",
+          "t": 0
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-08T01:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.18706722,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.20206722,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 1
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-08T02:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.23242595,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.24742595,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 2
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-08T03:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.21424128,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.22924128,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 3
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-08T04:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.18720175,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.20220175,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 4
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-08T05:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.158141,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.173141,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 5
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-08T06:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.16236767,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.17736767,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 6
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": true,
+          "known_at": "2026-01-08T07:00:00Z",
+          "next_state": "flat",
+          "reward": -0.01038708,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.01038708,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 7
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_03",
+      "episode_id": "episode_009",
+      "start_time": "2026-01-09T00:00:00Z",
+      "steps": [
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-09T00:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.06101612,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.07601612,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 0
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-09T01:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.21774363,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.23274363,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 1
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": false,
+          "known_at": "2026-01-09T02:00:00Z",
+          "next_state": "flat",
+          "reward": 0.00642837,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.00642837,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 2
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-09T03:00:00Z",
+          "next_state": "flat",
+          "reward": 0.00718598,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.00718598,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 3
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-09T04:00:00Z",
+          "next_state": "flat",
+          "reward": -0.01093698,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.01093698,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 4
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-09T05:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.07016752,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.08516752,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 5
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-09T06:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.21445758,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.22945758,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 6
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": true,
+          "known_at": "2026-01-09T07:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.15631909,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.17131909,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 7
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_03",
+      "episode_id": "episode_010",
+      "start_time": "2026-01-10T00:00:00Z",
+      "steps": [
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": false,
+          "known_at": "2026-01-10T00:00:00Z",
+          "next_state": "flat",
+          "reward": 0.01680225,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.01680225,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 0
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-10T01:00:00Z",
+          "next_state": "flat",
+          "reward": 0.01057455,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.01057455,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 1
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-10T02:00:00Z",
+          "next_state": "flat",
+          "reward": 0.03798332,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.03798332,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 2
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-10T03:00:00Z",
+          "next_state": "flat",
+          "reward": -0.03631485,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.03631485,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 3
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-10T04:00:00Z",
+          "next_state": "flat",
+          "reward": 0.00290372,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.00290372,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 4
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-10T05:00:00Z",
+          "next_state": "flat",
+          "reward": 0.03854182,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.03854182,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 5
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-10T06:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.02359126,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.03859126,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 6
+        },
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.13,
+          "done": true,
+          "known_at": "2026-01-10T07:00:00Z",
+          "next_state": "volatile",
+          "reward": -0.25690381,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": -0.24190381,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 7
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_03",
+      "episode_id": "episode_011",
+      "start_time": "2026-01-11T00:00:00Z",
+      "steps": [
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": false,
+          "known_at": "2026-01-11T00:00:00Z",
+          "next_state": "flat",
+          "reward": -0.02601433,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.02601433,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 0
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-11T01:00:00Z",
+          "next_state": "flat",
+          "reward": 0.01494585,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.01494585,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 1
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-11T02:00:00Z",
+          "next_state": "flat",
+          "reward": 0.00343979,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.00343979,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 2
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-11T03:00:00Z",
+          "next_state": "flat",
+          "reward": 0.03560258,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.03560258,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 3
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-11T04:00:00Z",
+          "next_state": "flat",
+          "reward": 0.0157056,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.0157056,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 4
+        },
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-11T05:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.07408411,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.08908411,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 5
+        },
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-11T06:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.24444006,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.25944006,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 6
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.13,
+          "done": true,
+          "known_at": "2026-01-11T07:00:00Z",
+          "next_state": "volatile",
+          "reward": -0.24540753,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": -0.23040753,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 7
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_03",
+      "episode_id": "episode_012",
+      "start_time": "2026-01-12T00:00:00Z",
+      "steps": [
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.72,
+          "done": false,
+          "known_at": "2026-01-12T00:00:00Z",
+          "next_state": "flat",
+          "reward": 0.04368658,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.04368658,
+            "risk_penalty": 0.0
+          },
+          "state": "volatile",
+          "t": 0
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-12T01:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.06087836,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.07587836,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 1
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": false,
+          "known_at": "2026-01-12T02:00:00Z",
+          "next_state": "flat",
+          "reward": -0.02308869,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.02308869,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 2
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-12T03:00:00Z",
+          "next_state": "flat",
+          "reward": 0.03119046,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.03119046,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 3
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-12T04:00:00Z",
+          "next_state": "flat",
+          "reward": -0.03060474,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.03060474,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 4
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-12T05:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.00849516,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.02349516,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 5
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": false,
+          "known_at": "2026-01-12T06:00:00Z",
+          "next_state": "flat",
+          "reward": 0.04339174,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.04339174,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 6
+        },
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": true,
+          "known_at": "2026-01-12T07:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.01165894,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.02665894,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 7
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_04",
+      "episode_id": "episode_013",
+      "start_time": "2026-01-13T00:00:00Z",
+      "steps": [
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-13T00:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.01614751,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.03114751,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 0
+        },
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-13T01:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.22933418,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.24433418,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 1
+        },
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-13T02:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.1863495,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.2013495,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 2
+        },
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-13T03:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.23880583,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.25380583,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 3
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.13,
+          "done": false,
+          "known_at": "2026-01-13T04:00:00Z",
+          "next_state": "volatile",
+          "reward": -0.28994837,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": -0.27494837,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 4
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.72,
+          "done": false,
+          "known_at": "2026-01-13T05:00:00Z",
+          "next_state": "flat",
+          "reward": -0.00185147,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.00185147,
+            "risk_penalty": 0.0
+          },
+          "state": "volatile",
+          "t": 5
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-13T06:00:00Z",
+          "next_state": "flat",
+          "reward": -0.02517454,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.02517454,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 6
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": true,
+          "known_at": "2026-01-13T07:00:00Z",
+          "next_state": "flat",
+          "reward": 0.01354077,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.01354077,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 7
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_04",
+      "episode_id": "episode_014",
+      "start_time": "2026-01-14T00:00:00Z",
+      "steps": [
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-14T00:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.18559444,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.20059444,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 0
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": false,
+          "known_at": "2026-01-14T01:00:00Z",
+          "next_state": "flat",
+          "reward": -0.0173933,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.0173933,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 1
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-14T02:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.00994837,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.02494837,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 2
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-14T03:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.22565117,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.24065117,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 3
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-14T04:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.22996856,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.24496856,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 4
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": false,
+          "known_at": "2026-01-14T05:00:00Z",
+          "next_state": "flat",
+          "reward": -0.000695,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.000695,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 5
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-14T06:00:00Z",
+          "next_state": "flat",
+          "reward": 0.03985069,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.03985069,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 6
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": true,
+          "known_at": "2026-01-14T07:00:00Z",
+          "next_state": "flat",
+          "reward": 0.03043421,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.03043421,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 7
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_04",
+      "episode_id": "episode_015",
+      "start_time": "2026-01-15T00:00:00Z",
+      "steps": [
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.13,
+          "done": false,
+          "known_at": "2026-01-15T00:00:00Z",
+          "next_state": "volatile",
+          "reward": -0.22221624,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": -0.20721624,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 0
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip"
+          ],
+          "behavior_prob": 0.72,
+          "done": false,
+          "known_at": "2026-01-15T01:00:00Z",
+          "next_state": "flat",
+          "reward": 0.03470388,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.03470388,
+            "risk_penalty": 0.0
+          },
+          "state": "volatile",
+          "t": 1
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-15T02:00:00Z",
+          "next_state": "flat",
+          "reward": -0.02334481,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.02334481,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 2
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-15T03:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.06822189,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.08322189,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 3
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": false,
+          "known_at": "2026-01-15T04:00:00Z",
+          "next_state": "flat",
+          "reward": 0.02368058,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.02368058,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 4
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-15T05:00:00Z",
+          "next_state": "flat",
+          "reward": -0.02129607,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.02129607,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 5
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-15T06:00:00Z",
+          "next_state": "flat",
+          "reward": 0.02581264,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.02581264,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 6
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": true,
+          "known_at": "2026-01-15T07:00:00Z",
+          "next_state": "flat",
+          "reward": 0.02781124,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.02781124,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 7
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_04",
+      "episode_id": "episode_016",
+      "start_time": "2026-01-16T00:00:00Z",
+      "steps": [
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip"
+          ],
+          "behavior_prob": 0.72,
+          "done": false,
+          "known_at": "2026-01-16T00:00:00Z",
+          "next_state": "flat",
+          "reward": -0.00999112,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.00999112,
+            "risk_penalty": 0.0
+          },
+          "state": "volatile",
+          "t": 0
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-16T01:00:00Z",
+          "next_state": "flat",
+          "reward": 0.03396649,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.03396649,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 1
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-16T02:00:00Z",
+          "next_state": "flat",
+          "reward": -0.00769136,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.00769136,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 2
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-16T03:00:00Z",
+          "next_state": "flat",
+          "reward": -0.00288989,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.00288989,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 3
+        },
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-16T04:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.02870172,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.04370172,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 4
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.13,
+          "done": false,
+          "known_at": "2026-01-16T05:00:00Z",
+          "next_state": "volatile",
+          "reward": -0.2628042,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": -0.2478042,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 5
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip"
+          ],
+          "behavior_prob": 0.72,
+          "done": false,
+          "known_at": "2026-01-16T06:00:00Z",
+          "next_state": "flat",
+          "reward": 0.0440306,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.0440306,
+            "risk_penalty": 0.0
+          },
+          "state": "volatile",
+          "t": 6
+        },
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": true,
+          "known_at": "2026-01-16T07:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.02795837,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.04295837,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 7
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_05",
+      "episode_id": "episode_017",
+      "start_time": "2026-01-17T00:00:00Z",
+      "steps": [
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-17T00:00:00Z",
+          "next_state": "flat",
+          "reward": -0.00108257,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.00108257,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 0
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-17T01:00:00Z",
+          "next_state": "flat",
+          "reward": -0.03058117,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.03058117,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 1
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-17T02:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.0204009,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.0354009,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 2
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": false,
+          "known_at": "2026-01-17T03:00:00Z",
+          "next_state": "flat",
+          "reward": 0.02802182,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.02802182,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 3
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-17T04:00:00Z",
+          "next_state": "flat",
+          "reward": -0.02926969,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.02926969,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 4
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-17T05:00:00Z",
+          "next_state": "flat",
+          "reward": -0.00161685,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.00161685,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 5
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-17T06:00:00Z",
+          "next_state": "flat",
+          "reward": 0.01073583,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.01073583,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 6
+        },
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": true,
+          "known_at": "2026-01-17T07:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.02580279,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.04080279,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 7
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_05",
+      "episode_id": "episode_018",
+      "start_time": "2026-01-18T00:00:00Z",
+      "steps": [
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-18T00:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.24204364,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.25704364,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 0
+        },
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-18T01:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.1750582,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.1900582,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 1
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": false,
+          "known_at": "2026-01-18T02:00:00Z",
+          "next_state": "flat",
+          "reward": 0.00838927,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.00838927,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 2
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-18T03:00:00Z",
+          "next_state": "flat",
+          "reward": -0.01964662,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.01964662,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 3
+        },
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-18T04:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.0748271,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.0898271,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 4
+        },
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-18T05:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.18007742,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.19507742,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 5
+        },
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-18T06:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.16733543,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.18233543,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 6
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.13,
+          "done": true,
+          "known_at": "2026-01-18T07:00:00Z",
+          "next_state": "volatile",
+          "reward": -0.23037625,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": -0.21537625,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 7
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_05",
+      "episode_id": "episode_019",
+      "start_time": "2026-01-19T00:00:00Z",
+      "steps": [
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": false,
+          "known_at": "2026-01-19T00:00:00Z",
+          "next_state": "flat",
+          "reward": 0.0456588,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.0456588,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 0
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-19T01:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.06825132,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.08325132,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 1
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": false,
+          "known_at": "2026-01-19T02:00:00Z",
+          "next_state": "flat",
+          "reward": 0.00755631,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.00755631,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 2
+        },
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-19T03:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.02036841,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.03536841,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 3
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.13,
+          "done": false,
+          "known_at": "2026-01-19T04:00:00Z",
+          "next_state": "volatile",
+          "reward": -0.21966234,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": -0.20466234,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 4
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.72,
+          "done": false,
+          "known_at": "2026-01-19T05:00:00Z",
+          "next_state": "flat",
+          "reward": 0.04370087,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.04370087,
+            "risk_penalty": 0.0
+          },
+          "state": "volatile",
+          "t": 5
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-19T06:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.05218313,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.06718313,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 6
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": true,
+          "known_at": "2026-01-19T07:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.20346855,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.21846855,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 7
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_05",
+      "episode_id": "episode_020",
+      "start_time": "2026-01-20T00:00:00Z",
+      "steps": [
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.72,
+          "done": false,
+          "known_at": "2026-01-20T00:00:00Z",
+          "next_state": "flat",
+          "reward": 0.06658015,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.06658015,
+            "risk_penalty": 0.0
+          },
+          "state": "volatile",
+          "t": 0
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-20T01:00:00Z",
+          "next_state": "trend_down",
+          "reward": -0.00031117,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.01468883,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 1
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-20T02:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.18716197,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.20216197,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 2
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-20T03:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.22799856,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.24299856,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 3
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": false,
+          "known_at": "2026-01-20T04:00:00Z",
+          "next_state": "flat",
+          "reward": 0.04595451,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.04595451,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 4
+        },
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-20T05:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.01223047,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.02723047,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 5
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": false,
+          "known_at": "2026-01-20T06:00:00Z",
+          "next_state": "flat",
+          "reward": -0.00704282,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.00704282,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 6
+        },
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": true,
+          "known_at": "2026-01-20T07:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.05524614,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.07024614,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 7
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_06",
+      "episode_id": "episode_021",
+      "start_time": "2026-01-21T00:00:00Z",
+      "steps": [
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-21T00:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.07016122,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.08516122,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 0
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-21T01:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.21421104,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.22921104,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 1
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": false,
+          "known_at": "2026-01-21T02:00:00Z",
+          "next_state": "flat",
+          "reward": -0.0227713,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.0227713,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 2
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-21T03:00:00Z",
+          "next_state": "flat",
+          "reward": 0.02637003,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.02637003,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 3
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-21T04:00:00Z",
+          "next_state": "flat",
+          "reward": 0.03097403,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.03097403,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 4
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-21T05:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.02344413,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.03844413,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 5
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-21T06:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.21626227,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.23126227,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 6
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": true,
+          "known_at": "2026-01-21T07:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.22953837,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.24453837,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 7
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_06",
+      "episode_id": "episode_022",
+      "start_time": "2026-01-22T00:00:00Z",
+      "steps": [
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": false,
+          "known_at": "2026-01-22T00:00:00Z",
+          "next_state": "flat",
+          "reward": -0.00318141,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.00318141,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 0
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-22T01:00:00Z",
+          "next_state": "flat",
+          "reward": -0.01421772,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.01421772,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 1
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-22T02:00:00Z",
+          "next_state": "flat",
+          "reward": 0.03275417,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.03275417,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 2
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-22T03:00:00Z",
+          "next_state": "flat",
+          "reward": -0.02393206,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.02393206,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 3
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-22T04:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.01746766,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.03246766,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 4
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": false,
+          "known_at": "2026-01-22T05:00:00Z",
+          "next_state": "flat",
+          "reward": 0.04817148,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.04817148,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 5
+        },
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-22T06:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.02718402,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.04218402,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 6
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": true,
+          "known_at": "2026-01-22T07:00:00Z",
+          "next_state": "flat",
+          "reward": 0.01844845,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.01844845,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 7
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_06",
+      "episode_id": "episode_023",
+      "start_time": "2026-01-23T00:00:00Z",
+      "steps": [
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": false,
+          "known_at": "2026-01-23T00:00:00Z",
+          "next_state": "flat",
+          "reward": -0.0194511,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.0194511,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 0
+        },
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-23T01:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.04779057,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.06279057,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 1
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": false,
+          "known_at": "2026-01-23T02:00:00Z",
+          "next_state": "flat",
+          "reward": 0.03298424,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.03298424,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_up",
+          "t": 2
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-23T03:00:00Z",
+          "next_state": "flat",
+          "reward": 0.02954235,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.02954235,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 3
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-23T04:00:00Z",
+          "next_state": "flat",
+          "reward": -0.02347567,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.02347567,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 4
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-23T05:00:00Z",
+          "next_state": "flat",
+          "reward": -0.01441961,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.01441961,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 5
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-23T06:00:00Z",
+          "next_state": "flat",
+          "reward": -0.01651302,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.01651302,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 6
+        },
+        {
+          "action": "long",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": true,
+          "known_at": "2026-01-23T07:00:00Z",
+          "next_state": "trend_up",
+          "reward": 0.05820632,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.07320632,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 7
+        }
+      ]
+    },
+    {
+      "cluster_id": "cluster_06",
+      "episode_id": "episode_024",
+      "start_time": "2026-01-24T00:00:00Z",
+      "steps": [
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.72,
+          "done": false,
+          "known_at": "2026-01-24T00:00:00Z",
+          "next_state": "flat",
+          "reward": 0.02436897,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.02436897,
+            "risk_penalty": 0.0
+          },
+          "state": "volatile",
+          "t": 0
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-24T01:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.02892466,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.04392466,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 1
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": false,
+          "known_at": "2026-01-24T02:00:00Z",
+          "next_state": "flat",
+          "reward": -0.01543309,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.01543309,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 2
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.58,
+          "done": false,
+          "known_at": "2026-01-24T03:00:00Z",
+          "next_state": "flat",
+          "reward": -0.00764235,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": -0.00764235,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 3
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.21,
+          "done": false,
+          "known_at": "2026-01-24T04:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.06786833,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.08286833,
+            "risk_penalty": 0.0
+          },
+          "state": "flat",
+          "t": 4
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-24T05:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.16636226,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.18136226,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 5
+        },
+        {
+          "action": "short",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.62,
+          "done": false,
+          "known_at": "2026-01-24T06:00:00Z",
+          "next_state": "trend_down",
+          "reward": 0.21799572,
+          "reward_components": {
+            "execution_cost": -0.015,
+            "gross_return": 0.23299572,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 6
+        },
+        {
+          "action": "skip",
+          "allowed_actions": [
+            "skip",
+            "long",
+            "short"
+          ],
+          "behavior_prob": 0.25,
+          "done": true,
+          "known_at": "2026-01-24T07:00:00Z",
+          "next_state": "flat",
+          "reward": 0.04677422,
+          "reward_components": {
+            "execution_cost": 0.0,
+            "gross_return": 0.04677422,
+            "risk_penalty": 0.0
+          },
+          "state": "trend_down",
+          "t": 7
+        }
+      ]
+    }
+  ],
+  "known_time_cutoff": "2026-02-01T00:00:00Z",
+  "reward_contract_hash": "c078bef729deb82f4b792d63b1828246fff7dde32eca063311ca1d598b99eaf7",
+  "role": "training"
+}

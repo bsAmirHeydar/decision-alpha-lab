@@ -1,0 +1,64 @@
+{
+  "abstain_if_no_challenger": true,
+  "baseline_policy_id": "manual_baseline_policy_e64f2e661aebe39abaded8b9",
+  "matrix_hash": "0e400ebe62f91fa82a2208121765e2d279efd02f42f139f0052bde333f0e79b8",
+  "matrix_id": "policy_challenge_matrix_22d63d555203bf232bf2a19c",
+  "promotion_authority": false,
+  "rows": [
+    {
+      "estimator_spread": 0.049955989123447564,
+      "family": "manual_baseline",
+      "lower_bound_margin_vs_baseline": 0.0,
+      "ope_lower_bound": 0.1861212324818635,
+      "ope_upper_bound": 0.40512136887619066,
+      "policy_id": "manual_baseline_policy_e64f2e661aebe39abaded8b9",
+      "promotion_eligible": false,
+      "research_challenger_passed": true,
+      "runtime_executable": false,
+      "support_passed": true,
+      "synthetic_veto_passed": true
+    },
+    {
+      "estimator_spread": 0.26079100750852924,
+      "family": "cql_reference_projected",
+      "lower_bound_margin_vs_baseline": -0.6218885248120825,
+      "ope_lower_bound": -0.43576729233021894,
+      "ope_upper_bound": 0.8250223014394301,
+      "policy_id": "projected_policy_1aacba61d46fc10e4ec3dd1d",
+      "promotion_eligible": false,
+      "research_challenger_passed": false,
+      "runtime_executable": false,
+      "support_passed": true,
+      "synthetic_veto_passed": true
+    },
+    {
+      "estimator_spread": 0.5231048827037068,
+      "family": "iql_reference_projected",
+      "lower_bound_margin_vs_baseline": -0.5460065213466843,
+      "ope_lower_bound": -0.3598852888648208,
+      "ope_upper_bound": 0.7244753281919948,
+      "policy_id": "projected_policy_0cd159c178bd099e28663bc1",
+      "promotion_eligible": false,
+      "research_challenger_passed": false,
+      "runtime_executable": false,
+      "support_passed": true,
+      "synthetic_veto_passed": true
+    },
+    {
+      "estimator_spread": 0.40070492124990614,
+      "family": "sequence_reference_projected",
+      "lower_bound_margin_vs_baseline": -0.5098948948461967,
+      "ope_lower_bound": -0.32377366236433314,
+      "ope_upper_bound": 0.5623528489309462,
+      "policy_id": "projected_policy_c59f24982fd9a5058e292d3d",
+      "promotion_eligible": false,
+      "research_challenger_passed": false,
+      "runtime_executable": false,
+      "support_passed": true,
+      "synthetic_veto_passed": true
+    }
+  ],
+  "runtime_authority": false,
+  "selected_research_policy_id": "manual_baseline_policy_e64f2e661aebe39abaded8b9",
+  "selection_is_research_only": true
+}

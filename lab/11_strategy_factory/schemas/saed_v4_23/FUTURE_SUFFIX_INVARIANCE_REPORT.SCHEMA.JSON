@@ -1,0 +1,34 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/future_suffix_invariance_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "base_output_hash": {
+      "type": "string"
+    },
+    "future_suffix_mutation_rejected": {
+      "type": "boolean"
+    },
+    "future_suffix_sensitive": {
+      "type": "boolean"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "base_output_hash",
+    "future_suffix_mutation_rejected",
+    "future_suffix_sensitive",
+    "passed",
+    "phase"
+  ],
+  "title": "SAED V4-23 FUTURE_SUFFIX_INVARIANCE_REPORT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

@@ -1,0 +1,40 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/contract_validation_map.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "artifacts": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "closed_contracts": {
+      "type": "boolean"
+    },
+    "examples": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "unknown_fields_rejected": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "artifacts",
+    "closed_contracts",
+    "examples",
+    "phase",
+    "unknown_fields_rejected"
+  ],
+  "title": "SAED V4-23 CONTRACT_VALIDATION_MAP",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

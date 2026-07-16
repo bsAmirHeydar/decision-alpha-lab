@@ -1,0 +1,68 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/golden_dataset_summary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "actions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "cluster_count": {
+      "type": "integer"
+    },
+    "context_id": {
+      "type": "string"
+    },
+    "dataset_hash": {
+      "type": "string"
+    },
+    "dataset_id": {
+      "type": "string"
+    },
+    "episode_count": {
+      "type": "integer"
+    },
+    "known_time_cutoff": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "states": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "step_count": {
+      "type": "integer"
+    },
+    "summary_hash": {
+      "type": "string"
+    },
+    "summary_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "actions",
+    "cluster_count",
+    "context_id",
+    "dataset_hash",
+    "dataset_id",
+    "episode_count",
+    "known_time_cutoff",
+    "role",
+    "states",
+    "step_count",
+    "summary_hash",
+    "summary_id"
+  ],
+  "title": "SAED V4-23 GOLDEN_DATASET_SUMMARY",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

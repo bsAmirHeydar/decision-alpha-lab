@@ -1,0 +1,262 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/golden_iql_candidate.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "family": {
+      "type": "string"
+    },
+    "metadata": {
+      "additionalProperties": false,
+      "properties": {
+        "expectile": {
+          "type": "number"
+        },
+        "q_table": {
+          "additionalProperties": false,
+          "properties": {
+            "flat": {
+              "additionalProperties": false,
+              "properties": {
+                "long": {
+                  "type": "number"
+                },
+                "short": {
+                  "type": "number"
+                },
+                "skip": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "long",
+                "short",
+                "skip"
+              ],
+              "type": "object"
+            },
+            "trend_down": {
+              "additionalProperties": false,
+              "properties": {
+                "long": {
+                  "type": "number"
+                },
+                "short": {
+                  "type": "number"
+                },
+                "skip": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "long",
+                "short",
+                "skip"
+              ],
+              "type": "object"
+            },
+            "trend_up": {
+              "additionalProperties": false,
+              "properties": {
+                "long": {
+                  "type": "number"
+                },
+                "short": {
+                  "type": "number"
+                },
+                "skip": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "long",
+                "short",
+                "skip"
+              ],
+              "type": "object"
+            },
+            "volatile": {
+              "additionalProperties": false,
+              "properties": {
+                "long": {
+                  "type": "number"
+                },
+                "short": {
+                  "type": "number"
+                },
+                "skip": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "long",
+                "short",
+                "skip"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [
+            "flat",
+            "trend_down",
+            "trend_up",
+            "volatile"
+          ],
+          "type": "object"
+        },
+        "value_table": {
+          "additionalProperties": false,
+          "properties": {
+            "flat": {
+              "type": "number"
+            },
+            "trend_down": {
+              "type": "number"
+            },
+            "trend_up": {
+              "type": "number"
+            },
+            "volatile": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "flat",
+            "trend_down",
+            "trend_up",
+            "volatile"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "expectile",
+        "q_table",
+        "value_table"
+      ],
+      "type": "object"
+    },
+    "policy_hash": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "promotion_eligible": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "runtime_executable": {
+      "type": "boolean"
+    },
+    "states": {
+      "additionalProperties": false,
+      "properties": {
+        "flat": {
+          "additionalProperties": false,
+          "properties": {
+            "long": {
+              "type": "number"
+            },
+            "short": {
+              "type": "number"
+            },
+            "skip": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "long",
+            "short",
+            "skip"
+          ],
+          "type": "object"
+        },
+        "trend_down": {
+          "additionalProperties": false,
+          "properties": {
+            "long": {
+              "type": "number"
+            },
+            "short": {
+              "type": "number"
+            },
+            "skip": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "long",
+            "short",
+            "skip"
+          ],
+          "type": "object"
+        },
+        "trend_up": {
+          "additionalProperties": false,
+          "properties": {
+            "long": {
+              "type": "number"
+            },
+            "short": {
+              "type": "number"
+            },
+            "skip": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "long",
+            "short",
+            "skip"
+          ],
+          "type": "object"
+        },
+        "volatile": {
+          "additionalProperties": false,
+          "properties": {
+            "long": {
+              "type": "number"
+            },
+            "short": {
+              "type": "number"
+            },
+            "skip": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "long",
+            "short",
+            "skip"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "flat",
+        "trend_down",
+        "trend_up",
+        "volatile"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "family",
+    "metadata",
+    "policy_hash",
+    "policy_id",
+    "promotion_eligible",
+    "research_only",
+    "runtime_executable",
+    "states"
+  ],
+  "title": "SAED V4-23 GOLDEN_IQL_CANDIDATE",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

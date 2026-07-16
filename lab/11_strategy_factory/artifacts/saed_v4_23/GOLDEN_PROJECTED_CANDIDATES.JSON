@@ -1,0 +1,253 @@
+{
+  "bundle_hash": "6d9a92144527fb223e4336aba0a53d61c7d12b34c78663f499dbad9515f4e0b5",
+  "candidates": [
+    {
+      "family": "cql_reference_projected",
+      "metadata": {
+        "conservative_alpha": 0.18,
+        "iterations": 35,
+        "q_table": {
+          "flat": {
+            "long": 1.396563198263788,
+            "short": 0.9462629821977102,
+            "skip": 1.1611184760928568
+          },
+          "trend_down": {
+            "long": 0.4365477885496842,
+            "short": 1.0567889245087312,
+            "skip": 1.1302460777760033
+          },
+          "trend_up": {
+            "long": 2.0909411227415617,
+            "short": 0.5636719763225047,
+            "skip": 1.0126068455860022
+          },
+          "volatile": {
+            "long": -0.36,
+            "short": 0.4224849407164621,
+            "skip": 1.2676871828326688
+          }
+        }
+      },
+      "policy_hash": "c95cf3034022cd39f10bb408412f843df404369f2739eb8271f6e480b4f85d70",
+      "policy_id": "projected_policy_1aacba61d46fc10e4ec3dd1d",
+      "projection": {
+        "mask_enforced": true,
+        "passed": true,
+        "state_details": [
+          {
+            "blend": 1.0,
+            "kl": 0.163109783044637,
+            "l1": 0.48404291951533995,
+            "state": "flat"
+          },
+          {
+            "blend": 1.0,
+            "kl": 0.1015410452467292,
+            "l1": 0.3724851802530772,
+            "state": "trend_down"
+          },
+          {
+            "blend": 1.0,
+            "kl": 0.2324046533615738,
+            "l1": 0.6664481086341789,
+            "state": "trend_up"
+          },
+          {
+            "blend": 1.0,
+            "kl": 0.03281813352781742,
+            "l1": 0.06451612903225809,
+            "state": "volatile"
+          }
+        ],
+        "support_enforced": true
+      },
+      "promotion_eligible": false,
+      "research_only": true,
+      "runtime_executable": false,
+      "source_policy_id": "cql_reference_policy_dd62a204bb567f0a7b60c33e",
+      "states": {
+        "flat": {
+          "long": 0.4464413492604324,
+          "short": 0.2346328641026663,
+          "skip": 0.3189257866369013
+        },
+        "trend_down": {
+          "long": 0.16341280207134118,
+          "short": 0.39636610552563534,
+          "skip": 0.44022109240302354
+        },
+        "trend_up": {
+          "long": 0.7535139093895532,
+          "short": 0.08502407156585888,
+          "skip": 0.16146201904458796
+        },
+        "volatile": {
+          "long": 0.0,
+          "short": 0.23015578429422948,
+          "skip": 0.7698442157057706
+        }
+      }
+    },
+    {
+      "family": "iql_reference_projected",
+      "metadata": {
+        "expectile": 0.7,
+        "q_table": {
+          "flat": {
+            "long": 0.38688965271673126,
+            "short": 0.5355186125853308,
+            "skip": 0.3886489312136767
+          },
+          "trend_down": {
+            "long": 0.018677908788077336,
+            "short": 0.6689437705947936,
+            "skip": 0.3882751473894032
+          },
+          "trend_up": {
+            "long": 0.6822943660143751,
+            "short": 0.04029454238658701,
+            "skip": 0.3557696567176393
+          },
+          "volatile": {
+            "long": 0.0,
+            "short": 0.1970529568959093,
+            "skip": 0.4528257204326703
+          }
+        },
+        "value_table": {
+          "flat": 0.45227888218566686,
+          "trend_down": 0.5902693390794236,
+          "trend_up": 0.5110639089248273,
+          "volatile": 0.41635352492700645
+        }
+      },
+      "policy_hash": "b587f5115725107f575d5fe7c98d09dcaadb7be0d915df3c56f8617a6ff16d23",
+      "policy_id": "projected_policy_0cd159c178bd099e28663bc1",
+      "projection": {
+        "mask_enforced": true,
+        "passed": true,
+        "state_details": [
+          {
+            "blend": 1.0,
+            "kl": 0.0014656477961242113,
+            "l1": 0.04727608982228737,
+            "state": "flat"
+          },
+          {
+            "blend": 1.0,
+            "kl": 0.010530837939078334,
+            "l1": 0.12920684543258007,
+            "state": "trend_down"
+          },
+          {
+            "blend": 1.0,
+            "kl": 0.021539794544406833,
+            "l1": 0.1863832653764154,
+            "state": "trend_up"
+          },
+          {
+            "blend": 1.0,
+            "kl": 0.03654352036055327,
+            "l1": 0.1213618920725062,
+            "state": "volatile"
+          }
+        ],
+        "support_enforced": true
+      },
+      "promotion_eligible": false,
+      "research_only": true,
+      "runtime_executable": false,
+      "source_policy_id": "iql_reference_policy_cc65c9dcefd60b76e320f784",
+      "states": {
+        "flat": {
+          "long": 0.19777772577210873,
+          "short": 0.2722568294415304,
+          "skip": 0.5299654447863609
+        },
+        "trend_down": {
+          "long": 0.039330622005709234,
+          "short": 0.6472121183684639,
+          "skip": 0.3134572596258268
+        },
+        "trend_up": {
+          "long": 0.5134814877606715,
+          "short": 0.17629022430602176,
+          "skip": 0.3102282879333068
+        },
+        "volatile": {
+          "long": 0.0,
+          "short": 0.19738357009277913,
+          "skip": 0.8026164299072208
+        }
+      }
+    },
+    {
+      "family": "sequence_reference_projected",
+      "metadata": {
+        "fallback_to_behavior": true,
+        "maximum_context_length": 3,
+        "sequence_contexts_used": 41
+      },
+      "policy_hash": "0966321fbf809bd05a6abb9384133043a57a7742fa8fcd9f2982f1e2f4f8eff1",
+      "policy_id": "projected_policy_c59f24982fd9a5058e292d3d",
+      "projection": {
+        "mask_enforced": true,
+        "passed": true,
+        "state_details": [
+          {
+            "blend": 1.0,
+            "kl": 0.0001531704385922144,
+            "l1": 0.013699800695280068,
+            "state": "flat"
+          },
+          {
+            "blend": 1.0,
+            "kl": 0.0007816008627588985,
+            "l1": 0.026114105153836928,
+            "state": "trend_down"
+          },
+          {
+            "blend": 1.0,
+            "kl": 0.0004506508421680323,
+            "l1": 0.026990897788245788,
+            "state": "trend_up"
+          },
+          {
+            "blend": 1.0,
+            "kl": 0.03305293726743025,
+            "l1": 0.06877252476855933,
+            "state": "volatile"
+          }
+        ],
+        "support_enforced": true
+      },
+      "promotion_eligible": false,
+      "research_only": true,
+      "runtime_executable": false,
+      "source_policy_id": "sequence_reference_policy_6c1b9a894cff3fa445baaaaa",
+      "states": {
+        "flat": {
+          "long": 0.20912450073909952,
+          "short": 0.24176888418274672,
+          "skip": 0.5491066150781538
+        },
+        "trend_down": {
+          "long": 0.0524876933641246,
+          "short": 0.5956657482290924,
+          "skip": 0.351846558406783
+        },
+        "trend_up": {
+          "long": 0.40679440617834084,
+          "short": 0.25680230616275607,
+          "skip": 0.33640328765890304
+        },
+        "volatile": {
+          "long": 0.0,
+          "short": 0.2236782537447526,
+          "skip": 0.7763217462552474
+        }
+      }
+    }
+  ]
+}

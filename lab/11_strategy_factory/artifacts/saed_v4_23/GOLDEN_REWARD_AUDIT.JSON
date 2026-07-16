@@ -1,0 +1,21 @@
+{
+  "audit_hash": "ddfb7873a34790db6dcc3c47d77bbccac3b4f09815e2c85173ba7d6b21ac972b",
+  "audit_id": "reward_audit_1fb06bd5fc4cc097131be7f3",
+  "boundary_clip_count": 0,
+  "component_totals": {
+    "execution_cost": -1.515,
+    "gross_return": 10.28667128,
+    "risk_penalty": -0.015
+  },
+  "maximum": 0.24444006,
+  "maximum_component_sum_error": 2.7755575615628914e-17,
+  "mean": 0.04560766291666666,
+  "minimum": -0.28994837,
+  "passed": true,
+  "q05": -0.220811595,
+  "q50": 0.027497630000000002,
+  "q95": 0.2294260655,
+  "reward_count": 192,
+  "std": 0.1146675999319071,
+  "synthetic_positive_evidence": false
+}

@@ -1,0 +1,42 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/security_review.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "broker_credentials_present": {
+      "type": "boolean"
+    },
+    "hidden_evaluation_access": {
+      "type": "boolean"
+    },
+    "network_calls_required": {
+      "type": "boolean"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "runtime_signing_material_present": {
+      "type": "boolean"
+    },
+    "secret_scan": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "broker_credentials_present",
+    "hidden_evaluation_access",
+    "network_calls_required",
+    "passed",
+    "phase",
+    "runtime_signing_material_present",
+    "secret_scan"
+  ],
+  "title": "SAED V4-23 SECURITY_REVIEW",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

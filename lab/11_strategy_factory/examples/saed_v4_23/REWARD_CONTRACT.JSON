@@ -1,0 +1,14 @@
+{
+  "audit_component_sum": true,
+  "clip_for_training": true,
+  "components": [
+    "gross_return",
+    "execution_cost",
+    "risk_penalty"
+  ],
+  "exact_version": "1.0.0",
+  "execution_cost_required": true,
+  "maximum_reward": 2.0,
+  "minimum_reward": -2.0,
+  "synthetic_reward_positive_evidence_forbidden": true
+}

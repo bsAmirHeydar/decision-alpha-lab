@@ -1,0 +1,935 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/golden_ope_bundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "bundle_hash": {
+      "type": "string"
+    },
+    "reports": {
+      "additionalProperties": false,
+      "properties": {
+        "manual_baseline_policy_e64f2e661aebe39abaded8b9": {
+          "additionalProperties": false,
+          "properties": {
+            "aggregate_lower_bound": {
+              "type": "number"
+            },
+            "aggregate_upper_bound": {
+              "type": "number"
+            },
+            "confidence_intervals": {
+              "additionalProperties": false,
+              "properties": {
+                "doubly_robust": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "draws": {
+                      "type": "integer"
+                    },
+                    "lower": {
+                      "type": "number"
+                    },
+                    "mean": {
+                      "type": "number"
+                    },
+                    "upper": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "draws",
+                    "lower",
+                    "mean",
+                    "upper"
+                  ],
+                  "type": "object"
+                },
+                "fqe": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "draws": {
+                      "type": "integer"
+                    },
+                    "lower": {
+                      "type": "number"
+                    },
+                    "mean": {
+                      "type": "number"
+                    },
+                    "upper": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "draws",
+                    "lower",
+                    "mean",
+                    "upper"
+                  ],
+                  "type": "object"
+                },
+                "pdis": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "draws": {
+                      "type": "integer"
+                    },
+                    "lower": {
+                      "type": "number"
+                    },
+                    "mean": {
+                      "type": "number"
+                    },
+                    "upper": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "draws",
+                    "lower",
+                    "mean",
+                    "upper"
+                  ],
+                  "type": "object"
+                },
+                "wis": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "draws": {
+                      "type": "integer"
+                    },
+                    "lower": {
+                      "type": "number"
+                    },
+                    "mean": {
+                      "type": "number"
+                    },
+                    "upper": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "draws",
+                    "lower",
+                    "mean",
+                    "upper"
+                  ],
+                  "type": "object"
+                }
+              },
+              "required": [
+                "doubly_robust",
+                "fqe",
+                "pdis",
+                "wis"
+              ],
+              "type": "object"
+            },
+            "dataset_id": {
+              "type": "string"
+            },
+            "effective_sample_size": {
+              "type": "number"
+            },
+            "episode_rows": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "cluster_id": {
+                    "type": "string"
+                  },
+                  "doubly_robust": {
+                    "type": "number"
+                  },
+                  "episode_id": {
+                    "type": "string"
+                  },
+                  "fqe": {
+                    "type": "number"
+                  },
+                  "pdis": {
+                    "type": "number"
+                  },
+                  "return": {
+                    "type": "number"
+                  },
+                  "terminal_weight": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "cluster_id",
+                  "doubly_robust",
+                  "episode_id",
+                  "fqe",
+                  "pdis",
+                  "return",
+                  "terminal_weight"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "estimator_spread": {
+              "type": "number"
+            },
+            "estimators": {
+              "additionalProperties": false,
+              "properties": {
+                "doubly_robust": {
+                  "type": "number"
+                },
+                "fqe": {
+                  "type": "number"
+                },
+                "pdis": {
+                  "type": "number"
+                },
+                "wis": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "doubly_robust",
+                "fqe",
+                "pdis",
+                "wis"
+              ],
+              "type": "object"
+            },
+            "maximum_terminal_weight": {
+              "type": "number"
+            },
+            "ope_hash": {
+              "type": "string"
+            },
+            "ope_id": {
+              "type": "string"
+            },
+            "policy_id": {
+              "type": "string"
+            },
+            "promotion_authority": {
+              "type": "boolean"
+            },
+            "synthetic_positive_evidence": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "aggregate_lower_bound",
+            "aggregate_upper_bound",
+            "confidence_intervals",
+            "dataset_id",
+            "effective_sample_size",
+            "episode_rows",
+            "estimator_spread",
+            "estimators",
+            "maximum_terminal_weight",
+            "ope_hash",
+            "ope_id",
+            "policy_id",
+            "promotion_authority",
+            "synthetic_positive_evidence"
+          ],
+          "type": "object"
+        },
+        "projected_policy_0cd159c178bd099e28663bc1": {
+          "additionalProperties": false,
+          "properties": {
+            "aggregate_lower_bound": {
+              "type": "number"
+            },
+            "aggregate_upper_bound": {
+              "type": "number"
+            },
+            "confidence_intervals": {
+              "additionalProperties": false,
+              "properties": {
+                "doubly_robust": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "draws": {
+                      "type": "integer"
+                    },
+                    "lower": {
+                      "type": "number"
+                    },
+                    "mean": {
+                      "type": "number"
+                    },
+                    "upper": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "draws",
+                    "lower",
+                    "mean",
+                    "upper"
+                  ],
+                  "type": "object"
+                },
+                "fqe": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "draws": {
+                      "type": "integer"
+                    },
+                    "lower": {
+                      "type": "number"
+                    },
+                    "mean": {
+                      "type": "number"
+                    },
+                    "upper": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "draws",
+                    "lower",
+                    "mean",
+                    "upper"
+                  ],
+                  "type": "object"
+                },
+                "pdis": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "draws": {
+                      "type": "integer"
+                    },
+                    "lower": {
+                      "type": "number"
+                    },
+                    "mean": {
+                      "type": "number"
+                    },
+                    "upper": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "draws",
+                    "lower",
+                    "mean",
+                    "upper"
+                  ],
+                  "type": "object"
+                },
+                "wis": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "draws": {
+                      "type": "integer"
+                    },
+                    "lower": {
+                      "type": "number"
+                    },
+                    "mean": {
+                      "type": "number"
+                    },
+                    "upper": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "draws",
+                    "lower",
+                    "mean",
+                    "upper"
+                  ],
+                  "type": "object"
+                }
+              },
+              "required": [
+                "doubly_robust",
+                "fqe",
+                "pdis",
+                "wis"
+              ],
+              "type": "object"
+            },
+            "dataset_id": {
+              "type": "string"
+            },
+            "effective_sample_size": {
+              "type": "number"
+            },
+            "episode_rows": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "cluster_id": {
+                    "type": "string"
+                  },
+                  "doubly_robust": {
+                    "type": "number"
+                  },
+                  "episode_id": {
+                    "type": "string"
+                  },
+                  "fqe": {
+                    "type": "number"
+                  },
+                  "pdis": {
+                    "type": "number"
+                  },
+                  "return": {
+                    "type": "number"
+                  },
+                  "terminal_weight": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "cluster_id",
+                  "doubly_robust",
+                  "episode_id",
+                  "fqe",
+                  "pdis",
+                  "return",
+                  "terminal_weight"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "estimator_spread": {
+              "type": "number"
+            },
+            "estimators": {
+              "additionalProperties": false,
+              "properties": {
+                "doubly_robust": {
+                  "type": "number"
+                },
+                "fqe": {
+                  "type": "number"
+                },
+                "pdis": {
+                  "type": "number"
+                },
+                "wis": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "doubly_robust",
+                "fqe",
+                "pdis",
+                "wis"
+              ],
+              "type": "object"
+            },
+            "maximum_terminal_weight": {
+              "type": "number"
+            },
+            "ope_hash": {
+              "type": "string"
+            },
+            "ope_id": {
+              "type": "string"
+            },
+            "policy_id": {
+              "type": "string"
+            },
+            "promotion_authority": {
+              "type": "boolean"
+            },
+            "synthetic_positive_evidence": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "aggregate_lower_bound",
+            "aggregate_upper_bound",
+            "confidence_intervals",
+            "dataset_id",
+            "effective_sample_size",
+            "episode_rows",
+            "estimator_spread",
+            "estimators",
+            "maximum_terminal_weight",
+            "ope_hash",
+            "ope_id",
+            "policy_id",
+            "promotion_authority",
+            "synthetic_positive_evidence"
+          ],
+          "type": "object"
+        },
+        "projected_policy_1aacba61d46fc10e4ec3dd1d": {
+          "additionalProperties": false,
+          "properties": {
+            "aggregate_lower_bound": {
+              "type": "number"
+            },
+            "aggregate_upper_bound": {
+              "type": "number"
+            },
+            "confidence_intervals": {
+              "additionalProperties": false,
+              "properties": {
+                "doubly_robust": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "draws": {
+                      "type": "integer"
+                    },
+                    "lower": {
+                      "type": "number"
+                    },
+                    "mean": {
+                      "type": "number"
+                    },
+                    "upper": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "draws",
+                    "lower",
+                    "mean",
+                    "upper"
+                  ],
+                  "type": "object"
+                },
+                "fqe": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "draws": {
+                      "type": "integer"
+                    },
+                    "lower": {
+                      "type": "number"
+                    },
+                    "mean": {
+                      "type": "number"
+                    },
+                    "upper": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "draws",
+                    "lower",
+                    "mean",
+                    "upper"
+                  ],
+                  "type": "object"
+                },
+                "pdis": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "draws": {
+                      "type": "integer"
+                    },
+                    "lower": {
+                      "type": "number"
+                    },
+                    "mean": {
+                      "type": "number"
+                    },
+                    "upper": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "draws",
+                    "lower",
+                    "mean",
+                    "upper"
+                  ],
+                  "type": "object"
+                },
+                "wis": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "draws": {
+                      "type": "integer"
+                    },
+                    "lower": {
+                      "type": "number"
+                    },
+                    "mean": {
+                      "type": "number"
+                    },
+                    "upper": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "draws",
+                    "lower",
+                    "mean",
+                    "upper"
+                  ],
+                  "type": "object"
+                }
+              },
+              "required": [
+                "doubly_robust",
+                "fqe",
+                "pdis",
+                "wis"
+              ],
+              "type": "object"
+            },
+            "dataset_id": {
+              "type": "string"
+            },
+            "effective_sample_size": {
+              "type": "number"
+            },
+            "episode_rows": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "cluster_id": {
+                    "type": "string"
+                  },
+                  "doubly_robust": {
+                    "type": "number"
+                  },
+                  "episode_id": {
+                    "type": "string"
+                  },
+                  "fqe": {
+                    "type": "number"
+                  },
+                  "pdis": {
+                    "type": "number"
+                  },
+                  "return": {
+                    "type": "number"
+                  },
+                  "terminal_weight": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "cluster_id",
+                  "doubly_robust",
+                  "episode_id",
+                  "fqe",
+                  "pdis",
+                  "return",
+                  "terminal_weight"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "estimator_spread": {
+              "type": "number"
+            },
+            "estimators": {
+              "additionalProperties": false,
+              "properties": {
+                "doubly_robust": {
+                  "type": "number"
+                },
+                "fqe": {
+                  "type": "number"
+                },
+                "pdis": {
+                  "type": "number"
+                },
+                "wis": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "doubly_robust",
+                "fqe",
+                "pdis",
+                "wis"
+              ],
+              "type": "object"
+            },
+            "maximum_terminal_weight": {
+              "type": "number"
+            },
+            "ope_hash": {
+              "type": "string"
+            },
+            "ope_id": {
+              "type": "string"
+            },
+            "policy_id": {
+              "type": "string"
+            },
+            "promotion_authority": {
+              "type": "boolean"
+            },
+            "synthetic_positive_evidence": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "aggregate_lower_bound",
+            "aggregate_upper_bound",
+            "confidence_intervals",
+            "dataset_id",
+            "effective_sample_size",
+            "episode_rows",
+            "estimator_spread",
+            "estimators",
+            "maximum_terminal_weight",
+            "ope_hash",
+            "ope_id",
+            "policy_id",
+            "promotion_authority",
+            "synthetic_positive_evidence"
+          ],
+          "type": "object"
+        },
+        "projected_policy_c59f24982fd9a5058e292d3d": {
+          "additionalProperties": false,
+          "properties": {
+            "aggregate_lower_bound": {
+              "type": "number"
+            },
+            "aggregate_upper_bound": {
+              "type": "number"
+            },
+            "confidence_intervals": {
+              "additionalProperties": false,
+              "properties": {
+                "doubly_robust": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "draws": {
+                      "type": "integer"
+                    },
+                    "lower": {
+                      "type": "number"
+                    },
+                    "mean": {
+                      "type": "number"
+                    },
+                    "upper": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "draws",
+                    "lower",
+                    "mean",
+                    "upper"
+                  ],
+                  "type": "object"
+                },
+                "fqe": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "draws": {
+                      "type": "integer"
+                    },
+                    "lower": {
+                      "type": "number"
+                    },
+                    "mean": {
+                      "type": "number"
+                    },
+                    "upper": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "draws",
+                    "lower",
+                    "mean",
+                    "upper"
+                  ],
+                  "type": "object"
+                },
+                "pdis": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "draws": {
+                      "type": "integer"
+                    },
+                    "lower": {
+                      "type": "number"
+                    },
+                    "mean": {
+                      "type": "number"
+                    },
+                    "upper": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "draws",
+                    "lower",
+                    "mean",
+                    "upper"
+                  ],
+                  "type": "object"
+                },
+                "wis": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "draws": {
+                      "type": "integer"
+                    },
+                    "lower": {
+                      "type": "number"
+                    },
+                    "mean": {
+                      "type": "number"
+                    },
+                    "upper": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "draws",
+                    "lower",
+                    "mean",
+                    "upper"
+                  ],
+                  "type": "object"
+                }
+              },
+              "required": [
+                "doubly_robust",
+                "fqe",
+                "pdis",
+                "wis"
+              ],
+              "type": "object"
+            },
+            "dataset_id": {
+              "type": "string"
+            },
+            "effective_sample_size": {
+              "type": "number"
+            },
+            "episode_rows": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "cluster_id": {
+                    "type": "string"
+                  },
+                  "doubly_robust": {
+                    "type": "number"
+                  },
+                  "episode_id": {
+                    "type": "string"
+                  },
+                  "fqe": {
+                    "type": "number"
+                  },
+                  "pdis": {
+                    "type": "number"
+                  },
+                  "return": {
+                    "type": "number"
+                  },
+                  "terminal_weight": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "cluster_id",
+                  "doubly_robust",
+                  "episode_id",
+                  "fqe",
+                  "pdis",
+                  "return",
+                  "terminal_weight"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "estimator_spread": {
+              "type": "number"
+            },
+            "estimators": {
+              "additionalProperties": false,
+              "properties": {
+                "doubly_robust": {
+                  "type": "number"
+                },
+                "fqe": {
+                  "type": "number"
+                },
+                "pdis": {
+                  "type": "number"
+                },
+                "wis": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "doubly_robust",
+                "fqe",
+                "pdis",
+                "wis"
+              ],
+              "type": "object"
+            },
+            "maximum_terminal_weight": {
+              "type": "number"
+            },
+            "ope_hash": {
+              "type": "string"
+            },
+            "ope_id": {
+              "type": "string"
+            },
+            "policy_id": {
+              "type": "string"
+            },
+            "promotion_authority": {
+              "type": "boolean"
+            },
+            "synthetic_positive_evidence": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "aggregate_lower_bound",
+            "aggregate_upper_bound",
+            "confidence_intervals",
+            "dataset_id",
+            "effective_sample_size",
+            "episode_rows",
+            "estimator_spread",
+            "estimators",
+            "maximum_terminal_weight",
+            "ope_hash",
+            "ope_id",
+            "policy_id",
+            "promotion_authority",
+            "synthetic_positive_evidence"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "manual_baseline_policy_e64f2e661aebe39abaded8b9",
+        "projected_policy_0cd159c178bd099e28663bc1",
+        "projected_policy_1aacba61d46fc10e4ec3dd1d",
+        "projected_policy_c59f24982fd9a5058e292d3d"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "bundle_hash",
+    "reports"
+  ],
+  "title": "SAED V4-23 GOLDEN_OPE_BUNDLE",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

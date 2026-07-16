@@ -1,0 +1,57 @@
+{
+  "bundle_hash": "c7220fed877d820425193b6642a45e14f34e8f2c40f59ff029e21fef3c3923ef",
+  "reports": {
+    "manual_baseline_policy_e64f2e661aebe39abaded8b9": {
+      "candidate_policy_id": "manual_baseline_policy_e64f2e661aebe39abaded8b9",
+      "effective_sample_size": 179.99332794010814,
+      "importance_weight_max": 2.1357142857142857,
+      "maximum_unsupported_mass": 0.14,
+      "minimum_behavior_probability": 0.03225806451612903,
+      "minimum_count": 0,
+      "passed": true,
+      "report_id": "support_report_9a8910765b14b1bcd0678f09",
+      "support_hash": "d986ced1876c8522ce177fedc638af90a314b6f57ab9762c4a75fe1ead2717b6",
+      "violation_count": 0,
+      "violations": []
+    },
+    "projected_policy_0cd159c178bd099e28663bc1": {
+      "candidate_policy_id": "projected_policy_0cd159c178bd099e28663bc1",
+      "effective_sample_size": 189.21803310939254,
+      "importance_weight_max": 1.2217318157064254,
+      "maximum_unsupported_mass": 0.0,
+      "minimum_behavior_probability": 0.03225806451612903,
+      "minimum_count": 0,
+      "passed": true,
+      "report_id": "support_report_81b70826869814c8a937b75f",
+      "support_hash": "03dac0ecfbdc65abf865db55fb3589da6694a02115647408025a53d8ded29f11",
+      "violation_count": 0,
+      "violations": []
+    },
+    "projected_policy_1aacba61d46fc10e4ec3dd1d": {
+      "candidate_policy_id": "projected_policy_1aacba61d46fc10e4ec3dd1d",
+      "effective_sample_size": 144.96359681267097,
+      "importance_weight_max": 2.6846388911720336,
+      "maximum_unsupported_mass": 0.0,
+      "minimum_behavior_probability": 0.03225806451612903,
+      "minimum_count": 0,
+      "passed": true,
+      "report_id": "support_report_1e3597e8b4b93e1919676772",
+      "support_hash": "82b66ad3034ea3e27a5967cd35bd3ebb69cd7ac84cc186f54e02a774d9530e20",
+      "violation_count": 0,
+      "violations": []
+    },
+    "projected_policy_c59f24982fd9a5058e292d3d": {
+      "candidate_policy_id": "projected_policy_c59f24982fd9a5058e292d3d",
+      "effective_sample_size": 191.84501652331426,
+      "importance_weight_max": 1.0463467014744638,
+      "maximum_unsupported_mass": 0.0,
+      "minimum_behavior_probability": 0.03225806451612903,
+      "minimum_count": 0,
+      "passed": true,
+      "report_id": "support_report_63b80fb250af635479e437c4",
+      "support_hash": "f65d03fbaa12b3c4c2887e821a6c86a95f233fd295c32a1bb3fb9b790711a092",
+      "violation_count": 0,
+      "violations": []
+    }
+  }
+}

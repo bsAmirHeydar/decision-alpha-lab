@@ -1,0 +1,299 @@
+{
+  "counts": {
+    "bootstrap_draws": 720,
+    "candidate_policies": 3,
+    "dataset_episodes": 24,
+    "failures": 0,
+    "hidden_evaluation_queries": 0,
+    "ope_evaluations": 4,
+    "projection_attempts": 3,
+    "protected_evidence_exposures": 0,
+    "synthetic_challenges": 4,
+    "training_trials": 3
+  },
+  "events": [
+    {
+      "counter": "dataset_episodes",
+      "delta": 1,
+      "identity": "episode_001",
+      "value": 1
+    },
+    {
+      "counter": "dataset_episodes",
+      "delta": 1,
+      "identity": "episode_002",
+      "value": 2
+    },
+    {
+      "counter": "dataset_episodes",
+      "delta": 1,
+      "identity": "episode_003",
+      "value": 3
+    },
+    {
+      "counter": "dataset_episodes",
+      "delta": 1,
+      "identity": "episode_004",
+      "value": 4
+    },
+    {
+      "counter": "dataset_episodes",
+      "delta": 1,
+      "identity": "episode_005",
+      "value": 5
+    },
+    {
+      "counter": "dataset_episodes",
+      "delta": 1,
+      "identity": "episode_006",
+      "value": 6
+    },
+    {
+      "counter": "dataset_episodes",
+      "delta": 1,
+      "identity": "episode_007",
+      "value": 7
+    },
+    {
+      "counter": "dataset_episodes",
+      "delta": 1,
+      "identity": "episode_008",
+      "value": 8
+    },
+    {
+      "counter": "dataset_episodes",
+      "delta": 1,
+      "identity": "episode_009",
+      "value": 9
+    },
+    {
+      "counter": "dataset_episodes",
+      "delta": 1,
+      "identity": "episode_010",
+      "value": 10
+    },
+    {
+      "counter": "dataset_episodes",
+      "delta": 1,
+      "identity": "episode_011",
+      "value": 11
+    },
+    {
+      "counter": "dataset_episodes",
+      "delta": 1,
+      "identity": "episode_012",
+      "value": 12
+    },
+    {
+      "counter": "dataset_episodes",
+      "delta": 1,
+      "identity": "episode_013",
+      "value": 13
+    },
+    {
+      "counter": "dataset_episodes",
+      "delta": 1,
+      "identity": "episode_014",
+      "value": 14
+    },
+    {
+      "counter": "dataset_episodes",
+      "delta": 1,
+      "identity": "episode_015",
+      "value": 15
+    },
+    {
+      "counter": "dataset_episodes",
+      "delta": 1,
+      "identity": "episode_016",
+      "value": 16
+    },
+    {
+      "counter": "dataset_episodes",
+      "delta": 1,
+      "identity": "episode_017",
+      "value": 17
+    },
+    {
+      "counter": "dataset_episodes",
+      "delta": 1,
+      "identity": "episode_018",
+      "value": 18
+    },
+    {
+      "counter": "dataset_episodes",
+      "delta": 1,
+      "identity": "episode_019",
+      "value": 19
+    },
+    {
+      "counter": "dataset_episodes",
+      "delta": 1,
+      "identity": "episode_020",
+      "value": 20
+    },
+    {
+      "counter": "dataset_episodes",
+      "delta": 1,
+      "identity": "episode_021",
+      "value": 21
+    },
+    {
+      "counter": "dataset_episodes",
+      "delta": 1,
+      "identity": "episode_022",
+      "value": 22
+    },
+    {
+      "counter": "dataset_episodes",
+      "delta": 1,
+      "identity": "episode_023",
+      "value": 23
+    },
+    {
+      "counter": "dataset_episodes",
+      "delta": 1,
+      "identity": "episode_024",
+      "value": 24
+    },
+    {
+      "counter": "training_trials",
+      "delta": 1,
+      "identity": "cql",
+      "value": 1
+    },
+    {
+      "counter": "candidate_policies",
+      "delta": 1,
+      "identity": "cql",
+      "value": 1
+    },
+    {
+      "counter": "training_trials",
+      "delta": 1,
+      "identity": "iql",
+      "value": 2
+    },
+    {
+      "counter": "candidate_policies",
+      "delta": 1,
+      "identity": "iql",
+      "value": 2
+    },
+    {
+      "counter": "training_trials",
+      "delta": 1,
+      "identity": "sequence",
+      "value": 3
+    },
+    {
+      "counter": "candidate_policies",
+      "delta": 1,
+      "identity": "sequence",
+      "value": 3
+    },
+    {
+      "counter": "projection_attempts",
+      "delta": 1,
+      "identity": "cql_reference_policy_dd62a204bb567f0a7b60c33e",
+      "value": 1
+    },
+    {
+      "counter": "projection_attempts",
+      "delta": 1,
+      "identity": "iql_reference_policy_cc65c9dcefd60b76e320f784",
+      "value": 2
+    },
+    {
+      "counter": "projection_attempts",
+      "delta": 1,
+      "identity": "sequence_reference_policy_6c1b9a894cff3fa445baaaaa",
+      "value": 3
+    },
+    {
+      "counter": "ope_evaluations",
+      "delta": 1,
+      "identity": "manual_baseline_policy_e64f2e661aebe39abaded8b9",
+      "value": 1
+    },
+    {
+      "counter": "bootstrap_draws",
+      "delta": 180,
+      "identity": "manual_baseline_policy_e64f2e661aebe39abaded8b9",
+      "value": 180
+    },
+    {
+      "counter": "ope_evaluations",
+      "delta": 1,
+      "identity": "projected_policy_1aacba61d46fc10e4ec3dd1d",
+      "value": 2
+    },
+    {
+      "counter": "bootstrap_draws",
+      "delta": 180,
+      "identity": "projected_policy_1aacba61d46fc10e4ec3dd1d",
+      "value": 360
+    },
+    {
+      "counter": "ope_evaluations",
+      "delta": 1,
+      "identity": "projected_policy_0cd159c178bd099e28663bc1",
+      "value": 3
+    },
+    {
+      "counter": "bootstrap_draws",
+      "delta": 180,
+      "identity": "projected_policy_0cd159c178bd099e28663bc1",
+      "value": 540
+    },
+    {
+      "counter": "ope_evaluations",
+      "delta": 1,
+      "identity": "projected_policy_c59f24982fd9a5058e292d3d",
+      "value": 4
+    },
+    {
+      "counter": "bootstrap_draws",
+      "delta": 180,
+      "identity": "projected_policy_c59f24982fd9a5058e292d3d",
+      "value": 720
+    },
+    {
+      "counter": "synthetic_challenges",
+      "delta": 1,
+      "identity": "manual_baseline_policy_e64f2e661aebe39abaded8b9",
+      "value": 1
+    },
+    {
+      "counter": "synthetic_challenges",
+      "delta": 1,
+      "identity": "projected_policy_1aacba61d46fc10e4ec3dd1d",
+      "value": 2
+    },
+    {
+      "counter": "synthetic_challenges",
+      "delta": 1,
+      "identity": "projected_policy_0cd159c178bd099e28663bc1",
+      "value": 3
+    },
+    {
+      "counter": "synthetic_challenges",
+      "delta": 1,
+      "identity": "projected_policy_c59f24982fd9a5058e292d3d",
+      "value": 4
+    }
+  ],
+  "ledger_hash": "7d5623a799eff4eb790ba2d617f9a1646e5dafc8fd0feb5b01f807ce9d23f334",
+  "limits": {
+    "max_bootstrap_draws": 5000,
+    "max_candidate_policies": 16,
+    "max_dataset_episodes": 64,
+    "max_failures": 32,
+    "max_hidden_evaluation_queries": 0,
+    "max_ope_evaluations": 16,
+    "max_projection_attempts": 16,
+    "max_synthetic_challenges": 16,
+    "max_training_trials": 16,
+    "protected_evidence_exposure_limit": 0
+  }
+}

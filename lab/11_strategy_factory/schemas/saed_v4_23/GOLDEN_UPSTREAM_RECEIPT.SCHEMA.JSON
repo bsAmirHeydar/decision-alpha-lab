@@ -1,0 +1,67 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/golden_upstream_receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "document_hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "GOLDEN_BUDGET_SNAPSHOT": {
+          "type": "string"
+        },
+        "GOLDEN_EXPLOITABILITY_REPORT": {
+          "type": "string"
+        },
+        "GOLDEN_FIDELITY_REPORT": {
+          "type": "string"
+        },
+        "GOLDEN_GENERATIVE_STRESS_CERTIFICATE": {
+          "type": "string"
+        },
+        "GOLDEN_UNCERTAINTY_MAP": {
+          "type": "string"
+        },
+        "V4_22_TO_V4_23_HANDOFF": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "GOLDEN_BUDGET_SNAPSHOT",
+        "GOLDEN_EXPLOITABILITY_REPORT",
+        "GOLDEN_FIDELITY_REPORT",
+        "GOLDEN_GENERATIVE_STRESS_CERTIFICATE",
+        "GOLDEN_UNCERTAINTY_MAP",
+        "V4_22_TO_V4_23_HANDOFF"
+      ],
+      "type": "object"
+    },
+    "intake_contract_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "required_phase": {
+      "type": "string"
+    },
+    "verified": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "document_hashes",
+    "intake_contract_hash",
+    "phase",
+    "receipt_hash",
+    "required_phase",
+    "verified"
+  ],
+  "title": "SAED V4-23 GOLDEN_UPSTREAM_RECEIPT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

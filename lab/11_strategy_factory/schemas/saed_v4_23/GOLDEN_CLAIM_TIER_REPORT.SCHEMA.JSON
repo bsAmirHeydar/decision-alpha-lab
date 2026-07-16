@@ -1,0 +1,40 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/golden_claim_tier_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "allowed_claims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "claim_tier": {
+      "type": "string"
+    },
+    "denied_claims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "evidence_scope": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "allowed_claims",
+    "claim_tier",
+    "denied_claims",
+    "evidence_scope",
+    "phase"
+  ],
+  "title": "SAED V4-23 GOLDEN_CLAIM_TIER_REPORT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

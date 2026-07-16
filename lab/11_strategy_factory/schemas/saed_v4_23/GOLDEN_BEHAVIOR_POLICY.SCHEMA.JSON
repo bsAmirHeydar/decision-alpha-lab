@@ -1,0 +1,244 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/golden_behavior_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "actions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "cluster_counts": {
+      "additionalProperties": false,
+      "properties": {
+        "flat": {
+          "type": "integer"
+        },
+        "trend_down": {
+          "type": "integer"
+        },
+        "trend_up": {
+          "type": "integer"
+        },
+        "volatile": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "flat",
+        "trend_down",
+        "trend_up",
+        "volatile"
+      ],
+      "type": "object"
+    },
+    "counts": {
+      "additionalProperties": false,
+      "properties": {
+        "flat": {
+          "additionalProperties": false,
+          "properties": {
+            "long": {
+              "type": "integer"
+            },
+            "short": {
+              "type": "integer"
+            },
+            "skip": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "long",
+            "short",
+            "skip"
+          ],
+          "type": "object"
+        },
+        "trend_down": {
+          "additionalProperties": false,
+          "properties": {
+            "long": {
+              "type": "integer"
+            },
+            "short": {
+              "type": "integer"
+            },
+            "skip": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "long",
+            "short",
+            "skip"
+          ],
+          "type": "object"
+        },
+        "trend_up": {
+          "additionalProperties": false,
+          "properties": {
+            "long": {
+              "type": "integer"
+            },
+            "short": {
+              "type": "integer"
+            },
+            "skip": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "long",
+            "short",
+            "skip"
+          ],
+          "type": "object"
+        },
+        "volatile": {
+          "additionalProperties": false,
+          "properties": {
+            "long": {
+              "type": "integer"
+            },
+            "short": {
+              "type": "integer"
+            },
+            "skip": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "long",
+            "short",
+            "skip"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "flat",
+        "trend_down",
+        "trend_up",
+        "volatile"
+      ],
+      "type": "object"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "policy_hash": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "states": {
+      "additionalProperties": false,
+      "properties": {
+        "flat": {
+          "additionalProperties": false,
+          "properties": {
+            "long": {
+              "type": "number"
+            },
+            "short": {
+              "type": "number"
+            },
+            "skip": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "long",
+            "short",
+            "skip"
+          ],
+          "type": "object"
+        },
+        "trend_down": {
+          "additionalProperties": false,
+          "properties": {
+            "long": {
+              "type": "number"
+            },
+            "short": {
+              "type": "number"
+            },
+            "skip": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "long",
+            "short",
+            "skip"
+          ],
+          "type": "object"
+        },
+        "trend_up": {
+          "additionalProperties": false,
+          "properties": {
+            "long": {
+              "type": "number"
+            },
+            "short": {
+              "type": "number"
+            },
+            "skip": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "long",
+            "short",
+            "skip"
+          ],
+          "type": "object"
+        },
+        "volatile": {
+          "additionalProperties": false,
+          "properties": {
+            "long": {
+              "type": "number"
+            },
+            "short": {
+              "type": "number"
+            },
+            "skip": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "long",
+            "short",
+            "skip"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "flat",
+        "trend_down",
+        "trend_up",
+        "volatile"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "actions",
+    "cluster_counts",
+    "counts",
+    "deterministic",
+    "policy_hash",
+    "policy_id",
+    "states"
+  ],
+  "title": "SAED V4-23 GOLDEN_BEHAVIOR_POLICY",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

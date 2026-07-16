@@ -1,0 +1,144 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/golden_budget_snapshot.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "counts": {
+      "additionalProperties": false,
+      "properties": {
+        "bootstrap_draws": {
+          "type": "integer"
+        },
+        "candidate_policies": {
+          "type": "integer"
+        },
+        "dataset_episodes": {
+          "type": "integer"
+        },
+        "failures": {
+          "type": "integer"
+        },
+        "hidden_evaluation_queries": {
+          "type": "integer"
+        },
+        "ope_evaluations": {
+          "type": "integer"
+        },
+        "projection_attempts": {
+          "type": "integer"
+        },
+        "protected_evidence_exposures": {
+          "type": "integer"
+        },
+        "synthetic_challenges": {
+          "type": "integer"
+        },
+        "training_trials": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "bootstrap_draws",
+        "candidate_policies",
+        "dataset_episodes",
+        "failures",
+        "hidden_evaluation_queries",
+        "ope_evaluations",
+        "projection_attempts",
+        "protected_evidence_exposures",
+        "synthetic_challenges",
+        "training_trials"
+      ],
+      "type": "object"
+    },
+    "events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "counter": {
+            "type": "string"
+          },
+          "delta": {
+            "type": "integer"
+          },
+          "identity": {
+            "type": "string"
+          },
+          "value": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "counter",
+          "delta",
+          "identity",
+          "value"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "limits": {
+      "additionalProperties": false,
+      "properties": {
+        "max_bootstrap_draws": {
+          "type": "integer"
+        },
+        "max_candidate_policies": {
+          "type": "integer"
+        },
+        "max_dataset_episodes": {
+          "type": "integer"
+        },
+        "max_failures": {
+          "type": "integer"
+        },
+        "max_hidden_evaluation_queries": {
+          "type": "integer"
+        },
+        "max_ope_evaluations": {
+          "type": "integer"
+        },
+        "max_projection_attempts": {
+          "type": "integer"
+        },
+        "max_synthetic_challenges": {
+          "type": "integer"
+        },
+        "max_training_trials": {
+          "type": "integer"
+        },
+        "protected_evidence_exposure_limit": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "max_bootstrap_draws",
+        "max_candidate_policies",
+        "max_dataset_episodes",
+        "max_failures",
+        "max_hidden_evaluation_queries",
+        "max_ope_evaluations",
+        "max_projection_attempts",
+        "max_synthetic_challenges",
+        "max_training_trials",
+        "protected_evidence_exposure_limit"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "counts",
+    "events",
+    "ledger_hash",
+    "limits"
+  ],
+  "title": "SAED V4-23 GOLDEN_BUDGET_SNAPSHOT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

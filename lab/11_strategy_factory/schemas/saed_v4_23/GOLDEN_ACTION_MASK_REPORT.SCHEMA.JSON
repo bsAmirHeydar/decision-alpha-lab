@@ -1,0 +1,130 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/golden_action_mask_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "actions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "all_states_have_safe_action": {
+      "type": "boolean"
+    },
+    "mask_hash": {
+      "type": "string"
+    },
+    "safe_action": {
+      "type": "string"
+    },
+    "states": {
+      "additionalProperties": false,
+      "properties": {
+        "flat": {
+          "additionalProperties": false,
+          "properties": {
+            "long": {
+              "type": "boolean"
+            },
+            "short": {
+              "type": "boolean"
+            },
+            "skip": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "long",
+            "short",
+            "skip"
+          ],
+          "type": "object"
+        },
+        "trend_down": {
+          "additionalProperties": false,
+          "properties": {
+            "long": {
+              "type": "boolean"
+            },
+            "short": {
+              "type": "boolean"
+            },
+            "skip": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "long",
+            "short",
+            "skip"
+          ],
+          "type": "object"
+        },
+        "trend_up": {
+          "additionalProperties": false,
+          "properties": {
+            "long": {
+              "type": "boolean"
+            },
+            "short": {
+              "type": "boolean"
+            },
+            "skip": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "long",
+            "short",
+            "skip"
+          ],
+          "type": "object"
+        },
+        "volatile": {
+          "additionalProperties": false,
+          "properties": {
+            "long": {
+              "type": "boolean"
+            },
+            "short": {
+              "type": "boolean"
+            },
+            "skip": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "long",
+            "short",
+            "skip"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "flat",
+        "trend_down",
+        "trend_up",
+        "volatile"
+      ],
+      "type": "object"
+    },
+    "unknown_action_rejected": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "actions",
+    "all_states_have_safe_action",
+    "mask_hash",
+    "safe_action",
+    "states",
+    "unknown_action_rejected"
+  ],
+  "title": "SAED V4-23 GOLDEN_ACTION_MASK_REPORT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

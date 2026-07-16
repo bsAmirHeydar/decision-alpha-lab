@@ -1,0 +1,1057 @@
+{
+  "bundle_hash": "8b99358a0570dcee054e5f9c2b949375b06ec71c3447b70461accfd50028d3fd",
+  "reports": {
+    "manual_baseline_policy_e64f2e661aebe39abaded8b9": {
+      "aggregate_lower_bound": 0.1861212324818635,
+      "aggregate_upper_bound": 0.40512136887619066,
+      "confidence_intervals": {
+        "doubly_robust": {
+          "draws": 180,
+          "lower": 0.307880873646683,
+          "mean": 0.34297447511051726,
+          "upper": 0.3756207151700457
+        },
+        "fqe": {
+          "draws": 180,
+          "lower": 0.2743590238706141,
+          "mean": 0.29785231399044726,
+          "upper": 0.31839206370205864
+        },
+        "pdis": {
+          "draws": 180,
+          "lower": 0.1954103599464365,
+          "mean": 0.2930184859870697,
+          "upper": 0.40149221468025187
+        },
+        "wis": {
+          "draws": 180,
+          "lower": 0.1861212324818635,
+          "mean": 0.2930184859870697,
+          "upper": 0.40512136887619066
+        }
+      },
+      "dataset_id": "v4_23_logged_replay_fixture",
+      "effective_sample_size": 24.0,
+      "episode_rows": [
+        {
+          "cluster_id": "cluster_01",
+          "doubly_robust": 0.46551228145318346,
+          "episode_id": "episode_001",
+          "fqe": 0.262520807510851,
+          "pdis": 0.24051332338909753,
+          "return": 0.24051332338909753,
+          "terminal_weight": 1.0
+        },
+        {
+          "cluster_id": "cluster_01",
+          "doubly_robust": 0.4075348673631356,
+          "episode_id": "episode_002",
+          "fqe": 0.3947833352601363,
+          "pdis": 0.020749995399446684,
+          "return": 0.020749995399446684,
+          "terminal_weight": 1.0
+        },
+        {
+          "cluster_id": "cluster_01",
+          "doubly_robust": 0.44891102570050284,
+          "episode_id": "episode_003",
+          "fqe": 0.3301382066428791,
+          "pdis": 0.12404896838449593,
+          "return": 0.12404896838449593,
+          "terminal_weight": 1.0
+        },
+        {
+          "cluster_id": "cluster_01",
+          "doubly_robust": 0.08984635018603555,
+          "episode_id": "episode_004",
+          "fqe": 0.20396690654792257,
+          "pdis": 0.13681753172117875,
+          "return": 0.13681753172117875,
+          "terminal_weight": 1.0
+        },
+        {
+          "cluster_id": "cluster_02",
+          "doubly_robust": 0.4037102174905199,
+          "episode_id": "episode_005",
+          "fqe": 0.262520807510851,
+          "pdis": 0.10085104064376295,
+          "return": 0.10085104064376295,
+          "terminal_weight": 1.0
+        },
+        {
+          "cluster_id": "cluster_02",
+          "doubly_robust": 0.3265347733404388,
+          "episode_id": "episode_006",
+          "fqe": 0.3947833352601363,
+          "pdis": 0.685029001017289,
+          "return": 0.685029001017289,
+          "terminal_weight": 1.0
+        },
+        {
+          "cluster_id": "cluster_02",
+          "doubly_robust": 0.4646678671042451,
+          "episode_id": "episode_007",
+          "fqe": 0.3301382066428791,
+          "pdis": 1.304770858207328,
+          "return": 1.304770858207328,
+          "terminal_weight": 1.0
+        },
+        {
+          "cluster_id": "cluster_02",
+          "doubly_robust": 0.3353917264465327,
+          "episode_id": "episode_008",
+          "fqe": 0.20396690654792257,
+          "pdis": 0.7328262853048652,
+          "return": 0.7328262853048652,
+          "terminal_weight": 1.0
+        },
+        {
+          "cluster_id": "cluster_03",
+          "doubly_robust": 0.3103430831192968,
+          "episode_id": "episode_009",
+          "fqe": 0.262520807510851,
+          "pdis": 0.5483002656939672,
+          "return": 0.5483002656939672,
+          "terminal_weight": 1.0
+        },
+        {
+          "cluster_id": "cluster_03",
+          "doubly_robust": 0.4810531275201967,
+          "episode_id": "episode_010",
+          "fqe": 0.3947833352601363,
+          "pdis": -0.08005245184952742,
+          "return": -0.08005245184952742,
+          "terminal_weight": 1.0
+        },
+        {
+          "cluster_id": "cluster_03",
+          "doubly_robust": 0.4685604933792282,
+          "episode_id": "episode_011",
+          "fqe": 0.3301382066428791,
+          "pdis": 0.09327402344428903,
+          "return": 0.09327402344428903,
+          "terminal_weight": 1.0
+        },
+        {
+          "cluster_id": "cluster_03",
+          "doubly_robust": 0.1451543545209265,
+          "episode_id": "episode_012",
+          "fqe": 0.20396690654792257,
+          "pdis": 0.12352758255916793,
+          "return": 0.12352758255916793,
+          "terminal_weight": 1.0
+        },
+        {
+          "cluster_id": "cluster_04",
+          "doubly_robust": 0.21448629651032433,
+          "episode_id": "episode_013",
+          "fqe": 0.262520807510851,
+          "pdis": 0.3563624266763311,
+          "return": 0.3563624266763311,
+          "terminal_weight": 1.0
+        },
+        {
+          "cluster_id": "cluster_04",
+          "doubly_robust": 0.4281781315499846,
+          "episode_id": "episode_014",
+          "fqe": 0.3947833352601363,
+          "pdis": 0.575167350375755,
+          "return": 0.575167350375755,
+          "terminal_weight": 1.0
+        },
+        {
+          "cluster_id": "cluster_04",
+          "doubly_robust": 0.39059434484874456,
+          "episode_id": "episode_015",
+          "fqe": 0.3301382066428791,
+          "pdis": -0.11892435372852374,
+          "return": -0.11892435372852374,
+          "terminal_weight": 1.0
+        },
+        {
+          "cluster_id": "cluster_04",
+          "doubly_robust": 0.15809490970256931,
+          "episode_id": "episode_016",
+          "fqe": 0.20396690654792257,
+          "pdis": -0.10342854928032577,
+          "return": -0.10342854928032577,
+          "terminal_weight": 1.0
+        },
+        {
+          "cluster_id": "cluster_05",
+          "doubly_robust": 0.1619692410054144,
+          "episode_id": "episode_017",
+          "fqe": 0.262520807510851,
+          "pdis": 0.010112691031541976,
+          "return": 0.010112691031541976,
+          "terminal_weight": 1.0
+        },
+        {
+          "cluster_id": "cluster_05",
+          "doubly_robust": 0.41564143302769735,
+          "episode_id": "episode_018",
+          "fqe": 0.3947833352601363,
+          "pdis": 0.5471998688855924,
+          "return": 0.5471998688855924,
+          "terminal_weight": 1.0
+        },
+        {
+          "cluster_id": "cluster_05",
+          "doubly_robust": 0.46657256330920627,
+          "episode_id": "episode_019",
+          "fqe": 0.3301382066428791,
+          "pdis": 0.15432396183826086,
+          "return": 0.15432396183826086,
+          "terminal_weight": 1.0
+        },
+        {
+          "cluster_id": "cluster_05",
+          "doubly_robust": 0.27252601382609487,
+          "episode_id": "episode_020",
+          "fqe": 0.20396690654792257,
+          "pdis": 0.48312936191496714,
+          "return": 0.48312936191496714,
+          "terminal_weight": 1.0
+        },
+        {
+          "cluster_id": "cluster_06",
+          "doubly_robust": 0.35044932225193703,
+          "episode_id": "episode_021",
+          "fqe": 0.262520807510851,
+          "pdis": 0.5884065048266073,
+          "return": 0.5884065048266073,
+          "terminal_weight": 1.0
+        },
+        {
+          "cluster_id": "cluster_06",
+          "doubly_robust": 0.45562709089224734,
+          "episode_id": "episode_022",
+          "fqe": 0.3947833352601363,
+          "pdis": 0.06794257110158569,
+          "return": 0.06794257110158569,
+          "terminal_weight": 1.0
+        },
+        {
+          "cluster_id": "cluster_06",
+          "doubly_robust": 0.36662516328820566,
+          "episode_id": "episode_023",
+          "fqe": 0.3301382066428791,
+          "pdis": 0.07403124977827713,
+          "return": 0.07403124977827713,
+          "terminal_weight": 1.0
+        },
+        {
+          "cluster_id": "cluster_06",
+          "doubly_robust": 0.20340272481574617,
+          "episode_id": "episode_024",
+          "fqe": 0.20396690654792257,
+          "pdis": 0.36746415635424284,
+          "return": 0.36746415635424284,
+          "terminal_weight": 1.0
+        }
+      ],
+      "estimator_spread": 0.049955989123447564,
+      "estimators": {
+        "doubly_robust": 0.34297447511051726,
+        "fqe": 0.29785231399044726,
+        "pdis": 0.2930184859870697,
+        "wis": 0.2930184859870697
+      },
+      "maximum_terminal_weight": 1.0,
+      "ope_hash": "db71a300b401d930d32603ac191267f17ddd27e777ed55dd3551ae9964da2771",
+      "ope_id": "ope_21e6cede353c7194078d99f9",
+      "policy_id": "manual_baseline_policy_e64f2e661aebe39abaded8b9",
+      "promotion_authority": false,
+      "synthetic_positive_evidence": false
+    },
+    "projected_policy_0cd159c178bd099e28663bc1": {
+      "aggregate_lower_bound": -0.3598852888648208,
+      "aggregate_upper_bound": 0.7244753281919948,
+      "confidence_intervals": {
+        "doubly_robust": {
+          "draws": 180,
+          "lower": -0.3598852888648208,
+          "mean": -0.11354168689238055,
+          "upper": 0.15850859965604497
+        },
+        "fqe": {
+          "draws": 180,
+          "lower": 0.30549576702594194,
+          "mean": 0.3256251963056929,
+          "upper": 0.34597977137371266
+        },
+        "pdis": {
+          "draws": 180,
+          "lower": 0.24031808408146843,
+          "mean": 0.4095631958113262,
+          "upper": 0.5607847571312584
+        },
+        "wis": {
+          "draws": 180,
+          "lower": 0.33932922360955414,
+          "mean": 0.5291846498489173,
+          "upper": 0.7244753281919948
+        }
+      },
+      "dataset_id": "v4_23_logged_replay_fixture",
+      "effective_sample_size": 18.505159112792526,
+      "episode_rows": [
+        {
+          "cluster_id": "cluster_01",
+          "doubly_robust": 0.7000534887958234,
+          "episode_id": "episode_001",
+          "fqe": 0.2929974650411934,
+          "pdis": 0.06758239886412984,
+          "return": 0.24051332338909753,
+          "terminal_weight": 1.3188978490304428
+        },
+        {
+          "cluster_id": "cluster_01",
+          "doubly_robust": 0.255099142469058,
+          "episode_id": "episode_002",
+          "fqe": 0.32027228650279804,
+          "pdis": -0.04726471401262194,
+          "return": 0.020749995399446684,
+          "terminal_weight": 1.1162248307551512
+        },
+        {
+          "cluster_id": "cluster_01",
+          "doubly_robust": -0.5764411798210477,
+          "episode_id": "episode_003",
+          "fqe": 0.42591556618689885,
+          "pdis": 0.11062702254441097,
+          "return": 0.12404896838449593,
+          "terminal_weight": 2.823389174662467
+        },
+        {
+          "cluster_id": "cluster_01",
+          "doubly_robust": -0.4460860774962948,
+          "episode_id": "episode_004",
+          "fqe": 0.2633154674918814,
+          "pdis": 0.2069198389615592,
+          "return": 0.13681753172117875,
+          "terminal_weight": 1.3185802026985471
+        },
+        {
+          "cluster_id": "cluster_02",
+          "doubly_robust": 0.6203433166745352,
+          "episode_id": "episode_005",
+          "fqe": 0.2929974650411934,
+          "pdis": 0.28377107083942726,
+          "return": 0.10085104064376295,
+          "terminal_weight": 0.895070384617987
+        },
+        {
+          "cluster_id": "cluster_02",
+          "doubly_robust": -0.27276102009047976,
+          "episode_id": "episode_006",
+          "fqe": 0.32027228650279804,
+          "pdis": 0.853138865339117,
+          "return": 0.685029001017289,
+          "terminal_weight": 1.9546760493071693
+        },
+        {
+          "cluster_id": "cluster_02",
+          "doubly_robust": 0.17247911542267558,
+          "episode_id": "episode_007",
+          "fqe": 0.42591556618689885,
+          "pdis": 1.5619330835491714,
+          "return": 1.304770858207328,
+          "terminal_weight": 1.4100665398468837
+        },
+        {
+          "cluster_id": "cluster_02",
+          "doubly_robust": -0.8705379631072063,
+          "episode_id": "episode_008",
+          "fqe": 0.2633154674918814,
+          "pdis": 1.2150355775774258,
+          "return": 0.7328262853048652,
+          "terminal_weight": 2.2874467526293656
+        },
+        {
+          "cluster_id": "cluster_03",
+          "doubly_robust": -0.8228197905341984,
+          "episode_id": "episode_009",
+          "fqe": 0.2929974650411934,
+          "pdis": 0.9039268100221605,
+          "return": 0.5483002656939672,
+          "terminal_weight": 2.0015261651594365
+        },
+        {
+          "cluster_id": "cluster_03",
+          "doubly_robust": 0.45275979745406547,
+          "episode_id": "episode_010",
+          "fqe": 0.32027228650279804,
+          "pdis": 0.029174296842147215,
+          "return": -0.08005245184952742,
+          "terminal_weight": 0.3100174477504391
+        },
+        {
+          "cluster_id": "cluster_03",
+          "doubly_robust": 0.5374212582287337,
+          "episode_id": "episode_011",
+          "fqe": 0.42591556618689885,
+          "pdis": 0.03781183351394263,
+          "return": 0.09327402344428903,
+          "terminal_weight": 0.9244695822952964
+        },
+        {
+          "cluster_id": "cluster_03",
+          "doubly_robust": -0.9889075307941245,
+          "episode_id": "episode_012",
+          "fqe": 0.2633154674918814,
+          "pdis": 0.19812348118794051,
+          "return": 0.12352758255916793,
+          "terminal_weight": 2.3161590351444534
+        },
+        {
+          "cluster_id": "cluster_04",
+          "doubly_robust": 0.6696829049581802,
+          "episode_id": "episode_013",
+          "fqe": 0.2929974650411934,
+          "pdis": 0.22351128072312695,
+          "return": 0.3563624266763311,
+          "terminal_weight": 0.6752380932456243
+        },
+        {
+          "cluster_id": "cluster_04",
+          "doubly_robust": -0.19842185809085827,
+          "episode_id": "episode_014",
+          "fqe": 0.32027228650279804,
+          "pdis": 0.7206120472167427,
+          "return": 0.575167350375755,
+          "terminal_weight": 1.519922072131289
+        },
+        {
+          "cluster_id": "cluster_04",
+          "doubly_robust": 1.453366465762185,
+          "episode_id": "episode_015",
+          "fqe": 0.42591556618689885,
+          "pdis": -0.02517142026695325,
+          "return": -0.11892435372852374,
+          "terminal_weight": 0.3821545743910719
+        },
+        {
+          "cluster_id": "cluster_04",
+          "doubly_robust": 0.22271633588252296,
+          "episode_id": "episode_016",
+          "fqe": 0.2633154674918814,
+          "pdis": -0.11483523956130681,
+          "return": -0.10342854928032577,
+          "terminal_weight": 1.1402782057911371
+        },
+        {
+          "cluster_id": "cluster_05",
+          "doubly_robust": 0.1383022881749062,
+          "episode_id": "episode_017",
+          "fqe": 0.2929974650411934,
+          "pdis": 0.018858870069177545,
+          "return": 0.010112691031541976,
+          "terminal_weight": 0.9751101890614541
+        },
+        {
+          "cluster_id": "cluster_05",
+          "doubly_robust": 0.7931924611726665,
+          "episode_id": "episode_018",
+          "fqe": 0.32027228650279804,
+          "pdis": 0.3829618963195181,
+          "return": 0.5471998688855924,
+          "terminal_weight": 0.6812967458930291
+        },
+        {
+          "cluster_id": "cluster_05",
+          "doubly_robust": -1.8484403296240433,
+          "episode_id": "episode_019",
+          "fqe": 0.42591556618689885,
+          "pdis": 0.4734796942549988,
+          "return": 0.15432396183826086,
+          "terminal_weight": 3.927074005392778
+        },
+        {
+          "cluster_id": "cluster_05",
+          "doubly_robust": -0.7541836780808484,
+          "episode_id": "episode_020",
+          "fqe": 0.2633154674918814,
+          "pdis": 0.7522721563916971,
+          "return": 0.48312936191496714,
+          "terminal_weight": 2.1734057818731793
+        },
+        {
+          "cluster_id": "cluster_06",
+          "doubly_robust": -0.7592068597395721,
+          "episode_id": "episode_021",
+          "fqe": 0.2929974650411934,
+          "pdis": 0.9675397408167865,
+          "return": 0.5884065048266073,
+          "terminal_weight": 2.0015261651594365
+        },
+        {
+          "cluster_id": "cluster_06",
+          "doubly_robust": -0.02466369162753279,
+          "episode_id": "episode_022",
+          "fqe": 0.32027228650279804,
+          "pdis": 0.10524776928558263,
+          "return": 0.06794257110158569,
+          "terminal_weight": 1.7984457827744806
+        },
+        {
+          "cluster_id": "cluster_06",
+          "doubly_robust": 0.17437405358582564,
+          "episode_id": "episode_023",
+          "fqe": 0.42591556618689885,
+          "pdis": 0.09179494718905673,
+          "return": 0.07403124977827713,
+          "terminal_weight": 0.9619978870728338
+        },
+        {
+          "cluster_id": "cluster_06",
+          "doubly_robust": -1.3523211349921047,
+          "episode_id": "episode_024",
+          "fqe": 0.2633154674918814,
+          "pdis": 0.8124653918045927,
+          "return": 0.36746415635424284,
+          "terminal_weight": 2.932922817361721
+        }
+      ],
+      "estimator_spread": 0.5231048827037068,
+      "estimators": {
+        "doubly_robust": -0.11354168689238055,
+        "fqe": 0.3256251963056929,
+        "pdis": 0.4095631958113262,
+        "wis": 0.3355827930265949
+      },
+      "maximum_terminal_weight": 3.927074005392778,
+      "ope_hash": "58d38f4f2c09211287912f1694e8ff88aa16b73fea7ab93cf25eed66195d23a5",
+      "ope_id": "ope_7a55cf262d337fbb31e9cb09",
+      "policy_id": "projected_policy_0cd159c178bd099e28663bc1",
+      "promotion_authority": false,
+      "synthetic_positive_evidence": false
+    },
+    "projected_policy_1aacba61d46fc10e4ec3dd1d": {
+      "aggregate_lower_bound": -0.43576729233021894,
+      "aggregate_upper_bound": 0.8250223014394301,
+      "confidence_intervals": {
+        "doubly_robust": {
+          "draws": 180,
+          "lower": -0.43576729233021894,
+          "mean": 0.18552907043397573,
+          "upper": 0.8250223014394301
+        },
+        "fqe": {
+          "draws": 180,
+          "lower": 0.40151077442952227,
+          "mean": 0.44632007794250494,
+          "upper": 0.49943725311544535
+        },
+        "pdis": {
+          "draws": 180,
+          "lower": 0.16430026788823743,
+          "mean": 0.2618200477386422,
+          "upper": 0.37920972509967693
+        },
+        "wis": {
+          "draws": 180,
+          "lower": 0.15121625901229185,
+          "mean": 0.22708430517248326,
+          "upper": 0.3220335008327447
+        }
+      },
+      "dataset_id": "v4_23_logged_replay_fixture",
+      "effective_sample_size": 10.48682170018476,
+      "episode_rows": [
+        {
+          "cluster_id": "cluster_01",
+          "doubly_robust": -0.4524452277443052,
+          "episode_id": "episode_001",
+          "fqe": 0.4180494680170149,
+          "pdis": 0.2671279882093964,
+          "return": 0.24051332338909753,
+          "terminal_weight": 2.5490233811676872
+        },
+        {
+          "cluster_id": "cluster_01",
+          "doubly_robust": 1.6353208993050172,
+          "episode_id": "episode_002",
+          "fqe": 0.6939169586094562,
+          "pdis": 0.08895562518285723,
+          "return": 0.020749995399446684,
+          "terminal_weight": 0.19401213622855687
+        },
+        {
+          "cluster_id": "cluster_01",
+          "doubly_robust": -1.5129721819482733,
+          "episode_id": "episode_003",
+          "fqe": 0.33969297273722304,
+          "pdis": 0.15969491942881703,
+          "return": 0.12404896838449593,
+          "terminal_weight": 2.5674069419145504
+        },
+        {
+          "cluster_id": "cluster_01",
+          "doubly_robust": 1.1149336800410539,
+          "episode_id": "episode_004",
+          "fqe": 0.3336209124063255,
+          "pdis": 0.059423675056063115,
+          "return": 0.13681753172117875,
+          "terminal_weight": 0.12294818662841159
+        },
+        {
+          "cluster_id": "cluster_02",
+          "doubly_robust": 0.4444901664277925,
+          "episode_id": "episode_005",
+          "fqe": 0.4180494680170149,
+          "pdis": -0.00600708258934126,
+          "return": 0.10085104064376295,
+          "terminal_weight": 1.0208872925350956
+        },
+        {
+          "cluster_id": "cluster_02",
+          "doubly_robust": -0.2658093106845615,
+          "episode_id": "episode_006",
+          "fqe": 0.6939169586094562,
+          "pdis": 0.8738070148266659,
+          "return": 0.685029001017289,
+          "terminal_weight": 0.857055825812262
+        },
+        {
+          "cluster_id": "cluster_02",
+          "doubly_robust": 1.7300302009915236,
+          "episode_id": "episode_007",
+          "fqe": 0.33969297273722304,
+          "pdis": 0.3240877741170145,
+          "return": 1.304770858207328,
+          "terminal_weight": 0.027902207265832514
+        },
+        {
+          "cluster_id": "cluster_02",
+          "doubly_robust": 1.1260168064323122,
+          "episode_id": "episode_008",
+          "fqe": 0.3336209124063255,
+          "pdis": 0.1917127957133501,
+          "return": 0.7328262853048652,
+          "terminal_weight": 0.19763033974688005
+        },
+        {
+          "cluster_id": "cluster_03",
+          "doubly_robust": 1.091706681730636,
+          "episode_id": "episode_009",
+          "fqe": 0.4180494680170149,
+          "pdis": 0.2954649815118397,
+          "return": 0.5483002656939672,
+          "terminal_weight": 0.17366315101562194
+        },
+        {
+          "cluster_id": "cluster_03",
+          "doubly_robust": 2.4170818338854834,
+          "episode_id": "episode_010",
+          "fqe": 0.6939169586094562,
+          "pdis": 0.012126792004719545,
+          "return": -0.08005245184952742,
+          "terminal_weight": 0.045598530963862176
+        },
+        {
+          "cluster_id": "cluster_03",
+          "doubly_robust": 1.321223603993939,
+          "episode_id": "episode_011",
+          "fqe": 0.33969297273722304,
+          "pdis": 0.02275889887412065,
+          "return": 0.09327402344428903,
+          "terminal_weight": 0.272032412533809
+        },
+        {
+          "cluster_id": "cluster_03",
+          "doubly_robust": -0.6638139905233998,
+          "episode_id": "episode_012",
+          "fqe": 0.3336209124063255,
+          "pdis": 0.14479296828855182,
+          "return": 0.12352758255916793,
+          "terminal_weight": 2.6603545946624854
+        },
+        {
+          "cluster_id": "cluster_04",
+          "doubly_robust": -4.5691011209222605,
+          "episode_id": "episode_013",
+          "fqe": 0.4180494680170149,
+          "pdis": 1.2624084185064444,
+          "return": 0.3563624266763311,
+          "terminal_weight": 0.8069303560727005
+        },
+        {
+          "cluster_id": "cluster_04",
+          "doubly_robust": 1.241978640870583,
+          "episode_id": "episode_014",
+          "fqe": 0.6939169586094562,
+          "pdis": 0.39597219312110904,
+          "return": 0.575167350375755,
+          "terminal_weight": 0.1908373001425108
+        },
+        {
+          "cluster_id": "cluster_04",
+          "doubly_robust": 0.5593697794475625,
+          "episode_id": "episode_015",
+          "fqe": 0.33969297273722304,
+          "pdis": -0.18026247059599065,
+          "return": -0.11892435372852374,
+          "terminal_weight": 0.2417464093849642
+        },
+        {
+          "cluster_id": "cluster_04",
+          "doubly_robust": 1.4846173001827225,
+          "episode_id": "episode_016",
+          "fqe": 0.3336209124063255,
+          "pdis": -0.014770250166840531,
+          "return": -0.10342854928032577,
+          "terminal_weight": 0.561842276612799
+        },
+        {
+          "cluster_id": "cluster_05",
+          "doubly_robust": 1.788384585925542,
+          "episode_id": "episode_017",
+          "fqe": 0.4180494680170149,
+          "pdis": 0.00676150511164841,
+          "return": 0.010112691031541976,
+          "terminal_weight": 0.2102585727943725
+        },
+        {
+          "cluster_id": "cluster_05",
+          "doubly_robust": -0.023529584882658272,
+          "episode_id": "episode_018",
+          "fqe": 0.6939169586094562,
+          "pdis": 0.7944772842154623,
+          "return": 0.5471998688855924,
+          "terminal_weight": 1.077293430495202
+        },
+        {
+          "cluster_id": "cluster_05",
+          "doubly_robust": -6.071745231484277,
+          "episode_id": "episode_019",
+          "fqe": 0.33969297273722304,
+          "pdis": 0.3583370309515381,
+          "return": 0.15432396183826086,
+          "terminal_weight": 3.6789137766357376
+        },
+        {
+          "cluster_id": "cluster_05",
+          "doubly_robust": -0.26439127714966926,
+          "episode_id": "episode_020",
+          "fqe": 0.3336209124063255,
+          "pdis": 0.4071687736066766,
+          "return": 0.48312936191496714,
+          "terminal_weight": 2.5095796568342967
+        },
+        {
+          "cluster_id": "cluster_06",
+          "doubly_robust": 1.0845645494482472,
+          "episode_id": "episode_021",
+          "fqe": 0.4180494680170149,
+          "pdis": 0.2883228492294509,
+          "return": 0.5884065048266073,
+          "terminal_weight": 0.17366315101562194
+        },
+        {
+          "cluster_id": "cluster_06",
+          "doubly_robust": 2.323240749726977,
+          "episode_id": "episode_022",
+          "fqe": 0.6939169586094562,
+          "pdis": 0.016480846397176136,
+          "return": 0.06794257110158569,
+          "terminal_weight": 0.290062221653562
+        },
+        {
+          "cluster_id": "cluster_06",
+          "doubly_robust": -0.9530388083917359,
+          "episode_id": "episode_023",
+          "fqe": 0.33969297273722304,
+          "pdis": 0.22991834132188993,
+          "return": 0.07403124977827713,
+          "terminal_weight": 0.4698919561771682
+        },
+        {
+          "cluster_id": "cluster_06",
+          "doubly_robust": -0.1334150542628337,
+          "episode_id": "episode_024",
+          "fqe": 0.3336209124063255,
+          "pdis": 0.2849202734047939,
+          "return": 0.36746415635424284,
+          "terminal_weight": 0.9301273353104975
+        }
+      ],
+      "estimator_spread": 0.26079100750852924,
+      "estimators": {
+        "doubly_robust": 0.18552907043397573,
+        "fqe": 0.44632007794250494,
+        "pdis": 0.2618200477386422,
+        "wis": 0.2496613764816912
+      },
+      "maximum_terminal_weight": 3.6789137766357376,
+      "ope_hash": "d704f8aee4699d632b7e70bd20e51042c8426b43856e384f77f24d6f808fca47",
+      "ope_id": "ope_49d0b93f8efd3198de80a5c4",
+      "policy_id": "projected_policy_1aacba61d46fc10e4ec3dd1d",
+      "promotion_authority": false,
+      "synthetic_positive_evidence": false
+    },
+    "projected_policy_c59f24982fd9a5058e292d3d": {
+      "aggregate_lower_bound": -0.32377366236433314,
+      "aggregate_upper_bound": 0.5623528489309462,
+      "confidence_intervals": {
+        "doubly_robust": {
+          "draws": 180,
+          "lower": -0.32377366236433314,
+          "mean": -0.09671571774327337,
+          "upper": 0.1554795586665454
+        },
+        "fqe": {
+          "draws": 180,
+          "lower": 0.21266187864717379,
+          "mean": 0.23344584599280951,
+          "upper": 0.25288655071109833
+        },
+        "pdis": {
+          "draws": 180,
+          "lower": 0.17200624020224045,
+          "mean": 0.3039892035066328,
+          "upper": 0.40273358220538774
+        },
+        "wis": {
+          "draws": 180,
+          "lower": 0.3058084406150618,
+          "mean": 0.4263700994470592,
+          "upper": 0.5623528489309462
+        }
+      },
+      "dataset_id": "v4_23_logged_replay_fixture",
+      "effective_sample_size": 16.578690826470268,
+      "episode_rows": [
+        {
+          "cluster_id": "cluster_01",
+          "doubly_robust": 0.4521500880549224,
+          "episode_id": "episode_001",
+          "fqe": 0.21665030982970737,
+          "pdis": -0.04450718830910638,
+          "return": 0.24051332338909753,
+          "terminal_weight": 1.7164770869817327
+        },
+        {
+          "cluster_id": "cluster_01",
+          "doubly_robust": -0.07245635060541508,
+          "episode_id": "episode_002",
+          "fqe": 0.18270970337350534,
+          "pdis": -0.11318908828948267,
+          "return": 0.020749995399446684,
+          "terminal_weight": 1.5890589068540575
+        },
+        {
+          "cluster_id": "cluster_01",
+          "doubly_robust": -1.1976199630428472,
+          "episode_id": "episode_003",
+          "fqe": 0.3432021503951417,
+          "pdis": 0.043007934126498455,
+          "return": 0.12404896838449593,
+          "terminal_weight": 4.424473913629295
+        },
+        {
+          "cluster_id": "cluster_01",
+          "doubly_robust": -0.23931532167232397,
+          "episode_id": "episode_004",
+          "fqe": 0.19122122037288375,
+          "pdis": 0.16681515008228723,
+          "return": 0.13681753172117875,
+          "terminal_weight": 1.348432876103572
+        },
+        {
+          "cluster_id": "cluster_02",
+          "doubly_robust": 0.4480745621275861,
+          "episode_id": "episode_005",
+          "fqe": 0.21665030982970737,
+          "pdis": 0.22632646045162252,
+          "return": 0.10085104064376295,
+          "terminal_weight": 1.0515645673041472
+        },
+        {
+          "cluster_id": "cluster_02",
+          "doubly_robust": 0.39108117786271634,
+          "episode_id": "episode_006",
+          "fqe": 0.18270970337350534,
+          "pdis": 0.5144818455257701,
+          "return": 0.685029001017289,
+          "terminal_weight": 0.9974340438639294
+        },
+        {
+          "cluster_id": "cluster_02",
+          "doubly_robust": 0.7331299584347353,
+          "episode_id": "episode_007",
+          "fqe": 0.3432021503951417,
+          "pdis": 1.1126988814408216,
+          "return": 1.304770858207328,
+          "terminal_weight": 0.7259179062715742
+        },
+        {
+          "cluster_id": "cluster_02",
+          "doubly_robust": -0.3844336741683453,
+          "episode_id": "episode_008",
+          "fqe": 0.19122122037288375,
+          "pdis": 1.0021358607948774,
+          "return": 0.7328262853048652,
+          "terminal_weight": 1.7683761888266478
+        },
+        {
+          "cluster_id": "cluster_03",
+          "doubly_robust": -0.31942042888269406,
+          "episode_id": "episode_009",
+          "fqe": 0.21665030982970737,
+          "pdis": 0.7320057858959865,
+          "return": 0.5483002656939672,
+          "terminal_weight": 1.482742382913766
+        },
+        {
+          "cluster_id": "cluster_03",
+          "doubly_robust": 0.09454457861183277,
+          "episode_id": "episode_010",
+          "fqe": 0.18270970337350534,
+          "pdis": 0.015642730742375544,
+          "return": -0.08005245184952742,
+          "terminal_weight": 0.475728182455869
+        },
+        {
+          "cluster_id": "cluster_03",
+          "doubly_robust": 0.18782668564354618,
+          "episode_id": "episode_011",
+          "fqe": 0.3432021503951417,
+          "pdis": -0.007478724608285914,
+          "return": 0.09327402344428903,
+          "terminal_weight": 1.459326602917421
+        },
+        {
+          "cluster_id": "cluster_03",
+          "doubly_robust": -0.6458780508040127,
+          "episode_id": "episode_012",
+          "fqe": 0.19122122037288375,
+          "pdis": 0.18775228805107722,
+          "return": 0.12352758255916793,
+          "terminal_weight": 2.5266265885842296
+        },
+        {
+          "cluster_id": "cluster_04",
+          "doubly_robust": 0.5863213170328232,
+          "episode_id": "episode_013",
+          "fqe": 0.21665030982970737,
+          "pdis": 0.15240829745391166,
+          "return": 0.3563624266763311,
+          "terminal_weight": 0.536979439973198
+        },
+        {
+          "cluster_id": "cluster_04",
+          "doubly_robust": 0.24544022167054588,
+          "episode_id": "episode_014",
+          "fqe": 0.18270970337350534,
+          "pdis": 0.5081524356004771,
+          "return": 0.575167350375755,
+          "terminal_weight": 1.1835242400554515
+        },
+        {
+          "cluster_id": "cluster_04",
+          "doubly_robust": 0.9730860313833127,
+          "episode_id": "episode_015",
+          "fqe": 0.3432021503951417,
+          "pdis": -0.03601185001882887,
+          "return": -0.11892435372852374,
+          "terminal_weight": 0.5666730112255618
+        },
+        {
+          "cluster_id": "cluster_04",
+          "doubly_robust": -0.08959803949270698,
+          "episode_id": "episode_016",
+          "fqe": 0.19122122037288375,
+          "pdis": -0.20879239847998005,
+          "return": -0.10342854928032577,
+          "terminal_weight": 1.9325528032823172
+        },
+        {
+          "cluster_id": "cluster_05",
+          "doubly_robust": 0.002397786589668601,
+          "episode_id": "episode_017",
+          "fqe": 0.21665030982970737,
+          "pdis": 0.02046979963355301,
+          "return": 0.010112691031541976,
+          "terminal_weight": 1.2272228785737471
+        },
+        {
+          "cluster_id": "cluster_05",
+          "doubly_robust": 0.7073110329294392,
+          "episode_id": "episode_018",
+          "fqe": 0.18270970337350534,
+          "pdis": 0.260968170465562,
+          "return": 0.5471998688855924,
+          "terminal_weight": 0.46443316590284445
+        },
+        {
+          "cluster_id": "cluster_05",
+          "doubly_robust": -2.434435688580279,
+          "episode_id": "episode_019",
+          "fqe": 0.3432021503951417,
+          "pdis": 0.4721306303497895,
+          "return": 0.15432396183826086,
+          "terminal_weight": 5.349955919417363
+        },
+        {
+          "cluster_id": "cluster_05",
+          "doubly_robust": -0.20610720008930797,
+          "episode_id": "episode_020",
+          "fqe": 0.19122122037288375,
+          "pdis": 0.6054027013482941,
+          "return": 0.48312936191496714,
+          "terminal_weight": 2.151874852784989
+        },
+        {
+          "cluster_id": "cluster_06",
+          "doubly_robust": -0.2704426222976442,
+          "episode_id": "episode_021",
+          "fqe": 0.21665030982970737,
+          "pdis": 0.7809835924810362,
+          "return": 0.5884065048266073,
+          "terminal_weight": 1.482742382913766
+        },
+        {
+          "cluster_id": "cluster_06",
+          "doubly_robust": -0.3287219387230511,
+          "episode_id": "episode_022",
+          "fqe": 0.18270970337350534,
+          "pdis": 0.1301643455472636,
+          "return": 0.06794257110158569,
+          "terminal_weight": 2.47917123593728
+        },
+        {
+          "cluster_id": "cluster_06",
+          "doubly_robust": -0.24055153618157232,
+          "episode_id": "episode_023",
+          "fqe": 0.3432021503951417,
+          "pdis": 0.12206001551944842,
+          "return": 0.07403124977827713,
+          "terminal_weight": 1.5087576833556406
+        },
+        {
+          "cluster_id": "cluster_06",
+          "doubly_robust": -0.7135598516394893,
+          "episode_id": "episode_024",
+          "fqe": 0.19122122037288375,
+          "pdis": 0.6521132083542186,
+          "return": 0.36746415635424284,
+          "terminal_weight": 2.4737091464880714
+        }
+      ],
+      "estimator_spread": 0.40070492124990614,
+      "estimators": {
+        "doubly_robust": -0.09671571774327337,
+        "fqe": 0.23344584599280951,
+        "pdis": 0.3039892035066328,
+        "wis": 0.25004748794502124
+      },
+      "maximum_terminal_weight": 5.349955919417363,
+      "ope_hash": "a27eaad7a5d835b27797822edcd840855997e469f8afba5f078e33f62fb88924",
+      "ope_id": "ope_326b3a247ce4381a2e66d33a",
+      "policy_id": "projected_policy_c59f24982fd9a5058e292d3d",
+      "promotion_authority": false,
+      "synthetic_positive_evidence": false
+    }
+  }
+}

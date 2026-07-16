@@ -1,0 +1,5 @@
+{
+  "case": "protected_evidence",
+  "expected": "AuthorityError",
+  "rejected": true
+}

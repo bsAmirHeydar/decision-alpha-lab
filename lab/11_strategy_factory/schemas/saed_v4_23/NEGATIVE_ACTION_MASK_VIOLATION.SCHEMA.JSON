@@ -1,0 +1,26 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/negative_action_mask_violation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "case": {
+      "type": "string"
+    },
+    "expected": {
+      "type": "string"
+    },
+    "rejected": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "case",
+    "expected",
+    "rejected"
+  ],
+  "title": "SAED V4-23 NEGATIVE_ACTION_MASK_VIOLATION",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

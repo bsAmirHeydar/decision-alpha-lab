@@ -1,0 +1,91 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/golden_reward_audit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "audit_hash": {
+      "type": "string"
+    },
+    "audit_id": {
+      "type": "string"
+    },
+    "boundary_clip_count": {
+      "type": "integer"
+    },
+    "component_totals": {
+      "additionalProperties": false,
+      "properties": {
+        "execution_cost": {
+          "type": "number"
+        },
+        "gross_return": {
+          "type": "number"
+        },
+        "risk_penalty": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "execution_cost",
+        "gross_return",
+        "risk_penalty"
+      ],
+      "type": "object"
+    },
+    "maximum": {
+      "type": "number"
+    },
+    "maximum_component_sum_error": {
+      "type": "number"
+    },
+    "mean": {
+      "type": "number"
+    },
+    "minimum": {
+      "type": "number"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "q05": {
+      "type": "number"
+    },
+    "q50": {
+      "type": "number"
+    },
+    "q95": {
+      "type": "number"
+    },
+    "reward_count": {
+      "type": "integer"
+    },
+    "std": {
+      "type": "number"
+    },
+    "synthetic_positive_evidence": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "audit_hash",
+    "audit_id",
+    "boundary_clip_count",
+    "component_totals",
+    "maximum",
+    "maximum_component_sum_error",
+    "mean",
+    "minimum",
+    "passed",
+    "q05",
+    "q50",
+    "q95",
+    "reward_count",
+    "std",
+    "synthetic_positive_evidence"
+  ],
+  "title": "SAED V4-23 GOLDEN_REWARD_AUDIT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

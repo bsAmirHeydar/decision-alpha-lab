@@ -1,0 +1,9 @@
+{
+  "exact_version": "1.0.0",
+  "fail_closed": true,
+  "maximum_importance_weight": 10.0,
+  "maximum_unsupported_mass": 0.35,
+  "minimum_behavior_probability": 0.015,
+  "minimum_effective_sample_size": 1.0,
+  "minimum_state_action_count": 1
+}

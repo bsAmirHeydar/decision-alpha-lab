@@ -1,0 +1,49 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/reward_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "audit_component_sum": {
+      "type": "boolean"
+    },
+    "clip_for_training": {
+      "type": "boolean"
+    },
+    "components": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "execution_cost_required": {
+      "type": "boolean"
+    },
+    "maximum_reward": {
+      "type": "number"
+    },
+    "minimum_reward": {
+      "type": "number"
+    },
+    "synthetic_reward_positive_evidence_forbidden": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "audit_component_sum",
+    "clip_for_training",
+    "components",
+    "exact_version",
+    "execution_cost_required",
+    "maximum_reward",
+    "minimum_reward",
+    "synthetic_reward_positive_evidence_forbidden"
+  ],
+  "title": "SAED V4-23 REWARD_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

@@ -1,0 +1,9 @@
+{
+  "deterministic": true,
+  "exact_version": "1.0.0",
+  "fallback_to_behavior": true,
+  "maximum_context_length": 3,
+  "minimum_sequence_count": 1,
+  "recency_decay": 0.96,
+  "smoothing": 0.4
+}

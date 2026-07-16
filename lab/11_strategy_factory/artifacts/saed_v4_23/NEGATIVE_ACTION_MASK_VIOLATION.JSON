@@ -1,0 +1,5 @@
+{
+  "case": "action_mask_violation",
+  "expected": "DatasetError",
+  "rejected": true
+}

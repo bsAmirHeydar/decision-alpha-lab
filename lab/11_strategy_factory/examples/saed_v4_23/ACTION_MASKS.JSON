@@ -1,0 +1,22 @@
+{
+  "flat": [
+    "skip",
+    "long",
+    "short"
+  ],
+  "trend_down": [
+    "skip",
+    "long",
+    "short"
+  ],
+  "trend_up": [
+    "skip",
+    "long",
+    "short"
+  ],
+  "volatile": [
+    "skip",
+    "long",
+    "short"
+  ]
+}

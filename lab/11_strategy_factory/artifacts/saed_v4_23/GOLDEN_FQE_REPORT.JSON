@@ -1,0 +1,45 @@
+{
+  "bundle_hash": "af5ea637e63aec4fce5bc61c83356afc6847b95fcc3bbbdb62ae29afc30f112f",
+  "reports": {
+    "manual_baseline_policy_e64f2e661aebe39abaded8b9": {
+      "fqe": 0.29785231399044726,
+      "fqe_interval": {
+        "draws": 180,
+        "lower": 0.2743590238706141,
+        "mean": 0.29785231399044726,
+        "upper": 0.31839206370205864
+      },
+      "policy_id": "manual_baseline_policy_e64f2e661aebe39abaded8b9"
+    },
+    "projected_policy_0cd159c178bd099e28663bc1": {
+      "fqe": 0.3256251963056929,
+      "fqe_interval": {
+        "draws": 180,
+        "lower": 0.30549576702594194,
+        "mean": 0.3256251963056929,
+        "upper": 0.34597977137371266
+      },
+      "policy_id": "projected_policy_0cd159c178bd099e28663bc1"
+    },
+    "projected_policy_1aacba61d46fc10e4ec3dd1d": {
+      "fqe": 0.44632007794250494,
+      "fqe_interval": {
+        "draws": 180,
+        "lower": 0.40151077442952227,
+        "mean": 0.44632007794250494,
+        "upper": 0.49943725311544535
+      },
+      "policy_id": "projected_policy_1aacba61d46fc10e4ec3dd1d"
+    },
+    "projected_policy_c59f24982fd9a5058e292d3d": {
+      "fqe": 0.23344584599280951,
+      "fqe_interval": {
+        "draws": 180,
+        "lower": 0.21266187864717379,
+        "mean": 0.23344584599280951,
+        "upper": 0.25288655071109833
+      },
+      "policy_id": "projected_policy_c59f24982fd9a5058e292d3d"
+    }
+  }
+}

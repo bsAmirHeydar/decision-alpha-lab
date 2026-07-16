@@ -1,0 +1,45 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/action_space_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "action_masks_required": {
+      "type": "boolean"
+    },
+    "actions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "runtime_action_forbidden": {
+      "type": "boolean"
+    },
+    "safe_action": {
+      "type": "string"
+    },
+    "safe_action_always_available": {
+      "type": "boolean"
+    },
+    "unknown_action_rejected": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "action_masks_required",
+    "actions",
+    "exact_version",
+    "runtime_action_forbidden",
+    "safe_action",
+    "safe_action_always_available",
+    "unknown_action_rejected"
+  ],
+  "title": "SAED V4-23 ACTION_SPACE_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

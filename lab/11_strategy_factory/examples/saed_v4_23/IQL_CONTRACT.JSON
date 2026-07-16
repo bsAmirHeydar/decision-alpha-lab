@@ -1,0 +1,9 @@
+{
+  "advantage_temperature": 1.2,
+  "deterministic": true,
+  "discount": 0.93,
+  "exact_version": "1.0.0",
+  "expectile": 0.7,
+  "iterations": 35,
+  "maximum_advantage_weight": 8.0
+}

@@ -1,0 +1,537 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/full_reference_config.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "action_space_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "action_masks_required": {
+          "type": "boolean"
+        },
+        "actions": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "runtime_action_forbidden": {
+          "type": "boolean"
+        },
+        "safe_action": {
+          "type": "string"
+        },
+        "safe_action_always_available": {
+          "type": "boolean"
+        },
+        "unknown_action_rejected": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "action_masks_required",
+        "actions",
+        "exact_version",
+        "runtime_action_forbidden",
+        "safe_action",
+        "safe_action_always_available",
+        "unknown_action_rejected"
+      ],
+      "type": "object"
+    },
+    "behavior_policy_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "cluster_aware": {
+          "type": "boolean"
+        },
+        "deterministic": {
+          "type": "boolean"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "maximum_log_ratio": {
+          "type": "number"
+        },
+        "minimum_probability": {
+          "type": "number"
+        },
+        "smoothing": {
+          "type": "number"
+        },
+        "state_conditioned": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "cluster_aware",
+        "deterministic",
+        "exact_version",
+        "maximum_log_ratio",
+        "minimum_probability",
+        "smoothing",
+        "state_conditioned"
+      ],
+      "type": "object"
+    },
+    "cql_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "conservative_alpha": {
+          "type": "number"
+        },
+        "deterministic": {
+          "type": "boolean"
+        },
+        "discount": {
+          "type": "number"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "iterations": {
+          "type": "integer"
+        },
+        "minimum_count_for_unpenalized": {
+          "type": "integer"
+        },
+        "temperature": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "conservative_alpha",
+        "deterministic",
+        "discount",
+        "exact_version",
+        "iterations",
+        "minimum_count_for_unpenalized",
+        "temperature"
+      ],
+      "type": "object"
+    },
+    "iql_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "advantage_temperature": {
+          "type": "number"
+        },
+        "deterministic": {
+          "type": "boolean"
+        },
+        "discount": {
+          "type": "number"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "expectile": {
+          "type": "number"
+        },
+        "iterations": {
+          "type": "integer"
+        },
+        "maximum_advantage_weight": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "advantage_temperature",
+        "deterministic",
+        "discount",
+        "exact_version",
+        "expectile",
+        "iterations",
+        "maximum_advantage_weight"
+      ],
+      "type": "object"
+    },
+    "logged_dataset_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_roles": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "behavior_probability_required": {
+          "type": "boolean"
+        },
+        "cluster_identity_required": {
+          "type": "boolean"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "future_suffix_forbidden": {
+          "type": "boolean"
+        },
+        "known_time_required": {
+          "type": "boolean"
+        },
+        "minimum_episodes": {
+          "type": "integer"
+        },
+        "minimum_steps_per_episode": {
+          "type": "integer"
+        },
+        "protected_evidence_forbidden": {
+          "type": "boolean"
+        },
+        "required_step_fields": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "strict_time_order": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "allowed_roles",
+        "behavior_probability_required",
+        "cluster_identity_required",
+        "exact_version",
+        "future_suffix_forbidden",
+        "known_time_required",
+        "minimum_episodes",
+        "minimum_steps_per_episode",
+        "protected_evidence_forbidden",
+        "required_step_fields",
+        "strict_time_order"
+      ],
+      "type": "object"
+    },
+    "ope_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "bootstrap_draws": {
+          "type": "integer"
+        },
+        "cluster_bootstrap": {
+          "type": "boolean"
+        },
+        "confidence_level": {
+          "type": "number"
+        },
+        "discount": {
+          "type": "number"
+        },
+        "estimators": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "minimum_lower_bound_margin": {
+          "type": "number"
+        },
+        "synthetic_positive_evidence_forbidden": {
+          "type": "boolean"
+        },
+        "weight_clip": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "bootstrap_draws",
+        "cluster_bootstrap",
+        "confidence_level",
+        "discount",
+        "estimators",
+        "exact_version",
+        "minimum_lower_bound_margin",
+        "synthetic_positive_evidence_forbidden",
+        "weight_clip"
+      ],
+      "type": "object"
+    },
+    "projection_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "exact_version": {
+          "type": "string"
+        },
+        "fail_closed": {
+          "type": "boolean"
+        },
+        "mask_enforced": {
+          "type": "boolean"
+        },
+        "maximum_kl_from_behavior": {
+          "type": "number"
+        },
+        "maximum_l1_from_behavior": {
+          "type": "number"
+        },
+        "minimum_supported_probability": {
+          "type": "number"
+        },
+        "safe_action_floor": {
+          "type": "number"
+        },
+        "support_enforced": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "exact_version",
+        "fail_closed",
+        "mask_enforced",
+        "maximum_kl_from_behavior",
+        "maximum_l1_from_behavior",
+        "minimum_supported_probability",
+        "safe_action_floor",
+        "support_enforced"
+      ],
+      "type": "object"
+    },
+    "research_budget": {
+      "additionalProperties": false,
+      "properties": {
+        "exact_version": {
+          "type": "string"
+        },
+        "max_bootstrap_draws": {
+          "type": "integer"
+        },
+        "max_candidate_policies": {
+          "type": "integer"
+        },
+        "max_dataset_episodes": {
+          "type": "integer"
+        },
+        "max_failures": {
+          "type": "integer"
+        },
+        "max_hidden_evaluation_queries": {
+          "type": "integer"
+        },
+        "max_ope_evaluations": {
+          "type": "integer"
+        },
+        "max_projection_attempts": {
+          "type": "integer"
+        },
+        "max_synthetic_challenges": {
+          "type": "integer"
+        },
+        "max_training_trials": {
+          "type": "integer"
+        },
+        "protected_evidence_exposure_limit": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "exact_version",
+        "max_bootstrap_draws",
+        "max_candidate_policies",
+        "max_dataset_episodes",
+        "max_failures",
+        "max_hidden_evaluation_queries",
+        "max_ope_evaluations",
+        "max_projection_attempts",
+        "max_synthetic_challenges",
+        "max_training_trials",
+        "protected_evidence_exposure_limit"
+      ],
+      "type": "object"
+    },
+    "reward_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "audit_component_sum": {
+          "type": "boolean"
+        },
+        "clip_for_training": {
+          "type": "boolean"
+        },
+        "components": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "execution_cost_required": {
+          "type": "boolean"
+        },
+        "maximum_reward": {
+          "type": "number"
+        },
+        "minimum_reward": {
+          "type": "number"
+        },
+        "synthetic_reward_positive_evidence_forbidden": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "audit_component_sum",
+        "clip_for_training",
+        "components",
+        "exact_version",
+        "execution_cost_required",
+        "maximum_reward",
+        "minimum_reward",
+        "synthetic_reward_positive_evidence_forbidden"
+      ],
+      "type": "object"
+    },
+    "sequence_policy_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "deterministic": {
+          "type": "boolean"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "fallback_to_behavior": {
+          "type": "boolean"
+        },
+        "maximum_context_length": {
+          "type": "integer"
+        },
+        "minimum_sequence_count": {
+          "type": "integer"
+        },
+        "recency_decay": {
+          "type": "number"
+        },
+        "smoothing": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "deterministic",
+        "exact_version",
+        "fallback_to_behavior",
+        "maximum_context_length",
+        "minimum_sequence_count",
+        "recency_decay",
+        "smoothing"
+      ],
+      "type": "object"
+    },
+    "support_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "exact_version": {
+          "type": "string"
+        },
+        "fail_closed": {
+          "type": "boolean"
+        },
+        "maximum_importance_weight": {
+          "type": "number"
+        },
+        "maximum_unsupported_mass": {
+          "type": "number"
+        },
+        "minimum_behavior_probability": {
+          "type": "number"
+        },
+        "minimum_effective_sample_size": {
+          "type": "number"
+        },
+        "minimum_state_action_count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "exact_version",
+        "fail_closed",
+        "maximum_importance_weight",
+        "maximum_unsupported_mass",
+        "minimum_behavior_probability",
+        "minimum_effective_sample_size",
+        "minimum_state_action_count"
+      ],
+      "type": "object"
+    },
+    "upstream_intake": {
+      "additionalProperties": false,
+      "properties": {
+        "budget_ledger_hash": {
+          "type": "string"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "exploitability_report_hash": {
+          "type": "string"
+        },
+        "fidelity_report_hash": {
+          "type": "string"
+        },
+        "generative_stress_certificate_hash": {
+          "type": "string"
+        },
+        "handoff_hash": {
+          "type": "string"
+        },
+        "hash_verified": {
+          "type": "boolean"
+        },
+        "immutable": {
+          "type": "boolean"
+        },
+        "required_phase": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "uncertainty_map_hash": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "budget_ledger_hash",
+        "exact_version",
+        "exploitability_report_hash",
+        "fidelity_report_hash",
+        "generative_stress_certificate_hash",
+        "handoff_hash",
+        "hash_verified",
+        "immutable",
+        "required_phase",
+        "research_only",
+        "uncertainty_map_hash"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "action_space_contract",
+    "behavior_policy_contract",
+    "cql_contract",
+    "iql_contract",
+    "logged_dataset_contract",
+    "ope_contract",
+    "projection_contract",
+    "research_budget",
+    "reward_contract",
+    "sequence_policy_contract",
+    "support_contract",
+    "upstream_intake"
+  ],
+  "title": "SAED V4-23 FULL_REFERENCE_CONFIG",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

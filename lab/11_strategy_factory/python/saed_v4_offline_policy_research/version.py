@@ -1,0 +1,6 @@
+PHASE='SAED_V4_23'
+VERSION='1.0.0'
+TITLE='Offline Policy Research'
+EVIDENCE_SCOPE='local_deterministic_logged_replay_and_synthetic_veto_reference'
+CLAIM_CEILING='offline_research_only_no_promotion_runtime_or_execution_authority'
+NEXT_PHASE='SAED_V4_24'

@@ -1,0 +1,5 @@
+{
+  "case": "budget_exhaustion",
+  "expected": "BudgetError",
+  "rejected": true
+}

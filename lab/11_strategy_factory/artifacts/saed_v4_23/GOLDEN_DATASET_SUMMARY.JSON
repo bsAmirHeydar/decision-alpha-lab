@@ -1,0 +1,23 @@
+{
+  "actions": [
+    "long",
+    "short",
+    "skip"
+  ],
+  "cluster_count": 6,
+  "context_id": "context_reference_001",
+  "dataset_hash": "d32ecb12c52e55f7cab01d1755a550c7182cb0fc59166fa43f277f77374de9b4",
+  "dataset_id": "v4_23_logged_replay_fixture",
+  "episode_count": 24,
+  "known_time_cutoff": "2026-02-01T00:00:00Z",
+  "role": "training",
+  "states": [
+    "flat",
+    "trend_down",
+    "trend_up",
+    "volatile"
+  ],
+  "step_count": 192,
+  "summary_hash": "a4df3b8c90e5f4f2d9df72290509ca4c0284334084d8aa10399f09fc35e8cd70",
+  "summary_id": "dataset_summary_499017dcf7404d0574dba6a9"
+}

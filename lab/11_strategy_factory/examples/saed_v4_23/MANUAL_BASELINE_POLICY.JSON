@@ -1,0 +1,28 @@
+{
+  "immutable": true,
+  "policy_id": "manual_baseline_v4_10_reference",
+  "research_only": true,
+  "runtime_executable": false,
+  "states": {
+    "flat": {
+      "long": 0.21,
+      "short": 0.21,
+      "skip": 0.58
+    },
+    "trend_down": {
+      "long": 0.13,
+      "short": 0.62,
+      "skip": 0.25
+    },
+    "trend_up": {
+      "long": 0.62,
+      "short": 0.13,
+      "skip": 0.25
+    },
+    "volatile": {
+      "long": 0.14,
+      "short": 0.14,
+      "skip": 0.72
+    }
+  }
+}

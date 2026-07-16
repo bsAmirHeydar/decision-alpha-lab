@@ -1,0 +1,42 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/sequence_policy_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "deterministic": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "fallback_to_behavior": {
+      "type": "boolean"
+    },
+    "maximum_context_length": {
+      "type": "integer"
+    },
+    "minimum_sequence_count": {
+      "type": "integer"
+    },
+    "recency_decay": {
+      "type": "number"
+    },
+    "smoothing": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "deterministic",
+    "exact_version",
+    "fallback_to_behavior",
+    "maximum_context_length",
+    "minimum_sequence_count",
+    "recency_decay",
+    "smoothing"
+  ],
+  "title": "SAED V4-23 SEQUENCE_POLICY_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

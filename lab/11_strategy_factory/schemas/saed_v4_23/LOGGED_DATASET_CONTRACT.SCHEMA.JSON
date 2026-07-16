@@ -1,0 +1,64 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/logged_dataset_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "allowed_roles": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "behavior_probability_required": {
+      "type": "boolean"
+    },
+    "cluster_identity_required": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "future_suffix_forbidden": {
+      "type": "boolean"
+    },
+    "known_time_required": {
+      "type": "boolean"
+    },
+    "minimum_episodes": {
+      "type": "integer"
+    },
+    "minimum_steps_per_episode": {
+      "type": "integer"
+    },
+    "protected_evidence_forbidden": {
+      "type": "boolean"
+    },
+    "required_step_fields": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "strict_time_order": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "allowed_roles",
+    "behavior_probability_required",
+    "cluster_identity_required",
+    "exact_version",
+    "future_suffix_forbidden",
+    "known_time_required",
+    "minimum_episodes",
+    "minimum_steps_per_episode",
+    "protected_evidence_forbidden",
+    "required_step_fields",
+    "strict_time_order"
+  ],
+  "title": "SAED V4-23 LOGGED_DATASET_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

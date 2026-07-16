@@ -1,0 +1,46 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/golden_baseline_preservation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "baseline_ope_lower_bound": {
+      "type": "number"
+    },
+    "baseline_policy_id": {
+      "type": "string"
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "matrix_hash": {
+      "type": "string"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "present": {
+      "type": "boolean"
+    },
+    "promotion_eligible": {
+      "type": "boolean"
+    },
+    "runtime_executable": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "baseline_ope_lower_bound",
+    "baseline_policy_id",
+    "immutable",
+    "matrix_hash",
+    "passed",
+    "present",
+    "promotion_eligible",
+    "runtime_executable"
+  ],
+  "title": "SAED V4-23 GOLDEN_BASELINE_PRESERVATION",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

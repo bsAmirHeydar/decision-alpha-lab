@@ -1,0 +1,10 @@
+{
+  "baseline_family": "manual_baseline",
+  "families": [
+    "cql_reference",
+    "iql_reference",
+    "sequence_reference"
+  ],
+  "promotion_eligible": false,
+  "research_only": true
+}

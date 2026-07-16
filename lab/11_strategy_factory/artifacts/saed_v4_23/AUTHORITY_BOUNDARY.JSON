@@ -1,0 +1,23 @@
+{
+  "authority": {
+    "decision": false,
+    "execution": false,
+    "live_policy_update": false,
+    "online_learning": false,
+    "order_submission": false,
+    "production": false,
+    "promotion": false,
+    "risk_allocation": false,
+    "runtime": false
+  },
+  "fallbacks": [
+    "skip",
+    "abstain",
+    "manual_baseline",
+    "reject",
+    "quarantine"
+  ],
+  "offline_only": true,
+  "phase": "SAED_V4_23",
+  "research_only": true
+}

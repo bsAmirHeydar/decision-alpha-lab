@@ -1,0 +1,58 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/research_budget.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "exact_version": {
+      "type": "string"
+    },
+    "max_bootstrap_draws": {
+      "type": "integer"
+    },
+    "max_candidate_policies": {
+      "type": "integer"
+    },
+    "max_dataset_episodes": {
+      "type": "integer"
+    },
+    "max_failures": {
+      "type": "integer"
+    },
+    "max_hidden_evaluation_queries": {
+      "type": "integer"
+    },
+    "max_ope_evaluations": {
+      "type": "integer"
+    },
+    "max_projection_attempts": {
+      "type": "integer"
+    },
+    "max_synthetic_challenges": {
+      "type": "integer"
+    },
+    "max_training_trials": {
+      "type": "integer"
+    },
+    "protected_evidence_exposure_limit": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "exact_version",
+    "max_bootstrap_draws",
+    "max_candidate_policies",
+    "max_dataset_episodes",
+    "max_failures",
+    "max_hidden_evaluation_queries",
+    "max_ope_evaluations",
+    "max_projection_attempts",
+    "max_synthetic_challenges",
+    "max_training_trials",
+    "protected_evidence_exposure_limit"
+  ],
+  "title": "SAED V4-23 RESEARCH_BUDGET",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

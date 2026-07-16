@@ -1,0 +1,27 @@
+{
+  "complete": true,
+  "ledger_hash": "719cec56d85e104fa60804179ce41f45f59855f17ee6a7dad74a004ee7e1ed7a",
+  "trials": [
+    {
+      "family": "cql_reference",
+      "policy_id": "cql_reference_policy_dd62a204bb567f0a7b60c33e",
+      "promotion_eligible": false,
+      "status": "completed",
+      "trial_id": "trial_001"
+    },
+    {
+      "family": "iql_reference",
+      "policy_id": "iql_reference_policy_cc65c9dcefd60b76e320f784",
+      "promotion_eligible": false,
+      "status": "completed",
+      "trial_id": "trial_002"
+    },
+    {
+      "family": "sequence_reference",
+      "policy_id": "sequence_reference_policy_6c1b9a894cff3fa445baaaaa",
+      "promotion_eligible": false,
+      "status": "completed",
+      "trial_id": "trial_003"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "action_masks_required": true,
+  "actions": [
+    "skip",
+    "long",
+    "short"
+  ],
+  "exact_version": "1.0.0",
+  "runtime_action_forbidden": true,
+  "safe_action": "skip",
+  "safe_action_always_available": true,
+  "unknown_action_rejected": true
+}

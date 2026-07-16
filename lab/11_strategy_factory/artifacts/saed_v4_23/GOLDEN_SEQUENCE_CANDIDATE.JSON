@@ -1,0 +1,35 @@
+{
+  "family": "sequence_reference",
+  "metadata": {
+    "fallback_to_behavior": true,
+    "maximum_context_length": 3,
+    "sequence_contexts_used": 41
+  },
+  "policy_hash": "ec4db3ed5752b453f33ebad7313c0af114af5ac9fd6a714eb37d611fc5967f18",
+  "policy_id": "sequence_reference_policy_6c1b9a894cff3fa445baaaaa",
+  "promotion_eligible": false,
+  "research_only": true,
+  "runtime_executable": false,
+  "states": {
+    "flat": {
+      "long": 0.20912450073909952,
+      "short": 0.24176888418274672,
+      "skip": 0.5491066150781538
+    },
+    "trend_down": {
+      "long": 0.0524876933641246,
+      "short": 0.5956657482290924,
+      "skip": 0.351846558406783
+    },
+    "trend_up": {
+      "long": 0.40679440617834084,
+      "short": 0.25680230616275607,
+      "skip": 0.33640328765890304
+    },
+    "volatile": {
+      "long": 0.001071331858683187,
+      "short": 0.22343862010542123,
+      "skip": 0.7754900480358956
+    }
+  }
+}

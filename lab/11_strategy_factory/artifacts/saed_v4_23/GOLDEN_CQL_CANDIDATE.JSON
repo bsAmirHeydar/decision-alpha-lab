@@ -1,0 +1,56 @@
+{
+  "family": "cql_reference",
+  "metadata": {
+    "conservative_alpha": 0.18,
+    "iterations": 35,
+    "q_table": {
+      "flat": {
+        "long": 1.396563198263788,
+        "short": 0.9462629821977102,
+        "skip": 1.1611184760928568
+      },
+      "trend_down": {
+        "long": 0.4365477885496842,
+        "short": 1.0567889245087312,
+        "skip": 1.1302460777760033
+      },
+      "trend_up": {
+        "long": 2.0909411227415617,
+        "short": 0.5636719763225047,
+        "skip": 1.0126068455860022
+      },
+      "volatile": {
+        "long": -0.36,
+        "short": 0.4224849407164621,
+        "skip": 1.2676871828326688
+      }
+    }
+  },
+  "policy_hash": "0b4b0cad0f7a6a635e3b64c6347c98675d8aa387b9db38eff63584fbdd69c5bd",
+  "policy_id": "cql_reference_policy_dd62a204bb567f0a7b60c33e",
+  "promotion_eligible": false,
+  "research_only": true,
+  "runtime_executable": false,
+  "states": {
+    "flat": {
+      "long": 0.4464413492604324,
+      "short": 0.2346328641026663,
+      "skip": 0.3189257866369013
+    },
+    "trend_down": {
+      "long": 0.16341280207134118,
+      "short": 0.39636610552563534,
+      "skip": 0.44022109240302354
+    },
+    "trend_up": {
+      "long": 0.7535139093895532,
+      "short": 0.08502407156585888,
+      "skip": 0.16146201904458796
+    },
+    "volatile": {
+      "long": 0.0699905505555429,
+      "short": 0.2140470542379336,
+      "skip": 0.7159623952065236
+    }
+  }
+}

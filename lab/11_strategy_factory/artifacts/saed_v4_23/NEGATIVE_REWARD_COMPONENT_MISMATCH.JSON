@@ -1,0 +1,5 @@
+{
+  "case": "reward_component_mismatch",
+  "expected": "DatasetError",
+  "rejected": true
+}

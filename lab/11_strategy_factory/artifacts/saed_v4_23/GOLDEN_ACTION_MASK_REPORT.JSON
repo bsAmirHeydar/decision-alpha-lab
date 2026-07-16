@@ -1,0 +1,33 @@
+{
+  "actions": [
+    "skip",
+    "long",
+    "short"
+  ],
+  "all_states_have_safe_action": true,
+  "mask_hash": "e456b8c79b4612c980a411869f69a9f7b8a1a49988bcc2896e96b33b6670d763",
+  "safe_action": "skip",
+  "states": {
+    "flat": {
+      "long": true,
+      "short": true,
+      "skip": true
+    },
+    "trend_down": {
+      "long": true,
+      "short": true,
+      "skip": true
+    },
+    "trend_up": {
+      "long": true,
+      "short": true,
+      "skip": true
+    },
+    "volatile": {
+      "long": true,
+      "short": true,
+      "skip": true
+    }
+  },
+  "unknown_action_rejected": true
+}

@@ -1,0 +1,16 @@
+{
+  "bootstrap_draws": 180,
+  "cluster_bootstrap": true,
+  "confidence_level": 0.9,
+  "discount": 0.93,
+  "estimators": [
+    "wis",
+    "pdis",
+    "fqe",
+    "doubly_robust"
+  ],
+  "exact_version": "1.0.0",
+  "minimum_lower_bound_margin": -0.05,
+  "synthetic_positive_evidence_forbidden": true,
+  "weight_clip": 8.0
+}

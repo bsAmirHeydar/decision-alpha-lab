@@ -1,0 +1,5 @@
+{
+  "case": "online_policy_update",
+  "expected": "AuthorityError",
+  "rejected": true
+}

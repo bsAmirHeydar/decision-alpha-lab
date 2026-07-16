@@ -1,0 +1,42 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/iql_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "advantage_temperature": {
+      "type": "number"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "discount": {
+      "type": "number"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "expectile": {
+      "type": "number"
+    },
+    "iterations": {
+      "type": "integer"
+    },
+    "maximum_advantage_weight": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "advantage_temperature",
+    "deterministic",
+    "discount",
+    "exact_version",
+    "expectile",
+    "iterations",
+    "maximum_advantage_weight"
+  ],
+  "title": "SAED V4-23 IQL_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

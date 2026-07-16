@@ -1,0 +1,42 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/behavior_policy_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "cluster_aware": {
+      "type": "boolean"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "maximum_log_ratio": {
+      "type": "number"
+    },
+    "minimum_probability": {
+      "type": "number"
+    },
+    "smoothing": {
+      "type": "number"
+    },
+    "state_conditioned": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "cluster_aware",
+    "deterministic",
+    "exact_version",
+    "maximum_log_ratio",
+    "minimum_probability",
+    "smoothing",
+    "state_conditioned"
+  ],
+  "title": "SAED V4-23 BEHAVIOR_POLICY_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

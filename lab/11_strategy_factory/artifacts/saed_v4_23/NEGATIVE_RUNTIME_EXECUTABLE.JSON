@@ -1,0 +1,5 @@
+{
+  "case": "runtime_executable",
+  "expected": "AuthorityError",
+  "rejected": true
+}

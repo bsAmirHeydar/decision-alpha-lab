@@ -1,0 +1,60 @@
+{
+  "actions": [
+    "skip",
+    "long",
+    "short"
+  ],
+  "cluster_counts": {
+    "flat": 6,
+    "trend_down": 6,
+    "trend_up": 6,
+    "volatile": 6
+  },
+  "counts": {
+    "flat": {
+      "long": 18,
+      "short": 22,
+      "skip": 49
+    },
+    "trend_down": {
+      "long": 3,
+      "short": 33,
+      "skip": 20
+    },
+    "trend_up": {
+      "long": 14,
+      "short": 8,
+      "skip": 11
+    },
+    "volatile": {
+      "long": 0,
+      "short": 3,
+      "skip": 11
+    }
+  },
+  "deterministic": true,
+  "policy_hash": "4e99f1a83907dc903b5cf87228ae4f269448191d63efcd1cc795a67827a4cd51",
+  "policy_id": "behavior_policy_5d59a10e64f10006dae700ed",
+  "states": {
+    "flat": {
+      "long": 0.20441988950276244,
+      "short": 0.24861878453038674,
+      "skip": 0.5469613259668509
+    },
+    "trend_down": {
+      "long": 0.06086956521739131,
+      "short": 0.5826086956521739,
+      "skip": 0.3565217391304348
+    },
+    "trend_up": {
+      "long": 0.42028985507246375,
+      "short": 0.2463768115942029,
+      "skip": 0.3333333333333333
+    },
+    "volatile": {
+      "long": 0.03225806451612903,
+      "short": 0.22580645161290322,
+      "skip": 0.7419354838709677
+    }
+  }
+}

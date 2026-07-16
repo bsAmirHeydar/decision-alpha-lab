@@ -1,0 +1,58 @@
+{
+  "checks": [
+    {
+      "evidence": "187 passed",
+      "name": "python_tests",
+      "passed": true
+    },
+    {
+      "evidence": "61 documents / 61 closed schemas",
+      "name": "closed_contracts",
+      "passed": true
+    },
+    {
+      "evidence": "232 notes",
+      "name": "obsidian",
+      "passed": true
+    },
+    {
+      "evidence": "22 files; MetaEditor pending_local_windows",
+      "name": "mql5_static",
+      "passed": true
+    },
+    {
+      "evidence": "offline research only; promotion/runtime/execution denied",
+      "name": "authority_boundary",
+      "passed": true
+    },
+    {
+      "evidence": "13 exact artifacts; replay 9f6f808678de46b7e90c4848bb8a5018373cf1ad51dacd7ab211b9d731090626",
+      "name": "golden_reproduction",
+      "passed": true
+    },
+    {
+      "evidence": "support diagnostics plus WIS/PDIS/FQE/DR intervals for baseline and three projected challengers",
+      "name": "support_and_ope",
+      "passed": true
+    },
+    {
+      "evidence": "V4-22 synthetic stress contributes veto only and zero positive evidence",
+      "name": "synthetic_evidence_boundary",
+      "passed": true
+    }
+  ],
+  "closed_schema_pairs": 61,
+  "closed_schemas": 61,
+  "evidence_scope": "local_deterministic_logged_replay_and_synthetic_veto_reference",
+  "metaeditor_compile": "pending_local_windows",
+  "mql5_static_files": 22,
+  "obsidian_notes": 232,
+  "passed": true,
+  "phase": "SAED_V4_23",
+  "production_authorization": false,
+  "promotion_authority": false,
+  "python_tests": 187,
+  "real_alpha_claim": false,
+  "runtime_parity": "not_claimed",
+  "version": "1.0.0"
+}

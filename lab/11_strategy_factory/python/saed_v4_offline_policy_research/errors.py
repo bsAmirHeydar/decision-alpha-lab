@@ -1,0 +1,13 @@
+class SAEDV423Error(Exception): pass
+class ContractError(SAEDV423Error): pass
+class IntegrityError(SAEDV423Error): pass
+class AuthorityError(SAEDV423Error): pass
+class UpstreamError(SAEDV423Error): pass
+class BudgetError(SAEDV423Error): pass
+class DatasetError(SAEDV423Error): pass
+class SupportError(SAEDV423Error): pass
+class RewardError(SAEDV423Error): pass
+class PolicyError(SAEDV423Error): pass
+class OPEError(SAEDV423Error): pass
+class ProjectionError(SAEDV423Error): pass
+class CertificateError(SAEDV423Error): pass

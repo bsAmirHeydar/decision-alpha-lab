@@ -1,0 +1,227 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/golden_synthetic_stress_challenge.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "bundle_hash": {
+      "type": "string"
+    },
+    "positive_evidence_contribution": {
+      "type": "number"
+    },
+    "reports": {
+      "additionalProperties": false,
+      "properties": {
+        "manual_baseline_policy_e64f2e661aebe39abaded8b9": {
+          "additionalProperties": false,
+          "properties": {
+            "candidate_policy_id": {
+              "type": "string"
+            },
+            "challenge_hash": {
+              "type": "string"
+            },
+            "challenge_id": {
+              "type": "string"
+            },
+            "mean_l1_from_baseline": {
+              "type": "number"
+            },
+            "passed": {
+              "type": "boolean"
+            },
+            "positive_evidence_contribution": {
+              "type": "number"
+            },
+            "synthetic_positive_evidence": {
+              "type": "boolean"
+            },
+            "synthetic_veto_score": {
+              "type": "number"
+            },
+            "threshold": {
+              "type": "number"
+            },
+            "upstream_certificate_hash": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "candidate_policy_id",
+            "challenge_hash",
+            "challenge_id",
+            "mean_l1_from_baseline",
+            "passed",
+            "positive_evidence_contribution",
+            "synthetic_positive_evidence",
+            "synthetic_veto_score",
+            "threshold",
+            "upstream_certificate_hash"
+          ],
+          "type": "object"
+        },
+        "projected_policy_0cd159c178bd099e28663bc1": {
+          "additionalProperties": false,
+          "properties": {
+            "candidate_policy_id": {
+              "type": "string"
+            },
+            "challenge_hash": {
+              "type": "string"
+            },
+            "challenge_id": {
+              "type": "string"
+            },
+            "mean_l1_from_baseline": {
+              "type": "number"
+            },
+            "passed": {
+              "type": "boolean"
+            },
+            "positive_evidence_contribution": {
+              "type": "number"
+            },
+            "synthetic_positive_evidence": {
+              "type": "boolean"
+            },
+            "synthetic_veto_score": {
+              "type": "number"
+            },
+            "threshold": {
+              "type": "number"
+            },
+            "upstream_certificate_hash": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "candidate_policy_id",
+            "challenge_hash",
+            "challenge_id",
+            "mean_l1_from_baseline",
+            "passed",
+            "positive_evidence_contribution",
+            "synthetic_positive_evidence",
+            "synthetic_veto_score",
+            "threshold",
+            "upstream_certificate_hash"
+          ],
+          "type": "object"
+        },
+        "projected_policy_1aacba61d46fc10e4ec3dd1d": {
+          "additionalProperties": false,
+          "properties": {
+            "candidate_policy_id": {
+              "type": "string"
+            },
+            "challenge_hash": {
+              "type": "string"
+            },
+            "challenge_id": {
+              "type": "string"
+            },
+            "mean_l1_from_baseline": {
+              "type": "number"
+            },
+            "passed": {
+              "type": "boolean"
+            },
+            "positive_evidence_contribution": {
+              "type": "number"
+            },
+            "synthetic_positive_evidence": {
+              "type": "boolean"
+            },
+            "synthetic_veto_score": {
+              "type": "number"
+            },
+            "threshold": {
+              "type": "number"
+            },
+            "upstream_certificate_hash": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "candidate_policy_id",
+            "challenge_hash",
+            "challenge_id",
+            "mean_l1_from_baseline",
+            "passed",
+            "positive_evidence_contribution",
+            "synthetic_positive_evidence",
+            "synthetic_veto_score",
+            "threshold",
+            "upstream_certificate_hash"
+          ],
+          "type": "object"
+        },
+        "projected_policy_c59f24982fd9a5058e292d3d": {
+          "additionalProperties": false,
+          "properties": {
+            "candidate_policy_id": {
+              "type": "string"
+            },
+            "challenge_hash": {
+              "type": "string"
+            },
+            "challenge_id": {
+              "type": "string"
+            },
+            "mean_l1_from_baseline": {
+              "type": "number"
+            },
+            "passed": {
+              "type": "boolean"
+            },
+            "positive_evidence_contribution": {
+              "type": "number"
+            },
+            "synthetic_positive_evidence": {
+              "type": "boolean"
+            },
+            "synthetic_veto_score": {
+              "type": "number"
+            },
+            "threshold": {
+              "type": "number"
+            },
+            "upstream_certificate_hash": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "candidate_policy_id",
+            "challenge_hash",
+            "challenge_id",
+            "mean_l1_from_baseline",
+            "passed",
+            "positive_evidence_contribution",
+            "synthetic_positive_evidence",
+            "synthetic_veto_score",
+            "threshold",
+            "upstream_certificate_hash"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "manual_baseline_policy_e64f2e661aebe39abaded8b9",
+        "projected_policy_0cd159c178bd099e28663bc1",
+        "projected_policy_1aacba61d46fc10e4ec3dd1d",
+        "projected_policy_c59f24982fd9a5058e292d3d"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "bundle_hash",
+    "positive_evidence_contribution",
+    "reports"
+  ],
+  "title": "SAED V4-23 GOLDEN_SYNTHETIC_STRESS_CHALLENGE",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

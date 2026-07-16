@@ -1,0 +1,243 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/golden_support_bundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "bundle_hash": {
+      "type": "string"
+    },
+    "reports": {
+      "additionalProperties": false,
+      "properties": {
+        "manual_baseline_policy_e64f2e661aebe39abaded8b9": {
+          "additionalProperties": false,
+          "properties": {
+            "candidate_policy_id": {
+              "type": "string"
+            },
+            "effective_sample_size": {
+              "type": "number"
+            },
+            "importance_weight_max": {
+              "type": "number"
+            },
+            "maximum_unsupported_mass": {
+              "type": "number"
+            },
+            "minimum_behavior_probability": {
+              "type": "number"
+            },
+            "minimum_count": {
+              "type": "integer"
+            },
+            "passed": {
+              "type": "boolean"
+            },
+            "report_id": {
+              "type": "string"
+            },
+            "support_hash": {
+              "type": "string"
+            },
+            "violation_count": {
+              "type": "integer"
+            },
+            "violations": {
+              "items": {},
+              "type": "array"
+            }
+          },
+          "required": [
+            "candidate_policy_id",
+            "effective_sample_size",
+            "importance_weight_max",
+            "maximum_unsupported_mass",
+            "minimum_behavior_probability",
+            "minimum_count",
+            "passed",
+            "report_id",
+            "support_hash",
+            "violation_count",
+            "violations"
+          ],
+          "type": "object"
+        },
+        "projected_policy_0cd159c178bd099e28663bc1": {
+          "additionalProperties": false,
+          "properties": {
+            "candidate_policy_id": {
+              "type": "string"
+            },
+            "effective_sample_size": {
+              "type": "number"
+            },
+            "importance_weight_max": {
+              "type": "number"
+            },
+            "maximum_unsupported_mass": {
+              "type": "number"
+            },
+            "minimum_behavior_probability": {
+              "type": "number"
+            },
+            "minimum_count": {
+              "type": "integer"
+            },
+            "passed": {
+              "type": "boolean"
+            },
+            "report_id": {
+              "type": "string"
+            },
+            "support_hash": {
+              "type": "string"
+            },
+            "violation_count": {
+              "type": "integer"
+            },
+            "violations": {
+              "items": {},
+              "type": "array"
+            }
+          },
+          "required": [
+            "candidate_policy_id",
+            "effective_sample_size",
+            "importance_weight_max",
+            "maximum_unsupported_mass",
+            "minimum_behavior_probability",
+            "minimum_count",
+            "passed",
+            "report_id",
+            "support_hash",
+            "violation_count",
+            "violations"
+          ],
+          "type": "object"
+        },
+        "projected_policy_1aacba61d46fc10e4ec3dd1d": {
+          "additionalProperties": false,
+          "properties": {
+            "candidate_policy_id": {
+              "type": "string"
+            },
+            "effective_sample_size": {
+              "type": "number"
+            },
+            "importance_weight_max": {
+              "type": "number"
+            },
+            "maximum_unsupported_mass": {
+              "type": "number"
+            },
+            "minimum_behavior_probability": {
+              "type": "number"
+            },
+            "minimum_count": {
+              "type": "integer"
+            },
+            "passed": {
+              "type": "boolean"
+            },
+            "report_id": {
+              "type": "string"
+            },
+            "support_hash": {
+              "type": "string"
+            },
+            "violation_count": {
+              "type": "integer"
+            },
+            "violations": {
+              "items": {},
+              "type": "array"
+            }
+          },
+          "required": [
+            "candidate_policy_id",
+            "effective_sample_size",
+            "importance_weight_max",
+            "maximum_unsupported_mass",
+            "minimum_behavior_probability",
+            "minimum_count",
+            "passed",
+            "report_id",
+            "support_hash",
+            "violation_count",
+            "violations"
+          ],
+          "type": "object"
+        },
+        "projected_policy_c59f24982fd9a5058e292d3d": {
+          "additionalProperties": false,
+          "properties": {
+            "candidate_policy_id": {
+              "type": "string"
+            },
+            "effective_sample_size": {
+              "type": "number"
+            },
+            "importance_weight_max": {
+              "type": "number"
+            },
+            "maximum_unsupported_mass": {
+              "type": "number"
+            },
+            "minimum_behavior_probability": {
+              "type": "number"
+            },
+            "minimum_count": {
+              "type": "integer"
+            },
+            "passed": {
+              "type": "boolean"
+            },
+            "report_id": {
+              "type": "string"
+            },
+            "support_hash": {
+              "type": "string"
+            },
+            "violation_count": {
+              "type": "integer"
+            },
+            "violations": {
+              "items": {},
+              "type": "array"
+            }
+          },
+          "required": [
+            "candidate_policy_id",
+            "effective_sample_size",
+            "importance_weight_max",
+            "maximum_unsupported_mass",
+            "minimum_behavior_probability",
+            "minimum_count",
+            "passed",
+            "report_id",
+            "support_hash",
+            "violation_count",
+            "violations"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "manual_baseline_policy_e64f2e661aebe39abaded8b9",
+        "projected_policy_0cd159c178bd099e28663bc1",
+        "projected_policy_1aacba61d46fc10e4ec3dd1d",
+        "projected_policy_c59f24982fd9a5058e292d3d"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "bundle_hash",
+    "reports"
+  ],
+  "title": "SAED V4-23 GOLDEN_SUPPORT_BUNDLE",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

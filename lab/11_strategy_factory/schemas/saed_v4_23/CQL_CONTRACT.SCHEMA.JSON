@@ -1,0 +1,42 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/cql_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "conservative_alpha": {
+      "type": "number"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "discount": {
+      "type": "number"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "iterations": {
+      "type": "integer"
+    },
+    "minimum_count_for_unpenalized": {
+      "type": "integer"
+    },
+    "temperature": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "conservative_alpha",
+    "deterministic",
+    "discount",
+    "exact_version",
+    "iterations",
+    "minimum_count_for_unpenalized",
+    "temperature"
+  ],
+  "title": "SAED V4-23 CQL_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

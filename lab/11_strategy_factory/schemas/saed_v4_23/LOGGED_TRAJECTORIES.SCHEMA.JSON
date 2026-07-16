@@ -1,0 +1,134 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/logged_trajectories.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "action_space_hash": {
+      "type": "string"
+    },
+    "context_id": {
+      "type": "string"
+    },
+    "dataset_id": {
+      "type": "string"
+    },
+    "episodes": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "cluster_id": {
+            "type": "string"
+          },
+          "episode_id": {
+            "type": "string"
+          },
+          "start_time": {
+            "type": "string"
+          },
+          "steps": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "action": {
+                  "type": "string"
+                },
+                "allowed_actions": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "behavior_prob": {
+                  "type": "number"
+                },
+                "done": {
+                  "type": "boolean"
+                },
+                "known_at": {
+                  "type": "string"
+                },
+                "next_state": {
+                  "type": "string"
+                },
+                "reward": {
+                  "type": "number"
+                },
+                "reward_components": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "execution_cost": {
+                      "type": "number"
+                    },
+                    "gross_return": {
+                      "type": "number"
+                    },
+                    "risk_penalty": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "execution_cost",
+                    "gross_return",
+                    "risk_penalty"
+                  ],
+                  "type": "object"
+                },
+                "state": {
+                  "type": "string"
+                },
+                "t": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "action",
+                "allowed_actions",
+                "behavior_prob",
+                "done",
+                "known_at",
+                "next_state",
+                "reward",
+                "reward_components",
+                "state",
+                "t"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "cluster_id",
+          "episode_id",
+          "start_time",
+          "steps"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "known_time_cutoff": {
+      "type": "string"
+    },
+    "reward_contract_hash": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "action_space_hash",
+    "context_id",
+    "dataset_id",
+    "episodes",
+    "known_time_cutoff",
+    "reward_contract_hash",
+    "role"
+  ],
+  "title": "SAED V4-23 LOGGED_TRAJECTORIES",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

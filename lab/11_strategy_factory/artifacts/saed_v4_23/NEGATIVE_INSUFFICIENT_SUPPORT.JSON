@@ -1,0 +1,5 @@
+{
+  "case": "insufficient_support",
+  "expected": "support_gate_false",
+  "rejected": true
+}

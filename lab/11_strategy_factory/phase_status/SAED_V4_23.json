@@ -1,0 +1,36 @@
+{
+  "claim_ceiling": "offline_research_only",
+  "closed_schemas": 61,
+  "created": "2026-07-16",
+  "evidence_scope": "local_deterministic_logged_replay_and_synthetic_veto_reference",
+  "independent_external_reproduction": "pending_external",
+  "live_trading": false,
+  "metaeditor_compile": "pending_local_windows",
+  "mql5_static_files": 22,
+  "next_phase": "SAED_V4_24",
+  "obsidian_notes": 232,
+  "open_blockers": [
+    "actual_metaeditor_compile",
+    "runtime_parity",
+    "external_replication",
+    "prospective_evidence",
+    "v4_24_conformal_ood_selective_control"
+  ],
+  "phase": "SAED_V4_23",
+  "production_authorization": false,
+  "promotion_authority": false,
+  "prospective_shadow": "not_claimed",
+  "python_mql5_runtime_parity": "not_claimed",
+  "python_tests": 187,
+  "qa_passed": true,
+  "real_alpha": false,
+  "reference_certificate_hash": "bb3b6107bb5bf101fd619b11a6703058035ef4f232e332eac44151ad7ec940d6",
+  "research_selected_policy_id": "manual_baseline_policy_e64f2e661aebe39abaded8b9",
+  "runtime_executable": false,
+  "status": "accepted-reference",
+  "title": "Offline Policy Research",
+  "upstream_required": [
+    "SAED_V4_22"
+  ],
+  "version": "1.0.0"
+}

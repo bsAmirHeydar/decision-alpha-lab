@@ -1,0 +1,9 @@
+{
+  "conservative_alpha": 0.18,
+  "deterministic": true,
+  "discount": 0.93,
+  "exact_version": "1.0.0",
+  "iterations": 35,
+  "minimum_count_for_unpenalized": 3,
+  "temperature": 0.7
+}

@@ -1,0 +1,801 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed-v4-23/upstream_v4_22_documents.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic research-only contract. Unknown fields are rejected.",
+  "properties": {
+    "GOLDEN_BUDGET_SNAPSHOT": {
+      "additionalProperties": false,
+      "properties": {
+        "adversarial_steps": {
+          "type": "integer"
+        },
+        "failures": {
+          "type": "integer"
+        },
+        "fidelity_evaluations": {
+          "type": "integer"
+        },
+        "generated_paths": {
+          "type": "integer"
+        },
+        "generator_trials": {
+          "type": "integer"
+        },
+        "hidden_evaluation_queries": {
+          "type": "integer"
+        },
+        "ledger_hash": {
+          "type": "string"
+        },
+        "limits": {
+          "additionalProperties": false,
+          "properties": {
+            "max_adversarial_steps": {
+              "type": "integer"
+            },
+            "max_failures": {
+              "type": "integer"
+            },
+            "max_fidelity_evaluations": {
+              "type": "integer"
+            },
+            "max_generated_paths": {
+              "type": "integer"
+            },
+            "max_generator_trials": {
+              "type": "integer"
+            },
+            "max_hidden_evaluation_queries": {
+              "type": "integer"
+            },
+            "max_real_paths": {
+              "type": "integer"
+            },
+            "max_stress_paths": {
+              "type": "integer"
+            },
+            "protected_evidence_exposure_limit": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "max_adversarial_steps",
+            "max_failures",
+            "max_fidelity_evaluations",
+            "max_generated_paths",
+            "max_generator_trials",
+            "max_hidden_evaluation_queries",
+            "max_real_paths",
+            "max_stress_paths",
+            "protected_evidence_exposure_limit"
+          ],
+          "type": "object"
+        },
+        "protected_evidence_exposures": {
+          "type": "integer"
+        },
+        "real_paths": {
+          "type": "integer"
+        },
+        "stress_paths": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "adversarial_steps",
+        "failures",
+        "fidelity_evaluations",
+        "generated_paths",
+        "generator_trials",
+        "hidden_evaluation_queries",
+        "ledger_hash",
+        "limits",
+        "protected_evidence_exposures",
+        "real_paths",
+        "stress_paths"
+      ],
+      "type": "object"
+    },
+    "GOLDEN_EXPLOITABILITY_REPORT": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_policy_id": {
+          "type": "string"
+        },
+        "candidate_policy_id": {
+          "type": "string"
+        },
+        "exploitability_report_hash": {
+          "type": "string"
+        },
+        "exploitable": {
+          "type": "boolean"
+        },
+        "exploitation_score": {
+          "type": "number"
+        },
+        "maximum_exploitation_score": {
+          "type": "number"
+        },
+        "passed": {
+          "type": "boolean"
+        },
+        "real_replay_required": {
+          "type": "boolean"
+        },
+        "real_transfer_advantage": {
+          "type": "number"
+        },
+        "synthetic_advantage": {
+          "type": "number"
+        },
+        "synthetic_gain_is_positive_evidence": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "baseline_policy_id",
+        "candidate_policy_id",
+        "exploitability_report_hash",
+        "exploitable",
+        "exploitation_score",
+        "maximum_exploitation_score",
+        "passed",
+        "real_replay_required",
+        "real_transfer_advantage",
+        "synthetic_advantage",
+        "synthetic_gain_is_positive_evidence"
+      ],
+      "type": "object"
+    },
+    "GOLDEN_FIDELITY_REPORT": {
+      "additionalProperties": false,
+      "properties": {
+        "composite_distance": {
+          "type": "number"
+        },
+        "distinguishability_proxy": {
+          "type": "number"
+        },
+        "fidelity_report_hash": {
+          "type": "string"
+        },
+        "metrics": {
+          "additionalProperties": false,
+          "properties": {
+            "autocorrelation_error": {
+              "type": "number"
+            },
+            "liquidity_error": {
+              "type": "number"
+            },
+            "regime_occupancy_l1": {
+              "type": "number"
+            },
+            "return_mean_error": {
+              "type": "number"
+            },
+            "return_std_error": {
+              "type": "number"
+            },
+            "spread_error": {
+              "type": "number"
+            },
+            "tail_quantile_error": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "autocorrelation_error",
+            "liquidity_error",
+            "regime_occupancy_l1",
+            "return_mean_error",
+            "return_std_error",
+            "spread_error",
+            "tail_quantile_error"
+          ],
+          "type": "object"
+        },
+        "normalized_errors": {
+          "additionalProperties": false,
+          "properties": {
+            "autocorrelation_error": {
+              "type": "number"
+            },
+            "liquidity_error": {
+              "type": "number"
+            },
+            "regime_occupancy_l1": {
+              "type": "number"
+            },
+            "return_mean_error": {
+              "type": "number"
+            },
+            "return_std_error": {
+              "type": "number"
+            },
+            "spread_error": {
+              "type": "number"
+            },
+            "tail_quantile_error": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "autocorrelation_error",
+            "liquidity_error",
+            "regime_occupancy_l1",
+            "return_mean_error",
+            "return_std_error",
+            "spread_error",
+            "tail_quantile_error"
+          ],
+          "type": "object"
+        },
+        "passed": {
+          "type": "boolean"
+        },
+        "positive_evidence_usable": {
+          "type": "boolean"
+        },
+        "real_summary": {
+          "additionalProperties": false,
+          "properties": {
+            "liquidity_mean": {
+              "type": "number"
+            },
+            "path_count": {
+              "type": "integer"
+            },
+            "regime_occupancy": {
+              "additionalProperties": false,
+              "properties": {
+                "range": {
+                  "type": "number"
+                },
+                "trend": {
+                  "type": "number"
+                },
+                "volatile": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "range",
+                "trend",
+                "volatile"
+              ],
+              "type": "object"
+            },
+            "return_autocorr_1": {
+              "type": "number"
+            },
+            "return_mean": {
+              "type": "number"
+            },
+            "return_q01": {
+              "type": "number"
+            },
+            "return_q99": {
+              "type": "number"
+            },
+            "return_std": {
+              "type": "number"
+            },
+            "spread_mean": {
+              "type": "number"
+            },
+            "step_count": {
+              "type": "integer"
+            },
+            "summary_hash": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "liquidity_mean",
+            "path_count",
+            "regime_occupancy",
+            "return_autocorr_1",
+            "return_mean",
+            "return_q01",
+            "return_q99",
+            "return_std",
+            "spread_mean",
+            "step_count",
+            "summary_hash"
+          ],
+          "type": "object"
+        },
+        "stress_only_usable": {
+          "type": "boolean"
+        },
+        "synthetic_summary": {
+          "additionalProperties": false,
+          "properties": {
+            "liquidity_mean": {
+              "type": "number"
+            },
+            "path_count": {
+              "type": "integer"
+            },
+            "regime_occupancy": {
+              "additionalProperties": false,
+              "properties": {
+                "range": {
+                  "type": "number"
+                },
+                "trend": {
+                  "type": "number"
+                },
+                "volatile": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "range",
+                "trend",
+                "volatile"
+              ],
+              "type": "object"
+            },
+            "return_autocorr_1": {
+              "type": "number"
+            },
+            "return_mean": {
+              "type": "number"
+            },
+            "return_q01": {
+              "type": "number"
+            },
+            "return_q99": {
+              "type": "number"
+            },
+            "return_std": {
+              "type": "number"
+            },
+            "spread_mean": {
+              "type": "number"
+            },
+            "step_count": {
+              "type": "integer"
+            },
+            "summary_hash": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "liquidity_mean",
+            "path_count",
+            "regime_occupancy",
+            "return_autocorr_1",
+            "return_mean",
+            "return_q01",
+            "return_q99",
+            "return_std",
+            "spread_mean",
+            "step_count",
+            "summary_hash"
+          ],
+          "type": "object"
+        },
+        "thresholds": {
+          "additionalProperties": false,
+          "properties": {
+            "autocorrelation_error": {
+              "type": "number"
+            },
+            "liquidity_error": {
+              "type": "number"
+            },
+            "regime_occupancy_l1": {
+              "type": "number"
+            },
+            "return_mean_error": {
+              "type": "number"
+            },
+            "return_std_error": {
+              "type": "number"
+            },
+            "spread_error": {
+              "type": "number"
+            },
+            "tail_quantile_error": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "autocorrelation_error",
+            "liquidity_error",
+            "regime_occupancy_l1",
+            "return_mean_error",
+            "return_std_error",
+            "spread_error",
+            "tail_quantile_error"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "composite_distance",
+        "distinguishability_proxy",
+        "fidelity_report_hash",
+        "metrics",
+        "normalized_errors",
+        "passed",
+        "positive_evidence_usable",
+        "real_summary",
+        "stress_only_usable",
+        "synthetic_summary",
+        "thresholds"
+      ],
+      "type": "object"
+    },
+    "GOLDEN_GENERATIVE_STRESS_CERTIFICATE": {
+      "additionalProperties": false,
+      "properties": {
+        "accepted_for_synthetic_stress_falsification": {
+          "type": "boolean"
+        },
+        "adversarial_failure_packet_hash": {
+          "type": "string"
+        },
+        "authority_boundary": {
+          "additionalProperties": false,
+          "properties": {
+            "authority": {
+              "additionalProperties": false,
+              "properties": {
+                "decision": {
+                  "type": "boolean"
+                },
+                "execution": {
+                  "type": "boolean"
+                },
+                "order_submission": {
+                  "type": "boolean"
+                },
+                "positive_alpha_evidence": {
+                  "type": "boolean"
+                },
+                "production": {
+                  "type": "boolean"
+                },
+                "promotion": {
+                  "type": "boolean"
+                },
+                "risk_allocation": {
+                  "type": "boolean"
+                },
+                "runtime": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "decision",
+                "execution",
+                "order_submission",
+                "positive_alpha_evidence",
+                "production",
+                "promotion",
+                "risk_allocation",
+                "runtime"
+              ],
+              "type": "object"
+            },
+            "fallbacks": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "phase": {
+              "type": "string"
+            },
+            "research_only": {
+              "type": "boolean"
+            },
+            "synthetic_stress_only": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "authority",
+            "fallbacks",
+            "phase",
+            "research_only",
+            "synthetic_stress_only"
+          ],
+          "type": "object"
+        },
+        "budget_ledger_hash": {
+          "type": "string"
+        },
+        "certificate_hash": {
+          "type": "string"
+        },
+        "certificate_id": {
+          "type": "string"
+        },
+        "exploitability_report_hash": {
+          "type": "string"
+        },
+        "fidelity_report_hash": {
+          "type": "string"
+        },
+        "generator_registry_hash": {
+          "type": "string"
+        },
+        "invariant_report_hash": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "positive_alpha_evidence": {
+          "type": "boolean"
+        },
+        "production_authority": {
+          "type": "boolean"
+        },
+        "promotion_authority": {
+          "type": "boolean"
+        },
+        "real_summary_hash": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "rollout_set_hash": {
+          "type": "string"
+        },
+        "runtime_executable": {
+          "type": "boolean"
+        },
+        "stress_library_hash": {
+          "type": "string"
+        },
+        "uncertainty_map_hash": {
+          "type": "string"
+        },
+        "upstream_intake_hash": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "accepted_for_synthetic_stress_falsification",
+        "adversarial_failure_packet_hash",
+        "authority_boundary",
+        "budget_ledger_hash",
+        "certificate_hash",
+        "certificate_id",
+        "exploitability_report_hash",
+        "fidelity_report_hash",
+        "generator_registry_hash",
+        "invariant_report_hash",
+        "phase",
+        "positive_alpha_evidence",
+        "production_authority",
+        "promotion_authority",
+        "real_summary_hash",
+        "research_only",
+        "rollout_set_hash",
+        "runtime_executable",
+        "stress_library_hash",
+        "uncertainty_map_hash",
+        "upstream_intake_hash"
+      ],
+      "type": "object"
+    },
+    "GOLDEN_UNCERTAINTY_MAP": {
+      "additionalProperties": false,
+      "properties": {
+        "path_count": {
+          "type": "integer"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "rows": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "ensemble_return_mean": {
+                "type": "number"
+              },
+              "ensemble_return_std": {
+                "type": "number"
+              },
+              "horizon_step": {
+                "type": "integer"
+              },
+              "uncertainty_exceeds_threshold": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "ensemble_return_mean",
+              "ensemble_return_std",
+              "horizon_step",
+              "uncertainty_exceeds_threshold"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "threshold": {
+          "type": "number"
+        },
+        "trusted_horizon": {
+          "type": "integer"
+        },
+        "uncertainty_map_hash": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "path_count",
+        "research_only",
+        "rows",
+        "threshold",
+        "trusted_horizon",
+        "uncertainty_map_hash"
+      ],
+      "type": "object"
+    },
+    "V4_22_TO_V4_23_HANDOFF": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_next_work": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "authority": {
+          "additionalProperties": false,
+          "properties": {
+            "decision": {
+              "type": "boolean"
+            },
+            "execution": {
+              "type": "boolean"
+            },
+            "production": {
+              "type": "boolean"
+            },
+            "promotion": {
+              "type": "boolean"
+            },
+            "risk_allocation": {
+              "type": "boolean"
+            },
+            "runtime": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "decision",
+            "execution",
+            "production",
+            "promotion",
+            "risk_allocation",
+            "runtime"
+          ],
+          "type": "object"
+        },
+        "budget_ledger_hash": {
+          "type": "string"
+        },
+        "entry_gates": {
+          "additionalProperties": false,
+          "properties": {
+            "deterministic_replay_verified": {
+              "type": "boolean"
+            },
+            "exploitability_challenge_passed": {
+              "type": "boolean"
+            },
+            "future_suffix_invariance_verified": {
+              "type": "boolean"
+            },
+            "market_invariants_verified": {
+              "type": "boolean"
+            },
+            "protected_evidence_firewall_verified": {
+              "type": "boolean"
+            },
+            "qa_passed": {
+              "type": "boolean"
+            },
+            "real_synthetic_separation_verified": {
+              "type": "boolean"
+            },
+            "upstream_hashes_verified": {
+              "type": "boolean"
+            },
+            "watermark_verified": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "deterministic_replay_verified",
+            "exploitability_challenge_passed",
+            "future_suffix_invariance_verified",
+            "market_invariants_verified",
+            "protected_evidence_firewall_verified",
+            "qa_passed",
+            "real_synthetic_separation_verified",
+            "upstream_hashes_verified",
+            "watermark_verified"
+          ],
+          "type": "object"
+        },
+        "exploitability_report_hash": {
+          "type": "string"
+        },
+        "fidelity_report_hash": {
+          "type": "string"
+        },
+        "forbidden_next_work": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "generative_stress_certificate_hash": {
+          "type": "string"
+        },
+        "handoff_hash": {
+          "type": "string"
+        },
+        "handoff_id": {
+          "type": "string"
+        },
+        "next_phase": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "uncertainty_map_hash": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "allowed_next_work",
+        "authority",
+        "budget_ledger_hash",
+        "entry_gates",
+        "exploitability_report_hash",
+        "fidelity_report_hash",
+        "forbidden_next_work",
+        "generative_stress_certificate_hash",
+        "handoff_hash",
+        "handoff_id",
+        "next_phase",
+        "phase",
+        "research_only",
+        "uncertainty_map_hash"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "GOLDEN_BUDGET_SNAPSHOT",
+    "GOLDEN_EXPLOITABILITY_REPORT",
+    "GOLDEN_FIDELITY_REPORT",
+    "GOLDEN_GENERATIVE_STRESS_CERTIFICATE",
+    "GOLDEN_UNCERTAINTY_MAP",
+    "V4_22_TO_V4_23_HANDOFF"
+  ],
+  "title": "SAED V4-23 UPSTREAM_V4_22_DOCUMENTS",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_23"
+}

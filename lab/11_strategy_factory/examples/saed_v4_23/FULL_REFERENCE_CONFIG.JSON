@@ -1,0 +1,154 @@
+{
+  "action_space_contract": {
+    "action_masks_required": true,
+    "actions": [
+      "skip",
+      "long",
+      "short"
+    ],
+    "exact_version": "1.0.0",
+    "runtime_action_forbidden": true,
+    "safe_action": "skip",
+    "safe_action_always_available": true,
+    "unknown_action_rejected": true
+  },
+  "behavior_policy_contract": {
+    "cluster_aware": true,
+    "deterministic": true,
+    "exact_version": "1.0.0",
+    "maximum_log_ratio": 4.0,
+    "minimum_probability": 0.02,
+    "smoothing": 0.5,
+    "state_conditioned": true
+  },
+  "cql_contract": {
+    "conservative_alpha": 0.18,
+    "deterministic": true,
+    "discount": 0.93,
+    "exact_version": "1.0.0",
+    "iterations": 35,
+    "minimum_count_for_unpenalized": 3,
+    "temperature": 0.7
+  },
+  "iql_contract": {
+    "advantage_temperature": 1.2,
+    "deterministic": true,
+    "discount": 0.93,
+    "exact_version": "1.0.0",
+    "expectile": 0.7,
+    "iterations": 35,
+    "maximum_advantage_weight": 8.0
+  },
+  "logged_dataset_contract": {
+    "allowed_roles": [
+      "training",
+      "calibration",
+      "selection_validation"
+    ],
+    "behavior_probability_required": true,
+    "cluster_identity_required": true,
+    "exact_version": "1.0.0",
+    "future_suffix_forbidden": true,
+    "known_time_required": true,
+    "minimum_episodes": 8,
+    "minimum_steps_per_episode": 6,
+    "protected_evidence_forbidden": true,
+    "required_step_fields": [
+      "t",
+      "state",
+      "action",
+      "reward",
+      "next_state",
+      "done",
+      "behavior_prob",
+      "allowed_actions",
+      "known_at",
+      "reward_components"
+    ],
+    "strict_time_order": true
+  },
+  "ope_contract": {
+    "bootstrap_draws": 180,
+    "cluster_bootstrap": true,
+    "confidence_level": 0.9,
+    "discount": 0.93,
+    "estimators": [
+      "wis",
+      "pdis",
+      "fqe",
+      "doubly_robust"
+    ],
+    "exact_version": "1.0.0",
+    "minimum_lower_bound_margin": -0.05,
+    "synthetic_positive_evidence_forbidden": true,
+    "weight_clip": 8.0
+  },
+  "projection_contract": {
+    "exact_version": "1.0.0",
+    "fail_closed": true,
+    "mask_enforced": true,
+    "maximum_kl_from_behavior": 1.5,
+    "maximum_l1_from_behavior": 0.9,
+    "minimum_supported_probability": 0.015,
+    "safe_action_floor": 0.05,
+    "support_enforced": true
+  },
+  "research_budget": {
+    "exact_version": "1.0.0",
+    "max_bootstrap_draws": 5000,
+    "max_candidate_policies": 16,
+    "max_dataset_episodes": 64,
+    "max_failures": 32,
+    "max_hidden_evaluation_queries": 0,
+    "max_ope_evaluations": 16,
+    "max_projection_attempts": 16,
+    "max_synthetic_challenges": 16,
+    "max_training_trials": 16,
+    "protected_evidence_exposure_limit": 0
+  },
+  "reward_contract": {
+    "audit_component_sum": true,
+    "clip_for_training": true,
+    "components": [
+      "gross_return",
+      "execution_cost",
+      "risk_penalty"
+    ],
+    "exact_version": "1.0.0",
+    "execution_cost_required": true,
+    "maximum_reward": 2.0,
+    "minimum_reward": -2.0,
+    "synthetic_reward_positive_evidence_forbidden": true
+  },
+  "sequence_policy_contract": {
+    "deterministic": true,
+    "exact_version": "1.0.0",
+    "fallback_to_behavior": true,
+    "maximum_context_length": 3,
+    "minimum_sequence_count": 1,
+    "recency_decay": 0.96,
+    "smoothing": 0.4
+  },
+  "support_contract": {
+    "exact_version": "1.0.0",
+    "fail_closed": true,
+    "maximum_importance_weight": 10.0,
+    "maximum_unsupported_mass": 0.35,
+    "minimum_behavior_probability": 0.015,
+    "minimum_effective_sample_size": 1.0,
+    "minimum_state_action_count": 1
+  },
+  "upstream_intake": {
+    "budget_ledger_hash": "a18e3b989ba777c22ceb52df78881b7509fb2ebb361f8e4eecec3fd16a3f2aca",
+    "exact_version": "1.0.0",
+    "exploitability_report_hash": "9cabbcce8cc719e164e40fc65302d823b6600a11fe665fa6f134309b5348bb67",
+    "fidelity_report_hash": "5f72282670df0f2477d485f8932dd5306b3c67e094fd8a45cb23c2cd0ec36521",
+    "generative_stress_certificate_hash": "98dd7ab400bf16bf0d4a4f4d88fefe747ce8c52d3fef26fdf24abf0dc96491a1",
+    "handoff_hash": "0e0e66378e766614f1b143cfabb48d9b8eaa933c830f3bf4d70cd891beb15218",
+    "hash_verified": true,
+    "immutable": true,
+    "required_phase": "SAED_V4_22",
+    "research_only": true,
+    "uncertainty_map_hash": "74cd8a7381031cfa787eabf2092bf0e0d15597dc5bd5a7fb3f40cac92a346599"
+  }
+}

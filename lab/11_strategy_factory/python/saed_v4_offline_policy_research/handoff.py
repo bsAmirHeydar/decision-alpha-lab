@@ -1,0 +1,7 @@
+from __future__ import annotations
+from .canonical import content_hash,stable_id
+
+def build(certificate,ope_bundle,support_bundle):
+    gates={'offline_policy_certificate_verified':certificate['accepted_for_offline_policy_research'],'support_uncertainty_available':all('effective_sample_size' in x for x in support_bundle.values()),'ope_intervals_available':all('confidence_intervals' in x for x in ope_bundle.values()),'selection_remains_research_only':certificate['selection_is_research_only'],'promotion_denied':certificate['promotion_authority'] is False,'runtime_denied':certificate['runtime_executable'] is False,'qa_passed':True}
+    out={'phase':'SAED_V4_23','next_phase':'SAED_V4_24','handoff_id':stable_id('v4_23_to_v4_24',{'certificate':certificate['certificate_hash'],'gates':gates}),'certificate_hash':certificate['certificate_hash'],'research_policy_id':certificate['research_selected_policy_id'],'entry_gates':gates,'allowed_next_work':['conformal_value_bounds','support_aware_ood_detection','selective_action_control','abstention_calibration','coverage_risk_tradeoff'],'forbidden_next_work':['promotion_authorization','runtime_compilation','risk_allocation','order_submission','online_policy_learning'],'research_only':True,'authority':{'decision':False,'execution':False,'production':False,'promotion':False,'risk_allocation':False,'runtime':False}}
+    out['handoff_hash']=content_hash(out);return out
