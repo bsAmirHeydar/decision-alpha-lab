@@ -1,0 +1,41 @@
+{
+  "activation_allowed": false,
+  "environment": {
+    "metaeditor_available": false,
+    "mt5_strategy_tester_available": false,
+    "os": "linux_container"
+  },
+  "external_pending": [
+    "Windows MetaEditor clean compilation",
+    "MT5 Strategy Tester execution"
+  ],
+  "patch_id": "decision-alpha-lab-nds-hook-864-cycle-r1-compile-hotfix-v1.1.1",
+  "qa": {
+    "bounded_phase55_suite": {
+      "stages": 9,
+      "status": "pass"
+    },
+    "engineering_policy": {
+      "errors": 0,
+      "status": "pass",
+      "warnings": 0
+    },
+    "mql5_metaeditor_compile": {
+      "status": "pending_external_windows"
+    },
+    "python_compile": {
+      "status": "pass"
+    },
+    "python_tests": {
+      "passed": 43,
+      "status": "pass"
+    },
+    "trade_action_identifier_closure": {
+      "status": "pass",
+      "unknown_identifiers": []
+    }
+  },
+  "root_cause": "FP_NDSBacktestEngine referenced removed PAPER_LIMIT_READY alias instead of canonical PAPER_LIMIT enum member",
+  "status": "repository_qa_pass_external_metaeditor_pending",
+  "version": "1.1.1"
+}

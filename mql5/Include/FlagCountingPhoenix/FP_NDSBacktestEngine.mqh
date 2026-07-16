@@ -100,7 +100,7 @@ void FP_NDSBacktestUpdateStats(const FP_NDSBacktestRunReport &report,
    else if(report.trade_report.action == FP_NDS_HOOK_TRADE_ACTION_NONE)
       stats.no_candidate_runs++;
 
-   if(report.trade_report.action == FP_NDS_HOOK_TRADE_ACTION_PAPER_LIMIT_READY)
+   if(report.trade_report.action == FP_NDS_HOOK_TRADE_ACTION_PAPER_LIMIT)
       stats.paper_limit_ready_runs++;
    else if(report.trade_report.action == FP_NDS_HOOK_TRADE_ACTION_LIMIT_SENT)
       stats.limit_sent_runs++;

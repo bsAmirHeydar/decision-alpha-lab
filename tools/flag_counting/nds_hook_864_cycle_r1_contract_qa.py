@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import ast
+import re
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -166,6 +167,36 @@ def run(root: Path) -> list[Check]:
     tester = "mql5/Experts/FlagCounting/NDSHookLimitF123Backtest.mq5"
     diagnostic = "mql5/Experts/FlagCounting/NDSHook864CycleR1ContractSelfTest.mq5"
     reference = "tools/flag_counting/nds_hook_864_cycle_r1_reference.py"
+
+    # Compile-surface closure for the shared trade-action enum. Static contract
+    # QA must reject stale aliases before MetaEditor sees them.
+    action_pattern = re.compile(r"\bFP_NDS_HOOK_TRADE_ACTION_[A-Z0-9_]+\b")
+    action_definitions = set(action_pattern.findall(
+        _strip_mql_comments_and_literals(read(root, types))
+    ))
+    action_references: set[str] = set()
+    for mql_path in sorted((root / "mql5").rglob("*")):
+        if mql_path.suffix.lower() not in {".mqh", ".mq5"}:
+            continue
+        action_references.update(action_pattern.findall(
+            _strip_mql_comments_and_literals(
+                mql_path.read_text(encoding="utf-8", errors="strict")
+            )
+        ))
+    unknown_actions = sorted(action_references - action_definitions)
+    add(checks, not unknown_actions,
+        "P55_TRADE_ACTION_IDENTIFIER_CLOSURE",
+        "mql5",
+        "all FP_NDS_HOOK_TRADE_ACTION_* references resolve to the canonical enum; "
+        f"unknown={','.join(unknown_actions) if unknown_actions else 'none'}")
+    contains(checks, root, backtest_engine,
+             "FP_NDS_HOOK_TRADE_ACTION_PAPER_LIMIT)",
+             "P55_BACKTEST_PAPER_ACTION_CANONICAL",
+             "backtest statistics consume the canonical PAPER_LIMIT action")
+    excludes(checks, root, backtest_engine,
+             "FP_NDS_HOOK_TRADE_ACTION_PAPER_LIMIT_READY",
+             "P55_BACKTEST_STALE_ACTION_ALIAS_ABSENT",
+             "removed PAPER_LIMIT_READY alias cannot re-enter the compile surface")
 
     # Compatibility and profile isolation.
     contains(checks, root, types, "FP_NDS_HOOK_TRADE_PROFILE_TERMINAL_F123 = 0",

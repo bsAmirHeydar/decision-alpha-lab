@@ -1,0 +1,18 @@
+{
+  "activation_allowed": false,
+  "counts": {
+    "modified_existing_files": 2,
+    "new_docs_and_metadata_before_index_hash": 6,
+    "total_patch_files": 10
+  },
+  "dependency": "decision-alpha-lab-nds-hook-864-cycle-r1-no-trade-fix-v1.1.0",
+  "patch_id": "decision-alpha-lab-nds-hook-864-cycle-r1-compile-hotfix-v1.1.1",
+  "scope": [
+    "canonical PAPER_LIMIT enum reference in backtest statistics",
+    "repository-wide trade-action identifier closure QA",
+    "compile incident and operator documentation"
+  ],
+  "status": "repository_qa_pass_external_metaeditor_pending",
+  "test_command": "powershell -ExecutionPolicy Bypass -File tools/flag_counting/run_nds_hook_864_cycle_r1_tests.ps1",
+  "version": "1.1.1"
+}
