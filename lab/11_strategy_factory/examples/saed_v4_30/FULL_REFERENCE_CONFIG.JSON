@@ -1,0 +1,7 @@
+{
+  "fail_closed": true,
+  "mode": "synthetic_closed_reference",
+  "phase": "SAED_V4_30",
+  "research_only": true,
+  "version": "1.0.0"
+}

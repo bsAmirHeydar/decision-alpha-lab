@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_pairs_independent": {
+      "type": "boolean"
+    },
+    "matrix_hash": {
+      "type": "string"
+    },
+    "matrix_id": {
+      "type": "string"
+    },
+    "pair_count": {
+      "type": "integer"
+    },
+    "pairs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "dimension_checks": {
+            "additionalProperties": false,
+            "properties": {
+              "environment_id": {
+                "type": "boolean"
+              },
+              "infrastructure_id": {
+                "type": "boolean"
+              },
+              "mutable_state_group": {
+                "type": "boolean"
+              },
+              "operator_id": {
+                "type": "boolean"
+              },
+              "organization_id": {
+                "type": "boolean"
+              },
+              "signing_key_id": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "environment_id",
+              "infrastructure_id",
+              "mutable_state_group",
+              "operator_id",
+              "organization_id",
+              "signing_key_id"
+            ],
+            "type": "object"
+          },
+          "independent": {
+            "type": "boolean"
+          },
+          "left_lab_id": {
+            "type": "string"
+          },
+          "pair_hash": {
+            "type": "string"
+          },
+          "right_lab_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "dimension_checks",
+          "independent",
+          "left_lab_id",
+          "pair_hash",
+          "right_lab_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "required_dimensions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "all_pairs_independent",
+    "matrix_hash",
+    "matrix_id",
+    "pair_count",
+    "pairs",
+    "phase",
+    "required_dimensions",
+    "research_only"
+  ],
+  "title": "GOLDEN_PAIRWISE_INDEPENDENCE_MATRIX",
+  "type": "object"
+}

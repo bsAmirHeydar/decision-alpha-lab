@@ -1,0 +1,89 @@
+{
+  "aggregate_only": true,
+  "chain_verification": {
+    "chain": "v430_result",
+    "entry_count": 3,
+    "head_hash": "7de2eb80eb613e8e60341fcc2beb942a1de8f371af7a2ca60085fdb6acea7e7f",
+    "verified": true
+  },
+  "phase": "SAED_V4_30",
+  "records": [
+    {
+      "aggregate_metrics": {
+        "accuracy": 1.0,
+        "brier": 0.06625,
+        "mean_probability": 0.525,
+        "sample_count": 40
+      },
+      "candidate_identity_revealed": false,
+      "chain": "v430_result",
+      "entry_hash": "a8527dd5d6b47d91cccd704be645b9d826e0ef9d503773623948eab84368a6ca",
+      "environment_id": "synthetic_env_1",
+      "hidden_labels_exported": false,
+      "lab_id": "v430_lab_467cc56ff623c98624aa390a",
+      "package_id": "v430_package_ff812d0080e81f253d13c7ef",
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "protocol_id": "v430_protocol_f0540691b3f940f58aa213ee",
+      "raw_rows_exported": false,
+      "research_only": true,
+      "result_hash": "4239d760d591b39b1ea369d367b9801558b4f0b5532c27c534fb5ee24e18a85d",
+      "result_id": "v430_result_ec0ffc563a19547563e93e41",
+      "result_status": "completed",
+      "run_id": "v430_run_00fcb4e342d7cb3efcd4b70c",
+      "semantic_output_hash": "ecf4e67f75133fd1835330e460120e49b9b968efbd33d3e5190cdb7a344cb67e",
+      "sequence": 1
+    },
+    {
+      "aggregate_metrics": {
+        "accuracy": 1.0,
+        "brier": 0.06625,
+        "mean_probability": 0.525,
+        "sample_count": 40
+      },
+      "candidate_identity_revealed": false,
+      "chain": "v430_result",
+      "entry_hash": "454f45e59002514a56799b459de11d6f55779487593845b84d80c814e346a7b6",
+      "environment_id": "synthetic_env_2",
+      "hidden_labels_exported": false,
+      "lab_id": "v430_lab_f3d68d4fa68b8373d3b4ee85",
+      "package_id": "v430_package_ff812d0080e81f253d13c7ef",
+      "previous_hash": "a8527dd5d6b47d91cccd704be645b9d826e0ef9d503773623948eab84368a6ca",
+      "protocol_id": "v430_protocol_f0540691b3f940f58aa213ee",
+      "raw_rows_exported": false,
+      "research_only": true,
+      "result_hash": "60691e1a5e528249c3b3502e765f10c3bcd66ac2313f931f400e1d33006428bb",
+      "result_id": "v430_result_da0a6f912c8d359f505c9aa3",
+      "result_status": "completed",
+      "run_id": "v430_run_58ebecc9281ecb298ea365f1",
+      "semantic_output_hash": "ecf4e67f75133fd1835330e460120e49b9b968efbd33d3e5190cdb7a344cb67e",
+      "sequence": 2
+    },
+    {
+      "aggregate_metrics": {
+        "accuracy": 1.0,
+        "brier": 0.06625,
+        "mean_probability": 0.525,
+        "sample_count": 40
+      },
+      "candidate_identity_revealed": false,
+      "chain": "v430_result",
+      "entry_hash": "7de2eb80eb613e8e60341fcc2beb942a1de8f371af7a2ca60085fdb6acea7e7f",
+      "environment_id": "synthetic_env_3",
+      "hidden_labels_exported": false,
+      "lab_id": "v430_lab_7164fd5e4d5d53430286066e",
+      "package_id": "v430_package_ff812d0080e81f253d13c7ef",
+      "previous_hash": "454f45e59002514a56799b459de11d6f55779487593845b84d80c814e346a7b6",
+      "protocol_id": "v430_protocol_f0540691b3f940f58aa213ee",
+      "raw_rows_exported": false,
+      "research_only": true,
+      "result_hash": "0eafb6b68964b900d04ecc7b494f1291e50d0065351641c3cb5e995327b799cb",
+      "result_id": "v430_result_4c2641c02a0b73023a5ff52a",
+      "result_status": "completed",
+      "run_id": "v430_run_4a407147962d76060a89f9e4",
+      "semantic_output_hash": "ecf4e67f75133fd1835330e460120e49b9b968efbd33d3e5190cdb7a344cb67e",
+      "sequence": 3
+    }
+  ],
+  "research_only": true,
+  "result_count": 3
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "chain_verification": {
+      "additionalProperties": false,
+      "properties": {
+        "chain": {
+          "type": "string"
+        },
+        "entry_count": {
+          "type": "integer"
+        },
+        "head_hash": {
+          "type": "string"
+        },
+        "verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "chain",
+        "entry_count",
+        "head_hash",
+        "verified"
+      ],
+      "type": "object"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "chain": {
+            "type": "string"
+          },
+          "declared_at": {
+            "type": "string"
+          },
+          "entry_hash": {
+            "type": "string"
+          },
+          "lab_id": {
+            "type": "string"
+          },
+          "previous_hash": {
+            "type": "string"
+          },
+          "registration_hash": {
+            "type": "string"
+          },
+          "sequence": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "chain",
+          "declared_at",
+          "entry_hash",
+          "lab_id",
+          "previous_hash",
+          "registration_hash",
+          "sequence"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "chain_verification",
+    "phase",
+    "records",
+    "research_only"
+  ],
+  "title": "GOLDEN_REGISTRATION_LEDGER",
+  "type": "object"
+}

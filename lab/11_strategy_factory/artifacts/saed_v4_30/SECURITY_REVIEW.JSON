@@ -1,0 +1,14 @@
+{
+  "default_deny_verified": true,
+  "hidden_labels_exported": 0,
+  "interactive_adaptation_events": 0,
+  "network_access_events": 0,
+  "package_install_events": 0,
+  "passed": true,
+  "phase": "SAED_V4_30",
+  "raw_data_transfers": 0,
+  "raw_rows_exported": 0,
+  "research_only": true,
+  "review_hash": "c17d25ecd5330ca28f096375183b44f2de79961fa5a4098f7b0b93d26906b581",
+  "review_id": "v430_security_d9e01d91b7ec03235e383385"
+}

@@ -1,0 +1,23 @@
+{
+  "authority": {
+    "adaptive_replication": false,
+    "execution": false,
+    "live_trading": false,
+    "online_learning": false,
+    "production": false,
+    "promotion": false,
+    "raw_hidden_data_export": false,
+    "rerun_authority": false,
+    "research_decision": false,
+    "risk_allocation": false,
+    "runtime": false
+  },
+  "boundary_hash": "16a29d312a98b8079030fb849682c2fa1780cd1506c6c2ec8ee733c1ce40d07e",
+  "boundary_id": "v430_authority_72106129538eaa241f12cc8b",
+  "independent_external_reproduction": false,
+  "phase": "SAED_V4_30",
+  "research_only": true,
+  "safe_action": "quarantine",
+  "synthetic_fixture_only": true,
+  "ucee_authority_preserved": true
+}

@@ -1,0 +1,39 @@
+{
+  "chain_verification": {
+    "chain": "v430_registration",
+    "entry_count": 3,
+    "head_hash": "8daabac4f771d2481d3759b9b9523122585f0b4cabffa0d84415a96233db0b76",
+    "verified": true
+  },
+  "phase": "SAED_V4_30",
+  "records": [
+    {
+      "chain": "v430_registration",
+      "declared_at": "2026-07-16T10:01:00Z",
+      "entry_hash": "0a96d948916e59c619e2dac12aff66cb0272fdf99bf77e4c7caa8e356752dbad",
+      "lab_id": "v430_lab_467cc56ff623c98624aa390a",
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "registration_hash": "9484f3b211a7fb71a7b3642fbc2b2d42edc0a1ad704ac58f731e14b51df6816e",
+      "sequence": 1
+    },
+    {
+      "chain": "v430_registration",
+      "declared_at": "2026-07-16T10:02:00Z",
+      "entry_hash": "1b0153e73e6b1cb39328a2b42831a7335f48329397767ee57edbc3761cee0a92",
+      "lab_id": "v430_lab_f3d68d4fa68b8373d3b4ee85",
+      "previous_hash": "0a96d948916e59c619e2dac12aff66cb0272fdf99bf77e4c7caa8e356752dbad",
+      "registration_hash": "87996666de26402f2433273b633cefe99f6d2e32b59f76eb182aef61ed446775",
+      "sequence": 2
+    },
+    {
+      "chain": "v430_registration",
+      "declared_at": "2026-07-16T10:03:00Z",
+      "entry_hash": "8daabac4f771d2481d3759b9b9523122585f0b4cabffa0d84415a96233db0b76",
+      "lab_id": "v430_lab_7164fd5e4d5d53430286066e",
+      "previous_hash": "1b0153e73e6b1cb39328a2b42831a7335f48329397767ee57edbc3761cee0a92",
+      "registration_hash": "df528d80a843540f498bfe53d8cfb7648e7a055ca1aae84590f8ae87102f1d15",
+      "sequence": 3
+    }
+  ],
+  "research_only": true
+}

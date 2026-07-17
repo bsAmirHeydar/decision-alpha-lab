@@ -1,0 +1,16 @@
+{
+  "baseline_preserved": true,
+  "external_independence_claim": false,
+  "external_reproduction_claim": false,
+  "fail_closed": true,
+  "metric_reproduction": true,
+  "passed": true,
+  "phase": "SAED_V4_30",
+  "real_alpha_claim": false,
+  "research_only": true,
+  "review_hash": "2a6950e1fc0d2eb200ebb4b866254cf0a4566a12692eff391d97f8acc4ac5600",
+  "review_id": "v430_model_risk_f8b4aa293603d3bf72c70b9d",
+  "semantic_reproduction": true,
+  "synthetic_lab_count": 3,
+  "unresolved_disagreements": 0
+}

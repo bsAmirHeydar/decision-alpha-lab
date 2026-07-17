@@ -1,0 +1,48 @@
+{
+  "all_delivered": true,
+  "exchange_hash": "a1167c3d8bcf1841d6619b9f73516fcb6f38292d82563caa9278bbf543131947",
+  "exchange_id": "v430_exchange_manifest_e8aa949d4ac58612fc74020d",
+  "phase": "SAED_V4_30",
+  "raw_data_transfers": 0,
+  "receipt_count": 3,
+  "receipts": [
+    {
+      "assignment_id": "v430_assignment_d30cc22d965461463bb21a04",
+      "delivered": true,
+      "network_egress": false,
+      "package_hash": "7ecfdfad44aa8985fe6ca1c01d7e4492f4d83fc5f5784013e1bf8d350a513036",
+      "payload_mutated": false,
+      "receipt_hash": "0023b622727d64f5cf1261d50930eaaf675ea6cd923545577a53c2410a80063c",
+      "receipt_id": "v430_exchange_fcb9596c8169cd095bfe65b4",
+      "receiver_lab_id": "v430_lab_467cc56ff623c98624aa390a",
+      "sender_role": "replication_custodian",
+      "transport_mode": "sealed_local_reference"
+    },
+    {
+      "assignment_id": "v430_assignment_94c19160404a05e60182716c",
+      "delivered": true,
+      "network_egress": false,
+      "package_hash": "7ecfdfad44aa8985fe6ca1c01d7e4492f4d83fc5f5784013e1bf8d350a513036",
+      "payload_mutated": false,
+      "receipt_hash": "ebfc5f312c5838aee7430983bfd694bad7f984cccb5aea1f802017e97da2804c",
+      "receipt_id": "v430_exchange_53b001085b376c0e87810029",
+      "receiver_lab_id": "v430_lab_f3d68d4fa68b8373d3b4ee85",
+      "sender_role": "replication_custodian",
+      "transport_mode": "sealed_local_reference"
+    },
+    {
+      "assignment_id": "v430_assignment_3e414d83388739b23272abb5",
+      "delivered": true,
+      "network_egress": false,
+      "package_hash": "7ecfdfad44aa8985fe6ca1c01d7e4492f4d83fc5f5784013e1bf8d350a513036",
+      "payload_mutated": false,
+      "receipt_hash": "0add827083b32e61a3c9d8bd24fc43efdb61253a4ce903441748e469a85c800c",
+      "receipt_id": "v430_exchange_f8e31afc272be309223f4943",
+      "receiver_lab_id": "v430_lab_7164fd5e4d5d53430286066e",
+      "sender_role": "replication_custodian",
+      "transport_mode": "sealed_local_reference"
+    }
+  ],
+  "research_only": true,
+  "round_trips": 0
+}

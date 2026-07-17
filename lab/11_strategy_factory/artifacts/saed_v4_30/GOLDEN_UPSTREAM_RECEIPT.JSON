@@ -1,0 +1,12 @@
+{
+  "certificate_hash": "e9b8d03f357ce46143be9b6a6ef55729b0b1e755da6164345e334bfb54078931",
+  "certificate_id": "hidden_evaluation_air_gap_certificate_cb5c5b2d7c923890b90c66b8",
+  "handoff_hash": "cb6f30891554c37dcc1acf0a316af7230529bbbd8658bddef784e1850d38594e",
+  "handoff_id": "v4_29_to_v4_30_96d73db2e82a979a6b1700d7",
+  "phase": "SAED_V4_30",
+  "receipt_hash": "38b07f8ebb4cc9fc365593c1031ed3af0690af02879f95157929a2ba1de4eb1e",
+  "receipt_id": "v430_upstream_d769574e6de54b6a0ba57283",
+  "research_only": true,
+  "upstream_phase": "SAED_V4_29",
+  "verified": true
+}

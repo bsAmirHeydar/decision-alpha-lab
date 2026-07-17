@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "aggregate_only": {
+      "type": "boolean"
+    },
+    "chain_verification": {
+      "additionalProperties": false,
+      "properties": {
+        "chain": {
+          "type": "string"
+        },
+        "entry_count": {
+          "type": "integer"
+        },
+        "head_hash": {
+          "type": "string"
+        },
+        "verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "chain",
+        "entry_count",
+        "head_hash",
+        "verified"
+      ],
+      "type": "object"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "aggregate_metrics": {
+            "additionalProperties": false,
+            "properties": {
+              "accuracy": {
+                "type": "number"
+              },
+              "brier": {
+                "type": "number"
+              },
+              "mean_probability": {
+                "type": "number"
+              },
+              "sample_count": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "accuracy",
+              "brier",
+              "mean_probability",
+              "sample_count"
+            ],
+            "type": "object"
+          },
+          "candidate_identity_revealed": {
+            "type": "boolean"
+          },
+          "chain": {
+            "type": "string"
+          },
+          "entry_hash": {
+            "type": "string"
+          },
+          "environment_id": {
+            "type": "string"
+          },
+          "hidden_labels_exported": {
+            "type": "boolean"
+          },
+          "lab_id": {
+            "type": "string"
+          },
+          "package_id": {
+            "type": "string"
+          },
+          "previous_hash": {
+            "type": "string"
+          },
+          "protocol_id": {
+            "type": "string"
+          },
+          "raw_rows_exported": {
+            "type": "boolean"
+          },
+          "research_only": {
+            "type": "boolean"
+          },
+          "result_hash": {
+            "type": "string"
+          },
+          "result_id": {
+            "type": "string"
+          },
+          "result_status": {
+            "type": "string"
+          },
+          "run_id": {
+            "type": "string"
+          },
+          "semantic_output_hash": {
+            "type": "string"
+          },
+          "sequence": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "aggregate_metrics",
+          "candidate_identity_revealed",
+          "chain",
+          "entry_hash",
+          "environment_id",
+          "hidden_labels_exported",
+          "lab_id",
+          "package_id",
+          "previous_hash",
+          "protocol_id",
+          "raw_rows_exported",
+          "research_only",
+          "result_hash",
+          "result_id",
+          "result_status",
+          "run_id",
+          "semantic_output_hash",
+          "sequence"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "result_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "aggregate_only",
+    "chain_verification",
+    "phase",
+    "records",
+    "research_only",
+    "result_count"
+  ],
+  "title": "GOLDEN_RESULT_LEDGER",
+  "type": "object"
+}

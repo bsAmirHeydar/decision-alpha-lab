@@ -1,0 +1,41 @@
+[
+  {
+    "declared_at": "2026-07-16T10:01:00Z",
+    "environment_id": "synthetic_env_1",
+    "funding_source_id": "synthetic_funding_1",
+    "infrastructure_id": "synthetic_infra_1",
+    "lab_code": "LAB_A",
+    "mutable_state_group": "synthetic_state_1",
+    "operator_id": "synthetic_operator_1",
+    "organization_id": "synthetic_org_1",
+    "originator_relation": "none",
+    "signing_key_id": "synthetic_key_1",
+    "synthetic_fixture": true
+  },
+  {
+    "declared_at": "2026-07-16T10:02:00Z",
+    "environment_id": "synthetic_env_2",
+    "funding_source_id": "synthetic_funding_2",
+    "infrastructure_id": "synthetic_infra_2",
+    "lab_code": "LAB_B",
+    "mutable_state_group": "synthetic_state_2",
+    "operator_id": "synthetic_operator_2",
+    "organization_id": "synthetic_org_2",
+    "originator_relation": "none",
+    "signing_key_id": "synthetic_key_2",
+    "synthetic_fixture": true
+  },
+  {
+    "declared_at": "2026-07-16T10:03:00Z",
+    "environment_id": "synthetic_env_3",
+    "funding_source_id": "synthetic_funding_3",
+    "infrastructure_id": "synthetic_infra_3",
+    "lab_code": "LAB_C",
+    "mutable_state_group": "synthetic_state_3",
+    "operator_id": "synthetic_operator_3",
+    "organization_id": "synthetic_org_3",
+    "originator_relation": "none",
+    "signing_key_id": "synthetic_key_3",
+    "synthetic_fixture": true
+  }
+]

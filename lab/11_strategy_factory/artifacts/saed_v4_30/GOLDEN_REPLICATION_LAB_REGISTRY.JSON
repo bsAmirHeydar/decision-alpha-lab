@@ -1,0 +1,57 @@
+{
+  "all_labs_eligible": true,
+  "eligible_lab_count": 3,
+  "labs": [
+    {
+      "declared_at": "2026-07-16T10:01:00Z",
+      "environment_id": "synthetic_env_1",
+      "funding_source_id": "synthetic_funding_1",
+      "infrastructure_id": "synthetic_infra_1",
+      "lab_code": "LAB_A",
+      "lab_id": "v430_lab_467cc56ff623c98624aa390a",
+      "mutable_state_group": "synthetic_state_1",
+      "operator_id": "synthetic_operator_1",
+      "organization_id": "synthetic_org_1",
+      "originator_relation": "none",
+      "registration_hash": "9484f3b211a7fb71a7b3642fbc2b2d42edc0a1ad704ac58f731e14b51df6816e",
+      "signing_key_id": "synthetic_key_1",
+      "synthetic_fixture": true
+    },
+    {
+      "declared_at": "2026-07-16T10:02:00Z",
+      "environment_id": "synthetic_env_2",
+      "funding_source_id": "synthetic_funding_2",
+      "infrastructure_id": "synthetic_infra_2",
+      "lab_code": "LAB_B",
+      "lab_id": "v430_lab_f3d68d4fa68b8373d3b4ee85",
+      "mutable_state_group": "synthetic_state_2",
+      "operator_id": "synthetic_operator_2",
+      "organization_id": "synthetic_org_2",
+      "originator_relation": "none",
+      "registration_hash": "87996666de26402f2433273b633cefe99f6d2e32b59f76eb182aef61ed446775",
+      "signing_key_id": "synthetic_key_2",
+      "synthetic_fixture": true
+    },
+    {
+      "declared_at": "2026-07-16T10:03:00Z",
+      "environment_id": "synthetic_env_3",
+      "funding_source_id": "synthetic_funding_3",
+      "infrastructure_id": "synthetic_infra_3",
+      "lab_code": "LAB_C",
+      "lab_id": "v430_lab_7164fd5e4d5d53430286066e",
+      "mutable_state_group": "synthetic_state_3",
+      "operator_id": "synthetic_operator_3",
+      "organization_id": "synthetic_org_3",
+      "originator_relation": "none",
+      "registration_hash": "df528d80a843540f498bfe53d8cfb7648e7a055ca1aae84590f8ae87102f1d15",
+      "signing_key_id": "synthetic_key_3",
+      "synthetic_fixture": true
+    }
+  ],
+  "minimum_labs": 3,
+  "phase": "SAED_V4_30",
+  "registry_hash": "31b65c630d18c571a6f1e0faf3119520e04dc0030edb4e951151f02335741784",
+  "registry_id": "v430_registry_c0f9b4fd22b80a9a5fe9a230",
+  "research_only": true,
+  "synthetic_fixture_only": true
+}

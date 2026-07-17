@@ -1,0 +1,53 @@
+{
+  "disagreement_policy": {
+    "chain": "quarantine",
+    "identity": "quarantine",
+    "metric_tolerance": "quarantine",
+    "semantic_hash": "quarantine",
+    "timing": "quarantine"
+  },
+  "disclosure_policy": {
+    "aggregate_only": true,
+    "candidate_identity": false,
+    "hidden_labels": false,
+    "raw_rows": false
+  },
+  "metric_tolerance_policy": {
+    "accuracy": 0.0,
+    "brier": 0.0,
+    "mean_probability": 0.0
+  },
+  "metrics": [
+    {
+      "direction": "maximize",
+      "metric_id": "accuracy"
+    },
+    {
+      "direction": "minimize",
+      "metric_id": "brier"
+    },
+    {
+      "direction": "monitor",
+      "metric_id": "mean_probability"
+    }
+  ],
+  "minimum_labs": 3,
+  "one_run_per_lab": true,
+  "phase": "SAED_V4_30",
+  "required_independence_dimensions": [
+    "organization_id",
+    "operator_id",
+    "signing_key_id",
+    "environment_id",
+    "infrastructure_id",
+    "mutable_state_group"
+  ],
+  "research_only": true,
+  "semantic_hash_required": true,
+  "timing_policy": {
+    "no_adaptive_rerun": true,
+    "preregister_before_assignment": true,
+    "preregister_before_run": true
+  },
+  "version": "1.0.0"
+}

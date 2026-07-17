@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "blinded": {
+      "type": "boolean"
+    },
+    "candidate_commitment_hash": {
+      "type": "string"
+    },
+    "candidate_id": {
+      "type": "string"
+    },
+    "custody_key_shares_included": {
+      "type": "boolean"
+    },
+    "dataset_commitment_hash": {
+      "type": "string"
+    },
+    "disclosure_hash": {
+      "type": "string"
+    },
+    "evaluation_entrypoint_hash": {
+      "type": "string"
+    },
+    "feature_contract_hash": {
+      "type": "string"
+    },
+    "hidden_labels_included": {
+      "type": "boolean"
+    },
+    "package_hash": {
+      "type": "string"
+    },
+    "package_id": {
+      "type": "string"
+    },
+    "payload_commitment_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "preprocessing_contract_hash": {
+      "type": "string"
+    },
+    "protocol_hash": {
+      "type": "string"
+    },
+    "protocol_id": {
+      "type": "string"
+    },
+    "raw_protected_rows_included": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "sealed_result_hash": {
+      "type": "string"
+    },
+    "upstream_certificate_hash": {
+      "type": "string"
+    },
+    "upstream_handoff_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "blinded",
+    "candidate_commitment_hash",
+    "candidate_id",
+    "custody_key_shares_included",
+    "dataset_commitment_hash",
+    "disclosure_hash",
+    "evaluation_entrypoint_hash",
+    "feature_contract_hash",
+    "hidden_labels_included",
+    "package_hash",
+    "package_id",
+    "payload_commitment_hash",
+    "phase",
+    "preprocessing_contract_hash",
+    "protocol_hash",
+    "protocol_id",
+    "raw_protected_rows_included",
+    "research_only",
+    "sealed_result_hash",
+    "upstream_certificate_hash",
+    "upstream_handoff_hash"
+  ],
+  "title": "GOLDEN_MULTI_LAB_PACKAGE_IDENTITY",
+  "type": "object"
+}

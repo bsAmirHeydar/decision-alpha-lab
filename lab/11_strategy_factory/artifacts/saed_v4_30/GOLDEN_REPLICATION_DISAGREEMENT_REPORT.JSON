@@ -1,0 +1,11 @@
+{
+  "accepted": true,
+  "decision": "accept_synthetic_reference",
+  "issues": [],
+  "phase": "SAED_V4_30",
+  "report_hash": "0983a96a16d1d3f5e8131e903d58874ead9df09043dc2039374ff2a62bf068f1",
+  "report_id": "v430_disagreement_6cf8878ce5e18747dd30f386",
+  "research_only": true,
+  "safe_action": "retain_research_reference",
+  "unresolved_disagreements": 0
+}

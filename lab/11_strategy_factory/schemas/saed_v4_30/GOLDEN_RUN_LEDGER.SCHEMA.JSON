@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "chain_verification": {
+      "additionalProperties": false,
+      "properties": {
+        "chain": {
+          "type": "string"
+        },
+        "entry_count": {
+          "type": "integer"
+        },
+        "head_hash": {
+          "type": "string"
+        },
+        "verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "chain",
+        "entry_count",
+        "head_hash",
+        "verified"
+      ],
+      "type": "object"
+    },
+    "one_run_per_lab": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "assignment_id": {
+            "type": "string"
+          },
+          "chain": {
+            "type": "string"
+          },
+          "completed_at": {
+            "type": "string"
+          },
+          "entry_hash": {
+            "type": "string"
+          },
+          "environment_id": {
+            "type": "string"
+          },
+          "future_suffix_records_seen": {
+            "type": "integer"
+          },
+          "interactive_adaptation": {
+            "type": "boolean"
+          },
+          "lab_id": {
+            "type": "string"
+          },
+          "network_access": {
+            "type": "boolean"
+          },
+          "package_id": {
+            "type": "string"
+          },
+          "package_installation": {
+            "type": "boolean"
+          },
+          "preregistration_id": {
+            "type": "string"
+          },
+          "previous_hash": {
+            "type": "string"
+          },
+          "retry_count": {
+            "type": "integer"
+          },
+          "run_hash": {
+            "type": "string"
+          },
+          "run_id": {
+            "type": "string"
+          },
+          "run_ordinal": {
+            "type": "integer"
+          },
+          "sequence": {
+            "type": "integer"
+          },
+          "started_at": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "assignment_id",
+          "chain",
+          "completed_at",
+          "entry_hash",
+          "environment_id",
+          "future_suffix_records_seen",
+          "interactive_adaptation",
+          "lab_id",
+          "network_access",
+          "package_id",
+          "package_installation",
+          "preregistration_id",
+          "previous_hash",
+          "retry_count",
+          "run_hash",
+          "run_id",
+          "run_ordinal",
+          "sequence",
+          "started_at",
+          "status"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "retry_count": {
+      "type": "integer"
+    },
+    "run_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "chain_verification",
+    "one_run_per_lab",
+    "phase",
+    "records",
+    "research_only",
+    "retry_count",
+    "run_count"
+  ],
+  "title": "GOLDEN_RUN_LEDGER",
+  "type": "object"
+}

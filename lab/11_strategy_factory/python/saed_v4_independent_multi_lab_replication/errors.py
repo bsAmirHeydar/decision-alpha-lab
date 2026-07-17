@@ -1,0 +1,9 @@
+class V430Error(Exception): pass
+class ContractError(V430Error): pass
+class IntegrityError(V430Error): pass
+class EligibilityError(V430Error): pass
+class TimingError(V430Error): pass
+class RunBudgetError(V430Error): pass
+class ReconciliationError(V430Error): pass
+class AuthorityError(V430Error): pass
+class SecurityError(V430Error): pass

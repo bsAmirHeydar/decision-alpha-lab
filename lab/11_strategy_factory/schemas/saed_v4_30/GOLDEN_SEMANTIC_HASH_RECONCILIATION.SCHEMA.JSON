@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_match": {
+      "type": "boolean"
+    },
+    "pair_count": {
+      "type": "integer"
+    },
+    "pairs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "left_hash": {
+            "type": "string"
+          },
+          "left_lab_id": {
+            "type": "string"
+          },
+          "match": {
+            "type": "boolean"
+          },
+          "right_hash": {
+            "type": "string"
+          },
+          "right_lab_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "left_hash",
+          "left_lab_id",
+          "match",
+          "right_hash",
+          "right_lab_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "reconciliation_hash": {
+      "type": "string"
+    },
+    "reconciliation_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "unique_semantic_hashes": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "all_match",
+    "pair_count",
+    "pairs",
+    "phase",
+    "reconciliation_hash",
+    "reconciliation_id",
+    "research_only",
+    "unique_semantic_hashes"
+  ],
+  "title": "GOLDEN_SEMANTIC_HASH_RECONCILIATION",
+  "type": "object"
+}

@@ -1,9 +1,10 @@
-feat(strategy-factory): implement SAED V4-29 hidden-evaluation air gap
+feat(strategy-factory): implement SAED V4-30 independent multi-lab replication
 
-- freeze protected-dataset custody, sealed-evaluator and air-gap topology contracts
-- add irreversible candidate commitment and one-shot evaluation authorization
-- implement deterministic sealed evaluation with aggregate-only disclosure
-- add append-only query, token, transport and custody ledgers with replay evidence
-- add side-channel, leakage, mutation, security and fail-closed controls
-- add closed schemas, golden fixtures, MQL5 static mirrors and Obsidian documentation
-- preserve UCEE authority and hand off only to V4-30 independent multi-lab replication
+- freeze independent-replication protocol, package identity and lab eligibility contracts
+- add blinded exchange, immutable preregistration and default-deny environment attestations
+- implement deterministic one-run-per-lab synthetic reference execution
+- add semantic-hash and metric-tolerance reconciliation with fail-closed disagreement adjudication
+- add append-only registration, preregistration, run, result and adjudication ledgers
+- add replication coverage, replay, security, model-risk and authority evidence
+- add closed schemas, golden fixtures, MQL5 static mirrors and modular Obsidian documentation
+- preserve UCEE authority and hand off only to V4-31 formal verification and safety case

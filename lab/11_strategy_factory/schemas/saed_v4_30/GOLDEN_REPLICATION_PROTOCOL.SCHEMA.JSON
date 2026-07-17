@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "disagreement_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "chain": {
+          "type": "string"
+        },
+        "identity": {
+          "type": "string"
+        },
+        "metric_tolerance": {
+          "type": "string"
+        },
+        "semantic_hash": {
+          "type": "string"
+        },
+        "timing": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "chain",
+        "identity",
+        "metric_tolerance",
+        "semantic_hash",
+        "timing"
+      ],
+      "type": "object"
+    },
+    "disclosure_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "aggregate_only": {
+          "type": "boolean"
+        },
+        "candidate_identity": {
+          "type": "boolean"
+        },
+        "hidden_labels": {
+          "type": "boolean"
+        },
+        "raw_rows": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "aggregate_only",
+        "candidate_identity",
+        "hidden_labels",
+        "raw_rows"
+      ],
+      "type": "object"
+    },
+    "metric_tolerance_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "accuracy": {
+          "type": "number"
+        },
+        "brier": {
+          "type": "number"
+        },
+        "mean_probability": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "accuracy",
+        "brier",
+        "mean_probability"
+      ],
+      "type": "object"
+    },
+    "metrics": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "direction": {
+            "type": "string"
+          },
+          "metric_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "direction",
+          "metric_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "minimum_labs": {
+      "type": "integer"
+    },
+    "one_run_per_lab": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "protocol_hash": {
+      "type": "string"
+    },
+    "protocol_id": {
+      "type": "string"
+    },
+    "required_independence_dimensions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "semantic_hash_required": {
+      "type": "boolean"
+    },
+    "timing_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "no_adaptive_rerun": {
+          "type": "boolean"
+        },
+        "preregister_before_assignment": {
+          "type": "boolean"
+        },
+        "preregister_before_run": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "no_adaptive_rerun",
+        "preregister_before_assignment",
+        "preregister_before_run"
+      ],
+      "type": "object"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "disagreement_policy",
+    "disclosure_policy",
+    "metric_tolerance_policy",
+    "metrics",
+    "minimum_labs",
+    "one_run_per_lab",
+    "phase",
+    "protocol_hash",
+    "protocol_id",
+    "required_independence_dimensions",
+    "research_only",
+    "semantic_hash_required",
+    "timing_policy",
+    "version"
+  ],
+  "title": "GOLDEN_REPLICATION_PROTOCOL",
+  "type": "object"
+}

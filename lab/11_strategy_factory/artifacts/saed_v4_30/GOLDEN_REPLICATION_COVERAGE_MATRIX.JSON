@@ -1,0 +1,24 @@
+{
+  "coverage_complete": true,
+  "coverage_hash": "7e82e5c3310010aa1b6badcbcefa9c3a3be00344fb305297eec2a487ce485dbd",
+  "coverage_id": "v430_coverage_0b3e51171293075a8efe79d3",
+  "environment_count": 3,
+  "external_lab_coverage": false,
+  "independence_dimension_count": 6,
+  "independence_dimensions": [
+    "organization_id",
+    "operator_id",
+    "signing_key_id",
+    "environment_id",
+    "infrastructure_id",
+    "mutable_state_group"
+  ],
+  "lab_count": 3,
+  "metric_comparison_coverage": 9,
+  "pair_count": 3,
+  "phase": "SAED_V4_30",
+  "research_only": true,
+  "result_count": 3,
+  "run_count": 3,
+  "semantic_pair_coverage": 3
+}

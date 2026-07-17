@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accepted": {
+      "type": "boolean"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "issues": {
+      "items": {},
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "safe_action": {
+      "type": "string"
+    },
+    "unresolved_disagreements": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "accepted",
+    "decision",
+    "issues",
+    "phase",
+    "report_hash",
+    "report_id",
+    "research_only",
+    "safe_action",
+    "unresolved_disagreements"
+  ],
+  "title": "GOLDEN_REPLICATION_DISAGREEMENT_REPORT",
+  "type": "object"
+}

@@ -1,0 +1,56 @@
+{
+  "assignment_count": 3,
+  "assignments": [
+    {
+      "assignment_hash": "fe19173b383a5d6aef0d52cf334acaf9b92930dc3ce603f06edadfb6ae1cb250",
+      "assignment_id": "v430_assignment_d30cc22d965461463bb21a04",
+      "assignment_index": 1,
+      "blind_code": "blind_c9cab4c62e881315",
+      "candidate_identity_visible": false,
+      "hidden_labels_visible": false,
+      "lab_id": "v430_lab_467cc56ff623c98624aa390a",
+      "maximum_runs": 1,
+      "opened": false,
+      "package_id": "v430_package_ff812d0080e81f253d13c7ef",
+      "protocol_id": "v430_protocol_f0540691b3f940f58aa213ee",
+      "raw_protected_rows_visible": false,
+      "research_only": true
+    },
+    {
+      "assignment_hash": "0504d89cc52664ca3691fc76e438bbd92b8b736363516502230e450caebdf33c",
+      "assignment_id": "v430_assignment_94c19160404a05e60182716c",
+      "assignment_index": 2,
+      "blind_code": "blind_5d5faa9539d86bca",
+      "candidate_identity_visible": false,
+      "hidden_labels_visible": false,
+      "lab_id": "v430_lab_f3d68d4fa68b8373d3b4ee85",
+      "maximum_runs": 1,
+      "opened": false,
+      "package_id": "v430_package_ff812d0080e81f253d13c7ef",
+      "protocol_id": "v430_protocol_f0540691b3f940f58aa213ee",
+      "raw_protected_rows_visible": false,
+      "research_only": true
+    },
+    {
+      "assignment_hash": "d5b0a0d45fbb6ba092b46438e45ea19a4229cabee23b5febd8e0f517ecf6b195",
+      "assignment_id": "v430_assignment_3e414d83388739b23272abb5",
+      "assignment_index": 3,
+      "blind_code": "blind_0425fc614acf9214",
+      "candidate_identity_visible": false,
+      "hidden_labels_visible": false,
+      "lab_id": "v430_lab_7164fd5e4d5d53430286066e",
+      "maximum_runs": 1,
+      "opened": false,
+      "package_id": "v430_package_ff812d0080e81f253d13c7ef",
+      "protocol_id": "v430_protocol_f0540691b3f940f58aa213ee",
+      "raw_protected_rows_visible": false,
+      "research_only": true
+    }
+  ],
+  "bundle_hash": "3e2496628cfcd7f9fa9cc0572f1ca093f56ecf98f4f139e5da6ef4098ce79923",
+  "bundle_id": "v430_assignments_faa3eb60d5911e8005a588a2",
+  "one_assignment_per_lab": true,
+  "package_id": "v430_package_ff812d0080e81f253d13c7ef",
+  "phase": "SAED_V4_30",
+  "research_only": true
+}

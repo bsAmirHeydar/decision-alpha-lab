@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "external_independence_claim": {
+      "type": "boolean"
+    },
+    "external_reproduction_claim": {
+      "type": "boolean"
+    },
+    "fail_closed": {
+      "type": "boolean"
+    },
+    "metric_reproduction": {
+      "type": "boolean"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "real_alpha_claim": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "review_hash": {
+      "type": "string"
+    },
+    "review_id": {
+      "type": "string"
+    },
+    "semantic_reproduction": {
+      "type": "boolean"
+    },
+    "synthetic_lab_count": {
+      "type": "integer"
+    },
+    "unresolved_disagreements": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "baseline_preserved",
+    "external_independence_claim",
+    "external_reproduction_claim",
+    "fail_closed",
+    "metric_reproduction",
+    "passed",
+    "phase",
+    "real_alpha_claim",
+    "research_only",
+    "review_hash",
+    "review_id",
+    "semantic_reproduction",
+    "synthetic_lab_count",
+    "unresolved_disagreements"
+  ],
+  "title": "MODEL_RISK_REVIEW",
+  "type": "object"
+}

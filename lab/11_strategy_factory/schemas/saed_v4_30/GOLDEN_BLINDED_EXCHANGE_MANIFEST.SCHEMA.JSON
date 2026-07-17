@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_delivered": {
+      "type": "boolean"
+    },
+    "exchange_hash": {
+      "type": "string"
+    },
+    "exchange_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "raw_data_transfers": {
+      "type": "integer"
+    },
+    "receipt_count": {
+      "type": "integer"
+    },
+    "receipts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "assignment_id": {
+            "type": "string"
+          },
+          "delivered": {
+            "type": "boolean"
+          },
+          "network_egress": {
+            "type": "boolean"
+          },
+          "package_hash": {
+            "type": "string"
+          },
+          "payload_mutated": {
+            "type": "boolean"
+          },
+          "receipt_hash": {
+            "type": "string"
+          },
+          "receipt_id": {
+            "type": "string"
+          },
+          "receiver_lab_id": {
+            "type": "string"
+          },
+          "sender_role": {
+            "type": "string"
+          },
+          "transport_mode": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "assignment_id",
+          "delivered",
+          "network_egress",
+          "package_hash",
+          "payload_mutated",
+          "receipt_hash",
+          "receipt_id",
+          "receiver_lab_id",
+          "sender_role",
+          "transport_mode"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "round_trips": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "all_delivered",
+    "exchange_hash",
+    "exchange_id",
+    "phase",
+    "raw_data_transfers",
+    "receipt_count",
+    "receipts",
+    "research_only",
+    "round_trips"
+  ],
+  "title": "GOLDEN_BLINDED_EXCHANGE_MANIFEST",
+  "type": "object"
+}

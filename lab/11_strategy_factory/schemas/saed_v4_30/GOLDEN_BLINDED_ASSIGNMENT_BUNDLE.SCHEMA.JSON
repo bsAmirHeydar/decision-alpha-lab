@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assignment_count": {
+      "type": "integer"
+    },
+    "assignments": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "assignment_hash": {
+            "type": "string"
+          },
+          "assignment_id": {
+            "type": "string"
+          },
+          "assignment_index": {
+            "type": "integer"
+          },
+          "blind_code": {
+            "type": "string"
+          },
+          "candidate_identity_visible": {
+            "type": "boolean"
+          },
+          "hidden_labels_visible": {
+            "type": "boolean"
+          },
+          "lab_id": {
+            "type": "string"
+          },
+          "maximum_runs": {
+            "type": "integer"
+          },
+          "opened": {
+            "type": "boolean"
+          },
+          "package_id": {
+            "type": "string"
+          },
+          "protocol_id": {
+            "type": "string"
+          },
+          "raw_protected_rows_visible": {
+            "type": "boolean"
+          },
+          "research_only": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "assignment_hash",
+          "assignment_id",
+          "assignment_index",
+          "blind_code",
+          "candidate_identity_visible",
+          "hidden_labels_visible",
+          "lab_id",
+          "maximum_runs",
+          "opened",
+          "package_id",
+          "protocol_id",
+          "raw_protected_rows_visible",
+          "research_only"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "bundle_hash": {
+      "type": "string"
+    },
+    "bundle_id": {
+      "type": "string"
+    },
+    "one_assignment_per_lab": {
+      "type": "boolean"
+    },
+    "package_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "assignment_count",
+    "assignments",
+    "bundle_hash",
+    "bundle_id",
+    "one_assignment_per_lab",
+    "package_id",
+    "phase",
+    "research_only"
+  ],
+  "title": "GOLDEN_BLINDED_ASSIGNMENT_BUNDLE",
+  "type": "object"
+}

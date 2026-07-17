@@ -1,0 +1,86 @@
+{
+  "all_pre_assignment": true,
+  "all_pre_run": true,
+  "chain_verification": {
+    "chain": "v430_preregistration",
+    "entry_count": 3,
+    "head_hash": "d14dfa6b8fd741f2f5642a2ff9a399dd70ebaf2afc976b6c4cca8d61e2d83d7c",
+    "verified": true
+  },
+  "phase": "SAED_V4_30",
+  "records": [
+    {
+      "adaptive_changes_allowed": false,
+      "assignment_id": "v430_assignment_d30cc22d965461463bb21a04",
+      "assignment_opened_at": "2026-07-16T10:10:00Z",
+      "chain": "v430_preregistration",
+      "entry_hash": "0b9a66483f48ad80340abc8bb7b6ade100a85d455dc089f2e937b32ee1c60767",
+      "failure_action": "quarantine",
+      "hypothesis": "frozen_v429_aggregate_result_reproduces",
+      "lab_id": "v430_lab_467cc56ff623c98624aa390a",
+      "maximum_runs": 1,
+      "metric_ids": [
+        "accuracy",
+        "brier",
+        "mean_probability"
+      ],
+      "preregistered_at": "2026-07-16T10:01:00Z",
+      "preregistration_hash": "78bfe59dc018bee011d6ce5059043aa72ea96c782e8569ac0c2567e557707838",
+      "preregistration_id": "v430_prereg_48de3fe8791bf183eca1c8e0",
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "protocol_id": "v430_protocol_f0540691b3f940f58aa213ee",
+      "run_not_before": "2026-07-16T10:20:00Z",
+      "semantic_hash_required": true,
+      "sequence": 1
+    },
+    {
+      "adaptive_changes_allowed": false,
+      "assignment_id": "v430_assignment_94c19160404a05e60182716c",
+      "assignment_opened_at": "2026-07-16T10:10:00Z",
+      "chain": "v430_preregistration",
+      "entry_hash": "bd257bdc6ada79655affe16f49abb5d2973b44d5b0ff172d6f500a7dcfd26d4c",
+      "failure_action": "quarantine",
+      "hypothesis": "frozen_v429_aggregate_result_reproduces",
+      "lab_id": "v430_lab_f3d68d4fa68b8373d3b4ee85",
+      "maximum_runs": 1,
+      "metric_ids": [
+        "accuracy",
+        "brier",
+        "mean_probability"
+      ],
+      "preregistered_at": "2026-07-16T10:02:00Z",
+      "preregistration_hash": "4666021722f99c28b6054d7fd1e45eadc9d32de50af7d98b1c9389371ff2017f",
+      "preregistration_id": "v430_prereg_5bfba629083f176c7b12ef8e",
+      "previous_hash": "0b9a66483f48ad80340abc8bb7b6ade100a85d455dc089f2e937b32ee1c60767",
+      "protocol_id": "v430_protocol_f0540691b3f940f58aa213ee",
+      "run_not_before": "2026-07-16T10:20:00Z",
+      "semantic_hash_required": true,
+      "sequence": 2
+    },
+    {
+      "adaptive_changes_allowed": false,
+      "assignment_id": "v430_assignment_3e414d83388739b23272abb5",
+      "assignment_opened_at": "2026-07-16T10:10:00Z",
+      "chain": "v430_preregistration",
+      "entry_hash": "d14dfa6b8fd741f2f5642a2ff9a399dd70ebaf2afc976b6c4cca8d61e2d83d7c",
+      "failure_action": "quarantine",
+      "hypothesis": "frozen_v429_aggregate_result_reproduces",
+      "lab_id": "v430_lab_7164fd5e4d5d53430286066e",
+      "maximum_runs": 1,
+      "metric_ids": [
+        "accuracy",
+        "brier",
+        "mean_probability"
+      ],
+      "preregistered_at": "2026-07-16T10:03:00Z",
+      "preregistration_hash": "ffe45c404341cffd394d7a2181c4fdb39aad783117c7e3eb632486fecadbf748",
+      "preregistration_id": "v430_prereg_c03e1cf4aa6e58f3d9d14408",
+      "previous_hash": "bd257bdc6ada79655affe16f49abb5d2973b44d5b0ff172d6f500a7dcfd26d4c",
+      "protocol_id": "v430_protocol_f0540691b3f940f58aa213ee",
+      "run_not_before": "2026-07-16T10:20:00Z",
+      "semantic_hash_required": true,
+      "sequence": 3
+    }
+  ],
+  "research_only": true
+}

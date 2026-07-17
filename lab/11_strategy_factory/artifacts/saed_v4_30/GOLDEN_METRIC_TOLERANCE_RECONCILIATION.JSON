@@ -1,0 +1,101 @@
+{
+  "all_within_tolerance": true,
+  "baseline_preserved": true,
+  "comparison_count": 9,
+  "comparisons": [
+    {
+      "absolute_delta": 0.0,
+      "left_lab_id": "v430_lab_467cc56ff623c98624aa390a",
+      "left_value": 1.0,
+      "metric_id": "accuracy",
+      "right_lab_id": "v430_lab_f3d68d4fa68b8373d3b4ee85",
+      "right_value": 1.0,
+      "tolerance": 0.0,
+      "within_tolerance": true
+    },
+    {
+      "absolute_delta": 0.0,
+      "left_lab_id": "v430_lab_467cc56ff623c98624aa390a",
+      "left_value": 0.06625,
+      "metric_id": "brier",
+      "right_lab_id": "v430_lab_f3d68d4fa68b8373d3b4ee85",
+      "right_value": 0.06625,
+      "tolerance": 0.0,
+      "within_tolerance": true
+    },
+    {
+      "absolute_delta": 0.0,
+      "left_lab_id": "v430_lab_467cc56ff623c98624aa390a",
+      "left_value": 0.525,
+      "metric_id": "mean_probability",
+      "right_lab_id": "v430_lab_f3d68d4fa68b8373d3b4ee85",
+      "right_value": 0.525,
+      "tolerance": 0.0,
+      "within_tolerance": true
+    },
+    {
+      "absolute_delta": 0.0,
+      "left_lab_id": "v430_lab_467cc56ff623c98624aa390a",
+      "left_value": 1.0,
+      "metric_id": "accuracy",
+      "right_lab_id": "v430_lab_7164fd5e4d5d53430286066e",
+      "right_value": 1.0,
+      "tolerance": 0.0,
+      "within_tolerance": true
+    },
+    {
+      "absolute_delta": 0.0,
+      "left_lab_id": "v430_lab_467cc56ff623c98624aa390a",
+      "left_value": 0.06625,
+      "metric_id": "brier",
+      "right_lab_id": "v430_lab_7164fd5e4d5d53430286066e",
+      "right_value": 0.06625,
+      "tolerance": 0.0,
+      "within_tolerance": true
+    },
+    {
+      "absolute_delta": 0.0,
+      "left_lab_id": "v430_lab_467cc56ff623c98624aa390a",
+      "left_value": 0.525,
+      "metric_id": "mean_probability",
+      "right_lab_id": "v430_lab_7164fd5e4d5d53430286066e",
+      "right_value": 0.525,
+      "tolerance": 0.0,
+      "within_tolerance": true
+    },
+    {
+      "absolute_delta": 0.0,
+      "left_lab_id": "v430_lab_f3d68d4fa68b8373d3b4ee85",
+      "left_value": 1.0,
+      "metric_id": "accuracy",
+      "right_lab_id": "v430_lab_7164fd5e4d5d53430286066e",
+      "right_value": 1.0,
+      "tolerance": 0.0,
+      "within_tolerance": true
+    },
+    {
+      "absolute_delta": 0.0,
+      "left_lab_id": "v430_lab_f3d68d4fa68b8373d3b4ee85",
+      "left_value": 0.06625,
+      "metric_id": "brier",
+      "right_lab_id": "v430_lab_7164fd5e4d5d53430286066e",
+      "right_value": 0.06625,
+      "tolerance": 0.0,
+      "within_tolerance": true
+    },
+    {
+      "absolute_delta": 0.0,
+      "left_lab_id": "v430_lab_f3d68d4fa68b8373d3b4ee85",
+      "left_value": 0.525,
+      "metric_id": "mean_probability",
+      "right_lab_id": "v430_lab_7164fd5e4d5d53430286066e",
+      "right_value": 0.525,
+      "tolerance": 0.0,
+      "within_tolerance": true
+    }
+  ],
+  "phase": "SAED_V4_30",
+  "reconciliation_hash": "da4644ee6d2b9f142ad0676541b56daed9b3e85f7a53d9c6c45acf5af1d4207a",
+  "reconciliation_id": "v430_metric_reconciliation_62f9852f1965389f808949e3",
+  "research_only": true
+}

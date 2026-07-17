@@ -1,0 +1,28 @@
+{
+  "chain_verification": {
+    "chain": "v430_adjudication",
+    "entry_count": 1,
+    "head_hash": "b7b012d3cd74ad3320eb5291c1eebeb46b5754cf56878baf045b2926fb0aa87d",
+    "verified": true
+  },
+  "phase": "SAED_V4_30",
+  "records": [
+    {
+      "adjudication_hash": "605c25512a828c9b01146cc47b82cc45003b3bc29a88e5c745efb98ac06b06c0",
+      "adjudication_id": "v430_adjudication_5cde175f4946b21bfc9df44e",
+      "chain": "v430_adjudication",
+      "decided_at": "2026-07-16T10:30:00Z",
+      "decision": "accept_synthetic_reference",
+      "entry_hash": "b7b012d3cd74ad3320eb5291c1eebeb46b5754cf56878baf045b2926fb0aa87d",
+      "failure_action": "quarantine",
+      "issue_count": 0,
+      "issues": [],
+      "manual_override_allowed": false,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "promotion_effect": false,
+      "runtime_effect": false,
+      "sequence": 1
+    }
+  ],
+  "research_only": true
+}

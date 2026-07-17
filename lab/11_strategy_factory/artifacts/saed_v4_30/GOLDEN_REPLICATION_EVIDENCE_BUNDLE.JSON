@@ -1,0 +1,36 @@
+{
+  "bundle_hash": "b66a0f75f710336a4bc45431ecaa0c4403530f6936ed6a040543e1b98c953039",
+  "bundle_id": "v430_evidence_bundle_8a2160cd16761d8af09c1a2a",
+  "complete": true,
+  "evidence_hashes": {
+    "adjudication": "a6e8fc256a7d0b5d7e0a56dcdc020af890dd314c95c5fc9cd0f935139f12c505",
+    "assignments": "072e364a4b47510ec0606362a56b05ce2f13e13f250e9cf5969450da496ec025",
+    "coverage": "efd082d7373fa4a18a58df16d8e270d59ca98a70321f06abdaa92ae8aa3fc484",
+    "disagreement": "c944c1e4b017293bbf6aed5be4cf3366d1b8f10dd1836602d4063d9830c699a4",
+    "environments": "c27a0fb32a2c762f43c4bdb80b00a129fab8c43d72d94ea4fb4d23417eff612e",
+    "exchange": "2254d59698bbfaf58b155554293c46c6e9124fdf9331d45ad531cdab2b738e1e",
+    "independence": "85e225b80d7423497c658307f679aa8f563699752236d454878c6e55fbd352cb",
+    "known_time": "ed351691139da8c9215ff493caa54a73eeef318d6a427852e8ecad8ac524228d",
+    "metrics": "7aaea59331318dc5617abbb0ec94f5310c2807d2654bf3a65be90a280136e5ad",
+    "model_risk": "c032e4c22743253396028fd2e655a47282571083c5389e42eb90f647b21b55d1",
+    "package": "57e8e711cc815481dee509b0b95c838678f119f01ddbd25121128a4e2a0f3c2d",
+    "preregistration": "188ceda7a4fe79d62c2132c0035cb605f5be64270289b089befc0070be8c2c82",
+    "protocol": "7cd4581cebae5ea945770c75cdf095495d35e621d2aa95719aa65f9a15f8f843",
+    "registration_ledger": "590846124898c26b1741f1181c3271af548f65101075dbd1dfc08c2287caa7b5",
+    "registry": "3ad216a66273a99447f8984ff15f5604c1652f9730398801ef431658f9d6d4e8",
+    "replay": "9c13e439b494985a494a2b81cf183d3ad4194c5d0d3d7b8d46d8a13757750b26",
+    "results": "4c0090a722bd5a84a3bc90493486dd82083cd1ff909fc89d5426618e6176435f",
+    "runs": "8a6734222c37183d8a9fa23091e3c9afce8a239a997511bdd31fe492e691dd1a",
+    "security": "ee8fa2e5f38218c74c478e1034add2490d7143f716730bf869ecae557f2faeb6",
+    "semantic": "9f2702a1cc862ebbe15c6b8542f0f95def3b6b5643ce6c22067fab878c0b2feb",
+    "upstream": "0f97ebc34c44862e0a2c2242dfa54d7f9a41c306ede4e559103d13a70437fabc"
+  },
+  "evidence_ids": {
+    "certificate_id": "v430_replication_certificate_377ec57d916174f118645a4b",
+    "package_id": "v430_package_ff812d0080e81f253d13c7ef",
+    "protocol_id": "v430_protocol_f0540691b3f940f58aa213ee",
+    "registry_id": "v430_registry_c0f9b4fd22b80a9a5fe9a230"
+  },
+  "phase": "SAED_V4_30",
+  "research_only": true
+}

@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_labs_eligible": {
+      "type": "boolean"
+    },
+    "eligible_lab_count": {
+      "type": "integer"
+    },
+    "labs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "declared_at": {
+            "type": "string"
+          },
+          "environment_id": {
+            "type": "string"
+          },
+          "funding_source_id": {
+            "type": "string"
+          },
+          "infrastructure_id": {
+            "type": "string"
+          },
+          "lab_code": {
+            "type": "string"
+          },
+          "lab_id": {
+            "type": "string"
+          },
+          "mutable_state_group": {
+            "type": "string"
+          },
+          "operator_id": {
+            "type": "string"
+          },
+          "organization_id": {
+            "type": "string"
+          },
+          "originator_relation": {
+            "type": "string"
+          },
+          "registration_hash": {
+            "type": "string"
+          },
+          "signing_key_id": {
+            "type": "string"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "declared_at",
+          "environment_id",
+          "funding_source_id",
+          "infrastructure_id",
+          "lab_code",
+          "lab_id",
+          "mutable_state_group",
+          "operator_id",
+          "organization_id",
+          "originator_relation",
+          "registration_hash",
+          "signing_key_id",
+          "synthetic_fixture"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "minimum_labs": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "synthetic_fixture_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "all_labs_eligible",
+    "eligible_lab_count",
+    "labs",
+    "minimum_labs",
+    "phase",
+    "registry_hash",
+    "registry_id",
+    "research_only",
+    "synthetic_fixture_only"
+  ],
+  "title": "GOLDEN_REPLICATION_LAB_REGISTRY",
+  "type": "object"
+}

@@ -1,0 +1,11 @@
+{
+  "deterministic": true,
+  "exact_replay_hash": "b9aa068585b8b9ebad691df31d892410ab0e158e4c61b740ade10736b831b835",
+  "future_suffix_invariant": true,
+  "future_suffix_records_seen": 0,
+  "network_access": false,
+  "phase": "SAED_V4_30",
+  "replay_hash": "fdc16807e903c768c06d82e4420a8e23fca1d719c32ea3a24c3208fde68ec214",
+  "replay_id": "v430_replay_0d00c31281f078a459e910d4",
+  "research_only": true
+}

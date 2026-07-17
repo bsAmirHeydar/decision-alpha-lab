@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_pre_assignment": {
+      "type": "boolean"
+    },
+    "all_pre_run": {
+      "type": "boolean"
+    },
+    "chain_verification": {
+      "additionalProperties": false,
+      "properties": {
+        "chain": {
+          "type": "string"
+        },
+        "entry_count": {
+          "type": "integer"
+        },
+        "head_hash": {
+          "type": "string"
+        },
+        "verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "chain",
+        "entry_count",
+        "head_hash",
+        "verified"
+      ],
+      "type": "object"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "adaptive_changes_allowed": {
+            "type": "boolean"
+          },
+          "assignment_id": {
+            "type": "string"
+          },
+          "assignment_opened_at": {
+            "type": "string"
+          },
+          "chain": {
+            "type": "string"
+          },
+          "entry_hash": {
+            "type": "string"
+          },
+          "failure_action": {
+            "type": "string"
+          },
+          "hypothesis": {
+            "type": "string"
+          },
+          "lab_id": {
+            "type": "string"
+          },
+          "maximum_runs": {
+            "type": "integer"
+          },
+          "metric_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "preregistered_at": {
+            "type": "string"
+          },
+          "preregistration_hash": {
+            "type": "string"
+          },
+          "preregistration_id": {
+            "type": "string"
+          },
+          "previous_hash": {
+            "type": "string"
+          },
+          "protocol_id": {
+            "type": "string"
+          },
+          "run_not_before": {
+            "type": "string"
+          },
+          "semantic_hash_required": {
+            "type": "boolean"
+          },
+          "sequence": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "adaptive_changes_allowed",
+          "assignment_id",
+          "assignment_opened_at",
+          "chain",
+          "entry_hash",
+          "failure_action",
+          "hypothesis",
+          "lab_id",
+          "maximum_runs",
+          "metric_ids",
+          "preregistered_at",
+          "preregistration_hash",
+          "preregistration_id",
+          "previous_hash",
+          "protocol_id",
+          "run_not_before",
+          "semantic_hash_required",
+          "sequence"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "all_pre_assignment",
+    "all_pre_run",
+    "chain_verification",
+    "phase",
+    "records",
+    "research_only"
+  ],
+  "title": "GOLDEN_PREREGISTRATION_LEDGER",
+  "type": "object"
+}

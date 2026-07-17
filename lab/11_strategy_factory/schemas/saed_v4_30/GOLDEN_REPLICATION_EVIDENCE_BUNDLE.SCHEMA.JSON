@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bundle_hash": {
+      "type": "string"
+    },
+    "bundle_id": {
+      "type": "string"
+    },
+    "complete": {
+      "type": "boolean"
+    },
+    "evidence_hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "adjudication": {
+          "type": "string"
+        },
+        "assignments": {
+          "type": "string"
+        },
+        "coverage": {
+          "type": "string"
+        },
+        "disagreement": {
+          "type": "string"
+        },
+        "environments": {
+          "type": "string"
+        },
+        "exchange": {
+          "type": "string"
+        },
+        "independence": {
+          "type": "string"
+        },
+        "known_time": {
+          "type": "string"
+        },
+        "metrics": {
+          "type": "string"
+        },
+        "model_risk": {
+          "type": "string"
+        },
+        "package": {
+          "type": "string"
+        },
+        "preregistration": {
+          "type": "string"
+        },
+        "protocol": {
+          "type": "string"
+        },
+        "registration_ledger": {
+          "type": "string"
+        },
+        "registry": {
+          "type": "string"
+        },
+        "replay": {
+          "type": "string"
+        },
+        "results": {
+          "type": "string"
+        },
+        "runs": {
+          "type": "string"
+        },
+        "security": {
+          "type": "string"
+        },
+        "semantic": {
+          "type": "string"
+        },
+        "upstream": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "adjudication",
+        "assignments",
+        "coverage",
+        "disagreement",
+        "environments",
+        "exchange",
+        "independence",
+        "known_time",
+        "metrics",
+        "model_risk",
+        "package",
+        "preregistration",
+        "protocol",
+        "registration_ledger",
+        "registry",
+        "replay",
+        "results",
+        "runs",
+        "security",
+        "semantic",
+        "upstream"
+      ],
+      "type": "object"
+    },
+    "evidence_ids": {
+      "additionalProperties": false,
+      "properties": {
+        "certificate_id": {
+          "type": "string"
+        },
+        "package_id": {
+          "type": "string"
+        },
+        "protocol_id": {
+          "type": "string"
+        },
+        "registry_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "certificate_id",
+        "package_id",
+        "protocol_id",
+        "registry_id"
+      ],
+      "type": "object"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "bundle_hash",
+    "bundle_id",
+    "complete",
+    "evidence_hashes",
+    "evidence_ids",
+    "phase",
+    "research_only"
+  ],
+  "title": "GOLDEN_REPLICATION_EVIDENCE_BUNDLE",
+  "type": "object"
+}

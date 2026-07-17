@@ -1,0 +1,60 @@
+{
+  "all_pairs_independent": true,
+  "matrix_hash": "5cacab18b1984ad4f32d7b0bd713915e9cd38cb46228341c3d3e17a71e32fe2e",
+  "matrix_id": "v430_independence_4ef72095128877bbe3fe4b19",
+  "pair_count": 3,
+  "pairs": [
+    {
+      "dimension_checks": {
+        "environment_id": true,
+        "infrastructure_id": true,
+        "mutable_state_group": true,
+        "operator_id": true,
+        "organization_id": true,
+        "signing_key_id": true
+      },
+      "independent": true,
+      "left_lab_id": "v430_lab_467cc56ff623c98624aa390a",
+      "pair_hash": "15bb2e9f1fb0be74f84ee78104c95afdf7f61cbd74586c9c2bcf60f7b9a5a813",
+      "right_lab_id": "v430_lab_f3d68d4fa68b8373d3b4ee85"
+    },
+    {
+      "dimension_checks": {
+        "environment_id": true,
+        "infrastructure_id": true,
+        "mutable_state_group": true,
+        "operator_id": true,
+        "organization_id": true,
+        "signing_key_id": true
+      },
+      "independent": true,
+      "left_lab_id": "v430_lab_467cc56ff623c98624aa390a",
+      "pair_hash": "efb3f1f0c8c5c6d7bbe4ee81fc52416340246fd406cda216056eb223c03e0b43",
+      "right_lab_id": "v430_lab_7164fd5e4d5d53430286066e"
+    },
+    {
+      "dimension_checks": {
+        "environment_id": true,
+        "infrastructure_id": true,
+        "mutable_state_group": true,
+        "operator_id": true,
+        "organization_id": true,
+        "signing_key_id": true
+      },
+      "independent": true,
+      "left_lab_id": "v430_lab_f3d68d4fa68b8373d3b4ee85",
+      "pair_hash": "332cf04a0410dc11f499129fbdf04b97aee4ee6f250fb8c8bc743e41b96fcbed",
+      "right_lab_id": "v430_lab_7164fd5e4d5d53430286066e"
+    }
+  ],
+  "phase": "SAED_V4_30",
+  "required_dimensions": [
+    "organization_id",
+    "operator_id",
+    "signing_key_id",
+    "environment_id",
+    "infrastructure_id",
+    "mutable_state_group"
+  ],
+  "research_only": true
+}

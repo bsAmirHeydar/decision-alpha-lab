@@ -1,0 +1,43 @@
+{
+  "allowed_next_work": [
+    "formal_invariant_catalog",
+    "safety_property_specification",
+    "model_checking_reference",
+    "proof_obligation_registry",
+    "assurance_case_graph",
+    "hazard_and_mitigation_ledger",
+    "external_replication_evidence_attachment"
+  ],
+  "authority": {
+    "execution": false,
+    "online_learning": false,
+    "production": false,
+    "promotion": false,
+    "risk_allocation": false,
+    "runtime": false
+  },
+  "certificate_hash": "9906fc2aa24814ed4a1a8687c58b207a21e3b4b3f40637e764687ebd2c79cb7a",
+  "certificate_id": "v430_replication_certificate_377ec57d916174f118645a4b",
+  "entry_gates": {
+    "authority_zero": true,
+    "independent_multi_lab_reference_accepted": true,
+    "metric_reconciliation_verified": true,
+    "research_only": true,
+    "semantic_reconciliation_verified": true,
+    "synthetic_labs_only": true
+  },
+  "forbidden_next_work": [
+    "claim_external_replication_from_synthetic_fixture",
+    "promotion_authorization",
+    "runtime_compilation",
+    "risk_allocation",
+    "order_submission",
+    "production_release",
+    "online_policy_mutation"
+  ],
+  "handoff_hash": "75c937a1e2cf9e5c6ff973732e10fa104336625e775463215c0abe7cf33951f0",
+  "handoff_id": "v4_30_to_v4_31_e151d4ae6122e5c64f56c3de",
+  "next_phase": "SAED_V4_31",
+  "phase": "SAED_V4_30",
+  "research_only": true
+}

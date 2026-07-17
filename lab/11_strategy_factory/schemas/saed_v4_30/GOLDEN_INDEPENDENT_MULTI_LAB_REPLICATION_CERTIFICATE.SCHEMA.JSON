@@ -1,0 +1,358 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accepted_for_independent_multi_lab_replication_research_reference": {
+      "type": "boolean"
+    },
+    "authority_boundary": {
+      "additionalProperties": false,
+      "properties": {
+        "authority": {
+          "additionalProperties": false,
+          "properties": {
+            "adaptive_replication": {
+              "type": "boolean"
+            },
+            "execution": {
+              "type": "boolean"
+            },
+            "live_trading": {
+              "type": "boolean"
+            },
+            "online_learning": {
+              "type": "boolean"
+            },
+            "production": {
+              "type": "boolean"
+            },
+            "promotion": {
+              "type": "boolean"
+            },
+            "raw_hidden_data_export": {
+              "type": "boolean"
+            },
+            "rerun_authority": {
+              "type": "boolean"
+            },
+            "research_decision": {
+              "type": "boolean"
+            },
+            "risk_allocation": {
+              "type": "boolean"
+            },
+            "runtime": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "adaptive_replication",
+            "execution",
+            "live_trading",
+            "online_learning",
+            "production",
+            "promotion",
+            "raw_hidden_data_export",
+            "rerun_authority",
+            "research_decision",
+            "risk_allocation",
+            "runtime"
+          ],
+          "type": "object"
+        },
+        "boundary_hash": {
+          "type": "string"
+        },
+        "boundary_id": {
+          "type": "string"
+        },
+        "independent_external_reproduction": {
+          "type": "boolean"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "safe_action": {
+          "type": "string"
+        },
+        "synthetic_fixture_only": {
+          "type": "boolean"
+        },
+        "ucee_authority_preserved": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "authority",
+        "boundary_hash",
+        "boundary_id",
+        "independent_external_reproduction",
+        "phase",
+        "research_only",
+        "safe_action",
+        "synthetic_fixture_only",
+        "ucee_authority_preserved"
+      ],
+      "type": "object"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "claim_class": {
+      "type": "string"
+    },
+    "evidence_hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "adjudication": {
+          "type": "string"
+        },
+        "assignments": {
+          "type": "string"
+        },
+        "coverage": {
+          "type": "string"
+        },
+        "disagreement": {
+          "type": "string"
+        },
+        "environments": {
+          "type": "string"
+        },
+        "exchange": {
+          "type": "string"
+        },
+        "independence": {
+          "type": "string"
+        },
+        "known_time": {
+          "type": "string"
+        },
+        "metrics": {
+          "type": "string"
+        },
+        "model_risk": {
+          "type": "string"
+        },
+        "package": {
+          "type": "string"
+        },
+        "preregistration": {
+          "type": "string"
+        },
+        "protocol": {
+          "type": "string"
+        },
+        "registration_ledger": {
+          "type": "string"
+        },
+        "registry": {
+          "type": "string"
+        },
+        "replay": {
+          "type": "string"
+        },
+        "results": {
+          "type": "string"
+        },
+        "runs": {
+          "type": "string"
+        },
+        "security": {
+          "type": "string"
+        },
+        "semantic": {
+          "type": "string"
+        },
+        "upstream": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "adjudication",
+        "assignments",
+        "coverage",
+        "disagreement",
+        "environments",
+        "exchange",
+        "independence",
+        "known_time",
+        "metrics",
+        "model_risk",
+        "package",
+        "preregistration",
+        "protocol",
+        "registration_ledger",
+        "registry",
+        "replay",
+        "results",
+        "runs",
+        "security",
+        "semantic",
+        "upstream"
+      ],
+      "type": "object"
+    },
+    "execution_authority": {
+      "type": "boolean"
+    },
+    "external_institutional_replication_claim": {
+      "type": "boolean"
+    },
+    "external_signature_claim": {
+      "type": "boolean"
+    },
+    "gates": {
+      "additionalProperties": false,
+      "properties": {
+        "authority_zero": {
+          "type": "boolean"
+        },
+        "environment_default_deny": {
+          "type": "boolean"
+        },
+        "known_time_passed": {
+          "type": "boolean"
+        },
+        "metrics_reconciled": {
+          "type": "boolean"
+        },
+        "minimum_labs_satisfied": {
+          "type": "boolean"
+        },
+        "model_risk_passed": {
+          "type": "boolean"
+        },
+        "no_unresolved_disagreement": {
+          "type": "boolean"
+        },
+        "one_run_per_lab": {
+          "type": "boolean"
+        },
+        "package_identity_verified": {
+          "type": "boolean"
+        },
+        "pairwise_independence_verified": {
+          "type": "boolean"
+        },
+        "preregistration_ordering_verified": {
+          "type": "boolean"
+        },
+        "protocol_frozen": {
+          "type": "boolean"
+        },
+        "result_chain_verified": {
+          "type": "boolean"
+        },
+        "run_chain_verified": {
+          "type": "boolean"
+        },
+        "security_passed": {
+          "type": "boolean"
+        },
+        "semantic_hashes_reconciled": {
+          "type": "boolean"
+        },
+        "upstream_verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "authority_zero",
+        "environment_default_deny",
+        "known_time_passed",
+        "metrics_reconciled",
+        "minimum_labs_satisfied",
+        "model_risk_passed",
+        "no_unresolved_disagreement",
+        "one_run_per_lab",
+        "package_identity_verified",
+        "pairwise_independence_verified",
+        "preregistration_ordering_verified",
+        "protocol_frozen",
+        "result_chain_verified",
+        "run_chain_verified",
+        "security_passed",
+        "semantic_hashes_reconciled",
+        "upstream_verified"
+      ],
+      "type": "object"
+    },
+    "live_trading_authority": {
+      "type": "boolean"
+    },
+    "online_learning_authority": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "physical_separation_claim": {
+      "type": "boolean"
+    },
+    "production_authority": {
+      "type": "boolean"
+    },
+    "promotion_authority": {
+      "type": "boolean"
+    },
+    "prospective_success_claim": {
+      "type": "boolean"
+    },
+    "real_alpha_claim": {
+      "type": "boolean"
+    },
+    "real_external_lab_independence_claim": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "risk_allocation_authority": {
+      "type": "boolean"
+    },
+    "runtime_executable": {
+      "type": "boolean"
+    },
+    "synthetic_laboratory_fixture_claim": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "accepted_for_independent_multi_lab_replication_research_reference",
+    "authority_boundary",
+    "certificate_hash",
+    "certificate_id",
+    "claim_class",
+    "evidence_hashes",
+    "execution_authority",
+    "external_institutional_replication_claim",
+    "external_signature_claim",
+    "gates",
+    "live_trading_authority",
+    "online_learning_authority",
+    "phase",
+    "physical_separation_claim",
+    "production_authority",
+    "promotion_authority",
+    "prospective_success_claim",
+    "real_alpha_claim",
+    "real_external_lab_independence_claim",
+    "research_only",
+    "risk_allocation_authority",
+    "runtime_executable",
+    "synthetic_laboratory_fixture_claim",
+    "version"
+  ],
+  "title": "GOLDEN_INDEPENDENT_MULTI_LAB_REPLICATION_CERTIFICATE",
+  "type": "object"
+}

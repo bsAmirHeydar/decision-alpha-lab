@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "adaptive_replication": {
+          "type": "boolean"
+        },
+        "execution": {
+          "type": "boolean"
+        },
+        "live_trading": {
+          "type": "boolean"
+        },
+        "online_learning": {
+          "type": "boolean"
+        },
+        "production": {
+          "type": "boolean"
+        },
+        "promotion": {
+          "type": "boolean"
+        },
+        "raw_hidden_data_export": {
+          "type": "boolean"
+        },
+        "rerun_authority": {
+          "type": "boolean"
+        },
+        "research_decision": {
+          "type": "boolean"
+        },
+        "risk_allocation": {
+          "type": "boolean"
+        },
+        "runtime": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "adaptive_replication",
+        "execution",
+        "live_trading",
+        "online_learning",
+        "production",
+        "promotion",
+        "raw_hidden_data_export",
+        "rerun_authority",
+        "research_decision",
+        "risk_allocation",
+        "runtime"
+      ],
+      "type": "object"
+    },
+    "boundary_hash": {
+      "type": "string"
+    },
+    "boundary_id": {
+      "type": "string"
+    },
+    "independent_external_reproduction": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "safe_action": {
+      "type": "string"
+    },
+    "synthetic_fixture_only": {
+      "type": "boolean"
+    },
+    "ucee_authority_preserved": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "authority",
+    "boundary_hash",
+    "boundary_id",
+    "independent_external_reproduction",
+    "phase",
+    "research_only",
+    "safe_action",
+    "synthetic_fixture_only",
+    "ucee_authority_preserved"
+  ],
+  "title": "GOLDEN_AUTHORITY_BOUNDARY",
+  "type": "object"
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_within_tolerance": {
+      "type": "boolean"
+    },
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "comparison_count": {
+      "type": "integer"
+    },
+    "comparisons": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "absolute_delta": {
+            "type": "number"
+          },
+          "left_lab_id": {
+            "type": "string"
+          },
+          "left_value": {
+            "type": "number"
+          },
+          "metric_id": {
+            "type": "string"
+          },
+          "right_lab_id": {
+            "type": "string"
+          },
+          "right_value": {
+            "type": "number"
+          },
+          "tolerance": {
+            "type": "number"
+          },
+          "within_tolerance": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "absolute_delta",
+          "left_lab_id",
+          "left_value",
+          "metric_id",
+          "right_lab_id",
+          "right_value",
+          "tolerance",
+          "within_tolerance"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "reconciliation_hash": {
+      "type": "string"
+    },
+    "reconciliation_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "all_within_tolerance",
+    "baseline_preserved",
+    "comparison_count",
+    "comparisons",
+    "phase",
+    "reconciliation_hash",
+    "reconciliation_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_METRIC_TOLERANCE_RECONCILIATION",
+  "type": "object"
+}

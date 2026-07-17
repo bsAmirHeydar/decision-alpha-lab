@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "attestation_count": {
+      "type": "integer"
+    },
+    "attestations": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "attestation_hash": {
+            "type": "string"
+          },
+          "attestation_id": {
+            "type": "string"
+          },
+          "captured_at": {
+            "type": "string"
+          },
+          "container_or_vm_image_hash": {
+            "type": "string"
+          },
+          "cpu_architecture": {
+            "type": "string"
+          },
+          "dependency_lock_hash": {
+            "type": "string"
+          },
+          "environment_id": {
+            "type": "string"
+          },
+          "interactive_shell": {
+            "type": "boolean"
+          },
+          "lab_id": {
+            "type": "string"
+          },
+          "locale": {
+            "type": "string"
+          },
+          "mutable_clock": {
+            "type": "boolean"
+          },
+          "network_access": {
+            "type": "boolean"
+          },
+          "os_family": {
+            "type": "string"
+          },
+          "package_installation": {
+            "type": "boolean"
+          },
+          "runtime": {
+            "type": "string"
+          },
+          "runtime_version": {
+            "type": "string"
+          },
+          "shared_mutable_state": {
+            "type": "boolean"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          },
+          "timezone": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "attestation_hash",
+          "attestation_id",
+          "captured_at",
+          "container_or_vm_image_hash",
+          "cpu_architecture",
+          "dependency_lock_hash",
+          "environment_id",
+          "interactive_shell",
+          "lab_id",
+          "locale",
+          "mutable_clock",
+          "network_access",
+          "os_family",
+          "package_installation",
+          "runtime",
+          "runtime_version",
+          "shared_mutable_state",
+          "synthetic_fixture",
+          "timezone"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "default_deny_verified": {
+      "type": "boolean"
+    },
+    "distinct_environment_ids": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "attestation_count",
+    "attestations",
+    "default_deny_verified",
+    "distinct_environment_ids",
+    "phase",
+    "report_hash",
+    "report_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_ENVIRONMENT_ATTESTATIONS",
+  "type": "object"
+}

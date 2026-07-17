@@ -1,0 +1,23 @@
+{
+  "blinded": true,
+  "candidate_commitment_hash": "3253c841f5beeca981b0fca01f4487c33370bcd99b49c1672f7fd712c1fbc419",
+  "candidate_id": "context_policy_candidate_reference_001",
+  "custody_key_shares_included": false,
+  "dataset_commitment_hash": "17e821289dafd21d17466303ccaedf516ecb7b04ce8e66408681bdedff19ec59",
+  "disclosure_hash": "3d28f2c88b7a7da00a77f2b2f8e8dc0da0addb62befe06e972c64d1f0a6bde6a",
+  "evaluation_entrypoint_hash": "3333333333333333333333333333333333333333333333333333333333333333",
+  "feature_contract_hash": "cccb7c830e90e6d65145204c2f79bcb60e6586f6c5fbf36c5d52d244ac27cd11",
+  "hidden_labels_included": false,
+  "package_hash": "7ecfdfad44aa8985fe6ca1c01d7e4492f4d83fc5f5784013e1bf8d350a513036",
+  "package_id": "v430_package_ff812d0080e81f253d13c7ef",
+  "payload_commitment_hash": "4444444444444444444444444444444444444444444444444444444444444444",
+  "phase": "SAED_V4_30",
+  "preprocessing_contract_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+  "protocol_hash": "e7d0a82f5fa55583e8da6f676b6e5c38d3bb7d04c049023ef577be46abc4af13",
+  "protocol_id": "v430_protocol_f0540691b3f940f58aa213ee",
+  "raw_protected_rows_included": false,
+  "research_only": true,
+  "sealed_result_hash": "10e71313673707b20ed416e070fc39d53360077ac96d64b8e81f83a55caab96f",
+  "upstream_certificate_hash": "e9b8d03f357ce46143be9b6a6ef55729b0b1e755da6164345e334bfb54078931",
+  "upstream_handoff_hash": "cb6f30891554c37dcc1acf0a316af7230529bbbd8658bddef784e1850d38594e"
+}

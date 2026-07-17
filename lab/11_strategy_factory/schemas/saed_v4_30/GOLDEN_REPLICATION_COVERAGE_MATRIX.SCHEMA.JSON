@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "coverage_complete": {
+      "type": "boolean"
+    },
+    "coverage_hash": {
+      "type": "string"
+    },
+    "coverage_id": {
+      "type": "string"
+    },
+    "environment_count": {
+      "type": "integer"
+    },
+    "external_lab_coverage": {
+      "type": "boolean"
+    },
+    "independence_dimension_count": {
+      "type": "integer"
+    },
+    "independence_dimensions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "lab_count": {
+      "type": "integer"
+    },
+    "metric_comparison_coverage": {
+      "type": "integer"
+    },
+    "pair_count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "result_count": {
+      "type": "integer"
+    },
+    "run_count": {
+      "type": "integer"
+    },
+    "semantic_pair_coverage": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "coverage_complete",
+    "coverage_hash",
+    "coverage_id",
+    "environment_count",
+    "external_lab_coverage",
+    "independence_dimension_count",
+    "independence_dimensions",
+    "lab_count",
+    "metric_comparison_coverage",
+    "pair_count",
+    "phase",
+    "research_only",
+    "result_count",
+    "run_count",
+    "semantic_pair_coverage"
+  ],
+  "title": "GOLDEN_REPLICATION_COVERAGE_MATRIX",
+  "type": "object"
+}

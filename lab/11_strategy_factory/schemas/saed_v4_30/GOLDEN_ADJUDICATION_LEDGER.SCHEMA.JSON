@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "chain_verification": {
+      "additionalProperties": false,
+      "properties": {
+        "chain": {
+          "type": "string"
+        },
+        "entry_count": {
+          "type": "integer"
+        },
+        "head_hash": {
+          "type": "string"
+        },
+        "verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "chain",
+        "entry_count",
+        "head_hash",
+        "verified"
+      ],
+      "type": "object"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "adjudication_hash": {
+            "type": "string"
+          },
+          "adjudication_id": {
+            "type": "string"
+          },
+          "chain": {
+            "type": "string"
+          },
+          "decided_at": {
+            "type": "string"
+          },
+          "decision": {
+            "type": "string"
+          },
+          "entry_hash": {
+            "type": "string"
+          },
+          "failure_action": {
+            "type": "string"
+          },
+          "issue_count": {
+            "type": "integer"
+          },
+          "issues": {
+            "items": {},
+            "type": "array"
+          },
+          "manual_override_allowed": {
+            "type": "boolean"
+          },
+          "previous_hash": {
+            "type": "string"
+          },
+          "promotion_effect": {
+            "type": "boolean"
+          },
+          "runtime_effect": {
+            "type": "boolean"
+          },
+          "sequence": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "adjudication_hash",
+          "adjudication_id",
+          "chain",
+          "decided_at",
+          "decision",
+          "entry_hash",
+          "failure_action",
+          "issue_count",
+          "issues",
+          "manual_override_allowed",
+          "previous_hash",
+          "promotion_effect",
+          "runtime_effect",
+          "sequence"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "chain_verification",
+    "phase",
+    "records",
+    "research_only"
+  ],
+  "title": "GOLDEN_ADJUDICATION_LEDGER",
+  "type": "object"
+}

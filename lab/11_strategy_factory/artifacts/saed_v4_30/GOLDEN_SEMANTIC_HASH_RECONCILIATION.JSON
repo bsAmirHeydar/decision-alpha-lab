@@ -1,0 +1,32 @@
+{
+  "all_match": true,
+  "pair_count": 3,
+  "pairs": [
+    {
+      "left_hash": "ecf4e67f75133fd1835330e460120e49b9b968efbd33d3e5190cdb7a344cb67e",
+      "left_lab_id": "v430_lab_467cc56ff623c98624aa390a",
+      "match": true,
+      "right_hash": "ecf4e67f75133fd1835330e460120e49b9b968efbd33d3e5190cdb7a344cb67e",
+      "right_lab_id": "v430_lab_f3d68d4fa68b8373d3b4ee85"
+    },
+    {
+      "left_hash": "ecf4e67f75133fd1835330e460120e49b9b968efbd33d3e5190cdb7a344cb67e",
+      "left_lab_id": "v430_lab_467cc56ff623c98624aa390a",
+      "match": true,
+      "right_hash": "ecf4e67f75133fd1835330e460120e49b9b968efbd33d3e5190cdb7a344cb67e",
+      "right_lab_id": "v430_lab_7164fd5e4d5d53430286066e"
+    },
+    {
+      "left_hash": "ecf4e67f75133fd1835330e460120e49b9b968efbd33d3e5190cdb7a344cb67e",
+      "left_lab_id": "v430_lab_f3d68d4fa68b8373d3b4ee85",
+      "match": true,
+      "right_hash": "ecf4e67f75133fd1835330e460120e49b9b968efbd33d3e5190cdb7a344cb67e",
+      "right_lab_id": "v430_lab_7164fd5e4d5d53430286066e"
+    }
+  ],
+  "phase": "SAED_V4_30",
+  "reconciliation_hash": "b12a8a1db1068dad5a1a2863734f4ba6b30e6bf3cc4325cb4bb3ef94fe0cf4eb",
+  "reconciliation_id": "v430_semantic_reconciliation_cfe0409d9bd5ca8ab62abe95",
+  "research_only": true,
+  "unique_semantic_hashes": 1
+}
