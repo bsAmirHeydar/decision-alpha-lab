@@ -1,66 +1,45 @@
 ---
 title: Research Failure Taxonomy
-status: proposed-reference
+status: accepted-reference
 version: 1.0.0
-updated: 2026-07-17
-tags: [acl-os, context-lifecycle]
+updated: 2026-07-18
+tags: [acl-os, acl-05, research-batch]
 ---
 # Research Failure Taxonomy
 
-Distinguishes scientific rejection, data failure, infrastructure failure, security denial and cancellation.
+## Purpose
 
-## Responsibility boundary
+Maps failures to stable machine reason codes and recovery routes.
 
-This component owns a narrow part of immutable research inputs, orchestration, reproducibility and complete exposure. It communicates through versioned contracts and immutable references. It may not infer adjacent authority, reach into private implementation folders, or create an alternative identity, security or evidence system.
+## Contract model
 
-## Required inputs
-
-- Exact artifact identities and versions.
-- Declared owner and authority scope.
-- Applicable policy, security classification and compatibility range.
-- Known-time-safe evidence or an explicit UNKNOWN state.
-
-## Produced artifacts
-
-- Closed-schema machine result with reason codes.
-- Lineage links to all source artifacts and transformations.
-- Human-readable Obsidian projection.
-- Security, test and migration evidence appropriate to the artifact class.
-
-## Non-negotiable invariants
-
-- Unknown fields and unresolved identities fail closed.
-- Generated content is never hand-edited.
-- Passing local tests does not prove alpha, live parity or capital authorization.
-- Every material mutation is authenticated, authorized, attributable and replayable.
-- Breaking semantics require a new version, migration and rollback.
-
-## Reference workflow
-
-1. Resolve exact inputs and owners.
-2. Validate schema, compatibility, security classification and authority.
-3. Execute deterministic domain logic in the declared environment.
-4. Validate outputs and append evidence events.
-5. Publish structured artifacts and projections atomically.
-6. Expose only policy-approved next actions.
+Contract, integrity, authority, mutation, known-time, store, budget and publication failures are distinct. Recovery never silently weakens a guard.
 
 ## Failure semantics
 
-The component stops with explicit reason codes for missing evidence, ambiguous semantics, incompatible versions, integrity mismatch, insufficient support, policy denial, security failure or unavailable dependency. It does not substitute a permissive default.
+Catching every exception as a generic warning converts fail-closed architecture into permissive behavior.
 
-## Extension and evolution
+## Authority boundary
 
-New behavior enters through a registered extension manifest, bounded capabilities and conformance suite. Additive changes use compatible minor versions. Breaking changes require a major version, impact analysis, idempotent migration, dual-read or shadow period where needed, rollback and deprecation evidence.
+This note describes ACL-05 reference mechanics. It does not establish external data quality, statistical edge, live-market parity, broker correctness, execution authority or capital authorization. Canonical JSON and policy artifacts outrank generated prose.
+
+## Non-negotiable invariants
+
+- Unknown fields, unresolved IDs and digest mismatches fail closed.
+- Known-time semantics are inherited and may not be weakened.
+- Candidate behavior remains byte- and digest-bound to ACL-04.
+- Diagnostic artifacts remain segregated from selection.
+- Material changes produce a new Batch identity; no in-place repair exists.
+- Publication is all-or-nothing and leaves an attributable event/receipt trail.
 
 ## Verification obligations
 
-Unit and property tests cover deterministic logic. Contract tests cover every adapter. Mutation tests prove guards are effective. Security-negative tests attempt bypass. Golden replay proves deterministic projection. Clean-checkout delivery validation proves the package has no hidden build dependency.
+Verification includes closed-schema validation, byte-digest checks, negative authority tests, known-time mutation tests, deterministic replay, content-addressed store resolution, event-chain validation and clean-checkout delivery checks. Passing these tests proves only the declared reference mechanics.
 
-## Claim ceiling
+## Evolution and rollback
 
-This architecture note specifies required mechanics. Only environment-specific evidence can establish external data quality, statistical edge, broker behavior, MQL5 parity, operational security or production authorization.
+Additive compatible changes require a new minor contract version. Breaking semantics require a new major version, migration note and new Batch identity. Before publication, rollback deletes staging. After publication, rollback restores the prior repository commit; frozen artifacts are never rewritten.
 
 ## Related
 
-- [[ACL_OS_HOME]]
-- [[IMPLEMENTATION_MASTER_PLAN]]
+[[BATCH_EVENT_MODEL]], [[BATCH_FREEZE_PROTOCOL]], [[ACL_05_IMMUTABLE_BATCH_AND_STORE]]

@@ -1,0 +1,8 @@
+{
+  "clock_input": "DECLARED_FROZEN_AT",
+  "implicit_now": false,
+  "policy_id": "ACL05_REPLAY",
+  "same_material_same_batch_id": true,
+  "same_material_same_manifest": true,
+  "version": "1.0.0"
+}

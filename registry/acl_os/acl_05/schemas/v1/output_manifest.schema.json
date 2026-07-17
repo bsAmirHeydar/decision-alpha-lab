@@ -1,0 +1,42 @@
+{
+  "$id": "urn:alpha-lab:acl05:output_manifest:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "batch_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "files": {
+      "items": {
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "manifest_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "self_reference_policy": {
+      "const": "MANIFEST_AND_RECEIPT_EXCLUDED_AND_MUTUALLY_BOUND"
+    }
+  },
+  "required": [
+    "schema_version",
+    "batch_id",
+    "artifact_count",
+    "files",
+    "self_reference_policy",
+    "manifest_digest"
+  ],
+  "title": "output_manifest",
+  "type": "object"
+}

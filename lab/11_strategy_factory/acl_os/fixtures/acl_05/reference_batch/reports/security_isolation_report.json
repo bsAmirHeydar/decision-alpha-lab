@@ -1,0 +1,11 @@
+{
+  "capital_activation_allowed": false,
+  "filesystem_scope": "DECLARED_INPUTS_AND_OUTPUT_STAGING_ONLY",
+  "forbidden_capability_findings": [],
+  "live_order_submission_allowed": false,
+  "network_access_allowed": false,
+  "passed": true,
+  "report_digest": "sha256:25c382a6c11ca2131bd4c3466409072203d64f5e417420a90a9046977ec2c777",
+  "schema_version": "1.0.0",
+  "secret_access_allowed": false
+}

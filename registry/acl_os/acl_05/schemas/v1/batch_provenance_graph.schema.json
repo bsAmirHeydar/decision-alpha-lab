@@ -1,0 +1,49 @@
+{
+  "$id": "urn:alpha-lab:acl05:batch_provenance_graph:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_material_inputs_bound": {
+      "const": true
+    },
+    "batch_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "edges": {
+      "items": {
+        "type": "object"
+      },
+      "minItems": 7,
+      "type": "array"
+    },
+    "graph_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "nodes": {
+      "items": {
+        "type": "object"
+      },
+      "minItems": 8,
+      "type": "array"
+    },
+    "reaches_acl03": {
+      "const": true
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "batch_id",
+    "nodes",
+    "edges",
+    "reaches_acl03",
+    "all_material_inputs_bound",
+    "graph_digest"
+  ],
+  "title": "batch_provenance_graph",
+  "type": "object"
+}

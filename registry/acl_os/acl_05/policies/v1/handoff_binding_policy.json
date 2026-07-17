@@ -1,0 +1,9 @@
+{
+  "input": "ACL04_TO_ACL05",
+  "policy_id": "ACL05_HANDOFF_BINDING",
+  "require_acl03_reachability": true,
+  "require_candidate_byte_integrity": true,
+  "require_exact_manifest": true,
+  "require_exact_receipt": true,
+  "version": "1.0.0"
+}

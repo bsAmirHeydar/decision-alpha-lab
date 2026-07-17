@@ -1,0 +1,9 @@
+{
+  "embargo_required": true,
+  "fit_scope": "TRAIN_ONLY",
+  "method": "PURGED_WALK_FORWARD",
+  "policy_id": "ACL05_SPLIT",
+  "purge_required": true,
+  "temporal_overlap": false,
+  "version": "1.0.0"
+}

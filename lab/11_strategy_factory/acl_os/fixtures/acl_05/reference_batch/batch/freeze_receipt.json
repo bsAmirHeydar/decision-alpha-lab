@@ -1,0 +1,14 @@
+{
+  "authority_report_digest": "sha256:0edd30b7af943a04aed3ab62dc93c1097bf7f0c012bca46b3bff1760e3012f5a",
+  "batch_definition_digest": "sha256:3b2b4b00cd67eab11dba288b84c2e413b86d5da42d73acedc16641ed4ff22f79",
+  "batch_id": "BATCH_81FF4FC3C8B796422B0EF6818FEB2D5E",
+  "batch_manifest_digest": "sha256:715217a85db3a8fb746b2efbb4004122b34717b7b64c463110e11d5433f9a97c",
+  "capital_activation_allowed": false,
+  "claim_ceiling": "RESEARCH_BATCH_FREEZE_REFERENCE_ONLY",
+  "event_ledger_digest": "sha256:1549309d13bce15d04f302255741646e8bf7582685e5535e5b7cd9e544afae76",
+  "factory_version": "1.0.0",
+  "freeze_receipt_digest": "sha256:1c401e7f48f77a9bcd6c79dfabf2399f51de10a8c9dd095bc7775738dee5a6e6",
+  "frozen": true,
+  "live_order_submission_allowed": false,
+  "schema_version": "1.0.0"
+}

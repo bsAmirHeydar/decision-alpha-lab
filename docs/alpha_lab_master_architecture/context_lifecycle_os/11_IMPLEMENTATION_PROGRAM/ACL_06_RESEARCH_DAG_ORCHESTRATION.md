@@ -2,65 +2,49 @@
 title: ACL-06 — Research DAG Orchestration
 status: proposed-reference
 version: 1.0.0
-updated: 2026-07-17
-tags: [acl-os, context-lifecycle]
+updated: 2026-07-18
+tags: [acl-os, context-lifecycle, acl-06]
 ---
+
 # ACL-06 — Research DAG Orchestration
 
-Implements Research DAG Orchestration as an independently testable lifecycle increment, binding upstream ACL-05 — Immutable Batch and Artifact Store and handing explicit contracts to ACL-07 — Unified Validation Gate.
+## Accepted ACL-05 dependency contract
+
+ACL-06 starts only from a validated `ACL05_TO_ACL06` handoff. It must resolve the exact frozen Batch definition, semantic Batch manifest, freeze receipt, candidate/search freeze digests, dataset/label sets, split, environment, budget, content-addressed object index, event ledger and provenance graph. Every referenced digest must resolve within the received generated ACL-05 root.
+
+The handoff grants exactly these next actions:
+
+- `PLAN_RESEARCH_DAG`
+- `REGISTER_TASK_CONTRACTS`
+- `EXECUTE_BOUNDED_RESEARCH`
+
+It forbids Batch mutation, setup-behavior mutation, diagnostic candidate promotion, alpha inference from the freeze itself, execution authorization and capital activation. ACL-06 cannot regenerate ACL-04 candidates, alter data cuts, change labels, refit split boundaries or expand budgets. Material changes return to ACL-05 and create a new Batch.
 
 ## Responsibility boundary
 
-This component owns a narrow part of implementation sequencing, acceptance evidence, migrations and handoff. It communicates through versioned contracts and immutable references. It may not infer adjacent authority, reach into private implementation folders, or create an alternative identity, security or evidence system.
+ACL-06 owns deterministic task planning, task registry contracts, dependency ordering, bounded execution, idempotent retries, task-level evidence, failure propagation and research-result packaging. It does not own Batch identity, validation promotion, trading permission or capital decisions.
 
-## Required inputs
+## Minimum intake checks
 
-- Exact artifact identities and versions.
-- Declared owner and authority scope.
-- Applicable policy, security classification and compatibility range.
-- Known-time-safe evidence or an explicit UNKNOWN state.
+- `handoff_type == ACL05_TO_ACL06`;
+- Batch state is `FROZEN` and mutation is false;
+- output manifest and Batch receipt are byte-valid;
+- CAS objects resolve by exact SHA-256 bytes;
+- diagnostic and research lanes are distinct;
+- environment and budget capabilities are enforced;
+- event/provenance chains are complete;
+- no order, capital, secret or network authority is present.
 
-## Produced artifacts
+## Required ACL-06 outputs
 
-- Closed-schema machine result with reason codes.
-- Lineage links to all source artifacts and transformations.
-- Human-readable Obsidian projection.
-- Security, test and migration evidence appropriate to the artifact class.
-
-## Non-negotiable invariants
-
-- Unknown fields and unresolved identities fail closed.
-- Generated content is never hand-edited.
-- Passing local tests does not prove alpha, live parity or capital authorization.
-- Every material mutation is authenticated, authorized, attributable and replayable.
-- Breaking semantics require a new version, migration and rollback.
-
-## Reference workflow
-
-1. Resolve exact inputs and owners.
-2. Validate schema, compatibility, security classification and authority.
-3. Execute deterministic domain logic in the declared environment.
-4. Validate outputs and append evidence events.
-5. Publish structured artifacts and projections atomically.
-6. Expose only policy-approved next actions.
-
-## Failure semantics
-
-The component stops with explicit reason codes for missing evidence, ambiguous semantics, incompatible versions, integrity mismatch, insufficient support, policy denial, security failure or unavailable dependency. It does not substitute a permissive default.
-
-## Extension and evolution
-
-New behavior enters through a registered extension manifest, bounded capabilities and conformance suite. Additive changes use compatible minor versions. Breaking changes require a major version, impact analysis, idempotent migration, dual-read or shadow period where needed, rollback and deprecation evidence.
-
-## Verification obligations
-
-Unit and property tests cover deterministic logic. Contract tests cover every adapter. Mutation tests prove guards are effective. Security-negative tests attempt bypass. Golden replay proves deterministic projection. Clean-checkout delivery validation proves the package has no hidden build dependency.
+ACL-06 must produce a closed research DAG, registered task contracts, deterministic cache keys, execution receipts, bounded resource accounting, failure evidence, result artifacts, lineage to the frozen Batch and a non-promotional handoff to ACL-07 Unified Validation Gate.
 
 ## Claim ceiling
 
-This architecture note specifies required mechanics. Only environment-specific evidence can establish external data quality, statistical edge, broker behavior, MQL5 parity, operational security or production authorization.
+Planning or executing a research DAG does not prove alpha, production readiness, live parity or capital authorization.
 
 ## Related
 
-- [[ACL_OS_HOME]]
-- [[IMPLEMENTATION_MASTER_PLAN]]
+- [[ACL_05_IMMUTABLE_BATCH_AND_STORE]]
+- [[BATCH_DAG_ORCHESTRATOR]]
+- [[TASK_REGISTRY_AND_CONTRACT]]

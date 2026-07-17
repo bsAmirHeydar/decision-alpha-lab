@@ -1,0 +1,47 @@
+{
+  "$id": "urn:alpha-lab:acl05:batch_event_ledger:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "event_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "events": {
+      "items": {
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "first_event_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "hash_chain_complete": {
+      "const": true
+    },
+    "last_event_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "ledger_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "event_count",
+    "first_event_digest",
+    "last_event_digest",
+    "events",
+    "hash_chain_complete",
+    "ledger_digest"
+  ],
+  "title": "batch_event_ledger",
+  "type": "object"
+}

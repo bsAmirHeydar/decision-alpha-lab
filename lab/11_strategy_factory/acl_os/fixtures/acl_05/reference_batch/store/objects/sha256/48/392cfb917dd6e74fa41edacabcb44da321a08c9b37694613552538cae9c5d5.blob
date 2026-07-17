@@ -1,0 +1,1 @@
+{"budget_digest":"sha256:2857ac655650d89570e8b06da31e7f2a3b7b5949d486629dafaa02339fddb1eb","budget_id":"BUDGET_ACL05_REFERENCE_V1","cancellation_policy":"FAIL_CLOSED_ON_FIRST_BREACH","max_cpu_seconds":3600,"max_memory_mb":4096,"max_store_bytes":104857600,"max_store_objects":4096,"max_tasks":256,"retry_policy":"BOUNDED_IDEMPOTENT_RETRY","schema_version":"1.0.0"}

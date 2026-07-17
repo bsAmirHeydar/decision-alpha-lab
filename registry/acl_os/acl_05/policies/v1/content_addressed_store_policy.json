@@ -1,0 +1,9 @@
+{
+  "algorithm": "SHA256_EXACT_BYTES",
+  "collision_action": "FAIL_CLOSED",
+  "overwrite": false,
+  "path_template": "objects/sha256/{first2}/{remaining62}.blob",
+  "policy_id": "ACL05_CAS",
+  "symlinks": false,
+  "version": "1.0.0"
+}

@@ -1,0 +1,79 @@
+{
+  "claim_ceiling": "RESEARCH_BATCH_FREEZE_REFERENCE_ONLY",
+  "commands": [
+    {
+      "name": "acl05_pytest",
+      "passed": true,
+      "return_code": 0,
+      "stderr": "",
+      "stdout": "..............................................................           [100%]\n62 passed in 3.63s\n"
+    },
+    {
+      "name": "acl04_regression",
+      "passed": true,
+      "return_code": 0,
+      "stderr": "",
+      "stdout": "..................................................                       [100%]\n50 passed in 7.17s\n"
+    },
+    {
+      "name": "acl05_compileall",
+      "passed": true,
+      "return_code": 0,
+      "stderr": "",
+      "stdout": ""
+    }
+  ],
+  "delivery": {
+    "missing": [],
+    "passed": true,
+    "phase": "ACL-05",
+    "required_count": 8
+  },
+  "metaeditor_compile_performed": false,
+  "mt5_runtime_parity_claimed": false,
+  "passed": true,
+  "phase": "ACL-05",
+  "production_authorization_claimed": false,
+  "reference_replay": {
+    "batch_id": "BATCH_81FF4FC3C8B796422B0EF6818FEB2D5E",
+    "checks": {
+      "batch_frozen": true,
+      "capital_denied": true,
+      "event_chain": true,
+      "order_denied": true,
+      "output_manifest": true,
+      "receipt_binds_manifest": true,
+      "receipt_digest": true,
+      "root_marker": true
+    },
+    "passed": true,
+    "report_digest": "sha256:4f7f22050822b891349477018b5b97b6d4a2d66bf444e5bb1493917e242192b9",
+    "schema_version": "1.0.0"
+  },
+  "static": {
+    "checks": [
+      {
+        "detail": "",
+        "name": "python_compile",
+        "passed": true
+      },
+      {
+        "detail": "count=29;",
+        "name": "closed_schema_registry",
+        "passed": true
+      },
+      {
+        "detail": "count=24;",
+        "name": "policy_registry",
+        "passed": true
+      },
+      {
+        "detail": "",
+        "name": "forbidden_capability_scan",
+        "passed": true
+      }
+    ],
+    "passed": true,
+    "phase": "ACL-05"
+  }
+}

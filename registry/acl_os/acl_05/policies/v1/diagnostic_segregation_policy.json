@@ -1,0 +1,8 @@
+{
+  "diagnostic_promotable": false,
+  "diagnostic_selectable": false,
+  "policy_id": "ACL05_DIAGNOSTIC_SEGREGATION",
+  "required_label_role": "DIAGNOSTIC",
+  "separate_index": true,
+  "version": "1.0.0"
+}

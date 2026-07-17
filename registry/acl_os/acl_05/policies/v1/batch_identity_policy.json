@@ -1,0 +1,17 @@
+{
+  "material_inputs": [
+    "ACL04_BINDING",
+    "CANDIDATE_FREEZE",
+    "SEARCH_FREEZE",
+    "DATASET_SET",
+    "LABEL_SET",
+    "SPLIT",
+    "ENVIRONMENT",
+    "BUDGET",
+    "OBJECT_INDEX",
+    "FROZEN_AT"
+  ],
+  "policy_id": "ACL05_BATCH_IDENTITY",
+  "unstable_randomness": false,
+  "version": "1.0.0"
+}

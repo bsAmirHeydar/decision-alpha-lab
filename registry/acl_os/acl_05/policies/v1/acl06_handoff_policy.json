@@ -1,0 +1,17 @@
+{
+  "forbidden_actions": [
+    "MUTATE_BATCH",
+    "MUTATE_SETUP_BEHAVIOR",
+    "PROMOTE_DIAGNOSTIC_CANDIDATE",
+    "INFER_ALPHA_FROM_FREEZE",
+    "AUTHORIZE_EXECUTION",
+    "ACTIVATE_CAPITAL"
+  ],
+  "policy_id": "ACL05_ACL06_HANDOFF",
+  "required_actions": [
+    "PLAN_RESEARCH_DAG",
+    "REGISTER_TASK_CONTRACTS",
+    "EXECUTE_BOUNDED_RESEARCH"
+  ],
+  "version": "1.0.0"
+}

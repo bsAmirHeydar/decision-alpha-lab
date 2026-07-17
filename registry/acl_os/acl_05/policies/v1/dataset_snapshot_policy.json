@@ -1,0 +1,10 @@
+{
+  "availability_time_required": true,
+  "exact_bytes": true,
+  "lineage_required": true,
+  "policy_id": "ACL05_DATASET_SNAPSHOT",
+  "producer_required": true,
+  "schema_digest_required": true,
+  "timezone": "UTC",
+  "version": "1.0.0"
+}

@@ -1,83 +1,101 @@
 ---
 title: ACL-05 — Immutable Batch and Artifact Store
-status: proposed-reference
+status: accepted-reference
 version: 1.0.0
 updated: 2026-07-18
-tags: [acl-os, context-lifecycle]
+tags: [acl-os, context-lifecycle, acl-05]
 ---
+
 # ACL-05 — Immutable Batch and Artifact Store
 
-Implements Immutable Batch and Artifact Store as an independently testable lifecycle increment, binding upstream ACL-04 — Dual Setup Factory and handing explicit contracts to ACL-06 — Research DAG Orchestration.
+## Status
 
-## Accepted ACL-04 dependency contract
+`accepted-reference-implementation`
 
-ACL-05 starts only from a validated `ACL04_TO_ACL05` handoff. The handoff must bind the exact ACL-03 Context identity, ACL-04 factory receipt, output manifest, canonical candidate-set digest, deduplication report, search-exposure ledger and provenance graph. ACL-05 must reject partial folders, recomputed candidate behavior, missing diagnostic segregation, mutable source IDs, unbound manifests and any handoff that grants execution or capital authority.
+Claim ceiling: `RESEARCH_BATCH_FREEZE_REFERENCE_ONLY`
 
-ACL-05 owns immutable Batch identity, storage and retrieval semantics. It does **not** regenerate human or AI candidates, change the canonical behavior digest, infer alpha, repair rejected candidates, broaden Search Authority or reinterpret the Treatment envelope. Material changes return to ACL-04 and create a new factory receipt and handoff version.
+ACL-05 accepts the exact `ACL04_TO_ACL05` handoff produced by the accepted ACL-04 Dual Setup Factory and converts it into an immutable, content-addressed Research Batch. The phase is complete at reference level only. It does not execute research, infer alpha, submit orders, allocate capital or establish production readiness.
 
-### Minimum intake checks
+## Accepted upstream dependency
 
-- `handoff_type == ACL04_TO_ACL05`;
-- all referenced SHA-256 digests resolve inside the received ACL-04 output root;
-- canonical candidate count and candidate-set digest match the manifest;
-- the exposure ledger accounts for every human, AI, baseline, rejected and diagnostic artifact;
-- provenance reaches the immutable `ACL03_TO_ACL04` handoff;
-- `live_order_submission_allowed == false`;
-- `capital_activation_allowed == false`;
-- no candidate payload is mutated during Batch construction.
+The intake gateway verifies the generated-root marker, closed handoff schema, embedded semantic digests, ACL-04 output manifest, exact file sizes and SHA-256 byte digests, factory receipt, canonical candidate folder, candidate behavior/candidate digests, deduplication report, complete search-exposure ledger and provenance reachability to `ACL03_TO_ACL04`. Partial or hand-edited bundles are denied.
 
-## Responsibility boundary
+ACL-05 inherits these non-bypassable boundaries:
 
-This component owns a narrow part of implementation sequencing, acceptance evidence, migrations and handoff. It communicates through versioned contracts and immutable references. It may not infer adjacent authority, reach into private implementation folders, or create an alternative identity, security or evidence system.
+- Context semantics and known-time rules remain owned by ACL-03.
+- Candidate generation, Treatment semantics, behavior normalization and deduplication remain owned by ACL-04.
+- Diagnostic candidates are not eligible for ordinary research selection.
+- Live order submission and capital activation remain false.
 
-## Required inputs
+## Owned capabilities
 
-- Exact artifact identities and versions.
-- Declared owner and authority scope.
-- Applicable policy, security classification and compatibility range.
-- Known-time-safe evidence or an explicit UNKNOWN state.
+ACL-05 owns:
 
-## Produced artifacts
+1. exact ACL-04 binding;
+2. authority-permit verification for `ACL05_FREEZE_RESEARCH_BATCH`;
+3. deterministic candidate and search-space freeze;
+4. dataset snapshot and known-time cut compilation;
+5. label maturity and diagnostic segregation contracts;
+6. purged walk-forward split contract;
+7. reproducible environment lock;
+8. compute/storage budget;
+9. SHA-256 byte-addressed artifact storage;
+10. stable Batch identity and terminal `FROZEN` state;
+11. append-only event ledger and provenance graph;
+12. atomic publication, manifests and receipts;
+13. bounded `ACL05_TO_ACL06` handoff.
 
-- Closed-schema machine result with reason codes.
-- Lineage links to all source artifacts and transformations.
-- Human-readable Obsidian projection.
-- Security, test and migration evidence appropriate to the artifact class.
+It explicitly does not own candidate regeneration, behavior repair, alpha inference, model promotion, portfolio allocation, order construction, broker adapters or runtime execution.
 
-## Non-negotiable invariants
+## Batch identity equation
 
-- Unknown fields and unresolved identities fail closed.
-- Generated content is never hand-edited.
-- Passing local tests does not prove alpha, live parity or capital authorization.
-- Every material mutation is authenticated, authorized, attributable and replayable.
-- Breaking semantics require a new version, migration and rollback.
+The Batch ID is a deterministic function of the batch key, exact context identity, ACL-04 binding, candidate freeze, search-space freeze, dataset snapshot set, label contract set, split, environment, budget, CAS object index and declared `frozen_at`. No random UUID and no implicit current time participates. Any material change creates a different Batch ID.
 
-## Reference workflow
+## Publication transaction
 
-1. Resolve exact inputs and owners.
-2. Validate schema, compatibility, security classification and authority.
-3. Execute deterministic domain logic in the declared environment.
-4. Validate outputs and append evidence events.
-5. Publish structured artifacts and projections atomically.
-6. Expose only policy-approved next actions.
+Outputs are assembled under an isolated staging directory. The destination must be empty. Only after all contracts, CAS objects, event chain, lineage, reports, projections, manifests, receipts and ACL-06 handoff pass validation is staging atomically renamed into place. Exceptions remove staging. Existing non-empty output roots are never overwritten.
 
-## Failure semantics
+## Machine outputs
 
-The component stops with explicit reason codes for missing evidence, ambiguous semantics, incompatible versions, integrity mismatch, insufficient support, policy denial, security failure or unavailable dependency. It does not substitute a permissive default.
+- `binding/acl04_binding.json`
+- `authority/authority_report.json`
+- `batch/batch_request.json`
+- `batch/candidate_freeze_set.json`
+- `batch/search_space_freeze.json`
+- `batch/dataset_snapshot_set.json`
+- `batch/label_contract_set.json`
+- `batch/split_contract.json`
+- `batch/environment_lock.json`
+- `batch/compute_budget.json`
+- `batch/batch_definition.json`
+- `batch/batch_manifest.json`
+- `batch/freeze_receipt.json`
+- `store/object_index.json` and immutable blob objects
+- `events/batch_event_ledger.json`
+- `lineage/batch_provenance_graph.json`
+- integrity and security reports
+- generated Obsidian projections
+- `handoff/acl06_handoff.json`
+- byte-level output manifest and Batch receipt
 
-## Extension and evolution
+## Acceptance evidence
 
-New behavior enters through a registered extension manifest, bounded capabilities and conformance suite. Additive changes use compatible minor versions. Breaking changes require a major version, impact analysis, idempotent migration, dual-read or shadow period where needed, rollback and deprecation evidence.
+Acceptance requires ACL-05 unit/contract/property/mutation/security/replay tests, ACL-04 regression tests, Python compilation, closed JSON schema checks, policy-registry checks, static MQL5 capability scan, reference Batch generation, byte-level manifest verification and clean-checkout delivery validation.
 
-## Verification obligations
+MQL5 files are static contract mirrors only. MetaEditor compilation and MT5 runtime parity are environment-specific evidence and are not claimed.
 
-Unit and property tests cover deterministic logic. Contract tests cover every adapter. Mutation tests prove guards are effective. Security-negative tests attempt bypass. Golden replay proves deterministic projection. Clean-checkout delivery validation proves the package has no hidden build dependency.
+## Residual risks
 
-## Claim ceiling
+The reference dataset is synthetic. No external feed quality, corporate action handling, exchange calendar, broker history, distributed object-store durability, production IAM, signature infrastructure or operational disaster recovery is proven. ACL-06 must consume only the immutable handoff and may not infer that a frozen Batch has research merit.
 
-This architecture note specifies required mechanics. Only environment-specific evidence can establish external data quality, statistical edge, broker behavior, MQL5 parity, operational security or production authorization.
+## Rollback
+
+Before publication, delete staging. After repository installation, revert this commit or remove exactly the patch paths. Never rewrite a generated frozen Batch in place.
 
 ## Related
 
-- [[ACL_OS_HOME]]
-- [[IMPLEMENTATION_MASTER_PLAN]]
+- [[ACL_04_DUAL_SETUP_FACTORY]]
+- [[ACL_06_RESEARCH_DAG_ORCHESTRATION]]
+- [[IMMUTABLE_RESEARCH_BATCH]]
+- [[CONTENT_ADDRESSED_ARTIFACT_STORE]]
+- [[BATCH_FREEZE_PROTOCOL]]

@@ -1,0 +1,120 @@
+{
+  "$id": "urn:alpha-lab:acl05:acl04_handoff_input:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_references": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "behavior_digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "candidate_digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "candidate_id": {
+            "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+            "type": "string"
+          },
+          "setup_id": {
+            "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "ELIGIBLE_FOR_BATCH_DEFINITION",
+              "DIAGNOSTIC_ONLY"
+            ]
+          }
+        },
+        "required": [
+          "setup_id",
+          "candidate_id",
+          "candidate_digest",
+          "behavior_digest",
+          "status"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "capital_activation_allowed": {
+      "const": false
+    },
+    "claim_ceiling": {
+      "const": "SETUP_DEFINITION_REFERENCE_ONLY"
+    },
+    "context_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "context_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "type": "string"
+    },
+    "deduplication_report_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "forbidden_acl05_inferences": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "handoff_type": {
+      "const": "ACL04_TO_ACL05"
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    },
+    "provenance_graph_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "required_acl05_actions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "search_exposure_ledger_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "upstream_acl03_handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "handoff_type",
+    "context_id",
+    "context_version",
+    "upstream_acl03_handoff_digest",
+    "deduplication_report_digest",
+    "search_exposure_ledger_digest",
+    "provenance_graph_digest",
+    "candidate_references",
+    "required_acl05_actions",
+    "forbidden_acl05_inferences",
+    "claim_ceiling",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "handoff_digest"
+  ],
+  "title": "acl04_handoff_input",
+  "type": "object"
+}

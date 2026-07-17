@@ -1,0 +1,10 @@
+{
+  "closed_world": true,
+  "policies_path": "policies/v1",
+  "policy_count": 24,
+  "registry_digest": "sha256:02d731c5bcdb1a663f28bc9e345028d4c9fc04ae9b8efb951775a1c0a04d119c",
+  "registry_id": "ACL05_REGISTRY",
+  "schema_count": 29,
+  "schema_version": "1.0.0",
+  "schemas_path": "schemas/v1"
+}

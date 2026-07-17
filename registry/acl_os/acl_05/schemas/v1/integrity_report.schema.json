@@ -1,0 +1,57 @@
+{
+  "$id": "urn:alpha-lab:acl05:integrity_report:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acl04_bundle_verified": {
+      "const": true
+    },
+    "all_material_digests_bound": {
+      "const": true
+    },
+    "batch_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "candidate_payloads_unchanged": {
+      "const": true
+    },
+    "cas_byte_addressing_verified": {
+      "const": true
+    },
+    "event_chain_verified": {
+      "const": true
+    },
+    "known_time_verified": {
+      "const": true
+    },
+    "manifest_closed": {
+      "const": true
+    },
+    "passed": {
+      "const": true
+    },
+    "report_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "batch_id",
+    "acl04_bundle_verified",
+    "candidate_payloads_unchanged",
+    "known_time_verified",
+    "manifest_closed",
+    "event_chain_verified",
+    "cas_byte_addressing_verified",
+    "all_material_digests_bound",
+    "passed",
+    "report_digest"
+  ],
+  "title": "integrity_report",
+  "type": "object"
+}

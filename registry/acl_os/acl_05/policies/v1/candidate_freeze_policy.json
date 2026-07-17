@@ -1,0 +1,11 @@
+{
+  "allowed_statuses": [
+    "ELIGIBLE_FOR_BATCH_DEFINITION",
+    "DIAGNOSTIC_ONLY"
+  ],
+  "candidate_regeneration": false,
+  "candidate_repair": false,
+  "payload_mutation": false,
+  "policy_id": "ACL05_CANDIDATE_FREEZE",
+  "version": "1.0.0"
+}

@@ -1,0 +1,61 @@
+{
+  "$id": "urn:alpha-lab:acl05:compute_budget:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "budget_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "budget_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "cancellation_policy": {
+      "const": "FAIL_CLOSED_ON_FIRST_BREACH"
+    },
+    "max_cpu_seconds": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "max_memory_mb": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "max_store_bytes": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "max_store_objects": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "max_tasks": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "retry_policy": {
+      "enum": [
+        "NO_RETRY",
+        "BOUNDED_IDEMPOTENT_RETRY"
+      ]
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "budget_id",
+    "max_tasks",
+    "max_cpu_seconds",
+    "max_memory_mb",
+    "max_store_bytes",
+    "max_store_objects",
+    "cancellation_policy",
+    "retry_policy",
+    "budget_digest"
+  ],
+  "title": "compute_budget",
+  "type": "object"
+}

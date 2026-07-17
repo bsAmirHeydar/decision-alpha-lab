@@ -1,0 +1,22 @@
+{
+  "does_not_own": [
+    "CANDIDATE_GENERATION",
+    "ALPHA_INFERENCE",
+    "ORDER_EXECUTION",
+    "CAPITAL_ALLOCATION"
+  ],
+  "owns": [
+    "BATCH_IDENTITY",
+    "CANDIDATE_FREEZE",
+    "SEARCH_SPACE_FREEZE",
+    "DATASET_SNAPSHOT_BINDING",
+    "LABEL_CONTRACT_BINDING",
+    "SPLIT_BINDING",
+    "ENVIRONMENT_LOCK",
+    "COMPUTE_BUDGET",
+    "CONTENT_ADDRESSED_STORE",
+    "ACL06_HANDOFF"
+  ],
+  "policy_id": "ACL05_PHASE_SCOPE",
+  "version": "1.0.0"
+}

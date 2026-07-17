@@ -1,0 +1,15 @@
+{
+  "capital_activation_allowed": false,
+  "container_image_digest": null,
+  "environment_digest": "sha256:159409c7566f23f4059729dd04f463d51cdc18fb302dbda87eb2cef0d4e63eb2",
+  "environment_id": "ENVIRONMENT_ACL05_REFERENCE_V1",
+  "live_order_submission_allowed": false,
+  "locale": "C.UTF-8",
+  "network_access_allowed": false,
+  "platform": "REFERENCE_PORTABLE_PYTHON",
+  "python_lock_digest": "sha256:b8a408daa7888d43a61d2adf1c11a8562fa80ceb7760b9afe7dcfe8f8811645b",
+  "python_version": "3.13.0",
+  "schema_version": "1.0.0",
+  "secret_access_allowed": false,
+  "timezone": "UTC"
+}

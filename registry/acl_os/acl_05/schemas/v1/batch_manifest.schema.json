@@ -1,0 +1,53 @@
+{
+  "$id": "urn:alpha-lab:acl05:batch_manifest:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "batch_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "batch_manifest_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "diagnostic_candidate_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "immutable": {
+      "const": true
+    },
+    "material_digests": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "minItems": 8,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "research_candidate_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "state": {
+      "const": "FROZEN"
+    }
+  },
+  "required": [
+    "schema_version",
+    "batch_id",
+    "state",
+    "material_digests",
+    "research_candidate_count",
+    "diagnostic_candidate_count",
+    "immutable",
+    "batch_manifest_digest"
+  ],
+  "title": "batch_manifest",
+  "type": "object"
+}

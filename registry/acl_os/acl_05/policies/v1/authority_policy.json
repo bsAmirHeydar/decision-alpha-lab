@@ -1,0 +1,9 @@
+{
+  "capital": false,
+  "network": false,
+  "orders": false,
+  "policy_id": "ACL05_AUTHORITY",
+  "required_action": "ACL05_FREEZE_RESEARCH_BATCH",
+  "secrets": false,
+  "version": "1.0.0"
+}

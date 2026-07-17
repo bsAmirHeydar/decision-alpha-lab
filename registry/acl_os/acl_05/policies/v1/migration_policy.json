@@ -1,0 +1,8 @@
+{
+  "additive_change": "MINOR_VERSION",
+  "breaking_change": "NEW_MAJOR_AND_NEW_BATCH",
+  "in_place_rewrite": false,
+  "policy_id": "ACL05_MIGRATION",
+  "rollback": "DELETE_UNPUBLISHED_STAGING_OR_RESTORE_PREVIOUS_COMMIT",
+  "version": "1.0.0"
+}

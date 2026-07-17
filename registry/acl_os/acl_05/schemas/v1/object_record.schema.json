@@ -1,0 +1,75 @@
+{
+  "$id": "urn:alpha-lab:acl05:object_record:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_class": {
+      "minLength": 2,
+      "type": "string"
+    },
+    "blob_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "immutable": {
+      "const": true
+    },
+    "logical_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "media_type": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "object_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "record_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "semantic_digest": {
+      "oneOf": [
+        {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "size_bytes": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "source_path": {
+      "type": "string"
+    },
+    "store_path": {
+      "pattern": "^objects/sha256/[0-9a-f]{2}/[0-9a-f]{62}\\.blob$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "object_id",
+    "logical_id",
+    "artifact_class",
+    "media_type",
+    "blob_digest",
+    "semantic_digest",
+    "size_bytes",
+    "store_path",
+    "source_path",
+    "immutable",
+    "record_digest"
+  ],
+  "title": "object_record",
+  "type": "object"
+}

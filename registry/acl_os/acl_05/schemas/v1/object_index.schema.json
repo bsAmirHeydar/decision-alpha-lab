@@ -1,0 +1,55 @@
+{
+  "$id": "urn:alpha-lab:acl05:object_index:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "addressing": {
+      "const": "SHA256_EXACT_BYTES"
+    },
+    "object_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "object_index_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "objects": {
+      "items": {
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "overwrite_allowed": {
+      "const": false
+    },
+    "reference_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "symlinks_allowed": {
+      "const": false
+    },
+    "total_bytes": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_version",
+    "addressing",
+    "object_count",
+    "reference_count",
+    "total_bytes",
+    "objects",
+    "overwrite_allowed",
+    "symlinks_allowed",
+    "object_index_digest"
+  ],
+  "title": "object_index",
+  "type": "object"
+}

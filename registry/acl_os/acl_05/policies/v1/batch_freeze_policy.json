@@ -1,0 +1,8 @@
+{
+  "in_place_mutation": false,
+  "material_change": "NEW_BATCH_ID",
+  "policy_id": "ACL05_BATCH_FREEZE",
+  "reopen_allowed": false,
+  "terminal_state": "FROZEN",
+  "version": "1.0.0"
+}

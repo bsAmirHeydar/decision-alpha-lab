@@ -1,0 +1,14 @@
+{
+  "acl06_handoff_digest": "sha256:f0085c59d52b397e2db7db181ac75e8d9fbcd800d15f53728ad0965b37feb31b",
+  "batch_definition_digest": "sha256:3b2b4b00cd67eab11dba288b84c2e413b86d5da42d73acedc16641ed4ff22f79",
+  "batch_id": "BATCH_81FF4FC3C8B796422B0EF6818FEB2D5E",
+  "batch_manifest_digest": "sha256:715217a85db3a8fb746b2efbb4004122b34717b7b64c463110e11d5433f9a97c",
+  "capital_activation_allowed": false,
+  "claim_ceiling": "RESEARCH_BATCH_FREEZE_REFERENCE_ONLY",
+  "factory_version": "1.0.0",
+  "freeze_receipt_digest": "sha256:1c401e7f48f77a9bcd6c79dfabf2399f51de10a8c9dd095bc7775738dee5a6e6",
+  "live_order_submission_allowed": false,
+  "output_manifest_digest": "sha256:8de1b1d542de88f4db01946eca75b6bddcb074ae138e1fccaa0aadf8cf772dec",
+  "receipt_digest": "sha256:a9e7f017560567cb2550d04015302aeaf52ad98a664b3027f31081bec267d7d3",
+  "schema_version": "1.0.0"
+}

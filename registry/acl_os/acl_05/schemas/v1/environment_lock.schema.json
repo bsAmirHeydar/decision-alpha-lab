@@ -1,0 +1,77 @@
+{
+  "$id": "urn:alpha-lab:acl05:environment_lock:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capital_activation_allowed": {
+      "const": false
+    },
+    "container_image_digest": {
+      "oneOf": [
+        {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "environment_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "environment_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    },
+    "locale": {
+      "minLength": 2,
+      "type": "string"
+    },
+    "network_access_allowed": {
+      "const": false
+    },
+    "platform": {
+      "minLength": 2,
+      "type": "string"
+    },
+    "python_lock_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "python_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "secret_access_allowed": {
+      "const": false
+    },
+    "timezone": {
+      "const": "UTC"
+    }
+  },
+  "required": [
+    "schema_version",
+    "environment_id",
+    "python_version",
+    "python_lock_digest",
+    "platform",
+    "locale",
+    "timezone",
+    "container_image_digest",
+    "network_access_allowed",
+    "secret_access_allowed",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "environment_digest"
+  ],
+  "title": "environment_lock",
+  "type": "object"
+}

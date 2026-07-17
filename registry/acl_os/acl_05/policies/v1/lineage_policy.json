@@ -1,0 +1,10 @@
+{
+  "all_material_inputs_bound": true,
+  "must_reach": [
+    "ACL03_TO_ACL04",
+    "ACL04_TO_ACL05"
+  ],
+  "orphan_artifacts": false,
+  "policy_id": "ACL05_LINEAGE",
+  "version": "1.0.0"
+}

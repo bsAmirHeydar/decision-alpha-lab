@@ -1,0 +1,20 @@
+{
+  "dataset_snapshot_id": "DATASET_REFERENCE_MARKET_EVENTS_V1",
+  "definition": {
+    "expression": "SIGN(feature_x[t+1]-feature_x[t])",
+    "negative_class": "NOT_UP",
+    "positive_class": "UP"
+  },
+  "label_contract_digest": "sha256:7896abd22e318461043cdf842a56707f003f9873f8f77539764ddc008a962195",
+  "label_id": "LABEL_FORWARD_DIRECTION_V1",
+  "label_type": "BINARY",
+  "maturity": {
+    "available_after_seconds": 86400,
+    "horizon_seconds": 86400
+  },
+  "null_policy": "UNMATURED_ROWS_ARE_EXCLUDED",
+  "role": "PRIMARY",
+  "schema_version": "1.0.0",
+  "segregated_from_selection": false,
+  "uses_future_path_diagnostics": false
+}

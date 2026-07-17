@@ -1,0 +1,131 @@
+{
+  "$id": "urn:alpha-lab:acl05:batch_request:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "batch_key": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "budget_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "candidate_selection": {
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "enum": [
+            "ALL_CANONICAL",
+            "EXPLICIT_SETUP_IDS"
+          ]
+        },
+        "setup_ids": {
+          "items": {
+            "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "mode",
+        "setup_ids"
+      ],
+      "type": "object"
+    },
+    "capital_activation_allowed": {
+      "const": false
+    },
+    "context_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "context_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "type": "string"
+    },
+    "dataset_snapshot_ids": {
+      "items": {
+        "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "diagnostic_policy": {
+      "enum": [
+        "SEGREGATE_AND_INCLUDE",
+        "EXCLUDE"
+      ]
+    },
+    "environment_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "frozen_at": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    },
+    "label_contract_ids": {
+      "items": {
+        "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    },
+    "owner": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "purpose": {
+      "minLength": 10,
+      "type": "string"
+    },
+    "request_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "split_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "upstream_handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "batch_key",
+    "owner",
+    "purpose",
+    "context_id",
+    "context_version",
+    "upstream_handoff_digest",
+    "frozen_at",
+    "candidate_selection",
+    "diagnostic_policy",
+    "dataset_snapshot_ids",
+    "label_contract_ids",
+    "split_id",
+    "environment_id",
+    "budget_id",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "request_digest"
+  ],
+  "title": "batch_request",
+  "type": "object"
+}

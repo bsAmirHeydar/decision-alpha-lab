@@ -1,0 +1,95 @@
+{
+  "$defs": {
+    "window": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "format": "date-time",
+          "pattern": "Z$",
+          "type": "string"
+        },
+        "start": {
+          "format": "date-time",
+          "pattern": "Z$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "start",
+        "end"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "urn:alpha-lab:acl05:split_contract:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cluster_keys": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "dataset_snapshot_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "embargo_seconds": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "method": {
+      "const": "PURGED_WALK_FORWARD"
+    },
+    "purge_seconds": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "random_seed": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "split_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "split_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "test": {
+      "$ref": "#/$defs/window"
+    },
+    "train": {
+      "$ref": "#/$defs/window"
+    },
+    "transform_fit_scope": {
+      "const": "TRAIN_ONLY"
+    },
+    "validation": {
+      "$ref": "#/$defs/window"
+    }
+  },
+  "required": [
+    "schema_version",
+    "split_id",
+    "dataset_snapshot_id",
+    "method",
+    "train",
+    "validation",
+    "test",
+    "purge_seconds",
+    "embargo_seconds",
+    "cluster_keys",
+    "transform_fit_scope",
+    "random_seed",
+    "split_digest"
+  ],
+  "title": "split_contract",
+  "type": "object"
+}

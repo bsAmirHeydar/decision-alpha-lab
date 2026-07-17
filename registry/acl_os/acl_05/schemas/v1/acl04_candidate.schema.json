@@ -1,0 +1,85 @@
+{
+  "$id": "urn:alpha-lab:acl05:acl04_candidate:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "behavior_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "candidate_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "candidate_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "capital_activation_allowed": {
+      "const": false
+    },
+    "context_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "context_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "type": "string"
+    },
+    "findings": {
+      "type": "array"
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    },
+    "origin": {
+      "enum": [
+        "HUMAN",
+        "AI",
+        "BASELINE"
+      ]
+    },
+    "policy_ir": {
+      "type": "object"
+    },
+    "provenance": {
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "setup_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "ELIGIBLE_FOR_BATCH_DEFINITION",
+        "DIAGNOSTIC_ONLY"
+      ]
+    },
+    "treatment_family": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "setup_id",
+    "candidate_id",
+    "context_id",
+    "context_version",
+    "origin",
+    "treatment_family",
+    "policy_ir",
+    "behavior_digest",
+    "candidate_digest",
+    "status",
+    "findings",
+    "provenance",
+    "live_order_submission_allowed",
+    "capital_activation_allowed"
+  ],
+  "title": "acl04_candidate",
+  "type": "object"
+}

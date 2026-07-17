@@ -1,0 +1,13 @@
+{
+  "candidate_freeze_digest": "sha256:70306aa8809a9e0e501f9f1c771512a7f3309127c48348e691df03ae0fbd508d",
+  "candidate_repair_allowed": false,
+  "canonical_count": 12,
+  "deduplication_report_digest": "sha256:d882f4af82176217d47717964698e12011c64b19eb063c0d6d2d7dae910067c1",
+  "frozen": true,
+  "new_candidate_generation_allowed": false,
+  "schema_version": "1.0.0",
+  "search_authority_broadening_allowed": false,
+  "search_exposure_ledger_digest": "sha256:cb63666e6764b4101e103a40b5d3ccac2444e6a8082d5e4305136694a1611643",
+  "search_space_freeze_digest": "sha256:ea11eb6e67e1d059a44516894c81b57d1fa0c915f4ec05daf85099a3ad2421c3",
+  "source_materialized_count": 12
+}

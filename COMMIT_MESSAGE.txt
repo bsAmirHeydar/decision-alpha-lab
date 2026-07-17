@@ -1,1 +1,1 @@
-feat(acl-os): implement ACL-04 dual setup factory
+feat(acl-os): implement ACL-05 immutable batch and artifact store

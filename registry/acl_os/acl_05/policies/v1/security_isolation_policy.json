@@ -1,0 +1,9 @@
+{
+  "capital_api": false,
+  "execution_api": false,
+  "filesystem_escape": false,
+  "policy_id": "ACL05_SECURITY_ISOLATION",
+  "process_network": false,
+  "secret_store": false,
+  "version": "1.0.0"
+}

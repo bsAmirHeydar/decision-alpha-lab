@@ -1,0 +1,49 @@
+{
+  "$id": "urn:alpha-lab:acl05:security_isolation_report:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capital_activation_allowed": {
+      "const": false
+    },
+    "filesystem_scope": {
+      "type": "string"
+    },
+    "forbidden_capability_findings": {
+      "maxItems": 0,
+      "type": "array"
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    },
+    "network_access_allowed": {
+      "const": false
+    },
+    "passed": {
+      "const": true
+    },
+    "report_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "secret_access_allowed": {
+      "const": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "network_access_allowed",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "secret_access_allowed",
+    "filesystem_scope",
+    "forbidden_capability_findings",
+    "passed",
+    "report_digest"
+  ],
+  "title": "security_isolation_report",
+  "type": "object"
+}

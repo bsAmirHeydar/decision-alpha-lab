@@ -1,0 +1,10 @@
+{
+  "capital": false,
+  "network": false,
+  "orders": false,
+  "policy_id": "ACL05_ENVIRONMENT_LOCK",
+  "python_lock_digest": true,
+  "secrets": false,
+  "timezone": "UTC",
+  "version": "1.0.0"
+}

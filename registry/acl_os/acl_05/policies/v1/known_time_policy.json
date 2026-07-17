@@ -1,0 +1,8 @@
+{
+  "available_at_lte_cut_at": true,
+  "event_time_lte_available_at": true,
+  "future_derived_primary_inputs": false,
+  "policy_id": "ACL05_KNOWN_TIME",
+  "unknown_behavior": "FAIL_CLOSED",
+  "version": "1.0.0"
+}

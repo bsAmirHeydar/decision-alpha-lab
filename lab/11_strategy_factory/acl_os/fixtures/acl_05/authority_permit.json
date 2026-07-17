@@ -1,0 +1,16 @@
+{
+  "action": "ACL05_FREEZE_RESEARCH_BATCH",
+  "capital_activation_allowed": false,
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "context_version": "0.1.0",
+  "expires_at": "2027-07-18T00:00:00Z",
+  "issued_at": "2026-07-18T00:00:00Z",
+  "issued_by": "ALPHA_LAB_ARCHITECT",
+  "live_order_submission_allowed": false,
+  "network_access_allowed": false,
+  "permit_digest": "sha256:75232dc60bed05d8e6c2bdb6ffaabd185c17fffa1011dd01838add3e3eb1952b",
+  "permit_id": "PERMIT_ACL05_REFERENCE_FREEZE",
+  "schema_version": "1.0.0",
+  "subject": "ACL-05",
+  "upstream_handoff_digest": "sha256:96b5ea4be45eee81fae23d20fd196aced8878f8479e3c41e0586d097cbc3cbdf"
+}

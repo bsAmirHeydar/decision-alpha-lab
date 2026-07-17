@@ -1,0 +1,66 @@
+{
+  "$id": "urn:alpha-lab:acl05:freeze_receipt:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority_report_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "batch_definition_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "batch_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "batch_manifest_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "capital_activation_allowed": {
+      "const": false
+    },
+    "claim_ceiling": {
+      "const": "RESEARCH_BATCH_FREEZE_REFERENCE_ONLY"
+    },
+    "event_ledger_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "factory_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "type": "string"
+    },
+    "freeze_receipt_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "frozen": {
+      "const": true
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "factory_version",
+    "batch_id",
+    "batch_definition_digest",
+    "batch_manifest_digest",
+    "authority_report_digest",
+    "event_ledger_digest",
+    "claim_ceiling",
+    "frozen",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "freeze_receipt_digest"
+  ],
+  "title": "freeze_receipt",
+  "type": "object"
+}

@@ -1,0 +1,12 @@
+{
+  "claim_ceiling": "RESEARCH_BATCH_FREEZE_REFERENCE_ONLY",
+  "forbidden_claims": [
+    "ALPHA_PROVEN",
+    "PRODUCTION_READY",
+    "BROKER_PARITY",
+    "CAPITAL_AUTHORIZED",
+    "LIVE_EXECUTION_READY"
+  ],
+  "policy_id": "ACL05_CLAIM_CEILING",
+  "version": "1.0.0"
+}

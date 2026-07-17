@@ -1,0 +1,65 @@
+{
+  "$id": "urn:alpha-lab:acl05:candidate_freeze_set:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_freeze_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "candidate_payloads_mutable": {
+      "const": false
+    },
+    "diagnostic_candidates": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "diagnostic_candidates_selectable": {
+      "const": false
+    },
+    "diagnostic_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "freeze_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "research_candidates": {
+      "items": {
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "research_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "selection_mode": {
+      "enum": [
+        "ALL_CANONICAL",
+        "EXPLICIT_SETUP_IDS"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "freeze_id",
+    "selection_mode",
+    "research_candidates",
+    "diagnostic_candidates",
+    "research_count",
+    "diagnostic_count",
+    "candidate_payloads_mutable",
+    "diagnostic_candidates_selectable",
+    "candidate_freeze_digest"
+  ],
+  "title": "candidate_freeze_set",
+  "type": "object"
+}

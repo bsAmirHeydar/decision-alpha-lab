@@ -1,0 +1,83 @@
+{
+  "$id": "urn:alpha-lab:acl05:label_contract:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "dataset_snapshot_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "definition": {
+      "minProperties": 1,
+      "type": "object"
+    },
+    "label_contract_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "label_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "label_type": {
+      "enum": [
+        "BINARY",
+        "MULTICLASS",
+        "CONTINUOUS",
+        "PATH_DIAGNOSTIC"
+      ]
+    },
+    "maturity": {
+      "additionalProperties": false,
+      "properties": {
+        "available_after_seconds": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "horizon_seconds": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "horizon_seconds",
+        "available_after_seconds"
+      ],
+      "type": "object"
+    },
+    "null_policy": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "role": {
+      "enum": [
+        "PRIMARY",
+        "DIAGNOSTIC"
+      ]
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "segregated_from_selection": {
+      "type": "boolean"
+    },
+    "uses_future_path_diagnostics": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "schema_version",
+    "label_id",
+    "dataset_snapshot_id",
+    "role",
+    "label_type",
+    "definition",
+    "maturity",
+    "null_policy",
+    "uses_future_path_diagnostics",
+    "segregated_from_selection",
+    "label_contract_digest"
+  ],
+  "title": "label_contract",
+  "type": "object"
+}

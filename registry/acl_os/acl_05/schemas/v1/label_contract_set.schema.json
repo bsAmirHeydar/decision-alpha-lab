@@ -1,0 +1,37 @@
+{
+  "$id": "urn:alpha-lab:acl05:label_contract_set:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "diagnostic_labels_segregated": {
+      "const": true
+    },
+    "label_contract_set_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "label_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "labels": {
+      "items": {
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "labels",
+    "label_count",
+    "diagnostic_labels_segregated",
+    "label_contract_set_digest"
+  ],
+  "title": "label_contract_set",
+  "type": "object"
+}

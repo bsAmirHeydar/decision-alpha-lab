@@ -1,0 +1,37 @@
+{
+  "$id": "urn:alpha-lab:acl05:dataset_snapshot_set:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "dataset_snapshot_set_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "known_time_verified": {
+      "const": true
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "snapshot_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "snapshots": {
+      "items": {
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "snapshots",
+    "snapshot_count",
+    "known_time_verified",
+    "dataset_snapshot_set_digest"
+  ],
+  "title": "dataset_snapshot_set",
+  "type": "object"
+}

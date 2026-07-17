@@ -1,0 +1,61 @@
+{
+  "$id": "urn:alpha-lab:acl05:search_space_freeze:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_freeze_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "candidate_repair_allowed": {
+      "const": false
+    },
+    "canonical_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "deduplication_report_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "frozen": {
+      "const": true
+    },
+    "new_candidate_generation_allowed": {
+      "const": false
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "search_authority_broadening_allowed": {
+      "const": false
+    },
+    "search_exposure_ledger_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "search_space_freeze_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "source_materialized_count": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_version",
+    "search_exposure_ledger_digest",
+    "deduplication_report_digest",
+    "candidate_freeze_digest",
+    "source_materialized_count",
+    "canonical_count",
+    "new_candidate_generation_allowed",
+    "search_authority_broadening_allowed",
+    "candidate_repair_allowed",
+    "frozen",
+    "search_space_freeze_digest"
+  ],
+  "title": "search_space_freeze",
+  "type": "object"
+}

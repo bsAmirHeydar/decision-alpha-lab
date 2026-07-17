@@ -1,0 +1,127 @@
+{
+  "$id": "urn:alpha-lab:acl05:batch_definition:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acl04_binding_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "alpha_claim_allowed": {
+      "const": false
+    },
+    "batch_definition_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "batch_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "batch_key": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "budget_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "candidate_freeze_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "candidate_regeneration_allowed": {
+      "const": false
+    },
+    "capital_activation_allowed": {
+      "const": false
+    },
+    "claim_ceiling": {
+      "const": "RESEARCH_BATCH_FREEZE_REFERENCE_ONLY"
+    },
+    "context_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "context_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "type": "string"
+    },
+    "dataset_snapshot_set_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "environment_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "frozen_at": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    },
+    "label_contract_set_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    },
+    "material_mutation_allowed": {
+      "const": false
+    },
+    "object_index_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "search_space_freeze_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "split_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "state": {
+      "const": "FROZEN"
+    }
+  },
+  "required": [
+    "schema_version",
+    "batch_key",
+    "context_id",
+    "context_version",
+    "acl04_binding_digest",
+    "candidate_freeze_digest",
+    "search_space_freeze_digest",
+    "dataset_snapshot_set_digest",
+    "label_contract_set_digest",
+    "split_digest",
+    "environment_digest",
+    "budget_digest",
+    "object_index_digest",
+    "frozen_at",
+    "batch_id",
+    "owner",
+    "purpose",
+    "state",
+    "claim_ceiling",
+    "material_mutation_allowed",
+    "candidate_regeneration_allowed",
+    "alpha_claim_allowed",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "batch_definition_digest"
+  ],
+  "title": "batch_definition",
+  "type": "object"
+}

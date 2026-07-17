@@ -1,0 +1,78 @@
+{
+  "$id": "urn:alpha-lab:acl05:acl04_binding:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acl03_handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "acl04_candidate_set_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "acl04_deduplication_report_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "acl04_factory_receipt_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "acl04_handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "acl04_output_manifest_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "acl04_provenance_graph_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "acl04_search_exposure_ledger_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "binding_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "candidate_behavior_mutable": {
+      "const": false
+    },
+    "context_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "context_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "upstream_semantics_mutable": {
+      "const": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "context_id",
+    "context_version",
+    "acl04_handoff_digest",
+    "acl04_factory_receipt_digest",
+    "acl04_output_manifest_digest",
+    "acl04_candidate_set_digest",
+    "acl04_deduplication_report_digest",
+    "acl04_search_exposure_ledger_digest",
+    "acl04_provenance_graph_digest",
+    "acl03_handoff_digest",
+    "candidate_behavior_mutable",
+    "upstream_semantics_mutable",
+    "binding_digest"
+  ],
+  "title": "acl04_binding",
+  "type": "object"
+}

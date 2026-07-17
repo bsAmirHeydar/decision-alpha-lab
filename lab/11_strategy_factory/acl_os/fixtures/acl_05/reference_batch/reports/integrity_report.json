@@ -1,0 +1,13 @@
+{
+  "acl04_bundle_verified": true,
+  "all_material_digests_bound": true,
+  "batch_id": "BATCH_81FF4FC3C8B796422B0EF6818FEB2D5E",
+  "candidate_payloads_unchanged": true,
+  "cas_byte_addressing_verified": true,
+  "event_chain_verified": true,
+  "known_time_verified": true,
+  "manifest_closed": true,
+  "passed": true,
+  "report_digest": "sha256:9499ff5c1f26ef56a5efefdb85e72c13e8131c090ef992b32cd6e01338f225cb",
+  "schema_version": "1.0.0"
+}

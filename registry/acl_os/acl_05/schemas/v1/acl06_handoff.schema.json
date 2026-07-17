@@ -1,0 +1,124 @@
+{
+  "$id": "urn:alpha-lab:acl05:acl06_handoff:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "batch_definition_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "batch_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "batch_manifest_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "budget_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "candidate_freeze_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "capital_activation_allowed": {
+      "const": false
+    },
+    "claim_ceiling": {
+      "const": "RESEARCH_BATCH_FREEZE_REFERENCE_ONLY"
+    },
+    "dataset_snapshot_set_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "environment_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "event_ledger_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "forbidden_acl06_actions": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 6,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "freeze_receipt_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "handoff_type": {
+      "const": "ACL05_TO_ACL06"
+    },
+    "label_contract_set_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    },
+    "object_index_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "provenance_graph_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "required_acl06_actions": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 3,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "search_space_freeze_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "split_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "handoff_type",
+    "batch_id",
+    "batch_definition_digest",
+    "batch_manifest_digest",
+    "freeze_receipt_digest",
+    "candidate_freeze_digest",
+    "search_space_freeze_digest",
+    "dataset_snapshot_set_digest",
+    "label_contract_set_digest",
+    "split_digest",
+    "environment_digest",
+    "budget_digest",
+    "object_index_digest",
+    "event_ledger_digest",
+    "provenance_graph_digest",
+    "required_acl06_actions",
+    "forbidden_acl06_actions",
+    "claim_ceiling",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "handoff_digest"
+  ],
+  "title": "acl06_handoff",
+  "type": "object"
+}

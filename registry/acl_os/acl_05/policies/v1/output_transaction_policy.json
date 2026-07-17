@@ -1,0 +1,8 @@
+{
+  "atomic_rename": true,
+  "nonempty_destination": "DENY",
+  "partial_publication": false,
+  "policy_id": "ACL05_OUTPUT_TRANSACTION",
+  "staging_required": true,
+  "version": "1.0.0"
+}

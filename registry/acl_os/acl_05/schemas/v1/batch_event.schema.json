@@ -1,0 +1,64 @@
+{
+  "$id": "urn:alpha-lab:acl05:batch_event:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capital_activation_allowed": {
+      "const": false
+    },
+    "event_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "event_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "event_type": {
+      "type": "string"
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    },
+    "occurred_at": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    },
+    "payload": {
+      "type": "object"
+    },
+    "previous_event_digest": {
+      "oneOf": [
+        {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "sequence": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_version",
+    "event_id",
+    "sequence",
+    "event_type",
+    "occurred_at",
+    "previous_event_digest",
+    "payload",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "event_digest"
+  ],
+  "title": "batch_event",
+  "type": "object"
+}

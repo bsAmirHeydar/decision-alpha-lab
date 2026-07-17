@@ -1,0 +1,10 @@
+{
+  "all_caps_positive": true,
+  "cancellation": "FAIL_CLOSED_ON_FIRST_BREACH",
+  "policy_id": "ACL05_COMPUTE_BUDGET",
+  "retry": [
+    "NO_RETRY",
+    "BOUNDED_IDEMPOTENT_RETRY"
+  ],
+  "version": "1.0.0"
+}

@@ -1,0 +1,19 @@
+{
+  "dataset_snapshot_id": "DATASET_REFERENCE_MARKET_EVENTS_V1",
+  "definition": {
+    "expression": "MAX_ADVERSE_EXCURSION_OVER_HORIZON",
+    "usage": "ERROR_ANALYSIS_ONLY"
+  },
+  "label_contract_digest": "sha256:a7f55cfbd33c8761b50d7c36b0f2092f5a8c9422c6539965af17ce4034d25341",
+  "label_id": "LABEL_PATH_DIAGNOSTIC_V1",
+  "label_type": "PATH_DIAGNOSTIC",
+  "maturity": {
+    "available_after_seconds": 86400,
+    "horizon_seconds": 86400
+  },
+  "null_policy": "UNMATURED_ROWS_ARE_EXCLUDED",
+  "role": "DIAGNOSTIC",
+  "schema_version": "1.0.0",
+  "segregated_from_selection": true,
+  "uses_future_path_diagnostics": true
+}

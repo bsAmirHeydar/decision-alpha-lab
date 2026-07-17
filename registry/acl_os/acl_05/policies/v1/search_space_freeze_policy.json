@@ -1,0 +1,8 @@
+{
+  "authority_broadening": false,
+  "dedup_report_required": true,
+  "exposure_ledger_required": true,
+  "new_candidates": false,
+  "policy_id": "ACL05_SEARCH_SPACE_FREEZE",
+  "version": "1.0.0"
+}

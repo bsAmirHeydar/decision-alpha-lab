@@ -1,0 +1,77 @@
+{
+  "$id": "urn:alpha-lab:acl05:authority_permit:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "const": "ACL05_FREEZE_RESEARCH_BATCH"
+    },
+    "capital_activation_allowed": {
+      "const": false
+    },
+    "context_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "context_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "type": "string"
+    },
+    "expires_at": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    },
+    "issued_at": {
+      "format": "date-time",
+      "pattern": "Z$",
+      "type": "string"
+    },
+    "issued_by": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    },
+    "network_access_allowed": {
+      "const": false
+    },
+    "permit_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "permit_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "subject": {
+      "const": "ACL-05"
+    },
+    "upstream_handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "permit_id",
+    "subject",
+    "action",
+    "context_id",
+    "context_version",
+    "upstream_handoff_digest",
+    "issued_by",
+    "issued_at",
+    "expires_at",
+    "network_access_allowed",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "permit_digest"
+  ],
+  "title": "authority_permit",
+  "type": "object"
+}

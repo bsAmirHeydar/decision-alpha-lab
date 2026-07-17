@@ -1,0 +1,8 @@
+{
+  "available_after_gte_horizon": true,
+  "diagnostic_segregation": true,
+  "future_path_primary": false,
+  "policy_id": "ACL05_LABEL_MATURITY",
+  "positive_horizon": true,
+  "version": "1.0.0"
+}

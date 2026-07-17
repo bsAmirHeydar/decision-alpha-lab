@@ -1,0 +1,16 @@
+{
+  "acl03_handoff_digest": "sha256:795524772053fbbbde499da201c81980d4fe09ef34d2b20a3b01dce5acb3fea0",
+  "acl04_candidate_set_digest": "sha256:41c99f06b7f25972ad9b8e9a8aeb483fe770cc94a436901428ece4a6fa8d0a71",
+  "acl04_deduplication_report_digest": "sha256:d882f4af82176217d47717964698e12011c64b19eb063c0d6d2d7dae910067c1",
+  "acl04_factory_receipt_digest": "sha256:001ebf72a81a4d9fb8b79f99a11561d656228c196be2e43195e4cd81750c6b1c",
+  "acl04_handoff_digest": "sha256:96b5ea4be45eee81fae23d20fd196aced8878f8479e3c41e0586d097cbc3cbdf",
+  "acl04_output_manifest_digest": "sha256:ea9eb057471b96b0ed8062ab74ea8207350cc509fdb4bb9ca9dd94dd382c9c04",
+  "acl04_provenance_graph_digest": "sha256:b68956bb2d398986cfc6328dd1cf7a7477dc2eaa3d83a9243379531db1a66c51",
+  "acl04_search_exposure_ledger_digest": "sha256:cb63666e6764b4101e103a40b5d3ccac2444e6a8082d5e4305136694a1611643",
+  "binding_digest": "sha256:55a5d1479ba1cd823537ea5c2c28786ec68fd04990b3860be5acb3748736abff",
+  "candidate_behavior_mutable": false,
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "context_version": "0.1.0",
+  "schema_version": "1.0.0",
+  "upstream_semantics_mutable": false
+}

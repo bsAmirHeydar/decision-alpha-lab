@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "action_exact": true,
+    "capital_denied": true,
+    "context_exact": true,
+    "handoff_bound": true,
+    "network_denied": true,
+    "order_denied": true,
+    "subject_exact": true
+  },
+  "passed": true,
+  "permit_id": "PERMIT_ACL05_REFERENCE_FREEZE",
+  "report_digest": "sha256:0edd30b7af943a04aed3ab62dc93c1097bf7f0c012bca46b3bff1760e3012f5a",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,33 @@
+{
+  "$id": "urn:alpha-lab:acl05:replay_report:1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "batch_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "checks": {
+      "type": "object"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "report_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "batch_id",
+    "checks",
+    "passed",
+    "report_digest"
+  ],
+  "title": "replay_report",
+  "type": "object"
+}
