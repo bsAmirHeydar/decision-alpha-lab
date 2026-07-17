@@ -1,0 +1,34 @@
+version: 1.0.0
+placeholder_regex: \b(?:REPLACE_ME(?:_[A-Z0-9_]+)?|TBD|TODO|FIXME|UNKNOWN_TO_AUTHOR)\b
+minimum_rule_characters: 28
+vague_terms:
+- token: significant
+  blocking: true
+  remediation: replace with a measured threshold and unit
+- token: strong
+  blocking: false
+  remediation: define a numeric or ordinal criterion
+- token: clean
+  blocking: true
+  remediation: state measurable cleanliness conditions
+- token: valid
+  blocking: false
+  remediation: reference an explicit acceptance rule
+- token: soon
+  blocking: true
+  remediation: declare an event-time or calendar bound
+- token: near
+  blocking: true
+  remediation: declare a distance metric and threshold
+- token: usually
+  blocking: false
+  remediation: state whether this is normative or empirical
+- token: etc
+  blocking: true
+  remediation: enumerate the complete closed set
+- token: good
+  blocking: false
+  remediation: define the objective metric
+- token: bad
+  blocking: false
+  remediation: define the rejection criterion

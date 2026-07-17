@@ -1,0 +1,17 @@
+symbols:
+- REPLACE_ME_SYMBOL_ROLE
+markets:
+- REPLACE_ME_MARKET
+timeframes:
+- REPLACE_ME_TIMEFRAME
+sessions:
+- REPLACE_ME_SESSION
+directions:
+- BIDIRECTIONAL
+goals:
+- REPLACE_ME_GOAL
+non_goals:
+- REPLACE_ME_NON_GOAL
+exclusions:
+- exclusion_id: EXC_001
+  reason: REPLACE_ME_EXCLUSION_REASON

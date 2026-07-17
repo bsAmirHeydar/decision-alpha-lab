@@ -1,0 +1,17 @@
+gates:
+- gate_id: INTAKE_COMPLETE
+  required_evidence:
+  - SCHEMA_CLOSED
+  - NO_BLOCKING_MISSINGNESS
+  - CLOCK_VALID
+  - SECURITY_CLASSIFIED
+  owner_role: semantic_owner
+  failure_state: DRAFT_CONTEXT
+- gate_id: SEMANTICALLY_VALIDATED
+  required_evidence:
+  - SEMANTIC_OWNER_APPROVAL
+  - COUNTEREXAMPLE_REVIEW
+  - ACL00_TRANSITION_APPROVAL
+  owner_role: semantic_owner
+  failure_state: SEMANTIC_REVIEW_REQUIRED
+maximum_acl02_state: SEMANTICALLY_VALIDATED

@@ -1,0 +1,6 @@
+terms:
+- term_id: REPLACE_ME_TERM
+  definition: REPLACE_ME_WITH_AN_OBSERVABLE_DEFINITION_LONGER_THAN_TWENTY_CHARACTERS
+  observable: true
+  synonyms: []
+  forbidden_ambiguities: []

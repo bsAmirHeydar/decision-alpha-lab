@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "determinism_policy": {
+      "const": "SINGLE_TRANSITION_OR_FAIL"
+    },
+    "initial_state": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "states": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "terminal_states": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "transitions": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "event": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "from": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "guard": {
+            "minLength": 20,
+            "type": "string"
+          },
+          "priority": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "to": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "unknown_guard_policy": {
+            "enum": [
+              "REJECT",
+              "STAY",
+              "QUARANTINE"
+            ]
+          }
+        },
+        "required": [
+          "from",
+          "to",
+          "event",
+          "guard",
+          "priority",
+          "unknown_guard_policy"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "unknown_state": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "initial_state",
+    "states",
+    "transitions",
+    "terminal_states",
+    "unknown_state",
+    "determinism_policy"
+  ],
+  "title": "ACL-02 State Machine",
+  "type": "object"
+}

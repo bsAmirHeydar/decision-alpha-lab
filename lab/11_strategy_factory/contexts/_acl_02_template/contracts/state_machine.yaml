@@ -1,0 +1,21 @@
+initial_state: OBSERVING
+states:
+- OBSERVING
+- CANDIDATE
+- CONFIRMED
+- INVALIDATED
+- EXPIRED
+- UNKNOWN
+transitions:
+- from: OBSERVING
+  to: CANDIDATE
+  event: REPLACE_ME_EVENT
+  guard: REPLACE_ME_WITH_DETERMINISTIC_GUARD_LONGER_THAN_TWENTY_CHARACTERS
+  priority: 10
+  unknown_guard_policy: REJECT
+terminal_states:
+- CONFIRMED
+- INVALIDATED
+- EXPIRED
+unknown_state: UNKNOWN
+determinism_policy: SINGLE_TRANSITION_OR_FAIL

@@ -1,0 +1,20 @@
+version: 1.0.0
+extension_points:
+- question_provider
+- domain_linter
+- calendar_validator
+- data_source_classifier
+- ontology_validator
+- projection_renderer
+required:
+- plugin_registration
+- capability_manifest
+- closed_input_schema
+- closed_output_schema
+- conformance_suite
+- security_review
+forbidden:
+- direct_registry_write
+- network_egress_without_capability
+- runtime_order_send
+- capital_activation

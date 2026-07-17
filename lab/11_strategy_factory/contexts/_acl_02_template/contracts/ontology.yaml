@@ -1,0 +1,13 @@
+entities:
+- entity_type: REPLACE_ME_ENTITY
+  definition: REPLACE_ME_WITH_AN_OBSERVABLE_ENTITY_DEFINITION
+  identity_fields:
+  - REPLACE_ME_FIELD
+relations:
+- relation_type: REPLACE_ME_RELATION
+  from_type: REPLACE_ME_ENTITY
+  to_type: REPLACE_ME_ENTITY
+  temporal: true
+invariants:
+- REPLACE_ME_INVARIANT
+unknown_semantics: REJECT_AND_RECORD_UNKNOWN

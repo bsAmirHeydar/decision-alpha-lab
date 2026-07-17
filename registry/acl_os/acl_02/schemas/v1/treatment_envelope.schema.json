@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_atoms": {
+      "additionalProperties": false,
+      "properties": {
+        "entry": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "exit": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "management": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "sizing": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "stop": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "entry",
+        "stop",
+        "exit",
+        "management",
+        "sizing"
+      ],
+      "type": "object"
+    },
+    "direct_code_generation_allowed": {
+      "const": false
+    },
+    "forbidden_actions": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    },
+    "max_search_trials": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "requires_human_search_authority": {
+      "const": true
+    }
+  },
+  "required": [
+    "allowed_atoms",
+    "forbidden_actions",
+    "max_search_trials",
+    "requires_human_search_authority",
+    "direct_code_generation_allowed",
+    "live_order_submission_allowed"
+  ],
+  "title": "ACL-02 Treatment Envelope",
+  "type": "object"
+}

@@ -1,0 +1,19 @@
+identity_fields:
+- context_id
+- context_version
+- anchor_time
+- direction
+- subject_key
+start_rule: Start when the primary completed-bar close first exceeds its protected
+  reference by at least one registered tick.
+confirmation_rule: ''
+invalidation_rule: Invalidate when both primary and comparison close beyond paired
+  references before confirmation.
+expiry_rule: Expire at the registered New York RTH session close if neither confirmation
+  nor invalidation occurred.
+deduplication_rule: Deduplicate by context version, paired reference identities, anchor
+  bar close time and direction.
+revision_policy: APPEND_NEW_REVISION
+precedence:
+- INVALIDATION_BEFORE_CONFIRMATION_WHEN_SAME_KNOWN_TIME
+- EXPIRY_AFTER_ALL_SAME_TIME_EVENTS

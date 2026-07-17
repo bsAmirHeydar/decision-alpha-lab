@@ -1,0 +1,4 @@
+#ifndef ALPHALAB_ACL02_AUTHORITY_MQH
+#define ALPHALAB_ACL02_AUTHORITY_MQH
+struct ACL02AuthorityEnvelope{string decision_id;string subject_artifact_id;string action;bool allowed;bool live_order_submission_allowed;bool capital_activation_allowed;};
+#endif

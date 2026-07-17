@@ -1,0 +1,15 @@
+sources:
+- source_id: REPLACE_ME_SOURCE
+  artifact_ref: al://default/data/source/REPLACE_ME@1.0.0#sha256:0000000000000000000000000000000000000000000000000000000000000000
+  fields:
+  - REPLACE_ME_FIELD
+  classification: RESTRICTED
+  freshness_slo_ms: 0
+  missingness_policy: REJECT
+  license_id: REPLACE_ME_LICENSE
+  known_time_field: REPLACE_ME_KNOWN_TIME
+synchronization: REPLACE_ME_WITH_DETERMINISTIC_SYNCHRONIZATION_POLICY
+precision_policy: REPLACE_ME_WITH_DECIMAL_TICK_AND_ROUNDING_POLICY
+revision_policy: APPEND_ONLY
+corporate_action_policy: NOT_APPLICABLE_OR_EXPLICIT_POLICY
+data_retention: REPLACE_ME_RETENTION_AND_DELETION_POLICY

@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "entities": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "definition": {
+            "minLength": 20,
+            "type": "string"
+          },
+          "entity_type": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "identity_fields": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "entity_type",
+          "definition",
+          "identity_fields"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "invariants": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "relations": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "from_type": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "relation_type": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "temporal": {
+            "type": "boolean"
+          },
+          "to_type": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "relation_type",
+          "from_type",
+          "to_type",
+          "temporal"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "unknown_semantics": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "entities",
+    "relations",
+    "invariants",
+    "unknown_semantics"
+  ],
+  "title": "ACL-02 Ontology",
+  "type": "object"
+}

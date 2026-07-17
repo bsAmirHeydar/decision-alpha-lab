@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_zones": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "asset_types": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "classification": {
+      "enum": [
+        "PUBLIC",
+        "INTERNAL",
+        "CONFIDENTIAL",
+        "RESTRICTED",
+        "CROWN_JEWEL"
+      ]
+    },
+    "network_egress": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "plugin_capabilities": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "proprietary_edge": {
+      "type": "boolean"
+    },
+    "public_release_approved": {
+      "type": "boolean"
+    },
+    "required_controls": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "secret_reference_only": {
+      "type": "boolean"
+    },
+    "secrets": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "classification",
+    "proprietary_edge",
+    "asset_types",
+    "allowed_zones",
+    "secrets",
+    "secret_reference_only",
+    "network_egress",
+    "plugin_capabilities",
+    "required_controls",
+    "public_release_approved"
+  ],
+  "title": "ACL-02 Security Profile",
+  "type": "object"
+}

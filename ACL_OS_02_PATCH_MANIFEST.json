@@ -1,0 +1,40 @@
+{
+  "architecture_dependency": "ACL_OS_ARCHITECTURE_V1",
+  "authority_dependency": "ACL_OS_00_CONSTITUTION_UNIFIED_AUTHORITY_V1",
+  "capital_activation_allowed": false,
+  "claim_ceiling": "SEMANTIC_INTAKE_REFERENCE_ONLY",
+  "created_at": "2026-07-17",
+  "live_order_submission_allowed": false,
+  "next_phase": "ACL-03 Context Compiler and Onboarding",
+  "patch_id": "ACL_OS_02_CONTEXT_STANDARD_INTAKE_V1",
+  "production_authorized": false,
+  "qa": {
+    "atomic_concepts": 93,
+    "clean_checkout_required": true,
+    "closed_schemas": 19,
+    "mql5_static_files": 8,
+    "negative_fixtures_passed": true,
+    "phase_delivery_notes": 41,
+    "policy_documents": 11,
+    "python_tests": 80,
+    "valid_fixture_passed": true
+  },
+  "repository_dependency": "ACL_OS_01_REPOSITORY_IDENTITY_ARTIFACT_LOCATOR_V1",
+  "scope": [
+    "context package standard",
+    "intake questionnaire",
+    "conditional interview",
+    "completeness and missingness",
+    "ambiguity analysis",
+    "causal clock validation",
+    "semantic consistency",
+    "security classification",
+    "authority binding",
+    "readiness reporting",
+    "context scaffold",
+    "generated Obsidian projection"
+  ],
+  "status": "accepted_reference_implementation",
+  "title": "ACL-02 Context Standard and Intake",
+  "version": "1.0.0"
+}

@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "corporate_action_policy": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "data_retention": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "precision_policy": {
+      "minLength": 20,
+      "type": "string"
+    },
+    "revision_policy": {
+      "enum": [
+        "APPEND_ONLY",
+        "SNAPSHOT_AND_APPEND",
+        "REJECT_REVISIONS"
+      ]
+    },
+    "sources": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact_ref": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "classification": {
+            "enum": [
+              "PUBLIC",
+              "INTERNAL",
+              "CONFIDENTIAL",
+              "RESTRICTED",
+              "CROWN_JEWEL"
+            ]
+          },
+          "fields": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "freshness_slo_ms": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "known_time_field": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "license_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "missingness_policy": {
+            "enum": [
+              "REJECT",
+              "QUARANTINE",
+              "MARK_MISSING",
+              "IMPUTE_RESEARCH_ONLY"
+            ]
+          },
+          "source_id": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_id",
+          "artifact_ref",
+          "fields",
+          "classification",
+          "freshness_slo_ms",
+          "missingness_policy",
+          "license_id",
+          "known_time_field"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "synchronization": {
+      "minLength": 20,
+      "type": "string"
+    }
+  },
+  "required": [
+    "sources",
+    "synchronization",
+    "precision_policy",
+    "revision_policy",
+    "corporate_action_policy",
+    "data_retention"
+  ],
+  "title": "ACL-02 Data",
+  "type": "object"
+}

@@ -1,0 +1,11 @@
+{
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "event_time": "2026-01-01T00:00:00Z",
+  "expected": "POSITIVE",
+  "fixture_id": "POSITIVE_001",
+  "inputs": {
+    "close_price": 0
+  },
+  "known_time": "2026-01-01T00:00:01Z",
+  "notes": "Expected classification follows the declared deterministic rule."
+}

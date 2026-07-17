@@ -1,0 +1,218 @@
+version: 1.0.0
+questions:
+- question_id: IDENTITY_001
+  section: manifest
+  prompt: What is the canonical Context identifier?
+  answer_type: text
+  required: true
+  weight: 2.0
+  target_path: manifest.context_id
+  help_text: Use an immutable CTX_* identifier.
+  conditions: {}
+- question_id: IDENTITY_002
+  section: manifest
+  prompt: What is the semantic version?
+  answer_type: text
+  required: true
+  weight: 1.0
+  target_path: manifest.context_version
+  help_text: Use SemVer; semantic changes require a new version.
+  conditions: {}
+- question_id: DOCTRINE_001
+  section: doctrine
+  prompt: What market relationship does the Context observe?
+  answer_type: text
+  required: true
+  weight: 4.0
+  target_path: doctrine.intended_market_relationship
+  help_text: Describe only observable market relationships.
+  conditions: {}
+- question_id: DOCTRINE_002
+  section: doctrine
+  prompt: What is the operational observable definition?
+  answer_type: text
+  required: true
+  weight: 5.0
+  target_path: doctrine.observable_definition
+  help_text: State measurable events, thresholds and clocks.
+  conditions: {}
+- question_id: DOCTRINE_003
+  section: doctrine
+  prompt: What would falsify the Context interpretation?
+  answer_type: text
+  required: true
+  weight: 3.0
+  target_path: doctrine.falsification_conditions
+  help_text: Declare counterevidence.
+  conditions: {}
+- question_id: SCOPE_001
+  section: scope
+  prompt: Which symbols are in scope?
+  answer_type: list
+  required: true
+  weight: 2.0
+  target_path: scope.symbols
+  help_text: Use canonical symbol roles, not broker aliases only.
+  conditions: {}
+- question_id: SCOPE_002
+  section: scope
+  prompt: Which markets are in scope?
+  answer_type: list
+  required: true
+  weight: 1.0
+  target_path: scope.markets
+  help_text: Declare venue or market family.
+  conditions: {}
+- question_id: SCOPE_003
+  section: scope
+  prompt: Which timeframes are in scope?
+  answer_type: list
+  required: true
+  weight: 2.0
+  target_path: scope.timeframes
+  help_text: Declare source and decision resolutions.
+  conditions: {}
+- question_id: SCOPE_004
+  section: scope
+  prompt: Which sessions are in scope?
+  answer_type: list
+  required: true
+  weight: 2.0
+  target_path: scope.sessions
+  help_text: Bind sessions to a named calendar and timezone.
+  conditions: {}
+- question_id: SCOPE_005
+  section: scope
+  prompt: What is explicitly not a goal?
+  answer_type: list
+  required: true
+  weight: 3.0
+  target_path: scope.non_goals
+  help_text: Exclude interpretations the detector must not make.
+  conditions: {}
+- question_id: CLOCK_001
+  section: causal_clock
+  prompt: What timezone and calendar govern this Context?
+  answer_type: text
+  required: true
+  weight: 3.0
+  target_path: causal_clock.calendar_id
+  help_text: Use a versioned calendar identity.
+  conditions: {}
+- question_id: CLOCK_002
+  section: causal_clock
+  prompt: When does information become known?
+  answer_type: mapping
+  required: true
+  weight: 5.0
+  target_path: causal_clock.clocks.known_time
+  help_text: Separate event time from known time.
+  conditions: {}
+- question_id: OCC_001
+  section: occurrence
+  prompt: What starts an occurrence?
+  answer_type: text
+  required: true
+  weight: 5.0
+  target_path: occurrence.start_rule
+  help_text: Use deterministic observable predicates.
+  conditions: {}
+- question_id: OCC_002
+  section: occurrence
+  prompt: What confirms an occurrence?
+  answer_type: text
+  required: true
+  weight: 5.0
+  target_path: occurrence.confirmation_rule
+  help_text: State the decision-time evidence.
+  conditions: {}
+- question_id: OCC_003
+  section: occurrence
+  prompt: What invalidates an occurrence?
+  answer_type: text
+  required: true
+  weight: 5.0
+  target_path: occurrence.invalidation_rule
+  help_text: State precedence versus confirmation and expiry.
+  conditions: {}
+- question_id: OCC_004
+  section: occurrence
+  prompt: When does an occurrence expire?
+  answer_type: text
+  required: true
+  weight: 4.0
+  target_path: occurrence.expiry_rule
+  help_text: Use calendar or event-time boundaries.
+  conditions: {}
+- question_id: DATA_001
+  section: data
+  prompt: What data sources are required?
+  answer_type: list
+  required: true
+  weight: 4.0
+  target_path: data.sources
+  help_text: Declare lineage, freshness and missingness.
+  conditions: {}
+- question_id: STATE_001
+  section: state_machine
+  prompt: What states can the Context occupy?
+  answer_type: list
+  required: true
+  weight: 3.0
+  target_path: state_machine.states
+  help_text: Include unknown and terminal semantics.
+  conditions: {}
+- question_id: FEATURE_001
+  section: feature_views
+  prompt: Which views are required for research?
+  answer_type: list
+  required: true
+  weight: 3.0
+  target_path: feature_views.views
+  help_text: Declare known-time-safe view contracts.
+  conditions: {}
+- question_id: TREATMENT_001
+  section: treatment_envelope
+  prompt: What treatment atoms may downstream research explore?
+  answer_type: mapping
+  required: true
+  weight: 3.0
+  target_path: treatment_envelope.allowed_atoms
+  help_text: This bounds AI and human Setup exploration.
+  conditions: {}
+- question_id: SECURITY_001
+  section: security_profile
+  prompt: What is the minimum information classification?
+  answer_type: text
+  required: true
+  weight: 3.0
+  target_path: security_profile.classification
+  help_text: Do not underclassify doctrine, data or model assets.
+  conditions: {}
+- question_id: EXAMPLE_001
+  section: examples
+  prompt: Provide positive, negative and ambiguous examples.
+  answer_type: list
+  required: true
+  weight: 4.0
+  target_path: examples.examples
+  help_text: Every fixture must be immutable and known-time annotated.
+  conditions: {}
+- question_id: OWNER_001
+  section: owners
+  prompt: Who owns Context semantics?
+  answer_type: text
+  required: true
+  weight: 2.0
+  target_path: owners.semantic_owner
+  help_text: Use a resolvable identity, not a free-form role.
+  conditions: {}
+- question_id: OWNER_002
+  section: owners
+  prompt: Who owns technical implementation?
+  answer_type: text
+  required: true
+  weight: 2.0
+  target_path: owners.technical_owner
+  help_text: Separate semantic and technical authority.
+  conditions: {}

@@ -1,0 +1,26 @@
+version: 1.0.0
+required_reviews:
+- review: semantic_owner
+  for:
+  - observable_definition
+  - scope
+  - non_goals
+  - occurrence_rules
+  - examples
+- review: security_owner
+  for:
+  - classification
+  - data_sources
+  - egress
+  - secret_refs
+- review: technical_owner
+  for:
+  - clock_fields
+  - state_machine
+  - feature_views
+  - adapter_requirements
+separation_of_duties:
+- - semantic_owner
+  - capital_authority
+- - security_owner
+  - runtime_operator

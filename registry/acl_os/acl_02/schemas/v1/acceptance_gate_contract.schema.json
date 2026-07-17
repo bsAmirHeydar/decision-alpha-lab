@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "gates": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "failure_state": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "gate_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "owner_role": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "required_evidence": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "gate_id",
+          "required_evidence",
+          "owner_role",
+          "failure_state"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "maximum_acl02_state": {
+      "const": "SEMANTICALLY_VALIDATED"
+    }
+  },
+  "required": [
+    "gates",
+    "maximum_acl02_state"
+  ],
+  "title": "ACL-02 Acceptance Gates",
+  "type": "object"
+}

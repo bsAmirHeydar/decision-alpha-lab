@@ -1,0 +1,13 @@
+entities:
+- entity_type: MARKET_REFERENCE
+  definition: A market reference with immutable identity, source time and known time.
+  identity_fields:
+  - close_price
+relations:
+- relation_type: DISPLACES_BEYOND
+  from_type: MARKET_REFERENCE
+  to_type: MARKET_REFERENCE
+  temporal: true
+invariants:
+- KNOWN_TIME_NEVER_PRECEDES_OBSERVATION_TIME
+unknown_semantics: REJECT_AND_RECORD_UNKNOWN

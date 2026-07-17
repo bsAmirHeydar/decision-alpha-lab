@@ -1,0 +1,15 @@
+allowed_atoms:
+  entry: []
+  stop: []
+  exit: []
+  management: []
+  sizing: []
+forbidden_actions:
+- DIRECT_ORDER_SEND
+- UNBOUNDED_CODE_GENERATION
+- SELF_AUTHORIZATION
+- INLINE_SECRET_ACCESS
+max_search_trials: 0
+requires_human_search_authority: true
+direct_code_generation_allowed: false
+live_order_submission_allowed: false

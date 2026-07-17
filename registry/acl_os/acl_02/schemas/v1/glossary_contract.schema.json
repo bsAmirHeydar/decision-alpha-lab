@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "terms": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "definition": {
+            "minLength": 20,
+            "type": "string"
+          },
+          "forbidden_ambiguities": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "observable": {
+            "type": "boolean"
+          },
+          "synonyms": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "term_id": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "term_id",
+          "definition",
+          "observable",
+          "synonyms",
+          "forbidden_ambiguities"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "terms"
+  ],
+  "title": "ACL-02 Glossary",
+  "type": "object"
+}

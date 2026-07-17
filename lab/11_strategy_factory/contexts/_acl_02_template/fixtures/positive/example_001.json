@@ -1,0 +1,11 @@
+{
+  "context_id": "CTX_REPLACE_ME",
+  "event_time": "2026-01-01T00:00:00Z",
+  "expected": "POSITIVE",
+  "fixture_id": "POSITIVE_001",
+  "inputs": {
+    "REPLACE_ME_FIELD": 0
+  },
+  "known_time": "2026-01-01T00:00:01Z",
+  "notes": "REPLACE_ME_WITH_OBSERVABLE_REASON"
+}

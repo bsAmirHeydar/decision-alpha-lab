@@ -1,0 +1,18 @@
+examples:
+- example_id: POS_001
+  kind: POSITIVE
+  fixture_ref: fixtures/positive/example_001.json
+  known_time_annotation: known_time_ANNOTATION
+  expected_classification: POSITIVE
+- example_id: NEG_001
+  kind: NEGATIVE
+  fixture_ref: fixtures/negative/example_001.json
+  known_time_annotation: known_time_ANNOTATION
+  expected_classification: NEGATIVE
+- example_id: AMB_001
+  kind: AMBIGUOUS
+  fixture_ref: fixtures/ambiguous/example_001.json
+  known_time_annotation: known_time_ANNOTATION
+  expected_classification: AMBIGUOUS
+minimum_per_class: 1
+counterexample_policy: COUNTEREXAMPLES_ARE_IMMUTABLE_AND_MUST_BE_REVIEWED_BEFORE_SEMANTIC_APPROVAL

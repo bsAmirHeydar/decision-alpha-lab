@@ -1,0 +1,11 @@
+views:
+- view_id: REPLACE_ME_VIEW
+  kind: TABULAR
+  known_time_safe: true
+  fields:
+  - REPLACE_ME_FIELD
+  missingness_vector: REQUIRED
+  freshness_vector: REQUIRED
+  schema_ref: al://default/schemas/feature/REPLACE_ME@1.0.0#sha256:0000000000000000000000000000000000000000000000000000000000000000
+fusion_policy: REPLACE_ME_WITH_REGISTERED_FUSION_POLICY
+missing_view_policy: MASK_AND_ABSTAIN

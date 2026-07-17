@@ -1,0 +1,12 @@
+{
+  "action": "ACL02_EVALUATE_CONTEXT",
+  "capital_activation_allowed": false,
+  "decision": "ALLOW",
+  "decision_id": "DEC_ACL02_001",
+  "expires_at": "2099-01-01T00:00:00Z",
+  "issued_at": "2026-07-17T00:00:00Z",
+  "live_order_submission_allowed": false,
+  "policy_digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "subject_artifact_id": "al://default/contexts/context/CTX_REFERENCE_ALPHA@0.1.0#sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "tenant_id": "default"
+}

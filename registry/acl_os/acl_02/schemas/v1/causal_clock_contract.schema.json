@@ -1,0 +1,245 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "calendar_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "clock_skew_tolerance_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "clocks": {
+      "additionalProperties": false,
+      "properties": {
+        "correction_time": {
+          "additionalProperties": false,
+          "properties": {
+            "can_use_future_revision": {
+              "type": "boolean"
+            },
+            "field": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "rule": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "timezone": {
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "field",
+            "rule",
+            "timezone",
+            "can_use_future_revision"
+          ],
+          "type": "object"
+        },
+        "decision_time": {
+          "additionalProperties": false,
+          "properties": {
+            "can_use_future_revision": {
+              "type": "boolean"
+            },
+            "field": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "rule": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "timezone": {
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "field",
+            "rule",
+            "timezone",
+            "can_use_future_revision"
+          ],
+          "type": "object"
+        },
+        "event_time": {
+          "additionalProperties": false,
+          "properties": {
+            "can_use_future_revision": {
+              "type": "boolean"
+            },
+            "field": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "rule": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "timezone": {
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "field",
+            "rule",
+            "timezone",
+            "can_use_future_revision"
+          ],
+          "type": "object"
+        },
+        "known_time": {
+          "additionalProperties": false,
+          "properties": {
+            "can_use_future_revision": {
+              "type": "boolean"
+            },
+            "field": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "rule": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "timezone": {
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "field",
+            "rule",
+            "timezone",
+            "can_use_future_revision"
+          ],
+          "type": "object"
+        },
+        "maturity_time": {
+          "additionalProperties": false,
+          "properties": {
+            "can_use_future_revision": {
+              "type": "boolean"
+            },
+            "field": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "rule": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "timezone": {
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "field",
+            "rule",
+            "timezone",
+            "can_use_future_revision"
+          ],
+          "type": "object"
+        },
+        "observation_time": {
+          "additionalProperties": false,
+          "properties": {
+            "can_use_future_revision": {
+              "type": "boolean"
+            },
+            "field": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "rule": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "timezone": {
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "field",
+            "rule",
+            "timezone",
+            "can_use_future_revision"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "event_time",
+        "observation_time",
+        "known_time",
+        "decision_time",
+        "maturity_time",
+        "correction_time"
+      ],
+      "type": "object"
+    },
+    "late_data_policy": {
+      "enum": [
+        "REJECT",
+        "QUARANTINE",
+        "APPEND_CORRECTION",
+        "ALLOW_WITH_STALE_FLAG"
+      ]
+    },
+    "required_order": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 5,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "timezone": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "calendar_id",
+    "timezone",
+    "clocks",
+    "required_order",
+    "late_data_policy",
+    "clock_skew_tolerance_ms"
+  ],
+  "title": "ACL-02 Causal Clock",
+  "type": "object"
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "counterexample_policy": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "examples": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "example_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "expected_classification": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "fixture_ref": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "POSITIVE",
+              "NEGATIVE",
+              "AMBIGUOUS"
+            ]
+          },
+          "known_time_annotation": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "example_id",
+          "kind",
+          "fixture_ref",
+          "known_time_annotation",
+          "expected_classification"
+        ],
+        "type": "object"
+      },
+      "minItems": 3,
+      "type": "array"
+    },
+    "minimum_per_class": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "examples",
+    "minimum_per_class",
+    "counterexample_policy"
+  ],
+  "title": "ACL-02 Examples",
+  "type": "object"
+}

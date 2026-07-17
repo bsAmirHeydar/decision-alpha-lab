@@ -1,0 +1,226 @@
+version: 1.0.0
+requirements:
+- requirement_id: MANIFEST_ID
+  section: manifest
+  path: manifest.context_id
+  weight: 5
+  blocking: true
+  message: Context identity is absent
+  remediation: declare canonical CTX_* identity
+- requirement_id: MANIFEST_ARTIFACT
+  section: manifest
+  path: manifest.artifact_id
+  weight: 3
+  blocking: true
+  message: ACL-01 artifact identity is absent
+  remediation: register and bind the Context artifact
+- requirement_id: MANIFEST_VERSION
+  section: manifest
+  path: manifest.context_version
+  weight: 3
+  blocking: true
+  message: Context version is absent
+  remediation: declare semantic version
+- requirement_id: OWNER_SEMANTIC
+  section: owners
+  path: owners.semantic_owner
+  weight: 4
+  blocking: true
+  message: semantic owner is absent
+  remediation: assign accountable semantic owner
+- requirement_id: OWNER_TECHNICAL
+  section: owners
+  path: owners.technical_owner
+  weight: 3
+  blocking: true
+  message: technical owner is absent
+  remediation: assign technical owner
+- requirement_id: OWNER_SECURITY
+  section: owners
+  path: owners.security_owner
+  weight: 3
+  blocking: true
+  message: security owner is absent
+  remediation: assign security owner
+- requirement_id: DOCTRINE_RELATION
+  section: doctrine
+  path: doctrine.intended_market_relationship
+  weight: 6
+  blocking: true
+  message: market relationship is absent
+  remediation: write the intended observable relationship
+- requirement_id: DOCTRINE_OBSERVABLE
+  section: doctrine
+  path: doctrine.observable_definition
+  weight: 8
+  blocking: true
+  message: observable definition is absent
+  remediation: write deterministic observable semantics
+- requirement_id: DOCTRINE_FALSIFICATION
+  section: doctrine
+  path: doctrine.falsification_conditions
+  weight: 4
+  blocking: true
+  message: falsification conditions are absent
+  remediation: declare counterevidence
+- requirement_id: SCOPE_SYMBOLS
+  section: scope
+  path: scope.symbols
+  weight: 4
+  blocking: true
+  message: symbols are absent
+  remediation: declare symbol roles
+- requirement_id: SCOPE_MARKETS
+  section: scope
+  path: scope.markets
+  weight: 2
+  blocking: true
+  message: markets are absent
+  remediation: declare markets
+- requirement_id: SCOPE_TIMEFRAMES
+  section: scope
+  path: scope.timeframes
+  weight: 4
+  blocking: true
+  message: timeframes are absent
+  remediation: declare source and decision timeframes
+- requirement_id: SCOPE_SESSIONS
+  section: scope
+  path: scope.sessions
+  weight: 3
+  blocking: true
+  message: sessions are absent
+  remediation: declare calendar-bound sessions
+- requirement_id: SCOPE_NON_GOALS
+  section: scope
+  path: scope.non_goals
+  weight: 5
+  blocking: true
+  message: non-goals are absent
+  remediation: bound excluded interpretations
+- requirement_id: ONTOLOGY_ENTITIES
+  section: ontology
+  path: ontology.entities
+  weight: 4
+  blocking: true
+  message: ontology entities are absent
+  remediation: declare entity types
+- requirement_id: ONTOLOGY_RELATIONS
+  section: ontology
+  path: ontology.relations
+  weight: 4
+  blocking: true
+  message: ontology relations are absent
+  remediation: declare typed relations
+- requirement_id: CLOCKS
+  section: causal_clock
+  path: causal_clock.clocks
+  weight: 8
+  blocking: true
+  message: causal clocks are absent
+  remediation: declare all six clocks
+- requirement_id: CLOCK_ORDER
+  section: causal_clock
+  path: causal_clock.required_order
+  weight: 5
+  blocking: true
+  message: clock order is absent
+  remediation: declare partial-order invariants
+- requirement_id: DATA_SOURCES
+  section: data
+  path: data.sources
+  weight: 6
+  blocking: true
+  message: data sources are absent
+  remediation: declare source contracts
+- requirement_id: STATE_STATES
+  section: state_machine
+  path: state_machine.states
+  weight: 5
+  blocking: true
+  message: state machine states are absent
+  remediation: declare states
+- requirement_id: STATE_TRANSITIONS
+  section: state_machine
+  path: state_machine.transitions
+  weight: 6
+  blocking: true
+  message: state transitions are absent
+  remediation: declare guarded transitions
+- requirement_id: OCC_START
+  section: occurrence
+  path: occurrence.start_rule
+  weight: 5
+  blocking: true
+  message: start rule is absent
+  remediation: declare start semantics
+- requirement_id: OCC_CONFIRM
+  section: occurrence
+  path: occurrence.confirmation_rule
+  weight: 5
+  blocking: true
+  message: confirmation rule is absent
+  remediation: declare confirmation semantics
+- requirement_id: OCC_INVALIDATE
+  section: occurrence
+  path: occurrence.invalidation_rule
+  weight: 5
+  blocking: true
+  message: invalidation rule is absent
+  remediation: declare invalidation semantics
+- requirement_id: OCC_EXPIRY
+  section: occurrence
+  path: occurrence.expiry_rule
+  weight: 4
+  blocking: true
+  message: expiry rule is absent
+  remediation: declare expiry semantics
+- requirement_id: REF_ANCESTRY
+  section: references
+  path: references.ancestry
+  weight: 2
+  blocking: false
+  message: reference ancestry is absent
+  remediation: declare parent and source references
+- requirement_id: VIEWS
+  section: feature_views
+  path: feature_views.views
+  weight: 5
+  blocking: true
+  message: feature views are absent
+  remediation: declare view contracts
+- requirement_id: TREATMENT
+  section: treatment_envelope
+  path: treatment_envelope.allowed_atoms
+  weight: 4
+  blocking: true
+  message: treatment envelope is absent
+  remediation: bound downstream search
+- requirement_id: GATES
+  section: acceptance_gates
+  path: acceptance_gates.gates
+  weight: 4
+  blocking: true
+  message: acceptance gates are absent
+  remediation: declare semantic and compile gates
+- requirement_id: SECURITY
+  section: security_profile
+  path: security_profile.required_controls
+  weight: 5
+  blocking: true
+  message: security controls are absent
+  remediation: declare controls
+- requirement_id: EXAMPLES
+  section: examples
+  path: examples.examples
+  weight: 6
+  blocking: true
+  message: examples are absent
+  remediation: declare positive, negative and ambiguous fixtures
+- requirement_id: AMENDMENTS
+  section: amendments
+  path: amendments.breaking_change_policy
+  weight: 2
+  blocking: true
+  message: amendment policy is absent
+  remediation: declare version and migration rules

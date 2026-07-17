@@ -1,0 +1,6 @@
+terms:
+- term_id: PROTECTED_REFERENCE
+  definition: A versioned price reference known before the evaluated displacement event.
+  observable: true
+  synonyms: []
+  forbidden_ambiguities: []

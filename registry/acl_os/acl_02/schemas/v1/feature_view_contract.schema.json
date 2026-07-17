@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "fusion_policy": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "missing_view_policy": {
+      "enum": [
+        "REJECT",
+        "MASK_AND_ABSTAIN",
+        "DEGRADE_TO_REGISTERED_BASELINE"
+      ]
+    },
+    "views": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "fields": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "freshness_vector": {
+            "const": "REQUIRED"
+          },
+          "kind": {
+            "enum": [
+              "TABULAR",
+              "SEQUENCE",
+              "GRAPH",
+              "HYPERGRAPH",
+              "RASTER",
+              "EVENT_STREAM",
+              "EXECUTION"
+            ]
+          },
+          "known_time_safe": {
+            "const": true
+          },
+          "missingness_vector": {
+            "const": "REQUIRED"
+          },
+          "schema_ref": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "view_id": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "view_id",
+          "kind",
+          "known_time_safe",
+          "fields",
+          "missingness_vector",
+          "freshness_vector",
+          "schema_ref"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "views",
+    "fusion_policy",
+    "missing_view_policy"
+  ],
+  "title": "ACL-02 Feature Views",
+  "type": "object"
+}

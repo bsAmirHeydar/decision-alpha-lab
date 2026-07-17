@@ -1,0 +1,11 @@
+views:
+- view_id: RELATIVE_DISPLACEMENT_VIEW
+  kind: TABULAR
+  known_time_safe: true
+  fields:
+  - close_price
+  missingness_vector: REQUIRED
+  freshness_vector: REQUIRED
+  schema_ref: al://default/schemas/feature/REFERENCE_ALPHA@1.0.0#sha256:0000000000000000000000000000000000000000000000000000000000000000
+fusion_policy: Concatenate registered known-time-safe views with explicit missingness and freshness vectors.
+missing_view_policy: MASK_AND_ABSTAIN

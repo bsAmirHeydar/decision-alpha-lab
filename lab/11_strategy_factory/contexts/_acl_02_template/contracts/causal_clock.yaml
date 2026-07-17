@@ -1,0 +1,41 @@
+calendar_id: REPLACE_ME_CALENDAR_ARTIFACT
+timezone: UTC
+clocks:
+  event_time:
+    field: REPLACE_ME_EVENT_TIME_FIELD
+    rule: null
+    timezone: UTC
+    can_use_future_revision: false
+  observation_time:
+    field: REPLACE_ME_OBSERVATION_TIME_FIELD
+    rule: null
+    timezone: UTC
+    can_use_future_revision: false
+  known_time:
+    field: REPLACE_ME_KNOWN_TIME_FIELD
+    rule: null
+    timezone: UTC
+    can_use_future_revision: false
+  decision_time:
+    field: REPLACE_ME_DECISION_TIME_FIELD
+    rule: null
+    timezone: UTC
+    can_use_future_revision: false
+  maturity_time:
+    field: REPLACE_ME_MATURITY_TIME_FIELD
+    rule: null
+    timezone: UTC
+    can_use_future_revision: false
+  correction_time:
+    field: REPLACE_ME_CORRECTION_TIME_FIELD
+    rule: null
+    timezone: UTC
+    can_use_future_revision: false
+required_order:
+- event_time<=observation_time
+- observation_time<=known_time
+- known_time<=decision_time
+- decision_time<=maturity_time
+- maturity_time<=correction_time
+late_data_policy: REJECT
+clock_skew_tolerance_ms: 0

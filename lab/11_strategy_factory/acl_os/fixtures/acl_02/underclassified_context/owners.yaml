@@ -1,0 +1,5 @@
+semantic_owner: owner:semantic:alpha
+technical_owner: owner:technical:alpha
+security_owner: owner:security:alpha
+capital_authority: owner:capital:alpha
+review_policy: DUAL_CONTROL_SEMANTIC_AND_SECURITY

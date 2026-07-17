@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capital_authority": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "review_policy": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "security_owner": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "semantic_owner": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "technical_owner": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "semantic_owner",
+    "technical_owner",
+    "security_owner",
+    "capital_authority",
+    "review_policy"
+  ],
+  "title": "ACL-02 Owner Assignment",
+  "type": "object"
+}

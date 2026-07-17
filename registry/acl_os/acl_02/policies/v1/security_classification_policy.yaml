@@ -1,0 +1,66 @@
+version: 1.0.0
+levels:
+- PUBLIC
+- INTERNAL
+- CONFIDENTIAL
+- RESTRICTED
+- CROWN_JEWEL
+rules:
+- rule_id: PROPRIETARY_DOCTRINE
+  path: security_profile.proprietary_edge
+  operator: truthy
+  minimum_level: 3
+- rule_id: BROKER_CREDENTIAL_DEPENDENCY
+  path: security_profile.asset_types
+  operator: contains
+  value: BROKER_CREDENTIAL_REFERENCE
+  minimum_level: 4
+- rule_id: LIVE_ACCOUNT_MAPPING
+  path: security_profile.asset_types
+  operator: contains
+  value: LIVE_ACCOUNT_MAPPING
+  minimum_level: 4
+- rule_id: PERSONAL_DATA
+  path: security_profile.asset_types
+  operator: contains
+  value: PERSONAL_DATA
+  minimum_level: 3
+- rule_id: PUBLIC_ONLY
+  path: security_profile.public_release_approved
+  operator: equals
+  value: true
+  minimum_level: 0
+required_controls_by_level:
+  PUBLIC:
+  - PROVENANCE
+  INTERNAL:
+  - PROVENANCE
+  - ACCESS_CONTROL
+  - AUDIT
+  CONFIDENTIAL:
+  - PROVENANCE
+  - ACCESS_CONTROL
+  - AUDIT
+  - ENCRYPTION_AT_REST
+  - DEPENDENCY_SCAN
+  RESTRICTED:
+  - PROVENANCE
+  - ACCESS_CONTROL
+  - AUDIT
+  - ENCRYPTION_AT_REST
+  - ENCRYPTION_IN_TRANSIT
+  - DEPENDENCY_SCAN
+  - SIGNATURE_VERIFY
+  - EGRESS_DENY_DEFAULT
+  CROWN_JEWEL:
+  - PROVENANCE
+  - ACCESS_CONTROL
+  - AUDIT
+  - ENCRYPTION_AT_REST
+  - ENCRYPTION_IN_TRANSIT
+  - DEPENDENCY_SCAN
+  - SIGNATURE_VERIFY
+  - EGRESS_DENY_DEFAULT
+  - DUAL_CONTROL
+  - HARDWARE_KEY_CUSTODY
+  - ISOLATED_BUILD

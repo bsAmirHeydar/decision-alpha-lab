@@ -1,0 +1,21 @@
+classification: INTERNAL
+proprietary_edge: true
+asset_types:
+- PROPRIETARY_FEATURE
+allowed_zones:
+- Z1_DEVELOPER
+- Z2_RESEARCH
+secrets: []
+secret_reference_only: true
+network_egress: []
+plugin_capabilities: []
+required_controls:
+- PROVENANCE
+- ACCESS_CONTROL
+- AUDIT
+- ENCRYPTION_AT_REST
+- ENCRYPTION_IN_TRANSIT
+- DEPENDENCY_SCAN
+- SIGNATURE_VERIFY
+- EGRESS_DENY_DEFAULT
+public_release_approved: false

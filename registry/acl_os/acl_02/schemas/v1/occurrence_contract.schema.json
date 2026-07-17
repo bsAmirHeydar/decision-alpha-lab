@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "confirmation_rule": {
+      "minLength": 20,
+      "type": "string"
+    },
+    "deduplication_rule": {
+      "minLength": 20,
+      "type": "string"
+    },
+    "expiry_rule": {
+      "minLength": 20,
+      "type": "string"
+    },
+    "identity_fields": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "invalidation_rule": {
+      "minLength": 20,
+      "type": "string"
+    },
+    "precedence": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "revision_policy": {
+      "enum": [
+        "APPEND_NEW_REVISION",
+        "IMMUTABLE_AFTER_MATURITY"
+      ]
+    },
+    "start_rule": {
+      "minLength": 20,
+      "type": "string"
+    }
+  },
+  "required": [
+    "identity_fields",
+    "start_rule",
+    "confirmation_rule",
+    "invalidation_rule",
+    "expiry_rule",
+    "deduplication_rule",
+    "revision_policy",
+    "precedence"
+  ],
+  "title": "ACL-02 Occurrence",
+  "type": "object"
+}

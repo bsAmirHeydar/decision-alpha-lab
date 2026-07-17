@@ -1,0 +1,6 @@
+breaking_change_policy: MAJOR_VERSION_WITH_SEMANTIC_DIFF_MIGRATION_IMPACT_AND_ROLLBACK
+additive_change_policy: MINOR_VERSION_WITH_COMPATIBILITY_REVIEW
+patch_change_policy: PATCH_VERSION_ONLY_FOR_NON_SEMANTIC_CORRECTION
+migration_required: true
+rollback_required: true
+semantic_diff_required: true

@@ -1,9 +1,9 @@
-feat(acl-os): implement ACL-01 repository identity and locator
+feat(acl-os): implement ACL-02 context standard and intake
 
-- add path-independent content-addressed artifact identity
-- add canonical repository zones and path policy
-- add owner, schema, plugin, alias and artifact registries
-- add deterministic locator, integrity verification and scanner
-- add dependency, lineage, compatibility and migration governance
-- add ACL-00 mutation permit binding and hard non-trading authority
-- add closed schemas, policies, MQL5 mirrors, tests and Obsidian delivery
+- add closed Context package contracts and canonical template
+- add intake question catalog, session and scaffold
+- add completeness, ambiguity, causal-clock, semantic and security validation
+- bind evaluation to ACL-00 authority and ACL-01 artifact identity
+- add readiness reporting, Obsidian projection, tests and MQL5 mirrors
+
+No live order submission or capital activation authority is introduced.

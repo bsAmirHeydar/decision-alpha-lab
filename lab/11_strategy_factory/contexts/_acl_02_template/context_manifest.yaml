@@ -1,0 +1,26 @@
+schema_version: 1.0.0
+context_id: CTX_REPLACE_ME
+artifact_id: al://default/contexts/context/CTX_REPLACE_ME@0.1.0#sha256:0000000000000000000000000000000000000000000000000000000000000000
+context_version: 0.1.0
+status: DRAFT
+owners_file: owners.yaml
+classification: RESTRICTED
+description: REPLACE_ME_WITH_A_PRECISE_OBSERVABLE_CONTEXT_DESCRIPTION_OF_AT_LEAST_FORTY_CHARACTERS
+contracts:
+  doctrine: doctrine/context_doctrine.md
+  glossary: doctrine/glossary.yaml
+  scope: contracts/scope.yaml
+  ontology: contracts/ontology.yaml
+  causal_clock: contracts/causal_clock.yaml
+  data: contracts/data_contract.yaml
+  state_machine: contracts/state_machine.yaml
+  occurrence: contracts/occurrence_contract.yaml
+  references: contracts/reference_contract.yaml
+  feature_views: contracts/feature_views.yaml
+  treatment_envelope: contracts/treatment_envelope.yaml
+  acceptance_gates: contracts/acceptance_gates.yaml
+  security_profile: security/security_profile.yaml
+  examples: fixtures/example_catalog.yaml
+  amendments: governance/amendment_policy.yaml
+extensions: []
+tags: []

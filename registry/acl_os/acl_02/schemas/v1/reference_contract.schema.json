@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ancestry": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "lifecycle_policy": {
+      "minLength": 20,
+      "type": "string"
+    },
+    "reference_types": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "identity_rule": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "validity_rule": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "type_id",
+          "identity_rule",
+          "validity_rule"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "retirement_policy": {
+      "minLength": 20,
+      "type": "string"
+    }
+  },
+  "required": [
+    "ancestry",
+    "reference_types",
+    "lifecycle_policy",
+    "retirement_policy"
+  ],
+  "title": "ACL-02 References",
+  "type": "object"
+}

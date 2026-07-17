@@ -1,0 +1,8 @@
+ancestry:
+- al://default/contexts/doctrine/REFERENCE_PARENT@1.0.0#sha256:2222222222222222222222222222222222222222222222222222222222222222
+reference_types:
+- type_id: PROTECTED_SESSION_REFERENCE
+  identity_rule: Identity is context version plus symbol role plus session date plus reference type.
+  validity_rule: Reference is active only after its source interval is complete and before explicit retirement.
+lifecycle_policy: Create append-only references, protect identity after first use and record lifecycle transitions.
+retirement_policy: Retired references receive tombstones and their identities are never silently reused.

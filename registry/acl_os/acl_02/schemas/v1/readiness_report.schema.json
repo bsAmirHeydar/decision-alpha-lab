@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "blocking_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "blocking_findings": {
+      "items": {
+        "$ref": "finding.schema.json"
+      },
+      "type": "array"
+    },
+    "capital_activation_allowed": {
+      "const": false
+    },
+    "claim_ceiling": {
+      "const": "SEMANTIC_INTAKE_REFERENCE_ONLY"
+    },
+    "completeness_score": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "context_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decision": {
+      "enum": [
+        "REJECT",
+        "NEEDS_INPUT",
+        "NEEDS_REVIEW",
+        "ACCEPT_FOR_SEMANTIC_REVIEW",
+        "ACCEPT_SEMANTICALLY"
+      ]
+    },
+    "highest_state": {
+      "enum": [
+        "DRAFT_CONTEXT",
+        "INTAKE_COMPLETE",
+        "SEMANTIC_REVIEW_REQUIRED",
+        "SEMANTICALLY_VALIDATED"
+      ]
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    },
+    "report_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "stages": {
+      "type": "object"
+    },
+    "warning_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "warning_findings": {
+      "items": {
+        "$ref": "finding.schema.json"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "context_id",
+    "decision",
+    "highest_state",
+    "completeness_score",
+    "blocking_count",
+    "warning_count",
+    "blocking_findings",
+    "warning_findings",
+    "stages",
+    "claim_ceiling",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "report_digest"
+  ],
+  "title": "ACL-02 Readiness",
+  "type": "object"
+}

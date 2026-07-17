@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "pattern": "^al://",
+      "type": "string"
+    },
+    "classification": {
+      "enum": [
+        "PUBLIC",
+        "INTERNAL",
+        "CONFIDENTIAL",
+        "RESTRICTED",
+        "CROWN_JEWEL"
+      ]
+    },
+    "context_id": {
+      "pattern": "^CTX_[A-Z0-9_]{3,96}$",
+      "type": "string"
+    },
+    "context_version": {
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$",
+      "type": "string"
+    },
+    "contracts": {
+      "additionalProperties": false,
+      "properties": {
+        "acceptance_gates": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "amendments": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "causal_clock": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "data": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "doctrine": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "examples": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "feature_views": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "glossary": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "occurrence": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "ontology": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "references": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "scope": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "security_profile": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "state_machine": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "treatment_envelope": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "doctrine",
+        "glossary",
+        "scope",
+        "ontology",
+        "causal_clock",
+        "data",
+        "state_machine",
+        "occurrence",
+        "references",
+        "feature_views",
+        "treatment_envelope",
+        "acceptance_gates",
+        "security_profile",
+        "examples",
+        "amendments"
+      ],
+      "type": "object"
+    },
+    "description": {
+      "minLength": 40,
+      "type": "string"
+    },
+    "extensions": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "plugin_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "version_constraint": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "plugin_id",
+          "version_constraint"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "owners_file": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "status": {
+      "enum": [
+        "DRAFT",
+        "INTAKE_COMPLETE",
+        "SEMANTIC_REVIEW_REQUIRED",
+        "SEMANTICALLY_VALIDATED"
+      ]
+    },
+    "tags": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "schema_version",
+    "context_id",
+    "artifact_id",
+    "context_version",
+    "status",
+    "owners_file",
+    "classification",
+    "description",
+    "contracts",
+    "extensions",
+    "tags"
+  ],
+  "title": "ACL-02 Context Manifest",
+  "type": "object"
+}

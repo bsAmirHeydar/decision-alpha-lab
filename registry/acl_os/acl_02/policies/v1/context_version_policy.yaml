@@ -1,0 +1,18 @@
+version: 1.0.0
+semantic_change_requires_major:
+- observable_definition
+- occurrence_identity
+- state_transition_meaning
+- known_time_semantics
+- scope_expansion
+- treatment_authority_expansion
+additive_minor:
+- new_non_authoritative_example
+- new_optional_metadata
+- new_documentation_projection
+patch_only:
+- typo_without_semantic_change
+- formatting
+- non_behavioral_link_fix
+requires_migration_plan: true
+requires_rollback: true

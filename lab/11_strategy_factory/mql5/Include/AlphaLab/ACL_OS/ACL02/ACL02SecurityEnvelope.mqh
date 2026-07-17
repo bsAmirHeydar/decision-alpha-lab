@@ -1,0 +1,4 @@
+#ifndef ALPHALAB_ACL02_SECURITY_MQH
+#define ALPHALAB_ACL02_SECURITY_MQH
+struct ACL02SecurityEnvelope{string declared_classification;string inferred_minimum_classification;bool controls_complete;};
+#endif

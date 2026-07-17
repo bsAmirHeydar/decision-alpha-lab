@@ -1,0 +1,15 @@
+sources:
+- source_id: NASDAQ_M5
+  artifact_ref: al://default/data/source/REFERENCE_ALPHA@1.0.0#sha256:0000000000000000000000000000000000000000000000000000000000000000
+  fields:
+  - close_price
+  classification: RESTRICTED
+  freshness_slo_ms: 0
+  missingness_policy: REJECT
+  license_id: license:nasdaq:internal
+  known_time_field: known_time
+synchronization: Align completed bars by canonical event time and reject unmatched primary or comparison observations.
+precision_policy: Use Decimal arithmetic, registered tick sizes and half-away-from-zero only for display.
+revision_policy: APPEND_ONLY
+corporate_action_policy: NOT_APPLICABLE
+data_retention: Retain immutable raw and normalized observations according to licensed research policy.
