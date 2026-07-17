@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "archive_present": {
+      "type": "boolean"
+    },
+    "capital_delta": {
+      "type": "number"
+    },
+    "cell_id": {
+      "type": "string"
+    },
+    "new_reference_routing_allowed": {
+      "type": "boolean"
+    },
+    "order_delta": {
+      "type": "integer"
+    },
+    "reinstatement_allowed": {
+      "type": "boolean"
+    },
+    "route_revoked": {
+      "type": "boolean"
+    },
+    "tombstone_present": {
+      "type": "boolean"
+    },
+    "verified": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "archive_present",
+    "capital_delta",
+    "cell_id",
+    "new_reference_routing_allowed",
+    "order_delta",
+    "reinstatement_allowed",
+    "route_revoked",
+    "tombstone_present",
+    "verified"
+  ],
+  "title": "SAED V4-41 verification_row",
+  "type": "object"
+}

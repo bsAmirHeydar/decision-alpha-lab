@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "cell_id": {
+      "type": "string"
+    },
+    "cross_tenant_scope": {
+      "type": "boolean"
+    },
+    "decision_trace_hash": {
+      "type": "string"
+    },
+    "incident_id": {
+      "type": "string"
+    },
+    "known_time": {
+      "type": "string"
+    },
+    "owner_role": {
+      "type": "string"
+    },
+    "severity": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "tenant_id": {
+      "type": "string"
+    },
+    "trigger_action": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "cell_id",
+    "cross_tenant_scope",
+    "decision_trace_hash",
+    "incident_id",
+    "known_time",
+    "owner_role",
+    "severity",
+    "state",
+    "tenant_id",
+    "trigger_action"
+  ],
+  "title": "SAED V4-41 incident",
+  "type": "object"
+}

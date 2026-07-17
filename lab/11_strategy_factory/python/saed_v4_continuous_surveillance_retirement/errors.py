@@ -1,0 +1,14 @@
+class SAEDV441Error(Exception):pass
+class ContractError(SAEDV441Error):pass
+class UpstreamError(SAEDV441Error):pass
+class ConstitutionError(SAEDV441Error):pass
+class PolicyError(SAEDV441Error):pass
+class ObservationError(SAEDV441Error):pass
+class DetectionError(SAEDV441Error):pass
+class IncidentError(SAEDV441Error):pass
+class ActionError(SAEDV441Error):pass
+class DependencyError(SAEDV441Error):pass
+class RetirementError(SAEDV441Error):pass
+class GovernanceError(SAEDV441Error):pass
+class EvidenceError(SAEDV441Error):pass
+class AuthorityError(SAEDV441Error):pass

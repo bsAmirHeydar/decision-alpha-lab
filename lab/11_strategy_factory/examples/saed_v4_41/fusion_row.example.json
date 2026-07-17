@@ -1,0 +1,25 @@
+{
+  "action": "RETIRE_CANDIDATE",
+  "alert_count": 8,
+  "automatic_live_side_effect": false,
+  "cell_id": "CELL_0128",
+  "context_id": "CTX_032",
+  "context_version": 4,
+  "critical_count": 8,
+  "decision_trace_hash": "c4d03208ab0260a87a92e03cb72718a223ddcf44dc910634fa6d0ee2137dbb1b",
+  "metric_ids": [
+    "CALIBRATION_ERROR",
+    "EXECUTION_COST_BPS",
+    "EXPECTED_SHORTFALL_ERROR",
+    "OOD_RATE",
+    "PSI_DRIFT",
+    "REALIZED_REGRET",
+    "REJECT_RATE",
+    "SUPPORT_RATIO"
+  ],
+  "model_generation": 4,
+  "namespace": "NS_08",
+  "score": 47.88426472,
+  "tenant_id": "TENANT_08",
+  "warning_count": 0
+}

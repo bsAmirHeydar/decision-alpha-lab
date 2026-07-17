@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "accepted_reference": {
+      "type": "boolean"
+    },
+    "external_gates_open": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "review_bundle_hash": {
+      "type": "string"
+    },
+    "review_bundle_id": {
+      "type": "string"
+    },
+    "review_id": {
+      "type": "string"
+    },
+    "review_set_hash": {
+      "type": "string"
+    },
+    "reviews": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "decision": {
+            "type": "string"
+          },
+          "evidence_hash": {
+            "type": "string"
+          },
+          "limitations": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "reviewer_id": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "signed": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "decision",
+          "evidence_hash",
+          "limitations",
+          "reviewer_id",
+          "role",
+          "signed"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "unresolved_findings": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "accepted_reference",
+    "external_gates_open",
+    "research_only",
+    "review_bundle_hash",
+    "review_bundle_id",
+    "review_id",
+    "review_set_hash",
+    "reviews",
+    "unresolved_findings"
+  ],
+  "title": "SAED V4-41 review_bundle",
+  "type": "object"
+}

@@ -1,0 +1,6 @@
+{
+  "edge_type": "DEPENDS_ON",
+  "source": "CELL:CELL_0001",
+  "target": "CONTEXT:CTX_001@1",
+  "tenant_id": "TENANT_01"
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "evidence_role": {
+      "type": "string"
+    },
+    "external": {
+      "type": "boolean"
+    },
+    "hash": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "evidence_role",
+    "external",
+    "hash",
+    "name"
+  ],
+  "title": "SAED V4-41 evidence_leaf",
+  "type": "object"
+}

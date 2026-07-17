@@ -1,0 +1,42 @@
+{
+  "allowed_next_work": [
+    "attach_actual_surveillance_telemetry",
+    "execute_metaeditor_and_mt5_retirement_drills",
+    "operate_alert_and_incident_runbooks",
+    "perform_broker_route_revocation_reconciliation",
+    "complete_external_sre_and_model_risk_approval",
+    "run_continuous_drift_degradation_and_retirement_governance"
+  ],
+  "certificate_hash": "96ef7727af237cfc86a06740a31936d8f537c77541df9645f87631c45bee2909",
+  "continuous_operations_required": true,
+  "forbidden_next_work": [
+    "inventing_new_roadmap_phase_to_bypass_external_gates",
+    "live_order_submission_without_signed_authority",
+    "capital_activation_without_authorization",
+    "reinstating_retired_artifact_without_new_qualification",
+    "silent_threshold_change",
+    "deleting_retirement_tombstone",
+    "claiming_external_evidence_from_synthetic_fixture"
+  ],
+  "handoff_hash": "4d0cf9e2cea7c1923aa95a0aeac06c26a204be01857f5bb998d263b99954e7b8",
+  "handoff_id": "v441_handoff_1570a6de4126f3c0e1e060c1",
+  "kind": "v4_41_program_closure_and_continuous_operations_handoff",
+  "next_phase": null,
+  "phase": "SAED_V4_41",
+  "production_authorized": false,
+  "program_state": "CONTINUOUS_OPERATIONS_AND_EXTERNAL_QUALIFICATION",
+  "release_hash": "bea9f28853a97ea8116237b3862ed05c41450f80a6f98e1b6c880d85d593a7c8",
+  "required_external_gates": [
+    "ACTUAL_PRODUCTION_TELEMETRY_BINDING",
+    "METAEDITOR_COMPILE_MATRIX",
+    "MT5_ROUTE_REVOCATION_REPLAY",
+    "BROKER_RETIREMENT_RECONCILIATION",
+    "INCIDENT_RUNBOOK_DRILL",
+    "RETIREMENT_AND_ROLLBACK_DRILL",
+    "KEY_CUSTODY_AND_SIGNING",
+    "INDEPENDENT_SRE_APPROVAL",
+    "INDEPENDENT_MODEL_RISK_APPROVAL"
+  ],
+  "research_only": true,
+  "roadmap_complete": true
+}

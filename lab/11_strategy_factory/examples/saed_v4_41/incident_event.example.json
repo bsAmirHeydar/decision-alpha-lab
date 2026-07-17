@@ -1,0 +1,13 @@
+{
+  "action": "RESTRICT",
+  "cell_id": "CELL_0121",
+  "event_hash": "50a84b9b631abcf167356f15ecc629e9d97c1a7fe9ba9af58dcb11f9da6794a9",
+  "event_id": "v441_incident_event_bf29a3de6e52898333a3d9fa",
+  "from_state": null,
+  "incident_id": "INC_CELL_0121",
+  "known_time": "2026-07-06T23:59:00Z",
+  "live_side_effect": false,
+  "ordinal": 0,
+  "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "to_state": "DETECTED"
+}

@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "all_verified": {
+      "type": "boolean"
+    },
+    "archive_manifest_hash": {
+      "type": "string"
+    },
+    "capital_delta": {
+      "type": "number"
+    },
+    "live_order_side_effects": {
+      "type": "integer"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "retired_count": {
+      "type": "integer"
+    },
+    "retirement_ledger_hash": {
+      "type": "string"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "archive_present": {
+            "type": "boolean"
+          },
+          "capital_delta": {
+            "type": "number"
+          },
+          "cell_id": {
+            "type": "string"
+          },
+          "new_reference_routing_allowed": {
+            "type": "boolean"
+          },
+          "order_delta": {
+            "type": "integer"
+          },
+          "reinstatement_allowed": {
+            "type": "boolean"
+          },
+          "route_revoked": {
+            "type": "boolean"
+          },
+          "tombstone_present": {
+            "type": "boolean"
+          },
+          "verified": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "archive_present",
+          "capital_delta",
+          "cell_id",
+          "new_reference_routing_allowed",
+          "order_delta",
+          "reinstatement_allowed",
+          "route_revoked",
+          "tombstone_present",
+          "verified"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "verification_hash": {
+      "type": "string"
+    },
+    "verification_id": {
+      "type": "string"
+    },
+    "verified_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "all_verified",
+    "archive_manifest_hash",
+    "capital_delta",
+    "live_order_side_effects",
+    "research_only",
+    "retired_count",
+    "retirement_ledger_hash",
+    "rows",
+    "verification_hash",
+    "verification_id",
+    "verified_count"
+  ],
+  "title": "SAED V4-41 verification",
+  "type": "object"
+}

@@ -1,0 +1,186 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "action_thresholds": {
+      "additionalProperties": false,
+      "properties": {
+        "quarantine": {
+          "type": "number"
+        },
+        "restrict": {
+          "type": "number"
+        },
+        "retire_candidate": {
+          "type": "number"
+        },
+        "watch": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "quarantine",
+        "restrict",
+        "retire_candidate",
+        "watch"
+      ],
+      "type": "object"
+    },
+    "automatic_live_action_allowed": {
+      "type": "boolean"
+    },
+    "frozen_policy_hash": {
+      "type": "string"
+    },
+    "frozen_policy_id": {
+      "type": "string"
+    },
+    "metrics": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "critical_threshold": {
+            "type": "number"
+          },
+          "description": {
+            "type": "string"
+          },
+          "detectors": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "direction": {
+            "type": "string"
+          },
+          "metric_id": {
+            "type": "string"
+          },
+          "minimum_samples": {
+            "type": "integer"
+          },
+          "missing_action": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "warn_threshold": {
+            "type": "number"
+          },
+          "weight": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "critical_threshold",
+          "description",
+          "detectors",
+          "direction",
+          "metric_id",
+          "minimum_samples",
+          "missing_action",
+          "scope",
+          "warn_threshold",
+          "weight"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "minimum_metric_coverage_bps": {
+      "type": "integer"
+    },
+    "minimum_window_coverage_bps": {
+      "type": "integer"
+    },
+    "persistence_windows": {
+      "type": "integer"
+    },
+    "policy_content_hash": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "reinstatement_requires_new_qualification": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "retirement_approval_roles": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "retirement_min_approvals": {
+      "type": "integer"
+    },
+    "retirement_requires_replacement": {
+      "type": "boolean"
+    },
+    "threshold_changes_require_new_version": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "string"
+    },
+    "windows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "end_known_time": {
+            "type": "string"
+          },
+          "evidence_role": {
+            "type": "string"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "start_known_time": {
+            "type": "string"
+          },
+          "window_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "end_known_time",
+          "evidence_role",
+          "ordinal",
+          "start_known_time",
+          "window_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "action_thresholds",
+    "automatic_live_action_allowed",
+    "frozen_policy_hash",
+    "frozen_policy_id",
+    "metrics",
+    "minimum_metric_coverage_bps",
+    "minimum_window_coverage_bps",
+    "persistence_windows",
+    "policy_content_hash",
+    "policy_id",
+    "reinstatement_requires_new_qualification",
+    "research_only",
+    "retirement_approval_roles",
+    "retirement_min_approvals",
+    "retirement_requires_replacement",
+    "threshold_changes_require_new_version",
+    "version",
+    "windows"
+  ],
+  "title": "SAED V4-41 policy",
+  "type": "object"
+}

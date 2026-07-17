@@ -1,0 +1,208 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "action_counts": {
+      "additionalProperties": false,
+      "properties": {
+        "CONTINUE": {
+          "type": "integer"
+        },
+        "QUARANTINE": {
+          "type": "integer"
+        },
+        "RESTRICT": {
+          "type": "integer"
+        },
+        "RETIRE_CANDIDATE": {
+          "type": "integer"
+        },
+        "WATCH": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "CONTINUE",
+        "QUARANTINE",
+        "RESTRICT",
+        "RETIRE_CANDIDATE",
+        "WATCH"
+      ],
+      "type": "object"
+    },
+    "automatic_live_action": {
+      "type": "boolean"
+    },
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "cell_count": {
+      "type": "integer"
+    },
+    "detection_hash": {
+      "type": "string"
+    },
+    "fusion_hash": {
+      "type": "string"
+    },
+    "fusion_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "rows": {
+      "items": {
+        "anyOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "alert_count": {
+                "type": "integer"
+              },
+              "automatic_live_side_effect": {
+                "type": "boolean"
+              },
+              "cell_id": {
+                "type": "string"
+              },
+              "context_id": {
+                "type": "string"
+              },
+              "context_version": {
+                "type": "integer"
+              },
+              "critical_count": {
+                "type": "integer"
+              },
+              "decision_trace_hash": {
+                "type": "string"
+              },
+              "metric_ids": {
+                "items": {},
+                "type": "array"
+              },
+              "model_generation": {
+                "type": "integer"
+              },
+              "namespace": {
+                "type": "string"
+              },
+              "score": {
+                "type": "number"
+              },
+              "tenant_id": {
+                "type": "string"
+              },
+              "warning_count": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "action",
+              "alert_count",
+              "automatic_live_side_effect",
+              "cell_id",
+              "context_id",
+              "context_version",
+              "critical_count",
+              "decision_trace_hash",
+              "metric_ids",
+              "model_generation",
+              "namespace",
+              "score",
+              "tenant_id",
+              "warning_count"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "alert_count": {
+                "type": "integer"
+              },
+              "automatic_live_side_effect": {
+                "type": "boolean"
+              },
+              "cell_id": {
+                "type": "string"
+              },
+              "context_id": {
+                "type": "string"
+              },
+              "context_version": {
+                "type": "integer"
+              },
+              "critical_count": {
+                "type": "integer"
+              },
+              "decision_trace_hash": {
+                "type": "string"
+              },
+              "metric_ids": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "model_generation": {
+                "type": "integer"
+              },
+              "namespace": {
+                "type": "string"
+              },
+              "score": {
+                "type": "number"
+              },
+              "tenant_id": {
+                "type": "string"
+              },
+              "warning_count": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "action",
+              "alert_count",
+              "automatic_live_side_effect",
+              "cell_id",
+              "context_id",
+              "context_version",
+              "critical_count",
+              "decision_trace_hash",
+              "metric_ids",
+              "model_generation",
+              "namespace",
+              "score",
+              "tenant_id",
+              "warning_count"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "action_counts",
+    "automatic_live_action",
+    "baseline_preserved",
+    "cell_count",
+    "detection_hash",
+    "fusion_hash",
+    "fusion_id",
+    "research_only",
+    "rows"
+  ],
+  "title": "SAED V4-41 fusion",
+  "type": "object"
+}

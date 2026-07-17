@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "actual_broker_route_revocation_complete": {
+      "type": "boolean"
+    },
+    "actual_external_surveillance_evidence_complete": {
+      "type": "boolean"
+    },
+    "actual_metaeditor_matrix_complete": {
+      "type": "boolean"
+    },
+    "actual_operator_runbook_drill_complete": {
+      "type": "boolean"
+    },
+    "actual_retirement_drill_complete": {
+      "type": "boolean"
+    },
+    "automatic_live_action_allowed": {
+      "type": "boolean"
+    },
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "continuous_surveillance_reference_ready": {
+      "type": "boolean"
+    },
+    "dashboard_hash": {
+      "type": "string"
+    },
+    "evidence_hash": {
+      "type": "string"
+    },
+    "internal_reference_gates_passed": {
+      "type": "boolean"
+    },
+    "live_order_submission_allowed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "release_hash": {
+      "type": "string"
+    },
+    "release_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "retirement_reference_ready": {
+      "type": "boolean"
+    },
+    "review_hash": {
+      "type": "string"
+    },
+    "roadmap_phase_complete": {
+      "type": "boolean"
+    },
+    "saed_v4_reference_program_complete": {
+      "type": "boolean"
+    },
+    "status": {
+      "type": "string"
+    },
+    "verification_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "actual_broker_route_revocation_complete",
+    "actual_external_surveillance_evidence_complete",
+    "actual_metaeditor_matrix_complete",
+    "actual_operator_runbook_drill_complete",
+    "actual_retirement_drill_complete",
+    "automatic_live_action_allowed",
+    "capital_activation_allowed",
+    "claim_ceiling",
+    "continuous_surveillance_reference_ready",
+    "dashboard_hash",
+    "evidence_hash",
+    "internal_reference_gates_passed",
+    "live_order_submission_allowed",
+    "phase",
+    "production_authorized",
+    "release_hash",
+    "release_id",
+    "research_only",
+    "retirement_reference_ready",
+    "review_hash",
+    "roadmap_phase_complete",
+    "saed_v4_reference_program_complete",
+    "status",
+    "verification_hash"
+  ],
+  "title": "SAED V4-41 release",
+  "type": "object"
+}

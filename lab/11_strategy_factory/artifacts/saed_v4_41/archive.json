@@ -1,0 +1,23 @@
+{
+  "all_tombstones_covered": true,
+  "archive_manifest_hash": "5d7325872b0b2f8bf13f69f25457f8dc9338abf43cf95ace9964d93c97f6289d",
+  "archive_manifest_id": "v441_archive_0ebce04c6da1a7acf48bf1aa",
+  "immutable": true,
+  "package_count": 1,
+  "packages": [
+    {
+      "archive_hash": "615b53096039d3f9881cbed3c4e503f33f0ceabf1fdc09c93950ea2c7d463536",
+      "archive_id": "ARCHIVE_CELL_0128",
+      "cell_id": "CELL_0128",
+      "deletion_allowed": false,
+      "evidence_merkle_root": "9258a708297dcfa31b0b7dade516dc7a8c6760b64a89be7bda6f7fa5eab4045c",
+      "legal_hold": true,
+      "mutable": false,
+      "reinstatement_authority": false,
+      "retention_class": "INDEFINITE_MODEL_RISK_RECORD",
+      "tombstone_hash": "ba6bb81d50c2fb1acc5fd08d866f4128575938e3bd34fee1423d01f3c6da2334"
+    }
+  ],
+  "research_only": true,
+  "retirement_ledger_hash": "44ddde1d0c9cc7db4c8a4970caa2e97de9b5234b879b5ee7d42463243b6c5fa7"
+}

@@ -1,0 +1,11 @@
+{
+  "decision": "ACCEPT_REFERENCE",
+  "evidence_hash": "436755872c4f6629ed5eee21e4b9a09857ce62106498f7771a2cf134fc1621f1",
+  "limitations": [
+    "SYNTHETIC_REFERENCE_ONLY",
+    "EXTERNAL_OPERATIONS_GATES_OPEN"
+  ],
+  "reviewer_id": "REVIEWER_DATA_GOVERNANCE",
+  "role": "DATA_GOVERNANCE",
+  "signed": true
+}

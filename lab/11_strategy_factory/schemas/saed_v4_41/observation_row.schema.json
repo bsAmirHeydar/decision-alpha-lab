@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "baseline_value": {
+      "type": "number"
+    },
+    "cell_id": {
+      "type": "string"
+    },
+    "evidence_role": {
+      "type": "string"
+    },
+    "future_suffix_used": {
+      "type": "boolean"
+    },
+    "known_time": {
+      "type": "string"
+    },
+    "metric_id": {
+      "type": "string"
+    },
+    "namespace": {
+      "type": "string"
+    },
+    "observation_id": {
+      "type": "string"
+    },
+    "sample_count": {
+      "type": "integer"
+    },
+    "source_hash": {
+      "type": "string"
+    },
+    "synthetic_fixture": {
+      "type": "boolean"
+    },
+    "tenant_id": {
+      "type": "string"
+    },
+    "value": {
+      "type": "number"
+    },
+    "window_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "baseline_value",
+    "cell_id",
+    "evidence_role",
+    "future_suffix_used",
+    "known_time",
+    "metric_id",
+    "namespace",
+    "observation_id",
+    "sample_count",
+    "source_hash",
+    "synthetic_fixture",
+    "tenant_id",
+    "value",
+    "window_id"
+  ],
+  "title": "SAED V4-41 observation_row",
+  "type": "object"
+}

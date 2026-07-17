@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "approval_id": {
+      "type": "string"
+    },
+    "approved": {
+      "type": "boolean"
+    },
+    "cell_id": {
+      "type": "string"
+    },
+    "evidence_hash": {
+      "type": "string"
+    },
+    "known_time": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "synthetic_fixture": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "approval_id",
+    "approved",
+    "cell_id",
+    "evidence_hash",
+    "known_time",
+    "role",
+    "synthetic_fixture"
+  ],
+  "title": "SAED V4-41 retirement_approval",
+  "type": "object"
+}

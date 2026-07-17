@@ -1,0 +1,9 @@
+{
+  "approval_id": "APP_CELL_0128_MODEL_RISK",
+  "approved": true,
+  "cell_id": "CELL_0128",
+  "evidence_hash": "96af02f3a8b7e486639c5b03d2147b780762d6b54d42995eb9545d4939061557",
+  "known_time": "2026-07-06T23:59:00Z",
+  "role": "MODEL_RISK",
+  "synthetic_fixture": true
+}

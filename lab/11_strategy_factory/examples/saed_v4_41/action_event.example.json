@@ -1,0 +1,19 @@
+{
+  "action_id": "ACT_CELL_0001",
+  "approved_scope": "SYNTHETIC_REFERENCE_ONLY",
+  "automatic_live_side_effect": false,
+  "baseline_preserved": true,
+  "capital_effect": 0.0,
+  "cell_id": "CELL_0001",
+  "decision": "CONTINUE",
+  "effect": "NO_CHANGE",
+  "event_hash": "daf9c129a8eb177173b02ab0d61fabda8398032a6cce3ab05c0077f2c8de2baa",
+  "event_id": "v441_action_event_09a822c27d79fcdcf074c5a6",
+  "known_time": "2026-07-06T23:59:00Z",
+  "namespace": "NS_01",
+  "order_effect": 0,
+  "ordinal": 0,
+  "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "target_state": "QUALIFIED_REFERENCE",
+  "tenant_id": "TENANT_01"
+}

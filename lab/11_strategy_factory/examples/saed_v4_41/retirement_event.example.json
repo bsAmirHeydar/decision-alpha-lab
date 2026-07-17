@@ -1,0 +1,21 @@
+{
+  "approved_roles": [
+    "DATA_GOVERNANCE",
+    "MODEL_RISK",
+    "SECURITY",
+    "SRE",
+    "UCEE_AUTHORITY"
+  ],
+  "capital_effect": 0.0,
+  "cell_id": "CELL_0128",
+  "event_hash": "2e48d8e613def4ec0e2ec738835df68fc985d500d059bdaa5474c11cee1729b3",
+  "event_id": "v441_retirement_event_35fce6e55f9c365dcd27d1b0",
+  "from_state": null,
+  "known_time": "2026-07-06T23:59:00Z",
+  "live_order_side_effect": false,
+  "ordinal": 0,
+  "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "replacement_cell_id": "CELL_0008",
+  "retirement_id": "RET_CELL_0128",
+  "to_state": "PROPOSED"
+}

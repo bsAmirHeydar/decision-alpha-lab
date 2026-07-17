@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "immutable": {
+      "type": "boolean"
+    },
+    "node_id": {
+      "type": "string"
+    },
+    "node_type": {
+      "type": "string"
+    },
+    "tenant_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "immutable",
+    "node_id",
+    "node_type",
+    "tenant_id"
+  ],
+  "title": "SAED V4-41 dependency_node",
+  "type": "object"
+}

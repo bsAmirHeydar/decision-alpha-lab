@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "archive_hash": {
+      "type": "string"
+    },
+    "archive_id": {
+      "type": "string"
+    },
+    "cell_id": {
+      "type": "string"
+    },
+    "deletion_allowed": {
+      "type": "boolean"
+    },
+    "evidence_merkle_root": {
+      "type": "string"
+    },
+    "legal_hold": {
+      "type": "boolean"
+    },
+    "mutable": {
+      "type": "boolean"
+    },
+    "reinstatement_authority": {
+      "type": "boolean"
+    },
+    "retention_class": {
+      "type": "string"
+    },
+    "tombstone_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "archive_hash",
+    "archive_id",
+    "cell_id",
+    "deletion_allowed",
+    "evidence_merkle_root",
+    "legal_hold",
+    "mutable",
+    "reinstatement_authority",
+    "retention_class",
+    "tombstone_hash"
+  ],
+  "title": "SAED V4-41 archive_package",
+  "type": "object"
+}

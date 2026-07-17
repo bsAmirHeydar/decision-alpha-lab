@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "actual_broker_reconciliation_verified": {
+      "type": "boolean"
+    },
+    "actual_external_surveillance_evidence_complete": {
+      "type": "boolean"
+    },
+    "actual_mql5_route_revocation_verified": {
+      "type": "boolean"
+    },
+    "actual_retirement_drill_complete": {
+      "type": "boolean"
+    },
+    "evidence_bundle_hash": {
+      "type": "string"
+    },
+    "evidence_bundle_id": {
+      "type": "string"
+    },
+    "evidence_merkle_root": {
+      "type": "string"
+    },
+    "leaf_count": {
+      "type": "integer"
+    },
+    "leaves": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "evidence_role": {
+            "type": "string"
+          },
+          "external": {
+            "type": "boolean"
+          },
+          "hash": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "evidence_role",
+          "external",
+          "hash",
+          "name"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "synthetic_reference_complete": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "actual_broker_reconciliation_verified",
+    "actual_external_surveillance_evidence_complete",
+    "actual_mql5_route_revocation_verified",
+    "actual_retirement_drill_complete",
+    "evidence_bundle_hash",
+    "evidence_bundle_id",
+    "evidence_merkle_root",
+    "leaf_count",
+    "leaves",
+    "phase",
+    "research_only",
+    "synthetic_reference_complete"
+  ],
+  "title": "SAED V4-41 evidence_bundle",
+  "type": "object"
+}

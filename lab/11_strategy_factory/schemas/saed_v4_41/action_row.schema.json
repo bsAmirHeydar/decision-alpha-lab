@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "action_id": {
+      "type": "string"
+    },
+    "approved_scope": {
+      "type": "string"
+    },
+    "automatic_live_side_effect": {
+      "type": "boolean"
+    },
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "capital_effect": {
+      "type": "number"
+    },
+    "cell_id": {
+      "type": "string"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "effect": {
+      "type": "string"
+    },
+    "known_time": {
+      "type": "string"
+    },
+    "namespace": {
+      "type": "string"
+    },
+    "order_effect": {
+      "type": "integer"
+    },
+    "target_state": {
+      "type": "string"
+    },
+    "tenant_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "action_id",
+    "approved_scope",
+    "automatic_live_side_effect",
+    "baseline_preserved",
+    "capital_effect",
+    "cell_id",
+    "decision",
+    "effect",
+    "known_time",
+    "namespace",
+    "order_effect",
+    "target_state",
+    "tenant_id"
+  ],
+  "title": "SAED V4-41 action_row",
+  "type": "object"
+}

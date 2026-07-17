@@ -1,0 +1,65 @@
+{
+  "action_counts": {
+    "CONTINUE": 116,
+    "QUARANTINE": 3,
+    "RESTRICT": 3,
+    "RETIRE_CANDIDATE": 2,
+    "WATCH": 4
+  },
+  "alert_count": 44,
+  "capital_delta": 0.0,
+  "coverage_bps": 10000,
+  "dashboard_hash": "d49fbd268340f38efb5901c81493ec6f86fce83dd266d0993ef73438e9d86dca",
+  "dashboard_id": "v441_dashboard_52609c06feeddca4b16b6a6d",
+  "fleet_cell_count": 128,
+  "future_suffix_used": false,
+  "incident_count": 8,
+  "live_order_side_effects": 0,
+  "metric_count": 12,
+  "observation_count": 9216,
+  "pending_retirement_count": 1,
+  "phase": "SAED_V4_41",
+  "research_only": true,
+  "retired_count": 1,
+  "retirement_candidate_count": 2,
+  "tenant_actions": {
+    "TENANT_01": {
+      "CONTINUE": 15,
+      "RESTRICT": 1
+    },
+    "TENANT_02": {
+      "CONTINUE": 15,
+      "RESTRICT": 1
+    },
+    "TENANT_03": {
+      "CONTINUE": 15,
+      "RESTRICT": 1
+    },
+    "TENANT_04": {
+      "CONTINUE": 15,
+      "QUARANTINE": 1
+    },
+    "TENANT_05": {
+      "CONTINUE": 14,
+      "QUARANTINE": 1,
+      "WATCH": 1
+    },
+    "TENANT_06": {
+      "CONTINUE": 14,
+      "QUARANTINE": 1,
+      "WATCH": 1
+    },
+    "TENANT_07": {
+      "CONTINUE": 14,
+      "RETIRE_CANDIDATE": 1,
+      "WATCH": 1
+    },
+    "TENANT_08": {
+      "CONTINUE": 14,
+      "RETIRE_CANDIDATE": 1,
+      "WATCH": 1
+    }
+  },
+  "unknown_cells": 0,
+  "window_count": 6
+}

@@ -1,0 +1,7 @@
+{
+  "approval_count": 3,
+  "cell_id": "CELL_0127",
+  "reason": "INSUFFICIENT_APPROVAL_OR_REPLACEMENT",
+  "replacement_cell_id": "CELL_0007",
+  "required": 4
+}

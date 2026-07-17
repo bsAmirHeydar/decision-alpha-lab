@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "boundary_hash": {
+      "type": "string"
+    },
+    "boundary_id": {
+      "type": "string"
+    },
+    "failure_action": {
+      "type": "string"
+    },
+    "may_activate_capital": {
+      "type": "boolean"
+    },
+    "may_archive_reference_evidence": {
+      "type": "boolean"
+    },
+    "may_change_thresholds_silently": {
+      "type": "boolean"
+    },
+    "may_claim_external_surveillance_evidence_without_attachment": {
+      "type": "boolean"
+    },
+    "may_claim_production_authorization": {
+      "type": "boolean"
+    },
+    "may_compile_retirement_candidates": {
+      "type": "boolean"
+    },
+    "may_cross_tenant_action": {
+      "type": "boolean"
+    },
+    "may_detect_drift": {
+      "type": "boolean"
+    },
+    "may_generate_mql5_surveillance_mirror": {
+      "type": "boolean"
+    },
+    "may_ingest_synthetic_surveillance": {
+      "type": "boolean"
+    },
+    "may_mutate_immutable_runtime": {
+      "type": "boolean"
+    },
+    "may_mutate_ucee": {
+      "type": "boolean"
+    },
+    "may_open_reference_incidents": {
+      "type": "boolean"
+    },
+    "may_quarantine_reference_cells": {
+      "type": "boolean"
+    },
+    "may_reinstate_without_new_qualification": {
+      "type": "boolean"
+    },
+    "may_restrict_reference_routes": {
+      "type": "boolean"
+    },
+    "may_retire_synthetic_reference_cells": {
+      "type": "boolean"
+    },
+    "may_submit_live_order": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "boundary_hash",
+    "boundary_id",
+    "failure_action",
+    "may_activate_capital",
+    "may_archive_reference_evidence",
+    "may_change_thresholds_silently",
+    "may_claim_external_surveillance_evidence_without_attachment",
+    "may_claim_production_authorization",
+    "may_compile_retirement_candidates",
+    "may_cross_tenant_action",
+    "may_detect_drift",
+    "may_generate_mql5_surveillance_mirror",
+    "may_ingest_synthetic_surveillance",
+    "may_mutate_immutable_runtime",
+    "may_mutate_ucee",
+    "may_open_reference_incidents",
+    "may_quarantine_reference_cells",
+    "may_reinstate_without_new_qualification",
+    "may_restrict_reference_routes",
+    "may_retire_synthetic_reference_cells",
+    "may_submit_live_order",
+    "phase",
+    "research_only"
+  ],
+  "title": "SAED V4-41 authority",
+  "type": "object"
+}

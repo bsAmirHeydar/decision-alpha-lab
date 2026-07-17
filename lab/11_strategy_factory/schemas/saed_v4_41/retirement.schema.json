@@ -1,0 +1,320 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "all_retired_routes_revoked": {
+      "type": "boolean"
+    },
+    "candidate_count": {
+      "type": "integer"
+    },
+    "capital_delta": {
+      "type": "number"
+    },
+    "events": {
+      "items": {
+        "anyOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "approved_roles": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "capital_effect": {
+                "type": "number"
+              },
+              "cell_id": {
+                "type": "string"
+              },
+              "event_hash": {
+                "type": "string"
+              },
+              "event_id": {
+                "type": "string"
+              },
+              "from_state": {
+                "type": "null"
+              },
+              "known_time": {
+                "type": "string"
+              },
+              "live_order_side_effect": {
+                "type": "boolean"
+              },
+              "ordinal": {
+                "type": "integer"
+              },
+              "previous_hash": {
+                "type": "string"
+              },
+              "replacement_cell_id": {
+                "type": "string"
+              },
+              "retirement_id": {
+                "type": "string"
+              },
+              "to_state": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "approved_roles",
+              "capital_effect",
+              "cell_id",
+              "event_hash",
+              "event_id",
+              "from_state",
+              "known_time",
+              "live_order_side_effect",
+              "ordinal",
+              "previous_hash",
+              "replacement_cell_id",
+              "retirement_id",
+              "to_state"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "approved_roles": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "capital_effect": {
+                "type": "number"
+              },
+              "cell_id": {
+                "type": "string"
+              },
+              "event_hash": {
+                "type": "string"
+              },
+              "event_id": {
+                "type": "string"
+              },
+              "from_state": {
+                "type": "string"
+              },
+              "known_time": {
+                "type": "string"
+              },
+              "live_order_side_effect": {
+                "type": "boolean"
+              },
+              "ordinal": {
+                "type": "integer"
+              },
+              "previous_hash": {
+                "type": "string"
+              },
+              "replacement_cell_id": {
+                "type": "string"
+              },
+              "retirement_id": {
+                "type": "string"
+              },
+              "to_state": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "approved_roles",
+              "capital_effect",
+              "cell_id",
+              "event_hash",
+              "event_id",
+              "from_state",
+              "known_time",
+              "live_order_side_effect",
+              "ordinal",
+              "previous_hash",
+              "replacement_cell_id",
+              "retirement_id",
+              "to_state"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "type": "array"
+    },
+    "fusion_hash": {
+      "type": "string"
+    },
+    "live_order_side_effects": {
+      "type": "integer"
+    },
+    "pending_candidates": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "approval_count": {
+            "type": "integer"
+          },
+          "cell_id": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "replacement_cell_id": {
+            "type": "string"
+          },
+          "required": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "approval_count",
+          "cell_id",
+          "reason",
+          "replacement_cell_id",
+          "required"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "pending_count": {
+      "type": "integer"
+    },
+    "policy_hash": {
+      "type": "string"
+    },
+    "reinstatement_without_requalification": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "retired_count": {
+      "type": "integer"
+    },
+    "retired_records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "approved_roles": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "capital_delta": {
+            "type": "number"
+          },
+          "cell_id": {
+            "type": "string"
+          },
+          "context_id": {
+            "type": "string"
+          },
+          "context_version": {
+            "type": "integer"
+          },
+          "final_state": {
+            "type": "string"
+          },
+          "model_generation": {
+            "type": "integer"
+          },
+          "namespace": {
+            "type": "string"
+          },
+          "order_delta": {
+            "type": "integer"
+          },
+          "reinstatement_allowed": {
+            "type": "boolean"
+          },
+          "replacement_cell_id": {
+            "type": "string"
+          },
+          "requires_new_qualification_for_successor": {
+            "type": "boolean"
+          },
+          "retired_at": {
+            "type": "string"
+          },
+          "retirement_id": {
+            "type": "string"
+          },
+          "route_revoked": {
+            "type": "boolean"
+          },
+          "runtime_bundle_hash": {
+            "type": "string"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          },
+          "tenant_id": {
+            "type": "string"
+          },
+          "tombstone_hash": {
+            "type": "string"
+          },
+          "treatment_universe_hash": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "approved_roles",
+          "capital_delta",
+          "cell_id",
+          "context_id",
+          "context_version",
+          "final_state",
+          "model_generation",
+          "namespace",
+          "order_delta",
+          "reinstatement_allowed",
+          "replacement_cell_id",
+          "requires_new_qualification_for_successor",
+          "retired_at",
+          "retirement_id",
+          "route_revoked",
+          "runtime_bundle_hash",
+          "synthetic_fixture",
+          "tenant_id",
+          "tombstone_hash",
+          "treatment_universe_hash"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "retirement_ledger_hash": {
+      "type": "string"
+    },
+    "retirement_ledger_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "all_retired_routes_revoked",
+    "candidate_count",
+    "capital_delta",
+    "events",
+    "fusion_hash",
+    "live_order_side_effects",
+    "pending_candidates",
+    "pending_count",
+    "policy_hash",
+    "reinstatement_without_requalification",
+    "research_only",
+    "retired_count",
+    "retired_records",
+    "retirement_ledger_hash",
+    "retirement_ledger_id"
+  ],
+  "title": "SAED V4-41 retirement",
+  "type": "object"
+}

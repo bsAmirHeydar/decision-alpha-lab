@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "actual_external_operations_evidence_complete": {
+      "type": "boolean"
+    },
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "evidence_hash": {
+      "type": "string"
+    },
+    "live_order_submission_allowed": {
+      "type": "boolean"
+    },
+    "next_phase": {
+      "type": "null"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "program_state": {
+      "type": "string"
+    },
+    "release_hash": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "retirement_reference_ready": {
+      "type": "boolean"
+    },
+    "saed_v4_reference_program_complete": {
+      "type": "boolean"
+    },
+    "status": {
+      "type": "string"
+    },
+    "surveillance_reference_ready": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "actual_external_operations_evidence_complete",
+    "capital_activation_allowed",
+    "certificate_hash",
+    "certificate_id",
+    "claim_ceiling",
+    "evidence_hash",
+    "live_order_submission_allowed",
+    "next_phase",
+    "phase",
+    "production_authorized",
+    "program_state",
+    "release_hash",
+    "research_only",
+    "retirement_reference_ready",
+    "saed_v4_reference_program_complete",
+    "status",
+    "surveillance_reference_ready"
+  ],
+  "title": "SAED V4-41 program_certificate",
+  "type": "object"
+}

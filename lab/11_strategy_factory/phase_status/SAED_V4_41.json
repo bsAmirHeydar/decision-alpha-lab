@@ -1,0 +1,10 @@
+{
+  "actual_external_operations_passed": false,
+  "continuous_surveillance_reference_passed": true,
+  "phase": "SAED_V4_41",
+  "production_authorized": false,
+  "qa_passed": true,
+  "retirement_reference_passed": true,
+  "saed_v4_numbered_roadmap_complete": true,
+  "status": "accepted_reference_roadmap_complete_external_operations_gates_open"
+}

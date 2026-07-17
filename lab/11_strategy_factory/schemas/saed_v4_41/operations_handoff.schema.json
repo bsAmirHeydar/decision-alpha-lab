@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "allowed_next_work": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "continuous_operations_required": {
+      "type": "boolean"
+    },
+    "forbidden_next_work": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "next_phase": {
+      "type": "null"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "program_state": {
+      "type": "string"
+    },
+    "release_hash": {
+      "type": "string"
+    },
+    "required_external_gates": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "roadmap_complete": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "allowed_next_work",
+    "certificate_hash",
+    "continuous_operations_required",
+    "forbidden_next_work",
+    "handoff_hash",
+    "handoff_id",
+    "kind",
+    "next_phase",
+    "phase",
+    "production_authorized",
+    "program_state",
+    "release_hash",
+    "required_external_gates",
+    "research_only",
+    "roadmap_complete"
+  ],
+  "title": "SAED V4-41 operations_handoff",
+  "type": "object"
+}

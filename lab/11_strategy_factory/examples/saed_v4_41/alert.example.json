@@ -1,0 +1,12 @@
+{
+  "alert_id": "ALERT_CELL_0117_CALIBRATION_ERROR",
+  "cell_id": "CELL_0117",
+  "future_suffix_used": false,
+  "known_time": "2026-07-06T23:59:00Z",
+  "metric_id": "CALIBRATION_ERROR",
+  "reason": "PERSISTENT_WARNING_BREACH",
+  "severity": "WARNING",
+  "synthetic_fixture": true,
+  "trailing_breach_windows": 3,
+  "weighted_score": 1.28
+}

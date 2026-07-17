@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "critical_threshold": {
+      "type": "number"
+    },
+    "description": {
+      "type": "string"
+    },
+    "detectors": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "direction": {
+      "type": "string"
+    },
+    "metric_id": {
+      "type": "string"
+    },
+    "minimum_samples": {
+      "type": "integer"
+    },
+    "missing_action": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "string"
+    },
+    "warn_threshold": {
+      "type": "number"
+    },
+    "weight": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "critical_threshold",
+    "description",
+    "detectors",
+    "direction",
+    "metric_id",
+    "minimum_samples",
+    "missing_action",
+    "scope",
+    "warn_threshold",
+    "weight"
+  ],
+  "title": "SAED V4-41 metric_spec",
+  "type": "object"
+}

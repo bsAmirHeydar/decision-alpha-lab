@@ -1,0 +1,19 @@
+{
+  "actual_external_operations_evidence_complete": false,
+  "capital_activation_allowed": false,
+  "certificate_hash": "96ef7727af237cfc86a06740a31936d8f537c77541df9645f87631c45bee2909",
+  "certificate_id": "v441_certificate_5200f8e190b967a92811acc9",
+  "claim_ceiling": "deterministic synthetic continuous-surveillance, incident-containment and retirement reference only",
+  "evidence_hash": "436755872c4f6629ed5eee21e4b9a09857ce62106498f7771a2cf134fc1621f1",
+  "live_order_submission_allowed": false,
+  "next_phase": null,
+  "phase": "SAED_V4_41",
+  "production_authorized": false,
+  "program_state": "REFERENCE_ROADMAP_COMPLETE_CONTINUOUS_OPERATIONS_REQUIRED",
+  "release_hash": "bea9f28853a97ea8116237b3862ed05c41450f80a6f98e1b6c880d85d593a7c8",
+  "research_only": true,
+  "retirement_reference_ready": true,
+  "saed_v4_reference_program_complete": true,
+  "status": "ACCEPTED_REFERENCE_PROGRAM_ROADMAP_COMPLETE_EXTERNAL_OPERATIONS_GATES_OPEN",
+  "surveillance_reference_ready": true
+}

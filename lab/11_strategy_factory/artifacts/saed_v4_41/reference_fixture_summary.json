@@ -1,0 +1,19 @@
+{
+  "action_counts": {
+    "CONTINUE": 116,
+    "QUARANTINE": 3,
+    "RESTRICT": 3,
+    "RETIRE_CANDIDATE": 2,
+    "WATCH": 4
+  },
+  "cell_count": 128,
+  "metric_count": 12,
+  "observation_count": 9216,
+  "pending_retirement_count": 1,
+  "phase": "SAED_V4_41",
+  "production_authorized": false,
+  "program_complete_reference": true,
+  "retired_count": 1,
+  "retirement_candidate_count": 2,
+  "window_count": 6
+}

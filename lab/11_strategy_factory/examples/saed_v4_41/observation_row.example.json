@@ -1,0 +1,16 @@
+{
+  "baseline_value": 0.03,
+  "cell_id": "CELL_0001",
+  "evidence_role": "SYNTHETIC_REFERENCE_SURVEILLANCE",
+  "future_suffix_used": false,
+  "known_time": "2026-07-01T23:59:00Z",
+  "metric_id": "CALIBRATION_ERROR",
+  "namespace": "NS_01",
+  "observation_id": "OBS_CELL_0001_CALIBRATION_ERROR_W01",
+  "sample_count": 1000,
+  "source_hash": "fe5c6f02847c84d638a44fdde7f5e701e68232c0dc0d4d148412bc41f5e31038",
+  "synthetic_fixture": true,
+  "tenant_id": "TENANT_01",
+  "value": 0.03,
+  "window_id": "W01"
+}

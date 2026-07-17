@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "approved_roles": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "capital_effect": {
+      "type": "number"
+    },
+    "cell_id": {
+      "type": "string"
+    },
+    "event_hash": {
+      "type": "string"
+    },
+    "event_id": {
+      "type": "string"
+    },
+    "from_state": {
+      "type": "null"
+    },
+    "known_time": {
+      "type": "string"
+    },
+    "live_order_side_effect": {
+      "type": "boolean"
+    },
+    "ordinal": {
+      "type": "integer"
+    },
+    "previous_hash": {
+      "type": "string"
+    },
+    "replacement_cell_id": {
+      "type": "string"
+    },
+    "retirement_id": {
+      "type": "string"
+    },
+    "to_state": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "approved_roles",
+    "capital_effect",
+    "cell_id",
+    "event_hash",
+    "event_id",
+    "from_state",
+    "known_time",
+    "live_order_side_effect",
+    "ordinal",
+    "previous_hash",
+    "replacement_cell_id",
+    "retirement_id",
+    "to_state"
+  ],
+  "title": "SAED V4-41 retirement_event",
+  "type": "object"
+}

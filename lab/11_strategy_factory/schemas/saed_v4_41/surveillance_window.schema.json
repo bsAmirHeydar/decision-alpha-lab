@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "end_known_time": {
+      "type": "string"
+    },
+    "evidence_role": {
+      "type": "string"
+    },
+    "ordinal": {
+      "type": "integer"
+    },
+    "start_known_time": {
+      "type": "string"
+    },
+    "window_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "end_known_time",
+    "evidence_role",
+    "ordinal",
+    "start_known_time",
+    "window_id"
+  ],
+  "title": "SAED V4-41 surveillance_window",
+  "type": "object"
+}

@@ -1,0 +1,12 @@
+{
+  "cell_id": "CELL_0121",
+  "cross_tenant_scope": false,
+  "decision_trace_hash": "b0b529750ee0cffe42c1fbba29ca691995a1456eb594e9a45fc762f6dd2790f7",
+  "incident_id": "INC_CELL_0121",
+  "known_time": "2026-07-06T23:59:00Z",
+  "owner_role": "SURVEILLANCE_DUTY_OFFICER",
+  "severity": "HIGH",
+  "state": "RESOLVED",
+  "tenant_id": "TENANT_01",
+  "trigger_action": "RESTRICT"
+}

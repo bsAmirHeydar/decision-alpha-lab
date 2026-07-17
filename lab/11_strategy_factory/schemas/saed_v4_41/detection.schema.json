@@ -1,0 +1,175 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "alert_count": {
+      "type": "integer"
+    },
+    "alerts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "alert_id": {
+            "type": "string"
+          },
+          "cell_id": {
+            "type": "string"
+          },
+          "future_suffix_used": {
+            "type": "boolean"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "metric_id": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          },
+          "trailing_breach_windows": {
+            "type": "integer"
+          },
+          "weighted_score": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "alert_id",
+          "cell_id",
+          "future_suffix_used",
+          "known_time",
+          "metric_id",
+          "reason",
+          "severity",
+          "synthetic_fixture",
+          "trailing_breach_windows",
+          "weighted_score"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "detection_hash": {
+      "type": "string"
+    },
+    "detection_id": {
+      "type": "string"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "future_suffix_used": {
+      "type": "boolean"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "policy_hash": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "summaries": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "baseline_value": {
+            "type": "number"
+          },
+          "cell_id": {
+            "type": "string"
+          },
+          "detectors": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "detector_id": {
+                  "type": "string"
+                },
+                "future_suffix_used": {
+                  "type": "boolean"
+                },
+                "known_time": {
+                  "type": "string"
+                },
+                "signal": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "detector_id",
+                "future_suffix_used",
+                "known_time",
+                "signal"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "latest_level": {
+            "type": "string"
+          },
+          "latest_value": {
+            "type": "number"
+          },
+          "metric_id": {
+            "type": "string"
+          },
+          "persistent": {
+            "type": "boolean"
+          },
+          "summary_hash": {
+            "type": "string"
+          },
+          "trailing_breach_windows": {
+            "type": "integer"
+          },
+          "weighted_score": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "baseline_value",
+          "cell_id",
+          "detectors",
+          "latest_level",
+          "latest_value",
+          "metric_id",
+          "persistent",
+          "summary_hash",
+          "trailing_breach_windows",
+          "weighted_score"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "summary_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "alert_count",
+    "alerts",
+    "detection_hash",
+    "detection_id",
+    "deterministic",
+    "future_suffix_used",
+    "ledger_hash",
+    "policy_hash",
+    "research_only",
+    "summaries",
+    "summary_count"
+  ],
+  "title": "SAED V4-41 detection",
+  "type": "object"
+}

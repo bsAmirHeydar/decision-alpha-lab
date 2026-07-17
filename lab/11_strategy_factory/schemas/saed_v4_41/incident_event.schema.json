@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "action": {
+      "type": "string"
+    },
+    "cell_id": {
+      "type": "string"
+    },
+    "event_hash": {
+      "type": "string"
+    },
+    "event_id": {
+      "type": "string"
+    },
+    "from_state": {
+      "type": "null"
+    },
+    "incident_id": {
+      "type": "string"
+    },
+    "known_time": {
+      "type": "string"
+    },
+    "live_side_effect": {
+      "type": "boolean"
+    },
+    "ordinal": {
+      "type": "integer"
+    },
+    "previous_hash": {
+      "type": "string"
+    },
+    "to_state": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "action",
+    "cell_id",
+    "event_hash",
+    "event_id",
+    "from_state",
+    "incident_id",
+    "known_time",
+    "live_side_effect",
+    "ordinal",
+    "previous_hash",
+    "to_state"
+  ],
+  "title": "SAED V4-41 incident_event",
+  "type": "object"
+}

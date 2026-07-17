@@ -1,0 +1,106 @@
+{
+  "accepted_reference": true,
+  "external_gates_open": true,
+  "research_only": true,
+  "review_bundle_hash": "8357b4d4507c20b16e3ca9154cea5fd7fdb023d6df5678c7bdbebba9024bfce2",
+  "review_bundle_id": "v441_review_dbcdce7c8502327090f0e692",
+  "review_id": "SAED_V4_41_REVIEW",
+  "review_set_hash": "4aca9bdb2bcce3280037f74d1c3fe217c671f7b4dea7ba792bb61a4ac96e99ec",
+  "reviews": [
+    {
+      "decision": "ACCEPT_REFERENCE",
+      "evidence_hash": "436755872c4f6629ed5eee21e4b9a09857ce62106498f7771a2cf134fc1621f1",
+      "limitations": [
+        "SYNTHETIC_REFERENCE_ONLY",
+        "EXTERNAL_OPERATIONS_GATES_OPEN"
+      ],
+      "reviewer_id": "REVIEWER_DATA_GOVERNANCE",
+      "role": "DATA_GOVERNANCE",
+      "signed": true
+    },
+    {
+      "decision": "ACCEPT_REFERENCE",
+      "evidence_hash": "436755872c4f6629ed5eee21e4b9a09857ce62106498f7771a2cf134fc1621f1",
+      "limitations": [
+        "SYNTHETIC_REFERENCE_ONLY",
+        "EXTERNAL_OPERATIONS_GATES_OPEN"
+      ],
+      "reviewer_id": "REVIEWER_INDEPENDENT_REPLICATION",
+      "role": "INDEPENDENT_REPLICATION",
+      "signed": true
+    },
+    {
+      "decision": "ACCEPT_REFERENCE",
+      "evidence_hash": "436755872c4f6629ed5eee21e4b9a09857ce62106498f7771a2cf134fc1621f1",
+      "limitations": [
+        "SYNTHETIC_REFERENCE_ONLY",
+        "EXTERNAL_OPERATIONS_GATES_OPEN"
+      ],
+      "reviewer_id": "REVIEWER_MODEL_RISK",
+      "role": "MODEL_RISK",
+      "signed": true
+    },
+    {
+      "decision": "ACCEPT_REFERENCE",
+      "evidence_hash": "436755872c4f6629ed5eee21e4b9a09857ce62106498f7771a2cf134fc1621f1",
+      "limitations": [
+        "SYNTHETIC_REFERENCE_ONLY",
+        "EXTERNAL_OPERATIONS_GATES_OPEN"
+      ],
+      "reviewer_id": "REVIEWER_MQL5_RUNTIME",
+      "role": "MQL5_RUNTIME",
+      "signed": true
+    },
+    {
+      "decision": "ACCEPT_REFERENCE",
+      "evidence_hash": "436755872c4f6629ed5eee21e4b9a09857ce62106498f7771a2cf134fc1621f1",
+      "limitations": [
+        "SYNTHETIC_REFERENCE_ONLY",
+        "EXTERNAL_OPERATIONS_GATES_OPEN"
+      ],
+      "reviewer_id": "REVIEWER_SECURITY",
+      "role": "SECURITY",
+      "signed": true
+    },
+    {
+      "decision": "ACCEPT_REFERENCE",
+      "evidence_hash": "436755872c4f6629ed5eee21e4b9a09857ce62106498f7771a2cf134fc1621f1",
+      "limitations": [
+        "SYNTHETIC_REFERENCE_ONLY",
+        "EXTERNAL_OPERATIONS_GATES_OPEN"
+      ],
+      "reviewer_id": "REVIEWER_SRE",
+      "role": "SRE",
+      "signed": true
+    },
+    {
+      "decision": "ACCEPT_REFERENCE",
+      "evidence_hash": "436755872c4f6629ed5eee21e4b9a09857ce62106498f7771a2cf134fc1621f1",
+      "limitations": [
+        "SYNTHETIC_REFERENCE_ONLY",
+        "EXTERNAL_OPERATIONS_GATES_OPEN"
+      ],
+      "reviewer_id": "REVIEWER_SURVEILLANCE_ARCHITECT",
+      "role": "SURVEILLANCE_ARCHITECT",
+      "signed": true
+    },
+    {
+      "decision": "ACCEPT_REFERENCE",
+      "evidence_hash": "436755872c4f6629ed5eee21e4b9a09857ce62106498f7771a2cf134fc1621f1",
+      "limitations": [
+        "SYNTHETIC_REFERENCE_ONLY",
+        "EXTERNAL_OPERATIONS_GATES_OPEN"
+      ],
+      "reviewer_id": "REVIEWER_UCEE_AUTHORITY",
+      "role": "UCEE_AUTHORITY",
+      "signed": true
+    }
+  ],
+  "unresolved_findings": [
+    "ACTUAL_PRODUCTION_TELEMETRY_PENDING",
+    "METAEDITOR_MATRIX_PENDING",
+    "MT5_RETIREMENT_DRILL_PENDING",
+    "BROKER_ROUTE_REVOCATION_PENDING",
+    "INDEPENDENT_SRE_OPERATIONS_APPROVAL_PENDING"
+  ]
+}

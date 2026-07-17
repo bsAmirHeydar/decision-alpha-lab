@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "action_count": {
+      "type": "integer"
+    },
+    "action_ledger_hash": {
+      "type": "string"
+    },
+    "action_ledger_id": {
+      "type": "string"
+    },
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "capital_delta": {
+      "type": "number"
+    },
+    "cross_tenant_actions": {
+      "type": "integer"
+    },
+    "events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "action_id": {
+            "type": "string"
+          },
+          "approved_scope": {
+            "type": "string"
+          },
+          "automatic_live_side_effect": {
+            "type": "boolean"
+          },
+          "baseline_preserved": {
+            "type": "boolean"
+          },
+          "capital_effect": {
+            "type": "number"
+          },
+          "cell_id": {
+            "type": "string"
+          },
+          "decision": {
+            "type": "string"
+          },
+          "effect": {
+            "type": "string"
+          },
+          "event_hash": {
+            "type": "string"
+          },
+          "event_id": {
+            "type": "string"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "namespace": {
+            "type": "string"
+          },
+          "order_effect": {
+            "type": "integer"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "previous_hash": {
+            "type": "string"
+          },
+          "target_state": {
+            "type": "string"
+          },
+          "tenant_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "action_id",
+          "approved_scope",
+          "automatic_live_side_effect",
+          "baseline_preserved",
+          "capital_effect",
+          "cell_id",
+          "decision",
+          "effect",
+          "event_hash",
+          "event_id",
+          "known_time",
+          "namespace",
+          "order_effect",
+          "ordinal",
+          "previous_hash",
+          "target_state",
+          "tenant_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "fusion_hash": {
+      "type": "string"
+    },
+    "live_order_side_effects": {
+      "type": "integer"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "action_id": {
+            "type": "string"
+          },
+          "approved_scope": {
+            "type": "string"
+          },
+          "automatic_live_side_effect": {
+            "type": "boolean"
+          },
+          "baseline_preserved": {
+            "type": "boolean"
+          },
+          "capital_effect": {
+            "type": "number"
+          },
+          "cell_id": {
+            "type": "string"
+          },
+          "decision": {
+            "type": "string"
+          },
+          "effect": {
+            "type": "string"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "namespace": {
+            "type": "string"
+          },
+          "order_effect": {
+            "type": "integer"
+          },
+          "target_state": {
+            "type": "string"
+          },
+          "tenant_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "action_id",
+          "approved_scope",
+          "automatic_live_side_effect",
+          "baseline_preserved",
+          "capital_effect",
+          "cell_id",
+          "decision",
+          "effect",
+          "known_time",
+          "namespace",
+          "order_effect",
+          "target_state",
+          "tenant_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "action_count",
+    "action_ledger_hash",
+    "action_ledger_id",
+    "baseline_preserved",
+    "capital_delta",
+    "cross_tenant_actions",
+    "events",
+    "fusion_hash",
+    "live_order_side_effects",
+    "research_only",
+    "rows"
+  ],
+  "title": "SAED V4-41 actions",
+  "type": "object"
+}

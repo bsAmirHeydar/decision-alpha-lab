@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "alert_id": {
+      "type": "string"
+    },
+    "cell_id": {
+      "type": "string"
+    },
+    "future_suffix_used": {
+      "type": "boolean"
+    },
+    "known_time": {
+      "type": "string"
+    },
+    "metric_id": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "severity": {
+      "type": "string"
+    },
+    "synthetic_fixture": {
+      "type": "boolean"
+    },
+    "trailing_breach_windows": {
+      "type": "integer"
+    },
+    "weighted_score": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "alert_id",
+    "cell_id",
+    "future_suffix_used",
+    "known_time",
+    "metric_id",
+    "reason",
+    "severity",
+    "synthetic_fixture",
+    "trailing_breach_windows",
+    "weighted_score"
+  ],
+  "title": "SAED V4-41 alert",
+  "type": "object"
+}

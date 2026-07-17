@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "CONTINUE": {
+      "type": "integer"
+    },
+    "RESTRICT": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "CONTINUE",
+    "RESTRICT"
+  ],
+  "title": "SAED V4-41 dashboard_tenant_actions",
+  "type": "object"
+}

@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "affected_edges": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "edge_type": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "tenant_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "edge_type",
+          "source",
+          "target",
+          "tenant_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "affected_node_count": {
+      "type": "integer"
+    },
+    "affected_nodes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "cell_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "cross_tenant_impact": {
+      "type": "boolean"
+    },
+    "graph_hash": {
+      "type": "string"
+    },
+    "impact_hash": {
+      "type": "string"
+    },
+    "impact_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "affected_edges",
+    "affected_node_count",
+    "affected_nodes",
+    "cell_ids",
+    "cross_tenant_impact",
+    "graph_hash",
+    "impact_hash",
+    "impact_id",
+    "research_only"
+  ],
+  "title": "SAED V4-41 impact",
+  "type": "object"
+}

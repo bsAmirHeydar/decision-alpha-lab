@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "automatic_live_authority_allowed": {
+      "type": "boolean"
+    },
+    "baseline_preservation_required": {
+      "type": "boolean"
+    },
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "clauses": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "clause_id": {
+            "type": "string"
+          },
+          "evidence_required": {
+            "type": "boolean"
+          },
+          "failure_action": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "integer"
+          },
+          "requirement": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "clause_id",
+          "evidence_required",
+          "failure_action",
+          "priority",
+          "requirement"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "clauses_hash": {
+      "type": "string"
+    },
+    "complete_coverage_required": {
+      "type": "boolean"
+    },
+    "constitution_id": {
+      "type": "string"
+    },
+    "cross_tenant_action_allowed": {
+      "type": "boolean"
+    },
+    "frozen_constitution_hash": {
+      "type": "string"
+    },
+    "frozen_constitution_id": {
+      "type": "string"
+    },
+    "immutable_observation_ledger": {
+      "type": "boolean"
+    },
+    "known_time_only": {
+      "type": "boolean"
+    },
+    "live_order_submission_allowed": {
+      "type": "boolean"
+    },
+    "production_authorization_allowed": {
+      "type": "boolean"
+    },
+    "reinstatement_without_requalification_allowed": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "retirement_tombstones_immutable": {
+      "type": "boolean"
+    },
+    "silent_threshold_change_allowed": {
+      "type": "boolean"
+    },
+    "two_person_retirement_required": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "automatic_live_authority_allowed",
+    "baseline_preservation_required",
+    "capital_activation_allowed",
+    "clauses",
+    "clauses_hash",
+    "complete_coverage_required",
+    "constitution_id",
+    "cross_tenant_action_allowed",
+    "frozen_constitution_hash",
+    "frozen_constitution_id",
+    "immutable_observation_ledger",
+    "known_time_only",
+    "live_order_submission_allowed",
+    "production_authorization_allowed",
+    "reinstatement_without_requalification_allowed",
+    "research_only",
+    "retirement_tombstones_immutable",
+    "silent_threshold_change_allowed",
+    "two_person_retirement_required",
+    "version"
+  ],
+  "title": "SAED V4-41 constitution",
+  "type": "object"
+}

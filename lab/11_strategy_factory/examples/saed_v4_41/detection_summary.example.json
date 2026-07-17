@@ -1,0 +1,31 @@
+{
+  "baseline_value": 0.03,
+  "cell_id": "CELL_0001",
+  "detectors": [
+    {
+      "detector_id": "CUSUM",
+      "future_suffix_used": false,
+      "known_time": "2026-07-06T23:59:00Z",
+      "signal": false
+    },
+    {
+      "detector_id": "EWMA",
+      "future_suffix_used": false,
+      "known_time": "2026-07-06T23:59:00Z",
+      "signal": false
+    },
+    {
+      "detector_id": "THRESHOLD",
+      "future_suffix_used": false,
+      "known_time": "2026-07-06T23:59:00Z",
+      "signal": false
+    }
+  ],
+  "latest_level": "NORMAL",
+  "latest_value": 0.03,
+  "metric_id": "CALIBRATION_ERROR",
+  "persistent": false,
+  "summary_hash": "573d5252be856abf5f6067e522ef87432beb63f7fbcfc60bf800b8c243d737ec",
+  "trailing_breach_windows": 0,
+  "weighted_score": 0.0
+}

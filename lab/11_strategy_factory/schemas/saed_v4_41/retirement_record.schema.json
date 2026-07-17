@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "approved_roles": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "capital_delta": {
+      "type": "number"
+    },
+    "cell_id": {
+      "type": "string"
+    },
+    "context_id": {
+      "type": "string"
+    },
+    "context_version": {
+      "type": "integer"
+    },
+    "final_state": {
+      "type": "string"
+    },
+    "model_generation": {
+      "type": "integer"
+    },
+    "namespace": {
+      "type": "string"
+    },
+    "order_delta": {
+      "type": "integer"
+    },
+    "reinstatement_allowed": {
+      "type": "boolean"
+    },
+    "replacement_cell_id": {
+      "type": "string"
+    },
+    "requires_new_qualification_for_successor": {
+      "type": "boolean"
+    },
+    "retired_at": {
+      "type": "string"
+    },
+    "retirement_id": {
+      "type": "string"
+    },
+    "route_revoked": {
+      "type": "boolean"
+    },
+    "runtime_bundle_hash": {
+      "type": "string"
+    },
+    "synthetic_fixture": {
+      "type": "boolean"
+    },
+    "tenant_id": {
+      "type": "string"
+    },
+    "tombstone_hash": {
+      "type": "string"
+    },
+    "treatment_universe_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "approved_roles",
+    "capital_delta",
+    "cell_id",
+    "context_id",
+    "context_version",
+    "final_state",
+    "model_generation",
+    "namespace",
+    "order_delta",
+    "reinstatement_allowed",
+    "replacement_cell_id",
+    "requires_new_qualification_for_successor",
+    "retired_at",
+    "retirement_id",
+    "route_revoked",
+    "runtime_bundle_hash",
+    "synthetic_fixture",
+    "tenant_id",
+    "tombstone_hash",
+    "treatment_universe_hash"
+  ],
+  "title": "SAED V4-41 retirement_record",
+  "type": "object"
+}

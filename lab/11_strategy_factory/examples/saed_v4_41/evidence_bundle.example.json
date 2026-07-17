@@ -1,0 +1,117 @@
+{
+  "actual_broker_reconciliation_verified": false,
+  "actual_external_surveillance_evidence_complete": false,
+  "actual_mql5_route_revocation_verified": false,
+  "actual_retirement_drill_complete": false,
+  "evidence_bundle_hash": "436755872c4f6629ed5eee21e4b9a09857ce62106498f7771a2cf134fc1621f1",
+  "evidence_bundle_id": "v441_evidence_70df3e8f89d6ba9754bb1244",
+  "evidence_merkle_root": "07cfff6c2824f478515735cf3f15fb128056c8d93a3bd804db6e4020a11fafe2",
+  "leaf_count": 17,
+  "leaves": [
+    {
+      "evidence_role": "SYNTHETIC_REFERENCE",
+      "external": false,
+      "hash": "8254fb545ebd2ad92adb0af89882eafd14f40cc8b77c438d67a371adb41a5b8e",
+      "name": "actions"
+    },
+    {
+      "evidence_role": "SYNTHETIC_REFERENCE",
+      "external": false,
+      "hash": "2461d26174c62e2d18d7137cc2af75d58596aed5dfa4da2e8ede23ae50a8d927",
+      "name": "archive"
+    },
+    {
+      "evidence_role": "SYNTHETIC_REFERENCE",
+      "external": false,
+      "hash": "10a550cd2d679f333afe7d97e037c72ef674c8f3078dc6dc656a880c6d8d9e2c",
+      "name": "authority"
+    },
+    {
+      "evidence_role": "SYNTHETIC_REFERENCE",
+      "external": false,
+      "hash": "a1738e6ee1f720d058d68cf23f64696bbd369b0058a3aa0c2e5f478fc14d2808",
+      "name": "constitution"
+    },
+    {
+      "evidence_role": "SYNTHETIC_REFERENCE",
+      "external": false,
+      "hash": "a95ff3b71d5001be49b81ca02cc976a0b71b5a85f1b0a90e78cb1439fa1af3fb",
+      "name": "dashboard"
+    },
+    {
+      "evidence_role": "SYNTHETIC_REFERENCE",
+      "external": false,
+      "hash": "1fa5f717284212ce75d96083e17b757c96c6ef7ab37ac03759000b6f8f2d25e8",
+      "name": "dependencies"
+    },
+    {
+      "evidence_role": "SYNTHETIC_REFERENCE",
+      "external": false,
+      "hash": "94faccbfa59ca86a62fabcd0c68c8e9112191075d2819e37a645fdef1206d986",
+      "name": "detection"
+    },
+    {
+      "evidence_role": "SYNTHETIC_REFERENCE",
+      "external": false,
+      "hash": "f30786dc55289ffe25a9dda8f1406b7d3dbb53e34b1b1df32e6606e090dff3d7",
+      "name": "fusion"
+    },
+    {
+      "evidence_role": "SYNTHETIC_REFERENCE",
+      "external": false,
+      "hash": "8a19e4255664eb29f3b1cd8eb10d4da229ce5a150252174d5f0d41f7dc23e397",
+      "name": "impact"
+    },
+    {
+      "evidence_role": "SYNTHETIC_REFERENCE",
+      "external": false,
+      "hash": "b92f6a93ef026763a23cc06445bea7aaa54bc33c5e65422ce078e44b8b6f0993",
+      "name": "incidents"
+    },
+    {
+      "evidence_role": "SYNTHETIC_REFERENCE",
+      "external": false,
+      "hash": "d7448ca96f89658c8436f8d0101de83fba78383468a4281faf52949f48c2aafe",
+      "name": "ledger"
+    },
+    {
+      "evidence_role": "SYNTHETIC_REFERENCE",
+      "external": false,
+      "hash": "843e05a47f06fc3c041f5d40aab5b417563fdc1796b29946ed9d336d32636163",
+      "name": "policy"
+    },
+    {
+      "evidence_role": "SYNTHETIC_REFERENCE",
+      "external": false,
+      "hash": "8ea9486f1fbb515dd7796a885d41e118e8cf9cdd6e3ef85b447316c123826b22",
+      "name": "registry"
+    },
+    {
+      "evidence_role": "SYNTHETIC_REFERENCE",
+      "external": false,
+      "hash": "8f2e8061378ff8a9aad55ee3eab8252bec4d758d78eedb105605f385987beb53",
+      "name": "retirement"
+    },
+    {
+      "evidence_role": "SYNTHETIC_REFERENCE",
+      "external": false,
+      "hash": "3f95e9788a36954e4b3245d42e05cf479b07c45a2a07e6ca100c05a8f051b2a8",
+      "name": "routes"
+    },
+    {
+      "evidence_role": "SYNTHETIC_REFERENCE",
+      "external": false,
+      "hash": "e06de9c1ce33ca3d25ec1a6ddf77251d806a0f55c26d5f80dd5472a893ffa7c6",
+      "name": "upstream"
+    },
+    {
+      "evidence_role": "SYNTHETIC_REFERENCE",
+      "external": false,
+      "hash": "01047e80681d5b021767b19b010da3d38a0c441157eda7c32b88302e7920bfa2",
+      "name": "verification"
+    }
+  ],
+  "phase": "SAED_V4_41",
+  "research_only": true,
+  "synthetic_reference_complete": true
+}

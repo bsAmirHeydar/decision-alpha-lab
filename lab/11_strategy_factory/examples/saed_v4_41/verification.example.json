@@ -1,0 +1,25 @@
+{
+  "all_verified": true,
+  "archive_manifest_hash": "5d7325872b0b2f8bf13f69f25457f8dc9338abf43cf95ace9964d93c97f6289d",
+  "capital_delta": 0.0,
+  "live_order_side_effects": 0,
+  "research_only": true,
+  "retired_count": 1,
+  "retirement_ledger_hash": "44ddde1d0c9cc7db4c8a4970caa2e97de9b5234b879b5ee7d42463243b6c5fa7",
+  "rows": [
+    {
+      "archive_present": true,
+      "capital_delta": 0.0,
+      "cell_id": "CELL_0128",
+      "new_reference_routing_allowed": false,
+      "order_delta": 0,
+      "reinstatement_allowed": false,
+      "route_revoked": true,
+      "tombstone_present": true,
+      "verified": true
+    }
+  ],
+  "verification_hash": "87d244bc4b2a4c13bc62dbcf1a1461b4ed97a43730490e01f52dbd7d6e7db514",
+  "verification_id": "v441_post_retirement_8daa754d4a5f69f2c259e816",
+  "verified_count": 1
+}

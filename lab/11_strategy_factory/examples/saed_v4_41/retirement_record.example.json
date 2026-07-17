@@ -1,0 +1,28 @@
+{
+  "approved_roles": [
+    "DATA_GOVERNANCE",
+    "MODEL_RISK",
+    "SECURITY",
+    "SRE",
+    "UCEE_AUTHORITY"
+  ],
+  "capital_delta": 0.0,
+  "cell_id": "CELL_0128",
+  "context_id": "CTX_032",
+  "context_version": 4,
+  "final_state": "VERIFIED_RETIRED",
+  "model_generation": 4,
+  "namespace": "NS_08",
+  "order_delta": 0,
+  "reinstatement_allowed": false,
+  "replacement_cell_id": "CELL_0008",
+  "requires_new_qualification_for_successor": true,
+  "retired_at": "2026-07-06T23:59:00Z",
+  "retirement_id": "RET_CELL_0128",
+  "route_revoked": true,
+  "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+  "synthetic_fixture": true,
+  "tenant_id": "TENANT_08",
+  "tombstone_hash": "ba6bb81d50c2fb1acc5fd08d866f4128575938e3bd34fee1423d01f3c6da2334",
+  "treatment_universe_hash": "f78ebe32d1c07773fb2352c7f215cb4402ca2cf6acb4ba35047750eedbea40ce"
+}

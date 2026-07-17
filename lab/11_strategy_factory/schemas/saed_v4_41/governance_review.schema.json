@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "decision": {
+      "type": "string"
+    },
+    "evidence_hash": {
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "reviewer_id": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "signed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "decision",
+    "evidence_hash",
+    "limitations",
+    "reviewer_id",
+    "role",
+    "signed"
+  ],
+  "title": "SAED V4-41 governance_review",
+  "type": "object"
+}

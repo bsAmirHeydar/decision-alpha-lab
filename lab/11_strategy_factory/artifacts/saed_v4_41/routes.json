@@ -1,0 +1,1292 @@
+{
+  "compiled_routes_hash": "172a196364453bdb90385b61baf051ca85da8dd564de683af02e4544ac23858d",
+  "compiled_routes_id": "v440_routes_60a4d1382c41ef78751b1066",
+  "cross_tenant_allowed": false,
+  "default_action": "ABSTAIN",
+  "fleet_manifest_hash": "671b09388efca04e9de7ec082742169ae4adf3868458afa4417742397d905b51",
+  "registry_hash": "ec276bf59506438e8e38f5dae77d35a62da6ada54a8c28fa35dbf5110947478f",
+  "research_only": true,
+  "route_count": 128,
+  "routes": [
+    {
+      "cell_id": "CELL_0001",
+      "context_id": "CTX_001",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_01",
+      "route_id": "ROUTE_CELL_0001",
+      "tenant_id": "TENANT_01",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0002",
+      "context_id": "CTX_002",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_02",
+      "route_id": "ROUTE_CELL_0002",
+      "tenant_id": "TENANT_02",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0003",
+      "context_id": "CTX_003",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_03",
+      "route_id": "ROUTE_CELL_0003",
+      "tenant_id": "TENANT_03",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0004",
+      "context_id": "CTX_004",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_04",
+      "route_id": "ROUTE_CELL_0004",
+      "tenant_id": "TENANT_04",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0005",
+      "context_id": "CTX_005",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_05",
+      "route_id": "ROUTE_CELL_0005",
+      "tenant_id": "TENANT_05",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0006",
+      "context_id": "CTX_006",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_06",
+      "route_id": "ROUTE_CELL_0006",
+      "tenant_id": "TENANT_06",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0007",
+      "context_id": "CTX_007",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_07",
+      "route_id": "ROUTE_CELL_0007",
+      "tenant_id": "TENANT_07",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0008",
+      "context_id": "CTX_008",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_08",
+      "route_id": "ROUTE_CELL_0008",
+      "tenant_id": "TENANT_08",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0009",
+      "context_id": "CTX_009",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_01",
+      "route_id": "ROUTE_CELL_0009",
+      "tenant_id": "TENANT_01",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0010",
+      "context_id": "CTX_010",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_02",
+      "route_id": "ROUTE_CELL_0010",
+      "tenant_id": "TENANT_02",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0011",
+      "context_id": "CTX_011",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_03",
+      "route_id": "ROUTE_CELL_0011",
+      "tenant_id": "TENANT_03",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0012",
+      "context_id": "CTX_012",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_04",
+      "route_id": "ROUTE_CELL_0012",
+      "tenant_id": "TENANT_04",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0013",
+      "context_id": "CTX_013",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_05",
+      "route_id": "ROUTE_CELL_0013",
+      "tenant_id": "TENANT_05",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0014",
+      "context_id": "CTX_014",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_06",
+      "route_id": "ROUTE_CELL_0014",
+      "tenant_id": "TENANT_06",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0015",
+      "context_id": "CTX_015",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_07",
+      "route_id": "ROUTE_CELL_0015",
+      "tenant_id": "TENANT_07",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0016",
+      "context_id": "CTX_016",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_08",
+      "route_id": "ROUTE_CELL_0016",
+      "tenant_id": "TENANT_08",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0017",
+      "context_id": "CTX_017",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_01",
+      "route_id": "ROUTE_CELL_0017",
+      "tenant_id": "TENANT_01",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0018",
+      "context_id": "CTX_018",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_02",
+      "route_id": "ROUTE_CELL_0018",
+      "tenant_id": "TENANT_02",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0019",
+      "context_id": "CTX_019",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_03",
+      "route_id": "ROUTE_CELL_0019",
+      "tenant_id": "TENANT_03",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0020",
+      "context_id": "CTX_020",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_04",
+      "route_id": "ROUTE_CELL_0020",
+      "tenant_id": "TENANT_04",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0021",
+      "context_id": "CTX_021",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_05",
+      "route_id": "ROUTE_CELL_0021",
+      "tenant_id": "TENANT_05",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0022",
+      "context_id": "CTX_022",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_06",
+      "route_id": "ROUTE_CELL_0022",
+      "tenant_id": "TENANT_06",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0023",
+      "context_id": "CTX_023",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_07",
+      "route_id": "ROUTE_CELL_0023",
+      "tenant_id": "TENANT_07",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0024",
+      "context_id": "CTX_024",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_08",
+      "route_id": "ROUTE_CELL_0024",
+      "tenant_id": "TENANT_08",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0025",
+      "context_id": "CTX_025",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_01",
+      "route_id": "ROUTE_CELL_0025",
+      "tenant_id": "TENANT_01",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0026",
+      "context_id": "CTX_026",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_02",
+      "route_id": "ROUTE_CELL_0026",
+      "tenant_id": "TENANT_02",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0027",
+      "context_id": "CTX_027",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_03",
+      "route_id": "ROUTE_CELL_0027",
+      "tenant_id": "TENANT_03",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0028",
+      "context_id": "CTX_028",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_04",
+      "route_id": "ROUTE_CELL_0028",
+      "tenant_id": "TENANT_04",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0029",
+      "context_id": "CTX_029",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_05",
+      "route_id": "ROUTE_CELL_0029",
+      "tenant_id": "TENANT_05",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0030",
+      "context_id": "CTX_030",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_06",
+      "route_id": "ROUTE_CELL_0030",
+      "tenant_id": "TENANT_06",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0031",
+      "context_id": "CTX_031",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_07",
+      "route_id": "ROUTE_CELL_0031",
+      "tenant_id": "TENANT_07",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0032",
+      "context_id": "CTX_032",
+      "context_version": 1,
+      "enabled": true,
+      "namespace": "NS_08",
+      "route_id": "ROUTE_CELL_0032",
+      "tenant_id": "TENANT_08",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0033",
+      "context_id": "CTX_001",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_01",
+      "route_id": "ROUTE_CELL_0033",
+      "tenant_id": "TENANT_01",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0034",
+      "context_id": "CTX_002",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_02",
+      "route_id": "ROUTE_CELL_0034",
+      "tenant_id": "TENANT_02",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0035",
+      "context_id": "CTX_003",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_03",
+      "route_id": "ROUTE_CELL_0035",
+      "tenant_id": "TENANT_03",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0036",
+      "context_id": "CTX_004",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_04",
+      "route_id": "ROUTE_CELL_0036",
+      "tenant_id": "TENANT_04",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0037",
+      "context_id": "CTX_005",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_05",
+      "route_id": "ROUTE_CELL_0037",
+      "tenant_id": "TENANT_05",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0038",
+      "context_id": "CTX_006",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_06",
+      "route_id": "ROUTE_CELL_0038",
+      "tenant_id": "TENANT_06",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0039",
+      "context_id": "CTX_007",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_07",
+      "route_id": "ROUTE_CELL_0039",
+      "tenant_id": "TENANT_07",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0040",
+      "context_id": "CTX_008",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_08",
+      "route_id": "ROUTE_CELL_0040",
+      "tenant_id": "TENANT_08",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0041",
+      "context_id": "CTX_009",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_01",
+      "route_id": "ROUTE_CELL_0041",
+      "tenant_id": "TENANT_01",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0042",
+      "context_id": "CTX_010",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_02",
+      "route_id": "ROUTE_CELL_0042",
+      "tenant_id": "TENANT_02",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0043",
+      "context_id": "CTX_011",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_03",
+      "route_id": "ROUTE_CELL_0043",
+      "tenant_id": "TENANT_03",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0044",
+      "context_id": "CTX_012",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_04",
+      "route_id": "ROUTE_CELL_0044",
+      "tenant_id": "TENANT_04",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0045",
+      "context_id": "CTX_013",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_05",
+      "route_id": "ROUTE_CELL_0045",
+      "tenant_id": "TENANT_05",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0046",
+      "context_id": "CTX_014",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_06",
+      "route_id": "ROUTE_CELL_0046",
+      "tenant_id": "TENANT_06",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0047",
+      "context_id": "CTX_015",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_07",
+      "route_id": "ROUTE_CELL_0047",
+      "tenant_id": "TENANT_07",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0048",
+      "context_id": "CTX_016",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_08",
+      "route_id": "ROUTE_CELL_0048",
+      "tenant_id": "TENANT_08",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0049",
+      "context_id": "CTX_017",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_01",
+      "route_id": "ROUTE_CELL_0049",
+      "tenant_id": "TENANT_01",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0050",
+      "context_id": "CTX_018",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_02",
+      "route_id": "ROUTE_CELL_0050",
+      "tenant_id": "TENANT_02",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0051",
+      "context_id": "CTX_019",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_03",
+      "route_id": "ROUTE_CELL_0051",
+      "tenant_id": "TENANT_03",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0052",
+      "context_id": "CTX_020",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_04",
+      "route_id": "ROUTE_CELL_0052",
+      "tenant_id": "TENANT_04",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0053",
+      "context_id": "CTX_021",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_05",
+      "route_id": "ROUTE_CELL_0053",
+      "tenant_id": "TENANT_05",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0054",
+      "context_id": "CTX_022",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_06",
+      "route_id": "ROUTE_CELL_0054",
+      "tenant_id": "TENANT_06",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0055",
+      "context_id": "CTX_023",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_07",
+      "route_id": "ROUTE_CELL_0055",
+      "tenant_id": "TENANT_07",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0056",
+      "context_id": "CTX_024",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_08",
+      "route_id": "ROUTE_CELL_0056",
+      "tenant_id": "TENANT_08",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0057",
+      "context_id": "CTX_025",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_01",
+      "route_id": "ROUTE_CELL_0057",
+      "tenant_id": "TENANT_01",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0058",
+      "context_id": "CTX_026",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_02",
+      "route_id": "ROUTE_CELL_0058",
+      "tenant_id": "TENANT_02",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0059",
+      "context_id": "CTX_027",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_03",
+      "route_id": "ROUTE_CELL_0059",
+      "tenant_id": "TENANT_03",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0060",
+      "context_id": "CTX_028",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_04",
+      "route_id": "ROUTE_CELL_0060",
+      "tenant_id": "TENANT_04",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0061",
+      "context_id": "CTX_029",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_05",
+      "route_id": "ROUTE_CELL_0061",
+      "tenant_id": "TENANT_05",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0062",
+      "context_id": "CTX_030",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_06",
+      "route_id": "ROUTE_CELL_0062",
+      "tenant_id": "TENANT_06",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0063",
+      "context_id": "CTX_031",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_07",
+      "route_id": "ROUTE_CELL_0063",
+      "tenant_id": "TENANT_07",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0064",
+      "context_id": "CTX_032",
+      "context_version": 2,
+      "enabled": true,
+      "namespace": "NS_08",
+      "route_id": "ROUTE_CELL_0064",
+      "tenant_id": "TENANT_08",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0065",
+      "context_id": "CTX_001",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_01",
+      "route_id": "ROUTE_CELL_0065",
+      "tenant_id": "TENANT_01",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0066",
+      "context_id": "CTX_002",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_02",
+      "route_id": "ROUTE_CELL_0066",
+      "tenant_id": "TENANT_02",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0067",
+      "context_id": "CTX_003",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_03",
+      "route_id": "ROUTE_CELL_0067",
+      "tenant_id": "TENANT_03",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0068",
+      "context_id": "CTX_004",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_04",
+      "route_id": "ROUTE_CELL_0068",
+      "tenant_id": "TENANT_04",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0069",
+      "context_id": "CTX_005",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_05",
+      "route_id": "ROUTE_CELL_0069",
+      "tenant_id": "TENANT_05",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0070",
+      "context_id": "CTX_006",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_06",
+      "route_id": "ROUTE_CELL_0070",
+      "tenant_id": "TENANT_06",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0071",
+      "context_id": "CTX_007",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_07",
+      "route_id": "ROUTE_CELL_0071",
+      "tenant_id": "TENANT_07",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0072",
+      "context_id": "CTX_008",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_08",
+      "route_id": "ROUTE_CELL_0072",
+      "tenant_id": "TENANT_08",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0073",
+      "context_id": "CTX_009",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_01",
+      "route_id": "ROUTE_CELL_0073",
+      "tenant_id": "TENANT_01",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0074",
+      "context_id": "CTX_010",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_02",
+      "route_id": "ROUTE_CELL_0074",
+      "tenant_id": "TENANT_02",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0075",
+      "context_id": "CTX_011",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_03",
+      "route_id": "ROUTE_CELL_0075",
+      "tenant_id": "TENANT_03",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0076",
+      "context_id": "CTX_012",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_04",
+      "route_id": "ROUTE_CELL_0076",
+      "tenant_id": "TENANT_04",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0077",
+      "context_id": "CTX_013",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_05",
+      "route_id": "ROUTE_CELL_0077",
+      "tenant_id": "TENANT_05",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0078",
+      "context_id": "CTX_014",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_06",
+      "route_id": "ROUTE_CELL_0078",
+      "tenant_id": "TENANT_06",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0079",
+      "context_id": "CTX_015",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_07",
+      "route_id": "ROUTE_CELL_0079",
+      "tenant_id": "TENANT_07",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0080",
+      "context_id": "CTX_016",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_08",
+      "route_id": "ROUTE_CELL_0080",
+      "tenant_id": "TENANT_08",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0081",
+      "context_id": "CTX_017",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_01",
+      "route_id": "ROUTE_CELL_0081",
+      "tenant_id": "TENANT_01",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0082",
+      "context_id": "CTX_018",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_02",
+      "route_id": "ROUTE_CELL_0082",
+      "tenant_id": "TENANT_02",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0083",
+      "context_id": "CTX_019",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_03",
+      "route_id": "ROUTE_CELL_0083",
+      "tenant_id": "TENANT_03",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0084",
+      "context_id": "CTX_020",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_04",
+      "route_id": "ROUTE_CELL_0084",
+      "tenant_id": "TENANT_04",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0085",
+      "context_id": "CTX_021",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_05",
+      "route_id": "ROUTE_CELL_0085",
+      "tenant_id": "TENANT_05",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0086",
+      "context_id": "CTX_022",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_06",
+      "route_id": "ROUTE_CELL_0086",
+      "tenant_id": "TENANT_06",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0087",
+      "context_id": "CTX_023",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_07",
+      "route_id": "ROUTE_CELL_0087",
+      "tenant_id": "TENANT_07",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0088",
+      "context_id": "CTX_024",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_08",
+      "route_id": "ROUTE_CELL_0088",
+      "tenant_id": "TENANT_08",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0089",
+      "context_id": "CTX_025",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_01",
+      "route_id": "ROUTE_CELL_0089",
+      "tenant_id": "TENANT_01",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0090",
+      "context_id": "CTX_026",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_02",
+      "route_id": "ROUTE_CELL_0090",
+      "tenant_id": "TENANT_02",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0091",
+      "context_id": "CTX_027",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_03",
+      "route_id": "ROUTE_CELL_0091",
+      "tenant_id": "TENANT_03",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0092",
+      "context_id": "CTX_028",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_04",
+      "route_id": "ROUTE_CELL_0092",
+      "tenant_id": "TENANT_04",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0093",
+      "context_id": "CTX_029",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_05",
+      "route_id": "ROUTE_CELL_0093",
+      "tenant_id": "TENANT_05",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0094",
+      "context_id": "CTX_030",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_06",
+      "route_id": "ROUTE_CELL_0094",
+      "tenant_id": "TENANT_06",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0095",
+      "context_id": "CTX_031",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_07",
+      "route_id": "ROUTE_CELL_0095",
+      "tenant_id": "TENANT_07",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0096",
+      "context_id": "CTX_032",
+      "context_version": 3,
+      "enabled": true,
+      "namespace": "NS_08",
+      "route_id": "ROUTE_CELL_0096",
+      "tenant_id": "TENANT_08",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0097",
+      "context_id": "CTX_001",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_01",
+      "route_id": "ROUTE_CELL_0097",
+      "tenant_id": "TENANT_01",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0098",
+      "context_id": "CTX_002",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_02",
+      "route_id": "ROUTE_CELL_0098",
+      "tenant_id": "TENANT_02",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0099",
+      "context_id": "CTX_003",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_03",
+      "route_id": "ROUTE_CELL_0099",
+      "tenant_id": "TENANT_03",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0100",
+      "context_id": "CTX_004",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_04",
+      "route_id": "ROUTE_CELL_0100",
+      "tenant_id": "TENANT_04",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0101",
+      "context_id": "CTX_005",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_05",
+      "route_id": "ROUTE_CELL_0101",
+      "tenant_id": "TENANT_05",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0102",
+      "context_id": "CTX_006",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_06",
+      "route_id": "ROUTE_CELL_0102",
+      "tenant_id": "TENANT_06",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0103",
+      "context_id": "CTX_007",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_07",
+      "route_id": "ROUTE_CELL_0103",
+      "tenant_id": "TENANT_07",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0104",
+      "context_id": "CTX_008",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_08",
+      "route_id": "ROUTE_CELL_0104",
+      "tenant_id": "TENANT_08",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0105",
+      "context_id": "CTX_009",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_01",
+      "route_id": "ROUTE_CELL_0105",
+      "tenant_id": "TENANT_01",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0106",
+      "context_id": "CTX_010",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_02",
+      "route_id": "ROUTE_CELL_0106",
+      "tenant_id": "TENANT_02",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0107",
+      "context_id": "CTX_011",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_03",
+      "route_id": "ROUTE_CELL_0107",
+      "tenant_id": "TENANT_03",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0108",
+      "context_id": "CTX_012",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_04",
+      "route_id": "ROUTE_CELL_0108",
+      "tenant_id": "TENANT_04",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0109",
+      "context_id": "CTX_013",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_05",
+      "route_id": "ROUTE_CELL_0109",
+      "tenant_id": "TENANT_05",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0110",
+      "context_id": "CTX_014",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_06",
+      "route_id": "ROUTE_CELL_0110",
+      "tenant_id": "TENANT_06",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0111",
+      "context_id": "CTX_015",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_07",
+      "route_id": "ROUTE_CELL_0111",
+      "tenant_id": "TENANT_07",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0112",
+      "context_id": "CTX_016",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_08",
+      "route_id": "ROUTE_CELL_0112",
+      "tenant_id": "TENANT_08",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0113",
+      "context_id": "CTX_017",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_01",
+      "route_id": "ROUTE_CELL_0113",
+      "tenant_id": "TENANT_01",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0114",
+      "context_id": "CTX_018",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_02",
+      "route_id": "ROUTE_CELL_0114",
+      "tenant_id": "TENANT_02",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0115",
+      "context_id": "CTX_019",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_03",
+      "route_id": "ROUTE_CELL_0115",
+      "tenant_id": "TENANT_03",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0116",
+      "context_id": "CTX_020",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_04",
+      "route_id": "ROUTE_CELL_0116",
+      "tenant_id": "TENANT_04",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0117",
+      "context_id": "CTX_021",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_05",
+      "route_id": "ROUTE_CELL_0117",
+      "tenant_id": "TENANT_05",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0118",
+      "context_id": "CTX_022",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_06",
+      "route_id": "ROUTE_CELL_0118",
+      "tenant_id": "TENANT_06",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0119",
+      "context_id": "CTX_023",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_07",
+      "route_id": "ROUTE_CELL_0119",
+      "tenant_id": "TENANT_07",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0120",
+      "context_id": "CTX_024",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_08",
+      "route_id": "ROUTE_CELL_0120",
+      "tenant_id": "TENANT_08",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0121",
+      "context_id": "CTX_025",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_01",
+      "route_id": "ROUTE_CELL_0121",
+      "tenant_id": "TENANT_01",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0122",
+      "context_id": "CTX_026",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_02",
+      "route_id": "ROUTE_CELL_0122",
+      "tenant_id": "TENANT_02",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0123",
+      "context_id": "CTX_027",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_03",
+      "route_id": "ROUTE_CELL_0123",
+      "tenant_id": "TENANT_03",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0124",
+      "context_id": "CTX_028",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_04",
+      "route_id": "ROUTE_CELL_0124",
+      "tenant_id": "TENANT_04",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0125",
+      "context_id": "CTX_029",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_05",
+      "route_id": "ROUTE_CELL_0125",
+      "tenant_id": "TENANT_05",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0126",
+      "context_id": "CTX_030",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_06",
+      "route_id": "ROUTE_CELL_0126",
+      "tenant_id": "TENANT_06",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0127",
+      "context_id": "CTX_031",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_07",
+      "route_id": "ROUTE_CELL_0127",
+      "tenant_id": "TENANT_07",
+      "weight_bps": 10000
+    },
+    {
+      "cell_id": "CELL_0128",
+      "context_id": "CTX_032",
+      "context_version": 4,
+      "enabled": true,
+      "namespace": "NS_08",
+      "route_id": "ROUTE_CELL_0128",
+      "tenant_id": "TENANT_08",
+      "weight_bps": 10000
+    }
+  ]
+}

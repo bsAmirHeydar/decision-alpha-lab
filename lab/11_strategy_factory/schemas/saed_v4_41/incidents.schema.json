@@ -1,0 +1,203 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "cross_tenant_incidents": {
+      "type": "integer"
+    },
+    "events": {
+      "items": {
+        "anyOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "cell_id": {
+                "type": "string"
+              },
+              "event_hash": {
+                "type": "string"
+              },
+              "event_id": {
+                "type": "string"
+              },
+              "from_state": {
+                "type": "null"
+              },
+              "incident_id": {
+                "type": "string"
+              },
+              "known_time": {
+                "type": "string"
+              },
+              "live_side_effect": {
+                "type": "boolean"
+              },
+              "ordinal": {
+                "type": "integer"
+              },
+              "previous_hash": {
+                "type": "string"
+              },
+              "to_state": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "action",
+              "cell_id",
+              "event_hash",
+              "event_id",
+              "from_state",
+              "incident_id",
+              "known_time",
+              "live_side_effect",
+              "ordinal",
+              "previous_hash",
+              "to_state"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "action": {
+                "type": "string"
+              },
+              "cell_id": {
+                "type": "string"
+              },
+              "event_hash": {
+                "type": "string"
+              },
+              "event_id": {
+                "type": "string"
+              },
+              "from_state": {
+                "type": "string"
+              },
+              "incident_id": {
+                "type": "string"
+              },
+              "known_time": {
+                "type": "string"
+              },
+              "live_side_effect": {
+                "type": "boolean"
+              },
+              "ordinal": {
+                "type": "integer"
+              },
+              "previous_hash": {
+                "type": "string"
+              },
+              "to_state": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "action",
+              "cell_id",
+              "event_hash",
+              "event_id",
+              "from_state",
+              "incident_id",
+              "known_time",
+              "live_side_effect",
+              "ordinal",
+              "previous_hash",
+              "to_state"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "type": "array"
+    },
+    "fusion_hash": {
+      "type": "string"
+    },
+    "incident_count": {
+      "type": "integer"
+    },
+    "incident_ledger_hash": {
+      "type": "string"
+    },
+    "incident_ledger_id": {
+      "type": "string"
+    },
+    "incidents": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "cell_id": {
+            "type": "string"
+          },
+          "cross_tenant_scope": {
+            "type": "boolean"
+          },
+          "decision_trace_hash": {
+            "type": "string"
+          },
+          "incident_id": {
+            "type": "string"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "owner_role": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "tenant_id": {
+            "type": "string"
+          },
+          "trigger_action": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "cell_id",
+          "cross_tenant_scope",
+          "decision_trace_hash",
+          "incident_id",
+          "known_time",
+          "owner_role",
+          "severity",
+          "state",
+          "tenant_id",
+          "trigger_action"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "open_count": {
+      "type": "integer"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "cross_tenant_incidents",
+    "events",
+    "fusion_hash",
+    "incident_count",
+    "incident_ledger_hash",
+    "incident_ledger_id",
+    "incidents",
+    "open_count",
+    "research_only"
+  ],
+  "title": "SAED V4-41 incidents",
+  "type": "object"
+}

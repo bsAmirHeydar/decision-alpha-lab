@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "coverage_bps": {
+      "type": "integer"
+    },
+    "coverage_complete": {
+      "type": "boolean"
+    },
+    "cutoff": {
+      "type": "string"
+    },
+    "expected_count": {
+      "type": "integer"
+    },
+    "future_suffix_used": {
+      "type": "boolean"
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "observation_count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "policy_hash": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "baseline_value": {
+            "type": "number"
+          },
+          "cell_id": {
+            "type": "string"
+          },
+          "event_hash": {
+            "type": "string"
+          },
+          "event_id": {
+            "type": "string"
+          },
+          "evidence_role": {
+            "type": "string"
+          },
+          "future_suffix_used": {
+            "type": "boolean"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "metric_id": {
+            "type": "string"
+          },
+          "namespace": {
+            "type": "string"
+          },
+          "observation_id": {
+            "type": "string"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "previous_hash": {
+            "type": "string"
+          },
+          "sample_count": {
+            "type": "integer"
+          },
+          "source_hash": {
+            "type": "string"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          },
+          "tenant_id": {
+            "type": "string"
+          },
+          "value": {
+            "type": "number"
+          },
+          "window_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "baseline_value",
+          "cell_id",
+          "event_hash",
+          "event_id",
+          "evidence_role",
+          "future_suffix_used",
+          "known_time",
+          "metric_id",
+          "namespace",
+          "observation_id",
+          "ordinal",
+          "previous_hash",
+          "sample_count",
+          "source_hash",
+          "synthetic_fixture",
+          "tenant_id",
+          "value",
+          "window_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "coverage_bps",
+    "coverage_complete",
+    "cutoff",
+    "expected_count",
+    "future_suffix_used",
+    "immutable",
+    "ledger_hash",
+    "ledger_id",
+    "observation_count",
+    "phase",
+    "policy_hash",
+    "registry_hash",
+    "research_only",
+    "rows"
+  ],
+  "title": "SAED V4-41 ledger",
+  "type": "object"
+}

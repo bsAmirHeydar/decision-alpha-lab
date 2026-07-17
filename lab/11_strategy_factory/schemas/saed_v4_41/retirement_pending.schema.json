@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "approval_count": {
+      "type": "integer"
+    },
+    "cell_id": {
+      "type": "string"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "replacement_cell_id": {
+      "type": "string"
+    },
+    "required": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "approval_count",
+    "cell_id",
+    "reason",
+    "replacement_cell_id",
+    "required"
+  ],
+  "title": "SAED V4-41 retirement_pending",
+  "type": "object"
+}

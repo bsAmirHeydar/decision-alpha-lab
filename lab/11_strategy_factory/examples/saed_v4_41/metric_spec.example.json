@@ -1,0 +1,16 @@
+{
+  "critical_threshold": 0.14,
+  "description": "Calibration error against frozen reference bins.",
+  "detectors": [
+    "CUSUM",
+    "EWMA",
+    "THRESHOLD"
+  ],
+  "direction": "HIGHER_BAD",
+  "metric_id": "CALIBRATION_ERROR",
+  "minimum_samples": 100,
+  "missing_action": "QUARANTINE",
+  "scope": "CELL",
+  "warn_threshold": 0.08,
+  "weight": 1.2
+}

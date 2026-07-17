@@ -1,0 +1,257 @@
+{
+  "action_thresholds": {
+    "quarantine": 25.0,
+    "restrict": 5.0,
+    "retire_candidate": 40.0,
+    "watch": 1.0
+  },
+  "automatic_live_action_allowed": false,
+  "frozen_policy_hash": "41ca4279456c9f0c3544de62862191c9fcd5098f2588a33910c2430405fc9f46",
+  "frozen_policy_id": "v441_policy_51f8d3ae46f3e32e1cf46fa9",
+  "metrics": [
+    {
+      "critical_threshold": 0.14,
+      "description": "Calibration error against frozen reference bins.",
+      "detectors": [
+        "CUSUM",
+        "EWMA",
+        "THRESHOLD"
+      ],
+      "direction": "HIGHER_BAD",
+      "metric_id": "CALIBRATION_ERROR",
+      "minimum_samples": 100,
+      "missing_action": "QUARANTINE",
+      "scope": "CELL",
+      "warn_threshold": 0.08,
+      "weight": 1.2
+    },
+    {
+      "critical_threshold": 0.9,
+      "description": "Known-time data freshness ratio.",
+      "detectors": [
+        "EWMA",
+        "THRESHOLD"
+      ],
+      "direction": "LOWER_BAD",
+      "metric_id": "DATA_FRESHNESS_RATIO",
+      "minimum_samples": 100,
+      "missing_action": "QUARANTINE",
+      "scope": "CELL",
+      "warn_threshold": 0.98,
+      "weight": 1.0
+    },
+    {
+      "critical_threshold": 14.0,
+      "description": "Execution cost relative to frozen baseline.",
+      "detectors": [
+        "EWMA",
+        "THRESHOLD"
+      ],
+      "direction": "HIGHER_BAD",
+      "metric_id": "EXECUTION_COST_BPS",
+      "minimum_samples": 100,
+      "missing_action": "QUARANTINE",
+      "scope": "CELL",
+      "warn_threshold": 8.0,
+      "weight": 1.2
+    },
+    {
+      "critical_threshold": 0.2,
+      "description": "Tail-risk forecast error.",
+      "detectors": [
+        "EWMA",
+        "THRESHOLD"
+      ],
+      "direction": "HIGHER_BAD",
+      "metric_id": "EXPECTED_SHORTFALL_ERROR",
+      "minimum_samples": 100,
+      "missing_action": "QUARANTINE",
+      "scope": "CELL",
+      "warn_threshold": 0.12,
+      "weight": 1.4
+    },
+    {
+      "critical_threshold": 450.0,
+      "description": "Decision-path latency p99.",
+      "detectors": [
+        "EWMA",
+        "THRESHOLD"
+      ],
+      "direction": "HIGHER_BAD",
+      "metric_id": "LATENCY_P99_MS",
+      "minimum_samples": 100,
+      "missing_action": "RESTRICT",
+      "scope": "CELL",
+      "warn_threshold": 250.0,
+      "weight": 0.8
+    },
+    {
+      "critical_threshold": 0.16,
+      "description": "Out-of-distribution rate.",
+      "detectors": [
+        "CUSUM",
+        "THRESHOLD"
+      ],
+      "direction": "HIGHER_BAD",
+      "metric_id": "OOD_RATE",
+      "minimum_samples": 100,
+      "missing_action": "QUARANTINE",
+      "scope": "CELL",
+      "warn_threshold": 0.08,
+      "weight": 1.3
+    },
+    {
+      "critical_threshold": 0.4,
+      "description": "Prospective utility proxy relative to baseline.",
+      "detectors": [
+        "CUSUM",
+        "PAGE_HINKLEY",
+        "THRESHOLD"
+      ],
+      "direction": "LOWER_BAD",
+      "metric_id": "PREDICTIVE_UTILITY",
+      "minimum_samples": 100,
+      "missing_action": "QUARANTINE",
+      "scope": "CELL",
+      "warn_threshold": 0.55,
+      "weight": 1.5
+    },
+    {
+      "critical_threshold": 0.25,
+      "description": "Population stability drift.",
+      "detectors": [
+        "PAGE_HINKLEY",
+        "THRESHOLD"
+      ],
+      "direction": "HIGHER_BAD",
+      "metric_id": "PSI_DRIFT",
+      "minimum_samples": 100,
+      "missing_action": "RESTRICT",
+      "scope": "CELL",
+      "warn_threshold": 0.15,
+      "weight": 1.0
+    },
+    {
+      "critical_threshold": 0.18,
+      "description": "Decision regret against preserved baseline.",
+      "detectors": [
+        "CUSUM",
+        "PAGE_HINKLEY",
+        "THRESHOLD"
+      ],
+      "direction": "HIGHER_BAD",
+      "metric_id": "REALIZED_REGRET",
+      "minimum_samples": 100,
+      "missing_action": "QUARANTINE",
+      "scope": "CELL",
+      "warn_threshold": 0.1,
+      "weight": 1.5
+    },
+    {
+      "critical_threshold": 1e-05,
+      "description": "Position/order/capital reconciliation delta.",
+      "detectors": [
+        "THRESHOLD"
+      ],
+      "direction": "ABSOLUTE_BAD",
+      "metric_id": "RECONCILIATION_DELTA",
+      "minimum_samples": 100,
+      "missing_action": "QUARANTINE",
+      "scope": "CELL",
+      "warn_threshold": 1e-06,
+      "weight": 1.6
+    },
+    {
+      "critical_threshold": 0.05,
+      "description": "Synthetic broker reject-rate mirror.",
+      "detectors": [
+        "CUSUM",
+        "THRESHOLD"
+      ],
+      "direction": "HIGHER_BAD",
+      "metric_id": "REJECT_RATE",
+      "minimum_samples": 100,
+      "missing_action": "QUARANTINE",
+      "scope": "CELL",
+      "warn_threshold": 0.02,
+      "weight": 1.1
+    },
+    {
+      "critical_threshold": 0.65,
+      "description": "Supported opportunity ratio.",
+      "detectors": [
+        "EWMA",
+        "THRESHOLD"
+      ],
+      "direction": "LOWER_BAD",
+      "metric_id": "SUPPORT_RATIO",
+      "minimum_samples": 100,
+      "missing_action": "QUARANTINE",
+      "scope": "CELL",
+      "warn_threshold": 0.82,
+      "weight": 1.5
+    }
+  ],
+  "minimum_metric_coverage_bps": 10000,
+  "minimum_window_coverage_bps": 10000,
+  "persistence_windows": 3,
+  "policy_content_hash": "2fd0defa77687b9218914420f875483ccac7db4c46c3786f274a4de5c843b829",
+  "policy_id": "SAED_V4_41_POLICY_V1",
+  "reinstatement_requires_new_qualification": true,
+  "research_only": true,
+  "retirement_approval_roles": [
+    "DATA_GOVERNANCE",
+    "MODEL_RISK",
+    "SECURITY",
+    "SRE",
+    "UCEE_AUTHORITY"
+  ],
+  "retirement_min_approvals": 4,
+  "retirement_requires_replacement": true,
+  "threshold_changes_require_new_version": true,
+  "version": "1.0.0",
+  "windows": [
+    {
+      "end_known_time": "2026-07-01T23:59:00Z",
+      "evidence_role": "SYNTHETIC_REFERENCE_SURVEILLANCE",
+      "ordinal": 0,
+      "start_known_time": "2026-07-01T00:00:00Z",
+      "window_id": "W01"
+    },
+    {
+      "end_known_time": "2026-07-02T23:59:00Z",
+      "evidence_role": "SYNTHETIC_REFERENCE_SURVEILLANCE",
+      "ordinal": 1,
+      "start_known_time": "2026-07-02T00:00:00Z",
+      "window_id": "W02"
+    },
+    {
+      "end_known_time": "2026-07-03T23:59:00Z",
+      "evidence_role": "SYNTHETIC_REFERENCE_SURVEILLANCE",
+      "ordinal": 2,
+      "start_known_time": "2026-07-03T00:00:00Z",
+      "window_id": "W03"
+    },
+    {
+      "end_known_time": "2026-07-04T23:59:00Z",
+      "evidence_role": "SYNTHETIC_REFERENCE_SURVEILLANCE",
+      "ordinal": 3,
+      "start_known_time": "2026-07-04T00:00:00Z",
+      "window_id": "W04"
+    },
+    {
+      "end_known_time": "2026-07-05T23:59:00Z",
+      "evidence_role": "SYNTHETIC_REFERENCE_SURVEILLANCE",
+      "ordinal": 4,
+      "start_known_time": "2026-07-05T00:00:00Z",
+      "window_id": "W05"
+    },
+    {
+      "end_known_time": "2026-07-06T23:59:00Z",
+      "evidence_role": "SYNTHETIC_REFERENCE_SURVEILLANCE",
+      "ordinal": 5,
+      "start_known_time": "2026-07-06T00:00:00Z",
+      "window_id": "W06"
+    }
+  ]
+}

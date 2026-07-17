@@ -1,0 +1,273 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "action_counts": {
+      "additionalProperties": false,
+      "properties": {
+        "CONTINUE": {
+          "type": "integer"
+        },
+        "QUARANTINE": {
+          "type": "integer"
+        },
+        "RESTRICT": {
+          "type": "integer"
+        },
+        "RETIRE_CANDIDATE": {
+          "type": "integer"
+        },
+        "WATCH": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "CONTINUE",
+        "QUARANTINE",
+        "RESTRICT",
+        "RETIRE_CANDIDATE",
+        "WATCH"
+      ],
+      "type": "object"
+    },
+    "alert_count": {
+      "type": "integer"
+    },
+    "capital_delta": {
+      "type": "number"
+    },
+    "coverage_bps": {
+      "type": "integer"
+    },
+    "dashboard_hash": {
+      "type": "string"
+    },
+    "dashboard_id": {
+      "type": "string"
+    },
+    "fleet_cell_count": {
+      "type": "integer"
+    },
+    "future_suffix_used": {
+      "type": "boolean"
+    },
+    "incident_count": {
+      "type": "integer"
+    },
+    "live_order_side_effects": {
+      "type": "integer"
+    },
+    "metric_count": {
+      "type": "integer"
+    },
+    "observation_count": {
+      "type": "integer"
+    },
+    "pending_retirement_count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "retired_count": {
+      "type": "integer"
+    },
+    "retirement_candidate_count": {
+      "type": "integer"
+    },
+    "tenant_actions": {
+      "additionalProperties": false,
+      "properties": {
+        "TENANT_01": {
+          "additionalProperties": false,
+          "properties": {
+            "CONTINUE": {
+              "type": "integer"
+            },
+            "RESTRICT": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "CONTINUE",
+            "RESTRICT"
+          ],
+          "type": "object"
+        },
+        "TENANT_02": {
+          "additionalProperties": false,
+          "properties": {
+            "CONTINUE": {
+              "type": "integer"
+            },
+            "RESTRICT": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "CONTINUE",
+            "RESTRICT"
+          ],
+          "type": "object"
+        },
+        "TENANT_03": {
+          "additionalProperties": false,
+          "properties": {
+            "CONTINUE": {
+              "type": "integer"
+            },
+            "RESTRICT": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "CONTINUE",
+            "RESTRICT"
+          ],
+          "type": "object"
+        },
+        "TENANT_04": {
+          "additionalProperties": false,
+          "properties": {
+            "CONTINUE": {
+              "type": "integer"
+            },
+            "QUARANTINE": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "CONTINUE",
+            "QUARANTINE"
+          ],
+          "type": "object"
+        },
+        "TENANT_05": {
+          "additionalProperties": false,
+          "properties": {
+            "CONTINUE": {
+              "type": "integer"
+            },
+            "QUARANTINE": {
+              "type": "integer"
+            },
+            "WATCH": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "CONTINUE",
+            "QUARANTINE",
+            "WATCH"
+          ],
+          "type": "object"
+        },
+        "TENANT_06": {
+          "additionalProperties": false,
+          "properties": {
+            "CONTINUE": {
+              "type": "integer"
+            },
+            "QUARANTINE": {
+              "type": "integer"
+            },
+            "WATCH": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "CONTINUE",
+            "QUARANTINE",
+            "WATCH"
+          ],
+          "type": "object"
+        },
+        "TENANT_07": {
+          "additionalProperties": false,
+          "properties": {
+            "CONTINUE": {
+              "type": "integer"
+            },
+            "RETIRE_CANDIDATE": {
+              "type": "integer"
+            },
+            "WATCH": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "CONTINUE",
+            "RETIRE_CANDIDATE",
+            "WATCH"
+          ],
+          "type": "object"
+        },
+        "TENANT_08": {
+          "additionalProperties": false,
+          "properties": {
+            "CONTINUE": {
+              "type": "integer"
+            },
+            "RETIRE_CANDIDATE": {
+              "type": "integer"
+            },
+            "WATCH": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "CONTINUE",
+            "RETIRE_CANDIDATE",
+            "WATCH"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "TENANT_01",
+        "TENANT_02",
+        "TENANT_03",
+        "TENANT_04",
+        "TENANT_05",
+        "TENANT_06",
+        "TENANT_07",
+        "TENANT_08"
+      ],
+      "type": "object"
+    },
+    "unknown_cells": {
+      "type": "integer"
+    },
+    "window_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "action_counts",
+    "alert_count",
+    "capital_delta",
+    "coverage_bps",
+    "dashboard_hash",
+    "dashboard_id",
+    "fleet_cell_count",
+    "future_suffix_used",
+    "incident_count",
+    "live_order_side_effects",
+    "metric_count",
+    "observation_count",
+    "pending_retirement_count",
+    "phase",
+    "research_only",
+    "retired_count",
+    "retirement_candidate_count",
+    "tenant_actions",
+    "unknown_cells",
+    "window_count"
+  ],
+  "title": "SAED V4-41 dashboard",
+  "type": "object"
+}

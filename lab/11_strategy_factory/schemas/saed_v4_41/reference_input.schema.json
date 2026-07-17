@@ -1,0 +1,1347 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "constitution": {
+      "additionalProperties": false,
+      "properties": {
+        "automatic_live_authority_allowed": {
+          "type": "boolean"
+        },
+        "baseline_preservation_required": {
+          "type": "boolean"
+        },
+        "capital_activation_allowed": {
+          "type": "boolean"
+        },
+        "clauses": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "clause_id": {
+                "type": "string"
+              },
+              "evidence_required": {
+                "type": "boolean"
+              },
+              "failure_action": {
+                "type": "string"
+              },
+              "priority": {
+                "type": "integer"
+              },
+              "requirement": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "clause_id",
+              "evidence_required",
+              "failure_action",
+              "priority",
+              "requirement"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "complete_coverage_required": {
+          "type": "boolean"
+        },
+        "constitution_id": {
+          "type": "string"
+        },
+        "cross_tenant_action_allowed": {
+          "type": "boolean"
+        },
+        "immutable_observation_ledger": {
+          "type": "boolean"
+        },
+        "known_time_only": {
+          "type": "boolean"
+        },
+        "live_order_submission_allowed": {
+          "type": "boolean"
+        },
+        "production_authorization_allowed": {
+          "type": "boolean"
+        },
+        "reinstatement_without_requalification_allowed": {
+          "type": "boolean"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "retirement_tombstones_immutable": {
+          "type": "boolean"
+        },
+        "silent_threshold_change_allowed": {
+          "type": "boolean"
+        },
+        "two_person_retirement_required": {
+          "type": "boolean"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "automatic_live_authority_allowed",
+        "baseline_preservation_required",
+        "capital_activation_allowed",
+        "clauses",
+        "complete_coverage_required",
+        "constitution_id",
+        "cross_tenant_action_allowed",
+        "immutable_observation_ledger",
+        "known_time_only",
+        "live_order_submission_allowed",
+        "production_authorization_allowed",
+        "reinstatement_without_requalification_allowed",
+        "research_only",
+        "retirement_tombstones_immutable",
+        "silent_threshold_change_allowed",
+        "two_person_retirement_required",
+        "version"
+      ],
+      "type": "object"
+    },
+    "cutoff": {
+      "type": "string"
+    },
+    "governance_review": {
+      "additionalProperties": false,
+      "properties": {
+        "accepted_reference": {
+          "type": "boolean"
+        },
+        "external_gates_open": {
+          "type": "boolean"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "review_id": {
+          "type": "string"
+        },
+        "reviews": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "decision": {
+                "type": "string"
+              },
+              "evidence_hash": {
+                "type": "string"
+              },
+              "limitations": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "reviewer_id": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              },
+              "signed": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "decision",
+              "evidence_hash",
+              "limitations",
+              "reviewer_id",
+              "role",
+              "signed"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "unresolved_findings": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "accepted_reference",
+        "external_gates_open",
+        "research_only",
+        "review_id",
+        "reviews",
+        "unresolved_findings"
+      ],
+      "type": "object"
+    },
+    "observations": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "baseline_value": {
+            "type": "number"
+          },
+          "cell_id": {
+            "type": "string"
+          },
+          "evidence_role": {
+            "type": "string"
+          },
+          "future_suffix_used": {
+            "type": "boolean"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "metric_id": {
+            "type": "string"
+          },
+          "namespace": {
+            "type": "string"
+          },
+          "observation_id": {
+            "type": "string"
+          },
+          "sample_count": {
+            "type": "integer"
+          },
+          "source_hash": {
+            "type": "string"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          },
+          "tenant_id": {
+            "type": "string"
+          },
+          "value": {
+            "type": "number"
+          },
+          "window_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "baseline_value",
+          "cell_id",
+          "evidence_role",
+          "future_suffix_used",
+          "known_time",
+          "metric_id",
+          "namespace",
+          "observation_id",
+          "sample_count",
+          "source_hash",
+          "synthetic_fixture",
+          "tenant_id",
+          "value",
+          "window_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "policy": {
+      "additionalProperties": false,
+      "properties": {
+        "action_thresholds": {
+          "additionalProperties": false,
+          "properties": {
+            "quarantine": {
+              "type": "number"
+            },
+            "restrict": {
+              "type": "number"
+            },
+            "retire_candidate": {
+              "type": "number"
+            },
+            "watch": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "quarantine",
+            "restrict",
+            "retire_candidate",
+            "watch"
+          ],
+          "type": "object"
+        },
+        "automatic_live_action_allowed": {
+          "type": "boolean"
+        },
+        "metrics": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "critical_threshold": {
+                "type": "number"
+              },
+              "description": {
+                "type": "string"
+              },
+              "detectors": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "direction": {
+                "type": "string"
+              },
+              "metric_id": {
+                "type": "string"
+              },
+              "minimum_samples": {
+                "type": "integer"
+              },
+              "missing_action": {
+                "type": "string"
+              },
+              "scope": {
+                "type": "string"
+              },
+              "warn_threshold": {
+                "type": "number"
+              },
+              "weight": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "critical_threshold",
+              "description",
+              "detectors",
+              "direction",
+              "metric_id",
+              "minimum_samples",
+              "missing_action",
+              "scope",
+              "warn_threshold",
+              "weight"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "minimum_metric_coverage_bps": {
+          "type": "integer"
+        },
+        "minimum_window_coverage_bps": {
+          "type": "integer"
+        },
+        "persistence_windows": {
+          "type": "integer"
+        },
+        "policy_id": {
+          "type": "string"
+        },
+        "reinstatement_requires_new_qualification": {
+          "type": "boolean"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "retirement_approval_roles": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "retirement_min_approvals": {
+          "type": "integer"
+        },
+        "retirement_requires_replacement": {
+          "type": "boolean"
+        },
+        "threshold_changes_require_new_version": {
+          "type": "boolean"
+        },
+        "version": {
+          "type": "string"
+        },
+        "windows": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "end_known_time": {
+                "type": "string"
+              },
+              "evidence_role": {
+                "type": "string"
+              },
+              "ordinal": {
+                "type": "integer"
+              },
+              "start_known_time": {
+                "type": "string"
+              },
+              "window_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "end_known_time",
+              "evidence_role",
+              "ordinal",
+              "start_known_time",
+              "window_id"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "action_thresholds",
+        "automatic_live_action_allowed",
+        "metrics",
+        "minimum_metric_coverage_bps",
+        "minimum_window_coverage_bps",
+        "persistence_windows",
+        "policy_id",
+        "reinstatement_requires_new_qualification",
+        "research_only",
+        "retirement_approval_roles",
+        "retirement_min_approvals",
+        "retirement_requires_replacement",
+        "threshold_changes_require_new_version",
+        "version",
+        "windows"
+      ],
+      "type": "object"
+    },
+    "registry": {
+      "additionalProperties": false,
+      "properties": {
+        "cells": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "baseline_cell_id": {
+                "type": "string"
+              },
+              "cell_id": {
+                "type": "string"
+              },
+              "context_id": {
+                "type": "string"
+              },
+              "context_version": {
+                "type": "integer"
+              },
+              "environment_id": {
+                "type": "string"
+              },
+              "failure_domain_policy": {
+                "type": "string"
+              },
+              "known_time_cutoff": {
+                "type": "string"
+              },
+              "model_generation": {
+                "type": "integer"
+              },
+              "mutable": {
+                "type": "boolean"
+              },
+              "namespace": {
+                "type": "string"
+              },
+              "replica_count": {
+                "type": "integer"
+              },
+              "resource_class": {
+                "type": "string"
+              },
+              "runtime_bundle_hash": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string"
+              },
+              "tenant_id": {
+                "type": "string"
+              },
+              "treatment_universe_hash": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "baseline_cell_id",
+              "cell_id",
+              "context_id",
+              "context_version",
+              "environment_id",
+              "failure_domain_policy",
+              "known_time_cutoff",
+              "model_generation",
+              "mutable",
+              "namespace",
+              "replica_count",
+              "resource_class",
+              "runtime_bundle_hash",
+              "state",
+              "tenant_id",
+              "treatment_universe_hash"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "compiled_registry_hash": {
+          "type": "string"
+        },
+        "compiled_registry_id": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string"
+        },
+        "immutable": {
+          "type": "boolean"
+        },
+        "namespaces": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "registry_hash": {
+          "type": "string"
+        },
+        "registry_id": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "tenants": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "cells",
+        "compiled_registry_hash",
+        "compiled_registry_id",
+        "created_at",
+        "immutable",
+        "namespaces",
+        "registry_hash",
+        "registry_id",
+        "research_only",
+        "tenants",
+        "version"
+      ],
+      "type": "object"
+    },
+    "replacement_map": {
+      "additionalProperties": false,
+      "properties": {
+        "CELL_0001": {
+          "type": "string"
+        },
+        "CELL_0002": {
+          "type": "string"
+        },
+        "CELL_0003": {
+          "type": "string"
+        },
+        "CELL_0004": {
+          "type": "string"
+        },
+        "CELL_0005": {
+          "type": "string"
+        },
+        "CELL_0006": {
+          "type": "string"
+        },
+        "CELL_0007": {
+          "type": "string"
+        },
+        "CELL_0008": {
+          "type": "string"
+        },
+        "CELL_0009": {
+          "type": "string"
+        },
+        "CELL_0010": {
+          "type": "string"
+        },
+        "CELL_0011": {
+          "type": "string"
+        },
+        "CELL_0012": {
+          "type": "string"
+        },
+        "CELL_0013": {
+          "type": "string"
+        },
+        "CELL_0014": {
+          "type": "string"
+        },
+        "CELL_0015": {
+          "type": "string"
+        },
+        "CELL_0016": {
+          "type": "string"
+        },
+        "CELL_0017": {
+          "type": "string"
+        },
+        "CELL_0018": {
+          "type": "string"
+        },
+        "CELL_0019": {
+          "type": "string"
+        },
+        "CELL_0020": {
+          "type": "string"
+        },
+        "CELL_0021": {
+          "type": "string"
+        },
+        "CELL_0022": {
+          "type": "string"
+        },
+        "CELL_0023": {
+          "type": "string"
+        },
+        "CELL_0024": {
+          "type": "string"
+        },
+        "CELL_0025": {
+          "type": "string"
+        },
+        "CELL_0026": {
+          "type": "string"
+        },
+        "CELL_0027": {
+          "type": "string"
+        },
+        "CELL_0028": {
+          "type": "string"
+        },
+        "CELL_0029": {
+          "type": "string"
+        },
+        "CELL_0030": {
+          "type": "string"
+        },
+        "CELL_0031": {
+          "type": "string"
+        },
+        "CELL_0032": {
+          "type": "string"
+        },
+        "CELL_0033": {
+          "type": "string"
+        },
+        "CELL_0034": {
+          "type": "string"
+        },
+        "CELL_0035": {
+          "type": "string"
+        },
+        "CELL_0036": {
+          "type": "string"
+        },
+        "CELL_0037": {
+          "type": "string"
+        },
+        "CELL_0038": {
+          "type": "string"
+        },
+        "CELL_0039": {
+          "type": "string"
+        },
+        "CELL_0040": {
+          "type": "string"
+        },
+        "CELL_0041": {
+          "type": "string"
+        },
+        "CELL_0042": {
+          "type": "string"
+        },
+        "CELL_0043": {
+          "type": "string"
+        },
+        "CELL_0044": {
+          "type": "string"
+        },
+        "CELL_0045": {
+          "type": "string"
+        },
+        "CELL_0046": {
+          "type": "string"
+        },
+        "CELL_0047": {
+          "type": "string"
+        },
+        "CELL_0048": {
+          "type": "string"
+        },
+        "CELL_0049": {
+          "type": "string"
+        },
+        "CELL_0050": {
+          "type": "string"
+        },
+        "CELL_0051": {
+          "type": "string"
+        },
+        "CELL_0052": {
+          "type": "string"
+        },
+        "CELL_0053": {
+          "type": "string"
+        },
+        "CELL_0054": {
+          "type": "string"
+        },
+        "CELL_0055": {
+          "type": "string"
+        },
+        "CELL_0056": {
+          "type": "string"
+        },
+        "CELL_0057": {
+          "type": "string"
+        },
+        "CELL_0058": {
+          "type": "string"
+        },
+        "CELL_0059": {
+          "type": "string"
+        },
+        "CELL_0060": {
+          "type": "string"
+        },
+        "CELL_0061": {
+          "type": "string"
+        },
+        "CELL_0062": {
+          "type": "string"
+        },
+        "CELL_0063": {
+          "type": "string"
+        },
+        "CELL_0064": {
+          "type": "string"
+        },
+        "CELL_0065": {
+          "type": "string"
+        },
+        "CELL_0066": {
+          "type": "string"
+        },
+        "CELL_0067": {
+          "type": "string"
+        },
+        "CELL_0068": {
+          "type": "string"
+        },
+        "CELL_0069": {
+          "type": "string"
+        },
+        "CELL_0070": {
+          "type": "string"
+        },
+        "CELL_0071": {
+          "type": "string"
+        },
+        "CELL_0072": {
+          "type": "string"
+        },
+        "CELL_0073": {
+          "type": "string"
+        },
+        "CELL_0074": {
+          "type": "string"
+        },
+        "CELL_0075": {
+          "type": "string"
+        },
+        "CELL_0076": {
+          "type": "string"
+        },
+        "CELL_0077": {
+          "type": "string"
+        },
+        "CELL_0078": {
+          "type": "string"
+        },
+        "CELL_0079": {
+          "type": "string"
+        },
+        "CELL_0080": {
+          "type": "string"
+        },
+        "CELL_0081": {
+          "type": "string"
+        },
+        "CELL_0082": {
+          "type": "string"
+        },
+        "CELL_0083": {
+          "type": "string"
+        },
+        "CELL_0084": {
+          "type": "string"
+        },
+        "CELL_0085": {
+          "type": "string"
+        },
+        "CELL_0086": {
+          "type": "string"
+        },
+        "CELL_0087": {
+          "type": "string"
+        },
+        "CELL_0088": {
+          "type": "string"
+        },
+        "CELL_0089": {
+          "type": "string"
+        },
+        "CELL_0090": {
+          "type": "string"
+        },
+        "CELL_0091": {
+          "type": "string"
+        },
+        "CELL_0092": {
+          "type": "string"
+        },
+        "CELL_0093": {
+          "type": "string"
+        },
+        "CELL_0094": {
+          "type": "string"
+        },
+        "CELL_0095": {
+          "type": "string"
+        },
+        "CELL_0096": {
+          "type": "string"
+        },
+        "CELL_0097": {
+          "type": "string"
+        },
+        "CELL_0098": {
+          "type": "string"
+        },
+        "CELL_0099": {
+          "type": "string"
+        },
+        "CELL_0100": {
+          "type": "string"
+        },
+        "CELL_0101": {
+          "type": "string"
+        },
+        "CELL_0102": {
+          "type": "string"
+        },
+        "CELL_0103": {
+          "type": "string"
+        },
+        "CELL_0104": {
+          "type": "string"
+        },
+        "CELL_0105": {
+          "type": "string"
+        },
+        "CELL_0106": {
+          "type": "string"
+        },
+        "CELL_0107": {
+          "type": "string"
+        },
+        "CELL_0108": {
+          "type": "string"
+        },
+        "CELL_0109": {
+          "type": "string"
+        },
+        "CELL_0110": {
+          "type": "string"
+        },
+        "CELL_0111": {
+          "type": "string"
+        },
+        "CELL_0112": {
+          "type": "string"
+        },
+        "CELL_0113": {
+          "type": "string"
+        },
+        "CELL_0114": {
+          "type": "string"
+        },
+        "CELL_0115": {
+          "type": "string"
+        },
+        "CELL_0116": {
+          "type": "string"
+        },
+        "CELL_0117": {
+          "type": "string"
+        },
+        "CELL_0118": {
+          "type": "string"
+        },
+        "CELL_0119": {
+          "type": "string"
+        },
+        "CELL_0120": {
+          "type": "string"
+        },
+        "CELL_0121": {
+          "type": "string"
+        },
+        "CELL_0122": {
+          "type": "string"
+        },
+        "CELL_0123": {
+          "type": "string"
+        },
+        "CELL_0124": {
+          "type": "string"
+        },
+        "CELL_0125": {
+          "type": "string"
+        },
+        "CELL_0126": {
+          "type": "string"
+        },
+        "CELL_0127": {
+          "type": "string"
+        },
+        "CELL_0128": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "CELL_0001",
+        "CELL_0002",
+        "CELL_0003",
+        "CELL_0004",
+        "CELL_0005",
+        "CELL_0006",
+        "CELL_0007",
+        "CELL_0008",
+        "CELL_0009",
+        "CELL_0010",
+        "CELL_0011",
+        "CELL_0012",
+        "CELL_0013",
+        "CELL_0014",
+        "CELL_0015",
+        "CELL_0016",
+        "CELL_0017",
+        "CELL_0018",
+        "CELL_0019",
+        "CELL_0020",
+        "CELL_0021",
+        "CELL_0022",
+        "CELL_0023",
+        "CELL_0024",
+        "CELL_0025",
+        "CELL_0026",
+        "CELL_0027",
+        "CELL_0028",
+        "CELL_0029",
+        "CELL_0030",
+        "CELL_0031",
+        "CELL_0032",
+        "CELL_0033",
+        "CELL_0034",
+        "CELL_0035",
+        "CELL_0036",
+        "CELL_0037",
+        "CELL_0038",
+        "CELL_0039",
+        "CELL_0040",
+        "CELL_0041",
+        "CELL_0042",
+        "CELL_0043",
+        "CELL_0044",
+        "CELL_0045",
+        "CELL_0046",
+        "CELL_0047",
+        "CELL_0048",
+        "CELL_0049",
+        "CELL_0050",
+        "CELL_0051",
+        "CELL_0052",
+        "CELL_0053",
+        "CELL_0054",
+        "CELL_0055",
+        "CELL_0056",
+        "CELL_0057",
+        "CELL_0058",
+        "CELL_0059",
+        "CELL_0060",
+        "CELL_0061",
+        "CELL_0062",
+        "CELL_0063",
+        "CELL_0064",
+        "CELL_0065",
+        "CELL_0066",
+        "CELL_0067",
+        "CELL_0068",
+        "CELL_0069",
+        "CELL_0070",
+        "CELL_0071",
+        "CELL_0072",
+        "CELL_0073",
+        "CELL_0074",
+        "CELL_0075",
+        "CELL_0076",
+        "CELL_0077",
+        "CELL_0078",
+        "CELL_0079",
+        "CELL_0080",
+        "CELL_0081",
+        "CELL_0082",
+        "CELL_0083",
+        "CELL_0084",
+        "CELL_0085",
+        "CELL_0086",
+        "CELL_0087",
+        "CELL_0088",
+        "CELL_0089",
+        "CELL_0090",
+        "CELL_0091",
+        "CELL_0092",
+        "CELL_0093",
+        "CELL_0094",
+        "CELL_0095",
+        "CELL_0096",
+        "CELL_0097",
+        "CELL_0098",
+        "CELL_0099",
+        "CELL_0100",
+        "CELL_0101",
+        "CELL_0102",
+        "CELL_0103",
+        "CELL_0104",
+        "CELL_0105",
+        "CELL_0106",
+        "CELL_0107",
+        "CELL_0108",
+        "CELL_0109",
+        "CELL_0110",
+        "CELL_0111",
+        "CELL_0112",
+        "CELL_0113",
+        "CELL_0114",
+        "CELL_0115",
+        "CELL_0116",
+        "CELL_0117",
+        "CELL_0118",
+        "CELL_0119",
+        "CELL_0120",
+        "CELL_0121",
+        "CELL_0122",
+        "CELL_0123",
+        "CELL_0124",
+        "CELL_0125",
+        "CELL_0126",
+        "CELL_0127",
+        "CELL_0128"
+      ],
+      "type": "object"
+    },
+    "retirement_approvals": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "approval_id": {
+            "type": "string"
+          },
+          "approved": {
+            "type": "boolean"
+          },
+          "cell_id": {
+            "type": "string"
+          },
+          "evidence_hash": {
+            "type": "string"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "approval_id",
+          "approved",
+          "cell_id",
+          "evidence_hash",
+          "known_time",
+          "role",
+          "synthetic_fixture"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "routes": {
+      "additionalProperties": false,
+      "properties": {
+        "compiled_routes_hash": {
+          "type": "string"
+        },
+        "compiled_routes_id": {
+          "type": "string"
+        },
+        "cross_tenant_allowed": {
+          "type": "boolean"
+        },
+        "default_action": {
+          "type": "string"
+        },
+        "fleet_manifest_hash": {
+          "type": "string"
+        },
+        "registry_hash": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "route_count": {
+          "type": "integer"
+        },
+        "routes": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "cell_id": {
+                "type": "string"
+              },
+              "context_id": {
+                "type": "string"
+              },
+              "context_version": {
+                "type": "integer"
+              },
+              "enabled": {
+                "type": "boolean"
+              },
+              "namespace": {
+                "type": "string"
+              },
+              "route_id": {
+                "type": "string"
+              },
+              "tenant_id": {
+                "type": "string"
+              },
+              "weight_bps": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "cell_id",
+              "context_id",
+              "context_version",
+              "enabled",
+              "namespace",
+              "route_id",
+              "tenant_id",
+              "weight_bps"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "compiled_routes_hash",
+        "compiled_routes_id",
+        "cross_tenant_allowed",
+        "default_action",
+        "fleet_manifest_hash",
+        "registry_hash",
+        "research_only",
+        "route_count",
+        "routes"
+      ],
+      "type": "object"
+    },
+    "upstream_certificate": {
+      "additionalProperties": false,
+      "properties": {
+        "actual_external_scale_evidence_complete": {
+          "type": "boolean"
+        },
+        "actual_failover_passed": {
+          "type": "boolean"
+        },
+        "actual_scale_soak_passed": {
+          "type": "boolean"
+        },
+        "capital_activation_allowed": {
+          "type": "boolean"
+        },
+        "certificate_hash": {
+          "type": "string"
+        },
+        "certificate_id": {
+          "type": "string"
+        },
+        "claim_ceiling": {
+          "type": "string"
+        },
+        "evidence_hash": {
+          "type": "string"
+        },
+        "fleet_reference_ready": {
+          "type": "boolean"
+        },
+        "live_order_submission_allowed": {
+          "type": "boolean"
+        },
+        "next_phase": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "production_authorized": {
+          "type": "boolean"
+        },
+        "release_hash": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "actual_external_scale_evidence_complete",
+        "actual_failover_passed",
+        "actual_scale_soak_passed",
+        "capital_activation_allowed",
+        "certificate_hash",
+        "certificate_id",
+        "claim_ceiling",
+        "evidence_hash",
+        "fleet_reference_ready",
+        "live_order_submission_allowed",
+        "next_phase",
+        "phase",
+        "production_authorized",
+        "release_hash",
+        "research_only",
+        "status"
+      ],
+      "type": "object"
+    },
+    "upstream_handoff": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_next_work": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "certificate_hash": {
+          "type": "string"
+        },
+        "forbidden_next_work": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "handoff_hash": {
+          "type": "string"
+        },
+        "handoff_id": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "next_phase": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "production_authorized": {
+          "type": "boolean"
+        },
+        "release_hash": {
+          "type": "string"
+        },
+        "required_external_gates": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "research_only": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "allowed_next_work",
+        "certificate_hash",
+        "forbidden_next_work",
+        "handoff_hash",
+        "handoff_id",
+        "kind",
+        "next_phase",
+        "phase",
+        "production_authorized",
+        "release_hash",
+        "required_external_gates",
+        "research_only"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "constitution",
+    "cutoff",
+    "governance_review",
+    "observations",
+    "policy",
+    "registry",
+    "replacement_map",
+    "retirement_approvals",
+    "routes",
+    "upstream_certificate",
+    "upstream_handoff"
+  ],
+  "title": "SAED V4-41 reference_input",
+  "type": "object"
+}

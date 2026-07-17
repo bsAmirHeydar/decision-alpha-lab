@@ -1,0 +1,7 @@
+{
+  "clause_id": "V441-C-001",
+  "evidence_required": true,
+  "failure_action": "WATCH",
+  "priority": 1,
+  "requirement": "Continuous surveillance and retirement invariant 001: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+}

@@ -1,0 +1,692 @@
+{
+  "automatic_live_authority_allowed": false,
+  "baseline_preservation_required": true,
+  "capital_activation_allowed": false,
+  "clauses": [
+    {
+      "clause_id": "V441-C-001",
+      "evidence_required": true,
+      "failure_action": "WATCH",
+      "priority": 1,
+      "requirement": "Continuous surveillance and retirement invariant 001: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-002",
+      "evidence_required": true,
+      "failure_action": "RESTRICT",
+      "priority": 2,
+      "requirement": "Continuous surveillance and retirement invariant 002: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-003",
+      "evidence_required": true,
+      "failure_action": "QUARANTINE",
+      "priority": 3,
+      "requirement": "Continuous surveillance and retirement invariant 003: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-004",
+      "evidence_required": true,
+      "failure_action": "RETIRE_REVIEW",
+      "priority": 4,
+      "requirement": "Continuous surveillance and retirement invariant 004: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-005",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN",
+      "priority": 5,
+      "requirement": "Continuous surveillance and retirement invariant 005: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-006",
+      "evidence_required": true,
+      "failure_action": "WATCH",
+      "priority": 6,
+      "requirement": "Continuous surveillance and retirement invariant 006: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-007",
+      "evidence_required": true,
+      "failure_action": "RESTRICT",
+      "priority": 7,
+      "requirement": "Continuous surveillance and retirement invariant 007: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-008",
+      "evidence_required": true,
+      "failure_action": "QUARANTINE",
+      "priority": 8,
+      "requirement": "Continuous surveillance and retirement invariant 008: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-009",
+      "evidence_required": true,
+      "failure_action": "RETIRE_REVIEW",
+      "priority": 9,
+      "requirement": "Continuous surveillance and retirement invariant 009: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-010",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN",
+      "priority": 10,
+      "requirement": "Continuous surveillance and retirement invariant 010: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-011",
+      "evidence_required": true,
+      "failure_action": "WATCH",
+      "priority": 11,
+      "requirement": "Continuous surveillance and retirement invariant 011: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-012",
+      "evidence_required": true,
+      "failure_action": "RESTRICT",
+      "priority": 12,
+      "requirement": "Continuous surveillance and retirement invariant 012: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-013",
+      "evidence_required": true,
+      "failure_action": "QUARANTINE",
+      "priority": 13,
+      "requirement": "Continuous surveillance and retirement invariant 013: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-014",
+      "evidence_required": true,
+      "failure_action": "RETIRE_REVIEW",
+      "priority": 14,
+      "requirement": "Continuous surveillance and retirement invariant 014: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-015",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN",
+      "priority": 15,
+      "requirement": "Continuous surveillance and retirement invariant 015: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-016",
+      "evidence_required": true,
+      "failure_action": "WATCH",
+      "priority": 16,
+      "requirement": "Continuous surveillance and retirement invariant 016: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-017",
+      "evidence_required": true,
+      "failure_action": "RESTRICT",
+      "priority": 17,
+      "requirement": "Continuous surveillance and retirement invariant 017: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-018",
+      "evidence_required": true,
+      "failure_action": "QUARANTINE",
+      "priority": 18,
+      "requirement": "Continuous surveillance and retirement invariant 018: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-019",
+      "evidence_required": true,
+      "failure_action": "RETIRE_REVIEW",
+      "priority": 19,
+      "requirement": "Continuous surveillance and retirement invariant 019: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-020",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN",
+      "priority": 20,
+      "requirement": "Continuous surveillance and retirement invariant 020: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-021",
+      "evidence_required": true,
+      "failure_action": "WATCH",
+      "priority": 21,
+      "requirement": "Continuous surveillance and retirement invariant 021: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-022",
+      "evidence_required": true,
+      "failure_action": "RESTRICT",
+      "priority": 22,
+      "requirement": "Continuous surveillance and retirement invariant 022: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-023",
+      "evidence_required": true,
+      "failure_action": "QUARANTINE",
+      "priority": 23,
+      "requirement": "Continuous surveillance and retirement invariant 023: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-024",
+      "evidence_required": true,
+      "failure_action": "RETIRE_REVIEW",
+      "priority": 24,
+      "requirement": "Continuous surveillance and retirement invariant 024: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-025",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN",
+      "priority": 25,
+      "requirement": "Continuous surveillance and retirement invariant 025: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-026",
+      "evidence_required": true,
+      "failure_action": "WATCH",
+      "priority": 26,
+      "requirement": "Continuous surveillance and retirement invariant 026: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-027",
+      "evidence_required": true,
+      "failure_action": "RESTRICT",
+      "priority": 27,
+      "requirement": "Continuous surveillance and retirement invariant 027: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-028",
+      "evidence_required": true,
+      "failure_action": "QUARANTINE",
+      "priority": 28,
+      "requirement": "Continuous surveillance and retirement invariant 028: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-029",
+      "evidence_required": true,
+      "failure_action": "RETIRE_REVIEW",
+      "priority": 29,
+      "requirement": "Continuous surveillance and retirement invariant 029: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-030",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN",
+      "priority": 30,
+      "requirement": "Continuous surveillance and retirement invariant 030: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-031",
+      "evidence_required": true,
+      "failure_action": "WATCH",
+      "priority": 31,
+      "requirement": "Continuous surveillance and retirement invariant 031: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-032",
+      "evidence_required": true,
+      "failure_action": "RESTRICT",
+      "priority": 32,
+      "requirement": "Continuous surveillance and retirement invariant 032: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-033",
+      "evidence_required": true,
+      "failure_action": "QUARANTINE",
+      "priority": 33,
+      "requirement": "Continuous surveillance and retirement invariant 033: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-034",
+      "evidence_required": true,
+      "failure_action": "RETIRE_REVIEW",
+      "priority": 34,
+      "requirement": "Continuous surveillance and retirement invariant 034: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-035",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN",
+      "priority": 35,
+      "requirement": "Continuous surveillance and retirement invariant 035: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-036",
+      "evidence_required": true,
+      "failure_action": "WATCH",
+      "priority": 36,
+      "requirement": "Continuous surveillance and retirement invariant 036: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-037",
+      "evidence_required": true,
+      "failure_action": "RESTRICT",
+      "priority": 37,
+      "requirement": "Continuous surveillance and retirement invariant 037: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-038",
+      "evidence_required": true,
+      "failure_action": "QUARANTINE",
+      "priority": 38,
+      "requirement": "Continuous surveillance and retirement invariant 038: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-039",
+      "evidence_required": true,
+      "failure_action": "RETIRE_REVIEW",
+      "priority": 39,
+      "requirement": "Continuous surveillance and retirement invariant 039: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-040",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN",
+      "priority": 40,
+      "requirement": "Continuous surveillance and retirement invariant 040: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-041",
+      "evidence_required": true,
+      "failure_action": "WATCH",
+      "priority": 41,
+      "requirement": "Continuous surveillance and retirement invariant 041: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-042",
+      "evidence_required": true,
+      "failure_action": "RESTRICT",
+      "priority": 42,
+      "requirement": "Continuous surveillance and retirement invariant 042: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-043",
+      "evidence_required": true,
+      "failure_action": "QUARANTINE",
+      "priority": 43,
+      "requirement": "Continuous surveillance and retirement invariant 043: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-044",
+      "evidence_required": true,
+      "failure_action": "RETIRE_REVIEW",
+      "priority": 44,
+      "requirement": "Continuous surveillance and retirement invariant 044: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-045",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN",
+      "priority": 45,
+      "requirement": "Continuous surveillance and retirement invariant 045: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-046",
+      "evidence_required": true,
+      "failure_action": "WATCH",
+      "priority": 46,
+      "requirement": "Continuous surveillance and retirement invariant 046: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-047",
+      "evidence_required": true,
+      "failure_action": "RESTRICT",
+      "priority": 47,
+      "requirement": "Continuous surveillance and retirement invariant 047: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-048",
+      "evidence_required": true,
+      "failure_action": "QUARANTINE",
+      "priority": 48,
+      "requirement": "Continuous surveillance and retirement invariant 048: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-049",
+      "evidence_required": true,
+      "failure_action": "RETIRE_REVIEW",
+      "priority": 49,
+      "requirement": "Continuous surveillance and retirement invariant 049: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-050",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN",
+      "priority": 50,
+      "requirement": "Continuous surveillance and retirement invariant 050: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-051",
+      "evidence_required": true,
+      "failure_action": "WATCH",
+      "priority": 51,
+      "requirement": "Continuous surveillance and retirement invariant 051: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-052",
+      "evidence_required": true,
+      "failure_action": "RESTRICT",
+      "priority": 52,
+      "requirement": "Continuous surveillance and retirement invariant 052: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-053",
+      "evidence_required": true,
+      "failure_action": "QUARANTINE",
+      "priority": 53,
+      "requirement": "Continuous surveillance and retirement invariant 053: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-054",
+      "evidence_required": true,
+      "failure_action": "RETIRE_REVIEW",
+      "priority": 54,
+      "requirement": "Continuous surveillance and retirement invariant 054: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-055",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN",
+      "priority": 55,
+      "requirement": "Continuous surveillance and retirement invariant 055: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-056",
+      "evidence_required": true,
+      "failure_action": "WATCH",
+      "priority": 56,
+      "requirement": "Continuous surveillance and retirement invariant 056: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-057",
+      "evidence_required": true,
+      "failure_action": "RESTRICT",
+      "priority": 57,
+      "requirement": "Continuous surveillance and retirement invariant 057: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-058",
+      "evidence_required": true,
+      "failure_action": "QUARANTINE",
+      "priority": 58,
+      "requirement": "Continuous surveillance and retirement invariant 058: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-059",
+      "evidence_required": true,
+      "failure_action": "RETIRE_REVIEW",
+      "priority": 59,
+      "requirement": "Continuous surveillance and retirement invariant 059: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-060",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN",
+      "priority": 60,
+      "requirement": "Continuous surveillance and retirement invariant 060: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-061",
+      "evidence_required": true,
+      "failure_action": "WATCH",
+      "priority": 61,
+      "requirement": "Continuous surveillance and retirement invariant 061: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-062",
+      "evidence_required": true,
+      "failure_action": "RESTRICT",
+      "priority": 62,
+      "requirement": "Continuous surveillance and retirement invariant 062: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-063",
+      "evidence_required": true,
+      "failure_action": "QUARANTINE",
+      "priority": 63,
+      "requirement": "Continuous surveillance and retirement invariant 063: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-064",
+      "evidence_required": true,
+      "failure_action": "RETIRE_REVIEW",
+      "priority": 64,
+      "requirement": "Continuous surveillance and retirement invariant 064: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-065",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN",
+      "priority": 65,
+      "requirement": "Continuous surveillance and retirement invariant 065: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-066",
+      "evidence_required": true,
+      "failure_action": "WATCH",
+      "priority": 66,
+      "requirement": "Continuous surveillance and retirement invariant 066: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-067",
+      "evidence_required": true,
+      "failure_action": "RESTRICT",
+      "priority": 67,
+      "requirement": "Continuous surveillance and retirement invariant 067: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-068",
+      "evidence_required": true,
+      "failure_action": "QUARANTINE",
+      "priority": 68,
+      "requirement": "Continuous surveillance and retirement invariant 068: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-069",
+      "evidence_required": true,
+      "failure_action": "RETIRE_REVIEW",
+      "priority": 69,
+      "requirement": "Continuous surveillance and retirement invariant 069: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-070",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN",
+      "priority": 70,
+      "requirement": "Continuous surveillance and retirement invariant 070: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-071",
+      "evidence_required": true,
+      "failure_action": "WATCH",
+      "priority": 71,
+      "requirement": "Continuous surveillance and retirement invariant 071: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-072",
+      "evidence_required": true,
+      "failure_action": "RESTRICT",
+      "priority": 72,
+      "requirement": "Continuous surveillance and retirement invariant 072: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-073",
+      "evidence_required": true,
+      "failure_action": "QUARANTINE",
+      "priority": 73,
+      "requirement": "Continuous surveillance and retirement invariant 073: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-074",
+      "evidence_required": true,
+      "failure_action": "RETIRE_REVIEW",
+      "priority": 74,
+      "requirement": "Continuous surveillance and retirement invariant 074: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-075",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN",
+      "priority": 75,
+      "requirement": "Continuous surveillance and retirement invariant 075: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-076",
+      "evidence_required": true,
+      "failure_action": "WATCH",
+      "priority": 76,
+      "requirement": "Continuous surveillance and retirement invariant 076: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-077",
+      "evidence_required": true,
+      "failure_action": "RESTRICT",
+      "priority": 77,
+      "requirement": "Continuous surveillance and retirement invariant 077: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-078",
+      "evidence_required": true,
+      "failure_action": "QUARANTINE",
+      "priority": 78,
+      "requirement": "Continuous surveillance and retirement invariant 078: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-079",
+      "evidence_required": true,
+      "failure_action": "RETIRE_REVIEW",
+      "priority": 79,
+      "requirement": "Continuous surveillance and retirement invariant 079: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-080",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN",
+      "priority": 80,
+      "requirement": "Continuous surveillance and retirement invariant 080: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-081",
+      "evidence_required": true,
+      "failure_action": "WATCH",
+      "priority": 81,
+      "requirement": "Continuous surveillance and retirement invariant 081: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-082",
+      "evidence_required": true,
+      "failure_action": "RESTRICT",
+      "priority": 82,
+      "requirement": "Continuous surveillance and retirement invariant 082: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-083",
+      "evidence_required": true,
+      "failure_action": "QUARANTINE",
+      "priority": 83,
+      "requirement": "Continuous surveillance and retirement invariant 083: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-084",
+      "evidence_required": true,
+      "failure_action": "RETIRE_REVIEW",
+      "priority": 84,
+      "requirement": "Continuous surveillance and retirement invariant 084: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-085",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN",
+      "priority": 85,
+      "requirement": "Continuous surveillance and retirement invariant 085: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-086",
+      "evidence_required": true,
+      "failure_action": "WATCH",
+      "priority": 86,
+      "requirement": "Continuous surveillance and retirement invariant 086: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-087",
+      "evidence_required": true,
+      "failure_action": "RESTRICT",
+      "priority": 87,
+      "requirement": "Continuous surveillance and retirement invariant 087: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-088",
+      "evidence_required": true,
+      "failure_action": "QUARANTINE",
+      "priority": 88,
+      "requirement": "Continuous surveillance and retirement invariant 088: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-089",
+      "evidence_required": true,
+      "failure_action": "RETIRE_REVIEW",
+      "priority": 89,
+      "requirement": "Continuous surveillance and retirement invariant 089: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-090",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN",
+      "priority": 90,
+      "requirement": "Continuous surveillance and retirement invariant 090: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-091",
+      "evidence_required": true,
+      "failure_action": "WATCH",
+      "priority": 91,
+      "requirement": "Continuous surveillance and retirement invariant 091: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-092",
+      "evidence_required": true,
+      "failure_action": "RESTRICT",
+      "priority": 92,
+      "requirement": "Continuous surveillance and retirement invariant 092: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-093",
+      "evidence_required": true,
+      "failure_action": "QUARANTINE",
+      "priority": 93,
+      "requirement": "Continuous surveillance and retirement invariant 093: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-094",
+      "evidence_required": true,
+      "failure_action": "RETIRE_REVIEW",
+      "priority": 94,
+      "requirement": "Continuous surveillance and retirement invariant 094: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-095",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN",
+      "priority": 95,
+      "requirement": "Continuous surveillance and retirement invariant 095: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    },
+    {
+      "clause_id": "V441-C-096",
+      "evidence_required": true,
+      "failure_action": "WATCH",
+      "priority": 96,
+      "requirement": "Continuous surveillance and retirement invariant 096: immutable known-time evidence, complete coverage, explicit authority, baseline preservation, fail-closed containment, independent review and reconstructable retirement truth are mandatory."
+    }
+  ],
+  "complete_coverage_required": true,
+  "constitution_id": "SAED_V4_41_CONSTITUTION",
+  "cross_tenant_action_allowed": false,
+  "immutable_observation_ledger": true,
+  "known_time_only": true,
+  "live_order_submission_allowed": false,
+  "production_authorization_allowed": false,
+  "reinstatement_without_requalification_allowed": false,
+  "research_only": true,
+  "retirement_tombstones_immutable": true,
+  "silent_threshold_change_allowed": false,
+  "two_person_retirement_required": true,
+  "version": "1.0.0"
+}

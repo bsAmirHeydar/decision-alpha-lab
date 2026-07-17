@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "baseline_value": {
+      "type": "number"
+    },
+    "cell_id": {
+      "type": "string"
+    },
+    "detectors": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "detector_id": {
+            "type": "string"
+          },
+          "future_suffix_used": {
+            "type": "boolean"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "signal": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "detector_id",
+          "future_suffix_used",
+          "known_time",
+          "signal"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "latest_level": {
+      "type": "string"
+    },
+    "latest_value": {
+      "type": "number"
+    },
+    "metric_id": {
+      "type": "string"
+    },
+    "persistent": {
+      "type": "boolean"
+    },
+    "summary_hash": {
+      "type": "string"
+    },
+    "trailing_breach_windows": {
+      "type": "integer"
+    },
+    "weighted_score": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "baseline_value",
+    "cell_id",
+    "detectors",
+    "latest_level",
+    "latest_value",
+    "metric_id",
+    "persistent",
+    "summary_hash",
+    "trailing_breach_windows",
+    "weighted_score"
+  ],
+  "title": "SAED V4-41 detection_summary",
+  "type": "object"
+}

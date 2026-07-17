@@ -1,0 +1,115 @@
+{
+  "affected_edges": [
+    {
+      "edge_type": "DEPENDS_ON",
+      "source": "CELL:CELL_0127",
+      "target": "CONTEXT:CTX_031@4",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "edge_type": "DEPENDS_ON",
+      "source": "CELL:CELL_0127",
+      "target": "MODEL:CTX_031#G3",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "edge_type": "DEPENDS_ON",
+      "source": "CELL:CELL_0127",
+      "target": "NAMESPACE:NS_07",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "edge_type": "DEPENDS_ON",
+      "source": "CELL:CELL_0127",
+      "target": "RUNTIME:95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "edge_type": "DEPENDS_ON",
+      "source": "CELL:CELL_0127",
+      "target": "TENANT:TENANT_07",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "edge_type": "DEPENDS_ON",
+      "source": "CELL:CELL_0127",
+      "target": "TREATMENT_UNIVERSE:ea20cf8b37c329eebc0ec4352963501939ea3cfb7ce8be089669b78741aace05",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "edge_type": "DEPENDS_ON",
+      "source": "CELL:CELL_0128",
+      "target": "CONTEXT:CTX_032@4",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "edge_type": "DEPENDS_ON",
+      "source": "CELL:CELL_0128",
+      "target": "MODEL:CTX_032#G4",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "edge_type": "DEPENDS_ON",
+      "source": "CELL:CELL_0128",
+      "target": "NAMESPACE:NS_08",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "edge_type": "DEPENDS_ON",
+      "source": "CELL:CELL_0128",
+      "target": "RUNTIME:95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "edge_type": "DEPENDS_ON",
+      "source": "CELL:CELL_0128",
+      "target": "TENANT:TENANT_08",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "edge_type": "DEPENDS_ON",
+      "source": "CELL:CELL_0128",
+      "target": "TREATMENT_UNIVERSE:f78ebe32d1c07773fb2352c7f215cb4402ca2cf6acb4ba35047750eedbea40ce",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "edge_type": "ROUTES_TO",
+      "source": "ROUTE:ROUTE_CELL_0127",
+      "target": "CELL:CELL_0127",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "edge_type": "ROUTES_TO",
+      "source": "ROUTE:ROUTE_CELL_0128",
+      "target": "CELL:CELL_0128",
+      "tenant_id": "TENANT_08"
+    }
+  ],
+  "affected_node_count": 15,
+  "affected_nodes": [
+    "CELL:CELL_0127",
+    "CELL:CELL_0128",
+    "CONTEXT:CTX_031@4",
+    "CONTEXT:CTX_032@4",
+    "MODEL:CTX_031#G3",
+    "MODEL:CTX_032#G4",
+    "NAMESPACE:NS_07",
+    "NAMESPACE:NS_08",
+    "ROUTE:ROUTE_CELL_0127",
+    "ROUTE:ROUTE_CELL_0128",
+    "RUNTIME:95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+    "TENANT:TENANT_07",
+    "TENANT:TENANT_08",
+    "TREATMENT_UNIVERSE:ea20cf8b37c329eebc0ec4352963501939ea3cfb7ce8be089669b78741aace05",
+    "TREATMENT_UNIVERSE:f78ebe32d1c07773fb2352c7f215cb4402ca2cf6acb4ba35047750eedbea40ce"
+  ],
+  "cell_ids": [
+    "CELL_0127",
+    "CELL_0128"
+  ],
+  "cross_tenant_impact": false,
+  "graph_hash": "0b814ca32c0d1fedba45a41517e0ab66ae2dc3dccd26ed6b53b112ccdf9012c8",
+  "impact_hash": "eb1243436dec94cfc25e3f4bf5a284b1aecbe2ffd84de779d63f38d385086715",
+  "impact_id": "v441_impact_021dababfc6dfcf284cda360",
+  "research_only": true
+}

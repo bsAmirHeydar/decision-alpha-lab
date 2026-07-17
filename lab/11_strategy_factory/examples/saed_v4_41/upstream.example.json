@@ -1,0 +1,21 @@
+{
+  "certificate_hash": "48735c9002a785cd787b2e165e46ba556377541ffbc22ec1305b518708ca1af0",
+  "phase": "SAED_V4_41",
+  "production_authorized": false,
+  "receipt_hash": "875970f05cf519d673d681c40921bcab9f5e6acca88bd01d6daacd2419a723ac",
+  "receipt_id": "v441_upstream_652b3f01974fc5ec1591a0fc",
+  "release_hash": "8dc794bbaa86a6940164c901cbb981d15b9208715e9e50a275ccd8c87a2bbe5d",
+  "required_external_gates": [
+    "BROKER_FLEET_RECONCILIATION",
+    "CONTROL_PLANE_RECOVERY",
+    "HUNDRED_CONTEXT_SOAK",
+    "INDEPENDENT_SRE_APPROVAL",
+    "KEY_CUSTODY",
+    "METAEDITOR_COMPILE_MATRIX",
+    "MT5_MULTI_TERMINAL_REPLAY",
+    "MULTI_FAILURE_DOMAIN_FAILOVER"
+  ],
+  "research_only": true,
+  "upstream_phase": "SAED_V4_40",
+  "verified": true
+}

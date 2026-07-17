@@ -1,0 +1,23 @@
+{
+  "actual_broker_retirement_reconciliation": "pending_external",
+  "actual_incident_retirement_drills": "pending_external",
+  "actual_metaeditor_compile_matrix": "pending_external",
+  "actual_mt5_retirement_replay": "pending_external",
+  "actual_production_telemetry": "pending_external",
+  "atomic_documents": 191,
+  "capital_activation_allowed": false,
+  "closed_schema_pairs": 48,
+  "mql5_static_files": 33,
+  "passed": true,
+  "phase": "SAED_V4_41",
+  "phase_documents": 42,
+  "production_authorized": false,
+  "python_tests": "passed",
+  "reference_context_cells": 128,
+  "reference_metric_count": 12,
+  "reference_observation_count": 9216,
+  "reference_pending_retirement_count": 1,
+  "reference_retired_count": 1,
+  "reference_window_count": 6,
+  "saed_v4_reference_roadmap_complete": true
+}
