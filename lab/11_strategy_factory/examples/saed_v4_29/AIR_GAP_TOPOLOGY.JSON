@@ -1,0 +1,78 @@
+{
+  "clock_policy": "fixed_reference_clock",
+  "environment_capture": true,
+  "flows": [
+    {
+      "destination_zone": "transfer",
+      "direction": "one_way_in",
+      "flow_id": "research_to_transfer",
+      "maximum_uses": 1,
+      "payload_class": "candidate_commitment",
+      "raw_hidden_data_allowed": false,
+      "signed_receipt_required": true,
+      "source_zone": "research"
+    },
+    {
+      "destination_zone": "sealed_evaluator",
+      "direction": "one_way_in",
+      "flow_id": "transfer_to_sealed",
+      "maximum_uses": 1,
+      "payload_class": "candidate_and_one_shot_token",
+      "raw_hidden_data_allowed": false,
+      "signed_receipt_required": true,
+      "source_zone": "transfer"
+    },
+    {
+      "destination_zone": "research",
+      "direction": "one_way_out",
+      "flow_id": "sealed_to_research",
+      "maximum_uses": 1,
+      "payload_class": "redacted_aggregate_release",
+      "raw_hidden_data_allowed": false,
+      "signed_receipt_required": true,
+      "source_zone": "sealed_evaluator"
+    }
+  ],
+  "frozen_at": "2026-07-16T08:10:00Z",
+  "network_egress_default": "deny",
+  "removable_media_policy": "signed_one_way_receipt_only",
+  "topology_id": "v429_reference_air_gap_topology",
+  "zones": [
+    {
+      "custodian_access": false,
+      "evaluator_access": false,
+      "network_access": false,
+      "researcher_access": true,
+      "role": "candidate_preparation",
+      "stores_plaintext_hidden_data": false,
+      "zone_id": "research"
+    },
+    {
+      "custodian_access": true,
+      "evaluator_access": true,
+      "network_access": false,
+      "researcher_access": false,
+      "role": "signed_one_way_transport",
+      "stores_plaintext_hidden_data": false,
+      "zone_id": "transfer"
+    },
+    {
+      "custodian_access": true,
+      "evaluator_access": true,
+      "network_access": false,
+      "researcher_access": false,
+      "role": "deterministic_protected_evaluation",
+      "stores_plaintext_hidden_data": true,
+      "zone_id": "sealed_evaluator"
+    },
+    {
+      "custodian_access": true,
+      "evaluator_access": false,
+      "network_access": false,
+      "researcher_access": false,
+      "role": "encrypted_dataset_and_key_share_custody",
+      "stores_plaintext_hidden_data": false,
+      "zone_id": "custody"
+    }
+  ]
+}

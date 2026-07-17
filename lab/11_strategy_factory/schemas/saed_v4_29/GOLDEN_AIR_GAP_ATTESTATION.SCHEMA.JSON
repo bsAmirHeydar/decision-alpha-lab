@@ -1,0 +1,88 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_29/GOLDEN_AIR_GAP_ATTESTATION.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "attestation_hash": {
+      "type": "string"
+    },
+    "attestation_id": {
+      "type": "string"
+    },
+    "default_deny": {
+      "type": "boolean"
+    },
+    "environment_captured": {
+      "type": "boolean"
+    },
+    "fixed_reference_clock": {
+      "type": "boolean"
+    },
+    "flow_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "interactive_debugging": {
+      "type": "boolean"
+    },
+    "maximum_evaluations": {
+      "type": "integer"
+    },
+    "maximum_round_trips": {
+      "type": "integer"
+    },
+    "network_egress": {
+      "type": "boolean"
+    },
+    "package_installation": {
+      "type": "boolean"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "raw_hidden_data_transport": {
+      "type": "boolean"
+    },
+    "reference_only_not_os_certification": {
+      "type": "boolean"
+    },
+    "shell_escape": {
+      "type": "boolean"
+    },
+    "topology_id": {
+      "type": "string"
+    },
+    "zone_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "attestation_hash",
+    "attestation_id",
+    "default_deny",
+    "environment_captured",
+    "fixed_reference_clock",
+    "flow_ids",
+    "interactive_debugging",
+    "maximum_evaluations",
+    "maximum_round_trips",
+    "network_egress",
+    "package_installation",
+    "passed",
+    "phase",
+    "raw_hidden_data_transport",
+    "reference_only_not_os_certification",
+    "shell_escape",
+    "topology_id",
+    "zone_ids"
+  ],
+  "type": "object"
+}

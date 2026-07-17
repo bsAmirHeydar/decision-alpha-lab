@@ -1,0 +1,105 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_29/CANDIDATE_SUBMISSION.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adaptive_to_final_evaluation": {
+      "type": "boolean"
+    },
+    "candidate_id": {
+      "type": "string"
+    },
+    "candidate_version": {
+      "type": "string"
+    },
+    "feature_contract_hash": {
+      "type": "string"
+    },
+    "frozen": {
+      "type": "boolean"
+    },
+    "hidden_data_touched": {
+      "type": "boolean"
+    },
+    "inference_entrypoint": {
+      "type": "string"
+    },
+    "model_artifact_hash": {
+      "type": "string"
+    },
+    "model_spec": {
+      "additionalProperties": false,
+      "properties": {
+        "feature_order": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "intercept": {
+          "type": "number"
+        },
+        "link": {
+          "type": "string"
+        },
+        "model_type": {
+          "type": "string"
+        },
+        "weights": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "feature_order",
+        "intercept",
+        "link",
+        "model_type",
+        "weights"
+      ],
+      "type": "object"
+    },
+    "network_dependencies": {
+      "items": {},
+      "type": "array"
+    },
+    "preprocessing_hash": {
+      "type": "string"
+    },
+    "source_commit_hash": {
+      "type": "string"
+    },
+    "submitted_at": {
+      "type": "string"
+    },
+    "submitter_actor_id": {
+      "type": "string"
+    },
+    "training_data_roles": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "adaptive_to_final_evaluation",
+    "candidate_id",
+    "candidate_version",
+    "feature_contract_hash",
+    "frozen",
+    "hidden_data_touched",
+    "inference_entrypoint",
+    "model_artifact_hash",
+    "model_spec",
+    "network_dependencies",
+    "preprocessing_hash",
+    "source_commit_hash",
+    "submitted_at",
+    "submitter_actor_id",
+    "training_data_roles"
+  ],
+  "type": "object"
+}

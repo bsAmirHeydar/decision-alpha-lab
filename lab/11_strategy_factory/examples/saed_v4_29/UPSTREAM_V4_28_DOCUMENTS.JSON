@@ -1,0 +1,115 @@
+{
+  "certificate": {
+    "accepted_for_online_fdr_research_reference": true,
+    "anytime_valid_evidence_contract_claim": true,
+    "authority_boundary": {
+      "authority": {
+        "decision": false,
+        "execution": false,
+        "hidden_evaluation_access": false,
+        "online_learning": false,
+        "production": false,
+        "promotion": false,
+        "risk_allocation": false,
+        "runtime": false
+      },
+      "boundary_hash": "56b95883cb89ab5609b1cd3dfd2f21d9c74b6a168f2217951b5e2675f79e9dae",
+      "boundary_id": "online_fdr_authority_50d07e37b2bdcc05cf9afe57",
+      "phase": "SAED_V4_28",
+      "research_only": true,
+      "safe_action": "skip",
+      "ucee_authority_preserved": true
+    },
+    "certificate_hash": "eb70719041cb2ef6968adbc1c5343ed84476dbd3a12e58250316db4dbdd3b153",
+    "certificate_id": "anytime_valid_online_fdr_certificate_2aefdaaef0f2bfb341647b85",
+    "claim_class": "anytime_valid_online_fdr_closed_reference_implementation",
+    "evidence_hashes": {
+      "anytime_evidence_registry": "d75ce077f824f88abe8856601e09f0ceebc4260c04652c17ed2b3c85bfc3ef62",
+      "challenger_comparison": "2e995bdb1950deec618ac2e0d958224cca3da99c2702e7a2c14181e0c44bcb2c",
+      "family_allocation": "a8d09e8cbfbce502fae8a256953ffe285599d31937f7f9f7913c0b5c59edc7d9",
+      "known_time_review": "382ac2cb6a09b3d100096cbf607a98748d035266a9da40af13bd6aa4fdc92086",
+      "model_risk_review": "a9d491a8fcc1a3a4aaebc05a48ab97354786780db882fca645dbdeb8c2a822e3",
+      "online_fdr_audit": "74859e8294dd7da31d808e4ccdfdda2dfe8865e9fbcec01429c73c75fe275699",
+      "rejection_ledger": "71cb4fbd7c2e955fc45748b99805b8651c64e36ce7544f6e47be2ebde6dc10e7",
+      "security_review": "10e4fb170239e07d23b80ce5553ae650876e6e0b6567a1391355788c5644c126",
+      "stopping_rule_audit": "37c912c5b06f7707c27f6221f8cd30e12f53f4363adccf6aa66cf0e56104f70c",
+      "upstream_receipt": "1a187bc6e59e08621d8b277e4b7c029b352d43fe5c5e778e5ec8134cd1dbb399",
+      "wealth_ledger": "394ad4ebf2cd8fb8f8207d14d0d13746da3b3bc72654446f18a48c1dcf9286a0"
+    },
+    "execution_authority": false,
+    "gates": {
+      "anytime_registry_complete": true,
+      "authority_zero": true,
+      "family_allocation_frozen": true,
+      "family_weights_normalized": true,
+      "known_time_enforced": true,
+      "online_fdr_audit_passed": true,
+      "rejection_ledger_verified": true,
+      "security_passed": true,
+      "stopping_rules_safe": true,
+      "upstream_verified": true,
+      "wealth_ledger_verified": true,
+      "wealth_nonnegative": true
+    },
+    "hidden_evaluation_air_gap_claim": false,
+    "independent_replication_claim": false,
+    "online_fdr_reference_implementation_claim": true,
+    "online_learning_authority": false,
+    "phase": "SAED_V4_28",
+    "production_authority": false,
+    "promotion_authority": false,
+    "prospective_success_claim": false,
+    "real_alpha_claim": false,
+    "real_world_fdr_guarantee_claim": false,
+    "research_only": true,
+    "risk_allocation_authority": false,
+    "runtime_executable": false,
+    "synthetic_fixture_control_claim": true,
+    "version": "1.0.0"
+  },
+  "handoff": {
+    "allowed_next_work": [
+      "hidden_evaluation_air_gap_policy",
+      "sealed_evaluator_identity",
+      "one_shot_query_token",
+      "protected_dataset_custody",
+      "air_gap_transport_receipt",
+      "result_redaction_policy",
+      "evaluation_budget_zero_by_default",
+      "irreversible_query_commit"
+    ],
+    "authority": {
+      "decision": false,
+      "execution": false,
+      "hidden_evaluation_access": false,
+      "production": false,
+      "promotion": false,
+      "risk_allocation": false,
+      "runtime": false
+    },
+    "certificate_hash": "eb70719041cb2ef6968adbc1c5343ed84476dbd3a12e58250316db4dbdd3b153",
+    "certificate_id": "anytime_valid_online_fdr_certificate_2aefdaaef0f2bfb341647b85",
+    "entry_gates": {
+      "anytime_evidence_contract_frozen": true,
+      "online_fdr_reference_accepted": true,
+      "protected_evidence_access_zero": true,
+      "rejection_chain_verified": true,
+      "research_only": true,
+      "stopping_rules_verified": true,
+      "wealth_chain_verified": true
+    },
+    "forbidden_next_work": [
+      "promotion_authorization",
+      "runtime_compilation",
+      "risk_allocation",
+      "order_submission",
+      "online_policy_mutation",
+      "unsealed_hidden_evaluation_access"
+    ],
+    "handoff_hash": "bfe958a8decdec375994d091cec4b4993aba0d213a57ad78297e34d70a534b66",
+    "handoff_id": "v4_28_to_v4_29_a653cd7d320b05cb40a82fb1",
+    "next_phase": "SAED_V4_29",
+    "phase": "SAED_V4_28",
+    "research_only": true
+  }
+}

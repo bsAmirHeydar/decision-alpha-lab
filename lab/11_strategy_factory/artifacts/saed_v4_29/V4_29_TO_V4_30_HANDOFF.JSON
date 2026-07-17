@@ -1,0 +1,45 @@
+{
+  "allowed_next_work": [
+    "independent_replication_protocol",
+    "multi_lab_package_identity",
+    "replication_lab_registration",
+    "blinded_artifact_exchange",
+    "cross_lab_hash_reconciliation",
+    "replication_disagreement_report",
+    "external_custody_evidence_attachment"
+  ],
+  "authority": {
+    "execution": false,
+    "online_learning": false,
+    "production": false,
+    "promotion": false,
+    "risk_allocation": false,
+    "runtime": false
+  },
+  "certificate_hash": "e9b8d03f357ce46143be9b6a6ef55729b0b1e755da6164345e334bfb54078931",
+  "certificate_id": "hidden_evaluation_air_gap_certificate_cb5c5b2d7c923890b90c66b8",
+  "entry_gates": {
+    "aggregate_only_disclosure_verified": true,
+    "append_only_ledgers_verified": true,
+    "authority_zero": true,
+    "hidden_evaluation_reference_accepted": true,
+    "one_shot_semantics_verified": true,
+    "research_only": true,
+    "synthetic_fixture_only": true
+  },
+  "forbidden_next_work": [
+    "reuse_hidden_evaluation_token",
+    "adaptive_final_set_tuning",
+    "promotion_authorization",
+    "runtime_compilation",
+    "risk_allocation",
+    "order_submission",
+    "production_release",
+    "online_policy_mutation"
+  ],
+  "handoff_hash": "cb6f30891554c37dcc1acf0a316af7230529bbbd8658bddef784e1850d38594e",
+  "handoff_id": "v4_29_to_v4_30_96d73db2e82a979a6b1700d7",
+  "next_phase": "SAED_V4_30",
+  "phase": "SAED_V4_29",
+  "research_only": true
+}

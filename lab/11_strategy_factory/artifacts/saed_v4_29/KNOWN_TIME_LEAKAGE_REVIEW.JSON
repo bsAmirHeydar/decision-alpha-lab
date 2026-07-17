@@ -1,0 +1,18 @@
+{
+  "adaptive_round_trips": 0,
+  "candidate_submitted_at": "2026-07-16T08:30:00Z",
+  "dataset_created_at": "2026-07-16T07:30:00Z",
+  "evaluation_retries": 0,
+  "future_suffix_records_available": 0,
+  "future_suffix_records_seen": 0,
+  "future_suffix_sensitivity": false,
+  "known_time_violations": 0,
+  "passed": true,
+  "phase": "SAED_V4_29",
+  "post_commit_candidate_mutations": 0,
+  "post_commit_protocol_mutations": 0,
+  "protocol_locked_at": "2026-07-16T08:15:00Z",
+  "review_hash": "4d8c7a4c8579ba5bef67baa302be54d9e8ccde62f2700891babcd1badc6c04fc",
+  "review_id": "v429_known_time_14f4e69ff55c70ef1c6a0d69",
+  "token_issued_at": "2026-07-16T09:00:00Z"
+}

@@ -1,0 +1,47 @@
+{
+  "chain_verification": {
+    "chain": "v4_29_custody",
+    "entry_count": 3,
+    "terminal_hash": "196cdca8bb77dee27e4802fca1af2cf1ad7025ee244084213d773002c7355789",
+    "verified": true
+  },
+  "entries": [
+    {
+      "actor_id": "custodian_quorum",
+      "chain": "v4_29_custody",
+      "commitment_hash": "17e821289dafd21d17466303ccaedf516ecb7b04ce8e66408681bdedff19ec59",
+      "dataset_id": "protected_final_reference",
+      "entry_hash": "5743d6ac65a59d520912ac0fde11939f979a2a61acf8bc34e53cf503c2b2bd39",
+      "event": "custody_manifest_registered",
+      "plaintext_access": false,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "sequence": 1
+    },
+    {
+      "actor_id": "sealed_evaluator",
+      "chain": "v4_29_custody",
+      "commitment_hash": "4c96fe6834494cbfebd2afc671212f7dd5635bf3baefe73c652a16a87c09f65a",
+      "dataset_id": "protected_final_reference",
+      "entry_hash": "43d6fe3f2876f507944d8ba024ebc43684d93c9907b2964ea43a2fb09b76e86e",
+      "event": "custody_commitment_verified",
+      "plaintext_access": true,
+      "previous_hash": "5743d6ac65a59d520912ac0fde11939f979a2a61acf8bc34e53cf503c2b2bd39",
+      "sequence": 2
+    },
+    {
+      "actor_id": "custodian_quorum",
+      "chain": "v4_29_custody",
+      "commitment_hash": "76f2894f7d75a69f6ddae5ea906d12bdfb33864d9f278dbb6ea348e137510d90",
+      "dataset_id": "protected_final_reference",
+      "entry_hash": "196cdca8bb77dee27e4802fca1af2cf1ad7025ee244084213d773002c7355789",
+      "event": "custody_zone_resealed",
+      "plaintext_access": false,
+      "previous_hash": "43d6fe3f2876f507944d8ba024ebc43684d93c9907b2964ea43a2fb09b76e86e",
+      "sequence": 3
+    }
+  ],
+  "entry_count": 3,
+  "ledger_hash": "e633dc42a527318f5b378f10b163275aea7589d0fe2271392793e3787dd25b85",
+  "phase": "SAED_V4_29",
+  "researcher_plaintext_access_events": 0
+}

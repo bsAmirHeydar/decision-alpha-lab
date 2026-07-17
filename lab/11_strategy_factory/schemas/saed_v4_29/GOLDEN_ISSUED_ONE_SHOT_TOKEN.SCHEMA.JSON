@@ -1,0 +1,70 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_29/GOLDEN_ISSUED_ONE_SHOT_TOKEN.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bound": {
+      "type": "boolean"
+    },
+    "candidate_commitment_hash": {
+      "type": "string"
+    },
+    "candidate_id": {
+      "type": "string"
+    },
+    "dataset_commitment_hash": {
+      "type": "string"
+    },
+    "expires_at": {
+      "type": "string"
+    },
+    "issued_at": {
+      "type": "string"
+    },
+    "issuer_actor_id": {
+      "type": "string"
+    },
+    "maximum_uses": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "protocol_hash": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "revoked": {
+      "type": "boolean"
+    },
+    "token_hash": {
+      "type": "string"
+    },
+    "token_id": {
+      "type": "string"
+    },
+    "used_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "bound",
+    "candidate_commitment_hash",
+    "candidate_id",
+    "dataset_commitment_hash",
+    "expires_at",
+    "issued_at",
+    "issuer_actor_id",
+    "maximum_uses",
+    "phase",
+    "protocol_hash",
+    "research_only",
+    "revoked",
+    "token_hash",
+    "token_id",
+    "used_count"
+  ],
+  "type": "object"
+}

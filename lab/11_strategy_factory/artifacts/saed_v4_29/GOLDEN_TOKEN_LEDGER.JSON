@@ -1,0 +1,36 @@
+{
+  "chain_verification": {
+    "chain": "v4_29_token",
+    "entry_count": 2,
+    "terminal_hash": "e2a81bb5874f54d32fab77c7b727ba059219f1d0a902ae77cc29f2bdb75a0d34",
+    "verified": true
+  },
+  "entries": [
+    {
+      "actor_id": "custodian_quorum",
+      "chain": "v4_29_token",
+      "entry_hash": "34d8efae6d73cbe11551f997ceecab2f4fb42fe2a244f255377f9b8d10d27d9e",
+      "event": "token_issued",
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "sequence": 1,
+      "token_hash": "0c30bb01961e82052300a37ba72c3e02df9eb98cb36f74df829d697ddf63181c",
+      "token_id": "v429_one_shot_8f1231f17a492778f934d094",
+      "use_count": 0
+    },
+    {
+      "actor_id": "sealed_evaluator",
+      "chain": "v4_29_token",
+      "entry_hash": "e2a81bb5874f54d32fab77c7b727ba059219f1d0a902ae77cc29f2bdb75a0d34",
+      "event": "token_consumed",
+      "previous_hash": "34d8efae6d73cbe11551f997ceecab2f4fb42fe2a244f255377f9b8d10d27d9e",
+      "sequence": 2,
+      "token_hash": "0c30bb01961e82052300a37ba72c3e02df9eb98cb36f74df829d697ddf63181c",
+      "token_id": "v429_one_shot_8f1231f17a492778f934d094",
+      "use_count": 1
+    }
+  ],
+  "entry_count": 2,
+  "ledger_hash": "6337202f5ae9225259899efdb0a1414d9696961707c46110a4d8112edbb46003",
+  "phase": "SAED_V4_29",
+  "reuse_attempts": 0
+}

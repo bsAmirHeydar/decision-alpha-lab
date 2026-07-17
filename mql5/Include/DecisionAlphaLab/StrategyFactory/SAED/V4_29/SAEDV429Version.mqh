@@ -1,0 +1,6 @@
+#ifndef SAED_V4_29_VERSION_MQH
+#define SAED_V4_29_VERSION_MQH
+#define SAED_V4_29_PHASE "SAED_V4_29"
+#define SAED_V4_29_VERSION "1.0.0"
+#define SAED_V4_29_RESEARCH_ONLY true
+#endif

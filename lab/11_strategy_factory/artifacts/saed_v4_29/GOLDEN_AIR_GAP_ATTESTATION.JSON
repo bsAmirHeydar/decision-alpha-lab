@@ -1,0 +1,29 @@
+{
+  "attestation_hash": "537c15996dae4f79fe403808f5492581d25b5691ebc4a152b283d16d98584193",
+  "attestation_id": "v429_air_gap_517219c30ac2f00e912d4bdc",
+  "default_deny": true,
+  "environment_captured": true,
+  "fixed_reference_clock": true,
+  "flow_ids": [
+    "research_to_transfer",
+    "sealed_to_research",
+    "transfer_to_sealed"
+  ],
+  "interactive_debugging": false,
+  "maximum_evaluations": 1,
+  "maximum_round_trips": 0,
+  "network_egress": false,
+  "package_installation": false,
+  "passed": true,
+  "phase": "SAED_V4_29",
+  "raw_hidden_data_transport": false,
+  "reference_only_not_os_certification": true,
+  "shell_escape": false,
+  "topology_id": "v429_reference_air_gap_topology",
+  "zone_ids": [
+    "custody",
+    "research",
+    "sealed_evaluator",
+    "transfer"
+  ]
+}

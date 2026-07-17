@@ -1,0 +1,25 @@
+{
+  "candidate_decision": "pass",
+  "external_custodian_independence": false,
+  "hsm_enforcement": false,
+  "independent_replication": false,
+  "limitations": [
+    "synthetic_sealed_fixture_only",
+    "aggregate_metrics_do_not_establish_real_alpha",
+    "reference_cryptographic_commitments_not_external_hsm_attestation",
+    "no_independent_lab_replication",
+    "no_prospective_shadow",
+    "no_runtime_parity",
+    "no_broker_qualification"
+  ],
+  "model_risk_review_hash": "8bab3c3ee751c6670ca56e1f22185c59a74ba673bb62e78cfb2081d35f022475",
+  "model_risk_review_id": "v429_model_risk_24350fd138abb6655f6be94c",
+  "os_air_gap_certification": false,
+  "passed": true,
+  "phase": "SAED_V4_29",
+  "promotion_recommendation": false,
+  "real_alpha_claim": false,
+  "real_hidden_dataset": false,
+  "research_only": true,
+  "synthetic_fixture": true
+}

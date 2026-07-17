@@ -1,0 +1,99 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_29/GOLDEN_TOKEN_LEDGER.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "chain_verification": {
+      "additionalProperties": false,
+      "properties": {
+        "chain": {
+          "type": "string"
+        },
+        "entry_count": {
+          "type": "integer"
+        },
+        "terminal_hash": {
+          "type": "string"
+        },
+        "verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "chain",
+        "entry_count",
+        "terminal_hash",
+        "verified"
+      ],
+      "type": "object"
+    },
+    "entries": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "actor_id": {
+            "type": "string"
+          },
+          "chain": {
+            "type": "string"
+          },
+          "entry_hash": {
+            "type": "string"
+          },
+          "event": {
+            "type": "string"
+          },
+          "previous_hash": {
+            "type": "string"
+          },
+          "sequence": {
+            "type": "integer"
+          },
+          "token_hash": {
+            "type": "string"
+          },
+          "token_id": {
+            "type": "string"
+          },
+          "use_count": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "actor_id",
+          "chain",
+          "entry_hash",
+          "event",
+          "previous_hash",
+          "sequence",
+          "token_hash",
+          "token_id",
+          "use_count"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "entry_count": {
+      "type": "integer"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "reuse_attempts": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "chain_verification",
+    "entries",
+    "entry_count",
+    "ledger_hash",
+    "phase",
+    "reuse_attempts"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,91 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_29/GOLDEN_AUTHORITY_BOUNDARY.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "execution": {
+          "type": "boolean"
+        },
+        "live_trading": {
+          "type": "boolean"
+        },
+        "online_learning": {
+          "type": "boolean"
+        },
+        "production": {
+          "type": "boolean"
+        },
+        "promotion": {
+          "type": "boolean"
+        },
+        "raw_hidden_data_export": {
+          "type": "boolean"
+        },
+        "repeat_hidden_evaluation": {
+          "type": "boolean"
+        },
+        "research_decision": {
+          "type": "boolean"
+        },
+        "risk_allocation": {
+          "type": "boolean"
+        },
+        "runtime": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "execution",
+        "live_trading",
+        "online_learning",
+        "production",
+        "promotion",
+        "raw_hidden_data_export",
+        "repeat_hidden_evaluation",
+        "research_decision",
+        "risk_allocation",
+        "runtime"
+      ],
+      "type": "object"
+    },
+    "boundary_hash": {
+      "type": "string"
+    },
+    "boundary_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "safe_action": {
+      "type": "string"
+    },
+    "sealed_evaluation_reference": {
+      "type": "boolean"
+    },
+    "synthetic_fixture_only": {
+      "type": "boolean"
+    },
+    "ucee_authority_preserved": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "authority",
+    "boundary_hash",
+    "boundary_id",
+    "phase",
+    "research_only",
+    "safe_action",
+    "sealed_evaluation_reference",
+    "synthetic_fixture_only",
+    "ucee_authority_preserved"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,128 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_29/SEALED_SYNTHETIC_EVALUATION_FIXTURE.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "classification": {
+      "type": "string"
+    },
+    "dataset_id": {
+      "type": "string"
+    },
+    "dataset_version": {
+      "type": "string"
+    },
+    "fixture_id": {
+      "type": "string"
+    },
+    "future_suffix_records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "features": {
+            "additionalProperties": false,
+            "properties": {
+              "context_signal": {
+                "type": "number"
+              },
+              "liquidity_state": {
+                "type": "number"
+              },
+              "timing_alignment": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "context_signal",
+              "liquidity_state",
+              "timing_alignment"
+            ],
+            "type": "object"
+          },
+          "hidden_label": {
+            "type": "integer"
+          },
+          "record_id": {
+            "type": "string"
+          },
+          "segment": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "features",
+          "hidden_label",
+          "record_id",
+          "segment"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "features": {
+            "additionalProperties": false,
+            "properties": {
+              "context_signal": {
+                "type": "number"
+              },
+              "liquidity_state": {
+                "type": "number"
+              },
+              "timing_alignment": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "context_signal",
+              "liquidity_state",
+              "timing_alignment"
+            ],
+            "type": "object"
+          },
+          "hidden_label": {
+            "type": "integer"
+          },
+          "record_id": {
+            "type": "string"
+          },
+          "segment": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "features",
+          "hidden_label",
+          "record_id",
+          "segment"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema_hash": {
+      "type": "string"
+    },
+    "sealed_at": {
+      "type": "string"
+    },
+    "synthetic_fixture": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "classification",
+    "dataset_id",
+    "dataset_version",
+    "fixture_id",
+    "future_suffix_records",
+    "records",
+    "schema_hash",
+    "sealed_at",
+    "synthetic_fixture"
+  ],
+  "type": "object"
+}

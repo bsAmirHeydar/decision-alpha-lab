@@ -1,0 +1,224 @@
+{
+  "air_gap_policy": {
+    "default_deny": true,
+    "deterministic": true,
+    "exact_version": "1.0.0",
+    "fail_closed_action": "quarantine",
+    "immutable_submission_required": true,
+    "interactive_debugging": false,
+    "maximum_evaluations": 1,
+    "maximum_round_trips": 0,
+    "network_access": false,
+    "one_shot_required": true,
+    "package_installation": false,
+    "raw_result_release": false,
+    "research_only": true,
+    "researcher_hidden_label_access": false,
+    "researcher_key_share_access": false,
+    "sealed_evaluator_required": true,
+    "shell_escape": false
+  },
+  "air_gap_topology": {
+    "clock_policy": "fixed_reference_clock",
+    "environment_capture": true,
+    "flows": [
+      {
+        "destination_zone": "transfer",
+        "direction": "one_way_in",
+        "flow_id": "research_to_transfer",
+        "maximum_uses": 1,
+        "payload_class": "candidate_commitment",
+        "raw_hidden_data_allowed": false,
+        "signed_receipt_required": true,
+        "source_zone": "research"
+      },
+      {
+        "destination_zone": "sealed_evaluator",
+        "direction": "one_way_in",
+        "flow_id": "transfer_to_sealed",
+        "maximum_uses": 1,
+        "payload_class": "candidate_and_one_shot_token",
+        "raw_hidden_data_allowed": false,
+        "signed_receipt_required": true,
+        "source_zone": "transfer"
+      },
+      {
+        "destination_zone": "research",
+        "direction": "one_way_out",
+        "flow_id": "sealed_to_research",
+        "maximum_uses": 1,
+        "payload_class": "redacted_aggregate_release",
+        "raw_hidden_data_allowed": false,
+        "signed_receipt_required": true,
+        "source_zone": "sealed_evaluator"
+      }
+    ],
+    "frozen_at": "2026-07-16T08:10:00Z",
+    "network_egress_default": "deny",
+    "removable_media_policy": "signed_one_way_receipt_only",
+    "topology_id": "v429_reference_air_gap_topology",
+    "zones": [
+      {
+        "custodian_access": false,
+        "evaluator_access": false,
+        "network_access": false,
+        "researcher_access": true,
+        "role": "candidate_preparation",
+        "stores_plaintext_hidden_data": false,
+        "zone_id": "research"
+      },
+      {
+        "custodian_access": true,
+        "evaluator_access": true,
+        "network_access": false,
+        "researcher_access": false,
+        "role": "signed_one_way_transport",
+        "stores_plaintext_hidden_data": false,
+        "zone_id": "transfer"
+      },
+      {
+        "custodian_access": true,
+        "evaluator_access": true,
+        "network_access": false,
+        "researcher_access": false,
+        "role": "deterministic_protected_evaluation",
+        "stores_plaintext_hidden_data": true,
+        "zone_id": "sealed_evaluator"
+      },
+      {
+        "custodian_access": true,
+        "evaluator_access": false,
+        "network_access": false,
+        "researcher_access": false,
+        "role": "encrypted_dataset_and_key_share_custody",
+        "stores_plaintext_hidden_data": false,
+        "zone_id": "custody"
+      }
+    ]
+  },
+  "custody_policy": {
+    "dual_control_required": true,
+    "evaluator_may_export_plaintext": false,
+    "immutable": true,
+    "key_shares_exportable": false,
+    "minimum_custodians": 3,
+    "policy_id": "v429_dual_control_synthetic_custody",
+    "researcher_may_be_custodian": false,
+    "synthetic_fixture_only": true,
+    "threshold": 2
+  },
+  "disclosure_policy": {
+    "allowed_fields": [
+      "evaluation_id",
+      "candidate_id",
+      "dataset_commitment_hash",
+      "protocol_id",
+      "decision",
+      "aggregate_metrics",
+      "baseline_comparison",
+      "release_hash"
+    ],
+    "confusion_matrix_allowed": false,
+    "exact_thresholds_released": false,
+    "forbidden_fields": [
+      "confusion_matrix",
+      "feature_vector",
+      "hidden_label",
+      "key_share",
+      "plaintext",
+      "prediction",
+      "probability",
+      "raw_score",
+      "record_id",
+      "row",
+      "rows"
+    ],
+    "immutable": true,
+    "metric_precision": 4,
+    "minimum_group_size": 20,
+    "per_record_outputs_allowed": false,
+    "policy_id": "v429_aggregate_redaction_policy",
+    "raw_rows_allowed": false,
+    "release_mode": "aggregate_redacted_once"
+  },
+  "evaluation_protocol": {
+    "adaptive_changes_allowed": false,
+    "baseline_id": "majority_class_precommitted",
+    "deterministic": true,
+    "disclosure_policy_id": "v429_aggregate_redaction_policy",
+    "locked_at": "2026-07-16T08:15:00Z",
+    "maximum_evaluations": 1,
+    "metric_specs": [
+      {
+        "direction": "maximize",
+        "maximum": 1.0,
+        "metric": "balanced_accuracy",
+        "minimum": 0.65,
+        "required": true,
+        "weight": 0.35
+      },
+      {
+        "direction": "maximize",
+        "maximum": 1.0,
+        "metric": "accuracy",
+        "minimum": 0.0,
+        "required": false,
+        "weight": 0.1
+      },
+      {
+        "direction": "minimize",
+        "maximum": 0.24,
+        "metric": "brier_score",
+        "minimum": 0.0,
+        "required": true,
+        "weight": 0.2
+      },
+      {
+        "direction": "minimize",
+        "maximum": 10.0,
+        "metric": "log_loss",
+        "minimum": 0.0,
+        "required": false,
+        "weight": 0.1
+      },
+      {
+        "direction": "maximize",
+        "maximum": 1.0,
+        "metric": "roc_auc",
+        "minimum": 0.0,
+        "required": false,
+        "weight": 0.1
+      },
+      {
+        "direction": "maximize",
+        "maximum": 1.0,
+        "metric": "delta_balanced_accuracy_vs_baseline",
+        "minimum": 0.05,
+        "required": true,
+        "weight": 0.15
+      }
+    ],
+    "pass_rule": {
+      "all_required": true,
+      "maximum_brier_score": 0.24,
+      "minimum_balanced_accuracy": 0.65,
+      "minimum_delta_vs_baseline": 0.05
+    },
+    "protocol_id": "v429_locked_binary_evaluation_protocol",
+    "random_seed": 290001,
+    "tolerance": 1e-12
+  },
+  "upstream_intake": {
+    "certificate_hash": "eb70719041cb2ef6968adbc1c5343ed84476dbd3a12e58250316db4dbdd3b153",
+    "certificate_id": "anytime_valid_online_fdr_certificate_2aefdaaef0f2bfb341647b85",
+    "exact_version": "1.0.0",
+    "handoff_hash": "bfe958a8decdec375994d091cec4b4993aba0d213a57ad78297e34d70a534b66",
+    "handoff_id": "v4_28_to_v4_29_a653cd7d320b05cb40a82fb1",
+    "hash_verified": true,
+    "immutable": true,
+    "online_fdr_reference_accepted": true,
+    "protected_evidence_access_zero": true,
+    "required_phase": "SAED_V4_28",
+    "research_only": true
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_29/GOLDEN_SEALED_EVALUATION_RESULT.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adaptive_changes": {
+      "type": "boolean"
+    },
+    "aggregate_metrics": {
+      "additionalProperties": false,
+      "properties": {
+        "accuracy": {
+          "type": "number"
+        },
+        "balanced_accuracy": {
+          "type": "number"
+        },
+        "brier_score": {
+          "type": "number"
+        },
+        "delta_balanced_accuracy_vs_baseline": {
+          "type": "number"
+        },
+        "log_loss": {
+          "type": "number"
+        },
+        "roc_auc": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "accuracy",
+        "balanced_accuracy",
+        "brier_score",
+        "delta_balanced_accuracy_vs_baseline",
+        "log_loss",
+        "roc_auc"
+      ],
+      "type": "object"
+    },
+    "baseline_metrics": {
+      "additionalProperties": false,
+      "properties": {
+        "accuracy": {
+          "type": "number"
+        },
+        "balanced_accuracy": {
+          "type": "number"
+        },
+        "brier_score": {
+          "type": "number"
+        },
+        "log_loss": {
+          "type": "number"
+        },
+        "roc_auc": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "accuracy",
+        "balanced_accuracy",
+        "brier_score",
+        "log_loss",
+        "roc_auc"
+      ],
+      "type": "object"
+    },
+    "candidate_commitment_hash": {
+      "type": "string"
+    },
+    "candidate_id": {
+      "type": "string"
+    },
+    "dataset_commitment_hash": {
+      "type": "string"
+    },
+    "dataset_id": {
+      "type": "string"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "evaluation_count": {
+      "type": "integer"
+    },
+    "evaluation_id": {
+      "type": "string"
+    },
+    "future_suffix_records_seen": {
+      "type": "integer"
+    },
+    "network_access": {
+      "type": "boolean"
+    },
+    "pass_gates": {
+      "additionalProperties": false,
+      "properties": {
+        "maximum_brier_score": {
+          "type": "boolean"
+        },
+        "minimum_balanced_accuracy": {
+          "type": "boolean"
+        },
+        "minimum_delta_vs_baseline": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "maximum_brier_score",
+        "minimum_balanced_accuracy",
+        "minimum_delta_vs_baseline"
+      ],
+      "type": "object"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "protocol_hash": {
+      "type": "string"
+    },
+    "protocol_id": {
+      "type": "string"
+    },
+    "raw_rows_exported": {
+      "type": "boolean"
+    },
+    "record_count": {
+      "type": "integer"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "sealed_result_hash": {
+      "type": "string"
+    },
+    "synthetic_fixture": {
+      "type": "boolean"
+    },
+    "token_consumption_receipt_hash": {
+      "type": "string"
+    },
+    "token_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "adaptive_changes",
+    "aggregate_metrics",
+    "baseline_metrics",
+    "candidate_commitment_hash",
+    "candidate_id",
+    "dataset_commitment_hash",
+    "dataset_id",
+    "decision",
+    "deterministic",
+    "evaluation_count",
+    "evaluation_id",
+    "future_suffix_records_seen",
+    "network_access",
+    "pass_gates",
+    "phase",
+    "protocol_hash",
+    "protocol_id",
+    "raw_rows_exported",
+    "record_count",
+    "research_only",
+    "sealed_result_hash",
+    "synthetic_fixture",
+    "token_consumption_receipt_hash",
+    "token_id"
+  ],
+  "type": "object"
+}

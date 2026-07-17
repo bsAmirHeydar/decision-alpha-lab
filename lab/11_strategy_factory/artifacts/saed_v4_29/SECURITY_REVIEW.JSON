@@ -1,0 +1,17 @@
+{
+  "environment_variables_exported": 0,
+  "forbidden_key_hits": 0,
+  "interactive_debug_attempts": 0,
+  "network_egress_attempts": 0,
+  "package_install_attempts": 0,
+  "passed": true,
+  "phase": "SAED_V4_29",
+  "raw_result_egress_attempts": 0,
+  "research_only": true,
+  "researcher_hidden_label_reads": 0,
+  "researcher_key_share_reads": 0,
+  "security_review_hash": "b5bceeda5e99986a87c67f785183282ec467ac0e501d0f2d57df5179417c75c4",
+  "security_review_id": "v429_security_41b828d07cf68c8dd1712b18",
+  "shell_escape_attempts": 0,
+  "side_channel_budget_bytes": 0
+}

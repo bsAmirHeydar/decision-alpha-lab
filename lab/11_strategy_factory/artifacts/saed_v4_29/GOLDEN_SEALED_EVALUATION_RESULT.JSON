@@ -1,0 +1,43 @@
+{
+  "adaptive_changes": false,
+  "aggregate_metrics": {
+    "accuracy": 0.9791666666666666,
+    "balanced_accuracy": 0.9782608695652174,
+    "brier_score": 0.09045128629459544,
+    "delta_balanced_accuracy_vs_baseline": 0.4782608695652174,
+    "log_loss": 0.3361823263728006,
+    "roc_auc": 1.0
+  },
+  "baseline_metrics": {
+    "accuracy": 0.5208333333333334,
+    "balanced_accuracy": 0.5,
+    "brier_score": 0.2495659722222222,
+    "log_loss": 0.6922788736563189,
+    "roc_auc": 0.5
+  },
+  "candidate_commitment_hash": "3253c841f5beeca981b0fca01f4487c33370bcd99b49c1672f7fd712c1fbc419",
+  "candidate_id": "context_policy_candidate_reference_001",
+  "dataset_commitment_hash": "17e821289dafd21d17466303ccaedf516ecb7b04ce8e66408681bdedff19ec59",
+  "dataset_id": "protected_final_reference",
+  "decision": "pass",
+  "deterministic": true,
+  "evaluation_count": 1,
+  "evaluation_id": "v429_sealed_eval_5ea9e86ce58daa8a543eeac0",
+  "future_suffix_records_seen": 0,
+  "network_access": false,
+  "pass_gates": {
+    "maximum_brier_score": true,
+    "minimum_balanced_accuracy": true,
+    "minimum_delta_vs_baseline": true
+  },
+  "phase": "SAED_V4_29",
+  "protocol_hash": "1b81782cdb5e020ab7b2a39a66490d6a1f4eb853ecdc2619f26bf856faaa48a3",
+  "protocol_id": "v429_locked_binary_evaluation_protocol",
+  "raw_rows_exported": false,
+  "record_count": 48,
+  "research_only": true,
+  "sealed_result_hash": "c1937276e71c2c1f3f9cd0caaec23aecb0166329c894458f138fe89b84e97df7",
+  "synthetic_fixture": true,
+  "token_consumption_receipt_hash": "beda34951b53e1eff3628cb2b968900508471ed98f2a633921327ef9da406e4d",
+  "token_id": "v429_one_shot_8f1231f17a492778f934d094"
+}

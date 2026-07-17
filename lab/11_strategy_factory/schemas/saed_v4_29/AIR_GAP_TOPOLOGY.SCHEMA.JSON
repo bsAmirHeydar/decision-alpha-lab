@@ -1,0 +1,118 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_29/AIR_GAP_TOPOLOGY.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "clock_policy": {
+      "type": "string"
+    },
+    "environment_capture": {
+      "type": "boolean"
+    },
+    "flows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "destination_zone": {
+            "type": "string"
+          },
+          "direction": {
+            "type": "string"
+          },
+          "flow_id": {
+            "type": "string"
+          },
+          "maximum_uses": {
+            "type": "integer"
+          },
+          "payload_class": {
+            "type": "string"
+          },
+          "raw_hidden_data_allowed": {
+            "type": "boolean"
+          },
+          "signed_receipt_required": {
+            "type": "boolean"
+          },
+          "source_zone": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "destination_zone",
+          "direction",
+          "flow_id",
+          "maximum_uses",
+          "payload_class",
+          "raw_hidden_data_allowed",
+          "signed_receipt_required",
+          "source_zone"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "frozen_at": {
+      "type": "string"
+    },
+    "network_egress_default": {
+      "type": "string"
+    },
+    "removable_media_policy": {
+      "type": "string"
+    },
+    "topology_id": {
+      "type": "string"
+    },
+    "zones": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "custodian_access": {
+            "type": "boolean"
+          },
+          "evaluator_access": {
+            "type": "boolean"
+          },
+          "network_access": {
+            "type": "boolean"
+          },
+          "researcher_access": {
+            "type": "boolean"
+          },
+          "role": {
+            "type": "string"
+          },
+          "stores_plaintext_hidden_data": {
+            "type": "boolean"
+          },
+          "zone_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "custodian_access",
+          "evaluator_access",
+          "network_access",
+          "researcher_access",
+          "role",
+          "stores_plaintext_hidden_data",
+          "zone_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "clock_policy",
+    "environment_capture",
+    "flows",
+    "frozen_at",
+    "network_egress_default",
+    "removable_media_policy",
+    "topology_id",
+    "zones"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,90 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_29/GOLDEN_SUBMISSION_COMMITMENT.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adaptive_to_final_evaluation": {
+      "type": "boolean"
+    },
+    "candidate_hash": {
+      "type": "string"
+    },
+    "candidate_id": {
+      "type": "string"
+    },
+    "candidate_version": {
+      "type": "string"
+    },
+    "commitment_hash": {
+      "type": "string"
+    },
+    "commitment_id": {
+      "type": "string"
+    },
+    "dataset_commitment_hash": {
+      "type": "string"
+    },
+    "feature_contract_hash": {
+      "type": "string"
+    },
+    "frozen": {
+      "type": "boolean"
+    },
+    "hidden_data_touched": {
+      "type": "boolean"
+    },
+    "irreversible": {
+      "type": "boolean"
+    },
+    "model_artifact_hash": {
+      "type": "string"
+    },
+    "network_dependency_count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "preprocessing_hash": {
+      "type": "string"
+    },
+    "protocol_hash": {
+      "type": "string"
+    },
+    "protocol_id": {
+      "type": "string"
+    },
+    "source_commit_hash": {
+      "type": "string"
+    },
+    "submitted_at": {
+      "type": "string"
+    },
+    "submitter_actor_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "adaptive_to_final_evaluation",
+    "candidate_hash",
+    "candidate_id",
+    "candidate_version",
+    "commitment_hash",
+    "commitment_id",
+    "dataset_commitment_hash",
+    "feature_contract_hash",
+    "frozen",
+    "hidden_data_touched",
+    "irreversible",
+    "model_artifact_hash",
+    "network_dependency_count",
+    "phase",
+    "preprocessing_hash",
+    "protocol_hash",
+    "protocol_id",
+    "source_commit_hash",
+    "submitted_at",
+    "submitter_actor_id"
+  ],
+  "type": "object"
+}

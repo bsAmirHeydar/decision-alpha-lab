@@ -1,0 +1,67 @@
+{
+  "adaptive_changes_allowed": false,
+  "baseline_id": "majority_class_precommitted",
+  "deterministic": true,
+  "disclosure_policy_id": "v429_aggregate_redaction_policy",
+  "locked_at": "2026-07-16T08:15:00Z",
+  "maximum_evaluations": 1,
+  "metric_specs": [
+    {
+      "direction": "maximize",
+      "maximum": 1.0,
+      "metric": "balanced_accuracy",
+      "minimum": 0.65,
+      "required": true,
+      "weight": 0.35
+    },
+    {
+      "direction": "maximize",
+      "maximum": 1.0,
+      "metric": "accuracy",
+      "minimum": 0.0,
+      "required": false,
+      "weight": 0.1
+    },
+    {
+      "direction": "minimize",
+      "maximum": 0.24,
+      "metric": "brier_score",
+      "minimum": 0.0,
+      "required": true,
+      "weight": 0.2
+    },
+    {
+      "direction": "minimize",
+      "maximum": 10.0,
+      "metric": "log_loss",
+      "minimum": 0.0,
+      "required": false,
+      "weight": 0.1
+    },
+    {
+      "direction": "maximize",
+      "maximum": 1.0,
+      "metric": "roc_auc",
+      "minimum": 0.0,
+      "required": false,
+      "weight": 0.1
+    },
+    {
+      "direction": "maximize",
+      "maximum": 1.0,
+      "metric": "delta_balanced_accuracy_vs_baseline",
+      "minimum": 0.05,
+      "required": true,
+      "weight": 0.15
+    }
+  ],
+  "pass_rule": {
+    "all_required": true,
+    "maximum_brier_score": 0.24,
+    "minimum_balanced_accuracy": 0.65,
+    "minimum_delta_vs_baseline": 0.05
+  },
+  "protocol_id": "v429_locked_binary_evaluation_protocol",
+  "random_seed": 290001,
+  "tolerance": 1e-12
+}

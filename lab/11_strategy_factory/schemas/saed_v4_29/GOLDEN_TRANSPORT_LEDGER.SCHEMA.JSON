@@ -1,0 +1,107 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_29/GOLDEN_TRANSPORT_LEDGER.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "chain_verification": {
+      "additionalProperties": false,
+      "properties": {
+        "chain": {
+          "type": "string"
+        },
+        "entry_count": {
+          "type": "integer"
+        },
+        "terminal_hash": {
+          "type": "string"
+        },
+        "verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "chain",
+        "entry_count",
+        "terminal_hash",
+        "verified"
+      ],
+      "type": "object"
+    },
+    "entries": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "chain": {
+            "type": "string"
+          },
+          "direction": {
+            "type": "string"
+          },
+          "entry_hash": {
+            "type": "string"
+          },
+          "flow_id": {
+            "type": "string"
+          },
+          "payload_class": {
+            "type": "string"
+          },
+          "payload_hash": {
+            "type": "string"
+          },
+          "previous_hash": {
+            "type": "string"
+          },
+          "raw_hidden_data": {
+            "type": "boolean"
+          },
+          "sequence": {
+            "type": "integer"
+          },
+          "use": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "chain",
+          "direction",
+          "entry_hash",
+          "flow_id",
+          "payload_class",
+          "payload_hash",
+          "previous_hash",
+          "raw_hidden_data",
+          "sequence",
+          "use"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "entry_count": {
+      "type": "integer"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "raw_hidden_data_transfers": {
+      "type": "integer"
+    },
+    "round_trips": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "chain_verification",
+    "entries",
+    "entry_count",
+    "ledger_hash",
+    "phase",
+    "raw_hidden_data_transfers",
+    "round_trips"
+  ],
+  "type": "object"
+}

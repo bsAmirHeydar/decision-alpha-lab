@@ -1,0 +1,22 @@
+{
+  "commitment_verified": true,
+  "custodian_count": 3,
+  "custody_receipt_hash": "4c96fe6834494cbfebd2afc671212f7dd5635bf3baefe73c652a16a87c09f65a",
+  "custody_receipt_id": "v429_custody_77642a111410e2d28793ee95",
+  "dataset_id": "protected_final_reference",
+  "dataset_version": "1.0.0",
+  "encrypted_blob_hash": "76f2894f7d75a69f6ddae5ea906d12bdfb33864d9f278dbb6ea348e137510d90",
+  "evaluator_read_access": true,
+  "external_hsm_attestation": false,
+  "feature_count": 3,
+  "immutable": true,
+  "key_shares_reconstructed_in_reference": false,
+  "phase": "SAED_V4_29",
+  "plaintext_commitment_hash": "17e821289dafd21d17466303ccaedf516ecb7b04ce8e66408681bdedff19ec59",
+  "researcher_read_access": false,
+  "row_count": 48,
+  "schema_hash": "a67e949266e1371a9a9ed590968b080fe08b87df0ffea8786ec3d768b665ed4e",
+  "storage_zone": "custody",
+  "synthetic_fixture": true,
+  "threshold": 2
+}

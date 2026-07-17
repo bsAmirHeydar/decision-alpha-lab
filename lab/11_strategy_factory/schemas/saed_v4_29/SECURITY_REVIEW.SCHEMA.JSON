@@ -1,0 +1,70 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_29/SECURITY_REVIEW.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "environment_variables_exported": {
+      "type": "integer"
+    },
+    "forbidden_key_hits": {
+      "type": "integer"
+    },
+    "interactive_debug_attempts": {
+      "type": "integer"
+    },
+    "network_egress_attempts": {
+      "type": "integer"
+    },
+    "package_install_attempts": {
+      "type": "integer"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "raw_result_egress_attempts": {
+      "type": "integer"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "researcher_hidden_label_reads": {
+      "type": "integer"
+    },
+    "researcher_key_share_reads": {
+      "type": "integer"
+    },
+    "security_review_hash": {
+      "type": "string"
+    },
+    "security_review_id": {
+      "type": "string"
+    },
+    "shell_escape_attempts": {
+      "type": "integer"
+    },
+    "side_channel_budget_bytes": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "environment_variables_exported",
+    "forbidden_key_hits",
+    "interactive_debug_attempts",
+    "network_egress_attempts",
+    "package_install_attempts",
+    "passed",
+    "phase",
+    "raw_result_egress_attempts",
+    "research_only",
+    "researcher_hidden_label_reads",
+    "researcher_key_share_reads",
+    "security_review_hash",
+    "security_review_id",
+    "shell_escape_attempts",
+    "side_channel_budget_bytes"
+  ],
+  "type": "object"
+}

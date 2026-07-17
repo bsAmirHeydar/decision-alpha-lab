@@ -1,0 +1,88 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_29/GOLDEN_DISCLOSURE_ENVELOPE.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "aggregate_metrics": {
+      "additionalProperties": false,
+      "properties": {
+        "accuracy": {
+          "type": "number"
+        },
+        "balanced_accuracy": {
+          "type": "number"
+        },
+        "brier_score": {
+          "type": "number"
+        },
+        "delta_balanced_accuracy_vs_baseline": {
+          "type": "number"
+        },
+        "log_loss": {
+          "type": "number"
+        },
+        "roc_auc": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "accuracy",
+        "balanced_accuracy",
+        "brier_score",
+        "delta_balanced_accuracy_vs_baseline",
+        "log_loss",
+        "roc_auc"
+      ],
+      "type": "object"
+    },
+    "baseline_comparison": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_balanced_accuracy": {
+          "type": "number"
+        },
+        "candidate_balanced_accuracy": {
+          "type": "number"
+        },
+        "delta": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "baseline_balanced_accuracy",
+        "candidate_balanced_accuracy",
+        "delta"
+      ],
+      "type": "object"
+    },
+    "candidate_id": {
+      "type": "string"
+    },
+    "dataset_commitment_hash": {
+      "type": "string"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "evaluation_id": {
+      "type": "string"
+    },
+    "protocol_id": {
+      "type": "string"
+    },
+    "release_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "aggregate_metrics",
+    "baseline_comparison",
+    "candidate_id",
+    "dataset_commitment_hash",
+    "decision",
+    "evaluation_id",
+    "protocol_id",
+    "release_hash"
+  ],
+  "type": "object"
+}

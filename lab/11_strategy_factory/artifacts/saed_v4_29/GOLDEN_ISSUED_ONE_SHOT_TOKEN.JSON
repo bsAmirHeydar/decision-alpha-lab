@@ -1,0 +1,17 @@
+{
+  "bound": true,
+  "candidate_commitment_hash": "3253c841f5beeca981b0fca01f4487c33370bcd99b49c1672f7fd712c1fbc419",
+  "candidate_id": "context_policy_candidate_reference_001",
+  "dataset_commitment_hash": "17e821289dafd21d17466303ccaedf516ecb7b04ce8e66408681bdedff19ec59",
+  "expires_at": "2026-07-16T09:15:00Z",
+  "issued_at": "2026-07-16T09:00:00Z",
+  "issuer_actor_id": "custodian_quorum",
+  "maximum_uses": 1,
+  "phase": "SAED_V4_29",
+  "protocol_hash": "1b81782cdb5e020ab7b2a39a66490d6a1f4eb853ecdc2619f26bf856faaa48a3",
+  "research_only": true,
+  "revoked": false,
+  "token_hash": "0c30bb01961e82052300a37ba72c3e02df9eb98cb36f74df829d697ddf63181c",
+  "token_id": "v429_one_shot_8f1231f17a492778f934d094",
+  "used_count": 0
+}

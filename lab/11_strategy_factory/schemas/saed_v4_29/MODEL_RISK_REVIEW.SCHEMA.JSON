@@ -1,0 +1,73 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_29/MODEL_RISK_REVIEW.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_decision": {
+      "type": "string"
+    },
+    "external_custodian_independence": {
+      "type": "boolean"
+    },
+    "hsm_enforcement": {
+      "type": "boolean"
+    },
+    "independent_replication": {
+      "type": "boolean"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "model_risk_review_hash": {
+      "type": "string"
+    },
+    "model_risk_review_id": {
+      "type": "string"
+    },
+    "os_air_gap_certification": {
+      "type": "boolean"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "promotion_recommendation": {
+      "type": "boolean"
+    },
+    "real_alpha_claim": {
+      "type": "boolean"
+    },
+    "real_hidden_dataset": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "synthetic_fixture": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "candidate_decision",
+    "external_custodian_independence",
+    "hsm_enforcement",
+    "independent_replication",
+    "limitations",
+    "model_risk_review_hash",
+    "model_risk_review_id",
+    "os_air_gap_certification",
+    "passed",
+    "phase",
+    "promotion_recommendation",
+    "real_alpha_claim",
+    "real_hidden_dataset",
+    "research_only",
+    "synthetic_fixture"
+  ],
+  "type": "object"
+}

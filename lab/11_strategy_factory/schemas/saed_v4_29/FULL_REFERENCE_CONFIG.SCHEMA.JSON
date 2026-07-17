@@ -1,0 +1,467 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_29/FULL_REFERENCE_CONFIG.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "air_gap_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "default_deny": {
+          "type": "boolean"
+        },
+        "deterministic": {
+          "type": "boolean"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "fail_closed_action": {
+          "type": "string"
+        },
+        "immutable_submission_required": {
+          "type": "boolean"
+        },
+        "interactive_debugging": {
+          "type": "boolean"
+        },
+        "maximum_evaluations": {
+          "type": "integer"
+        },
+        "maximum_round_trips": {
+          "type": "integer"
+        },
+        "network_access": {
+          "type": "boolean"
+        },
+        "one_shot_required": {
+          "type": "boolean"
+        },
+        "package_installation": {
+          "type": "boolean"
+        },
+        "raw_result_release": {
+          "type": "boolean"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "researcher_hidden_label_access": {
+          "type": "boolean"
+        },
+        "researcher_key_share_access": {
+          "type": "boolean"
+        },
+        "sealed_evaluator_required": {
+          "type": "boolean"
+        },
+        "shell_escape": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "default_deny",
+        "deterministic",
+        "exact_version",
+        "fail_closed_action",
+        "immutable_submission_required",
+        "interactive_debugging",
+        "maximum_evaluations",
+        "maximum_round_trips",
+        "network_access",
+        "one_shot_required",
+        "package_installation",
+        "raw_result_release",
+        "research_only",
+        "researcher_hidden_label_access",
+        "researcher_key_share_access",
+        "sealed_evaluator_required",
+        "shell_escape"
+      ],
+      "type": "object"
+    },
+    "air_gap_topology": {
+      "additionalProperties": false,
+      "properties": {
+        "clock_policy": {
+          "type": "string"
+        },
+        "environment_capture": {
+          "type": "boolean"
+        },
+        "flows": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "destination_zone": {
+                "type": "string"
+              },
+              "direction": {
+                "type": "string"
+              },
+              "flow_id": {
+                "type": "string"
+              },
+              "maximum_uses": {
+                "type": "integer"
+              },
+              "payload_class": {
+                "type": "string"
+              },
+              "raw_hidden_data_allowed": {
+                "type": "boolean"
+              },
+              "signed_receipt_required": {
+                "type": "boolean"
+              },
+              "source_zone": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "destination_zone",
+              "direction",
+              "flow_id",
+              "maximum_uses",
+              "payload_class",
+              "raw_hidden_data_allowed",
+              "signed_receipt_required",
+              "source_zone"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "frozen_at": {
+          "type": "string"
+        },
+        "network_egress_default": {
+          "type": "string"
+        },
+        "removable_media_policy": {
+          "type": "string"
+        },
+        "topology_id": {
+          "type": "string"
+        },
+        "zones": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "custodian_access": {
+                "type": "boolean"
+              },
+              "evaluator_access": {
+                "type": "boolean"
+              },
+              "network_access": {
+                "type": "boolean"
+              },
+              "researcher_access": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "stores_plaintext_hidden_data": {
+                "type": "boolean"
+              },
+              "zone_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "custodian_access",
+              "evaluator_access",
+              "network_access",
+              "researcher_access",
+              "role",
+              "stores_plaintext_hidden_data",
+              "zone_id"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "clock_policy",
+        "environment_capture",
+        "flows",
+        "frozen_at",
+        "network_egress_default",
+        "removable_media_policy",
+        "topology_id",
+        "zones"
+      ],
+      "type": "object"
+    },
+    "custody_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "dual_control_required": {
+          "type": "boolean"
+        },
+        "evaluator_may_export_plaintext": {
+          "type": "boolean"
+        },
+        "immutable": {
+          "type": "boolean"
+        },
+        "key_shares_exportable": {
+          "type": "boolean"
+        },
+        "minimum_custodians": {
+          "type": "integer"
+        },
+        "policy_id": {
+          "type": "string"
+        },
+        "researcher_may_be_custodian": {
+          "type": "boolean"
+        },
+        "synthetic_fixture_only": {
+          "type": "boolean"
+        },
+        "threshold": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "dual_control_required",
+        "evaluator_may_export_plaintext",
+        "immutable",
+        "key_shares_exportable",
+        "minimum_custodians",
+        "policy_id",
+        "researcher_may_be_custodian",
+        "synthetic_fixture_only",
+        "threshold"
+      ],
+      "type": "object"
+    },
+    "disclosure_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_fields": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "confusion_matrix_allowed": {
+          "type": "boolean"
+        },
+        "exact_thresholds_released": {
+          "type": "boolean"
+        },
+        "forbidden_fields": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "immutable": {
+          "type": "boolean"
+        },
+        "metric_precision": {
+          "type": "integer"
+        },
+        "minimum_group_size": {
+          "type": "integer"
+        },
+        "per_record_outputs_allowed": {
+          "type": "boolean"
+        },
+        "policy_id": {
+          "type": "string"
+        },
+        "raw_rows_allowed": {
+          "type": "boolean"
+        },
+        "release_mode": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "allowed_fields",
+        "confusion_matrix_allowed",
+        "exact_thresholds_released",
+        "forbidden_fields",
+        "immutable",
+        "metric_precision",
+        "minimum_group_size",
+        "per_record_outputs_allowed",
+        "policy_id",
+        "raw_rows_allowed",
+        "release_mode"
+      ],
+      "type": "object"
+    },
+    "evaluation_protocol": {
+      "additionalProperties": false,
+      "properties": {
+        "adaptive_changes_allowed": {
+          "type": "boolean"
+        },
+        "baseline_id": {
+          "type": "string"
+        },
+        "deterministic": {
+          "type": "boolean"
+        },
+        "disclosure_policy_id": {
+          "type": "string"
+        },
+        "locked_at": {
+          "type": "string"
+        },
+        "maximum_evaluations": {
+          "type": "integer"
+        },
+        "metric_specs": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "direction": {
+                "type": "string"
+              },
+              "maximum": {
+                "type": "number"
+              },
+              "metric": {
+                "type": "string"
+              },
+              "minimum": {
+                "type": "number"
+              },
+              "required": {
+                "type": "boolean"
+              },
+              "weight": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "direction",
+              "maximum",
+              "metric",
+              "minimum",
+              "required",
+              "weight"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "pass_rule": {
+          "additionalProperties": false,
+          "properties": {
+            "all_required": {
+              "type": "boolean"
+            },
+            "maximum_brier_score": {
+              "type": "number"
+            },
+            "minimum_balanced_accuracy": {
+              "type": "number"
+            },
+            "minimum_delta_vs_baseline": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "all_required",
+            "maximum_brier_score",
+            "minimum_balanced_accuracy",
+            "minimum_delta_vs_baseline"
+          ],
+          "type": "object"
+        },
+        "protocol_id": {
+          "type": "string"
+        },
+        "random_seed": {
+          "type": "integer"
+        },
+        "tolerance": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "adaptive_changes_allowed",
+        "baseline_id",
+        "deterministic",
+        "disclosure_policy_id",
+        "locked_at",
+        "maximum_evaluations",
+        "metric_specs",
+        "pass_rule",
+        "protocol_id",
+        "random_seed",
+        "tolerance"
+      ],
+      "type": "object"
+    },
+    "upstream_intake": {
+      "additionalProperties": false,
+      "properties": {
+        "certificate_hash": {
+          "type": "string"
+        },
+        "certificate_id": {
+          "type": "string"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "handoff_hash": {
+          "type": "string"
+        },
+        "handoff_id": {
+          "type": "string"
+        },
+        "hash_verified": {
+          "type": "boolean"
+        },
+        "immutable": {
+          "type": "boolean"
+        },
+        "online_fdr_reference_accepted": {
+          "type": "boolean"
+        },
+        "protected_evidence_access_zero": {
+          "type": "boolean"
+        },
+        "required_phase": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "certificate_hash",
+        "certificate_id",
+        "exact_version",
+        "handoff_hash",
+        "handoff_id",
+        "hash_verified",
+        "immutable",
+        "online_fdr_reference_accepted",
+        "protected_evidence_access_zero",
+        "required_phase",
+        "research_only"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "air_gap_policy",
+    "air_gap_topology",
+    "custody_policy",
+    "disclosure_policy",
+    "evaluation_protocol",
+    "upstream_intake"
+  ],
+  "type": "object"
+}

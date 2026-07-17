@@ -1,0 +1,147 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_29/GOLDEN_REPLAY_RECEIPT.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_hash": {
+      "type": "string"
+    },
+    "config_hash": {
+      "type": "string"
+    },
+    "custody_manifest_hash": {
+      "type": "string"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "environment": {
+      "type": "string"
+    },
+    "future_suffix_invariant": {
+      "type": "boolean"
+    },
+    "network_access": {
+      "type": "boolean"
+    },
+    "output_bundle_hash": {
+      "type": "string"
+    },
+    "output_hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "air_gap_attestation": {
+          "type": "string"
+        },
+        "authority_boundary": {
+          "type": "string"
+        },
+        "certificate": {
+          "type": "string"
+        },
+        "consumed_token": {
+          "type": "string"
+        },
+        "custody_ledger": {
+          "type": "string"
+        },
+        "custody_receipt": {
+          "type": "string"
+        },
+        "disclosure_envelope": {
+          "type": "string"
+        },
+        "handoff": {
+          "type": "string"
+        },
+        "issued_token": {
+          "type": "string"
+        },
+        "known_time_review": {
+          "type": "string"
+        },
+        "model_risk_review": {
+          "type": "string"
+        },
+        "query_ledger": {
+          "type": "string"
+        },
+        "sealed_result": {
+          "type": "string"
+        },
+        "security_review": {
+          "type": "string"
+        },
+        "submission_commitment": {
+          "type": "string"
+        },
+        "token_ledger": {
+          "type": "string"
+        },
+        "transport_ledger": {
+          "type": "string"
+        },
+        "upstream_receipt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "air_gap_attestation",
+        "authority_boundary",
+        "certificate",
+        "consumed_token",
+        "custody_ledger",
+        "custody_receipt",
+        "disclosure_envelope",
+        "handoff",
+        "issued_token",
+        "known_time_review",
+        "model_risk_review",
+        "query_ledger",
+        "sealed_result",
+        "security_review",
+        "submission_commitment",
+        "token_ledger",
+        "transport_ledger",
+        "upstream_receipt"
+      ],
+      "type": "object"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "randomness": {
+      "type": "string"
+    },
+    "replay_hash": {
+      "type": "string"
+    },
+    "replay_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "sealed_fixture_commitment_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "candidate_hash",
+    "config_hash",
+    "custody_manifest_hash",
+    "deterministic",
+    "environment",
+    "future_suffix_invariant",
+    "network_access",
+    "output_bundle_hash",
+    "output_hashes",
+    "phase",
+    "randomness",
+    "replay_hash",
+    "replay_id",
+    "research_only",
+    "sealed_fixture_commitment_hash"
+  ],
+  "type": "object"
+}

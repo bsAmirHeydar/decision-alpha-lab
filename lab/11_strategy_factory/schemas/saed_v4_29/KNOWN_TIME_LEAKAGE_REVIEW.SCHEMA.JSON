@@ -1,0 +1,74 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_29/KNOWN_TIME_LEAKAGE_REVIEW.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adaptive_round_trips": {
+      "type": "integer"
+    },
+    "candidate_submitted_at": {
+      "type": "string"
+    },
+    "dataset_created_at": {
+      "type": "string"
+    },
+    "evaluation_retries": {
+      "type": "integer"
+    },
+    "future_suffix_records_available": {
+      "type": "integer"
+    },
+    "future_suffix_records_seen": {
+      "type": "integer"
+    },
+    "future_suffix_sensitivity": {
+      "type": "boolean"
+    },
+    "known_time_violations": {
+      "type": "integer"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "post_commit_candidate_mutations": {
+      "type": "integer"
+    },
+    "post_commit_protocol_mutations": {
+      "type": "integer"
+    },
+    "protocol_locked_at": {
+      "type": "string"
+    },
+    "review_hash": {
+      "type": "string"
+    },
+    "review_id": {
+      "type": "string"
+    },
+    "token_issued_at": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "adaptive_round_trips",
+    "candidate_submitted_at",
+    "dataset_created_at",
+    "evaluation_retries",
+    "future_suffix_records_available",
+    "future_suffix_records_seen",
+    "future_suffix_sensitivity",
+    "known_time_violations",
+    "passed",
+    "phase",
+    "post_commit_candidate_mutations",
+    "post_commit_protocol_mutations",
+    "protocol_locked_at",
+    "review_hash",
+    "review_id",
+    "token_issued_at"
+  ],
+  "type": "object"
+}

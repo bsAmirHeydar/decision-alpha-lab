@@ -1,0 +1,122 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_29/V4_29_TO_V4_30_HANDOFF.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_next_work": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "execution": {
+          "type": "boolean"
+        },
+        "online_learning": {
+          "type": "boolean"
+        },
+        "production": {
+          "type": "boolean"
+        },
+        "promotion": {
+          "type": "boolean"
+        },
+        "risk_allocation": {
+          "type": "boolean"
+        },
+        "runtime": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "execution",
+        "online_learning",
+        "production",
+        "promotion",
+        "risk_allocation",
+        "runtime"
+      ],
+      "type": "object"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "entry_gates": {
+      "additionalProperties": false,
+      "properties": {
+        "aggregate_only_disclosure_verified": {
+          "type": "boolean"
+        },
+        "append_only_ledgers_verified": {
+          "type": "boolean"
+        },
+        "authority_zero": {
+          "type": "boolean"
+        },
+        "hidden_evaluation_reference_accepted": {
+          "type": "boolean"
+        },
+        "one_shot_semantics_verified": {
+          "type": "boolean"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "synthetic_fixture_only": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "aggregate_only_disclosure_verified",
+        "append_only_ledgers_verified",
+        "authority_zero",
+        "hidden_evaluation_reference_accepted",
+        "one_shot_semantics_verified",
+        "research_only",
+        "synthetic_fixture_only"
+      ],
+      "type": "object"
+    },
+    "forbidden_next_work": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "allowed_next_work",
+    "authority",
+    "certificate_hash",
+    "certificate_id",
+    "entry_gates",
+    "forbidden_next_work",
+    "handoff_hash",
+    "handoff_id",
+    "next_phase",
+    "phase",
+    "research_only"
+  ],
+  "type": "object"
+}

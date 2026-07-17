@@ -1,0 +1,107 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_29/EVALUATION_PROTOCOL.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adaptive_changes_allowed": {
+      "type": "boolean"
+    },
+    "baseline_id": {
+      "type": "string"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "disclosure_policy_id": {
+      "type": "string"
+    },
+    "locked_at": {
+      "type": "string"
+    },
+    "maximum_evaluations": {
+      "type": "integer"
+    },
+    "metric_specs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "direction": {
+            "type": "string"
+          },
+          "maximum": {
+            "type": "number"
+          },
+          "metric": {
+            "type": "string"
+          },
+          "minimum": {
+            "type": "number"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "weight": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "direction",
+          "maximum",
+          "metric",
+          "minimum",
+          "required",
+          "weight"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "pass_rule": {
+      "additionalProperties": false,
+      "properties": {
+        "all_required": {
+          "type": "boolean"
+        },
+        "maximum_brier_score": {
+          "type": "number"
+        },
+        "minimum_balanced_accuracy": {
+          "type": "number"
+        },
+        "minimum_delta_vs_baseline": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "all_required",
+        "maximum_brier_score",
+        "minimum_balanced_accuracy",
+        "minimum_delta_vs_baseline"
+      ],
+      "type": "object"
+    },
+    "protocol_id": {
+      "type": "string"
+    },
+    "random_seed": {
+      "type": "integer"
+    },
+    "tolerance": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "adaptive_changes_allowed",
+    "baseline_id",
+    "deterministic",
+    "disclosure_policy_id",
+    "locked_at",
+    "maximum_evaluations",
+    "metric_specs",
+    "pass_rule",
+    "protocol_id",
+    "random_seed",
+    "tolerance"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,36 @@
+{
+  "adaptive_to_final_evaluation": false,
+  "candidate_id": "context_policy_candidate_reference_001",
+  "candidate_version": "1.0.0",
+  "feature_contract_hash": "cccb7c830e90e6d65145204c2f79bcb60e6586f6c5fbf36c5d52d244ac27cd11",
+  "frozen": true,
+  "hidden_data_touched": false,
+  "inference_entrypoint": "sealed_reference.logistic_predict",
+  "model_artifact_hash": "0191bba0b3ffc61b3a64f367696d962da66506a5b0d59c0110553749fc0cb0a6",
+  "model_spec": {
+    "feature_order": [
+      "context_signal",
+      "liquidity_state",
+      "timing_alignment"
+    ],
+    "intercept": 0.02,
+    "link": "sigmoid",
+    "model_type": "deterministic_logistic_reference",
+    "weights": [
+      1.25,
+      -0.9,
+      0.55
+    ]
+  },
+  "network_dependencies": [],
+  "preprocessing_hash": "69dd0e343caf3577ee3beecc4155d69864f7a4ed82cfc477140cf865225ddae7",
+  "source_commit_hash": "ee7c49f54b6d173370c16e479297e948f489163ed97ddf4d30ea41d6deaae9ed",
+  "submitted_at": "2026-07-16T08:30:00Z",
+  "submitter_actor_id": "research_controller",
+  "training_data_roles": [
+    "train",
+    "validation",
+    "stress",
+    "synthetic"
+  ]
+}

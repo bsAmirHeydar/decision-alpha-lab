@@ -1,0 +1,22 @@
+{
+  "authority": {
+    "execution": false,
+    "live_trading": false,
+    "online_learning": false,
+    "production": false,
+    "promotion": false,
+    "raw_hidden_data_export": false,
+    "repeat_hidden_evaluation": false,
+    "research_decision": false,
+    "risk_allocation": false,
+    "runtime": false
+  },
+  "boundary_hash": "c620812239233aa514ab10324e74af8f6bf57e41f70e3743c138c64607299488",
+  "boundary_id": "v429_authority_bbf3fc50b2b6ea6d0b64321f",
+  "phase": "SAED_V4_29",
+  "research_only": true,
+  "safe_action": "quarantine",
+  "sealed_evaluation_reference": true,
+  "synthetic_fixture_only": true,
+  "ucee_authority_preserved": true
+}

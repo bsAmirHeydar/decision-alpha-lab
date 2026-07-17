@@ -1,0 +1,326 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_29/GOLDEN_HIDDEN_EVALUATION_AIR_GAP_CERTIFICATE.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accepted_for_hidden_evaluation_air_gap_research_reference": {
+      "type": "boolean"
+    },
+    "authority_boundary": {
+      "additionalProperties": false,
+      "properties": {
+        "authority": {
+          "additionalProperties": false,
+          "properties": {
+            "execution": {
+              "type": "boolean"
+            },
+            "live_trading": {
+              "type": "boolean"
+            },
+            "online_learning": {
+              "type": "boolean"
+            },
+            "production": {
+              "type": "boolean"
+            },
+            "promotion": {
+              "type": "boolean"
+            },
+            "raw_hidden_data_export": {
+              "type": "boolean"
+            },
+            "repeat_hidden_evaluation": {
+              "type": "boolean"
+            },
+            "research_decision": {
+              "type": "boolean"
+            },
+            "risk_allocation": {
+              "type": "boolean"
+            },
+            "runtime": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "execution",
+            "live_trading",
+            "online_learning",
+            "production",
+            "promotion",
+            "raw_hidden_data_export",
+            "repeat_hidden_evaluation",
+            "research_decision",
+            "risk_allocation",
+            "runtime"
+          ],
+          "type": "object"
+        },
+        "boundary_hash": {
+          "type": "string"
+        },
+        "boundary_id": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "safe_action": {
+          "type": "string"
+        },
+        "sealed_evaluation_reference": {
+          "type": "boolean"
+        },
+        "synthetic_fixture_only": {
+          "type": "boolean"
+        },
+        "ucee_authority_preserved": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "authority",
+        "boundary_hash",
+        "boundary_id",
+        "phase",
+        "research_only",
+        "safe_action",
+        "sealed_evaluation_reference",
+        "synthetic_fixture_only",
+        "ucee_authority_preserved"
+      ],
+      "type": "object"
+    },
+    "candidate_decision": {
+      "type": "string"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "claim_class": {
+      "type": "string"
+    },
+    "evidence_hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "air_gap_attestation": {
+          "type": "string"
+        },
+        "consumed_token": {
+          "type": "string"
+        },
+        "custody_ledger": {
+          "type": "string"
+        },
+        "custody_receipt": {
+          "type": "string"
+        },
+        "disclosure_envelope": {
+          "type": "string"
+        },
+        "issued_token": {
+          "type": "string"
+        },
+        "known_time_review": {
+          "type": "string"
+        },
+        "model_risk_review": {
+          "type": "string"
+        },
+        "query_ledger": {
+          "type": "string"
+        },
+        "sealed_result": {
+          "type": "string"
+        },
+        "security_review": {
+          "type": "string"
+        },
+        "submission_commitment": {
+          "type": "string"
+        },
+        "token_ledger": {
+          "type": "string"
+        },
+        "transport_ledger": {
+          "type": "string"
+        },
+        "upstream_receipt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "air_gap_attestation",
+        "consumed_token",
+        "custody_ledger",
+        "custody_receipt",
+        "disclosure_envelope",
+        "issued_token",
+        "known_time_review",
+        "model_risk_review",
+        "query_ledger",
+        "sealed_result",
+        "security_review",
+        "submission_commitment",
+        "token_ledger",
+        "transport_ledger",
+        "upstream_receipt"
+      ],
+      "type": "object"
+    },
+    "execution_authority": {
+      "type": "boolean"
+    },
+    "external_custodian_independence_claim": {
+      "type": "boolean"
+    },
+    "gates": {
+      "additionalProperties": false,
+      "properties": {
+        "aggregate_only_disclosure": {
+          "type": "boolean"
+        },
+        "air_gap_attested": {
+          "type": "boolean"
+        },
+        "authority_zero": {
+          "type": "boolean"
+        },
+        "custody_chain_verified": {
+          "type": "boolean"
+        },
+        "custody_commitment_verified": {
+          "type": "boolean"
+        },
+        "future_suffix_invariant": {
+          "type": "boolean"
+        },
+        "query_chain_verified": {
+          "type": "boolean"
+        },
+        "sealed_evaluation_once": {
+          "type": "boolean"
+        },
+        "security_passed": {
+          "type": "boolean"
+        },
+        "submission_irreversible": {
+          "type": "boolean"
+        },
+        "token_chain_verified": {
+          "type": "boolean"
+        },
+        "token_consumed_once": {
+          "type": "boolean"
+        },
+        "transport_chain_verified": {
+          "type": "boolean"
+        },
+        "upstream_verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "aggregate_only_disclosure",
+        "air_gap_attested",
+        "authority_zero",
+        "custody_chain_verified",
+        "custody_commitment_verified",
+        "future_suffix_invariant",
+        "query_chain_verified",
+        "sealed_evaluation_once",
+        "security_passed",
+        "submission_irreversible",
+        "token_chain_verified",
+        "token_consumed_once",
+        "transport_chain_verified",
+        "upstream_verified"
+      ],
+      "type": "object"
+    },
+    "hsm_enforcement_claim": {
+      "type": "boolean"
+    },
+    "independent_replication_claim": {
+      "type": "boolean"
+    },
+    "live_trading_authority": {
+      "type": "boolean"
+    },
+    "online_learning_authority": {
+      "type": "boolean"
+    },
+    "os_air_gap_certification_claim": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authority": {
+      "type": "boolean"
+    },
+    "promotion_authority": {
+      "type": "boolean"
+    },
+    "prospective_success_claim": {
+      "type": "boolean"
+    },
+    "real_alpha_claim": {
+      "type": "boolean"
+    },
+    "real_hidden_dataset_claim": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "risk_allocation_authority": {
+      "type": "boolean"
+    },
+    "runtime_executable": {
+      "type": "boolean"
+    },
+    "synthetic_fixture_control_claim": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "accepted_for_hidden_evaluation_air_gap_research_reference",
+    "authority_boundary",
+    "candidate_decision",
+    "certificate_hash",
+    "certificate_id",
+    "claim_class",
+    "evidence_hashes",
+    "execution_authority",
+    "external_custodian_independence_claim",
+    "gates",
+    "hsm_enforcement_claim",
+    "independent_replication_claim",
+    "live_trading_authority",
+    "online_learning_authority",
+    "os_air_gap_certification_claim",
+    "phase",
+    "production_authority",
+    "promotion_authority",
+    "prospective_success_claim",
+    "real_alpha_claim",
+    "real_hidden_dataset_claim",
+    "research_only",
+    "risk_allocation_authority",
+    "runtime_executable",
+    "synthetic_fixture_control_claim",
+    "version"
+  ],
+  "type": "object"
+}

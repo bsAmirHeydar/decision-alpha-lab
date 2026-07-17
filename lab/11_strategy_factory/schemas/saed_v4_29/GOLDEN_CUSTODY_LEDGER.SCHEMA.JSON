@@ -1,0 +1,99 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_29/GOLDEN_CUSTODY_LEDGER.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "chain_verification": {
+      "additionalProperties": false,
+      "properties": {
+        "chain": {
+          "type": "string"
+        },
+        "entry_count": {
+          "type": "integer"
+        },
+        "terminal_hash": {
+          "type": "string"
+        },
+        "verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "chain",
+        "entry_count",
+        "terminal_hash",
+        "verified"
+      ],
+      "type": "object"
+    },
+    "entries": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "actor_id": {
+            "type": "string"
+          },
+          "chain": {
+            "type": "string"
+          },
+          "commitment_hash": {
+            "type": "string"
+          },
+          "dataset_id": {
+            "type": "string"
+          },
+          "entry_hash": {
+            "type": "string"
+          },
+          "event": {
+            "type": "string"
+          },
+          "plaintext_access": {
+            "type": "boolean"
+          },
+          "previous_hash": {
+            "type": "string"
+          },
+          "sequence": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "actor_id",
+          "chain",
+          "commitment_hash",
+          "dataset_id",
+          "entry_hash",
+          "event",
+          "plaintext_access",
+          "previous_hash",
+          "sequence"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "entry_count": {
+      "type": "integer"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "researcher_plaintext_access_events": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "chain_verification",
+    "entries",
+    "entry_count",
+    "ledger_hash",
+    "phase",
+    "researcher_plaintext_access_events"
+  ],
+  "type": "object"
+}

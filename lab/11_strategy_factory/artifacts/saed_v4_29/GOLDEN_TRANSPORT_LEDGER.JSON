@@ -1,0 +1,51 @@
+{
+  "chain_verification": {
+    "chain": "v4_29_transport",
+    "entry_count": 3,
+    "terminal_hash": "7b3b1b54ae087dd852d4b4576e1dbc56261983ebc1263b29b79f0e0b88b16ed5",
+    "verified": true
+  },
+  "entries": [
+    {
+      "chain": "v4_29_transport",
+      "direction": "one_way_in",
+      "entry_hash": "1e556dad8033264c3c03ea794f32c8f039326b2599883ab3a21d900a2050cf1a",
+      "flow_id": "research_to_transfer",
+      "payload_class": "candidate_commitment",
+      "payload_hash": "3253c841f5beeca981b0fca01f4487c33370bcd99b49c1672f7fd712c1fbc419",
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "raw_hidden_data": false,
+      "sequence": 1,
+      "use": 1
+    },
+    {
+      "chain": "v4_29_transport",
+      "direction": "one_way_in",
+      "entry_hash": "a801a45ba6a2d5f34ddae5ee4bcd741f5c679fc04d37a96301d5e72423bdb7f2",
+      "flow_id": "transfer_to_sealed",
+      "payload_class": "one_shot_token_and_candidate",
+      "payload_hash": "0c30bb01961e82052300a37ba72c3e02df9eb98cb36f74df829d697ddf63181c",
+      "previous_hash": "1e556dad8033264c3c03ea794f32c8f039326b2599883ab3a21d900a2050cf1a",
+      "raw_hidden_data": false,
+      "sequence": 2,
+      "use": 1
+    },
+    {
+      "chain": "v4_29_transport",
+      "direction": "one_way_out",
+      "entry_hash": "7b3b1b54ae087dd852d4b4576e1dbc56261983ebc1263b29b79f0e0b88b16ed5",
+      "flow_id": "sealed_to_research",
+      "payload_class": "redacted_aggregate_release",
+      "payload_hash": "e964c9147724a0523de56d8084eb66c07982024cb8e9fd9fabf5553229ff2c84",
+      "previous_hash": "a801a45ba6a2d5f34ddae5ee4bcd741f5c679fc04d37a96301d5e72423bdb7f2",
+      "raw_hidden_data": false,
+      "sequence": 3,
+      "use": 1
+    }
+  ],
+  "entry_count": 3,
+  "ledger_hash": "bce7c670652e0f92cff2590fa1cfc1837d264b967fc6d3f575d9a8c94c2b8a6d",
+  "phase": "SAED_V4_29",
+  "raw_hidden_data_transfers": 0,
+  "round_trips": 0
+}

@@ -1,0 +1,54 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_29/GOLDEN_UPSTREAM_RECEIPT.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "certificate_hash": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "upstream_phase": {
+      "type": "string"
+    },
+    "verified": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "certificate_hash",
+    "certificate_id",
+    "handoff_hash",
+    "handoff_id",
+    "immutable",
+    "phase",
+    "receipt_hash",
+    "receipt_id",
+    "research_only",
+    "upstream_phase",
+    "verified"
+  ],
+  "type": "object"
+}

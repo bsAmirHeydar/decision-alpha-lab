@@ -1,0 +1,60 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_29/DISCLOSURE_POLICY.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_fields": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "confusion_matrix_allowed": {
+      "type": "boolean"
+    },
+    "exact_thresholds_released": {
+      "type": "boolean"
+    },
+    "forbidden_fields": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "metric_precision": {
+      "type": "integer"
+    },
+    "minimum_group_size": {
+      "type": "integer"
+    },
+    "per_record_outputs_allowed": {
+      "type": "boolean"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "raw_rows_allowed": {
+      "type": "boolean"
+    },
+    "release_mode": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "allowed_fields",
+    "confusion_matrix_allowed",
+    "exact_thresholds_released",
+    "forbidden_fields",
+    "immutable",
+    "metric_precision",
+    "minimum_group_size",
+    "per_record_outputs_allowed",
+    "policy_id",
+    "raw_rows_allowed",
+    "release_mode"
+  ],
+  "type": "object"
+}

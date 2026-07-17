@@ -1,0 +1,22 @@
+{
+  "adaptive_to_final_evaluation": false,
+  "candidate_hash": "44d53de4b99b883dd136594cff03bb508e6dda780a41e195c5931cefc97c8753",
+  "candidate_id": "context_policy_candidate_reference_001",
+  "candidate_version": "1.0.0",
+  "commitment_hash": "3253c841f5beeca981b0fca01f4487c33370bcd99b49c1672f7fd712c1fbc419",
+  "commitment_id": "v429_submission_062fc32dc9d0039938611003",
+  "dataset_commitment_hash": "17e821289dafd21d17466303ccaedf516ecb7b04ce8e66408681bdedff19ec59",
+  "feature_contract_hash": "cccb7c830e90e6d65145204c2f79bcb60e6586f6c5fbf36c5d52d244ac27cd11",
+  "frozen": true,
+  "hidden_data_touched": false,
+  "irreversible": true,
+  "model_artifact_hash": "0191bba0b3ffc61b3a64f367696d962da66506a5b0d59c0110553749fc0cb0a6",
+  "network_dependency_count": 0,
+  "phase": "SAED_V4_29",
+  "preprocessing_hash": "69dd0e343caf3577ee3beecc4155d69864f7a4ed82cfc477140cf865225ddae7",
+  "protocol_hash": "1b81782cdb5e020ab7b2a39a66490d6a1f4eb853ecdc2619f26bf856faaa48a3",
+  "protocol_id": "v429_locked_binary_evaluation_protocol",
+  "source_commit_hash": "ee7c49f54b6d173370c16e479297e948f489163ed97ddf4d30ea41d6deaae9ed",
+  "submitted_at": "2026-07-16T08:30:00Z",
+  "submitter_actor_id": "research_controller"
+}

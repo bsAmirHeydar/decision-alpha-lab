@@ -1,0 +1,63 @@
+{
+  "adaptive_round_trip_count": 0,
+  "chain_verification": {
+    "chain": "v4_29_query",
+    "entry_count": 4,
+    "terminal_hash": "4b1ec414a58c5bb32327c5715c6ba847818defd4562b279aff6e811fe4c19c73",
+    "verified": true
+  },
+  "entries": [
+    {
+      "actor_id": "research_controller",
+      "candidate_id": "context_policy_candidate_reference_001",
+      "chain": "v4_29_query",
+      "entry_hash": "1d47be2343b244a5d4a6425e00a03f68534d48a0f45bc2e3793dbe988d9702bb",
+      "event": "candidate_committed",
+      "hidden_data_access": false,
+      "object_hash": "3253c841f5beeca981b0fca01f4487c33370bcd99b49c1672f7fd712c1fbc419",
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "sequence": 1
+    },
+    {
+      "actor_id": "custodian_quorum",
+      "candidate_id": "context_policy_candidate_reference_001",
+      "chain": "v4_29_query",
+      "entry_hash": "7a2512762a415189b50770bbedcb286655079b41915169c7075402eb69c0c46e",
+      "event": "one_shot_token_issued",
+      "hidden_data_access": false,
+      "object_hash": "0c30bb01961e82052300a37ba72c3e02df9eb98cb36f74df829d697ddf63181c",
+      "previous_hash": "1d47be2343b244a5d4a6425e00a03f68534d48a0f45bc2e3793dbe988d9702bb",
+      "sequence": 2
+    },
+    {
+      "actor_id": "sealed_evaluator",
+      "candidate_id": "context_policy_candidate_reference_001",
+      "chain": "v4_29_query",
+      "entry_hash": "516b1a7c8b395004d55a870e81733902628ebfd4f2719e3db80e15abc991d9bc",
+      "event": "sealed_evaluation_executed",
+      "hidden_data_access": true,
+      "object_hash": "c1937276e71c2c1f3f9cd0caaec23aecb0166329c894458f138fe89b84e97df7",
+      "previous_hash": "7a2512762a415189b50770bbedcb286655079b41915169c7075402eb69c0c46e",
+      "sequence": 3
+    },
+    {
+      "actor_id": "disclosure_controller",
+      "candidate_id": "context_policy_candidate_reference_001",
+      "chain": "v4_29_query",
+      "entry_hash": "4b1ec414a58c5bb32327c5715c6ba847818defd4562b279aff6e811fe4c19c73",
+      "event": "redacted_release_emitted",
+      "hidden_data_access": false,
+      "object_hash": "e964c9147724a0523de56d8084eb66c07982024cb8e9fd9fabf5553229ff2c84",
+      "previous_hash": "516b1a7c8b395004d55a870e81733902628ebfd4f2719e3db80e15abc991d9bc",
+      "sequence": 4
+    }
+  ],
+  "entry_count": 4,
+  "evaluation_count": 1,
+  "ledger_hash": "2489590b06e140f5eecf6bb242287fe30b4cff7a921c217b48414a616c68b96f",
+  "phase": "SAED_V4_29",
+  "release_count": 1,
+  "researcher_hidden_data_access_count": 0,
+  "token_consumption_count": 1,
+  "token_issue_count": 1
+}

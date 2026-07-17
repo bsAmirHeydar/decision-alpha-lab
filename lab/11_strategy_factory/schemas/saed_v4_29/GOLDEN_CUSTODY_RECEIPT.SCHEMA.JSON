@@ -1,0 +1,90 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_29/GOLDEN_CUSTODY_RECEIPT.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "commitment_verified": {
+      "type": "boolean"
+    },
+    "custodian_count": {
+      "type": "integer"
+    },
+    "custody_receipt_hash": {
+      "type": "string"
+    },
+    "custody_receipt_id": {
+      "type": "string"
+    },
+    "dataset_id": {
+      "type": "string"
+    },
+    "dataset_version": {
+      "type": "string"
+    },
+    "encrypted_blob_hash": {
+      "type": "string"
+    },
+    "evaluator_read_access": {
+      "type": "boolean"
+    },
+    "external_hsm_attestation": {
+      "type": "boolean"
+    },
+    "feature_count": {
+      "type": "integer"
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "key_shares_reconstructed_in_reference": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "plaintext_commitment_hash": {
+      "type": "string"
+    },
+    "researcher_read_access": {
+      "type": "boolean"
+    },
+    "row_count": {
+      "type": "integer"
+    },
+    "schema_hash": {
+      "type": "string"
+    },
+    "storage_zone": {
+      "type": "string"
+    },
+    "synthetic_fixture": {
+      "type": "boolean"
+    },
+    "threshold": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "commitment_verified",
+    "custodian_count",
+    "custody_receipt_hash",
+    "custody_receipt_id",
+    "dataset_id",
+    "dataset_version",
+    "encrypted_blob_hash",
+    "evaluator_read_access",
+    "external_hsm_attestation",
+    "feature_count",
+    "immutable",
+    "key_shares_reconstructed_in_reference",
+    "phase",
+    "plaintext_commitment_hash",
+    "researcher_read_access",
+    "row_count",
+    "schema_hash",
+    "storage_zone",
+    "synthetic_fixture",
+    "threshold"
+  ],
+  "type": "object"
+}

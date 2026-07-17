@@ -1,0 +1,119 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_29/GOLDEN_QUERY_LEDGER.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adaptive_round_trip_count": {
+      "type": "integer"
+    },
+    "chain_verification": {
+      "additionalProperties": false,
+      "properties": {
+        "chain": {
+          "type": "string"
+        },
+        "entry_count": {
+          "type": "integer"
+        },
+        "terminal_hash": {
+          "type": "string"
+        },
+        "verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "chain",
+        "entry_count",
+        "terminal_hash",
+        "verified"
+      ],
+      "type": "object"
+    },
+    "entries": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "actor_id": {
+            "type": "string"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "chain": {
+            "type": "string"
+          },
+          "entry_hash": {
+            "type": "string"
+          },
+          "event": {
+            "type": "string"
+          },
+          "hidden_data_access": {
+            "type": "boolean"
+          },
+          "object_hash": {
+            "type": "string"
+          },
+          "previous_hash": {
+            "type": "string"
+          },
+          "sequence": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "actor_id",
+          "candidate_id",
+          "chain",
+          "entry_hash",
+          "event",
+          "hidden_data_access",
+          "object_hash",
+          "previous_hash",
+          "sequence"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "entry_count": {
+      "type": "integer"
+    },
+    "evaluation_count": {
+      "type": "integer"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "release_count": {
+      "type": "integer"
+    },
+    "researcher_hidden_data_access_count": {
+      "type": "integer"
+    },
+    "token_consumption_count": {
+      "type": "integer"
+    },
+    "token_issue_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "adaptive_round_trip_count",
+    "chain_verification",
+    "entries",
+    "entry_count",
+    "evaluation_count",
+    "ledger_hash",
+    "phase",
+    "release_count",
+    "researcher_hidden_data_access_count",
+    "token_consumption_count",
+    "token_issue_count"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,34 @@
+{
+  "allowed_fields": [
+    "evaluation_id",
+    "candidate_id",
+    "dataset_commitment_hash",
+    "protocol_id",
+    "decision",
+    "aggregate_metrics",
+    "baseline_comparison",
+    "release_hash"
+  ],
+  "confusion_matrix_allowed": false,
+  "exact_thresholds_released": false,
+  "forbidden_fields": [
+    "confusion_matrix",
+    "feature_vector",
+    "hidden_label",
+    "key_share",
+    "plaintext",
+    "prediction",
+    "probability",
+    "raw_score",
+    "record_id",
+    "row",
+    "rows"
+  ],
+  "immutable": true,
+  "metric_precision": 4,
+  "minimum_group_size": 20,
+  "per_record_outputs_allowed": false,
+  "policy_id": "v429_aggregate_redaction_policy",
+  "raw_rows_allowed": false,
+  "release_mode": "aggregate_redacted_once"
+}

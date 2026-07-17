@@ -1,0 +1,29 @@
+{
+  "created_at": "2026-07-16T07:30:00Z",
+  "custodian_ids": [
+    "custodian_alpha",
+    "custodian_beta",
+    "custodian_gamma"
+  ],
+  "dataset_id": "protected_final_reference",
+  "dataset_version": "1.0.0",
+  "encrypted_blob_hash": "76f2894f7d75a69f6ddae5ea906d12bdfb33864d9f278dbb6ea348e137510d90",
+  "evaluator_read_access": true,
+  "feature_count": 3,
+  "immutable": true,
+  "key_share_commitments": {
+    "custodian_alpha": "715155320d5e6ad5351e0c6bd5345f37b0bf11f17e81322a332c712381528d82",
+    "custodian_beta": "86da198ddc1c60e7ff3b5d904dbf470d102fe885acfddc0b50c362b140945053",
+    "custodian_gamma": "752d2be168f7eca32d0345245ad7dbb4bd22f2808a6ff17b663a1dbde8fa9ff2"
+  },
+  "label_columns": [
+    "hidden_label"
+  ],
+  "plaintext_commitment_hash": "17e821289dafd21d17466303ccaedf516ecb7b04ce8e66408681bdedff19ec59",
+  "researcher_read_access": false,
+  "row_count": 48,
+  "schema_hash": "a67e949266e1371a9a9ed590968b080fe08b87df0ffea8786ec3d768b665ed4e",
+  "storage_zone": "custody",
+  "synthetic_fixture": true,
+  "threshold": 2
+}

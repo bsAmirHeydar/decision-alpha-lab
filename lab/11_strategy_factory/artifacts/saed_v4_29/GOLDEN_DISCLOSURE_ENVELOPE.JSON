@@ -1,0 +1,21 @@
+{
+  "aggregate_metrics": {
+    "accuracy": 0.9792,
+    "balanced_accuracy": 0.9783,
+    "brier_score": 0.0905,
+    "delta_balanced_accuracy_vs_baseline": 0.4783,
+    "log_loss": 0.3362,
+    "roc_auc": 1.0
+  },
+  "baseline_comparison": {
+    "baseline_balanced_accuracy": 0.5,
+    "candidate_balanced_accuracy": 0.9783,
+    "delta": 0.4783
+  },
+  "candidate_id": "context_policy_candidate_reference_001",
+  "dataset_commitment_hash": "17e821289dafd21d17466303ccaedf516ecb7b04ce8e66408681bdedff19ec59",
+  "decision": "pass",
+  "evaluation_id": "v429_sealed_eval_5ea9e86ce58daa8a543eeac0",
+  "protocol_id": "v429_locked_binary_evaluation_protocol",
+  "release_hash": "e964c9147724a0523de56d8084eb66c07982024cb8e9fd9fabf5553229ff2c84"
+}
