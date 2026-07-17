@@ -1,0 +1,350 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actor_registry": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "active": {
+            "type": "boolean"
+          },
+          "actor_id": {
+            "type": "string"
+          },
+          "actor_type": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "credential_scope": {
+            "type": "string"
+          },
+          "display_name": {
+            "type": "string"
+          },
+          "organization": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "active",
+          "actor_id",
+          "actor_type",
+          "created_at",
+          "credential_scope",
+          "display_name",
+          "organization",
+          "role"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "data_role_registry": {
+      "items": {
+        "anyOf": [
+          {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "additionalProperties": false,
+            "properties": {
+              "allowed_exposure_types": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "data_role": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "protected": {
+                "type": "boolean"
+              },
+              "query_budget": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "allowed_exposure_types",
+              "data_role",
+              "description",
+              "protected",
+              "query_budget"
+            ],
+            "type": "object"
+          },
+          {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "additionalProperties": false,
+            "properties": {
+              "allowed_exposure_types": {
+                "items": {},
+                "type": "array"
+              },
+              "data_role": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "protected": {
+                "type": "boolean"
+              },
+              "query_budget": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "allowed_exposure_types",
+              "data_role",
+              "description",
+              "protected",
+              "query_budget"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "type": "array"
+    },
+    "ledger_policy": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "actor_identity_required": {
+          "type": "boolean"
+        },
+        "append_only": {
+          "type": "boolean"
+        },
+        "complete_failure_accounting": {
+          "type": "boolean"
+        },
+        "data_role_required": {
+          "type": "boolean"
+        },
+        "deterministic": {
+          "type": "boolean"
+        },
+        "duplicate_accounting": {
+          "type": "boolean"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "hash_chain_required": {
+          "type": "boolean"
+        },
+        "hidden_evaluation_query_budget": {
+          "type": "integer"
+        },
+        "known_time_required": {
+          "type": "boolean"
+        },
+        "orphan_runs_forbidden": {
+          "type": "boolean"
+        },
+        "protected_exposure_forbidden": {
+          "type": "boolean"
+        },
+        "retry_accounting": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "actor_identity_required",
+        "append_only",
+        "complete_failure_accounting",
+        "data_role_required",
+        "deterministic",
+        "duplicate_accounting",
+        "exact_version",
+        "hash_chain_required",
+        "hidden_evaluation_query_budget",
+        "known_time_required",
+        "orphan_runs_forbidden",
+        "protected_exposure_forbidden",
+        "retry_accounting"
+      ],
+      "type": "object"
+    },
+    "query_budget": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "exact_version": {
+          "type": "string"
+        },
+        "maximum_agent_summaries": {
+          "type": "integer"
+        },
+        "maximum_chart_renders": {
+          "type": "integer"
+        },
+        "maximum_exposures": {
+          "type": "integer"
+        },
+        "maximum_hidden_evaluation_queries": {
+          "type": "integer"
+        },
+        "maximum_hypothesis_modifications": {
+          "type": "integer"
+        },
+        "maximum_manual_interventions": {
+          "type": "integer"
+        },
+        "maximum_metric_reads": {
+          "type": "integer"
+        },
+        "maximum_narratives": {
+          "type": "integer"
+        },
+        "maximum_online_mutations": {
+          "type": "integer"
+        },
+        "maximum_order_submissions": {
+          "type": "integer"
+        },
+        "maximum_protected_exposures": {
+          "type": "integer"
+        },
+        "maximum_row_exports": {
+          "type": "integer"
+        },
+        "maximum_runtime_compilations": {
+          "type": "integer"
+        },
+        "maximum_trials": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "exact_version",
+        "maximum_agent_summaries",
+        "maximum_chart_renders",
+        "maximum_exposures",
+        "maximum_hidden_evaluation_queries",
+        "maximum_hypothesis_modifications",
+        "maximum_manual_interventions",
+        "maximum_metric_reads",
+        "maximum_narratives",
+        "maximum_online_mutations",
+        "maximum_order_submissions",
+        "maximum_protected_exposures",
+        "maximum_row_exports",
+        "maximum_runtime_compilations",
+        "maximum_trials"
+      ],
+      "type": "object"
+    },
+    "search_family_registry": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "data_roles_allowed": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "family_id": {
+            "type": "string"
+          },
+          "frozen_before_search": {
+            "type": "boolean"
+          },
+          "hypothesis_family": {
+            "type": "string"
+          },
+          "maximum_trials": {
+            "type": "integer"
+          },
+          "mode": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "owner_actor_id": {
+            "type": "string"
+          },
+          "parameter_space_hash": {
+            "type": "string"
+          },
+          "selection_metric": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "data_roles_allowed",
+          "family_id",
+          "frozen_before_search",
+          "hypothesis_family",
+          "maximum_trials",
+          "mode",
+          "name",
+          "owner_actor_id",
+          "parameter_space_hash",
+          "selection_metric"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "upstream_intake": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "certificate_hash": {
+          "type": "string"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "handoff_hash": {
+          "type": "string"
+        },
+        "hash_verified": {
+          "type": "boolean"
+        },
+        "immutable": {
+          "type": "boolean"
+        },
+        "required_phase": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "certificate_hash",
+        "exact_version",
+        "handoff_hash",
+        "hash_verified",
+        "immutable",
+        "required_phase",
+        "research_only"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "actor_registry",
+    "data_role_registry",
+    "ledger_policy",
+    "query_budget",
+    "search_family_registry",
+    "upstream_intake"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,134 @@
+[
+  {
+    "budget_trials": 6,
+    "code_hash": "ca2120c707448cdd5a6e5427f1e0218c333daab12556dc1fb294098aa12b7a0b",
+    "config_hash": "2db76202dcf43fe50bbd6a4dd3072c3b3137d4f89d8e1abe4347a03be0b3eff4",
+    "created_at": "2026-07-16T09:00:00Z",
+    "data_role": "train",
+    "dataset_hash": "5c051a4939e21162ad0ec9d2356cd38b3f6bd4da9362d9610191dccc97b2719a",
+    "expected_trial_ids": [
+      "trial_01_01",
+      "trial_01_02",
+      "trial_01_03",
+      "trial_01_04",
+      "trial_01_05",
+      "trial_01_06"
+    ],
+    "experiment_id": "experiment_01_sequence_capacity",
+    "family_id": "family_sequence_capacity",
+    "manifest_hash": "8e60fc48a6797d7f3c1b4b7f81e2a71c15d3aa83fde7559b436d21caed61c6e0",
+    "owner_actor_id": "actor_research_lead",
+    "parent_experiment_id": "",
+    "research_only": true
+  },
+  {
+    "budget_trials": 6,
+    "code_hash": "0f56ee609cd61a388f3d923010986ad7cf303aea4a0e319b69f31e6372dce08c",
+    "config_hash": "a581e4ed3a64be06b9a60ab9f45cb99073e8559972f45beec553de915c6c07dc",
+    "created_at": "2026-07-16T09:01:00Z",
+    "data_role": "validation",
+    "dataset_hash": "dfd2a7b8313312aef0fbc1ff0f638a4ca35cc20c0e1e5852b5f8e667e13c7048",
+    "expected_trial_ids": [
+      "trial_02_01",
+      "trial_02_02",
+      "trial_02_03",
+      "trial_02_04",
+      "trial_02_05",
+      "trial_02_06"
+    ],
+    "experiment_id": "experiment_02_graph_regularization",
+    "family_id": "family_graph_regularization",
+    "manifest_hash": "3dca8a6c9c9f3fa1ffd639fdbf6f4d19c1bee9151713d48226beb320431e5c21",
+    "owner_actor_id": "actor_research_lead",
+    "parent_experiment_id": "experiment_01_sequence_capacity",
+    "research_only": true
+  },
+  {
+    "budget_trials": 6,
+    "code_hash": "7d67e5a45b107782fe85e3a393d22cec3de33d95f2ad573c3e6d9e4f28298e72",
+    "config_hash": "961a69d021727ffe6af08343c69ed9e30f1ee0031d01e3d03e6274bb19fac04c",
+    "created_at": "2026-07-16T09:02:00Z",
+    "data_role": "train",
+    "dataset_hash": "74c6550316be453979f686836e0112a388c2ff076af440691591102da4820f50",
+    "expected_trial_ids": [
+      "trial_03_01",
+      "trial_03_02",
+      "trial_03_03",
+      "trial_03_04",
+      "trial_03_05",
+      "trial_03_06"
+    ],
+    "experiment_id": "experiment_03_fusion_ablation",
+    "family_id": "family_fusion_ablation",
+    "manifest_hash": "fbf7949f6e0dbabd8b40379148715600be454acfd28dd9cd805228670b3718db",
+    "owner_actor_id": "actor_research_lead",
+    "parent_experiment_id": "experiment_01_sequence_capacity",
+    "research_only": true
+  },
+  {
+    "budget_trials": 6,
+    "code_hash": "9cd0266ed29fa786c99c8ee03c25832d170042a7ceac92ae294033949c519913",
+    "config_hash": "6f813f1a20b4b3f204c38cf5d5018fd24b51a090cd87dceab860435d8725d9a1",
+    "created_at": "2026-07-16T09:03:00Z",
+    "data_role": "validation",
+    "dataset_hash": "210511b0135dbdf19019b2e43a11d2f0f9e76d659fbacc4452437c8adbcb1d29",
+    "expected_trial_ids": [
+      "trial_04_01",
+      "trial_04_02",
+      "trial_04_03",
+      "trial_04_04",
+      "trial_04_05",
+      "trial_04_06"
+    ],
+    "experiment_id": "experiment_04_policy_value",
+    "family_id": "family_policy_value",
+    "manifest_hash": "332092cfb843900372bb8eda13b0102c10b0d7e60ea0c41b7670ffd9dff7657e",
+    "owner_actor_id": "actor_research_lead",
+    "parent_experiment_id": "experiment_01_sequence_capacity",
+    "research_only": true
+  },
+  {
+    "budget_trials": 6,
+    "code_hash": "eb4d3086027dc46c10178d7984bf4cdf364eb2a971f67e00aa5278d7d0d88aa6",
+    "config_hash": "2236f49a7bb0b0e2593e509d8ced716440086fa3bfebe7253771112fd6314844",
+    "created_at": "2026-07-16T09:04:00Z",
+    "data_role": "train",
+    "dataset_hash": "d02f286ea09ec18fb5b1b718ae1397287f8001460a59d1973f46984022960dc9",
+    "expected_trial_ids": [
+      "trial_05_01",
+      "trial_05_02",
+      "trial_05_03",
+      "trial_05_04",
+      "trial_05_05",
+      "trial_05_06"
+    ],
+    "experiment_id": "experiment_05_ood_selectivity",
+    "family_id": "family_ood_selectivity",
+    "manifest_hash": "f4544de6ae006cc5599835eb5abd7db5b50bcd5608e8a65743289547ec91cef4",
+    "owner_actor_id": "actor_research_lead",
+    "parent_experiment_id": "experiment_01_sequence_capacity",
+    "research_only": true
+  },
+  {
+    "budget_trials": 6,
+    "code_hash": "ada906de8c493ce6077d7a764d7a86b4abfc59847f7fd6b7df7aba5f59f9a051",
+    "config_hash": "be6b622bdd0adde4a956945c954b392c4cdbfacf23624ec9d1a8fe9fd1d514bb",
+    "created_at": "2026-07-16T09:05:00Z",
+    "data_role": "validation",
+    "dataset_hash": "7591f602c83a78d15a0ea84068fa3d3be48b9d718305b444b7bb1fadf2cf0493",
+    "expected_trial_ids": [
+      "trial_06_01",
+      "trial_06_02",
+      "trial_06_03",
+      "trial_06_04",
+      "trial_06_05",
+      "trial_06_06"
+    ],
+    "experiment_id": "experiment_06_mechanistic_checks",
+    "family_id": "family_mechanistic_checks",
+    "manifest_hash": "a6ec5669c1b5276244de1e3666cdd51bc454169ba7cb431872d747bb4ef444c8",
+    "owner_actor_id": "actor_research_lead",
+    "parent_experiment_id": "experiment_01_sequence_capacity",
+    "research_only": true
+  }
+]

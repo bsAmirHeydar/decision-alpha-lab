@@ -1,0 +1,17 @@
+{
+  "exact_version": "1.0.0",
+  "maximum_agent_summaries": 16,
+  "maximum_chart_renders": 24,
+  "maximum_exposures": 128,
+  "maximum_hidden_evaluation_queries": 0,
+  "maximum_hypothesis_modifications": 8,
+  "maximum_manual_interventions": 8,
+  "maximum_metric_reads": 32,
+  "maximum_narratives": 16,
+  "maximum_online_mutations": 0,
+  "maximum_order_submissions": 0,
+  "maximum_protected_exposures": 0,
+  "maximum_row_exports": 8,
+  "maximum_runtime_compilations": 0,
+  "maximum_trials": 64
+}

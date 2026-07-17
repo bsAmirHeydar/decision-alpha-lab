@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "agent_exposures_included": {
+      "type": "boolean"
+    },
+    "complete_materially_related_universe": {
+      "type": "boolean"
+    },
+    "duplicates_included": {
+      "type": "boolean"
+    },
+    "experiment_count": {
+      "type": "integer"
+    },
+    "exposure_count": {
+      "type": "integer"
+    },
+    "failed_trials_included": {
+      "type": "boolean"
+    },
+    "families": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "eligible_for_v4_28_online_fdr": {
+            "type": "boolean"
+          },
+          "experiment_count": {
+            "type": "integer"
+          },
+          "exposure_count": {
+            "type": "integer"
+          },
+          "family_id": {
+            "type": "string"
+          },
+          "frozen_before_search": {
+            "type": "boolean"
+          },
+          "hypothesis_family": {
+            "type": "string"
+          },
+          "mode": {
+            "type": "string"
+          },
+          "parameter_space_hash": {
+            "type": "string"
+          },
+          "selection_metric": {
+            "type": "string"
+          },
+          "trial_count": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "eligible_for_v4_28_online_fdr",
+          "experiment_count",
+          "exposure_count",
+          "family_id",
+          "frozen_before_search",
+          "hypothesis_family",
+          "mode",
+          "parameter_space_hash",
+          "selection_metric",
+          "trial_count"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "family_count": {
+      "type": "integer"
+    },
+    "human_exposures_included": {
+      "type": "boolean"
+    },
+    "multiplicity_universe_hash": {
+      "type": "string"
+    },
+    "multiplicity_universe_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "pruned_trials_included": {
+      "type": "boolean"
+    },
+    "retries_included": {
+      "type": "boolean"
+    },
+    "selection_risk_ready": {
+      "type": "boolean"
+    },
+    "trial_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "agent_exposures_included",
+    "complete_materially_related_universe",
+    "duplicates_included",
+    "experiment_count",
+    "exposure_count",
+    "failed_trials_included",
+    "families",
+    "family_count",
+    "human_exposures_included",
+    "multiplicity_universe_hash",
+    "multiplicity_universe_id",
+    "phase",
+    "pruned_trials_included",
+    "retries_included",
+    "selection_risk_ready",
+    "trial_count"
+  ],
+  "type": "object"
+}

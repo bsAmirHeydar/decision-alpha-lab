@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "budget_snapshot_hash": {
+      "type": "string"
+    },
+    "budget_snapshot_id": {
+      "type": "string"
+    },
+    "complete": {
+      "type": "boolean"
+    },
+    "counts": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "agent_summaries": {
+          "type": "integer"
+        },
+        "chart_renders": {
+          "type": "integer"
+        },
+        "exposures": {
+          "type": "integer"
+        },
+        "hidden_evaluation_queries": {
+          "type": "integer"
+        },
+        "hypothesis_modifications": {
+          "type": "integer"
+        },
+        "manual_interventions": {
+          "type": "integer"
+        },
+        "metric_reads": {
+          "type": "integer"
+        },
+        "narratives": {
+          "type": "integer"
+        },
+        "online_mutations": {
+          "type": "integer"
+        },
+        "order_submissions": {
+          "type": "integer"
+        },
+        "protected_exposures": {
+          "type": "integer"
+        },
+        "row_exports": {
+          "type": "integer"
+        },
+        "runtime_compilations": {
+          "type": "integer"
+        },
+        "trial_events": {
+          "type": "integer"
+        },
+        "trials": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "agent_summaries",
+        "chart_renders",
+        "exposures",
+        "hidden_evaluation_queries",
+        "hypothesis_modifications",
+        "manual_interventions",
+        "metric_reads",
+        "narratives",
+        "online_mutations",
+        "order_submissions",
+        "protected_exposures",
+        "row_exports",
+        "runtime_compilations",
+        "trial_events",
+        "trials"
+      ],
+      "type": "object"
+    },
+    "exhausted": {
+      "type": "boolean"
+    },
+    "fail_closed": {
+      "type": "boolean"
+    },
+    "limits": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "agent_summaries": {
+          "type": "integer"
+        },
+        "chart_renders": {
+          "type": "integer"
+        },
+        "exposures": {
+          "type": "integer"
+        },
+        "hidden_evaluation_queries": {
+          "type": "integer"
+        },
+        "hypothesis_modifications": {
+          "type": "integer"
+        },
+        "manual_interventions": {
+          "type": "integer"
+        },
+        "metric_reads": {
+          "type": "integer"
+        },
+        "narratives": {
+          "type": "integer"
+        },
+        "online_mutations": {
+          "type": "integer"
+        },
+        "order_submissions": {
+          "type": "integer"
+        },
+        "protected_exposures": {
+          "type": "integer"
+        },
+        "row_exports": {
+          "type": "integer"
+        },
+        "runtime_compilations": {
+          "type": "integer"
+        },
+        "trials": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "agent_summaries",
+        "chart_renders",
+        "exposures",
+        "hidden_evaluation_queries",
+        "hypothesis_modifications",
+        "manual_interventions",
+        "metric_reads",
+        "narratives",
+        "online_mutations",
+        "order_submissions",
+        "protected_exposures",
+        "row_exports",
+        "runtime_compilations",
+        "trials"
+      ],
+      "type": "object"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "within_budget": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "budget_snapshot_hash",
+    "budget_snapshot_id",
+    "complete",
+    "counts",
+    "exhausted",
+    "fail_closed",
+    "limits",
+    "phase",
+    "within_budget"
+  ],
+  "type": "object"
+}

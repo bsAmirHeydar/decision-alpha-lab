@@ -1,0 +1,55 @@
+{
+  "items": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "additionalProperties": false,
+    "properties": {
+      "data_roles_allowed": {
+        "items": {
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "family_id": {
+        "type": "string"
+      },
+      "frozen_before_search": {
+        "type": "boolean"
+      },
+      "hypothesis_family": {
+        "type": "string"
+      },
+      "maximum_trials": {
+        "type": "integer"
+      },
+      "mode": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "owner_actor_id": {
+        "type": "string"
+      },
+      "parameter_space_hash": {
+        "type": "string"
+      },
+      "selection_metric": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "data_roles_allowed",
+      "family_id",
+      "frozen_before_search",
+      "hypothesis_family",
+      "maximum_trials",
+      "mode",
+      "name",
+      "owner_actor_id",
+      "parameter_space_hash",
+      "selection_metric"
+    ],
+    "type": "object"
+  },
+  "type": "array"
+}

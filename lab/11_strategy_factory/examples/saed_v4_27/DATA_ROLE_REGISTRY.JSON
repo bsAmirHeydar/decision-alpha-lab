@@ -1,0 +1,130 @@
+[
+  {
+    "allowed_exposure_types": [
+      "dashboard_open",
+      "chart_render",
+      "metric_read",
+      "example_inspection",
+      "agent_summary",
+      "row_export",
+      "narrative_generated",
+      "hypothesis_modified",
+      "manual_intervention",
+      "notebook_open",
+      "query_submitted"
+    ],
+    "data_role": "public",
+    "description": "Frozen public evidence role for V4-27 accounting.",
+    "protected": false,
+    "query_budget": 100
+  },
+  {
+    "allowed_exposure_types": [
+      "dashboard_open",
+      "chart_render",
+      "metric_read",
+      "example_inspection",
+      "agent_summary",
+      "row_export",
+      "narrative_generated",
+      "hypothesis_modified",
+      "manual_intervention",
+      "notebook_open",
+      "query_submitted"
+    ],
+    "data_role": "synthetic",
+    "description": "Frozen synthetic evidence role for V4-27 accounting.",
+    "protected": false,
+    "query_budget": 100
+  },
+  {
+    "allowed_exposure_types": [
+      "dashboard_open",
+      "chart_render",
+      "metric_read",
+      "example_inspection",
+      "agent_summary",
+      "row_export",
+      "narrative_generated",
+      "hypothesis_modified",
+      "manual_intervention",
+      "notebook_open",
+      "query_submitted"
+    ],
+    "data_role": "train",
+    "description": "Frozen train evidence role for V4-27 accounting.",
+    "protected": false,
+    "query_budget": 100
+  },
+  {
+    "allowed_exposure_types": [
+      "dashboard_open",
+      "chart_render",
+      "metric_read",
+      "example_inspection",
+      "agent_summary",
+      "row_export",
+      "narrative_generated",
+      "hypothesis_modified",
+      "manual_intervention",
+      "notebook_open",
+      "query_submitted"
+    ],
+    "data_role": "validation",
+    "description": "Frozen validation evidence role for V4-27 accounting.",
+    "protected": false,
+    "query_budget": 50
+  },
+  {
+    "allowed_exposure_types": [
+      "dashboard_open",
+      "chart_render",
+      "metric_read",
+      "example_inspection",
+      "agent_summary",
+      "row_export",
+      "narrative_generated",
+      "hypothesis_modified",
+      "manual_intervention",
+      "notebook_open",
+      "query_submitted"
+    ],
+    "data_role": "stress",
+    "description": "Frozen stress evidence role for V4-27 accounting.",
+    "protected": false,
+    "query_budget": 50
+  },
+  {
+    "allowed_exposure_types": [
+      "dashboard_open",
+      "chart_render",
+      "metric_read",
+      "example_inspection",
+      "agent_summary",
+      "row_export",
+      "narrative_generated",
+      "hypothesis_modified",
+      "manual_intervention",
+      "notebook_open",
+      "query_submitted"
+    ],
+    "data_role": "negative",
+    "description": "Frozen negative evidence role for V4-27 accounting.",
+    "protected": false,
+    "query_budget": 50
+  },
+  {
+    "allowed_exposure_types": [],
+    "data_role": "hidden_evaluation",
+    "description": "Frozen hidden_evaluation evidence role for V4-27 accounting.",
+    "protected": true,
+    "query_budget": 0
+  },
+  {
+    "allowed_exposure_types": [],
+    "data_role": "protected_final",
+    "description": "Frozen protected_final evidence role for V4-27 accounting.",
+    "protected": true,
+    "query_budget": 0
+  }
+]

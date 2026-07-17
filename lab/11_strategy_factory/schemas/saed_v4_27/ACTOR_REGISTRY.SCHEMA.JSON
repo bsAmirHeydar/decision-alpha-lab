@@ -1,0 +1,44 @@
+{
+  "items": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "additionalProperties": false,
+    "properties": {
+      "active": {
+        "type": "boolean"
+      },
+      "actor_id": {
+        "type": "string"
+      },
+      "actor_type": {
+        "type": "string"
+      },
+      "created_at": {
+        "type": "string"
+      },
+      "credential_scope": {
+        "type": "string"
+      },
+      "display_name": {
+        "type": "string"
+      },
+      "organization": {
+        "type": "string"
+      },
+      "role": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "active",
+      "actor_id",
+      "actor_type",
+      "created_at",
+      "credential_scope",
+      "display_name",
+      "organization",
+      "role"
+    ],
+    "type": "object"
+  },
+  "type": "array"
+}

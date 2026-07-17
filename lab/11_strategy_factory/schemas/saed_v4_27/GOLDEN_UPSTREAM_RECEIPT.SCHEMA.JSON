@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "certificate_hash": {
+      "type": "string"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "hash_verified": {
+      "type": "boolean"
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "upstream_phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "certificate_hash",
+    "handoff_hash",
+    "hash_verified",
+    "immutable",
+    "phase",
+    "receipt_hash",
+    "receipt_id",
+    "research_only",
+    "upstream_phase"
+  ],
+  "type": "object"
+}

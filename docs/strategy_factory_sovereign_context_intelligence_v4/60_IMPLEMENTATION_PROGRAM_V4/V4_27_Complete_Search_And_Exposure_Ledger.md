@@ -1,58 +1,44 @@
 ---
-title: V4-27 Complete Search And Exposure Ledger
-status: canonical
-version: 4.0.0
-created: '2026-07-13'
-updated: '2026-07-13'
-capability_tier: core-production
+title: V4-27 — Complete Search and Exposure Ledger
+status: accepted-reference
+version: 1.0.0
+created: 2026-07-16
+updated: 2026-07-16
 tags:
   - saed-v4
-  - implementation
-  - roadmap
+  - v4-27
+  - search-ledger
+  - exposure-ledger
 ---
 
-# Phase V4-27: Complete Search And Exposure Ledger
+# Mission
 
-## Mission
+Implement the complete, immutable and content-addressed scientific search universe for SAED V4. Every proposed configuration, compilation, seed, retry, duplicate, invalid run, pruned run, failure, timeout, cancellation, completion, selection and rejection is represented. Every human, agent, validator or service exposure to research evidence is represented with actor identity, data role, object hash, known time, query identity, hypothesis identity and experiment lineage.
 
-Implement this phase as an additive, closed-contract capability that preserves UCEE authority and can be independently validated.
+# Entry boundary
 
-## Entry gates
+V4-27 consumes only the accepted V4-26 mechanistic-interpretability certificate and its exact handoff. It cannot reopen V4-26 models, tune mechanisms against protected evidence, access hidden evaluation, compile runtime artifacts, allocate risk or submit orders.
 
-- Prior phase artifacts are immutable and hash verified.
-- Data roles, support, treatment universe and authority are frozen.
-- Golden and negative fixtures exist.
-- Compute, exposure and review budgets are approved.
+# Workstreams
 
-## Engineering slices
+1. Freeze actors, evidence roles, search families and experiment manifests before search.
+2. Implement the complete trial state machine and append-only SHA-256 hash chain.
+3. Implement exposure accounting for dashboards, charts, metrics, examples, agent summaries, exports, narratives, hypothesis changes, manual interventions, notebooks and queries.
+4. Construct the materially related multiplicity universe, including failures, prunes, retries, duplicates and post-result human or agent exposures.
+5. Enforce known-time, protected-role firewalls, subtype budgets and zero hidden-evaluation budget.
+6. Detect missing trials, orphan runs, nonterminal trials, broken lineage, hash-chain mutation and authority escape.
+7. Produce deterministic replay, a complete-ledger research certificate and an exact V4-28 handoff.
 
-1. Contract and schema freeze.
-2. Deterministic reference implementation.
-3. Golden, negative and mutation tests.
-4. Distributed or advanced challenger implementation.
-5. Model-risk and security review.
-6. Independent reproduction.
-7. Evidence bundle and handoff.
+# Acceptance
 
-## Acceptance gates
+The phase is accepted only as a local deterministic reference when both chains verify, every manifest trial is terminally accounted for, all relevant exposures are included, protected and hidden evidence counts remain zero, budgets pass, no authority escapes and replay is exact. Online FDR is explicitly deferred to V4-28.
 
-- Zero unknown fields in closed contracts.
-- No future-suffix sensitivity.
-- Deterministic identity and replay.
-- Complete trial/exposure accounting.
-- Baseline preserved.
-- Fail-closed fallback verified.
-- UCEE compatibility and no central-engine mutation.
-- Actual external/MetaEditor evidence distinguished from static evidence.
+# Non-goals
 
-## Deliverables
+No real-alpha claim, promotion, runtime compilation, parity claim, capital allocation, broker execution, online learning, hidden-evaluation air gap or production authorization.
 
-- Source modules and tests.
-- Schemas and examples.
-- Obsidian implementation documentation.
-- QA report, inventory, file index and hash ledger.
-- Handoff to the next phase.
+# Related
 
-## Non-goals
-
-This architecture phase does not claim real alpha, prospective success, runtime parity or production authorization unless actual evidence is attached.
+- [[00_MOC_V4_27_Complete_Search_And_Exposure_Ledger]]
+- [[V4_26_Mechanistic_Interpretability]]
+- [[V4_28_Anytime_Valid_Online_FDR]]

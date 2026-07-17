@@ -1,0 +1,15 @@
+{
+  "actor_identity_required": true,
+  "append_only": true,
+  "complete_failure_accounting": true,
+  "data_role_required": true,
+  "deterministic": true,
+  "duplicate_accounting": true,
+  "exact_version": "1.0.0",
+  "hash_chain_required": true,
+  "hidden_evaluation_query_budget": 0,
+  "known_time_required": true,
+  "orphan_runs_forbidden": true,
+  "protected_exposure_forbidden": true,
+  "retry_accounting": true
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "active": true,
+    "actor_id": "actor_research_lead",
+    "actor_type": "human",
+    "created_at": "2026-07-16T08:00:00Z",
+    "credential_scope": "research_only",
+    "display_name": "Research Lead",
+    "organization": "Decision Alpha Lab",
+    "role": "hypothesis_owner"
+  },
+  {
+    "active": true,
+    "actor_id": "actor_independent_validator",
+    "actor_type": "validator",
+    "created_at": "2026-07-16T08:00:00Z",
+    "credential_scope": "read_and_validate",
+    "display_name": "Independent Validator",
+    "organization": "Decision Alpha Lab",
+    "role": "independent_validation"
+  },
+  {
+    "active": true,
+    "actor_id": "actor_search_agent",
+    "actor_type": "agent",
+    "created_at": "2026-07-16T08:00:00Z",
+    "credential_scope": "non_protected_research",
+    "display_name": "Bounded Search Agent",
+    "organization": "Decision Alpha Lab",
+    "role": "proposal_and_summary"
+  },
+  {
+    "active": true,
+    "actor_id": "actor_ledger_service",
+    "actor_type": "service",
+    "created_at": "2026-07-16T08:00:00Z",
+    "credential_scope": "append_only",
+    "display_name": "Append Only Ledger Service",
+    "organization": "Decision Alpha Lab",
+    "role": "ledger_writer"
+  }
+]

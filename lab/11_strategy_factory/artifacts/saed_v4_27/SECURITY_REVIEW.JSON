@@ -1,0 +1,14 @@
+{
+  "air_gap_not_claimed": true,
+  "broker_credentials_present": false,
+  "forbidden_surface_findings": [],
+  "network_requests": 0,
+  "online_policy_mutations": 0,
+  "order_submissions": 0,
+  "passed": true,
+  "phase": "SAED_V4_27",
+  "runtime_compilations": 0,
+  "security_review_hash": "99f9aa4af91d933f9f96700355392a5e8bbf0640d6f8e2ce829dbb88811f8216",
+  "security_review_id": "v427_security_63f3f5c88f0d8e4e56cb57d8",
+  "signing_material_present": false
+}

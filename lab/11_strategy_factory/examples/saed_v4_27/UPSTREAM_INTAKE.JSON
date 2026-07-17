@@ -1,0 +1,9 @@
+{
+  "certificate_hash": "8667ea2485fa59d247feb1105f92ce2fa68a0fcb9439a364b4485b49228df5fb",
+  "exact_version": "1.0.0",
+  "handoff_hash": "61d55dbc05a2cdc1e0fe67e7150af726f48e3ed2965e477228a6f541fa0f1f00",
+  "hash_verified": true,
+  "immutable": true,
+  "required_phase": "SAED_V4_26",
+  "research_only": true
+}

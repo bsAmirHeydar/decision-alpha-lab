@@ -1,0 +1,26 @@
+{
+  "audit_hash": "05011fa24887c1b7d8e992a95c7eb6d56108c26452036c75eb92cfe8e3412ec4",
+  "audit_id": "ledger_completeness_audit_2a15595548e5959ca766ae49",
+  "checks": {
+    "all_manifests_hash_bound": true,
+    "all_trials_terminal": true,
+    "duplicates_accounted": true,
+    "expected_trials_equal_observed": true,
+    "exposure_chain_verified": true,
+    "failure_states_accounted": true,
+    "hidden_query_zero": true,
+    "multiplicity_complete": true,
+    "no_missing_trials": true,
+    "no_orphan_trials": true,
+    "protected_exposure_zero": true,
+    "retries_accounted": true,
+    "trial_chain_verified": true
+  },
+  "expected_trials": 36,
+  "exposure_events": 44,
+  "observed_trials": 36,
+  "passed": true,
+  "phase": "SAED_V4_27",
+  "trial_events": 144,
+  "unclassified_failures": 0
+}

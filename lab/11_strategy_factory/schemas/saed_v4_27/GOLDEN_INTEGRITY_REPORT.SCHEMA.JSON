@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "checks": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "append_only_claim": {
+          "type": "boolean"
+        },
+        "content_addressed": {
+          "type": "boolean"
+        },
+        "exposure_hash_chain": {
+          "type": "boolean"
+        },
+        "exposure_head_present": {
+          "type": "boolean"
+        },
+        "trial_hash_chain": {
+          "type": "boolean"
+        },
+        "trial_head_present": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "append_only_claim",
+        "content_addressed",
+        "exposure_hash_chain",
+        "exposure_head_present",
+        "trial_hash_chain",
+        "trial_head_present"
+      ],
+      "type": "object"
+    },
+    "exposure_chain_head": {
+      "type": "string"
+    },
+    "integrity_report_hash": {
+      "type": "string"
+    },
+    "integrity_report_id": {
+      "type": "string"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "tamper_evidence": {
+      "type": "string"
+    },
+    "trial_chain_head": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "checks",
+    "exposure_chain_head",
+    "integrity_report_hash",
+    "integrity_report_id",
+    "passed",
+    "phase",
+    "tamper_evidence",
+    "trial_chain_head"
+  ],
+  "type": "object"
+}

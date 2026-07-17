@@ -1,0 +1,94 @@
+{
+  "items": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "additionalProperties": false,
+    "properties": {
+      "actor_id": {
+        "type": "string"
+      },
+      "attempt": {
+        "type": "integer"
+      },
+      "cost_units": {
+        "type": "number"
+      },
+      "data_role": {
+        "type": "string"
+      },
+      "duplicate_of": {
+        "type": "string"
+      },
+      "event_id": {
+        "type": "string"
+      },
+      "experiment_id": {
+        "type": "string"
+      },
+      "family_id": {
+        "type": "string"
+      },
+      "known_at": {
+        "type": "string"
+      },
+      "metadata": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "family_revision": {
+            "type": "integer"
+          },
+          "parameter_index": {
+            "type": "integer"
+          },
+          "synthetic_reference": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "family_revision",
+          "parameter_index",
+          "synthetic_reference"
+        ],
+        "type": "object"
+      },
+      "occurred_at": {
+        "type": "string"
+      },
+      "reason": {
+        "type": "string"
+      },
+      "retry_of": {
+        "type": "string"
+      },
+      "seed": {
+        "type": "integer"
+      },
+      "state": {
+        "type": "string"
+      },
+      "trial_id": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "actor_id",
+      "attempt",
+      "cost_units",
+      "data_role",
+      "duplicate_of",
+      "event_id",
+      "experiment_id",
+      "family_id",
+      "known_at",
+      "metadata",
+      "occurred_at",
+      "reason",
+      "retry_of",
+      "seed",
+      "state",
+      "trial_id"
+    ],
+    "type": "object"
+  },
+  "type": "array"
+}

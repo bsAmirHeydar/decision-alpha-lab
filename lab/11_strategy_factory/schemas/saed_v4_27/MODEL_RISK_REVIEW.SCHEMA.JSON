@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "false_discovery_control_deferred_to_v4_28": {
+      "type": "boolean"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "model_risk_review_hash": {
+      "type": "string"
+    },
+    "model_risk_review_id": {
+      "type": "string"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "selection_risk_quantified": {
+      "type": "boolean"
+    },
+    "selection_risk_universe_complete": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "false_discovery_control_deferred_to_v4_28",
+    "limitations",
+    "model_risk_review_hash",
+    "model_risk_review_id",
+    "passed",
+    "phase",
+    "selection_risk_quantified",
+    "selection_risk_universe_complete"
+  ],
+  "type": "object"
+}

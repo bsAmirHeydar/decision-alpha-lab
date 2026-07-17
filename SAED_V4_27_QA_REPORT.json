@@ -1,0 +1,114 @@
+{
+  "checks": {
+    "authority_boundaries": {
+      "command": "python tools/strategy_factory/saed_v4_27/check_saed_v4_27_boundaries.py",
+      "decision": false,
+      "execution": false,
+      "online_learning": false,
+      "passed": true,
+      "production": false,
+      "promotion": false,
+      "risk_allocation": false,
+      "runtime": false
+    },
+    "closed_schema_pairs": {
+      "command": "python tools/strategy_factory/saed_v4_27/validate_saed_v4_27_contracts.py",
+      "count": 25,
+      "passed": true,
+      "unknown_fields_rejected": true
+    },
+    "exposure_accounting": {
+      "events": 44,
+      "hidden_evaluation_queries": 0,
+      "online_policy_mutations": 0,
+      "order_submissions": 0,
+      "passed": true,
+      "protected_evidence_exposures": 0,
+      "runtime_compilations": 0
+    },
+    "golden_reproduction": {
+      "command": "python tools/strategy_factory/saed_v4_27/reproduce_saed_v4_27_golden.py",
+      "exact_artifacts": 14,
+      "passed": true
+    },
+    "hash_chains": {
+      "exposure_chain": true,
+      "mutation_detection": true,
+      "passed": true,
+      "reordering_detection": true,
+      "trial_chain": true
+    },
+    "known_time": {
+      "future_suffix_queries": 0,
+      "passed": true,
+      "protected_evidence_queries": 0,
+      "violations": 0
+    },
+    "mql5_static": {
+      "command": "python tools/strategy_factory/saed_v4_27/validate_saed_v4_27_mql5_static.py",
+      "files": 16,
+      "forbidden_execution_surfaces": 0,
+      "passed": true
+    },
+    "multiplicity": {
+      "experiments": 6,
+      "exposures": 44,
+      "failed_pruned_retry_duplicate_included": true,
+      "families": 6,
+      "passed": true,
+      "trials": 36
+    },
+    "obsidian": {
+      "broken_links": 0,
+      "command": "python tools/strategy_factory/saed_v4_27/validate_saed_v4_27_obsidian.py",
+      "notes": 247,
+      "passed": true
+    },
+    "phase_status": {
+      "command": "python tools/strategy_factory/saed_v4_27/validate_saed_v4_27_status.py",
+      "passed": true
+    },
+    "python_tests": {
+      "command": "python tools/strategy_factory/saed_v4_27/run_saed_v4_27_tests.py",
+      "count": 136,
+      "passed": true
+    },
+    "trial_accounting": {
+      "duplicate_edges": 6,
+      "events": 144,
+      "missing_trials": 0,
+      "nonterminal_trials": 0,
+      "orphan_runs": 0,
+      "passed": true,
+      "retry_edges": 1,
+      "trials": 36
+    }
+  },
+  "claims_excluded": [
+    "real_alpha",
+    "prospective_success",
+    "online_fdr_completion",
+    "hidden_evaluation_air_gap",
+    "promotion_authorization",
+    "runtime_compilation",
+    "runtime_parity",
+    "risk_allocation",
+    "broker_execution",
+    "production_authorization",
+    "online_learning",
+    "live_trading"
+  ],
+  "created": "2026-07-16",
+  "external_evidence": {
+    "broker_qualification": "not_claimed",
+    "independent_external_reproduction": "pending_external",
+    "metaeditor_compile": "pending_local_windows",
+    "prospective_shadow": "not_claimed",
+    "python_mql5_runtime_parity": "not_claimed"
+  },
+  "passed": true,
+  "phase": "SAED_V4_27",
+  "scope": "local deterministic complete search, trial, exposure and multiplicity accounting reference implementation",
+  "title": "Complete Search and Exposure Ledger",
+  "version": "1.0.0"
+}

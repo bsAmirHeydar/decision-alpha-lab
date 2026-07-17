@@ -1,0 +1,42 @@
+{
+  "budget_snapshot_hash": "ac81eaca73e1175ae02c1314b8fe8f13e19649d07ee96feb63e734c8c24ec04d",
+  "budget_snapshot_id": "search_exposure_budget_09523ae80504ab4d6a6be841",
+  "complete": true,
+  "counts": {
+    "agent_summaries": 4,
+    "chart_renders": 4,
+    "exposures": 44,
+    "hidden_evaluation_queries": 0,
+    "hypothesis_modifications": 4,
+    "manual_interventions": 4,
+    "metric_reads": 4,
+    "narratives": 4,
+    "online_mutations": 0,
+    "order_submissions": 0,
+    "protected_exposures": 0,
+    "row_exports": 4,
+    "runtime_compilations": 0,
+    "trial_events": 144,
+    "trials": 36
+  },
+  "exhausted": false,
+  "fail_closed": true,
+  "limits": {
+    "agent_summaries": 16,
+    "chart_renders": 24,
+    "exposures": 128,
+    "hidden_evaluation_queries": 0,
+    "hypothesis_modifications": 8,
+    "manual_interventions": 8,
+    "metric_reads": 32,
+    "narratives": 16,
+    "online_mutations": 0,
+    "order_submissions": 0,
+    "protected_exposures": 0,
+    "row_exports": 8,
+    "runtime_compilations": 0,
+    "trials": 64
+  },
+  "phase": "SAED_V4_27",
+  "within_budget": true
+}

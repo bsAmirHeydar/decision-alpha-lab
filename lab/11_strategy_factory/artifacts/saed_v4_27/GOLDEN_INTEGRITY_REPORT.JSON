@@ -1,0 +1,17 @@
+{
+  "checks": {
+    "append_only_claim": true,
+    "content_addressed": true,
+    "exposure_hash_chain": true,
+    "exposure_head_present": true,
+    "trial_hash_chain": true,
+    "trial_head_present": true
+  },
+  "exposure_chain_head": "fe29e12079745daced5691cc81da6acef77fc8626b3e8d078e1649f76f698951",
+  "integrity_report_hash": "61ad3cbd2e9dbc2cc99a94fd8a719423e66d8958bc771f938260d6b64015a129",
+  "integrity_report_id": "ledger_integrity_ae31e044177b18954fea295c",
+  "passed": true,
+  "phase": "SAED_V4_27",
+  "tamper_evidence": "sha256_hash_linked_append_only_reference",
+  "trial_chain_head": "eb2ee609a815b241f85ef10dc55bfe20130c3c873ab3d0826c027baeef3c4509"
+}

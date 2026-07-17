@@ -1,0 +1,94 @@
+{
+  "items": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "additionalProperties": false,
+    "properties": {
+      "actor_id": {
+        "type": "string"
+      },
+      "actor_type": {
+        "type": "string"
+      },
+      "data_role": {
+        "type": "string"
+      },
+      "event_id": {
+        "type": "string"
+      },
+      "experiment_id": {
+        "type": "string"
+      },
+      "exposure_type": {
+        "type": "string"
+      },
+      "hypothesis_id": {
+        "type": "string"
+      },
+      "known_at": {
+        "type": "string"
+      },
+      "manual": {
+        "type": "boolean"
+      },
+      "metadata": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "selection_effect_possible": {
+            "type": "boolean"
+          },
+          "ui_surface": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "selection_effect_possible",
+          "ui_surface"
+        ],
+        "type": "object"
+      },
+      "object_hash": {
+        "type": "string"
+      },
+      "object_id": {
+        "type": "string"
+      },
+      "object_type": {
+        "type": "string"
+      },
+      "occurred_at": {
+        "type": "string"
+      },
+      "purpose": {
+        "type": "string"
+      },
+      "query_id": {
+        "type": "string"
+      },
+      "trial_id": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "actor_id",
+      "actor_type",
+      "data_role",
+      "event_id",
+      "experiment_id",
+      "exposure_type",
+      "hypothesis_id",
+      "known_at",
+      "manual",
+      "metadata",
+      "object_hash",
+      "object_id",
+      "object_type",
+      "occurred_at",
+      "purpose",
+      "query_id",
+      "trial_id"
+    ],
+    "type": "object"
+  },
+  "type": "array"
+}

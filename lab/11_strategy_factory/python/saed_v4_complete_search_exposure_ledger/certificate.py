@@ -1,0 +1,13 @@
+from __future__ import annotations
+from .canonical import content_hash, stable_id
+
+def build(evidence, authority):
+    gates={"upstream_verified":evidence["upstream_receipt"]["hash_verified"],"trial_ledger_complete":evidence["trial_ledger"]["complete"],"exposure_ledger_complete":evidence["exposure_ledger"]["complete"],"multiplicity_universe_complete":evidence["multiplicity_universe"]["complete_materially_related_universe"],"completeness_audit_passed":evidence["completeness_audit"]["passed"],"integrity_report_passed":evidence["integrity_report"]["passed"],"budget_respected":evidence["budget_snapshot"]["within_budget"],"protected_exposure_zero":evidence["exposure_ledger"]["protected_evidence_exposures"]==0,"hidden_query_zero":evidence["exposure_ledger"]["hidden_evaluation_queries"]==0,"authority_zero":not any(authority["authority"].values()),"security_passed":evidence["security_review"]["passed"]}
+    payload={"phase":"SAED_V4_27","version":"1.0.0","claim_class":"complete_local_search_and_exposure_accounting_reference","gates":gates,"accepted_for_complete_ledger_research":all(gates.values()),"research_only":True,"real_alpha_claim":False,"prospective_success_claim":False,"promotion_authority":False,"runtime_executable":False,"risk_allocation_authority":False,"execution_authority":False,"production_authority":False,"online_learning_authority":False,"online_fdr_claim":False,"hidden_evaluation_air_gap_claim":False,"authority_boundary":authority,"evidence_hashes":{k:content_hash(v) for k,v in evidence.items()}}
+    payload["certificate_id"]=stable_id("complete_search_exposure_certificate",payload); payload["certificate_hash"]=content_hash(payload)
+    return payload
+
+def handoff(certificate):
+    payload={"phase":"SAED_V4_27","next_phase":"SAED_V4_28","certificate_id":certificate["certificate_id"],"certificate_hash":certificate["certificate_hash"],"entry_gates":{"complete_trial_universe":True,"complete_exposure_universe":True,"multiplicity_families_frozen":True,"hash_chains_verified":True,"query_budgets_verified":True,"protected_exposure_zero":True,"research_only":True},"allowed_next_work":["alpha_investing_rule","online_fdr_wealth_ledger","anytime_valid_p_values","hypothesis_family_allocation","alpha_spending_policy","wealth_replenishment_policy","rejection_ledger","stopping_rule_registry"],"forbidden_next_work":["hidden_evaluation_access","promotion_authorization","runtime_compilation","risk_allocation","order_submission","online_policy_mutation"],"research_only":True,"authority":{"decision":False,"promotion":False,"runtime":False,"risk_allocation":False,"execution":False,"production":False}}
+    payload["handoff_id"]=stable_id("v4_27_to_v4_28",payload); payload["handoff_hash"]=content_hash(payload)
+    return payload

@@ -1,0 +1,316 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "append_only": {
+      "type": "boolean"
+    },
+    "chain_receipt": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "chain": {
+          "type": "string"
+        },
+        "entry_count": {
+          "type": "integer"
+        },
+        "genesis_hash": {
+          "type": "string"
+        },
+        "head_hash": {
+          "type": "string"
+        },
+        "verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "chain",
+        "entry_count",
+        "genesis_hash",
+        "head_hash",
+        "verified"
+      ],
+      "type": "object"
+    },
+    "complete": {
+      "type": "boolean"
+    },
+    "counts_by_actor": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "actor_independent_validator": {
+          "type": "integer"
+        },
+        "actor_ledger_service": {
+          "type": "integer"
+        },
+        "actor_research_lead": {
+          "type": "integer"
+        },
+        "actor_search_agent": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "actor_independent_validator",
+        "actor_ledger_service",
+        "actor_research_lead",
+        "actor_search_agent"
+      ],
+      "type": "object"
+    },
+    "counts_by_data_role": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "negative": {
+          "type": "integer"
+        },
+        "stress": {
+          "type": "integer"
+        },
+        "synthetic": {
+          "type": "integer"
+        },
+        "train": {
+          "type": "integer"
+        },
+        "validation": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "negative",
+        "stress",
+        "synthetic",
+        "train",
+        "validation"
+      ],
+      "type": "object"
+    },
+    "counts_by_type": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "agent_summary": {
+          "type": "integer"
+        },
+        "chart_render": {
+          "type": "integer"
+        },
+        "dashboard_open": {
+          "type": "integer"
+        },
+        "example_inspection": {
+          "type": "integer"
+        },
+        "hypothesis_modified": {
+          "type": "integer"
+        },
+        "manual_intervention": {
+          "type": "integer"
+        },
+        "metric_read": {
+          "type": "integer"
+        },
+        "narrative_generated": {
+          "type": "integer"
+        },
+        "notebook_open": {
+          "type": "integer"
+        },
+        "query_submitted": {
+          "type": "integer"
+        },
+        "row_export": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "agent_summary",
+        "chart_render",
+        "dashboard_open",
+        "example_inspection",
+        "hypothesis_modified",
+        "manual_intervention",
+        "metric_read",
+        "narrative_generated",
+        "notebook_open",
+        "query_submitted",
+        "row_export"
+      ],
+      "type": "object"
+    },
+    "duplicate_events_suppressed": {
+      "type": "integer"
+    },
+    "entries": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "actor_id": {
+            "type": "string"
+          },
+          "actor_type": {
+            "type": "string"
+          },
+          "chain": {
+            "type": "string"
+          },
+          "data_role": {
+            "type": "string"
+          },
+          "entry_hash": {
+            "type": "string"
+          },
+          "event_id": {
+            "type": "string"
+          },
+          "experiment_id": {
+            "type": "string"
+          },
+          "exposure_type": {
+            "type": "string"
+          },
+          "hypothesis_id": {
+            "type": "string"
+          },
+          "known_at": {
+            "type": "string"
+          },
+          "manual": {
+            "type": "boolean"
+          },
+          "metadata": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "additionalProperties": false,
+            "properties": {
+              "selection_effect_possible": {
+                "type": "boolean"
+              },
+              "ui_surface": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "selection_effect_possible",
+              "ui_surface"
+            ],
+            "type": "object"
+          },
+          "object_hash": {
+            "type": "string"
+          },
+          "object_id": {
+            "type": "string"
+          },
+          "object_type": {
+            "type": "string"
+          },
+          "occurred_at": {
+            "type": "string"
+          },
+          "previous_hash": {
+            "type": "string"
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "query_id": {
+            "type": "string"
+          },
+          "sequence": {
+            "type": "integer"
+          },
+          "trial_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "actor_id",
+          "actor_type",
+          "chain",
+          "data_role",
+          "entry_hash",
+          "event_id",
+          "experiment_id",
+          "exposure_type",
+          "hypothesis_id",
+          "known_at",
+          "manual",
+          "metadata",
+          "object_hash",
+          "object_id",
+          "object_type",
+          "occurred_at",
+          "previous_hash",
+          "purpose",
+          "query_id",
+          "sequence",
+          "trial_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "event_count": {
+      "type": "integer"
+    },
+    "exposure_ledger_hash": {
+      "type": "string"
+    },
+    "exposure_ledger_id": {
+      "type": "string"
+    },
+    "hash_linked": {
+      "type": "boolean"
+    },
+    "hidden_evaluation_queries": {
+      "type": "integer"
+    },
+    "network_requests": {
+      "type": "integer"
+    },
+    "online_policy_mutations": {
+      "type": "integer"
+    },
+    "order_submissions": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "protected_evidence_exposures": {
+      "type": "integer"
+    },
+    "runtime_compilations": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "append_only",
+    "chain_receipt",
+    "complete",
+    "counts_by_actor",
+    "counts_by_data_role",
+    "counts_by_type",
+    "duplicate_events_suppressed",
+    "entries",
+    "event_count",
+    "exposure_ledger_hash",
+    "exposure_ledger_id",
+    "hash_linked",
+    "hidden_evaluation_queries",
+    "network_requests",
+    "online_policy_mutations",
+    "order_submissions",
+    "phase",
+    "protected_evidence_exposures",
+    "runtime_compilations"
+  ],
+  "type": "object"
+}

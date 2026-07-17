@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "air_gap_not_claimed": {
+      "type": "boolean"
+    },
+    "broker_credentials_present": {
+      "type": "boolean"
+    },
+    "forbidden_surface_findings": {
+      "items": {},
+      "type": "array"
+    },
+    "network_requests": {
+      "type": "integer"
+    },
+    "online_policy_mutations": {
+      "type": "integer"
+    },
+    "order_submissions": {
+      "type": "integer"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "runtime_compilations": {
+      "type": "integer"
+    },
+    "security_review_hash": {
+      "type": "string"
+    },
+    "security_review_id": {
+      "type": "string"
+    },
+    "signing_material_present": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "air_gap_not_claimed",
+    "broker_credentials_present",
+    "forbidden_surface_findings",
+    "network_requests",
+    "online_policy_mutations",
+    "order_submissions",
+    "passed",
+    "phase",
+    "runtime_compilations",
+    "security_review_hash",
+    "security_review_id",
+    "signing_material_present"
+  ],
+  "type": "object"
+}

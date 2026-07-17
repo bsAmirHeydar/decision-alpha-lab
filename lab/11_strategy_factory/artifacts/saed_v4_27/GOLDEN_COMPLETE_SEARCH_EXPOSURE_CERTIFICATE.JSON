@@ -1,0 +1,61 @@
+{
+  "accepted_for_complete_ledger_research": true,
+  "authority_boundary": {
+    "authority": {
+      "decision": false,
+      "execution": false,
+      "online_learning": false,
+      "production": false,
+      "promotion": false,
+      "risk_allocation": false,
+      "runtime": false
+    },
+    "boundary_hash": "b439e16e0b9d9861dace80d9e5b1154f0d2e15b9b293e984dbfa33a5dd75c252",
+    "boundary_id": "search_exposure_authority_2e8ff47f8d9a1134731dae47",
+    "phase": "SAED_V4_27",
+    "research_only": true,
+    "safe_action": "skip",
+    "ucee_authority_preserved": true
+  },
+  "certificate_hash": "c30f13f70a8c491111f3ce8f6c3cce861eab1e4f9d50cfd52a47e76d70f24f4d",
+  "certificate_id": "complete_search_exposure_certificate_06edc37fe3b99d090404beea",
+  "claim_class": "complete_local_search_and_exposure_accounting_reference",
+  "evidence_hashes": {
+    "budget_snapshot": "05f5d4581355f063e580b2f7484d49f21a819e2bef6e7015fc15607ee9693ef4",
+    "completeness_audit": "f3512ea99e7f794b1acbd8d5e0c25bd3664aaf6e468093870b3040f4ea4636e7",
+    "exposure_ledger": "50fcd4a374751aaf577b3183a721f495fec0f19572957484eafcc5f631dcd8fe",
+    "integrity_report": "a9e281aa510028e6dea17cca619571e721f54377cab178a031ee4fc9469a8eb8",
+    "known_time_review": "18758cb2f7e7daec561a590cb08b2a6d29e8c3183adffeaffa2a75cc3eb4d647",
+    "model_risk_review": "e7f8f48a5781f78e0fa92fadb18a247b49b19d63adccb275578cab746ade66a0",
+    "multiplicity_universe": "70425e7550cc163a5cbe146c92e9a954675a7e45fe0182174b527eadbae7234c",
+    "security_review": "b189a7d531602aa347847cf34f25f24a82891e0033af3a91efe7ba5e5f44ddc1",
+    "trial_ledger": "ea5247468df06fbf9cac88871dd38408081036a855abd4353e2137e1f92a167e",
+    "upstream_receipt": "4b54069e0f9d1f040a528112ce019e2730af1cf84e0bf59c8df3c332a3ee1dca"
+  },
+  "execution_authority": false,
+  "gates": {
+    "authority_zero": true,
+    "budget_respected": true,
+    "completeness_audit_passed": true,
+    "exposure_ledger_complete": true,
+    "hidden_query_zero": true,
+    "integrity_report_passed": true,
+    "multiplicity_universe_complete": true,
+    "protected_exposure_zero": true,
+    "security_passed": true,
+    "trial_ledger_complete": true,
+    "upstream_verified": true
+  },
+  "hidden_evaluation_air_gap_claim": false,
+  "online_fdr_claim": false,
+  "online_learning_authority": false,
+  "phase": "SAED_V4_27",
+  "production_authority": false,
+  "promotion_authority": false,
+  "prospective_success_claim": false,
+  "real_alpha_claim": false,
+  "research_only": true,
+  "risk_allocation_authority": false,
+  "runtime_executable": false,
+  "version": "1.0.0"
+}

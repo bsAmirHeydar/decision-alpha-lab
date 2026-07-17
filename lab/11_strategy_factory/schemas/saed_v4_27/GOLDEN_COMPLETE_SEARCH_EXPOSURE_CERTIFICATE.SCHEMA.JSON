@@ -1,0 +1,253 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accepted_for_complete_ledger_research": {
+      "type": "boolean"
+    },
+    "authority_boundary": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "authority": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "additionalProperties": false,
+          "properties": {
+            "decision": {
+              "type": "boolean"
+            },
+            "execution": {
+              "type": "boolean"
+            },
+            "online_learning": {
+              "type": "boolean"
+            },
+            "production": {
+              "type": "boolean"
+            },
+            "promotion": {
+              "type": "boolean"
+            },
+            "risk_allocation": {
+              "type": "boolean"
+            },
+            "runtime": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "decision",
+            "execution",
+            "online_learning",
+            "production",
+            "promotion",
+            "risk_allocation",
+            "runtime"
+          ],
+          "type": "object"
+        },
+        "boundary_hash": {
+          "type": "string"
+        },
+        "boundary_id": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "safe_action": {
+          "type": "string"
+        },
+        "ucee_authority_preserved": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "authority",
+        "boundary_hash",
+        "boundary_id",
+        "phase",
+        "research_only",
+        "safe_action",
+        "ucee_authority_preserved"
+      ],
+      "type": "object"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "claim_class": {
+      "type": "string"
+    },
+    "evidence_hashes": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "budget_snapshot": {
+          "type": "string"
+        },
+        "completeness_audit": {
+          "type": "string"
+        },
+        "exposure_ledger": {
+          "type": "string"
+        },
+        "integrity_report": {
+          "type": "string"
+        },
+        "known_time_review": {
+          "type": "string"
+        },
+        "model_risk_review": {
+          "type": "string"
+        },
+        "multiplicity_universe": {
+          "type": "string"
+        },
+        "security_review": {
+          "type": "string"
+        },
+        "trial_ledger": {
+          "type": "string"
+        },
+        "upstream_receipt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "budget_snapshot",
+        "completeness_audit",
+        "exposure_ledger",
+        "integrity_report",
+        "known_time_review",
+        "model_risk_review",
+        "multiplicity_universe",
+        "security_review",
+        "trial_ledger",
+        "upstream_receipt"
+      ],
+      "type": "object"
+    },
+    "execution_authority": {
+      "type": "boolean"
+    },
+    "gates": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "authority_zero": {
+          "type": "boolean"
+        },
+        "budget_respected": {
+          "type": "boolean"
+        },
+        "completeness_audit_passed": {
+          "type": "boolean"
+        },
+        "exposure_ledger_complete": {
+          "type": "boolean"
+        },
+        "hidden_query_zero": {
+          "type": "boolean"
+        },
+        "integrity_report_passed": {
+          "type": "boolean"
+        },
+        "multiplicity_universe_complete": {
+          "type": "boolean"
+        },
+        "protected_exposure_zero": {
+          "type": "boolean"
+        },
+        "security_passed": {
+          "type": "boolean"
+        },
+        "trial_ledger_complete": {
+          "type": "boolean"
+        },
+        "upstream_verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "authority_zero",
+        "budget_respected",
+        "completeness_audit_passed",
+        "exposure_ledger_complete",
+        "hidden_query_zero",
+        "integrity_report_passed",
+        "multiplicity_universe_complete",
+        "protected_exposure_zero",
+        "security_passed",
+        "trial_ledger_complete",
+        "upstream_verified"
+      ],
+      "type": "object"
+    },
+    "hidden_evaluation_air_gap_claim": {
+      "type": "boolean"
+    },
+    "online_fdr_claim": {
+      "type": "boolean"
+    },
+    "online_learning_authority": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authority": {
+      "type": "boolean"
+    },
+    "promotion_authority": {
+      "type": "boolean"
+    },
+    "prospective_success_claim": {
+      "type": "boolean"
+    },
+    "real_alpha_claim": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "risk_allocation_authority": {
+      "type": "boolean"
+    },
+    "runtime_executable": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "accepted_for_complete_ledger_research",
+    "authority_boundary",
+    "certificate_hash",
+    "certificate_id",
+    "claim_class",
+    "evidence_hashes",
+    "execution_authority",
+    "gates",
+    "hidden_evaluation_air_gap_claim",
+    "online_fdr_claim",
+    "online_learning_authority",
+    "phase",
+    "production_authority",
+    "promotion_authority",
+    "prospective_success_claim",
+    "real_alpha_claim",
+    "research_only",
+    "risk_allocation_authority",
+    "runtime_executable",
+    "version"
+  ],
+  "type": "object"
+}

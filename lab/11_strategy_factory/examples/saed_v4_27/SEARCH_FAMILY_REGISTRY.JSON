@@ -1,0 +1,110 @@
+[
+  {
+    "data_roles_allowed": [
+      "synthetic",
+      "train",
+      "validation",
+      "stress",
+      "negative"
+    ],
+    "family_id": "family_sequence_capacity",
+    "frozen_before_search": true,
+    "hypothesis_family": "representation_capacity",
+    "maximum_trials": 6,
+    "mode": "grid",
+    "name": "Sequence capacity sweep",
+    "owner_actor_id": "actor_research_lead",
+    "parameter_space_hash": "3af26f978bd1855fba3581eda227f70c1fdaf6333b4948a1e2b310418ddb252b",
+    "selection_metric": "metric_validation_loss"
+  },
+  {
+    "data_roles_allowed": [
+      "synthetic",
+      "train",
+      "validation",
+      "stress",
+      "negative"
+    ],
+    "family_id": "family_graph_regularization",
+    "frozen_before_search": true,
+    "hypothesis_family": "graph_inductive_bias",
+    "maximum_trials": 6,
+    "mode": "random",
+    "name": "Graph regularization",
+    "owner_actor_id": "actor_research_lead",
+    "parameter_space_hash": "2a51ad9b8a0cd0fd922e44cb4ec5fb02d30f2b46af7dec63a59341bb9c84e95b",
+    "selection_metric": "metric_calibration_error"
+  },
+  {
+    "data_roles_allowed": [
+      "synthetic",
+      "train",
+      "validation",
+      "stress",
+      "negative"
+    ],
+    "family_id": "family_fusion_ablation",
+    "frozen_before_search": true,
+    "hypothesis_family": "missing_view_robustness",
+    "maximum_trials": 6,
+    "mode": "diagnostic",
+    "name": "Fusion ablation",
+    "owner_actor_id": "actor_research_lead",
+    "parameter_space_hash": "fad708780c55b826bdb926a244639af3813574f006475294fd68eacee3047f3e",
+    "selection_metric": "metric_worst_view_regret"
+  },
+  {
+    "data_roles_allowed": [
+      "synthetic",
+      "train",
+      "validation",
+      "stress",
+      "negative"
+    ],
+    "family_id": "family_policy_value",
+    "frozen_before_search": true,
+    "hypothesis_family": "offline_policy_value",
+    "maximum_trials": 6,
+    "mode": "quasi_random",
+    "name": "Policy value challenger",
+    "owner_actor_id": "actor_research_lead",
+    "parameter_space_hash": "a2c6d1639e29accc340c8f2d92fc2ab21101e2944b43f68379c861e9c05b2248",
+    "selection_metric": "metric_lower_confidence_value"
+  },
+  {
+    "data_roles_allowed": [
+      "synthetic",
+      "train",
+      "validation",
+      "stress",
+      "negative"
+    ],
+    "family_id": "family_ood_selectivity",
+    "frozen_before_search": true,
+    "hypothesis_family": "selective_control",
+    "maximum_trials": 6,
+    "mode": "manual",
+    "name": "OOD selectivity",
+    "owner_actor_id": "actor_research_lead",
+    "parameter_space_hash": "d4911f887cc384a56332b8a7e7e255cef2db3dd6fe0e6cf6557af3f02a5da5c4",
+    "selection_metric": "metric_risk_coverage_auc"
+  },
+  {
+    "data_roles_allowed": [
+      "synthetic",
+      "train",
+      "validation",
+      "stress",
+      "negative"
+    ],
+    "family_id": "family_mechanistic_checks",
+    "frozen_before_search": true,
+    "hypothesis_family": "interpretability_faithfulness",
+    "maximum_trials": 6,
+    "mode": "diagnostic",
+    "name": "Mechanistic checks",
+    "owner_actor_id": "actor_research_lead",
+    "parameter_space_hash": "49122e3366dd8c91e9df668dcb17beb5b5ed3b7d032a3fe02d1c59fcf295c31f",
+    "selection_metric": "metric_faithfulness_score"
+  }
+]

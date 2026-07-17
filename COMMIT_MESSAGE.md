@@ -1,10 +1,11 @@
-feat(strategy-factory): implement SAED V4-26 mechanistic interpretability
+feat(saed-v4): implement V4-27 complete search and exposure ledger
 
-- verify immutable V4-25 certificate, handoff and frozen research artifacts
-- add deterministic feature, view and pathway attribution
-- add adaptation, calibration and treatment-interaction mechanism analysis
-- add governed concept probes, causal tracing and past-only activation patching
-- add bounded counterfactual and sparse-dictionary challengers
-- add faithfulness, randomization, stability, shortcut and failure controls
-- add closed schemas, golden replay, QA, Obsidian delivery and static MQL5 mirrors
-- preserve UCEE authority and deny promotion, runtime, risk, execution and production authority
+- freeze actor, data-role, search-family and experiment-manifest contracts
+- add complete terminal trial state accounting with retry and duplicate lineage
+- add append-only SHA-256 trial and exposure chains
+- account for human, agent, validator and service evidence exposures
+- construct the complete materially related multiplicity universe
+- enforce known-time, protected-role and query-budget controls
+- add deterministic replay, closed schemas, mutation tests and MQL5 mirrors
+- add extensive Obsidian delivery and atomic-concept documentation
+- hand off research-only evidence to V4-28 anytime-valid online FDR

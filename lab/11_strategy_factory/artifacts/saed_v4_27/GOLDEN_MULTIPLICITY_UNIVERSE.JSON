@@ -1,0 +1,91 @@
+{
+  "agent_exposures_included": true,
+  "complete_materially_related_universe": true,
+  "duplicates_included": true,
+  "experiment_count": 6,
+  "exposure_count": 44,
+  "failed_trials_included": true,
+  "families": [
+    {
+      "eligible_for_v4_28_online_fdr": true,
+      "experiment_count": 1,
+      "exposure_count": 7,
+      "family_id": "family_fusion_ablation",
+      "frozen_before_search": true,
+      "hypothesis_family": "missing_view_robustness",
+      "mode": "diagnostic",
+      "parameter_space_hash": "fad708780c55b826bdb926a244639af3813574f006475294fd68eacee3047f3e",
+      "selection_metric": "metric_worst_view_regret",
+      "trial_count": 6
+    },
+    {
+      "eligible_for_v4_28_online_fdr": true,
+      "experiment_count": 1,
+      "exposure_count": 8,
+      "family_id": "family_graph_regularization",
+      "frozen_before_search": true,
+      "hypothesis_family": "graph_inductive_bias",
+      "mode": "random",
+      "parameter_space_hash": "2a51ad9b8a0cd0fd922e44cb4ec5fb02d30f2b46af7dec63a59341bb9c84e95b",
+      "selection_metric": "metric_calibration_error",
+      "trial_count": 6
+    },
+    {
+      "eligible_for_v4_28_online_fdr": true,
+      "experiment_count": 1,
+      "exposure_count": 7,
+      "family_id": "family_mechanistic_checks",
+      "frozen_before_search": true,
+      "hypothesis_family": "interpretability_faithfulness",
+      "mode": "diagnostic",
+      "parameter_space_hash": "49122e3366dd8c91e9df668dcb17beb5b5ed3b7d032a3fe02d1c59fcf295c31f",
+      "selection_metric": "metric_faithfulness_score",
+      "trial_count": 6
+    },
+    {
+      "eligible_for_v4_28_online_fdr": true,
+      "experiment_count": 1,
+      "exposure_count": 7,
+      "family_id": "family_ood_selectivity",
+      "frozen_before_search": true,
+      "hypothesis_family": "selective_control",
+      "mode": "manual",
+      "parameter_space_hash": "d4911f887cc384a56332b8a7e7e255cef2db3dd6fe0e6cf6557af3f02a5da5c4",
+      "selection_metric": "metric_risk_coverage_auc",
+      "trial_count": 6
+    },
+    {
+      "eligible_for_v4_28_online_fdr": true,
+      "experiment_count": 1,
+      "exposure_count": 7,
+      "family_id": "family_policy_value",
+      "frozen_before_search": true,
+      "hypothesis_family": "offline_policy_value",
+      "mode": "quasi_random",
+      "parameter_space_hash": "a2c6d1639e29accc340c8f2d92fc2ab21101e2944b43f68379c861e9c05b2248",
+      "selection_metric": "metric_lower_confidence_value",
+      "trial_count": 6
+    },
+    {
+      "eligible_for_v4_28_online_fdr": true,
+      "experiment_count": 1,
+      "exposure_count": 8,
+      "family_id": "family_sequence_capacity",
+      "frozen_before_search": true,
+      "hypothesis_family": "representation_capacity",
+      "mode": "grid",
+      "parameter_space_hash": "3af26f978bd1855fba3581eda227f70c1fdaf6333b4948a1e2b310418ddb252b",
+      "selection_metric": "metric_validation_loss",
+      "trial_count": 6
+    }
+  ],
+  "family_count": 6,
+  "human_exposures_included": true,
+  "multiplicity_universe_hash": "dc97ae0c6f463b3b0e607948f8485302510609b2c2bed604504cb3ca5efa934a",
+  "multiplicity_universe_id": "multiplicity_universe_3cf14938331c8dc8bb0f5a0a",
+  "phase": "SAED_V4_27",
+  "pruned_trials_included": true,
+  "retries_included": true,
+  "selection_risk_ready": true,
+  "trial_count": 36
+}

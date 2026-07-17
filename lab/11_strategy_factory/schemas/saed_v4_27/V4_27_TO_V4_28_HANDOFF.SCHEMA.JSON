@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_next_work": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "authority": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "decision": {
+          "type": "boolean"
+        },
+        "execution": {
+          "type": "boolean"
+        },
+        "production": {
+          "type": "boolean"
+        },
+        "promotion": {
+          "type": "boolean"
+        },
+        "risk_allocation": {
+          "type": "boolean"
+        },
+        "runtime": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "decision",
+        "execution",
+        "production",
+        "promotion",
+        "risk_allocation",
+        "runtime"
+      ],
+      "type": "object"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "entry_gates": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "complete_exposure_universe": {
+          "type": "boolean"
+        },
+        "complete_trial_universe": {
+          "type": "boolean"
+        },
+        "hash_chains_verified": {
+          "type": "boolean"
+        },
+        "multiplicity_families_frozen": {
+          "type": "boolean"
+        },
+        "protected_exposure_zero": {
+          "type": "boolean"
+        },
+        "query_budgets_verified": {
+          "type": "boolean"
+        },
+        "research_only": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "complete_exposure_universe",
+        "complete_trial_universe",
+        "hash_chains_verified",
+        "multiplicity_families_frozen",
+        "protected_exposure_zero",
+        "query_budgets_verified",
+        "research_only"
+      ],
+      "type": "object"
+    },
+    "forbidden_next_work": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "allowed_next_work",
+    "authority",
+    "certificate_hash",
+    "certificate_id",
+    "entry_gates",
+    "forbidden_next_work",
+    "handoff_hash",
+    "handoff_id",
+    "next_phase",
+    "phase",
+    "research_only"
+  ],
+  "type": "object"
+}

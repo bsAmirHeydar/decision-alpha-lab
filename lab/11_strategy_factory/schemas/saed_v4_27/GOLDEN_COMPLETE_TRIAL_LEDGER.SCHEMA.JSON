@@ -1,0 +1,321 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "append_only": {
+      "type": "boolean"
+    },
+    "chain_receipt": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "chain": {
+          "type": "string"
+        },
+        "entry_count": {
+          "type": "integer"
+        },
+        "genesis_hash": {
+          "type": "string"
+        },
+        "head_hash": {
+          "type": "string"
+        },
+        "verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "chain",
+        "entry_count",
+        "genesis_hash",
+        "head_hash",
+        "verified"
+      ],
+      "type": "object"
+    },
+    "complete": {
+      "type": "boolean"
+    },
+    "duplicate_edges": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "trial_01_06": {
+          "type": "string"
+        },
+        "trial_02_05": {
+          "type": "string"
+        },
+        "trial_03_04": {
+          "type": "string"
+        },
+        "trial_04_03": {
+          "type": "string"
+        },
+        "trial_05_02": {
+          "type": "string"
+        },
+        "trial_06_01": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "trial_01_06",
+        "trial_02_05",
+        "trial_03_04",
+        "trial_04_03",
+        "trial_05_02",
+        "trial_06_01"
+      ],
+      "type": "object"
+    },
+    "entries": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "actor_id": {
+            "type": "string"
+          },
+          "attempt": {
+            "type": "integer"
+          },
+          "chain": {
+            "type": "string"
+          },
+          "cost_units": {
+            "type": "number"
+          },
+          "data_role": {
+            "type": "string"
+          },
+          "duplicate_of": {
+            "type": "string"
+          },
+          "entry_hash": {
+            "type": "string"
+          },
+          "event_id": {
+            "type": "string"
+          },
+          "experiment_id": {
+            "type": "string"
+          },
+          "family_id": {
+            "type": "string"
+          },
+          "known_at": {
+            "type": "string"
+          },
+          "metadata": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "additionalProperties": false,
+            "properties": {
+              "family_revision": {
+                "type": "integer"
+              },
+              "parameter_index": {
+                "type": "integer"
+              },
+              "synthetic_reference": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "family_revision",
+              "parameter_index",
+              "synthetic_reference"
+            ],
+            "type": "object"
+          },
+          "occurred_at": {
+            "type": "string"
+          },
+          "previous_hash": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "retry_of": {
+            "type": "string"
+          },
+          "seed": {
+            "type": "integer"
+          },
+          "sequence": {
+            "type": "integer"
+          },
+          "state": {
+            "type": "string"
+          },
+          "trial_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "actor_id",
+          "attempt",
+          "chain",
+          "cost_units",
+          "data_role",
+          "duplicate_of",
+          "entry_hash",
+          "event_id",
+          "experiment_id",
+          "family_id",
+          "known_at",
+          "metadata",
+          "occurred_at",
+          "previous_hash",
+          "reason",
+          "retry_of",
+          "seed",
+          "sequence",
+          "state",
+          "trial_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "event_count": {
+      "type": "integer"
+    },
+    "expected_trial_count": {
+      "type": "integer"
+    },
+    "family_trial_counts": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "family_fusion_ablation": {
+          "type": "integer"
+        },
+        "family_graph_regularization": {
+          "type": "integer"
+        },
+        "family_mechanistic_checks": {
+          "type": "integer"
+        },
+        "family_ood_selectivity": {
+          "type": "integer"
+        },
+        "family_policy_value": {
+          "type": "integer"
+        },
+        "family_sequence_capacity": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "family_fusion_ablation",
+        "family_graph_regularization",
+        "family_mechanistic_checks",
+        "family_ood_selectivity",
+        "family_policy_value",
+        "family_sequence_capacity"
+      ],
+      "type": "object"
+    },
+    "hash_linked": {
+      "type": "boolean"
+    },
+    "missing_trial_ids": {
+      "items": {},
+      "type": "array"
+    },
+    "nonterminal_trial_ids": {
+      "items": {},
+      "type": "array"
+    },
+    "observed_trial_count": {
+      "type": "integer"
+    },
+    "orphan_trial_ids": {
+      "items": {},
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "retry_edges": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "trial_02_06": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "trial_02_06"
+      ],
+      "type": "object"
+    },
+    "terminal_state_counts": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "duplicate": {
+          "type": "integer"
+        },
+        "failed": {
+          "type": "integer"
+        },
+        "pruned": {
+          "type": "integer"
+        },
+        "rejected": {
+          "type": "integer"
+        },
+        "selected": {
+          "type": "integer"
+        },
+        "timed_out": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "duplicate",
+        "failed",
+        "pruned",
+        "rejected",
+        "selected",
+        "timed_out"
+      ],
+      "type": "object"
+    },
+    "total_cost_units": {
+      "type": "number"
+    },
+    "trial_ledger_hash": {
+      "type": "string"
+    },
+    "trial_ledger_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "append_only",
+    "chain_receipt",
+    "complete",
+    "duplicate_edges",
+    "entries",
+    "event_count",
+    "expected_trial_count",
+    "family_trial_counts",
+    "hash_linked",
+    "missing_trial_ids",
+    "nonterminal_trial_ids",
+    "observed_trial_count",
+    "orphan_trial_ids",
+    "phase",
+    "retry_edges",
+    "terminal_state_counts",
+    "total_cost_units",
+    "trial_ledger_hash",
+    "trial_ledger_id"
+  ],
+  "type": "object"
+}

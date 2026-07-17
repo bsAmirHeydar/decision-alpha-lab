@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "audit_hash": {
+      "type": "string"
+    },
+    "audit_id": {
+      "type": "string"
+    },
+    "checks": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "all_manifests_hash_bound": {
+          "type": "boolean"
+        },
+        "all_trials_terminal": {
+          "type": "boolean"
+        },
+        "duplicates_accounted": {
+          "type": "boolean"
+        },
+        "expected_trials_equal_observed": {
+          "type": "boolean"
+        },
+        "exposure_chain_verified": {
+          "type": "boolean"
+        },
+        "failure_states_accounted": {
+          "type": "boolean"
+        },
+        "hidden_query_zero": {
+          "type": "boolean"
+        },
+        "multiplicity_complete": {
+          "type": "boolean"
+        },
+        "no_missing_trials": {
+          "type": "boolean"
+        },
+        "no_orphan_trials": {
+          "type": "boolean"
+        },
+        "protected_exposure_zero": {
+          "type": "boolean"
+        },
+        "retries_accounted": {
+          "type": "boolean"
+        },
+        "trial_chain_verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "all_manifests_hash_bound",
+        "all_trials_terminal",
+        "duplicates_accounted",
+        "expected_trials_equal_observed",
+        "exposure_chain_verified",
+        "failure_states_accounted",
+        "hidden_query_zero",
+        "multiplicity_complete",
+        "no_missing_trials",
+        "no_orphan_trials",
+        "protected_exposure_zero",
+        "retries_accounted",
+        "trial_chain_verified"
+      ],
+      "type": "object"
+    },
+    "expected_trials": {
+      "type": "integer"
+    },
+    "exposure_events": {
+      "type": "integer"
+    },
+    "observed_trials": {
+      "type": "integer"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "trial_events": {
+      "type": "integer"
+    },
+    "unclassified_failures": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "audit_hash",
+    "audit_id",
+    "checks",
+    "expected_trials",
+    "exposure_events",
+    "observed_trials",
+    "passed",
+    "phase",
+    "trial_events",
+    "unclassified_failures"
+  ],
+  "type": "object"
+}

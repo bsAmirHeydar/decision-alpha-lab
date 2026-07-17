@@ -1,0 +1,12 @@
+{
+  "all_mutations_in_multiplicity_scope": true,
+  "future_suffix_queries": 0,
+  "hidden_evaluation_queries": 0,
+  "known_time_violations": 0,
+  "passed": true,
+  "phase": "SAED_V4_27",
+  "post_exposure_hypothesis_mutations_logged": 4,
+  "protected_evidence_queries": 0,
+  "review_hash": "971e604623eba58fa45c708e21fbc09b57d0d510376f02c6d86f61374f3a7a31",
+  "review_id": "v427_known_time_11f7b86752d2723d223144bb"
+}

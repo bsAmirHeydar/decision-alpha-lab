@@ -1,0 +1,325 @@
+{
+  "actor_registry": [
+    {
+      "active": true,
+      "actor_id": "actor_research_lead",
+      "actor_type": "human",
+      "created_at": "2026-07-16T08:00:00Z",
+      "credential_scope": "research_only",
+      "display_name": "Research Lead",
+      "organization": "Decision Alpha Lab",
+      "role": "hypothesis_owner"
+    },
+    {
+      "active": true,
+      "actor_id": "actor_independent_validator",
+      "actor_type": "validator",
+      "created_at": "2026-07-16T08:00:00Z",
+      "credential_scope": "read_and_validate",
+      "display_name": "Independent Validator",
+      "organization": "Decision Alpha Lab",
+      "role": "independent_validation"
+    },
+    {
+      "active": true,
+      "actor_id": "actor_search_agent",
+      "actor_type": "agent",
+      "created_at": "2026-07-16T08:00:00Z",
+      "credential_scope": "non_protected_research",
+      "display_name": "Bounded Search Agent",
+      "organization": "Decision Alpha Lab",
+      "role": "proposal_and_summary"
+    },
+    {
+      "active": true,
+      "actor_id": "actor_ledger_service",
+      "actor_type": "service",
+      "created_at": "2026-07-16T08:00:00Z",
+      "credential_scope": "append_only",
+      "display_name": "Append Only Ledger Service",
+      "organization": "Decision Alpha Lab",
+      "role": "ledger_writer"
+    }
+  ],
+  "data_role_registry": [
+    {
+      "allowed_exposure_types": [
+        "dashboard_open",
+        "chart_render",
+        "metric_read",
+        "example_inspection",
+        "agent_summary",
+        "row_export",
+        "narrative_generated",
+        "hypothesis_modified",
+        "manual_intervention",
+        "notebook_open",
+        "query_submitted"
+      ],
+      "data_role": "public",
+      "description": "Frozen public evidence role for V4-27 accounting.",
+      "protected": false,
+      "query_budget": 100
+    },
+    {
+      "allowed_exposure_types": [
+        "dashboard_open",
+        "chart_render",
+        "metric_read",
+        "example_inspection",
+        "agent_summary",
+        "row_export",
+        "narrative_generated",
+        "hypothesis_modified",
+        "manual_intervention",
+        "notebook_open",
+        "query_submitted"
+      ],
+      "data_role": "synthetic",
+      "description": "Frozen synthetic evidence role for V4-27 accounting.",
+      "protected": false,
+      "query_budget": 100
+    },
+    {
+      "allowed_exposure_types": [
+        "dashboard_open",
+        "chart_render",
+        "metric_read",
+        "example_inspection",
+        "agent_summary",
+        "row_export",
+        "narrative_generated",
+        "hypothesis_modified",
+        "manual_intervention",
+        "notebook_open",
+        "query_submitted"
+      ],
+      "data_role": "train",
+      "description": "Frozen train evidence role for V4-27 accounting.",
+      "protected": false,
+      "query_budget": 100
+    },
+    {
+      "allowed_exposure_types": [
+        "dashboard_open",
+        "chart_render",
+        "metric_read",
+        "example_inspection",
+        "agent_summary",
+        "row_export",
+        "narrative_generated",
+        "hypothesis_modified",
+        "manual_intervention",
+        "notebook_open",
+        "query_submitted"
+      ],
+      "data_role": "validation",
+      "description": "Frozen validation evidence role for V4-27 accounting.",
+      "protected": false,
+      "query_budget": 50
+    },
+    {
+      "allowed_exposure_types": [
+        "dashboard_open",
+        "chart_render",
+        "metric_read",
+        "example_inspection",
+        "agent_summary",
+        "row_export",
+        "narrative_generated",
+        "hypothesis_modified",
+        "manual_intervention",
+        "notebook_open",
+        "query_submitted"
+      ],
+      "data_role": "stress",
+      "description": "Frozen stress evidence role for V4-27 accounting.",
+      "protected": false,
+      "query_budget": 50
+    },
+    {
+      "allowed_exposure_types": [
+        "dashboard_open",
+        "chart_render",
+        "metric_read",
+        "example_inspection",
+        "agent_summary",
+        "row_export",
+        "narrative_generated",
+        "hypothesis_modified",
+        "manual_intervention",
+        "notebook_open",
+        "query_submitted"
+      ],
+      "data_role": "negative",
+      "description": "Frozen negative evidence role for V4-27 accounting.",
+      "protected": false,
+      "query_budget": 50
+    },
+    {
+      "allowed_exposure_types": [],
+      "data_role": "hidden_evaluation",
+      "description": "Frozen hidden_evaluation evidence role for V4-27 accounting.",
+      "protected": true,
+      "query_budget": 0
+    },
+    {
+      "allowed_exposure_types": [],
+      "data_role": "protected_final",
+      "description": "Frozen protected_final evidence role for V4-27 accounting.",
+      "protected": true,
+      "query_budget": 0
+    }
+  ],
+  "ledger_policy": {
+    "actor_identity_required": true,
+    "append_only": true,
+    "complete_failure_accounting": true,
+    "data_role_required": true,
+    "deterministic": true,
+    "duplicate_accounting": true,
+    "exact_version": "1.0.0",
+    "hash_chain_required": true,
+    "hidden_evaluation_query_budget": 0,
+    "known_time_required": true,
+    "orphan_runs_forbidden": true,
+    "protected_exposure_forbidden": true,
+    "retry_accounting": true
+  },
+  "query_budget": {
+    "exact_version": "1.0.0",
+    "maximum_agent_summaries": 16,
+    "maximum_chart_renders": 24,
+    "maximum_exposures": 128,
+    "maximum_hidden_evaluation_queries": 0,
+    "maximum_hypothesis_modifications": 8,
+    "maximum_manual_interventions": 8,
+    "maximum_metric_reads": 32,
+    "maximum_narratives": 16,
+    "maximum_online_mutations": 0,
+    "maximum_order_submissions": 0,
+    "maximum_protected_exposures": 0,
+    "maximum_row_exports": 8,
+    "maximum_runtime_compilations": 0,
+    "maximum_trials": 64
+  },
+  "search_family_registry": [
+    {
+      "data_roles_allowed": [
+        "synthetic",
+        "train",
+        "validation",
+        "stress",
+        "negative"
+      ],
+      "family_id": "family_sequence_capacity",
+      "frozen_before_search": true,
+      "hypothesis_family": "representation_capacity",
+      "maximum_trials": 6,
+      "mode": "grid",
+      "name": "Sequence capacity sweep",
+      "owner_actor_id": "actor_research_lead",
+      "parameter_space_hash": "3af26f978bd1855fba3581eda227f70c1fdaf6333b4948a1e2b310418ddb252b",
+      "selection_metric": "metric_validation_loss"
+    },
+    {
+      "data_roles_allowed": [
+        "synthetic",
+        "train",
+        "validation",
+        "stress",
+        "negative"
+      ],
+      "family_id": "family_graph_regularization",
+      "frozen_before_search": true,
+      "hypothesis_family": "graph_inductive_bias",
+      "maximum_trials": 6,
+      "mode": "random",
+      "name": "Graph regularization",
+      "owner_actor_id": "actor_research_lead",
+      "parameter_space_hash": "2a51ad9b8a0cd0fd922e44cb4ec5fb02d30f2b46af7dec63a59341bb9c84e95b",
+      "selection_metric": "metric_calibration_error"
+    },
+    {
+      "data_roles_allowed": [
+        "synthetic",
+        "train",
+        "validation",
+        "stress",
+        "negative"
+      ],
+      "family_id": "family_fusion_ablation",
+      "frozen_before_search": true,
+      "hypothesis_family": "missing_view_robustness",
+      "maximum_trials": 6,
+      "mode": "diagnostic",
+      "name": "Fusion ablation",
+      "owner_actor_id": "actor_research_lead",
+      "parameter_space_hash": "fad708780c55b826bdb926a244639af3813574f006475294fd68eacee3047f3e",
+      "selection_metric": "metric_worst_view_regret"
+    },
+    {
+      "data_roles_allowed": [
+        "synthetic",
+        "train",
+        "validation",
+        "stress",
+        "negative"
+      ],
+      "family_id": "family_policy_value",
+      "frozen_before_search": true,
+      "hypothesis_family": "offline_policy_value",
+      "maximum_trials": 6,
+      "mode": "quasi_random",
+      "name": "Policy value challenger",
+      "owner_actor_id": "actor_research_lead",
+      "parameter_space_hash": "a2c6d1639e29accc340c8f2d92fc2ab21101e2944b43f68379c861e9c05b2248",
+      "selection_metric": "metric_lower_confidence_value"
+    },
+    {
+      "data_roles_allowed": [
+        "synthetic",
+        "train",
+        "validation",
+        "stress",
+        "negative"
+      ],
+      "family_id": "family_ood_selectivity",
+      "frozen_before_search": true,
+      "hypothesis_family": "selective_control",
+      "maximum_trials": 6,
+      "mode": "manual",
+      "name": "OOD selectivity",
+      "owner_actor_id": "actor_research_lead",
+      "parameter_space_hash": "d4911f887cc384a56332b8a7e7e255cef2db3dd6fe0e6cf6557af3f02a5da5c4",
+      "selection_metric": "metric_risk_coverage_auc"
+    },
+    {
+      "data_roles_allowed": [
+        "synthetic",
+        "train",
+        "validation",
+        "stress",
+        "negative"
+      ],
+      "family_id": "family_mechanistic_checks",
+      "frozen_before_search": true,
+      "hypothesis_family": "interpretability_faithfulness",
+      "maximum_trials": 6,
+      "mode": "diagnostic",
+      "name": "Mechanistic checks",
+      "owner_actor_id": "actor_research_lead",
+      "parameter_space_hash": "49122e3366dd8c91e9df668dcb17beb5b5ed3b7d032a3fe02d1c59fcf295c31f",
+      "selection_metric": "metric_faithfulness_score"
+    }
+  ],
+  "upstream_intake": {
+    "certificate_hash": "8667ea2485fa59d247feb1105f92ce2fa68a0fcb9439a364b4485b49228df5fb",
+    "exact_version": "1.0.0",
+    "handoff_hash": "61d55dbc05a2cdc1e0fe67e7150af726f48e3ed2965e477228a6f541fa0f1f00",
+    "hash_verified": true,
+    "immutable": true,
+    "required_phase": "SAED_V4_26",
+    "research_only": true
+  }
+}

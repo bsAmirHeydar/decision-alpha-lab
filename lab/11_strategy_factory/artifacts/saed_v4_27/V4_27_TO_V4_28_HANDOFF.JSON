@@ -1,0 +1,44 @@
+{
+  "allowed_next_work": [
+    "alpha_investing_rule",
+    "online_fdr_wealth_ledger",
+    "anytime_valid_p_values",
+    "hypothesis_family_allocation",
+    "alpha_spending_policy",
+    "wealth_replenishment_policy",
+    "rejection_ledger",
+    "stopping_rule_registry"
+  ],
+  "authority": {
+    "decision": false,
+    "execution": false,
+    "production": false,
+    "promotion": false,
+    "risk_allocation": false,
+    "runtime": false
+  },
+  "certificate_hash": "c30f13f70a8c491111f3ce8f6c3cce861eab1e4f9d50cfd52a47e76d70f24f4d",
+  "certificate_id": "complete_search_exposure_certificate_06edc37fe3b99d090404beea",
+  "entry_gates": {
+    "complete_exposure_universe": true,
+    "complete_trial_universe": true,
+    "hash_chains_verified": true,
+    "multiplicity_families_frozen": true,
+    "protected_exposure_zero": true,
+    "query_budgets_verified": true,
+    "research_only": true
+  },
+  "forbidden_next_work": [
+    "hidden_evaluation_access",
+    "promotion_authorization",
+    "runtime_compilation",
+    "risk_allocation",
+    "order_submission",
+    "online_policy_mutation"
+  ],
+  "handoff_hash": "982ff69fff0aff6be4c31ad141c788dbffc520b055809970453192adfbb4fc4c",
+  "handoff_id": "v4_27_to_v4_28_1f3c2014de7e3e5cf9af812d",
+  "next_phase": "SAED_V4_28",
+  "phase": "SAED_V4_27",
+  "research_only": true
+}

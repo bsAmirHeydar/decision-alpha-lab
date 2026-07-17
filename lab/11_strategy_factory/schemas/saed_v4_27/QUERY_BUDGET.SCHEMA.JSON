@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "exact_version": {
+      "type": "string"
+    },
+    "maximum_agent_summaries": {
+      "type": "integer"
+    },
+    "maximum_chart_renders": {
+      "type": "integer"
+    },
+    "maximum_exposures": {
+      "type": "integer"
+    },
+    "maximum_hidden_evaluation_queries": {
+      "type": "integer"
+    },
+    "maximum_hypothesis_modifications": {
+      "type": "integer"
+    },
+    "maximum_manual_interventions": {
+      "type": "integer"
+    },
+    "maximum_metric_reads": {
+      "type": "integer"
+    },
+    "maximum_narratives": {
+      "type": "integer"
+    },
+    "maximum_online_mutations": {
+      "type": "integer"
+    },
+    "maximum_order_submissions": {
+      "type": "integer"
+    },
+    "maximum_protected_exposures": {
+      "type": "integer"
+    },
+    "maximum_row_exports": {
+      "type": "integer"
+    },
+    "maximum_runtime_compilations": {
+      "type": "integer"
+    },
+    "maximum_trials": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "exact_version",
+    "maximum_agent_summaries",
+    "maximum_chart_renders",
+    "maximum_exposures",
+    "maximum_hidden_evaluation_queries",
+    "maximum_hypothesis_modifications",
+    "maximum_manual_interventions",
+    "maximum_metric_reads",
+    "maximum_narratives",
+    "maximum_online_mutations",
+    "maximum_order_submissions",
+    "maximum_protected_exposures",
+    "maximum_row_exports",
+    "maximum_runtime_compilations",
+    "maximum_trials"
+  ],
+  "type": "object"
+}

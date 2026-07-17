@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_mutations_in_multiplicity_scope": {
+      "type": "boolean"
+    },
+    "future_suffix_queries": {
+      "type": "integer"
+    },
+    "hidden_evaluation_queries": {
+      "type": "integer"
+    },
+    "known_time_violations": {
+      "type": "integer"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "post_exposure_hypothesis_mutations_logged": {
+      "type": "integer"
+    },
+    "protected_evidence_queries": {
+      "type": "integer"
+    },
+    "review_hash": {
+      "type": "string"
+    },
+    "review_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "all_mutations_in_multiplicity_scope",
+    "future_suffix_queries",
+    "hidden_evaluation_queries",
+    "known_time_violations",
+    "passed",
+    "phase",
+    "post_exposure_hypothesis_mutations_logged",
+    "protected_evidence_queries",
+    "review_hash",
+    "review_id"
+  ],
+  "type": "object"
+}

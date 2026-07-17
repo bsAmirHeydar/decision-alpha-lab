@@ -1,0 +1,17 @@
+{
+  "false_discovery_control_deferred_to_v4_28": true,
+  "limitations": [
+    "local_reference_evidence",
+    "no_online_fdr_yet",
+    "no_hidden_evaluation_air_gap_yet",
+    "no_independent_replication",
+    "no_runtime_parity",
+    "no_broker_qualification"
+  ],
+  "model_risk_review_hash": "3821992b3d3eaf4e312dc7c7b70930c59a5bd190998eeec8619b7782aed1401e",
+  "model_risk_review_id": "v427_model_risk_557e2c359eaa2fdd682bcf86",
+  "passed": true,
+  "phase": "SAED_V4_27",
+  "selection_risk_quantified": false,
+  "selection_risk_universe_complete": true
+}

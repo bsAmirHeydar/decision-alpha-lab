@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actor_identity_required": {
+      "type": "boolean"
+    },
+    "append_only": {
+      "type": "boolean"
+    },
+    "complete_failure_accounting": {
+      "type": "boolean"
+    },
+    "data_role_required": {
+      "type": "boolean"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "duplicate_accounting": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "hash_chain_required": {
+      "type": "boolean"
+    },
+    "hidden_evaluation_query_budget": {
+      "type": "integer"
+    },
+    "known_time_required": {
+      "type": "boolean"
+    },
+    "orphan_runs_forbidden": {
+      "type": "boolean"
+    },
+    "protected_exposure_forbidden": {
+      "type": "boolean"
+    },
+    "retry_accounting": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "actor_identity_required",
+    "append_only",
+    "complete_failure_accounting",
+    "data_role_required",
+    "deterministic",
+    "duplicate_accounting",
+    "exact_version",
+    "hash_chain_required",
+    "hidden_evaluation_query_budget",
+    "known_time_required",
+    "orphan_runs_forbidden",
+    "protected_exposure_forbidden",
+    "retry_accounting"
+  ],
+  "type": "object"
+}

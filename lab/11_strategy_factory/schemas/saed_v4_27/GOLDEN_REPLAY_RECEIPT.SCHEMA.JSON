@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "deterministic": {
+      "type": "boolean"
+    },
+    "future_suffix_queries": {
+      "type": "integer"
+    },
+    "hidden_evaluation_queries": {
+      "type": "integer"
+    },
+    "input_hashes": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "config": {
+          "type": "string"
+        },
+        "exposure_events": {
+          "type": "string"
+        },
+        "manifests": {
+          "type": "string"
+        },
+        "trial_events": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "config",
+        "exposure_events",
+        "manifests",
+        "trial_events"
+      ],
+      "type": "object"
+    },
+    "network_access": {
+      "type": "boolean"
+    },
+    "online_policy_mutations": {
+      "type": "integer"
+    },
+    "order_submissions": {
+      "type": "integer"
+    },
+    "output_hashes": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "authority_boundary": {
+          "type": "string"
+        },
+        "budget_snapshot": {
+          "type": "string"
+        },
+        "certificate": {
+          "type": "string"
+        },
+        "completeness_audit": {
+          "type": "string"
+        },
+        "exposure_ledger": {
+          "type": "string"
+        },
+        "handoff": {
+          "type": "string"
+        },
+        "integrity_report": {
+          "type": "string"
+        },
+        "known_time_review": {
+          "type": "string"
+        },
+        "model_risk_review": {
+          "type": "string"
+        },
+        "multiplicity_universe": {
+          "type": "string"
+        },
+        "security_review": {
+          "type": "string"
+        },
+        "trial_ledger": {
+          "type": "string"
+        },
+        "upstream_receipt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "authority_boundary",
+        "budget_snapshot",
+        "certificate",
+        "completeness_audit",
+        "exposure_ledger",
+        "handoff",
+        "integrity_report",
+        "known_time_review",
+        "model_risk_review",
+        "multiplicity_universe",
+        "security_review",
+        "trial_ledger",
+        "upstream_receipt"
+      ],
+      "type": "object"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "protected_evidence_queries": {
+      "type": "integer"
+    },
+    "replay_receipt_hash": {
+      "type": "string"
+    },
+    "replay_receipt_id": {
+      "type": "string"
+    },
+    "runtime_compilations": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "deterministic",
+    "future_suffix_queries",
+    "hidden_evaluation_queries",
+    "input_hashes",
+    "network_access",
+    "online_policy_mutations",
+    "order_submissions",
+    "output_hashes",
+    "phase",
+    "protected_evidence_queries",
+    "replay_receipt_hash",
+    "replay_receipt_id",
+    "runtime_compilations"
+  ],
+  "type": "object"
+}
