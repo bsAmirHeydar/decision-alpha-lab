@@ -1,0 +1,184 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_28/GOLDEN_ONLINE_FDR_WEALTH_LEDGER.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_alpha_nonnegative": {
+      "type": "boolean"
+    },
+    "all_wealth_nonnegative": {
+      "type": "boolean"
+    },
+    "chain_verification": {
+      "additionalProperties": false,
+      "properties": {
+        "chain": {
+          "type": "string"
+        },
+        "entry_count": {
+          "type": "integer"
+        },
+        "genesis_hash": {
+          "type": "string"
+        },
+        "head_hash": {
+          "type": "string"
+        },
+        "verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "chain",
+        "entry_count",
+        "genesis_hash",
+        "head_hash",
+        "verified"
+      ],
+      "type": "object"
+    },
+    "entries": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "alpha": {
+            "type": "number"
+          },
+          "alpha_spent": {
+            "type": "number"
+          },
+          "anytime_p_value": {
+            "type": "number"
+          },
+          "candidate": {
+            "type": "boolean"
+          },
+          "chain": {
+            "type": "string"
+          },
+          "decision_time": {
+            "type": "string"
+          },
+          "discarded": {
+            "type": "boolean"
+          },
+          "e_value": {
+            "type": "number"
+          },
+          "eligible": {
+            "type": "boolean"
+          },
+          "entry_hash": {
+            "type": "string"
+          },
+          "evidence_hash": {
+            "type": "string"
+          },
+          "family_id": {
+            "type": "string"
+          },
+          "family_local_index": {
+            "type": "integer"
+          },
+          "family_target_fdr": {
+            "type": "number"
+          },
+          "global_hypothesis_sequence": {
+            "type": "integer"
+          },
+          "hypothesis_id": {
+            "type": "string"
+          },
+          "previous_hash": {
+            "type": "string"
+          },
+          "procedure": {
+            "type": "string"
+          },
+          "rejected": {
+            "type": "boolean"
+          },
+          "reward": {
+            "type": "number"
+          },
+          "sequence": {
+            "type": "integer"
+          },
+          "truth_label": {
+            "type": "string"
+          },
+          "wealth_after": {
+            "type": "number"
+          },
+          "wealth_before": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "alpha",
+          "alpha_spent",
+          "anytime_p_value",
+          "candidate",
+          "chain",
+          "decision_time",
+          "discarded",
+          "e_value",
+          "eligible",
+          "entry_hash",
+          "evidence_hash",
+          "family_id",
+          "family_local_index",
+          "family_target_fdr",
+          "global_hypothesis_sequence",
+          "hypothesis_id",
+          "previous_hash",
+          "procedure",
+          "rejected",
+          "reward",
+          "sequence",
+          "truth_label",
+          "wealth_after",
+          "wealth_before"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "entry_count": {
+      "type": "integer"
+    },
+    "family_count": {
+      "type": "integer"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "procedure": {
+      "type": "string"
+    },
+    "target_fdr": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "all_alpha_nonnegative",
+    "all_wealth_nonnegative",
+    "chain_verification",
+    "entries",
+    "entry_count",
+    "family_count",
+    "ledger_hash",
+    "ledger_id",
+    "phase",
+    "procedure",
+    "target_fdr"
+  ],
+  "title": "GOLDEN_ONLINE_FDR_WEALTH_LEDGER",
+  "type": "object"
+}

@@ -1,0 +1,28 @@
+{
+  "config_hash": "78f1dfa43296e17ddc0f685eb7ad5d95b68669874ee0e8fe6628ef6c8a65dcc5",
+  "deterministic": true,
+  "future_suffix_invariant": true,
+  "hypothesis_stream_hash": "345aa141201e13f398619a0bc2b1a086dbee93f16fd0eec2de939c9dcbf3c2ba",
+  "network_access": false,
+  "output_hashes": {
+    "anytime_evidence_registry": "d75ce077f824f88abe8856601e09f0ceebc4260c04652c17ed2b3c85bfc3ef62",
+    "authority_boundary": "648b48c6d129a94ddc8dff106c2065166430f0661d29675c4d4349180c93bfeb",
+    "certificate": "4dad30b82c4ffd6a07df451ac063d07732458a7ca76f50d84251409b04aa1626",
+    "challenger_comparison": "2e995bdb1950deec618ac2e0d958224cca3da99c2702e7a2c14181e0c44bcb2c",
+    "family_allocation": "a8d09e8cbfbce502fae8a256953ffe285599d31937f7f9f7913c0b5c59edc7d9",
+    "handoff": "9e891efbe92523c632ecabdd207e47c6b107fbe1b550b3fa679fbc2380100d85",
+    "known_time_review": "382ac2cb6a09b3d100096cbf607a98748d035266a9da40af13bd6aa4fdc92086",
+    "model_risk_review": "a9d491a8fcc1a3a4aaebc05a48ab97354786780db882fca645dbdeb8c2a822e3",
+    "online_fdr_audit": "74859e8294dd7da31d808e4ccdfdda2dfe8865e9fbcec01429c73c75fe275699",
+    "rejection_ledger": "71cb4fbd7c2e955fc45748b99805b8651c64e36ce7544f6e47be2ebde6dc10e7",
+    "security_review": "10e4fb170239e07d23b80ce5553ae650876e6e0b6567a1391355788c5644c126",
+    "stopping_rule_audit": "37c912c5b06f7707c27f6221f8cd30e12f53f4363adccf6aa66cf0e56104f70c",
+    "upstream_receipt": "1a187bc6e59e08621d8b277e4b7c029b352d43fe5c5e778e5ec8134cd1dbb399",
+    "wealth_ledger": "394ad4ebf2cd8fb8f8207d14d0d13746da3b3bc72654446f18a48c1dcf9286a0"
+  },
+  "phase": "SAED_V4_28",
+  "random_seed_required": false,
+  "replay_command": "python tools/strategy_factory/saed_v4_28/reproduce_saed_v4_28_golden.py",
+  "replay_hash": "ff94762c5cbd4036bd1df45c6d77a50495ee16dd7b8210a279c4bc0b8138f9fe",
+  "replay_id": "v428_replay_398ab9e2ad6f632320100676"
+}

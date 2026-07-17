@@ -1,0 +1,45 @@
+{
+  "allowed_next_work": [
+    "hidden_evaluation_air_gap_policy",
+    "sealed_evaluator_identity",
+    "one_shot_query_token",
+    "protected_dataset_custody",
+    "air_gap_transport_receipt",
+    "result_redaction_policy",
+    "evaluation_budget_zero_by_default",
+    "irreversible_query_commit"
+  ],
+  "authority": {
+    "decision": false,
+    "execution": false,
+    "hidden_evaluation_access": false,
+    "production": false,
+    "promotion": false,
+    "risk_allocation": false,
+    "runtime": false
+  },
+  "certificate_hash": "eb70719041cb2ef6968adbc1c5343ed84476dbd3a12e58250316db4dbdd3b153",
+  "certificate_id": "anytime_valid_online_fdr_certificate_2aefdaaef0f2bfb341647b85",
+  "entry_gates": {
+    "anytime_evidence_contract_frozen": true,
+    "online_fdr_reference_accepted": true,
+    "protected_evidence_access_zero": true,
+    "rejection_chain_verified": true,
+    "research_only": true,
+    "stopping_rules_verified": true,
+    "wealth_chain_verified": true
+  },
+  "forbidden_next_work": [
+    "promotion_authorization",
+    "runtime_compilation",
+    "risk_allocation",
+    "order_submission",
+    "online_policy_mutation",
+    "unsealed_hidden_evaluation_access"
+  ],
+  "handoff_hash": "bfe958a8decdec375994d091cec4b4993aba0d213a57ad78297e34d70a534b66",
+  "handoff_id": "v4_28_to_v4_29_a653cd7d320b05cb40a82fb1",
+  "next_phase": "SAED_V4_29",
+  "phase": "SAED_V4_28",
+  "research_only": true
+}

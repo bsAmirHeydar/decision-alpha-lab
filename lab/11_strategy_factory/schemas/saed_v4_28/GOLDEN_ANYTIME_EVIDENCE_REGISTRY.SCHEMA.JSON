@@ -1,0 +1,152 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_28/GOLDEN_ANYTIME_EVIDENCE_REGISTRY.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "anytime_p_process_required": {
+      "type": "boolean"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "e_process_supported": {
+      "type": "boolean"
+    },
+    "future_look_count_discarded": {
+      "type": "integer"
+    },
+    "future_suffix_invariant": {
+      "type": "boolean"
+    },
+    "known_time_enforced": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "quarantined_hypothesis_ids": {
+      "items": {},
+      "type": "array"
+    },
+    "record_count": {
+      "type": "integer"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "anytime_p_value": {
+            "type": "number"
+          },
+          "data_role": {
+            "type": "string"
+          },
+          "decision_time": {
+            "type": "string"
+          },
+          "e_value": {
+            "type": "number"
+          },
+          "eligible": {
+            "type": "boolean"
+          },
+          "evidence_hash": {
+            "type": "string"
+          },
+          "experiment_id": {
+            "type": "string"
+          },
+          "family_id": {
+            "type": "string"
+          },
+          "future_look_count": {
+            "type": "integer"
+          },
+          "future_suffix_ignored": {
+            "type": "boolean"
+          },
+          "hypothesis_id": {
+            "type": "string"
+          },
+          "known_look_count": {
+            "type": "integer"
+          },
+          "metric_name": {
+            "type": "string"
+          },
+          "record_hash": {
+            "type": "string"
+          },
+          "selected_known_at": {
+            "type": "string"
+          },
+          "selected_look_sequence": {
+            "type": "integer"
+          },
+          "sequence": {
+            "type": "integer"
+          },
+          "statistic": {
+            "type": "number"
+          },
+          "stopping_rule_id": {
+            "type": "string"
+          },
+          "trial_id": {
+            "type": "string"
+          },
+          "truth_label": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "anytime_p_value",
+          "data_role",
+          "decision_time",
+          "e_value",
+          "eligible",
+          "evidence_hash",
+          "experiment_id",
+          "family_id",
+          "future_look_count",
+          "future_suffix_ignored",
+          "hypothesis_id",
+          "known_look_count",
+          "metric_name",
+          "record_hash",
+          "selected_known_at",
+          "selected_look_sequence",
+          "sequence",
+          "statistic",
+          "stopping_rule_id",
+          "trial_id",
+          "truth_label"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "anytime_p_process_required",
+    "deterministic",
+    "e_process_supported",
+    "future_look_count_discarded",
+    "future_suffix_invariant",
+    "known_time_enforced",
+    "phase",
+    "quarantined_hypothesis_ids",
+    "record_count",
+    "records",
+    "registry_hash",
+    "registry_id"
+  ],
+  "title": "GOLDEN_ANYTIME_EVIDENCE_REGISTRY",
+  "type": "object"
+}

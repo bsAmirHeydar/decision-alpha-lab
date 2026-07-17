@@ -1,0 +1,13 @@
+---
+title: Every Reward Is Ledgered
+status: accepted-reference
+version: 1.0.0
+phase: SAED_V4_28
+tags: [saed-v4, v4-28, atomic-concept]
+---
+
+# Every Reward Is Ledgered
+
+**Invariant.** Every Reward Is Ledgered. This invariant is enforced in the V4-28 closed reference through known-time ordering, exact contracts, canonical hashes, deterministic replay, and explicit authority denial. A violation invalidates the local evidence bundle or forces a safe `skip`; it never creates a model-selection, runtime, risk, or execution entitlement.
+
+See [[V4_28_Anytime_Valid_Online_FDR]] and the next boundary [[V4_29_Hidden_Evaluation_Air_Gap]].

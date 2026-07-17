@@ -1,0 +1,116 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_28/GOLDEN_ONLINE_FDR_AUDIT.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "audit_hash": {
+      "type": "string"
+    },
+    "audit_id": {
+      "type": "string"
+    },
+    "false_discovery_count": {
+      "type": "integer"
+    },
+    "family_rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "empirical_fdp": {
+            "type": "number"
+          },
+          "false_discoveries": {
+            "type": "integer"
+          },
+          "family_id": {
+            "type": "string"
+          },
+          "rejections": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "empirical_fdp",
+          "false_discoveries",
+          "family_id",
+          "rejections"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "gates": {
+      "additionalProperties": false,
+      "properties": {
+        "alpha_nonnegative": {
+          "type": "boolean"
+        },
+        "rejection_chain_verified": {
+          "type": "boolean"
+        },
+        "rejection_requires_crossing": {
+          "type": "boolean"
+        },
+        "synthetic_empirical_fdp_within_target": {
+          "type": "boolean"
+        },
+        "wealth_chain_verified": {
+          "type": "boolean"
+        },
+        "wealth_nonnegative": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "alpha_nonnegative",
+        "rejection_chain_verified",
+        "rejection_requires_crossing",
+        "synthetic_empirical_fdp_within_target",
+        "wealth_chain_verified",
+        "wealth_nonnegative"
+      ],
+      "type": "object"
+    },
+    "hypothesis_count": {
+      "type": "integer"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "real_world_fdr_guarantee": {
+      "type": "boolean"
+    },
+    "rejection_count": {
+      "type": "integer"
+    },
+    "statistical_scope": {
+      "type": "string"
+    },
+    "synthetic_empirical_fdp": {
+      "type": "number"
+    },
+    "target_fdr": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "audit_hash",
+    "audit_id",
+    "false_discovery_count",
+    "family_rows",
+    "gates",
+    "hypothesis_count",
+    "passed",
+    "phase",
+    "real_world_fdr_guarantee",
+    "rejection_count",
+    "statistical_scope",
+    "synthetic_empirical_fdp",
+    "target_fdr"
+  ],
+  "title": "GOLDEN_ONLINE_FDR_AUDIT",
+  "type": "object"
+}

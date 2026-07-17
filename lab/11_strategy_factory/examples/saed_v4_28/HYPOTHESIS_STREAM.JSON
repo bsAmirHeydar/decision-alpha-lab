@@ -1,0 +1,1610 @@
+[
+  {
+    "actor_id": "actor_owner_01",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T14:12:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_fusion_ablation",
+    "family_id": "family_fusion_ablation",
+    "hypothesis_id": "hyp_001",
+    "looks": [
+      {
+        "anytime_p_value": 0.45,
+        "e_value": 1.0,
+        "evidence_hash": "0855b1ab1ab0b47574614ffcbf3284c186a79ad72c263bd511163b63fc61840d",
+        "known_at": "2026-01-05T14:10:00Z",
+        "look_sequence": 1,
+        "statistic": 0.1
+      },
+      {
+        "anytime_p_value": 0.33999999999999997,
+        "e_value": 1.1,
+        "evidence_hash": "19161e83f8ad3566477991a5d87bd65783b2dc1d66c4064390b4e5ef18227663",
+        "known_at": "2026-01-05T14:11:00Z",
+        "look_sequence": 2,
+        "statistic": 0.2
+      },
+      {
+        "anytime_p_value": 0.21,
+        "e_value": 1.25,
+        "evidence_hash": "ee729d9cc70aa5c215d92ff2af56b89bc3362cf915cf72fcc814b8fdd29bc1e0",
+        "known_at": "2026-01-05T14:12:00Z",
+        "look_sequence": 3,
+        "statistic": 0.3
+      }
+    ],
+    "manifest_hash": "7b956639862231f9ec767f4dbba6e978ef5bb5f9a642d4726dc53e7755c28ceb",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 1,
+    "stopping_rule_id": "stop_boundary_or_three",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_fusion_ablation_01",
+    "truth_label": "null"
+  },
+  {
+    "actor_id": "actor_owner_02",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T14:22:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_graph_regularization",
+    "family_id": "family_graph_regularization",
+    "hypothesis_id": "hyp_002",
+    "looks": [
+      {
+        "anytime_p_value": 0.5,
+        "e_value": 1.0,
+        "evidence_hash": "e9df540a12bbd365b54f1532c2a78ba5c75b8f156f8bb6b1a1a29306a71e012a",
+        "known_at": "2026-01-05T14:20:00Z",
+        "look_sequence": 1,
+        "statistic": 0.1
+      },
+      {
+        "anytime_p_value": 0.38,
+        "e_value": 1.1,
+        "evidence_hash": "e6c349625efa384c75dfc595d45e0759c5ad881ad63806a02d1a6a9cd6f3a55c",
+        "known_at": "2026-01-05T14:21:00Z",
+        "look_sequence": 2,
+        "statistic": 0.2
+      },
+      {
+        "anytime_p_value": 0.27,
+        "e_value": 1.25,
+        "evidence_hash": "5f3bdfd010de8c95e6995a7538d839c6c3d63adab60f774968c6b50422492130",
+        "known_at": "2026-01-05T14:22:00Z",
+        "look_sequence": 3,
+        "statistic": 0.3
+      }
+    ],
+    "manifest_hash": "db37868304a2269b02154508f99e78ca2c532c91bfd7f05401058cd69704b617",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 2,
+    "stopping_rule_id": "stop_evidence_budget",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_graph_regularization_01",
+    "truth_label": "null"
+  },
+  {
+    "actor_id": "actor_owner_03",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T14:32:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_mechanistic_checks",
+    "family_id": "family_mechanistic_checks",
+    "hypothesis_id": "hyp_003",
+    "looks": [
+      {
+        "anytime_p_value": 0.55,
+        "e_value": 1.0,
+        "evidence_hash": "13ae96c93257d58f09f1f837bc655d0fd7ea8c5690ac35a9caae9bd44059bb2f",
+        "known_at": "2026-01-05T14:30:00Z",
+        "look_sequence": 1,
+        "statistic": 0.1
+      },
+      {
+        "anytime_p_value": 0.42,
+        "e_value": 1.1,
+        "evidence_hash": "235982e2341c9c4f424f1a60d3298dbfc797dd18b275f26ea1017473b0023209",
+        "known_at": "2026-01-05T14:31:00Z",
+        "look_sequence": 2,
+        "statistic": 0.2
+      },
+      {
+        "anytime_p_value": 0.32999999999999996,
+        "e_value": 1.25,
+        "evidence_hash": "17aa3aa165cf05f9130024b42384baaeaa7cf22b30974113b2bdf8c1b2ee82dc",
+        "known_at": "2026-01-05T14:32:00Z",
+        "look_sequence": 3,
+        "statistic": 0.3
+      }
+    ],
+    "manifest_hash": "6b2001973d296671c24bc89619bf2d641001365ca7772784c6addfa73ef29899",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 3,
+    "stopping_rule_id": "stop_fixed_three_looks",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_mechanistic_checks_01",
+    "truth_label": "null"
+  },
+  {
+    "actor_id": "actor_owner_04",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T14:42:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_ood_selectivity",
+    "family_id": "family_ood_selectivity",
+    "hypothesis_id": "hyp_004",
+    "looks": [
+      {
+        "anytime_p_value": 0.6000000000000001,
+        "e_value": 1.0,
+        "evidence_hash": "231ee8825ed38d0c8aef33848ec22d912f5cbb9c461632d2e048be09f3de483c",
+        "known_at": "2026-01-05T14:40:00Z",
+        "look_sequence": 1,
+        "statistic": 0.1
+      },
+      {
+        "anytime_p_value": 0.45999999999999996,
+        "e_value": 1.1,
+        "evidence_hash": "c91ca21547939eecc5464ba7795eea5c7c98ebb39d75dd002700e040003bd69e",
+        "known_at": "2026-01-05T14:41:00Z",
+        "look_sequence": 2,
+        "statistic": 0.2
+      },
+      {
+        "anytime_p_value": 0.18,
+        "e_value": 1.25,
+        "evidence_hash": "67c4418e27d4f42634bd0efd5b60f096392a50c46e92f5fd7060307eba633041",
+        "known_at": "2026-01-05T14:42:00Z",
+        "look_sequence": 3,
+        "statistic": 0.3
+      }
+    ],
+    "manifest_hash": "01726edb6e79303eb75acf3b3dad5a492d9d0f2beb681258d4ef1c04300f10b1",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 4,
+    "stopping_rule_id": "stop_boundary_or_three",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_ood_selectivity_01",
+    "truth_label": "null"
+  },
+  {
+    "actor_id": "actor_owner_05",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T14:52:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_policy_value",
+    "family_id": "family_policy_value",
+    "hypothesis_id": "hyp_005",
+    "looks": [
+      {
+        "anytime_p_value": 0.65,
+        "e_value": 1.0,
+        "evidence_hash": "533c54796d6cbab6cfbecc57c8daa26b806011c7642ad6ffc48bd82975156682",
+        "known_at": "2026-01-05T14:50:00Z",
+        "look_sequence": 1,
+        "statistic": 0.1
+      },
+      {
+        "anytime_p_value": 0.3,
+        "e_value": 1.1,
+        "evidence_hash": "8c94e3b7d1e83631b5351be59bdfea8d691151f1527e660eec922f30ee5a409f",
+        "known_at": "2026-01-05T14:51:00Z",
+        "look_sequence": 2,
+        "statistic": 0.2
+      },
+      {
+        "anytime_p_value": 0.24,
+        "e_value": 1.25,
+        "evidence_hash": "684b44ea362b568e5c924e08387a63840c895d704994354ce66f9beedac8fb5c",
+        "known_at": "2026-01-05T14:52:00Z",
+        "look_sequence": 3,
+        "statistic": 0.3
+      }
+    ],
+    "manifest_hash": "e1381bf293037e82c83bb7f05ac26a80cb4d9f46d6e446e8bfaee9b663541e7b",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 5,
+    "stopping_rule_id": "stop_evidence_budget",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_policy_value_01",
+    "truth_label": "null"
+  },
+  {
+    "actor_id": "actor_owner_06",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T15:02:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_sequence_capacity",
+    "family_id": "family_sequence_capacity",
+    "hypothesis_id": "hyp_006",
+    "looks": [
+      {
+        "anytime_p_value": 0.4,
+        "e_value": 1.0,
+        "evidence_hash": "6490f4e853ade408a790c1e3529836d54966fa128f8b9baf9b02639ebd200346",
+        "known_at": "2026-01-05T15:00:00Z",
+        "look_sequence": 1,
+        "statistic": 0.1
+      },
+      {
+        "anytime_p_value": 0.33999999999999997,
+        "e_value": 1.1,
+        "evidence_hash": "2b96ef37162deeaf08598f60334dd1fcd2365425137bf6fe05310ccdd88bf51a",
+        "known_at": "2026-01-05T15:01:00Z",
+        "look_sequence": 2,
+        "statistic": 0.2
+      },
+      {
+        "anytime_p_value": 0.3,
+        "e_value": 1.25,
+        "evidence_hash": "44741a5e57681b48e945e15565178ebf650d71a82b6fdfd912254e88a299c8de",
+        "known_at": "2026-01-05T15:02:00Z",
+        "look_sequence": 3,
+        "statistic": 0.3
+      }
+    ],
+    "manifest_hash": "63c37e1d0fa93c23088d75c1cdfbc34d343451805261a7de83d239676bce8a25",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 6,
+    "stopping_rule_id": "stop_fixed_three_looks",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_sequence_capacity_01",
+    "truth_label": "null"
+  },
+  {
+    "actor_id": "actor_owner_01",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T15:12:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_fusion_ablation",
+    "family_id": "family_fusion_ablation",
+    "hypothesis_id": "hyp_007",
+    "looks": [
+      {
+        "anytime_p_value": 0.04,
+        "e_value": 2.0,
+        "evidence_hash": "aa1976b052c56a9dcf535f7bc595216dc9722cecf5801f0dd910c5f3e97532c1",
+        "known_at": "2026-01-05T15:10:00Z",
+        "look_sequence": 1,
+        "statistic": 0.8
+      },
+      {
+        "anytime_p_value": 0.004,
+        "e_value": 35.0,
+        "evidence_hash": "d16de10082fba5540aa36b630a0013b768ffdb0f20ff45e23d3ff93b5edae851",
+        "known_at": "2026-01-05T15:11:00Z",
+        "look_sequence": 2,
+        "statistic": 2.1
+      },
+      {
+        "anytime_p_value": 0.0004,
+        "e_value": 3200.0,
+        "evidence_hash": "4aa96555dab68fb0eb1b32c324a6f3c4ab7049f32069c5967d0802b70fadbc4b",
+        "known_at": "2026-01-05T15:12:00Z",
+        "look_sequence": 3,
+        "statistic": 4.8
+      },
+      {
+        "anytime_p_value": 1e-12,
+        "e_value": 1000000000000.0,
+        "evidence_hash": "001fb52d8b0ca55e2d955de21755ff835560638402cc700ce0ca82fbde11eb0a",
+        "known_at": "2026-01-05T16:12:30Z",
+        "look_sequence": 4,
+        "statistic": 99.0
+      }
+    ],
+    "manifest_hash": "85b4a8f87a9b5d873fd00bbfcbb5530d9d1c0c85327f3231fd268785f29c8a60",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 7,
+    "stopping_rule_id": "stop_evidence_budget",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_fusion_ablation_02",
+    "truth_label": "alternative"
+  },
+  {
+    "actor_id": "actor_owner_02",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T15:22:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_graph_regularization",
+    "family_id": "family_graph_regularization",
+    "hypothesis_id": "hyp_008",
+    "looks": [
+      {
+        "anytime_p_value": 0.04,
+        "e_value": 2.0,
+        "evidence_hash": "45ffea983a8c3dceba39616b84c087141aa9fcc20290916cdb1c815403adf08a",
+        "known_at": "2026-01-05T15:20:00Z",
+        "look_sequence": 1,
+        "statistic": 0.8
+      },
+      {
+        "anytime_p_value": 0.004,
+        "e_value": 35.0,
+        "evidence_hash": "0b5b38b1152d6252b9216309d9c9b3cd77859e62b20975a6e1f2ff4b99c0cf91",
+        "known_at": "2026-01-05T15:21:00Z",
+        "look_sequence": 2,
+        "statistic": 2.1
+      },
+      {
+        "anytime_p_value": 0.0004,
+        "e_value": 3200.0,
+        "evidence_hash": "65447ae1d171db2363f7837e9060dcec6019789c9a951766d064815e8c03e82b",
+        "known_at": "2026-01-05T15:22:00Z",
+        "look_sequence": 3,
+        "statistic": 4.8
+      }
+    ],
+    "manifest_hash": "34b078d535f2481feb326fd675fb4cbe8a63321602c3e5f6fc6cdc528edf50df",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 8,
+    "stopping_rule_id": "stop_fixed_three_looks",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_graph_regularization_02",
+    "truth_label": "alternative"
+  },
+  {
+    "actor_id": "actor_owner_03",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T15:32:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_mechanistic_checks",
+    "family_id": "family_mechanistic_checks",
+    "hypothesis_id": "hyp_009",
+    "looks": [
+      {
+        "anytime_p_value": 0.04,
+        "e_value": 2.0,
+        "evidence_hash": "ab83437fe673aa7bfd88e78dbebc487d0c7ecc934328a9ef2db6f24eca9a5511",
+        "known_at": "2026-01-05T15:30:00Z",
+        "look_sequence": 1,
+        "statistic": 0.8
+      },
+      {
+        "anytime_p_value": 0.004,
+        "e_value": 35.0,
+        "evidence_hash": "ed7b8fe07bf265fa7ad2cea17e6a8cb7bafaf151ff8a9e436ab3e513ef71195e",
+        "known_at": "2026-01-05T15:31:00Z",
+        "look_sequence": 2,
+        "statistic": 2.1
+      },
+      {
+        "anytime_p_value": 0.0004,
+        "e_value": 3200.0,
+        "evidence_hash": "c8de41868d6a8fa325f23b505429a07d42d0d3b093382677a4190689f71d35af",
+        "known_at": "2026-01-05T15:32:00Z",
+        "look_sequence": 3,
+        "statistic": 4.8
+      }
+    ],
+    "manifest_hash": "09c266b0b1496c96677fb115cedbc9fabf735cb9056fa3ee36f30fc4493d3df2",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 9,
+    "stopping_rule_id": "stop_boundary_or_three",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_mechanistic_checks_02",
+    "truth_label": "alternative"
+  },
+  {
+    "actor_id": "actor_owner_04",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T15:42:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_ood_selectivity",
+    "family_id": "family_ood_selectivity",
+    "hypothesis_id": "hyp_010",
+    "looks": [
+      {
+        "anytime_p_value": 0.04,
+        "e_value": 2.0,
+        "evidence_hash": "cf24c5b09ae6d638a04fd7492b8083722879de9845f63338cb3ae04898968927",
+        "known_at": "2026-01-05T15:40:00Z",
+        "look_sequence": 1,
+        "statistic": 0.8
+      },
+      {
+        "anytime_p_value": 0.004,
+        "e_value": 35.0,
+        "evidence_hash": "8824f328b2e29f2227e88a39cee49bf85938378d91201fbe1684055bc4c5c014",
+        "known_at": "2026-01-05T15:41:00Z",
+        "look_sequence": 2,
+        "statistic": 2.1
+      },
+      {
+        "anytime_p_value": 0.0004,
+        "e_value": 3200.0,
+        "evidence_hash": "08e10e726b9be5b24fb8fb0ce95135ef5b5f169da446059132e6b28f8cc10f33",
+        "known_at": "2026-01-05T15:42:00Z",
+        "look_sequence": 3,
+        "statistic": 4.8
+      }
+    ],
+    "manifest_hash": "8d8fdc0b8d5d79ea16c53019521c91815926f0034ddae597c027ea4895f941ae",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 10,
+    "stopping_rule_id": "stop_evidence_budget",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_ood_selectivity_02",
+    "truth_label": "alternative"
+  },
+  {
+    "actor_id": "actor_owner_05",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T15:52:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_policy_value",
+    "family_id": "family_policy_value",
+    "hypothesis_id": "hyp_011",
+    "looks": [
+      {
+        "anytime_p_value": 0.04,
+        "e_value": 2.0,
+        "evidence_hash": "d2af16312602ca2dc10c210a37df23273acd791cd0e86490196c4d9f5fcbff71",
+        "known_at": "2026-01-05T15:50:00Z",
+        "look_sequence": 1,
+        "statistic": 0.8
+      },
+      {
+        "anytime_p_value": 0.004,
+        "e_value": 35.0,
+        "evidence_hash": "b1167117a34cc58213f33015c67e1f69f66f9b83441cf6d32c6fc59ba143a98b",
+        "known_at": "2026-01-05T15:51:00Z",
+        "look_sequence": 2,
+        "statistic": 2.1
+      },
+      {
+        "anytime_p_value": 0.0004,
+        "e_value": 3200.0,
+        "evidence_hash": "68f97f79009c32e1c6301af3c1240346357e5b045c0a230d63509fec60cb7435",
+        "known_at": "2026-01-05T15:52:00Z",
+        "look_sequence": 3,
+        "statistic": 4.8
+      }
+    ],
+    "manifest_hash": "8e612aceb185542f5dff8c7f47aad484786d1ca9500f1ad9bc867487a54b2dbd",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 11,
+    "stopping_rule_id": "stop_fixed_three_looks",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_policy_value_02",
+    "truth_label": "alternative"
+  },
+  {
+    "actor_id": "actor_owner_06",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T16:02:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_sequence_capacity",
+    "family_id": "family_sequence_capacity",
+    "hypothesis_id": "hyp_012",
+    "looks": [
+      {
+        "anytime_p_value": 0.04,
+        "e_value": 2.0,
+        "evidence_hash": "8d01f1931770a11945a4c58d8fc70b76e7a7d49f1cb317a1163c74e5c04fecaf",
+        "known_at": "2026-01-05T16:00:00Z",
+        "look_sequence": 1,
+        "statistic": 0.8
+      },
+      {
+        "anytime_p_value": 0.004,
+        "e_value": 35.0,
+        "evidence_hash": "539b07db464134e4e871fe1a06e305786a109a286aa84fe80ab0584001291574",
+        "known_at": "2026-01-05T16:01:00Z",
+        "look_sequence": 2,
+        "statistic": 2.1
+      },
+      {
+        "anytime_p_value": 0.0004,
+        "e_value": 3200.0,
+        "evidence_hash": "8052ebfb1f7aa1e6d8f2520c5bdbb781c3cc4d8687371f6adcd19b77edd84e6b",
+        "known_at": "2026-01-05T16:02:00Z",
+        "look_sequence": 3,
+        "statistic": 4.8
+      }
+    ],
+    "manifest_hash": "bba407a4420f9b2bca5f426a54acf0a71db7e83fc4d5f1f7a673b60650130814",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 12,
+    "stopping_rule_id": "stop_boundary_or_three",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_sequence_capacity_02",
+    "truth_label": "alternative"
+  },
+  {
+    "actor_id": "actor_owner_01",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T16:12:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_fusion_ablation",
+    "family_id": "family_fusion_ablation",
+    "hypothesis_id": "hyp_013",
+    "looks": [
+      {
+        "anytime_p_value": 0.55,
+        "e_value": 1.0,
+        "evidence_hash": "efd8e668259c732e5fc1dfc4c8ea77907a352509e3ae2f301c621697633af4dc",
+        "known_at": "2026-01-05T16:10:00Z",
+        "look_sequence": 1,
+        "statistic": 0.1
+      },
+      {
+        "anytime_p_value": 0.42,
+        "e_value": 1.1,
+        "evidence_hash": "759cfde1ba9b48740be10e7ac477bc95a65de58d4e03ba6ceec0370d7b75be14",
+        "known_at": "2026-01-05T16:11:00Z",
+        "look_sequence": 2,
+        "statistic": 0.2
+      },
+      {
+        "anytime_p_value": 0.27,
+        "e_value": 1.25,
+        "evidence_hash": "34f15a643a0c48d5c7d9d7d3731e4630e11fb62a6cb494af0e9dbe4391d784dc",
+        "known_at": "2026-01-05T16:12:00Z",
+        "look_sequence": 3,
+        "statistic": 0.3
+      }
+    ],
+    "manifest_hash": "3b9bc5bb67c7cd732d332f815858f96bfb2c79c2e6a4aa3cc0a2adc19a367e1a",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 13,
+    "stopping_rule_id": "stop_fixed_three_looks",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_fusion_ablation_03",
+    "truth_label": "null"
+  },
+  {
+    "actor_id": "actor_owner_02",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T16:22:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_graph_regularization",
+    "family_id": "family_graph_regularization",
+    "hypothesis_id": "hyp_014",
+    "looks": [
+      {
+        "anytime_p_value": 0.6000000000000001,
+        "e_value": 1.0,
+        "evidence_hash": "f2c50ef196c02f6c0e42360b1e9c3820a44a63ee832ac69070fc85c7dca45b53",
+        "known_at": "2026-01-05T16:20:00Z",
+        "look_sequence": 1,
+        "statistic": 0.1
+      },
+      {
+        "anytime_p_value": 0.45999999999999996,
+        "e_value": 1.1,
+        "evidence_hash": "6ab19fa47da5085d63c0958646455523b0eeecc2c826946dab1f71951f76d477",
+        "known_at": "2026-01-05T16:21:00Z",
+        "look_sequence": 2,
+        "statistic": 0.2
+      },
+      {
+        "anytime_p_value": 0.32999999999999996,
+        "e_value": 1.25,
+        "evidence_hash": "1bdd129718c1e8503206980eeefdf52ba87fc5d982b1a5a473b5db412789a918",
+        "known_at": "2026-01-05T16:22:00Z",
+        "look_sequence": 3,
+        "statistic": 0.3
+      }
+    ],
+    "manifest_hash": "98c2e4e67cf7af42f93849251f67398f061b5596f1e14609f66bab546070eeb3",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 14,
+    "stopping_rule_id": "stop_boundary_or_three",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_graph_regularization_03",
+    "truth_label": "null"
+  },
+  {
+    "actor_id": "actor_owner_03",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T16:32:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_mechanistic_checks",
+    "family_id": "family_mechanistic_checks",
+    "hypothesis_id": "hyp_015",
+    "looks": [
+      {
+        "anytime_p_value": 0.65,
+        "e_value": 1.0,
+        "evidence_hash": "1458e72dd094b652cc28f97b98946060e08b1af09b7f2a2bc0197a927ac433cb",
+        "known_at": "2026-01-05T16:30:00Z",
+        "look_sequence": 1,
+        "statistic": 0.1
+      },
+      {
+        "anytime_p_value": 0.3,
+        "e_value": 1.1,
+        "evidence_hash": "5d87d865f76e91eefd421f549dd59ef38fde43dd688b03c28f30e6da7bfedced",
+        "known_at": "2026-01-05T16:31:00Z",
+        "look_sequence": 2,
+        "statistic": 0.2
+      },
+      {
+        "anytime_p_value": 0.18,
+        "e_value": 1.25,
+        "evidence_hash": "09612e941e4780ef35da84273d23562f5261432b9bfb553344d319c5a2ca9028",
+        "known_at": "2026-01-05T16:32:00Z",
+        "look_sequence": 3,
+        "statistic": 0.3
+      }
+    ],
+    "manifest_hash": "2696d23a7d9553383a3c8c39f94e47550c7aa3821af203008d9fd5755db21134",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 15,
+    "stopping_rule_id": "stop_evidence_budget",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_mechanistic_checks_03",
+    "truth_label": "null"
+  },
+  {
+    "actor_id": "actor_owner_04",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T16:42:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_ood_selectivity",
+    "family_id": "family_ood_selectivity",
+    "hypothesis_id": "hyp_016",
+    "looks": [
+      {
+        "anytime_p_value": 0.4,
+        "e_value": 1.0,
+        "evidence_hash": "7a9ffeec66529d68ee406ccf6117de3ae123cdce80e66c5f459cf9dc7ddba251",
+        "known_at": "2026-01-05T16:40:00Z",
+        "look_sequence": 1,
+        "statistic": 0.1
+      },
+      {
+        "anytime_p_value": 0.33999999999999997,
+        "e_value": 1.1,
+        "evidence_hash": "cfcddb3ac5df609a21714b67659957f91bbc9a6b30944a256d143150c1e56dde",
+        "known_at": "2026-01-05T16:41:00Z",
+        "look_sequence": 2,
+        "statistic": 0.2
+      },
+      {
+        "anytime_p_value": 0.24,
+        "e_value": 1.25,
+        "evidence_hash": "a863db6d21c504b07033fd8ad4e8a07174f761e496d856ae4fe8edc972a5ed20",
+        "known_at": "2026-01-05T16:42:00Z",
+        "look_sequence": 3,
+        "statistic": 0.3
+      }
+    ],
+    "manifest_hash": "9242943ec40ad923cf24d57f913f9476e8df42db42f4d4885d81713df93b3987",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 16,
+    "stopping_rule_id": "stop_fixed_three_looks",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_ood_selectivity_03",
+    "truth_label": "null"
+  },
+  {
+    "actor_id": "actor_owner_05",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T16:52:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_policy_value",
+    "family_id": "family_policy_value",
+    "hypothesis_id": "hyp_017",
+    "looks": [
+      {
+        "anytime_p_value": 0.45,
+        "e_value": 1.0,
+        "evidence_hash": "2b95c56c456ba2aecf908d69ef3b9a44e140fa13c3ffa68364c4639076e718c4",
+        "known_at": "2026-01-05T16:50:00Z",
+        "look_sequence": 1,
+        "statistic": 0.1
+      },
+      {
+        "anytime_p_value": 0.38,
+        "e_value": 1.1,
+        "evidence_hash": "7955041cba57243bdfd0d76cfde02d30a975bdf6350d8068353be4cbd831f894",
+        "known_at": "2026-01-05T16:51:00Z",
+        "look_sequence": 2,
+        "statistic": 0.2
+      },
+      {
+        "anytime_p_value": 0.3,
+        "e_value": 1.25,
+        "evidence_hash": "1a70cb9f697ae024c59cfbb1c64fa0487516a0cd8fd639e9151510e6dd87479b",
+        "known_at": "2026-01-05T16:52:00Z",
+        "look_sequence": 3,
+        "statistic": 0.3
+      }
+    ],
+    "manifest_hash": "fe822f8761fd93851c0d26ceef275840eb1e7830324b94bb056aa7eca7912a00",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 17,
+    "stopping_rule_id": "stop_boundary_or_three",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_policy_value_03",
+    "truth_label": "null"
+  },
+  {
+    "actor_id": "actor_owner_06",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T17:02:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_sequence_capacity",
+    "family_id": "family_sequence_capacity",
+    "hypothesis_id": "hyp_018",
+    "looks": [
+      {
+        "anytime_p_value": 0.5,
+        "e_value": 1.0,
+        "evidence_hash": "02cf1663af39c369742cf2e9fbe73f74c826fa699129929c46b1af18b5823b02",
+        "known_at": "2026-01-05T17:00:00Z",
+        "look_sequence": 1,
+        "statistic": 0.1
+      },
+      {
+        "anytime_p_value": 0.42,
+        "e_value": 1.1,
+        "evidence_hash": "4e24338e88321d43e6d5aa964bcf718d112995dc46dcd752b534895114329d19",
+        "known_at": "2026-01-05T17:01:00Z",
+        "look_sequence": 2,
+        "statistic": 0.2
+      },
+      {
+        "anytime_p_value": 0.36,
+        "e_value": 1.25,
+        "evidence_hash": "3ce53692946955ae8ab389f425e7434a73e1e1f1671ddda781e461eb97d66f07",
+        "known_at": "2026-01-05T17:02:00Z",
+        "look_sequence": 3,
+        "statistic": 0.3
+      }
+    ],
+    "manifest_hash": "a6f4aaee7db19b01c47b7d7cc5a9ce7fb5225bf7498a6b520d5c5a09842c2600",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 18,
+    "stopping_rule_id": "stop_evidence_budget",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_sequence_capacity_03",
+    "truth_label": "null"
+  },
+  {
+    "actor_id": "actor_owner_01",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T17:12:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_fusion_ablation",
+    "family_id": "family_fusion_ablation",
+    "hypothesis_id": "hyp_019",
+    "looks": [
+      {
+        "anytime_p_value": 0.6000000000000001,
+        "e_value": 1.0,
+        "evidence_hash": "6eb47df6faaf11491c92c7409334c6f9750d305166007d9d41ecb0de4e27b325",
+        "known_at": "2026-01-05T17:10:00Z",
+        "look_sequence": 1,
+        "statistic": 0.1
+      },
+      {
+        "anytime_p_value": 0.45999999999999996,
+        "e_value": 1.1,
+        "evidence_hash": "702450a66dd9ef62135c3c7094e539b1c759c0202d880e51e0d685833d202692",
+        "known_at": "2026-01-05T17:11:00Z",
+        "look_sequence": 2,
+        "statistic": 0.2
+      },
+      {
+        "anytime_p_value": 0.3,
+        "e_value": 1.25,
+        "evidence_hash": "4592cba8698e1a97b4fb858a4400256aad4a324b20fead49e2bbd4176ce67ad4",
+        "known_at": "2026-01-05T17:12:00Z",
+        "look_sequence": 3,
+        "statistic": 0.3
+      },
+      {
+        "anytime_p_value": 1e-12,
+        "e_value": 1000000000000.0,
+        "evidence_hash": "1e27ea8f0355d44296c2180c62ab5cd4b73c1995ff57fd35f6c97f07af35895b",
+        "known_at": "2026-01-05T18:12:30Z",
+        "look_sequence": 4,
+        "statistic": 99.0
+      }
+    ],
+    "manifest_hash": "e4442e8974b9be7dc2574ce36a6c70cda40b6152e7e929d745ff6ae87137c42b",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 19,
+    "stopping_rule_id": "stop_boundary_or_three",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_fusion_ablation_04",
+    "truth_label": "null"
+  },
+  {
+    "actor_id": "actor_owner_02",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T17:22:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_graph_regularization",
+    "family_id": "family_graph_regularization",
+    "hypothesis_id": "hyp_020",
+    "looks": [
+      {
+        "anytime_p_value": 0.65,
+        "e_value": 1.0,
+        "evidence_hash": "bcaaeed77592ca90a5490417374e325a8821333529007b1c76c0c7dc8e276851",
+        "known_at": "2026-01-05T17:20:00Z",
+        "look_sequence": 1,
+        "statistic": 0.1
+      },
+      {
+        "anytime_p_value": 0.3,
+        "e_value": 1.1,
+        "evidence_hash": "7e0b67874f5c7784046e4b04da3b1a681ba6e187604e671b484fc2be2fd0a4e0",
+        "known_at": "2026-01-05T17:21:00Z",
+        "look_sequence": 2,
+        "statistic": 0.2
+      },
+      {
+        "anytime_p_value": 0.3,
+        "e_value": 1.25,
+        "evidence_hash": "b29eb25b3b3e79d7825b43643822e26911173353c5a990bb72a936834629f11d",
+        "known_at": "2026-01-05T17:22:00Z",
+        "look_sequence": 3,
+        "statistic": 0.3
+      }
+    ],
+    "manifest_hash": "681dfd73c0b0ff42733d4f82792a14bd9523081565834e548337bbc17b96801c",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 20,
+    "stopping_rule_id": "stop_evidence_budget",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_graph_regularization_04",
+    "truth_label": "null"
+  },
+  {
+    "actor_id": "actor_owner_03",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T17:32:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_mechanistic_checks",
+    "family_id": "family_mechanistic_checks",
+    "hypothesis_id": "hyp_021",
+    "looks": [
+      {
+        "anytime_p_value": 0.4,
+        "e_value": 1.0,
+        "evidence_hash": "5dcff1a9f1baadd68dd71a871a5dcea419427b33f4c452c47244850586ee4c10",
+        "known_at": "2026-01-05T17:30:00Z",
+        "look_sequence": 1,
+        "statistic": 0.1
+      },
+      {
+        "anytime_p_value": 0.33999999999999997,
+        "e_value": 1.1,
+        "evidence_hash": "72619ec0baab1372a9b2b399337f05101181be3f029fc68658245fae5a56ea7c",
+        "known_at": "2026-01-05T17:31:00Z",
+        "look_sequence": 2,
+        "statistic": 0.2
+      },
+      {
+        "anytime_p_value": 0.21,
+        "e_value": 1.25,
+        "evidence_hash": "d75ddb2ebb02a2cdfda66fd7b024aaf7c7aee9c121b60737bffeffc0636af223",
+        "known_at": "2026-01-05T17:32:00Z",
+        "look_sequence": 3,
+        "statistic": 0.3
+      }
+    ],
+    "manifest_hash": "610420a3cb594913c46f2c8f15859d27c45ed63d1e039644bc86b0efdd855b53",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 21,
+    "stopping_rule_id": "stop_fixed_three_looks",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_mechanistic_checks_04",
+    "truth_label": "null"
+  },
+  {
+    "actor_id": "actor_owner_04",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T17:42:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_ood_selectivity",
+    "family_id": "family_ood_selectivity",
+    "hypothesis_id": "hyp_022",
+    "looks": [
+      {
+        "anytime_p_value": 0.45,
+        "e_value": 1.0,
+        "evidence_hash": "7b4a73f120f9d1411ce19aac5f02c4932bf3613adb298ec972e75822a2ccfe4d",
+        "known_at": "2026-01-05T17:40:00Z",
+        "look_sequence": 1,
+        "statistic": 0.1
+      },
+      {
+        "anytime_p_value": 0.38,
+        "e_value": 1.1,
+        "evidence_hash": "6303d0f0bd5487e05723665d0c790ca85defa3db82058d5e6cf358d693e4bf0b",
+        "known_at": "2026-01-05T17:41:00Z",
+        "look_sequence": 2,
+        "statistic": 0.2
+      },
+      {
+        "anytime_p_value": 0.27,
+        "e_value": 1.25,
+        "evidence_hash": "52a17e35c2d16eb9bd5780ad340197a7d61fa576a8a8e2425e61870a5b53cfea",
+        "known_at": "2026-01-05T17:42:00Z",
+        "look_sequence": 3,
+        "statistic": 0.3
+      }
+    ],
+    "manifest_hash": "8911185d53b57aefefee32716c2cab9917cff4e048676afc40dd973dc0a88833",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 22,
+    "stopping_rule_id": "stop_boundary_or_three",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_ood_selectivity_04",
+    "truth_label": "null"
+  },
+  {
+    "actor_id": "actor_owner_05",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T17:52:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_policy_value",
+    "family_id": "family_policy_value",
+    "hypothesis_id": "hyp_023",
+    "looks": [
+      {
+        "anytime_p_value": 0.5,
+        "e_value": 1.0,
+        "evidence_hash": "5dec10e47efb268ae6b351c5c633508be0bdda19a30de36af3f6f096b18ecde5",
+        "known_at": "2026-01-05T17:50:00Z",
+        "look_sequence": 1,
+        "statistic": 0.1
+      },
+      {
+        "anytime_p_value": 0.42,
+        "e_value": 1.1,
+        "evidence_hash": "23715047010c8d0e786f56bff8eed836ddf5f34cd7f55f0c0f81533f8f23104d",
+        "known_at": "2026-01-05T17:51:00Z",
+        "look_sequence": 2,
+        "statistic": 0.2
+      },
+      {
+        "anytime_p_value": 0.32999999999999996,
+        "e_value": 1.25,
+        "evidence_hash": "dfdb1c61fc1610c07fdf61af5cf3a6a5e35fec370cdca13ebb6b6690e5a4865c",
+        "known_at": "2026-01-05T17:52:00Z",
+        "look_sequence": 3,
+        "statistic": 0.3
+      }
+    ],
+    "manifest_hash": "331e0dc88641274d0a8d160bc5280dc13345fab921fbd65fd4e0c985959ec56d",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 23,
+    "stopping_rule_id": "stop_evidence_budget",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_policy_value_04",
+    "truth_label": "null"
+  },
+  {
+    "actor_id": "actor_owner_06",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T18:02:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_sequence_capacity",
+    "family_id": "family_sequence_capacity",
+    "hypothesis_id": "hyp_024",
+    "looks": [
+      {
+        "anytime_p_value": 0.55,
+        "e_value": 1.0,
+        "evidence_hash": "56f5ea8d9a85f9dfa8a5a6bc8cb26faf317118edbe700fdea39b070417340c8f",
+        "known_at": "2026-01-05T18:00:00Z",
+        "look_sequence": 1,
+        "statistic": 0.1
+      },
+      {
+        "anytime_p_value": 0.45999999999999996,
+        "e_value": 1.1,
+        "evidence_hash": "443245efa5743cb06c8b69e0ede56f221d75cd46745fe2c0337d121b5b9068a5",
+        "known_at": "2026-01-05T18:01:00Z",
+        "look_sequence": 2,
+        "statistic": 0.2
+      },
+      {
+        "anytime_p_value": 0.18,
+        "e_value": 1.25,
+        "evidence_hash": "086cf5a580af44e984cd1ea0dc650084885f9f9e0f86dc114ee8ac352a95abdd",
+        "known_at": "2026-01-05T18:02:00Z",
+        "look_sequence": 3,
+        "statistic": 0.3
+      }
+    ],
+    "manifest_hash": "e266c29cfb19a2c1a3ed3fc07b0c667afe11da175bb3a770abc4e3679ddbcbe2",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 24,
+    "stopping_rule_id": "stop_fixed_three_looks",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_sequence_capacity_04",
+    "truth_label": "null"
+  },
+  {
+    "actor_id": "actor_owner_01",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T18:12:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_fusion_ablation",
+    "family_id": "family_fusion_ablation",
+    "hypothesis_id": "hyp_025",
+    "looks": [
+      {
+        "anytime_p_value": 0.04,
+        "e_value": 2.0,
+        "evidence_hash": "5af1551961a01a1f65f71cef40649da27ca35883fa5f2976586d3417a1578ddb",
+        "known_at": "2026-01-05T18:10:00Z",
+        "look_sequence": 1,
+        "statistic": 0.8
+      },
+      {
+        "anytime_p_value": 0.004,
+        "e_value": 35.0,
+        "evidence_hash": "bc05236714297e48ecf50273a4f0e61ca4a8e3e5f0a15cabf06b39649214955b",
+        "known_at": "2026-01-05T18:11:00Z",
+        "look_sequence": 2,
+        "statistic": 2.1
+      },
+      {
+        "anytime_p_value": 0.0008,
+        "e_value": 1800.0,
+        "evidence_hash": "6e0fad28e427d6f375e3c5709d4fc0c2e3ade58812bc92626f674588cc63a115",
+        "known_at": "2026-01-05T18:12:00Z",
+        "look_sequence": 3,
+        "statistic": 4.8
+      }
+    ],
+    "manifest_hash": "d7fdd1c83f87735fbacae70e5554e331986a8b38a6f17bda75c6fa67076e0521",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 25,
+    "stopping_rule_id": "stop_evidence_budget",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_fusion_ablation_05",
+    "truth_label": "alternative"
+  },
+  {
+    "actor_id": "actor_owner_02",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T18:22:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_graph_regularization",
+    "family_id": "family_graph_regularization",
+    "hypothesis_id": "hyp_026",
+    "looks": [
+      {
+        "anytime_p_value": 0.04,
+        "e_value": 2.0,
+        "evidence_hash": "59122224cb815a815ff53196f0abdebf19cd6fda08782e72f8efe010765d6f65",
+        "known_at": "2026-01-05T18:20:00Z",
+        "look_sequence": 1,
+        "statistic": 0.8
+      },
+      {
+        "anytime_p_value": 0.004,
+        "e_value": 35.0,
+        "evidence_hash": "c31ae4a7cba048da67136368b0ab3c052639246634253fc5899da28272129d85",
+        "known_at": "2026-01-05T18:21:00Z",
+        "look_sequence": 2,
+        "statistic": 2.1
+      },
+      {
+        "anytime_p_value": 0.0008,
+        "e_value": 1800.0,
+        "evidence_hash": "a527210c14415efcc1cb324ac82657cb32bdd03900f094569d02e7a0b0a111d3",
+        "known_at": "2026-01-05T18:22:00Z",
+        "look_sequence": 3,
+        "statistic": 4.8
+      }
+    ],
+    "manifest_hash": "0ae7b5d9113956db3e11a80c1e30963db332e6770b361e77f42f7ea25e22a73d",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 26,
+    "stopping_rule_id": "stop_fixed_three_looks",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_graph_regularization_05",
+    "truth_label": "alternative"
+  },
+  {
+    "actor_id": "actor_owner_03",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T18:32:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_mechanistic_checks",
+    "family_id": "family_mechanistic_checks",
+    "hypothesis_id": "hyp_027",
+    "looks": [
+      {
+        "anytime_p_value": 0.04,
+        "e_value": 2.0,
+        "evidence_hash": "a9085c6737f50fe15dead75259628431ef3fe2fc9dca434c0c2b96c849d0a80c",
+        "known_at": "2026-01-05T18:30:00Z",
+        "look_sequence": 1,
+        "statistic": 0.8
+      },
+      {
+        "anytime_p_value": 0.004,
+        "e_value": 35.0,
+        "evidence_hash": "72aecffe3cf4151d93f226c86bb5319535bdcf7d9dac6d8bad0cac85f3531f94",
+        "known_at": "2026-01-05T18:31:00Z",
+        "look_sequence": 2,
+        "statistic": 2.1
+      },
+      {
+        "anytime_p_value": 0.0008,
+        "e_value": 1800.0,
+        "evidence_hash": "a27639915aee2a45322d83f7fead7fc58231b7c3cd9108082784d3882099ac9d",
+        "known_at": "2026-01-05T18:32:00Z",
+        "look_sequence": 3,
+        "statistic": 4.8
+      }
+    ],
+    "manifest_hash": "dc691a3f546baa5c9d2a4a908780eb28db740a0a8c2f953ab01c5d43a1f13a1b",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 27,
+    "stopping_rule_id": "stop_boundary_or_three",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_mechanistic_checks_05",
+    "truth_label": "alternative"
+  },
+  {
+    "actor_id": "actor_owner_04",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T18:42:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_ood_selectivity",
+    "family_id": "family_ood_selectivity",
+    "hypothesis_id": "hyp_028",
+    "looks": [
+      {
+        "anytime_p_value": 0.04,
+        "e_value": 2.0,
+        "evidence_hash": "ebef00d6cafd124d2ba3c73f01a9607dbc6ef2a7590dd3ec50532d6113872af7",
+        "known_at": "2026-01-05T18:40:00Z",
+        "look_sequence": 1,
+        "statistic": 0.8
+      },
+      {
+        "anytime_p_value": 0.004,
+        "e_value": 35.0,
+        "evidence_hash": "f50c863e709cc6148a480937e796bffcea4c4f71b02992cdfa326b1990ca34b7",
+        "known_at": "2026-01-05T18:41:00Z",
+        "look_sequence": 2,
+        "statistic": 2.1
+      },
+      {
+        "anytime_p_value": 0.0008,
+        "e_value": 1800.0,
+        "evidence_hash": "b37e51458de47d286e075945323a9fa675592cd18697a12465a203661efc66d4",
+        "known_at": "2026-01-05T18:42:00Z",
+        "look_sequence": 3,
+        "statistic": 4.8
+      }
+    ],
+    "manifest_hash": "58740b721acfd481cf5f5918dc147cdeee56f65648341ba49c6e6fab18514eda",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 28,
+    "stopping_rule_id": "stop_evidence_budget",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_ood_selectivity_05",
+    "truth_label": "alternative"
+  },
+  {
+    "actor_id": "actor_owner_05",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T18:52:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_policy_value",
+    "family_id": "family_policy_value",
+    "hypothesis_id": "hyp_029",
+    "looks": [
+      {
+        "anytime_p_value": 0.04,
+        "e_value": 2.0,
+        "evidence_hash": "9f340717fa1493ef12033835867f31675a5bc6cf41d44c95b6c7db5b57af3cda",
+        "known_at": "2026-01-05T18:50:00Z",
+        "look_sequence": 1,
+        "statistic": 0.8
+      },
+      {
+        "anytime_p_value": 0.004,
+        "e_value": 35.0,
+        "evidence_hash": "39f69c743c02f6b2b9b0675b3370ebfb9d70c4ee342afb6c183adcb68752264a",
+        "known_at": "2026-01-05T18:51:00Z",
+        "look_sequence": 2,
+        "statistic": 2.1
+      },
+      {
+        "anytime_p_value": 0.0008,
+        "e_value": 1800.0,
+        "evidence_hash": "a14675afeca30ed9f84eea30f907c9fe1105e9a6ddb75a02bc9d5eb10aac138e",
+        "known_at": "2026-01-05T18:52:00Z",
+        "look_sequence": 3,
+        "statistic": 4.8
+      }
+    ],
+    "manifest_hash": "24e6e45773463bd7dd675920efa8d17795673129a8d7737d1c6887f941d1ed4b",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 29,
+    "stopping_rule_id": "stop_fixed_three_looks",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_policy_value_05",
+    "truth_label": "alternative"
+  },
+  {
+    "actor_id": "actor_owner_06",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T19:02:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_sequence_capacity",
+    "family_id": "family_sequence_capacity",
+    "hypothesis_id": "hyp_030",
+    "looks": [
+      {
+        "anytime_p_value": 0.04,
+        "e_value": 2.0,
+        "evidence_hash": "1c3db988a13a89acd2e6af1d4d6d578434cbddeaab8c2f29af10a91d2a1f798f",
+        "known_at": "2026-01-05T19:00:00Z",
+        "look_sequence": 1,
+        "statistic": 0.8
+      },
+      {
+        "anytime_p_value": 0.004,
+        "e_value": 35.0,
+        "evidence_hash": "1e6b58bd3920ba87f47277a5dceb104ae15553626a6d01dfba38df33ebe01074",
+        "known_at": "2026-01-05T19:01:00Z",
+        "look_sequence": 2,
+        "statistic": 2.1
+      },
+      {
+        "anytime_p_value": 0.0008,
+        "e_value": 1800.0,
+        "evidence_hash": "e7439625ba0f7360e4e40ce5f315569cdebdeefad5627521fdfd85d96f950010",
+        "known_at": "2026-01-05T19:02:00Z",
+        "look_sequence": 3,
+        "statistic": 4.8
+      }
+    ],
+    "manifest_hash": "a8e7050ca481a6ef48b1594047b0fc43a8ec9bfbe584c92817da5a85bae350ef",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 30,
+    "stopping_rule_id": "stop_boundary_or_three",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_sequence_capacity_05",
+    "truth_label": "alternative"
+  },
+  {
+    "actor_id": "actor_owner_01",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T19:12:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_fusion_ablation",
+    "family_id": "family_fusion_ablation",
+    "hypothesis_id": "hyp_031",
+    "looks": [
+      {
+        "anytime_p_value": 0.4,
+        "e_value": 1.0,
+        "evidence_hash": "875efdc4f94573897905676f0cca718c3f4020d4816d218bd907676a0965e3f1",
+        "known_at": "2026-01-05T19:10:00Z",
+        "look_sequence": 1,
+        "statistic": 0.1
+      },
+      {
+        "anytime_p_value": 0.33999999999999997,
+        "e_value": 1.1,
+        "evidence_hash": "26f80121e85e05e6343f2e77a60536eb62817fdb0278ac2738b0e362fae6d0c4",
+        "known_at": "2026-01-05T19:11:00Z",
+        "look_sequence": 2,
+        "statistic": 0.2
+      },
+      {
+        "anytime_p_value": 0.33999999999999997,
+        "e_value": 1.25,
+        "evidence_hash": "854c184de7006ae01d8d037c6d757676858b2f166f3fe0c622719938447d560d",
+        "known_at": "2026-01-05T19:12:00Z",
+        "look_sequence": 3,
+        "statistic": 0.3
+      },
+      {
+        "anytime_p_value": 1e-12,
+        "e_value": 1000000000000.0,
+        "evidence_hash": "c75575aa82f53346579de5966c2d5bf950a2a98b77c4ed69402a41bc1529e74a",
+        "known_at": "2026-01-05T20:12:30Z",
+        "look_sequence": 4,
+        "statistic": 99.0
+      }
+    ],
+    "manifest_hash": "de917faaac802fc9e59bc63a0572b318d6d6713c0e2673d835b55602f4df4c58",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 31,
+    "stopping_rule_id": "stop_fixed_three_looks",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_fusion_ablation_06",
+    "truth_label": "null"
+  },
+  {
+    "actor_id": "actor_owner_02",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T19:22:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_graph_regularization",
+    "family_id": "family_graph_regularization",
+    "hypothesis_id": "hyp_032",
+    "looks": [
+      {
+        "anytime_p_value": 0.45,
+        "e_value": 1.0,
+        "evidence_hash": "f4aed091e779ecd682d908007ffc4100d3b85e02ddc34593d019ab7e88c527a9",
+        "known_at": "2026-01-05T19:20:00Z",
+        "look_sequence": 1,
+        "statistic": 0.1
+      },
+      {
+        "anytime_p_value": 0.38,
+        "e_value": 1.1,
+        "evidence_hash": "46c2dccfc976207722936886816fce5ad13e552aebb79b1297b0729a82505289",
+        "known_at": "2026-01-05T19:21:00Z",
+        "look_sequence": 2,
+        "statistic": 0.2
+      },
+      {
+        "anytime_p_value": 0.21,
+        "e_value": 1.25,
+        "evidence_hash": "2eaf010d1249ee25805b858398ce5a4a596d1658d823b500f5243cdce633c680",
+        "known_at": "2026-01-05T19:22:00Z",
+        "look_sequence": 3,
+        "statistic": 0.3
+      }
+    ],
+    "manifest_hash": "c4bdd046d33e573f05667f4f2a9444ed989f6fe4e865526a4e7b9a7f87b7349a",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 32,
+    "stopping_rule_id": "stop_boundary_or_three",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_graph_regularization_06",
+    "truth_label": "null"
+  },
+  {
+    "actor_id": "actor_owner_03",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T19:32:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_mechanistic_checks",
+    "family_id": "family_mechanistic_checks",
+    "hypothesis_id": "hyp_033",
+    "looks": [
+      {
+        "anytime_p_value": 0.5,
+        "e_value": 1.0,
+        "evidence_hash": "29e671a47e1ef8da8812fdd0c31be408c53edaa78a3cb6d2f1199123d5d74fd8",
+        "known_at": "2026-01-05T19:30:00Z",
+        "look_sequence": 1,
+        "statistic": 0.1
+      },
+      {
+        "anytime_p_value": 0.42,
+        "e_value": 1.1,
+        "evidence_hash": "474948374094b5736bb612a119de36bbe3de7462ded5c146cbd6ba860651aca4",
+        "known_at": "2026-01-05T19:31:00Z",
+        "look_sequence": 2,
+        "statistic": 0.2
+      },
+      {
+        "anytime_p_value": 0.27,
+        "e_value": 1.25,
+        "evidence_hash": "ce54adb69ac88c0895599cfaeda528c94298edb53b2c7442ae0f566a151522d2",
+        "known_at": "2026-01-05T19:32:00Z",
+        "look_sequence": 3,
+        "statistic": 0.3
+      }
+    ],
+    "manifest_hash": "4835312f3bd90a7aa619e2df7d28b22065770190408b5a047f689392b7f1c044",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 33,
+    "stopping_rule_id": "stop_evidence_budget",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_mechanistic_checks_06",
+    "truth_label": "null"
+  },
+  {
+    "actor_id": "actor_owner_04",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T19:42:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_ood_selectivity",
+    "family_id": "family_ood_selectivity",
+    "hypothesis_id": "hyp_034",
+    "looks": [
+      {
+        "anytime_p_value": 0.55,
+        "e_value": 1.0,
+        "evidence_hash": "e4adc2049c9e3aeeda7fb02b162b726df35f94d22d6b5ab6abe40574f605081e",
+        "known_at": "2026-01-05T19:40:00Z",
+        "look_sequence": 1,
+        "statistic": 0.1
+      },
+      {
+        "anytime_p_value": 0.45999999999999996,
+        "e_value": 1.1,
+        "evidence_hash": "f01f3c1f4c11e1057f89d88f9ce087a92a3de7fe5a453edd0d824e619c5fe7b3",
+        "known_at": "2026-01-05T19:41:00Z",
+        "look_sequence": 2,
+        "statistic": 0.2
+      },
+      {
+        "anytime_p_value": 0.32999999999999996,
+        "e_value": 1.25,
+        "evidence_hash": "4a22017862af434af9bf09212ce01b499b0bdf6e6185c136a75a8d3c77ef36eb",
+        "known_at": "2026-01-05T19:42:00Z",
+        "look_sequence": 3,
+        "statistic": 0.3
+      }
+    ],
+    "manifest_hash": "3dd7f02c58f971d278b82678791d2a28871de7c331e78e639302a61c5eddb429",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 34,
+    "stopping_rule_id": "stop_fixed_three_looks",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_ood_selectivity_06",
+    "truth_label": "null"
+  },
+  {
+    "actor_id": "actor_owner_05",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T19:52:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_policy_value",
+    "family_id": "family_policy_value",
+    "hypothesis_id": "hyp_035",
+    "looks": [
+      {
+        "anytime_p_value": 0.6000000000000001,
+        "e_value": 1.0,
+        "evidence_hash": "b166e49ebd93ce3fac2bcb02065d22dafc34f0234f21155387bf983ec99d70a8",
+        "known_at": "2026-01-05T19:50:00Z",
+        "look_sequence": 1,
+        "statistic": 0.1
+      },
+      {
+        "anytime_p_value": 0.3,
+        "e_value": 1.1,
+        "evidence_hash": "fb26b2713a886a0787483ae7a8b78eeb31ecd79bcd25ee71f98509cf07b01b10",
+        "known_at": "2026-01-05T19:51:00Z",
+        "look_sequence": 2,
+        "statistic": 0.2
+      },
+      {
+        "anytime_p_value": 0.18,
+        "e_value": 1.25,
+        "evidence_hash": "6dda10752597650c1f64888e0222a78db2890b51c9ff302e80e07d67e597845c",
+        "known_at": "2026-01-05T19:52:00Z",
+        "look_sequence": 3,
+        "statistic": 0.3
+      }
+    ],
+    "manifest_hash": "4130da4df4abbc1b2a4ec089ff59e496dcacedb14d035ed7251b41f29258df76",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 35,
+    "stopping_rule_id": "stop_boundary_or_three",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_policy_value_06",
+    "truth_label": "null"
+  },
+  {
+    "actor_id": "actor_owner_06",
+    "data_role": "synthetic",
+    "decision_time": "2026-01-05T20:02:30Z",
+    "direction": "greater",
+    "eligible": true,
+    "experiment_id": "exp_family_sequence_capacity",
+    "family_id": "family_sequence_capacity",
+    "hypothesis_id": "hyp_036",
+    "looks": [
+      {
+        "anytime_p_value": 0.65,
+        "e_value": 1.0,
+        "evidence_hash": "d2cb0436ce265da20e3958a14ff8cf5966a0365479d7ad7faa9376740e9ced71",
+        "known_at": "2026-01-05T20:00:00Z",
+        "look_sequence": 1,
+        "statistic": 0.1
+      },
+      {
+        "anytime_p_value": 0.33999999999999997,
+        "e_value": 1.1,
+        "evidence_hash": "4ae71efbd25ed45a9e3e4b71f1de25bd2778ee56a4d7247c6577fbc1db5717be",
+        "known_at": "2026-01-05T20:01:00Z",
+        "look_sequence": 2,
+        "statistic": 0.2
+      },
+      {
+        "anytime_p_value": 0.24,
+        "e_value": 1.25,
+        "evidence_hash": "9ce54d0d8b6b9cdff4c2f5014f50c8ee5ddae88fce71a869a6998a1c16837d37",
+        "known_at": "2026-01-05T20:02:00Z",
+        "look_sequence": 3,
+        "statistic": 0.3
+      }
+    ],
+    "manifest_hash": "d20863dfc46336f75f23c44f169b8dd7e42f5c2330d84888a665de888f79dc9a",
+    "metric_name": "synthetic_anytime_metric",
+    "null_boundary": 0.0,
+    "sequence": 36,
+    "stopping_rule_id": "stop_evidence_budget",
+    "synthetic_fixture": true,
+    "trial_id": "trial_family_sequence_capacity_06",
+    "truth_label": "null"
+  }
+]

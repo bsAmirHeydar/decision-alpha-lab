@@ -1,0 +1,14 @@
+{
+  "decision_order_contiguous": true,
+  "future_suffix_looks_discarded": 3,
+  "future_suffix_sensitivity": false,
+  "hidden_evaluation_queries": 0,
+  "known_time_violations": 0,
+  "passed": true,
+  "phase": "SAED_V4_28",
+  "predictable_allocation": true,
+  "protected_evidence_queries": 0,
+  "retroactive_alpha_mutations": 0,
+  "review_hash": "8511bf8a097a535667bf7168a054dc08fc9ba34a8b53d9e1beabe91e2d87829c",
+  "review_id": "v428_known_time_73a851f2bdef6f7b48a77025"
+}

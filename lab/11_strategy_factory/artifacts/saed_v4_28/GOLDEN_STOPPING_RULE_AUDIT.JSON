@@ -1,0 +1,372 @@
+{
+  "all_rules_predictable": true,
+  "all_within_look_budget": true,
+  "audit_hash": "e61e2ca5df09b5c1446070e397c59025a1ed900da008fa658b7ed6907f1f2146",
+  "audit_id": "stopping_rule_audit_b0ed34bda2c79814ba017848",
+  "future_suffix_invariant": true,
+  "no_rule_uses_future_data": true,
+  "phase": "SAED_V4_28",
+  "row_count": 36,
+  "rows": [
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_001",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_boundary_or_three",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_002",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_evidence_budget",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_003",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_fixed_three_looks",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_004",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_boundary_or_three",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_005",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_evidence_budget",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_006",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_fixed_three_looks",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": true,
+      "hypothesis_id": "hyp_007",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_evidence_budget",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_008",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_fixed_three_looks",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_009",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_boundary_or_three",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_010",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_evidence_budget",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_011",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_fixed_three_looks",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_012",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_boundary_or_three",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_013",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_fixed_three_looks",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_014",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_boundary_or_three",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_015",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_evidence_budget",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_016",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_fixed_three_looks",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_017",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_boundary_or_three",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_018",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_evidence_budget",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": true,
+      "hypothesis_id": "hyp_019",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_boundary_or_three",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_020",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_evidence_budget",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_021",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_fixed_three_looks",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_022",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_boundary_or_three",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_023",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_evidence_budget",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_024",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_fixed_three_looks",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_025",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_evidence_budget",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_026",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_fixed_three_looks",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_027",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_boundary_or_three",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_028",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_evidence_budget",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_029",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_fixed_three_looks",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_030",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_boundary_or_three",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": true,
+      "hypothesis_id": "hyp_031",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_fixed_three_looks",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_032",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_boundary_or_three",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_033",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_evidence_budget",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_034",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_fixed_three_looks",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_035",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_boundary_or_three",
+      "uses_future_data": false,
+      "within_look_budget": true
+    },
+    {
+      "future_suffix_ignored": false,
+      "hypothesis_id": "hyp_036",
+      "known_look_count": 3,
+      "maximum_looks": 3,
+      "predictable": true,
+      "stopping_rule_id": "stop_evidence_budget",
+      "uses_future_data": false,
+      "within_look_budget": true
+    }
+  ]
+}

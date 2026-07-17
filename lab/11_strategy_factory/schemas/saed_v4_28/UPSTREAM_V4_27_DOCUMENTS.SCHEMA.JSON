@@ -1,0 +1,1196 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_28/UPSTREAM_V4_27_DOCUMENTS.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "certificate": {
+      "additionalProperties": false,
+      "properties": {
+        "accepted_for_complete_ledger_research": {
+          "type": "boolean"
+        },
+        "authority_boundary": {
+          "additionalProperties": false,
+          "properties": {
+            "authority": {
+              "additionalProperties": false,
+              "properties": {
+                "decision": {
+                  "type": "boolean"
+                },
+                "execution": {
+                  "type": "boolean"
+                },
+                "online_learning": {
+                  "type": "boolean"
+                },
+                "production": {
+                  "type": "boolean"
+                },
+                "promotion": {
+                  "type": "boolean"
+                },
+                "risk_allocation": {
+                  "type": "boolean"
+                },
+                "runtime": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "decision",
+                "execution",
+                "online_learning",
+                "production",
+                "promotion",
+                "risk_allocation",
+                "runtime"
+              ],
+              "type": "object"
+            },
+            "boundary_hash": {
+              "type": "string"
+            },
+            "boundary_id": {
+              "type": "string"
+            },
+            "phase": {
+              "type": "string"
+            },
+            "research_only": {
+              "type": "boolean"
+            },
+            "safe_action": {
+              "type": "string"
+            },
+            "ucee_authority_preserved": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "authority",
+            "boundary_hash",
+            "boundary_id",
+            "phase",
+            "research_only",
+            "safe_action",
+            "ucee_authority_preserved"
+          ],
+          "type": "object"
+        },
+        "certificate_hash": {
+          "type": "string"
+        },
+        "certificate_id": {
+          "type": "string"
+        },
+        "claim_class": {
+          "type": "string"
+        },
+        "evidence_hashes": {
+          "additionalProperties": false,
+          "properties": {
+            "budget_snapshot": {
+              "type": "string"
+            },
+            "completeness_audit": {
+              "type": "string"
+            },
+            "exposure_ledger": {
+              "type": "string"
+            },
+            "integrity_report": {
+              "type": "string"
+            },
+            "known_time_review": {
+              "type": "string"
+            },
+            "model_risk_review": {
+              "type": "string"
+            },
+            "multiplicity_universe": {
+              "type": "string"
+            },
+            "security_review": {
+              "type": "string"
+            },
+            "trial_ledger": {
+              "type": "string"
+            },
+            "upstream_receipt": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "budget_snapshot",
+            "completeness_audit",
+            "exposure_ledger",
+            "integrity_report",
+            "known_time_review",
+            "model_risk_review",
+            "multiplicity_universe",
+            "security_review",
+            "trial_ledger",
+            "upstream_receipt"
+          ],
+          "type": "object"
+        },
+        "execution_authority": {
+          "type": "boolean"
+        },
+        "gates": {
+          "additionalProperties": false,
+          "properties": {
+            "authority_zero": {
+              "type": "boolean"
+            },
+            "budget_respected": {
+              "type": "boolean"
+            },
+            "completeness_audit_passed": {
+              "type": "boolean"
+            },
+            "exposure_ledger_complete": {
+              "type": "boolean"
+            },
+            "hidden_query_zero": {
+              "type": "boolean"
+            },
+            "integrity_report_passed": {
+              "type": "boolean"
+            },
+            "multiplicity_universe_complete": {
+              "type": "boolean"
+            },
+            "protected_exposure_zero": {
+              "type": "boolean"
+            },
+            "security_passed": {
+              "type": "boolean"
+            },
+            "trial_ledger_complete": {
+              "type": "boolean"
+            },
+            "upstream_verified": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "authority_zero",
+            "budget_respected",
+            "completeness_audit_passed",
+            "exposure_ledger_complete",
+            "hidden_query_zero",
+            "integrity_report_passed",
+            "multiplicity_universe_complete",
+            "protected_exposure_zero",
+            "security_passed",
+            "trial_ledger_complete",
+            "upstream_verified"
+          ],
+          "type": "object"
+        },
+        "hidden_evaluation_air_gap_claim": {
+          "type": "boolean"
+        },
+        "online_fdr_claim": {
+          "type": "boolean"
+        },
+        "online_learning_authority": {
+          "type": "boolean"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "production_authority": {
+          "type": "boolean"
+        },
+        "promotion_authority": {
+          "type": "boolean"
+        },
+        "prospective_success_claim": {
+          "type": "boolean"
+        },
+        "real_alpha_claim": {
+          "type": "boolean"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "risk_allocation_authority": {
+          "type": "boolean"
+        },
+        "runtime_executable": {
+          "type": "boolean"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "accepted_for_complete_ledger_research",
+        "authority_boundary",
+        "certificate_hash",
+        "certificate_id",
+        "claim_class",
+        "evidence_hashes",
+        "execution_authority",
+        "gates",
+        "hidden_evaluation_air_gap_claim",
+        "online_fdr_claim",
+        "online_learning_authority",
+        "phase",
+        "production_authority",
+        "promotion_authority",
+        "prospective_success_claim",
+        "real_alpha_claim",
+        "research_only",
+        "risk_allocation_authority",
+        "runtime_executable",
+        "version"
+      ],
+      "type": "object"
+    },
+    "complete_exposure_ledger": {
+      "additionalProperties": false,
+      "properties": {
+        "append_only": {
+          "type": "boolean"
+        },
+        "chain_receipt": {
+          "additionalProperties": false,
+          "properties": {
+            "chain": {
+              "type": "string"
+            },
+            "entry_count": {
+              "type": "integer"
+            },
+            "genesis_hash": {
+              "type": "string"
+            },
+            "head_hash": {
+              "type": "string"
+            },
+            "verified": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "chain",
+            "entry_count",
+            "genesis_hash",
+            "head_hash",
+            "verified"
+          ],
+          "type": "object"
+        },
+        "complete": {
+          "type": "boolean"
+        },
+        "counts_by_actor": {
+          "additionalProperties": false,
+          "properties": {
+            "actor_independent_validator": {
+              "type": "integer"
+            },
+            "actor_ledger_service": {
+              "type": "integer"
+            },
+            "actor_research_lead": {
+              "type": "integer"
+            },
+            "actor_search_agent": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "actor_independent_validator",
+            "actor_ledger_service",
+            "actor_research_lead",
+            "actor_search_agent"
+          ],
+          "type": "object"
+        },
+        "counts_by_data_role": {
+          "additionalProperties": false,
+          "properties": {
+            "negative": {
+              "type": "integer"
+            },
+            "stress": {
+              "type": "integer"
+            },
+            "synthetic": {
+              "type": "integer"
+            },
+            "train": {
+              "type": "integer"
+            },
+            "validation": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "negative",
+            "stress",
+            "synthetic",
+            "train",
+            "validation"
+          ],
+          "type": "object"
+        },
+        "counts_by_type": {
+          "additionalProperties": false,
+          "properties": {
+            "agent_summary": {
+              "type": "integer"
+            },
+            "chart_render": {
+              "type": "integer"
+            },
+            "dashboard_open": {
+              "type": "integer"
+            },
+            "example_inspection": {
+              "type": "integer"
+            },
+            "hypothesis_modified": {
+              "type": "integer"
+            },
+            "manual_intervention": {
+              "type": "integer"
+            },
+            "metric_read": {
+              "type": "integer"
+            },
+            "narrative_generated": {
+              "type": "integer"
+            },
+            "notebook_open": {
+              "type": "integer"
+            },
+            "query_submitted": {
+              "type": "integer"
+            },
+            "row_export": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "agent_summary",
+            "chart_render",
+            "dashboard_open",
+            "example_inspection",
+            "hypothesis_modified",
+            "manual_intervention",
+            "metric_read",
+            "narrative_generated",
+            "notebook_open",
+            "query_submitted",
+            "row_export"
+          ],
+          "type": "object"
+        },
+        "duplicate_events_suppressed": {
+          "type": "integer"
+        },
+        "entries": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "actor_id": {
+                "type": "string"
+              },
+              "actor_type": {
+                "type": "string"
+              },
+              "chain": {
+                "type": "string"
+              },
+              "data_role": {
+                "type": "string"
+              },
+              "entry_hash": {
+                "type": "string"
+              },
+              "event_id": {
+                "type": "string"
+              },
+              "experiment_id": {
+                "type": "string"
+              },
+              "exposure_type": {
+                "type": "string"
+              },
+              "hypothesis_id": {
+                "type": "string"
+              },
+              "known_at": {
+                "type": "string"
+              },
+              "manual": {
+                "type": "boolean"
+              },
+              "metadata": {
+                "additionalProperties": false,
+                "properties": {
+                  "selection_effect_possible": {
+                    "type": "boolean"
+                  },
+                  "ui_surface": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "selection_effect_possible",
+                  "ui_surface"
+                ],
+                "type": "object"
+              },
+              "object_hash": {
+                "type": "string"
+              },
+              "object_id": {
+                "type": "string"
+              },
+              "object_type": {
+                "type": "string"
+              },
+              "occurred_at": {
+                "type": "string"
+              },
+              "previous_hash": {
+                "type": "string"
+              },
+              "purpose": {
+                "type": "string"
+              },
+              "query_id": {
+                "type": "string"
+              },
+              "sequence": {
+                "type": "integer"
+              },
+              "trial_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "actor_id",
+              "actor_type",
+              "chain",
+              "data_role",
+              "entry_hash",
+              "event_id",
+              "experiment_id",
+              "exposure_type",
+              "hypothesis_id",
+              "known_at",
+              "manual",
+              "metadata",
+              "object_hash",
+              "object_id",
+              "object_type",
+              "occurred_at",
+              "previous_hash",
+              "purpose",
+              "query_id",
+              "sequence",
+              "trial_id"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "event_count": {
+          "type": "integer"
+        },
+        "exposure_ledger_hash": {
+          "type": "string"
+        },
+        "exposure_ledger_id": {
+          "type": "string"
+        },
+        "hash_linked": {
+          "type": "boolean"
+        },
+        "hidden_evaluation_queries": {
+          "type": "integer"
+        },
+        "network_requests": {
+          "type": "integer"
+        },
+        "online_policy_mutations": {
+          "type": "integer"
+        },
+        "order_submissions": {
+          "type": "integer"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "protected_evidence_exposures": {
+          "type": "integer"
+        },
+        "runtime_compilations": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "append_only",
+        "chain_receipt",
+        "complete",
+        "counts_by_actor",
+        "counts_by_data_role",
+        "counts_by_type",
+        "duplicate_events_suppressed",
+        "entries",
+        "event_count",
+        "exposure_ledger_hash",
+        "exposure_ledger_id",
+        "hash_linked",
+        "hidden_evaluation_queries",
+        "network_requests",
+        "online_policy_mutations",
+        "order_submissions",
+        "phase",
+        "protected_evidence_exposures",
+        "runtime_compilations"
+      ],
+      "type": "object"
+    },
+    "complete_trial_ledger": {
+      "additionalProperties": false,
+      "properties": {
+        "append_only": {
+          "type": "boolean"
+        },
+        "chain_receipt": {
+          "additionalProperties": false,
+          "properties": {
+            "chain": {
+              "type": "string"
+            },
+            "entry_count": {
+              "type": "integer"
+            },
+            "genesis_hash": {
+              "type": "string"
+            },
+            "head_hash": {
+              "type": "string"
+            },
+            "verified": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "chain",
+            "entry_count",
+            "genesis_hash",
+            "head_hash",
+            "verified"
+          ],
+          "type": "object"
+        },
+        "complete": {
+          "type": "boolean"
+        },
+        "duplicate_edges": {
+          "additionalProperties": false,
+          "properties": {
+            "trial_01_06": {
+              "type": "string"
+            },
+            "trial_02_05": {
+              "type": "string"
+            },
+            "trial_03_04": {
+              "type": "string"
+            },
+            "trial_04_03": {
+              "type": "string"
+            },
+            "trial_05_02": {
+              "type": "string"
+            },
+            "trial_06_01": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "trial_01_06",
+            "trial_02_05",
+            "trial_03_04",
+            "trial_04_03",
+            "trial_05_02",
+            "trial_06_01"
+          ],
+          "type": "object"
+        },
+        "entries": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "actor_id": {
+                "type": "string"
+              },
+              "attempt": {
+                "type": "integer"
+              },
+              "chain": {
+                "type": "string"
+              },
+              "cost_units": {
+                "type": "number"
+              },
+              "data_role": {
+                "type": "string"
+              },
+              "duplicate_of": {
+                "type": "string"
+              },
+              "entry_hash": {
+                "type": "string"
+              },
+              "event_id": {
+                "type": "string"
+              },
+              "experiment_id": {
+                "type": "string"
+              },
+              "family_id": {
+                "type": "string"
+              },
+              "known_at": {
+                "type": "string"
+              },
+              "metadata": {
+                "additionalProperties": false,
+                "properties": {
+                  "family_revision": {
+                    "type": "integer"
+                  },
+                  "parameter_index": {
+                    "type": "integer"
+                  },
+                  "synthetic_reference": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "family_revision",
+                  "parameter_index",
+                  "synthetic_reference"
+                ],
+                "type": "object"
+              },
+              "occurred_at": {
+                "type": "string"
+              },
+              "previous_hash": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "retry_of": {
+                "type": "string"
+              },
+              "seed": {
+                "type": "integer"
+              },
+              "sequence": {
+                "type": "integer"
+              },
+              "state": {
+                "type": "string"
+              },
+              "trial_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "actor_id",
+              "attempt",
+              "chain",
+              "cost_units",
+              "data_role",
+              "duplicate_of",
+              "entry_hash",
+              "event_id",
+              "experiment_id",
+              "family_id",
+              "known_at",
+              "metadata",
+              "occurred_at",
+              "previous_hash",
+              "reason",
+              "retry_of",
+              "seed",
+              "sequence",
+              "state",
+              "trial_id"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "event_count": {
+          "type": "integer"
+        },
+        "expected_trial_count": {
+          "type": "integer"
+        },
+        "family_trial_counts": {
+          "additionalProperties": false,
+          "properties": {
+            "family_fusion_ablation": {
+              "type": "integer"
+            },
+            "family_graph_regularization": {
+              "type": "integer"
+            },
+            "family_mechanistic_checks": {
+              "type": "integer"
+            },
+            "family_ood_selectivity": {
+              "type": "integer"
+            },
+            "family_policy_value": {
+              "type": "integer"
+            },
+            "family_sequence_capacity": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "family_fusion_ablation",
+            "family_graph_regularization",
+            "family_mechanistic_checks",
+            "family_ood_selectivity",
+            "family_policy_value",
+            "family_sequence_capacity"
+          ],
+          "type": "object"
+        },
+        "hash_linked": {
+          "type": "boolean"
+        },
+        "missing_trial_ids": {
+          "items": {},
+          "type": "array"
+        },
+        "nonterminal_trial_ids": {
+          "items": {},
+          "type": "array"
+        },
+        "observed_trial_count": {
+          "type": "integer"
+        },
+        "orphan_trial_ids": {
+          "items": {},
+          "type": "array"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "retry_edges": {
+          "additionalProperties": false,
+          "properties": {
+            "trial_02_06": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "trial_02_06"
+          ],
+          "type": "object"
+        },
+        "terminal_state_counts": {
+          "additionalProperties": false,
+          "properties": {
+            "duplicate": {
+              "type": "integer"
+            },
+            "failed": {
+              "type": "integer"
+            },
+            "pruned": {
+              "type": "integer"
+            },
+            "rejected": {
+              "type": "integer"
+            },
+            "selected": {
+              "type": "integer"
+            },
+            "timed_out": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "duplicate",
+            "failed",
+            "pruned",
+            "rejected",
+            "selected",
+            "timed_out"
+          ],
+          "type": "object"
+        },
+        "total_cost_units": {
+          "type": "number"
+        },
+        "trial_ledger_hash": {
+          "type": "string"
+        },
+        "trial_ledger_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "append_only",
+        "chain_receipt",
+        "complete",
+        "duplicate_edges",
+        "entries",
+        "event_count",
+        "expected_trial_count",
+        "family_trial_counts",
+        "hash_linked",
+        "missing_trial_ids",
+        "nonterminal_trial_ids",
+        "observed_trial_count",
+        "orphan_trial_ids",
+        "phase",
+        "retry_edges",
+        "terminal_state_counts",
+        "total_cost_units",
+        "trial_ledger_hash",
+        "trial_ledger_id"
+      ],
+      "type": "object"
+    },
+    "handoff": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_next_work": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "authority": {
+          "additionalProperties": false,
+          "properties": {
+            "decision": {
+              "type": "boolean"
+            },
+            "execution": {
+              "type": "boolean"
+            },
+            "production": {
+              "type": "boolean"
+            },
+            "promotion": {
+              "type": "boolean"
+            },
+            "risk_allocation": {
+              "type": "boolean"
+            },
+            "runtime": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "decision",
+            "execution",
+            "production",
+            "promotion",
+            "risk_allocation",
+            "runtime"
+          ],
+          "type": "object"
+        },
+        "certificate_hash": {
+          "type": "string"
+        },
+        "certificate_id": {
+          "type": "string"
+        },
+        "entry_gates": {
+          "additionalProperties": false,
+          "properties": {
+            "complete_exposure_universe": {
+              "type": "boolean"
+            },
+            "complete_trial_universe": {
+              "type": "boolean"
+            },
+            "hash_chains_verified": {
+              "type": "boolean"
+            },
+            "multiplicity_families_frozen": {
+              "type": "boolean"
+            },
+            "protected_exposure_zero": {
+              "type": "boolean"
+            },
+            "query_budgets_verified": {
+              "type": "boolean"
+            },
+            "research_only": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "complete_exposure_universe",
+            "complete_trial_universe",
+            "hash_chains_verified",
+            "multiplicity_families_frozen",
+            "protected_exposure_zero",
+            "query_budgets_verified",
+            "research_only"
+          ],
+          "type": "object"
+        },
+        "forbidden_next_work": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "handoff_hash": {
+          "type": "string"
+        },
+        "handoff_id": {
+          "type": "string"
+        },
+        "next_phase": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "allowed_next_work",
+        "authority",
+        "certificate_hash",
+        "certificate_id",
+        "entry_gates",
+        "forbidden_next_work",
+        "handoff_hash",
+        "handoff_id",
+        "next_phase",
+        "phase",
+        "research_only"
+      ],
+      "type": "object"
+    },
+    "integrity_report": {
+      "additionalProperties": false,
+      "properties": {
+        "checks": {
+          "additionalProperties": false,
+          "properties": {
+            "append_only_claim": {
+              "type": "boolean"
+            },
+            "content_addressed": {
+              "type": "boolean"
+            },
+            "exposure_hash_chain": {
+              "type": "boolean"
+            },
+            "exposure_head_present": {
+              "type": "boolean"
+            },
+            "trial_hash_chain": {
+              "type": "boolean"
+            },
+            "trial_head_present": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "append_only_claim",
+            "content_addressed",
+            "exposure_hash_chain",
+            "exposure_head_present",
+            "trial_hash_chain",
+            "trial_head_present"
+          ],
+          "type": "object"
+        },
+        "exposure_chain_head": {
+          "type": "string"
+        },
+        "integrity_report_hash": {
+          "type": "string"
+        },
+        "integrity_report_id": {
+          "type": "string"
+        },
+        "passed": {
+          "type": "boolean"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "tamper_evidence": {
+          "type": "string"
+        },
+        "trial_chain_head": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "checks",
+        "exposure_chain_head",
+        "integrity_report_hash",
+        "integrity_report_id",
+        "passed",
+        "phase",
+        "tamper_evidence",
+        "trial_chain_head"
+      ],
+      "type": "object"
+    },
+    "multiplicity_universe": {
+      "additionalProperties": false,
+      "properties": {
+        "agent_exposures_included": {
+          "type": "boolean"
+        },
+        "complete_materially_related_universe": {
+          "type": "boolean"
+        },
+        "duplicates_included": {
+          "type": "boolean"
+        },
+        "experiment_count": {
+          "type": "integer"
+        },
+        "exposure_count": {
+          "type": "integer"
+        },
+        "failed_trials_included": {
+          "type": "boolean"
+        },
+        "families": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "eligible_for_v4_28_online_fdr": {
+                "type": "boolean"
+              },
+              "experiment_count": {
+                "type": "integer"
+              },
+              "exposure_count": {
+                "type": "integer"
+              },
+              "family_id": {
+                "type": "string"
+              },
+              "frozen_before_search": {
+                "type": "boolean"
+              },
+              "hypothesis_family": {
+                "type": "string"
+              },
+              "mode": {
+                "type": "string"
+              },
+              "parameter_space_hash": {
+                "type": "string"
+              },
+              "selection_metric": {
+                "type": "string"
+              },
+              "trial_count": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "eligible_for_v4_28_online_fdr",
+              "experiment_count",
+              "exposure_count",
+              "family_id",
+              "frozen_before_search",
+              "hypothesis_family",
+              "mode",
+              "parameter_space_hash",
+              "selection_metric",
+              "trial_count"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "family_count": {
+          "type": "integer"
+        },
+        "human_exposures_included": {
+          "type": "boolean"
+        },
+        "multiplicity_universe_hash": {
+          "type": "string"
+        },
+        "multiplicity_universe_id": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "pruned_trials_included": {
+          "type": "boolean"
+        },
+        "retries_included": {
+          "type": "boolean"
+        },
+        "selection_risk_ready": {
+          "type": "boolean"
+        },
+        "trial_count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "agent_exposures_included",
+        "complete_materially_related_universe",
+        "duplicates_included",
+        "experiment_count",
+        "exposure_count",
+        "failed_trials_included",
+        "families",
+        "family_count",
+        "human_exposures_included",
+        "multiplicity_universe_hash",
+        "multiplicity_universe_id",
+        "phase",
+        "pruned_trials_included",
+        "retries_included",
+        "selection_risk_ready",
+        "trial_count"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "certificate",
+    "complete_exposure_ledger",
+    "complete_trial_ledger",
+    "handoff",
+    "integrity_report",
+    "multiplicity_universe"
+  ],
+  "title": "UPSTREAM_V4_27_DOCUMENTS",
+  "type": "object"
+}

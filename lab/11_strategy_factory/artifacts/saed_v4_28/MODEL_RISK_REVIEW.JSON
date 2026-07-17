@@ -1,0 +1,20 @@
+{
+  "air_gap_deferred_to_v4_29": true,
+  "challenger_count": 5,
+  "limitations": [
+    "synthetic_reference_fixture",
+    "algorithmic_control_not_real_world_guarantee",
+    "dependence_assumptions_not_empirically_established",
+    "no_hidden_evaluation_air_gap_yet",
+    "no_independent_replication",
+    "no_runtime_parity",
+    "no_broker_qualification"
+  ],
+  "model_risk_review_hash": "c8f2819b990f2458e820b504fa942dee899147fed4f393b83391d1c89f8d44e5",
+  "model_risk_review_id": "v428_model_risk_2e1e73ef1184bbb1b1575b0e",
+  "passed": true,
+  "phase": "SAED_V4_28",
+  "primary_procedure": "lord_plus_plus",
+  "real_world_fdr_guarantee": false,
+  "selection_risk_control_reference": true
+}

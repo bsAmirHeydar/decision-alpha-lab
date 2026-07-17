@@ -1,0 +1,52 @@
+{
+  "boundaries": {
+    "network_access": false,
+    "order_submission": false,
+    "passed": true,
+    "ucee_authority_preserved": true
+  },
+  "contracts": {
+    "closed_objects": true,
+    "passed": true,
+    "schema_pairs": 22
+  },
+  "external_evidence": {
+    "broker_qualification": "not_claimed",
+    "independent_reproduction": "pending_external",
+    "metaeditor_compile": "pending_local_windows",
+    "runtime_parity": "not_claimed"
+  },
+  "generated": "2026-07-16",
+  "golden_reproduction": {
+    "artifacts": 15,
+    "deterministic": true,
+    "passed": true
+  },
+  "mql5": {
+    "metaeditor_compile": "pending_local_windows",
+    "static_files": 20,
+    "static_validation": "passed"
+  },
+  "obsidian": {
+    "broken_links": 0,
+    "notes": 261,
+    "passed": true
+  },
+  "passed": true,
+  "phase": "SAED_V4_28",
+  "python": {
+    "failed": 0,
+    "passed": 124,
+    "tests": 124
+  },
+  "scientific_reference": {
+    "families": 6,
+    "future_suffix_looks_discarded": 3,
+    "hypotheses": 36,
+    "procedures": 6,
+    "rejections": 12,
+    "synthetic_empirical_fdp": 0.0,
+    "target_fdr": 0.1
+  },
+  "version": "1.0.0"
+}

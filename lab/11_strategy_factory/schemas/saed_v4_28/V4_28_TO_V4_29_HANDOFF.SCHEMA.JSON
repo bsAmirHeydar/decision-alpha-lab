@@ -1,0 +1,127 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_28/V4_28_TO_V4_29_HANDOFF.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_next_work": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "decision": {
+          "type": "boolean"
+        },
+        "execution": {
+          "type": "boolean"
+        },
+        "hidden_evaluation_access": {
+          "type": "boolean"
+        },
+        "production": {
+          "type": "boolean"
+        },
+        "promotion": {
+          "type": "boolean"
+        },
+        "risk_allocation": {
+          "type": "boolean"
+        },
+        "runtime": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "decision",
+        "execution",
+        "hidden_evaluation_access",
+        "production",
+        "promotion",
+        "risk_allocation",
+        "runtime"
+      ],
+      "type": "object"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "entry_gates": {
+      "additionalProperties": false,
+      "properties": {
+        "anytime_evidence_contract_frozen": {
+          "type": "boolean"
+        },
+        "online_fdr_reference_accepted": {
+          "type": "boolean"
+        },
+        "protected_evidence_access_zero": {
+          "type": "boolean"
+        },
+        "rejection_chain_verified": {
+          "type": "boolean"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "stopping_rules_verified": {
+          "type": "boolean"
+        },
+        "wealth_chain_verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "anytime_evidence_contract_frozen",
+        "online_fdr_reference_accepted",
+        "protected_evidence_access_zero",
+        "rejection_chain_verified",
+        "research_only",
+        "stopping_rules_verified",
+        "wealth_chain_verified"
+      ],
+      "type": "object"
+    },
+    "forbidden_next_work": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "allowed_next_work",
+    "authority",
+    "certificate_hash",
+    "certificate_id",
+    "entry_gates",
+    "forbidden_next_work",
+    "handoff_hash",
+    "handoff_id",
+    "next_phase",
+    "phase",
+    "research_only"
+  ],
+  "title": "V4_28_TO_V4_29_HANDOFF",
+  "type": "object"
+}

@@ -1,0 +1,34 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_28/CHALLENGER_REGISTRY.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "items": {
+    "additionalProperties": false,
+    "properties": {
+      "enabled": {
+        "type": "boolean"
+      },
+      "notes": {
+        "type": "string"
+      },
+      "procedure": {
+        "type": "string"
+      },
+      "promotion_authority": {
+        "type": "boolean"
+      },
+      "role": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "enabled",
+      "notes",
+      "procedure",
+      "promotion_authority",
+      "role"
+    ],
+    "type": "object"
+  },
+  "title": "CHALLENGER_REGISTRY",
+  "type": "array"
+}

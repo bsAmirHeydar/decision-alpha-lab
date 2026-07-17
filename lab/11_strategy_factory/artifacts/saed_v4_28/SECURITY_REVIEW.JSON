@@ -1,0 +1,14 @@
+{
+  "broker_connection": false,
+  "credential_use": false,
+  "filesystem_mutation_outside_delivery": false,
+  "forbidden_material_hits": [],
+  "network_access": false,
+  "online_policy_mutation": false,
+  "order_submission": false,
+  "passed": true,
+  "phase": "SAED_V4_28",
+  "runtime_compilation": false,
+  "security_review_hash": "b9b394bea2b0192ed20d924bf174e21217314b4f4e4cb4188ef0341da17457e3",
+  "security_review_id": "v428_security_review_c492c01d9bec86354895709a"
+}

@@ -1,0 +1,80 @@
+{
+  "allocation_hash": "8a25248029dff1725f9c94619861fec3f31ca9074d1af4b9d18376778364bb17",
+  "allocation_id": "family_fdr_allocation_2c733fa3d85781ed1ac6781e",
+  "family_count": 6,
+  "frozen": true,
+  "method": "fixed_predictable_family_weights",
+  "phase": "SAED_V4_28",
+  "predictable": true,
+  "retroactive_reallocation": false,
+  "rows": [
+    {
+      "allocation_basis": "equal_weight_frozen_complete_family_universe",
+      "family_id": "family_fusion_ablation",
+      "frozen_before_first_test": true,
+      "maximum_hypotheses": 6,
+      "owner_actor_id": "actor_owner_01",
+      "target_fdr": 0.016666666666666666,
+      "upstream_exposure_count": 7,
+      "upstream_trial_count": 6,
+      "weight": 0.16666666666666666
+    },
+    {
+      "allocation_basis": "equal_weight_frozen_complete_family_universe",
+      "family_id": "family_graph_regularization",
+      "frozen_before_first_test": true,
+      "maximum_hypotheses": 6,
+      "owner_actor_id": "actor_owner_02",
+      "target_fdr": 0.016666666666666666,
+      "upstream_exposure_count": 8,
+      "upstream_trial_count": 6,
+      "weight": 0.16666666666666666
+    },
+    {
+      "allocation_basis": "equal_weight_frozen_complete_family_universe",
+      "family_id": "family_mechanistic_checks",
+      "frozen_before_first_test": true,
+      "maximum_hypotheses": 6,
+      "owner_actor_id": "actor_owner_03",
+      "target_fdr": 0.016666666666666666,
+      "upstream_exposure_count": 7,
+      "upstream_trial_count": 6,
+      "weight": 0.16666666666666666
+    },
+    {
+      "allocation_basis": "equal_weight_frozen_complete_family_universe",
+      "family_id": "family_ood_selectivity",
+      "frozen_before_first_test": true,
+      "maximum_hypotheses": 6,
+      "owner_actor_id": "actor_owner_04",
+      "target_fdr": 0.016666666666666666,
+      "upstream_exposure_count": 7,
+      "upstream_trial_count": 6,
+      "weight": 0.16666666666666666
+    },
+    {
+      "allocation_basis": "equal_weight_frozen_complete_family_universe",
+      "family_id": "family_policy_value",
+      "frozen_before_first_test": true,
+      "maximum_hypotheses": 6,
+      "owner_actor_id": "actor_owner_05",
+      "target_fdr": 0.016666666666666666,
+      "upstream_exposure_count": 7,
+      "upstream_trial_count": 6,
+      "weight": 0.16666666666666666
+    },
+    {
+      "allocation_basis": "equal_weight_frozen_complete_family_universe",
+      "family_id": "family_sequence_capacity",
+      "frozen_before_first_test": true,
+      "maximum_hypotheses": 6,
+      "owner_actor_id": "actor_owner_06",
+      "target_fdr": 0.016666666666666666,
+      "upstream_exposure_count": 8,
+      "upstream_trial_count": 6,
+      "weight": 0.16666666666666666
+    }
+  ],
+  "target_fdr": 0.1,
+  "weight_sum": 1.0
+}

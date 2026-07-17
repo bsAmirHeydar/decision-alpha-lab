@@ -1,0 +1,75 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_28/GOLDEN_UPSTREAM_RECEIPT.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "certificate_hash": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "exposure_count": {
+      "type": "integer"
+    },
+    "family_count": {
+      "type": "integer"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "hash_verified": {
+      "type": "boolean"
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "multiplicity_universe_hash": {
+      "type": "string"
+    },
+    "multiplicity_universe_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "required_phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "trial_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "certificate_hash",
+    "certificate_id",
+    "exposure_count",
+    "family_count",
+    "handoff_hash",
+    "handoff_id",
+    "hash_verified",
+    "immutable",
+    "multiplicity_universe_hash",
+    "multiplicity_universe_id",
+    "phase",
+    "receipt_hash",
+    "receipt_id",
+    "required_phase",
+    "research_only",
+    "trial_count"
+  ],
+  "title": "GOLDEN_UPSTREAM_RECEIPT",
+  "type": "object"
+}

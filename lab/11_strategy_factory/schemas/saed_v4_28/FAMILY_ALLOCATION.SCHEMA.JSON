@@ -1,0 +1,38 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_28/FAMILY_ALLOCATION.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "items": {
+    "additionalProperties": false,
+    "properties": {
+      "allocation_basis": {
+        "type": "string"
+      },
+      "family_id": {
+        "type": "string"
+      },
+      "frozen_before_first_test": {
+        "type": "boolean"
+      },
+      "maximum_hypotheses": {
+        "type": "integer"
+      },
+      "owner_actor_id": {
+        "type": "string"
+      },
+      "weight": {
+        "type": "number"
+      }
+    },
+    "required": [
+      "allocation_basis",
+      "family_id",
+      "frozen_before_first_test",
+      "maximum_hypotheses",
+      "owner_actor_id",
+      "weight"
+    ],
+    "type": "object"
+  },
+  "title": "FAMILY_ALLOCATION",
+  "type": "array"
+}

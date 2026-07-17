@@ -1,0 +1,42 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_28/STOPPING_RULE_REGISTRY.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "items": {
+    "additionalProperties": false,
+    "properties": {
+      "description": {
+        "type": "string"
+      },
+      "maximum_looks": {
+        "type": "integer"
+      },
+      "name": {
+        "type": "string"
+      },
+      "predictable": {
+        "type": "boolean"
+      },
+      "rule_type": {
+        "type": "string"
+      },
+      "stopping_rule_id": {
+        "type": "string"
+      },
+      "uses_future_data": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "description",
+      "maximum_looks",
+      "name",
+      "predictable",
+      "rule_type",
+      "stopping_rule_id",
+      "uses_future_data"
+    ],
+    "type": "object"
+  },
+  "title": "STOPPING_RULE_REGISTRY",
+  "type": "array"
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "enabled": true,
+    "notes": "Closed deterministic research reference only.",
+    "procedure": "alpha_spending",
+    "promotion_authority": false,
+    "role": "challenger"
+  },
+  {
+    "enabled": true,
+    "notes": "Closed deterministic research reference only.",
+    "procedure": "alpha_investing",
+    "promotion_authority": false,
+    "role": "challenger"
+  },
+  {
+    "enabled": true,
+    "notes": "Closed deterministic research reference only.",
+    "procedure": "lord_plus_plus",
+    "promotion_authority": false,
+    "role": "primary"
+  },
+  {
+    "enabled": true,
+    "notes": "Closed deterministic research reference only.",
+    "procedure": "saffron",
+    "promotion_authority": false,
+    "role": "challenger"
+  },
+  {
+    "enabled": true,
+    "notes": "Closed deterministic research reference only.",
+    "procedure": "addis",
+    "promotion_authority": false,
+    "role": "challenger"
+  },
+  {
+    "enabled": true,
+    "notes": "Closed deterministic research reference only.",
+    "procedure": "e_lond",
+    "promotion_authority": false,
+    "role": "challenger"
+  }
+]

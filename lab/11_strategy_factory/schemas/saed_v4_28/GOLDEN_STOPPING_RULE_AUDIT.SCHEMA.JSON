@@ -1,0 +1,87 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_28/GOLDEN_STOPPING_RULE_AUDIT.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_rules_predictable": {
+      "type": "boolean"
+    },
+    "all_within_look_budget": {
+      "type": "boolean"
+    },
+    "audit_hash": {
+      "type": "string"
+    },
+    "audit_id": {
+      "type": "string"
+    },
+    "future_suffix_invariant": {
+      "type": "boolean"
+    },
+    "no_rule_uses_future_data": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "row_count": {
+      "type": "integer"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "future_suffix_ignored": {
+            "type": "boolean"
+          },
+          "hypothesis_id": {
+            "type": "string"
+          },
+          "known_look_count": {
+            "type": "integer"
+          },
+          "maximum_looks": {
+            "type": "integer"
+          },
+          "predictable": {
+            "type": "boolean"
+          },
+          "stopping_rule_id": {
+            "type": "string"
+          },
+          "uses_future_data": {
+            "type": "boolean"
+          },
+          "within_look_budget": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "future_suffix_ignored",
+          "hypothesis_id",
+          "known_look_count",
+          "maximum_looks",
+          "predictable",
+          "stopping_rule_id",
+          "uses_future_data",
+          "within_look_budget"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "all_rules_predictable",
+    "all_within_look_budget",
+    "audit_hash",
+    "audit_id",
+    "future_suffix_invariant",
+    "no_rule_uses_future_data",
+    "phase",
+    "row_count",
+    "rows"
+  ],
+  "title": "GOLDEN_STOPPING_RULE_AUDIT",
+  "type": "object"
+}

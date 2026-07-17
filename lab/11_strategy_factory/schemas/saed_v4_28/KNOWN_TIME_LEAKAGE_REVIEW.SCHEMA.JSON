@@ -1,0 +1,59 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_28/KNOWN_TIME_LEAKAGE_REVIEW.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "decision_order_contiguous": {
+      "type": "boolean"
+    },
+    "future_suffix_looks_discarded": {
+      "type": "integer"
+    },
+    "future_suffix_sensitivity": {
+      "type": "boolean"
+    },
+    "hidden_evaluation_queries": {
+      "type": "integer"
+    },
+    "known_time_violations": {
+      "type": "integer"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "predictable_allocation": {
+      "type": "boolean"
+    },
+    "protected_evidence_queries": {
+      "type": "integer"
+    },
+    "retroactive_alpha_mutations": {
+      "type": "integer"
+    },
+    "review_hash": {
+      "type": "string"
+    },
+    "review_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "decision_order_contiguous",
+    "future_suffix_looks_discarded",
+    "future_suffix_sensitivity",
+    "hidden_evaluation_queries",
+    "known_time_violations",
+    "passed",
+    "phase",
+    "predictable_allocation",
+    "protected_evidence_queries",
+    "retroactive_alpha_mutations",
+    "review_hash",
+    "review_id"
+  ],
+  "title": "KNOWN_TIME_LEAKAGE_REVIEW",
+  "type": "object"
+}

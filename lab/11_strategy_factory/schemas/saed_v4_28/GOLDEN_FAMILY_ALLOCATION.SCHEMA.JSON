@@ -1,0 +1,99 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_28/GOLDEN_FAMILY_ALLOCATION.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allocation_hash": {
+      "type": "string"
+    },
+    "allocation_id": {
+      "type": "string"
+    },
+    "family_count": {
+      "type": "integer"
+    },
+    "frozen": {
+      "type": "boolean"
+    },
+    "method": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "predictable": {
+      "type": "boolean"
+    },
+    "retroactive_reallocation": {
+      "type": "boolean"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "allocation_basis": {
+            "type": "string"
+          },
+          "family_id": {
+            "type": "string"
+          },
+          "frozen_before_first_test": {
+            "type": "boolean"
+          },
+          "maximum_hypotheses": {
+            "type": "integer"
+          },
+          "owner_actor_id": {
+            "type": "string"
+          },
+          "target_fdr": {
+            "type": "number"
+          },
+          "upstream_exposure_count": {
+            "type": "integer"
+          },
+          "upstream_trial_count": {
+            "type": "integer"
+          },
+          "weight": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "allocation_basis",
+          "family_id",
+          "frozen_before_first_test",
+          "maximum_hypotheses",
+          "owner_actor_id",
+          "target_fdr",
+          "upstream_exposure_count",
+          "upstream_trial_count",
+          "weight"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "target_fdr": {
+      "type": "number"
+    },
+    "weight_sum": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "allocation_hash",
+    "allocation_id",
+    "family_count",
+    "frozen",
+    "method",
+    "phase",
+    "predictable",
+    "retroactive_reallocation",
+    "rows",
+    "target_fdr",
+    "weight_sum"
+  ],
+  "title": "GOLDEN_FAMILY_ALLOCATION",
+  "type": "object"
+}

@@ -1,0 +1,83 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_28/GOLDEN_CHALLENGER_COMPARISON.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_procedures_research_only": {
+      "type": "boolean"
+    },
+    "comparison_hash": {
+      "type": "string"
+    },
+    "comparison_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "procedure_count": {
+      "type": "integer"
+    },
+    "promotion_authority": {
+      "type": "boolean"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "hypothesis_count": {
+            "type": "integer"
+          },
+          "minimum_wealth": {
+            "type": "number"
+          },
+          "nonnegative_wealth": {
+            "type": "boolean"
+          },
+          "procedure": {
+            "type": "string"
+          },
+          "promotion_authority": {
+            "type": "boolean"
+          },
+          "rejection_count": {
+            "type": "integer"
+          },
+          "total_alpha_spent": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "hypothesis_count",
+          "minimum_wealth",
+          "nonnegative_wealth",
+          "procedure",
+          "promotion_authority",
+          "rejection_count",
+          "total_alpha_spent"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "selection_authority": {
+      "type": "boolean"
+    },
+    "target_fdr": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "all_procedures_research_only",
+    "comparison_hash",
+    "comparison_id",
+    "phase",
+    "procedure_count",
+    "promotion_authority",
+    "rows",
+    "selection_authority",
+    "target_fdr"
+  ],
+  "title": "GOLDEN_CHALLENGER_COMPARISON",
+  "type": "object"
+}

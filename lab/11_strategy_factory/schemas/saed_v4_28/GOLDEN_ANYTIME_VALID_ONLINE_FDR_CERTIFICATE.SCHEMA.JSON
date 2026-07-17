@@ -1,0 +1,279 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_28/GOLDEN_ANYTIME_VALID_ONLINE_FDR_CERTIFICATE.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accepted_for_online_fdr_research_reference": {
+      "type": "boolean"
+    },
+    "anytime_valid_evidence_contract_claim": {
+      "type": "boolean"
+    },
+    "authority_boundary": {
+      "additionalProperties": false,
+      "properties": {
+        "authority": {
+          "additionalProperties": false,
+          "properties": {
+            "decision": {
+              "type": "boolean"
+            },
+            "execution": {
+              "type": "boolean"
+            },
+            "hidden_evaluation_access": {
+              "type": "boolean"
+            },
+            "online_learning": {
+              "type": "boolean"
+            },
+            "production": {
+              "type": "boolean"
+            },
+            "promotion": {
+              "type": "boolean"
+            },
+            "risk_allocation": {
+              "type": "boolean"
+            },
+            "runtime": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "decision",
+            "execution",
+            "hidden_evaluation_access",
+            "online_learning",
+            "production",
+            "promotion",
+            "risk_allocation",
+            "runtime"
+          ],
+          "type": "object"
+        },
+        "boundary_hash": {
+          "type": "string"
+        },
+        "boundary_id": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "safe_action": {
+          "type": "string"
+        },
+        "ucee_authority_preserved": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "authority",
+        "boundary_hash",
+        "boundary_id",
+        "phase",
+        "research_only",
+        "safe_action",
+        "ucee_authority_preserved"
+      ],
+      "type": "object"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "claim_class": {
+      "type": "string"
+    },
+    "evidence_hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "anytime_evidence_registry": {
+          "type": "string"
+        },
+        "challenger_comparison": {
+          "type": "string"
+        },
+        "family_allocation": {
+          "type": "string"
+        },
+        "known_time_review": {
+          "type": "string"
+        },
+        "model_risk_review": {
+          "type": "string"
+        },
+        "online_fdr_audit": {
+          "type": "string"
+        },
+        "rejection_ledger": {
+          "type": "string"
+        },
+        "security_review": {
+          "type": "string"
+        },
+        "stopping_rule_audit": {
+          "type": "string"
+        },
+        "upstream_receipt": {
+          "type": "string"
+        },
+        "wealth_ledger": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "anytime_evidence_registry",
+        "challenger_comparison",
+        "family_allocation",
+        "known_time_review",
+        "model_risk_review",
+        "online_fdr_audit",
+        "rejection_ledger",
+        "security_review",
+        "stopping_rule_audit",
+        "upstream_receipt",
+        "wealth_ledger"
+      ],
+      "type": "object"
+    },
+    "execution_authority": {
+      "type": "boolean"
+    },
+    "gates": {
+      "additionalProperties": false,
+      "properties": {
+        "anytime_registry_complete": {
+          "type": "boolean"
+        },
+        "authority_zero": {
+          "type": "boolean"
+        },
+        "family_allocation_frozen": {
+          "type": "boolean"
+        },
+        "family_weights_normalized": {
+          "type": "boolean"
+        },
+        "known_time_enforced": {
+          "type": "boolean"
+        },
+        "online_fdr_audit_passed": {
+          "type": "boolean"
+        },
+        "rejection_ledger_verified": {
+          "type": "boolean"
+        },
+        "security_passed": {
+          "type": "boolean"
+        },
+        "stopping_rules_safe": {
+          "type": "boolean"
+        },
+        "upstream_verified": {
+          "type": "boolean"
+        },
+        "wealth_ledger_verified": {
+          "type": "boolean"
+        },
+        "wealth_nonnegative": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "anytime_registry_complete",
+        "authority_zero",
+        "family_allocation_frozen",
+        "family_weights_normalized",
+        "known_time_enforced",
+        "online_fdr_audit_passed",
+        "rejection_ledger_verified",
+        "security_passed",
+        "stopping_rules_safe",
+        "upstream_verified",
+        "wealth_ledger_verified",
+        "wealth_nonnegative"
+      ],
+      "type": "object"
+    },
+    "hidden_evaluation_air_gap_claim": {
+      "type": "boolean"
+    },
+    "independent_replication_claim": {
+      "type": "boolean"
+    },
+    "online_fdr_reference_implementation_claim": {
+      "type": "boolean"
+    },
+    "online_learning_authority": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authority": {
+      "type": "boolean"
+    },
+    "promotion_authority": {
+      "type": "boolean"
+    },
+    "prospective_success_claim": {
+      "type": "boolean"
+    },
+    "real_alpha_claim": {
+      "type": "boolean"
+    },
+    "real_world_fdr_guarantee_claim": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "risk_allocation_authority": {
+      "type": "boolean"
+    },
+    "runtime_executable": {
+      "type": "boolean"
+    },
+    "synthetic_fixture_control_claim": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "accepted_for_online_fdr_research_reference",
+    "anytime_valid_evidence_contract_claim",
+    "authority_boundary",
+    "certificate_hash",
+    "certificate_id",
+    "claim_class",
+    "evidence_hashes",
+    "execution_authority",
+    "gates",
+    "hidden_evaluation_air_gap_claim",
+    "independent_replication_claim",
+    "online_fdr_reference_implementation_claim",
+    "online_learning_authority",
+    "phase",
+    "production_authority",
+    "promotion_authority",
+    "prospective_success_claim",
+    "real_alpha_claim",
+    "real_world_fdr_guarantee_claim",
+    "research_only",
+    "risk_allocation_authority",
+    "runtime_executable",
+    "synthetic_fixture_control_claim",
+    "version"
+  ],
+  "title": "GOLDEN_ANYTIME_VALID_ONLINE_FDR_CERTIFICATE",
+  "type": "object"
+}

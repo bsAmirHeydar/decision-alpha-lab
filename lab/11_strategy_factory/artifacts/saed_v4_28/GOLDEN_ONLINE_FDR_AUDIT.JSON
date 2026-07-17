@@ -1,0 +1,59 @@
+{
+  "audit_hash": "c464ffe3336e23c5b06083bf598fedf8bcb640b35e9d9795247a86568d45ea6f",
+  "audit_id": "online_fdr_audit_93a9075225ed7d5206ebd681",
+  "false_discovery_count": 0,
+  "family_rows": [
+    {
+      "empirical_fdp": 0.0,
+      "false_discoveries": 0,
+      "family_id": "family_fusion_ablation",
+      "rejections": 2
+    },
+    {
+      "empirical_fdp": 0.0,
+      "false_discoveries": 0,
+      "family_id": "family_graph_regularization",
+      "rejections": 2
+    },
+    {
+      "empirical_fdp": 0.0,
+      "false_discoveries": 0,
+      "family_id": "family_mechanistic_checks",
+      "rejections": 2
+    },
+    {
+      "empirical_fdp": 0.0,
+      "false_discoveries": 0,
+      "family_id": "family_ood_selectivity",
+      "rejections": 2
+    },
+    {
+      "empirical_fdp": 0.0,
+      "false_discoveries": 0,
+      "family_id": "family_policy_value",
+      "rejections": 2
+    },
+    {
+      "empirical_fdp": 0.0,
+      "false_discoveries": 0,
+      "family_id": "family_sequence_capacity",
+      "rejections": 2
+    }
+  ],
+  "gates": {
+    "alpha_nonnegative": true,
+    "rejection_chain_verified": true,
+    "rejection_requires_crossing": true,
+    "synthetic_empirical_fdp_within_target": true,
+    "wealth_chain_verified": true,
+    "wealth_nonnegative": true
+  },
+  "hypothesis_count": 36,
+  "passed": true,
+  "phase": "SAED_V4_28",
+  "real_world_fdr_guarantee": false,
+  "rejection_count": 12,
+  "statistical_scope": "synthetic_reference_fixture_only",
+  "synthetic_empirical_fdp": 0.0,
+  "target_fdr": 0.1
+}

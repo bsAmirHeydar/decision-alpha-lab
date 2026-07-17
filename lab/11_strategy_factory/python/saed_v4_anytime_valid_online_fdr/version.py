@@ -1,0 +1,4 @@
+PHASE = "SAED_V4_28"
+VERSION = "1.0.0"
+TITLE = "Anytime Valid Online FDR"
+NEXT_PHASE = "SAED_V4_29"

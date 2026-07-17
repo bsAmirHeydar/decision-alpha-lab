@@ -1,0 +1,114 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_28/HYPOTHESIS_STREAM.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "items": {
+    "additionalProperties": false,
+    "properties": {
+      "actor_id": {
+        "type": "string"
+      },
+      "data_role": {
+        "type": "string"
+      },
+      "decision_time": {
+        "type": "string"
+      },
+      "direction": {
+        "type": "string"
+      },
+      "eligible": {
+        "type": "boolean"
+      },
+      "experiment_id": {
+        "type": "string"
+      },
+      "family_id": {
+        "type": "string"
+      },
+      "hypothesis_id": {
+        "type": "string"
+      },
+      "looks": {
+        "items": {
+          "additionalProperties": false,
+          "properties": {
+            "anytime_p_value": {
+              "type": "number"
+            },
+            "e_value": {
+              "type": "number"
+            },
+            "evidence_hash": {
+              "type": "string"
+            },
+            "known_at": {
+              "type": "string"
+            },
+            "look_sequence": {
+              "type": "integer"
+            },
+            "statistic": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "anytime_p_value",
+            "e_value",
+            "evidence_hash",
+            "known_at",
+            "look_sequence",
+            "statistic"
+          ],
+          "type": "object"
+        },
+        "type": "array"
+      },
+      "manifest_hash": {
+        "type": "string"
+      },
+      "metric_name": {
+        "type": "string"
+      },
+      "null_boundary": {
+        "type": "number"
+      },
+      "sequence": {
+        "type": "integer"
+      },
+      "stopping_rule_id": {
+        "type": "string"
+      },
+      "synthetic_fixture": {
+        "type": "boolean"
+      },
+      "trial_id": {
+        "type": "string"
+      },
+      "truth_label": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "actor_id",
+      "data_role",
+      "decision_time",
+      "direction",
+      "eligible",
+      "experiment_id",
+      "family_id",
+      "hypothesis_id",
+      "looks",
+      "manifest_hash",
+      "metric_name",
+      "null_boundary",
+      "sequence",
+      "stopping_rule_id",
+      "synthetic_fixture",
+      "trial_id",
+      "truth_label"
+    ],
+    "type": "object"
+  },
+  "title": "HYPOTHESIS_STREAM",
+  "type": "array"
+}

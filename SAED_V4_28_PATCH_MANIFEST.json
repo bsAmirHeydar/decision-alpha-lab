@@ -1,0 +1,83 @@
+{
+  "artifact_inventory": "SAED_V4_28_ARTIFACT_INVENTORY.csv",
+  "authority": {
+    "decision": false,
+    "execution": false,
+    "hidden_evaluation_access": false,
+    "online_learning": false,
+    "production": false,
+    "promotion": false,
+    "risk_allocation": false,
+    "runtime": false
+  },
+  "capability": {
+    "anytime_evidence_registry": true,
+    "append_only_rejection_chain": true,
+    "append_only_wealth_chain": true,
+    "closed_schema_pairs": 22,
+    "closed_schemas": 22,
+    "family_count": 6,
+    "future_suffix_invariance": true,
+    "gamma_sequence_terms": 256,
+    "golden_exact_artifacts": 15,
+    "hypothesis_count": 36,
+    "known_time_controls": true,
+    "mql5_static_files": 20,
+    "obsidian_notes": 261,
+    "online_fdr_procedures": 6,
+    "predictable_family_allocation": true,
+    "primary_procedure": "lord_plus_plus",
+    "python_tests": 124,
+    "rejection_count": 12,
+    "stopping_rule_registry": true
+  },
+  "claims_excluded": [
+    "real_alpha",
+    "universal_real_world_fdr_guarantee",
+    "prospective_success",
+    "hidden_evaluation_air_gap",
+    "independent_replication",
+    "promotion_authorization",
+    "runtime_compilation",
+    "runtime_parity",
+    "risk_allocation",
+    "broker_execution",
+    "production_authorization",
+    "online_learning",
+    "live_trading"
+  ],
+  "created": "2026-07-16",
+  "external_evidence": {
+    "broker_qualification": "not_claimed",
+    "independent_external_reproduction": "pending_external",
+    "metaeditor_compile": "pending_local_windows",
+    "prospective_shadow": "not_claimed",
+    "python_mql5_runtime_parity": "not_claimed"
+  },
+  "file_count": 371,
+  "file_index": "SAED_V4_28_FILE_INDEX.txt",
+  "handoff_hash": "bfe958a8decdec375994d091cec4b4993aba0d213a57ad78297e34d70a534b66",
+  "handoff_id": "v4_28_to_v4_29_a653cd7d320b05cb40a82fb1",
+  "hash_count": 370,
+  "hash_ledger": "SAED_V4_28_FILE_HASHES.sha256",
+  "installation": {
+    "commit_message_file": "COMMIT_MESSAGE.md",
+    "delivery_validation_command": "python tools/strategy_factory/saed_v4_28/validate_saed_v4_28_delivery.py",
+    "expand_at_repository_root": true,
+    "full_qa_command": "python tools/strategy_factory/saed_v4_28/run_saed_v4_28_full_qa.py",
+    "remove_zip_after_expand": true,
+    "stage_command": "git add --pathspec-from-file=SAED_V4_28_FILE_INDEX.txt"
+  },
+  "next_phase": "SAED_V4_29",
+  "patch_type": "additive_closed_contract_reference_implementation",
+  "phase": "SAED_V4_28",
+  "qa_passed": true,
+  "qa_report": "SAED_V4_28_QA_REPORT.json",
+  "reference_certificate_hash": "eb70719041cb2ef6968adbc1c5343ed84476dbd3a12e58250316db4dbdd3b153",
+  "reference_certificate_id": "anytime_valid_online_fdr_certificate_2aefdaaef0f2bfb341647b85",
+  "title": "Anytime Valid Online FDR",
+  "upstream_required": [
+    "SAED_V4_27"
+  ],
+  "version": "1.0.0"
+}

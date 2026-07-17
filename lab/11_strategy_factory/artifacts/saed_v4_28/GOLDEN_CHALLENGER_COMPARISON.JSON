@@ -1,0 +1,66 @@
+{
+  "all_procedures_research_only": true,
+  "comparison_hash": "1559ba0ef0251fa0294cc6e3e329abeba2abed80f58b82f8b45d6c88320dcc0e",
+  "comparison_id": "online_fdr_challenger_comparison_d8a460cd02e84c62fbcb4665",
+  "phase": "SAED_V4_28",
+  "procedure_count": 6,
+  "promotion_authority": false,
+  "rows": [
+    {
+      "hypothesis_count": 36,
+      "minimum_wealth": 0.004589710403840526,
+      "nonnegative_wealth": true,
+      "procedure": "addis",
+      "promotion_authority": false,
+      "rejection_count": 6,
+      "total_alpha_spent": 0.04848188809391921
+    },
+    {
+      "hypothesis_count": 36,
+      "minimum_wealth": 0.0026041666666666665,
+      "nonnegative_wealth": true,
+      "procedure": "alpha_investing",
+      "promotion_authority": false,
+      "rejection_count": 12,
+      "total_alpha_spent": 0.12109375
+    },
+    {
+      "hypothesis_count": 36,
+      "minimum_wealth": 0.0008460874743477171,
+      "nonnegative_wealth": true,
+      "procedure": "alpha_spending",
+      "promotion_authority": false,
+      "rejection_count": 6,
+      "total_alpha_spent": 0.06861054041133753
+    },
+    {
+      "hypothesis_count": 36,
+      "minimum_wealth": 0.004166666666666667,
+      "nonnegative_wealth": true,
+      "procedure": "e_lond",
+      "promotion_authority": false,
+      "rejection_count": 12,
+      "total_alpha_spent": 0.07727631874419782
+    },
+    {
+      "hypothesis_count": 36,
+      "minimum_wealth": 0.004589710403840526,
+      "nonnegative_wealth": true,
+      "procedure": "lord_plus_plus",
+      "promotion_authority": false,
+      "rejection_count": 12,
+      "total_alpha_spent": 0.11082168152954922
+    },
+    {
+      "hypothesis_count": 36,
+      "minimum_wealth": 0.0034713962103906865,
+      "nonnegative_wealth": true,
+      "procedure": "saffron",
+      "promotion_authority": false,
+      "rejection_count": 12,
+      "total_alpha_spent": 0.0685956003407851
+    }
+  ],
+  "selection_authority": false,
+  "target_fdr": 0.1
+}

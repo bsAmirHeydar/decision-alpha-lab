@@ -1,0 +1,29 @@
+[
+  {
+    "description": "Decision after at most three prespecified looks.",
+    "maximum_looks": 3,
+    "name": "Fixed Three Looks",
+    "predictable": true,
+    "rule_type": "fixed_looks",
+    "stopping_rule_id": "stop_fixed_three_looks",
+    "uses_future_data": false
+  },
+  {
+    "description": "Stop on a registered anytime boundary or at the third look.",
+    "maximum_looks": 3,
+    "name": "Boundary Or Three",
+    "predictable": true,
+    "rule_type": "boundary_or_budget",
+    "stopping_rule_id": "stop_boundary_or_three",
+    "uses_future_data": false
+  },
+  {
+    "description": "Stop when the prespecified evidence-look budget is exhausted.",
+    "maximum_looks": 3,
+    "name": "Evidence Budget",
+    "predictable": true,
+    "rule_type": "evidence_budget",
+    "stopping_rule_id": "stop_evidence_budget",
+    "uses_future_data": false
+  }
+]

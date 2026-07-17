@@ -1,0 +1,54 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_28/MODEL_RISK_REVIEW.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "air_gap_deferred_to_v4_29": {
+      "type": "boolean"
+    },
+    "challenger_count": {
+      "type": "integer"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "model_risk_review_hash": {
+      "type": "string"
+    },
+    "model_risk_review_id": {
+      "type": "string"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "primary_procedure": {
+      "type": "string"
+    },
+    "real_world_fdr_guarantee": {
+      "type": "boolean"
+    },
+    "selection_risk_control_reference": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "air_gap_deferred_to_v4_29",
+    "challenger_count",
+    "limitations",
+    "model_risk_review_hash",
+    "model_risk_review_id",
+    "passed",
+    "phase",
+    "primary_procedure",
+    "real_world_fdr_guarantee",
+    "selection_risk_control_reference"
+  ],
+  "title": "MODEL_RISK_REVIEW",
+  "type": "object"
+}

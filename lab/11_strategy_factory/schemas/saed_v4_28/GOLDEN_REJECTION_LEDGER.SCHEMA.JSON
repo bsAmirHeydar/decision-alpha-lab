@@ -1,0 +1,136 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_28/GOLDEN_REJECTION_LEDGER.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_thresholds_crossed": {
+      "type": "boolean"
+    },
+    "chain_verification": {
+      "additionalProperties": false,
+      "properties": {
+        "chain": {
+          "type": "string"
+        },
+        "entry_count": {
+          "type": "integer"
+        },
+        "genesis_hash": {
+          "type": "string"
+        },
+        "head_hash": {
+          "type": "string"
+        },
+        "verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "chain",
+        "entry_count",
+        "genesis_hash",
+        "head_hash",
+        "verified"
+      ],
+      "type": "object"
+    },
+    "entries": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "alpha": {
+            "type": "number"
+          },
+          "anytime_p_value": {
+            "type": "number"
+          },
+          "chain": {
+            "type": "string"
+          },
+          "decision_time": {
+            "type": "string"
+          },
+          "e_value": {
+            "type": "number"
+          },
+          "entry_hash": {
+            "type": "string"
+          },
+          "evidence_hash": {
+            "type": "string"
+          },
+          "family_id": {
+            "type": "string"
+          },
+          "family_local_index": {
+            "type": "integer"
+          },
+          "global_hypothesis_sequence": {
+            "type": "integer"
+          },
+          "hypothesis_id": {
+            "type": "string"
+          },
+          "previous_hash": {
+            "type": "string"
+          },
+          "procedure": {
+            "type": "string"
+          },
+          "sequence": {
+            "type": "integer"
+          },
+          "threshold_crossed": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "alpha",
+          "anytime_p_value",
+          "chain",
+          "decision_time",
+          "e_value",
+          "entry_hash",
+          "evidence_hash",
+          "family_id",
+          "family_local_index",
+          "global_hypothesis_sequence",
+          "hypothesis_id",
+          "previous_hash",
+          "procedure",
+          "sequence",
+          "threshold_crossed"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "rejection_count": {
+      "type": "integer"
+    },
+    "threshold_crossing_required": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "all_thresholds_crossed",
+    "chain_verification",
+    "entries",
+    "ledger_hash",
+    "ledger_id",
+    "phase",
+    "rejection_count",
+    "threshold_crossing_required"
+  ],
+  "title": "GOLDEN_REJECTION_LEDGER",
+  "type": "object"
+}

@@ -1,0 +1,34 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_28/GAMMA_SEQUENCE.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "deterministic": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "nonincreasing": {
+      "type": "boolean"
+    },
+    "normalized": {
+      "type": "boolean"
+    },
+    "weights": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "deterministic",
+    "exact_version",
+    "nonincreasing",
+    "normalized",
+    "weights"
+  ],
+  "title": "GAMMA_SEQUENCE",
+  "type": "object"
+}

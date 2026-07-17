@@ -1,0 +1,18 @@
+{
+  "certificate_hash": "c30f13f70a8c491111f3ce8f6c3cce861eab1e4f9d50cfd52a47e76d70f24f4d",
+  "certificate_id": "complete_search_exposure_certificate_06edc37fe3b99d090404beea",
+  "exposure_count": 44,
+  "family_count": 6,
+  "handoff_hash": "982ff69fff0aff6be4c31ad141c788dbffc520b055809970453192adfbb4fc4c",
+  "handoff_id": "v4_27_to_v4_28_1f3c2014de7e3e5cf9af812d",
+  "hash_verified": true,
+  "immutable": true,
+  "multiplicity_universe_hash": "dc97ae0c6f463b3b0e607948f8485302510609b2c2bed604504cb3ca5efa934a",
+  "multiplicity_universe_id": "multiplicity_universe_3cf14938331c8dc8bb0f5a0a",
+  "phase": "SAED_V4_28",
+  "receipt_hash": "c9b7a9a8672308402c7c78e767d31a2a0f2fbe3c565c31e367233e95a6b9c8d9",
+  "receipt_id": "v428_upstream_receipt_ec75f1ed71463e4d1c65d2fd",
+  "required_phase": "SAED_V4_27",
+  "research_only": true,
+  "trial_count": 36
+}

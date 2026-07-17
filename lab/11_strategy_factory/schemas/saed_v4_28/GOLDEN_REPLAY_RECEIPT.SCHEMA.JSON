@@ -1,0 +1,116 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_28/GOLDEN_REPLAY_RECEIPT.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "config_hash": {
+      "type": "string"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "future_suffix_invariant": {
+      "type": "boolean"
+    },
+    "hypothesis_stream_hash": {
+      "type": "string"
+    },
+    "network_access": {
+      "type": "boolean"
+    },
+    "output_hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "anytime_evidence_registry": {
+          "type": "string"
+        },
+        "authority_boundary": {
+          "type": "string"
+        },
+        "certificate": {
+          "type": "string"
+        },
+        "challenger_comparison": {
+          "type": "string"
+        },
+        "family_allocation": {
+          "type": "string"
+        },
+        "handoff": {
+          "type": "string"
+        },
+        "known_time_review": {
+          "type": "string"
+        },
+        "model_risk_review": {
+          "type": "string"
+        },
+        "online_fdr_audit": {
+          "type": "string"
+        },
+        "rejection_ledger": {
+          "type": "string"
+        },
+        "security_review": {
+          "type": "string"
+        },
+        "stopping_rule_audit": {
+          "type": "string"
+        },
+        "upstream_receipt": {
+          "type": "string"
+        },
+        "wealth_ledger": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "anytime_evidence_registry",
+        "authority_boundary",
+        "certificate",
+        "challenger_comparison",
+        "family_allocation",
+        "handoff",
+        "known_time_review",
+        "model_risk_review",
+        "online_fdr_audit",
+        "rejection_ledger",
+        "security_review",
+        "stopping_rule_audit",
+        "upstream_receipt",
+        "wealth_ledger"
+      ],
+      "type": "object"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "random_seed_required": {
+      "type": "boolean"
+    },
+    "replay_command": {
+      "type": "string"
+    },
+    "replay_hash": {
+      "type": "string"
+    },
+    "replay_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "config_hash",
+    "deterministic",
+    "future_suffix_invariant",
+    "hypothesis_stream_hash",
+    "network_access",
+    "output_hashes",
+    "phase",
+    "random_seed_required",
+    "replay_command",
+    "replay_hash",
+    "replay_id"
+  ],
+  "title": "GOLDEN_REPLAY_RECEIPT",
+  "type": "object"
+}

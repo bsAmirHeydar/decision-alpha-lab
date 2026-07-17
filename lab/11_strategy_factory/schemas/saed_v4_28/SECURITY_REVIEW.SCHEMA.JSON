@@ -1,0 +1,60 @@
+{
+  "$id": "https://decision-alpha-lab.local/schemas/saed_v4_28/SECURITY_REVIEW.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "broker_connection": {
+      "type": "boolean"
+    },
+    "credential_use": {
+      "type": "boolean"
+    },
+    "filesystem_mutation_outside_delivery": {
+      "type": "boolean"
+    },
+    "forbidden_material_hits": {
+      "items": {},
+      "type": "array"
+    },
+    "network_access": {
+      "type": "boolean"
+    },
+    "online_policy_mutation": {
+      "type": "boolean"
+    },
+    "order_submission": {
+      "type": "boolean"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "runtime_compilation": {
+      "type": "boolean"
+    },
+    "security_review_hash": {
+      "type": "string"
+    },
+    "security_review_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "broker_connection",
+    "credential_use",
+    "filesystem_mutation_outside_delivery",
+    "forbidden_material_hits",
+    "network_access",
+    "online_policy_mutation",
+    "order_submission",
+    "passed",
+    "phase",
+    "runtime_compilation",
+    "security_review_hash",
+    "security_review_id"
+  ],
+  "title": "SECURITY_REVIEW",
+  "type": "object"
+}

@@ -1,0 +1,18 @@
+{
+  "authority": {
+    "decision": false,
+    "execution": false,
+    "hidden_evaluation_access": false,
+    "online_learning": false,
+    "production": false,
+    "promotion": false,
+    "risk_allocation": false,
+    "runtime": false
+  },
+  "boundary_hash": "56b95883cb89ab5609b1cd3dfd2f21d9c74b6a168f2217951b5e2675f79e9dae",
+  "boundary_id": "online_fdr_authority_50d07e37b2bdcc05cf9afe57",
+  "phase": "SAED_V4_28",
+  "research_only": true,
+  "safe_action": "skip",
+  "ucee_authority_preserved": true
+}
