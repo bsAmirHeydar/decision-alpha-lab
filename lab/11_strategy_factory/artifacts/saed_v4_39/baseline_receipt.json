@@ -1,0 +1,11 @@
+{
+  "baseline_hash": "d9988bcd17b9574cb993ea99177a5bb852dd30735390e34deab86ed400d71cfd",
+  "baseline_id": "V439_FROZEN_BASELINE",
+  "baseline_mutation_count": 0,
+  "baseline_preserved": true,
+  "fallback_mode": "BASELINE_OR_ABSTAIN",
+  "phase": "SAED_V4_39",
+  "receipt_hash": "99e4fa652bceccd7761c1a0aecc43cef9e375b5f61ae836e7b28e0d39f851284",
+  "receipt_id": "v439_baseline_086dfd79a1f74f01e481ba5c",
+  "research_only": true
+}

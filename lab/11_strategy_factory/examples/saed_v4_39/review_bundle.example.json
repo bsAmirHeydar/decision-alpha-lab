@@ -1,0 +1,124 @@
+{
+  "approved_reference": true,
+  "micro_live_authorized": false,
+  "phase": "SAED_V4_39",
+  "research_only": true,
+  "review_bundle_hash": "1671ed95c4f65082efdceafec6d6e9f3f18dfcf9a309353a7c28b50be7520697",
+  "review_bundle_id": "v439_reviews_a408018015a78ccfb4b6eb1f",
+  "reviews": [
+    {
+      "decision": "APPROVE_REFERENCE",
+      "findings": [
+        "reference implementation accepted",
+        "external operational evidence remains open",
+        "no live authority granted"
+      ],
+      "independent": true,
+      "qualification_hash": "17932757e06d58be8ee6f7818bc488861bd0be0ab61fc783dfb3d9c816ea8417",
+      "review_hash": "a350bfbdc6fad2414807c4db9fe94e958333de634a49d9dd98a6fadb95a7768f",
+      "review_id": "REV02",
+      "reviewer_id": "V439_REFERENCE_REVIEWER_02",
+      "role": "BROKER_OPERATIONS"
+    },
+    {
+      "decision": "APPROVE_REFERENCE",
+      "findings": [
+        "reference implementation accepted",
+        "external operational evidence remains open",
+        "no live authority granted"
+      ],
+      "independent": true,
+      "qualification_hash": "17932757e06d58be8ee6f7818bc488861bd0be0ab61fc783dfb3d9c816ea8417",
+      "review_hash": "981441facc3be8ca1f352701a8528d7b9ca5c0fa80fab3f85a4cbec5f5f1b890",
+      "review_id": "REV00",
+      "reviewer_id": "V439_REFERENCE_REVIEWER_00",
+      "role": "DEPLOYMENT_ENGINEER"
+    },
+    {
+      "decision": "APPROVE_REFERENCE",
+      "findings": [
+        "reference implementation accepted",
+        "external operational evidence remains open",
+        "no live authority granted"
+      ],
+      "independent": true,
+      "qualification_hash": "17932757e06d58be8ee6f7818bc488861bd0be0ab61fc783dfb3d9c816ea8417",
+      "review_hash": "582f9800a9d23d2c5a05fdf9bbb57d232c8f66ba641e0408877f840b51c8f523",
+      "review_id": "REV03",
+      "reviewer_id": "V439_REFERENCE_REVIEWER_03",
+      "role": "INDEPENDENT_MODEL_RISK"
+    },
+    {
+      "decision": "APPROVE_REFERENCE",
+      "findings": [
+        "reference implementation accepted",
+        "external operational evidence remains open",
+        "no live authority granted"
+      ],
+      "independent": true,
+      "qualification_hash": "17932757e06d58be8ee6f7818bc488861bd0be0ab61fc783dfb3d9c816ea8417",
+      "review_hash": "86ee4c7a26c682440977da1f8614bc958daeec05a4e4edbb08bb97a4ab0836d9",
+      "review_id": "REV07",
+      "reviewer_id": "V439_REFERENCE_REVIEWER_07",
+      "role": "INDEPENDENT_VALIDATOR"
+    },
+    {
+      "decision": "APPROVE_REFERENCE",
+      "findings": [
+        "reference implementation accepted",
+        "external operational evidence remains open",
+        "no live authority granted"
+      ],
+      "independent": true,
+      "qualification_hash": "17932757e06d58be8ee6f7818bc488861bd0be0ab61fc783dfb3d9c816ea8417",
+      "review_hash": "af01d06ad712a78a60d2444acfeb7ff4d2f1dd8a21fd5f3e9f83e5bf26ed7bd3",
+      "review_id": "REV01",
+      "reviewer_id": "V439_REFERENCE_REVIEWER_01",
+      "role": "MQL5_RUNTIME_REVIEWER"
+    },
+    {
+      "decision": "APPROVE_REFERENCE",
+      "findings": [
+        "reference implementation accepted",
+        "external operational evidence remains open",
+        "no live authority granted"
+      ],
+      "independent": true,
+      "qualification_hash": "17932757e06d58be8ee6f7818bc488861bd0be0ab61fc783dfb3d9c816ea8417",
+      "review_hash": "866368f2526e6c21c6ef8650e1633977698b14841226a454870be5e8948a94c2",
+      "review_id": "REV06",
+      "reviewer_id": "V439_REFERENCE_REVIEWER_06",
+      "role": "OPERATOR"
+    },
+    {
+      "decision": "APPROVE_REFERENCE",
+      "findings": [
+        "reference implementation accepted",
+        "external operational evidence remains open",
+        "no live authority granted"
+      ],
+      "independent": true,
+      "qualification_hash": "17932757e06d58be8ee6f7818bc488861bd0be0ab61fc783dfb3d9c816ea8417",
+      "review_hash": "c1dcee61c446fc006770f63ac2119469368860e3a58f15e672046ceb0840bc10",
+      "review_id": "REV04",
+      "reviewer_id": "V439_REFERENCE_REVIEWER_04",
+      "role": "RISK_OFFICER"
+    },
+    {
+      "decision": "APPROVE_REFERENCE",
+      "findings": [
+        "reference implementation accepted",
+        "external operational evidence remains open",
+        "no live authority granted"
+      ],
+      "independent": true,
+      "qualification_hash": "17932757e06d58be8ee6f7818bc488861bd0be0ab61fc783dfb3d9c816ea8417",
+      "review_hash": "76e39721e36677f6d5635f93cc09d4e33aa703a1d834b112f9dac5b35f99d337",
+      "review_id": "REV05",
+      "reviewer_id": "V439_REFERENCE_REVIEWER_05",
+      "role": "SECURITY_KEY_CUSTODIAN"
+    }
+  ],
+  "role_count": 8,
+  "two_person_live_control_satisfied": false
+}

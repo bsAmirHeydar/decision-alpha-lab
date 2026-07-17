@@ -1,0 +1,14 @@
+{
+  "actual_external_passed": false,
+  "checks": {
+    "actual_period_evidence": false,
+    "minimum_observations": true,
+    "no_hard_surveillance_breach": true,
+    "reconciliation_complete": true,
+    "zero_broker_side_effect": true,
+    "zero_order_submission": true
+  },
+  "decision": "ACCEPT_REFERENCE_EXTERNAL_PERIOD_PENDING",
+  "internal_reference_passed": true,
+  "stage": "PAPER"
+}

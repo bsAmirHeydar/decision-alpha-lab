@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "cooldown_bars_after_loss": {
+      "type": "integer"
+    },
+    "frozen_risk_hash": {
+      "type": "string"
+    },
+    "frozen_risk_id": {
+      "type": "string"
+    },
+    "kill_switch_default_armed": {
+      "type": "boolean"
+    },
+    "max_concurrent_positions": {
+      "type": "integer"
+    },
+    "max_daily_loss_fraction": {
+      "type": "number"
+    },
+    "max_drawdown_fraction": {
+      "type": "number"
+    },
+    "max_gross_notional_fraction": {
+      "type": "number"
+    },
+    "max_latency_ms": {
+      "type": "integer"
+    },
+    "max_orders_per_day": {
+      "type": "integer"
+    },
+    "max_reject_rate": {
+      "type": "number"
+    },
+    "max_slippage_bps": {
+      "type": "number"
+    },
+    "max_spread_bps": {
+      "type": "number"
+    },
+    "max_trade_risk_fraction": {
+      "type": "number"
+    },
+    "position_size_hard_cap": {
+      "type": "number"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "risk_envelope_hash": {
+      "type": "string"
+    },
+    "risk_envelope_id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "risk_envelope_id",
+    "version",
+    "max_trade_risk_fraction",
+    "max_daily_loss_fraction",
+    "max_gross_notional_fraction",
+    "max_concurrent_positions",
+    "max_orders_per_day",
+    "max_spread_bps",
+    "max_slippage_bps",
+    "max_latency_ms",
+    "max_reject_rate",
+    "max_drawdown_fraction",
+    "cooldown_bars_after_loss",
+    "kill_switch_default_armed",
+    "position_size_hard_cap",
+    "research_only",
+    "risk_envelope_hash",
+    "frozen_risk_id",
+    "frozen_risk_hash"
+  ],
+  "title": "risk_envelope",
+  "type": "object"
+}

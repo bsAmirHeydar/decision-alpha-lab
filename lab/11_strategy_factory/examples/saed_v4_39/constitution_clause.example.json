@@ -1,0 +1,7 @@
+{
+  "clause_id": "C001",
+  "evidence_required": true,
+  "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+  "priority": 1,
+  "requirement": "Bind every qualification run to the immutable V4-38 runtime bundle."
+}

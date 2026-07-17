@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "cash_delta": {
+      "type": "number"
+    },
+    "events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "cash_delta": {
+            "type": "number"
+          },
+          "event_hash": {
+            "type": "string"
+          },
+          "event_id": {
+            "type": "string"
+          },
+          "intent_decision": {
+            "type": "string"
+          },
+          "intent_id": {
+            "type": "string"
+          },
+          "live_fill_id": {
+            "type": "null"
+          },
+          "live_order_id": {
+            "type": "null"
+          },
+          "observation_id": {
+            "type": "string"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "paper_status": {
+            "type": "string"
+          },
+          "position_delta": {
+            "type": "number"
+          },
+          "previous_hash": {
+            "type": "string"
+          },
+          "price_reconciled": {
+            "type": "boolean"
+          },
+          "quantity_match": {
+            "type": "boolean"
+          },
+          "reconciled": {
+            "type": "boolean"
+          },
+          "research_only": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "intent_id",
+          "observation_id",
+          "intent_decision",
+          "paper_status",
+          "quantity_match",
+          "price_reconciled",
+          "live_order_id",
+          "live_fill_id",
+          "cash_delta",
+          "position_delta",
+          "reconciled",
+          "research_only",
+          "ordinal",
+          "previous_hash",
+          "event_id",
+          "event_hash"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "intent_count": {
+      "type": "integer"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "live_fill_count": {
+      "type": "integer"
+    },
+    "live_order_count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "position_delta": {
+      "type": "number"
+    },
+    "reconciled_count": {
+      "type": "integer"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "unmatched_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "phase",
+    "events",
+    "intent_count",
+    "reconciled_count",
+    "unmatched_count",
+    "live_order_count",
+    "live_fill_count",
+    "cash_delta",
+    "position_delta",
+    "research_only",
+    "ledger_id",
+    "ledger_hash"
+  ],
+  "title": "reconciliation_ledger",
+  "type": "object"
+}

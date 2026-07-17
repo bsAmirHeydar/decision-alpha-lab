@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "broker_profile_hash": {
+      "type": "string"
+    },
+    "checks": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "actual_external_evidence": {
+            "type": "boolean"
+          },
+          "gate_id": {
+            "type": "string"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "gate_id",
+          "passed",
+          "status",
+          "actual_external_evidence"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "demo_qualified": {
+      "type": "boolean"
+    },
+    "live_qualified": {
+      "type": "boolean"
+    },
+    "matrix_hash": {
+      "type": "string"
+    },
+    "matrix_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "phase",
+    "broker_profile_hash",
+    "checks",
+    "demo_qualified",
+    "live_qualified",
+    "research_only",
+    "production_authorized",
+    "matrix_id",
+    "matrix_hash"
+  ],
+  "title": "broker_qualification_matrix",
+  "type": "object"
+}

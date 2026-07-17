@@ -1,0 +1,18 @@
+{
+  "bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+  "certificate_hash": "71578a06e75ee1b533046ba2822cf58523ab700d0db5d6a4018a42672e878702",
+  "external_runtime_evidence_complete": false,
+  "phase": "SAED_V4_39",
+  "production_authorized": false,
+  "receipt_hash": "6ff6488cf048cd942edc6242d598f4c7e79bb909e64ab68a57cbfc4e272ac77a",
+  "receipt_id": "v439_upstream_d46190946a38370f4349cc1b",
+  "required_external_gates": [
+    "CROSS_RUNTIME_STATE_REPLAY",
+    "METAEDITOR_COMPILE",
+    "TERMINAL_VECTOR_REPLAY",
+    "WINDOWS_DLL_BOUNDARY"
+  ],
+  "research_only": true,
+  "upstream_phase": "SAED_V4_38",
+  "verified": true
+}

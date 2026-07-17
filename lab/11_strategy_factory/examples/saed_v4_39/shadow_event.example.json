@@ -1,0 +1,20 @@
+{
+  "agreement": true,
+  "baseline_decision": "ABSTAIN",
+  "broker_side_effect": false,
+  "counterfactual_only": true,
+  "event_hash": "44290ef7a18d5fd01dc460ecbadfbc94d05db6271613fa9aa0baa772b9a27296",
+  "event_id": "v439_shadow_event_c261701ce7a73d59645bc4f3",
+  "intent_id": "v439_intent_75a1e840c24ec4fb72edd5a1",
+  "known_time": "2026-06-01T00:00:00Z",
+  "mode": "SHADOW",
+  "observation_id": "OBS000",
+  "order_submitted": false,
+  "ordinal": 0,
+  "paper_net_pnl_bps": 0.0,
+  "paper_status": "ABSTAIN",
+  "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "research_only": true,
+  "shadow_decision": "ABSTAIN",
+  "synthetic_fixture": true
+}

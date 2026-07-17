@@ -1,0 +1,91 @@
+{
+  "automatic_transition_allowed": false,
+  "initial_mode": "OFF",
+  "ladder_id": "V439_DEPLOYMENT_LADDER",
+  "regression_allowed": true,
+  "research_only": true,
+  "stages": [
+    {
+      "capital_allowed": false,
+      "manual_authorization_required": false,
+      "mode": "OFF",
+      "ordinal": 0,
+      "required_gates": [],
+      "rollback_mode": "OFF",
+      "side_effects_allowed": false,
+      "stage_id": "ST00"
+    },
+    {
+      "capital_allowed": false,
+      "manual_authorization_required": false,
+      "mode": "PAPER",
+      "ordinal": 1,
+      "required_gates": [
+        "RUNTIME_HASH_BOUND",
+        "COHORT_FROZEN"
+      ],
+      "rollback_mode": "OFF",
+      "side_effects_allowed": false,
+      "stage_id": "ST01"
+    },
+    {
+      "capital_allowed": false,
+      "manual_authorization_required": false,
+      "mode": "SHADOW",
+      "ordinal": 2,
+      "required_gates": [
+        "PAPER_REFERENCE_PASS",
+        "ZERO_SIDE_EFFECTS"
+      ],
+      "rollback_mode": "OFF",
+      "side_effects_allowed": false,
+      "stage_id": "ST02"
+    },
+    {
+      "capital_allowed": false,
+      "manual_authorization_required": true,
+      "mode": "MICRO_LIVE_QUALIFICATION",
+      "ordinal": 3,
+      "required_gates": [
+        "ACTUAL_PAPER_PASS",
+        "ACTUAL_SHADOW_PASS",
+        "METAEDITOR_PASS",
+        "TERMINAL_PARITY_PASS",
+        "DEMO_BROKER_PASS"
+      ],
+      "rollback_mode": "OFF",
+      "side_effects_allowed": false,
+      "stage_id": "ST03"
+    },
+    {
+      "capital_allowed": true,
+      "manual_authorization_required": true,
+      "mode": "MICRO_LIVE",
+      "ordinal": 4,
+      "required_gates": [
+        "SIGNED_MICRO_LIVE_PERMIT",
+        "LIVE_BROKER_PASS",
+        "LIVE_KILL_SWITCH_DRILL",
+        "TWO_PERSON_CONTROL"
+      ],
+      "rollback_mode": "OFF",
+      "side_effects_allowed": true,
+      "stage_id": "ST04"
+    },
+    {
+      "capital_allowed": true,
+      "manual_authorization_required": true,
+      "mode": "PRODUCTION",
+      "ordinal": 5,
+      "required_gates": [
+        "V4_40_FLEET_QUALIFIED",
+        "V4_41_SURVEILLANCE_ACTIVE",
+        "PRODUCTION_AUTHORIZATION"
+      ],
+      "rollback_mode": "OFF",
+      "side_effects_allowed": true,
+      "stage_id": "ST05"
+    }
+  ],
+  "version": "1.0.0"
+}

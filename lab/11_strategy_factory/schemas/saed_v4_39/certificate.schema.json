@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "actual_prospective_paper_passed": {
+      "type": "boolean"
+    },
+    "actual_prospective_shadow_passed": {
+      "type": "boolean"
+    },
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "evidence_hash": {
+      "type": "string"
+    },
+    "micro_live_authorized": {
+      "type": "boolean"
+    },
+    "micro_live_eligible": {
+      "type": "boolean"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "order_submission_allowed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "reference_paper_passed": {
+      "type": "boolean"
+    },
+    "reference_shadow_passed": {
+      "type": "boolean"
+    },
+    "release_hash": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "runtime_bundle_hash": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "status",
+    "runtime_bundle_hash",
+    "release_hash",
+    "evidence_hash",
+    "reference_paper_passed",
+    "reference_shadow_passed",
+    "actual_prospective_paper_passed",
+    "actual_prospective_shadow_passed",
+    "micro_live_eligible",
+    "micro_live_authorized",
+    "order_submission_allowed",
+    "capital_activation_allowed",
+    "production_authorized",
+    "next_phase",
+    "claim_ceiling",
+    "research_only",
+    "certificate_id",
+    "certificate_hash"
+  ],
+  "title": "certificate",
+  "type": "object"
+}

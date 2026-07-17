@@ -1,0 +1,11 @@
+{
+  "actual_external_evidence": false,
+  "artifact_hash": "4efb3e9896a05f695843041fa3904cb4f83332e8d76e82e84b189057d71424e9",
+  "environment": "windows-metaeditor",
+  "evidence_id": "EXT00",
+  "evidence_type": "METAEDITOR_COMPILE",
+  "independent_reviewer": "PENDING_EXTERNAL_REVIEWER",
+  "notes": "Actual environment evidence is intentionally not fabricated by the reference patch.",
+  "observed_at": "2026-07-17T00:00:00Z",
+  "status": "PENDING_EXTERNAL"
+}

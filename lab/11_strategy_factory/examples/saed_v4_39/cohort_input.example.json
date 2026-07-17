@@ -1,0 +1,45 @@
+{
+  "cohort_id": "V439_SYNTHETIC_PROSPECTIVE_COHORT",
+  "contexts": [
+    "CTX_ALPHA_A",
+    "CTX_ALPHA_B"
+  ],
+  "cutoff_time": "2026-06-30T23:59:59Z",
+  "data_roles": [
+    {
+      "end": "2026-06-02T12:00:00Z",
+      "mutable": false,
+      "role": "PROSPECTIVE_PAPER",
+      "role_id": "DR01",
+      "start": "2026-06-01T00:00:00Z"
+    },
+    {
+      "end": "2026-06-03T23:00:00Z",
+      "mutable": false,
+      "role": "SHADOW",
+      "role_id": "DR02",
+      "start": "2026-06-02T12:00:00Z"
+    },
+    {
+      "end": "2026-06-30T23:59:59Z",
+      "mutable": false,
+      "role": "MICRO_LIVE_QUALIFICATION",
+      "role_id": "DR03",
+      "start": "2026-06-04T00:00:00Z"
+    }
+  ],
+  "decision_frequency": "BAR_CLOSE",
+  "frozen_at": "2026-05-31T23:00:00Z",
+  "instruments": [
+    "SYNTH_NQ",
+    "SYNTH_USTEC"
+  ],
+  "maximum_observations": 96,
+  "minimum_observations": 48,
+  "outcome_fields_visible_at_freeze": [],
+  "prospective_end": "2026-06-03T23:00:00Z",
+  "prospective_start": "2026-06-01T00:00:00Z",
+  "research_only": true,
+  "selection_locked": true,
+  "version": "1.0.0"
+}

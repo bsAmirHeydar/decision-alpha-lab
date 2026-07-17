@@ -1,0 +1,20 @@
+{
+  "ask": 19955.5,
+  "bar_high": 19959.5,
+  "bar_low": 19950.5,
+  "baseline_decision": "ABSTAIN",
+  "bid": 19954.5,
+  "context_id": "CTX_ALPHA_A",
+  "decision": "ABSTAIN",
+  "expected_cost_bps": 1.1,
+  "expected_edge_bps": 3.0,
+  "instrument": "SYNTH_USTEC",
+  "known_time": "2026-06-01T00:00:00Z",
+  "latency_ms": 120,
+  "next_ask": 19951.3,
+  "next_bid": 19950.3,
+  "observation_id": "OBS000",
+  "side": "BUY",
+  "signal_score": 0.42,
+  "synthetic_fixture": true
+}

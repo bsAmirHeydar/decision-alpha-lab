@@ -1,0 +1,13 @@
+{
+  "digits": 2,
+  "freeze_level_points": 0,
+  "max_spread_bps": 8.0,
+  "max_volume": 1.0,
+  "min_volume": 0.01,
+  "point": 0.01,
+  "stop_level_points": 0,
+  "symbol": "SYNTH_NQ",
+  "tick_size": 0.25,
+  "tick_value": 5.0,
+  "volume_step": 0.01
+}

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "actual_external_passed": {
+      "type": "boolean"
+    },
+    "checks": {
+      "additionalProperties": false,
+      "properties": {
+        "actual_period_evidence": {
+          "type": "boolean"
+        },
+        "minimum_observations": {
+          "type": "boolean"
+        },
+        "no_hard_surveillance_breach": {
+          "type": "boolean"
+        },
+        "reconciliation_complete": {
+          "type": "boolean"
+        },
+        "zero_broker_side_effect": {
+          "type": "boolean"
+        },
+        "zero_order_submission": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "minimum_observations",
+        "zero_order_submission",
+        "zero_broker_side_effect",
+        "reconciliation_complete",
+        "no_hard_surveillance_breach",
+        "actual_period_evidence"
+      ],
+      "type": "object"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "internal_reference_passed": {
+      "type": "boolean"
+    },
+    "stage": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "stage",
+    "internal_reference_passed",
+    "actual_external_passed",
+    "checks",
+    "decision"
+  ],
+  "title": "stage_record",
+  "type": "object"
+}

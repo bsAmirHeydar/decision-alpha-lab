@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "capital_activation_allowed": {
+            "type": "boolean"
+          },
+          "context_id": {
+            "type": "string"
+          },
+          "decision": {
+            "type": "string"
+          },
+          "event_hash": {
+            "type": "string"
+          },
+          "event_id": {
+            "type": "string"
+          },
+          "instrument": {
+            "type": "string"
+          },
+          "intent_hash": {
+            "type": "string"
+          },
+          "intent_id": {
+            "type": "string"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "latency_ms": {
+            "type": "integer"
+          },
+          "observation_id": {
+            "type": "string"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "previous_hash": {
+            "type": "string"
+          },
+          "reference_price": {
+            "type": "number"
+          },
+          "research_only": {
+            "type": "boolean"
+          },
+          "risk_fraction": {
+            "type": "number"
+          },
+          "runtime_bundle_hash": {
+            "type": "string"
+          },
+          "side": {
+            "type": "string"
+          },
+          "size_fraction": {
+            "type": "number"
+          },
+          "spread_bps": {
+            "type": "number"
+          },
+          "submission_allowed": {
+            "type": "boolean"
+          },
+          "submission_mode": {
+            "type": "string"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "observation_id",
+          "known_time",
+          "context_id",
+          "instrument",
+          "decision",
+          "side",
+          "reference_price",
+          "size_fraction",
+          "risk_fraction",
+          "spread_bps",
+          "latency_ms",
+          "runtime_bundle_hash",
+          "submission_mode",
+          "submission_allowed",
+          "capital_activation_allowed",
+          "synthetic_fixture",
+          "research_only",
+          "intent_id",
+          "intent_hash",
+          "ordinal",
+          "previous_hash",
+          "event_id",
+          "event_hash"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "intent_count": {
+      "type": "integer"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "submission_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "phase",
+    "events",
+    "intent_count",
+    "submission_count",
+    "research_only",
+    "ledger_id",
+    "ledger_hash"
+  ],
+  "title": "intent_ledger",
+  "type": "object"
+}

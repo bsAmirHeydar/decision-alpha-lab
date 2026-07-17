@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "end": {
+      "type": "string"
+    },
+    "mutable": {
+      "type": "boolean"
+    },
+    "role": {
+      "type": "string"
+    },
+    "role_id": {
+      "type": "string"
+    },
+    "start": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "role_id",
+    "role",
+    "start",
+    "end",
+    "mutable"
+  ],
+  "title": "data_role",
+  "type": "object"
+}

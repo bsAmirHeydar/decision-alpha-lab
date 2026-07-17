@@ -1,0 +1,10 @@
+{
+  "binding_hash": "8d38b0e439ed534fa3a71cb0fca4698ef6ae59e886ad291ccf58fbb2f3243bbd",
+  "binding_id": "v439_runtime_binding_dae88773d95bdb37567e9d99",
+  "bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+  "certificate_hash": "71578a06e75ee1b533046ba2822cf58523ab700d0db5d6a4018a42672e878702",
+  "immutable": true,
+  "phase": "SAED_V4_39",
+  "research_only": true,
+  "runtime_mutation_allowed": false
+}

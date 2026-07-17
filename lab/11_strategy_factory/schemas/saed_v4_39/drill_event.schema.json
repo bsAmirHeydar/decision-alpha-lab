@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "baseline_restored": {
+      "type": "boolean"
+    },
+    "contained_seconds": {
+      "type": "integer"
+    },
+    "detected_seconds": {
+      "type": "integer"
+    },
+    "event_hash": {
+      "type": "string"
+    },
+    "event_id": {
+      "type": "string"
+    },
+    "evidence_complete": {
+      "type": "boolean"
+    },
+    "kill_switch_armed": {
+      "type": "boolean"
+    },
+    "order_path_disabled": {
+      "type": "boolean"
+    },
+    "ordinal": {
+      "type": "integer"
+    },
+    "previous_hash": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "rollback_mode": {
+      "type": "string"
+    },
+    "scenario_id": {
+      "type": "string"
+    },
+    "severity": {
+      "type": "string"
+    },
+    "synthetic_drill": {
+      "type": "boolean"
+    },
+    "trigger": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "scenario_id",
+    "trigger",
+    "severity",
+    "detected_seconds",
+    "contained_seconds",
+    "kill_switch_armed",
+    "order_path_disabled",
+    "rollback_mode",
+    "baseline_restored",
+    "evidence_complete",
+    "synthetic_drill",
+    "research_only",
+    "ordinal",
+    "previous_hash",
+    "event_id",
+    "event_hash"
+  ],
+  "title": "drill_event",
+  "type": "object"
+}

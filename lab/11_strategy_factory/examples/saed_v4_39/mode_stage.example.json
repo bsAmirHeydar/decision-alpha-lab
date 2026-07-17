@@ -1,0 +1,10 @@
+{
+  "capital_allowed": false,
+  "manual_authorization_required": false,
+  "mode": "OFF",
+  "ordinal": 0,
+  "required_gates": [],
+  "rollback_mode": "OFF",
+  "side_effects_allowed": false,
+  "stage_id": "ST00"
+}

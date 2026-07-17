@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "actual_external_evidence": {
+      "type": "boolean"
+    },
+    "gate_id": {
+      "type": "string"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "gate_id",
+    "passed",
+    "status",
+    "actual_external_evidence"
+  ],
+  "title": "broker_gate",
+  "type": "object"
+}

@@ -1,0 +1,64 @@
+{
+  "account_currency": "USD",
+  "account_type": "HEDGING_REFERENCE",
+  "broker_profile_id": "V439_SYNTHETIC_DEMO_BROKER",
+  "capabilities": [
+    "MARKET_DATA",
+    "PAPER_LEDGER",
+    "POSITION_SNAPSHOT",
+    "SHADOW_DECISIONS"
+  ],
+  "credentials_embedded": false,
+  "demo_only": true,
+  "environment": "SYNTHETIC_DEMO_REFERENCE",
+  "rate_limits": {
+    "max_orders_per_second": 0,
+    "max_requests_per_second": 1
+  },
+  "research_only": true,
+  "server": "NO_NETWORK_REFERENCE",
+  "sessions": [
+    {
+      "end": "20:00:00",
+      "session_id": "SYNTH_RTH",
+      "start": "13:30:00",
+      "timezone": "UTC",
+      "weekdays": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  ],
+  "symbols": [
+    {
+      "digits": 2,
+      "freeze_level_points": 0,
+      "max_spread_bps": 8.0,
+      "max_volume": 1.0,
+      "min_volume": 0.01,
+      "point": 0.01,
+      "stop_level_points": 0,
+      "symbol": "SYNTH_NQ",
+      "tick_size": 0.25,
+      "tick_value": 5.0,
+      "volume_step": 0.01
+    },
+    {
+      "digits": 2,
+      "freeze_level_points": 0,
+      "max_spread_bps": 8.0,
+      "max_volume": 1.0,
+      "min_volume": 0.01,
+      "point": 0.01,
+      "stop_level_points": 0,
+      "symbol": "SYNTH_USTEC",
+      "tick_size": 0.01,
+      "tick_value": 1.0,
+      "volume_step": 0.01
+    }
+  ],
+  "version": "1.0.0"
+}

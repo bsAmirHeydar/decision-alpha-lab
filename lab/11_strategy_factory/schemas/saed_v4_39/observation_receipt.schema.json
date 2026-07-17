@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "cohort_hash": {
+      "type": "string"
+    },
+    "first_known_time": {
+      "type": "string"
+    },
+    "future_suffix_used": {
+      "type": "boolean"
+    },
+    "last_known_time": {
+      "type": "string"
+    },
+    "observation_count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "validated": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "phase",
+    "cohort_hash",
+    "observation_count",
+    "first_known_time",
+    "last_known_time",
+    "future_suffix_used",
+    "validated",
+    "research_only",
+    "receipt_id",
+    "receipt_hash"
+  ],
+  "title": "observation_receipt",
+  "type": "object"
+}

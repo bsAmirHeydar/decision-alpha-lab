@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "allowed_next_work": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "bundle_hash": {
+      "type": "string"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "external_runtime_evidence_complete": {
+      "type": "boolean"
+    },
+    "forbidden_next_work": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "required_external_gates": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "allowed_next_work",
+    "bundle_hash",
+    "certificate_hash",
+    "external_runtime_evidence_complete",
+    "forbidden_next_work",
+    "handoff_hash",
+    "handoff_id",
+    "kind",
+    "next_phase",
+    "phase",
+    "production_authorized",
+    "required_external_gates",
+    "research_only"
+  ],
+  "title": "upstream_handoff_input",
+  "type": "object"
+}

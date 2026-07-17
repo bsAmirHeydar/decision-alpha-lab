@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "agreement": {
+      "type": "boolean"
+    },
+    "baseline_decision": {
+      "type": "string"
+    },
+    "broker_side_effect": {
+      "type": "boolean"
+    },
+    "counterfactual_only": {
+      "type": "boolean"
+    },
+    "event_hash": {
+      "type": "string"
+    },
+    "event_id": {
+      "type": "string"
+    },
+    "intent_id": {
+      "type": "string"
+    },
+    "known_time": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "string"
+    },
+    "observation_id": {
+      "type": "string"
+    },
+    "order_submitted": {
+      "type": "boolean"
+    },
+    "ordinal": {
+      "type": "integer"
+    },
+    "paper_net_pnl_bps": {
+      "type": "number"
+    },
+    "paper_status": {
+      "type": "string"
+    },
+    "previous_hash": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "shadow_decision": {
+      "type": "string"
+    },
+    "synthetic_fixture": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "observation_id",
+    "intent_id",
+    "known_time",
+    "mode",
+    "shadow_decision",
+    "baseline_decision",
+    "agreement",
+    "paper_status",
+    "paper_net_pnl_bps",
+    "order_submitted",
+    "broker_side_effect",
+    "counterfactual_only",
+    "synthetic_fixture",
+    "research_only",
+    "ordinal",
+    "previous_hash",
+    "event_id",
+    "event_hash"
+  ],
+  "title": "shadow_event",
+  "type": "object"
+}

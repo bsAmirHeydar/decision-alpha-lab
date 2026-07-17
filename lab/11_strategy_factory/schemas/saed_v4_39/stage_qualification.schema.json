@@ -1,0 +1,242 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "automatic_transition_allowed": {
+      "type": "boolean"
+    },
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "highest_actual_stage": {
+      "type": "string"
+    },
+    "highest_reference_stage": {
+      "type": "string"
+    },
+    "micro_live_eligible": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "qualification_hash": {
+      "type": "string"
+    },
+    "qualification_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "stages": {
+      "maxItems": 3,
+      "minItems": 3,
+      "prefixItems": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "actual_external_passed": {
+              "type": "boolean"
+            },
+            "checks": {
+              "additionalProperties": false,
+              "properties": {
+                "actual_period_evidence": {
+                  "type": "boolean"
+                },
+                "minimum_observations": {
+                  "type": "boolean"
+                },
+                "no_hard_surveillance_breach": {
+                  "type": "boolean"
+                },
+                "reconciliation_complete": {
+                  "type": "boolean"
+                },
+                "zero_broker_side_effect": {
+                  "type": "boolean"
+                },
+                "zero_order_submission": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "minimum_observations",
+                "zero_order_submission",
+                "zero_broker_side_effect",
+                "reconciliation_complete",
+                "no_hard_surveillance_breach",
+                "actual_period_evidence"
+              ],
+              "type": "object"
+            },
+            "decision": {
+              "type": "string"
+            },
+            "internal_reference_passed": {
+              "type": "boolean"
+            },
+            "stage": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "stage",
+            "internal_reference_passed",
+            "actual_external_passed",
+            "checks",
+            "decision"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "actual_external_passed": {
+              "type": "boolean"
+            },
+            "checks": {
+              "additionalProperties": false,
+              "properties": {
+                "actual_period_evidence": {
+                  "type": "boolean"
+                },
+                "drills_passed": {
+                  "type": "boolean"
+                },
+                "future_suffix_unused": {
+                  "type": "boolean"
+                },
+                "minimum_observations": {
+                  "type": "boolean"
+                },
+                "zero_broker_side_effect": {
+                  "type": "boolean"
+                },
+                "zero_order_submission": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "minimum_observations",
+                "zero_order_submission",
+                "zero_broker_side_effect",
+                "future_suffix_unused",
+                "drills_passed",
+                "actual_period_evidence"
+              ],
+              "type": "object"
+            },
+            "decision": {
+              "type": "string"
+            },
+            "internal_reference_passed": {
+              "type": "boolean"
+            },
+            "stage": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "stage",
+            "internal_reference_passed",
+            "actual_external_passed",
+            "checks",
+            "decision"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "actual_external_passed": {
+              "type": "boolean"
+            },
+            "checks": {
+              "additionalProperties": false,
+              "properties": {
+                "broker_live_qualified": {
+                  "type": "boolean"
+                },
+                "demo_connectivity": {
+                  "type": "boolean"
+                },
+                "kill_switch_live_drill": {
+                  "type": "boolean"
+                },
+                "live_connectivity": {
+                  "type": "boolean"
+                },
+                "metaeditor_compile": {
+                  "type": "boolean"
+                },
+                "micro_live_authorization": {
+                  "type": "boolean"
+                },
+                "paper_external": {
+                  "type": "boolean"
+                },
+                "shadow_external": {
+                  "type": "boolean"
+                },
+                "terminal_parity": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "metaeditor_compile",
+                "terminal_parity",
+                "demo_connectivity",
+                "live_connectivity",
+                "paper_external",
+                "shadow_external",
+                "broker_live_qualified",
+                "micro_live_authorization",
+                "kill_switch_live_drill"
+              ],
+              "type": "object"
+            },
+            "decision": {
+              "type": "string"
+            },
+            "internal_reference_passed": {
+              "type": "boolean"
+            },
+            "stage": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "stage",
+            "internal_reference_passed",
+            "actual_external_passed",
+            "checks",
+            "decision"
+          ],
+          "type": "object"
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "required": [
+    "phase",
+    "stages",
+    "highest_reference_stage",
+    "highest_actual_stage",
+    "micro_live_eligible",
+    "automatic_transition_allowed",
+    "capital_activation_allowed",
+    "production_authorized",
+    "research_only",
+    "qualification_id",
+    "qualification_hash"
+  ],
+  "title": "stage_qualification",
+  "type": "object"
+}

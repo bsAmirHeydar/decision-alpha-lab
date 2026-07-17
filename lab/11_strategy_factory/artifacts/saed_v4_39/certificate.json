@@ -1,0 +1,21 @@
+{
+  "actual_prospective_paper_passed": false,
+  "actual_prospective_shadow_passed": false,
+  "capital_activation_allowed": false,
+  "certificate_hash": "913fa097a73b75979064e9a36a55d6f0ea4258cebb0fedaa0ee210d725c8ead4",
+  "certificate_id": "v439_certificate_1157366acb16c375ab1a78f4",
+  "claim_ceiling": "synthetic prospective paper and shadow qualification reference; actual MetaEditor, terminal, broker, paper, shadow and micro-live evidence pending",
+  "evidence_hash": "b45a7949d742f5c7a87e21b65275475a60804964875a7101b81dd1a630f1ae81",
+  "micro_live_authorized": false,
+  "micro_live_eligible": false,
+  "next_phase": "SAED_V4_40",
+  "order_submission_allowed": false,
+  "phase": "SAED_V4_39",
+  "production_authorized": false,
+  "reference_paper_passed": true,
+  "reference_shadow_passed": true,
+  "release_hash": "f93063c095d7f8704a584b8391bc1307ee7cee8e1c3959292879e1fd899f7680",
+  "research_only": true,
+  "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+  "status": "ACCEPTED_REFERENCE_EXTERNAL_GATES_OPEN"
+}

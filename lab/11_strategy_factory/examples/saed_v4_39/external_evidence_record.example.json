@@ -1,0 +1,11 @@
+{
+  "actual_external_evidence": false,
+  "artifact_hash": "ddd972ca8026d1bb27ca1f5eba12aa01b88fb9c0ca2acb9c2675c2004891b6bb",
+  "environment": "broker-operations",
+  "evidence_id": "EXT15",
+  "evidence_type": "BROKER_RECONCILIATION",
+  "independent_reviewer": "PENDING_EXTERNAL_REVIEWER",
+  "notes": "Actual environment evidence is intentionally not fabricated by the reference patch.",
+  "observed_at": "2026-07-17T00:00:00Z",
+  "status": "PENDING_EXTERNAL"
+}

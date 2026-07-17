@@ -1,0 +1,14 @@
+{
+  "decision": "APPROVE_REFERENCE",
+  "findings": [
+    "reference implementation accepted",
+    "external operational evidence remains open",
+    "no live authority granted"
+  ],
+  "independent": true,
+  "qualification_hash": "PENDING",
+  "review_hash": "PENDING",
+  "review_id": "REV00",
+  "reviewer_id": "V439_REFERENCE_REVIEWER_00",
+  "role": "DEPLOYMENT_ENGINEER"
+}

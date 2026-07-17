@@ -1,0 +1,16 @@
+{
+  "actual_broker_qualification": "pending_external",
+  "actual_metaeditor_compile": "pending_external",
+  "actual_prospective_paper": "pending_external",
+  "actual_prospective_shadow": "pending_external",
+  "actual_terminal_replay": "pending_external",
+  "atomic_documents": 117,
+  "closed_schema_pairs": 52,
+  "micro_live_authorized": false,
+  "mql5_static_files": 29,
+  "passed": true,
+  "phase": "SAED_V4_39",
+  "phase_documents": 24,
+  "production_authorized": false,
+  "python_tests": "passed"
+}

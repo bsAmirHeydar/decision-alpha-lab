@@ -1,0 +1,22 @@
+{
+  "boundary_hash": "2bfc7589adcc393d091ba697f07861611d1da5cb04440580e446bcb3c593b02d",
+  "boundary_id": "v439_authority_fe2b4f68b258438a525d488e",
+  "failure_action": "ABSTAIN_PRESERVE_BASELINE_KILL_AND_ESCALATE",
+  "may_accept_external_evidence": true,
+  "may_activate_capital": false,
+  "may_build_order_intents": true,
+  "may_bypass_kill_switch": false,
+  "may_claim_actual_broker_qualification_without_evidence": false,
+  "may_claim_production_authorization": false,
+  "may_generate_mql5_qualification_harness": true,
+  "may_mutate_immutable_runtime": false,
+  "may_mutate_ucee": false,
+  "may_prepare_micro_live_plan": true,
+  "may_reconcile_simulated_fills": true,
+  "may_run_prospective_paper": true,
+  "may_run_shadow": true,
+  "may_self_authorize_micro_live": false,
+  "may_submit_live_order": false,
+  "phase": "SAED_V4_39",
+  "research_only": true
+}

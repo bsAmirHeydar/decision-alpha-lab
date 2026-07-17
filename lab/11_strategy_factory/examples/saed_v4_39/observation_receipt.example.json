@@ -1,0 +1,12 @@
+{
+  "cohort_hash": "b5ad67b525be92e7e7806f4560b07f3e9afe298e5c4c553a847c8023a5395a1f",
+  "first_known_time": "2026-06-01T00:00:00Z",
+  "future_suffix_used": false,
+  "last_known_time": "2026-06-03T23:00:00Z",
+  "observation_count": 72,
+  "phase": "SAED_V4_39",
+  "receipt_hash": "32d55dee5e3c6fc3d149907c505a0780479f7752e0dff462a0770083d43fc07e",
+  "receipt_id": "v439_observations_b7599ab4a60837c4cf997f2b",
+  "research_only": true,
+  "validated": true
+}

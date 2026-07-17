@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "allowed_next_work": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "forbidden_next_work": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "micro_live_authorized": {
+      "type": "boolean"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "release_hash": {
+      "type": "string"
+    },
+    "required_external_gates": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "runtime_bundle_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "kind",
+    "phase",
+    "next_phase",
+    "certificate_hash",
+    "release_hash",
+    "runtime_bundle_hash",
+    "allowed_next_work",
+    "forbidden_next_work",
+    "required_external_gates",
+    "micro_live_authorized",
+    "production_authorized",
+    "research_only",
+    "handoff_id",
+    "handoff_hash"
+  ],
+  "title": "handoff",
+  "type": "object"
+}

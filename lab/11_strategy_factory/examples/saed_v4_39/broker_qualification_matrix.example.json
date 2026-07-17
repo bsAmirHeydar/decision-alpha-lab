@@ -1,0 +1,60 @@
+{
+  "broker_profile_hash": "319655085a61ab134b3d636632da441471434703167b43e367678409d537f514",
+  "checks": [
+    {
+      "actual_external_evidence": false,
+      "gate_id": "SYMBOL_METADATA",
+      "passed": false,
+      "status": "PENDING_EXTERNAL"
+    },
+    {
+      "actual_external_evidence": false,
+      "gate_id": "SESSION_CALENDAR",
+      "passed": false,
+      "status": "PENDING_EXTERNAL"
+    },
+    {
+      "actual_external_evidence": false,
+      "gate_id": "SPREAD_CAPTURE",
+      "passed": false,
+      "status": "PENDING_EXTERNAL"
+    },
+    {
+      "actual_external_evidence": false,
+      "gate_id": "LATENCY_CAPTURE",
+      "passed": false,
+      "status": "PENDING_EXTERNAL"
+    },
+    {
+      "actual_external_evidence": false,
+      "gate_id": "REJECT_CAPTURE",
+      "passed": false,
+      "status": "PENDING_EXTERNAL"
+    },
+    {
+      "actual_external_evidence": false,
+      "gate_id": "POSITION_SNAPSHOT",
+      "passed": false,
+      "status": "PENDING_EXTERNAL"
+    },
+    {
+      "actual_external_evidence": false,
+      "gate_id": "DEMO_CONNECTIVITY",
+      "passed": false,
+      "status": "PENDING_EXTERNAL"
+    },
+    {
+      "actual_external_evidence": false,
+      "gate_id": "LIVE_CONNECTIVITY",
+      "passed": false,
+      "status": "PENDING_EXTERNAL"
+    }
+  ],
+  "demo_qualified": false,
+  "live_qualified": false,
+  "matrix_hash": "d0c771470691ed0e72a5ac21efda907ba0f0e0a11434644268ecae3e9fd4332b",
+  "matrix_id": "v439_broker_matrix_feffb494ce454cc2dcef5b51",
+  "phase": "SAED_V4_39",
+  "production_authorized": false,
+  "research_only": true
+}

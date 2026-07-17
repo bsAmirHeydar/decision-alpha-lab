@@ -1,0 +1,144 @@
+{
+  "actual_micro_live_evidence_attached": false,
+  "evidence_bundle_hash": "b45a7949d742f5c7a87e21b65275475a60804964875a7101b81dd1a630f1ae81",
+  "evidence_bundle_id": "v439_evidence_4a5a45335afe70260941b432",
+  "evidence_count": 22,
+  "evidence_items": [
+    {
+      "artifact_hash": "9cfc5a34a49ee55693fba1f47ed245f78d24d12def60c3aaee76a064013316de",
+      "evidence_class": "INTERNAL_REFERENCE",
+      "name": "authority_boundary",
+      "production_evidence": false
+    },
+    {
+      "artifact_hash": "406f0b945c284cf90e1a465471e752bacde31cb29e2f4f53af00c15f8cd8b6fd",
+      "evidence_class": "INTERNAL_REFERENCE",
+      "name": "baseline_receipt",
+      "production_evidence": false
+    },
+    {
+      "artifact_hash": "02df276aa89ed8484ebb2017e6949dac361bf13304daaaeb4a7a752550c65b87",
+      "evidence_class": "INTERNAL_REFERENCE",
+      "name": "broker_profile",
+      "production_evidence": false
+    },
+    {
+      "artifact_hash": "a98b4cf01ef380075fc3f906618ff86343ea385518ba83bfd8c59bc09b69a8df",
+      "evidence_class": "MIXED_EXTERNAL_STATUS",
+      "name": "broker_qualification_matrix",
+      "production_evidence": false
+    },
+    {
+      "artifact_hash": "48c255977ea0598692f91a7e7d5952f5300533b49278ed212d38f98fe38d02f4",
+      "evidence_class": "INTERNAL_REFERENCE",
+      "name": "cohort",
+      "production_evidence": false
+    },
+    {
+      "artifact_hash": "f4c17339e958cc6d9fa24aa4deba892a7849d14a82abf0d226ee0a5f3931a6a5",
+      "evidence_class": "INTERNAL_REFERENCE",
+      "name": "constitution",
+      "production_evidence": false
+    },
+    {
+      "artifact_hash": "3f0ae297c8574f2dcae1d1abe7ddbe72f4ef1077791721ff00cd7382c7ef5edf",
+      "evidence_class": "MIXED_EXTERNAL_STATUS",
+      "name": "external_evidence_matrix",
+      "production_evidence": false
+    },
+    {
+      "artifact_hash": "08abcbc8df88a5d9f10f87e8d1e70fe47e65eca345c1470beb7c448c849e6e4e",
+      "evidence_class": "INTERNAL_REFERENCE",
+      "name": "incident_drills",
+      "production_evidence": false
+    },
+    {
+      "artifact_hash": "02c434942250ea05aa6a16840fc30c62c068a40d59af33d0b576c8b247b3c675",
+      "evidence_class": "INTERNAL_REFERENCE",
+      "name": "incident_runbook",
+      "production_evidence": false
+    },
+    {
+      "artifact_hash": "e614be589d954a9afa295e0dc2413d6d195f720541191215067725dcbbf7ce4f",
+      "evidence_class": "INTERNAL_REFERENCE",
+      "name": "intent_ledger",
+      "production_evidence": false
+    },
+    {
+      "artifact_hash": "2310fb456ccce0fa9fdffd59f83343b57e642f1a9cfc2846931228b519f05f7a",
+      "evidence_class": "INTERNAL_REFERENCE",
+      "name": "mode_ladder",
+      "production_evidence": false
+    },
+    {
+      "artifact_hash": "42cca3527bc3b70cc9edec451488dc5cd9c44e53a44ebc626c7ae143d9fc3844",
+      "evidence_class": "INTERNAL_REFERENCE",
+      "name": "observation_receipt",
+      "production_evidence": false
+    },
+    {
+      "artifact_hash": "d816b1286e0f4ffaf1ed15bf9f515e418ace01c8693ab1336bd4566b2cd0e1d1",
+      "evidence_class": "INTERNAL_REFERENCE",
+      "name": "paper_ledger",
+      "production_evidence": false
+    },
+    {
+      "artifact_hash": "2cbf1c58d23c470db4177e074cea2a14d4cf3620abc28777831542b5b8b0eb7e",
+      "evidence_class": "INTERNAL_REFERENCE",
+      "name": "reconciliation_ledger",
+      "production_evidence": false
+    },
+    {
+      "artifact_hash": "1539fe4d77c1b8d2241e820df7f93cdb0e76d91887ca746e72972a7b6c783cc9",
+      "evidence_class": "INTERNAL_REFERENCE",
+      "name": "release_candidate",
+      "production_evidence": false
+    },
+    {
+      "artifact_hash": "1b4199a876957b4b3dd9063f3d3f106353902326daf5d04ccf4da234c24bf5bf",
+      "evidence_class": "INTERNAL_REFERENCE",
+      "name": "review_bundle",
+      "production_evidence": false
+    },
+    {
+      "artifact_hash": "9d4e8a22874661696c8d216f598ca26db41af839df40def1fc0cc49da51bc729",
+      "evidence_class": "INTERNAL_REFERENCE",
+      "name": "risk_envelope",
+      "production_evidence": false
+    },
+    {
+      "artifact_hash": "23dafc9760e42443172be2895e8ddfa6b991b7862035abf55320854c95d68a07",
+      "evidence_class": "INTERNAL_REFERENCE",
+      "name": "runtime_binding",
+      "production_evidence": false
+    },
+    {
+      "artifact_hash": "0d8fbb7a79e5e7babb88f9ca357ac9a1b9faff61c8da2fcd641bfedf4645ef7e",
+      "evidence_class": "INTERNAL_REFERENCE",
+      "name": "shadow_ledger",
+      "production_evidence": false
+    },
+    {
+      "artifact_hash": "3f3b0bbe163a6d6494490643e87d7d6830894aeb1184e9add7ab873c53ed18a1",
+      "evidence_class": "INTERNAL_REFERENCE",
+      "name": "stage_qualification",
+      "production_evidence": false
+    },
+    {
+      "artifact_hash": "cd8ba22ed9ac2c73a36ec31c2be4362b961e5ea8b10a3ceb0f611e96f1ac4b4b",
+      "evidence_class": "INTERNAL_REFERENCE",
+      "name": "surveillance_report",
+      "production_evidence": false
+    },
+    {
+      "artifact_hash": "33c87eb1f6165d73d745ccdee16d129dae7d4eee404ee88a459c45f04514f754",
+      "evidence_class": "INTERNAL_REFERENCE",
+      "name": "upstream_receipt",
+      "production_evidence": false
+    }
+  ],
+  "evidence_merkle_root": "8b7c45dccb17e6c1e5b28abc7beb3b18bb4035dcf188d6ff599c97aecc2871f1",
+  "phase": "SAED_V4_39",
+  "production_authorized": false,
+  "research_only": true
+}

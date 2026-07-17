@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "clause_id": {
+      "type": "string"
+    },
+    "evidence_required": {
+      "type": "boolean"
+    },
+    "failure_action": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "integer"
+    },
+    "requirement": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "clause_id",
+    "priority",
+    "requirement",
+    "failure_action",
+    "evidence_required"
+  ],
+  "title": "constitution_clause",
+  "type": "object"
+}

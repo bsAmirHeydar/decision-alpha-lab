@@ -1,0 +1,83 @@
+{
+  "kill_switch_default_armed": true,
+  "maximum_containment_seconds": 120,
+  "maximum_detection_seconds": 30,
+  "procedures": [
+    {
+      "automatic_action_allowed": false,
+      "evidence_required": true,
+      "immediate_action": "DISABLE_ORDER_PATH_AND_ROLLBACK_OFF",
+      "owner_role": "RISK_OFFICER",
+      "procedure_id": "P00",
+      "severity": "CRITICAL",
+      "trigger": "UNAUTHORIZED_ORDER_SIDE_EFFECT"
+    },
+    {
+      "automatic_action_allowed": false,
+      "evidence_required": true,
+      "immediate_action": "QUARANTINE_RUNTIME_AND_ROLLBACK_OFF",
+      "owner_role": "DEPLOYMENT_ENGINEER",
+      "procedure_id": "P01",
+      "severity": "CRITICAL",
+      "trigger": "RUNTIME_HASH_MISMATCH"
+    },
+    {
+      "automatic_action_allowed": false,
+      "evidence_required": true,
+      "immediate_action": "PAUSE_SESSION_AND_DIAGNOSE",
+      "owner_role": "BROKER_OPERATIONS",
+      "procedure_id": "P02",
+      "severity": "HIGH",
+      "trigger": "LATENCY_BREACH"
+    },
+    {
+      "automatic_action_allowed": false,
+      "evidence_required": true,
+      "immediate_action": "FREEZE_STATE_AND_ROLLBACK_OFF",
+      "owner_role": "OPERATOR",
+      "procedure_id": "P03",
+      "severity": "CRITICAL",
+      "trigger": "RECONCILIATION_BREAK"
+    },
+    {
+      "automatic_action_allowed": false,
+      "evidence_required": true,
+      "immediate_action": "ABSTAIN_AND_CLOSE_QUALIFICATION_SESSION",
+      "owner_role": "BROKER_OPERATIONS",
+      "procedure_id": "P04",
+      "severity": "HIGH",
+      "trigger": "BROKER_DISCONNECT"
+    },
+    {
+      "automatic_action_allowed": false,
+      "evidence_required": true,
+      "immediate_action": "ARM_HARD_STOP_AND_ROLLBACK_OFF",
+      "owner_role": "RISK_OFFICER",
+      "procedure_id": "P05",
+      "severity": "CRITICAL",
+      "trigger": "DAILY_LOSS_CAP"
+    },
+    {
+      "automatic_action_allowed": false,
+      "evidence_required": true,
+      "immediate_action": "FREEZE_AND_MANUAL_RECONCILE",
+      "owner_role": "OPERATOR",
+      "procedure_id": "P06",
+      "severity": "CRITICAL",
+      "trigger": "POSITION_DRIFT"
+    },
+    {
+      "automatic_action_allowed": false,
+      "evidence_required": true,
+      "immediate_action": "REVOKE_KEYS_AND_QUARANTINE_HOST",
+      "owner_role": "SECURITY_KEY_CUSTODIAN",
+      "procedure_id": "P07",
+      "severity": "CRITICAL",
+      "trigger": "CREDENTIAL_EXPOSURE"
+    }
+  ],
+  "research_only": true,
+  "rollback_target": "OFF",
+  "runbook_id": "V439_INCIDENT_RUNBOOK",
+  "version": "1.0.0"
+}

@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "actual_demo_connectivity_passed": {
+      "type": "boolean"
+    },
+    "actual_live_connectivity_passed": {
+      "type": "boolean"
+    },
+    "actual_metaeditor_compile_passed": {
+      "type": "boolean"
+    },
+    "actual_micro_live_authorized": {
+      "type": "boolean"
+    },
+    "actual_prospective_paper_passed": {
+      "type": "boolean"
+    },
+    "actual_prospective_shadow_passed": {
+      "type": "boolean"
+    },
+    "actual_terminal_parity_passed": {
+      "type": "boolean"
+    },
+    "items": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "actual_external_evidence": {
+            "type": "boolean"
+          },
+          "artifact_hash": {
+            "type": "string"
+          },
+          "environment": {
+            "type": "string"
+          },
+          "evidence_id": {
+            "type": "string"
+          },
+          "evidence_type": {
+            "type": "string"
+          },
+          "independent_reviewer": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "observed_at": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "evidence_id",
+          "evidence_type",
+          "status",
+          "environment",
+          "artifact_hash",
+          "observed_at",
+          "independent_reviewer",
+          "actual_external_evidence",
+          "notes"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "matrix_hash": {
+      "type": "string"
+    },
+    "matrix_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "phase",
+    "items",
+    "actual_metaeditor_compile_passed",
+    "actual_terminal_parity_passed",
+    "actual_demo_connectivity_passed",
+    "actual_live_connectivity_passed",
+    "actual_prospective_paper_passed",
+    "actual_prospective_shadow_passed",
+    "actual_micro_live_authorized",
+    "research_only",
+    "production_authorized",
+    "matrix_id",
+    "matrix_hash"
+  ],
+  "title": "external_evidence_matrix",
+  "type": "object"
+}

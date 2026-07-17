@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "broker_side_effect": {
+      "type": "boolean"
+    },
+    "cost_bps": {
+      "type": "number"
+    },
+    "event_hash": {
+      "type": "string"
+    },
+    "event_id": {
+      "type": "string"
+    },
+    "fill_price": {
+      "type": "number"
+    },
+    "gross_pnl_bps": {
+      "type": "number"
+    },
+    "intent_id": {
+      "type": "string"
+    },
+    "known_time": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "string"
+    },
+    "net_pnl_bps": {
+      "type": "number"
+    },
+    "observation_id": {
+      "type": "string"
+    },
+    "order_submitted": {
+      "type": "boolean"
+    },
+    "ordinal": {
+      "type": "integer"
+    },
+    "previous_hash": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "side": {
+      "type": "string"
+    },
+    "slippage_bps": {
+      "type": "number"
+    },
+    "status": {
+      "type": "string"
+    },
+    "synthetic_fixture": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "observation_id",
+    "intent_id",
+    "known_time",
+    "mode",
+    "status",
+    "side",
+    "fill_price",
+    "slippage_bps",
+    "gross_pnl_bps",
+    "cost_bps",
+    "net_pnl_bps",
+    "broker_side_effect",
+    "order_submitted",
+    "synthetic_fixture",
+    "research_only",
+    "ordinal",
+    "previous_hash",
+    "event_id",
+    "event_hash"
+  ],
+  "title": "paper_event",
+  "type": "object"
+}

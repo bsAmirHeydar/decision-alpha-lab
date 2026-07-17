@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "digits": {
+      "type": "integer"
+    },
+    "freeze_level_points": {
+      "type": "integer"
+    },
+    "max_spread_bps": {
+      "type": "number"
+    },
+    "max_volume": {
+      "type": "number"
+    },
+    "min_volume": {
+      "type": "number"
+    },
+    "point": {
+      "type": "number"
+    },
+    "stop_level_points": {
+      "type": "integer"
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "tick_size": {
+      "type": "number"
+    },
+    "tick_value": {
+      "type": "number"
+    },
+    "volume_step": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "symbol",
+    "digits",
+    "point",
+    "tick_size",
+    "tick_value",
+    "min_volume",
+    "max_volume",
+    "volume_step",
+    "stop_level_points",
+    "freeze_level_points",
+    "max_spread_bps"
+  ],
+  "title": "broker_symbol",
+  "type": "object"
+}

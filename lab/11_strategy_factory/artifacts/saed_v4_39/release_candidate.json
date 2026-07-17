@@ -1,0 +1,18 @@
+{
+  "actual_paper_passed": false,
+  "actual_shadow_passed": false,
+  "capital_activation_allowed": false,
+  "micro_live_authorized": false,
+  "micro_live_eligible": false,
+  "order_submission_allowed": false,
+  "phase": "SAED_V4_39",
+  "production_authorized": false,
+  "qualification_hash": "17932757e06d58be8ee6f7818bc488861bd0be0ab61fc783dfb3d9c816ea8417",
+  "reference_paper_passed": true,
+  "reference_shadow_passed": true,
+  "release_decision": "ACCEPT_REFERENCE_EXTERNAL_GATES_OPEN",
+  "release_hash": "f93063c095d7f8704a584b8391bc1307ee7cee8e1c3959292879e1fd899f7680",
+  "release_id": "v439_release_a2b6132d184c1d5046c33d93",
+  "research_only": true,
+  "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294"
+}

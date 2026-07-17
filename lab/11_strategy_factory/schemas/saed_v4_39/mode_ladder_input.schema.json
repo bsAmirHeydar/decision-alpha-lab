@@ -1,0 +1,299 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "automatic_transition_allowed": {
+      "type": "boolean"
+    },
+    "initial_mode": {
+      "type": "string"
+    },
+    "ladder_id": {
+      "type": "string"
+    },
+    "regression_allowed": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "stages": {
+      "maxItems": 6,
+      "minItems": 6,
+      "prefixItems": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "capital_allowed": {
+              "type": "boolean"
+            },
+            "manual_authorization_required": {
+              "type": "boolean"
+            },
+            "mode": {
+              "type": "string"
+            },
+            "ordinal": {
+              "type": "integer"
+            },
+            "required_gates": {
+              "items": {},
+              "type": "array"
+            },
+            "rollback_mode": {
+              "type": "string"
+            },
+            "side_effects_allowed": {
+              "type": "boolean"
+            },
+            "stage_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "stage_id",
+            "ordinal",
+            "mode",
+            "required_gates",
+            "side_effects_allowed",
+            "capital_allowed",
+            "manual_authorization_required",
+            "rollback_mode"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "capital_allowed": {
+              "type": "boolean"
+            },
+            "manual_authorization_required": {
+              "type": "boolean"
+            },
+            "mode": {
+              "type": "string"
+            },
+            "ordinal": {
+              "type": "integer"
+            },
+            "required_gates": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "rollback_mode": {
+              "type": "string"
+            },
+            "side_effects_allowed": {
+              "type": "boolean"
+            },
+            "stage_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "stage_id",
+            "ordinal",
+            "mode",
+            "required_gates",
+            "side_effects_allowed",
+            "capital_allowed",
+            "manual_authorization_required",
+            "rollback_mode"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "capital_allowed": {
+              "type": "boolean"
+            },
+            "manual_authorization_required": {
+              "type": "boolean"
+            },
+            "mode": {
+              "type": "string"
+            },
+            "ordinal": {
+              "type": "integer"
+            },
+            "required_gates": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "rollback_mode": {
+              "type": "string"
+            },
+            "side_effects_allowed": {
+              "type": "boolean"
+            },
+            "stage_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "stage_id",
+            "ordinal",
+            "mode",
+            "required_gates",
+            "side_effects_allowed",
+            "capital_allowed",
+            "manual_authorization_required",
+            "rollback_mode"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "capital_allowed": {
+              "type": "boolean"
+            },
+            "manual_authorization_required": {
+              "type": "boolean"
+            },
+            "mode": {
+              "type": "string"
+            },
+            "ordinal": {
+              "type": "integer"
+            },
+            "required_gates": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "rollback_mode": {
+              "type": "string"
+            },
+            "side_effects_allowed": {
+              "type": "boolean"
+            },
+            "stage_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "stage_id",
+            "ordinal",
+            "mode",
+            "required_gates",
+            "side_effects_allowed",
+            "capital_allowed",
+            "manual_authorization_required",
+            "rollback_mode"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "capital_allowed": {
+              "type": "boolean"
+            },
+            "manual_authorization_required": {
+              "type": "boolean"
+            },
+            "mode": {
+              "type": "string"
+            },
+            "ordinal": {
+              "type": "integer"
+            },
+            "required_gates": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "rollback_mode": {
+              "type": "string"
+            },
+            "side_effects_allowed": {
+              "type": "boolean"
+            },
+            "stage_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "stage_id",
+            "ordinal",
+            "mode",
+            "required_gates",
+            "side_effects_allowed",
+            "capital_allowed",
+            "manual_authorization_required",
+            "rollback_mode"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "capital_allowed": {
+              "type": "boolean"
+            },
+            "manual_authorization_required": {
+              "type": "boolean"
+            },
+            "mode": {
+              "type": "string"
+            },
+            "ordinal": {
+              "type": "integer"
+            },
+            "required_gates": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "rollback_mode": {
+              "type": "string"
+            },
+            "side_effects_allowed": {
+              "type": "boolean"
+            },
+            "stage_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "stage_id",
+            "ordinal",
+            "mode",
+            "required_gates",
+            "side_effects_allowed",
+            "capital_allowed",
+            "manual_authorization_required",
+            "rollback_mode"
+          ],
+          "type": "object"
+        }
+      ],
+      "type": "array"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "ladder_id",
+    "version",
+    "stages",
+    "initial_mode",
+    "automatic_transition_allowed",
+    "regression_allowed",
+    "research_only"
+  ],
+  "title": "mode_ladder_input",
+  "type": "object"
+}

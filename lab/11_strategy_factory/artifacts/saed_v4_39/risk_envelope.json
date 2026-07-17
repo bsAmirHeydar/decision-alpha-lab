@@ -1,0 +1,21 @@
+{
+  "cooldown_bars_after_loss": 12,
+  "frozen_risk_hash": "6db75845e582a06df61669bd5c6552876078186ed3ad8e57f3911ed3f0e929d4",
+  "frozen_risk_id": "v439_risk_4d53e5579bb4d12d7226ba08",
+  "kill_switch_default_armed": true,
+  "max_concurrent_positions": 1,
+  "max_daily_loss_fraction": 0.01,
+  "max_drawdown_fraction": 0.02,
+  "max_gross_notional_fraction": 0.05,
+  "max_latency_ms": 1000,
+  "max_orders_per_day": 3,
+  "max_reject_rate": 0.15,
+  "max_slippage_bps": 4.0,
+  "max_spread_bps": 8.0,
+  "max_trade_risk_fraction": 0.005,
+  "position_size_hard_cap": 0.01,
+  "research_only": true,
+  "risk_envelope_hash": "50d40a8410261455fc6e4e98cbb2a053ba0a81060ee0496a64a6ee2266945fd2",
+  "risk_envelope_id": "V439_MICRO_LIVE_HARD_CAPS",
+  "version": "1.0.0"
+}

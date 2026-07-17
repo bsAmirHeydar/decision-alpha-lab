@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "approved_reference": {
+      "type": "boolean"
+    },
+    "micro_live_authorized": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "review_bundle_hash": {
+      "type": "string"
+    },
+    "review_bundle_id": {
+      "type": "string"
+    },
+    "reviews": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "decision": {
+            "type": "string"
+          },
+          "findings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "independent": {
+            "type": "boolean"
+          },
+          "qualification_hash": {
+            "type": "string"
+          },
+          "review_hash": {
+            "type": "string"
+          },
+          "review_id": {
+            "type": "string"
+          },
+          "reviewer_id": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "review_id",
+          "role",
+          "reviewer_id",
+          "qualification_hash",
+          "decision",
+          "findings",
+          "independent",
+          "review_hash"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "role_count": {
+      "type": "integer"
+    },
+    "two_person_live_control_satisfied": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "phase",
+    "reviews",
+    "role_count",
+    "approved_reference",
+    "micro_live_authorized",
+    "two_person_live_control_satisfied",
+    "research_only",
+    "review_bundle_id",
+    "review_bundle_hash"
+  ],
+  "title": "review_bundle",
+  "type": "object"
+}

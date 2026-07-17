@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "alerts": {
+      "items": {},
+      "type": "array"
+    },
+    "hard_breach": {
+      "type": "boolean"
+    },
+    "metrics": {
+      "additionalProperties": false,
+      "properties": {
+        "latency_p95_ms": {
+          "type": "number"
+        },
+        "mean_slippage_bps": {
+          "type": "number"
+        },
+        "paper_cumulative_net_pnl_bps": {
+          "type": "number"
+        },
+        "reject_rate": {
+          "type": "number"
+        },
+        "shadow_disagreement_rate": {
+          "type": "number"
+        },
+        "unauthorized_order_count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "latency_p95_ms",
+        "mean_slippage_bps",
+        "reject_rate",
+        "shadow_disagreement_rate",
+        "paper_cumulative_net_pnl_bps",
+        "unauthorized_order_count"
+      ],
+      "type": "object"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "recommended_action": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "phase",
+    "metrics",
+    "alerts",
+    "hard_breach",
+    "recommended_action",
+    "research_only",
+    "report_id",
+    "report_hash"
+  ],
+  "title": "surveillance_report",
+  "type": "object"
+}

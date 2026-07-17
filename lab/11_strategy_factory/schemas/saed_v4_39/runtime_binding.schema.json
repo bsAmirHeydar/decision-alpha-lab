@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "binding_hash": {
+      "type": "string"
+    },
+    "binding_id": {
+      "type": "string"
+    },
+    "bundle_hash": {
+      "type": "string"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "runtime_mutation_allowed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "phase",
+    "bundle_hash",
+    "certificate_hash",
+    "immutable",
+    "runtime_mutation_allowed",
+    "research_only",
+    "binding_id",
+    "binding_hash"
+  ],
+  "title": "runtime_binding",
+  "type": "object"
+}

@@ -1,0 +1,18 @@
+{
+  "actual_metaeditor_compile_passed": false,
+  "actual_terminal_parity_passed": false,
+  "bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+  "capital_activation_allowed": false,
+  "certificate_hash": "71578a06e75ee1b533046ba2822cf58523ab700d0db5d6a4018a42672e878702",
+  "certificate_id": "v438_certificate_2bb3bf921e3ef9a9c769dad7",
+  "claim_ceiling": "immutable runtime compilation and synthetic MQL5 semantic parity reference; actual MetaEditor and terminal evidence pending",
+  "evidence_hash": "4c1b5ad6541913b618cdd78854defe8170129ac631c7ce0bc216622237802a23",
+  "next_phase": "SAED_V4_39",
+  "order_submission_allowed": false,
+  "phase": "SAED_V4_38",
+  "production_authorized": false,
+  "release_hash": "b5d52c1c5279d8fec37f1aed1b1e7261b3e110d7ed3cb0be27517e8ce4c6b215",
+  "research_only": true,
+  "status": "ACCEPTED_REFERENCE_EXTERNAL_GATES_OPEN",
+  "synthetic_parity_passed": true
+}

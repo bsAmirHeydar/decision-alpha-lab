@@ -1,0 +1,9 @@
+{
+  "actual_micro_live_authorized": false,
+  "phase": "SAED_V4_39",
+  "production_authorized": false,
+  "qa_passed": true,
+  "reference_paper_passed": true,
+  "reference_shadow_passed": true,
+  "status": "accepted_reference_external_gates_open"
+}

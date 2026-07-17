@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "ask": {
+      "type": "number"
+    },
+    "bar_high": {
+      "type": "number"
+    },
+    "bar_low": {
+      "type": "number"
+    },
+    "baseline_decision": {
+      "type": "string"
+    },
+    "bid": {
+      "type": "number"
+    },
+    "context_id": {
+      "type": "string"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "expected_cost_bps": {
+      "type": "number"
+    },
+    "expected_edge_bps": {
+      "type": "number"
+    },
+    "instrument": {
+      "type": "string"
+    },
+    "known_time": {
+      "type": "string"
+    },
+    "latency_ms": {
+      "type": "integer"
+    },
+    "next_ask": {
+      "type": "number"
+    },
+    "next_bid": {
+      "type": "number"
+    },
+    "observation_id": {
+      "type": "string"
+    },
+    "side": {
+      "type": "string"
+    },
+    "signal_score": {
+      "type": "number"
+    },
+    "synthetic_fixture": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "observation_id",
+    "known_time",
+    "context_id",
+    "instrument",
+    "decision",
+    "side",
+    "signal_score",
+    "expected_edge_bps",
+    "expected_cost_bps",
+    "bid",
+    "ask",
+    "bar_high",
+    "bar_low",
+    "next_bid",
+    "next_ask",
+    "latency_ms",
+    "baseline_decision",
+    "synthetic_fixture"
+  ],
+  "title": "observation_input",
+  "type": "object"
+}

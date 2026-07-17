@@ -1,0 +1,17 @@
+{
+  "alerts": [],
+  "hard_breach": false,
+  "metrics": {
+    "latency_p95_ms": 610.0,
+    "mean_slippage_bps": 0.07003774,
+    "paper_cumulative_net_pnl_bps": -90.38994603,
+    "reject_rate": 0.0,
+    "shadow_disagreement_rate": 0.31944444,
+    "unauthorized_order_count": 0
+  },
+  "phase": "SAED_V4_39",
+  "recommended_action": "CONTINUE_REFERENCE_QUALIFICATION",
+  "report_hash": "9cf5bade059e613d491bbc2cce879c995e26aa6fb769b7a44fa2f6a9cc17ed55",
+  "report_id": "v439_surveillance_f2b7b97172847f6bc21b7d39",
+  "research_only": true
+}

@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "automatic_order_submission_allowed": {
+      "type": "boolean"
+    },
+    "baseline_preservation_required": {
+      "type": "boolean"
+    },
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "clauses": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "clause_id": {
+            "type": "string"
+          },
+          "evidence_required": {
+            "type": "boolean"
+          },
+          "failure_action": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "integer"
+          },
+          "requirement": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "clause_id",
+          "priority",
+          "requirement",
+          "failure_action",
+          "evidence_required"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "constitution_hash": {
+      "type": "string"
+    },
+    "constitution_id": {
+      "type": "string"
+    },
+    "kill_switch_required": {
+      "type": "boolean"
+    },
+    "micro_live_requires_external_authorization": {
+      "type": "boolean"
+    },
+    "production_authorization_allowed": {
+      "type": "boolean"
+    },
+    "prospective_only": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "shadow_no_order_side_effects": {
+      "type": "boolean"
+    },
+    "two_person_control_required": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "constitution_id",
+    "version",
+    "clauses",
+    "research_only",
+    "prospective_only",
+    "shadow_no_order_side_effects",
+    "micro_live_requires_external_authorization",
+    "baseline_preservation_required",
+    "kill_switch_required",
+    "two_person_control_required",
+    "automatic_order_submission_allowed",
+    "capital_activation_allowed",
+    "production_authorization_allowed",
+    "constitution_hash"
+  ],
+  "title": "constitution",
+  "type": "object"
+}

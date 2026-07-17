@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "kill_switch_default_armed": {
+      "type": "boolean"
+    },
+    "maximum_containment_seconds": {
+      "type": "integer"
+    },
+    "maximum_detection_seconds": {
+      "type": "integer"
+    },
+    "procedures": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "automatic_action_allowed": {
+            "type": "boolean"
+          },
+          "evidence_required": {
+            "type": "boolean"
+          },
+          "immediate_action": {
+            "type": "string"
+          },
+          "owner_role": {
+            "type": "string"
+          },
+          "procedure_id": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string"
+          },
+          "trigger": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "procedure_id",
+          "trigger",
+          "severity",
+          "immediate_action",
+          "owner_role",
+          "evidence_required",
+          "automatic_action_allowed"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "rollback_target": {
+      "type": "string"
+    },
+    "runbook_id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "runbook_id",
+    "version",
+    "procedures",
+    "kill_switch_default_armed",
+    "rollback_target",
+    "maximum_detection_seconds",
+    "maximum_containment_seconds",
+    "research_only"
+  ],
+  "title": "incident_runbook_input",
+  "type": "object"
+}

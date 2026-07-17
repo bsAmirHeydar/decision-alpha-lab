@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "cohort_hash": {
+      "type": "string"
+    },
+    "cohort_id": {
+      "type": "string"
+    },
+    "contexts": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "cutoff_time": {
+      "type": "string"
+    },
+    "data_roles": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "end": {
+            "type": "string"
+          },
+          "mutable": {
+            "type": "boolean"
+          },
+          "role": {
+            "type": "string"
+          },
+          "role_id": {
+            "type": "string"
+          },
+          "start": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "role_id",
+          "role",
+          "start",
+          "end",
+          "mutable"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "decision_frequency": {
+      "type": "string"
+    },
+    "frozen_at": {
+      "type": "string"
+    },
+    "frozen_cohort_hash": {
+      "type": "string"
+    },
+    "frozen_cohort_id": {
+      "type": "string"
+    },
+    "instruments": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "maximum_observations": {
+      "type": "integer"
+    },
+    "minimum_observations": {
+      "type": "integer"
+    },
+    "outcome_fields_visible_at_freeze": {
+      "items": {},
+      "type": "array"
+    },
+    "prospective_end": {
+      "type": "string"
+    },
+    "prospective_start": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "selection_locked": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "cohort_id",
+    "version",
+    "frozen_at",
+    "prospective_start",
+    "prospective_end",
+    "cutoff_time",
+    "contexts",
+    "instruments",
+    "data_roles",
+    "minimum_observations",
+    "maximum_observations",
+    "decision_frequency",
+    "outcome_fields_visible_at_freeze",
+    "selection_locked",
+    "research_only",
+    "cohort_hash",
+    "frozen_cohort_id",
+    "frozen_cohort_hash"
+  ],
+  "title": "cohort",
+  "type": "object"
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "artifact_hash": {
+      "type": "string"
+    },
+    "evidence_class": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "production_evidence": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "name",
+    "artifact_hash",
+    "evidence_class",
+    "production_evidence"
+  ],
+  "title": "evidence_item",
+  "type": "object"
+}

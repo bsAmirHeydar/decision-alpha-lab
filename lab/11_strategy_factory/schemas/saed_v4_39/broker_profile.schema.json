@@ -1,0 +1,174 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "account_currency": {
+      "type": "string"
+    },
+    "account_type": {
+      "type": "string"
+    },
+    "broker_profile_hash": {
+      "type": "string"
+    },
+    "broker_profile_id": {
+      "type": "string"
+    },
+    "capabilities": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "credentials_embedded": {
+      "type": "boolean"
+    },
+    "demo_only": {
+      "type": "boolean"
+    },
+    "environment": {
+      "type": "string"
+    },
+    "frozen_broker_hash": {
+      "type": "string"
+    },
+    "frozen_broker_id": {
+      "type": "string"
+    },
+    "rate_limits": {
+      "additionalProperties": false,
+      "properties": {
+        "max_orders_per_second": {
+          "type": "integer"
+        },
+        "max_requests_per_second": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "max_requests_per_second",
+        "max_orders_per_second"
+      ],
+      "type": "object"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "server": {
+      "type": "string"
+    },
+    "sessions": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "end": {
+            "type": "string"
+          },
+          "session_id": {
+            "type": "string"
+          },
+          "start": {
+            "type": "string"
+          },
+          "timezone": {
+            "type": "string"
+          },
+          "weekdays": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "session_id",
+          "timezone",
+          "start",
+          "end",
+          "weekdays"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "symbols": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "digits": {
+            "type": "integer"
+          },
+          "freeze_level_points": {
+            "type": "integer"
+          },
+          "max_spread_bps": {
+            "type": "number"
+          },
+          "max_volume": {
+            "type": "number"
+          },
+          "min_volume": {
+            "type": "number"
+          },
+          "point": {
+            "type": "number"
+          },
+          "stop_level_points": {
+            "type": "integer"
+          },
+          "symbol": {
+            "type": "string"
+          },
+          "tick_size": {
+            "type": "number"
+          },
+          "tick_value": {
+            "type": "number"
+          },
+          "volume_step": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "symbol",
+          "digits",
+          "point",
+          "tick_size",
+          "tick_value",
+          "min_volume",
+          "max_volume",
+          "volume_step",
+          "stop_level_points",
+          "freeze_level_points",
+          "max_spread_bps"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "broker_profile_id",
+    "version",
+    "environment",
+    "server",
+    "account_currency",
+    "account_type",
+    "symbols",
+    "capabilities",
+    "sessions",
+    "rate_limits",
+    "demo_only",
+    "credentials_embedded",
+    "research_only",
+    "broker_profile_hash",
+    "frozen_broker_id",
+    "frozen_broker_hash"
+  ],
+  "title": "broker_profile",
+  "type": "object"
+}

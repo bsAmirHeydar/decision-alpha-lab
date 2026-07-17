@@ -1,0 +1,59 @@
+{
+  "automatic_transition_allowed": false,
+  "capital_activation_allowed": false,
+  "highest_actual_stage": "OFF",
+  "highest_reference_stage": "SHADOW",
+  "micro_live_eligible": false,
+  "phase": "SAED_V4_39",
+  "production_authorized": false,
+  "qualification_hash": "17932757e06d58be8ee6f7818bc488861bd0be0ab61fc783dfb3d9c816ea8417",
+  "qualification_id": "v439_qualification_40d7e54a643b0b37ab203a59",
+  "research_only": true,
+  "stages": [
+    {
+      "actual_external_passed": false,
+      "checks": {
+        "actual_period_evidence": false,
+        "minimum_observations": true,
+        "no_hard_surveillance_breach": true,
+        "reconciliation_complete": true,
+        "zero_broker_side_effect": true,
+        "zero_order_submission": true
+      },
+      "decision": "ACCEPT_REFERENCE_EXTERNAL_PERIOD_PENDING",
+      "internal_reference_passed": true,
+      "stage": "PAPER"
+    },
+    {
+      "actual_external_passed": false,
+      "checks": {
+        "actual_period_evidence": false,
+        "drills_passed": true,
+        "future_suffix_unused": true,
+        "minimum_observations": true,
+        "zero_broker_side_effect": true,
+        "zero_order_submission": true
+      },
+      "decision": "ACCEPT_REFERENCE_EXTERNAL_PERIOD_PENDING",
+      "internal_reference_passed": true,
+      "stage": "SHADOW"
+    },
+    {
+      "actual_external_passed": false,
+      "checks": {
+        "broker_live_qualified": false,
+        "demo_connectivity": false,
+        "kill_switch_live_drill": false,
+        "live_connectivity": false,
+        "metaeditor_compile": false,
+        "micro_live_authorization": false,
+        "paper_external": false,
+        "shadow_external": false,
+        "terminal_parity": false
+      },
+      "decision": "BLOCKED_EXTERNAL_GATES",
+      "internal_reference_passed": false,
+      "stage": "MICRO_LIVE"
+    }
+  ]
+}

@@ -1,0 +1,380 @@
+{
+  "automatic_order_submission_allowed": false,
+  "baseline_preservation_required": true,
+  "capital_activation_allowed": false,
+  "clauses": [
+    {
+      "clause_id": "C001",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 1,
+      "requirement": "Bind every qualification run to the immutable V4-38 runtime bundle."
+    },
+    {
+      "clause_id": "C002",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 2,
+      "requirement": "Freeze prospective cohort before observation start."
+    },
+    {
+      "clause_id": "C003",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 3,
+      "requirement": "Reject future-suffix data in all paper and shadow decisions."
+    },
+    {
+      "clause_id": "C004",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 4,
+      "requirement": "Preserve baseline decisions and record every disagreement."
+    },
+    {
+      "clause_id": "C005",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 5,
+      "requirement": "Keep PAPER mode free of broker side effects."
+    },
+    {
+      "clause_id": "C006",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 6,
+      "requirement": "Keep SHADOW mode free of broker side effects."
+    },
+    {
+      "clause_id": "C007",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 7,
+      "requirement": "Require exact mode-state transitions without stage skipping."
+    },
+    {
+      "clause_id": "C008",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 8,
+      "requirement": "Require explicit rollback path from every deployment stage."
+    },
+    {
+      "clause_id": "C009",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 9,
+      "requirement": "Require kill switch armed before any qualification session."
+    },
+    {
+      "clause_id": "C010",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 10,
+      "requirement": "Deny self-authorization of micro-live."
+    },
+    {
+      "clause_id": "C011",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 11,
+      "requirement": "Require two-person control for any live-capable permit."
+    },
+    {
+      "clause_id": "C012",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 12,
+      "requirement": "Separate internal reference evidence from actual external evidence."
+    },
+    {
+      "clause_id": "C013",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 13,
+      "requirement": "Require actual MetaEditor evidence before terminal qualification."
+    },
+    {
+      "clause_id": "C014",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 14,
+      "requirement": "Require actual MT5 vector replay before broker qualification."
+    },
+    {
+      "clause_id": "C015",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 15,
+      "requirement": "Require cross-runtime state replay before broker qualification."
+    },
+    {
+      "clause_id": "C016",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 16,
+      "requirement": "Require demo connectivity evidence before live-connectivity work."
+    },
+    {
+      "clause_id": "C017",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 17,
+      "requirement": "Require broker symbol metadata capture and hash binding."
+    },
+    {
+      "clause_id": "C018",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 18,
+      "requirement": "Require session calendar capture and known-time validation."
+    },
+    {
+      "clause_id": "C019",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 19,
+      "requirement": "Require spread, latency and reject telemetry."
+    },
+    {
+      "clause_id": "C020",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 20,
+      "requirement": "Require paper reconciliation for every selected intent."
+    },
+    {
+      "clause_id": "C021",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 21,
+      "requirement": "Require shadow disagreement accounting."
+    },
+    {
+      "clause_id": "C022",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 22,
+      "requirement": "Require zero unauthorized order submissions."
+    },
+    {
+      "clause_id": "C023",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 23,
+      "requirement": "Require zero unauthorized position or cash deltas."
+    },
+    {
+      "clause_id": "C024",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 24,
+      "requirement": "Require deterministic paper fill policy."
+    },
+    {
+      "clause_id": "C025",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 25,
+      "requirement": "Require explicit cost and slippage accounting."
+    },
+    {
+      "clause_id": "C026",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 26,
+      "requirement": "Require bounded trade risk and position size."
+    },
+    {
+      "clause_id": "C027",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 27,
+      "requirement": "Require bounded daily loss and drawdown."
+    },
+    {
+      "clause_id": "C028",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 28,
+      "requirement": "Require bounded order count and concurrency."
+    },
+    {
+      "clause_id": "C029",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 29,
+      "requirement": "Require hard spread and latency caps."
+    },
+    {
+      "clause_id": "C030",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 30,
+      "requirement": "Require broker disconnect containment."
+    },
+    {
+      "clause_id": "C031",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 31,
+      "requirement": "Require runtime hash mismatch containment."
+    },
+    {
+      "clause_id": "C032",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 32,
+      "requirement": "Require reconciliation-break containment."
+    },
+    {
+      "clause_id": "C033",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 33,
+      "requirement": "Require credential-exposure containment."
+    },
+    {
+      "clause_id": "C034",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 34,
+      "requirement": "Require rollback to OFF on critical incident."
+    },
+    {
+      "clause_id": "C035",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 35,
+      "requirement": "Require baseline restoration after rollback."
+    },
+    {
+      "clause_id": "C036",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 36,
+      "requirement": "Require independent deployment review."
+    },
+    {
+      "clause_id": "C037",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 37,
+      "requirement": "Require independent model-risk review."
+    },
+    {
+      "clause_id": "C038",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 38,
+      "requirement": "Require risk-officer review."
+    },
+    {
+      "clause_id": "C039",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 39,
+      "requirement": "Require security key-custody review."
+    },
+    {
+      "clause_id": "C040",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 40,
+      "requirement": "Require operator readiness review."
+    },
+    {
+      "clause_id": "C041",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 41,
+      "requirement": "Require independent validator review."
+    },
+    {
+      "clause_id": "C042",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 42,
+      "requirement": "Require complete evidence Merkle root."
+    },
+    {
+      "clause_id": "C043",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 43,
+      "requirement": "Require complete hash-chain ledgers."
+    },
+    {
+      "clause_id": "C044",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 44,
+      "requirement": "Require closed schemas and zero unknown fields."
+    },
+    {
+      "clause_id": "C045",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 45,
+      "requirement": "Require mutation tests for authority expansion."
+    },
+    {
+      "clause_id": "C046",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 46,
+      "requirement": "Require static MQL5 scan for order APIs."
+    },
+    {
+      "clause_id": "C047",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 47,
+      "requirement": "Require actual prospective paper period evidence."
+    },
+    {
+      "clause_id": "C048",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 48,
+      "requirement": "Require actual prospective shadow period evidence."
+    },
+    {
+      "clause_id": "C049",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 49,
+      "requirement": "Require signed time-bounded micro-live authorization."
+    },
+    {
+      "clause_id": "C050",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 50,
+      "requirement": "Require live kill-switch drill before micro-live."
+    },
+    {
+      "clause_id": "C051",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 51,
+      "requirement": "Require broker reconciliation evidence before micro-live."
+    },
+    {
+      "clause_id": "C052",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_KILL_PRESERVE_BASELINE_AND_ESCALATE",
+      "priority": 52,
+      "requirement": "Forbid production authorization in V4-39."
+    }
+  ],
+  "constitution_id": "SAED_V439_CONSTITUTION",
+  "kill_switch_required": true,
+  "micro_live_requires_external_authorization": true,
+  "production_authorization_allowed": false,
+  "prospective_only": true,
+  "research_only": true,
+  "shadow_no_order_side_effects": true,
+  "two_person_control_required": true,
+  "version": "1.0.0"
+}

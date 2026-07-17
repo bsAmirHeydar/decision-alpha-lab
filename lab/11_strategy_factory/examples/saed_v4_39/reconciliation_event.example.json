@@ -1,0 +1,18 @@
+{
+  "cash_delta": 0.0,
+  "event_hash": "b11b1d16fe4c641e73a72b61dbe234a7bd1f5fe4d59146cd8c518eabbbf523b8",
+  "event_id": "v439_reconciliation_event_c92f41228a668cfda64644c5",
+  "intent_decision": "ABSTAIN",
+  "intent_id": "v439_intent_75a1e840c24ec4fb72edd5a1",
+  "live_fill_id": null,
+  "live_order_id": null,
+  "observation_id": "OBS000",
+  "ordinal": 0,
+  "paper_status": "ABSTAIN",
+  "position_delta": 0.0,
+  "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "price_reconciled": true,
+  "quantity_match": true,
+  "reconciled": true,
+  "research_only": true
+}

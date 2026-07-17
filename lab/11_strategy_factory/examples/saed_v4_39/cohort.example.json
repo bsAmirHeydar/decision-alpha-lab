@@ -1,0 +1,48 @@
+{
+  "cohort_hash": "3b51dc9de1486bb75f6fe812bbd327a25ce392d173bb540f3c17c5f5e95036dd",
+  "cohort_id": "V439_SYNTHETIC_PROSPECTIVE_COHORT",
+  "contexts": [
+    "CTX_ALPHA_A",
+    "CTX_ALPHA_B"
+  ],
+  "cutoff_time": "2026-06-30T23:59:59Z",
+  "data_roles": [
+    {
+      "end": "2026-06-02T12:00:00Z",
+      "mutable": false,
+      "role": "PROSPECTIVE_PAPER",
+      "role_id": "DR01",
+      "start": "2026-06-01T00:00:00Z"
+    },
+    {
+      "end": "2026-06-03T23:00:00Z",
+      "mutable": false,
+      "role": "SHADOW",
+      "role_id": "DR02",
+      "start": "2026-06-02T12:00:00Z"
+    },
+    {
+      "end": "2026-06-30T23:59:59Z",
+      "mutable": false,
+      "role": "MICRO_LIVE_QUALIFICATION",
+      "role_id": "DR03",
+      "start": "2026-06-04T00:00:00Z"
+    }
+  ],
+  "decision_frequency": "BAR_CLOSE",
+  "frozen_at": "2026-05-31T23:00:00Z",
+  "frozen_cohort_hash": "b5ad67b525be92e7e7806f4560b07f3e9afe298e5c4c553a847c8023a5395a1f",
+  "frozen_cohort_id": "v439_cohort_0890f0507cc9a367d9c36905",
+  "instruments": [
+    "SYNTH_NQ",
+    "SYNTH_USTEC"
+  ],
+  "maximum_observations": 96,
+  "minimum_observations": 48,
+  "outcome_fields_visible_at_freeze": [],
+  "prospective_end": "2026-06-03T23:00:00Z",
+  "prospective_start": "2026-06-01T00:00:00Z",
+  "research_only": true,
+  "selection_locked": true,
+  "version": "1.0.0"
+}

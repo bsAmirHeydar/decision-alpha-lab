@@ -1,0 +1,2732 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "authority_boundary": {
+      "additionalProperties": false,
+      "properties": {
+        "boundary_hash": {
+          "type": "string"
+        },
+        "boundary_id": {
+          "type": "string"
+        },
+        "failure_action": {
+          "type": "string"
+        },
+        "may_accept_external_evidence": {
+          "type": "boolean"
+        },
+        "may_activate_capital": {
+          "type": "boolean"
+        },
+        "may_build_order_intents": {
+          "type": "boolean"
+        },
+        "may_bypass_kill_switch": {
+          "type": "boolean"
+        },
+        "may_claim_actual_broker_qualification_without_evidence": {
+          "type": "boolean"
+        },
+        "may_claim_production_authorization": {
+          "type": "boolean"
+        },
+        "may_generate_mql5_qualification_harness": {
+          "type": "boolean"
+        },
+        "may_mutate_immutable_runtime": {
+          "type": "boolean"
+        },
+        "may_mutate_ucee": {
+          "type": "boolean"
+        },
+        "may_prepare_micro_live_plan": {
+          "type": "boolean"
+        },
+        "may_reconcile_simulated_fills": {
+          "type": "boolean"
+        },
+        "may_run_prospective_paper": {
+          "type": "boolean"
+        },
+        "may_run_shadow": {
+          "type": "boolean"
+        },
+        "may_self_authorize_micro_live": {
+          "type": "boolean"
+        },
+        "may_submit_live_order": {
+          "type": "boolean"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "phase",
+        "research_only",
+        "may_run_prospective_paper",
+        "may_run_shadow",
+        "may_build_order_intents",
+        "may_reconcile_simulated_fills",
+        "may_prepare_micro_live_plan",
+        "may_accept_external_evidence",
+        "may_generate_mql5_qualification_harness",
+        "may_submit_live_order",
+        "may_activate_capital",
+        "may_self_authorize_micro_live",
+        "may_bypass_kill_switch",
+        "may_mutate_immutable_runtime",
+        "may_mutate_ucee",
+        "may_claim_actual_broker_qualification_without_evidence",
+        "may_claim_production_authorization",
+        "failure_action",
+        "boundary_id",
+        "boundary_hash"
+      ],
+      "type": "object"
+    },
+    "baseline_receipt": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_hash": {
+          "type": "string"
+        },
+        "baseline_id": {
+          "type": "string"
+        },
+        "baseline_mutation_count": {
+          "type": "integer"
+        },
+        "baseline_preserved": {
+          "type": "boolean"
+        },
+        "fallback_mode": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "receipt_hash": {
+          "type": "string"
+        },
+        "receipt_id": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "phase",
+        "baseline_id",
+        "baseline_hash",
+        "baseline_preserved",
+        "baseline_mutation_count",
+        "fallback_mode",
+        "research_only",
+        "receipt_id",
+        "receipt_hash"
+      ],
+      "type": "object"
+    },
+    "broker_profile": {
+      "additionalProperties": false,
+      "properties": {
+        "account_currency": {
+          "type": "string"
+        },
+        "account_type": {
+          "type": "string"
+        },
+        "broker_profile_hash": {
+          "type": "string"
+        },
+        "broker_profile_id": {
+          "type": "string"
+        },
+        "capabilities": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "credentials_embedded": {
+          "type": "boolean"
+        },
+        "demo_only": {
+          "type": "boolean"
+        },
+        "environment": {
+          "type": "string"
+        },
+        "frozen_broker_hash": {
+          "type": "string"
+        },
+        "frozen_broker_id": {
+          "type": "string"
+        },
+        "rate_limits": {
+          "additionalProperties": false,
+          "properties": {
+            "max_orders_per_second": {
+              "type": "integer"
+            },
+            "max_requests_per_second": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "max_requests_per_second",
+            "max_orders_per_second"
+          ],
+          "type": "object"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "server": {
+          "type": "string"
+        },
+        "sessions": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "end": {
+                "type": "string"
+              },
+              "session_id": {
+                "type": "string"
+              },
+              "start": {
+                "type": "string"
+              },
+              "timezone": {
+                "type": "string"
+              },
+              "weekdays": {
+                "items": {
+                  "type": "integer"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "session_id",
+              "timezone",
+              "start",
+              "end",
+              "weekdays"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "symbols": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "digits": {
+                "type": "integer"
+              },
+              "freeze_level_points": {
+                "type": "integer"
+              },
+              "max_spread_bps": {
+                "type": "number"
+              },
+              "max_volume": {
+                "type": "number"
+              },
+              "min_volume": {
+                "type": "number"
+              },
+              "point": {
+                "type": "number"
+              },
+              "stop_level_points": {
+                "type": "integer"
+              },
+              "symbol": {
+                "type": "string"
+              },
+              "tick_size": {
+                "type": "number"
+              },
+              "tick_value": {
+                "type": "number"
+              },
+              "volume_step": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "symbol",
+              "digits",
+              "point",
+              "tick_size",
+              "tick_value",
+              "min_volume",
+              "max_volume",
+              "volume_step",
+              "stop_level_points",
+              "freeze_level_points",
+              "max_spread_bps"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "broker_profile_id",
+        "version",
+        "environment",
+        "server",
+        "account_currency",
+        "account_type",
+        "symbols",
+        "capabilities",
+        "sessions",
+        "rate_limits",
+        "demo_only",
+        "credentials_embedded",
+        "research_only",
+        "broker_profile_hash",
+        "frozen_broker_id",
+        "frozen_broker_hash"
+      ],
+      "type": "object"
+    },
+    "broker_qualification_matrix": {
+      "additionalProperties": false,
+      "properties": {
+        "broker_profile_hash": {
+          "type": "string"
+        },
+        "checks": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "actual_external_evidence": {
+                "type": "boolean"
+              },
+              "gate_id": {
+                "type": "string"
+              },
+              "passed": {
+                "type": "boolean"
+              },
+              "status": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "gate_id",
+              "passed",
+              "status",
+              "actual_external_evidence"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "demo_qualified": {
+          "type": "boolean"
+        },
+        "live_qualified": {
+          "type": "boolean"
+        },
+        "matrix_hash": {
+          "type": "string"
+        },
+        "matrix_id": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "production_authorized": {
+          "type": "boolean"
+        },
+        "research_only": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "phase",
+        "broker_profile_hash",
+        "checks",
+        "demo_qualified",
+        "live_qualified",
+        "research_only",
+        "production_authorized",
+        "matrix_id",
+        "matrix_hash"
+      ],
+      "type": "object"
+    },
+    "certificate": {
+      "additionalProperties": false,
+      "properties": {
+        "actual_prospective_paper_passed": {
+          "type": "boolean"
+        },
+        "actual_prospective_shadow_passed": {
+          "type": "boolean"
+        },
+        "capital_activation_allowed": {
+          "type": "boolean"
+        },
+        "certificate_hash": {
+          "type": "string"
+        },
+        "certificate_id": {
+          "type": "string"
+        },
+        "claim_ceiling": {
+          "type": "string"
+        },
+        "evidence_hash": {
+          "type": "string"
+        },
+        "micro_live_authorized": {
+          "type": "boolean"
+        },
+        "micro_live_eligible": {
+          "type": "boolean"
+        },
+        "next_phase": {
+          "type": "string"
+        },
+        "order_submission_allowed": {
+          "type": "boolean"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "production_authorized": {
+          "type": "boolean"
+        },
+        "reference_paper_passed": {
+          "type": "boolean"
+        },
+        "reference_shadow_passed": {
+          "type": "boolean"
+        },
+        "release_hash": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "runtime_bundle_hash": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "phase",
+        "status",
+        "runtime_bundle_hash",
+        "release_hash",
+        "evidence_hash",
+        "reference_paper_passed",
+        "reference_shadow_passed",
+        "actual_prospective_paper_passed",
+        "actual_prospective_shadow_passed",
+        "micro_live_eligible",
+        "micro_live_authorized",
+        "order_submission_allowed",
+        "capital_activation_allowed",
+        "production_authorized",
+        "next_phase",
+        "claim_ceiling",
+        "research_only",
+        "certificate_id",
+        "certificate_hash"
+      ],
+      "type": "object"
+    },
+    "cohort": {
+      "additionalProperties": false,
+      "properties": {
+        "cohort_hash": {
+          "type": "string"
+        },
+        "cohort_id": {
+          "type": "string"
+        },
+        "contexts": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "cutoff_time": {
+          "type": "string"
+        },
+        "data_roles": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "end": {
+                "type": "string"
+              },
+              "mutable": {
+                "type": "boolean"
+              },
+              "role": {
+                "type": "string"
+              },
+              "role_id": {
+                "type": "string"
+              },
+              "start": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "role_id",
+              "role",
+              "start",
+              "end",
+              "mutable"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "decision_frequency": {
+          "type": "string"
+        },
+        "frozen_at": {
+          "type": "string"
+        },
+        "frozen_cohort_hash": {
+          "type": "string"
+        },
+        "frozen_cohort_id": {
+          "type": "string"
+        },
+        "instruments": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "maximum_observations": {
+          "type": "integer"
+        },
+        "minimum_observations": {
+          "type": "integer"
+        },
+        "outcome_fields_visible_at_freeze": {
+          "items": {},
+          "type": "array"
+        },
+        "prospective_end": {
+          "type": "string"
+        },
+        "prospective_start": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "selection_locked": {
+          "type": "boolean"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "cohort_id",
+        "version",
+        "frozen_at",
+        "prospective_start",
+        "prospective_end",
+        "cutoff_time",
+        "contexts",
+        "instruments",
+        "data_roles",
+        "minimum_observations",
+        "maximum_observations",
+        "decision_frequency",
+        "outcome_fields_visible_at_freeze",
+        "selection_locked",
+        "research_only",
+        "cohort_hash",
+        "frozen_cohort_id",
+        "frozen_cohort_hash"
+      ],
+      "type": "object"
+    },
+    "constitution": {
+      "additionalProperties": false,
+      "properties": {
+        "automatic_order_submission_allowed": {
+          "type": "boolean"
+        },
+        "baseline_preservation_required": {
+          "type": "boolean"
+        },
+        "capital_activation_allowed": {
+          "type": "boolean"
+        },
+        "clauses": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "clause_id": {
+                "type": "string"
+              },
+              "evidence_required": {
+                "type": "boolean"
+              },
+              "failure_action": {
+                "type": "string"
+              },
+              "priority": {
+                "type": "integer"
+              },
+              "requirement": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "clause_id",
+              "priority",
+              "requirement",
+              "failure_action",
+              "evidence_required"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "constitution_hash": {
+          "type": "string"
+        },
+        "constitution_id": {
+          "type": "string"
+        },
+        "kill_switch_required": {
+          "type": "boolean"
+        },
+        "micro_live_requires_external_authorization": {
+          "type": "boolean"
+        },
+        "production_authorization_allowed": {
+          "type": "boolean"
+        },
+        "prospective_only": {
+          "type": "boolean"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "shadow_no_order_side_effects": {
+          "type": "boolean"
+        },
+        "two_person_control_required": {
+          "type": "boolean"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "constitution_id",
+        "version",
+        "clauses",
+        "research_only",
+        "prospective_only",
+        "shadow_no_order_side_effects",
+        "micro_live_requires_external_authorization",
+        "baseline_preservation_required",
+        "kill_switch_required",
+        "two_person_control_required",
+        "automatic_order_submission_allowed",
+        "capital_activation_allowed",
+        "production_authorization_allowed",
+        "constitution_hash"
+      ],
+      "type": "object"
+    },
+    "evidence_bundle": {
+      "additionalProperties": false,
+      "properties": {
+        "actual_micro_live_evidence_attached": {
+          "type": "boolean"
+        },
+        "evidence_bundle_hash": {
+          "type": "string"
+        },
+        "evidence_bundle_id": {
+          "type": "string"
+        },
+        "evidence_count": {
+          "type": "integer"
+        },
+        "evidence_items": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "artifact_hash": {
+                "type": "string"
+              },
+              "evidence_class": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "production_evidence": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "name",
+              "artifact_hash",
+              "evidence_class",
+              "production_evidence"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "evidence_merkle_root": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "production_authorized": {
+          "type": "boolean"
+        },
+        "research_only": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "phase",
+        "evidence_items",
+        "evidence_count",
+        "evidence_merkle_root",
+        "actual_micro_live_evidence_attached",
+        "research_only",
+        "production_authorized",
+        "evidence_bundle_id",
+        "evidence_bundle_hash"
+      ],
+      "type": "object"
+    },
+    "external_evidence_matrix": {
+      "additionalProperties": false,
+      "properties": {
+        "actual_demo_connectivity_passed": {
+          "type": "boolean"
+        },
+        "actual_live_connectivity_passed": {
+          "type": "boolean"
+        },
+        "actual_metaeditor_compile_passed": {
+          "type": "boolean"
+        },
+        "actual_micro_live_authorized": {
+          "type": "boolean"
+        },
+        "actual_prospective_paper_passed": {
+          "type": "boolean"
+        },
+        "actual_prospective_shadow_passed": {
+          "type": "boolean"
+        },
+        "actual_terminal_parity_passed": {
+          "type": "boolean"
+        },
+        "items": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "actual_external_evidence": {
+                "type": "boolean"
+              },
+              "artifact_hash": {
+                "type": "string"
+              },
+              "environment": {
+                "type": "string"
+              },
+              "evidence_id": {
+                "type": "string"
+              },
+              "evidence_type": {
+                "type": "string"
+              },
+              "independent_reviewer": {
+                "type": "string"
+              },
+              "notes": {
+                "type": "string"
+              },
+              "observed_at": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "evidence_id",
+              "evidence_type",
+              "status",
+              "environment",
+              "artifact_hash",
+              "observed_at",
+              "independent_reviewer",
+              "actual_external_evidence",
+              "notes"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "matrix_hash": {
+          "type": "string"
+        },
+        "matrix_id": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "production_authorized": {
+          "type": "boolean"
+        },
+        "research_only": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "phase",
+        "items",
+        "actual_metaeditor_compile_passed",
+        "actual_terminal_parity_passed",
+        "actual_demo_connectivity_passed",
+        "actual_live_connectivity_passed",
+        "actual_prospective_paper_passed",
+        "actual_prospective_shadow_passed",
+        "actual_micro_live_authorized",
+        "research_only",
+        "production_authorized",
+        "matrix_id",
+        "matrix_hash"
+      ],
+      "type": "object"
+    },
+    "handoff": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_next_work": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "certificate_hash": {
+          "type": "string"
+        },
+        "forbidden_next_work": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "handoff_hash": {
+          "type": "string"
+        },
+        "handoff_id": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "micro_live_authorized": {
+          "type": "boolean"
+        },
+        "next_phase": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "production_authorized": {
+          "type": "boolean"
+        },
+        "release_hash": {
+          "type": "string"
+        },
+        "required_external_gates": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "runtime_bundle_hash": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "phase",
+        "next_phase",
+        "certificate_hash",
+        "release_hash",
+        "runtime_bundle_hash",
+        "allowed_next_work",
+        "forbidden_next_work",
+        "required_external_gates",
+        "micro_live_authorized",
+        "production_authorized",
+        "research_only",
+        "handoff_id",
+        "handoff_hash"
+      ],
+      "type": "object"
+    },
+    "incident_drills": {
+      "additionalProperties": false,
+      "properties": {
+        "actual_live_incident": {
+          "type": "boolean"
+        },
+        "drill_bundle_hash": {
+          "type": "string"
+        },
+        "drill_bundle_id": {
+          "type": "string"
+        },
+        "events": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "baseline_restored": {
+                "type": "boolean"
+              },
+              "contained_seconds": {
+                "type": "integer"
+              },
+              "detected_seconds": {
+                "type": "integer"
+              },
+              "event_hash": {
+                "type": "string"
+              },
+              "event_id": {
+                "type": "string"
+              },
+              "evidence_complete": {
+                "type": "boolean"
+              },
+              "kill_switch_armed": {
+                "type": "boolean"
+              },
+              "order_path_disabled": {
+                "type": "boolean"
+              },
+              "ordinal": {
+                "type": "integer"
+              },
+              "previous_hash": {
+                "type": "string"
+              },
+              "research_only": {
+                "type": "boolean"
+              },
+              "rollback_mode": {
+                "type": "string"
+              },
+              "scenario_id": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "string"
+              },
+              "synthetic_drill": {
+                "type": "boolean"
+              },
+              "trigger": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "scenario_id",
+              "trigger",
+              "severity",
+              "detected_seconds",
+              "contained_seconds",
+              "kill_switch_armed",
+              "order_path_disabled",
+              "rollback_mode",
+              "baseline_restored",
+              "evidence_complete",
+              "synthetic_drill",
+              "research_only",
+              "ordinal",
+              "previous_hash",
+              "event_id",
+              "event_hash"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "passed": {
+          "type": "boolean"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "scenario_count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "phase",
+        "events",
+        "scenario_count",
+        "passed",
+        "actual_live_incident",
+        "research_only",
+        "drill_bundle_id",
+        "drill_bundle_hash"
+      ],
+      "type": "object"
+    },
+    "incident_runbook": {
+      "additionalProperties": false,
+      "properties": {
+        "frozen_runbook_hash": {
+          "type": "string"
+        },
+        "frozen_runbook_id": {
+          "type": "string"
+        },
+        "kill_switch_default_armed": {
+          "type": "boolean"
+        },
+        "maximum_containment_seconds": {
+          "type": "integer"
+        },
+        "maximum_detection_seconds": {
+          "type": "integer"
+        },
+        "procedures": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "automatic_action_allowed": {
+                "type": "boolean"
+              },
+              "evidence_required": {
+                "type": "boolean"
+              },
+              "immediate_action": {
+                "type": "string"
+              },
+              "owner_role": {
+                "type": "string"
+              },
+              "procedure_id": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "string"
+              },
+              "trigger": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "procedure_id",
+              "trigger",
+              "severity",
+              "immediate_action",
+              "owner_role",
+              "evidence_required",
+              "automatic_action_allowed"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "rollback_target": {
+          "type": "string"
+        },
+        "runbook_id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "runbook_id",
+        "version",
+        "procedures",
+        "kill_switch_default_armed",
+        "rollback_target",
+        "maximum_detection_seconds",
+        "maximum_containment_seconds",
+        "research_only",
+        "frozen_runbook_id",
+        "frozen_runbook_hash"
+      ],
+      "type": "object"
+    },
+    "intent_ledger": {
+      "additionalProperties": false,
+      "properties": {
+        "events": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "capital_activation_allowed": {
+                "type": "boolean"
+              },
+              "context_id": {
+                "type": "string"
+              },
+              "decision": {
+                "type": "string"
+              },
+              "event_hash": {
+                "type": "string"
+              },
+              "event_id": {
+                "type": "string"
+              },
+              "instrument": {
+                "type": "string"
+              },
+              "intent_hash": {
+                "type": "string"
+              },
+              "intent_id": {
+                "type": "string"
+              },
+              "known_time": {
+                "type": "string"
+              },
+              "latency_ms": {
+                "type": "integer"
+              },
+              "observation_id": {
+                "type": "string"
+              },
+              "ordinal": {
+                "type": "integer"
+              },
+              "previous_hash": {
+                "type": "string"
+              },
+              "reference_price": {
+                "type": "number"
+              },
+              "research_only": {
+                "type": "boolean"
+              },
+              "risk_fraction": {
+                "type": "number"
+              },
+              "runtime_bundle_hash": {
+                "type": "string"
+              },
+              "side": {
+                "type": "string"
+              },
+              "size_fraction": {
+                "type": "number"
+              },
+              "spread_bps": {
+                "type": "number"
+              },
+              "submission_allowed": {
+                "type": "boolean"
+              },
+              "submission_mode": {
+                "type": "string"
+              },
+              "synthetic_fixture": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "observation_id",
+              "known_time",
+              "context_id",
+              "instrument",
+              "decision",
+              "side",
+              "reference_price",
+              "size_fraction",
+              "risk_fraction",
+              "spread_bps",
+              "latency_ms",
+              "runtime_bundle_hash",
+              "submission_mode",
+              "submission_allowed",
+              "capital_activation_allowed",
+              "synthetic_fixture",
+              "research_only",
+              "intent_id",
+              "intent_hash",
+              "ordinal",
+              "previous_hash",
+              "event_id",
+              "event_hash"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "intent_count": {
+          "type": "integer"
+        },
+        "ledger_hash": {
+          "type": "string"
+        },
+        "ledger_id": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "submission_count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "phase",
+        "events",
+        "intent_count",
+        "submission_count",
+        "research_only",
+        "ledger_id",
+        "ledger_hash"
+      ],
+      "type": "object"
+    },
+    "mode_ladder": {
+      "additionalProperties": false,
+      "properties": {
+        "automatic_transition_allowed": {
+          "type": "boolean"
+        },
+        "frozen_ladder_hash": {
+          "type": "string"
+        },
+        "frozen_ladder_id": {
+          "type": "string"
+        },
+        "initial_mode": {
+          "type": "string"
+        },
+        "ladder_hash": {
+          "type": "string"
+        },
+        "ladder_id": {
+          "type": "string"
+        },
+        "regression_allowed": {
+          "type": "boolean"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "stages": {
+          "maxItems": 6,
+          "minItems": 6,
+          "prefixItems": [
+            {
+              "additionalProperties": false,
+              "properties": {
+                "capital_allowed": {
+                  "type": "boolean"
+                },
+                "manual_authorization_required": {
+                  "type": "boolean"
+                },
+                "mode": {
+                  "type": "string"
+                },
+                "ordinal": {
+                  "type": "integer"
+                },
+                "required_gates": {
+                  "items": {},
+                  "type": "array"
+                },
+                "rollback_mode": {
+                  "type": "string"
+                },
+                "side_effects_allowed": {
+                  "type": "boolean"
+                },
+                "stage_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "stage_id",
+                "ordinal",
+                "mode",
+                "required_gates",
+                "side_effects_allowed",
+                "capital_allowed",
+                "manual_authorization_required",
+                "rollback_mode"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "capital_allowed": {
+                  "type": "boolean"
+                },
+                "manual_authorization_required": {
+                  "type": "boolean"
+                },
+                "mode": {
+                  "type": "string"
+                },
+                "ordinal": {
+                  "type": "integer"
+                },
+                "required_gates": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "rollback_mode": {
+                  "type": "string"
+                },
+                "side_effects_allowed": {
+                  "type": "boolean"
+                },
+                "stage_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "stage_id",
+                "ordinal",
+                "mode",
+                "required_gates",
+                "side_effects_allowed",
+                "capital_allowed",
+                "manual_authorization_required",
+                "rollback_mode"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "capital_allowed": {
+                  "type": "boolean"
+                },
+                "manual_authorization_required": {
+                  "type": "boolean"
+                },
+                "mode": {
+                  "type": "string"
+                },
+                "ordinal": {
+                  "type": "integer"
+                },
+                "required_gates": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "rollback_mode": {
+                  "type": "string"
+                },
+                "side_effects_allowed": {
+                  "type": "boolean"
+                },
+                "stage_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "stage_id",
+                "ordinal",
+                "mode",
+                "required_gates",
+                "side_effects_allowed",
+                "capital_allowed",
+                "manual_authorization_required",
+                "rollback_mode"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "capital_allowed": {
+                  "type": "boolean"
+                },
+                "manual_authorization_required": {
+                  "type": "boolean"
+                },
+                "mode": {
+                  "type": "string"
+                },
+                "ordinal": {
+                  "type": "integer"
+                },
+                "required_gates": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "rollback_mode": {
+                  "type": "string"
+                },
+                "side_effects_allowed": {
+                  "type": "boolean"
+                },
+                "stage_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "stage_id",
+                "ordinal",
+                "mode",
+                "required_gates",
+                "side_effects_allowed",
+                "capital_allowed",
+                "manual_authorization_required",
+                "rollback_mode"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "capital_allowed": {
+                  "type": "boolean"
+                },
+                "manual_authorization_required": {
+                  "type": "boolean"
+                },
+                "mode": {
+                  "type": "string"
+                },
+                "ordinal": {
+                  "type": "integer"
+                },
+                "required_gates": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "rollback_mode": {
+                  "type": "string"
+                },
+                "side_effects_allowed": {
+                  "type": "boolean"
+                },
+                "stage_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "stage_id",
+                "ordinal",
+                "mode",
+                "required_gates",
+                "side_effects_allowed",
+                "capital_allowed",
+                "manual_authorization_required",
+                "rollback_mode"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "capital_allowed": {
+                  "type": "boolean"
+                },
+                "manual_authorization_required": {
+                  "type": "boolean"
+                },
+                "mode": {
+                  "type": "string"
+                },
+                "ordinal": {
+                  "type": "integer"
+                },
+                "required_gates": {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                "rollback_mode": {
+                  "type": "string"
+                },
+                "side_effects_allowed": {
+                  "type": "boolean"
+                },
+                "stage_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "stage_id",
+                "ordinal",
+                "mode",
+                "required_gates",
+                "side_effects_allowed",
+                "capital_allowed",
+                "manual_authorization_required",
+                "rollback_mode"
+              ],
+              "type": "object"
+            }
+          ],
+          "type": "array"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "ladder_id",
+        "version",
+        "stages",
+        "initial_mode",
+        "automatic_transition_allowed",
+        "regression_allowed",
+        "research_only",
+        "ladder_hash",
+        "frozen_ladder_id",
+        "frozen_ladder_hash"
+      ],
+      "type": "object"
+    },
+    "observation_receipt": {
+      "additionalProperties": false,
+      "properties": {
+        "cohort_hash": {
+          "type": "string"
+        },
+        "first_known_time": {
+          "type": "string"
+        },
+        "future_suffix_used": {
+          "type": "boolean"
+        },
+        "last_known_time": {
+          "type": "string"
+        },
+        "observation_count": {
+          "type": "integer"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "receipt_hash": {
+          "type": "string"
+        },
+        "receipt_id": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "validated": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "phase",
+        "cohort_hash",
+        "observation_count",
+        "first_known_time",
+        "last_known_time",
+        "future_suffix_used",
+        "validated",
+        "research_only",
+        "receipt_id",
+        "receipt_hash"
+      ],
+      "type": "object"
+    },
+    "paper_ledger": {
+      "additionalProperties": false,
+      "properties": {
+        "events": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "broker_side_effect": {
+                "type": "boolean"
+              },
+              "cost_bps": {
+                "type": "number"
+              },
+              "event_hash": {
+                "type": "string"
+              },
+              "event_id": {
+                "type": "string"
+              },
+              "fill_price": {
+                "type": "number"
+              },
+              "gross_pnl_bps": {
+                "type": "number"
+              },
+              "intent_id": {
+                "type": "string"
+              },
+              "known_time": {
+                "type": "string"
+              },
+              "mode": {
+                "type": "string"
+              },
+              "net_pnl_bps": {
+                "type": "number"
+              },
+              "observation_id": {
+                "type": "string"
+              },
+              "order_submitted": {
+                "type": "boolean"
+              },
+              "ordinal": {
+                "type": "integer"
+              },
+              "previous_hash": {
+                "type": "string"
+              },
+              "research_only": {
+                "type": "boolean"
+              },
+              "side": {
+                "type": "string"
+              },
+              "slippage_bps": {
+                "type": "number"
+              },
+              "status": {
+                "type": "string"
+              },
+              "synthetic_fixture": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "observation_id",
+              "intent_id",
+              "known_time",
+              "mode",
+              "status",
+              "side",
+              "fill_price",
+              "slippage_bps",
+              "gross_pnl_bps",
+              "cost_bps",
+              "net_pnl_bps",
+              "broker_side_effect",
+              "order_submitted",
+              "synthetic_fixture",
+              "research_only",
+              "ordinal",
+              "previous_hash",
+              "event_id",
+              "event_hash"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "ledger_hash": {
+          "type": "string"
+        },
+        "ledger_id": {
+          "type": "string"
+        },
+        "metrics": {
+          "additionalProperties": false,
+          "properties": {
+            "abstained_count": {
+              "type": "integer"
+            },
+            "broker_side_effect_count": {
+              "type": "integer"
+            },
+            "cumulative_net_pnl_bps": {
+              "type": "number"
+            },
+            "filled_count": {
+              "type": "integer"
+            },
+            "mean_net_pnl_bps": {
+              "type": "number"
+            },
+            "observation_count": {
+              "type": "integer"
+            },
+            "order_submission_count": {
+              "type": "integer"
+            },
+            "rejected_count": {
+              "type": "integer"
+            },
+            "selected_count": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "observation_count",
+            "selected_count",
+            "filled_count",
+            "rejected_count",
+            "abstained_count",
+            "mean_net_pnl_bps",
+            "cumulative_net_pnl_bps",
+            "order_submission_count",
+            "broker_side_effect_count"
+          ],
+          "type": "object"
+        },
+        "mode": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "production_authorized": {
+          "type": "boolean"
+        },
+        "prospective": {
+          "type": "boolean"
+        },
+        "research_only": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "phase",
+        "mode",
+        "events",
+        "metrics",
+        "prospective",
+        "research_only",
+        "production_authorized",
+        "ledger_id",
+        "ledger_hash"
+      ],
+      "type": "object"
+    },
+    "reconciliation_ledger": {
+      "additionalProperties": false,
+      "properties": {
+        "cash_delta": {
+          "type": "number"
+        },
+        "events": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "cash_delta": {
+                "type": "number"
+              },
+              "event_hash": {
+                "type": "string"
+              },
+              "event_id": {
+                "type": "string"
+              },
+              "intent_decision": {
+                "type": "string"
+              },
+              "intent_id": {
+                "type": "string"
+              },
+              "live_fill_id": {
+                "type": "null"
+              },
+              "live_order_id": {
+                "type": "null"
+              },
+              "observation_id": {
+                "type": "string"
+              },
+              "ordinal": {
+                "type": "integer"
+              },
+              "paper_status": {
+                "type": "string"
+              },
+              "position_delta": {
+                "type": "number"
+              },
+              "previous_hash": {
+                "type": "string"
+              },
+              "price_reconciled": {
+                "type": "boolean"
+              },
+              "quantity_match": {
+                "type": "boolean"
+              },
+              "reconciled": {
+                "type": "boolean"
+              },
+              "research_only": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "intent_id",
+              "observation_id",
+              "intent_decision",
+              "paper_status",
+              "quantity_match",
+              "price_reconciled",
+              "live_order_id",
+              "live_fill_id",
+              "cash_delta",
+              "position_delta",
+              "reconciled",
+              "research_only",
+              "ordinal",
+              "previous_hash",
+              "event_id",
+              "event_hash"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "intent_count": {
+          "type": "integer"
+        },
+        "ledger_hash": {
+          "type": "string"
+        },
+        "ledger_id": {
+          "type": "string"
+        },
+        "live_fill_count": {
+          "type": "integer"
+        },
+        "live_order_count": {
+          "type": "integer"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "position_delta": {
+          "type": "number"
+        },
+        "reconciled_count": {
+          "type": "integer"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "unmatched_count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "phase",
+        "events",
+        "intent_count",
+        "reconciled_count",
+        "unmatched_count",
+        "live_order_count",
+        "live_fill_count",
+        "cash_delta",
+        "position_delta",
+        "research_only",
+        "ledger_id",
+        "ledger_hash"
+      ],
+      "type": "object"
+    },
+    "release_candidate": {
+      "additionalProperties": false,
+      "properties": {
+        "actual_paper_passed": {
+          "type": "boolean"
+        },
+        "actual_shadow_passed": {
+          "type": "boolean"
+        },
+        "capital_activation_allowed": {
+          "type": "boolean"
+        },
+        "micro_live_authorized": {
+          "type": "boolean"
+        },
+        "micro_live_eligible": {
+          "type": "boolean"
+        },
+        "order_submission_allowed": {
+          "type": "boolean"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "production_authorized": {
+          "type": "boolean"
+        },
+        "qualification_hash": {
+          "type": "string"
+        },
+        "reference_paper_passed": {
+          "type": "boolean"
+        },
+        "reference_shadow_passed": {
+          "type": "boolean"
+        },
+        "release_decision": {
+          "type": "string"
+        },
+        "release_hash": {
+          "type": "string"
+        },
+        "release_id": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "runtime_bundle_hash": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "phase",
+        "runtime_bundle_hash",
+        "qualification_hash",
+        "reference_paper_passed",
+        "reference_shadow_passed",
+        "actual_paper_passed",
+        "actual_shadow_passed",
+        "micro_live_eligible",
+        "micro_live_authorized",
+        "order_submission_allowed",
+        "capital_activation_allowed",
+        "production_authorized",
+        "release_decision",
+        "research_only",
+        "release_id",
+        "release_hash"
+      ],
+      "type": "object"
+    },
+    "review_bundle": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_reference": {
+          "type": "boolean"
+        },
+        "micro_live_authorized": {
+          "type": "boolean"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "review_bundle_hash": {
+          "type": "string"
+        },
+        "review_bundle_id": {
+          "type": "string"
+        },
+        "reviews": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "decision": {
+                "type": "string"
+              },
+              "findings": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "independent": {
+                "type": "boolean"
+              },
+              "qualification_hash": {
+                "type": "string"
+              },
+              "review_hash": {
+                "type": "string"
+              },
+              "review_id": {
+                "type": "string"
+              },
+              "reviewer_id": {
+                "type": "string"
+              },
+              "role": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "review_id",
+              "role",
+              "reviewer_id",
+              "qualification_hash",
+              "decision",
+              "findings",
+              "independent",
+              "review_hash"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "role_count": {
+          "type": "integer"
+        },
+        "two_person_live_control_satisfied": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "phase",
+        "reviews",
+        "role_count",
+        "approved_reference",
+        "micro_live_authorized",
+        "two_person_live_control_satisfied",
+        "research_only",
+        "review_bundle_id",
+        "review_bundle_hash"
+      ],
+      "type": "object"
+    },
+    "risk_envelope": {
+      "additionalProperties": false,
+      "properties": {
+        "cooldown_bars_after_loss": {
+          "type": "integer"
+        },
+        "frozen_risk_hash": {
+          "type": "string"
+        },
+        "frozen_risk_id": {
+          "type": "string"
+        },
+        "kill_switch_default_armed": {
+          "type": "boolean"
+        },
+        "max_concurrent_positions": {
+          "type": "integer"
+        },
+        "max_daily_loss_fraction": {
+          "type": "number"
+        },
+        "max_drawdown_fraction": {
+          "type": "number"
+        },
+        "max_gross_notional_fraction": {
+          "type": "number"
+        },
+        "max_latency_ms": {
+          "type": "integer"
+        },
+        "max_orders_per_day": {
+          "type": "integer"
+        },
+        "max_reject_rate": {
+          "type": "number"
+        },
+        "max_slippage_bps": {
+          "type": "number"
+        },
+        "max_spread_bps": {
+          "type": "number"
+        },
+        "max_trade_risk_fraction": {
+          "type": "number"
+        },
+        "position_size_hard_cap": {
+          "type": "number"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "risk_envelope_hash": {
+          "type": "string"
+        },
+        "risk_envelope_id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "risk_envelope_id",
+        "version",
+        "max_trade_risk_fraction",
+        "max_daily_loss_fraction",
+        "max_gross_notional_fraction",
+        "max_concurrent_positions",
+        "max_orders_per_day",
+        "max_spread_bps",
+        "max_slippage_bps",
+        "max_latency_ms",
+        "max_reject_rate",
+        "max_drawdown_fraction",
+        "cooldown_bars_after_loss",
+        "kill_switch_default_armed",
+        "position_size_hard_cap",
+        "research_only",
+        "risk_envelope_hash",
+        "frozen_risk_id",
+        "frozen_risk_hash"
+      ],
+      "type": "object"
+    },
+    "runtime_binding": {
+      "additionalProperties": false,
+      "properties": {
+        "binding_hash": {
+          "type": "string"
+        },
+        "binding_id": {
+          "type": "string"
+        },
+        "bundle_hash": {
+          "type": "string"
+        },
+        "certificate_hash": {
+          "type": "string"
+        },
+        "immutable": {
+          "type": "boolean"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "runtime_mutation_allowed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "phase",
+        "bundle_hash",
+        "certificate_hash",
+        "immutable",
+        "runtime_mutation_allowed",
+        "research_only",
+        "binding_id",
+        "binding_hash"
+      ],
+      "type": "object"
+    },
+    "shadow_ledger": {
+      "additionalProperties": false,
+      "properties": {
+        "events": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "agreement": {
+                "type": "boolean"
+              },
+              "baseline_decision": {
+                "type": "string"
+              },
+              "broker_side_effect": {
+                "type": "boolean"
+              },
+              "counterfactual_only": {
+                "type": "boolean"
+              },
+              "event_hash": {
+                "type": "string"
+              },
+              "event_id": {
+                "type": "string"
+              },
+              "intent_id": {
+                "type": "string"
+              },
+              "known_time": {
+                "type": "string"
+              },
+              "mode": {
+                "type": "string"
+              },
+              "observation_id": {
+                "type": "string"
+              },
+              "order_submitted": {
+                "type": "boolean"
+              },
+              "ordinal": {
+                "type": "integer"
+              },
+              "paper_net_pnl_bps": {
+                "type": "number"
+              },
+              "paper_status": {
+                "type": "string"
+              },
+              "previous_hash": {
+                "type": "string"
+              },
+              "research_only": {
+                "type": "boolean"
+              },
+              "shadow_decision": {
+                "type": "string"
+              },
+              "synthetic_fixture": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "observation_id",
+              "intent_id",
+              "known_time",
+              "mode",
+              "shadow_decision",
+              "baseline_decision",
+              "agreement",
+              "paper_status",
+              "paper_net_pnl_bps",
+              "order_submitted",
+              "broker_side_effect",
+              "counterfactual_only",
+              "synthetic_fixture",
+              "research_only",
+              "ordinal",
+              "previous_hash",
+              "event_id",
+              "event_hash"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "ledger_hash": {
+          "type": "string"
+        },
+        "ledger_id": {
+          "type": "string"
+        },
+        "metrics": {
+          "additionalProperties": false,
+          "properties": {
+            "agreement_rate": {
+              "type": "number"
+            },
+            "broker_side_effect_count": {
+              "type": "integer"
+            },
+            "disagreement_rate": {
+              "type": "number"
+            },
+            "future_suffix_used": {
+              "type": "boolean"
+            },
+            "observation_count": {
+              "type": "integer"
+            },
+            "order_submission_count": {
+              "type": "integer"
+            },
+            "selected_count": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "observation_count",
+            "selected_count",
+            "agreement_rate",
+            "disagreement_rate",
+            "order_submission_count",
+            "broker_side_effect_count",
+            "future_suffix_used"
+          ],
+          "type": "object"
+        },
+        "mode": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "production_authorized": {
+          "type": "boolean"
+        },
+        "prospective": {
+          "type": "boolean"
+        },
+        "research_only": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "phase",
+        "mode",
+        "events",
+        "metrics",
+        "prospective",
+        "research_only",
+        "production_authorized",
+        "ledger_id",
+        "ledger_hash"
+      ],
+      "type": "object"
+    },
+    "stage_qualification": {
+      "additionalProperties": false,
+      "properties": {
+        "automatic_transition_allowed": {
+          "type": "boolean"
+        },
+        "capital_activation_allowed": {
+          "type": "boolean"
+        },
+        "highest_actual_stage": {
+          "type": "string"
+        },
+        "highest_reference_stage": {
+          "type": "string"
+        },
+        "micro_live_eligible": {
+          "type": "boolean"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "production_authorized": {
+          "type": "boolean"
+        },
+        "qualification_hash": {
+          "type": "string"
+        },
+        "qualification_id": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "stages": {
+          "maxItems": 3,
+          "minItems": 3,
+          "prefixItems": [
+            {
+              "additionalProperties": false,
+              "properties": {
+                "actual_external_passed": {
+                  "type": "boolean"
+                },
+                "checks": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "actual_period_evidence": {
+                      "type": "boolean"
+                    },
+                    "minimum_observations": {
+                      "type": "boolean"
+                    },
+                    "no_hard_surveillance_breach": {
+                      "type": "boolean"
+                    },
+                    "reconciliation_complete": {
+                      "type": "boolean"
+                    },
+                    "zero_broker_side_effect": {
+                      "type": "boolean"
+                    },
+                    "zero_order_submission": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "minimum_observations",
+                    "zero_order_submission",
+                    "zero_broker_side_effect",
+                    "reconciliation_complete",
+                    "no_hard_surveillance_breach",
+                    "actual_period_evidence"
+                  ],
+                  "type": "object"
+                },
+                "decision": {
+                  "type": "string"
+                },
+                "internal_reference_passed": {
+                  "type": "boolean"
+                },
+                "stage": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "stage",
+                "internal_reference_passed",
+                "actual_external_passed",
+                "checks",
+                "decision"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "actual_external_passed": {
+                  "type": "boolean"
+                },
+                "checks": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "actual_period_evidence": {
+                      "type": "boolean"
+                    },
+                    "drills_passed": {
+                      "type": "boolean"
+                    },
+                    "future_suffix_unused": {
+                      "type": "boolean"
+                    },
+                    "minimum_observations": {
+                      "type": "boolean"
+                    },
+                    "zero_broker_side_effect": {
+                      "type": "boolean"
+                    },
+                    "zero_order_submission": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "minimum_observations",
+                    "zero_order_submission",
+                    "zero_broker_side_effect",
+                    "future_suffix_unused",
+                    "drills_passed",
+                    "actual_period_evidence"
+                  ],
+                  "type": "object"
+                },
+                "decision": {
+                  "type": "string"
+                },
+                "internal_reference_passed": {
+                  "type": "boolean"
+                },
+                "stage": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "stage",
+                "internal_reference_passed",
+                "actual_external_passed",
+                "checks",
+                "decision"
+              ],
+              "type": "object"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "actual_external_passed": {
+                  "type": "boolean"
+                },
+                "checks": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "broker_live_qualified": {
+                      "type": "boolean"
+                    },
+                    "demo_connectivity": {
+                      "type": "boolean"
+                    },
+                    "kill_switch_live_drill": {
+                      "type": "boolean"
+                    },
+                    "live_connectivity": {
+                      "type": "boolean"
+                    },
+                    "metaeditor_compile": {
+                      "type": "boolean"
+                    },
+                    "micro_live_authorization": {
+                      "type": "boolean"
+                    },
+                    "paper_external": {
+                      "type": "boolean"
+                    },
+                    "shadow_external": {
+                      "type": "boolean"
+                    },
+                    "terminal_parity": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "metaeditor_compile",
+                    "terminal_parity",
+                    "demo_connectivity",
+                    "live_connectivity",
+                    "paper_external",
+                    "shadow_external",
+                    "broker_live_qualified",
+                    "micro_live_authorization",
+                    "kill_switch_live_drill"
+                  ],
+                  "type": "object"
+                },
+                "decision": {
+                  "type": "string"
+                },
+                "internal_reference_passed": {
+                  "type": "boolean"
+                },
+                "stage": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "stage",
+                "internal_reference_passed",
+                "actual_external_passed",
+                "checks",
+                "decision"
+              ],
+              "type": "object"
+            }
+          ],
+          "type": "array"
+        }
+      },
+      "required": [
+        "phase",
+        "stages",
+        "highest_reference_stage",
+        "highest_actual_stage",
+        "micro_live_eligible",
+        "automatic_transition_allowed",
+        "capital_activation_allowed",
+        "production_authorized",
+        "research_only",
+        "qualification_id",
+        "qualification_hash"
+      ],
+      "type": "object"
+    },
+    "surveillance_report": {
+      "additionalProperties": false,
+      "properties": {
+        "alerts": {
+          "items": {},
+          "type": "array"
+        },
+        "hard_breach": {
+          "type": "boolean"
+        },
+        "metrics": {
+          "additionalProperties": false,
+          "properties": {
+            "latency_p95_ms": {
+              "type": "number"
+            },
+            "mean_slippage_bps": {
+              "type": "number"
+            },
+            "paper_cumulative_net_pnl_bps": {
+              "type": "number"
+            },
+            "reject_rate": {
+              "type": "number"
+            },
+            "shadow_disagreement_rate": {
+              "type": "number"
+            },
+            "unauthorized_order_count": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "latency_p95_ms",
+            "mean_slippage_bps",
+            "reject_rate",
+            "shadow_disagreement_rate",
+            "paper_cumulative_net_pnl_bps",
+            "unauthorized_order_count"
+          ],
+          "type": "object"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "recommended_action": {
+          "type": "string"
+        },
+        "report_hash": {
+          "type": "string"
+        },
+        "report_id": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "phase",
+        "metrics",
+        "alerts",
+        "hard_breach",
+        "recommended_action",
+        "research_only",
+        "report_id",
+        "report_hash"
+      ],
+      "type": "object"
+    },
+    "upstream_receipt": {
+      "additionalProperties": false,
+      "properties": {
+        "bundle_hash": {
+          "type": "string"
+        },
+        "certificate_hash": {
+          "type": "string"
+        },
+        "external_runtime_evidence_complete": {
+          "type": "boolean"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "production_authorized": {
+          "type": "boolean"
+        },
+        "receipt_hash": {
+          "type": "string"
+        },
+        "receipt_id": {
+          "type": "string"
+        },
+        "required_external_gates": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "upstream_phase": {
+          "type": "string"
+        },
+        "verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "phase",
+        "verified",
+        "upstream_phase",
+        "bundle_hash",
+        "certificate_hash",
+        "external_runtime_evidence_complete",
+        "required_external_gates",
+        "research_only",
+        "production_authorized",
+        "receipt_id",
+        "receipt_hash"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "upstream_receipt",
+    "constitution",
+    "authority_boundary",
+    "cohort",
+    "observation_receipt",
+    "mode_ladder",
+    "runtime_binding",
+    "broker_profile",
+    "risk_envelope",
+    "intent_ledger",
+    "paper_ledger",
+    "shadow_ledger",
+    "reconciliation_ledger",
+    "surveillance_report",
+    "incident_runbook",
+    "incident_drills",
+    "external_evidence_matrix",
+    "broker_qualification_matrix",
+    "stage_qualification",
+    "review_bundle",
+    "baseline_receipt",
+    "release_candidate",
+    "evidence_bundle",
+    "certificate",
+    "handoff"
+  ],
+  "title": "reference_output",
+  "type": "object"
+}

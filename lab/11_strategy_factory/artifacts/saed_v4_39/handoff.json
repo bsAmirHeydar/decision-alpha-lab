@@ -1,0 +1,45 @@
+{
+  "allowed_next_work": [
+    "context_fleet_control_plane",
+    "fleet_observability",
+    "fleet_rollout_simulation",
+    "external_gate_completion"
+  ],
+  "certificate_hash": "913fa097a73b75979064e9a36a55d6f0ea4258cebb0fedaa0ee210d725c8ead4",
+  "forbidden_next_work": [
+    "capital_activation_without_authorization",
+    "live_order_submission_without_signed_permit",
+    "claiming_external_evidence_from_synthetic_fixture",
+    "silent_runtime_mutation"
+  ],
+  "handoff_hash": "49fa9a6ca40ea576b94833ce53cb752b705ee6616cba87989df2d43051837063",
+  "handoff_id": "v439_handoff_79101d01f4bfdbb0245aea17",
+  "kind": "v4_39_handoff",
+  "micro_live_authorized": false,
+  "next_phase": "SAED_V4_40",
+  "phase": "SAED_V4_39",
+  "production_authorized": false,
+  "release_hash": "f93063c095d7f8704a584b8391bc1307ee7cee8e1c3959292879e1fd899f7680",
+  "required_external_gates": [
+    "BROKER_RECONCILIATION",
+    "CROSS_RUNTIME_STATE_REPLAY",
+    "DEMO_CONNECTIVITY",
+    "INDEPENDENT_MODEL_RISK_APPROVAL",
+    "KEY_CUSTODY",
+    "KILL_SWITCH_LIVE_DRILL",
+    "LATENCY_CAPTURE",
+    "LIVE_CONNECTIVITY",
+    "METAEDITOR_COMPILE",
+    "MICRO_LIVE_AUTHORIZATION",
+    "POSITION_SNAPSHOT",
+    "PROSPECTIVE_PAPER_PERIOD",
+    "PROSPECTIVE_SHADOW_PERIOD",
+    "REJECT_CAPTURE",
+    "SESSION_CALENDAR",
+    "SPREAD_CAPTURE",
+    "SYMBOL_METADATA",
+    "TERMINAL_VECTOR_REPLAY"
+  ],
+  "research_only": true,
+  "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294"
+}

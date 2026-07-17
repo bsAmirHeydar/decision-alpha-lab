@@ -1,0 +1,18 @@
+{
+  "baseline_restored": true,
+  "contained_seconds": 3,
+  "detected_seconds": 1,
+  "event_hash": "24d9bb4a16970bc00162a730df1fa3fada180a391217a914002871a36d0a0b4d",
+  "event_id": "v439_drill_event_9f7572a4c5b8907df7ada4a8",
+  "evidence_complete": true,
+  "kill_switch_armed": true,
+  "order_path_disabled": true,
+  "ordinal": 0,
+  "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "research_only": true,
+  "rollback_mode": "OFF",
+  "scenario_id": "DRILL00",
+  "severity": "CRITICAL",
+  "synthetic_drill": true,
+  "trigger": "UNAUTHORIZED_ORDER_SIDE_EFFECT"
+}

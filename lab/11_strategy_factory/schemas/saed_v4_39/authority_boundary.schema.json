@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "boundary_hash": {
+      "type": "string"
+    },
+    "boundary_id": {
+      "type": "string"
+    },
+    "failure_action": {
+      "type": "string"
+    },
+    "may_accept_external_evidence": {
+      "type": "boolean"
+    },
+    "may_activate_capital": {
+      "type": "boolean"
+    },
+    "may_build_order_intents": {
+      "type": "boolean"
+    },
+    "may_bypass_kill_switch": {
+      "type": "boolean"
+    },
+    "may_claim_actual_broker_qualification_without_evidence": {
+      "type": "boolean"
+    },
+    "may_claim_production_authorization": {
+      "type": "boolean"
+    },
+    "may_generate_mql5_qualification_harness": {
+      "type": "boolean"
+    },
+    "may_mutate_immutable_runtime": {
+      "type": "boolean"
+    },
+    "may_mutate_ucee": {
+      "type": "boolean"
+    },
+    "may_prepare_micro_live_plan": {
+      "type": "boolean"
+    },
+    "may_reconcile_simulated_fills": {
+      "type": "boolean"
+    },
+    "may_run_prospective_paper": {
+      "type": "boolean"
+    },
+    "may_run_shadow": {
+      "type": "boolean"
+    },
+    "may_self_authorize_micro_live": {
+      "type": "boolean"
+    },
+    "may_submit_live_order": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "phase",
+    "research_only",
+    "may_run_prospective_paper",
+    "may_run_shadow",
+    "may_build_order_intents",
+    "may_reconcile_simulated_fills",
+    "may_prepare_micro_live_plan",
+    "may_accept_external_evidence",
+    "may_generate_mql5_qualification_harness",
+    "may_submit_live_order",
+    "may_activate_capital",
+    "may_self_authorize_micro_live",
+    "may_bypass_kill_switch",
+    "may_mutate_immutable_runtime",
+    "may_mutate_ucee",
+    "may_claim_actual_broker_qualification_without_evidence",
+    "may_claim_production_authorization",
+    "failure_action",
+    "boundary_id",
+    "boundary_hash"
+  ],
+  "title": "authority_boundary",
+  "type": "object"
+}
