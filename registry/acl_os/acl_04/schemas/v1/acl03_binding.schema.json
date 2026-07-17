@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "binding_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "context_id": {
+      "type": "string"
+    },
+    "context_semantics_mutable": {
+      "const": false
+    },
+    "context_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "detector_ir_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "feature_binding_ir_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "known_time_policy": {
+      "const": "INHERIT_AND_NEVER_BYPASS"
+    },
+    "occurrence_ir_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "upstream_bundle_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "upstream_handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "context_id",
+    "context_version",
+    "upstream_handoff_digest",
+    "upstream_bundle_digest",
+    "detector_ir_digest",
+    "occurrence_ir_digest",
+    "feature_binding_ir_digest",
+    "known_time_policy",
+    "context_semantics_mutable",
+    "binding_digest"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,141 @@
+{
+  "canonical_count": 12,
+  "group_count": 12,
+  "groups": [
+    {
+      "behavior_digest": "sha256:45b8f42b811fbc4c00daceb13dc1e7147b6118b47bfb05d2a39b695e4c254305",
+      "canonical_candidate_id": "CAND_39963734BDE8A6BF83E1",
+      "duplicate_count": 0,
+      "member_candidate_ids": [
+        "CAND_39963734BDE8A6BF83E1"
+      ],
+      "origins": [
+        "AI"
+      ]
+    },
+    {
+      "behavior_digest": "sha256:4f9ace54110085cced76008d8a6c6c7694ca9191e89397da8d41a7fcebb5bff7",
+      "canonical_candidate_id": "CAND_EC8D44BBAD25430FABAE",
+      "duplicate_count": 0,
+      "member_candidate_ids": [
+        "CAND_EC8D44BBAD25430FABAE"
+      ],
+      "origins": [
+        "AI"
+      ]
+    },
+    {
+      "behavior_digest": "sha256:5543877351524345b4ed0366c9b9b2d6190f84ac1572f5c9b864a765130f447a",
+      "canonical_candidate_id": "CAND_8778D61FE527B62360E6",
+      "duplicate_count": 0,
+      "member_candidate_ids": [
+        "CAND_8778D61FE527B62360E6"
+      ],
+      "origins": [
+        "AI"
+      ]
+    },
+    {
+      "behavior_digest": "sha256:706c3c6920aa7121488cd115f7a020706cca872999f6763d7c483d6511f05a4b",
+      "canonical_candidate_id": "CAND_BFF919B9FE1BDFC298B5",
+      "duplicate_count": 0,
+      "member_candidate_ids": [
+        "CAND_BFF919B9FE1BDFC298B5"
+      ],
+      "origins": [
+        "AI"
+      ]
+    },
+    {
+      "behavior_digest": "sha256:7b9862134b486d3718b2b6364e9d06eb65d2c474845299f78df5507224630b14",
+      "canonical_candidate_id": "CAND_72D96D48835F3DAA1EFB",
+      "duplicate_count": 0,
+      "member_candidate_ids": [
+        "CAND_72D96D48835F3DAA1EFB"
+      ],
+      "origins": [
+        "BASELINE"
+      ]
+    },
+    {
+      "behavior_digest": "sha256:873877b1f6d9e09770216f7f2764893b7a118a5370085f3fe4e523fe3ef73031",
+      "canonical_candidate_id": "CAND_2FEB91284275BBB47978",
+      "duplicate_count": 0,
+      "member_candidate_ids": [
+        "CAND_2FEB91284275BBB47978"
+      ],
+      "origins": [
+        "BASELINE"
+      ]
+    },
+    {
+      "behavior_digest": "sha256:8b32c5deac5930f9db37e4c101db6f674ec46a056ec6117911ac69debd4a38ca",
+      "canonical_candidate_id": "CAND_070AF7A3D72639E8CB2F",
+      "duplicate_count": 0,
+      "member_candidate_ids": [
+        "CAND_070AF7A3D72639E8CB2F"
+      ],
+      "origins": [
+        "BASELINE"
+      ]
+    },
+    {
+      "behavior_digest": "sha256:b7a7878ff59f8b1bd4f5f393629f33a7486a80351560de324a47b9f9a833dbac",
+      "canonical_candidate_id": "CAND_429D18211A651E3CEF34",
+      "duplicate_count": 0,
+      "member_candidate_ids": [
+        "CAND_429D18211A651E3CEF34"
+      ],
+      "origins": [
+        "HUMAN"
+      ]
+    },
+    {
+      "behavior_digest": "sha256:c9459eadf8860cd5ce9664cb25fe4fa07942610d3c85aab373c721e35a61e814",
+      "canonical_candidate_id": "CAND_CF4A585DC367BA2EC830",
+      "duplicate_count": 0,
+      "member_candidate_ids": [
+        "CAND_CF4A585DC367BA2EC830"
+      ],
+      "origins": [
+        "BASELINE"
+      ]
+    },
+    {
+      "behavior_digest": "sha256:d83c4962aa75e5da15fd561aac23c9ea069f6cfd618a57d242ef8f1f6272a634",
+      "canonical_candidate_id": "CAND_BF0DDD4F6D9FEB94F60A",
+      "duplicate_count": 0,
+      "member_candidate_ids": [
+        "CAND_BF0DDD4F6D9FEB94F60A"
+      ],
+      "origins": [
+        "BASELINE"
+      ]
+    },
+    {
+      "behavior_digest": "sha256:f07d0817bfaaed64b51ec338d91f6be23ba9d81af50707b29298dc5715264c46",
+      "canonical_candidate_id": "CAND_9D4260503DE908B07D22",
+      "duplicate_count": 0,
+      "member_candidate_ids": [
+        "CAND_9D4260503DE908B07D22"
+      ],
+      "origins": [
+        "AI"
+      ]
+    },
+    {
+      "behavior_digest": "sha256:fec10026a22ad701a279e96c6dba1bc294e5ba5488ec8a970556810c5cca5a8b",
+      "canonical_candidate_id": "CAND_EB2F08D98D3D75CEAA61",
+      "duplicate_count": 0,
+      "member_candidate_ids": [
+        "CAND_EB2F08D98D3D75CEAA61"
+      ],
+      "origins": [
+        "AI"
+      ]
+    }
+  ],
+  "input_count": 12,
+  "report_digest": "sha256:d882f4af82176217d47717964698e12011c64b19eb063c0d6d2d7dae910067c1",
+  "schema_version": "1.0.0"
+}

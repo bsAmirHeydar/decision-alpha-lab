@@ -1,0 +1,14 @@
+{
+  "action": "ACL04_BUILD_SETUP_UNIVERSE",
+  "actor_id": "ACTOR_ALPHA_LAB_ARCHITECT",
+  "capital_activation_allowed": false,
+  "decision": "ALLOW",
+  "expires_at": null,
+  "issued_at": "2026-07-17T00:00:00Z",
+  "live_order_submission_allowed": false,
+  "permit_digest": "sha256:c475987529807d62ac76d9e0666f7b063919a4b8171e7aef50d308ba4af146f1",
+  "permit_id": "PERMIT_ACL04_REFERENCE",
+  "schema_version": "1.0.0",
+  "subject_context_id": "CTX_REFERENCE_ALPHA",
+  "upstream_handoff_digest": "sha256:795524772053fbbbde499da201c81980d4fe09ef34d2b20a3b01dce5acb3fea0"
+}

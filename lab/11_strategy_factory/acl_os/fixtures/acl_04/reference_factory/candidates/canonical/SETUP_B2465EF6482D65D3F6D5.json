@@ -1,0 +1,78 @@
+{
+  "behavior_digest": "sha256:d83c4962aa75e5da15fd561aac23c9ea069f6cfd618a57d242ef8f1f6272a634",
+  "candidate_digest": "sha256:3192822a16852e028d9cde2cf1dc6763a59db19f33195745b92f9d36023a0ddc",
+  "candidate_id": "CAND_BF0DDD4F6D9FEB94F60A",
+  "capital_activation_allowed": false,
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "context_version": "0.1.0",
+  "findings": [],
+  "live_order_submission_allowed": false,
+  "origin": "BASELINE",
+  "policy_ir": {
+    "clauses": [
+      {
+        "action": "ENTER_LONG",
+        "action_parameters": {},
+        "clause_id": "ENTRY_ENTER_LONG",
+        "kind": "ENTRY",
+        "priority": 1,
+        "when": {
+          "args": [
+            true
+          ],
+          "atom_id": "MANUAL_CONFIRMATION_IS",
+          "op": "ATOM"
+        }
+      },
+      {
+        "action": "CANCEL",
+        "action_parameters": {},
+        "clause_id": "EXPIRY_CANCEL",
+        "kind": "EXPIRY",
+        "priority": 1,
+        "when": {
+          "args": [],
+          "atom_id": "ALWAYS_TRUE",
+          "op": "ATOM"
+        }
+      }
+    ],
+    "context_id": "CTX_REFERENCE_ALPHA",
+    "context_version": "0.1.0",
+    "diagnostic_only": false,
+    "execution_authority": "NONE",
+    "ir_type": "ACL04_SETUP_POLICY_IR",
+    "known_time_contract": "INHERIT_ACL03_NON_BYPASSABLE",
+    "lane": "BASELINE",
+    "parameters": {},
+    "policy_ir_digest": "sha256:f8b6e6da19e431d5201a542fa64f55ad7697a17a37a5584406c472d8671b8f35",
+    "risk_contract": {
+      "max_risk_units": 1.0,
+      "protective_reference_required": true,
+      "sizing_mode": "UNIT_RISK"
+    },
+    "schema_version": "1.0.0",
+    "treatment_family": "BASELINE_MANUAL_GATE"
+  },
+  "provenance": [
+    {
+      "artifact_id": "BASELINE_MANUAL_GATE",
+      "digest": "sha256:4a6a7ec6f4a1e4c1d18763cc34c9c665a8cb7cba7aa049c1b19b14b9d2dc90ac",
+      "role": "SOURCE_DEFINITION"
+    },
+    {
+      "artifact_id": "ACL04_SEARCH_AUTHORITY",
+      "digest": "sha256:5436e788c3bf0328292548d4610fb7e3e82306cde924282ab8ac997ec336c388",
+      "role": "SEARCH_AUTHORITY"
+    },
+    {
+      "artifact_id": "ACL04_TREATMENT_ENVELOPE",
+      "digest": "sha256:91986014b42ad08f79fbb2ab8ec32f960578eeeeb40c38e7f471a4bb5eedd1b6",
+      "role": "TREATMENT_ENVELOPE"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "setup_id": "SETUP_B2465EF6482D65D3F6D5",
+  "status": "ELIGIBLE_FOR_BATCH_DEFINITION",
+  "treatment_family": "BASELINE_MANUAL_GATE"
+}

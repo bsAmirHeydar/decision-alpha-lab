@@ -1,0 +1,5 @@
+version: 1.0.0
+duplicate_ids: REJECT
+unknown_arity: REJECT
+future_atoms_only_in_diagnostic_baseline: true
+private_extension_imports_allowed: false

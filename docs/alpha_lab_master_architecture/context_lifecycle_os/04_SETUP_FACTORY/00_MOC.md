@@ -1,13 +1,15 @@
 ---
 title: 04 Setup Factory — Map of Content
-status: proposed-reference
+status: accepted-reference
 version: 1.0.0
-updated: 2026-07-17
-tags: [acl-os, moc]
+updated: 2026-07-18
+tags: [acl-os, acl-04, moc]
 ---
 # 04 Setup Factory — Map of Content
 
-Canonical notes in this domain.
+ACL-04 converts bounded human and AI definitions into one canonical, non-executable Setup universe. Machine artifacts are authoritative; these notes define the review and implementation contracts.
+
+## Canonical contracts
 
 - [[AI_SETUP_GENERATION_POLICY]]
 - [[BASELINE_SETUP_PROGRAM]]
@@ -27,7 +29,13 @@ Canonical notes in this domain.
 - [[SETUP_PROVENANCE_AND_DEDUPLICATION]]
 - [[SETUP_SEARCH_AUTHORITY]]
 
-## Navigation
+## Delivery and implementation
 
-- [[ACL_OS_HOME]]
-- [[IMPLEMENTATION_MASTER_PLAN]]
+- [[ACL_04_DUAL_SETUP_FACTORY]]
+- [[ACL_04_PHASE_DELIVERY_MOC]]
+- [[ACL_04_ATOMIC_CONCEPTS_MOC]]
+
+## Adjacent phases
+
+- [[ACL_03_CONTEXT_COMPILER_AND_ONBOARDING]]
+- [[ACL_05_IMMUTABLE_BATCH_AND_STORE]]

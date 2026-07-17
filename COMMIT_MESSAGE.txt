@@ -1,1 +1,1 @@
-docs(alpha-lab): add canonical master architecture vault
+feat(acl-os): implement ACL-04 dual setup factory

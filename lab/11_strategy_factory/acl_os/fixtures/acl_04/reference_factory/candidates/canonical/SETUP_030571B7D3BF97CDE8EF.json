@@ -1,0 +1,76 @@
+{
+  "behavior_digest": "sha256:8b32c5deac5930f9db37e4c101db6f674ec46a056ec6117911ac69debd4a38ca",
+  "candidate_digest": "sha256:2d76860a7ef5db9ab03b247c3f2c507b1fef8df20a25ef5faa06d330cdf5c441",
+  "candidate_id": "CAND_070AF7A3D72639E8CB2F",
+  "capital_activation_allowed": false,
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "context_version": "0.1.0",
+  "findings": [],
+  "live_order_submission_allowed": false,
+  "origin": "BASELINE",
+  "policy_ir": {
+    "clauses": [
+      {
+        "action": "ENTER_SHORT",
+        "action_parameters": {},
+        "clause_id": "ENTRY_ENTER_SHORT",
+        "kind": "ENTRY",
+        "priority": 1,
+        "when": {
+          "args": [],
+          "atom_id": "ALWAYS_TRUE",
+          "op": "ATOM"
+        }
+      },
+      {
+        "action": "CANCEL",
+        "action_parameters": {},
+        "clause_id": "EXPIRY_CANCEL",
+        "kind": "EXPIRY",
+        "priority": 1,
+        "when": {
+          "args": [],
+          "atom_id": "ALWAYS_TRUE",
+          "op": "ATOM"
+        }
+      }
+    ],
+    "context_id": "CTX_REFERENCE_ALPHA",
+    "context_version": "0.1.0",
+    "diagnostic_only": false,
+    "execution_authority": "NONE",
+    "ir_type": "ACL04_SETUP_POLICY_IR",
+    "known_time_contract": "INHERIT_ACL03_NON_BYPASSABLE",
+    "lane": "BASELINE",
+    "parameters": {},
+    "policy_ir_digest": "sha256:a0d9d088e9bc1f520137b88d9933a774d9d06d05a1a62fa7489ce356969bb9ee",
+    "risk_contract": {
+      "max_risk_units": 1.0,
+      "protective_reference_required": true,
+      "sizing_mode": "UNIT_RISK"
+    },
+    "schema_version": "1.0.0",
+    "treatment_family": "BASELINE_ALWAYS_TAKE_SHORT"
+  },
+  "provenance": [
+    {
+      "artifact_id": "BASELINE_ALWAYS_TAKE_SHORT",
+      "digest": "sha256:14c00c90b99936150777c4b99279055055561f9207af82fd363df71104593dd6",
+      "role": "SOURCE_DEFINITION"
+    },
+    {
+      "artifact_id": "ACL04_SEARCH_AUTHORITY",
+      "digest": "sha256:5436e788c3bf0328292548d4610fb7e3e82306cde924282ab8ac997ec336c388",
+      "role": "SEARCH_AUTHORITY"
+    },
+    {
+      "artifact_id": "ACL04_TREATMENT_ENVELOPE",
+      "digest": "sha256:91986014b42ad08f79fbb2ab8ec32f960578eeeeb40c38e7f471a4bb5eedd1b6",
+      "role": "TREATMENT_ENVELOPE"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "setup_id": "SETUP_030571B7D3BF97CDE8EF",
+  "status": "ELIGIBLE_FOR_BATCH_DEFINITION",
+  "treatment_family": "BASELINE_ALWAYS_TAKE_SHORT"
+}

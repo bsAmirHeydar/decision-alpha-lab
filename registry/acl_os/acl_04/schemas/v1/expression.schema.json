@@ -1,0 +1,169 @@
+{
+  "$defs": {
+    "expression": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "enum": [
+                  "ALL",
+                  "ANY"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "children"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "NOT"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "child"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "ATOM"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "atom_id",
+              "args"
+            ]
+          }
+        }
+      ],
+      "properties": {
+        "args": {
+          "items": {},
+          "type": "array"
+        },
+        "atom_id": {
+          "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+          "type": "string"
+        },
+        "child": {
+          "$ref": "#/$defs/expression"
+        },
+        "children": {
+          "items": {
+            "$ref": "#/$defs/expression"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "op": {
+          "enum": [
+            "ALL",
+            "ANY",
+            "NOT",
+            "ATOM"
+          ]
+        }
+      },
+      "required": [
+        "op"
+      ],
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "op": {
+            "enum": [
+              "ALL",
+              "ANY"
+            ]
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "children"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "op": {
+            "const": "NOT"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "child"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "op": {
+            "const": "ATOM"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "atom_id",
+          "args"
+        ]
+      }
+    }
+  ],
+  "properties": {
+    "args": {
+      "items": {},
+      "type": "array"
+    },
+    "atom_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+      "type": "string"
+    },
+    "child": {
+      "$ref": "#/$defs/expression"
+    },
+    "children": {
+      "items": {
+        "$ref": "#/$defs/expression"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "op": {
+      "enum": [
+        "ALL",
+        "ANY",
+        "NOT",
+        "ATOM"
+      ]
+    }
+  },
+  "required": [
+    "op"
+  ],
+  "type": "object"
+}

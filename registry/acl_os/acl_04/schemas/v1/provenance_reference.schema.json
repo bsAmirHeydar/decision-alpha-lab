@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "role": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "digest",
+    "role"
+  ],
+  "type": "object"
+}

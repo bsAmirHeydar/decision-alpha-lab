@@ -1,0 +1,5 @@
+version: 1.0.0
+machine_artifacts_authoritative: true
+markdown_authoritative: false
+hand_edit_generated_projection_allowed: false
+source_digest_required: true

@@ -1,0 +1,11 @@
+{
+  "capital_activation_allowed": false,
+  "dynamic_evaluation_allowed": false,
+  "findings": [],
+  "live_order_submission_allowed": false,
+  "network_egress_allowed": false,
+  "passed": true,
+  "report_digest": "sha256:47878030c4f42220e4a94857e3e9c1e31268ee748b5a4bd541bfa8045056d7e0",
+  "schema_version": "1.0.0",
+  "secret_access_allowed": false
+}

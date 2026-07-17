@@ -1,0 +1,13 @@
+{
+  "binding_digest": "sha256:d8d5f4464a7f2e5acde5b8451cfe15afdd08c2918e2b4c4e697ab09259a020c1",
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "context_semantics_mutable": false,
+  "context_version": "0.1.0",
+  "detector_ir_digest": "sha256:ecd00c0dfd955260869a3ed2f249748a940ab18b503d169dcab9dfdcf4d9737d",
+  "feature_binding_ir_digest": "sha256:ee16ad6b4fb770fcf27368b6d12baa10fde5ff12d8516147da5a73453e146f9f",
+  "known_time_policy": "INHERIT_AND_NEVER_BYPASS",
+  "occurrence_ir_digest": "sha256:504e3db8881ee65eb9090a1cb406de3cf9d9ac6c5898918364810c1993de39ed",
+  "schema_version": "1.0.0",
+  "upstream_bundle_digest": "sha256:f95f98d3954dc3c8fa1aba34f513a1bf146a1eaf9e31d856f0fc875fba1ca21f",
+  "upstream_handoff_digest": "sha256:795524772053fbbbde499da201c81980d4fe09ef34d2b20a3b01dce5acb3fea0"
+}

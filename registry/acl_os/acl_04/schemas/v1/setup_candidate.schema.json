@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "behavior_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "candidate_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "candidate_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+      "type": "string"
+    },
+    "capital_activation_allowed": {
+      "const": false
+    },
+    "context_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "context_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "findings": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+            "type": "string"
+          },
+          "details": {
+            "type": "object"
+          },
+          "message": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "remediation": {
+            "type": "string"
+          },
+          "severity": {
+            "enum": [
+              "INFO",
+              "WARNING",
+              "ERROR",
+              "BLOCKER"
+            ]
+          }
+        },
+        "required": [
+          "code",
+          "severity",
+          "path",
+          "details"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    },
+    "origin": {
+      "enum": [
+        "HUMAN",
+        "AI",
+        "BASELINE"
+      ]
+    },
+    "policy_ir": {
+      "type": "object"
+    },
+    "provenance": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "role": {
+            "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "artifact_id",
+          "digest",
+          "role"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "setup_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "INVALID",
+        "ELIGIBLE_FOR_BATCH_DEFINITION",
+        "DIAGNOSTIC_ONLY"
+      ]
+    },
+    "treatment_family": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "candidate_id",
+    "setup_id",
+    "context_id",
+    "context_version",
+    "origin",
+    "treatment_family",
+    "policy_ir",
+    "behavior_digest",
+    "status",
+    "findings",
+    "provenance",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "candidate_digest"
+  ],
+  "type": "object"
+}

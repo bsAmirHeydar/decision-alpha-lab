@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "canonical_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "group_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "groups": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "behavior_digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "canonical_candidate_id": {
+            "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+            "type": "string"
+          },
+          "duplicate_count": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "member_candidate_ids": {
+            "items": {
+              "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "origins": {
+            "items": {
+              "enum": [
+                "HUMAN",
+                "AI",
+                "BASELINE"
+              ]
+            },
+            "minItems": 1,
+            "type": "array"
+          }
+        },
+        "required": [
+          "behavior_digest",
+          "canonical_candidate_id",
+          "member_candidate_ids",
+          "origins",
+          "duplicate_count"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "input_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "report_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "group_count",
+    "input_count",
+    "canonical_count",
+    "groups",
+    "report_digest"
+  ],
+  "type": "object"
+}

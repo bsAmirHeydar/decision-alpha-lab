@@ -1,0 +1,6 @@
+version: 1.0.0
+closed_schema: true
+dynamic_evaluation_allowed: false
+unknown_atoms: REJECT
+unknown_actions: REJECT
+expiry_required_for_non_baseline: true

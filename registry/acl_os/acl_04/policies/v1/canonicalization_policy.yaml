@@ -1,0 +1,6 @@
+version: 1.0.0
+json_sort_keys: true
+commutative_expression_children_sorted: true
+origin_excluded_from_behavior_identity: true
+provenance_excluded_from_behavior_identity: true
+hash: SHA-256

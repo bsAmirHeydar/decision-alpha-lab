@@ -1,0 +1,8 @@
+version: 1.0.0
+bind_context_version: true
+bind_upstream_handoff: true
+freeze_atoms: true
+freeze_actions: true
+freeze_parameter_domains: true
+freeze_budgets: true
+memory_sources_must_be_content_addressed: true

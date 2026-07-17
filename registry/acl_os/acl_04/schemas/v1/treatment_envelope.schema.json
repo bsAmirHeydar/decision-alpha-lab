@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_actions": {
+      "items": {
+        "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "allowed_sizing_modes": {
+      "items": {
+        "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "allowed_treatment_families": {
+      "items": {
+        "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "capital_activation_allowed": {
+      "const": false
+    },
+    "context_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "context_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "envelope_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "envelope_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+      "type": "string"
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    },
+    "max_risk_units": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "protective_reference_required": {
+      "const": true
+    },
+    "required_clause_kinds": {
+      "items": {
+        "enum": [
+          "ENTRY",
+          "INVALIDATION",
+          "EXIT",
+          "MANAGEMENT",
+          "EXPIRY",
+          "ABSTENTION"
+        ]
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "upstream_handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "envelope_id",
+    "context_id",
+    "context_version",
+    "upstream_handoff_digest",
+    "allowed_treatment_families",
+    "allowed_actions",
+    "allowed_sizing_modes",
+    "max_risk_units",
+    "protective_reference_required",
+    "required_clause_kinds",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "envelope_digest"
+  ],
+  "type": "object"
+}

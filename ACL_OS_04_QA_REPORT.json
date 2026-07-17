@@ -1,0 +1,870 @@
+{
+  "capital_activation_allowed": false,
+  "claim_ceiling": "SETUP_DEFINITION_REFERENCE_ONLY",
+  "documentation": {
+    "atomic_concept_notes": 111,
+    "canonical_setup_factory_notes": 18,
+    "obsidian_projection_authority": "projection_only_machine_artifacts_authoritative",
+    "phase_delivery_notes": 49
+  },
+  "generated_at": "2026-07-18",
+  "live_order_submission_allowed": false,
+  "passed": true,
+  "patch_id": "ACL_OS_04_DUAL_SETUP_FACTORY_V1",
+  "phase": "ACL-04",
+  "pytest": {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "..................................................                       [100%]\n50 passed in 8.09s\n"
+  },
+  "reference_replay": {
+    "acl05_handoff_digest": "sha256:96b5ea4be45eee81fae23d20fd196aced8878f8479e3c41e0586d097cbc3cbdf",
+    "canonical_candidate_count": 12,
+    "capital_activation_allowed": false,
+    "factory_receipt_digest": "sha256:001ebf72a81a4d9fb8b79f99a11561d656228c196be2e43195e4cd81750c6b1c",
+    "live_order_submission_allowed": false,
+    "passed": true,
+    "source_candidate_count": 12
+  },
+  "regression": {
+    "acl03": {
+      "command": "PYTHONPATH=. PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 pytest -q lab/11_strategy_factory/acl_os/tests_acl_03",
+      "passed": true,
+      "tests": 106
+    },
+    "acl04": {
+      "command": "PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 pytest -q lab/11_strategy_factory/acl_os/tests_acl_04",
+      "passed": true,
+      "tests": 50
+    }
+  },
+  "residual_claims": [
+    "No statistical edge claim",
+    "No MetaEditor or MT5 runtime parity claim",
+    "No broker integration claim",
+    "No production authorization",
+    "No capital authorization"
+  ],
+  "static_checks": {
+    "json_documents_parsed": 66,
+    "metaeditor_compile_claimed": false,
+    "metaeditor_compile_executed": false,
+    "mql5_non_trading_scan_passed": true,
+    "mql5_static_contract_files": 14,
+    "python_compileall_passed": true,
+    "yaml_documents_parsed": 19
+  },
+  "status": "accepted_reference_implementation",
+  "validation": {
+    "capital_activation_allowed": false,
+    "checks": [
+      {
+        "code": "ACL04_SCHEMA_COUNT",
+        "details": {},
+        "message": "25 schemas",
+        "passed": true
+      },
+      {
+        "code": "ACL04_SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_04/schemas/v1/acl03_binding.schema.json",
+        "passed": true
+      },
+      {
+        "code": "ACL04_SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_04/schemas/v1/acl03_handoff_input.schema.json",
+        "passed": true
+      },
+      {
+        "code": "ACL04_SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_04/schemas/v1/acl05_handoff.schema.json",
+        "passed": true
+      },
+      {
+        "code": "ACL04_SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_04/schemas/v1/ai_generation_request.schema.json",
+        "passed": true
+      },
+      {
+        "code": "ACL04_SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_04/schemas/v1/atom_registry.schema.json",
+        "passed": true
+      },
+      {
+        "code": "ACL04_SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_04/schemas/v1/authority_permit.schema.json",
+        "passed": true
+      },
+      {
+        "code": "ACL04_SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_04/schemas/v1/deduplication_report.schema.json",
+        "passed": true
+      },
+      {
+        "code": "ACL04_SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_04/schemas/v1/expression.schema.json",
+        "passed": true
+      },
+      {
+        "code": "ACL04_SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_04/schemas/v1/factory_event.schema.json",
+        "passed": true
+      },
+      {
+        "code": "ACL04_SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_04/schemas/v1/factory_receipt.schema.json",
+        "passed": true
+      },
+      {
+        "code": "ACL04_SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_04/schemas/v1/finding.schema.json",
+        "passed": true
+      },
+      {
+        "code": "ACL04_SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_04/schemas/v1/generation_exposure.schema.json",
+        "passed": true
+      },
+      {
+        "code": "ACL04_SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_04/schemas/v1/human_setup_dsl.schema.json",
+        "passed": true
+      },
+      {
+        "code": "ACL04_SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_04/schemas/v1/output_manifest.schema.json",
+        "passed": true
+      },
+      {
+        "code": "ACL04_SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_04/schemas/v1/plain_language_projection_manifest.schema.json",
+        "passed": true
+      },
+      {
+        "code": "ACL04_SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_04/schemas/v1/provenance_graph.schema.json",
+        "passed": true
+      },
+      {
+        "code": "ACL04_SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_04/schemas/v1/provenance_reference.schema.json",
+        "passed": true
+      },
+      {
+        "code": "ACL04_SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_04/schemas/v1/risk_contract.schema.json",
+        "passed": true
+      },
+      {
+        "code": "ACL04_SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_04/schemas/v1/search_authority.schema.json",
+        "passed": true
+      },
+      {
+        "code": "ACL04_SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_04/schemas/v1/search_exposure_ledger.schema.json",
+        "passed": true
+      },
+      {
+        "code": "ACL04_SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_04/schemas/v1/security_boundary_report.schema.json",
+        "passed": true
+      },
+      {
+        "code": "ACL04_SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_04/schemas/v1/setup_candidate.schema.json",
+        "passed": true
+      },
+      {
+        "code": "ACL04_SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_04/schemas/v1/setup_clause.schema.json",
+        "passed": true
+      },
+      {
+        "code": "ACL04_SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_04/schemas/v1/setup_policy_ir.schema.json",
+        "passed": true
+      },
+      {
+        "code": "ACL04_SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_04/schemas/v1/treatment_envelope.schema.json",
+        "passed": true
+      },
+      {
+        "code": "ACL04_POLICY_COUNT",
+        "details": {},
+        "message": "18 policies",
+        "passed": true
+      },
+      {
+        "code": "ACL04_POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_04/policies/v1/acl05_handoff_policy.yaml",
+        "passed": true
+      },
+      {
+        "code": "ACL04_POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_04/policies/v1/ai_generation_policy.yaml",
+        "passed": true
+      },
+      {
+        "code": "ACL04_POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_04/policies/v1/atom_registry_policy.yaml",
+        "passed": true
+      },
+      {
+        "code": "ACL04_POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_04/policies/v1/baseline_policy.yaml",
+        "passed": true
+      },
+      {
+        "code": "ACL04_POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_04/policies/v1/canonicalization_policy.yaml",
+        "passed": true
+      },
+      {
+        "code": "ACL04_POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_04/policies/v1/claim_ceiling.yaml",
+        "passed": true
+      },
+      {
+        "code": "ACL04_POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_04/policies/v1/compatibility_policy.yaml",
+        "passed": true
+      },
+      {
+        "code": "ACL04_POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_04/policies/v1/deduplication_policy.yaml",
+        "passed": true
+      },
+      {
+        "code": "ACL04_POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_04/policies/v1/factory_scope.yaml",
+        "passed": true
+      },
+      {
+        "code": "ACL04_POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_04/policies/v1/generated_projection_policy.yaml",
+        "passed": true
+      },
+      {
+        "code": "ACL04_POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_04/policies/v1/handoff_binding_policy.yaml",
+        "passed": true
+      },
+      {
+        "code": "ACL04_POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_04/policies/v1/human_dsl_policy.yaml",
+        "passed": true
+      },
+      {
+        "code": "ACL04_POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_04/policies/v1/lifecycle_policy.yaml",
+        "passed": true
+      },
+      {
+        "code": "ACL04_POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_04/policies/v1/parameter_domain_policy.yaml",
+        "passed": true
+      },
+      {
+        "code": "ACL04_POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_04/policies/v1/reason_codes.yaml",
+        "passed": true
+      },
+      {
+        "code": "ACL04_POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_04/policies/v1/search_authority_policy.yaml",
+        "passed": true
+      },
+      {
+        "code": "ACL04_POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_04/policies/v1/security_boundary_policy.yaml",
+        "passed": true
+      },
+      {
+        "code": "ACL04_POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_04/policies/v1/treatment_envelope_policy.yaml",
+        "passed": true
+      },
+      {
+        "code": "ACL04_PHASE_DOCS",
+        "details": {},
+        "message": "49 notes",
+        "passed": true
+      },
+      {
+        "code": "ACL04_ATOMIC_DOCS",
+        "details": {},
+        "message": "111 notes",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_STATIC",
+        "details": {},
+        "message": "14 files",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04Types.mqh:OrderSend(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04Types.mqh:CTrade",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04Types.mqh:PositionOpen(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04Types.mqh:WebRequest(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04Types.mqh:capital_activation_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04Types.mqh:live_order_submission_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ClaimCeiling.mqh:OrderSend(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ClaimCeiling.mqh:CTrade",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ClaimCeiling.mqh:PositionOpen(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ClaimCeiling.mqh:WebRequest(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ClaimCeiling.mqh:capital_activation_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ClaimCeiling.mqh:live_order_submission_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04HandoffBinding.mqh:OrderSend(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04HandoffBinding.mqh:CTrade",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04HandoffBinding.mqh:PositionOpen(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04HandoffBinding.mqh:WebRequest(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04HandoffBinding.mqh:capital_activation_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04HandoffBinding.mqh:live_order_submission_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04SearchAuthority.mqh:OrderSend(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04SearchAuthority.mqh:CTrade",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04SearchAuthority.mqh:PositionOpen(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04SearchAuthority.mqh:WebRequest(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04SearchAuthority.mqh:capital_activation_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04SearchAuthority.mqh:live_order_submission_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04AtomRegistry.mqh:OrderSend(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04AtomRegistry.mqh:CTrade",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04AtomRegistry.mqh:PositionOpen(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04AtomRegistry.mqh:WebRequest(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04AtomRegistry.mqh:capital_activation_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04AtomRegistry.mqh:live_order_submission_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ExpressionIR.mqh:OrderSend(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ExpressionIR.mqh:CTrade",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ExpressionIR.mqh:PositionOpen(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ExpressionIR.mqh:WebRequest(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ExpressionIR.mqh:capital_activation_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ExpressionIR.mqh:live_order_submission_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04SetupPolicyIR.mqh:OrderSend(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04SetupPolicyIR.mqh:CTrade",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04SetupPolicyIR.mqh:PositionOpen(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04SetupPolicyIR.mqh:WebRequest(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04SetupPolicyIR.mqh:capital_activation_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04SetupPolicyIR.mqh:live_order_submission_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04TreatmentEnvelope.mqh:OrderSend(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04TreatmentEnvelope.mqh:CTrade",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04TreatmentEnvelope.mqh:PositionOpen(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04TreatmentEnvelope.mqh:WebRequest(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04TreatmentEnvelope.mqh:capital_activation_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04TreatmentEnvelope.mqh:live_order_submission_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04Candidate.mqh:OrderSend(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04Candidate.mqh:CTrade",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04Candidate.mqh:PositionOpen(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04Candidate.mqh:WebRequest(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04Candidate.mqh:capital_activation_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04Candidate.mqh:live_order_submission_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04Deduplication.mqh:OrderSend(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04Deduplication.mqh:CTrade",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04Deduplication.mqh:PositionOpen(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04Deduplication.mqh:WebRequest(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04Deduplication.mqh:capital_activation_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04Deduplication.mqh:live_order_submission_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ExposureLedger.mqh:OrderSend(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ExposureLedger.mqh:CTrade",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ExposureLedger.mqh:PositionOpen(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ExposureLedger.mqh:WebRequest(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ExposureLedger.mqh:capital_activation_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ExposureLedger.mqh:live_order_submission_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ReasonCodes.mqh:OrderSend(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ReasonCodes.mqh:CTrade",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ReasonCodes.mqh:PositionOpen(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ReasonCodes.mqh:WebRequest(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ReasonCodes.mqh:capital_activation_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ReasonCodes.mqh:live_order_submission_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ACL05Handoff.mqh:OrderSend(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ACL05Handoff.mqh:CTrade",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ACL05Handoff.mqh:PositionOpen(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ACL05Handoff.mqh:WebRequest(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ACL05Handoff.mqh:capital_activation_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04ACL05Handoff.mqh:live_order_submission_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04StaticBoundary.mqh:OrderSend(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04StaticBoundary.mqh:CTrade",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04StaticBoundary.mqh:PositionOpen(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04StaticBoundary.mqh:WebRequest(",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04StaticBoundary.mqh:capital_activation_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "ACL04_MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL04StaticBoundary.mqh:live_order_submission_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "ACL04_SERVICE_EXISTS",
+        "details": {},
+        "message": "service exists",
+        "passed": true
+      },
+      {
+        "code": "ACL04_FIXTURE_EXISTS",
+        "details": {},
+        "message": "fixture exists",
+        "passed": true
+      }
+    ],
+    "claim_ceiling": "SETUP_DEFINITION_REFERENCE_ONLY",
+    "live_order_submission_allowed": false,
+    "passed": true
+  }
+}

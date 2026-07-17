@@ -1,0 +1,153 @@
+{
+  "behavior_digest": "sha256:b7a7878ff59f8b1bd4f5f393629f33a7486a80351560de324a47b9f9a833dbac",
+  "candidate_digest": "sha256:6a09046a3d5add32d9564aaf032af483b96983c5c30078becdf1775ceec78a41",
+  "candidate_id": "CAND_429D18211A651E3CEF34",
+  "capital_activation_allowed": false,
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "context_version": "0.1.0",
+  "findings": [],
+  "live_order_submission_allowed": false,
+  "origin": "HUMAN",
+  "policy_ir": {
+    "clauses": [
+      {
+        "action": "ENTER_LONG",
+        "action_parameters": {
+          "protective_reference": "CONTEXT_INVALIDATION_REFERENCE"
+        },
+        "clause_id": "ENTRY_CONTEXT_CONFIRMED",
+        "kind": "ENTRY",
+        "priority": 10,
+        "when": {
+          "children": [
+            {
+              "args": [
+                "CONFIRMED"
+              ],
+              "atom_id": "CONTEXT_STATE_IS",
+              "op": "ATOM"
+            },
+            {
+              "args": [
+                "close_price",
+                ">=",
+                0.5
+              ],
+              "atom_id": "FEATURE_COMPARE",
+              "op": "ATOM"
+            },
+            {
+              "args": [
+                "RELATIVE_DISPLACEMENT_VIEW"
+              ],
+              "atom_id": "MISSINGNESS_IS_CLEAR",
+              "op": "ATOM"
+            }
+          ],
+          "op": "ALL"
+        }
+      },
+      {
+        "action": "CANCEL",
+        "action_parameters": {},
+        "clause_id": "INVALIDATION_CONTEXT_INVALIDATED",
+        "kind": "INVALIDATION",
+        "priority": 5,
+        "when": {
+          "args": [
+            "INVALIDATED"
+          ],
+          "atom_id": "CONTEXT_STATE_IS",
+          "op": "ATOM"
+        }
+      },
+      {
+        "action": "EXIT_FULL",
+        "action_parameters": {},
+        "clause_id": "EXIT_CONTEXT_EXPIRED",
+        "kind": "EXIT",
+        "priority": 10,
+        "when": {
+          "args": [
+            "EXPIRED"
+          ],
+          "atom_id": "CONTEXT_STATE_IS",
+          "op": "ATOM"
+        }
+      },
+      {
+        "action": "CANCEL",
+        "action_parameters": {},
+        "clause_id": "EXPIRY_AFTER_BARS",
+        "kind": "EXPIRY",
+        "priority": 100,
+        "when": {
+          "args": [
+            ">=",
+            5
+          ],
+          "atom_id": "ELAPSED_BARS_COMPARE",
+          "op": "ATOM"
+        }
+      },
+      {
+        "action": "ABSTAIN",
+        "action_parameters": {},
+        "clause_id": "ABSTAIN_STALE_FEATURE",
+        "kind": "ABSTENTION",
+        "priority": 1,
+        "when": {
+          "child": {
+            "args": [
+              "RELATIVE_DISPLACEMENT_VIEW",
+              0
+            ],
+            "atom_id": "FRESHNESS_WITHIN",
+            "op": "ATOM"
+          },
+          "op": "NOT"
+        }
+      }
+    ],
+    "context_id": "CTX_REFERENCE_ALPHA",
+    "context_version": "0.1.0",
+    "diagnostic_only": false,
+    "execution_authority": "NONE",
+    "ir_type": "ACL04_SETUP_POLICY_IR",
+    "known_time_contract": "INHERIT_ACL03_NON_BYPASSABLE",
+    "lane": "HUMAN",
+    "parameters": {
+      "entry_threshold": 0.5,
+      "expiry_bars": 5
+    },
+    "policy_ir_digest": "sha256:8693d4cf807162f58f798b45397dc0e3aad1c29ffc311688edadc15e7dc34691",
+    "risk_contract": {
+      "max_risk_units": 1.0,
+      "protective_reference_required": true,
+      "sizing_mode": "UNIT_RISK"
+    },
+    "schema_version": "1.0.0",
+    "treatment_family": "REFERENCE_CONFIRMATION_LONG"
+  },
+  "provenance": [
+    {
+      "artifact_id": "HUMAN_REFERENCE_CONFIRMATION_LONG",
+      "digest": "sha256:e3f3dea2435313f14f3807e022a1fdc2af6c8d3090dbdeab268d5be826364cef",
+      "role": "SOURCE_DEFINITION"
+    },
+    {
+      "artifact_id": "ACL04_SEARCH_AUTHORITY",
+      "digest": "sha256:5436e788c3bf0328292548d4610fb7e3e82306cde924282ab8ac997ec336c388",
+      "role": "SEARCH_AUTHORITY"
+    },
+    {
+      "artifact_id": "ACL04_TREATMENT_ENVELOPE",
+      "digest": "sha256:91986014b42ad08f79fbb2ab8ec32f960578eeeeb40c38e7f471a4bb5eedd1b6",
+      "role": "TREATMENT_ENVELOPE"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "setup_id": "SETUP_EE3007877556A11CDA6F",
+  "status": "ELIGIBLE_FOR_BATCH_DEFINITION",
+  "treatment_family": "REFERENCE_CONFIRMATION_LONG"
+}

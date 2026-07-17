@@ -1,0 +1,18 @@
+{
+  "acl05_handoff_digest": "sha256:96b5ea4be45eee81fae23d20fd196aced8878f8479e3c41e0586d097cbc3cbdf",
+  "binding_digest": "sha256:d8d5f4464a7f2e5acde5b8451cfe15afdd08c2918e2b4c4e697ab09259a020c1",
+  "canonical_candidate_count": 12,
+  "capital_activation_allowed": false,
+  "claim_ceiling": "SETUP_DEFINITION_REFERENCE_ONLY",
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "context_version": "0.1.0",
+  "factory_version": "1.0.0",
+  "live_order_submission_allowed": false,
+  "output_manifest_digest": "sha256:ea9eb057471b96b0ed8062ab74ea8207350cc509fdb4bb9ca9dd94dd382c9c04",
+  "receipt_digest": "sha256:001ebf72a81a4d9fb8b79f99a11561d656228c196be2e43195e4cd81750c6b1c",
+  "schema_version": "1.0.0",
+  "search_authority_digest": "sha256:5436e788c3bf0328292548d4610fb7e3e82306cde924282ab8ac997ec336c388",
+  "source_candidate_count": 12,
+  "treatment_envelope_digest": "sha256:91986014b42ad08f79fbb2ab8ec32f960578eeeeb40c38e7f471a4bb5eedd1b6",
+  "upstream_handoff_digest": "sha256:795524772053fbbbde499da201c81980d4fe09ef34d2b20a3b01dce5acb3fea0"
+}

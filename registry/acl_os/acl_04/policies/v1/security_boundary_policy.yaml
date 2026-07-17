@@ -1,0 +1,7 @@
+version: 1.0.0
+network_egress_allowed: false
+secret_access_allowed: false
+dynamic_evaluation_allowed: false
+symlinks_allowed: false
+order_submission_allowed: false
+capital_access_allowed: false

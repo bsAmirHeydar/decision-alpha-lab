@@ -1,0 +1,55 @@
+{
+  "allowed_actions": [
+    "ENTER_LONG",
+    "ENTER_SHORT",
+    "ABSTAIN",
+    "CANCEL",
+    "EXIT_FULL",
+    "REDUCE",
+    "MOVE_PROTECTIVE_REFERENCE",
+    "NO_ACTION"
+  ],
+  "allowed_atoms": [
+    "ALWAYS_TRUE",
+    "CONTEXT_STATE_IS",
+    "FEATURE_COMPARE",
+    "ELAPSED_BARS_COMPARE",
+    "SESSION_PHASE_IS",
+    "OCCURRENCE_AGE_COMPARE",
+    "MISSINGNESS_IS_CLEAR",
+    "FRESHNESS_WITHIN"
+  ],
+  "allowed_lanes": [
+    "HUMAN",
+    "AI",
+    "BASELINE"
+  ],
+  "authority_digest": "sha256:5436e788c3bf0328292548d4610fb7e3e82306cde924282ab8ac997ec336c388",
+  "authority_id": "SEARCH_AUTH_ACL04_REFERENCE",
+  "capital_activation_allowed": false,
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "context_version": "0.1.0",
+  "decision": "ALLOW",
+  "generator_allowlist": [
+    "DETERMINISTIC_CARTESIAN_V1"
+  ],
+  "live_order_submission_allowed": false,
+  "max_atoms_per_candidate": 24,
+  "max_candidates": 32,
+  "max_compute_units": 128,
+  "max_expression_depth": 6,
+  "memory_sources": [],
+  "parameter_domains": {
+    "ENTRY_THRESHOLD": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "EXPIRY_BARS": [
+      3,
+      5
+    ]
+  },
+  "schema_version": "1.0.0",
+  "upstream_handoff_digest": "sha256:795524772053fbbbde499da201c81980d4fe09ef34d2b20a3b01dce5acb3fea0"
+}

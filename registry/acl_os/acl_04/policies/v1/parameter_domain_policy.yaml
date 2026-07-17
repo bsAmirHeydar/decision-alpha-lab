@@ -1,0 +1,5 @@
+version: 1.0.0
+domains_must_be_finite: true
+empty_domains: REJECT
+undeclared_parameters: REJECT
+non_finite_numbers: REJECT

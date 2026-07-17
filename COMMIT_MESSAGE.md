@@ -1,7 +1,7 @@
-feat(acl-os): implement ACL-03 context compiler and onboarding factory
+feat(acl-os): implement ACL-04 dual setup factory
 
-- freeze approved Context sources and bind ACL-00/01/02 evidence
-- compile detector, occurrence, known-time and feature-binding IR
-- emit least-privilege adapter contracts and closed generated schemas
-- execute deterministic golden replay and publish onboarding evidence
-- produce immutable ACL-04 handoff, QA, MQL5 mirror and Obsidian documentation
+- bind the immutable ACL-03 Context handoff to explicit build and search authority
+- compile human DSL, bounded AI candidates and mandatory baselines into one Setup Policy IR
+- enforce known-time, Treatment, risk, action, atom, generator and search-budget contracts
+- canonicalize and deduplicate behavioral equivalents with complete provenance and exposure evidence
+- emit ACL-05 handoff, schemas, policies, reference replay, static MQL5 mirrors and detailed Obsidian documentation

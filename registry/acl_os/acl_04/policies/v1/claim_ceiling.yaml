@@ -1,0 +1,9 @@
+version: 1.0.0
+claim_ceiling: SETUP_DEFINITION_REFERENCE_ONLY
+forbidden_claims:
+- ALPHA_PROVEN
+- BROKER_PARITY
+- LIVE_READY
+- CAPITAL_AUTHORIZED
+live_order_submission_allowed: false
+capital_activation_allowed: false

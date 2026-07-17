@@ -1,0 +1,37 @@
+{
+  "allowed_actions": [
+    "ENTER_LONG",
+    "ENTER_SHORT",
+    "ABSTAIN",
+    "CANCEL",
+    "EXIT_FULL",
+    "REDUCE",
+    "MOVE_PROTECTIVE_REFERENCE",
+    "NO_ACTION"
+  ],
+  "allowed_sizing_modes": [
+    "UNIT_RISK"
+  ],
+  "allowed_treatment_families": [
+    "REFERENCE_CONFIRMATION_LONG",
+    "REFERENCE_CONFIRMATION_SHORT",
+    "BASELINE_NEVER_TRADE",
+    "BASELINE_ALWAYS_TAKE_LONG",
+    "BASELINE_ALWAYS_TAKE_SHORT",
+    "BASELINE_MANUAL_GATE",
+    "BASELINE_DIAGNOSTIC_ORACLE"
+  ],
+  "capital_activation_allowed": false,
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "context_version": "0.1.0",
+  "envelope_digest": "sha256:91986014b42ad08f79fbb2ab8ec32f960578eeeeb40c38e7f471a4bb5eedd1b6",
+  "envelope_id": "TREATMENT_ENVELOPE_REFERENCE",
+  "live_order_submission_allowed": false,
+  "max_risk_units": 1.0,
+  "protective_reference_required": true,
+  "required_clause_kinds": [
+    "EXPIRY"
+  ],
+  "schema_version": "1.0.0",
+  "upstream_handoff_digest": "sha256:795524772053fbbbde499da201c81980d4fe09ef34d2b20a3b01dce5acb3fea0"
+}

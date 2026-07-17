@@ -1,0 +1,6 @@
+version: 1.0.0
+bind_context_version: true
+bind_upstream_handoff: true
+protective_reference_required: true
+search_authority_may_not_exceed_envelope: true
+execution_authority: NONE

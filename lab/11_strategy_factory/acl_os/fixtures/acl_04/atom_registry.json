@@ -1,0 +1,117 @@
+{
+  "actions": [
+    "ENTER_LONG",
+    "ENTER_SHORT",
+    "ABSTAIN",
+    "CANCEL",
+    "EXIT_FULL",
+    "REDUCE",
+    "MOVE_PROTECTIVE_REFERENCE",
+    "NO_ACTION"
+  ],
+  "atoms": [
+    {
+      "allowed_lanes": [
+        "HUMAN",
+        "AI",
+        "BASELINE"
+      ],
+      "arity": 0,
+      "atom_id": "ALWAYS_TRUE",
+      "kind": "PREDICATE",
+      "known_time_safe": true
+    },
+    {
+      "allowed_lanes": [
+        "HUMAN",
+        "AI"
+      ],
+      "arity": 1,
+      "atom_id": "CONTEXT_STATE_IS",
+      "kind": "PREDICATE",
+      "known_time_safe": true
+    },
+    {
+      "allowed_lanes": [
+        "HUMAN",
+        "AI"
+      ],
+      "arity": 3,
+      "atom_id": "FEATURE_COMPARE",
+      "kind": "PREDICATE",
+      "known_time_safe": true
+    },
+    {
+      "allowed_lanes": [
+        "HUMAN",
+        "AI"
+      ],
+      "arity": 2,
+      "atom_id": "ELAPSED_BARS_COMPARE",
+      "kind": "PREDICATE",
+      "known_time_safe": true
+    },
+    {
+      "allowed_lanes": [
+        "HUMAN",
+        "AI"
+      ],
+      "arity": 1,
+      "atom_id": "SESSION_PHASE_IS",
+      "kind": "PREDICATE",
+      "known_time_safe": true
+    },
+    {
+      "allowed_lanes": [
+        "HUMAN",
+        "AI"
+      ],
+      "arity": 2,
+      "atom_id": "OCCURRENCE_AGE_COMPARE",
+      "kind": "PREDICATE",
+      "known_time_safe": true
+    },
+    {
+      "allowed_lanes": [
+        "HUMAN",
+        "AI"
+      ],
+      "arity": 1,
+      "atom_id": "MISSINGNESS_IS_CLEAR",
+      "kind": "PREDICATE",
+      "known_time_safe": true
+    },
+    {
+      "allowed_lanes": [
+        "HUMAN",
+        "AI"
+      ],
+      "arity": 2,
+      "atom_id": "FRESHNESS_WITHIN",
+      "kind": "PREDICATE",
+      "known_time_safe": true
+    },
+    {
+      "allowed_lanes": [
+        "HUMAN",
+        "BASELINE"
+      ],
+      "arity": 1,
+      "atom_id": "MANUAL_CONFIRMATION_IS",
+      "kind": "PREDICATE",
+      "known_time_safe": true
+    },
+    {
+      "allowed_lanes": [
+        "BASELINE"
+      ],
+      "arity": 1,
+      "atom_id": "FUTURE_OUTCOME_IS",
+      "kind": "DIAGNOSTIC_PREDICATE",
+      "known_time_safe": false
+    }
+  ],
+  "registry_digest": "sha256:50494272f04b6ea86ae311db21a5335127a5b2726e82b87222e1f44621e44884",
+  "registry_id": "ACL04_SETUP_ATOMS_V1",
+  "schema_version": "1.0.0"
+}

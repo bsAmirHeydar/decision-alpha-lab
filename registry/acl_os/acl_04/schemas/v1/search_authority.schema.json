@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_actions": {
+      "items": {
+        "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "allowed_atoms": {
+      "items": {
+        "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "allowed_lanes": {
+      "items": {
+        "enum": [
+          "HUMAN",
+          "AI",
+          "BASELINE"
+        ]
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "authority_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "authority_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+      "type": "string"
+    },
+    "capital_activation_allowed": {
+      "const": false
+    },
+    "context_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "context_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "decision": {
+      "enum": [
+        "ALLOW",
+        "DENY"
+      ]
+    },
+    "generator_allowlist": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    },
+    "max_atoms_per_candidate": {
+      "maximum": 10000,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "max_candidates": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "max_compute_units": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "max_expression_depth": {
+      "maximum": 32,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "memory_sources": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact_id": {
+            "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+            "type": "string"
+          },
+          "digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "purpose": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "artifact_id",
+          "digest",
+          "purpose"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "parameter_domains": {
+      "additionalProperties": {
+        "items": {},
+        "type": "array"
+      },
+      "type": "object"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "upstream_handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "authority_id",
+    "decision",
+    "context_id",
+    "context_version",
+    "upstream_handoff_digest",
+    "allowed_lanes",
+    "allowed_atoms",
+    "allowed_actions",
+    "parameter_domains",
+    "max_candidates",
+    "max_compute_units",
+    "max_expression_depth",
+    "max_atoms_per_candidate",
+    "memory_sources",
+    "generator_allowlist",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "authority_digest"
+  ],
+  "type": "object"
+}

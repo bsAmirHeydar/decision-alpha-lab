@@ -2,12 +2,29 @@
 title: ACL-05 — Immutable Batch and Artifact Store
 status: proposed-reference
 version: 1.0.0
-updated: 2026-07-17
+updated: 2026-07-18
 tags: [acl-os, context-lifecycle]
 ---
 # ACL-05 — Immutable Batch and Artifact Store
 
 Implements Immutable Batch and Artifact Store as an independently testable lifecycle increment, binding upstream ACL-04 — Dual Setup Factory and handing explicit contracts to ACL-06 — Research DAG Orchestration.
+
+## Accepted ACL-04 dependency contract
+
+ACL-05 starts only from a validated `ACL04_TO_ACL05` handoff. The handoff must bind the exact ACL-03 Context identity, ACL-04 factory receipt, output manifest, canonical candidate-set digest, deduplication report, search-exposure ledger and provenance graph. ACL-05 must reject partial folders, recomputed candidate behavior, missing diagnostic segregation, mutable source IDs, unbound manifests and any handoff that grants execution or capital authority.
+
+ACL-05 owns immutable Batch identity, storage and retrieval semantics. It does **not** regenerate human or AI candidates, change the canonical behavior digest, infer alpha, repair rejected candidates, broaden Search Authority or reinterpret the Treatment envelope. Material changes return to ACL-04 and create a new factory receipt and handoff version.
+
+### Minimum intake checks
+
+- `handoff_type == ACL04_TO_ACL05`;
+- all referenced SHA-256 digests resolve inside the received ACL-04 output root;
+- canonical candidate count and candidate-set digest match the manifest;
+- the exposure ledger accounts for every human, AI, baseline, rejected and diagnostic artifact;
+- provenance reaches the immutable `ACL03_TO_ACL04` handoff;
+- `live_order_submission_allowed == false`;
+- `capital_activation_allowed == false`;
+- no candidate payload is mutated during Batch construction.
 
 ## Responsibility boundary
 

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capital_activation_allowed": {
+      "const": false
+    },
+    "dynamic_evaluation_allowed": {
+      "const": false
+    },
+    "findings": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    },
+    "network_egress_allowed": {
+      "const": false
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "report_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "secret_access_allowed": {
+      "const": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "passed",
+    "findings",
+    "network_egress_allowed",
+    "secret_access_allowed",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "dynamic_evaluation_allowed",
+    "report_digest"
+  ],
+  "type": "object"
+}

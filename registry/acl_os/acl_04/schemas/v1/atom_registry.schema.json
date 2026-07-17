@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actions": {
+      "items": {
+        "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "atoms": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "allowed_lanes": {
+            "items": {
+              "enum": [
+                "HUMAN",
+                "AI",
+                "BASELINE"
+              ]
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "arity": {
+            "maximum": 16,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "atom_id": {
+            "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "PREDICATE",
+              "DIAGNOSTIC_PREDICATE"
+            ]
+          },
+          "known_time_safe": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "atom_id",
+          "kind",
+          "arity",
+          "known_time_safe",
+          "allowed_lanes"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "registry_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "registry_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "registry_id",
+    "atoms",
+    "actions",
+    "registry_digest"
+  ],
+  "type": "object"
+}

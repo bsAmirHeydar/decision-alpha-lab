@@ -1,0 +1,8 @@
+version: 1.0.0
+registered_generators:
+- DETERMINISTIC_CARTESIAN_V1
+unbounded_generation_allowed: false
+authority_required: true
+seed_required: true
+complete_exposure_record_required: true
+online_learning_allowed: false

@@ -1,0 +1,9 @@
+version: 1.0.0
+required_baselines:
+- BASELINE_NEVER_TRADE
+- BASELINE_ALWAYS_TAKE_LONG
+- BASELINE_ALWAYS_TAKE_SHORT
+- BASELINE_MANUAL_GATE
+- BASELINE_DIAGNOSTIC_ORACLE
+diagnostic_oracle_known_time_safe: false
+diagnostic_oracle_execution_eligible: false

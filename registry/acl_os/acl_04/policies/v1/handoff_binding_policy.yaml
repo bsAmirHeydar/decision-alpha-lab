@@ -1,0 +1,5 @@
+version: 1.0.0
+required_type: ACL03_TO_ACL04
+verify_embedded_digest: true
+verify_bound_artifact_digests: true
+reject_source_drift: true

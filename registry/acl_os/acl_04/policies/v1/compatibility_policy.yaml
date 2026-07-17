@@ -1,0 +1,6 @@
+version: 1.0.0
+supported_acl03_handoff_schema:
+- 1.0.0
+setup_policy_ir_schema: 1.0.0
+breaking_changes_require_major: true
+migration_and_rollback_required: true

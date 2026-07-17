@@ -1,0 +1,78 @@
+{
+  "behavior_digest": "sha256:873877b1f6d9e09770216f7f2764893b7a118a5370085f3fe4e523fe3ef73031",
+  "candidate_digest": "sha256:4a80807c76b2ff11d25f3a5359335c3374212d3cb408a32502ccef9fb095bf6a",
+  "candidate_id": "CAND_2FEB91284275BBB47978",
+  "capital_activation_allowed": false,
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "context_version": "0.1.0",
+  "findings": [],
+  "live_order_submission_allowed": false,
+  "origin": "BASELINE",
+  "policy_ir": {
+    "clauses": [
+      {
+        "action": "ENTER_LONG",
+        "action_parameters": {},
+        "clause_id": "ENTRY_ENTER_LONG",
+        "kind": "ENTRY",
+        "priority": 1,
+        "when": {
+          "args": [
+            "POSITIVE"
+          ],
+          "atom_id": "FUTURE_OUTCOME_IS",
+          "op": "ATOM"
+        }
+      },
+      {
+        "action": "CANCEL",
+        "action_parameters": {},
+        "clause_id": "EXPIRY_CANCEL",
+        "kind": "EXPIRY",
+        "priority": 1,
+        "when": {
+          "args": [],
+          "atom_id": "ALWAYS_TRUE",
+          "op": "ATOM"
+        }
+      }
+    ],
+    "context_id": "CTX_REFERENCE_ALPHA",
+    "context_version": "0.1.0",
+    "diagnostic_only": true,
+    "execution_authority": "NONE",
+    "ir_type": "ACL04_SETUP_POLICY_IR",
+    "known_time_contract": "INHERIT_ACL03_NON_BYPASSABLE",
+    "lane": "BASELINE",
+    "parameters": {},
+    "policy_ir_digest": "sha256:d7a7f37acd27f94653d2545e870c664b5af73c4459ade8b041d8b24a6899b491",
+    "risk_contract": {
+      "max_risk_units": 1.0,
+      "protective_reference_required": true,
+      "sizing_mode": "UNIT_RISK"
+    },
+    "schema_version": "1.0.0",
+    "treatment_family": "BASELINE_DIAGNOSTIC_ORACLE"
+  },
+  "provenance": [
+    {
+      "artifact_id": "BASELINE_DIAGNOSTIC_ORACLE",
+      "digest": "sha256:b57b7eeec19f2e5282f13c22d4ffdf9a4e20034eefdf1b873cdba999f50ae11d",
+      "role": "SOURCE_DEFINITION"
+    },
+    {
+      "artifact_id": "ACL04_SEARCH_AUTHORITY",
+      "digest": "sha256:5436e788c3bf0328292548d4610fb7e3e82306cde924282ab8ac997ec336c388",
+      "role": "SEARCH_AUTHORITY"
+    },
+    {
+      "artifact_id": "ACL04_TREATMENT_ENVELOPE",
+      "digest": "sha256:91986014b42ad08f79fbb2ab8ec32f960578eeeeb40c38e7f471a4bb5eedd1b6",
+      "role": "TREATMENT_ENVELOPE"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "setup_id": "SETUP_0CBC9D269F0833852BAE",
+  "status": "DIAGNOSTIC_ONLY",
+  "treatment_family": "BASELINE_DIAGNOSTIC_ORACLE"
+}

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "complete_enumeration": {
+      "type": "boolean"
+    },
+    "compute_units": {
+      "type": "integer"
+    },
+    "generator": {
+      "type": "string"
+    },
+    "materialized_candidates": {
+      "type": "integer"
+    },
+    "request_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+      "type": "string"
+    },
+    "requested_candidates": {
+      "type": "integer"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "seed": {
+      "type": "integer"
+    },
+    "vary_parameters": {
+      "items": {
+        "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "request_id",
+    "generator",
+    "seed",
+    "requested_candidates",
+    "materialized_candidates",
+    "compute_units",
+    "vary_parameters",
+    "complete_enumeration"
+  ],
+  "type": "object"
+}

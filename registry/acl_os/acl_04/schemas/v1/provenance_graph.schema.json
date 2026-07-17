@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "edges": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "from": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "relation": {
+            "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+            "type": "string"
+          },
+          "to": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "from",
+          "to",
+          "relation"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "graph_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "nodes": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact_id": {
+            "type": "string"
+          },
+          "candidate_id": {
+            "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+            "type": "string"
+          },
+          "id": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "kind": {
+            "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "kind"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "nodes",
+    "edges",
+    "graph_digest"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,298 @@
+{
+  "$defs": {
+    "expression": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "enum": [
+                  "ALL",
+                  "ANY"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "children"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "NOT"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "child"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "ATOM"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "atom_id",
+              "args"
+            ]
+          }
+        }
+      ],
+      "properties": {
+        "args": {
+          "items": {},
+          "type": "array"
+        },
+        "atom_id": {
+          "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+          "type": "string"
+        },
+        "child": {
+          "$ref": "#/$defs/expression"
+        },
+        "children": {
+          "items": {
+            "$ref": "#/$defs/expression"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "op": {
+          "enum": [
+            "ALL",
+            "ANY",
+            "NOT",
+            "ATOM"
+          ]
+        }
+      },
+      "required": [
+        "op"
+      ],
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "clauses": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "action": {
+            "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+            "type": "string"
+          },
+          "action_parameters": {
+            "type": "object"
+          },
+          "clause_id": {
+            "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "ENTRY",
+              "INVALIDATION",
+              "EXIT",
+              "MANAGEMENT",
+              "EXPIRY",
+              "ABSTENTION"
+            ]
+          },
+          "priority": {
+            "maximum": 100000,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "when": {
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "op": {
+                      "enum": [
+                        "ALL",
+                        "ANY"
+                      ]
+                    }
+                  }
+                },
+                "then": {
+                  "required": [
+                    "children"
+                  ]
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "op": {
+                      "const": "NOT"
+                    }
+                  }
+                },
+                "then": {
+                  "required": [
+                    "child"
+                  ]
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "op": {
+                      "const": "ATOM"
+                    }
+                  }
+                },
+                "then": {
+                  "required": [
+                    "atom_id",
+                    "args"
+                  ]
+                }
+              }
+            ],
+            "properties": {
+              "args": {
+                "items": {},
+                "type": "array"
+              },
+              "atom_id": {
+                "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+                "type": "string"
+              },
+              "child": {
+                "$ref": "#/$defs/expression"
+              },
+              "children": {
+                "items": {
+                  "$ref": "#/$defs/expression"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "op": {
+                "enum": [
+                  "ALL",
+                  "ANY",
+                  "NOT",
+                  "ATOM"
+                ]
+              }
+            },
+            "required": [
+              "op"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "clause_id",
+          "kind",
+          "when",
+          "action",
+          "action_parameters",
+          "priority"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "context_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "context_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "diagnostic_only": {
+      "type": "boolean"
+    },
+    "execution_authority": {
+      "const": "NONE"
+    },
+    "ir_type": {
+      "const": "ACL04_SETUP_POLICY_IR"
+    },
+    "known_time_contract": {
+      "const": "INHERIT_ACL03_NON_BYPASSABLE"
+    },
+    "lane": {
+      "enum": [
+        "HUMAN",
+        "AI",
+        "BASELINE"
+      ]
+    },
+    "parameters": {
+      "type": "object"
+    },
+    "policy_ir_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "risk_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "max_risk_units": {
+          "exclusiveMinimum": 0,
+          "maximum": 1000,
+          "type": "number"
+        },
+        "protective_reference_required": {
+          "type": "boolean"
+        },
+        "sizing_mode": {
+          "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sizing_mode",
+        "max_risk_units",
+        "protective_reference_required"
+      ],
+      "type": "object"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "treatment_family": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,159}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "ir_type",
+    "context_id",
+    "context_version",
+    "lane",
+    "treatment_family",
+    "parameters",
+    "risk_contract",
+    "clauses",
+    "diagnostic_only",
+    "known_time_contract",
+    "execution_authority",
+    "policy_ir_digest"
+  ],
+  "type": "object"
+}

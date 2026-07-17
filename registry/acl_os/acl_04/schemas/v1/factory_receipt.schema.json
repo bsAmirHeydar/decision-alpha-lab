@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acl05_handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "binding_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "canonical_candidate_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "capital_activation_allowed": {
+      "const": false
+    },
+    "claim_ceiling": {
+      "const": "SETUP_DEFINITION_REFERENCE_ONLY"
+    },
+    "context_id": {
+      "type": "string"
+    },
+    "context_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "factory_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    },
+    "output_manifest_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "receipt_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "search_authority_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "source_candidate_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "treatment_envelope_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "upstream_handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "factory_version",
+    "context_id",
+    "context_version",
+    "upstream_handoff_digest",
+    "binding_digest",
+    "search_authority_digest",
+    "treatment_envelope_digest",
+    "output_manifest_digest",
+    "acl05_handoff_digest",
+    "source_candidate_count",
+    "canonical_candidate_count",
+    "claim_ceiling",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "receipt_digest"
+  ],
+  "type": "object"
+}

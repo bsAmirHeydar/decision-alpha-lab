@@ -1,70 +1,89 @@
 ---
 title: ACL-04 — Dual Setup Factory
-status: proposed-reference
+status: accepted-reference-implementation
 version: 1.0.0
-updated: 2026-07-17
-tags: [acl-os, context-lifecycle]
+updated: 2026-07-18
+tags: [acl-os, acl-04, implementation]
 ---
 # ACL-04 — Dual Setup Factory
 
-Implements Dual Setup Factory as an independently testable lifecycle increment, binding upstream ACL-03 — Context Compiler and Onboarding and handing explicit contracts to ACL-05 — Immutable Batch and Artifact Store.
+## Delivery decision
 
-## Responsibility boundary
+ACL-04 is accepted as a **reference implementation** of bounded Setup definition mechanics. It consumes the immutable `ACL03_TO_ACL04` handoff and emits `ACL04_TO_ACL05`. The accepted claim ceiling is `SETUP_DEFINITION_REFERENCE_ONLY`.
 
-This component owns a narrow part of implementation sequencing, acceptance evidence, migrations and handoff. It communicates through versioned contracts and immutable references. It may not infer adjacent authority, reach into private implementation folders, or create an alternative identity, security or evidence system.
+## Implemented vertical slice
 
-## Required inputs
+- ACL-03 bundle and digest binding.
+- Subject-bound `ACL04_BUILD_SETUP_UNIVERSE` authority permit.
+- Content-addressed Search Authority and Treatment envelope.
+- Closed human Setup DSL.
+- Registered deterministic Cartesian AI generator.
+- Shared Setup Policy IR for human, AI and baseline lanes.
+- Atom/action registry, finite parameter domains and constraint evaluation.
+- Mandatory baselines including segregated diagnostic oracle.
+- Canonical behavior hashing, stable IDs and cross-lane deduplication.
+- Complete search-exposure ledger and provenance graph.
+- Generated Obsidian projections, output manifest and factory receipt.
+- Bounded ACL-05 handoff with no execution or capital authority.
+- Python reference service, CLI, schemas, policies, fixtures, tests and static MQL5 mirrors.
 
-- Exact artifact identities and versions.
-- Declared owner and authority scope.
-- Applicable policy, security classification and compatibility range.
-- Known-time-safe evidence or an explicit UNKNOWN state.
+## Architecture
 
-## Produced artifacts
+```text
+ACL03_TO_ACL04
+      │
+      ▼
+Handoff + Authority Binding ──► Security Boundary
+      │
+      ├──────── Human DSL Compiler
+      │
+      ├──────── Bounded AI Generator
+      │
+      └──────── Baseline Program
+                    │
+                    ▼
+            Setup Policy IR
+                    │
+      Search / Treatment / Known-Time Constraints
+                    │
+                    ▼
+ Canonicalization ─ Deduplication ─ Provenance
+                    │
+                    ▼
+ Exposure Ledger + Obsidian Projections + Receipt
+                    │
+                    ▼
+              ACL04_TO_ACL05
+```
 
-- Closed-schema machine result with reason codes.
-- Lineage links to all source artifacts and transformations.
-- Human-readable Obsidian projection.
-- Security, test and migration evidence appropriate to the artifact class.
+## Non-claims
 
-## Non-negotiable invariants
+This phase does not run market research, evaluate returns, train predictive models, submit orders, compile broker-specific execution, prove MQL5 parity, promote a strategy or activate capital. Those claims require later lifecycle evidence and authority.
 
-- Unknown fields and unresolved identities fail closed.
-- Generated content is never hand-edited.
-- Passing local tests does not prove alpha, live parity or capital authorization.
-- Every material mutation is authenticated, authorized, attributable and replayable.
-- Breaking semantics require a new version, migration and rollback.
+## Acceptance evidence
 
-## Reference workflow
+Acceptance requires the ACL-04 pytest suite, closed-schema and policy validation, deterministic replay of the reference fixture, static non-trading MQL5 scan, security-negative checks, artifact inventory, SHA-256 ledger and clean-checkout delivery validation.
 
-1. Resolve exact inputs and owners.
-2. Validate schema, compatibility, security classification and authority.
-3. Execute deterministic domain logic in the declared environment.
-4. Validate outputs and append evidence events.
-5. Publish structured artifacts and projections atomically.
-6. Expose only policy-approved next actions.
+## Operational entry point
 
-## Failure semantics
+```powershell
+python -m tools.strategy_factory.acl_os.acl_04.cli `
+  lab/11_strategy_factory/acl_os/fixtures/acl_03/reference_compilation `
+  .acl04-output `
+  --authority-permit lab/11_strategy_factory/acl_os/fixtures/acl_04/authority_permit.json `
+  --search-authority lab/11_strategy_factory/acl_os/fixtures/acl_04/search_authority.json `
+  --treatment-envelope lab/11_strategy_factory/acl_os/fixtures/acl_04/treatment_envelope.json `
+  --human-setup lab/11_strategy_factory/acl_os/fixtures/acl_04/human_setup.yaml `
+  --ai-request lab/11_strategy_factory/acl_os/fixtures/acl_04/ai_request.json
+```
 
-The component stops with explicit reason codes for missing evidence, ambiguous semantics, incompatible versions, integrity mismatch, insufficient support, policy denial, security failure or unavailable dependency. It does not substitute a permissive default.
+## Handoff
 
-## Extension and evolution
-
-New behavior enters through a registered extension manifest, bounded capabilities and conformance suite. Additive changes use compatible minor versions. Breaking changes require a major version, impact analysis, idempotent migration, dual-read or shadow period where needed, rollback and deprecation evidence.
-
-## Verification obligations
-
-Unit and property tests cover deterministic logic. Contract tests cover every adapter. Mutation tests prove guards are effective. Security-negative tests attempt bypass. Golden replay proves deterministic projection. Clean-checkout delivery validation proves the package has no hidden build dependency.
-
-## Claim ceiling
-
-This architecture note specifies required mechanics. Only environment-specific evidence can establish external data quality, statistical edge, broker behavior, MQL5 parity, operational security or production authorization.
+ACL-05 may freeze the candidate universe and exposure ledger into an immutable research Batch. ACL-05 may not infer alpha, authorize execution, activate capital or mutate candidate behavior.
 
 ## Related
 
-- [[ACL_OS_HOME]]
-- [[IMPLEMENTATION_MASTER_PLAN]]
-
-## ACL-03 dependency
-
-The phase must consume the immutable `ACL03_TO_ACL04` handoff and may not modify compiled Context semantics, occurrence identity, feature order or known-time guards.
+- [[04_SETUP_FACTORY/00_MOC]]
+- [[ACL_03_CONTEXT_COMPILER_AND_ONBOARDING]]
+- [[ACL_05_IMMUTABLE_BATCH_AND_STORE]]
+- [[ADR_006_DUAL_LANE_SETUP_SINGLE_IR]]

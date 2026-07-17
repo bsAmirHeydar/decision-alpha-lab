@@ -1,0 +1,101 @@
+{
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "context_version": "0.1.0",
+  "generator": "DETERMINISTIC_CARTESIAN_V1",
+  "request_id": "AI_REFERENCE_GRID",
+  "requested_candidates": 6,
+  "schema_version": "1.0.0",
+  "seed": 17,
+  "template": {
+    "clauses": {
+      "abstention": [
+        {
+          "action": "ABSTAIN",
+          "clause_id": "ABSTAIN_AI_MISSING",
+          "priority": 1,
+          "when": {
+            "child": {
+              "args": [
+                "RELATIVE_DISPLACEMENT_VIEW"
+              ],
+              "atom_id": "MISSINGNESS_IS_CLEAR",
+              "op": "ATOM"
+            },
+            "op": "NOT"
+          }
+        }
+      ],
+      "entry": [
+        {
+          "action": "ENTER_LONG",
+          "clause_id": "ENTRY_AI_THRESHOLD",
+          "priority": 10,
+          "when": {
+            "children": [
+              {
+                "args": [
+                  "CONFIRMED"
+                ],
+                "atom_id": "CONTEXT_STATE_IS",
+                "op": "ATOM"
+              },
+              {
+                "args": [
+                  "close_price",
+                  ">=",
+                  "${ENTRY_THRESHOLD}"
+                ],
+                "atom_id": "FEATURE_COMPARE",
+                "op": "ATOM"
+              }
+            ],
+            "op": "ALL"
+          }
+        }
+      ],
+      "exit": [],
+      "expiry": [
+        {
+          "action": "CANCEL",
+          "clause_id": "EXPIRY_AI_BARS",
+          "priority": 100,
+          "when": {
+            "args": [
+              ">=",
+              "${EXPIRY_BARS}"
+            ],
+            "atom_id": "ELAPSED_BARS_COMPARE",
+            "op": "ATOM"
+          }
+        }
+      ],
+      "invalidation": [
+        {
+          "action": "CANCEL",
+          "clause_id": "INVALIDATION_AI_CONTEXT",
+          "priority": 5,
+          "when": {
+            "args": [
+              "INVALIDATED"
+            ],
+            "atom_id": "CONTEXT_STATE_IS",
+            "op": "ATOM"
+          }
+        }
+      ],
+      "management": []
+    },
+    "diagnostic_only": false,
+    "parameters": {},
+    "risk_contract": {
+      "max_risk_units": 1.0,
+      "protective_reference_required": true,
+      "sizing_mode": "UNIT_RISK"
+    }
+  },
+  "treatment_family": "REFERENCE_CONFIRMATION_LONG",
+  "vary_parameters": [
+    "ENTRY_THRESHOLD",
+    "EXPIRY_BARS"
+  ]
+}

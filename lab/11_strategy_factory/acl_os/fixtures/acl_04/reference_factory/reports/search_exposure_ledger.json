@@ -1,0 +1,26 @@
+{
+  "ai_exposures": [
+    {
+      "complete_enumeration": true,
+      "compute_units": 36,
+      "generator": "DETERMINISTIC_CARTESIAN_V1",
+      "materialized_candidates": 6,
+      "request_id": "AI_REFERENCE_GRID",
+      "requested_candidates": 6,
+      "schema_version": "1.0.0",
+      "seed": 17,
+      "vary_parameters": [
+        "ENTRY_THRESHOLD",
+        "EXPIRY_BARS"
+      ]
+    }
+  ],
+  "authority_digest": "sha256:5436e788c3bf0328292548d4610fb7e3e82306cde924282ab8ac997ec336c388",
+  "authority_id": "SEARCH_AUTH_ACL04_REFERENCE",
+  "baseline_count": 5,
+  "complete_search_exposure_recorded": true,
+  "human_definition_count": 1,
+  "ledger_digest": "sha256:cb63666e6764b4101e103a40b5d3ccac2444e6a8082d5e4305136694a1611643",
+  "schema_version": "1.0.0",
+  "total_materialized": 12
+}

@@ -1,0 +1,11 @@
+version: 1.0.0
+states:
+- DRAFT
+- COMPILED
+- INVALID
+- DUPLICATE
+- ELIGIBLE_FOR_BATCH_DEFINITION
+- DIAGNOSTIC_ONLY
+- RETIRED
+self_promotion_allowed: false
+acl05_required_for_batch_freeze: true

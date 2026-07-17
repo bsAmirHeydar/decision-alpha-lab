@@ -1,0 +1,80 @@
+schema_version: 1.0.0
+setup_key: HUMAN_REFERENCE_CONFIRMATION_LONG
+lane: HUMAN
+context_id: CTX_REFERENCE_ALPHA
+context_version: 0.1.0
+treatment_family: REFERENCE_CONFIRMATION_LONG
+parameters:
+  entry_threshold: 0.5
+  expiry_bars: 5
+risk_contract:
+  sizing_mode: UNIT_RISK
+  max_risk_units: 1.0
+  protective_reference_required: true
+clauses:
+  entry:
+  - clause_id: ENTRY_CONTEXT_CONFIRMED
+    when:
+      op: ALL
+      children:
+      - op: ATOM
+        atom_id: CONTEXT_STATE_IS
+        args:
+        - CONFIRMED
+      - op: ATOM
+        atom_id: FEATURE_COMPARE
+        args:
+        - close_price
+        - '>='
+        - 0.5
+      - op: ATOM
+        atom_id: MISSINGNESS_IS_CLEAR
+        args:
+        - RELATIVE_DISPLACEMENT_VIEW
+    action: ENTER_LONG
+    action_parameters:
+      protective_reference: CONTEXT_INVALIDATION_REFERENCE
+    priority: 10
+  invalidation:
+  - clause_id: INVALIDATION_CONTEXT_INVALIDATED
+    when:
+      op: ATOM
+      atom_id: CONTEXT_STATE_IS
+      args:
+      - INVALIDATED
+    action: CANCEL
+    priority: 5
+  exit:
+  - clause_id: EXIT_CONTEXT_EXPIRED
+    when:
+      op: ATOM
+      atom_id: CONTEXT_STATE_IS
+      args:
+      - EXPIRED
+    action: EXIT_FULL
+    priority: 10
+  management: []
+  expiry:
+  - clause_id: EXPIRY_AFTER_BARS
+    when:
+      op: ATOM
+      atom_id: ELAPSED_BARS_COMPARE
+      args:
+      - '>='
+      - 5
+    action: CANCEL
+    priority: 100
+  abstention:
+  - clause_id: ABSTAIN_STALE_FEATURE
+    when:
+      op: NOT
+      child:
+        op: ATOM
+        atom_id: FRESHNESS_WITHIN
+        args:
+        - RELATIVE_DISPLACEMENT_VIEW
+        - 0
+    action: ABSTAIN
+    priority: 1
+diagnostic_only: false
+notes: Reference human-authored Setup for ACL-04 mechanics; not a trading recommendation.

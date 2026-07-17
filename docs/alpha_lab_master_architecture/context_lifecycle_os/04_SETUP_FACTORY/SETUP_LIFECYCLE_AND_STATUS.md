@@ -1,66 +1,73 @@
 ---
 title: Setup Lifecycle and Status
-status: proposed-reference
+status: accepted-reference
 version: 1.0.0
-updated: 2026-07-17
-tags: [acl-os, context-lifecycle]
+updated: 2026-07-18
+tags: [acl-os, acl-04, setup-factory]
 ---
 # Setup Lifecycle and Status
 
-Tracks proposal, validity, research, rejection, eligibility, promotion and retirement.
+## Purpose
 
-## Responsibility boundary
+This contract defines candidate states without implying research success or promotion. It is part of ACL-04 and therefore operates only after an exact `ACL03_TO_ACL04` handoff has been validated.
 
-This component owns a narrow part of human and AI Setup generation through one constrained behavior representation. It communicates through versioned contracts and immutable references. It may not infer adjacent authority, reach into private implementation folders, or create an alternative identity, security or evidence system.
+## Ownership and authority boundary
+
+Eligibility means only that ACL-05 may freeze the definition into a Batch. It does not mean profitable, validated, deployable or capital-authorized.
+
+ACL-04 owns Setup definition mechanics. ACL-03 remains authoritative for Context semantics, occurrence identity, detector state transitions, feature ordering and known-time guards. ACL-05 owns immutable Batch freezing. No ACL-04 component may infer authority held by either adjacent phase.
 
 ## Required inputs
 
-- Exact artifact identities and versions.
-- Declared owner and authority scope.
-- Applicable policy, security classification and compatibility range.
-- Known-time-safe evidence or an explicit UNKNOWN state.
+candidate validation, deduplication and downstream batch evidence. Every material input carries an exact identity, semantic version and SHA-256 digest. Missing or ambiguous identities are blockers, not warnings.
 
 ## Produced artifacts
 
-- Closed-schema machine result with reason codes.
-- Lineage links to all source artifacts and transformations.
-- Human-readable Obsidian projection.
-- Security, test and migration evidence appropriate to the artifact class.
+DRAFT, COMPILED, INVALID, DUPLICATE, ELIGIBLE_FOR_BATCH_DEFINITION, DIAGNOSTIC_ONLY and RETIRED status. Structured JSON is authoritative. Obsidian notes are generated or reviewed projections and cannot mutate behavior.
+
+## Deterministic processing contract
+
+1. Validate closed schemas and reject unknown fields.
+2. Verify the ACL-03 handoff digest and every bound upstream digest.
+3. Verify the subject-bound ACL-00 permit and Search Authority.
+4. Resolve only registered atoms, actions, generators and finite parameter domains.
+5. Compile to `ACL04_SETUP_POLICY_IR` without dynamic evaluation.
+6. Apply known-time, Treatment, risk, expiry, budget and conflict constraints.
+7. Canonicalize behavior and compute content-addressed identity.
+8. Preserve all source provenance and deduplicate equivalent behavior.
+9. Record complete generation exposure and emit projections atomically.
+10. Produce a bounded `ACL04_TO_ACL05` handoff.
 
 ## Non-negotiable invariants
 
-- Unknown fields and unresolved identities fail closed.
-- Generated content is never hand-edited.
-- Passing local tests does not prove alpha, live parity or capital authorization.
-- Every material mutation is authenticated, authorized, attributable and replayable.
-- Breaking semantics require a new version, migration and rollback.
+- `live_order_submission_allowed=false` and `capital_activation_allowed=false` in every authority, receipt and handoff.
+- Context semantics and ACL-03 IR are read-only.
+- Human and AI lanes compile to the same IR and validation path.
+- Unknown atoms, actions, fields, versions or digests fail closed.
+- Future-derived predicates are forbidden except inside explicitly diagnostic baselines.
+- Candidate eligibility means eligible for Batch definition only.
+- Origin, author identity and provenance do not change behavior identity.
+- Search exposure is recorded before downstream statistical interpretation.
 
-## Reference workflow
+## Failure semantics and reason codes
 
-1. Resolve exact inputs and owners.
-2. Validate schema, compatibility, security classification and authority.
-3. Execute deterministic domain logic in the declared environment.
-4. Validate outputs and append evidence events.
-5. Publish structured artifacts and projections atomically.
-6. Expose only policy-approved next actions.
-
-## Failure semantics
-
-The component stops with explicit reason codes for missing evidence, ambiguous semantics, incompatible versions, integrity mismatch, insufficient support, policy denial, security failure or unavailable dependency. It does not substitute a permissive default.
-
-## Extension and evolution
-
-New behavior enters through a registered extension manifest, bounded capabilities and conformance suite. Additive changes use compatible minor versions. Breaking changes require a major version, impact analysis, idempotent migration, dual-read or shadow period where needed, rollback and deprecation evidence.
+Failures are explicit and stable, including handoff mismatch, authority denial, unknown atom, arity mismatch, forbidden lane, parameter-domain violation, generation-budget exhaustion, Treatment-envelope violation, missing expiry, conflicting direction, unsafe path and output-integrity failure. A failed candidate remains evidence; it is not silently repaired into another behavior.
 
 ## Verification obligations
 
-Unit and property tests cover deterministic logic. Contract tests cover every adapter. Mutation tests prove guards are effective. Security-negative tests attempt bypass. Golden replay proves deterministic projection. Clean-checkout delivery validation proves the package has no hidden build dependency.
+Unit tests cover compilation and constraints. Property tests cover canonical invariance and deterministic IDs. Mutation tests alter authority and digests to prove guards fail. Security-negative tests attempt dynamic evaluation and execution-capability leakage. Golden replay rebuilds the reference universe and compares candidate and handoff digests. Delivery validation checks every indexed file from a clean checkout.
+
+## Evolution and migration
+
+Additive optional fields require a compatible minor schema version. New required fields, atom semantics, canonicalization behavior or digest inputs require a major version, explicit migration, historical fixture replay, impact analysis and rollback. Existing evidence is always interpreted under its original contract version.
 
 ## Claim ceiling
 
-This architecture note specifies required mechanics. Only environment-specific evidence can establish external data quality, statistical edge, broker behavior, MQL5 parity, operational security or production authorization.
+`SETUP_DEFINITION_REFERENCE_ONLY`. Passing these mechanics does not establish alpha, data validity, broker parity, execution correctness, production security or capital authorization.
 
 ## Related
 
-- [[ACL_OS_HOME]]
-- [[IMPLEMENTATION_MASTER_PLAN]]
+- [[ACL_04_DUAL_SETUP_FACTORY]]
+- [[DUAL_LANE_SETUP_FACTORY]]
+- [[ADR_006_DUAL_LANE_SETUP_SINGLE_IR]]
+- [[ACL03_ACL04_HANDOFF]]
