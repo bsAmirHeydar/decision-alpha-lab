@@ -1,0 +1,22 @@
+{
+  "$id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/locator_request.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ref": {
+      "type": "string"
+    },
+    "verify_file": {
+      "type": "boolean"
+    },
+    "version_constraint": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "ref",
+    "verify_file"
+  ],
+  "title": "locator_request.schema.json",
+  "type": "object"
+}

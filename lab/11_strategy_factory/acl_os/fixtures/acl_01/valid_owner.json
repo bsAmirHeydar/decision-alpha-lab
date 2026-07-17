@@ -1,0 +1,14 @@
+{
+  "display_name": "NDS Owners",
+  "owner_id": "OWNER_NDS",
+  "review_routes": [
+    "semantic",
+    "technical"
+  ],
+  "roles": [
+    "SEMANTIC_OWNER",
+    "TECHNICAL_OWNER"
+  ],
+  "status": "ACTIVE",
+  "tenant_id": "alpha"
+}

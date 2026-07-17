@@ -1,0 +1,12 @@
+schema_version: 1.0.0
+generated_only_zones:
+- generated
+required_metadata:
+- generator_artifact_id
+- generator_version
+- source_artifact_ids
+- source_digests
+- generated_at
+- rebuild_command
+manual_edit_forbidden: true
+clean_regeneration_required: true

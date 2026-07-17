@@ -1,0 +1,65 @@
+schema_version: 1.0.0
+zones:
+  context_authored:
+    roots:
+    - lab/11_strategy_factory/contexts
+    allowed_mutability:
+    - AUTHORED
+  source_code:
+    roots:
+    - tools/strategy_factory
+    - lab/11_strategy_factory/mql5
+    allowed_mutability:
+    - AUTHORED
+  registry:
+    roots:
+    - registry/acl_os
+    allowed_mutability:
+    - AUTHORED
+    - APPEND_ONLY
+  generated:
+    roots:
+    - lab/11_strategy_factory/generated
+    allowed_mutability:
+    - GENERATED
+    - IMMUTABLE
+  evidence:
+    roots:
+    - lab/11_strategy_factory/evidence
+    - reports/acl_os
+    allowed_mutability:
+    - IMMUTABLE
+    - APPEND_ONLY
+  runtime:
+    roots:
+    - lab/11_strategy_factory/runtime
+    allowed_mutability:
+    - IMMUTABLE
+  migrations:
+    roots:
+    - lab/11_strategy_factory/migrations
+    allowed_mutability:
+    - AUTHORED
+    - IMMUTABLE
+  documentation:
+    roots:
+    - docs/alpha_lab_master_architecture/context_lifecycle_os
+    allowed_mutability:
+    - AUTHORED
+    - GENERATED
+  audit:
+    roots:
+    - lab/11_strategy_factory/audit
+    allowed_mutability:
+    - APPEND_ONLY
+  quarantine:
+    roots:
+    - lab/11_strategy_factory/quarantine
+    allowed_mutability:
+    - IMMUTABLE
+    - APPEND_ONLY
+  cache:
+    roots:
+    - lab/11_strategy_factory/cache
+    allowed_mutability:
+    - EPHEMERAL

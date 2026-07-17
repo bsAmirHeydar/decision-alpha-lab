@@ -1,0 +1,6 @@
+schema_version: 1.0.0
+semantic_versioning_required: true
+path_independent_identity: true
+breaking_change_requires_major: true
+build_metadata_ignored_for_precedence: true
+mutable_latest_alias_forbidden: true

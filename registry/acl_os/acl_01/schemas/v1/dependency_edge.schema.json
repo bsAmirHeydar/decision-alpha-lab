@@ -1,0 +1,30 @@
+{
+  "$id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/dependency_edge.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "dependency_type": {
+      "type": "string"
+    },
+    "interface_id": {
+      "type": "string"
+    },
+    "optional": {
+      "type": "boolean"
+    },
+    "source_artifact_id": {
+      "type": "string"
+    },
+    "target_artifact_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "source_artifact_id",
+    "target_artifact_id",
+    "dependency_type",
+    "optional"
+  ],
+  "title": "dependency_edge.schema.json",
+  "type": "object"
+}

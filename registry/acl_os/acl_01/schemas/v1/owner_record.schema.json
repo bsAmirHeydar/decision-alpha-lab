@@ -1,0 +1,46 @@
+{
+  "$id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/owner_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "display_name": {
+      "type": "string"
+    },
+    "owner_id": {
+      "type": "string"
+    },
+    "review_routes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "roles": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "status": {
+      "enum": [
+        "ACTIVE",
+        "SUSPENDED",
+        "RETIRED"
+      ]
+    },
+    "tenant_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "owner_id",
+    "tenant_id",
+    "display_name",
+    "roles",
+    "status",
+    "review_routes"
+  ],
+  "title": "owner_record.schema.json",
+  "type": "object"
+}

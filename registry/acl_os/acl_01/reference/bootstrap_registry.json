@@ -1,0 +1,713 @@
+{
+  "aliases": {},
+  "artifacts": {
+    "al://system/acl-os/schema/alias-record-schema@1.0.0": {
+      "aliases": [],
+      "canonical_path": "registry/acl_os/acl_01/schemas/v1/alias_record.schema.json",
+      "identity": {
+        "artifact_id": "al://system/acl-os/schema/alias-record-schema@1.0.0",
+        "digest": "sha256:605d90a97a649a97ae2c61311a14c6522765420d927fa83b079bd10a88b3b1f0",
+        "kind": "schema",
+        "name": "alias-record-schema",
+        "namespace": "acl-os",
+        "tenant_id": "system",
+        "version": "1.0.0"
+      },
+      "layer": "contracts",
+      "metadata": {
+        "interfaces": {
+          "schema.read": "1.0.0"
+        },
+        "schema_semver": "1.0.0",
+        "visibility": "PUBLIC"
+      },
+      "mutability": "AUTHORED",
+      "owner_id": "OWNER_ACL_OS_CORE",
+      "schema_id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/alias_record.schema.json",
+      "security_classification": "INTERNAL",
+      "status": "ACTIVE",
+      "zone": "registry"
+    },
+    "al://system/acl-os/schema/artifact-descriptor-schema@1.0.0": {
+      "aliases": [],
+      "canonical_path": "registry/acl_os/acl_01/schemas/v1/artifact_descriptor.schema.json",
+      "identity": {
+        "artifact_id": "al://system/acl-os/schema/artifact-descriptor-schema@1.0.0",
+        "digest": "sha256:1f1af0ef0613fb765d4239dd56075b5558839478ea837eff445fb8d29942a319",
+        "kind": "schema",
+        "name": "artifact-descriptor-schema",
+        "namespace": "acl-os",
+        "tenant_id": "system",
+        "version": "1.0.0"
+      },
+      "layer": "contracts",
+      "metadata": {
+        "interfaces": {
+          "schema.read": "1.0.0"
+        },
+        "schema_semver": "1.0.0",
+        "visibility": "PUBLIC"
+      },
+      "mutability": "AUTHORED",
+      "owner_id": "OWNER_ACL_OS_CORE",
+      "schema_id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/artifact_descriptor.schema.json",
+      "security_classification": "INTERNAL",
+      "status": "ACTIVE",
+      "zone": "registry"
+    },
+    "al://system/acl-os/schema/artifact-identity-schema@1.0.0": {
+      "aliases": [],
+      "canonical_path": "registry/acl_os/acl_01/schemas/v1/artifact_identity.schema.json",
+      "identity": {
+        "artifact_id": "al://system/acl-os/schema/artifact-identity-schema@1.0.0",
+        "digest": "sha256:e37b991ee67ce27b206fb582178a9c4e31ee44fd03e3862a25557979bfb01730",
+        "kind": "schema",
+        "name": "artifact-identity-schema",
+        "namespace": "acl-os",
+        "tenant_id": "system",
+        "version": "1.0.0"
+      },
+      "layer": "contracts",
+      "metadata": {
+        "interfaces": {
+          "schema.read": "1.0.0"
+        },
+        "schema_semver": "1.0.0",
+        "visibility": "PUBLIC"
+      },
+      "mutability": "AUTHORED",
+      "owner_id": "OWNER_ACL_OS_CORE",
+      "schema_id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/artifact_identity.schema.json",
+      "security_classification": "INTERNAL",
+      "status": "ACTIVE",
+      "zone": "registry"
+    },
+    "al://system/acl-os/schema/compatibility-requirement-schema@1.0.0": {
+      "aliases": [],
+      "canonical_path": "registry/acl_os/acl_01/schemas/v1/compatibility_requirement.schema.json",
+      "identity": {
+        "artifact_id": "al://system/acl-os/schema/compatibility-requirement-schema@1.0.0",
+        "digest": "sha256:b6be05a227e9675b9768594112f328976709d3235e9b08278486e290210e4209",
+        "kind": "schema",
+        "name": "compatibility-requirement-schema",
+        "namespace": "acl-os",
+        "tenant_id": "system",
+        "version": "1.0.0"
+      },
+      "layer": "contracts",
+      "metadata": {
+        "interfaces": {
+          "schema.read": "1.0.0"
+        },
+        "schema_semver": "1.0.0",
+        "visibility": "PUBLIC"
+      },
+      "mutability": "AUTHORED",
+      "owner_id": "OWNER_ACL_OS_CORE",
+      "schema_id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/compatibility_requirement.schema.json",
+      "security_classification": "INTERNAL",
+      "status": "ACTIVE",
+      "zone": "registry"
+    },
+    "al://system/acl-os/schema/compatibility-result-schema@1.0.0": {
+      "aliases": [],
+      "canonical_path": "registry/acl_os/acl_01/schemas/v1/compatibility_result.schema.json",
+      "identity": {
+        "artifact_id": "al://system/acl-os/schema/compatibility-result-schema@1.0.0",
+        "digest": "sha256:361b80438e7e191fd7f17ff2db52f0220c5c46a67a87b8338ff8946ce9696cb0",
+        "kind": "schema",
+        "name": "compatibility-result-schema",
+        "namespace": "acl-os",
+        "tenant_id": "system",
+        "version": "1.0.0"
+      },
+      "layer": "contracts",
+      "metadata": {
+        "interfaces": {
+          "schema.read": "1.0.0"
+        },
+        "schema_semver": "1.0.0",
+        "visibility": "PUBLIC"
+      },
+      "mutability": "AUTHORED",
+      "owner_id": "OWNER_ACL_OS_CORE",
+      "schema_id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/compatibility_result.schema.json",
+      "security_classification": "INTERNAL",
+      "status": "ACTIVE",
+      "zone": "registry"
+    },
+    "al://system/acl-os/schema/dependency-edge-schema@1.0.0": {
+      "aliases": [],
+      "canonical_path": "registry/acl_os/acl_01/schemas/v1/dependency_edge.schema.json",
+      "identity": {
+        "artifact_id": "al://system/acl-os/schema/dependency-edge-schema@1.0.0",
+        "digest": "sha256:253fdcb882ddaf04b62ef1fa819267b24a27fc48f4b365a3799c2817b9cefe76",
+        "kind": "schema",
+        "name": "dependency-edge-schema",
+        "namespace": "acl-os",
+        "tenant_id": "system",
+        "version": "1.0.0"
+      },
+      "layer": "contracts",
+      "metadata": {
+        "interfaces": {
+          "schema.read": "1.0.0"
+        },
+        "schema_semver": "1.0.0",
+        "visibility": "PUBLIC"
+      },
+      "mutability": "AUTHORED",
+      "owner_id": "OWNER_ACL_OS_CORE",
+      "schema_id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/dependency_edge.schema.json",
+      "security_classification": "INTERNAL",
+      "status": "ACTIVE",
+      "zone": "registry"
+    },
+    "al://system/acl-os/schema/lineage-edge-schema@1.0.0": {
+      "aliases": [],
+      "canonical_path": "registry/acl_os/acl_01/schemas/v1/lineage_edge.schema.json",
+      "identity": {
+        "artifact_id": "al://system/acl-os/schema/lineage-edge-schema@1.0.0",
+        "digest": "sha256:09b537845b071ca79774a3802b1c34fbc26055384b4be6cc6d46392af4633fb7",
+        "kind": "schema",
+        "name": "lineage-edge-schema",
+        "namespace": "acl-os",
+        "tenant_id": "system",
+        "version": "1.0.0"
+      },
+      "layer": "contracts",
+      "metadata": {
+        "interfaces": {
+          "schema.read": "1.0.0"
+        },
+        "schema_semver": "1.0.0",
+        "visibility": "PUBLIC"
+      },
+      "mutability": "AUTHORED",
+      "owner_id": "OWNER_ACL_OS_CORE",
+      "schema_id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/lineage_edge.schema.json",
+      "security_classification": "INTERNAL",
+      "status": "ACTIVE",
+      "zone": "registry"
+    },
+    "al://system/acl-os/schema/locator-request-schema@1.0.0": {
+      "aliases": [],
+      "canonical_path": "registry/acl_os/acl_01/schemas/v1/locator_request.schema.json",
+      "identity": {
+        "artifact_id": "al://system/acl-os/schema/locator-request-schema@1.0.0",
+        "digest": "sha256:6f451adbd11c785f4a11d5c072b593e877e495a9ee21686dba6cb7baf4350989",
+        "kind": "schema",
+        "name": "locator-request-schema",
+        "namespace": "acl-os",
+        "tenant_id": "system",
+        "version": "1.0.0"
+      },
+      "layer": "contracts",
+      "metadata": {
+        "interfaces": {
+          "schema.read": "1.0.0"
+        },
+        "schema_semver": "1.0.0",
+        "visibility": "PUBLIC"
+      },
+      "mutability": "AUTHORED",
+      "owner_id": "OWNER_ACL_OS_CORE",
+      "schema_id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/locator_request.schema.json",
+      "security_classification": "INTERNAL",
+      "status": "ACTIVE",
+      "zone": "registry"
+    },
+    "al://system/acl-os/schema/locator-result-schema@1.0.0": {
+      "aliases": [],
+      "canonical_path": "registry/acl_os/acl_01/schemas/v1/locator_result.schema.json",
+      "identity": {
+        "artifact_id": "al://system/acl-os/schema/locator-result-schema@1.0.0",
+        "digest": "sha256:6ce8f4dcc138ff9d66a7d1ea674438dbefaaa49d81f572f62488be6afe9dfc7a",
+        "kind": "schema",
+        "name": "locator-result-schema",
+        "namespace": "acl-os",
+        "tenant_id": "system",
+        "version": "1.0.0"
+      },
+      "layer": "contracts",
+      "metadata": {
+        "interfaces": {
+          "schema.read": "1.0.0"
+        },
+        "schema_semver": "1.0.0",
+        "visibility": "PUBLIC"
+      },
+      "mutability": "AUTHORED",
+      "owner_id": "OWNER_ACL_OS_CORE",
+      "schema_id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/locator_result.schema.json",
+      "security_classification": "INTERNAL",
+      "status": "ACTIVE",
+      "zone": "registry"
+    },
+    "al://system/acl-os/schema/migration-plan-schema@1.0.0": {
+      "aliases": [],
+      "canonical_path": "registry/acl_os/acl_01/schemas/v1/migration_plan.schema.json",
+      "identity": {
+        "artifact_id": "al://system/acl-os/schema/migration-plan-schema@1.0.0",
+        "digest": "sha256:55635d2d468560acd4473c663a616785d711a272ce526e24cc3ec0a269aa0fee",
+        "kind": "schema",
+        "name": "migration-plan-schema",
+        "namespace": "acl-os",
+        "tenant_id": "system",
+        "version": "1.0.0"
+      },
+      "layer": "contracts",
+      "metadata": {
+        "interfaces": {
+          "schema.read": "1.0.0"
+        },
+        "schema_semver": "1.0.0",
+        "visibility": "PUBLIC"
+      },
+      "mutability": "AUTHORED",
+      "owner_id": "OWNER_ACL_OS_CORE",
+      "schema_id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/migration_plan.schema.json",
+      "security_classification": "INTERNAL",
+      "status": "ACTIVE",
+      "zone": "registry"
+    },
+    "al://system/acl-os/schema/owner-record-schema@1.0.0": {
+      "aliases": [],
+      "canonical_path": "registry/acl_os/acl_01/schemas/v1/owner_record.schema.json",
+      "identity": {
+        "artifact_id": "al://system/acl-os/schema/owner-record-schema@1.0.0",
+        "digest": "sha256:e159bfa484f8859a42dc02c056f8841fd1d8820edd0b0620109d6895d4fae481",
+        "kind": "schema",
+        "name": "owner-record-schema",
+        "namespace": "acl-os",
+        "tenant_id": "system",
+        "version": "1.0.0"
+      },
+      "layer": "contracts",
+      "metadata": {
+        "interfaces": {
+          "schema.read": "1.0.0"
+        },
+        "schema_semver": "1.0.0",
+        "visibility": "PUBLIC"
+      },
+      "mutability": "AUTHORED",
+      "owner_id": "OWNER_ACL_OS_CORE",
+      "schema_id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/owner_record.schema.json",
+      "security_classification": "INTERNAL",
+      "status": "ACTIVE",
+      "zone": "registry"
+    },
+    "al://system/acl-os/schema/plugin-registration-schema@1.0.0": {
+      "aliases": [],
+      "canonical_path": "registry/acl_os/acl_01/schemas/v1/plugin_registration.schema.json",
+      "identity": {
+        "artifact_id": "al://system/acl-os/schema/plugin-registration-schema@1.0.0",
+        "digest": "sha256:fc1e866db611e577974f8a8568cc809a10f09e184e30cee6defb8caad6f22058",
+        "kind": "schema",
+        "name": "plugin-registration-schema",
+        "namespace": "acl-os",
+        "tenant_id": "system",
+        "version": "1.0.0"
+      },
+      "layer": "contracts",
+      "metadata": {
+        "interfaces": {
+          "schema.read": "1.0.0"
+        },
+        "schema_semver": "1.0.0",
+        "visibility": "PUBLIC"
+      },
+      "mutability": "AUTHORED",
+      "owner_id": "OWNER_ACL_OS_CORE",
+      "schema_id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/plugin_registration.schema.json",
+      "security_classification": "INTERNAL",
+      "status": "ACTIVE",
+      "zone": "registry"
+    },
+    "al://system/acl-os/schema/reason-schema@1.0.0": {
+      "aliases": [],
+      "canonical_path": "registry/acl_os/acl_01/schemas/v1/reason.schema.json",
+      "identity": {
+        "artifact_id": "al://system/acl-os/schema/reason-schema@1.0.0",
+        "digest": "sha256:2cf1ad18adbf85255172509a6a795ad86b993c63ae953c06d5d9c016f9ccda6f",
+        "kind": "schema",
+        "name": "reason-schema",
+        "namespace": "acl-os",
+        "tenant_id": "system",
+        "version": "1.0.0"
+      },
+      "layer": "contracts",
+      "metadata": {
+        "interfaces": {
+          "schema.read": "1.0.0"
+        },
+        "schema_semver": "1.0.0",
+        "visibility": "PUBLIC"
+      },
+      "mutability": "AUTHORED",
+      "owner_id": "OWNER_ACL_OS_CORE",
+      "schema_id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/reason.schema.json",
+      "security_classification": "INTERNAL",
+      "status": "ACTIVE",
+      "zone": "registry"
+    },
+    "al://system/acl-os/schema/registry-mutation-permit-schema@1.0.0": {
+      "aliases": [],
+      "canonical_path": "registry/acl_os/acl_01/schemas/v1/registry_mutation_permit.schema.json",
+      "identity": {
+        "artifact_id": "al://system/acl-os/schema/registry-mutation-permit-schema@1.0.0",
+        "digest": "sha256:1fe0a85d12e2c40fc8096d51e7aab5e1eb814bf8ba53800438e6c3be92b3df67",
+        "kind": "schema",
+        "name": "registry-mutation-permit-schema",
+        "namespace": "acl-os",
+        "tenant_id": "system",
+        "version": "1.0.0"
+      },
+      "layer": "contracts",
+      "metadata": {
+        "interfaces": {
+          "schema.read": "1.0.0"
+        },
+        "schema_semver": "1.0.0",
+        "visibility": "PUBLIC"
+      },
+      "mutability": "AUTHORED",
+      "owner_id": "OWNER_ACL_OS_CORE",
+      "schema_id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/registry_mutation_permit.schema.json",
+      "security_classification": "INTERNAL",
+      "status": "ACTIVE",
+      "zone": "registry"
+    },
+    "al://system/acl-os/schema/registry-snapshot-schema@1.0.0": {
+      "aliases": [],
+      "canonical_path": "registry/acl_os/acl_01/schemas/v1/registry_snapshot.schema.json",
+      "identity": {
+        "artifact_id": "al://system/acl-os/schema/registry-snapshot-schema@1.0.0",
+        "digest": "sha256:605cc2e82c4802724eeb167fb7f1331685fbe1a9b4a730ca6308083382b38dfd",
+        "kind": "schema",
+        "name": "registry-snapshot-schema",
+        "namespace": "acl-os",
+        "tenant_id": "system",
+        "version": "1.0.0"
+      },
+      "layer": "contracts",
+      "metadata": {
+        "interfaces": {
+          "schema.read": "1.0.0"
+        },
+        "schema_semver": "1.0.0",
+        "visibility": "PUBLIC"
+      },
+      "mutability": "AUTHORED",
+      "owner_id": "OWNER_ACL_OS_CORE",
+      "schema_id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/registry_snapshot.schema.json",
+      "security_classification": "INTERNAL",
+      "status": "ACTIVE",
+      "zone": "registry"
+    },
+    "al://system/acl-os/schema/registry-validation-result-schema@1.0.0": {
+      "aliases": [],
+      "canonical_path": "registry/acl_os/acl_01/schemas/v1/registry_validation_result.schema.json",
+      "identity": {
+        "artifact_id": "al://system/acl-os/schema/registry-validation-result-schema@1.0.0",
+        "digest": "sha256:68655e52ad68e38f6bd73b5e662e4f90682c87af69691f99c38e652daab7f5ac",
+        "kind": "schema",
+        "name": "registry-validation-result-schema",
+        "namespace": "acl-os",
+        "tenant_id": "system",
+        "version": "1.0.0"
+      },
+      "layer": "contracts",
+      "metadata": {
+        "interfaces": {
+          "schema.read": "1.0.0"
+        },
+        "schema_semver": "1.0.0",
+        "visibility": "PUBLIC"
+      },
+      "mutability": "AUTHORED",
+      "owner_id": "OWNER_ACL_OS_CORE",
+      "schema_id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/registry_validation_result.schema.json",
+      "security_classification": "INTERNAL",
+      "status": "ACTIVE",
+      "zone": "registry"
+    },
+    "al://system/acl-os/schema/scan-finding-schema@1.0.0": {
+      "aliases": [],
+      "canonical_path": "registry/acl_os/acl_01/schemas/v1/scan_finding.schema.json",
+      "identity": {
+        "artifact_id": "al://system/acl-os/schema/scan-finding-schema@1.0.0",
+        "digest": "sha256:2421053371520ede5ec24b65bd937b402a27a97c94d2e1f04c6279fcaa8d43e8",
+        "kind": "schema",
+        "name": "scan-finding-schema",
+        "namespace": "acl-os",
+        "tenant_id": "system",
+        "version": "1.0.0"
+      },
+      "layer": "contracts",
+      "metadata": {
+        "interfaces": {
+          "schema.read": "1.0.0"
+        },
+        "schema_semver": "1.0.0",
+        "visibility": "PUBLIC"
+      },
+      "mutability": "AUTHORED",
+      "owner_id": "OWNER_ACL_OS_CORE",
+      "schema_id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/scan_finding.schema.json",
+      "security_classification": "INTERNAL",
+      "status": "ACTIVE",
+      "zone": "registry"
+    },
+    "al://system/acl-os/schema/scan-report-schema@1.0.0": {
+      "aliases": [],
+      "canonical_path": "registry/acl_os/acl_01/schemas/v1/scan_report.schema.json",
+      "identity": {
+        "artifact_id": "al://system/acl-os/schema/scan-report-schema@1.0.0",
+        "digest": "sha256:9d54c30400d865d81055c8c40b77de0cab9308a8d4077b1741182f313a2fe353",
+        "kind": "schema",
+        "name": "scan-report-schema",
+        "namespace": "acl-os",
+        "tenant_id": "system",
+        "version": "1.0.0"
+      },
+      "layer": "contracts",
+      "metadata": {
+        "interfaces": {
+          "schema.read": "1.0.0"
+        },
+        "schema_semver": "1.0.0",
+        "visibility": "PUBLIC"
+      },
+      "mutability": "AUTHORED",
+      "owner_id": "OWNER_ACL_OS_CORE",
+      "schema_id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/scan_report.schema.json",
+      "security_classification": "INTERNAL",
+      "status": "ACTIVE",
+      "zone": "registry"
+    },
+    "al://system/acl-os/schema/schema-registration-schema@1.0.0": {
+      "aliases": [],
+      "canonical_path": "registry/acl_os/acl_01/schemas/v1/schema_registration.schema.json",
+      "identity": {
+        "artifact_id": "al://system/acl-os/schema/schema-registration-schema@1.0.0",
+        "digest": "sha256:340deebbba88c443422a272c8ea81b2666377a7c435aec0397fab4ff52ccb54d",
+        "kind": "schema",
+        "name": "schema-registration-schema",
+        "namespace": "acl-os",
+        "tenant_id": "system",
+        "version": "1.0.0"
+      },
+      "layer": "contracts",
+      "metadata": {
+        "interfaces": {
+          "schema.read": "1.0.0"
+        },
+        "schema_semver": "1.0.0",
+        "visibility": "PUBLIC"
+      },
+      "mutability": "AUTHORED",
+      "owner_id": "OWNER_ACL_OS_CORE",
+      "schema_id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/schema_registration.schema.json",
+      "security_classification": "INTERNAL",
+      "status": "ACTIVE",
+      "zone": "registry"
+    },
+    "al://system/acl-os/schema/tombstone-record-schema@1.0.0": {
+      "aliases": [],
+      "canonical_path": "registry/acl_os/acl_01/schemas/v1/tombstone_record.schema.json",
+      "identity": {
+        "artifact_id": "al://system/acl-os/schema/tombstone-record-schema@1.0.0",
+        "digest": "sha256:40cb314e6022e0198ac9c0b8aa8d75d9bab6d4354a987fbf5b4837ede367ff85",
+        "kind": "schema",
+        "name": "tombstone-record-schema",
+        "namespace": "acl-os",
+        "tenant_id": "system",
+        "version": "1.0.0"
+      },
+      "layer": "contracts",
+      "metadata": {
+        "interfaces": {
+          "schema.read": "1.0.0"
+        },
+        "schema_semver": "1.0.0",
+        "visibility": "PUBLIC"
+      },
+      "mutability": "AUTHORED",
+      "owner_id": "OWNER_ACL_OS_CORE",
+      "schema_id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/tombstone_record.schema.json",
+      "security_classification": "INTERNAL",
+      "status": "ACTIVE",
+      "zone": "registry"
+    }
+  },
+  "capital_activation_allowed": false,
+  "dependencies": [],
+  "lineage": [],
+  "live_order_submission_allowed": false,
+  "migrations": [],
+  "owners": {
+    "OWNER_ACL_OS_CORE": {
+      "display_name": "ACL-OS Core Maintainers",
+      "review_routes": [
+        "acl-os-core",
+        "security"
+      ],
+      "roles": [
+        "SCHEMA_STEWARD",
+        "POLICY_STEWARD",
+        "TECHNICAL_OWNER",
+        "PLUGIN_OWNER",
+        "SECURITY_OWNER"
+      ],
+      "status": "ACTIVE",
+      "tenant_id": "system"
+    }
+  },
+  "plugins": {},
+  "revision": 41,
+  "schema_version": "1.0.0",
+  "schemas": {
+    "https://schemas.alpha-lab.local/acl-os/acl-01/v1/alias_record.schema.json": {
+      "digest": "sha256:605d90a97a649a97ae2c61311a14c6522765420d927fa83b079bd10a88b3b1f0",
+      "path": "registry/acl_os/acl_01/schemas/v1/alias_record.schema.json",
+      "status": "ACTIVE",
+      "tenant_id": "system",
+      "version": "1.0.0"
+    },
+    "https://schemas.alpha-lab.local/acl-os/acl-01/v1/artifact_descriptor.schema.json": {
+      "digest": "sha256:1f1af0ef0613fb765d4239dd56075b5558839478ea837eff445fb8d29942a319",
+      "path": "registry/acl_os/acl_01/schemas/v1/artifact_descriptor.schema.json",
+      "status": "ACTIVE",
+      "tenant_id": "system",
+      "version": "1.0.0"
+    },
+    "https://schemas.alpha-lab.local/acl-os/acl-01/v1/artifact_identity.schema.json": {
+      "digest": "sha256:e37b991ee67ce27b206fb582178a9c4e31ee44fd03e3862a25557979bfb01730",
+      "path": "registry/acl_os/acl_01/schemas/v1/artifact_identity.schema.json",
+      "status": "ACTIVE",
+      "tenant_id": "system",
+      "version": "1.0.0"
+    },
+    "https://schemas.alpha-lab.local/acl-os/acl-01/v1/compatibility_requirement.schema.json": {
+      "digest": "sha256:b6be05a227e9675b9768594112f328976709d3235e9b08278486e290210e4209",
+      "path": "registry/acl_os/acl_01/schemas/v1/compatibility_requirement.schema.json",
+      "status": "ACTIVE",
+      "tenant_id": "system",
+      "version": "1.0.0"
+    },
+    "https://schemas.alpha-lab.local/acl-os/acl-01/v1/compatibility_result.schema.json": {
+      "digest": "sha256:361b80438e7e191fd7f17ff2db52f0220c5c46a67a87b8338ff8946ce9696cb0",
+      "path": "registry/acl_os/acl_01/schemas/v1/compatibility_result.schema.json",
+      "status": "ACTIVE",
+      "tenant_id": "system",
+      "version": "1.0.0"
+    },
+    "https://schemas.alpha-lab.local/acl-os/acl-01/v1/dependency_edge.schema.json": {
+      "digest": "sha256:253fdcb882ddaf04b62ef1fa819267b24a27fc48f4b365a3799c2817b9cefe76",
+      "path": "registry/acl_os/acl_01/schemas/v1/dependency_edge.schema.json",
+      "status": "ACTIVE",
+      "tenant_id": "system",
+      "version": "1.0.0"
+    },
+    "https://schemas.alpha-lab.local/acl-os/acl-01/v1/lineage_edge.schema.json": {
+      "digest": "sha256:09b537845b071ca79774a3802b1c34fbc26055384b4be6cc6d46392af4633fb7",
+      "path": "registry/acl_os/acl_01/schemas/v1/lineage_edge.schema.json",
+      "status": "ACTIVE",
+      "tenant_id": "system",
+      "version": "1.0.0"
+    },
+    "https://schemas.alpha-lab.local/acl-os/acl-01/v1/locator_request.schema.json": {
+      "digest": "sha256:6f451adbd11c785f4a11d5c072b593e877e495a9ee21686dba6cb7baf4350989",
+      "path": "registry/acl_os/acl_01/schemas/v1/locator_request.schema.json",
+      "status": "ACTIVE",
+      "tenant_id": "system",
+      "version": "1.0.0"
+    },
+    "https://schemas.alpha-lab.local/acl-os/acl-01/v1/locator_result.schema.json": {
+      "digest": "sha256:6ce8f4dcc138ff9d66a7d1ea674438dbefaaa49d81f572f62488be6afe9dfc7a",
+      "path": "registry/acl_os/acl_01/schemas/v1/locator_result.schema.json",
+      "status": "ACTIVE",
+      "tenant_id": "system",
+      "version": "1.0.0"
+    },
+    "https://schemas.alpha-lab.local/acl-os/acl-01/v1/migration_plan.schema.json": {
+      "digest": "sha256:55635d2d468560acd4473c663a616785d711a272ce526e24cc3ec0a269aa0fee",
+      "path": "registry/acl_os/acl_01/schemas/v1/migration_plan.schema.json",
+      "status": "ACTIVE",
+      "tenant_id": "system",
+      "version": "1.0.0"
+    },
+    "https://schemas.alpha-lab.local/acl-os/acl-01/v1/owner_record.schema.json": {
+      "digest": "sha256:e159bfa484f8859a42dc02c056f8841fd1d8820edd0b0620109d6895d4fae481",
+      "path": "registry/acl_os/acl_01/schemas/v1/owner_record.schema.json",
+      "status": "ACTIVE",
+      "tenant_id": "system",
+      "version": "1.0.0"
+    },
+    "https://schemas.alpha-lab.local/acl-os/acl-01/v1/plugin_registration.schema.json": {
+      "digest": "sha256:fc1e866db611e577974f8a8568cc809a10f09e184e30cee6defb8caad6f22058",
+      "path": "registry/acl_os/acl_01/schemas/v1/plugin_registration.schema.json",
+      "status": "ACTIVE",
+      "tenant_id": "system",
+      "version": "1.0.0"
+    },
+    "https://schemas.alpha-lab.local/acl-os/acl-01/v1/reason.schema.json": {
+      "digest": "sha256:2cf1ad18adbf85255172509a6a795ad86b993c63ae953c06d5d9c016f9ccda6f",
+      "path": "registry/acl_os/acl_01/schemas/v1/reason.schema.json",
+      "status": "ACTIVE",
+      "tenant_id": "system",
+      "version": "1.0.0"
+    },
+    "https://schemas.alpha-lab.local/acl-os/acl-01/v1/registry_mutation_permit.schema.json": {
+      "digest": "sha256:1fe0a85d12e2c40fc8096d51e7aab5e1eb814bf8ba53800438e6c3be92b3df67",
+      "path": "registry/acl_os/acl_01/schemas/v1/registry_mutation_permit.schema.json",
+      "status": "ACTIVE",
+      "tenant_id": "system",
+      "version": "1.0.0"
+    },
+    "https://schemas.alpha-lab.local/acl-os/acl-01/v1/registry_snapshot.schema.json": {
+      "digest": "sha256:605cc2e82c4802724eeb167fb7f1331685fbe1a9b4a730ca6308083382b38dfd",
+      "path": "registry/acl_os/acl_01/schemas/v1/registry_snapshot.schema.json",
+      "status": "ACTIVE",
+      "tenant_id": "system",
+      "version": "1.0.0"
+    },
+    "https://schemas.alpha-lab.local/acl-os/acl-01/v1/registry_validation_result.schema.json": {
+      "digest": "sha256:68655e52ad68e38f6bd73b5e662e4f90682c87af69691f99c38e652daab7f5ac",
+      "path": "registry/acl_os/acl_01/schemas/v1/registry_validation_result.schema.json",
+      "status": "ACTIVE",
+      "tenant_id": "system",
+      "version": "1.0.0"
+    },
+    "https://schemas.alpha-lab.local/acl-os/acl-01/v1/scan_finding.schema.json": {
+      "digest": "sha256:2421053371520ede5ec24b65bd937b402a27a97c94d2e1f04c6279fcaa8d43e8",
+      "path": "registry/acl_os/acl_01/schemas/v1/scan_finding.schema.json",
+      "status": "ACTIVE",
+      "tenant_id": "system",
+      "version": "1.0.0"
+    },
+    "https://schemas.alpha-lab.local/acl-os/acl-01/v1/scan_report.schema.json": {
+      "digest": "sha256:9d54c30400d865d81055c8c40b77de0cab9308a8d4077b1741182f313a2fe353",
+      "path": "registry/acl_os/acl_01/schemas/v1/scan_report.schema.json",
+      "status": "ACTIVE",
+      "tenant_id": "system",
+      "version": "1.0.0"
+    },
+    "https://schemas.alpha-lab.local/acl-os/acl-01/v1/schema_registration.schema.json": {
+      "digest": "sha256:340deebbba88c443422a272c8ea81b2666377a7c435aec0397fab4ff52ccb54d",
+      "path": "registry/acl_os/acl_01/schemas/v1/schema_registration.schema.json",
+      "status": "ACTIVE",
+      "tenant_id": "system",
+      "version": "1.0.0"
+    },
+    "https://schemas.alpha-lab.local/acl-os/acl-01/v1/tombstone_record.schema.json": {
+      "digest": "sha256:40cb314e6022e0198ac9c0b8aa8d75d9bab6d4354a987fbf5b4837ede367ff85",
+      "path": "registry/acl_os/acl_01/schemas/v1/tombstone_record.schema.json",
+      "status": "ACTIVE",
+      "tenant_id": "system",
+      "version": "1.0.0"
+    }
+  }
+}

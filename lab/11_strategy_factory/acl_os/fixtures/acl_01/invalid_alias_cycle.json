@@ -1,0 +1,6 @@
+{
+  "aliases": {
+    "alias:a": "alias:b",
+    "alias:b": "alias:a"
+  }
+}

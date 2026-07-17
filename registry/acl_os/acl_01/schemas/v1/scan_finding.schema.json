@@ -1,0 +1,23 @@
+{
+  "$id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/scan_finding.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "code": {
+      "type": "string"
+    },
+    "details": {
+      "type": "object"
+    },
+    "message": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "code",
+    "message",
+    "details"
+  ],
+  "title": "scan_finding.schema.json",
+  "type": "object"
+}

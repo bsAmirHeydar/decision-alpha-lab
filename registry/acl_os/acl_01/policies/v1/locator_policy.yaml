@@ -1,0 +1,8 @@
+schema_version: 1.0.0
+exact_identity_preferred: true
+base_resolution_requires_version_constraint: true
+verify_digest_by_default: true
+symlink_targets_denied: true
+quarantined_resolution_denied: true
+tombstoned_resolution_denied: true
+path_escape_denied: true

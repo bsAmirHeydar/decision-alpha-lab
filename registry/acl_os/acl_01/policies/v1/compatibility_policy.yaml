@@ -1,0 +1,10 @@
+schema_version: 1.0.0
+security_classification_ranks:
+  PUBLIC: 0
+  INTERNAL: 1
+  CONFIDENTIAL: 2
+  RESTRICTED: 3
+  SECRET: 4
+prefer_highest_compatible: true
+schema_major_must_match_unless_adapter_registered: true
+security_downgrade_forbidden: true

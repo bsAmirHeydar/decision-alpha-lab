@@ -1,0 +1,25 @@
+{
+  "capital_activation_allowed": false,
+  "claim_ceiling": "REFERENCE_REPOSITORY_CONTROL_PLANE",
+  "live_order_submission_allowed": false,
+  "passed": true,
+  "pytest": {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "........................................................................ [ 92%]\n......                                                                   [100%]\n78 passed in 4.46s\n"
+  },
+  "validation": {
+    "capital_activation_allowed": false,
+    "claim_ceiling": "REFERENCE_REPOSITORY_CONTROL_PLANE",
+    "counts": {
+      "atomic_concepts": 91,
+      "closed_schemas": 20,
+      "mql5_static_files": 8,
+      "phase_delivery_notes": 36,
+      "policy_documents": 15
+    },
+    "errors": [],
+    "live_order_submission_allowed": false,
+    "passed": true
+  }
+}

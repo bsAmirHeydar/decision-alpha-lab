@@ -1,0 +1,35 @@
+{
+  "$id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/tombstone_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "type": "string"
+    },
+    "authority_decision_ref": {
+      "type": "string"
+    },
+    "reason_code": {
+      "type": "string"
+    },
+    "replacement_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "tombstoned_at": {
+      "format": "date-time",
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "tombstoned_at",
+    "reason_code",
+    "replacement_ref",
+    "authority_decision_ref"
+  ],
+  "title": "tombstone_record.schema.json",
+  "type": "object"
+}

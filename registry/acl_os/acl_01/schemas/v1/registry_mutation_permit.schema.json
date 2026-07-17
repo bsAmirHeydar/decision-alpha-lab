@@ -1,0 +1,53 @@
+{
+  "$id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/registry_mutation_permit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "type": "string"
+    },
+    "capital_activation_allowed": {
+      "const": false
+    },
+    "decision": {
+      "const": "ALLOW"
+    },
+    "decision_id": {
+      "type": "string"
+    },
+    "expires_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "issued_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    },
+    "policy_digest": {
+      "type": "string"
+    },
+    "subject_artifact_id": {
+      "type": "string"
+    },
+    "tenant_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "decision_id",
+    "decision",
+    "tenant_id",
+    "subject_artifact_id",
+    "action",
+    "policy_digest",
+    "issued_at",
+    "expires_at",
+    "live_order_submission_allowed",
+    "capital_activation_allowed"
+  ],
+  "title": "registry_mutation_permit.schema.json",
+  "type": "object"
+}

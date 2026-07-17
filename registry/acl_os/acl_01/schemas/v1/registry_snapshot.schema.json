@@ -1,0 +1,75 @@
+{
+  "$id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/registry_snapshot.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "aliases": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "artifacts": {
+      "additionalProperties": {
+        "$ref": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/artifact_descriptor.schema.json"
+      },
+      "type": "object"
+    },
+    "capital_activation_allowed": {
+      "const": false
+    },
+    "dependencies": {
+      "items": {
+        "$ref": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/dependency_edge.schema.json"
+      },
+      "type": "array"
+    },
+    "lineage": {
+      "items": {
+        "$ref": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/lineage_edge.schema.json"
+      },
+      "type": "array"
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    },
+    "migrations": {
+      "items": {
+        "$ref": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/migration_plan.schema.json"
+      },
+      "type": "array"
+    },
+    "owners": {
+      "type": "object"
+    },
+    "plugins": {
+      "type": "object"
+    },
+    "revision": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "schemas": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "revision",
+    "artifacts",
+    "aliases",
+    "owners",
+    "schemas",
+    "plugins",
+    "dependencies",
+    "lineage",
+    "migrations",
+    "live_order_submission_allowed",
+    "capital_activation_allowed"
+  ],
+  "title": "registry_snapshot.schema.json",
+  "type": "object"
+}

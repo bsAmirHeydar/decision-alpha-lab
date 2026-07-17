@@ -1,0 +1,39 @@
+{
+  "$id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/schema_registration.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "digest": {
+      "type": "string"
+    },
+    "path": {
+      "type": "string"
+    },
+    "schema_id": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "ACTIVE",
+        "DEPRECATED",
+        "RETIRED"
+      ]
+    },
+    "tenant_id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_id",
+    "tenant_id",
+    "version",
+    "path",
+    "digest",
+    "status"
+  ],
+  "title": "schema_registration.schema.json",
+  "type": "object"
+}

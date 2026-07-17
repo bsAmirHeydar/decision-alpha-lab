@@ -1,0 +1,27 @@
+{
+  "$id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/alias_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alias": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "ACTIVE",
+        "DEPRECATED",
+        "TOMBSTONED"
+      ]
+    },
+    "target_artifact_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "alias",
+    "target_artifact_id",
+    "status"
+  ],
+  "title": "alias_record.schema.json",
+  "type": "object"
+}

@@ -1,0 +1,19 @@
+schema_version: 1.0.0
+required_roles_by_kind:
+  context_doctrine:
+  - SEMANTIC_OWNER
+  context_contract:
+  - TECHNICAL_OWNER
+  runtime_bundle:
+  - RUNTIME_OWNER
+  - SECURITY_OWNER
+  schema:
+  - SCHEMA_STEWARD
+  policy:
+  - POLICY_STEWARD
+  plugin_manifest:
+  - PLUGIN_OWNER
+minimum_distinct_reviewers:
+  runtime_bundle: 2
+  policy: 2
+  schema: 2

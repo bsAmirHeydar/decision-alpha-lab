@@ -1,0 +1,107 @@
+schema_version: 1.0.0
+reason_codes:
+  ARTIFACT_ID_ALREADY_REGISTERED:
+    severity: ERROR
+    retryable: false
+  ARTIFACT_KIND_UNKNOWN:
+    severity: ERROR
+    retryable: false
+  ARTIFACT_LAYER_MISMATCH:
+    severity: ERROR
+    retryable: false
+  CANONICAL_PATH_COLLISION:
+    severity: ERROR
+    retryable: false
+  OWNER_NOT_REGISTERED:
+    severity: ERROR
+    retryable: false
+  OWNER_ROLE_INSUFFICIENT:
+    severity: ERROR
+    retryable: false
+  OWNER_INACTIVE:
+    severity: ERROR
+    retryable: false
+  SCHEMA_NOT_REGISTERED:
+    severity: ERROR
+    retryable: false
+  PATH_OUTSIDE_REGISTERED_ZONE:
+    severity: ERROR
+    retryable: false
+  PATH_ZONE_MISMATCH:
+    severity: ERROR
+    retryable: false
+  MUTABILITY_ZONE_VIOLATION:
+    severity: ERROR
+    retryable: false
+  GENERATED_PROVENANCE_MISSING:
+    severity: ERROR
+    retryable: false
+  DEPENDENCY_CYCLE:
+    severity: ERROR
+    retryable: false
+  DEPENDENCY_DIRECTION_VIOLATION:
+    severity: ERROR
+    retryable: false
+  CROSS_TENANT_DEPENDENCY_DENIED:
+    severity: ERROR
+    retryable: false
+  PRIVATE_IMPLEMENTATION_DEPENDENCY:
+    severity: ERROR
+    retryable: false
+  LINEAGE_CYCLE:
+    severity: ERROR
+    retryable: false
+  NO_COMPATIBLE_PROVIDER:
+    severity: ERROR
+    retryable: false
+  BREAKING_SCHEMA_WITHOUT_MAJOR:
+    severity: ERROR
+    retryable: false
+  MIGRATION_ROLLBACK_MISSING:
+    severity: ERROR
+    retryable: false
+  MIGRATION_AUTHORITY_MISSING:
+    severity: ERROR
+    retryable: false
+  ALIAS_CYCLE:
+    severity: ERROR
+    retryable: false
+  ALIAS_COLLISION:
+    severity: ERROR
+    retryable: false
+  ARTIFACT_DIGEST_MISMATCH:
+    severity: ERROR
+    retryable: false
+  LOCATOR_PATH_ESCAPE:
+    severity: ERROR
+    retryable: false
+  LOCATOR_SYMLINK_DENIED:
+    severity: ERROR
+    retryable: false
+  ACL00_DECISION_NOT_ALLOW:
+    severity: ERROR
+    retryable: false
+  ACL00_PERMIT_EXPIRED:
+    severity: ERROR
+    retryable: false
+  ILLEGAL_LIVE_AUTHORITY_CLAIM:
+    severity: ERROR
+    retryable: false
+  ACL00_POLICY_DIGEST_MISMATCH:
+    severity: ERROR
+    retryable: false
+  ACL00_POLICY_UNAVAILABLE:
+    severity: ERROR
+    retryable: false
+  ACL00_PERMIT_NOT_YET_VALID:
+    severity: ERROR
+    retryable: false
+  BASE_ID_VERSION_CONSTRAINT_REQUIRED:
+    severity: ERROR
+    retryable: false
+  ALIAS_DUPLICATE_IN_DESCRIPTOR:
+    severity: ERROR
+    retryable: false
+  ARTIFACT_FILE_MISSING:
+    severity: ERROR
+    retryable: false

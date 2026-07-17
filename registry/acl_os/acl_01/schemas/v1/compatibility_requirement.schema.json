@@ -1,0 +1,35 @@
+{
+  "$id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/compatibility_requirement.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "consumer_artifact_id": {
+      "type": "string"
+    },
+    "interface_id": {
+      "type": "string"
+    },
+    "interface_version_constraint": {
+      "type": "string"
+    },
+    "provider_base_id": {
+      "type": "string"
+    },
+    "required_security_classification": {
+      "type": "string"
+    },
+    "version_constraint": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "consumer_artifact_id",
+    "provider_base_id",
+    "version_constraint",
+    "interface_id",
+    "interface_version_constraint",
+    "required_security_classification"
+  ],
+  "title": "compatibility_requirement.schema.json",
+  "type": "object"
+}

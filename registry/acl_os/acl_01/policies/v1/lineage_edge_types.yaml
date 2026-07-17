@@ -1,0 +1,23 @@
+schema_version: 1.0.0
+edge_types:
+  derived_from:
+    acyclic: true
+    requires_transformation: true
+  generated_from:
+    acyclic: true
+    requires_transformation: true
+  validated_by:
+    acyclic: true
+    requires_transformation: false
+  promoted_from:
+    acyclic: true
+    requires_transformation: true
+  migrated_from:
+    acyclic: true
+    requires_transformation: true
+  documents:
+    acyclic: false
+    requires_transformation: false
+  supersedes:
+    acyclic: true
+    requires_transformation: false

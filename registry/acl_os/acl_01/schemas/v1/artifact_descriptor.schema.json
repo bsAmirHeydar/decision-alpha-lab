@@ -1,0 +1,79 @@
+{
+  "$id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/artifact_descriptor.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "aliases": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "authority_decision_ref": {
+      "type": "string"
+    },
+    "canonical_path": {
+      "type": "string"
+    },
+    "identity": {
+      "$ref": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/artifact_identity.schema.json"
+    },
+    "layer": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "mutability": {
+      "enum": [
+        "AUTHORED",
+        "GENERATED",
+        "IMMUTABLE",
+        "APPEND_ONLY",
+        "EPHEMERAL"
+      ]
+    },
+    "owner_id": {
+      "type": "string"
+    },
+    "schema_id": {
+      "type": "string"
+    },
+    "security_classification": {
+      "enum": [
+        "PUBLIC",
+        "INTERNAL",
+        "CONFIDENTIAL",
+        "RESTRICTED",
+        "SECRET"
+      ]
+    },
+    "status": {
+      "enum": [
+        "ACTIVE",
+        "DEPRECATED",
+        "QUARANTINED",
+        "TOMBSTONED"
+      ]
+    },
+    "zone": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "identity",
+    "zone",
+    "canonical_path",
+    "layer",
+    "owner_id",
+    "schema_id",
+    "security_classification",
+    "mutability",
+    "status",
+    "aliases",
+    "metadata"
+  ],
+  "title": "artifact_descriptor.schema.json",
+  "type": "object"
+}

@@ -1,0 +1,6 @@
+schema_version: 1.0.0
+conformance_suite_required: true
+capability_allowlist_required: true
+private_kernel_imports_forbidden: true
+signature_required_for_runtime_plugins: true
+sandbox_required_for_untrusted_plugins: true

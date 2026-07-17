@@ -1,0 +1,88 @@
+schema_version: 1.0.0
+kinds:
+  context_doctrine:
+    layer: domain
+    default_zone: context_authored
+    allowed_extensions:
+    - .md
+    - .yaml
+  context_contract:
+    layer: contracts
+    default_zone: context_authored
+    allowed_extensions:
+    - .yaml
+    - .json
+  setup_definition:
+    layer: domain
+    default_zone: context_authored
+    allowed_extensions:
+    - .yaml
+    - .json
+  source_code:
+    layer: implementation
+    default_zone: source_code
+    allowed_extensions:
+    - .py
+    - .mqh
+    - .mq5
+  schema:
+    layer: contracts
+    default_zone: registry
+    allowed_extensions:
+    - .json
+  policy:
+    layer: contracts
+    default_zone: registry
+    allowed_extensions:
+    - .yaml
+    - .json
+  plugin_manifest:
+    layer: adapters
+    default_zone: registry
+    allowed_extensions:
+    - .json
+    - .yaml
+  generated_projection:
+    layer: projections
+    default_zone: generated
+    allowed_extensions:
+    - .md
+    - .json
+    - .csv
+  evidence_bundle:
+    layer: evidence
+    default_zone: evidence
+    allowed_extensions:
+    - .json
+    - .parquet
+    - .csv
+  runtime_bundle:
+    layer: runtime
+    default_zone: runtime
+    allowed_extensions:
+    - .json
+    - .bin
+    - .mqh
+  migration:
+    layer: orchestration
+    default_zone: migrations
+    allowed_extensions:
+    - .py
+    - .json
+  documentation:
+    layer: documentation
+    default_zone: documentation
+    allowed_extensions:
+    - .md
+    - .canvas
+  audit_ledger:
+    layer: evidence
+    default_zone: audit
+    allowed_extensions:
+    - .jsonl
+    - .json
+  quarantine_record:
+    layer: evidence
+    default_zone: quarantine
+    allowed_extensions:
+    - .json

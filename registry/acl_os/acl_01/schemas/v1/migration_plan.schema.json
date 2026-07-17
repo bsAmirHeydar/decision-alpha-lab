@@ -1,0 +1,55 @@
+{
+  "$id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/migration_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_base_id": {
+      "type": "string"
+    },
+    "authority_decision_ref": {
+      "type": "string"
+    },
+    "dry_run_supported": {
+      "type": "boolean"
+    },
+    "dual_read_required": {
+      "type": "boolean"
+    },
+    "from_version": {
+      "type": "string"
+    },
+    "idempotency_key": {
+      "type": "string"
+    },
+    "irreversible": {
+      "type": "boolean"
+    },
+    "migration_artifact_id": {
+      "type": "string"
+    },
+    "migration_id": {
+      "type": "string"
+    },
+    "rollback_artifact_id": {
+      "type": "string"
+    },
+    "to_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "migration_id",
+    "artifact_base_id",
+    "from_version",
+    "to_version",
+    "migration_artifact_id",
+    "rollback_artifact_id",
+    "idempotency_key",
+    "dry_run_supported",
+    "dual_read_required",
+    "irreversible",
+    "authority_decision_ref"
+  ],
+  "title": "migration_plan.schema.json",
+  "type": "object"
+}

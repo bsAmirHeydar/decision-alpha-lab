@@ -1,0 +1,12 @@
+{
+  "action": "REGISTER_ARTIFACT",
+  "capital_activation_allowed": false,
+  "decision": "ALLOW",
+  "decision_id": "DEC_ACL01_FIXTURE",
+  "expires_at": "2027-07-17T00:00:00Z",
+  "issued_at": "2026-07-17T00:00:00Z",
+  "live_order_submission_allowed": false,
+  "policy_digest": "sha256:afa152740cfdf4e50f278777a98add238c5fccb6580a5e95c0ab47c869bc7d85",
+  "subject_artifact_id": "al://system/acl-os/repository-registry@1.0.0",
+  "tenant_id": "alpha"
+}

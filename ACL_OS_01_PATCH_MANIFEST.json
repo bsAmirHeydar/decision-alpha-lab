@@ -1,0 +1,40 @@
+{
+  "architecture_dependency": "ACL_OS_ARCHITECTURE_V1",
+  "authority_dependency": "ACL_OS_00_CONSTITUTION_UNIFIED_AUTHORITY_V1",
+  "bootstrap_registry_digest": "sha256:afe50c42b63ad482e1bc8c539ab10d1be6901a25b0e7d6054f1ba1c1cc2750d9",
+  "capital_activation_allowed": false,
+  "claim_ceiling": "REFERENCE_REPOSITORY_CONTROL_PLANE",
+  "created_at": "2026-07-17",
+  "delivery_file_count": 217,
+  "live_order_submission_allowed": false,
+  "next_phase": "ACL-02 Context Standard and Intake",
+  "patch_id": "ACL_OS_01_REPOSITORY_IDENTITY_ARTIFACT_LOCATOR_V1",
+  "policy_bundle_digest": "sha256:3f132059b142ec1bbcfd53d426103231e404d420af436517efc76af37da5b96d",
+  "production_authorized": false,
+  "qa": {
+    "architecture_qa_compatible": true,
+    "atomic_concepts": 91,
+    "bootstrap_scan_passed": true,
+    "closed_schemas": 20,
+    "mql5_static_files": 8,
+    "phase_delivery_notes": 36,
+    "policy_documents": 15,
+    "python_tests": 78
+  },
+  "scope": [
+    "artifact identity",
+    "repository zones",
+    "ownership registry",
+    "schema registry",
+    "plugin registry",
+    "artifact locator",
+    "dependency graph",
+    "lineage graph",
+    "compatibility resolution",
+    "migration registry",
+    "repository scanner"
+  ],
+  "status": "accepted_reference_implementation",
+  "title": "ACL-01 Repository, Identity and Artifact Locator",
+  "version": "1.0.0"
+}

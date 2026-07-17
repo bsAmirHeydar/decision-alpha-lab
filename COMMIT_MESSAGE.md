@@ -1,10 +1,9 @@
-feat(acl-os): implement ACL-00 constitution and unified authority
+feat(acl-os): implement ACL-01 repository identity and locator
 
-- add fail-closed lifecycle authority control plane
-- enforce evidence, approvals, security hooks and claim ceilings
-- add waiver governance, optimistic concurrency and hash-chained audit
-- add closed schemas, policy catalogs, fixtures and CLI
-- add MQL5 non-trading authority mirrors
-- add comprehensive Obsidian phase delivery and QA
-
-Capital activation and live-order submission remain disabled.
+- add path-independent content-addressed artifact identity
+- add canonical repository zones and path policy
+- add owner, schema, plugin, alias and artifact registries
+- add deterministic locator, integrity verification and scanner
+- add dependency, lineage, compatibility and migration governance
+- add ACL-00 mutation permit binding and hard non-trading authority
+- add closed schemas, policies, MQL5 mirrors, tests and Obsidian delivery

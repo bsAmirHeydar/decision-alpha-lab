@@ -1,0 +1,17 @@
+schema_version: 1.0.0
+templates:
+  default: lab/11_strategy_factory/generated/{tenant_id}/{namespace}/{kind}/{name}/{version}/{filename}
+  context_doctrine: lab/11_strategy_factory/contexts/{name}/doctrine/{filename}
+  context_contract: lab/11_strategy_factory/contexts/{name}/contracts/{filename}
+  setup_definition: lab/11_strategy_factory/contexts/{namespace}/setups/{filename}
+  source_code: tools/strategy_factory/{namespace}/{filename}
+  schema: registry/acl_os/{namespace}/schemas/{version}/{filename}
+  policy: registry/acl_os/{namespace}/policies/{version}/{filename}
+  plugin_manifest: registry/acl_os/{namespace}/plugins/{name}/{version}/{filename}
+  generated_projection: lab/11_strategy_factory/generated/{tenant_id}/{namespace}/{kind}/{name}/{version}/{filename}
+  evidence_bundle: lab/11_strategy_factory/evidence/{tenant_id}/{namespace}/{name}/{version}/{filename}
+  runtime_bundle: lab/11_strategy_factory/runtime/{tenant_id}/{namespace}/{name}/{version}/{filename}
+  migration: lab/11_strategy_factory/migrations/{namespace}/{name}/{version}/{filename}
+  documentation: docs/alpha_lab_master_architecture/context_lifecycle_os/{namespace}/{filename}
+  audit_ledger: lab/11_strategy_factory/audit/{tenant_id}/{namespace}/{filename}
+  quarantine_record: lab/11_strategy_factory/quarantine/{tenant_id}/{namespace}/{name}/{version}/{filename}

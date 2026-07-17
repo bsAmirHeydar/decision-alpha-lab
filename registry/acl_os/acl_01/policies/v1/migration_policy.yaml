@@ -1,0 +1,7 @@
+schema_version: 1.0.0
+allow_irreversible: false
+dry_run_required: true
+idempotency_required: true
+rollback_required: true
+authority_decision_required: true
+dual_read_for_breaking_change: true

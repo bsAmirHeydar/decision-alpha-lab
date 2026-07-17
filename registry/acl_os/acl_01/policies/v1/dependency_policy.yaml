@@ -1,0 +1,21 @@
+schema_version: 1.0.0
+allowed_types:
+- contract
+- runtime
+- build
+- test
+- documentation
+- external_contract
+layer_ranks:
+  kernel: 0
+  contracts: 1
+  domain: 2
+  implementation: 3
+  adapters: 4
+  orchestration: 5
+  projections: 6
+  evidence: 6
+  runtime: 7
+  documentation: 8
+cycles_forbidden: true
+private_cross_namespace_forbidden: true

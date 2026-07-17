@@ -1,0 +1,38 @@
+{
+  "$id": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/registry_validation_result.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capital_activation_allowed": {
+      "const": false
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "reasons": {
+      "items": {
+        "$ref": "https://schemas.alpha-lab.local/acl-os/acl-01/v1/reason.schema.json"
+      },
+      "type": "array"
+    },
+    "registry_digest": {
+      "type": "string"
+    },
+    "revision": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "passed",
+    "reasons",
+    "registry_digest",
+    "revision",
+    "live_order_submission_allowed",
+    "capital_activation_allowed"
+  ],
+  "title": "registry_validation_result.schema.json",
+  "type": "object"
+}

@@ -1,0 +1,11 @@
+schema_version: 1.0.0
+namespaces:
+  acl-os:
+    allowed_owner_ids:
+    - OWNER_ACL_OS_CORE
+  security:
+    allowed_owner_ids:
+    - OWNER_SECURITY_CORE
+  runtime:
+    allowed_owner_ids:
+    - OWNER_RUNTIME_CORE

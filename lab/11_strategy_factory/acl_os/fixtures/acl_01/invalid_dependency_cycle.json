@@ -1,0 +1,16 @@
+{
+  "dependencies": [
+    {
+      "dependency_type": "contract",
+      "optional": false,
+      "source_artifact_id": "a",
+      "target_artifact_id": "b"
+    },
+    {
+      "dependency_type": "contract",
+      "optional": false,
+      "source_artifact_id": "b",
+      "target_artifact_id": "a"
+    }
+  ]
+}
