@@ -1,0 +1,657 @@
+{
+  "capital_delta": 0.0,
+  "health_cell_count": 128,
+  "manifest_count": 128,
+  "order_delta": 0,
+  "placed_cell_count": 128,
+  "position_delta": 0.0,
+  "reconciled": true,
+  "reconciliation_hash": "3f03f2670b938f6a7b1874ecd95e3cff9d7fc4671b08720bf0f1c13746f6543a",
+  "reconciliation_id": "v440_reconciliation_4b5e53be13670775f5cd4467",
+  "registered_count": 128,
+  "research_only": true,
+  "routed_cell_count": 128,
+  "rows": [
+    {
+      "cell_id": "CELL_0001",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0002",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0003",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0004",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0005",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0006",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0007",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0008",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0009",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0010",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0011",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0012",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0013",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0014",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0015",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0016",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0017",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0018",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0019",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0020",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0021",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0022",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0023",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0024",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0025",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0026",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0027",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0028",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0029",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0030",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0031",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0032",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0033",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0034",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0035",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0036",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0037",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0038",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0039",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0040",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0041",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0042",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0043",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0044",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0045",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0046",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0047",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0048",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0049",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0050",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0051",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0052",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0053",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0054",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0055",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0056",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0057",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0058",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0059",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0060",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0061",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0062",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0063",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0064",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0065",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0066",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0067",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0068",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0069",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0070",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0071",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0072",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0073",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0074",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0075",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0076",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0077",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0078",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0079",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0080",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0081",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0082",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0083",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0084",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0085",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0086",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0087",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0088",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0089",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0090",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0091",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0092",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0093",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0094",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0095",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0096",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0097",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0098",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0099",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0100",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0101",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0102",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0103",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0104",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0105",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0106",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0107",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0108",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0109",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0110",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0111",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0112",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0113",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0114",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0115",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0116",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0117",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0118",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0119",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0120",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0121",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0122",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0123",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0124",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0125",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0126",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0127",
+      "missing_surfaces": [],
+      "reconciled": true
+    },
+    {
+      "cell_id": "CELL_0128",
+      "missing_surfaces": [],
+      "reconciled": true
+    }
+  ],
+  "unreconciled_count": 0
+}

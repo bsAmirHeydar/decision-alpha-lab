@@ -1,0 +1,89 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed_v4_40/reconciliation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "capital_delta": {
+      "type": "number"
+    },
+    "health_cell_count": {
+      "type": "integer"
+    },
+    "manifest_count": {
+      "type": "integer"
+    },
+    "order_delta": {
+      "type": "integer"
+    },
+    "placed_cell_count": {
+      "type": "integer"
+    },
+    "position_delta": {
+      "type": "number"
+    },
+    "reconciled": {
+      "type": "boolean"
+    },
+    "reconciliation_hash": {
+      "type": "string"
+    },
+    "reconciliation_id": {
+      "type": "string"
+    },
+    "registered_count": {
+      "type": "integer"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "routed_cell_count": {
+      "type": "integer"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "cell_id": {
+            "type": "string"
+          },
+          "missing_surfaces": {
+            "items": {},
+            "type": "array"
+          },
+          "reconciled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "cell_id",
+          "missing_surfaces",
+          "reconciled"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "unreconciled_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "rows",
+    "registered_count",
+    "manifest_count",
+    "placed_cell_count",
+    "routed_cell_count",
+    "health_cell_count",
+    "unreconciled_count",
+    "reconciled",
+    "capital_delta",
+    "position_delta",
+    "order_delta",
+    "research_only",
+    "reconciliation_id",
+    "reconciliation_hash"
+  ],
+  "title": "SAED V4-40 reconciliation",
+  "type": "object"
+}

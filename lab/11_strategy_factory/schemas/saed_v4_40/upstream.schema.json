@@ -1,0 +1,59 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed_v4_40/upstream.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "certificate_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "release_hash": {
+      "type": "string"
+    },
+    "required_external_gates": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "runtime_bundle_hash": {
+      "type": "string"
+    },
+    "upstream_phase": {
+      "type": "string"
+    },
+    "verified": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "phase",
+    "verified",
+    "upstream_phase",
+    "certificate_hash",
+    "release_hash",
+    "runtime_bundle_hash",
+    "required_external_gates",
+    "research_only",
+    "production_authorized",
+    "receipt_id",
+    "receipt_hash"
+  ],
+  "title": "SAED V4-40 upstream",
+  "type": "object"
+}

@@ -1,0 +1,1059 @@
+{
+  "allowed_same_tenant_pairs": 2048,
+  "cross_namespace_allowed": false,
+  "cross_tenant_allowed": false,
+  "denied_cross_tenant_pairs": 14336,
+  "matrix_hash": "99e33b135d3a10aa64f1cb97b856d7d60716a766e62987c07eb9bf998d5c3c8f",
+  "matrix_id": "v440_isolation_502578b63a147c47e908c573",
+  "namespace_counts": {
+    "NS_01": 16,
+    "NS_02": 16,
+    "NS_03": 16,
+    "NS_04": 16,
+    "NS_05": 16,
+    "NS_06": 16,
+    "NS_07": 16,
+    "NS_08": 16
+  },
+  "possible_pair_count": 16384,
+  "registry_hash": "ec276bf59506438e8e38f5dae77d35a62da6ada54a8c28fa35dbf5110947478f",
+  "research_only": true,
+  "row_count": 128,
+  "rows": [
+    {
+      "allowed_scope_hash": "d8f1fc03f814ae1ccfe877d89faed0381008b9fde2dcf4823817c5d4988edb0a",
+      "cell_id": "CELL_0001",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_01",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "allowed_scope_hash": "039128d23115d2076278d23500b016af540041845ed57d2596bc5821f68ab1b8",
+      "cell_id": "CELL_0002",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_02",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "allowed_scope_hash": "02d178b2a9f0f4e19cc761c46d3fe4c14d6f19acdbd06468ca8169735f660ac5",
+      "cell_id": "CELL_0003",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_03",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "allowed_scope_hash": "94ea6e71bd4ca8286b894996211a938217a637c5be0987ebd0edeb17effcc1c5",
+      "cell_id": "CELL_0004",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_04",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "allowed_scope_hash": "315b4f6502415cfa59ccf7e3f9a3ee899519bc935fb452aad4706eb890ac1f54",
+      "cell_id": "CELL_0005",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_05",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "allowed_scope_hash": "245be7e28cf0e8978a5340c46d310bed7dd918dfca0b719f6a6b26037294e555",
+      "cell_id": "CELL_0006",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_06",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "allowed_scope_hash": "8b4916cf94baf3e667ceef2e105cfbe23e88f89745b29fe6a609f525e1f96d20",
+      "cell_id": "CELL_0007",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_07",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "allowed_scope_hash": "302419c9af5f1ae2e1090d2484632fae8a108b7a0c9de2ce4c0932238a9a7ff4",
+      "cell_id": "CELL_0008",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_08",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "allowed_scope_hash": "d8f1fc03f814ae1ccfe877d89faed0381008b9fde2dcf4823817c5d4988edb0a",
+      "cell_id": "CELL_0009",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_01",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "allowed_scope_hash": "039128d23115d2076278d23500b016af540041845ed57d2596bc5821f68ab1b8",
+      "cell_id": "CELL_0010",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_02",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "allowed_scope_hash": "02d178b2a9f0f4e19cc761c46d3fe4c14d6f19acdbd06468ca8169735f660ac5",
+      "cell_id": "CELL_0011",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_03",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "allowed_scope_hash": "94ea6e71bd4ca8286b894996211a938217a637c5be0987ebd0edeb17effcc1c5",
+      "cell_id": "CELL_0012",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_04",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "allowed_scope_hash": "315b4f6502415cfa59ccf7e3f9a3ee899519bc935fb452aad4706eb890ac1f54",
+      "cell_id": "CELL_0013",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_05",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "allowed_scope_hash": "245be7e28cf0e8978a5340c46d310bed7dd918dfca0b719f6a6b26037294e555",
+      "cell_id": "CELL_0014",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_06",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "allowed_scope_hash": "8b4916cf94baf3e667ceef2e105cfbe23e88f89745b29fe6a609f525e1f96d20",
+      "cell_id": "CELL_0015",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_07",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "allowed_scope_hash": "302419c9af5f1ae2e1090d2484632fae8a108b7a0c9de2ce4c0932238a9a7ff4",
+      "cell_id": "CELL_0016",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_08",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "allowed_scope_hash": "d8f1fc03f814ae1ccfe877d89faed0381008b9fde2dcf4823817c5d4988edb0a",
+      "cell_id": "CELL_0017",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_01",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "allowed_scope_hash": "039128d23115d2076278d23500b016af540041845ed57d2596bc5821f68ab1b8",
+      "cell_id": "CELL_0018",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_02",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "allowed_scope_hash": "02d178b2a9f0f4e19cc761c46d3fe4c14d6f19acdbd06468ca8169735f660ac5",
+      "cell_id": "CELL_0019",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_03",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "allowed_scope_hash": "94ea6e71bd4ca8286b894996211a938217a637c5be0987ebd0edeb17effcc1c5",
+      "cell_id": "CELL_0020",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_04",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "allowed_scope_hash": "315b4f6502415cfa59ccf7e3f9a3ee899519bc935fb452aad4706eb890ac1f54",
+      "cell_id": "CELL_0021",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_05",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "allowed_scope_hash": "245be7e28cf0e8978a5340c46d310bed7dd918dfca0b719f6a6b26037294e555",
+      "cell_id": "CELL_0022",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_06",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "allowed_scope_hash": "8b4916cf94baf3e667ceef2e105cfbe23e88f89745b29fe6a609f525e1f96d20",
+      "cell_id": "CELL_0023",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_07",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "allowed_scope_hash": "302419c9af5f1ae2e1090d2484632fae8a108b7a0c9de2ce4c0932238a9a7ff4",
+      "cell_id": "CELL_0024",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_08",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "allowed_scope_hash": "d8f1fc03f814ae1ccfe877d89faed0381008b9fde2dcf4823817c5d4988edb0a",
+      "cell_id": "CELL_0025",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_01",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "allowed_scope_hash": "039128d23115d2076278d23500b016af540041845ed57d2596bc5821f68ab1b8",
+      "cell_id": "CELL_0026",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_02",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "allowed_scope_hash": "02d178b2a9f0f4e19cc761c46d3fe4c14d6f19acdbd06468ca8169735f660ac5",
+      "cell_id": "CELL_0027",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_03",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "allowed_scope_hash": "94ea6e71bd4ca8286b894996211a938217a637c5be0987ebd0edeb17effcc1c5",
+      "cell_id": "CELL_0028",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_04",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "allowed_scope_hash": "315b4f6502415cfa59ccf7e3f9a3ee899519bc935fb452aad4706eb890ac1f54",
+      "cell_id": "CELL_0029",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_05",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "allowed_scope_hash": "245be7e28cf0e8978a5340c46d310bed7dd918dfca0b719f6a6b26037294e555",
+      "cell_id": "CELL_0030",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_06",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "allowed_scope_hash": "8b4916cf94baf3e667ceef2e105cfbe23e88f89745b29fe6a609f525e1f96d20",
+      "cell_id": "CELL_0031",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_07",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "allowed_scope_hash": "302419c9af5f1ae2e1090d2484632fae8a108b7a0c9de2ce4c0932238a9a7ff4",
+      "cell_id": "CELL_0032",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_08",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "allowed_scope_hash": "d8f1fc03f814ae1ccfe877d89faed0381008b9fde2dcf4823817c5d4988edb0a",
+      "cell_id": "CELL_0033",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_01",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "allowed_scope_hash": "039128d23115d2076278d23500b016af540041845ed57d2596bc5821f68ab1b8",
+      "cell_id": "CELL_0034",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_02",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "allowed_scope_hash": "02d178b2a9f0f4e19cc761c46d3fe4c14d6f19acdbd06468ca8169735f660ac5",
+      "cell_id": "CELL_0035",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_03",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "allowed_scope_hash": "94ea6e71bd4ca8286b894996211a938217a637c5be0987ebd0edeb17effcc1c5",
+      "cell_id": "CELL_0036",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_04",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "allowed_scope_hash": "315b4f6502415cfa59ccf7e3f9a3ee899519bc935fb452aad4706eb890ac1f54",
+      "cell_id": "CELL_0037",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_05",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "allowed_scope_hash": "245be7e28cf0e8978a5340c46d310bed7dd918dfca0b719f6a6b26037294e555",
+      "cell_id": "CELL_0038",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_06",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "allowed_scope_hash": "8b4916cf94baf3e667ceef2e105cfbe23e88f89745b29fe6a609f525e1f96d20",
+      "cell_id": "CELL_0039",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_07",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "allowed_scope_hash": "302419c9af5f1ae2e1090d2484632fae8a108b7a0c9de2ce4c0932238a9a7ff4",
+      "cell_id": "CELL_0040",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_08",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "allowed_scope_hash": "d8f1fc03f814ae1ccfe877d89faed0381008b9fde2dcf4823817c5d4988edb0a",
+      "cell_id": "CELL_0041",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_01",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "allowed_scope_hash": "039128d23115d2076278d23500b016af540041845ed57d2596bc5821f68ab1b8",
+      "cell_id": "CELL_0042",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_02",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "allowed_scope_hash": "02d178b2a9f0f4e19cc761c46d3fe4c14d6f19acdbd06468ca8169735f660ac5",
+      "cell_id": "CELL_0043",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_03",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "allowed_scope_hash": "94ea6e71bd4ca8286b894996211a938217a637c5be0987ebd0edeb17effcc1c5",
+      "cell_id": "CELL_0044",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_04",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "allowed_scope_hash": "315b4f6502415cfa59ccf7e3f9a3ee899519bc935fb452aad4706eb890ac1f54",
+      "cell_id": "CELL_0045",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_05",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "allowed_scope_hash": "245be7e28cf0e8978a5340c46d310bed7dd918dfca0b719f6a6b26037294e555",
+      "cell_id": "CELL_0046",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_06",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "allowed_scope_hash": "8b4916cf94baf3e667ceef2e105cfbe23e88f89745b29fe6a609f525e1f96d20",
+      "cell_id": "CELL_0047",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_07",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "allowed_scope_hash": "302419c9af5f1ae2e1090d2484632fae8a108b7a0c9de2ce4c0932238a9a7ff4",
+      "cell_id": "CELL_0048",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_08",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "allowed_scope_hash": "d8f1fc03f814ae1ccfe877d89faed0381008b9fde2dcf4823817c5d4988edb0a",
+      "cell_id": "CELL_0049",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_01",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "allowed_scope_hash": "039128d23115d2076278d23500b016af540041845ed57d2596bc5821f68ab1b8",
+      "cell_id": "CELL_0050",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_02",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "allowed_scope_hash": "02d178b2a9f0f4e19cc761c46d3fe4c14d6f19acdbd06468ca8169735f660ac5",
+      "cell_id": "CELL_0051",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_03",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "allowed_scope_hash": "94ea6e71bd4ca8286b894996211a938217a637c5be0987ebd0edeb17effcc1c5",
+      "cell_id": "CELL_0052",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_04",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "allowed_scope_hash": "315b4f6502415cfa59ccf7e3f9a3ee899519bc935fb452aad4706eb890ac1f54",
+      "cell_id": "CELL_0053",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_05",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "allowed_scope_hash": "245be7e28cf0e8978a5340c46d310bed7dd918dfca0b719f6a6b26037294e555",
+      "cell_id": "CELL_0054",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_06",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "allowed_scope_hash": "8b4916cf94baf3e667ceef2e105cfbe23e88f89745b29fe6a609f525e1f96d20",
+      "cell_id": "CELL_0055",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_07",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "allowed_scope_hash": "302419c9af5f1ae2e1090d2484632fae8a108b7a0c9de2ce4c0932238a9a7ff4",
+      "cell_id": "CELL_0056",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_08",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "allowed_scope_hash": "d8f1fc03f814ae1ccfe877d89faed0381008b9fde2dcf4823817c5d4988edb0a",
+      "cell_id": "CELL_0057",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_01",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "allowed_scope_hash": "039128d23115d2076278d23500b016af540041845ed57d2596bc5821f68ab1b8",
+      "cell_id": "CELL_0058",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_02",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "allowed_scope_hash": "02d178b2a9f0f4e19cc761c46d3fe4c14d6f19acdbd06468ca8169735f660ac5",
+      "cell_id": "CELL_0059",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_03",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "allowed_scope_hash": "94ea6e71bd4ca8286b894996211a938217a637c5be0987ebd0edeb17effcc1c5",
+      "cell_id": "CELL_0060",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_04",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "allowed_scope_hash": "315b4f6502415cfa59ccf7e3f9a3ee899519bc935fb452aad4706eb890ac1f54",
+      "cell_id": "CELL_0061",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_05",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "allowed_scope_hash": "245be7e28cf0e8978a5340c46d310bed7dd918dfca0b719f6a6b26037294e555",
+      "cell_id": "CELL_0062",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_06",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "allowed_scope_hash": "8b4916cf94baf3e667ceef2e105cfbe23e88f89745b29fe6a609f525e1f96d20",
+      "cell_id": "CELL_0063",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_07",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "allowed_scope_hash": "302419c9af5f1ae2e1090d2484632fae8a108b7a0c9de2ce4c0932238a9a7ff4",
+      "cell_id": "CELL_0064",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_08",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "allowed_scope_hash": "d8f1fc03f814ae1ccfe877d89faed0381008b9fde2dcf4823817c5d4988edb0a",
+      "cell_id": "CELL_0065",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_01",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "allowed_scope_hash": "039128d23115d2076278d23500b016af540041845ed57d2596bc5821f68ab1b8",
+      "cell_id": "CELL_0066",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_02",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "allowed_scope_hash": "02d178b2a9f0f4e19cc761c46d3fe4c14d6f19acdbd06468ca8169735f660ac5",
+      "cell_id": "CELL_0067",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_03",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "allowed_scope_hash": "94ea6e71bd4ca8286b894996211a938217a637c5be0987ebd0edeb17effcc1c5",
+      "cell_id": "CELL_0068",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_04",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "allowed_scope_hash": "315b4f6502415cfa59ccf7e3f9a3ee899519bc935fb452aad4706eb890ac1f54",
+      "cell_id": "CELL_0069",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_05",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "allowed_scope_hash": "245be7e28cf0e8978a5340c46d310bed7dd918dfca0b719f6a6b26037294e555",
+      "cell_id": "CELL_0070",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_06",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "allowed_scope_hash": "8b4916cf94baf3e667ceef2e105cfbe23e88f89745b29fe6a609f525e1f96d20",
+      "cell_id": "CELL_0071",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_07",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "allowed_scope_hash": "302419c9af5f1ae2e1090d2484632fae8a108b7a0c9de2ce4c0932238a9a7ff4",
+      "cell_id": "CELL_0072",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_08",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "allowed_scope_hash": "d8f1fc03f814ae1ccfe877d89faed0381008b9fde2dcf4823817c5d4988edb0a",
+      "cell_id": "CELL_0073",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_01",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "allowed_scope_hash": "039128d23115d2076278d23500b016af540041845ed57d2596bc5821f68ab1b8",
+      "cell_id": "CELL_0074",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_02",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "allowed_scope_hash": "02d178b2a9f0f4e19cc761c46d3fe4c14d6f19acdbd06468ca8169735f660ac5",
+      "cell_id": "CELL_0075",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_03",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "allowed_scope_hash": "94ea6e71bd4ca8286b894996211a938217a637c5be0987ebd0edeb17effcc1c5",
+      "cell_id": "CELL_0076",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_04",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "allowed_scope_hash": "315b4f6502415cfa59ccf7e3f9a3ee899519bc935fb452aad4706eb890ac1f54",
+      "cell_id": "CELL_0077",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_05",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "allowed_scope_hash": "245be7e28cf0e8978a5340c46d310bed7dd918dfca0b719f6a6b26037294e555",
+      "cell_id": "CELL_0078",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_06",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "allowed_scope_hash": "8b4916cf94baf3e667ceef2e105cfbe23e88f89745b29fe6a609f525e1f96d20",
+      "cell_id": "CELL_0079",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_07",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "allowed_scope_hash": "302419c9af5f1ae2e1090d2484632fae8a108b7a0c9de2ce4c0932238a9a7ff4",
+      "cell_id": "CELL_0080",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_08",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "allowed_scope_hash": "d8f1fc03f814ae1ccfe877d89faed0381008b9fde2dcf4823817c5d4988edb0a",
+      "cell_id": "CELL_0081",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_01",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "allowed_scope_hash": "039128d23115d2076278d23500b016af540041845ed57d2596bc5821f68ab1b8",
+      "cell_id": "CELL_0082",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_02",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "allowed_scope_hash": "02d178b2a9f0f4e19cc761c46d3fe4c14d6f19acdbd06468ca8169735f660ac5",
+      "cell_id": "CELL_0083",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_03",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "allowed_scope_hash": "94ea6e71bd4ca8286b894996211a938217a637c5be0987ebd0edeb17effcc1c5",
+      "cell_id": "CELL_0084",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_04",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "allowed_scope_hash": "315b4f6502415cfa59ccf7e3f9a3ee899519bc935fb452aad4706eb890ac1f54",
+      "cell_id": "CELL_0085",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_05",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "allowed_scope_hash": "245be7e28cf0e8978a5340c46d310bed7dd918dfca0b719f6a6b26037294e555",
+      "cell_id": "CELL_0086",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_06",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "allowed_scope_hash": "8b4916cf94baf3e667ceef2e105cfbe23e88f89745b29fe6a609f525e1f96d20",
+      "cell_id": "CELL_0087",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_07",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "allowed_scope_hash": "302419c9af5f1ae2e1090d2484632fae8a108b7a0c9de2ce4c0932238a9a7ff4",
+      "cell_id": "CELL_0088",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_08",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "allowed_scope_hash": "d8f1fc03f814ae1ccfe877d89faed0381008b9fde2dcf4823817c5d4988edb0a",
+      "cell_id": "CELL_0089",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_01",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "allowed_scope_hash": "039128d23115d2076278d23500b016af540041845ed57d2596bc5821f68ab1b8",
+      "cell_id": "CELL_0090",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_02",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "allowed_scope_hash": "02d178b2a9f0f4e19cc761c46d3fe4c14d6f19acdbd06468ca8169735f660ac5",
+      "cell_id": "CELL_0091",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_03",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "allowed_scope_hash": "94ea6e71bd4ca8286b894996211a938217a637c5be0987ebd0edeb17effcc1c5",
+      "cell_id": "CELL_0092",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_04",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "allowed_scope_hash": "315b4f6502415cfa59ccf7e3f9a3ee899519bc935fb452aad4706eb890ac1f54",
+      "cell_id": "CELL_0093",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_05",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "allowed_scope_hash": "245be7e28cf0e8978a5340c46d310bed7dd918dfca0b719f6a6b26037294e555",
+      "cell_id": "CELL_0094",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_06",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "allowed_scope_hash": "8b4916cf94baf3e667ceef2e105cfbe23e88f89745b29fe6a609f525e1f96d20",
+      "cell_id": "CELL_0095",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_07",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "allowed_scope_hash": "302419c9af5f1ae2e1090d2484632fae8a108b7a0c9de2ce4c0932238a9a7ff4",
+      "cell_id": "CELL_0096",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_08",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "allowed_scope_hash": "d8f1fc03f814ae1ccfe877d89faed0381008b9fde2dcf4823817c5d4988edb0a",
+      "cell_id": "CELL_0097",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_01",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "allowed_scope_hash": "039128d23115d2076278d23500b016af540041845ed57d2596bc5821f68ab1b8",
+      "cell_id": "CELL_0098",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_02",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "allowed_scope_hash": "02d178b2a9f0f4e19cc761c46d3fe4c14d6f19acdbd06468ca8169735f660ac5",
+      "cell_id": "CELL_0099",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_03",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "allowed_scope_hash": "94ea6e71bd4ca8286b894996211a938217a637c5be0987ebd0edeb17effcc1c5",
+      "cell_id": "CELL_0100",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_04",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "allowed_scope_hash": "315b4f6502415cfa59ccf7e3f9a3ee899519bc935fb452aad4706eb890ac1f54",
+      "cell_id": "CELL_0101",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_05",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "allowed_scope_hash": "245be7e28cf0e8978a5340c46d310bed7dd918dfca0b719f6a6b26037294e555",
+      "cell_id": "CELL_0102",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_06",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "allowed_scope_hash": "8b4916cf94baf3e667ceef2e105cfbe23e88f89745b29fe6a609f525e1f96d20",
+      "cell_id": "CELL_0103",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_07",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "allowed_scope_hash": "302419c9af5f1ae2e1090d2484632fae8a108b7a0c9de2ce4c0932238a9a7ff4",
+      "cell_id": "CELL_0104",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_08",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "allowed_scope_hash": "d8f1fc03f814ae1ccfe877d89faed0381008b9fde2dcf4823817c5d4988edb0a",
+      "cell_id": "CELL_0105",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_01",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "allowed_scope_hash": "039128d23115d2076278d23500b016af540041845ed57d2596bc5821f68ab1b8",
+      "cell_id": "CELL_0106",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_02",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "allowed_scope_hash": "02d178b2a9f0f4e19cc761c46d3fe4c14d6f19acdbd06468ca8169735f660ac5",
+      "cell_id": "CELL_0107",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_03",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "allowed_scope_hash": "94ea6e71bd4ca8286b894996211a938217a637c5be0987ebd0edeb17effcc1c5",
+      "cell_id": "CELL_0108",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_04",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "allowed_scope_hash": "315b4f6502415cfa59ccf7e3f9a3ee899519bc935fb452aad4706eb890ac1f54",
+      "cell_id": "CELL_0109",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_05",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "allowed_scope_hash": "245be7e28cf0e8978a5340c46d310bed7dd918dfca0b719f6a6b26037294e555",
+      "cell_id": "CELL_0110",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_06",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "allowed_scope_hash": "8b4916cf94baf3e667ceef2e105cfbe23e88f89745b29fe6a609f525e1f96d20",
+      "cell_id": "CELL_0111",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_07",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "allowed_scope_hash": "302419c9af5f1ae2e1090d2484632fae8a108b7a0c9de2ce4c0932238a9a7ff4",
+      "cell_id": "CELL_0112",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_08",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "allowed_scope_hash": "d8f1fc03f814ae1ccfe877d89faed0381008b9fde2dcf4823817c5d4988edb0a",
+      "cell_id": "CELL_0113",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_01",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "allowed_scope_hash": "039128d23115d2076278d23500b016af540041845ed57d2596bc5821f68ab1b8",
+      "cell_id": "CELL_0114",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_02",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "allowed_scope_hash": "02d178b2a9f0f4e19cc761c46d3fe4c14d6f19acdbd06468ca8169735f660ac5",
+      "cell_id": "CELL_0115",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_03",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "allowed_scope_hash": "94ea6e71bd4ca8286b894996211a938217a637c5be0987ebd0edeb17effcc1c5",
+      "cell_id": "CELL_0116",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_04",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "allowed_scope_hash": "315b4f6502415cfa59ccf7e3f9a3ee899519bc935fb452aad4706eb890ac1f54",
+      "cell_id": "CELL_0117",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_05",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "allowed_scope_hash": "245be7e28cf0e8978a5340c46d310bed7dd918dfca0b719f6a6b26037294e555",
+      "cell_id": "CELL_0118",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_06",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "allowed_scope_hash": "8b4916cf94baf3e667ceef2e105cfbe23e88f89745b29fe6a609f525e1f96d20",
+      "cell_id": "CELL_0119",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_07",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "allowed_scope_hash": "302419c9af5f1ae2e1090d2484632fae8a108b7a0c9de2ce4c0932238a9a7ff4",
+      "cell_id": "CELL_0120",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_08",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "allowed_scope_hash": "d8f1fc03f814ae1ccfe877d89faed0381008b9fde2dcf4823817c5d4988edb0a",
+      "cell_id": "CELL_0121",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_01",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "allowed_scope_hash": "039128d23115d2076278d23500b016af540041845ed57d2596bc5821f68ab1b8",
+      "cell_id": "CELL_0122",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_02",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "allowed_scope_hash": "02d178b2a9f0f4e19cc761c46d3fe4c14d6f19acdbd06468ca8169735f660ac5",
+      "cell_id": "CELL_0123",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_03",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "allowed_scope_hash": "94ea6e71bd4ca8286b894996211a938217a637c5be0987ebd0edeb17effcc1c5",
+      "cell_id": "CELL_0124",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_04",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "allowed_scope_hash": "315b4f6502415cfa59ccf7e3f9a3ee899519bc935fb452aad4706eb890ac1f54",
+      "cell_id": "CELL_0125",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_05",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "allowed_scope_hash": "245be7e28cf0e8978a5340c46d310bed7dd918dfca0b719f6a6b26037294e555",
+      "cell_id": "CELL_0126",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_06",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "allowed_scope_hash": "8b4916cf94baf3e667ceef2e105cfbe23e88f89745b29fe6a609f525e1f96d20",
+      "cell_id": "CELL_0127",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_07",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "allowed_scope_hash": "302419c9af5f1ae2e1090d2484632fae8a108b7a0c9de2ce4c0932238a9a7ff4",
+      "cell_id": "CELL_0128",
+      "cross_namespace_allowed": false,
+      "cross_tenant_allowed": false,
+      "namespace": "NS_08",
+      "tenant_id": "TENANT_08"
+    }
+  ],
+  "rows_hash": "9a2ea9c670797060a8a5357b47d29e0e3d9a05df5029b37b7130e444849ec97e",
+  "tenant_counts": {
+    "TENANT_01": 16,
+    "TENANT_02": 16,
+    "TENANT_03": 16,
+    "TENANT_04": 16,
+    "TENANT_05": 16,
+    "TENANT_06": 16,
+    "TENANT_07": 16,
+    "TENANT_08": 16
+  }
+}

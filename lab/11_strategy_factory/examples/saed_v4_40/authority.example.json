@@ -1,0 +1,22 @@
+{
+  "boundary_hash": "e13eeab9a4cabbe44662510beb3dfdca6ca38e83cf3d09b06cdd0e45f907b034",
+  "boundary_id": "v440_authority_3afd254b835cb281931ce04d",
+  "failure_action": "ABSTAIN_QUARANTINE_PRESERVE_BASELINE_AND_ESCALATE",
+  "may_activate_capital": false,
+  "may_auto_promote_live": false,
+  "may_claim_external_scale_evidence_without_attachment": false,
+  "may_claim_production_authorization": false,
+  "may_compile_fleet_manifest": true,
+  "may_cross_tenant_route": false,
+  "may_generate_mql5_fleet_mirror": true,
+  "may_mutate_immutable_runtime": false,
+  "may_mutate_ucee": false,
+  "may_quarantine_cells": true,
+  "may_register_context_cells": true,
+  "may_route_synthetic_occurrences": true,
+  "may_simulate_placement": true,
+  "may_simulate_rollout": true,
+  "may_submit_live_order": false,
+  "phase": "SAED_V4_40",
+  "research_only": true
+}

@@ -1,0 +1,47 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed_v4_40/input_occurrences.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "closed_contract": true,
+  "items": {
+    "additionalProperties": false,
+    "properties": {
+      "context_id": {
+        "type": "string"
+      },
+      "context_version": {
+        "type": "integer"
+      },
+      "known_time": {
+        "type": "string"
+      },
+      "namespace": {
+        "type": "string"
+      },
+      "occurrence_id": {
+        "type": "string"
+      },
+      "opportunity_cluster_id": {
+        "type": "string"
+      },
+      "synthetic_fixture": {
+        "type": "boolean"
+      },
+      "tenant_id": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "context_id",
+      "context_version",
+      "known_time",
+      "namespace",
+      "occurrence_id",
+      "opportunity_cluster_id",
+      "synthetic_fixture",
+      "tenant_id"
+    ],
+    "type": "object"
+  },
+  "title": "SAED V4-40 input_occurrences",
+  "type": "array"
+}

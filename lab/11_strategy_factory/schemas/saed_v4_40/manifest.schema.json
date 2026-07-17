@@ -1,0 +1,136 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed_v4_40/manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "cell_count": {
+      "type": "integer"
+    },
+    "cells": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "cell_id": {
+            "type": "string"
+          },
+          "cell_manifest_hash": {
+            "type": "string"
+          },
+          "context_id": {
+            "type": "string"
+          },
+          "context_version": {
+            "type": "integer"
+          },
+          "model_generation": {
+            "type": "integer"
+          },
+          "namespace": {
+            "type": "string"
+          },
+          "replicas": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "failure_domain": {
+                  "type": "string"
+                },
+                "placement_key": {
+                  "type": "string"
+                },
+                "replica_ordinal": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "replica_ordinal",
+                "failure_domain",
+                "placement_key"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "runtime_bundle_hash": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "tenant_id": {
+            "type": "string"
+          },
+          "treatment_universe_hash": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "cell_id",
+          "tenant_id",
+          "namespace",
+          "context_id",
+          "context_version",
+          "model_generation",
+          "runtime_bundle_hash",
+          "treatment_universe_hash",
+          "state",
+          "replicas",
+          "cell_manifest_hash"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "fleet_manifest_hash": {
+      "type": "string"
+    },
+    "fleet_manifest_id": {
+      "type": "string"
+    },
+    "fleet_merkle_root": {
+      "type": "string"
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "placement_hash": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "replica_count": {
+      "type": "integer"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "upstream_certificate_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "upstream_certificate_hash",
+    "registry_hash",
+    "placement_hash",
+    "cell_count",
+    "replica_count",
+    "cells",
+    "fleet_merkle_root",
+    "immutable",
+    "research_only",
+    "production_authorized",
+    "fleet_manifest_id",
+    "fleet_manifest_hash"
+  ],
+  "title": "SAED V4-40 manifest",
+  "type": "object"
+}

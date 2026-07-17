@@ -1,0 +1,17 @@
+{
+  "actual_broker_fleet_reconciliation": "pending_external",
+  "actual_failure_domain_failover": "pending_external",
+  "actual_hundred_context_soak": "pending_external",
+  "actual_metaeditor_compile_matrix": "pending_external",
+  "actual_multi_terminal_replay": "pending_external",
+  "atomic_documents": 134,
+  "capital_activation_allowed": false,
+  "closed_schema_pairs": 52,
+  "mql5_static_files": 32,
+  "passed": true,
+  "phase": "SAED_V4_40",
+  "phase_documents": 28,
+  "production_authorized": false,
+  "python_tests": "passed",
+  "reference_context_cells": 128
+}

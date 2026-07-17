@@ -1,0 +1,14 @@
+class SAEDV440Error(Exception):pass
+class ContractError(SAEDV440Error):pass
+class UpstreamError(SAEDV440Error):pass
+class ConstitutionError(SAEDV440Error):pass
+class RegistryError(SAEDV440Error):pass
+class IsolationError(SAEDV440Error):pass
+class PlacementError(SAEDV440Error):pass
+class QuotaError(SAEDV440Error):pass
+class RoutingError(SAEDV440Error):pass
+class RolloutError(SAEDV440Error):pass
+class HealthError(SAEDV440Error):pass
+class ReconciliationError(SAEDV440Error):pass
+class GovernanceError(SAEDV440Error):pass
+class AuthorityError(SAEDV440Error):pass

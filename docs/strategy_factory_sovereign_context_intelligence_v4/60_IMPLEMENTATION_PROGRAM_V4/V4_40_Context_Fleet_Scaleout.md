@@ -1,58 +1,40 @@
 ---
 title: V4-40 Context Fleet Scaleout
-status: canonical
+status: implemented-reference-external-gates-open
 version: 4.0.0
 created: '2026-07-13'
-updated: '2026-07-13'
-capability_tier: core-production
-tags:
-  - saed-v4
-  - implementation
-  - roadmap
+updated: '2026-07-17'
+capability_tier: core-production-reference
+tags: [saed-v4, implementation, roadmap, v4-40]
 ---
-
 # Phase V4-40: Context Fleet Scaleout
 
 ## Mission
 
-Implement this phase as an additive, closed-contract capability that preserves UCEE authority and can be independently validated.
+Implement an additive Context Fleet control plane capable of deterministic, tenant-isolated and fail-closed scaleout across hundreds of immutable Context versions without Context-specific changes to UCEE.
 
-## Entry gates
+## Implemented slices
 
-- Prior phase artifacts are immutable and hash verified.
-- Data roles, support, treatment universe and authority are frozen.
-- Golden and negative fixtures exist.
-- Compute, exposure and review budgets are approved.
+1. V4-39 certificate and handoff binding.
+2. Eighty-clause fleet constitution and explicit authority boundary.
+3. Immutable 128-cell registry spanning eight tenants and namespaces.
+4. Tenant/namespace isolation matrix and cross-boundary rejection.
+5. Resource classes, failure domains, hard tenant/global quotas and no overcommit.
+6. Deterministic anti-affinity placement of more than two hundred replicas.
+7. Content-addressed fleet manifest and Merkle root.
+8. Closed routing table with default abstention and occurrence-cluster stickiness.
+9. Four-wave canary rollout with no automatic live promotion.
+10. Full known-time health coverage, quarantine and rollback semantics.
+11. Idempotent hash-chained control-plane journal.
+12. Fleet observability, alerts and complete multi-surface reconciliation.
+13. Twelve deterministic chaos/failover drills with baseline preservation.
+14. Eight-role independent governance, evidence bundle, certificate and V4-41 handoff.
+15. Closed schemas, examples, tests, MQL5 static mirrors and extensive Obsidian documentation.
 
-## Engineering slices
+## Acceptance decision
 
-1. Contract and schema freeze.
-2. Deterministic reference implementation.
-3. Golden, negative and mutation tests.
-4. Distributed or advanced challenger implementation.
-5. Model-risk and security review.
-6. Independent reproduction.
-7. Evidence bundle and handoff.
+Accepted as a deterministic synthetic Context Fleet scaleout reference. Actual MetaEditor matrix, MT5 multi-terminal replay, hundred-context soak, failure-domain failover, broker fleet reconciliation, control-plane recovery, key custody and independent SRE approval remain external gates.
 
-## Acceptance gates
+## Claim ceiling
 
-- Zero unknown fields in closed contracts.
-- No future-suffix sensitivity.
-- Deterministic identity and replay.
-- Complete trial/exposure accounting.
-- Baseline preserved.
-- Fail-closed fallback verified.
-- UCEE compatibility and no central-engine mutation.
-- Actual external/MetaEditor evidence distinguished from static evidence.
-
-## Deliverables
-
-- Source modules and tests.
-- Schemas and examples.
-- Obsidian implementation documentation.
-- QA report, inventory, file index and hash ledger.
-- Handoff to the next phase.
-
-## Non-goals
-
-This architecture phase does not claim real alpha, prospective success, runtime parity or production authorization unless actual evidence is attached.
+No real alpha, production throughput, broker deployment, live order submission, capital activation or production authorization is claimed.

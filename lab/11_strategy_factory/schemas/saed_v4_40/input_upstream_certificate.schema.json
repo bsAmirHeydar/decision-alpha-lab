@@ -1,0 +1,88 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed_v4_40/input_upstream_certificate.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "actual_prospective_paper_passed": {
+      "type": "boolean"
+    },
+    "actual_prospective_shadow_passed": {
+      "type": "boolean"
+    },
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "evidence_hash": {
+      "type": "string"
+    },
+    "micro_live_authorized": {
+      "type": "boolean"
+    },
+    "micro_live_eligible": {
+      "type": "boolean"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "order_submission_allowed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "reference_paper_passed": {
+      "type": "boolean"
+    },
+    "reference_shadow_passed": {
+      "type": "boolean"
+    },
+    "release_hash": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "runtime_bundle_hash": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "actual_prospective_paper_passed",
+    "actual_prospective_shadow_passed",
+    "capital_activation_allowed",
+    "certificate_hash",
+    "certificate_id",
+    "claim_ceiling",
+    "evidence_hash",
+    "micro_live_authorized",
+    "micro_live_eligible",
+    "next_phase",
+    "order_submission_allowed",
+    "phase",
+    "production_authorized",
+    "reference_paper_passed",
+    "reference_shadow_passed",
+    "release_hash",
+    "research_only",
+    "runtime_bundle_hash",
+    "status"
+  ],
+  "title": "SAED V4-40 input_upstream_certificate",
+  "type": "object"
+}

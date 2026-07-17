@@ -1,0 +1,84 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed_v4_40/input_quotas.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "global_max_cells": {
+      "type": "integer"
+    },
+    "global_max_cpu_units": {
+      "type": "integer"
+    },
+    "global_max_memory_mb": {
+      "type": "integer"
+    },
+    "global_max_replicas": {
+      "type": "integer"
+    },
+    "hard_enforcement": {
+      "type": "boolean"
+    },
+    "quota_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "tenant_quotas": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "max_cells": {
+            "type": "integer"
+          },
+          "max_cpu_units": {
+            "type": "integer"
+          },
+          "max_memory_mb": {
+            "type": "integer"
+          },
+          "max_replicas": {
+            "type": "integer"
+          },
+          "max_rollout_concurrency": {
+            "type": "integer"
+          },
+          "max_route_rps": {
+            "type": "integer"
+          },
+          "tenant_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "max_cells",
+          "max_cpu_units",
+          "max_memory_mb",
+          "max_replicas",
+          "max_rollout_concurrency",
+          "max_route_rps",
+          "tenant_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "global_max_cells",
+    "global_max_cpu_units",
+    "global_max_memory_mb",
+    "global_max_replicas",
+    "hard_enforcement",
+    "quota_id",
+    "research_only",
+    "tenant_quotas",
+    "version"
+  ],
+  "title": "SAED V4-40 input_quotas",
+  "type": "object"
+}

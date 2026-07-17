@@ -1,0 +1,32 @@
+{
+  "certificate_hash": "913fa097a73b75979064e9a36a55d6f0ea4258cebb0fedaa0ee210d725c8ead4",
+  "phase": "SAED_V4_40",
+  "production_authorized": false,
+  "receipt_hash": "bee83e848fcceb29d37223aa952021933b4b7e36408e6d349c4a4ac60aade4f9",
+  "receipt_id": "v440_upstream_b03e108fa8a4a010deaa9cb5",
+  "release_hash": "f93063c095d7f8704a584b8391bc1307ee7cee8e1c3959292879e1fd899f7680",
+  "required_external_gates": [
+    "BROKER_RECONCILIATION",
+    "CROSS_RUNTIME_STATE_REPLAY",
+    "DEMO_CONNECTIVITY",
+    "INDEPENDENT_MODEL_RISK_APPROVAL",
+    "KEY_CUSTODY",
+    "KILL_SWITCH_LIVE_DRILL",
+    "LATENCY_CAPTURE",
+    "LIVE_CONNECTIVITY",
+    "METAEDITOR_COMPILE",
+    "MICRO_LIVE_AUTHORIZATION",
+    "POSITION_SNAPSHOT",
+    "PROSPECTIVE_PAPER_PERIOD",
+    "PROSPECTIVE_SHADOW_PERIOD",
+    "REJECT_CAPTURE",
+    "SESSION_CALENDAR",
+    "SPREAD_CAPTURE",
+    "SYMBOL_METADATA",
+    "TERMINAL_VECTOR_REPLAY"
+  ],
+  "research_only": true,
+  "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+  "upstream_phase": "SAED_V4_39",
+  "verified": true
+}

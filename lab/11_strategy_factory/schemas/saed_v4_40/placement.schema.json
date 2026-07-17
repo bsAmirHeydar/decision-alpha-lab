@@ -1,0 +1,133 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed_v4_40/placement.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "assignment_count": {
+      "type": "integer"
+    },
+    "assignments": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "cell_id": {
+            "type": "string"
+          },
+          "cpu_units": {
+            "type": "integer"
+          },
+          "failure_domain": {
+            "type": "string"
+          },
+          "memory_mb": {
+            "type": "integer"
+          },
+          "placement_key": {
+            "type": "string"
+          },
+          "replica_ordinal": {
+            "type": "integer"
+          },
+          "resource_class": {
+            "type": "string"
+          },
+          "tenant_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "cell_id",
+          "replica_ordinal",
+          "tenant_id",
+          "resource_class",
+          "failure_domain",
+          "cpu_units",
+          "memory_mb",
+          "placement_key"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "catalog_hash": {
+      "type": "string"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "domain_usage": {
+      "additionalProperties": false,
+      "properties": {
+        "FD_EU_A": {
+          "type": "integer"
+        },
+        "FD_EU_B": {
+          "type": "integer"
+        },
+        "FD_EU_C": {
+          "type": "integer"
+        },
+        "FD_EU_D": {
+          "type": "integer"
+        },
+        "FD_US_A": {
+          "type": "integer"
+        },
+        "FD_US_B": {
+          "type": "integer"
+        },
+        "FD_US_C": {
+          "type": "integer"
+        },
+        "FD_US_D": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "FD_EU_A",
+        "FD_EU_B",
+        "FD_EU_C",
+        "FD_EU_D",
+        "FD_US_A",
+        "FD_US_B",
+        "FD_US_C",
+        "FD_US_D"
+      ],
+      "type": "object"
+    },
+    "overcommit": {
+      "type": "boolean"
+    },
+    "placement_hash": {
+      "type": "string"
+    },
+    "placement_id": {
+      "type": "string"
+    },
+    "quota_hash": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "registry_hash",
+    "catalog_hash",
+    "quota_hash",
+    "assignments",
+    "assignment_count",
+    "domain_usage",
+    "deterministic",
+    "overcommit",
+    "research_only",
+    "placement_id",
+    "placement_hash"
+  ],
+  "title": "SAED V4-40 placement",
+  "type": "object"
+}

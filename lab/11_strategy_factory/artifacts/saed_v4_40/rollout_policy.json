@@ -1,0 +1,62 @@
+{
+  "automatic_live_promotion_allowed": false,
+  "error_rate_threshold": 0.01,
+  "frozen_policy_hash": "e70ca114aa56d5607a5fd35048906c5eb236896a6ddabea4fcb0a31c8b481e63",
+  "frozen_policy_id": "v440_rollout_policy_0412a0fd2bac500e38c0d3f9",
+  "latency_p99_threshold_ms": 250,
+  "max_concurrent_tenant_rollouts": 4,
+  "minimum_canary_cells": 8,
+  "policy_id": "SAED_V4_40_ROLLOUT_POLICY",
+  "reconciliation_delta_threshold": 1e-06,
+  "research_only": true,
+  "rollback_target": "REGISTERED",
+  "version": "1.0.0",
+  "waves": [
+    {
+      "fraction_bps": 500,
+      "minimum_observations": 100,
+      "ordinal": 0,
+      "required_gates": [
+        "HEALTH",
+        "RECONCILIATION"
+      ],
+      "wave_id": "CANARY"
+    },
+    {
+      "fraction_bps": 2500,
+      "minimum_observations": 500,
+      "ordinal": 1,
+      "required_gates": [
+        "HEALTH",
+        "RECONCILIATION",
+        "CHAOS"
+      ],
+      "wave_id": "WAVE_1"
+    },
+    {
+      "fraction_bps": 5000,
+      "minimum_observations": 1000,
+      "ordinal": 2,
+      "required_gates": [
+        "HEALTH",
+        "RECONCILIATION",
+        "CHAOS",
+        "SRE_REVIEW"
+      ],
+      "wave_id": "WAVE_2"
+    },
+    {
+      "fraction_bps": 10000,
+      "minimum_observations": 2000,
+      "ordinal": 3,
+      "required_gates": [
+        "HEALTH",
+        "RECONCILIATION",
+        "CHAOS",
+        "SRE_REVIEW",
+        "MODEL_RISK"
+      ],
+      "wave_id": "FLEET_REFERENCE"
+    }
+  ]
+}

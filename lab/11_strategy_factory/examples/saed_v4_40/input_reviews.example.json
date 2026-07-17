@@ -1,0 +1,74 @@
+[
+  {
+    "conflicts_declared": true,
+    "decision": "ACCEPT_REFERENCE",
+    "evidence_hash": "f46d11090581a3553099c7ce48ea76b374a0a83bb44b651d42b9d93a64215bb1",
+    "independent": true,
+    "reviewer_id": "REVIEWER_01",
+    "role": "FLEET_ARCHITECT",
+    "scope": "SAED_V4_40_REFERENCE_ONLY"
+  },
+  {
+    "conflicts_declared": true,
+    "decision": "ACCEPT_REFERENCE",
+    "evidence_hash": "b948342120b39d15cb07291ccdb96441acbc2231f1dbcf2c8fdd0bd336f59014",
+    "independent": true,
+    "reviewer_id": "REVIEWER_02",
+    "role": "DATA_GOVERNANCE",
+    "scope": "SAED_V4_40_REFERENCE_ONLY"
+  },
+  {
+    "conflicts_declared": true,
+    "decision": "ACCEPT_REFERENCE",
+    "evidence_hash": "f4a6459cff0632fef4f2f616b36bcd88575fdf9429e03099a9724e287385c5ad",
+    "independent": true,
+    "reviewer_id": "REVIEWER_03",
+    "role": "MODEL_RISK",
+    "scope": "SAED_V4_40_REFERENCE_ONLY"
+  },
+  {
+    "conflicts_declared": true,
+    "decision": "ACCEPT_REFERENCE",
+    "evidence_hash": "c3a409ae6f7ebfb40817925a51de04278ebbb00c0ee492b0265091914d6af9d3",
+    "independent": true,
+    "reviewer_id": "REVIEWER_04",
+    "role": "SECURITY",
+    "scope": "SAED_V4_40_REFERENCE_ONLY"
+  },
+  {
+    "conflicts_declared": true,
+    "decision": "ACCEPT_REFERENCE",
+    "evidence_hash": "4e145c982015d08b65c6313594e2c430278bdd4358c47ab908a1aa5ba4a096a1",
+    "independent": true,
+    "reviewer_id": "REVIEWER_05",
+    "role": "SRE",
+    "scope": "SAED_V4_40_REFERENCE_ONLY"
+  },
+  {
+    "conflicts_declared": true,
+    "decision": "ACCEPT_REFERENCE",
+    "evidence_hash": "5067555ab082213e6848c4237935a59a5f813dd0144160628787bcfaca64d949",
+    "independent": true,
+    "reviewer_id": "REVIEWER_06",
+    "role": "MQL5_RUNTIME",
+    "scope": "SAED_V4_40_REFERENCE_ONLY"
+  },
+  {
+    "conflicts_declared": true,
+    "decision": "ACCEPT_REFERENCE",
+    "evidence_hash": "a7b084fc8c6cc9284ce23fd1132801b32ba1b530892fd0b7dcd51b8956b1cc48",
+    "independent": true,
+    "reviewer_id": "REVIEWER_07",
+    "role": "INDEPENDENT_REPLICATION",
+    "scope": "SAED_V4_40_REFERENCE_ONLY"
+  },
+  {
+    "conflicts_declared": true,
+    "decision": "ACCEPT_REFERENCE",
+    "evidence_hash": "876c5f9e6403f9c51eeaa4ee51cd7b03934803ce838ffecdc26a14cce0c2d249",
+    "independent": true,
+    "reviewer_id": "REVIEWER_08",
+    "role": "UCEE_AUTHORITY",
+    "scope": "SAED_V4_40_REFERENCE_ONLY"
+  }
+]

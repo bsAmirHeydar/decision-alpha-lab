@@ -1,0 +1,118 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed_v4_40/rollout.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "automatic_live_promotion": {
+      "type": "boolean"
+    },
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "eligible_cells": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "cell_id": {
+            "type": "string"
+          },
+          "event_hash": {
+            "type": "string"
+          },
+          "event_id": {
+            "type": "string"
+          },
+          "from_state": {
+            "type": "string"
+          },
+          "gates_passed": {
+            "type": "boolean"
+          },
+          "live_side_effects_allowed": {
+            "type": "boolean"
+          },
+          "manual_live_authorization": {
+            "type": "boolean"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "previous_hash": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "to_state": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "cell_id",
+          "from_state",
+          "to_state",
+          "gates_passed",
+          "manual_live_authorization",
+          "live_side_effects_allowed",
+          "reason",
+          "ordinal",
+          "previous_hash",
+          "event_id",
+          "event_hash"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "fleet_reference_ready": {
+      "type": "boolean"
+    },
+    "policy_hash": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "quarantined_cells": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "rollout_hash": {
+      "type": "string"
+    },
+    "rollout_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "registry_hash",
+    "policy_hash",
+    "events",
+    "eligible_cells",
+    "quarantined_cells",
+    "fleet_reference_ready",
+    "automatic_live_promotion",
+    "capital_activation_allowed",
+    "production_authorized",
+    "research_only",
+    "rollout_id",
+    "rollout_hash"
+  ],
+  "title": "SAED V4-40 rollout",
+  "type": "object"
+}

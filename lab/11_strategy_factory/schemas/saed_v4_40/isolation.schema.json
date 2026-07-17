@@ -1,0 +1,174 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed_v4_40/isolation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "allowed_same_tenant_pairs": {
+      "type": "integer"
+    },
+    "cross_namespace_allowed": {
+      "type": "boolean"
+    },
+    "cross_tenant_allowed": {
+      "type": "boolean"
+    },
+    "denied_cross_tenant_pairs": {
+      "type": "integer"
+    },
+    "matrix_hash": {
+      "type": "string"
+    },
+    "matrix_id": {
+      "type": "string"
+    },
+    "namespace_counts": {
+      "additionalProperties": false,
+      "properties": {
+        "NS_01": {
+          "type": "integer"
+        },
+        "NS_02": {
+          "type": "integer"
+        },
+        "NS_03": {
+          "type": "integer"
+        },
+        "NS_04": {
+          "type": "integer"
+        },
+        "NS_05": {
+          "type": "integer"
+        },
+        "NS_06": {
+          "type": "integer"
+        },
+        "NS_07": {
+          "type": "integer"
+        },
+        "NS_08": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "NS_01",
+        "NS_02",
+        "NS_03",
+        "NS_04",
+        "NS_05",
+        "NS_06",
+        "NS_07",
+        "NS_08"
+      ],
+      "type": "object"
+    },
+    "possible_pair_count": {
+      "type": "integer"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "row_count": {
+      "type": "integer"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "allowed_scope_hash": {
+            "type": "string"
+          },
+          "cell_id": {
+            "type": "string"
+          },
+          "cross_namespace_allowed": {
+            "type": "boolean"
+          },
+          "cross_tenant_allowed": {
+            "type": "boolean"
+          },
+          "namespace": {
+            "type": "string"
+          },
+          "tenant_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "cell_id",
+          "tenant_id",
+          "namespace",
+          "allowed_scope_hash",
+          "cross_tenant_allowed",
+          "cross_namespace_allowed"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "rows_hash": {
+      "type": "string"
+    },
+    "tenant_counts": {
+      "additionalProperties": false,
+      "properties": {
+        "TENANT_01": {
+          "type": "integer"
+        },
+        "TENANT_02": {
+          "type": "integer"
+        },
+        "TENANT_03": {
+          "type": "integer"
+        },
+        "TENANT_04": {
+          "type": "integer"
+        },
+        "TENANT_05": {
+          "type": "integer"
+        },
+        "TENANT_06": {
+          "type": "integer"
+        },
+        "TENANT_07": {
+          "type": "integer"
+        },
+        "TENANT_08": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "TENANT_01",
+        "TENANT_02",
+        "TENANT_03",
+        "TENANT_04",
+        "TENANT_05",
+        "TENANT_06",
+        "TENANT_07",
+        "TENANT_08"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "registry_hash",
+    "rows_hash",
+    "row_count",
+    "possible_pair_count",
+    "allowed_same_tenant_pairs",
+    "denied_cross_tenant_pairs",
+    "tenant_counts",
+    "namespace_counts",
+    "cross_tenant_allowed",
+    "cross_namespace_allowed",
+    "rows",
+    "research_only",
+    "matrix_id",
+    "matrix_hash"
+  ],
+  "title": "SAED V4-40 isolation",
+  "type": "object"
+}

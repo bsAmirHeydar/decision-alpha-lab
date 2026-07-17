@@ -1,0 +1,59 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed_v4_40/input_health_samples.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "closed_contract": true,
+  "items": {
+    "additionalProperties": false,
+    "properties": {
+      "cell_id": {
+        "type": "string"
+      },
+      "error_rate": {
+        "type": "number"
+      },
+      "future_suffix_used": {
+        "type": "boolean"
+      },
+      "heartbeat_fresh": {
+        "type": "boolean"
+      },
+      "last_heartbeat": {
+        "type": "string"
+      },
+      "latency_p50_ms": {
+        "type": "integer"
+      },
+      "latency_p99_ms": {
+        "type": "integer"
+      },
+      "queue_depth": {
+        "type": "integer"
+      },
+      "reconciliation_delta": {
+        "type": "number"
+      },
+      "restart_count": {
+        "type": "integer"
+      },
+      "sample_count": {
+        "type": "integer"
+      }
+    },
+    "required": [
+      "cell_id",
+      "error_rate",
+      "future_suffix_used",
+      "heartbeat_fresh",
+      "last_heartbeat",
+      "latency_p50_ms",
+      "latency_p99_ms",
+      "queue_depth",
+      "reconciliation_delta",
+      "restart_count",
+      "sample_count"
+    ],
+    "type": "object"
+  },
+  "title": "SAED V4-40 input_health_samples",
+  "type": "array"
+}

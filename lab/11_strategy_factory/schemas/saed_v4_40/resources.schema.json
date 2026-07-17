@@ -1,0 +1,116 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed_v4_40/resources.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "catalog_hash": {
+      "type": "string"
+    },
+    "catalog_id": {
+      "type": "string"
+    },
+    "classes": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "class_id": {
+            "type": "string"
+          },
+          "cpu_units": {
+            "type": "integer"
+          },
+          "disk_mb": {
+            "type": "integer"
+          },
+          "max_replicas": {
+            "type": "integer"
+          },
+          "memory_mb": {
+            "type": "integer"
+          },
+          "priority": {
+            "type": "integer"
+          },
+          "requires_accelerator": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "class_id",
+          "cpu_units",
+          "disk_mb",
+          "max_replicas",
+          "memory_mb",
+          "priority",
+          "requires_accelerator"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "failure_domains": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "capacity_units": {
+            "type": "integer"
+          },
+          "domain_id": {
+            "type": "string"
+          },
+          "healthy": {
+            "type": "boolean"
+          },
+          "region": {
+            "type": "string"
+          },
+          "zone": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "capacity_units",
+          "domain_id",
+          "healthy",
+          "region",
+          "zone"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "frozen_catalog_hash": {
+      "type": "string"
+    },
+    "frozen_catalog_id": {
+      "type": "string"
+    },
+    "overcommit_allowed": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "scheduler_capacity": {
+      "type": "integer"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "catalog_id",
+    "classes",
+    "failure_domains",
+    "overcommit_allowed",
+    "research_only",
+    "scheduler_capacity",
+    "version",
+    "catalog_hash",
+    "frozen_catalog_id",
+    "frozen_catalog_hash"
+  ],
+  "title": "SAED V4-40 resources",
+  "type": "object"
+}

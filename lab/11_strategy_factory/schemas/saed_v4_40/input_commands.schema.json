@@ -1,0 +1,51 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed_v4_40/input_commands.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "closed_contract": true,
+  "items": {
+    "additionalProperties": false,
+    "properties": {
+      "action": {
+        "type": "string"
+      },
+      "actor_role": {
+        "type": "string"
+      },
+      "approved": {
+        "type": "boolean"
+      },
+      "cell_id": {
+        "type": "string"
+      },
+      "command_id": {
+        "type": "string"
+      },
+      "idempotency_key": {
+        "type": "string"
+      },
+      "known_time": {
+        "type": "string"
+      },
+      "synthetic_fixture": {
+        "type": "boolean"
+      },
+      "tenant_id": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "action",
+      "actor_role",
+      "approved",
+      "cell_id",
+      "command_id",
+      "idempotency_key",
+      "known_time",
+      "synthetic_fixture",
+      "tenant_id"
+    ],
+    "type": "object"
+  },
+  "title": "SAED V4-40 input_commands",
+  "type": "array"
+}

@@ -1,0 +1,1335 @@
+{
+  "alerts": [
+    {
+      "alert_type": "UNHEALTHY_CELL",
+      "automatic_action": "QUARANTINE",
+      "cell_id": "CELL_0122",
+      "severity": "HIGH"
+    },
+    {
+      "alert_type": "UNHEALTHY_CELL",
+      "automatic_action": "QUARANTINE",
+      "cell_id": "CELL_0124",
+      "severity": "HIGH"
+    },
+    {
+      "alert_type": "UNHEALTHY_CELL",
+      "automatic_action": "QUARANTINE",
+      "cell_id": "CELL_0128",
+      "severity": "HIGH"
+    }
+  ],
+  "cell_rows": [
+    {
+      "cell_id": "CELL_0001",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0002",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0003",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0004",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0005",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0006",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0007",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0008",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0009",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0010",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0011",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0012",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0013",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0014",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0015",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0016",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0017",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0018",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0019",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0020",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0021",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0022",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0023",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0024",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0025",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0026",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0027",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0028",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0029",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0030",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0031",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0032",
+      "control_events": 1,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0033",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0034",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0035",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0036",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0037",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0038",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0039",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0040",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0041",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0042",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0043",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0044",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0045",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0046",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0047",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0048",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0049",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0050",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0051",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0052",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0053",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0054",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0055",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0056",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0057",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0058",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0059",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0060",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0061",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0062",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0063",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0064",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0065",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0066",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0067",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0068",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0069",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0070",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0071",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0072",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0073",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0074",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0075",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0076",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0077",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0078",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0079",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0080",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0081",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0082",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0083",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0084",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0085",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0086",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0087",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0088",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0089",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0090",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0091",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0092",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0093",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0094",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0095",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0096",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 2,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0097",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0098",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0099",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0100",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0101",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0102",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0103",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0104",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0105",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0106",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0107",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0108",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0109",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0110",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0111",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0112",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0113",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0114",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0115",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0116",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0117",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0118",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0119",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0120",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": true,
+      "route_present": true,
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0121",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": false,
+      "route_present": true,
+      "state": "REGISTERED",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0122",
+      "control_events": 0,
+      "health_status": "UNHEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": false,
+      "route_present": true,
+      "state": "REGISTERED",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0123",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": false,
+      "route_present": true,
+      "state": "REGISTERED",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0124",
+      "control_events": 0,
+      "health_status": "UNHEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": false,
+      "route_present": true,
+      "state": "REGISTERED",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0125",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": false,
+      "route_present": true,
+      "state": "REGISTERED",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0126",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": false,
+      "route_present": true,
+      "state": "REGISTERED",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0127",
+      "control_events": 0,
+      "health_status": "HEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": false,
+      "route_present": true,
+      "state": "REGISTERED",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0128",
+      "control_events": 0,
+      "health_status": "UNHEALTHY",
+      "replica_count": 1,
+      "rollout_eligible": false,
+      "route_present": true,
+      "state": "REGISTERED",
+      "tenant_id": "TENANT_08"
+    }
+  ],
+  "domain_replica_counts": {
+    "FD_EU_A": 30,
+    "FD_EU_B": 29,
+    "FD_EU_C": 27,
+    "FD_EU_D": 30,
+    "FD_US_A": 26,
+    "FD_US_B": 27,
+    "FD_US_C": 27,
+    "FD_US_D": 28
+  },
+  "fleet_health_ratio": 0.9765625,
+  "live_order_side_effects": 0,
+  "observability_hash": "2201083c342a309e3132ab4e21db20009e5e3cf816fb1b385622a5099ff1de24",
+  "observability_id": "v440_observability_6861efc60a47518ed171cca3",
+  "phase": "SAED_V4_40",
+  "registry_state_counts": {
+    "QUALIFIED_REFERENCE": 120,
+    "REGISTERED": 8
+  },
+  "research_only": true,
+  "tenant_counts": {
+    "TENANT_01": 16,
+    "TENANT_02": 16,
+    "TENANT_03": 16,
+    "TENANT_04": 16,
+    "TENANT_05": 16,
+    "TENANT_06": 16,
+    "TENANT_07": 16,
+    "TENANT_08": 16
+  },
+  "unknown_cells": 0
+}

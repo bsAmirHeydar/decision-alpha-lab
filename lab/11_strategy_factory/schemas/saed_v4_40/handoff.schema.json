@@ -1,0 +1,69 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed_v4_40/handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "allowed_next_work": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "forbidden_next_work": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "release_hash": {
+      "type": "string"
+    },
+    "required_external_gates": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "kind",
+    "phase",
+    "next_phase",
+    "certificate_hash",
+    "release_hash",
+    "allowed_next_work",
+    "forbidden_next_work",
+    "required_external_gates",
+    "research_only",
+    "production_authorized",
+    "handoff_id",
+    "handoff_hash"
+  ],
+  "title": "SAED V4-40 handoff",
+  "type": "object"
+}

@@ -1,0 +1,63 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed_v4_40/registry_index.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "cell_count": {
+      "type": "integer"
+    },
+    "index_hash": {
+      "type": "string"
+    },
+    "index_id": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "tenant_count": {
+      "type": "integer"
+    },
+    "tenant_rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "cell_count": {
+            "type": "integer"
+          },
+          "cell_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "tenant_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "tenant_id",
+          "cell_ids",
+          "cell_count"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "registry_hash",
+    "tenant_rows",
+    "cell_count",
+    "tenant_count",
+    "research_only",
+    "index_id",
+    "index_hash"
+  ],
+  "title": "SAED V4-40 registry_index",
+  "type": "object"
+}

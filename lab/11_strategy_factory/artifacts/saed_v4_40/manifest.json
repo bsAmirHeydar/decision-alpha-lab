@@ -1,0 +1,2928 @@
+{
+  "cell_count": 128,
+  "cells": [
+    {
+      "cell_id": "CELL_0001",
+      "cell_manifest_hash": "8f8c1577c6dbea4d701d45f2f87685d8a6fe7f2830b4e9fa14a820c343989fe5",
+      "context_id": "CTX_001",
+      "context_version": 1,
+      "model_generation": 1,
+      "namespace": "NS_01",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "48c02063482ddd5ceeb6dd5221db24a0d13e15fab9ca011f9a4aae62a0b82d5b",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_B",
+          "placement_key": "41f95cc54fe94f43048078d51e7a78ac6a4277c5aac7aa79d904ad53311fc32b",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01",
+      "treatment_universe_hash": "dffbc0aa50d8484d5e9ded6cac88c6857fe3f3f7203eb28c0f9bdea25955c434"
+    },
+    {
+      "cell_id": "CELL_0002",
+      "cell_manifest_hash": "9ba712c219747f2bf662d3ab7181b33df339a0ed5c71f51cb052e45814473cdf",
+      "context_id": "CTX_002",
+      "context_version": 1,
+      "model_generation": 2,
+      "namespace": "NS_02",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_C",
+          "placement_key": "4b45547cd3ee527bb151e2c05999c1c42e504963aa72fc1b0252785455560e98",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "bf4a36e7c4785779097db21d698447649720df41f03c65a269a0c22810b6af20",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02",
+      "treatment_universe_hash": "60c5848e8ef43acf13e616ce9ea5fd5a619d633efe751eb1fb36020a47d81fcf"
+    },
+    {
+      "cell_id": "CELL_0003",
+      "cell_manifest_hash": "5d3ce89de6171a31eea83438d2c7151c6e8ee53538f2847db3410df5d63c8443",
+      "context_id": "CTX_003",
+      "context_version": 1,
+      "model_generation": 3,
+      "namespace": "NS_03",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_A",
+          "placement_key": "f0cb50a37a4847b36f4b27a384cff74092c0542b94253673d3aea2185aeece22",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_B",
+          "placement_key": "9f6bfac4898c96870f4a5e764992a42f2f0bb92a419365fc7d5e355ebc22b72d",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03",
+      "treatment_universe_hash": "d9ba813c908dff54974cb6c3fb70721384f528697ed2899f01406734add65859"
+    },
+    {
+      "cell_id": "CELL_0004",
+      "cell_manifest_hash": "8bb7bd0fb7a38ac417e4362a8cb1cbb4495c9838327c6f1702b610ca2be2181c",
+      "context_id": "CTX_004",
+      "context_version": 1,
+      "model_generation": 4,
+      "namespace": "NS_04",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_C",
+          "placement_key": "484ff7a54f2d49170017a57f10101c4cc3a837b1c6add278dd3de01e4bc1e2dc",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_D",
+          "placement_key": "6fa3a6123e1f0cb80d84a7b7873d485f901bd7606fee5ddad3b735a778b79229",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04",
+      "treatment_universe_hash": "0962a90edf53e5ea3b8505edfeaae093e2b40b40386ac73b21108f94ca88ff2f"
+    },
+    {
+      "cell_id": "CELL_0005",
+      "cell_manifest_hash": "d9cec8617c0d6304f786403a1996c91ecda887d20beb2e26e41ec8f99e12e7e6",
+      "context_id": "CTX_005",
+      "context_version": 1,
+      "model_generation": 1,
+      "namespace": "NS_05",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "e87be826ea555f146905c423a28926406e1e4a185b5328c8a5c11a6de2ba75d3",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_B",
+          "placement_key": "85df594be3257c4e6f03928e224b3171af65d0896427ff65ece7893cf67d5577",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05",
+      "treatment_universe_hash": "f4b4f52850a992fd3679fd7f36bca1394c393598e0b8a5665fbff2d54ed29fa4"
+    },
+    {
+      "cell_id": "CELL_0006",
+      "cell_manifest_hash": "ebd689c8a8e0567752992928ecf3be54192160c5106a3333ba865ad5047ba533",
+      "context_id": "CTX_006",
+      "context_version": 1,
+      "model_generation": 2,
+      "namespace": "NS_06",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_C",
+          "placement_key": "9033551be88caabefdef25df0265cb06efd3509060466795ccd2f22ada562493",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_D",
+          "placement_key": "4c01051bc8a310741aba0523f1d9e84f01d9cd1cd3c4b3fe75f67a146c804296",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06",
+      "treatment_universe_hash": "a8d353656ecf2133743ab8896fab104c3fdf461d1853d02ffe2ee523f35c7127"
+    },
+    {
+      "cell_id": "CELL_0007",
+      "cell_manifest_hash": "ba8555a53c4b8f86c3e185368b5301ccb84ca67a9c123de987c14d8b8ccb93c6",
+      "context_id": "CTX_007",
+      "context_version": 1,
+      "model_generation": 3,
+      "namespace": "NS_07",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_C",
+          "placement_key": "6629d610c977cb8fbaebbb3af1d3bf7f3d525376549d5fc88279e9c82e0d3c03",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "50a9c1aee997703dc31dd3f4bafce3e5f9abe5e70c7abd9d0cb8b530fa624866",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07",
+      "treatment_universe_hash": "bb1e90d09c0d458affa32f04a969f13d5882d54d58107296308d10bcdac2bc2b"
+    },
+    {
+      "cell_id": "CELL_0008",
+      "cell_manifest_hash": "ce803c1334be7e14f7af1e3b9e54e3df1dc0ab8acb2e5548cf4f754c0a8aae65",
+      "context_id": "CTX_008",
+      "context_version": 1,
+      "model_generation": 4,
+      "namespace": "NS_08",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "c4fd76b45dec7c653f237d1d9839ef3ff30ef01e49d7d9081c87e0a59bb85cc6",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_B",
+          "placement_key": "b7e325a522402152fd4783946f8c4e217e4d4b9b24c7d391911435d7662b62a9",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08",
+      "treatment_universe_hash": "6beed1de724ffe9394a9b51e6c5f9d8245cc72d6c44fd9c68ffd40a984718bee"
+    },
+    {
+      "cell_id": "CELL_0009",
+      "cell_manifest_hash": "622ef90d44bc49e5d3ab8f587eb9c2933128f98e8af456e51f1210317f2fc2a7",
+      "context_id": "CTX_009",
+      "context_version": 1,
+      "model_generation": 1,
+      "namespace": "NS_01",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_C",
+          "placement_key": "5158786a2c725ba4d6c69a444a4b05c6bbbfe8a2039ed5f76d5aaefad31f1c79",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "3ade66f59d9d2fec699debb1da7da3555e41efe6dd23b34bcdb5dd88bec6c811",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01",
+      "treatment_universe_hash": "dd2186c1ba1312eb95c32d360c01fe9612befb9333df40e856d980ede163dd9d"
+    },
+    {
+      "cell_id": "CELL_0010",
+      "cell_manifest_hash": "b7a39f9f0610305a6cc00120d14d176a486532b2a571ba64272f5b4631b7e6d3",
+      "context_id": "CTX_010",
+      "context_version": 1,
+      "model_generation": 2,
+      "namespace": "NS_02",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_A",
+          "placement_key": "1ae1f08bdcffe016d3638d13fc2a0f27aff7cb75948e3569c0ada67449104fac",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_B",
+          "placement_key": "6db49b90fae0d33f1e3547700ae9559860e37d69699a8d891f317f841cb2987a",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02",
+      "treatment_universe_hash": "ce49d2e7e57ad62c2ab3f63c8e6684220f02b92cc7ba17552afb207c4ae1d591"
+    },
+    {
+      "cell_id": "CELL_0011",
+      "cell_manifest_hash": "b0c18554534427afdc1ec19cd7ce9efc2c073d0975a88a8ad973a80b3e20eaaf",
+      "context_id": "CTX_011",
+      "context_version": 1,
+      "model_generation": 3,
+      "namespace": "NS_03",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "0167bf0f3d7361e7281903daab4bfc6f2098f43d5ea700331058c1631203ef83",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_B",
+          "placement_key": "24dfc46d8e582f9687aafa9b9a103af85696fd633a050b5318e924ba279bc36f",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03",
+      "treatment_universe_hash": "918cedac822f63140bec612da4b507d76719dbdd692e44ab43da2a82261d2e73"
+    },
+    {
+      "cell_id": "CELL_0012",
+      "cell_manifest_hash": "ea6533bddee0fc10f75fa9eb99cec62bf6a42a786b10512f15144f16a5e29a60",
+      "context_id": "CTX_012",
+      "context_version": 1,
+      "model_generation": 4,
+      "namespace": "NS_04",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_A",
+          "placement_key": "58780b9954076bbea0abc5ed9b08858274403a671a4f26828bbfcd25b4c4b40a",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_B",
+          "placement_key": "29d79f25adbe64dad692b8e9b143df9146c8e10526003583cbfb9c3c1ceddc24",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04",
+      "treatment_universe_hash": "7ebac44738748a1c46e47c68a9e059e63d50ec55c5bce395eb0b7a3bef68d5d9"
+    },
+    {
+      "cell_id": "CELL_0013",
+      "cell_manifest_hash": "1b48de25fab09446d26aa24dd9a500633aabe96def1c43d3b13c70ec06dc49ff",
+      "context_id": "CTX_013",
+      "context_version": 1,
+      "model_generation": 1,
+      "namespace": "NS_05",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_C",
+          "placement_key": "f3da252fe3c2e7337a639e1d028e010111e3ff9611553f30936ef931f6a6c60d",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_D",
+          "placement_key": "3be2a2669f6fd0407899cbd8e810082615fe7ddf517a1c848e35ec95f982257c",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05",
+      "treatment_universe_hash": "a0667c0cdbf55a16fea6706f3478c405c0dcf8ba6b58cc994058bb2ea34de14d"
+    },
+    {
+      "cell_id": "CELL_0014",
+      "cell_manifest_hash": "38856a937c1131d7f6adefeb1ee7f4782bced7c876e4669cdd2331e9b3b0795a",
+      "context_id": "CTX_014",
+      "context_version": 1,
+      "model_generation": 2,
+      "namespace": "NS_06",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_C",
+          "placement_key": "2470d643d3e00604616dd6601379e655af1116bcaa9517506cb9ef89dac22e29",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_D",
+          "placement_key": "c89400b221d0544d33407e96ef0195ca0c32b2d01b092c92a8abe935b799b879",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06",
+      "treatment_universe_hash": "b73ab1f0d916a986ef3871774fe828098f50c326460dbe6053b19dca937b10ae"
+    },
+    {
+      "cell_id": "CELL_0015",
+      "cell_manifest_hash": "42b6ec33dcb3b1d3ebcc198dbd7231216b77f07e9637193c84a0c6c8603cee8f",
+      "context_id": "CTX_015",
+      "context_version": 1,
+      "model_generation": 3,
+      "namespace": "NS_07",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "3ab56ebebbdaa8bc773e781ae7bad723640988dfba58cd1fae2e32a0e230c22d",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_B",
+          "placement_key": "1f311859a4f032268e8ac1cf2bf8dca732dd4bd3e7007b342df8b90809906051",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07",
+      "treatment_universe_hash": "ea20cf8b37c329eebc0ec4352963501939ea3cfb7ce8be089669b78741aace05"
+    },
+    {
+      "cell_id": "CELL_0016",
+      "cell_manifest_hash": "b4183b87789b313d3d022bcd6132c86d848602f300c363f62862f07b834d3063",
+      "context_id": "CTX_016",
+      "context_version": 1,
+      "model_generation": 4,
+      "namespace": "NS_08",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_C",
+          "placement_key": "809d2fcf253cf3d232137e2bd45ddfc78d31a20594ec35299e0b381b787786ac",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "ac3af7c96854ade857a34b040b9d5cfd3fad30dac89aea384b589a80d4e24e89",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08",
+      "treatment_universe_hash": "f78ebe32d1c07773fb2352c7f215cb4402ca2cf6acb4ba35047750eedbea40ce"
+    },
+    {
+      "cell_id": "CELL_0017",
+      "cell_manifest_hash": "0b83140fe5d8856d5b22a59f67cdf0a33f7392c110f38da130d52ac0704ae2bf",
+      "context_id": "CTX_017",
+      "context_version": 1,
+      "model_generation": 1,
+      "namespace": "NS_01",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_C",
+          "placement_key": "cf0113cf0d57179d305060678541b0589b59a92f0b56ab0f32c6ae0de94a1124",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "7814724f0667dfc31c848f4ac7c464f49fead873d820a48aac5409e53eb7f214",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01",
+      "treatment_universe_hash": "dffbc0aa50d8484d5e9ded6cac88c6857fe3f3f7203eb28c0f9bdea25955c434"
+    },
+    {
+      "cell_id": "CELL_0018",
+      "cell_manifest_hash": "4ba600aaa9914406915af8d0a96f25312b96332af0c1914c68cf65463b79e891",
+      "context_id": "CTX_018",
+      "context_version": 1,
+      "model_generation": 2,
+      "namespace": "NS_02",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_C",
+          "placement_key": "870f2ef1d8b93c288b8996366fb5ac4fe42dedb1ff50f4f88816da182f6c4958",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_D",
+          "placement_key": "e481524505b6179a3c568a27be7939b703194045fd23bec7d3c6b4f54e6ede01",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02",
+      "treatment_universe_hash": "60c5848e8ef43acf13e616ce9ea5fd5a619d633efe751eb1fb36020a47d81fcf"
+    },
+    {
+      "cell_id": "CELL_0019",
+      "cell_manifest_hash": "82e16d075a5f119f1d67e455f4d1cd6c8f1a7d007184ed097d9a94a956b5ba3a",
+      "context_id": "CTX_019",
+      "context_version": 1,
+      "model_generation": 3,
+      "namespace": "NS_03",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_A",
+          "placement_key": "303ec59d97f70c875a9a42e6c82c469de26ce816e84d62135703748111955b2d",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_B",
+          "placement_key": "a9534b68d4cae512ab882aa63b67fd4c7122f62e461b268c07b1e4ef2fb45349",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03",
+      "treatment_universe_hash": "d9ba813c908dff54974cb6c3fb70721384f528697ed2899f01406734add65859"
+    },
+    {
+      "cell_id": "CELL_0020",
+      "cell_manifest_hash": "b5126433fe292dde984dd4697017aae2310e73b9afad2014a1cee86e6f36e8a2",
+      "context_id": "CTX_020",
+      "context_version": 1,
+      "model_generation": 4,
+      "namespace": "NS_04",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_C",
+          "placement_key": "98ab320fd94e731279c5b60186a81a9b928b2f35ae7185c4054d1ef1b1ad9de9",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "8f884f12dd732887b62e0fb2a99661d231040fcfbbda87981813061553fbb47f",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04",
+      "treatment_universe_hash": "0962a90edf53e5ea3b8505edfeaae093e2b40b40386ac73b21108f94ca88ff2f"
+    },
+    {
+      "cell_id": "CELL_0021",
+      "cell_manifest_hash": "d77675b980059ac0406f3cc74f5d8b1ca1b16f0f163371428b6a4a4c059b2350",
+      "context_id": "CTX_021",
+      "context_version": 1,
+      "model_generation": 1,
+      "namespace": "NS_05",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_A",
+          "placement_key": "efcba99c6e148fbdf1c0047b4fa2d2a8cb62b50f6452a7841faf548b86ffc819",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_B",
+          "placement_key": "658873f8f316e6cf8bca988e26d96f39f51989ad92361aa8649aeaa2e23e6cce",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05",
+      "treatment_universe_hash": "f4b4f52850a992fd3679fd7f36bca1394c393598e0b8a5665fbff2d54ed29fa4"
+    },
+    {
+      "cell_id": "CELL_0022",
+      "cell_manifest_hash": "e11f55e39142fb65f8f884ad6e84c31137eb52892bf82532b4d484cffbd7de7e",
+      "context_id": "CTX_022",
+      "context_version": 1,
+      "model_generation": 2,
+      "namespace": "NS_06",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "532413a93fd09b5eef86aa2ea41cd56588b20488cc41c9327f81d5de5c6e0268",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_B",
+          "placement_key": "3881151963657f8f60733561732c6ec445ab1ddde9111096ac8ac3e634556901",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06",
+      "treatment_universe_hash": "a8d353656ecf2133743ab8896fab104c3fdf461d1853d02ffe2ee523f35c7127"
+    },
+    {
+      "cell_id": "CELL_0023",
+      "cell_manifest_hash": "20967539c41387ca14f35f826825d6ac95311588d8dd93c3ef0dc4e76ec18852",
+      "context_id": "CTX_023",
+      "context_version": 1,
+      "model_generation": 3,
+      "namespace": "NS_07",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "8da98cdc156f97a5f5009ab70b1d10135f43f53d19bc117a206c2f2103fd4e88",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_B",
+          "placement_key": "48f2e3842b0cb00bcd16b7bd34e675c411c44e2ef10f68697b92fd4c36b72ed4",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07",
+      "treatment_universe_hash": "bb1e90d09c0d458affa32f04a969f13d5882d54d58107296308d10bcdac2bc2b"
+    },
+    {
+      "cell_id": "CELL_0024",
+      "cell_manifest_hash": "e6d94f71038433ec66733426d635f7b50901a988e89de5374df6afec39c58b41",
+      "context_id": "CTX_024",
+      "context_version": 1,
+      "model_generation": 4,
+      "namespace": "NS_08",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_C",
+          "placement_key": "ffeb0b84bc2e081ae169beaa863d46a1132b06ca4b581bb0d6b956a921ec75e3",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "92861ebac4d97712dbfd3d5de3d34c669caac5f2e29dfb5d8be28c8541b63052",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08",
+      "treatment_universe_hash": "6beed1de724ffe9394a9b51e6c5f9d8245cc72d6c44fd9c68ffd40a984718bee"
+    },
+    {
+      "cell_id": "CELL_0025",
+      "cell_manifest_hash": "3b02764c86a8dfc6b7d7c338c9fba95538d083170ccac0ab6ac8472a8eafbfc0",
+      "context_id": "CTX_025",
+      "context_version": 1,
+      "model_generation": 1,
+      "namespace": "NS_01",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_C",
+          "placement_key": "5019b41a8fefae3f8aeac23e81a15c11cd23d20b4012118478b7b7bc84a9ae9b",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_D",
+          "placement_key": "548eba5734351f484a12e6daa740e82ff4cd8347544d21615256275a4bee9389",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01",
+      "treatment_universe_hash": "dd2186c1ba1312eb95c32d360c01fe9612befb9333df40e856d980ede163dd9d"
+    },
+    {
+      "cell_id": "CELL_0026",
+      "cell_manifest_hash": "5909d6cd5e8b80772d78fb135b185bf62be53709c30e8c4a252072597f0617e1",
+      "context_id": "CTX_026",
+      "context_version": 1,
+      "model_generation": 2,
+      "namespace": "NS_02",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_C",
+          "placement_key": "5540100fd08782c1e4416203cffc4e660291d9b8aaa40eeceabf808783803aba",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_D",
+          "placement_key": "851639765d86a28ad08e704e7f0beac3c80db96408a948996b23a9624a23e93c",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02",
+      "treatment_universe_hash": "ce49d2e7e57ad62c2ab3f63c8e6684220f02b92cc7ba17552afb207c4ae1d591"
+    },
+    {
+      "cell_id": "CELL_0027",
+      "cell_manifest_hash": "c6a9302a283edfaac82b6d413c8f49cddd218d86d974d4d89ade656136880a45",
+      "context_id": "CTX_027",
+      "context_version": 1,
+      "model_generation": 3,
+      "namespace": "NS_03",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "ea476a92830f5633bcabd78c8399b19a4962ff7e120a93649c2cdd9b4c2e9897",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_B",
+          "placement_key": "d4ab3ad642e77573520dce5b1e7f8b442b086fb170ea47deceebdbffe9f4a8bf",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03",
+      "treatment_universe_hash": "918cedac822f63140bec612da4b507d76719dbdd692e44ab43da2a82261d2e73"
+    },
+    {
+      "cell_id": "CELL_0028",
+      "cell_manifest_hash": "762220131429ddec077246289ff09b355279687e8dc883367daea5425d74a769",
+      "context_id": "CTX_028",
+      "context_version": 1,
+      "model_generation": 4,
+      "namespace": "NS_04",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_A",
+          "placement_key": "e7735b84aa4dd47b7d1a9f7b589041a7b072a1789e19c27da4654acf2de4d165",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_B",
+          "placement_key": "0948d9febd43376ed36653972efd19dcf98c4c4962f1850b99b80790f69f980a",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04",
+      "treatment_universe_hash": "7ebac44738748a1c46e47c68a9e059e63d50ec55c5bce395eb0b7a3bef68d5d9"
+    },
+    {
+      "cell_id": "CELL_0029",
+      "cell_manifest_hash": "54598b8fe893a791e4fd20a4d391ed870f29878173e13b83baf8078b4dbc5053",
+      "context_id": "CTX_029",
+      "context_version": 1,
+      "model_generation": 1,
+      "namespace": "NS_05",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_A",
+          "placement_key": "ef52c12224896c2715064506abd249c9c8c51f7f3513aa5324e5aa24c9752de8",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_B",
+          "placement_key": "163c0ef8093c3fd00934eefab7176967a753aea3eaf267bd52cf16e0ea229b99",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05",
+      "treatment_universe_hash": "a0667c0cdbf55a16fea6706f3478c405c0dcf8ba6b58cc994058bb2ea34de14d"
+    },
+    {
+      "cell_id": "CELL_0030",
+      "cell_manifest_hash": "1145d5063b58c4194c5d06e27daf25beac455a33f578888f4d251a3235ee09e3",
+      "context_id": "CTX_030",
+      "context_version": 1,
+      "model_generation": 2,
+      "namespace": "NS_06",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_C",
+          "placement_key": "c279e545309d63c2ccf2ed7eb3d44c4397ca797c6a8c0b76e88ea71fbddd0587",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_D",
+          "placement_key": "e8a975edf166de792ae5bfb9df553a83e6940ec21a720422924f58ed7ec6d15c",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06",
+      "treatment_universe_hash": "b73ab1f0d916a986ef3871774fe828098f50c326460dbe6053b19dca937b10ae"
+    },
+    {
+      "cell_id": "CELL_0031",
+      "cell_manifest_hash": "ec8eef2476751128a9725597b74597b067520dc312a6ea6cbbce282dd33251d0",
+      "context_id": "CTX_031",
+      "context_version": 1,
+      "model_generation": 3,
+      "namespace": "NS_07",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_C",
+          "placement_key": "d05d8fc63ef575dd2886edc48fc9aa9f127bb79c3e6bd54cc872974575f79771",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "e41d0dc8fce2e8eca3887f25326a1dab8d09e7f426cff7bd55e3aec29aa34f9b",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07",
+      "treatment_universe_hash": "ea20cf8b37c329eebc0ec4352963501939ea3cfb7ce8be089669b78741aace05"
+    },
+    {
+      "cell_id": "CELL_0032",
+      "cell_manifest_hash": "581f353acb63759a86ce361dd46ae9438d0ac3fef40c8da493bd64b7a6286d59",
+      "context_id": "CTX_032",
+      "context_version": 1,
+      "model_generation": 4,
+      "namespace": "NS_08",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_C",
+          "placement_key": "6ce85ea10203867b778fc02b05a9ca7300f137974ad9bcf5fa9f6407f451f149",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "6361749719526f6715ae2ad2c08da4920de28b3e5c9a5576b798d455c4e03095",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08",
+      "treatment_universe_hash": "f78ebe32d1c07773fb2352c7f215cb4402ca2cf6acb4ba35047750eedbea40ce"
+    },
+    {
+      "cell_id": "CELL_0033",
+      "cell_manifest_hash": "9ceb41e7588d7b2003472ebe6c0ccc99ca3bf46724b355aff1663cbfb523a060",
+      "context_id": "CTX_001",
+      "context_version": 2,
+      "model_generation": 1,
+      "namespace": "NS_01",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_A",
+          "placement_key": "804d315d66a64920e58c04341062efd645f012151eb57022cc6c3eadcb9ac186",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_B",
+          "placement_key": "3f253bc350621ce59b7ed20efdc72120008cf601928353b620232b6b0c697043",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01",
+      "treatment_universe_hash": "dffbc0aa50d8484d5e9ded6cac88c6857fe3f3f7203eb28c0f9bdea25955c434"
+    },
+    {
+      "cell_id": "CELL_0034",
+      "cell_manifest_hash": "221f69730d37f69eb01e7d9045170b7573bca2b7f9ea04c22109a575a8943c6b",
+      "context_id": "CTX_002",
+      "context_version": 2,
+      "model_generation": 2,
+      "namespace": "NS_02",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "bd6923c924d9459c4374eef1c05a19b71c9b0e1aa005ea1bec36cd79307f7304",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_B",
+          "placement_key": "0669615cd9e3713402f81db64beca6e96f82a2c155786dd3c2cd35da5cfe870e",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02",
+      "treatment_universe_hash": "60c5848e8ef43acf13e616ce9ea5fd5a619d633efe751eb1fb36020a47d81fcf"
+    },
+    {
+      "cell_id": "CELL_0035",
+      "cell_manifest_hash": "a648e7a9beca34964a7e3a17914f226999803c344e4961609d0135543c98d50f",
+      "context_id": "CTX_003",
+      "context_version": 2,
+      "model_generation": 3,
+      "namespace": "NS_03",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "063cb1d72022ec53ec588450f6790453ef4e4146072251ec72d33e0352a4f43d",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_B",
+          "placement_key": "d4feb51f4d14588834a2e4573fd2249da3470345190c8f1fde9be6b099eedbd6",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03",
+      "treatment_universe_hash": "d9ba813c908dff54974cb6c3fb70721384f528697ed2899f01406734add65859"
+    },
+    {
+      "cell_id": "CELL_0036",
+      "cell_manifest_hash": "1d49c0c30c3ab37e56dc1f5a1055b7a27b4a19477b164f8a1a58a8bc0151191f",
+      "context_id": "CTX_004",
+      "context_version": 2,
+      "model_generation": 4,
+      "namespace": "NS_04",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_C",
+          "placement_key": "8e6a7f67b6db21b907dbff01fca00b60f470b66c11be24964965baf77583f60e",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "6a081dbc82f5cee1f20308dd4c2dea1645106bd0beeb9af6347717becf1229e5",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04",
+      "treatment_universe_hash": "0962a90edf53e5ea3b8505edfeaae093e2b40b40386ac73b21108f94ca88ff2f"
+    },
+    {
+      "cell_id": "CELL_0037",
+      "cell_manifest_hash": "bebd8273803536831db46fceacd59653daff4bd6eb00103d7b601e99b5761354",
+      "context_id": "CTX_005",
+      "context_version": 2,
+      "model_generation": 1,
+      "namespace": "NS_05",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_C",
+          "placement_key": "53bc607d4ac845c686d05fc2e5b2dba5e017afe6448923262666146bd6fd06a2",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_D",
+          "placement_key": "32a5fff7f6fe64e73c432fac517ee7ec7991147d2b9a053a1ec8608aa117cbf8",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05",
+      "treatment_universe_hash": "f4b4f52850a992fd3679fd7f36bca1394c393598e0b8a5665fbff2d54ed29fa4"
+    },
+    {
+      "cell_id": "CELL_0038",
+      "cell_manifest_hash": "2e7a4cadb89ac5670c042684e0ab7c48f8d590b47f13b5414dd3b638dc5c0930",
+      "context_id": "CTX_006",
+      "context_version": 2,
+      "model_generation": 2,
+      "namespace": "NS_06",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_C",
+          "placement_key": "fbcb04ca8d1ebdc016a7a9bfcb8e5fd7e5de2974fd2ac2d5e4910943fcdabd6a",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_D",
+          "placement_key": "4da51fa8372bfcc6fa1fdb048f8d7466cfe16957eac6b762656b5690628b3349",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06",
+      "treatment_universe_hash": "a8d353656ecf2133743ab8896fab104c3fdf461d1853d02ffe2ee523f35c7127"
+    },
+    {
+      "cell_id": "CELL_0039",
+      "cell_manifest_hash": "f7bfc5572c4344a7276e2a53d703f2b809989db255e34061a0927c2f31083e3e",
+      "context_id": "CTX_007",
+      "context_version": 2,
+      "model_generation": 3,
+      "namespace": "NS_07",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "0a8ad0ff9461274dfbcee9cc80740ae117bb52fd34c2f96097337092f3e605ec",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_B",
+          "placement_key": "5cfaa0f866fc3e5b8f3285d147a345b4f01a9cdb2a1f97b884b6a90b7d0ef86c",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07",
+      "treatment_universe_hash": "bb1e90d09c0d458affa32f04a969f13d5882d54d58107296308d10bcdac2bc2b"
+    },
+    {
+      "cell_id": "CELL_0040",
+      "cell_manifest_hash": "753a23639775ebb511ae9e062e184c173cdf30c174504af468e40c9d8e395f89",
+      "context_id": "CTX_008",
+      "context_version": 2,
+      "model_generation": 4,
+      "namespace": "NS_08",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_A",
+          "placement_key": "bf64bee878fab8649427ac37b205e9be6356f96cf3183a973c07fb3e95d79285",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_B",
+          "placement_key": "c7cd6ba8dadcfdf22f14407b20da5192a91acecdadaa650e0e201a9a534afe44",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08",
+      "treatment_universe_hash": "6beed1de724ffe9394a9b51e6c5f9d8245cc72d6c44fd9c68ffd40a984718bee"
+    },
+    {
+      "cell_id": "CELL_0041",
+      "cell_manifest_hash": "7c8783886e07584f8dd3148d271dc0df696181e2db47492c1d2b80b24268382c",
+      "context_id": "CTX_009",
+      "context_version": 2,
+      "model_generation": 1,
+      "namespace": "NS_01",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_A",
+          "placement_key": "4df87ccb9da3c56927a309ed32e0c1fc7868814b1b5f682a45a977aa3280582d",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_B",
+          "placement_key": "290d729e9321e4e51772da68a15c1864b80587d0424050584702bd3c9ead0505",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01",
+      "treatment_universe_hash": "dd2186c1ba1312eb95c32d360c01fe9612befb9333df40e856d980ede163dd9d"
+    },
+    {
+      "cell_id": "CELL_0042",
+      "cell_manifest_hash": "c9029c87891fbcf1a56f2a1153130f7a3d2d6d77b105b40dfbc8e5fc8eccd5a1",
+      "context_id": "CTX_010",
+      "context_version": 2,
+      "model_generation": 2,
+      "namespace": "NS_02",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_C",
+          "placement_key": "77589d0a4196e720f31662d410e25d8e668c020e83a7bd1e694e5e23ec5b49c4",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_D",
+          "placement_key": "18f2325d69c3580e5ce5bc8a4a11b0289dfbc1a67356f35277bd8fa0359f521a",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02",
+      "treatment_universe_hash": "ce49d2e7e57ad62c2ab3f63c8e6684220f02b92cc7ba17552afb207c4ae1d591"
+    },
+    {
+      "cell_id": "CELL_0043",
+      "cell_manifest_hash": "c9fd31c1eddae3b3a6959adaa66734ce505189286cef4fc7c625424f705a4159",
+      "context_id": "CTX_011",
+      "context_version": 2,
+      "model_generation": 3,
+      "namespace": "NS_03",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_C",
+          "placement_key": "f010f95cd269ae604f34bc92724402141c0962971e1fa8d5250954abb6768558",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "a628add65dd7c4b1ce39bc35ea59d54040692e6ec0011df1e6a3efa4191a5374",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03",
+      "treatment_universe_hash": "918cedac822f63140bec612da4b507d76719dbdd692e44ab43da2a82261d2e73"
+    },
+    {
+      "cell_id": "CELL_0044",
+      "cell_manifest_hash": "a497907bd87195a9aab434b85cfd47b2650e0b198c4383f277ed03748d47944a",
+      "context_id": "CTX_012",
+      "context_version": 2,
+      "model_generation": 4,
+      "namespace": "NS_04",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_C",
+          "placement_key": "02ff738bd86bb25e234cafcf8bce27bc469115d71593f5381ac45a8c56ce4333",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "305493c0a81b88070ac31521cfb089af68e6da06f2ea65613d1af2e78e4e87ad",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04",
+      "treatment_universe_hash": "7ebac44738748a1c46e47c68a9e059e63d50ec55c5bce395eb0b7a3bef68d5d9"
+    },
+    {
+      "cell_id": "CELL_0045",
+      "cell_manifest_hash": "e6d9ef38f0d92a57f657c2a4b3548007e2ccba78489b4a8130cca48c0ed89677",
+      "context_id": "CTX_013",
+      "context_version": 2,
+      "model_generation": 1,
+      "namespace": "NS_05",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_A",
+          "placement_key": "0d016e6dc7e4100177887187ddb942f2220b51d868cd5cb586db2fb2fde1c632",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_B",
+          "placement_key": "957c2343a2e1d48d4c252e05f68d42ac36d888e958d09a4434b39d5b87441623",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05",
+      "treatment_universe_hash": "a0667c0cdbf55a16fea6706f3478c405c0dcf8ba6b58cc994058bb2ea34de14d"
+    },
+    {
+      "cell_id": "CELL_0046",
+      "cell_manifest_hash": "ef41ae46ab48c41be1879f9d7368e8679812e50d192603985cabe4c2c609d3ed",
+      "context_id": "CTX_014",
+      "context_version": 2,
+      "model_generation": 2,
+      "namespace": "NS_06",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "7235344526523a0209a84693c802abb27dfba5b1cf75edaca7466065510ab83e",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_B",
+          "placement_key": "581caef0e552ad821f0cb47d3e523cc75e81548bd812292dbe8a61576479163a",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06",
+      "treatment_universe_hash": "b73ab1f0d916a986ef3871774fe828098f50c326460dbe6053b19dca937b10ae"
+    },
+    {
+      "cell_id": "CELL_0047",
+      "cell_manifest_hash": "057eb05ffa9367b3d1c5fe589722c0e2520896ca698ec9c1795a2dcefd0cb5ba",
+      "context_id": "CTX_015",
+      "context_version": 2,
+      "model_generation": 3,
+      "namespace": "NS_07",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "4ec4380dba59c57d2af5a4ecefed0917ce8ba9e03e6a4ef1939dfc9003972cd1",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_B",
+          "placement_key": "c0867aea4ad00eafe7d0d1a20537361c10f380be946c5b464bd32709f0ebbade",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07",
+      "treatment_universe_hash": "ea20cf8b37c329eebc0ec4352963501939ea3cfb7ce8be089669b78741aace05"
+    },
+    {
+      "cell_id": "CELL_0048",
+      "cell_manifest_hash": "943329b226d3a4c6632a1185cd7f11cfb5bd5821f82db773097dc5df1282915f",
+      "context_id": "CTX_016",
+      "context_version": 2,
+      "model_generation": 4,
+      "namespace": "NS_08",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_C",
+          "placement_key": "50c8f6f104a7e2a60ef98649c3d547e60e135274244c3f7b6a1f09c82b152dd2",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "88c9b5d5a80a37528609ed276a3fba0bd86edcff5d8adc39841fce5183c819e1",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08",
+      "treatment_universe_hash": "f78ebe32d1c07773fb2352c7f215cb4402ca2cf6acb4ba35047750eedbea40ce"
+    },
+    {
+      "cell_id": "CELL_0049",
+      "cell_manifest_hash": "aaa839b577a88f72e74ac0a662ee099489205abd103f87a2ff641a673e9b5e9b",
+      "context_id": "CTX_017",
+      "context_version": 2,
+      "model_generation": 1,
+      "namespace": "NS_01",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_C",
+          "placement_key": "2c3e75df14d016b30f0aa952ed2e0a0faead65e31a5e11d445305b0f400c9791",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_D",
+          "placement_key": "5968db0c76c5edc5c5c682e33a7247ad9ca94012f5c2ceb9da903fb50aab92a3",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01",
+      "treatment_universe_hash": "dffbc0aa50d8484d5e9ded6cac88c6857fe3f3f7203eb28c0f9bdea25955c434"
+    },
+    {
+      "cell_id": "CELL_0050",
+      "cell_manifest_hash": "0b8f5f2cc7049f842311ed97c434d754068f1cd3b5772e6ee93a5f22ff8faa12",
+      "context_id": "CTX_018",
+      "context_version": 2,
+      "model_generation": 2,
+      "namespace": "NS_02",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_C",
+          "placement_key": "fb3b27bc816ee5b50c7ef3ed3c36c048162ec43e96b7c2d0c92d26d032c792cd",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_D",
+          "placement_key": "6bdda119aee6e4c5ee93910376711f4be279338c063bffbcb8d01fe44047a7fc",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02",
+      "treatment_universe_hash": "60c5848e8ef43acf13e616ce9ea5fd5a619d633efe751eb1fb36020a47d81fcf"
+    },
+    {
+      "cell_id": "CELL_0051",
+      "cell_manifest_hash": "d1a42f5aa773300cff12aeaff6b7e3c1d0cda779252b13df78f40209a86201f8",
+      "context_id": "CTX_019",
+      "context_version": 2,
+      "model_generation": 3,
+      "namespace": "NS_03",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "231e645606aead92c6da155fde98ff9c58d9d62438833b24dd6e6d9958ab27d0",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_B",
+          "placement_key": "9b788cc09dbb9953e5ae5945ebf601826d64daf6f9eababe9ee37d507c91bfad",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03",
+      "treatment_universe_hash": "d9ba813c908dff54974cb6c3fb70721384f528697ed2899f01406734add65859"
+    },
+    {
+      "cell_id": "CELL_0052",
+      "cell_manifest_hash": "49b00a4c2dde743ad4ebda72d26a0dc7dcb74eb545129dadc4aac8faea2f90e1",
+      "context_id": "CTX_020",
+      "context_version": 2,
+      "model_generation": 4,
+      "namespace": "NS_04",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_A",
+          "placement_key": "81014c350b53adc1435b06346e7b18166fb49cfd78dccce44df77492eabb6a49",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_B",
+          "placement_key": "d4d20e241381ee4c4b9d662405dc56203878db93d24384ee35149cf70630a739",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04",
+      "treatment_universe_hash": "0962a90edf53e5ea3b8505edfeaae093e2b40b40386ac73b21108f94ca88ff2f"
+    },
+    {
+      "cell_id": "CELL_0053",
+      "cell_manifest_hash": "ed2bee2c9d8eb24958c3c5b4370a42c10ef8f9a56f6e9a32f83de8272579d460",
+      "context_id": "CTX_021",
+      "context_version": 2,
+      "model_generation": 1,
+      "namespace": "NS_05",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_A",
+          "placement_key": "2a1e940f2ab2c8ba709347537ae83e7f57a63be7baefffc43b5b8541cbe13604",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_B",
+          "placement_key": "18a794b11cb3f6af297acecfb0ae0900b42d17f96f3b41cd39fe34f48cc70e74",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05",
+      "treatment_universe_hash": "f4b4f52850a992fd3679fd7f36bca1394c393598e0b8a5665fbff2d54ed29fa4"
+    },
+    {
+      "cell_id": "CELL_0054",
+      "cell_manifest_hash": "4815472bcc0faa90d9e38744978ffae35808b6310c1a7adeaf6f85a6e3e7c37a",
+      "context_id": "CTX_022",
+      "context_version": 2,
+      "model_generation": 2,
+      "namespace": "NS_06",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_C",
+          "placement_key": "a8548457a4f1f13c410c4ae432cbc6dee3c8d6ba5e3c6b991892b65be92a0038",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_D",
+          "placement_key": "ae8ca2f226d7942020072cd31d67ef3ccd28f75e9547f0459030fde3b8cbf6a4",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06",
+      "treatment_universe_hash": "a8d353656ecf2133743ab8896fab104c3fdf461d1853d02ffe2ee523f35c7127"
+    },
+    {
+      "cell_id": "CELL_0055",
+      "cell_manifest_hash": "148c62d1e7c1fb1c6b2bd7f31e3eb8fd92bb104980d81e69c588abc0d9cc6af4",
+      "context_id": "CTX_023",
+      "context_version": 2,
+      "model_generation": 3,
+      "namespace": "NS_07",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_C",
+          "placement_key": "58b867e3c4803aa838d59ec35054e31d159f536d652f6eda93f850ec425dd86d",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "424d22c1e1953a44e8032fcbec188da54c067c667f6800555b1b71f8cc1d74f9",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07",
+      "treatment_universe_hash": "bb1e90d09c0d458affa32f04a969f13d5882d54d58107296308d10bcdac2bc2b"
+    },
+    {
+      "cell_id": "CELL_0056",
+      "cell_manifest_hash": "29dd6bf921d5c47fc980c5c9b860f1e677be67d5b3835a2bbe9b36077ab3ba37",
+      "context_id": "CTX_024",
+      "context_version": 2,
+      "model_generation": 4,
+      "namespace": "NS_08",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_C",
+          "placement_key": "e69b27d59b9ddcea26da77aef4bd50edda74f65e5c89974ee6a448284d2d2ea4",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "98f68b3ebe3c407e28e957d1066e1f9e171a49fce5cb74bb66e7674378246328",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08",
+      "treatment_universe_hash": "6beed1de724ffe9394a9b51e6c5f9d8245cc72d6c44fd9c68ffd40a984718bee"
+    },
+    {
+      "cell_id": "CELL_0057",
+      "cell_manifest_hash": "7e555452e4e87ab4b233015419c6173adf6f58132431cdbe850d73136ea01bcd",
+      "context_id": "CTX_025",
+      "context_version": 2,
+      "model_generation": 1,
+      "namespace": "NS_01",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_A",
+          "placement_key": "983bf451f34dc0519dad99b1d320626f89b7cf8761c353672bfc5cb3316f2c18",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_B",
+          "placement_key": "c7ac93c27863ef722d45fa35aa94355539ca598a4ec610429c9f852783053619",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01",
+      "treatment_universe_hash": "dd2186c1ba1312eb95c32d360c01fe9612befb9333df40e856d980ede163dd9d"
+    },
+    {
+      "cell_id": "CELL_0058",
+      "cell_manifest_hash": "a2a7fffff6b9f4c1b6a05f6eb7f5fa85d5b920f8b1b4ba83219c29ca837122ab",
+      "context_id": "CTX_026",
+      "context_version": 2,
+      "model_generation": 2,
+      "namespace": "NS_02",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "82fbab25208822236632fecc6db9b875ae85c2e736c01fa7b2efcd41d53b5f76",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_B",
+          "placement_key": "b06462e83902ca7a9a287eeb6d68eed04e7cd53b33e16fec87f5157e43c538c6",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02",
+      "treatment_universe_hash": "ce49d2e7e57ad62c2ab3f63c8e6684220f02b92cc7ba17552afb207c4ae1d591"
+    },
+    {
+      "cell_id": "CELL_0059",
+      "cell_manifest_hash": "1054bf9519e45a4437c58ee633d116e30e993e46619e5fe4a730b8d0b6043f99",
+      "context_id": "CTX_027",
+      "context_version": 2,
+      "model_generation": 3,
+      "namespace": "NS_03",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "78ab7d9a6e122144488d6e2ac4e233a46fcc388da8bbbe87b9f6a3ec29942174",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_B",
+          "placement_key": "49c6f28601e1650bb05370159dab0e5f117bb59ecc75d655bc76e5910637387b",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03",
+      "treatment_universe_hash": "918cedac822f63140bec612da4b507d76719dbdd692e44ab43da2a82261d2e73"
+    },
+    {
+      "cell_id": "CELL_0060",
+      "cell_manifest_hash": "dbded617b0cca7615fd0f2b872e4182c74a058ed78315aa55af7cf97dfee031c",
+      "context_id": "CTX_028",
+      "context_version": 2,
+      "model_generation": 4,
+      "namespace": "NS_04",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_C",
+          "placement_key": "8b15077d2f38376130521001d97231b3136ee439df82960dd9fc830b756a6bc5",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "499f0ac3a53306b8dec4dc37323e28cd1c786ee0c4d7ce57a5515fb5e3313227",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04",
+      "treatment_universe_hash": "7ebac44738748a1c46e47c68a9e059e63d50ec55c5bce395eb0b7a3bef68d5d9"
+    },
+    {
+      "cell_id": "CELL_0061",
+      "cell_manifest_hash": "4c2c903742bc807663c1dabbf6a56ab1ba37b5f0b78b7202adc842ffcd6f016e",
+      "context_id": "CTX_029",
+      "context_version": 2,
+      "model_generation": 1,
+      "namespace": "NS_05",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_C",
+          "placement_key": "0094f3bea69488600d9a8b64bcae69534fd082456a87fc2ae7ac71055fd612a9",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_D",
+          "placement_key": "7aee32e58eae42e4b56c0329112ec00ce85544d7fda8cc98f3beb632cc389755",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05",
+      "treatment_universe_hash": "a0667c0cdbf55a16fea6706f3478c405c0dcf8ba6b58cc994058bb2ea34de14d"
+    },
+    {
+      "cell_id": "CELL_0062",
+      "cell_manifest_hash": "4dca24b0d85ec199eb281d12c41f2a6dc1b0c2cfe2bdf945f8a29d5254221ff9",
+      "context_id": "CTX_030",
+      "context_version": 2,
+      "model_generation": 2,
+      "namespace": "NS_06",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_C",
+          "placement_key": "4e2d7baa0b97fb2d90196e45a6ae7f5973aa0d895c4323ea38080d00d93812d3",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_D",
+          "placement_key": "25d0172e27912833e30e34f9b557afaf0ff0bc06b055b34e23f002eba9629245",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06",
+      "treatment_universe_hash": "b73ab1f0d916a986ef3871774fe828098f50c326460dbe6053b19dca937b10ae"
+    },
+    {
+      "cell_id": "CELL_0063",
+      "cell_manifest_hash": "f9c61b163b3a3da0d830de6077a2e6c173d9fdd19b706b5b592f3c8aa634b19d",
+      "context_id": "CTX_031",
+      "context_version": 2,
+      "model_generation": 3,
+      "namespace": "NS_07",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "e49a5de7e0b95a092656f4d23b5329e7da466a7f933e760755dc21388c4f356b",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_B",
+          "placement_key": "d5887afe20b56f3c48c4f0e4f31cb69cc617a02460136def61e0adda2e833594",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07",
+      "treatment_universe_hash": "ea20cf8b37c329eebc0ec4352963501939ea3cfb7ce8be089669b78741aace05"
+    },
+    {
+      "cell_id": "CELL_0064",
+      "cell_manifest_hash": "3082a0cad3aac7a4ce0fb6f2f697b4da616e2b993e23cbf47112a95d79bee7b4",
+      "context_id": "CTX_032",
+      "context_version": 2,
+      "model_generation": 4,
+      "namespace": "NS_08",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_A",
+          "placement_key": "0b5f95df160b588fdde280e8e32fec17b2115f8a51000459c36724f46227caa2",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_B",
+          "placement_key": "de1aff2ab14ca145b265853d101ad9eda9ead9034511d0667fb7e8405b989fa0",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08",
+      "treatment_universe_hash": "f78ebe32d1c07773fb2352c7f215cb4402ca2cf6acb4ba35047750eedbea40ce"
+    },
+    {
+      "cell_id": "CELL_0065",
+      "cell_manifest_hash": "7a95a54511648db4c141ccdaf22bafb20cfc45a6b9341f5d6d158d84e8a49013",
+      "context_id": "CTX_001",
+      "context_version": 3,
+      "model_generation": 1,
+      "namespace": "NS_01",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_A",
+          "placement_key": "5c4e7a84926c0ae119e17fa6c2a2611689830518a52a576c88e4ae5639b59859",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_B",
+          "placement_key": "142641cfed5dfcf31fd0f18997782248b9d33fd6b0b7ed44b69a45c69e31a178",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01",
+      "treatment_universe_hash": "dffbc0aa50d8484d5e9ded6cac88c6857fe3f3f7203eb28c0f9bdea25955c434"
+    },
+    {
+      "cell_id": "CELL_0066",
+      "cell_manifest_hash": "8e7aae8d4b66b3722252c6e6461caabff1d880b74f1783348f477933bbab6853",
+      "context_id": "CTX_002",
+      "context_version": 3,
+      "model_generation": 2,
+      "namespace": "NS_02",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_C",
+          "placement_key": "2030da70f45a17c06bd539a83721780ff49e7f8fb8d9ae7de91050007fc76f14",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_D",
+          "placement_key": "31706a8d8638d3537c637bf31211da622f97274646bb66114bee101d95aad895",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02",
+      "treatment_universe_hash": "60c5848e8ef43acf13e616ce9ea5fd5a619d633efe751eb1fb36020a47d81fcf"
+    },
+    {
+      "cell_id": "CELL_0067",
+      "cell_manifest_hash": "ce49c3e76edad7ac8997ffb27b9063bffdae7a43ca905b80131076db922cc423",
+      "context_id": "CTX_003",
+      "context_version": 3,
+      "model_generation": 3,
+      "namespace": "NS_03",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_C",
+          "placement_key": "fa5b99f429e2f3b31099d30571280d7dc34ce4a408e57dba61b027ee400f2567",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "663acb588a4c2dccb50cd174c5d5a515a26b2d5948e15158a2841332d09e543d",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03",
+      "treatment_universe_hash": "d9ba813c908dff54974cb6c3fb70721384f528697ed2899f01406734add65859"
+    },
+    {
+      "cell_id": "CELL_0068",
+      "cell_manifest_hash": "8b52df4d2f2b602ba82fb22d97af2ee8ab1e649a57e4a15c9dc1ce3adfbdb522",
+      "context_id": "CTX_004",
+      "context_version": 3,
+      "model_generation": 4,
+      "namespace": "NS_04",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_C",
+          "placement_key": "db4a43e7ae8506c206b880709cf4ba8390f7494764f50343942eedbb72c4a524",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "1ebd80f0dc29003f91c3fa73686349cac6edfdd17284fc2962e600f2166c807e",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04",
+      "treatment_universe_hash": "0962a90edf53e5ea3b8505edfeaae093e2b40b40386ac73b21108f94ca88ff2f"
+    },
+    {
+      "cell_id": "CELL_0069",
+      "cell_manifest_hash": "7a0435408261a24aabaab2db329630c3eec0361627ce27de6ed446a7799608e1",
+      "context_id": "CTX_005",
+      "context_version": 3,
+      "model_generation": 1,
+      "namespace": "NS_05",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_A",
+          "placement_key": "656759a4c4456ab9b4a580b9e32c09ea1c1ef51f782d2aba3c6919676d0e7cca",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_B",
+          "placement_key": "49fad166d91cada683f09710e0774e803e1c862809f1286ad097ea00450120d3",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05",
+      "treatment_universe_hash": "f4b4f52850a992fd3679fd7f36bca1394c393598e0b8a5665fbff2d54ed29fa4"
+    },
+    {
+      "cell_id": "CELL_0070",
+      "cell_manifest_hash": "e24c02448e6a420304bf802fba798a93dfd73c4e20e27d8c6068e32e6f0e0788",
+      "context_id": "CTX_006",
+      "context_version": 3,
+      "model_generation": 2,
+      "namespace": "NS_06",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "9067d8f8b8159be59c0da6209d1700ed0efd1f838db98ffa23cc84201def8011",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_B",
+          "placement_key": "b64d6efb29fefea2533caca0800d4d7deb85b7d2261d5effe6ae1a8d553a5f15",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06",
+      "treatment_universe_hash": "a8d353656ecf2133743ab8896fab104c3fdf461d1853d02ffe2ee523f35c7127"
+    },
+    {
+      "cell_id": "CELL_0071",
+      "cell_manifest_hash": "aec8b9294f192f6f95e05889fe126f1421be0e9d9bba25b4954f34f418a000bf",
+      "context_id": "CTX_007",
+      "context_version": 3,
+      "model_generation": 3,
+      "namespace": "NS_07",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "16ec10623894a23a003ac601ee9b43d1c610d64c32aa052dd4ee3c36b4c72e39",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_B",
+          "placement_key": "6f4c6e67446de87040436fa36acdb62376ed8a260a623743ae20b2efd037dfb8",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07",
+      "treatment_universe_hash": "bb1e90d09c0d458affa32f04a969f13d5882d54d58107296308d10bcdac2bc2b"
+    },
+    {
+      "cell_id": "CELL_0072",
+      "cell_manifest_hash": "e155f5860635b4b909aa331d36bfb84039593d1773631d0ac182f8f64a0c4dcf",
+      "context_id": "CTX_008",
+      "context_version": 3,
+      "model_generation": 4,
+      "namespace": "NS_08",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_C",
+          "placement_key": "7a76ea5f4887646e4d8eed8dde7368c0239956ea7803b9a14938a7a57c969d7c",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "e490d6e6eede2bcadf3af74538a272eb417f7b699c3fc63c6f3b345fdbf23c26",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08",
+      "treatment_universe_hash": "6beed1de724ffe9394a9b51e6c5f9d8245cc72d6c44fd9c68ffd40a984718bee"
+    },
+    {
+      "cell_id": "CELL_0073",
+      "cell_manifest_hash": "103a4fbf32786ade583dd64f6763363fc91f11394bbd07c0d1a622cd131d1a95",
+      "context_id": "CTX_009",
+      "context_version": 3,
+      "model_generation": 1,
+      "namespace": "NS_01",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_C",
+          "placement_key": "6e297d3c2c7f763285f937db6d546c273dbeebf9509969ee046f6444ca4fbab0",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_D",
+          "placement_key": "61ab07282e1d51abf0dcccc171f0bc03b38ce379720a7b5f07373872d7bf4f5f",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01",
+      "treatment_universe_hash": "dd2186c1ba1312eb95c32d360c01fe9612befb9333df40e856d980ede163dd9d"
+    },
+    {
+      "cell_id": "CELL_0074",
+      "cell_manifest_hash": "a46754b912e2efa76c0fd14e002704a3df4adc2e34ff67cee902129a213bedf8",
+      "context_id": "CTX_010",
+      "context_version": 3,
+      "model_generation": 2,
+      "namespace": "NS_02",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_C",
+          "placement_key": "8fa70bf5668b0b11263a2fd0b91069cf963eaad9dbf77d9f60978c7658c89b1c",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_D",
+          "placement_key": "e17ff6bd0026c27558df6b6605bad7071eec7b554f83d5030987e9ffd8bb80d3",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02",
+      "treatment_universe_hash": "ce49d2e7e57ad62c2ab3f63c8e6684220f02b92cc7ba17552afb207c4ae1d591"
+    },
+    {
+      "cell_id": "CELL_0075",
+      "cell_manifest_hash": "f18c48c201d3e0aeea8da65e5a1efc9363cb0dc508b6c5d69b17a4667c3e07a6",
+      "context_id": "CTX_011",
+      "context_version": 3,
+      "model_generation": 3,
+      "namespace": "NS_03",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "62d34ad4cb718f635a31cb8754fd0118303b44459b9e0d70175631d67d6652db",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_B",
+          "placement_key": "2fc6704cfa307004de9356b65226b2268f298c080e02f4c55a25e04e33f39655",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03",
+      "treatment_universe_hash": "918cedac822f63140bec612da4b507d76719dbdd692e44ab43da2a82261d2e73"
+    },
+    {
+      "cell_id": "CELL_0076",
+      "cell_manifest_hash": "48a45f7c076aee2483de0e483aae719a04f8449b923cac03ce43f8adafe8aa22",
+      "context_id": "CTX_012",
+      "context_version": 3,
+      "model_generation": 4,
+      "namespace": "NS_04",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_A",
+          "placement_key": "c01b156680b9627f20b041aa26e0706e196c763cccdcaf5ebd0dcf1ad94042fc",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_B",
+          "placement_key": "d0b9c18d225aeac203696faf6ee3f4f406346d8a46179260084292c2e2ee6119",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04",
+      "treatment_universe_hash": "7ebac44738748a1c46e47c68a9e059e63d50ec55c5bce395eb0b7a3bef68d5d9"
+    },
+    {
+      "cell_id": "CELL_0077",
+      "cell_manifest_hash": "9791f382999f8a249008859c3d89148607a24f2a8c2feea856c6953110229640",
+      "context_id": "CTX_013",
+      "context_version": 3,
+      "model_generation": 1,
+      "namespace": "NS_05",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_A",
+          "placement_key": "b6e90162562869975f40998c14a31b806ef0bf4f1cbcf02735a1e17490794271",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_B",
+          "placement_key": "71366e77a4c7ec63f1c6c61428e6da2efb8395059f09f7370a68f2ee94258794",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05",
+      "treatment_universe_hash": "a0667c0cdbf55a16fea6706f3478c405c0dcf8ba6b58cc994058bb2ea34de14d"
+    },
+    {
+      "cell_id": "CELL_0078",
+      "cell_manifest_hash": "7034afd372921ee9297cbb6ea01cf4d3a3c3774a773f30fa25e82a0f2a6804aa",
+      "context_id": "CTX_014",
+      "context_version": 3,
+      "model_generation": 2,
+      "namespace": "NS_06",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_C",
+          "placement_key": "d2ded05fde73d4e5d818684c7b88d93d06346a1a9842338c5bcffa9f1d844428",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_D",
+          "placement_key": "36954faa13a1d1f5b8a916827b412c06cc008fc62e3376fc86a9d153665e24ca",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06",
+      "treatment_universe_hash": "b73ab1f0d916a986ef3871774fe828098f50c326460dbe6053b19dca937b10ae"
+    },
+    {
+      "cell_id": "CELL_0079",
+      "cell_manifest_hash": "63fa9808995fde86a985845be3263cad92bef9f295e96297d451e58d5e3775f8",
+      "context_id": "CTX_015",
+      "context_version": 3,
+      "model_generation": 3,
+      "namespace": "NS_07",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_C",
+          "placement_key": "6f497bd287c9d5493f6995169763e547fa49233b24e2783c346aa8ab2fb8fdb0",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "63f7733085d3e9d3c47d30fd440fd82b7b583979edb1f5702e1eb0279d99f994",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07",
+      "treatment_universe_hash": "ea20cf8b37c329eebc0ec4352963501939ea3cfb7ce8be089669b78741aace05"
+    },
+    {
+      "cell_id": "CELL_0080",
+      "cell_manifest_hash": "03cce00e16cfee73841d79d2556562ae3e589433a74025b0f84013c9a947f8b8",
+      "context_id": "CTX_016",
+      "context_version": 3,
+      "model_generation": 4,
+      "namespace": "NS_08",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_C",
+          "placement_key": "95fc163b4f0bca7504e73cebf11baf05d2613fe7d3701df70abbb73b4d079e89",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "0c03d34e0be4f3acb2dbe7a8447b686c8399a214302abe881529eefd76888c8e",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08",
+      "treatment_universe_hash": "f78ebe32d1c07773fb2352c7f215cb4402ca2cf6acb4ba35047750eedbea40ce"
+    },
+    {
+      "cell_id": "CELL_0081",
+      "cell_manifest_hash": "a570ddf70a9a3c3de8aaa34d4dee621ca30cca512dc34326c56f7925e0b369e4",
+      "context_id": "CTX_017",
+      "context_version": 3,
+      "model_generation": 1,
+      "namespace": "NS_01",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_A",
+          "placement_key": "a87014fd67d39f5180884738d473378875416213ed1338c71d63b64271a01f37",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_B",
+          "placement_key": "a8ccd0177707fdf7013ac61e1012f43b8176ff4ab0637994d3612a7978ca2bc4",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01",
+      "treatment_universe_hash": "dffbc0aa50d8484d5e9ded6cac88c6857fe3f3f7203eb28c0f9bdea25955c434"
+    },
+    {
+      "cell_id": "CELL_0082",
+      "cell_manifest_hash": "1923eaed0e3567642dadd148b21f49ca4c9ff3e807425b5b8361011b7378a904",
+      "context_id": "CTX_018",
+      "context_version": 3,
+      "model_generation": 2,
+      "namespace": "NS_02",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "b6c09ea5548e74f22a6b7787f981c5a36a0e6ef3f12e05f33edf04e574c790cb",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_B",
+          "placement_key": "999abc5bf941e2d48922a8e5fedd24b17a01ff1b3fc07279a552671b1739daa3",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02",
+      "treatment_universe_hash": "60c5848e8ef43acf13e616ce9ea5fd5a619d633efe751eb1fb36020a47d81fcf"
+    },
+    {
+      "cell_id": "CELL_0083",
+      "cell_manifest_hash": "ecfc188773f8be2e8dd667b4e8c1afc766d26eb58563d14a59b27f82434e6136",
+      "context_id": "CTX_019",
+      "context_version": 3,
+      "model_generation": 3,
+      "namespace": "NS_03",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "79318cfcadc962c7459972e0473d579b726f4d82029790ce33af310fa7c4b31f",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_B",
+          "placement_key": "79d31ff52b7f5872bf05c50f707e707e6de3ec213aaf0c517302b4e661dbb044",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03",
+      "treatment_universe_hash": "d9ba813c908dff54974cb6c3fb70721384f528697ed2899f01406734add65859"
+    },
+    {
+      "cell_id": "CELL_0084",
+      "cell_manifest_hash": "b435c602005edf9d67e12d05b261679a4f936557c9aec424f2e14b5b2135fd0f",
+      "context_id": "CTX_020",
+      "context_version": 3,
+      "model_generation": 4,
+      "namespace": "NS_04",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_C",
+          "placement_key": "3a2916307031dc65ba516f50d9e48a0bae577fdc194b2e2e26f6283630e53217",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "3b13c5bf7e81417a9f500cdadbe57b9de5459674978c17386f720b6c821ee733",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04",
+      "treatment_universe_hash": "0962a90edf53e5ea3b8505edfeaae093e2b40b40386ac73b21108f94ca88ff2f"
+    },
+    {
+      "cell_id": "CELL_0085",
+      "cell_manifest_hash": "f879513d553ccc9dc216343dd74002e6f26f84082e0904827068bab5680309b9",
+      "context_id": "CTX_021",
+      "context_version": 3,
+      "model_generation": 1,
+      "namespace": "NS_05",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_C",
+          "placement_key": "8ce6a94541297dd49addf7abff301822ef26feb195c3956eed98b7918321f407",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_D",
+          "placement_key": "13aa6fe81f76547e9de611af808fd529493e093c436b369980a554dc8c5a6cb2",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05",
+      "treatment_universe_hash": "f4b4f52850a992fd3679fd7f36bca1394c393598e0b8a5665fbff2d54ed29fa4"
+    },
+    {
+      "cell_id": "CELL_0086",
+      "cell_manifest_hash": "c5b27276c03e298b4b9a3c1e6dbef20ee33f2e934d1c506be71ecd9397c14844",
+      "context_id": "CTX_022",
+      "context_version": 3,
+      "model_generation": 2,
+      "namespace": "NS_06",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_C",
+          "placement_key": "84795a1336638c127bd6c202eaf0e5052ccf85464f070ca87b4d61c9919a63e0",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_D",
+          "placement_key": "9e2b4e88cac2f1221658fe9ba25861090a419f66f81f8cdff3b821ce85b55374",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06",
+      "treatment_universe_hash": "a8d353656ecf2133743ab8896fab104c3fdf461d1853d02ffe2ee523f35c7127"
+    },
+    {
+      "cell_id": "CELL_0087",
+      "cell_manifest_hash": "b9ae5ebeb5eaa84e6724e667dd60d19556cfd770804783883a001d4c9606d6a0",
+      "context_id": "CTX_023",
+      "context_version": 3,
+      "model_generation": 3,
+      "namespace": "NS_07",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "9ec36f31422faf2ae4806a07a4e1b4faa2152d400a32676e03b0cff38ac14789",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_B",
+          "placement_key": "3903ef28fa73d02b5192848c40b5912682eb04b07f28042ae303a27a4aa31e2d",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07",
+      "treatment_universe_hash": "bb1e90d09c0d458affa32f04a969f13d5882d54d58107296308d10bcdac2bc2b"
+    },
+    {
+      "cell_id": "CELL_0088",
+      "cell_manifest_hash": "abc34a3670977d1963bd9a60b9a5c5f8ff8367d99374bd0bdd0471a85964990d",
+      "context_id": "CTX_024",
+      "context_version": 3,
+      "model_generation": 4,
+      "namespace": "NS_08",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_A",
+          "placement_key": "c1176d93b1bfe814326e45f6452366db34f6a11465af6d3133980abdff3d145e",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_B",
+          "placement_key": "06e7bc0f4f0c822939d281f78c933f0dc054d9d1c36c79ed8ce882d9928941e0",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08",
+      "treatment_universe_hash": "6beed1de724ffe9394a9b51e6c5f9d8245cc72d6c44fd9c68ffd40a984718bee"
+    },
+    {
+      "cell_id": "CELL_0089",
+      "cell_manifest_hash": "b8fc29c35a7ee3ed454b765439bf93507ae63446da862b3c4a174a841589fb59",
+      "context_id": "CTX_025",
+      "context_version": 3,
+      "model_generation": 1,
+      "namespace": "NS_01",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_A",
+          "placement_key": "9864321891e3f44f558df0f9e35b93da1fda86c857eccbf0becbed79095bd360",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_B",
+          "placement_key": "85e6c7da7a8ed2e2f785fa5600ff3ddfb365e51aa4b846d25805beeeb5ec2c8d",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01",
+      "treatment_universe_hash": "dd2186c1ba1312eb95c32d360c01fe9612befb9333df40e856d980ede163dd9d"
+    },
+    {
+      "cell_id": "CELL_0090",
+      "cell_manifest_hash": "db5948f631f99f0230faecb164ca353d959c3a42240e0fa770380044deded68a",
+      "context_id": "CTX_026",
+      "context_version": 3,
+      "model_generation": 2,
+      "namespace": "NS_02",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_C",
+          "placement_key": "f080ce189067b7fae313229f925ada6d003494931697e4be362cea5ebf1f5637",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_D",
+          "placement_key": "6d1f02594655ca89921ed3c2fd3aab23b1aa054d6c2054e2289cbfd53a60d163",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02",
+      "treatment_universe_hash": "ce49d2e7e57ad62c2ab3f63c8e6684220f02b92cc7ba17552afb207c4ae1d591"
+    },
+    {
+      "cell_id": "CELL_0091",
+      "cell_manifest_hash": "b5c0f90e594de9d179716f29999dfe8e348b2d986235214d92713f8a42c050dc",
+      "context_id": "CTX_027",
+      "context_version": 3,
+      "model_generation": 3,
+      "namespace": "NS_03",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_C",
+          "placement_key": "751e7b71b0848f27bd742443ad3d9f6a747264d407eba37f200d6d7dd0a0e4ce",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "152c8cf877dda5668f50c0af27658ccf4d28ff0b5cbf1c3663d02d6f4046433d",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03",
+      "treatment_universe_hash": "918cedac822f63140bec612da4b507d76719dbdd692e44ab43da2a82261d2e73"
+    },
+    {
+      "cell_id": "CELL_0092",
+      "cell_manifest_hash": "e2615d7a71f47c2c621031a1e659d932de44c8f21534a84e42f6d1d96b797ae5",
+      "context_id": "CTX_028",
+      "context_version": 3,
+      "model_generation": 4,
+      "namespace": "NS_04",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_C",
+          "placement_key": "6d9b04182defdfee4abd8e090b78188e7245b6904f85e4fb71c03ebf33c55e56",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "a8c8a1939ca056369ce0fd42cdf841e6c513a0d637d446e4ca42d96fd15cacb5",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04",
+      "treatment_universe_hash": "7ebac44738748a1c46e47c68a9e059e63d50ec55c5bce395eb0b7a3bef68d5d9"
+    },
+    {
+      "cell_id": "CELL_0093",
+      "cell_manifest_hash": "2f4c0172e6c98f4511cc58c23478208038051daa091f25b4ad54d0d06b0d210c",
+      "context_id": "CTX_029",
+      "context_version": 3,
+      "model_generation": 1,
+      "namespace": "NS_05",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_A",
+          "placement_key": "8943dc5cd02fc06d8e2d5d19232f28711ebc5eb185a73bba222b2628fca6eb2d",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_US_B",
+          "placement_key": "1432c7a5fc8f74ee0e15f4b322724a5395e0d84730ec03785815725d83851eea",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05",
+      "treatment_universe_hash": "a0667c0cdbf55a16fea6706f3478c405c0dcf8ba6b58cc994058bb2ea34de14d"
+    },
+    {
+      "cell_id": "CELL_0094",
+      "cell_manifest_hash": "3640495082a23f48679a8d7a864127d69cfa0fc3467e29831e5c8bb79beee8ee",
+      "context_id": "CTX_030",
+      "context_version": 3,
+      "model_generation": 2,
+      "namespace": "NS_06",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "f2ac9b160b046201800e429d7762a29c4cf05e33383d9d9bd1a1f8fd22d880cf",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_B",
+          "placement_key": "5716a0b7a459e98561b162afd4a1a8019b784cf4302cfdc1169c6b04efd4f13a",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06",
+      "treatment_universe_hash": "b73ab1f0d916a986ef3871774fe828098f50c326460dbe6053b19dca937b10ae"
+    },
+    {
+      "cell_id": "CELL_0095",
+      "cell_manifest_hash": "440ef83960947166e6f9f8733466e2e17051b7487735f6a169f516d0b656c4f0",
+      "context_id": "CTX_031",
+      "context_version": 3,
+      "model_generation": 3,
+      "namespace": "NS_07",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "763f0ddb9ebea49256e9e3caf0a5f562a34ad172ebda3a1a87f9150f93f479f7",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_B",
+          "placement_key": "86c87b2c34cc50a00f9c6d2f45b92c99ecc97433e061bb0456fdca23de89db34",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07",
+      "treatment_universe_hash": "ea20cf8b37c329eebc0ec4352963501939ea3cfb7ce8be089669b78741aace05"
+    },
+    {
+      "cell_id": "CELL_0096",
+      "cell_manifest_hash": "093f2b8ead857dfceb4336ccaf1013399b2142dfcc6647d5969ebb95919e74db",
+      "context_id": "CTX_032",
+      "context_version": 3,
+      "model_generation": 4,
+      "namespace": "NS_08",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_C",
+          "placement_key": "6cb382b0b6a02a10a6853292430913d4bfb8511845798f6bfee4a09913f265e3",
+          "replica_ordinal": 0
+        },
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "c197d606d082ddbceda4748ac86f86d26b8bf7d5546244bea2b846e06a34b950",
+          "replica_ordinal": 1
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08",
+      "treatment_universe_hash": "f78ebe32d1c07773fb2352c7f215cb4402ca2cf6acb4ba35047750eedbea40ce"
+    },
+    {
+      "cell_id": "CELL_0097",
+      "cell_manifest_hash": "bb88ff2cd74aca6941bb2b9bb4363a8a8a41621e17c505d3d29dce05d5599a85",
+      "context_id": "CTX_001",
+      "context_version": 4,
+      "model_generation": 1,
+      "namespace": "NS_01",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_C",
+          "placement_key": "f3a20852929ccef4ce3ea618eb7e78aae8fa168ac789c459a5069bb7d088973f",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01",
+      "treatment_universe_hash": "dffbc0aa50d8484d5e9ded6cac88c6857fe3f3f7203eb28c0f9bdea25955c434"
+    },
+    {
+      "cell_id": "CELL_0098",
+      "cell_manifest_hash": "9a7d049cc6950279e480e8a07866b5439154d25c524773312db176ba7d77ca5e",
+      "context_id": "CTX_002",
+      "context_version": 4,
+      "model_generation": 2,
+      "namespace": "NS_02",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_D",
+          "placement_key": "7397fce24aff93b64db617bf7935beb80455c9c431ad7d4ee74dd6251ca00d04",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02",
+      "treatment_universe_hash": "60c5848e8ef43acf13e616ce9ea5fd5a619d633efe751eb1fb36020a47d81fcf"
+    },
+    {
+      "cell_id": "CELL_0099",
+      "cell_manifest_hash": "3803359a72ee0cb11c982e12eab1ff1b00a12b82b3518e0f060bdd39f45f964e",
+      "context_id": "CTX_003",
+      "context_version": 4,
+      "model_generation": 3,
+      "namespace": "NS_03",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_C",
+          "placement_key": "82527fbbbb17ffb72ed680abe010193eb0e3ea82492692262dcb040a6a94cede",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03",
+      "treatment_universe_hash": "d9ba813c908dff54974cb6c3fb70721384f528697ed2899f01406734add65859"
+    },
+    {
+      "cell_id": "CELL_0100",
+      "cell_manifest_hash": "d3d332c67c1b6968575b925f8ff1cd76ce3a88b36eb5d99ebf2ab72d3b4508cb",
+      "context_id": "CTX_004",
+      "context_version": 4,
+      "model_generation": 4,
+      "namespace": "NS_04",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "341a40b6b394ca30530da93f838304c5eb6583dce7432c1c7d3cc48a167e4e34",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04",
+      "treatment_universe_hash": "0962a90edf53e5ea3b8505edfeaae093e2b40b40386ac73b21108f94ca88ff2f"
+    },
+    {
+      "cell_id": "CELL_0101",
+      "cell_manifest_hash": "dafd4dc4e7a14c607b0c6252e052b05ded064ef18c59cd1c8fe0cfd4115468ae",
+      "context_id": "CTX_005",
+      "context_version": 4,
+      "model_generation": 1,
+      "namespace": "NS_05",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_B",
+          "placement_key": "b02d05c9b9488bf85292c4abd0114f2dc5af5a389e7dbfb9c974a744165a03e5",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05",
+      "treatment_universe_hash": "f4b4f52850a992fd3679fd7f36bca1394c393598e0b8a5665fbff2d54ed29fa4"
+    },
+    {
+      "cell_id": "CELL_0102",
+      "cell_manifest_hash": "5c7be8c0c5a9efeb2e402dc3904ce83e61ba4c4b5897b4a91f9384914b09a138",
+      "context_id": "CTX_006",
+      "context_version": 4,
+      "model_generation": 2,
+      "namespace": "NS_06",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_A",
+          "placement_key": "82ad0656f9591127e626558e6bce5fad4d777586996ca822aec0780a47139ef4",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06",
+      "treatment_universe_hash": "a8d353656ecf2133743ab8896fab104c3fdf461d1853d02ffe2ee523f35c7127"
+    },
+    {
+      "cell_id": "CELL_0103",
+      "cell_manifest_hash": "058efd147009d018c474fa0a0e6ca40fed8c4f1086037d688bdc567c463147b9",
+      "context_id": "CTX_007",
+      "context_version": 4,
+      "model_generation": 3,
+      "namespace": "NS_07",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_B",
+          "placement_key": "8bd85ff65a047073abc132ca50c53cb46c7837c89df38a047a6032670e53ae24",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07",
+      "treatment_universe_hash": "bb1e90d09c0d458affa32f04a969f13d5882d54d58107296308d10bcdac2bc2b"
+    },
+    {
+      "cell_id": "CELL_0104",
+      "cell_manifest_hash": "ec45248f3dd9c957656e3eeb8a9254b3dee8b0df313e1c025ffc73a41f5a91ff",
+      "context_id": "CTX_008",
+      "context_version": 4,
+      "model_generation": 4,
+      "namespace": "NS_08",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_D",
+          "placement_key": "06ed2265213a28589ad07d8b0383a70d16d01f2164ea3a7de168fe11455aeaf7",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08",
+      "treatment_universe_hash": "6beed1de724ffe9394a9b51e6c5f9d8245cc72d6c44fd9c68ffd40a984718bee"
+    },
+    {
+      "cell_id": "CELL_0105",
+      "cell_manifest_hash": "3c4817e7e00bba21537f52c4be68cf42d0438df3d0de0ecde81bae77890c4d1e",
+      "context_id": "CTX_009",
+      "context_version": 4,
+      "model_generation": 1,
+      "namespace": "NS_01",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "c2c98ef2c9eaa5dc6695c9c2d03b07bb8d00a1da6d73a7760c5264f0831b700a",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01",
+      "treatment_universe_hash": "dd2186c1ba1312eb95c32d360c01fe9612befb9333df40e856d980ede163dd9d"
+    },
+    {
+      "cell_id": "CELL_0106",
+      "cell_manifest_hash": "8cde5e697a84adda7a7c7eb1f10f791ce2b19661a75e132e4a56b2ddd28768db",
+      "context_id": "CTX_010",
+      "context_version": 4,
+      "model_generation": 2,
+      "namespace": "NS_02",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_B",
+          "placement_key": "d3ea426fa9db57f88233c58c2f11e3a6628ca24625314f4033e6ad6aaadca2cd",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02",
+      "treatment_universe_hash": "ce49d2e7e57ad62c2ab3f63c8e6684220f02b92cc7ba17552afb207c4ae1d591"
+    },
+    {
+      "cell_id": "CELL_0107",
+      "cell_manifest_hash": "cb42362c9f70a778817cceb095e399a64f29b47c2d2120f345a23d759a5c4c2f",
+      "context_id": "CTX_011",
+      "context_version": 4,
+      "model_generation": 3,
+      "namespace": "NS_03",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_B",
+          "placement_key": "77759df69a4b999bbce9485a0917a1cd5cd52c715ebc114eb004a8700bd6d12f",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03",
+      "treatment_universe_hash": "918cedac822f63140bec612da4b507d76719dbdd692e44ab43da2a82261d2e73"
+    },
+    {
+      "cell_id": "CELL_0108",
+      "cell_manifest_hash": "1e44576ccbd8306a23bb19b2c5828001f7e61bb4317334f1e7a0098852bba709",
+      "context_id": "CTX_012",
+      "context_version": 4,
+      "model_generation": 4,
+      "namespace": "NS_04",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_C",
+          "placement_key": "1561ffe9f10f46e86e0ad65c4cd6acbe215486021e02828b6caad5ea63041d4a",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04",
+      "treatment_universe_hash": "7ebac44738748a1c46e47c68a9e059e63d50ec55c5bce395eb0b7a3bef68d5d9"
+    },
+    {
+      "cell_id": "CELL_0109",
+      "cell_manifest_hash": "f185478e8e7740fab7c3116938d906e5455226675b1dfa27f8a3322bc0e22216",
+      "context_id": "CTX_013",
+      "context_version": 4,
+      "model_generation": 1,
+      "namespace": "NS_05",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "43f54fdb4939425921626f9e7fdcf926840f2711b02879a65be5c8d9daef70c6",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05",
+      "treatment_universe_hash": "a0667c0cdbf55a16fea6706f3478c405c0dcf8ba6b58cc994058bb2ea34de14d"
+    },
+    {
+      "cell_id": "CELL_0110",
+      "cell_manifest_hash": "29e2139f041f4376b4527b8a596e8c1ccf3fcdd8cbe200ec8a6b635b9b1cb1c2",
+      "context_id": "CTX_014",
+      "context_version": 4,
+      "model_generation": 2,
+      "namespace": "NS_06",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_B",
+          "placement_key": "ec7a5387c25e9907c3aa2ede3ef64ee6e313f1c38dd1e67f9bbb67249ca9480c",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06",
+      "treatment_universe_hash": "b73ab1f0d916a986ef3871774fe828098f50c326460dbe6053b19dca937b10ae"
+    },
+    {
+      "cell_id": "CELL_0111",
+      "cell_manifest_hash": "f49560315717bf87919ac820899bf9f8c48d4a9f1ad1efb2eabe3bf8ac888e55",
+      "context_id": "CTX_015",
+      "context_version": 4,
+      "model_generation": 3,
+      "namespace": "NS_07",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_D",
+          "placement_key": "28b430a4312002bcde8c2613be1d5e11b7fdb56cdb537dca16ee2af0fa4e9037",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07",
+      "treatment_universe_hash": "ea20cf8b37c329eebc0ec4352963501939ea3cfb7ce8be089669b78741aace05"
+    },
+    {
+      "cell_id": "CELL_0112",
+      "cell_manifest_hash": "048b080862b86deda7ef558dd65d69725b42d95ed6f54a9ded20fc68bbae8852",
+      "context_id": "CTX_016",
+      "context_version": 4,
+      "model_generation": 4,
+      "namespace": "NS_08",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "6cab91e9567fb2d25fb09559e5c114f1241c010d80181b7d3c4a6add63622da0",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08",
+      "treatment_universe_hash": "f78ebe32d1c07773fb2352c7f215cb4402ca2cf6acb4ba35047750eedbea40ce"
+    },
+    {
+      "cell_id": "CELL_0113",
+      "cell_manifest_hash": "486b5c2430eae7c09310d9ab663f4a4b473c6de33f245b90d6efb230387d9bcb",
+      "context_id": "CTX_017",
+      "context_version": 4,
+      "model_generation": 1,
+      "namespace": "NS_01",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_C",
+          "placement_key": "85fc69264879d9552bf99fd9e6e6528bf70896003ac71e2504154f3afa1b6417",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_01",
+      "treatment_universe_hash": "dffbc0aa50d8484d5e9ded6cac88c6857fe3f3f7203eb28c0f9bdea25955c434"
+    },
+    {
+      "cell_id": "CELL_0114",
+      "cell_manifest_hash": "6356f07e5578f824976ac5755d8ca19c041806e00c59a27b145339f7963383d2",
+      "context_id": "CTX_018",
+      "context_version": 4,
+      "model_generation": 2,
+      "namespace": "NS_02",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_B",
+          "placement_key": "d2d4ba7d539da63dd4174e6f167049b2029c3ce6153d0590a7b28c6c0b8305dd",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_02",
+      "treatment_universe_hash": "60c5848e8ef43acf13e616ce9ea5fd5a619d633efe751eb1fb36020a47d81fcf"
+    },
+    {
+      "cell_id": "CELL_0115",
+      "cell_manifest_hash": "afb7280fb682ac440e0e2cc45f94dfb8163b3642844bf2e035a65c83aa33692e",
+      "context_id": "CTX_019",
+      "context_version": 4,
+      "model_generation": 3,
+      "namespace": "NS_03",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "5ff6112c070d91d23bf569f8e48137d4da5487ec4cd3efbfaa443c6df749fa97",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_03",
+      "treatment_universe_hash": "d9ba813c908dff54974cb6c3fb70721384f528697ed2899f01406734add65859"
+    },
+    {
+      "cell_id": "CELL_0116",
+      "cell_manifest_hash": "53f7273e7223e32982adf975406f3bf279dcfd10e40f37551c8cfabe9430cbfc",
+      "context_id": "CTX_020",
+      "context_version": 4,
+      "model_generation": 4,
+      "namespace": "NS_04",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_A",
+          "placement_key": "439cd5d70ddd5119964e5170f7d940b185f0d8e9d75530b7bc5167a927545669",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_04",
+      "treatment_universe_hash": "0962a90edf53e5ea3b8505edfeaae093e2b40b40386ac73b21108f94ca88ff2f"
+    },
+    {
+      "cell_id": "CELL_0117",
+      "cell_manifest_hash": "4bef470c7f426119ef945491cd5833d556632e8a20b7b82fff67d0df3e1047f5",
+      "context_id": "CTX_021",
+      "context_version": 4,
+      "model_generation": 1,
+      "namespace": "NS_05",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_B",
+          "placement_key": "56ec4eb2e05d2297ccacfc06d062566be6544fc7c4b52089a5928bd8e6355d58",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_05",
+      "treatment_universe_hash": "f4b4f52850a992fd3679fd7f36bca1394c393598e0b8a5665fbff2d54ed29fa4"
+    },
+    {
+      "cell_id": "CELL_0118",
+      "cell_manifest_hash": "12cff6a93ba0743eeb457022b3c7d455bebb97bea5330408b9e1fe63b578019b",
+      "context_id": "CTX_022",
+      "context_version": 4,
+      "model_generation": 2,
+      "namespace": "NS_06",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "d14eb50375e82197c20784adeacb3659f22d71b48db52fa3d0f5a4da9269caf2",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_06",
+      "treatment_universe_hash": "a8d353656ecf2133743ab8896fab104c3fdf461d1853d02ffe2ee523f35c7127"
+    },
+    {
+      "cell_id": "CELL_0119",
+      "cell_manifest_hash": "5429fa2b4d34e39e10fea2260c99a55d97cf7abada76b45538bcfb33d75d7636",
+      "context_id": "CTX_023",
+      "context_version": 4,
+      "model_generation": 3,
+      "namespace": "NS_07",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "8b2da4400eb1c0af73119e273173a3d93b5d19c4cb65e6b82c56bb3dea1128ad",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_07",
+      "treatment_universe_hash": "bb1e90d09c0d458affa32f04a969f13d5882d54d58107296308d10bcdac2bc2b"
+    },
+    {
+      "cell_id": "CELL_0120",
+      "cell_manifest_hash": "1bc5c3ef63d0c7f6c8bf87168dd70a2ff045959bf8806534da9e90a2c701060f",
+      "context_id": "CTX_024",
+      "context_version": 4,
+      "model_generation": 4,
+      "namespace": "NS_08",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_C",
+          "placement_key": "6855d92fe574ccbaf0ec0e2fe943e52520deea63c4dc13c1b5a6f2d8f97b88c8",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "QUALIFIED_REFERENCE",
+      "tenant_id": "TENANT_08",
+      "treatment_universe_hash": "6beed1de724ffe9394a9b51e6c5f9d8245cc72d6c44fd9c68ffd40a984718bee"
+    },
+    {
+      "cell_id": "CELL_0121",
+      "cell_manifest_hash": "294e95c70c0aa73674864062b2ca3b6aa87c5b50210b46860b8c608c5b8b5ba7",
+      "context_id": "CTX_025",
+      "context_version": 4,
+      "model_generation": 1,
+      "namespace": "NS_01",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "42fd57b8159c1f031eb72932248a33c15edb08a184e04e5580e71bca6ab5e32d",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "REGISTERED",
+      "tenant_id": "TENANT_01",
+      "treatment_universe_hash": "dd2186c1ba1312eb95c32d360c01fe9612befb9333df40e856d980ede163dd9d"
+    },
+    {
+      "cell_id": "CELL_0122",
+      "cell_manifest_hash": "6c40b658d30a8a4a7e26152f8cc5aae80f8776227958e806cf2797b877292c2f",
+      "context_id": "CTX_026",
+      "context_version": 4,
+      "model_generation": 2,
+      "namespace": "NS_02",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_C",
+          "placement_key": "c89ed9eca77af1db188728ed3d0d759b052b40f2654df2796654c550629845a0",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "REGISTERED",
+      "tenant_id": "TENANT_02",
+      "treatment_universe_hash": "ce49d2e7e57ad62c2ab3f63c8e6684220f02b92cc7ba17552afb207c4ae1d591"
+    },
+    {
+      "cell_id": "CELL_0123",
+      "cell_manifest_hash": "6596b5e717749ef60381f6fc7b085167d4374df05400af46b28cf56698692199",
+      "context_id": "CTX_027",
+      "context_version": 4,
+      "model_generation": 3,
+      "namespace": "NS_03",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_A",
+          "placement_key": "3504788e060e54072dc64df13bac3c798cc2c7ca887789f0dd446e58eae6f505",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "REGISTERED",
+      "tenant_id": "TENANT_03",
+      "treatment_universe_hash": "918cedac822f63140bec612da4b507d76719dbdd692e44ab43da2a82261d2e73"
+    },
+    {
+      "cell_id": "CELL_0124",
+      "cell_manifest_hash": "a02675b724f175db03baed6e47d0ef9c1517bbcdf575717d108bebf3e69b6266",
+      "context_id": "CTX_028",
+      "context_version": 4,
+      "model_generation": 4,
+      "namespace": "NS_04",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_D",
+          "placement_key": "00161cdc331a6cb9a2a4651b755e0358e3249bd9358782b87bb6ff0c275dfa72",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "REGISTERED",
+      "tenant_id": "TENANT_04",
+      "treatment_universe_hash": "7ebac44738748a1c46e47c68a9e059e63d50ec55c5bce395eb0b7a3bef68d5d9"
+    },
+    {
+      "cell_id": "CELL_0125",
+      "cell_manifest_hash": "d587509a84240334ba3cf7197a26d8f78a2a218caffb47cd20426b7419302fc9",
+      "context_id": "CTX_029",
+      "context_version": 4,
+      "model_generation": 1,
+      "namespace": "NS_05",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_A",
+          "placement_key": "46db16fef352da4ede033c2464130befb7444c9a1e2ff83629d3a9d43796926d",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "REGISTERED",
+      "tenant_id": "TENANT_05",
+      "treatment_universe_hash": "a0667c0cdbf55a16fea6706f3478c405c0dcf8ba6b58cc994058bb2ea34de14d"
+    },
+    {
+      "cell_id": "CELL_0126",
+      "cell_manifest_hash": "b5f071b115eaf76d780a795c1e3a719b8dbd507264c5585c9a7a6eb961f862c2",
+      "context_id": "CTX_030",
+      "context_version": 4,
+      "model_generation": 2,
+      "namespace": "NS_06",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_D",
+          "placement_key": "6c54ab162fbaff569557582a5958da3db66a78cf0a1c54d6f2f1ccf47ae973da",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "REGISTERED",
+      "tenant_id": "TENANT_06",
+      "treatment_universe_hash": "b73ab1f0d916a986ef3871774fe828098f50c326460dbe6053b19dca937b10ae"
+    },
+    {
+      "cell_id": "CELL_0127",
+      "cell_manifest_hash": "07bfd192166eb12bf8b4f3a2109d437e87c19e3f90c01583b3f69fe4003c0bd3",
+      "context_id": "CTX_031",
+      "context_version": 4,
+      "model_generation": 3,
+      "namespace": "NS_07",
+      "replicas": [
+        {
+          "failure_domain": "FD_US_D",
+          "placement_key": "f3799f13ae32d918dcb6a52898defbd763cadc75ca560c573bf2a3bb0d9d2399",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "REGISTERED",
+      "tenant_id": "TENANT_07",
+      "treatment_universe_hash": "ea20cf8b37c329eebc0ec4352963501939ea3cfb7ce8be089669b78741aace05"
+    },
+    {
+      "cell_id": "CELL_0128",
+      "cell_manifest_hash": "739d5359dbb5fdf7c08248ca6aad15dca0234ea331aef47ced778432b96ca395",
+      "context_id": "CTX_032",
+      "context_version": 4,
+      "model_generation": 4,
+      "namespace": "NS_08",
+      "replicas": [
+        {
+          "failure_domain": "FD_EU_B",
+          "placement_key": "5e9a67fcd85502821f75288f45c752d6ffd648b03cb58488a757b8679edbf453",
+          "replica_ordinal": 0
+        }
+      ],
+      "runtime_bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "state": "REGISTERED",
+      "tenant_id": "TENANT_08",
+      "treatment_universe_hash": "f78ebe32d1c07773fb2352c7f215cb4402ca2cf6acb4ba35047750eedbea40ce"
+    }
+  ],
+  "fleet_manifest_hash": "671b09388efca04e9de7ec082742169ae4adf3868458afa4417742397d905b51",
+  "fleet_manifest_id": "v440_manifest_e1d79bec8fdca80f4fb92f6a",
+  "fleet_merkle_root": "268e7cfdd1ad262a339cb2afcf80e964ce58e2358c5fa65c3d5c0ec8bc0bdfc7",
+  "immutable": true,
+  "phase": "SAED_V4_40",
+  "placement_hash": "e745e541099c025ce63231e165cb6c422b587da0f486734f4bd786413ef6a425",
+  "production_authorized": false,
+  "registry_hash": "ec276bf59506438e8e38f5dae77d35a62da6ada54a8c28fa35dbf5110947478f",
+  "replica_count": 224,
+  "research_only": true,
+  "upstream_certificate_hash": "913fa097a73b75979064e9a36a55d6f0ea4258cebb0fedaa0ee210d725c8ead4"
+}

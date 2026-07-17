@@ -1,0 +1,104 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed_v4_40/chaos.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "chaos_report_hash": {
+      "type": "string"
+    },
+    "chaos_report_id": {
+      "type": "string"
+    },
+    "contained_count": {
+      "type": "integer"
+    },
+    "events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "capital_delta": {
+            "type": "number"
+          },
+          "contained": {
+            "type": "boolean"
+          },
+          "event_hash": {
+            "type": "string"
+          },
+          "event_id": {
+            "type": "string"
+          },
+          "expected_response": {
+            "type": "string"
+          },
+          "live_order_delta": {
+            "type": "integer"
+          },
+          "observed_response": {
+            "type": "string"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "position_delta": {
+            "type": "number"
+          },
+          "previous_hash": {
+            "type": "string"
+          },
+          "scenario": {
+            "type": "string"
+          },
+          "scenario_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "scenario_id",
+          "scenario",
+          "expected_response",
+          "observed_response",
+          "contained",
+          "capital_delta",
+          "position_delta",
+          "live_order_delta",
+          "ordinal",
+          "previous_hash",
+          "event_id",
+          "event_hash"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "scenario_count": {
+      "type": "integer"
+    },
+    "uncontained_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "phase",
+    "events",
+    "scenario_count",
+    "contained_count",
+    "uncontained_count",
+    "baseline_preserved",
+    "research_only",
+    "chaos_report_id",
+    "chaos_report_hash"
+  ],
+  "title": "SAED V4-40 chaos",
+  "type": "object"
+}

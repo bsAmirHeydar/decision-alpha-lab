@@ -1,0 +1,76 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed_v4_40/evidence_bundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "actual_hundred_context_soak_passed": {
+      "type": "boolean"
+    },
+    "actual_multi_terminal_failover_passed": {
+      "type": "boolean"
+    },
+    "evidence_bundle_hash": {
+      "type": "string"
+    },
+    "evidence_bundle_id": {
+      "type": "string"
+    },
+    "evidence_merkle_root": {
+      "type": "string"
+    },
+    "external_scale_evidence_complete": {
+      "type": "boolean"
+    },
+    "leaf_count": {
+      "type": "integer"
+    },
+    "leaves": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact_hash": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "artifact_hash"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "review_bundle_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "leaves",
+    "leaf_count",
+    "review_bundle_hash",
+    "evidence_merkle_root",
+    "external_scale_evidence_complete",
+    "actual_hundred_context_soak_passed",
+    "actual_multi_terminal_failover_passed",
+    "research_only",
+    "production_authorized",
+    "evidence_bundle_id",
+    "evidence_bundle_hash"
+  ],
+  "title": "SAED V4-40 evidence_bundle",
+  "type": "object"
+}

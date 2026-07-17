@@ -1,0 +1,124 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed_v4_40/control_journal.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "accepted_count": {
+      "type": "integer"
+    },
+    "deduplicated_count": {
+      "type": "integer"
+    },
+    "events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "accepted": {
+            "type": "boolean"
+          },
+          "action": {
+            "type": "string"
+          },
+          "actor_role": {
+            "type": "string"
+          },
+          "approved": {
+            "type": "boolean"
+          },
+          "cell_id": {
+            "type": "string"
+          },
+          "command_id": {
+            "type": "string"
+          },
+          "event_hash": {
+            "type": "string"
+          },
+          "event_id": {
+            "type": "string"
+          },
+          "idempotency_key": {
+            "type": "string"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "live_order_side_effect": {
+            "type": "boolean"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "previous_hash": {
+            "type": "string"
+          },
+          "side_effect_scope": {
+            "type": "string"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          },
+          "tenant_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "action",
+          "actor_role",
+          "approved",
+          "cell_id",
+          "command_id",
+          "idempotency_key",
+          "known_time",
+          "synthetic_fixture",
+          "tenant_id",
+          "accepted",
+          "side_effect_scope",
+          "live_order_side_effect",
+          "ordinal",
+          "previous_hash",
+          "event_id",
+          "event_hash"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "fleet_manifest_hash": {
+      "type": "string"
+    },
+    "idempotent": {
+      "type": "boolean"
+    },
+    "journal_hash": {
+      "type": "string"
+    },
+    "journal_id": {
+      "type": "string"
+    },
+    "live_order_side_effects": {
+      "type": "integer"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "rollout_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "fleet_manifest_hash",
+    "rollout_hash",
+    "events",
+    "accepted_count",
+    "deduplicated_count",
+    "idempotent",
+    "live_order_side_effects",
+    "research_only",
+    "journal_id",
+    "journal_hash"
+  ],
+  "title": "SAED V4-40 control_journal",
+  "type": "object"
+}

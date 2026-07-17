@@ -1,0 +1,8 @@
+{
+  "actual_scale_soak_passed": false,
+  "phase": "SAED_V4_40",
+  "production_authorized": false,
+  "qa_passed": true,
+  "reference_fleet_scaleout_passed": true,
+  "status": "accepted_reference_external_gates_open"
+}

@@ -1,0 +1,43 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed_v4_40/input_reviews.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "closed_contract": true,
+  "items": {
+    "additionalProperties": false,
+    "properties": {
+      "conflicts_declared": {
+        "type": "boolean"
+      },
+      "decision": {
+        "type": "string"
+      },
+      "evidence_hash": {
+        "type": "string"
+      },
+      "independent": {
+        "type": "boolean"
+      },
+      "reviewer_id": {
+        "type": "string"
+      },
+      "role": {
+        "type": "string"
+      },
+      "scope": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "conflicts_declared",
+      "decision",
+      "evidence_hash",
+      "independent",
+      "reviewer_id",
+      "role",
+      "scope"
+    ],
+    "type": "object"
+  },
+  "title": "SAED V4-40 input_reviews",
+  "type": "array"
+}

@@ -1,0 +1,36 @@
+{
+  "allowed_next_work": [
+    "continuous_fleet_surveillance",
+    "drift_and_degradation_monitoring",
+    "incident_learning",
+    "context_retirement",
+    "model_retirement",
+    "external_scale_gate_completion"
+  ],
+  "certificate_hash": "48735c9002a785cd787b2e165e46ba556377541ffbc22ec1305b518708ca1af0",
+  "forbidden_next_work": [
+    "live_order_submission_without_signed_authority",
+    "capital_activation_without_authorization",
+    "silent_cell_mutation",
+    "cross_tenant_routing",
+    "claiming_external_scale_evidence_from_synthetic_fixture"
+  ],
+  "handoff_hash": "0251d9fe703f093b16f21532392a95071ac6e7119afae63783923e98a69fe38c",
+  "handoff_id": "v440_handoff_82ec53140e2f608a65ec9003",
+  "kind": "v4_40_handoff",
+  "next_phase": "SAED_V4_41",
+  "phase": "SAED_V4_40",
+  "production_authorized": false,
+  "release_hash": "8dc794bbaa86a6940164c901cbb981d15b9208715e9e50a275ccd8c87a2bbe5d",
+  "required_external_gates": [
+    "METAEDITOR_COMPILE_MATRIX",
+    "MT5_MULTI_TERMINAL_REPLAY",
+    "HUNDRED_CONTEXT_SOAK",
+    "MULTI_FAILURE_DOMAIN_FAILOVER",
+    "BROKER_FLEET_RECONCILIATION",
+    "CONTROL_PLANE_RECOVERY",
+    "KEY_CUSTODY",
+    "INDEPENDENT_SRE_APPROVAL"
+  ],
+  "research_only": true
+}

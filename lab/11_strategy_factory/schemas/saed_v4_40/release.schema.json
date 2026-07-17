@@ -1,0 +1,72 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed_v4_40/release.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "actual_failover_passed": {
+      "type": "boolean"
+    },
+    "actual_scale_soak_passed": {
+      "type": "boolean"
+    },
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "cell_count": {
+      "type": "integer"
+    },
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "context_fleet_reference_ready": {
+      "type": "boolean"
+    },
+    "internal_reference_gates_passed": {
+      "type": "boolean"
+    },
+    "live_order_submission_allowed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "release_hash": {
+      "type": "string"
+    },
+    "release_id": {
+      "type": "string"
+    },
+    "replica_count": {
+      "type": "integer"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "status",
+    "internal_reference_gates_passed",
+    "cell_count",
+    "replica_count",
+    "context_fleet_reference_ready",
+    "actual_scale_soak_passed",
+    "actual_failover_passed",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "production_authorized",
+    "research_only",
+    "claim_ceiling",
+    "release_id",
+    "release_hash"
+  ],
+  "title": "SAED V4-40 release",
+  "type": "object"
+}

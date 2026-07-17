@@ -1,0 +1,211 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed_v4_40/observability.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "alerts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "alert_type": {
+            "type": "string"
+          },
+          "automatic_action": {
+            "type": "string"
+          },
+          "cell_id": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "alert_type",
+          "cell_id",
+          "severity",
+          "automatic_action"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "cell_rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "cell_id": {
+            "type": "string"
+          },
+          "control_events": {
+            "type": "integer"
+          },
+          "health_status": {
+            "type": "string"
+          },
+          "replica_count": {
+            "type": "integer"
+          },
+          "rollout_eligible": {
+            "type": "boolean"
+          },
+          "route_present": {
+            "type": "boolean"
+          },
+          "state": {
+            "type": "string"
+          },
+          "tenant_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "cell_id",
+          "tenant_id",
+          "state",
+          "health_status",
+          "replica_count",
+          "route_present",
+          "rollout_eligible",
+          "control_events"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "domain_replica_counts": {
+      "additionalProperties": false,
+      "properties": {
+        "FD_EU_A": {
+          "type": "integer"
+        },
+        "FD_EU_B": {
+          "type": "integer"
+        },
+        "FD_EU_C": {
+          "type": "integer"
+        },
+        "FD_EU_D": {
+          "type": "integer"
+        },
+        "FD_US_A": {
+          "type": "integer"
+        },
+        "FD_US_B": {
+          "type": "integer"
+        },
+        "FD_US_C": {
+          "type": "integer"
+        },
+        "FD_US_D": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "FD_EU_A",
+        "FD_EU_B",
+        "FD_EU_C",
+        "FD_EU_D",
+        "FD_US_A",
+        "FD_US_B",
+        "FD_US_C",
+        "FD_US_D"
+      ],
+      "type": "object"
+    },
+    "fleet_health_ratio": {
+      "type": "number"
+    },
+    "live_order_side_effects": {
+      "type": "integer"
+    },
+    "observability_hash": {
+      "type": "string"
+    },
+    "observability_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "registry_state_counts": {
+      "additionalProperties": false,
+      "properties": {
+        "QUALIFIED_REFERENCE": {
+          "type": "integer"
+        },
+        "REGISTERED": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "QUALIFIED_REFERENCE",
+        "REGISTERED"
+      ],
+      "type": "object"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "tenant_counts": {
+      "additionalProperties": false,
+      "properties": {
+        "TENANT_01": {
+          "type": "integer"
+        },
+        "TENANT_02": {
+          "type": "integer"
+        },
+        "TENANT_03": {
+          "type": "integer"
+        },
+        "TENANT_04": {
+          "type": "integer"
+        },
+        "TENANT_05": {
+          "type": "integer"
+        },
+        "TENANT_06": {
+          "type": "integer"
+        },
+        "TENANT_07": {
+          "type": "integer"
+        },
+        "TENANT_08": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "TENANT_01",
+        "TENANT_02",
+        "TENANT_03",
+        "TENANT_04",
+        "TENANT_05",
+        "TENANT_06",
+        "TENANT_07",
+        "TENANT_08"
+      ],
+      "type": "object"
+    },
+    "unknown_cells": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "phase",
+    "cell_rows",
+    "tenant_counts",
+    "domain_replica_counts",
+    "registry_state_counts",
+    "alerts",
+    "fleet_health_ratio",
+    "unknown_cells",
+    "live_order_side_effects",
+    "research_only",
+    "observability_id",
+    "observability_hash"
+  ],
+  "title": "SAED V4-40 observability",
+  "type": "object"
+}

@@ -1,0 +1,18 @@
+{
+  "actual_external_scale_evidence_complete": false,
+  "actual_failover_passed": false,
+  "actual_scale_soak_passed": false,
+  "capital_activation_allowed": false,
+  "certificate_hash": "48735c9002a785cd787b2e165e46ba556377541ffbc22ec1305b518708ca1af0",
+  "certificate_id": "v440_certificate_7a2702d3c1b464ba5539009d",
+  "claim_ceiling": "deterministic synthetic context-fleet control-plane and scaleout reference only",
+  "evidence_hash": "03087e915ce3e7e74d6fdc9331947c123725df8c83dec67ce4393e8af863cc24",
+  "fleet_reference_ready": true,
+  "live_order_submission_allowed": false,
+  "next_phase": "SAED_V4_41",
+  "phase": "SAED_V4_40",
+  "production_authorized": false,
+  "release_hash": "8dc794bbaa86a6940164c901cbb981d15b9208715e9e50a275ccd8c87a2bbe5d",
+  "research_only": true,
+  "status": "ACCEPTED_REFERENCE_EXTERNAL_GATES_OPEN"
+}

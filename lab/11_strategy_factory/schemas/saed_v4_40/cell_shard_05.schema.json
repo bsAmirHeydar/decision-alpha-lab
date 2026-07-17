@@ -1,0 +1,100 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed_v4_40/cell_shard_05.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "cells": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "baseline_cell_id": {
+            "type": "string"
+          },
+          "cell_id": {
+            "type": "string"
+          },
+          "context_id": {
+            "type": "string"
+          },
+          "context_version": {
+            "type": "integer"
+          },
+          "environment_id": {
+            "type": "string"
+          },
+          "failure_domain_policy": {
+            "type": "string"
+          },
+          "known_time_cutoff": {
+            "type": "string"
+          },
+          "model_generation": {
+            "type": "integer"
+          },
+          "mutable": {
+            "type": "boolean"
+          },
+          "namespace": {
+            "type": "string"
+          },
+          "replica_count": {
+            "type": "integer"
+          },
+          "resource_class": {
+            "type": "string"
+          },
+          "runtime_bundle_hash": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "tenant_id": {
+            "type": "string"
+          },
+          "treatment_universe_hash": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "baseline_cell_id",
+          "cell_id",
+          "context_id",
+          "context_version",
+          "environment_id",
+          "failure_domain_policy",
+          "known_time_cutoff",
+          "model_generation",
+          "mutable",
+          "namespace",
+          "replica_count",
+          "resource_class",
+          "runtime_bundle_hash",
+          "state",
+          "tenant_id",
+          "treatment_universe_hash"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "shard_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "shard_id",
+    "cells",
+    "immutable",
+    "research_only"
+  ],
+  "title": "SAED V4-40 cell_shard_05",
+  "type": "object"
+}

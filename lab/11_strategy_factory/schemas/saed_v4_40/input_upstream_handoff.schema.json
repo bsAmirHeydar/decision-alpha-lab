@@ -1,0 +1,77 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed_v4_40/input_upstream_handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "allowed_next_work": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "forbidden_next_work": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "micro_live_authorized": {
+      "type": "boolean"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "release_hash": {
+      "type": "string"
+    },
+    "required_external_gates": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "runtime_bundle_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "allowed_next_work",
+    "certificate_hash",
+    "forbidden_next_work",
+    "handoff_hash",
+    "handoff_id",
+    "kind",
+    "micro_live_authorized",
+    "next_phase",
+    "phase",
+    "production_authorized",
+    "release_hash",
+    "required_external_gates",
+    "research_only",
+    "runtime_bundle_hash"
+  ],
+  "title": "SAED V4-40 input_upstream_handoff",
+  "type": "object"
+}

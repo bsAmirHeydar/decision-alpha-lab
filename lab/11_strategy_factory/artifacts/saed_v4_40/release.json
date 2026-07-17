@@ -1,0 +1,17 @@
+{
+  "actual_failover_passed": false,
+  "actual_scale_soak_passed": false,
+  "capital_activation_allowed": false,
+  "cell_count": 128,
+  "claim_ceiling": "deterministic synthetic context-fleet control-plane and scaleout reference only",
+  "context_fleet_reference_ready": true,
+  "internal_reference_gates_passed": true,
+  "live_order_submission_allowed": false,
+  "phase": "SAED_V4_40",
+  "production_authorized": false,
+  "release_hash": "8dc794bbaa86a6940164c901cbb981d15b9208715e9e50a275ccd8c87a2bbe5d",
+  "release_id": "v440_release_ddc0d0c7e08b87f7386b87e7",
+  "replica_count": 224,
+  "research_only": true,
+  "status": "ACCEPTED_REFERENCE_EXTERNAL_GATES_OPEN"
+}

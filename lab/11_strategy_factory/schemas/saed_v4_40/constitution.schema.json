@@ -1,0 +1,108 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed_v4_40/constitution.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "automatic_live_promotion_allowed": {
+      "type": "boolean"
+    },
+    "baseline_preservation_required": {
+      "type": "boolean"
+    },
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "clauses": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "clause_id": {
+            "type": "string"
+          },
+          "evidence_required": {
+            "type": "boolean"
+          },
+          "failure_action": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "integer"
+          },
+          "requirement": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "clause_id",
+          "evidence_required",
+          "failure_action",
+          "priority",
+          "requirement"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "constitution_hash": {
+      "type": "string"
+    },
+    "constitution_id": {
+      "type": "string"
+    },
+    "cross_tenant_routing_allowed": {
+      "type": "boolean"
+    },
+    "fail_closed_required": {
+      "type": "boolean"
+    },
+    "idempotent_side_effects_required": {
+      "type": "boolean"
+    },
+    "immutable_cell_identity": {
+      "type": "boolean"
+    },
+    "journal_every_transition": {
+      "type": "boolean"
+    },
+    "live_order_submission_allowed": {
+      "type": "boolean"
+    },
+    "no_mutable_global_state": {
+      "type": "boolean"
+    },
+    "production_authorization_allowed": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "tenant_isolation_required": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "automatic_live_promotion_allowed",
+    "baseline_preservation_required",
+    "capital_activation_allowed",
+    "clauses",
+    "constitution_id",
+    "cross_tenant_routing_allowed",
+    "fail_closed_required",
+    "idempotent_side_effects_required",
+    "immutable_cell_identity",
+    "journal_every_transition",
+    "live_order_submission_allowed",
+    "no_mutable_global_state",
+    "production_authorization_allowed",
+    "research_only",
+    "tenant_isolation_required",
+    "version",
+    "constitution_hash"
+  ],
+  "title": "SAED V4-40 constitution",
+  "type": "object"
+}

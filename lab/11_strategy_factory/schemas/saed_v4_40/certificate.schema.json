@@ -1,0 +1,76 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed_v4_40/certificate.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "actual_external_scale_evidence_complete": {
+      "type": "boolean"
+    },
+    "actual_failover_passed": {
+      "type": "boolean"
+    },
+    "actual_scale_soak_passed": {
+      "type": "boolean"
+    },
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "evidence_hash": {
+      "type": "string"
+    },
+    "fleet_reference_ready": {
+      "type": "boolean"
+    },
+    "live_order_submission_allowed": {
+      "type": "boolean"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "release_hash": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "status",
+    "release_hash",
+    "evidence_hash",
+    "fleet_reference_ready",
+    "actual_scale_soak_passed",
+    "actual_failover_passed",
+    "actual_external_scale_evidence_complete",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "production_authorized",
+    "research_only",
+    "next_phase",
+    "claim_ceiling",
+    "certificate_id",
+    "certificate_hash"
+  ],
+  "title": "SAED V4-40 certificate",
+  "type": "object"
+}

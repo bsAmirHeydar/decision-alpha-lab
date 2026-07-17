@@ -1,0 +1,104 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed_v4_40/route_ledger.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "abstained_count": {
+      "type": "integer"
+    },
+    "compiled_routes_hash": {
+      "type": "string"
+    },
+    "event_count": {
+      "type": "integer"
+    },
+    "events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "action": {
+            "type": "string"
+          },
+          "cell_id": {
+            "type": "string"
+          },
+          "event_hash": {
+            "type": "string"
+          },
+          "event_id": {
+            "type": "string"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "occurrence_id": {
+            "type": "string"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "previous_hash": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "side_effects_allowed": {
+            "type": "boolean"
+          },
+          "tenant_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "occurrence_id",
+          "known_time",
+          "tenant_id",
+          "cell_id",
+          "action",
+          "reason",
+          "side_effects_allowed",
+          "ordinal",
+          "previous_hash",
+          "event_id",
+          "event_hash"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "future_suffix_used": {
+      "type": "boolean"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "live_side_effects": {
+      "type": "integer"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "routed_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "compiled_routes_hash",
+    "events",
+    "event_count",
+    "routed_count",
+    "abstained_count",
+    "future_suffix_used",
+    "live_side_effects",
+    "research_only",
+    "ledger_id",
+    "ledger_hash"
+  ],
+  "title": "SAED V4-40 route_ledger",
+  "type": "object"
+}

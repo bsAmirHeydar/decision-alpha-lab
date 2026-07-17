@@ -1,0 +1,95 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed_v4_40/rollout_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "automatic_live_promotion_allowed": {
+      "type": "boolean"
+    },
+    "error_rate_threshold": {
+      "type": "number"
+    },
+    "frozen_policy_hash": {
+      "type": "string"
+    },
+    "frozen_policy_id": {
+      "type": "string"
+    },
+    "latency_p99_threshold_ms": {
+      "type": "integer"
+    },
+    "max_concurrent_tenant_rollouts": {
+      "type": "integer"
+    },
+    "minimum_canary_cells": {
+      "type": "integer"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "reconciliation_delta_threshold": {
+      "type": "number"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "rollback_target": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "waves": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "fraction_bps": {
+            "type": "integer"
+          },
+          "minimum_observations": {
+            "type": "integer"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "required_gates": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "wave_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "fraction_bps",
+          "minimum_observations",
+          "ordinal",
+          "required_gates",
+          "wave_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "automatic_live_promotion_allowed",
+    "error_rate_threshold",
+    "latency_p99_threshold_ms",
+    "max_concurrent_tenant_rollouts",
+    "minimum_canary_cells",
+    "policy_id",
+    "reconciliation_delta_threshold",
+    "research_only",
+    "rollback_target",
+    "version",
+    "waves",
+    "frozen_policy_id",
+    "frozen_policy_hash"
+  ],
+  "title": "SAED V4-40 rollout_policy",
+  "type": "object"
+}

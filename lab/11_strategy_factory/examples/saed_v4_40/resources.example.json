@@ -1,0 +1,97 @@
+{
+  "catalog_hash": "adf8733ab38252b0b149e4ec6c3ee80dfa10e6a710eceddce780a1ef3f05d483",
+  "catalog_id": "SAED_V4_40_RESOURCE_CATALOG",
+  "classes": [
+    {
+      "class_id": "LARGE",
+      "cpu_units": 4,
+      "disk_mb": 8192,
+      "max_replicas": 4,
+      "memory_mb": 4096,
+      "priority": 3,
+      "requires_accelerator": false
+    },
+    {
+      "class_id": "MEDIUM",
+      "cpu_units": 2,
+      "disk_mb": 4096,
+      "max_replicas": 4,
+      "memory_mb": 2048,
+      "priority": 2,
+      "requires_accelerator": false
+    },
+    {
+      "class_id": "SMALL",
+      "cpu_units": 1,
+      "disk_mb": 2048,
+      "max_replicas": 4,
+      "memory_mb": 1024,
+      "priority": 1,
+      "requires_accelerator": false
+    }
+  ],
+  "failure_domains": [
+    {
+      "capacity_units": 512,
+      "domain_id": "FD_EU_A",
+      "healthy": true,
+      "region": "EU",
+      "zone": "A"
+    },
+    {
+      "capacity_units": 512,
+      "domain_id": "FD_EU_B",
+      "healthy": true,
+      "region": "EU",
+      "zone": "B"
+    },
+    {
+      "capacity_units": 512,
+      "domain_id": "FD_EU_C",
+      "healthy": true,
+      "region": "EU",
+      "zone": "C"
+    },
+    {
+      "capacity_units": 512,
+      "domain_id": "FD_EU_D",
+      "healthy": true,
+      "region": "EU",
+      "zone": "D"
+    },
+    {
+      "capacity_units": 512,
+      "domain_id": "FD_US_A",
+      "healthy": true,
+      "region": "US",
+      "zone": "A"
+    },
+    {
+      "capacity_units": 512,
+      "domain_id": "FD_US_B",
+      "healthy": true,
+      "region": "US",
+      "zone": "B"
+    },
+    {
+      "capacity_units": 512,
+      "domain_id": "FD_US_C",
+      "healthy": true,
+      "region": "US",
+      "zone": "C"
+    },
+    {
+      "capacity_units": 512,
+      "domain_id": "FD_US_D",
+      "healthy": true,
+      "region": "US",
+      "zone": "D"
+    }
+  ],
+  "frozen_catalog_hash": "09f16aa14fc76a8976cc9ed76f8917cf55d4357d8f458aa54da3df54e2154ddb",
+  "frozen_catalog_id": "v440_resources_949d94c1e3eeb49f75a49f00",
+  "overcommit_allowed": false,
+  "research_only": true,
+  "scheduler_capacity": 2048,
+  "version": "1.0.0"
+}

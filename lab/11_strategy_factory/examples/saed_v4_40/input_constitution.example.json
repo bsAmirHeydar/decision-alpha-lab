@@ -1,0 +1,579 @@
+{
+  "automatic_live_promotion_allowed": false,
+  "baseline_preservation_required": true,
+  "capital_activation_allowed": false,
+  "clauses": [
+    {
+      "clause_id": "FLEET_CLAUSE_001",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 1,
+      "requirement": "Fleet invariant 1: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_002",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 2,
+      "requirement": "Fleet invariant 2: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_003",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 3,
+      "requirement": "Fleet invariant 3: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_004",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 4,
+      "requirement": "Fleet invariant 4: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_005",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 5,
+      "requirement": "Fleet invariant 5: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_006",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 6,
+      "requirement": "Fleet invariant 6: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_007",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 7,
+      "requirement": "Fleet invariant 7: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_008",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 8,
+      "requirement": "Fleet invariant 8: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_009",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 9,
+      "requirement": "Fleet invariant 9: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_010",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 10,
+      "requirement": "Fleet invariant 10: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_011",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 11,
+      "requirement": "Fleet invariant 11: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_012",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 12,
+      "requirement": "Fleet invariant 12: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_013",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 13,
+      "requirement": "Fleet invariant 13: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_014",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 14,
+      "requirement": "Fleet invariant 14: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_015",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 15,
+      "requirement": "Fleet invariant 15: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_016",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 16,
+      "requirement": "Fleet invariant 16: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_017",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 17,
+      "requirement": "Fleet invariant 17: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_018",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 18,
+      "requirement": "Fleet invariant 18: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_019",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 19,
+      "requirement": "Fleet invariant 19: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_020",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 20,
+      "requirement": "Fleet invariant 20: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_021",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 21,
+      "requirement": "Fleet invariant 21: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_022",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 22,
+      "requirement": "Fleet invariant 22: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_023",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 23,
+      "requirement": "Fleet invariant 23: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_024",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 24,
+      "requirement": "Fleet invariant 24: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_025",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 25,
+      "requirement": "Fleet invariant 25: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_026",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 26,
+      "requirement": "Fleet invariant 26: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_027",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 27,
+      "requirement": "Fleet invariant 27: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_028",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 28,
+      "requirement": "Fleet invariant 28: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_029",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 29,
+      "requirement": "Fleet invariant 29: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_030",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 30,
+      "requirement": "Fleet invariant 30: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_031",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 31,
+      "requirement": "Fleet invariant 31: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_032",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 32,
+      "requirement": "Fleet invariant 32: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_033",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 33,
+      "requirement": "Fleet invariant 33: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_034",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 34,
+      "requirement": "Fleet invariant 34: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_035",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 35,
+      "requirement": "Fleet invariant 35: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_036",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 36,
+      "requirement": "Fleet invariant 36: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_037",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 37,
+      "requirement": "Fleet invariant 37: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_038",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 38,
+      "requirement": "Fleet invariant 38: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_039",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 39,
+      "requirement": "Fleet invariant 39: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_040",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 40,
+      "requirement": "Fleet invariant 40: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_041",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 41,
+      "requirement": "Fleet invariant 41: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_042",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 42,
+      "requirement": "Fleet invariant 42: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_043",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 43,
+      "requirement": "Fleet invariant 43: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_044",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 44,
+      "requirement": "Fleet invariant 44: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_045",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 45,
+      "requirement": "Fleet invariant 45: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_046",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 46,
+      "requirement": "Fleet invariant 46: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_047",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 47,
+      "requirement": "Fleet invariant 47: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_048",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 48,
+      "requirement": "Fleet invariant 48: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_049",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 49,
+      "requirement": "Fleet invariant 49: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_050",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 50,
+      "requirement": "Fleet invariant 50: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_051",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 51,
+      "requirement": "Fleet invariant 51: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_052",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 52,
+      "requirement": "Fleet invariant 52: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_053",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 53,
+      "requirement": "Fleet invariant 53: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_054",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 54,
+      "requirement": "Fleet invariant 54: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_055",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 55,
+      "requirement": "Fleet invariant 55: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_056",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 56,
+      "requirement": "Fleet invariant 56: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_057",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 57,
+      "requirement": "Fleet invariant 57: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_058",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 58,
+      "requirement": "Fleet invariant 58: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_059",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 59,
+      "requirement": "Fleet invariant 59: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_060",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 60,
+      "requirement": "Fleet invariant 60: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_061",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 61,
+      "requirement": "Fleet invariant 61: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_062",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 62,
+      "requirement": "Fleet invariant 62: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_063",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 63,
+      "requirement": "Fleet invariant 63: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_064",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 64,
+      "requirement": "Fleet invariant 64: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_065",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 65,
+      "requirement": "Fleet invariant 65: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_066",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 66,
+      "requirement": "Fleet invariant 66: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_067",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 67,
+      "requirement": "Fleet invariant 67: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_068",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 68,
+      "requirement": "Fleet invariant 68: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_069",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 69,
+      "requirement": "Fleet invariant 69: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_070",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 70,
+      "requirement": "Fleet invariant 70: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_071",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 71,
+      "requirement": "Fleet invariant 71: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_072",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 72,
+      "requirement": "Fleet invariant 72: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_073",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 73,
+      "requirement": "Fleet invariant 73: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_074",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 74,
+      "requirement": "Fleet invariant 74: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_075",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 75,
+      "requirement": "Fleet invariant 75: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_076",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 76,
+      "requirement": "Fleet invariant 76: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_077",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 77,
+      "requirement": "Fleet invariant 77: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_078",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 78,
+      "requirement": "Fleet invariant 78: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_079",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 79,
+      "requirement": "Fleet invariant 79: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    },
+    {
+      "clause_id": "FLEET_CLAUSE_080",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_QUARANTINE_AND_ESCALATE",
+      "priority": 80,
+      "requirement": "Fleet invariant 80: immutable identity, bounded authority, tenant isolation, deterministic replay, complete exposure accounting and fail-closed fallback remain enforceable across every Context Cell and replica."
+    }
+  ],
+  "constitution_id": "SAED_V4_40_CONSTITUTION",
+  "cross_tenant_routing_allowed": false,
+  "fail_closed_required": true,
+  "idempotent_side_effects_required": true,
+  "immutable_cell_identity": true,
+  "journal_every_transition": true,
+  "live_order_submission_allowed": false,
+  "no_mutable_global_state": true,
+  "production_authorization_allowed": false,
+  "research_only": true,
+  "tenant_isolation_required": true,
+  "version": "1.0.0"
+}

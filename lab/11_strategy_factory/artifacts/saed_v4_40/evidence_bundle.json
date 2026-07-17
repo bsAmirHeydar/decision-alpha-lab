@@ -1,0 +1,91 @@
+{
+  "actual_hundred_context_soak_passed": false,
+  "actual_multi_terminal_failover_passed": false,
+  "evidence_bundle_hash": "03087e915ce3e7e74d6fdc9331947c123725df8c83dec67ce4393e8af863cc24",
+  "evidence_bundle_id": "v440_evidence_5c70536de11589925b60c564",
+  "evidence_merkle_root": "ce58f0735e80c2fc3536d42345c3b393d5c373fdf27254a0a9208d21f267fd56",
+  "external_scale_evidence_complete": false,
+  "leaf_count": 19,
+  "leaves": [
+    {
+      "artifact_hash": "e13eeab9a4cabbe44662510beb3dfdca6ca38e83cf3d09b06cdd0e45f907b034",
+      "name": "authority"
+    },
+    {
+      "artifact_hash": "16596088ba7b1ecd0b715dcfabf172567717619134648d7f322cf05f000efe32",
+      "name": "chaos"
+    },
+    {
+      "artifact_hash": "50c4355b990af057b6e0ef008f75adc8f332af42ab646ae97ccf310cf15d2024",
+      "name": "constitution"
+    },
+    {
+      "artifact_hash": "671b09388efca04e9de7ec082742169ae4adf3868458afa4417742397d905b51",
+      "name": "control_journal"
+    },
+    {
+      "artifact_hash": "ec276bf59506438e8e38f5dae77d35a62da6ada54a8c28fa35dbf5110947478f",
+      "name": "health"
+    },
+    {
+      "artifact_hash": "ec276bf59506438e8e38f5dae77d35a62da6ada54a8c28fa35dbf5110947478f",
+      "name": "isolation"
+    },
+    {
+      "artifact_hash": "913fa097a73b75979064e9a36a55d6f0ea4258cebb0fedaa0ee210d725c8ead4",
+      "name": "manifest"
+    },
+    {
+      "artifact_hash": "2201083c342a309e3132ab4e21db20009e5e3cf816fb1b385622a5099ff1de24",
+      "name": "observability"
+    },
+    {
+      "artifact_hash": "ec276bf59506438e8e38f5dae77d35a62da6ada54a8c28fa35dbf5110947478f",
+      "name": "placement"
+    },
+    {
+      "artifact_hash": "05eba200fadde37cfe2f88f79f2570933f2d87b12aaef590a034f09c1faf45e5",
+      "name": "quotas"
+    },
+    {
+      "artifact_hash": "3f03f2670b938f6a7b1874ecd95e3cff9d7fc4671b08720bf0f1c13746f6543a",
+      "name": "reconciliation"
+    },
+    {
+      "artifact_hash": "0697f32c2d53abba4bf75f10d361a2d1e280b285479e3195151d7d89e8e2bfe8",
+      "name": "registry"
+    },
+    {
+      "artifact_hash": "ec276bf59506438e8e38f5dae77d35a62da6ada54a8c28fa35dbf5110947478f",
+      "name": "registry_index"
+    },
+    {
+      "artifact_hash": "adf8733ab38252b0b149e4ec6c3ee80dfa10e6a710eceddce780a1ef3f05d483",
+      "name": "resources"
+    },
+    {
+      "artifact_hash": "ec276bf59506438e8e38f5dae77d35a62da6ada54a8c28fa35dbf5110947478f",
+      "name": "rollout"
+    },
+    {
+      "artifact_hash": "e70ca114aa56d5607a5fd35048906c5eb236896a6ddabea4fcb0a31c8b481e63",
+      "name": "rollout_policy"
+    },
+    {
+      "artifact_hash": "172a196364453bdb90385b61baf051ca85da8dd564de683af02e4544ac23858d",
+      "name": "route_ledger"
+    },
+    {
+      "artifact_hash": "ec276bf59506438e8e38f5dae77d35a62da6ada54a8c28fa35dbf5110947478f",
+      "name": "routes"
+    },
+    {
+      "artifact_hash": "913fa097a73b75979064e9a36a55d6f0ea4258cebb0fedaa0ee210d725c8ead4",
+      "name": "upstream"
+    }
+  ],
+  "phase": "SAED_V4_40",
+  "production_authorized": false,
+  "research_only": true,
+  "review_bundle_hash": "c5503e159b3964803f0d517fda3e2de11e657a8cccc67f32abc748cb346cae22"
+}

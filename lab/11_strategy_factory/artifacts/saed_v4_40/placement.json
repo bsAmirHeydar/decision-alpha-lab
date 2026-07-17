@@ -1,0 +1,2263 @@
+{
+  "assignment_count": 224,
+  "assignments": [
+    {
+      "cell_id": "CELL_0001",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 1024,
+      "placement_key": "48c02063482ddd5ceeb6dd5221db24a0d13e15fab9ca011f9a4aae62a0b82d5b",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0001",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_B",
+      "memory_mb": 1024,
+      "placement_key": "41f95cc54fe94f43048078d51e7a78ac6a4277c5aac7aa79d904ad53311fc32b",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0002",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_C",
+      "memory_mb": 2048,
+      "placement_key": "4b45547cd3ee527bb151e2c05999c1c42e504963aa72fc1b0252785455560e98",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0002",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 2048,
+      "placement_key": "bf4a36e7c4785779097db21d698447649720df41f03c65a269a0c22810b6af20",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0003",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_A",
+      "memory_mb": 4096,
+      "placement_key": "f0cb50a37a4847b36f4b27a384cff74092c0542b94253673d3aea2185aeece22",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0003",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_B",
+      "memory_mb": 4096,
+      "placement_key": "9f6bfac4898c96870f4a5e764992a42f2f0bb92a419365fc7d5e355ebc22b72d",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0004",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_C",
+      "memory_mb": 1024,
+      "placement_key": "484ff7a54f2d49170017a57f10101c4cc3a837b1c6add278dd3de01e4bc1e2dc",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0004",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_D",
+      "memory_mb": 1024,
+      "placement_key": "6fa3a6123e1f0cb80d84a7b7873d485f901bd7606fee5ddad3b735a778b79229",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0005",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 2048,
+      "placement_key": "e87be826ea555f146905c423a28926406e1e4a185b5328c8a5c11a6de2ba75d3",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0005",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_B",
+      "memory_mb": 2048,
+      "placement_key": "85df594be3257c4e6f03928e224b3171af65d0896427ff65ece7893cf67d5577",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0006",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_C",
+      "memory_mb": 4096,
+      "placement_key": "9033551be88caabefdef25df0265cb06efd3509060466795ccd2f22ada562493",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0006",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_D",
+      "memory_mb": 4096,
+      "placement_key": "4c01051bc8a310741aba0523f1d9e84f01d9cd1cd3c4b3fe75f67a146c804296",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0007",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_C",
+      "memory_mb": 1024,
+      "placement_key": "6629d610c977cb8fbaebbb3af1d3bf7f3d525376549d5fc88279e9c82e0d3c03",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0007",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 1024,
+      "placement_key": "50a9c1aee997703dc31dd3f4bafce3e5f9abe5e70c7abd9d0cb8b530fa624866",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0008",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 2048,
+      "placement_key": "c4fd76b45dec7c653f237d1d9839ef3ff30ef01e49d7d9081c87e0a59bb85cc6",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0008",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_B",
+      "memory_mb": 2048,
+      "placement_key": "b7e325a522402152fd4783946f8c4e217e4d4b9b24c7d391911435d7662b62a9",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0009",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_C",
+      "memory_mb": 4096,
+      "placement_key": "5158786a2c725ba4d6c69a444a4b05c6bbbfe8a2039ed5f76d5aaefad31f1c79",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0009",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 4096,
+      "placement_key": "3ade66f59d9d2fec699debb1da7da3555e41efe6dd23b34bcdb5dd88bec6c811",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0010",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_A",
+      "memory_mb": 1024,
+      "placement_key": "1ae1f08bdcffe016d3638d13fc2a0f27aff7cb75948e3569c0ada67449104fac",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0010",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_B",
+      "memory_mb": 1024,
+      "placement_key": "6db49b90fae0d33f1e3547700ae9559860e37d69699a8d891f317f841cb2987a",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0011",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 2048,
+      "placement_key": "0167bf0f3d7361e7281903daab4bfc6f2098f43d5ea700331058c1631203ef83",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0011",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_B",
+      "memory_mb": 2048,
+      "placement_key": "24dfc46d8e582f9687aafa9b9a103af85696fd633a050b5318e924ba279bc36f",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0012",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_A",
+      "memory_mb": 4096,
+      "placement_key": "58780b9954076bbea0abc5ed9b08858274403a671a4f26828bbfcd25b4c4b40a",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0012",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_B",
+      "memory_mb": 4096,
+      "placement_key": "29d79f25adbe64dad692b8e9b143df9146c8e10526003583cbfb9c3c1ceddc24",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0013",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_C",
+      "memory_mb": 1024,
+      "placement_key": "f3da252fe3c2e7337a639e1d028e010111e3ff9611553f30936ef931f6a6c60d",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0013",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_D",
+      "memory_mb": 1024,
+      "placement_key": "3be2a2669f6fd0407899cbd8e810082615fe7ddf517a1c848e35ec95f982257c",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0014",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_C",
+      "memory_mb": 2048,
+      "placement_key": "2470d643d3e00604616dd6601379e655af1116bcaa9517506cb9ef89dac22e29",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0014",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_D",
+      "memory_mb": 2048,
+      "placement_key": "c89400b221d0544d33407e96ef0195ca0c32b2d01b092c92a8abe935b799b879",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0015",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 4096,
+      "placement_key": "3ab56ebebbdaa8bc773e781ae7bad723640988dfba58cd1fae2e32a0e230c22d",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0015",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_B",
+      "memory_mb": 4096,
+      "placement_key": "1f311859a4f032268e8ac1cf2bf8dca732dd4bd3e7007b342df8b90809906051",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0016",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_C",
+      "memory_mb": 1024,
+      "placement_key": "809d2fcf253cf3d232137e2bd45ddfc78d31a20594ec35299e0b381b787786ac",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0016",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 1024,
+      "placement_key": "ac3af7c96854ade857a34b040b9d5cfd3fad30dac89aea384b589a80d4e24e89",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0017",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_C",
+      "memory_mb": 2048,
+      "placement_key": "cf0113cf0d57179d305060678541b0589b59a92f0b56ab0f32c6ae0de94a1124",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0017",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 2048,
+      "placement_key": "7814724f0667dfc31c848f4ac7c464f49fead873d820a48aac5409e53eb7f214",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0018",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_C",
+      "memory_mb": 4096,
+      "placement_key": "870f2ef1d8b93c288b8996366fb5ac4fe42dedb1ff50f4f88816da182f6c4958",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0018",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_D",
+      "memory_mb": 4096,
+      "placement_key": "e481524505b6179a3c568a27be7939b703194045fd23bec7d3c6b4f54e6ede01",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0019",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_A",
+      "memory_mb": 1024,
+      "placement_key": "303ec59d97f70c875a9a42e6c82c469de26ce816e84d62135703748111955b2d",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0019",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_B",
+      "memory_mb": 1024,
+      "placement_key": "a9534b68d4cae512ab882aa63b67fd4c7122f62e461b268c07b1e4ef2fb45349",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0020",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_C",
+      "memory_mb": 2048,
+      "placement_key": "98ab320fd94e731279c5b60186a81a9b928b2f35ae7185c4054d1ef1b1ad9de9",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0020",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 2048,
+      "placement_key": "8f884f12dd732887b62e0fb2a99661d231040fcfbbda87981813061553fbb47f",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0021",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_A",
+      "memory_mb": 4096,
+      "placement_key": "efcba99c6e148fbdf1c0047b4fa2d2a8cb62b50f6452a7841faf548b86ffc819",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0021",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_B",
+      "memory_mb": 4096,
+      "placement_key": "658873f8f316e6cf8bca988e26d96f39f51989ad92361aa8649aeaa2e23e6cce",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0022",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 1024,
+      "placement_key": "532413a93fd09b5eef86aa2ea41cd56588b20488cc41c9327f81d5de5c6e0268",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0022",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_B",
+      "memory_mb": 1024,
+      "placement_key": "3881151963657f8f60733561732c6ec445ab1ddde9111096ac8ac3e634556901",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0023",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 2048,
+      "placement_key": "8da98cdc156f97a5f5009ab70b1d10135f43f53d19bc117a206c2f2103fd4e88",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0023",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_B",
+      "memory_mb": 2048,
+      "placement_key": "48f2e3842b0cb00bcd16b7bd34e675c411c44e2ef10f68697b92fd4c36b72ed4",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0024",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_C",
+      "memory_mb": 4096,
+      "placement_key": "ffeb0b84bc2e081ae169beaa863d46a1132b06ca4b581bb0d6b956a921ec75e3",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0024",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 4096,
+      "placement_key": "92861ebac4d97712dbfd3d5de3d34c669caac5f2e29dfb5d8be28c8541b63052",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0025",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_C",
+      "memory_mb": 1024,
+      "placement_key": "5019b41a8fefae3f8aeac23e81a15c11cd23d20b4012118478b7b7bc84a9ae9b",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0025",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_D",
+      "memory_mb": 1024,
+      "placement_key": "548eba5734351f484a12e6daa740e82ff4cd8347544d21615256275a4bee9389",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0026",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_C",
+      "memory_mb": 2048,
+      "placement_key": "5540100fd08782c1e4416203cffc4e660291d9b8aaa40eeceabf808783803aba",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0026",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_D",
+      "memory_mb": 2048,
+      "placement_key": "851639765d86a28ad08e704e7f0beac3c80db96408a948996b23a9624a23e93c",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0027",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 4096,
+      "placement_key": "ea476a92830f5633bcabd78c8399b19a4962ff7e120a93649c2cdd9b4c2e9897",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0027",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_B",
+      "memory_mb": 4096,
+      "placement_key": "d4ab3ad642e77573520dce5b1e7f8b442b086fb170ea47deceebdbffe9f4a8bf",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0028",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_A",
+      "memory_mb": 1024,
+      "placement_key": "e7735b84aa4dd47b7d1a9f7b589041a7b072a1789e19c27da4654acf2de4d165",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0028",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_B",
+      "memory_mb": 1024,
+      "placement_key": "0948d9febd43376ed36653972efd19dcf98c4c4962f1850b99b80790f69f980a",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0029",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_A",
+      "memory_mb": 2048,
+      "placement_key": "ef52c12224896c2715064506abd249c9c8c51f7f3513aa5324e5aa24c9752de8",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0029",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_B",
+      "memory_mb": 2048,
+      "placement_key": "163c0ef8093c3fd00934eefab7176967a753aea3eaf267bd52cf16e0ea229b99",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0030",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_C",
+      "memory_mb": 4096,
+      "placement_key": "c279e545309d63c2ccf2ed7eb3d44c4397ca797c6a8c0b76e88ea71fbddd0587",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0030",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_D",
+      "memory_mb": 4096,
+      "placement_key": "e8a975edf166de792ae5bfb9df553a83e6940ec21a720422924f58ed7ec6d15c",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0031",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_C",
+      "memory_mb": 1024,
+      "placement_key": "d05d8fc63ef575dd2886edc48fc9aa9f127bb79c3e6bd54cc872974575f79771",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0031",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 1024,
+      "placement_key": "e41d0dc8fce2e8eca3887f25326a1dab8d09e7f426cff7bd55e3aec29aa34f9b",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0032",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_C",
+      "memory_mb": 2048,
+      "placement_key": "6ce85ea10203867b778fc02b05a9ca7300f137974ad9bcf5fa9f6407f451f149",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0032",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 2048,
+      "placement_key": "6361749719526f6715ae2ad2c08da4920de28b3e5c9a5576b798d455c4e03095",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0033",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_A",
+      "memory_mb": 4096,
+      "placement_key": "804d315d66a64920e58c04341062efd645f012151eb57022cc6c3eadcb9ac186",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0033",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_B",
+      "memory_mb": 4096,
+      "placement_key": "3f253bc350621ce59b7ed20efdc72120008cf601928353b620232b6b0c697043",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0034",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 1024,
+      "placement_key": "bd6923c924d9459c4374eef1c05a19b71c9b0e1aa005ea1bec36cd79307f7304",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0034",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_B",
+      "memory_mb": 1024,
+      "placement_key": "0669615cd9e3713402f81db64beca6e96f82a2c155786dd3c2cd35da5cfe870e",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0035",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 2048,
+      "placement_key": "063cb1d72022ec53ec588450f6790453ef4e4146072251ec72d33e0352a4f43d",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0035",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_B",
+      "memory_mb": 2048,
+      "placement_key": "d4feb51f4d14588834a2e4573fd2249da3470345190c8f1fde9be6b099eedbd6",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0036",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_C",
+      "memory_mb": 4096,
+      "placement_key": "8e6a7f67b6db21b907dbff01fca00b60f470b66c11be24964965baf77583f60e",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0036",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 4096,
+      "placement_key": "6a081dbc82f5cee1f20308dd4c2dea1645106bd0beeb9af6347717becf1229e5",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0037",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_C",
+      "memory_mb": 1024,
+      "placement_key": "53bc607d4ac845c686d05fc2e5b2dba5e017afe6448923262666146bd6fd06a2",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0037",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_D",
+      "memory_mb": 1024,
+      "placement_key": "32a5fff7f6fe64e73c432fac517ee7ec7991147d2b9a053a1ec8608aa117cbf8",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0038",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_C",
+      "memory_mb": 2048,
+      "placement_key": "fbcb04ca8d1ebdc016a7a9bfcb8e5fd7e5de2974fd2ac2d5e4910943fcdabd6a",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0038",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_D",
+      "memory_mb": 2048,
+      "placement_key": "4da51fa8372bfcc6fa1fdb048f8d7466cfe16957eac6b762656b5690628b3349",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0039",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 4096,
+      "placement_key": "0a8ad0ff9461274dfbcee9cc80740ae117bb52fd34c2f96097337092f3e605ec",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0039",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_B",
+      "memory_mb": 4096,
+      "placement_key": "5cfaa0f866fc3e5b8f3285d147a345b4f01a9cdb2a1f97b884b6a90b7d0ef86c",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0040",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_A",
+      "memory_mb": 1024,
+      "placement_key": "bf64bee878fab8649427ac37b205e9be6356f96cf3183a973c07fb3e95d79285",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0040",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_B",
+      "memory_mb": 1024,
+      "placement_key": "c7cd6ba8dadcfdf22f14407b20da5192a91acecdadaa650e0e201a9a534afe44",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0041",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_A",
+      "memory_mb": 2048,
+      "placement_key": "4df87ccb9da3c56927a309ed32e0c1fc7868814b1b5f682a45a977aa3280582d",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0041",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_B",
+      "memory_mb": 2048,
+      "placement_key": "290d729e9321e4e51772da68a15c1864b80587d0424050584702bd3c9ead0505",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0042",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_C",
+      "memory_mb": 4096,
+      "placement_key": "77589d0a4196e720f31662d410e25d8e668c020e83a7bd1e694e5e23ec5b49c4",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0042",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_D",
+      "memory_mb": 4096,
+      "placement_key": "18f2325d69c3580e5ce5bc8a4a11b0289dfbc1a67356f35277bd8fa0359f521a",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0043",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_C",
+      "memory_mb": 1024,
+      "placement_key": "f010f95cd269ae604f34bc92724402141c0962971e1fa8d5250954abb6768558",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0043",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 1024,
+      "placement_key": "a628add65dd7c4b1ce39bc35ea59d54040692e6ec0011df1e6a3efa4191a5374",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0044",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_C",
+      "memory_mb": 2048,
+      "placement_key": "02ff738bd86bb25e234cafcf8bce27bc469115d71593f5381ac45a8c56ce4333",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0044",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 2048,
+      "placement_key": "305493c0a81b88070ac31521cfb089af68e6da06f2ea65613d1af2e78e4e87ad",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0045",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_A",
+      "memory_mb": 4096,
+      "placement_key": "0d016e6dc7e4100177887187ddb942f2220b51d868cd5cb586db2fb2fde1c632",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0045",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_B",
+      "memory_mb": 4096,
+      "placement_key": "957c2343a2e1d48d4c252e05f68d42ac36d888e958d09a4434b39d5b87441623",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0046",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 1024,
+      "placement_key": "7235344526523a0209a84693c802abb27dfba5b1cf75edaca7466065510ab83e",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0046",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_B",
+      "memory_mb": 1024,
+      "placement_key": "581caef0e552ad821f0cb47d3e523cc75e81548bd812292dbe8a61576479163a",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0047",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 2048,
+      "placement_key": "4ec4380dba59c57d2af5a4ecefed0917ce8ba9e03e6a4ef1939dfc9003972cd1",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0047",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_B",
+      "memory_mb": 2048,
+      "placement_key": "c0867aea4ad00eafe7d0d1a20537361c10f380be946c5b464bd32709f0ebbade",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0048",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_C",
+      "memory_mb": 4096,
+      "placement_key": "50c8f6f104a7e2a60ef98649c3d547e60e135274244c3f7b6a1f09c82b152dd2",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0048",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 4096,
+      "placement_key": "88c9b5d5a80a37528609ed276a3fba0bd86edcff5d8adc39841fce5183c819e1",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0049",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_C",
+      "memory_mb": 1024,
+      "placement_key": "2c3e75df14d016b30f0aa952ed2e0a0faead65e31a5e11d445305b0f400c9791",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0049",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_D",
+      "memory_mb": 1024,
+      "placement_key": "5968db0c76c5edc5c5c682e33a7247ad9ca94012f5c2ceb9da903fb50aab92a3",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0050",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_C",
+      "memory_mb": 2048,
+      "placement_key": "fb3b27bc816ee5b50c7ef3ed3c36c048162ec43e96b7c2d0c92d26d032c792cd",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0050",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_D",
+      "memory_mb": 2048,
+      "placement_key": "6bdda119aee6e4c5ee93910376711f4be279338c063bffbcb8d01fe44047a7fc",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0051",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 4096,
+      "placement_key": "231e645606aead92c6da155fde98ff9c58d9d62438833b24dd6e6d9958ab27d0",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0051",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_B",
+      "memory_mb": 4096,
+      "placement_key": "9b788cc09dbb9953e5ae5945ebf601826d64daf6f9eababe9ee37d507c91bfad",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0052",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_A",
+      "memory_mb": 1024,
+      "placement_key": "81014c350b53adc1435b06346e7b18166fb49cfd78dccce44df77492eabb6a49",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0052",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_B",
+      "memory_mb": 1024,
+      "placement_key": "d4d20e241381ee4c4b9d662405dc56203878db93d24384ee35149cf70630a739",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0053",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_A",
+      "memory_mb": 2048,
+      "placement_key": "2a1e940f2ab2c8ba709347537ae83e7f57a63be7baefffc43b5b8541cbe13604",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0053",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_B",
+      "memory_mb": 2048,
+      "placement_key": "18a794b11cb3f6af297acecfb0ae0900b42d17f96f3b41cd39fe34f48cc70e74",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0054",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_C",
+      "memory_mb": 4096,
+      "placement_key": "a8548457a4f1f13c410c4ae432cbc6dee3c8d6ba5e3c6b991892b65be92a0038",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0054",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_D",
+      "memory_mb": 4096,
+      "placement_key": "ae8ca2f226d7942020072cd31d67ef3ccd28f75e9547f0459030fde3b8cbf6a4",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0055",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_C",
+      "memory_mb": 1024,
+      "placement_key": "58b867e3c4803aa838d59ec35054e31d159f536d652f6eda93f850ec425dd86d",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0055",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 1024,
+      "placement_key": "424d22c1e1953a44e8032fcbec188da54c067c667f6800555b1b71f8cc1d74f9",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0056",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_C",
+      "memory_mb": 2048,
+      "placement_key": "e69b27d59b9ddcea26da77aef4bd50edda74f65e5c89974ee6a448284d2d2ea4",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0056",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 2048,
+      "placement_key": "98f68b3ebe3c407e28e957d1066e1f9e171a49fce5cb74bb66e7674378246328",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0057",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_A",
+      "memory_mb": 4096,
+      "placement_key": "983bf451f34dc0519dad99b1d320626f89b7cf8761c353672bfc5cb3316f2c18",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0057",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_B",
+      "memory_mb": 4096,
+      "placement_key": "c7ac93c27863ef722d45fa35aa94355539ca598a4ec610429c9f852783053619",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0058",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 1024,
+      "placement_key": "82fbab25208822236632fecc6db9b875ae85c2e736c01fa7b2efcd41d53b5f76",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0058",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_B",
+      "memory_mb": 1024,
+      "placement_key": "b06462e83902ca7a9a287eeb6d68eed04e7cd53b33e16fec87f5157e43c538c6",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0059",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 2048,
+      "placement_key": "78ab7d9a6e122144488d6e2ac4e233a46fcc388da8bbbe87b9f6a3ec29942174",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0059",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_B",
+      "memory_mb": 2048,
+      "placement_key": "49c6f28601e1650bb05370159dab0e5f117bb59ecc75d655bc76e5910637387b",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0060",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_C",
+      "memory_mb": 4096,
+      "placement_key": "8b15077d2f38376130521001d97231b3136ee439df82960dd9fc830b756a6bc5",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0060",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 4096,
+      "placement_key": "499f0ac3a53306b8dec4dc37323e28cd1c786ee0c4d7ce57a5515fb5e3313227",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0061",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_C",
+      "memory_mb": 1024,
+      "placement_key": "0094f3bea69488600d9a8b64bcae69534fd082456a87fc2ae7ac71055fd612a9",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0061",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_D",
+      "memory_mb": 1024,
+      "placement_key": "7aee32e58eae42e4b56c0329112ec00ce85544d7fda8cc98f3beb632cc389755",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0062",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_C",
+      "memory_mb": 2048,
+      "placement_key": "4e2d7baa0b97fb2d90196e45a6ae7f5973aa0d895c4323ea38080d00d93812d3",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0062",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_D",
+      "memory_mb": 2048,
+      "placement_key": "25d0172e27912833e30e34f9b557afaf0ff0bc06b055b34e23f002eba9629245",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0063",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 4096,
+      "placement_key": "e49a5de7e0b95a092656f4d23b5329e7da466a7f933e760755dc21388c4f356b",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0063",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_B",
+      "memory_mb": 4096,
+      "placement_key": "d5887afe20b56f3c48c4f0e4f31cb69cc617a02460136def61e0adda2e833594",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0064",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_A",
+      "memory_mb": 1024,
+      "placement_key": "0b5f95df160b588fdde280e8e32fec17b2115f8a51000459c36724f46227caa2",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0064",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_B",
+      "memory_mb": 1024,
+      "placement_key": "de1aff2ab14ca145b265853d101ad9eda9ead9034511d0667fb7e8405b989fa0",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0065",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_A",
+      "memory_mb": 2048,
+      "placement_key": "5c4e7a84926c0ae119e17fa6c2a2611689830518a52a576c88e4ae5639b59859",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0065",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_B",
+      "memory_mb": 2048,
+      "placement_key": "142641cfed5dfcf31fd0f18997782248b9d33fd6b0b7ed44b69a45c69e31a178",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0066",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_C",
+      "memory_mb": 4096,
+      "placement_key": "2030da70f45a17c06bd539a83721780ff49e7f8fb8d9ae7de91050007fc76f14",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0066",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_D",
+      "memory_mb": 4096,
+      "placement_key": "31706a8d8638d3537c637bf31211da622f97274646bb66114bee101d95aad895",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0067",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_C",
+      "memory_mb": 1024,
+      "placement_key": "fa5b99f429e2f3b31099d30571280d7dc34ce4a408e57dba61b027ee400f2567",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0067",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 1024,
+      "placement_key": "663acb588a4c2dccb50cd174c5d5a515a26b2d5948e15158a2841332d09e543d",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0068",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_C",
+      "memory_mb": 2048,
+      "placement_key": "db4a43e7ae8506c206b880709cf4ba8390f7494764f50343942eedbb72c4a524",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0068",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 2048,
+      "placement_key": "1ebd80f0dc29003f91c3fa73686349cac6edfdd17284fc2962e600f2166c807e",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0069",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_A",
+      "memory_mb": 4096,
+      "placement_key": "656759a4c4456ab9b4a580b9e32c09ea1c1ef51f782d2aba3c6919676d0e7cca",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0069",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_B",
+      "memory_mb": 4096,
+      "placement_key": "49fad166d91cada683f09710e0774e803e1c862809f1286ad097ea00450120d3",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0070",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 1024,
+      "placement_key": "9067d8f8b8159be59c0da6209d1700ed0efd1f838db98ffa23cc84201def8011",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0070",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_B",
+      "memory_mb": 1024,
+      "placement_key": "b64d6efb29fefea2533caca0800d4d7deb85b7d2261d5effe6ae1a8d553a5f15",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0071",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 2048,
+      "placement_key": "16ec10623894a23a003ac601ee9b43d1c610d64c32aa052dd4ee3c36b4c72e39",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0071",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_B",
+      "memory_mb": 2048,
+      "placement_key": "6f4c6e67446de87040436fa36acdb62376ed8a260a623743ae20b2efd037dfb8",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0072",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_C",
+      "memory_mb": 4096,
+      "placement_key": "7a76ea5f4887646e4d8eed8dde7368c0239956ea7803b9a14938a7a57c969d7c",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0072",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 4096,
+      "placement_key": "e490d6e6eede2bcadf3af74538a272eb417f7b699c3fc63c6f3b345fdbf23c26",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0073",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_C",
+      "memory_mb": 1024,
+      "placement_key": "6e297d3c2c7f763285f937db6d546c273dbeebf9509969ee046f6444ca4fbab0",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0073",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_D",
+      "memory_mb": 1024,
+      "placement_key": "61ab07282e1d51abf0dcccc171f0bc03b38ce379720a7b5f07373872d7bf4f5f",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0074",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_C",
+      "memory_mb": 2048,
+      "placement_key": "8fa70bf5668b0b11263a2fd0b91069cf963eaad9dbf77d9f60978c7658c89b1c",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0074",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_D",
+      "memory_mb": 2048,
+      "placement_key": "e17ff6bd0026c27558df6b6605bad7071eec7b554f83d5030987e9ffd8bb80d3",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0075",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 4096,
+      "placement_key": "62d34ad4cb718f635a31cb8754fd0118303b44459b9e0d70175631d67d6652db",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0075",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_B",
+      "memory_mb": 4096,
+      "placement_key": "2fc6704cfa307004de9356b65226b2268f298c080e02f4c55a25e04e33f39655",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0076",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_A",
+      "memory_mb": 1024,
+      "placement_key": "c01b156680b9627f20b041aa26e0706e196c763cccdcaf5ebd0dcf1ad94042fc",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0076",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_B",
+      "memory_mb": 1024,
+      "placement_key": "d0b9c18d225aeac203696faf6ee3f4f406346d8a46179260084292c2e2ee6119",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0077",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_A",
+      "memory_mb": 2048,
+      "placement_key": "b6e90162562869975f40998c14a31b806ef0bf4f1cbcf02735a1e17490794271",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0077",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_B",
+      "memory_mb": 2048,
+      "placement_key": "71366e77a4c7ec63f1c6c61428e6da2efb8395059f09f7370a68f2ee94258794",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0078",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_C",
+      "memory_mb": 4096,
+      "placement_key": "d2ded05fde73d4e5d818684c7b88d93d06346a1a9842338c5bcffa9f1d844428",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0078",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_D",
+      "memory_mb": 4096,
+      "placement_key": "36954faa13a1d1f5b8a916827b412c06cc008fc62e3376fc86a9d153665e24ca",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0079",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_C",
+      "memory_mb": 1024,
+      "placement_key": "6f497bd287c9d5493f6995169763e547fa49233b24e2783c346aa8ab2fb8fdb0",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0079",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 1024,
+      "placement_key": "63f7733085d3e9d3c47d30fd440fd82b7b583979edb1f5702e1eb0279d99f994",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0080",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_C",
+      "memory_mb": 2048,
+      "placement_key": "95fc163b4f0bca7504e73cebf11baf05d2613fe7d3701df70abbb73b4d079e89",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0080",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 2048,
+      "placement_key": "0c03d34e0be4f3acb2dbe7a8447b686c8399a214302abe881529eefd76888c8e",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0081",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_A",
+      "memory_mb": 4096,
+      "placement_key": "a87014fd67d39f5180884738d473378875416213ed1338c71d63b64271a01f37",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0081",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_B",
+      "memory_mb": 4096,
+      "placement_key": "a8ccd0177707fdf7013ac61e1012f43b8176ff4ab0637994d3612a7978ca2bc4",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0082",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 1024,
+      "placement_key": "b6c09ea5548e74f22a6b7787f981c5a36a0e6ef3f12e05f33edf04e574c790cb",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0082",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_B",
+      "memory_mb": 1024,
+      "placement_key": "999abc5bf941e2d48922a8e5fedd24b17a01ff1b3fc07279a552671b1739daa3",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0083",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 2048,
+      "placement_key": "79318cfcadc962c7459972e0473d579b726f4d82029790ce33af310fa7c4b31f",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0083",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_B",
+      "memory_mb": 2048,
+      "placement_key": "79d31ff52b7f5872bf05c50f707e707e6de3ec213aaf0c517302b4e661dbb044",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0084",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_C",
+      "memory_mb": 4096,
+      "placement_key": "3a2916307031dc65ba516f50d9e48a0bae577fdc194b2e2e26f6283630e53217",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0084",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 4096,
+      "placement_key": "3b13c5bf7e81417a9f500cdadbe57b9de5459674978c17386f720b6c821ee733",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0085",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_C",
+      "memory_mb": 1024,
+      "placement_key": "8ce6a94541297dd49addf7abff301822ef26feb195c3956eed98b7918321f407",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0085",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_D",
+      "memory_mb": 1024,
+      "placement_key": "13aa6fe81f76547e9de611af808fd529493e093c436b369980a554dc8c5a6cb2",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0086",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_C",
+      "memory_mb": 2048,
+      "placement_key": "84795a1336638c127bd6c202eaf0e5052ccf85464f070ca87b4d61c9919a63e0",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0086",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_D",
+      "memory_mb": 2048,
+      "placement_key": "9e2b4e88cac2f1221658fe9ba25861090a419f66f81f8cdff3b821ce85b55374",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0087",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 4096,
+      "placement_key": "9ec36f31422faf2ae4806a07a4e1b4faa2152d400a32676e03b0cff38ac14789",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0087",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_B",
+      "memory_mb": 4096,
+      "placement_key": "3903ef28fa73d02b5192848c40b5912682eb04b07f28042ae303a27a4aa31e2d",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0088",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_A",
+      "memory_mb": 1024,
+      "placement_key": "c1176d93b1bfe814326e45f6452366db34f6a11465af6d3133980abdff3d145e",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0088",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_B",
+      "memory_mb": 1024,
+      "placement_key": "06e7bc0f4f0c822939d281f78c933f0dc054d9d1c36c79ed8ce882d9928941e0",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0089",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_A",
+      "memory_mb": 2048,
+      "placement_key": "9864321891e3f44f558df0f9e35b93da1fda86c857eccbf0becbed79095bd360",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0089",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_B",
+      "memory_mb": 2048,
+      "placement_key": "85e6c7da7a8ed2e2f785fa5600ff3ddfb365e51aa4b846d25805beeeb5ec2c8d",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0090",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_C",
+      "memory_mb": 4096,
+      "placement_key": "f080ce189067b7fae313229f925ada6d003494931697e4be362cea5ebf1f5637",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0090",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_D",
+      "memory_mb": 4096,
+      "placement_key": "6d1f02594655ca89921ed3c2fd3aab23b1aa054d6c2054e2289cbfd53a60d163",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0091",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_C",
+      "memory_mb": 1024,
+      "placement_key": "751e7b71b0848f27bd742443ad3d9f6a747264d407eba37f200d6d7dd0a0e4ce",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0091",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 1024,
+      "placement_key": "152c8cf877dda5668f50c0af27658ccf4d28ff0b5cbf1c3663d02d6f4046433d",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0092",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_C",
+      "memory_mb": 2048,
+      "placement_key": "6d9b04182defdfee4abd8e090b78188e7245b6904f85e4fb71c03ebf33c55e56",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0092",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 2048,
+      "placement_key": "a8c8a1939ca056369ce0fd42cdf841e6c513a0d637d446e4ca42d96fd15cacb5",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0093",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_A",
+      "memory_mb": 4096,
+      "placement_key": "8943dc5cd02fc06d8e2d5d19232f28711ebc5eb185a73bba222b2628fca6eb2d",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0093",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_B",
+      "memory_mb": 4096,
+      "placement_key": "1432c7a5fc8f74ee0e15f4b322724a5395e0d84730ec03785815725d83851eea",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0094",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 1024,
+      "placement_key": "f2ac9b160b046201800e429d7762a29c4cf05e33383d9d9bd1a1f8fd22d880cf",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0094",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_B",
+      "memory_mb": 1024,
+      "placement_key": "5716a0b7a459e98561b162afd4a1a8019b784cf4302cfdc1169c6b04efd4f13a",
+      "replica_ordinal": 1,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0095",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 2048,
+      "placement_key": "763f0ddb9ebea49256e9e3caf0a5f562a34ad172ebda3a1a87f9150f93f479f7",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0095",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_B",
+      "memory_mb": 2048,
+      "placement_key": "86c87b2c34cc50a00f9c6d2f45b92c99ecc97433e061bb0456fdca23de89db34",
+      "replica_ordinal": 1,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0096",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_C",
+      "memory_mb": 4096,
+      "placement_key": "6cb382b0b6a02a10a6853292430913d4bfb8511845798f6bfee4a09913f265e3",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0096",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 4096,
+      "placement_key": "c197d606d082ddbceda4748ac86f86d26b8bf7d5546244bea2b846e06a34b950",
+      "replica_ordinal": 1,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0097",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_C",
+      "memory_mb": 1024,
+      "placement_key": "f3a20852929ccef4ce3ea618eb7e78aae8fa168ac789c459a5069bb7d088973f",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0098",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_D",
+      "memory_mb": 2048,
+      "placement_key": "7397fce24aff93b64db617bf7935beb80455c9c431ad7d4ee74dd6251ca00d04",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0099",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_C",
+      "memory_mb": 4096,
+      "placement_key": "82527fbbbb17ffb72ed680abe010193eb0e3ea82492692262dcb040a6a94cede",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0100",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 1024,
+      "placement_key": "341a40b6b394ca30530da93f838304c5eb6583dce7432c1c7d3cc48a167e4e34",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0101",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_B",
+      "memory_mb": 2048,
+      "placement_key": "b02d05c9b9488bf85292c4abd0114f2dc5af5a389e7dbfb9c974a744165a03e5",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0102",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_A",
+      "memory_mb": 4096,
+      "placement_key": "82ad0656f9591127e626558e6bce5fad4d777586996ca822aec0780a47139ef4",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0103",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_B",
+      "memory_mb": 1024,
+      "placement_key": "8bd85ff65a047073abc132ca50c53cb46c7837c89df38a047a6032670e53ae24",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0104",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_D",
+      "memory_mb": 2048,
+      "placement_key": "06ed2265213a28589ad07d8b0383a70d16d01f2164ea3a7de168fe11455aeaf7",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0105",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 4096,
+      "placement_key": "c2c98ef2c9eaa5dc6695c9c2d03b07bb8d00a1da6d73a7760c5264f0831b700a",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0106",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_B",
+      "memory_mb": 1024,
+      "placement_key": "d3ea426fa9db57f88233c58c2f11e3a6628ca24625314f4033e6ad6aaadca2cd",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0107",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_B",
+      "memory_mb": 2048,
+      "placement_key": "77759df69a4b999bbce9485a0917a1cd5cd52c715ebc114eb004a8700bd6d12f",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0108",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_C",
+      "memory_mb": 4096,
+      "placement_key": "1561ffe9f10f46e86e0ad65c4cd6acbe215486021e02828b6caad5ea63041d4a",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0109",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 1024,
+      "placement_key": "43f54fdb4939425921626f9e7fdcf926840f2711b02879a65be5c8d9daef70c6",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0110",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_B",
+      "memory_mb": 2048,
+      "placement_key": "ec7a5387c25e9907c3aa2ede3ef64ee6e313f1c38dd1e67f9bbb67249ca9480c",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0111",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_D",
+      "memory_mb": 4096,
+      "placement_key": "28b430a4312002bcde8c2613be1d5e11b7fdb56cdb537dca16ee2af0fa4e9037",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0112",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 1024,
+      "placement_key": "6cab91e9567fb2d25fb09559e5c114f1241c010d80181b7d3c4a6add63622da0",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0113",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_C",
+      "memory_mb": 2048,
+      "placement_key": "85fc69264879d9552bf99fd9e6e6528bf70896003ac71e2504154f3afa1b6417",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0114",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_B",
+      "memory_mb": 4096,
+      "placement_key": "d2d4ba7d539da63dd4174e6f167049b2029c3ce6153d0590a7b28c6c0b8305dd",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0115",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 1024,
+      "placement_key": "5ff6112c070d91d23bf569f8e48137d4da5487ec4cd3efbfaa443c6df749fa97",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0116",
+      "cpu_units": 2,
+      "failure_domain": "FD_US_A",
+      "memory_mb": 2048,
+      "placement_key": "439cd5d70ddd5119964e5170f7d940b185f0d8e9d75530b7bc5167a927545669",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0117",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_B",
+      "memory_mb": 4096,
+      "placement_key": "56ec4eb2e05d2297ccacfc06d062566be6544fc7c4b52089a5928bd8e6355d58",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0118",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 1024,
+      "placement_key": "d14eb50375e82197c20784adeacb3659f22d71b48db52fa3d0f5a4da9269caf2",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0119",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 2048,
+      "placement_key": "8b2da4400eb1c0af73119e273173a3d93b5d19c4cb65e6b82c56bb3dea1128ad",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0120",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_C",
+      "memory_mb": 4096,
+      "placement_key": "6855d92fe574ccbaf0ec0e2fe943e52520deea63c4dc13c1b5a6f2d8f97b88c8",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_08"
+    },
+    {
+      "cell_id": "CELL_0121",
+      "cpu_units": 1,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 1024,
+      "placement_key": "42fd57b8159c1f031eb72932248a33c15edb08a184e04e5580e71bca6ab5e32d",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_id": "CELL_0122",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_C",
+      "memory_mb": 2048,
+      "placement_key": "c89ed9eca77af1db188728ed3d0d759b052b40f2654df2796654c550629845a0",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_id": "CELL_0123",
+      "cpu_units": 4,
+      "failure_domain": "FD_US_A",
+      "memory_mb": 4096,
+      "placement_key": "3504788e060e54072dc64df13bac3c798cc2c7ca887789f0dd446e58eae6f505",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_id": "CELL_0124",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_D",
+      "memory_mb": 1024,
+      "placement_key": "00161cdc331a6cb9a2a4651b755e0358e3249bd9358782b87bb6ff0c275dfa72",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_id": "CELL_0125",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_A",
+      "memory_mb": 2048,
+      "placement_key": "46db16fef352da4ede033c2464130befb7444c9a1e2ff83629d3a9d43796926d",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_id": "CELL_0126",
+      "cpu_units": 4,
+      "failure_domain": "FD_EU_D",
+      "memory_mb": 4096,
+      "placement_key": "6c54ab162fbaff569557582a5958da3db66a78cf0a1c54d6f2f1ccf47ae973da",
+      "replica_ordinal": 0,
+      "resource_class": "LARGE",
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_id": "CELL_0127",
+      "cpu_units": 1,
+      "failure_domain": "FD_US_D",
+      "memory_mb": 1024,
+      "placement_key": "f3799f13ae32d918dcb6a52898defbd763cadc75ca560c573bf2a3bb0d9d2399",
+      "replica_ordinal": 0,
+      "resource_class": "SMALL",
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_id": "CELL_0128",
+      "cpu_units": 2,
+      "failure_domain": "FD_EU_B",
+      "memory_mb": 2048,
+      "placement_key": "5e9a67fcd85502821f75288f45c752d6ffd648b03cb58488a757b8679edbf453",
+      "replica_ordinal": 0,
+      "resource_class": "MEDIUM",
+      "tenant_id": "TENANT_08"
+    }
+  ],
+  "catalog_hash": "09f16aa14fc76a8976cc9ed76f8917cf55d4357d8f458aa54da3df54e2154ddb",
+  "deterministic": true,
+  "domain_usage": {
+    "FD_EU_A": 65,
+    "FD_EU_B": 66,
+    "FD_EU_C": 64,
+    "FD_EU_D": 67,
+    "FD_US_A": 66,
+    "FD_US_B": 64,
+    "FD_US_C": 65,
+    "FD_US_D": 64
+  },
+  "overcommit": false,
+  "placement_hash": "e745e541099c025ce63231e165cb6c422b587da0f486734f4bd786413ef6a425",
+  "placement_id": "v440_placement_65127f2fefa5ae6db84f79cb",
+  "quota_hash": "05eba200fadde37cfe2f88f79f2570933f2d87b12aaef590a034f09c1faf45e5",
+  "registry_hash": "ec276bf59506438e8e38f5dae77d35a62da6ada54a8c28fa35dbf5110947478f",
+  "research_only": true
+}

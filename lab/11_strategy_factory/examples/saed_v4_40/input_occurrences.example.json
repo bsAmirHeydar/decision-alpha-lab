@@ -1,0 +1,5122 @@
+[
+  {
+    "context_id": "CTX_001",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:00:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000001",
+    "opportunity_cluster_id": "CLUSTER_00000",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_002",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:01:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000002",
+    "opportunity_cluster_id": "CLUSTER_00000",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_003",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:02:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000003",
+    "opportunity_cluster_id": "CLUSTER_00000",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_004",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:03:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000004",
+    "opportunity_cluster_id": "CLUSTER_00000",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_005",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:04:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000005",
+    "opportunity_cluster_id": "CLUSTER_00001",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_006",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:05:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000006",
+    "opportunity_cluster_id": "CLUSTER_00001",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_007",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:06:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000007",
+    "opportunity_cluster_id": "CLUSTER_00001",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_008",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:07:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000008",
+    "opportunity_cluster_id": "CLUSTER_00001",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_009",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:08:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000009",
+    "opportunity_cluster_id": "CLUSTER_00002",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_010",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:09:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000010",
+    "opportunity_cluster_id": "CLUSTER_00002",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_011",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:10:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000011",
+    "opportunity_cluster_id": "CLUSTER_00002",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_012",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:11:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000012",
+    "opportunity_cluster_id": "CLUSTER_00002",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_013",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:12:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000013",
+    "opportunity_cluster_id": "CLUSTER_00003",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_014",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:13:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000014",
+    "opportunity_cluster_id": "CLUSTER_00003",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_015",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:14:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000015",
+    "opportunity_cluster_id": "CLUSTER_00003",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_016",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:15:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000016",
+    "opportunity_cluster_id": "CLUSTER_00003",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_017",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:16:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000017",
+    "opportunity_cluster_id": "CLUSTER_00004",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_018",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:17:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000018",
+    "opportunity_cluster_id": "CLUSTER_00004",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_019",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:18:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000019",
+    "opportunity_cluster_id": "CLUSTER_00004",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_020",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:19:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000020",
+    "opportunity_cluster_id": "CLUSTER_00004",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_021",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:20:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000021",
+    "opportunity_cluster_id": "CLUSTER_00005",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_022",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:21:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000022",
+    "opportunity_cluster_id": "CLUSTER_00005",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_023",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:22:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000023",
+    "opportunity_cluster_id": "CLUSTER_00005",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_024",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:23:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000024",
+    "opportunity_cluster_id": "CLUSTER_00005",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_025",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:24:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000025",
+    "opportunity_cluster_id": "CLUSTER_00006",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_026",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:25:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000026",
+    "opportunity_cluster_id": "CLUSTER_00006",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_027",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:26:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000027",
+    "opportunity_cluster_id": "CLUSTER_00006",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_028",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:27:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000028",
+    "opportunity_cluster_id": "CLUSTER_00006",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_029",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:28:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000029",
+    "opportunity_cluster_id": "CLUSTER_00007",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_030",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:29:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000030",
+    "opportunity_cluster_id": "CLUSTER_00007",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_031",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:30:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000031",
+    "opportunity_cluster_id": "CLUSTER_00007",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_032",
+    "context_version": 1,
+    "known_time": "2026-07-16T00:31:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000032",
+    "opportunity_cluster_id": "CLUSTER_00007",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_001",
+    "context_version": 2,
+    "known_time": "2026-07-16T00:32:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000033",
+    "opportunity_cluster_id": "CLUSTER_00008",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_002",
+    "context_version": 2,
+    "known_time": "2026-07-16T00:33:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000034",
+    "opportunity_cluster_id": "CLUSTER_00008",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_003",
+    "context_version": 2,
+    "known_time": "2026-07-16T00:34:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000035",
+    "opportunity_cluster_id": "CLUSTER_00008",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_004",
+    "context_version": 2,
+    "known_time": "2026-07-16T00:35:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000036",
+    "opportunity_cluster_id": "CLUSTER_00008",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_005",
+    "context_version": 2,
+    "known_time": "2026-07-16T00:36:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000037",
+    "opportunity_cluster_id": "CLUSTER_00009",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_006",
+    "context_version": 2,
+    "known_time": "2026-07-16T00:37:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000038",
+    "opportunity_cluster_id": "CLUSTER_00009",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_007",
+    "context_version": 2,
+    "known_time": "2026-07-16T00:38:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000039",
+    "opportunity_cluster_id": "CLUSTER_00009",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_008",
+    "context_version": 2,
+    "known_time": "2026-07-16T00:39:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000040",
+    "opportunity_cluster_id": "CLUSTER_00009",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_009",
+    "context_version": 2,
+    "known_time": "2026-07-16T00:40:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000041",
+    "opportunity_cluster_id": "CLUSTER_00010",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_010",
+    "context_version": 2,
+    "known_time": "2026-07-16T00:41:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000042",
+    "opportunity_cluster_id": "CLUSTER_00010",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_011",
+    "context_version": 2,
+    "known_time": "2026-07-16T00:42:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000043",
+    "opportunity_cluster_id": "CLUSTER_00010",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_012",
+    "context_version": 2,
+    "known_time": "2026-07-16T00:43:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000044",
+    "opportunity_cluster_id": "CLUSTER_00010",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_013",
+    "context_version": 2,
+    "known_time": "2026-07-16T00:44:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000045",
+    "opportunity_cluster_id": "CLUSTER_00011",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_014",
+    "context_version": 2,
+    "known_time": "2026-07-16T00:45:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000046",
+    "opportunity_cluster_id": "CLUSTER_00011",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_015",
+    "context_version": 2,
+    "known_time": "2026-07-16T00:46:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000047",
+    "opportunity_cluster_id": "CLUSTER_00011",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_016",
+    "context_version": 2,
+    "known_time": "2026-07-16T00:47:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000048",
+    "opportunity_cluster_id": "CLUSTER_00011",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_017",
+    "context_version": 2,
+    "known_time": "2026-07-16T00:48:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000049",
+    "opportunity_cluster_id": "CLUSTER_00012",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_018",
+    "context_version": 2,
+    "known_time": "2026-07-16T00:49:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000050",
+    "opportunity_cluster_id": "CLUSTER_00012",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_019",
+    "context_version": 2,
+    "known_time": "2026-07-16T00:50:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000051",
+    "opportunity_cluster_id": "CLUSTER_00012",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_020",
+    "context_version": 2,
+    "known_time": "2026-07-16T00:51:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000052",
+    "opportunity_cluster_id": "CLUSTER_00012",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_021",
+    "context_version": 2,
+    "known_time": "2026-07-16T00:52:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000053",
+    "opportunity_cluster_id": "CLUSTER_00013",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_022",
+    "context_version": 2,
+    "known_time": "2026-07-16T00:53:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000054",
+    "opportunity_cluster_id": "CLUSTER_00013",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_023",
+    "context_version": 2,
+    "known_time": "2026-07-16T00:54:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000055",
+    "opportunity_cluster_id": "CLUSTER_00013",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_024",
+    "context_version": 2,
+    "known_time": "2026-07-16T00:55:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000056",
+    "opportunity_cluster_id": "CLUSTER_00013",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_025",
+    "context_version": 2,
+    "known_time": "2026-07-16T00:56:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000057",
+    "opportunity_cluster_id": "CLUSTER_00014",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_026",
+    "context_version": 2,
+    "known_time": "2026-07-16T00:57:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000058",
+    "opportunity_cluster_id": "CLUSTER_00014",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_027",
+    "context_version": 2,
+    "known_time": "2026-07-16T00:58:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000059",
+    "opportunity_cluster_id": "CLUSTER_00014",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_028",
+    "context_version": 2,
+    "known_time": "2026-07-16T00:59:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000060",
+    "opportunity_cluster_id": "CLUSTER_00014",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_029",
+    "context_version": 2,
+    "known_time": "2026-07-16T01:00:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000061",
+    "opportunity_cluster_id": "CLUSTER_00015",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_030",
+    "context_version": 2,
+    "known_time": "2026-07-16T01:01:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000062",
+    "opportunity_cluster_id": "CLUSTER_00015",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_031",
+    "context_version": 2,
+    "known_time": "2026-07-16T01:02:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000063",
+    "opportunity_cluster_id": "CLUSTER_00015",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_032",
+    "context_version": 2,
+    "known_time": "2026-07-16T01:03:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000064",
+    "opportunity_cluster_id": "CLUSTER_00015",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_001",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:04:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000065",
+    "opportunity_cluster_id": "CLUSTER_00016",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_002",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:05:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000066",
+    "opportunity_cluster_id": "CLUSTER_00016",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_003",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:06:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000067",
+    "opportunity_cluster_id": "CLUSTER_00016",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_004",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:07:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000068",
+    "opportunity_cluster_id": "CLUSTER_00016",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_005",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:08:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000069",
+    "opportunity_cluster_id": "CLUSTER_00017",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_006",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:09:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000070",
+    "opportunity_cluster_id": "CLUSTER_00017",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_007",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:10:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000071",
+    "opportunity_cluster_id": "CLUSTER_00017",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_008",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:11:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000072",
+    "opportunity_cluster_id": "CLUSTER_00017",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_009",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:12:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000073",
+    "opportunity_cluster_id": "CLUSTER_00018",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_010",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:13:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000074",
+    "opportunity_cluster_id": "CLUSTER_00018",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_011",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:14:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000075",
+    "opportunity_cluster_id": "CLUSTER_00018",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_012",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:15:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000076",
+    "opportunity_cluster_id": "CLUSTER_00018",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_013",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:16:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000077",
+    "opportunity_cluster_id": "CLUSTER_00019",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_014",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:17:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000078",
+    "opportunity_cluster_id": "CLUSTER_00019",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_015",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:18:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000079",
+    "opportunity_cluster_id": "CLUSTER_00019",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_016",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:19:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000080",
+    "opportunity_cluster_id": "CLUSTER_00019",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_017",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:20:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000081",
+    "opportunity_cluster_id": "CLUSTER_00020",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_018",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:21:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000082",
+    "opportunity_cluster_id": "CLUSTER_00020",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_019",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:22:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000083",
+    "opportunity_cluster_id": "CLUSTER_00020",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_020",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:23:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000084",
+    "opportunity_cluster_id": "CLUSTER_00020",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_021",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:24:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000085",
+    "opportunity_cluster_id": "CLUSTER_00021",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_022",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:25:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000086",
+    "opportunity_cluster_id": "CLUSTER_00021",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_023",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:26:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000087",
+    "opportunity_cluster_id": "CLUSTER_00021",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_024",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:27:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000088",
+    "opportunity_cluster_id": "CLUSTER_00021",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_025",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:28:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000089",
+    "opportunity_cluster_id": "CLUSTER_00022",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_026",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:29:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000090",
+    "opportunity_cluster_id": "CLUSTER_00022",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_027",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:30:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000091",
+    "opportunity_cluster_id": "CLUSTER_00022",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_028",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:31:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000092",
+    "opportunity_cluster_id": "CLUSTER_00022",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_029",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:32:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000093",
+    "opportunity_cluster_id": "CLUSTER_00023",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_030",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:33:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000094",
+    "opportunity_cluster_id": "CLUSTER_00023",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_031",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:34:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000095",
+    "opportunity_cluster_id": "CLUSTER_00023",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_032",
+    "context_version": 3,
+    "known_time": "2026-07-16T01:35:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000096",
+    "opportunity_cluster_id": "CLUSTER_00023",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_001",
+    "context_version": 4,
+    "known_time": "2026-07-16T01:36:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000097",
+    "opportunity_cluster_id": "CLUSTER_00024",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_002",
+    "context_version": 4,
+    "known_time": "2026-07-16T01:37:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000098",
+    "opportunity_cluster_id": "CLUSTER_00024",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_003",
+    "context_version": 4,
+    "known_time": "2026-07-16T01:38:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000099",
+    "opportunity_cluster_id": "CLUSTER_00024",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_004",
+    "context_version": 4,
+    "known_time": "2026-07-16T01:39:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000100",
+    "opportunity_cluster_id": "CLUSTER_00024",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_005",
+    "context_version": 4,
+    "known_time": "2026-07-16T01:40:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000101",
+    "opportunity_cluster_id": "CLUSTER_00025",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_006",
+    "context_version": 4,
+    "known_time": "2026-07-16T01:41:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000102",
+    "opportunity_cluster_id": "CLUSTER_00025",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_007",
+    "context_version": 4,
+    "known_time": "2026-07-16T01:42:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000103",
+    "opportunity_cluster_id": "CLUSTER_00025",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_008",
+    "context_version": 4,
+    "known_time": "2026-07-16T01:43:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000104",
+    "opportunity_cluster_id": "CLUSTER_00025",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_009",
+    "context_version": 4,
+    "known_time": "2026-07-16T01:44:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000105",
+    "opportunity_cluster_id": "CLUSTER_00026",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_010",
+    "context_version": 4,
+    "known_time": "2026-07-16T01:45:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000106",
+    "opportunity_cluster_id": "CLUSTER_00026",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_011",
+    "context_version": 4,
+    "known_time": "2026-07-16T01:46:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000107",
+    "opportunity_cluster_id": "CLUSTER_00026",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_012",
+    "context_version": 4,
+    "known_time": "2026-07-16T01:47:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000108",
+    "opportunity_cluster_id": "CLUSTER_00026",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_013",
+    "context_version": 4,
+    "known_time": "2026-07-16T01:48:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000109",
+    "opportunity_cluster_id": "CLUSTER_00027",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_014",
+    "context_version": 4,
+    "known_time": "2026-07-16T01:49:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000110",
+    "opportunity_cluster_id": "CLUSTER_00027",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_015",
+    "context_version": 4,
+    "known_time": "2026-07-16T01:50:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000111",
+    "opportunity_cluster_id": "CLUSTER_00027",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_016",
+    "context_version": 4,
+    "known_time": "2026-07-16T01:51:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000112",
+    "opportunity_cluster_id": "CLUSTER_00027",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_017",
+    "context_version": 4,
+    "known_time": "2026-07-16T01:52:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000113",
+    "opportunity_cluster_id": "CLUSTER_00028",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_018",
+    "context_version": 4,
+    "known_time": "2026-07-16T01:53:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000114",
+    "opportunity_cluster_id": "CLUSTER_00028",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_019",
+    "context_version": 4,
+    "known_time": "2026-07-16T01:54:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000115",
+    "opportunity_cluster_id": "CLUSTER_00028",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_020",
+    "context_version": 4,
+    "known_time": "2026-07-16T01:55:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000116",
+    "opportunity_cluster_id": "CLUSTER_00028",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_021",
+    "context_version": 4,
+    "known_time": "2026-07-16T01:56:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000117",
+    "opportunity_cluster_id": "CLUSTER_00029",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_022",
+    "context_version": 4,
+    "known_time": "2026-07-16T01:57:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000118",
+    "opportunity_cluster_id": "CLUSTER_00029",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_023",
+    "context_version": 4,
+    "known_time": "2026-07-16T01:58:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000119",
+    "opportunity_cluster_id": "CLUSTER_00029",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_024",
+    "context_version": 4,
+    "known_time": "2026-07-16T01:59:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000120",
+    "opportunity_cluster_id": "CLUSTER_00029",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_025",
+    "context_version": 4,
+    "known_time": "2026-07-16T02:00:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000121",
+    "opportunity_cluster_id": "CLUSTER_00030",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_026",
+    "context_version": 4,
+    "known_time": "2026-07-16T02:01:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000122",
+    "opportunity_cluster_id": "CLUSTER_00030",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_027",
+    "context_version": 4,
+    "known_time": "2026-07-16T02:02:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000123",
+    "opportunity_cluster_id": "CLUSTER_00030",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_028",
+    "context_version": 4,
+    "known_time": "2026-07-16T02:03:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000124",
+    "opportunity_cluster_id": "CLUSTER_00030",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_029",
+    "context_version": 4,
+    "known_time": "2026-07-16T02:04:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000125",
+    "opportunity_cluster_id": "CLUSTER_00031",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_030",
+    "context_version": 4,
+    "known_time": "2026-07-16T02:05:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000126",
+    "opportunity_cluster_id": "CLUSTER_00031",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_031",
+    "context_version": 4,
+    "known_time": "2026-07-16T02:06:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000127",
+    "opportunity_cluster_id": "CLUSTER_00031",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_032",
+    "context_version": 4,
+    "known_time": "2026-07-16T02:07:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000128",
+    "opportunity_cluster_id": "CLUSTER_00031",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_001",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:08:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000129",
+    "opportunity_cluster_id": "CLUSTER_00032",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_002",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:09:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000130",
+    "opportunity_cluster_id": "CLUSTER_00032",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_003",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:10:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000131",
+    "opportunity_cluster_id": "CLUSTER_00032",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_004",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:11:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000132",
+    "opportunity_cluster_id": "CLUSTER_00032",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_005",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:12:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000133",
+    "opportunity_cluster_id": "CLUSTER_00033",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_006",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:13:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000134",
+    "opportunity_cluster_id": "CLUSTER_00033",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_007",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:14:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000135",
+    "opportunity_cluster_id": "CLUSTER_00033",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_008",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:15:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000136",
+    "opportunity_cluster_id": "CLUSTER_00033",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_009",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:16:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000137",
+    "opportunity_cluster_id": "CLUSTER_00034",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_010",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:17:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000138",
+    "opportunity_cluster_id": "CLUSTER_00034",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_011",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:18:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000139",
+    "opportunity_cluster_id": "CLUSTER_00034",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_012",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:19:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000140",
+    "opportunity_cluster_id": "CLUSTER_00034",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_013",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:20:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000141",
+    "opportunity_cluster_id": "CLUSTER_00035",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_014",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:21:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000142",
+    "opportunity_cluster_id": "CLUSTER_00035",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_015",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:22:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000143",
+    "opportunity_cluster_id": "CLUSTER_00035",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_016",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:23:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000144",
+    "opportunity_cluster_id": "CLUSTER_00035",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_017",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:24:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000145",
+    "opportunity_cluster_id": "CLUSTER_00036",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_018",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:25:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000146",
+    "opportunity_cluster_id": "CLUSTER_00036",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_019",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:26:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000147",
+    "opportunity_cluster_id": "CLUSTER_00036",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_020",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:27:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000148",
+    "opportunity_cluster_id": "CLUSTER_00036",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_021",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:28:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000149",
+    "opportunity_cluster_id": "CLUSTER_00037",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_022",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:29:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000150",
+    "opportunity_cluster_id": "CLUSTER_00037",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_023",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:30:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000151",
+    "opportunity_cluster_id": "CLUSTER_00037",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_024",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:31:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000152",
+    "opportunity_cluster_id": "CLUSTER_00037",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_025",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:32:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000153",
+    "opportunity_cluster_id": "CLUSTER_00038",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_026",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:33:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000154",
+    "opportunity_cluster_id": "CLUSTER_00038",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_027",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:34:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000155",
+    "opportunity_cluster_id": "CLUSTER_00038",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_028",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:35:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000156",
+    "opportunity_cluster_id": "CLUSTER_00038",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_029",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:36:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000157",
+    "opportunity_cluster_id": "CLUSTER_00039",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_030",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:37:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000158",
+    "opportunity_cluster_id": "CLUSTER_00039",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_031",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:38:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000159",
+    "opportunity_cluster_id": "CLUSTER_00039",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_032",
+    "context_version": 1,
+    "known_time": "2026-07-16T02:39:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000160",
+    "opportunity_cluster_id": "CLUSTER_00039",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_001",
+    "context_version": 2,
+    "known_time": "2026-07-16T02:40:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000161",
+    "opportunity_cluster_id": "CLUSTER_00040",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_002",
+    "context_version": 2,
+    "known_time": "2026-07-16T02:41:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000162",
+    "opportunity_cluster_id": "CLUSTER_00040",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_003",
+    "context_version": 2,
+    "known_time": "2026-07-16T02:42:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000163",
+    "opportunity_cluster_id": "CLUSTER_00040",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_004",
+    "context_version": 2,
+    "known_time": "2026-07-16T02:43:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000164",
+    "opportunity_cluster_id": "CLUSTER_00040",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_005",
+    "context_version": 2,
+    "known_time": "2026-07-16T02:44:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000165",
+    "opportunity_cluster_id": "CLUSTER_00041",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_006",
+    "context_version": 2,
+    "known_time": "2026-07-16T02:45:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000166",
+    "opportunity_cluster_id": "CLUSTER_00041",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_007",
+    "context_version": 2,
+    "known_time": "2026-07-16T02:46:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000167",
+    "opportunity_cluster_id": "CLUSTER_00041",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_008",
+    "context_version": 2,
+    "known_time": "2026-07-16T02:47:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000168",
+    "opportunity_cluster_id": "CLUSTER_00041",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_009",
+    "context_version": 2,
+    "known_time": "2026-07-16T02:48:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000169",
+    "opportunity_cluster_id": "CLUSTER_00042",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_010",
+    "context_version": 2,
+    "known_time": "2026-07-16T02:49:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000170",
+    "opportunity_cluster_id": "CLUSTER_00042",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_011",
+    "context_version": 2,
+    "known_time": "2026-07-16T02:50:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000171",
+    "opportunity_cluster_id": "CLUSTER_00042",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_012",
+    "context_version": 2,
+    "known_time": "2026-07-16T02:51:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000172",
+    "opportunity_cluster_id": "CLUSTER_00042",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_013",
+    "context_version": 2,
+    "known_time": "2026-07-16T02:52:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000173",
+    "opportunity_cluster_id": "CLUSTER_00043",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_014",
+    "context_version": 2,
+    "known_time": "2026-07-16T02:53:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000174",
+    "opportunity_cluster_id": "CLUSTER_00043",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_015",
+    "context_version": 2,
+    "known_time": "2026-07-16T02:54:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000175",
+    "opportunity_cluster_id": "CLUSTER_00043",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_016",
+    "context_version": 2,
+    "known_time": "2026-07-16T02:55:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000176",
+    "opportunity_cluster_id": "CLUSTER_00043",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_017",
+    "context_version": 2,
+    "known_time": "2026-07-16T02:56:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000177",
+    "opportunity_cluster_id": "CLUSTER_00044",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_018",
+    "context_version": 2,
+    "known_time": "2026-07-16T02:57:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000178",
+    "opportunity_cluster_id": "CLUSTER_00044",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_019",
+    "context_version": 2,
+    "known_time": "2026-07-16T02:58:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000179",
+    "opportunity_cluster_id": "CLUSTER_00044",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_020",
+    "context_version": 2,
+    "known_time": "2026-07-16T02:59:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000180",
+    "opportunity_cluster_id": "CLUSTER_00044",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_021",
+    "context_version": 2,
+    "known_time": "2026-07-16T03:00:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000181",
+    "opportunity_cluster_id": "CLUSTER_00045",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_022",
+    "context_version": 2,
+    "known_time": "2026-07-16T03:01:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000182",
+    "opportunity_cluster_id": "CLUSTER_00045",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_023",
+    "context_version": 2,
+    "known_time": "2026-07-16T03:02:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000183",
+    "opportunity_cluster_id": "CLUSTER_00045",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_024",
+    "context_version": 2,
+    "known_time": "2026-07-16T03:03:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000184",
+    "opportunity_cluster_id": "CLUSTER_00045",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_025",
+    "context_version": 2,
+    "known_time": "2026-07-16T03:04:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000185",
+    "opportunity_cluster_id": "CLUSTER_00046",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_026",
+    "context_version": 2,
+    "known_time": "2026-07-16T03:05:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000186",
+    "opportunity_cluster_id": "CLUSTER_00046",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_027",
+    "context_version": 2,
+    "known_time": "2026-07-16T03:06:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000187",
+    "opportunity_cluster_id": "CLUSTER_00046",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_028",
+    "context_version": 2,
+    "known_time": "2026-07-16T03:07:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000188",
+    "opportunity_cluster_id": "CLUSTER_00046",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_029",
+    "context_version": 2,
+    "known_time": "2026-07-16T03:08:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000189",
+    "opportunity_cluster_id": "CLUSTER_00047",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_030",
+    "context_version": 2,
+    "known_time": "2026-07-16T03:09:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000190",
+    "opportunity_cluster_id": "CLUSTER_00047",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_031",
+    "context_version": 2,
+    "known_time": "2026-07-16T03:10:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000191",
+    "opportunity_cluster_id": "CLUSTER_00047",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_032",
+    "context_version": 2,
+    "known_time": "2026-07-16T03:11:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000192",
+    "opportunity_cluster_id": "CLUSTER_00047",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_001",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:12:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000193",
+    "opportunity_cluster_id": "CLUSTER_00048",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_002",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:13:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000194",
+    "opportunity_cluster_id": "CLUSTER_00048",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_003",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:14:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000195",
+    "opportunity_cluster_id": "CLUSTER_00048",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_004",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:15:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000196",
+    "opportunity_cluster_id": "CLUSTER_00048",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_005",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:16:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000197",
+    "opportunity_cluster_id": "CLUSTER_00049",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_006",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:17:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000198",
+    "opportunity_cluster_id": "CLUSTER_00049",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_007",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:18:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000199",
+    "opportunity_cluster_id": "CLUSTER_00049",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_008",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:19:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000200",
+    "opportunity_cluster_id": "CLUSTER_00049",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_009",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:20:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000201",
+    "opportunity_cluster_id": "CLUSTER_00050",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_010",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:21:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000202",
+    "opportunity_cluster_id": "CLUSTER_00050",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_011",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:22:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000203",
+    "opportunity_cluster_id": "CLUSTER_00050",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_012",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:23:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000204",
+    "opportunity_cluster_id": "CLUSTER_00050",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_013",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:24:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000205",
+    "opportunity_cluster_id": "CLUSTER_00051",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_014",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:25:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000206",
+    "opportunity_cluster_id": "CLUSTER_00051",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_015",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:26:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000207",
+    "opportunity_cluster_id": "CLUSTER_00051",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_016",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:27:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000208",
+    "opportunity_cluster_id": "CLUSTER_00051",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_017",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:28:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000209",
+    "opportunity_cluster_id": "CLUSTER_00052",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_018",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:29:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000210",
+    "opportunity_cluster_id": "CLUSTER_00052",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_019",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:30:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000211",
+    "opportunity_cluster_id": "CLUSTER_00052",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_020",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:31:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000212",
+    "opportunity_cluster_id": "CLUSTER_00052",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_021",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:32:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000213",
+    "opportunity_cluster_id": "CLUSTER_00053",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_022",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:33:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000214",
+    "opportunity_cluster_id": "CLUSTER_00053",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_023",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:34:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000215",
+    "opportunity_cluster_id": "CLUSTER_00053",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_024",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:35:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000216",
+    "opportunity_cluster_id": "CLUSTER_00053",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_025",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:36:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000217",
+    "opportunity_cluster_id": "CLUSTER_00054",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_026",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:37:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000218",
+    "opportunity_cluster_id": "CLUSTER_00054",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_027",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:38:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000219",
+    "opportunity_cluster_id": "CLUSTER_00054",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_028",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:39:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000220",
+    "opportunity_cluster_id": "CLUSTER_00054",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_029",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:40:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000221",
+    "opportunity_cluster_id": "CLUSTER_00055",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_030",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:41:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000222",
+    "opportunity_cluster_id": "CLUSTER_00055",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_031",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:42:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000223",
+    "opportunity_cluster_id": "CLUSTER_00055",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_032",
+    "context_version": 3,
+    "known_time": "2026-07-16T03:43:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000224",
+    "opportunity_cluster_id": "CLUSTER_00055",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_001",
+    "context_version": 4,
+    "known_time": "2026-07-16T03:44:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000225",
+    "opportunity_cluster_id": "CLUSTER_00056",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_002",
+    "context_version": 4,
+    "known_time": "2026-07-16T03:45:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000226",
+    "opportunity_cluster_id": "CLUSTER_00056",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_003",
+    "context_version": 4,
+    "known_time": "2026-07-16T03:46:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000227",
+    "opportunity_cluster_id": "CLUSTER_00056",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_004",
+    "context_version": 4,
+    "known_time": "2026-07-16T03:47:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000228",
+    "opportunity_cluster_id": "CLUSTER_00056",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_005",
+    "context_version": 4,
+    "known_time": "2026-07-16T03:48:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000229",
+    "opportunity_cluster_id": "CLUSTER_00057",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_006",
+    "context_version": 4,
+    "known_time": "2026-07-16T03:49:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000230",
+    "opportunity_cluster_id": "CLUSTER_00057",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_007",
+    "context_version": 4,
+    "known_time": "2026-07-16T03:50:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000231",
+    "opportunity_cluster_id": "CLUSTER_00057",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_008",
+    "context_version": 4,
+    "known_time": "2026-07-16T03:51:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000232",
+    "opportunity_cluster_id": "CLUSTER_00057",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_009",
+    "context_version": 4,
+    "known_time": "2026-07-16T03:52:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000233",
+    "opportunity_cluster_id": "CLUSTER_00058",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_010",
+    "context_version": 4,
+    "known_time": "2026-07-16T03:53:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000234",
+    "opportunity_cluster_id": "CLUSTER_00058",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_011",
+    "context_version": 4,
+    "known_time": "2026-07-16T03:54:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000235",
+    "opportunity_cluster_id": "CLUSTER_00058",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_012",
+    "context_version": 4,
+    "known_time": "2026-07-16T03:55:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000236",
+    "opportunity_cluster_id": "CLUSTER_00058",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_013",
+    "context_version": 4,
+    "known_time": "2026-07-16T03:56:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000237",
+    "opportunity_cluster_id": "CLUSTER_00059",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_014",
+    "context_version": 4,
+    "known_time": "2026-07-16T03:57:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000238",
+    "opportunity_cluster_id": "CLUSTER_00059",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_015",
+    "context_version": 4,
+    "known_time": "2026-07-16T03:58:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000239",
+    "opportunity_cluster_id": "CLUSTER_00059",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_016",
+    "context_version": 4,
+    "known_time": "2026-07-16T03:59:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000240",
+    "opportunity_cluster_id": "CLUSTER_00059",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_017",
+    "context_version": 4,
+    "known_time": "2026-07-16T04:00:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000241",
+    "opportunity_cluster_id": "CLUSTER_00060",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_018",
+    "context_version": 4,
+    "known_time": "2026-07-16T04:01:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000242",
+    "opportunity_cluster_id": "CLUSTER_00060",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_019",
+    "context_version": 4,
+    "known_time": "2026-07-16T04:02:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000243",
+    "opportunity_cluster_id": "CLUSTER_00060",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_020",
+    "context_version": 4,
+    "known_time": "2026-07-16T04:03:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000244",
+    "opportunity_cluster_id": "CLUSTER_00060",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_021",
+    "context_version": 4,
+    "known_time": "2026-07-16T04:04:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000245",
+    "opportunity_cluster_id": "CLUSTER_00061",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_022",
+    "context_version": 4,
+    "known_time": "2026-07-16T04:05:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000246",
+    "opportunity_cluster_id": "CLUSTER_00061",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_023",
+    "context_version": 4,
+    "known_time": "2026-07-16T04:06:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000247",
+    "opportunity_cluster_id": "CLUSTER_00061",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_024",
+    "context_version": 4,
+    "known_time": "2026-07-16T04:07:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000248",
+    "opportunity_cluster_id": "CLUSTER_00061",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_025",
+    "context_version": 4,
+    "known_time": "2026-07-16T04:08:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000249",
+    "opportunity_cluster_id": "CLUSTER_00062",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_026",
+    "context_version": 4,
+    "known_time": "2026-07-16T04:09:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000250",
+    "opportunity_cluster_id": "CLUSTER_00062",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_027",
+    "context_version": 4,
+    "known_time": "2026-07-16T04:10:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000251",
+    "opportunity_cluster_id": "CLUSTER_00062",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_028",
+    "context_version": 4,
+    "known_time": "2026-07-16T04:11:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000252",
+    "opportunity_cluster_id": "CLUSTER_00062",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_029",
+    "context_version": 4,
+    "known_time": "2026-07-16T04:12:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000253",
+    "opportunity_cluster_id": "CLUSTER_00063",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_030",
+    "context_version": 4,
+    "known_time": "2026-07-16T04:13:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000254",
+    "opportunity_cluster_id": "CLUSTER_00063",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_031",
+    "context_version": 4,
+    "known_time": "2026-07-16T04:14:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000255",
+    "opportunity_cluster_id": "CLUSTER_00063",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_032",
+    "context_version": 4,
+    "known_time": "2026-07-16T04:15:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000256",
+    "opportunity_cluster_id": "CLUSTER_00063",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_001",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:16:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000257",
+    "opportunity_cluster_id": "CLUSTER_00064",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_002",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:17:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000258",
+    "opportunity_cluster_id": "CLUSTER_00064",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_003",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:18:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000259",
+    "opportunity_cluster_id": "CLUSTER_00064",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_004",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:19:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000260",
+    "opportunity_cluster_id": "CLUSTER_00064",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_005",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:20:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000261",
+    "opportunity_cluster_id": "CLUSTER_00065",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_006",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:21:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000262",
+    "opportunity_cluster_id": "CLUSTER_00065",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_007",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:22:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000263",
+    "opportunity_cluster_id": "CLUSTER_00065",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_008",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:23:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000264",
+    "opportunity_cluster_id": "CLUSTER_00065",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_009",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:24:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000265",
+    "opportunity_cluster_id": "CLUSTER_00066",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_010",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:25:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000266",
+    "opportunity_cluster_id": "CLUSTER_00066",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_011",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:26:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000267",
+    "opportunity_cluster_id": "CLUSTER_00066",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_012",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:27:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000268",
+    "opportunity_cluster_id": "CLUSTER_00066",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_013",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:28:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000269",
+    "opportunity_cluster_id": "CLUSTER_00067",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_014",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:29:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000270",
+    "opportunity_cluster_id": "CLUSTER_00067",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_015",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:30:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000271",
+    "opportunity_cluster_id": "CLUSTER_00067",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_016",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:31:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000272",
+    "opportunity_cluster_id": "CLUSTER_00067",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_017",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:32:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000273",
+    "opportunity_cluster_id": "CLUSTER_00068",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_018",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:33:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000274",
+    "opportunity_cluster_id": "CLUSTER_00068",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_019",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:34:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000275",
+    "opportunity_cluster_id": "CLUSTER_00068",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_020",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:35:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000276",
+    "opportunity_cluster_id": "CLUSTER_00068",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_021",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:36:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000277",
+    "opportunity_cluster_id": "CLUSTER_00069",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_022",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:37:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000278",
+    "opportunity_cluster_id": "CLUSTER_00069",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_023",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:38:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000279",
+    "opportunity_cluster_id": "CLUSTER_00069",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_024",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:39:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000280",
+    "opportunity_cluster_id": "CLUSTER_00069",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_025",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:40:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000281",
+    "opportunity_cluster_id": "CLUSTER_00070",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_026",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:41:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000282",
+    "opportunity_cluster_id": "CLUSTER_00070",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_027",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:42:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000283",
+    "opportunity_cluster_id": "CLUSTER_00070",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_028",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:43:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000284",
+    "opportunity_cluster_id": "CLUSTER_00070",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_029",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:44:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000285",
+    "opportunity_cluster_id": "CLUSTER_00071",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_030",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:45:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000286",
+    "opportunity_cluster_id": "CLUSTER_00071",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_031",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:46:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000287",
+    "opportunity_cluster_id": "CLUSTER_00071",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_032",
+    "context_version": 1,
+    "known_time": "2026-07-16T04:47:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000288",
+    "opportunity_cluster_id": "CLUSTER_00071",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_001",
+    "context_version": 2,
+    "known_time": "2026-07-16T04:48:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000289",
+    "opportunity_cluster_id": "CLUSTER_00072",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_002",
+    "context_version": 2,
+    "known_time": "2026-07-16T04:49:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000290",
+    "opportunity_cluster_id": "CLUSTER_00072",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_003",
+    "context_version": 2,
+    "known_time": "2026-07-16T04:50:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000291",
+    "opportunity_cluster_id": "CLUSTER_00072",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_004",
+    "context_version": 2,
+    "known_time": "2026-07-16T04:51:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000292",
+    "opportunity_cluster_id": "CLUSTER_00072",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_005",
+    "context_version": 2,
+    "known_time": "2026-07-16T04:52:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000293",
+    "opportunity_cluster_id": "CLUSTER_00073",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_006",
+    "context_version": 2,
+    "known_time": "2026-07-16T04:53:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000294",
+    "opportunity_cluster_id": "CLUSTER_00073",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_007",
+    "context_version": 2,
+    "known_time": "2026-07-16T04:54:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000295",
+    "opportunity_cluster_id": "CLUSTER_00073",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_008",
+    "context_version": 2,
+    "known_time": "2026-07-16T04:55:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000296",
+    "opportunity_cluster_id": "CLUSTER_00073",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_009",
+    "context_version": 2,
+    "known_time": "2026-07-16T04:56:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000297",
+    "opportunity_cluster_id": "CLUSTER_00074",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_010",
+    "context_version": 2,
+    "known_time": "2026-07-16T04:57:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000298",
+    "opportunity_cluster_id": "CLUSTER_00074",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_011",
+    "context_version": 2,
+    "known_time": "2026-07-16T04:58:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000299",
+    "opportunity_cluster_id": "CLUSTER_00074",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_012",
+    "context_version": 2,
+    "known_time": "2026-07-16T04:59:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000300",
+    "opportunity_cluster_id": "CLUSTER_00074",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_013",
+    "context_version": 2,
+    "known_time": "2026-07-16T05:00:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000301",
+    "opportunity_cluster_id": "CLUSTER_00075",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_014",
+    "context_version": 2,
+    "known_time": "2026-07-16T05:01:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000302",
+    "opportunity_cluster_id": "CLUSTER_00075",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_015",
+    "context_version": 2,
+    "known_time": "2026-07-16T05:02:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000303",
+    "opportunity_cluster_id": "CLUSTER_00075",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_016",
+    "context_version": 2,
+    "known_time": "2026-07-16T05:03:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000304",
+    "opportunity_cluster_id": "CLUSTER_00075",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_017",
+    "context_version": 2,
+    "known_time": "2026-07-16T05:04:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000305",
+    "opportunity_cluster_id": "CLUSTER_00076",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_018",
+    "context_version": 2,
+    "known_time": "2026-07-16T05:05:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000306",
+    "opportunity_cluster_id": "CLUSTER_00076",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_019",
+    "context_version": 2,
+    "known_time": "2026-07-16T05:06:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000307",
+    "opportunity_cluster_id": "CLUSTER_00076",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_020",
+    "context_version": 2,
+    "known_time": "2026-07-16T05:07:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000308",
+    "opportunity_cluster_id": "CLUSTER_00076",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_021",
+    "context_version": 2,
+    "known_time": "2026-07-16T05:08:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000309",
+    "opportunity_cluster_id": "CLUSTER_00077",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_022",
+    "context_version": 2,
+    "known_time": "2026-07-16T05:09:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000310",
+    "opportunity_cluster_id": "CLUSTER_00077",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_023",
+    "context_version": 2,
+    "known_time": "2026-07-16T05:10:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000311",
+    "opportunity_cluster_id": "CLUSTER_00077",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_024",
+    "context_version": 2,
+    "known_time": "2026-07-16T05:11:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000312",
+    "opportunity_cluster_id": "CLUSTER_00077",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_025",
+    "context_version": 2,
+    "known_time": "2026-07-16T05:12:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000313",
+    "opportunity_cluster_id": "CLUSTER_00078",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_026",
+    "context_version": 2,
+    "known_time": "2026-07-16T05:13:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000314",
+    "opportunity_cluster_id": "CLUSTER_00078",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_027",
+    "context_version": 2,
+    "known_time": "2026-07-16T05:14:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000315",
+    "opportunity_cluster_id": "CLUSTER_00078",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_028",
+    "context_version": 2,
+    "known_time": "2026-07-16T05:15:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000316",
+    "opportunity_cluster_id": "CLUSTER_00078",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_029",
+    "context_version": 2,
+    "known_time": "2026-07-16T05:16:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000317",
+    "opportunity_cluster_id": "CLUSTER_00079",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_030",
+    "context_version": 2,
+    "known_time": "2026-07-16T05:17:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000318",
+    "opportunity_cluster_id": "CLUSTER_00079",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_031",
+    "context_version": 2,
+    "known_time": "2026-07-16T05:18:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000319",
+    "opportunity_cluster_id": "CLUSTER_00079",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_032",
+    "context_version": 2,
+    "known_time": "2026-07-16T05:19:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000320",
+    "opportunity_cluster_id": "CLUSTER_00079",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_001",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:20:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000321",
+    "opportunity_cluster_id": "CLUSTER_00080",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_002",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:21:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000322",
+    "opportunity_cluster_id": "CLUSTER_00080",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_003",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:22:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000323",
+    "opportunity_cluster_id": "CLUSTER_00080",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_004",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:23:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000324",
+    "opportunity_cluster_id": "CLUSTER_00080",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_005",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:24:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000325",
+    "opportunity_cluster_id": "CLUSTER_00081",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_006",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:25:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000326",
+    "opportunity_cluster_id": "CLUSTER_00081",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_007",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:26:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000327",
+    "opportunity_cluster_id": "CLUSTER_00081",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_008",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:27:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000328",
+    "opportunity_cluster_id": "CLUSTER_00081",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_009",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:28:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000329",
+    "opportunity_cluster_id": "CLUSTER_00082",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_010",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:29:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000330",
+    "opportunity_cluster_id": "CLUSTER_00082",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_011",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:30:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000331",
+    "opportunity_cluster_id": "CLUSTER_00082",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_012",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:31:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000332",
+    "opportunity_cluster_id": "CLUSTER_00082",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_013",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:32:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000333",
+    "opportunity_cluster_id": "CLUSTER_00083",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_014",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:33:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000334",
+    "opportunity_cluster_id": "CLUSTER_00083",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_015",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:34:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000335",
+    "opportunity_cluster_id": "CLUSTER_00083",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_016",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:35:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000336",
+    "opportunity_cluster_id": "CLUSTER_00083",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_017",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:36:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000337",
+    "opportunity_cluster_id": "CLUSTER_00084",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_018",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:37:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000338",
+    "opportunity_cluster_id": "CLUSTER_00084",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_019",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:38:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000339",
+    "opportunity_cluster_id": "CLUSTER_00084",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_020",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:39:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000340",
+    "opportunity_cluster_id": "CLUSTER_00084",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_021",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:40:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000341",
+    "opportunity_cluster_id": "CLUSTER_00085",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_022",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:41:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000342",
+    "opportunity_cluster_id": "CLUSTER_00085",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_023",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:42:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000343",
+    "opportunity_cluster_id": "CLUSTER_00085",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_024",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:43:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000344",
+    "opportunity_cluster_id": "CLUSTER_00085",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_025",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:44:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000345",
+    "opportunity_cluster_id": "CLUSTER_00086",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_026",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:45:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000346",
+    "opportunity_cluster_id": "CLUSTER_00086",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_027",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:46:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000347",
+    "opportunity_cluster_id": "CLUSTER_00086",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_028",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:47:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000348",
+    "opportunity_cluster_id": "CLUSTER_00086",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_029",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:48:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000349",
+    "opportunity_cluster_id": "CLUSTER_00087",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_030",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:49:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000350",
+    "opportunity_cluster_id": "CLUSTER_00087",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_031",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:50:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000351",
+    "opportunity_cluster_id": "CLUSTER_00087",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_032",
+    "context_version": 3,
+    "known_time": "2026-07-16T05:51:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000352",
+    "opportunity_cluster_id": "CLUSTER_00087",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_001",
+    "context_version": 4,
+    "known_time": "2026-07-16T05:52:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000353",
+    "opportunity_cluster_id": "CLUSTER_00088",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_002",
+    "context_version": 4,
+    "known_time": "2026-07-16T05:53:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000354",
+    "opportunity_cluster_id": "CLUSTER_00088",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_003",
+    "context_version": 4,
+    "known_time": "2026-07-16T05:54:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000355",
+    "opportunity_cluster_id": "CLUSTER_00088",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_004",
+    "context_version": 4,
+    "known_time": "2026-07-16T05:55:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000356",
+    "opportunity_cluster_id": "CLUSTER_00088",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_005",
+    "context_version": 4,
+    "known_time": "2026-07-16T05:56:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000357",
+    "opportunity_cluster_id": "CLUSTER_00089",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_006",
+    "context_version": 4,
+    "known_time": "2026-07-16T05:57:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000358",
+    "opportunity_cluster_id": "CLUSTER_00089",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_007",
+    "context_version": 4,
+    "known_time": "2026-07-16T05:58:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000359",
+    "opportunity_cluster_id": "CLUSTER_00089",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_008",
+    "context_version": 4,
+    "known_time": "2026-07-16T05:59:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000360",
+    "opportunity_cluster_id": "CLUSTER_00089",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_009",
+    "context_version": 4,
+    "known_time": "2026-07-16T06:00:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000361",
+    "opportunity_cluster_id": "CLUSTER_00090",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_010",
+    "context_version": 4,
+    "known_time": "2026-07-16T06:01:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000362",
+    "opportunity_cluster_id": "CLUSTER_00090",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_011",
+    "context_version": 4,
+    "known_time": "2026-07-16T06:02:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000363",
+    "opportunity_cluster_id": "CLUSTER_00090",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_012",
+    "context_version": 4,
+    "known_time": "2026-07-16T06:03:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000364",
+    "opportunity_cluster_id": "CLUSTER_00090",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_013",
+    "context_version": 4,
+    "known_time": "2026-07-16T06:04:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000365",
+    "opportunity_cluster_id": "CLUSTER_00091",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_014",
+    "context_version": 4,
+    "known_time": "2026-07-16T06:05:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000366",
+    "opportunity_cluster_id": "CLUSTER_00091",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_015",
+    "context_version": 4,
+    "known_time": "2026-07-16T06:06:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000367",
+    "opportunity_cluster_id": "CLUSTER_00091",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_016",
+    "context_version": 4,
+    "known_time": "2026-07-16T06:07:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000368",
+    "opportunity_cluster_id": "CLUSTER_00091",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_017",
+    "context_version": 4,
+    "known_time": "2026-07-16T06:08:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000369",
+    "opportunity_cluster_id": "CLUSTER_00092",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_018",
+    "context_version": 4,
+    "known_time": "2026-07-16T06:09:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000370",
+    "opportunity_cluster_id": "CLUSTER_00092",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_019",
+    "context_version": 4,
+    "known_time": "2026-07-16T06:10:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000371",
+    "opportunity_cluster_id": "CLUSTER_00092",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_020",
+    "context_version": 4,
+    "known_time": "2026-07-16T06:11:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000372",
+    "opportunity_cluster_id": "CLUSTER_00092",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_021",
+    "context_version": 4,
+    "known_time": "2026-07-16T06:12:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000373",
+    "opportunity_cluster_id": "CLUSTER_00093",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_022",
+    "context_version": 4,
+    "known_time": "2026-07-16T06:13:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000374",
+    "opportunity_cluster_id": "CLUSTER_00093",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_023",
+    "context_version": 4,
+    "known_time": "2026-07-16T06:14:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000375",
+    "opportunity_cluster_id": "CLUSTER_00093",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_024",
+    "context_version": 4,
+    "known_time": "2026-07-16T06:15:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000376",
+    "opportunity_cluster_id": "CLUSTER_00093",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_025",
+    "context_version": 4,
+    "known_time": "2026-07-16T06:16:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000377",
+    "opportunity_cluster_id": "CLUSTER_00094",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_026",
+    "context_version": 4,
+    "known_time": "2026-07-16T06:17:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000378",
+    "opportunity_cluster_id": "CLUSTER_00094",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_027",
+    "context_version": 4,
+    "known_time": "2026-07-16T06:18:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000379",
+    "opportunity_cluster_id": "CLUSTER_00094",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_028",
+    "context_version": 4,
+    "known_time": "2026-07-16T06:19:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000380",
+    "opportunity_cluster_id": "CLUSTER_00094",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_029",
+    "context_version": 4,
+    "known_time": "2026-07-16T06:20:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000381",
+    "opportunity_cluster_id": "CLUSTER_00095",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_030",
+    "context_version": 4,
+    "known_time": "2026-07-16T06:21:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000382",
+    "opportunity_cluster_id": "CLUSTER_00095",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_031",
+    "context_version": 4,
+    "known_time": "2026-07-16T06:22:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000383",
+    "opportunity_cluster_id": "CLUSTER_00095",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_032",
+    "context_version": 4,
+    "known_time": "2026-07-16T06:23:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000384",
+    "opportunity_cluster_id": "CLUSTER_00095",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_001",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:24:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000385",
+    "opportunity_cluster_id": "CLUSTER_00096",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_002",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:25:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000386",
+    "opportunity_cluster_id": "CLUSTER_00096",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_003",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:26:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000387",
+    "opportunity_cluster_id": "CLUSTER_00096",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_004",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:27:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000388",
+    "opportunity_cluster_id": "CLUSTER_00096",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_005",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:28:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000389",
+    "opportunity_cluster_id": "CLUSTER_00097",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_006",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:29:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000390",
+    "opportunity_cluster_id": "CLUSTER_00097",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_007",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:30:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000391",
+    "opportunity_cluster_id": "CLUSTER_00097",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_008",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:31:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000392",
+    "opportunity_cluster_id": "CLUSTER_00097",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_009",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:32:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000393",
+    "opportunity_cluster_id": "CLUSTER_00098",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_010",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:33:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000394",
+    "opportunity_cluster_id": "CLUSTER_00098",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_011",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:34:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000395",
+    "opportunity_cluster_id": "CLUSTER_00098",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_012",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:35:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000396",
+    "opportunity_cluster_id": "CLUSTER_00098",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_013",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:36:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000397",
+    "opportunity_cluster_id": "CLUSTER_00099",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_014",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:37:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000398",
+    "opportunity_cluster_id": "CLUSTER_00099",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_015",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:38:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000399",
+    "opportunity_cluster_id": "CLUSTER_00099",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_016",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:39:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000400",
+    "opportunity_cluster_id": "CLUSTER_00099",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_017",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:40:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000401",
+    "opportunity_cluster_id": "CLUSTER_00100",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_018",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:41:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000402",
+    "opportunity_cluster_id": "CLUSTER_00100",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_019",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:42:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000403",
+    "opportunity_cluster_id": "CLUSTER_00100",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_020",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:43:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000404",
+    "opportunity_cluster_id": "CLUSTER_00100",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_021",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:44:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000405",
+    "opportunity_cluster_id": "CLUSTER_00101",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_022",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:45:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000406",
+    "opportunity_cluster_id": "CLUSTER_00101",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_023",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:46:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000407",
+    "opportunity_cluster_id": "CLUSTER_00101",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_024",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:47:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000408",
+    "opportunity_cluster_id": "CLUSTER_00101",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_025",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:48:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000409",
+    "opportunity_cluster_id": "CLUSTER_00102",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_026",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:49:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000410",
+    "opportunity_cluster_id": "CLUSTER_00102",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_027",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:50:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000411",
+    "opportunity_cluster_id": "CLUSTER_00102",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_028",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:51:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000412",
+    "opportunity_cluster_id": "CLUSTER_00102",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_029",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:52:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000413",
+    "opportunity_cluster_id": "CLUSTER_00103",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_030",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:53:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000414",
+    "opportunity_cluster_id": "CLUSTER_00103",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_031",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:54:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000415",
+    "opportunity_cluster_id": "CLUSTER_00103",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_032",
+    "context_version": 1,
+    "known_time": "2026-07-16T06:55:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000416",
+    "opportunity_cluster_id": "CLUSTER_00103",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_001",
+    "context_version": 2,
+    "known_time": "2026-07-16T06:56:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000417",
+    "opportunity_cluster_id": "CLUSTER_00104",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_002",
+    "context_version": 2,
+    "known_time": "2026-07-16T06:57:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000418",
+    "opportunity_cluster_id": "CLUSTER_00104",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_003",
+    "context_version": 2,
+    "known_time": "2026-07-16T06:58:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000419",
+    "opportunity_cluster_id": "CLUSTER_00104",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_004",
+    "context_version": 2,
+    "known_time": "2026-07-16T06:59:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000420",
+    "opportunity_cluster_id": "CLUSTER_00104",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_005",
+    "context_version": 2,
+    "known_time": "2026-07-16T07:00:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000421",
+    "opportunity_cluster_id": "CLUSTER_00105",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_006",
+    "context_version": 2,
+    "known_time": "2026-07-16T07:01:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000422",
+    "opportunity_cluster_id": "CLUSTER_00105",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_007",
+    "context_version": 2,
+    "known_time": "2026-07-16T07:02:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000423",
+    "opportunity_cluster_id": "CLUSTER_00105",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_008",
+    "context_version": 2,
+    "known_time": "2026-07-16T07:03:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000424",
+    "opportunity_cluster_id": "CLUSTER_00105",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_009",
+    "context_version": 2,
+    "known_time": "2026-07-16T07:04:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000425",
+    "opportunity_cluster_id": "CLUSTER_00106",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_010",
+    "context_version": 2,
+    "known_time": "2026-07-16T07:05:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000426",
+    "opportunity_cluster_id": "CLUSTER_00106",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_011",
+    "context_version": 2,
+    "known_time": "2026-07-16T07:06:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000427",
+    "opportunity_cluster_id": "CLUSTER_00106",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_012",
+    "context_version": 2,
+    "known_time": "2026-07-16T07:07:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000428",
+    "opportunity_cluster_id": "CLUSTER_00106",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_013",
+    "context_version": 2,
+    "known_time": "2026-07-16T07:08:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000429",
+    "opportunity_cluster_id": "CLUSTER_00107",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_014",
+    "context_version": 2,
+    "known_time": "2026-07-16T07:09:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000430",
+    "opportunity_cluster_id": "CLUSTER_00107",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_015",
+    "context_version": 2,
+    "known_time": "2026-07-16T07:10:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000431",
+    "opportunity_cluster_id": "CLUSTER_00107",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_016",
+    "context_version": 2,
+    "known_time": "2026-07-16T07:11:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000432",
+    "opportunity_cluster_id": "CLUSTER_00107",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_017",
+    "context_version": 2,
+    "known_time": "2026-07-16T07:12:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000433",
+    "opportunity_cluster_id": "CLUSTER_00108",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_018",
+    "context_version": 2,
+    "known_time": "2026-07-16T07:13:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000434",
+    "opportunity_cluster_id": "CLUSTER_00108",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_019",
+    "context_version": 2,
+    "known_time": "2026-07-16T07:14:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000435",
+    "opportunity_cluster_id": "CLUSTER_00108",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_020",
+    "context_version": 2,
+    "known_time": "2026-07-16T07:15:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000436",
+    "opportunity_cluster_id": "CLUSTER_00108",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_021",
+    "context_version": 2,
+    "known_time": "2026-07-16T07:16:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000437",
+    "opportunity_cluster_id": "CLUSTER_00109",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_022",
+    "context_version": 2,
+    "known_time": "2026-07-16T07:17:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000438",
+    "opportunity_cluster_id": "CLUSTER_00109",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_023",
+    "context_version": 2,
+    "known_time": "2026-07-16T07:18:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000439",
+    "opportunity_cluster_id": "CLUSTER_00109",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_024",
+    "context_version": 2,
+    "known_time": "2026-07-16T07:19:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000440",
+    "opportunity_cluster_id": "CLUSTER_00109",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_025",
+    "context_version": 2,
+    "known_time": "2026-07-16T07:20:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000441",
+    "opportunity_cluster_id": "CLUSTER_00110",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_026",
+    "context_version": 2,
+    "known_time": "2026-07-16T07:21:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000442",
+    "opportunity_cluster_id": "CLUSTER_00110",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_027",
+    "context_version": 2,
+    "known_time": "2026-07-16T07:22:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000443",
+    "opportunity_cluster_id": "CLUSTER_00110",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_028",
+    "context_version": 2,
+    "known_time": "2026-07-16T07:23:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000444",
+    "opportunity_cluster_id": "CLUSTER_00110",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_029",
+    "context_version": 2,
+    "known_time": "2026-07-16T07:24:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000445",
+    "opportunity_cluster_id": "CLUSTER_00111",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_030",
+    "context_version": 2,
+    "known_time": "2026-07-16T07:25:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000446",
+    "opportunity_cluster_id": "CLUSTER_00111",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_031",
+    "context_version": 2,
+    "known_time": "2026-07-16T07:26:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000447",
+    "opportunity_cluster_id": "CLUSTER_00111",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_032",
+    "context_version": 2,
+    "known_time": "2026-07-16T07:27:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000448",
+    "opportunity_cluster_id": "CLUSTER_00111",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_001",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:28:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000449",
+    "opportunity_cluster_id": "CLUSTER_00112",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_002",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:29:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000450",
+    "opportunity_cluster_id": "CLUSTER_00112",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_003",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:30:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000451",
+    "opportunity_cluster_id": "CLUSTER_00112",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_004",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:31:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000452",
+    "opportunity_cluster_id": "CLUSTER_00112",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_005",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:32:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000453",
+    "opportunity_cluster_id": "CLUSTER_00113",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_006",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:33:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000454",
+    "opportunity_cluster_id": "CLUSTER_00113",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_007",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:34:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000455",
+    "opportunity_cluster_id": "CLUSTER_00113",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_008",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:35:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000456",
+    "opportunity_cluster_id": "CLUSTER_00113",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_009",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:36:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000457",
+    "opportunity_cluster_id": "CLUSTER_00114",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_010",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:37:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000458",
+    "opportunity_cluster_id": "CLUSTER_00114",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_011",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:38:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000459",
+    "opportunity_cluster_id": "CLUSTER_00114",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_012",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:39:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000460",
+    "opportunity_cluster_id": "CLUSTER_00114",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_013",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:40:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000461",
+    "opportunity_cluster_id": "CLUSTER_00115",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_014",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:41:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000462",
+    "opportunity_cluster_id": "CLUSTER_00115",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_015",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:42:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000463",
+    "opportunity_cluster_id": "CLUSTER_00115",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_016",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:43:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000464",
+    "opportunity_cluster_id": "CLUSTER_00115",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_017",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:44:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000465",
+    "opportunity_cluster_id": "CLUSTER_00116",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_018",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:45:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000466",
+    "opportunity_cluster_id": "CLUSTER_00116",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_019",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:46:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000467",
+    "opportunity_cluster_id": "CLUSTER_00116",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_020",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:47:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000468",
+    "opportunity_cluster_id": "CLUSTER_00116",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_021",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:48:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000469",
+    "opportunity_cluster_id": "CLUSTER_00117",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_022",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:49:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000470",
+    "opportunity_cluster_id": "CLUSTER_00117",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_023",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:50:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000471",
+    "opportunity_cluster_id": "CLUSTER_00117",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_024",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:51:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000472",
+    "opportunity_cluster_id": "CLUSTER_00117",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_025",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:52:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000473",
+    "opportunity_cluster_id": "CLUSTER_00118",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_026",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:53:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000474",
+    "opportunity_cluster_id": "CLUSTER_00118",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_027",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:54:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000475",
+    "opportunity_cluster_id": "CLUSTER_00118",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_028",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:55:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000476",
+    "opportunity_cluster_id": "CLUSTER_00118",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_029",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:56:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000477",
+    "opportunity_cluster_id": "CLUSTER_00119",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_030",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:57:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000478",
+    "opportunity_cluster_id": "CLUSTER_00119",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_031",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:58:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000479",
+    "opportunity_cluster_id": "CLUSTER_00119",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_032",
+    "context_version": 3,
+    "known_time": "2026-07-16T07:59:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000480",
+    "opportunity_cluster_id": "CLUSTER_00119",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_001",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:00:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000481",
+    "opportunity_cluster_id": "CLUSTER_00120",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_002",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:01:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000482",
+    "opportunity_cluster_id": "CLUSTER_00120",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_003",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:02:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000483",
+    "opportunity_cluster_id": "CLUSTER_00120",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_004",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:03:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000484",
+    "opportunity_cluster_id": "CLUSTER_00120",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_005",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:04:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000485",
+    "opportunity_cluster_id": "CLUSTER_00121",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_006",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:05:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000486",
+    "opportunity_cluster_id": "CLUSTER_00121",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_007",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:06:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000487",
+    "opportunity_cluster_id": "CLUSTER_00121",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_008",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:07:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000488",
+    "opportunity_cluster_id": "CLUSTER_00121",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_009",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:08:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000489",
+    "opportunity_cluster_id": "CLUSTER_00122",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_010",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:09:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000490",
+    "opportunity_cluster_id": "CLUSTER_00122",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_011",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:10:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000491",
+    "opportunity_cluster_id": "CLUSTER_00122",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_012",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:11:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000492",
+    "opportunity_cluster_id": "CLUSTER_00122",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_013",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:12:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000493",
+    "opportunity_cluster_id": "CLUSTER_00123",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_014",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:13:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000494",
+    "opportunity_cluster_id": "CLUSTER_00123",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_015",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:14:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000495",
+    "opportunity_cluster_id": "CLUSTER_00123",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_016",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:15:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000496",
+    "opportunity_cluster_id": "CLUSTER_00123",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_017",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:16:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000497",
+    "opportunity_cluster_id": "CLUSTER_00124",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_018",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:17:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000498",
+    "opportunity_cluster_id": "CLUSTER_00124",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_019",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:18:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000499",
+    "opportunity_cluster_id": "CLUSTER_00124",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_020",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:19:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000500",
+    "opportunity_cluster_id": "CLUSTER_00124",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_021",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:20:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000501",
+    "opportunity_cluster_id": "CLUSTER_00125",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_022",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:21:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000502",
+    "opportunity_cluster_id": "CLUSTER_00125",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_023",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:22:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000503",
+    "opportunity_cluster_id": "CLUSTER_00125",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_024",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:23:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000504",
+    "opportunity_cluster_id": "CLUSTER_00125",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  },
+  {
+    "context_id": "CTX_025",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:24:00Z",
+    "namespace": "NS_01",
+    "occurrence_id": "OCC_000505",
+    "opportunity_cluster_id": "CLUSTER_00126",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_01"
+  },
+  {
+    "context_id": "CTX_026",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:25:00Z",
+    "namespace": "NS_02",
+    "occurrence_id": "OCC_000506",
+    "opportunity_cluster_id": "CLUSTER_00126",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_02"
+  },
+  {
+    "context_id": "CTX_027",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:26:00Z",
+    "namespace": "NS_03",
+    "occurrence_id": "OCC_000507",
+    "opportunity_cluster_id": "CLUSTER_00126",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_03"
+  },
+  {
+    "context_id": "CTX_028",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:27:00Z",
+    "namespace": "NS_04",
+    "occurrence_id": "OCC_000508",
+    "opportunity_cluster_id": "CLUSTER_00126",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_04"
+  },
+  {
+    "context_id": "CTX_029",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:28:00Z",
+    "namespace": "NS_05",
+    "occurrence_id": "OCC_000509",
+    "opportunity_cluster_id": "CLUSTER_00127",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_05"
+  },
+  {
+    "context_id": "CTX_030",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:29:00Z",
+    "namespace": "NS_06",
+    "occurrence_id": "OCC_000510",
+    "opportunity_cluster_id": "CLUSTER_00127",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_06"
+  },
+  {
+    "context_id": "CTX_031",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:30:00Z",
+    "namespace": "NS_07",
+    "occurrence_id": "OCC_000511",
+    "opportunity_cluster_id": "CLUSTER_00127",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_07"
+  },
+  {
+    "context_id": "CTX_032",
+    "context_version": 4,
+    "known_time": "2026-07-16T08:31:00Z",
+    "namespace": "NS_08",
+    "occurrence_id": "OCC_000512",
+    "opportunity_cluster_id": "CLUSTER_00127",
+    "synthetic_fixture": true,
+    "tenant_id": "TENANT_08"
+  }
+]

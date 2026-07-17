@@ -1,0 +1,92 @@
+{
+  "$id": "https://alpha-lab.local/schemas/saed_v4_40/authority.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "boundary_hash": {
+      "type": "string"
+    },
+    "boundary_id": {
+      "type": "string"
+    },
+    "failure_action": {
+      "type": "string"
+    },
+    "may_activate_capital": {
+      "type": "boolean"
+    },
+    "may_auto_promote_live": {
+      "type": "boolean"
+    },
+    "may_claim_external_scale_evidence_without_attachment": {
+      "type": "boolean"
+    },
+    "may_claim_production_authorization": {
+      "type": "boolean"
+    },
+    "may_compile_fleet_manifest": {
+      "type": "boolean"
+    },
+    "may_cross_tenant_route": {
+      "type": "boolean"
+    },
+    "may_generate_mql5_fleet_mirror": {
+      "type": "boolean"
+    },
+    "may_mutate_immutable_runtime": {
+      "type": "boolean"
+    },
+    "may_mutate_ucee": {
+      "type": "boolean"
+    },
+    "may_quarantine_cells": {
+      "type": "boolean"
+    },
+    "may_register_context_cells": {
+      "type": "boolean"
+    },
+    "may_route_synthetic_occurrences": {
+      "type": "boolean"
+    },
+    "may_simulate_placement": {
+      "type": "boolean"
+    },
+    "may_simulate_rollout": {
+      "type": "boolean"
+    },
+    "may_submit_live_order": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "phase",
+    "may_register_context_cells",
+    "may_compile_fleet_manifest",
+    "may_simulate_placement",
+    "may_simulate_rollout",
+    "may_route_synthetic_occurrences",
+    "may_quarantine_cells",
+    "may_generate_mql5_fleet_mirror",
+    "may_submit_live_order",
+    "may_activate_capital",
+    "may_auto_promote_live",
+    "may_cross_tenant_route",
+    "may_mutate_immutable_runtime",
+    "may_mutate_ucee",
+    "may_claim_external_scale_evidence_without_attachment",
+    "may_claim_production_authorization",
+    "failure_action",
+    "research_only",
+    "boundary_id",
+    "boundary_hash"
+  ],
+  "title": "SAED V4-40 authority",
+  "type": "object"
+}

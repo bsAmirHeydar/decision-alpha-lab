@@ -1,0 +1,86 @@
+{
+  "frozen_quota_hash": "05eba200fadde37cfe2f88f79f2570933f2d87b12aaef590a034f09c1faf45e5",
+  "frozen_quota_id": "v440_quotas_28e572556398b49c16423bdb",
+  "global_max_cells": 256,
+  "global_max_cpu_units": 2048,
+  "global_max_memory_mb": 2097152,
+  "global_max_replicas": 512,
+  "hard_enforcement": true,
+  "quota_id": "SAED_V4_40_HARD_QUOTAS",
+  "research_only": true,
+  "tenant_quotas": [
+    {
+      "max_cells": 32,
+      "max_cpu_units": 256,
+      "max_memory_mb": 262144,
+      "max_replicas": 64,
+      "max_rollout_concurrency": 8,
+      "max_route_rps": 10000,
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "max_cells": 32,
+      "max_cpu_units": 256,
+      "max_memory_mb": 262144,
+      "max_replicas": 64,
+      "max_rollout_concurrency": 8,
+      "max_route_rps": 10000,
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "max_cells": 32,
+      "max_cpu_units": 256,
+      "max_memory_mb": 262144,
+      "max_replicas": 64,
+      "max_rollout_concurrency": 8,
+      "max_route_rps": 10000,
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "max_cells": 32,
+      "max_cpu_units": 256,
+      "max_memory_mb": 262144,
+      "max_replicas": 64,
+      "max_rollout_concurrency": 8,
+      "max_route_rps": 10000,
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "max_cells": 32,
+      "max_cpu_units": 256,
+      "max_memory_mb": 262144,
+      "max_replicas": 64,
+      "max_rollout_concurrency": 8,
+      "max_route_rps": 10000,
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "max_cells": 32,
+      "max_cpu_units": 256,
+      "max_memory_mb": 262144,
+      "max_replicas": 64,
+      "max_rollout_concurrency": 8,
+      "max_route_rps": 10000,
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "max_cells": 32,
+      "max_cpu_units": 256,
+      "max_memory_mb": 262144,
+      "max_replicas": 64,
+      "max_rollout_concurrency": 8,
+      "max_route_rps": 10000,
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "max_cells": 32,
+      "max_cpu_units": 256,
+      "max_memory_mb": 262144,
+      "max_replicas": 64,
+      "max_rollout_concurrency": 8,
+      "max_route_rps": 10000,
+      "tenant_id": "TENANT_08"
+    }
+  ],
+  "version": "1.0.0"
+}

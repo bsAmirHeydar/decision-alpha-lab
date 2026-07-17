@@ -1,0 +1,186 @@
+{
+  "cell_count": 128,
+  "index_hash": "bdb7e9bbafe79ceb8ac99caf8c59a9ce47f8c076914709879eb33e834529a1fe",
+  "index_id": "v440_registry_index_e166bf869cf0731ae3b4960e",
+  "registry_hash": "ec276bf59506438e8e38f5dae77d35a62da6ada54a8c28fa35dbf5110947478f",
+  "research_only": true,
+  "tenant_count": 8,
+  "tenant_rows": [
+    {
+      "cell_count": 16,
+      "cell_ids": [
+        "CELL_0001",
+        "CELL_0009",
+        "CELL_0017",
+        "CELL_0025",
+        "CELL_0033",
+        "CELL_0041",
+        "CELL_0049",
+        "CELL_0057",
+        "CELL_0065",
+        "CELL_0073",
+        "CELL_0081",
+        "CELL_0089",
+        "CELL_0097",
+        "CELL_0105",
+        "CELL_0113",
+        "CELL_0121"
+      ],
+      "tenant_id": "TENANT_01"
+    },
+    {
+      "cell_count": 16,
+      "cell_ids": [
+        "CELL_0002",
+        "CELL_0010",
+        "CELL_0018",
+        "CELL_0026",
+        "CELL_0034",
+        "CELL_0042",
+        "CELL_0050",
+        "CELL_0058",
+        "CELL_0066",
+        "CELL_0074",
+        "CELL_0082",
+        "CELL_0090",
+        "CELL_0098",
+        "CELL_0106",
+        "CELL_0114",
+        "CELL_0122"
+      ],
+      "tenant_id": "TENANT_02"
+    },
+    {
+      "cell_count": 16,
+      "cell_ids": [
+        "CELL_0003",
+        "CELL_0011",
+        "CELL_0019",
+        "CELL_0027",
+        "CELL_0035",
+        "CELL_0043",
+        "CELL_0051",
+        "CELL_0059",
+        "CELL_0067",
+        "CELL_0075",
+        "CELL_0083",
+        "CELL_0091",
+        "CELL_0099",
+        "CELL_0107",
+        "CELL_0115",
+        "CELL_0123"
+      ],
+      "tenant_id": "TENANT_03"
+    },
+    {
+      "cell_count": 16,
+      "cell_ids": [
+        "CELL_0004",
+        "CELL_0012",
+        "CELL_0020",
+        "CELL_0028",
+        "CELL_0036",
+        "CELL_0044",
+        "CELL_0052",
+        "CELL_0060",
+        "CELL_0068",
+        "CELL_0076",
+        "CELL_0084",
+        "CELL_0092",
+        "CELL_0100",
+        "CELL_0108",
+        "CELL_0116",
+        "CELL_0124"
+      ],
+      "tenant_id": "TENANT_04"
+    },
+    {
+      "cell_count": 16,
+      "cell_ids": [
+        "CELL_0005",
+        "CELL_0013",
+        "CELL_0021",
+        "CELL_0029",
+        "CELL_0037",
+        "CELL_0045",
+        "CELL_0053",
+        "CELL_0061",
+        "CELL_0069",
+        "CELL_0077",
+        "CELL_0085",
+        "CELL_0093",
+        "CELL_0101",
+        "CELL_0109",
+        "CELL_0117",
+        "CELL_0125"
+      ],
+      "tenant_id": "TENANT_05"
+    },
+    {
+      "cell_count": 16,
+      "cell_ids": [
+        "CELL_0006",
+        "CELL_0014",
+        "CELL_0022",
+        "CELL_0030",
+        "CELL_0038",
+        "CELL_0046",
+        "CELL_0054",
+        "CELL_0062",
+        "CELL_0070",
+        "CELL_0078",
+        "CELL_0086",
+        "CELL_0094",
+        "CELL_0102",
+        "CELL_0110",
+        "CELL_0118",
+        "CELL_0126"
+      ],
+      "tenant_id": "TENANT_06"
+    },
+    {
+      "cell_count": 16,
+      "cell_ids": [
+        "CELL_0007",
+        "CELL_0015",
+        "CELL_0023",
+        "CELL_0031",
+        "CELL_0039",
+        "CELL_0047",
+        "CELL_0055",
+        "CELL_0063",
+        "CELL_0071",
+        "CELL_0079",
+        "CELL_0087",
+        "CELL_0095",
+        "CELL_0103",
+        "CELL_0111",
+        "CELL_0119",
+        "CELL_0127"
+      ],
+      "tenant_id": "TENANT_07"
+    },
+    {
+      "cell_count": 16,
+      "cell_ids": [
+        "CELL_0008",
+        "CELL_0016",
+        "CELL_0024",
+        "CELL_0032",
+        "CELL_0040",
+        "CELL_0048",
+        "CELL_0056",
+        "CELL_0064",
+        "CELL_0072",
+        "CELL_0080",
+        "CELL_0088",
+        "CELL_0096",
+        "CELL_0104",
+        "CELL_0112",
+        "CELL_0120",
+        "CELL_0128"
+      ],
+      "tenant_id": "TENANT_08"
+    }
+  ]
+}
