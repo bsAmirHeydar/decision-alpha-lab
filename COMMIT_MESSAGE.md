@@ -1,3 +1,10 @@
-feat(acl-os): add secure extensible context lifecycle architecture
+feat(acl-os): implement ACL-00 constitution and unified authority
 
-Add the Alpha Lab Context Lifecycle OS architecture package with canonical foldering, versioned contracts, Context scaffolding, human/AI Setup integration, immutable research Batches, unified validation and value-vs-random gates, automatic reporting and memory, defense-in-depth security, one-hour Context assessment, ADRs, runbooks and the ACL-00 through ACL-15 implementation program.
+- add fail-closed lifecycle authority control plane
+- enforce evidence, approvals, security hooks and claim ceilings
+- add waiver governance, optimistic concurrency and hash-chained audit
+- add closed schemas, policy catalogs, fixtures and CLI
+- add MQL5 non-trading authority mirrors
+- add comprehensive Obsidian phase delivery and QA
+
+Capital activation and live-order submission remain disabled.
