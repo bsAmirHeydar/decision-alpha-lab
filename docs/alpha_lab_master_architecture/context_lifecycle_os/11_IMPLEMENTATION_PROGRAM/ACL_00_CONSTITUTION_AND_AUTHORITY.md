@@ -1,6 +1,6 @@
 ---
 title: ACL-00 — Constitution and Unified Authority
-status: accepted-reference-implementation
+status: proposed-reference
 version: 1.0.0
 updated: 2026-07-17
 tags: [acl-os, context-lifecycle]
@@ -64,7 +64,3 @@ This architecture note specifies required mechanics. Only environment-specific e
 
 - [[ACL_OS_HOME]]
 - [[IMPLEMENTATION_MASTER_PLAN]]
-
-## Implementation delivery
-
-The accepted reference implementation is indexed by [[00_EXECUTIVE_DELIVERY_INDEX]] and enforced by `tools.strategy_factory.acl_os.acl_00`. The next implementation boundary is [[ACL_01_REPOSITORY_IDENTITY_AND_LOCATOR]].
