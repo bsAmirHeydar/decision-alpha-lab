@@ -1,0 +1,43 @@
+{
+  "all_updates_accounted": true,
+  "clip_norm": 0.5,
+  "event_count": 4,
+  "events": [
+    {
+      "cell_id": "CELL-AMS-001",
+      "clip_norm": 0.5,
+      "clipped": false,
+      "raw_norm": 0.115758369028,
+      "round_id": "ROUND-001",
+      "update_digest": "8bb1ef754e6ef2199dbf26569736c5f6494fecbf89b469975c7e7e4f69fbc181"
+    },
+    {
+      "cell_id": "CELL-FRA-001",
+      "clip_norm": 0.5,
+      "clipped": false,
+      "raw_norm": 0.128062484749,
+      "round_id": "ROUND-001",
+      "update_digest": "663ed121175d006e7e4d80ada1654704802e7498e2fc7eb6134f2e2323f89c37"
+    },
+    {
+      "cell_id": "CELL-LON-001",
+      "clip_norm": 0.5,
+      "clipped": false,
+      "raw_norm": 0.115325625947,
+      "round_id": "ROUND-001",
+      "update_digest": "19cd6672f577313d86b1be119928736ada51dabbc83c79a444ba0d2803ea0046"
+    },
+    {
+      "cell_id": "CELL-ZRH-001",
+      "clip_norm": 0.5,
+      "clipped": true,
+      "raw_norm": 2.785677655437,
+      "round_id": "ROUND-001",
+      "update_digest": "659b96ff84fe5b9106aa3fe6d890ce8dfe1e1782a98c4420123de626cd32480b"
+    }
+  ],
+  "ledger_hash": "48f6dff2ee1632b9c55b505e1f7749554456e90378007a89ecdafbc8c99f178d",
+  "ledger_id": "v433_clipping_f38f810de6ede4323d170321",
+  "phase": "SAED_V4_33",
+  "research_only": true
+}

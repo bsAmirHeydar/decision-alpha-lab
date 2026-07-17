@@ -1,0 +1,46 @@
+{
+  "all_cells_attested": true,
+  "attestations": [
+    {
+      "attestation_id": "ATT-001",
+      "cell_id": "CELL-AMS-001",
+      "expires_time": "2026-12-31T23:59:59Z",
+      "human_approved": true,
+      "identity_fingerprint": "14fb5094bc50ecdd69e1a6c2d89da12734a5ac6eb1cd536e09e2c51dd41141b7",
+      "known_time": "2026-06-30T12:00:00Z",
+      "synthetic_fixture": true
+    },
+    {
+      "attestation_id": "ATT-002",
+      "cell_id": "CELL-FRA-001",
+      "expires_time": "2026-12-31T23:59:59Z",
+      "human_approved": true,
+      "identity_fingerprint": "b9f2b4283cd932e80f588a56df4af3b6a24eacf7f3fc0eb0517beb4add4cc536",
+      "known_time": "2026-06-30T12:00:00Z",
+      "synthetic_fixture": true
+    },
+    {
+      "attestation_id": "ATT-003",
+      "cell_id": "CELL-LON-001",
+      "expires_time": "2026-12-31T23:59:59Z",
+      "human_approved": true,
+      "identity_fingerprint": "1c36f767b8fa5f812ef6f0a84163b7a78e5ec92108b58379b0500ef91fab0039",
+      "known_time": "2026-06-30T12:00:00Z",
+      "synthetic_fixture": true
+    },
+    {
+      "attestation_id": "ATT-004",
+      "cell_id": "CELL-ZRH-001",
+      "expires_time": "2026-12-31T23:59:59Z",
+      "human_approved": true,
+      "identity_fingerprint": "d6df2cf813b8710cc2777ef7607f0a55dbdb6e755aa23b0a0215f899f8a501ed",
+      "known_time": "2026-06-30T12:00:00Z",
+      "synthetic_fixture": true
+    }
+  ],
+  "cryptographic_hardware_attestation": "not_claimed",
+  "ledger_hash": "b5f07140eb906f7db10ad1217bcc604023fe40f7d5b072628540c2789d636814",
+  "ledger_id": "v433_cell_attestations_04b881801280cecd14ad1fcc",
+  "phase": "SAED_V4_33",
+  "research_only": true
+}

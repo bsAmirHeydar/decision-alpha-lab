@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_count": {
+      "type": "integer"
+    },
+    "artifact_refs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact": {
+            "type": "string"
+          },
+          "content_hash": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "artifact",
+          "content_hash"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "bundle_hash": {
+      "type": "string"
+    },
+    "bundle_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "synthetic_fixture_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "artifact_count",
+    "artifact_refs",
+    "bundle_hash",
+    "bundle_id",
+    "phase",
+    "research_only",
+    "synthetic_fixture_only"
+  ],
+  "title": "GOLDEN_FEDERATED_EVIDENCE_BUNDLE",
+  "type": "object"
+}

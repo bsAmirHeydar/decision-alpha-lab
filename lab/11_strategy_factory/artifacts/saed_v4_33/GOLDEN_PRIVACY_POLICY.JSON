@@ -1,0 +1,14 @@
+{
+  "accountant": "basic_composition_reference",
+  "clip_norm": 0.5,
+  "delta": 1e-06,
+  "formal_privacy_guarantee_claimed": false,
+  "max_rounds": 4,
+  "mechanism": "clipping_plus_deterministic_noise_accounting_reference",
+  "per_round_epsilon": 0.5,
+  "policy_hash": "0efa165d7677ee44fbcb7f097a5139828ac2b2c84f9bfb5f0f181084ff694999",
+  "policy_id": "PRIV-REF-001",
+  "research_only": true,
+  "synthetic_noise_seed": 433,
+  "total_epsilon": 2.0
+}

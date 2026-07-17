@@ -1,0 +1,21 @@
+{
+  "aggregation_rule": "sample_weighted_clipped_mean_after_robust_screen",
+  "deterministic_reference": true,
+  "dropout_tolerance": 1,
+  "minimum_participants": 3,
+  "network_protocol": "not_claimed",
+  "participant_cell_ids": [
+    "CELL-AMS-001",
+    "CELL-FRA-001",
+    "CELL-LON-001",
+    "CELL-ZRH-001"
+  ],
+  "phase": "SAED_V4_33",
+  "plan_hash": "350741a148719dbf1d165fa4e8b8a9a859e62ca40586d85582d5cc32f01383c5",
+  "plan_id": "v433_aggregation_plan_4252e7518a08abeb03fdc610",
+  "privacy_mechanism": "clipping_plus_deterministic_noise_accounting_reference",
+  "real_secure_multiparty_computation": "not_claimed",
+  "research_only": true,
+  "round_id": "ROUND-001",
+  "study_id": "FCR-STUDY-001"
+}

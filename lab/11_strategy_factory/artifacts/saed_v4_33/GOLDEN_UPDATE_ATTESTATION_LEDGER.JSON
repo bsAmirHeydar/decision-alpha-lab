@@ -1,0 +1,58 @@
+{
+  "all_verified": true,
+  "events": [
+    {
+      "attestation": "deterministic_reference_attestation",
+      "cell_id": "CELL-AMS-001",
+      "commitment": "20429ada248d1f10a5aacb7b5a1c5c4a9d09a848a71b3cd56609ac0eec52d0e2",
+      "cryptographic_signature": "not_claimed",
+      "envelope_id": "ENV-CELL-AMS-001",
+      "event_hash": "9ff411aa6d8f077b4d2465239a1779beb982d8289ffdd2459bdf629de294459a",
+      "event_id": "v433_signature_event_99ecce710d2e0f3d2d9a6c88",
+      "ordinal": 0,
+      "previous_event_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "verified": true
+    },
+    {
+      "attestation": "deterministic_reference_attestation",
+      "cell_id": "CELL-FRA-001",
+      "commitment": "1fe4a7b257d4a7adf18f340475b567114082a97949a7597240ef227fd8f622f2",
+      "cryptographic_signature": "not_claimed",
+      "envelope_id": "ENV-CELL-FRA-001",
+      "event_hash": "ced43876727e37977c24efdf23f0df647bae6c7fec30cc68f378ce1c2d5c2051",
+      "event_id": "v433_signature_event_7a362a3a706ff4480d9711cb",
+      "ordinal": 1,
+      "previous_event_hash": "9ff411aa6d8f077b4d2465239a1779beb982d8289ffdd2459bdf629de294459a",
+      "verified": true
+    },
+    {
+      "attestation": "deterministic_reference_attestation",
+      "cell_id": "CELL-LON-001",
+      "commitment": "c754ddd1c7922c37b1a7244040121ccc9cbc31ae7ed7efbd219899022b3ab2a7",
+      "cryptographic_signature": "not_claimed",
+      "envelope_id": "ENV-CELL-LON-001",
+      "event_hash": "f45f8569f7340ff54c4d1327e6fb382d4e0ed25174b43f3d6110c788fd015005",
+      "event_id": "v433_signature_event_84918229b49076215ca9f3bb",
+      "ordinal": 2,
+      "previous_event_hash": "ced43876727e37977c24efdf23f0df647bae6c7fec30cc68f378ce1c2d5c2051",
+      "verified": true
+    },
+    {
+      "attestation": "deterministic_reference_attestation",
+      "cell_id": "CELL-ZRH-001",
+      "commitment": "59d12453cb7cba4f46fc5cde9fbb28aeff00919875cd00f9a45b9ce6d59131d8",
+      "cryptographic_signature": "not_claimed",
+      "envelope_id": "ENV-CELL-ZRH-001",
+      "event_hash": "d8d744171c48c9769edb1bcaf5c16355e7fc5a0c8449c9616d69e457019084b8",
+      "event_id": "v433_signature_event_400a50e21204ab7d19de9e73",
+      "ordinal": 3,
+      "previous_event_hash": "f45f8569f7340ff54c4d1327e6fb382d4e0ed25174b43f3d6110c788fd015005",
+      "verified": true
+    }
+  ],
+  "ledger_hash": "0ce9c140380395f407e6d2a2879bd3463ffdccf0e9e148587ade64c915f06ca1",
+  "ledger_id": "v433_signatures_9997ddfa665741cb6a234e05",
+  "phase": "SAED_V4_33",
+  "real_signature_verification": "not_claimed",
+  "research_only": true
+}

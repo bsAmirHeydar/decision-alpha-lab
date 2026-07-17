@@ -1,0 +1,85 @@
+{
+  "all_raw_data_local": true,
+  "phase": "SAED_V4_33",
+  "policies": [
+    {
+      "cell_id": "CELL-AMS-001",
+      "deletion_receipt_required": true,
+      "forbidden_exports": [
+        "credentials",
+        "hidden_evaluation_rows",
+        "raw_rows",
+        "row_level_labels"
+      ],
+      "permitted_exports": [
+        "aggregate_update",
+        "commitment",
+        "content_hash",
+        "privacy_receipt",
+        "schema_hash"
+      ],
+      "raw_data_must_remain_local": true,
+      "residency_zone": "eu-west-nl"
+    },
+    {
+      "cell_id": "CELL-FRA-001",
+      "deletion_receipt_required": true,
+      "forbidden_exports": [
+        "credentials",
+        "hidden_evaluation_rows",
+        "raw_rows",
+        "row_level_labels"
+      ],
+      "permitted_exports": [
+        "aggregate_update",
+        "commitment",
+        "content_hash",
+        "privacy_receipt",
+        "schema_hash"
+      ],
+      "raw_data_must_remain_local": true,
+      "residency_zone": "eu-central-de"
+    },
+    {
+      "cell_id": "CELL-LON-001",
+      "deletion_receipt_required": true,
+      "forbidden_exports": [
+        "credentials",
+        "hidden_evaluation_rows",
+        "raw_rows",
+        "row_level_labels"
+      ],
+      "permitted_exports": [
+        "aggregate_update",
+        "commitment",
+        "content_hash",
+        "privacy_receipt",
+        "schema_hash"
+      ],
+      "raw_data_must_remain_local": true,
+      "residency_zone": "uk-south"
+    },
+    {
+      "cell_id": "CELL-ZRH-001",
+      "deletion_receipt_required": true,
+      "forbidden_exports": [
+        "credentials",
+        "hidden_evaluation_rows",
+        "raw_rows",
+        "row_level_labels"
+      ],
+      "permitted_exports": [
+        "aggregate_update",
+        "commitment",
+        "content_hash",
+        "privacy_receipt",
+        "schema_hash"
+      ],
+      "raw_data_must_remain_local": true,
+      "residency_zone": "ch-central"
+    }
+  ],
+  "policy_hash": "cff37cd6eed4df16c84ea262f21f744a6878c8a1fd3789aac0112573d4cad875",
+  "policy_id": "v433_residency_ee226cab49826e07a31c1d6a",
+  "research_only": true
+}

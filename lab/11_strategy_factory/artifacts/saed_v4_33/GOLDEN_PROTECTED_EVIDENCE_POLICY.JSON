@@ -1,0 +1,26 @@
+{
+  "credential_distribution": false,
+  "default": "deny",
+  "hidden_evaluation_broadcast": false,
+  "human_exception_required": true,
+  "permitted_cross_cell_artifacts": [
+    "aggregate_update",
+    "commitment",
+    "content_hash",
+    "privacy_receipt",
+    "schema_hash",
+    "signed_handoff_reference"
+  ],
+  "phase": "SAED_V4_33",
+  "policy_hash": "e075e9285b70a88f11b9e147c041d8ec68fdc79d338156fb741c2730e013a630",
+  "policy_id": "v433_protected_policy_e1672c9647fd7dcf74dc9590",
+  "protected_classes": [
+    "local_dataset",
+    "local_update",
+    "identity_material",
+    "credentials",
+    "hidden_evaluation"
+  ],
+  "raw_data_broadcast": false,
+  "research_only": true
+}

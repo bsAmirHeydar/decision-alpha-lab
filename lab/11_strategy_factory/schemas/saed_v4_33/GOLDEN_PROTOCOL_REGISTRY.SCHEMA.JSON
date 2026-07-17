@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "closed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "protocols": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "allowed_message_types": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "deterministic_reference": {
+            "type": "boolean"
+          },
+          "network_transport_claimed": {
+            "type": "boolean"
+          },
+          "protocol_id": {
+            "type": "string"
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "real_cryptography_claimed": {
+            "type": "boolean"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "allowed_message_types",
+          "deterministic_reference",
+          "network_transport_claimed",
+          "protocol_id",
+          "purpose",
+          "real_cryptography_claimed",
+          "version"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "closed",
+    "phase",
+    "protocols",
+    "registry_hash",
+    "registry_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_PROTOCOL_REGISTRY",
+  "type": "object"
+}

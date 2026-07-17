@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accepted_cell_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "quarantined_cell_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "real_byzantine_resistance": {
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "cell_id": {
+            "type": "string"
+          },
+          "mad": {
+            "type": "number"
+          },
+          "median_norm": {
+            "type": "number"
+          },
+          "quarantined": {
+            "type": "boolean"
+          },
+          "raw_norm": {
+            "type": "number"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "robust_z": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "cell_id",
+          "mad",
+          "median_norm",
+          "quarantined",
+          "raw_norm",
+          "reason",
+          "robust_z"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "accepted_cell_ids",
+    "phase",
+    "quarantined_cell_ids",
+    "real_byzantine_resistance",
+    "records",
+    "report_hash",
+    "report_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_BYZANTINE_SCREENING_REPORT",
+  "type": "object"
+}

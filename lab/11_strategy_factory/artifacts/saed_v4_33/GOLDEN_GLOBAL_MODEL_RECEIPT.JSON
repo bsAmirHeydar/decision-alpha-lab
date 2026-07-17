@@ -1,0 +1,22 @@
+{
+  "accepted_cell_count": 3,
+  "aggregate_update_hash": "11bd73e86a0fc37815c7fcb537b2245fee95eacbca8c9c8d095642d708e29db7",
+  "baseline_id": "V4-32-REFERENCE-BASELINE",
+  "global_model": [
+    0.35303030303,
+    -0.130303030303,
+    0.100303030303
+  ],
+  "global_model_hash": "a9d7db080d9373f1cb32c10d270737f5ff1df4250adaabdcb5d5ad3dfdc6fe61",
+  "initial_model_hash": "f187197029d96a0af600110570ac8511a5b116ccafc4fb327048b248cb0d3fc7",
+  "phase": "SAED_V4_33",
+  "promotion_eligible": false,
+  "receipt_hash": "2492da00b338d8bcc17d7c9690a83a5e0a0d6413e2f641d5d6b95af8739e7bbc",
+  "receipt_id": "v433_global_model_0cec0966ccc6b4e76c3d0210",
+  "research_only": true,
+  "round_id": "ROUND-001",
+  "runtime_executable": false,
+  "sample_count": 3300,
+  "study_id": "FCR-STUDY-001",
+  "synthetic_fixture": true
+}

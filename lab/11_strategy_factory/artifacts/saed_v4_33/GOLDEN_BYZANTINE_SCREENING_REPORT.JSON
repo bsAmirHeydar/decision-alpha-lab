@@ -1,0 +1,53 @@
+{
+  "accepted_cell_ids": [
+    "CELL-AMS-001",
+    "CELL-FRA-001",
+    "CELL-LON-001"
+  ],
+  "phase": "SAED_V4_33",
+  "quarantined_cell_ids": [
+    "CELL-ZRH-001"
+  ],
+  "real_byzantine_resistance": "not_claimed",
+  "records": [
+    {
+      "cell_id": "CELL-AMS-001",
+      "mad": 0.006368429401,
+      "median_norm": 0.121910426889,
+      "quarantined": false,
+      "raw_norm": 0.115758369028,
+      "reason": "accepted",
+      "robust_z": 0.651574496221
+    },
+    {
+      "cell_id": "CELL-FRA-001",
+      "mad": 0.006368429401,
+      "median_norm": 0.121910426889,
+      "quarantined": false,
+      "raw_norm": 0.128062484749,
+      "reason": "accepted",
+      "robust_z": 0.651574496221
+    },
+    {
+      "cell_id": "CELL-LON-001",
+      "mad": 0.006368429401,
+      "median_norm": 0.121910426889,
+      "quarantined": false,
+      "raw_norm": 0.115325625947,
+      "reason": "accepted",
+      "robust_z": 0.697407022733
+    },
+    {
+      "cell_id": "CELL-ZRH-001",
+      "mad": 0.006368429401,
+      "median_norm": 0.121910426889,
+      "quarantined": true,
+      "raw_norm": 2.785677655437,
+      "reason": "norm_outlier",
+      "robust_z": 282.123937932077
+    }
+  ],
+  "report_hash": "f49b2a9d9c933e45531be60ec3cea3e1a5fc90cd8e3f8dc56fdf87597ae24fc4",
+  "report_id": "v433_byzantine_screen_49c19a2c340b942210715d1e",
+  "research_only": true
+}

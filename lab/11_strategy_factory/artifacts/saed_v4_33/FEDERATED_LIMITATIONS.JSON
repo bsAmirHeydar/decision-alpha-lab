@@ -1,0 +1,20 @@
+{
+  "claim_ceiling": "closed deterministic federated confidential research reference only",
+  "document_hash": "40aac2578fd5639a481614a0902653c3b1aa0db99fb17f46c597732a6261d64f",
+  "document_id": "v433_limitations_0ba3f0bb93ca9a2477eaa656",
+  "limitations": [
+    "synthetic fixture only",
+    "deterministic single-process simulation",
+    "no real cryptography",
+    "no external network transport",
+    "no formal differential privacy guarantee",
+    "no hardware attestation",
+    "no real byzantine-fault tolerance",
+    "no prospective validation",
+    "no runtime parity",
+    "no broker qualification",
+    "no production authorization"
+  ],
+  "phase": "SAED_V4_33",
+  "research_only": true
+}

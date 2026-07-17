@@ -1,0 +1,33 @@
+{
+  "classifications": [
+    {
+      "aggregate_export_allowed": true,
+      "class_id": "aggregate_release",
+      "description": "threshold aggregate artifact",
+      "export_policy": "allow_after_review",
+      "retention_class": "research_evidence",
+      "row_level_export_allowed": false
+    },
+    {
+      "aggregate_export_allowed": true,
+      "class_id": "derived_commitment",
+      "description": "hash commitment over clipped update",
+      "export_policy": "allow_by_protocol",
+      "retention_class": "research_evidence",
+      "row_level_export_allowed": false
+    },
+    {
+      "aggregate_export_allowed": false,
+      "class_id": "protected_local",
+      "description": "row-level local research data",
+      "export_policy": "deny",
+      "retention_class": "local_controlled",
+      "row_level_export_allowed": false
+    }
+  ],
+  "default_class": "protected_local",
+  "phase": "SAED_V4_33",
+  "registry_hash": "bf773912fdc4e2e4c7f2b98116e9719b3956363bd72cf30c1ff44584355cc6ee",
+  "registry_id": "v433_classification_e0deeabb9e0adacd7436d0a8",
+  "research_only": true
+}

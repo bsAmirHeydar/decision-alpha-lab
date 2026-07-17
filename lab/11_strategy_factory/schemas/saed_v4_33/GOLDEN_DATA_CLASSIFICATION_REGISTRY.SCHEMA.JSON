@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "classifications": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "aggregate_export_allowed": {
+            "type": "boolean"
+          },
+          "class_id": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "export_policy": {
+            "type": "string"
+          },
+          "retention_class": {
+            "type": "string"
+          },
+          "row_level_export_allowed": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "aggregate_export_allowed",
+          "class_id",
+          "description",
+          "export_policy",
+          "retention_class",
+          "row_level_export_allowed"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "default_class": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "classifications",
+    "default_class",
+    "phase",
+    "registry_hash",
+    "registry_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_DATA_CLASSIFICATION_REGISTRY",
+  "type": "object"
+}

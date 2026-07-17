@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cell_count": {
+      "type": "integer"
+    },
+    "cells": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "allowed_protocols": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "cell_id": {
+            "type": "string"
+          },
+          "identity_fingerprint": {
+            "type": "string"
+          },
+          "independence_group": {
+            "type": "string"
+          },
+          "jurisdiction": {
+            "type": "string"
+          },
+          "operator_id": {
+            "type": "string"
+          },
+          "residency_zone": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "allowed_protocols",
+          "cell_id",
+          "identity_fingerprint",
+          "independence_group",
+          "jurisdiction",
+          "operator_id",
+          "residency_zone",
+          "status"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "cross_cell_raw_data_access": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "cell_count",
+    "cells",
+    "cross_cell_raw_data_access",
+    "phase",
+    "registry_hash",
+    "registry_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_CELL_REGISTRY",
+  "type": "object"
+}

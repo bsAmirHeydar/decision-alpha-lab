@@ -1,0 +1,31 @@
+{
+  "eligible_count": 4,
+  "ledger_hash": "7b21463aa3ad4fa6c542ddaac13e906c7cd9bc3a411b805e2ea6e69ed4fc6528",
+  "ledger_id": "v433_eligibility_c86c580f73d090a9da2170be",
+  "phase": "SAED_V4_33",
+  "records": [
+    {
+      "cell_id": "CELL-AMS-001",
+      "eligible": true,
+      "reasons": []
+    },
+    {
+      "cell_id": "CELL-FRA-001",
+      "eligible": true,
+      "reasons": []
+    },
+    {
+      "cell_id": "CELL-LON-001",
+      "eligible": true,
+      "reasons": []
+    },
+    {
+      "cell_id": "CELL-ZRH-001",
+      "eligible": true,
+      "reasons": []
+    }
+  ],
+  "research_only": true,
+  "study_id": "FCR-STUDY-001",
+  "threshold_met": true
+}

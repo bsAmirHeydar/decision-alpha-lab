@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "budget_respected": {
+      "type": "boolean"
+    },
+    "events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "cumulative_epsilon": {
+            "type": "number"
+          },
+          "delta": {
+            "type": "number"
+          },
+          "epsilon_spent": {
+            "type": "number"
+          },
+          "event_hash": {
+            "type": "string"
+          },
+          "event_id": {
+            "type": "string"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "previous_event_hash": {
+            "type": "string"
+          },
+          "released": {
+            "type": "boolean"
+          },
+          "round_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "cumulative_epsilon",
+          "delta",
+          "epsilon_spent",
+          "event_hash",
+          "event_id",
+          "ordinal",
+          "previous_event_hash",
+          "released",
+          "round_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "formal_dp_guarantee": {
+      "type": "string"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "remaining_epsilon": {
+      "type": "number"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "spent_epsilon": {
+      "type": "number"
+    },
+    "total_epsilon": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "budget_respected",
+    "events",
+    "formal_dp_guarantee",
+    "ledger_hash",
+    "ledger_id",
+    "phase",
+    "policy_id",
+    "remaining_epsilon",
+    "research_only",
+    "spent_epsilon",
+    "total_epsilon"
+  ],
+  "title": "GOLDEN_PRIVACY_BUDGET_LEDGER",
+  "type": "object"
+}

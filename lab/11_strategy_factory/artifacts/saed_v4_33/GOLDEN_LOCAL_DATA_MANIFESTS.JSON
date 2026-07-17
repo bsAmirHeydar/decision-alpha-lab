@@ -1,0 +1,54 @@
+{
+  "all_known_by_cutoff": true,
+  "manifests": [
+    {
+      "cell_id": "CELL-AMS-001",
+      "contains_raw_rows": false,
+      "dataset_hash": "d2cfdf60bb53dc1bddec5ac4b85101d48c45304d7030a37c4b5cdd802afadad8",
+      "known_time": "2026-06-30T12:00:00Z",
+      "latest_event_time": "2026-06-30T11:59:00Z",
+      "manifest_id": "MAN-001",
+      "record_count": 1000,
+      "schema_hash": "9d23eef31e41839481bb8adc10baf0dc81306a8ab3f3bd6b361d5be7f94c9bdc",
+      "synthetic_fixture": true
+    },
+    {
+      "cell_id": "CELL-FRA-001",
+      "contains_raw_rows": false,
+      "dataset_hash": "3c7718742d5724ab7e743f9134ef4cb4c24317cb285b9f360428b1b453c2f891",
+      "known_time": "2026-06-30T12:00:00Z",
+      "latest_event_time": "2026-06-30T11:59:00Z",
+      "manifest_id": "MAN-002",
+      "record_count": 1100,
+      "schema_hash": "9d23eef31e41839481bb8adc10baf0dc81306a8ab3f3bd6b361d5be7f94c9bdc",
+      "synthetic_fixture": true
+    },
+    {
+      "cell_id": "CELL-LON-001",
+      "contains_raw_rows": false,
+      "dataset_hash": "4490b6d5fc6cb75cea90df427f6515e1ed3bc826879d14b97b9e99969d150bb5",
+      "known_time": "2026-06-30T12:00:00Z",
+      "latest_event_time": "2026-06-30T11:59:00Z",
+      "manifest_id": "MAN-003",
+      "record_count": 1200,
+      "schema_hash": "9d23eef31e41839481bb8adc10baf0dc81306a8ab3f3bd6b361d5be7f94c9bdc",
+      "synthetic_fixture": true
+    },
+    {
+      "cell_id": "CELL-ZRH-001",
+      "contains_raw_rows": false,
+      "dataset_hash": "83bc459320f7da6389d3f4d2e2a9492d580e3998c4e6ead4174cdbbf66654677",
+      "known_time": "2026-06-30T12:00:00Z",
+      "latest_event_time": "2026-06-30T11:59:00Z",
+      "manifest_id": "MAN-004",
+      "record_count": 1300,
+      "schema_hash": "9d23eef31e41839481bb8adc10baf0dc81306a8ab3f3bd6b361d5be7f94c9bdc",
+      "synthetic_fixture": true
+    }
+  ],
+  "phase": "SAED_V4_33",
+  "raw_rows_exported": false,
+  "registry_hash": "4ccd13a834dbebc2d4529e55aea67e5b686e37f977203bc6e26cc5b39f68054f",
+  "registry_id": "v433_local_manifests_dadc9e7b2867fbd94e5ef43f",
+  "research_only": true
+}

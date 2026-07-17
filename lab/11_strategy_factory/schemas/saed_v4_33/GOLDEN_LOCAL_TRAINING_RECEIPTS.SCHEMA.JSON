@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "phase": {
+      "type": "string"
+    },
+    "raw_vectors_exported": {
+      "type": "boolean"
+    },
+    "receipt_count": {
+      "type": "integer"
+    },
+    "receipts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "cell_id": {
+            "type": "string"
+          },
+          "clipped": {
+            "type": "boolean"
+          },
+          "dimension": {
+            "type": "integer"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "local_loss_after": {
+            "type": "number"
+          },
+          "local_loss_before": {
+            "type": "number"
+          },
+          "raw_norm": {
+            "type": "number"
+          },
+          "raw_vector_exported": {
+            "type": "boolean"
+          },
+          "round_id": {
+            "type": "string"
+          },
+          "sample_count": {
+            "type": "integer"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          },
+          "update_digest": {
+            "type": "string"
+          },
+          "update_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "cell_id",
+          "clipped",
+          "dimension",
+          "known_time",
+          "local_loss_after",
+          "local_loss_before",
+          "raw_norm",
+          "raw_vector_exported",
+          "round_id",
+          "sample_count",
+          "synthetic_fixture",
+          "update_digest",
+          "update_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "study_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "raw_vectors_exported",
+    "receipt_count",
+    "receipts",
+    "registry_hash",
+    "registry_id",
+    "research_only",
+    "study_id"
+  ],
+  "title": "GOLDEN_LOCAL_TRAINING_RECEIPTS",
+  "type": "object"
+}

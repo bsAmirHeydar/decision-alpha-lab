@@ -1,0 +1,26 @@
+{
+  "documents": [
+    {
+      "document_hash": "e9f79a095f417e3619e17995d4a8ba9c8d4fc4406cbf24670457f578fd27e037",
+      "document_id": "v432_multi_agent_constitution_certificate_a624ae50b4d8476908e0bd33",
+      "kind": "v4_32_certificate",
+      "next_phase": "SAED_V4_33",
+      "phase": "SAED_V4_32",
+      "research_only": true
+    },
+    {
+      "document_hash": "03522282bfc62e55535f3089c6ce1a99b46458b04156c8ad52d3693ba37cf3c3",
+      "document_id": "v4_32_to_v4_33_21cc53bff14b54b65ee975d5",
+      "kind": "v4_32_handoff",
+      "next_phase": "SAED_V4_33",
+      "phase": "SAED_V4_32",
+      "research_only": true
+    }
+  ],
+  "phase": "SAED_V4_33",
+  "receipt_hash": "a25e78ff8929438b8d5347603947087604630ea75586b41eb78fbbb241f1328a",
+  "receipt_id": "v433_upstream_b2daee2ad9310955d6663fc8",
+  "research_only": true,
+  "upstream_phase": "SAED_V4_32",
+  "verified": true
+}

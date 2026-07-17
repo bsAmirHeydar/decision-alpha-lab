@@ -1,0 +1,71 @@
+{
+  "phase": "SAED_V4_33",
+  "raw_vectors_exported": false,
+  "receipt_count": 4,
+  "receipts": [
+    {
+      "cell_id": "CELL-AMS-001",
+      "clipped": false,
+      "dimension": 3,
+      "known_time": "2026-06-30T12:30:00Z",
+      "local_loss_after": 0.45999999999999996,
+      "local_loss_before": 0.51,
+      "raw_norm": 0.115758369028,
+      "raw_vector_exported": false,
+      "round_id": "ROUND-001",
+      "sample_count": 1000,
+      "synthetic_fixture": true,
+      "update_digest": "8bb1ef754e6ef2199dbf26569736c5f6494fecbf89b469975c7e7e4f69fbc181",
+      "update_id": "UPD-001"
+    },
+    {
+      "cell_id": "CELL-FRA-001",
+      "clipped": false,
+      "dimension": 3,
+      "known_time": "2026-06-30T12:30:00Z",
+      "local_loss_after": 0.44999999999999996,
+      "local_loss_before": 0.5,
+      "raw_norm": 0.128062484749,
+      "raw_vector_exported": false,
+      "round_id": "ROUND-001",
+      "sample_count": 1100,
+      "synthetic_fixture": true,
+      "update_digest": "663ed121175d006e7e4d80ada1654704802e7498e2fc7eb6134f2e2323f89c37",
+      "update_id": "UPD-002"
+    },
+    {
+      "cell_id": "CELL-LON-001",
+      "clipped": false,
+      "dimension": 3,
+      "known_time": "2026-06-30T12:30:00Z",
+      "local_loss_after": 0.43999999999999995,
+      "local_loss_before": 0.49,
+      "raw_norm": 0.115325625947,
+      "raw_vector_exported": false,
+      "round_id": "ROUND-001",
+      "sample_count": 1200,
+      "synthetic_fixture": true,
+      "update_digest": "19cd6672f577313d86b1be119928736ada51dabbc83c79a444ba0d2803ea0046",
+      "update_id": "UPD-003"
+    },
+    {
+      "cell_id": "CELL-ZRH-001",
+      "clipped": true,
+      "dimension": 3,
+      "known_time": "2026-06-30T12:30:00Z",
+      "local_loss_after": 0.43,
+      "local_loss_before": 0.48000000000000004,
+      "raw_norm": 2.785677655437,
+      "raw_vector_exported": false,
+      "round_id": "ROUND-001",
+      "sample_count": 1300,
+      "synthetic_fixture": true,
+      "update_digest": "659b96ff84fe5b9106aa3fe6d890ce8dfe1e1782a98c4420123de626cd32480b",
+      "update_id": "UPD-004"
+    }
+  ],
+  "registry_hash": "f3f8bd7449941e84448609e904567edbb3bc10389cc5d37dbfd90965cbab4d3e",
+  "registry_id": "v433_local_receipts_4b1d93d96edd05d2b9f7d506",
+  "research_only": true,
+  "study_id": "FCR-STUDY-001"
+}

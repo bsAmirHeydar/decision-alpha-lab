@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_known_by_cutoff": {
+      "type": "boolean"
+    },
+    "manifests": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "cell_id": {
+            "type": "string"
+          },
+          "contains_raw_rows": {
+            "type": "boolean"
+          },
+          "dataset_hash": {
+            "type": "string"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "latest_event_time": {
+            "type": "string"
+          },
+          "manifest_id": {
+            "type": "string"
+          },
+          "record_count": {
+            "type": "integer"
+          },
+          "schema_hash": {
+            "type": "string"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "cell_id",
+          "contains_raw_rows",
+          "dataset_hash",
+          "known_time",
+          "latest_event_time",
+          "manifest_id",
+          "record_count",
+          "schema_hash",
+          "synthetic_fixture"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "raw_rows_exported": {
+      "type": "boolean"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "all_known_by_cutoff",
+    "manifests",
+    "phase",
+    "raw_rows_exported",
+    "registry_hash",
+    "registry_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_LOCAL_DATA_MANIFESTS",
+  "type": "object"
+}

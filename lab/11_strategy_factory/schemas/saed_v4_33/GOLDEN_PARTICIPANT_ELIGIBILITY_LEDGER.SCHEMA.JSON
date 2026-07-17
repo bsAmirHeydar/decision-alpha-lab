@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "eligible_count": {
+      "type": "integer"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "cell_id": {
+            "type": "string"
+          },
+          "eligible": {
+            "type": "boolean"
+          },
+          "reasons": {
+            "items": {},
+            "type": "array"
+          }
+        },
+        "required": [
+          "cell_id",
+          "eligible",
+          "reasons"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "study_id": {
+      "type": "string"
+    },
+    "threshold_met": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "eligible_count",
+    "ledger_hash",
+    "ledger_id",
+    "phase",
+    "records",
+    "research_only",
+    "study_id",
+    "threshold_met"
+  ],
+  "title": "GOLDEN_PARTICIPANT_ELIGIBILITY_LEDGER",
+  "type": "object"
+}

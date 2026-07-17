@@ -1,0 +1,18 @@
+{
+  "all_zero": true,
+  "authority": {
+    "credential_distribution": false,
+    "execution": false,
+    "live_trading": false,
+    "online_learning": false,
+    "production": false,
+    "promotion": false,
+    "raw_data_export": false,
+    "risk_allocation": false,
+    "runtime": false
+  },
+  "boundary_hash": "b411bc8f66a77c16c606e84e4d722ba4a440f650e1f074aa625dcb1999e6a09a",
+  "boundary_id": "v433_authority_0bea4a0b9439678468cf3ce4",
+  "phase": "SAED_V4_33",
+  "research_only": true
+}

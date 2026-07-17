@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accepted_cell_count": {
+      "type": "integer"
+    },
+    "aggregate_update_hash": {
+      "type": "string"
+    },
+    "baseline_id": {
+      "type": "string"
+    },
+    "global_model": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "global_model_hash": {
+      "type": "string"
+    },
+    "initial_model_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "promotion_eligible": {
+      "type": "boolean"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "round_id": {
+      "type": "string"
+    },
+    "runtime_executable": {
+      "type": "boolean"
+    },
+    "sample_count": {
+      "type": "integer"
+    },
+    "study_id": {
+      "type": "string"
+    },
+    "synthetic_fixture": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "accepted_cell_count",
+    "aggregate_update_hash",
+    "baseline_id",
+    "global_model",
+    "global_model_hash",
+    "initial_model_hash",
+    "phase",
+    "promotion_eligible",
+    "receipt_hash",
+    "receipt_id",
+    "research_only",
+    "round_id",
+    "runtime_executable",
+    "sample_count",
+    "study_id",
+    "synthetic_fixture"
+  ],
+  "title": "GOLDEN_GLOBAL_MODEL_RECEIPT",
+  "type": "object"
+}

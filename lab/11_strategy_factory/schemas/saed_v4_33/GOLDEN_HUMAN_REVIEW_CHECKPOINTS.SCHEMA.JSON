@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_approved": {
+      "type": "boolean"
+    },
+    "checkpoints": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "approved": {
+            "type": "boolean"
+          },
+          "checkpoint_id": {
+            "type": "string"
+          },
+          "checkpoint_type": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "reviewer_role": {
+            "type": "string"
+          },
+          "subject_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "approved",
+          "checkpoint_id",
+          "checkpoint_type",
+          "notes",
+          "reviewer_role",
+          "subject_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "self_approval_denied": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "all_approved",
+    "checkpoints",
+    "phase",
+    "registry_hash",
+    "registry_id",
+    "research_only",
+    "self_approval_denied"
+  ],
+  "title": "GOLDEN_HUMAN_REVIEW_CHECKPOINTS",
+  "type": "object"
+}

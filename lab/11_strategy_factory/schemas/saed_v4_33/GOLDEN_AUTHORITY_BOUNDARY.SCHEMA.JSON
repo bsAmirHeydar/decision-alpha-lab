@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_zero": {
+      "type": "boolean"
+    },
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "credential_distribution": {
+          "type": "boolean"
+        },
+        "execution": {
+          "type": "boolean"
+        },
+        "live_trading": {
+          "type": "boolean"
+        },
+        "online_learning": {
+          "type": "boolean"
+        },
+        "production": {
+          "type": "boolean"
+        },
+        "promotion": {
+          "type": "boolean"
+        },
+        "raw_data_export": {
+          "type": "boolean"
+        },
+        "risk_allocation": {
+          "type": "boolean"
+        },
+        "runtime": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "credential_distribution",
+        "execution",
+        "live_trading",
+        "online_learning",
+        "production",
+        "promotion",
+        "raw_data_export",
+        "risk_allocation",
+        "runtime"
+      ],
+      "type": "object"
+    },
+    "boundary_hash": {
+      "type": "string"
+    },
+    "boundary_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "all_zero",
+    "authority",
+    "boundary_hash",
+    "boundary_id",
+    "phase",
+    "research_only"
+  ],
+  "title": "GOLDEN_AUTHORITY_BOUNDARY",
+  "type": "object"
+}

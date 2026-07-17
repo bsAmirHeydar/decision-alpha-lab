@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "document_hash": {
+      "type": "string"
+    },
+    "document_id": {
+      "type": "string"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "claim_ceiling",
+    "document_hash",
+    "document_id",
+    "limitations",
+    "phase",
+    "research_only"
+  ],
+  "title": "FEDERATED_LIMITATIONS",
+  "type": "object"
+}

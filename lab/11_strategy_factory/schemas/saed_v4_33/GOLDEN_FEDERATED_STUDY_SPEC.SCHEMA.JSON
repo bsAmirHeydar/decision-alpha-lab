@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "aggregation_protocol_id": {
+      "type": "string"
+    },
+    "baseline_id": {
+      "type": "string"
+    },
+    "cutoff_time": {
+      "type": "string"
+    },
+    "feature_schema_hash": {
+      "type": "string"
+    },
+    "initial_model": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "minimum_participants": {
+      "type": "integer"
+    },
+    "model_family": {
+      "type": "string"
+    },
+    "objective": {
+      "type": "string"
+    },
+    "participant_cell_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "privacy_protocol_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "round_count": {
+      "type": "integer"
+    },
+    "study_id": {
+      "type": "string"
+    },
+    "study_spec_hash": {
+      "type": "string"
+    },
+    "study_spec_id": {
+      "type": "string"
+    },
+    "synthetic_fixture": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "aggregation_protocol_id",
+    "baseline_id",
+    "cutoff_time",
+    "feature_schema_hash",
+    "initial_model",
+    "minimum_participants",
+    "model_family",
+    "objective",
+    "participant_cell_ids",
+    "privacy_protocol_id",
+    "research_only",
+    "round_count",
+    "study_id",
+    "study_spec_hash",
+    "study_spec_id",
+    "synthetic_fixture"
+  ],
+  "title": "GOLDEN_FEDERATED_STUDY_SPEC",
+  "type": "object"
+}

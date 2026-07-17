@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "credential_distribution": {
+      "type": "boolean"
+    },
+    "default": {
+      "type": "string"
+    },
+    "hidden_evaluation_broadcast": {
+      "type": "boolean"
+    },
+    "human_exception_required": {
+      "type": "boolean"
+    },
+    "permitted_cross_cell_artifacts": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "policy_hash": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "protected_classes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "raw_data_broadcast": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "credential_distribution",
+    "default",
+    "hidden_evaluation_broadcast",
+    "human_exception_required",
+    "permitted_cross_cell_artifacts",
+    "phase",
+    "policy_hash",
+    "policy_id",
+    "protected_classes",
+    "raw_data_broadcast",
+    "research_only"
+  ],
+  "title": "GOLDEN_PROTECTED_EVIDENCE_POLICY",
+  "type": "object"
+}

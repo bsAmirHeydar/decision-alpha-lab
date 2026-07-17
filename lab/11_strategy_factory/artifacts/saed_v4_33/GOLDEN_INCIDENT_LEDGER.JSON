@@ -1,0 +1,21 @@
+{
+  "all_contained": true,
+  "events": [
+    {
+      "action": "exclude_from_reference_aggregate",
+      "cell_id": "CELL-ZRH-001",
+      "contained": true,
+      "event_hash": "bdf8d25ab1d6fbdc789feaf5e03f948095a1e501a432ee833756d6bdcafffb76",
+      "event_id": "v433_incident_event_d276382deaf307eee84db8ca",
+      "incident_type": "update_outlier_quarantine",
+      "ordinal": 0,
+      "previous_event_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "severity": "research_warning"
+    }
+  ],
+  "incident_count": 1,
+  "ledger_hash": "9fd212fddab952fb8d914a599b7a44958f805f3f89365d215beb8e493de9f0c8",
+  "ledger_id": "v433_incidents_dc8c37ae7ff1ac085a085e77",
+  "phase": "SAED_V4_33",
+  "research_only": true
+}

@@ -1,0 +1,440 @@
+{
+  "attestations": [
+    {
+      "attestation_id": "ATT-001",
+      "cell_id": "CELL-AMS-001",
+      "expires_time": "2026-12-31T23:59:59Z",
+      "human_approved": true,
+      "identity_fingerprint": "14fb5094bc50ecdd69e1a6c2d89da12734a5ac6eb1cd536e09e2c51dd41141b7",
+      "known_time": "2026-06-30T12:00:00Z",
+      "synthetic_fixture": true
+    },
+    {
+      "attestation_id": "ATT-002",
+      "cell_id": "CELL-FRA-001",
+      "expires_time": "2026-12-31T23:59:59Z",
+      "human_approved": true,
+      "identity_fingerprint": "b9f2b4283cd932e80f588a56df4af3b6a24eacf7f3fc0eb0517beb4add4cc536",
+      "known_time": "2026-06-30T12:00:00Z",
+      "synthetic_fixture": true
+    },
+    {
+      "attestation_id": "ATT-003",
+      "cell_id": "CELL-LON-001",
+      "expires_time": "2026-12-31T23:59:59Z",
+      "human_approved": true,
+      "identity_fingerprint": "1c36f767b8fa5f812ef6f0a84163b7a78e5ec92108b58379b0500ef91fab0039",
+      "known_time": "2026-06-30T12:00:00Z",
+      "synthetic_fixture": true
+    },
+    {
+      "attestation_id": "ATT-004",
+      "cell_id": "CELL-ZRH-001",
+      "expires_time": "2026-12-31T23:59:59Z",
+      "human_approved": true,
+      "identity_fingerprint": "d6df2cf813b8710cc2777ef7607f0a55dbdb6e755aa23b0a0215f899f8a501ed",
+      "known_time": "2026-06-30T12:00:00Z",
+      "synthetic_fixture": true
+    }
+  ],
+  "cells": [
+    {
+      "allowed_protocols": [
+        "PROTO-AGG-REF-001",
+        "PROTO-PRIV-REF-001"
+      ],
+      "cell_id": "CELL-AMS-001",
+      "identity_fingerprint": "14fb5094bc50ecdd69e1a6c2d89da12734a5ac6eb1cd536e09e2c51dd41141b7",
+      "independence_group": "IG-001",
+      "jurisdiction": "NL",
+      "operator_id": "OP-001",
+      "residency_zone": "eu-west-nl",
+      "status": "active"
+    },
+    {
+      "allowed_protocols": [
+        "PROTO-AGG-REF-001",
+        "PROTO-PRIV-REF-001"
+      ],
+      "cell_id": "CELL-FRA-001",
+      "identity_fingerprint": "b9f2b4283cd932e80f588a56df4af3b6a24eacf7f3fc0eb0517beb4add4cc536",
+      "independence_group": "IG-002",
+      "jurisdiction": "DE",
+      "operator_id": "OP-002",
+      "residency_zone": "eu-central-de",
+      "status": "active"
+    },
+    {
+      "allowed_protocols": [
+        "PROTO-AGG-REF-001",
+        "PROTO-PRIV-REF-001"
+      ],
+      "cell_id": "CELL-LON-001",
+      "identity_fingerprint": "1c36f767b8fa5f812ef6f0a84163b7a78e5ec92108b58379b0500ef91fab0039",
+      "independence_group": "IG-003",
+      "jurisdiction": "UK",
+      "operator_id": "OP-003",
+      "residency_zone": "uk-south",
+      "status": "active"
+    },
+    {
+      "allowed_protocols": [
+        "PROTO-AGG-REF-001",
+        "PROTO-PRIV-REF-001"
+      ],
+      "cell_id": "CELL-ZRH-001",
+      "identity_fingerprint": "d6df2cf813b8710cc2777ef7607f0a55dbdb6e755aa23b0a0215f899f8a501ed",
+      "independence_group": "IG-004",
+      "jurisdiction": "CH",
+      "operator_id": "OP-004",
+      "residency_zone": "ch-central",
+      "status": "active"
+    }
+  ],
+  "constitution": {
+    "central_raw_data_access_allowed": false,
+    "clauses": [
+      {
+        "clause_id": "FCR-C01",
+        "failure_action": "quarantine",
+        "priority": 1,
+        "requirement": "raw data remains in origin cell"
+      },
+      {
+        "clause_id": "FCR-C02",
+        "failure_action": "deny",
+        "priority": 2,
+        "requirement": "deny by default export"
+      },
+      {
+        "clause_id": "FCR-C03",
+        "failure_action": "exclude",
+        "priority": 3,
+        "requirement": "cell identity attested"
+      },
+      {
+        "clause_id": "FCR-C04",
+        "failure_action": "stop",
+        "priority": 4,
+        "requirement": "privacy budget bounded"
+      },
+      {
+        "clause_id": "FCR-C05",
+        "failure_action": "abort",
+        "priority": 5,
+        "requirement": "participant threshold preserved"
+      },
+      {
+        "clause_id": "FCR-C06",
+        "failure_action": "reject",
+        "priority": 6,
+        "requirement": "complete provenance"
+      },
+      {
+        "clause_id": "FCR-C07",
+        "failure_action": "hold",
+        "priority": 7,
+        "requirement": "human release review"
+      },
+      {
+        "clause_id": "FCR-C08",
+        "failure_action": "revoke",
+        "priority": 8,
+        "requirement": "zero operational authority"
+      }
+    ],
+    "constitution_id": "FCR-CONSTITUTION-001",
+    "raw_data_export_allowed": false,
+    "research_only": true,
+    "version": "1.0.0"
+  },
+  "data_classifications": [
+    {
+      "aggregate_export_allowed": false,
+      "class_id": "protected_local",
+      "description": "row-level local research data",
+      "export_policy": "deny",
+      "retention_class": "local_controlled",
+      "row_level_export_allowed": false
+    },
+    {
+      "aggregate_export_allowed": true,
+      "class_id": "derived_commitment",
+      "description": "hash commitment over clipped update",
+      "export_policy": "allow_by_protocol",
+      "retention_class": "research_evidence",
+      "row_level_export_allowed": false
+    },
+    {
+      "aggregate_export_allowed": true,
+      "class_id": "aggregate_release",
+      "description": "threshold aggregate artifact",
+      "export_policy": "allow_after_review",
+      "retention_class": "research_evidence",
+      "row_level_export_allowed": false
+    }
+  ],
+  "local_manifests": [
+    {
+      "cell_id": "CELL-AMS-001",
+      "contains_raw_rows": false,
+      "dataset_hash": "d2cfdf60bb53dc1bddec5ac4b85101d48c45304d7030a37c4b5cdd802afadad8",
+      "known_time": "2026-06-30T12:00:00Z",
+      "latest_event_time": "2026-06-30T11:59:00Z",
+      "manifest_id": "MAN-001",
+      "record_count": 1000,
+      "schema_hash": "9d23eef31e41839481bb8adc10baf0dc81306a8ab3f3bd6b361d5be7f94c9bdc",
+      "synthetic_fixture": true
+    },
+    {
+      "cell_id": "CELL-FRA-001",
+      "contains_raw_rows": false,
+      "dataset_hash": "3c7718742d5724ab7e743f9134ef4cb4c24317cb285b9f360428b1b453c2f891",
+      "known_time": "2026-06-30T12:00:00Z",
+      "latest_event_time": "2026-06-30T11:59:00Z",
+      "manifest_id": "MAN-002",
+      "record_count": 1100,
+      "schema_hash": "9d23eef31e41839481bb8adc10baf0dc81306a8ab3f3bd6b361d5be7f94c9bdc",
+      "synthetic_fixture": true
+    },
+    {
+      "cell_id": "CELL-LON-001",
+      "contains_raw_rows": false,
+      "dataset_hash": "4490b6d5fc6cb75cea90df427f6515e1ed3bc826879d14b97b9e99969d150bb5",
+      "known_time": "2026-06-30T12:00:00Z",
+      "latest_event_time": "2026-06-30T11:59:00Z",
+      "manifest_id": "MAN-003",
+      "record_count": 1200,
+      "schema_hash": "9d23eef31e41839481bb8adc10baf0dc81306a8ab3f3bd6b361d5be7f94c9bdc",
+      "synthetic_fixture": true
+    },
+    {
+      "cell_id": "CELL-ZRH-001",
+      "contains_raw_rows": false,
+      "dataset_hash": "83bc459320f7da6389d3f4d2e2a9492d580e3998c4e6ead4174cdbbf66654677",
+      "known_time": "2026-06-30T12:00:00Z",
+      "latest_event_time": "2026-06-30T11:59:00Z",
+      "manifest_id": "MAN-004",
+      "record_count": 1300,
+      "schema_hash": "9d23eef31e41839481bb8adc10baf0dc81306a8ab3f3bd6b361d5be7f94c9bdc",
+      "synthetic_fixture": true
+    }
+  ],
+  "local_updates": [
+    {
+      "cell_id": "CELL-AMS-001",
+      "known_time": "2026-06-30T12:30:00Z",
+      "local_loss_after": 0.45999999999999996,
+      "local_loss_before": 0.51,
+      "round_id": "ROUND-001",
+      "sample_count": 1000,
+      "synthetic_fixture": true,
+      "update_id": "UPD-001",
+      "vector": [
+        0.1,
+        -0.03,
+        0.05
+      ]
+    },
+    {
+      "cell_id": "CELL-FRA-001",
+      "known_time": "2026-06-30T12:30:00Z",
+      "local_loss_after": 0.44999999999999996,
+      "local_loss_before": 0.5,
+      "round_id": "ROUND-001",
+      "sample_count": 1100,
+      "synthetic_fixture": true,
+      "update_id": "UPD-002",
+      "vector": [
+        0.12,
+        -0.02,
+        0.04
+      ]
+    },
+    {
+      "cell_id": "CELL-LON-001",
+      "known_time": "2026-06-30T12:30:00Z",
+      "local_loss_after": 0.43999999999999995,
+      "local_loss_before": 0.49,
+      "round_id": "ROUND-001",
+      "sample_count": 1200,
+      "synthetic_fixture": true,
+      "update_id": "UPD-003",
+      "vector": [
+        0.09,
+        -0.04,
+        0.06
+      ]
+    },
+    {
+      "cell_id": "CELL-ZRH-001",
+      "known_time": "2026-06-30T12:30:00Z",
+      "local_loss_after": 0.43,
+      "local_loss_before": 0.48000000000000004,
+      "round_id": "ROUND-001",
+      "sample_count": 1300,
+      "synthetic_fixture": true,
+      "update_id": "UPD-004",
+      "vector": [
+        1.8,
+        1.4,
+        -1.6
+      ]
+    }
+  ],
+  "privacy_policy": {
+    "accountant": "basic_composition_reference",
+    "clip_norm": 0.5,
+    "delta": 1e-06,
+    "formal_privacy_guarantee_claimed": false,
+    "max_rounds": 4,
+    "mechanism": "clipping_plus_deterministic_noise_accounting_reference",
+    "per_round_epsilon": 0.5,
+    "policy_id": "PRIV-REF-001",
+    "research_only": true,
+    "synthetic_noise_seed": 433,
+    "total_epsilon": 2.0
+  },
+  "protocols": [
+    {
+      "allowed_message_types": [
+        "aggregate_receipt",
+        "clipped_update_commitment",
+        "dropout_notice"
+      ],
+      "deterministic_reference": true,
+      "network_transport_claimed": false,
+      "protocol_id": "PROTO-AGG-REF-001",
+      "purpose": "deterministic confidential aggregation reference",
+      "real_cryptography_claimed": false,
+      "version": "1.0.0"
+    },
+    {
+      "allowed_message_types": [
+        "privacy_budget_receipt",
+        "privacy_policy"
+      ],
+      "deterministic_reference": true,
+      "network_transport_claimed": false,
+      "protocol_id": "PROTO-PRIV-REF-001",
+      "purpose": "privacy budget accounting reference",
+      "real_cryptography_claimed": false,
+      "version": "1.0.0"
+    }
+  ],
+  "residency_policies": [
+    {
+      "cell_id": "CELL-AMS-001",
+      "deletion_receipt_required": true,
+      "forbidden_exports": [
+        "credentials",
+        "hidden_evaluation_rows",
+        "raw_rows",
+        "row_level_labels"
+      ],
+      "permitted_exports": [
+        "aggregate_update",
+        "commitment",
+        "content_hash",
+        "privacy_receipt",
+        "schema_hash"
+      ],
+      "raw_data_must_remain_local": true,
+      "residency_zone": "eu-west-nl"
+    },
+    {
+      "cell_id": "CELL-FRA-001",
+      "deletion_receipt_required": true,
+      "forbidden_exports": [
+        "credentials",
+        "hidden_evaluation_rows",
+        "raw_rows",
+        "row_level_labels"
+      ],
+      "permitted_exports": [
+        "aggregate_update",
+        "commitment",
+        "content_hash",
+        "privacy_receipt",
+        "schema_hash"
+      ],
+      "raw_data_must_remain_local": true,
+      "residency_zone": "eu-central-de"
+    },
+    {
+      "cell_id": "CELL-LON-001",
+      "deletion_receipt_required": true,
+      "forbidden_exports": [
+        "credentials",
+        "hidden_evaluation_rows",
+        "raw_rows",
+        "row_level_labels"
+      ],
+      "permitted_exports": [
+        "aggregate_update",
+        "commitment",
+        "content_hash",
+        "privacy_receipt",
+        "schema_hash"
+      ],
+      "raw_data_must_remain_local": true,
+      "residency_zone": "uk-south"
+    },
+    {
+      "cell_id": "CELL-ZRH-001",
+      "deletion_receipt_required": true,
+      "forbidden_exports": [
+        "credentials",
+        "hidden_evaluation_rows",
+        "raw_rows",
+        "row_level_labels"
+      ],
+      "permitted_exports": [
+        "aggregate_update",
+        "commitment",
+        "content_hash",
+        "privacy_receipt",
+        "schema_hash"
+      ],
+      "raw_data_must_remain_local": true,
+      "residency_zone": "ch-central"
+    }
+  ],
+  "study": {
+    "aggregation_protocol_id": "PROTO-AGG-REF-001",
+    "baseline_id": "V4-32-REFERENCE-BASELINE",
+    "cutoff_time": "2026-06-30T13:00:00Z",
+    "feature_schema_hash": "9d23eef31e41839481bb8adc10baf0dc81306a8ab3f3bd6b361d5be7f94c9bdc",
+    "initial_model": [
+      0.25,
+      -0.1,
+      0.05
+    ],
+    "minimum_participants": 3,
+    "model_family": "linear_reference",
+    "objective": "synthetic federated context representation update",
+    "privacy_protocol_id": "PROTO-PRIV-REF-001",
+    "research_only": true,
+    "round_count": 1,
+    "study_id": "FCR-STUDY-001",
+    "synthetic_fixture": true
+  },
+  "upstream_documents": [
+    {
+      "document_hash": "e9f79a095f417e3619e17995d4a8ba9c8d4fc4406cbf24670457f578fd27e037",
+      "document_id": "v432_multi_agent_constitution_certificate_a624ae50b4d8476908e0bd33",
+      "kind": "v4_32_certificate",
+      "next_phase": "SAED_V4_33",
+      "phase": "SAED_V4_32",
+      "research_only": true
+    },
+    {
+      "document_hash": "03522282bfc62e55535f3089c6ce1a99b46458b04156c8ad52d3693ba37cf3c3",
+      "document_id": "v4_32_to_v4_33_21cc53bff14b54b65ee975d5",
+      "kind": "v4_32_handoff",
+      "next_phase": "SAED_V4_33",
+      "phase": "SAED_V4_32",
+      "research_only": true
+    }
+  ]
+}

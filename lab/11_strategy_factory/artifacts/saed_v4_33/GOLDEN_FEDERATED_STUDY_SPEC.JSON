@@ -1,0 +1,27 @@
+{
+  "aggregation_protocol_id": "PROTO-AGG-REF-001",
+  "baseline_id": "V4-32-REFERENCE-BASELINE",
+  "cutoff_time": "2026-06-30T13:00:00Z",
+  "feature_schema_hash": "9d23eef31e41839481bb8adc10baf0dc81306a8ab3f3bd6b361d5be7f94c9bdc",
+  "initial_model": [
+    0.25,
+    -0.1,
+    0.05
+  ],
+  "minimum_participants": 3,
+  "model_family": "linear_reference",
+  "objective": "synthetic federated context representation update",
+  "participant_cell_ids": [
+    "CELL-AMS-001",
+    "CELL-FRA-001",
+    "CELL-LON-001",
+    "CELL-ZRH-001"
+  ],
+  "privacy_protocol_id": "PROTO-PRIV-REF-001",
+  "research_only": true,
+  "round_count": 1,
+  "study_id": "FCR-STUDY-001",
+  "study_spec_hash": "f5d8cabef9df6f39e8325b89b725fd7535b5274c066706337ddc5c3c9c5c76c7",
+  "study_spec_id": "v433_study_0c1686f555d09822681e81e8",
+  "synthetic_fixture": true
+}

@@ -1,0 +1,62 @@
+{
+  "count": 4,
+  "envelopes": [
+    {
+      "cell_id": "CELL-AMS-001",
+      "commitment": "20429ada248d1f10a5aacb7b5a1c5c4a9d09a848a71b3cd56609ac0eec52d0e2",
+      "envelope_id": "ENV-CELL-AMS-001",
+      "message_type": "clipped_update_commitment",
+      "payload_digest": "8bb1ef754e6ef2199dbf26569736c5f6494fecbf89b469975c7e7e4f69fbc181",
+      "raw_payload_present": false,
+      "real_encryption_claimed": false,
+      "real_signature_claimed": false,
+      "round_id": "ROUND-001",
+      "schema_hash": "9d23eef31e41839481bb8adc10baf0dc81306a8ab3f3bd6b361d5be7f94c9bdc",
+      "synthetic_fixture": true
+    },
+    {
+      "cell_id": "CELL-FRA-001",
+      "commitment": "1fe4a7b257d4a7adf18f340475b567114082a97949a7597240ef227fd8f622f2",
+      "envelope_id": "ENV-CELL-FRA-001",
+      "message_type": "clipped_update_commitment",
+      "payload_digest": "663ed121175d006e7e4d80ada1654704802e7498e2fc7eb6134f2e2323f89c37",
+      "raw_payload_present": false,
+      "real_encryption_claimed": false,
+      "real_signature_claimed": false,
+      "round_id": "ROUND-001",
+      "schema_hash": "9d23eef31e41839481bb8adc10baf0dc81306a8ab3f3bd6b361d5be7f94c9bdc",
+      "synthetic_fixture": true
+    },
+    {
+      "cell_id": "CELL-LON-001",
+      "commitment": "c754ddd1c7922c37b1a7244040121ccc9cbc31ae7ed7efbd219899022b3ab2a7",
+      "envelope_id": "ENV-CELL-LON-001",
+      "message_type": "clipped_update_commitment",
+      "payload_digest": "19cd6672f577313d86b1be119928736ada51dabbc83c79a444ba0d2803ea0046",
+      "raw_payload_present": false,
+      "real_encryption_claimed": false,
+      "real_signature_claimed": false,
+      "round_id": "ROUND-001",
+      "schema_hash": "9d23eef31e41839481bb8adc10baf0dc81306a8ab3f3bd6b361d5be7f94c9bdc",
+      "synthetic_fixture": true
+    },
+    {
+      "cell_id": "CELL-ZRH-001",
+      "commitment": "59d12453cb7cba4f46fc5cde9fbb28aeff00919875cd00f9a45b9ce6d59131d8",
+      "envelope_id": "ENV-CELL-ZRH-001",
+      "message_type": "clipped_update_commitment",
+      "payload_digest": "659b96ff84fe5b9106aa3fe6d890ce8dfe1e1782a98c4420123de626cd32480b",
+      "raw_payload_present": false,
+      "real_encryption_claimed": false,
+      "real_signature_claimed": false,
+      "round_id": "ROUND-001",
+      "schema_hash": "9d23eef31e41839481bb8adc10baf0dc81306a8ab3f3bd6b361d5be7f94c9bdc",
+      "synthetic_fixture": true
+    }
+  ],
+  "phase": "SAED_V4_33",
+  "raw_payloads_present": false,
+  "registry_hash": "a1fcdaa48ada29b34a8c2bb0f4c315c70015f0cbcde73f82b735396fea76af68",
+  "registry_id": "v433_envelopes_8cea1767e2a331c9bc06bbb2",
+  "research_only": true
+}

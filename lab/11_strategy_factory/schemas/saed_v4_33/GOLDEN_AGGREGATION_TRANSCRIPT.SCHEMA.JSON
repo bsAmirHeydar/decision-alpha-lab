@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accepted_cell_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "aggregate_digest": {
+      "type": "string"
+    },
+    "aggregate_update": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    },
+    "deterministic_reference": {
+      "type": "boolean"
+    },
+    "events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "cell_id": {
+            "type": "string"
+          },
+          "event_hash": {
+            "type": "string"
+          },
+          "event_id": {
+            "type": "string"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "previous_event_hash": {
+            "type": "string"
+          },
+          "round_id": {
+            "type": "string"
+          },
+          "sample_count": {
+            "type": "integer"
+          },
+          "status": {
+            "type": "string"
+          },
+          "update_digest": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "cell_id",
+          "event_hash",
+          "event_id",
+          "ordinal",
+          "previous_event_hash",
+          "round_id",
+          "sample_count",
+          "status",
+          "update_digest"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "participant_threshold_met": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "quarantined_cell_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "raw_individual_vectors_disclosed": {
+      "type": "boolean"
+    },
+    "real_secure_aggregation": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "round_id": {
+      "type": "string"
+    },
+    "study_id": {
+      "type": "string"
+    },
+    "transcript_hash": {
+      "type": "string"
+    },
+    "transcript_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "accepted_cell_ids",
+    "aggregate_digest",
+    "aggregate_update",
+    "deterministic_reference",
+    "events",
+    "participant_threshold_met",
+    "phase",
+    "quarantined_cell_ids",
+    "raw_individual_vectors_disclosed",
+    "real_secure_aggregation",
+    "research_only",
+    "round_id",
+    "study_id",
+    "transcript_hash",
+    "transcript_id"
+  ],
+  "title": "GOLDEN_AGGREGATION_TRANSCRIPT",
+  "type": "object"
+}

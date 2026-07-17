@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accountant": {
+      "type": "string"
+    },
+    "clip_norm": {
+      "type": "number"
+    },
+    "delta": {
+      "type": "number"
+    },
+    "formal_privacy_guarantee_claimed": {
+      "type": "boolean"
+    },
+    "max_rounds": {
+      "type": "integer"
+    },
+    "mechanism": {
+      "type": "string"
+    },
+    "per_round_epsilon": {
+      "type": "number"
+    },
+    "policy_hash": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "synthetic_noise_seed": {
+      "type": "integer"
+    },
+    "total_epsilon": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "accountant",
+    "clip_norm",
+    "delta",
+    "formal_privacy_guarantee_claimed",
+    "max_rounds",
+    "mechanism",
+    "per_round_epsilon",
+    "policy_hash",
+    "policy_id",
+    "research_only",
+    "synthetic_noise_seed",
+    "total_epsilon"
+  ],
+  "title": "GOLDEN_PRIVACY_POLICY",
+  "type": "object"
+}

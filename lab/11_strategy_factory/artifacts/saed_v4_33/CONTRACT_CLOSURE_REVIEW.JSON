@@ -1,0 +1,10 @@
+{
+  "additional_properties_denied": true,
+  "closed_schema_pairs": 38,
+  "contract_freeze_passed": true,
+  "phase": "SAED_V4_33",
+  "research_only": true,
+  "review_hash": "1717de70d0c72d6a967af66222d75e209b6af670e084f77610f99e406bf7c03f",
+  "review_id": "v433_contract_closure_44c4b609f173e57b02ff363f",
+  "unknown_fields_rejected": true
+}

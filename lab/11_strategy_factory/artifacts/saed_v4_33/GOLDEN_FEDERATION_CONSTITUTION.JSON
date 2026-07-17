@@ -1,0 +1,58 @@
+{
+  "central_raw_data_access_allowed": false,
+  "clauses": [
+    {
+      "clause_id": "FCR-C01",
+      "failure_action": "quarantine",
+      "priority": 1,
+      "requirement": "raw data remains in origin cell"
+    },
+    {
+      "clause_id": "FCR-C02",
+      "failure_action": "deny",
+      "priority": 2,
+      "requirement": "deny by default export"
+    },
+    {
+      "clause_id": "FCR-C03",
+      "failure_action": "exclude",
+      "priority": 3,
+      "requirement": "cell identity attested"
+    },
+    {
+      "clause_id": "FCR-C04",
+      "failure_action": "stop",
+      "priority": 4,
+      "requirement": "privacy budget bounded"
+    },
+    {
+      "clause_id": "FCR-C05",
+      "failure_action": "abort",
+      "priority": 5,
+      "requirement": "participant threshold preserved"
+    },
+    {
+      "clause_id": "FCR-C06",
+      "failure_action": "reject",
+      "priority": 6,
+      "requirement": "complete provenance"
+    },
+    {
+      "clause_id": "FCR-C07",
+      "failure_action": "hold",
+      "priority": 7,
+      "requirement": "human release review"
+    },
+    {
+      "clause_id": "FCR-C08",
+      "failure_action": "revoke",
+      "priority": 8,
+      "requirement": "zero operational authority"
+    }
+  ],
+  "constitution_hash": "269296256430889fa007ad2bac8528b5a6abdb5ba4bf917a3cdd3506113df41e",
+  "constitution_id": "FCR-CONSTITUTION-001",
+  "raw_data_export_allowed": false,
+  "research_only": true,
+  "version": "1.0.0"
+}

@@ -1,0 +1,43 @@
+{
+  "allowed_next_work": [
+    "sovereign_worker_registry",
+    "deterministic_job_dag",
+    "resource_quota_enforcement",
+    "artifact_locality_scheduler",
+    "sealed_execution_receipts",
+    "distributed_replay",
+    "failure_recovery_reference"
+  ],
+  "authority": {
+    "execution": false,
+    "live_trading": false,
+    "online_learning": false,
+    "production": false,
+    "promotion": false,
+    "risk_allocation": false,
+    "runtime": false
+  },
+  "certificate_hash": "294ae8c2392aca0de83cc954978c4e57475435e926d74031979ff36bc03f224b",
+  "certificate_id": "v433_federated_certificate_7cdab18b676bb59f8146fb6a",
+  "entry_gates": {
+    "federated_reference_accepted": true,
+    "privacy_budget_respected": true,
+    "raw_data_local": true,
+    "research_only": true,
+    "zero_authority": true
+  },
+  "forbidden_next_work": [
+    "live_credential_distribution",
+    "raw_data_export",
+    "unreviewed_remote_execution",
+    "runtime_activation",
+    "risk_allocation",
+    "order_submission",
+    "production_release"
+  ],
+  "handoff_hash": "27d0fa2182a5119add2a5515d5df5cf0e37c2e72a7aa52e30278e7d360063173",
+  "handoff_id": "v4_33_to_v4_34_c45e84052f1e2af564dfd241",
+  "next_phase": "SAED_V4_34",
+  "phase": "SAED_V4_33",
+  "research_only": true
+}

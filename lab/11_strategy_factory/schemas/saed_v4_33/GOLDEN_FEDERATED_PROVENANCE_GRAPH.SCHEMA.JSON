@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acyclic": {
+      "type": "boolean"
+    },
+    "complete": {
+      "type": "boolean"
+    },
+    "edges": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "from_node": {
+            "type": "string"
+          },
+          "relation": {
+            "type": "string"
+          },
+          "to_node": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "from_node",
+          "relation",
+          "to_node"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "graph_hash": {
+      "type": "string"
+    },
+    "graph_id": {
+      "type": "string"
+    },
+    "nodes": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "content_hash": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "node_type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "content_hash",
+          "node_id",
+          "node_type"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "acyclic",
+    "complete",
+    "edges",
+    "graph_hash",
+    "graph_id",
+    "nodes",
+    "phase",
+    "research_only"
+  ],
+  "title": "GOLDEN_FEDERATED_PROVENANCE_GRAPH",
+  "type": "object"
+}

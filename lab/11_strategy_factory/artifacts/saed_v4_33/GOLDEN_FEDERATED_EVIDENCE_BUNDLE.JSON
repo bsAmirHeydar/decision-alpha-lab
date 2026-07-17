@@ -1,0 +1,150 @@
+{
+  "artifact_count": 35,
+  "artifact_refs": [
+    {
+      "artifact": "adversarial_review",
+      "content_hash": "b5450a2de7727093718bb6d21ce27b719114537bb472156af0ecf31bf5eb7fb7"
+    },
+    {
+      "artifact": "aggregation_plan",
+      "content_hash": "72b908d4d7bb61af11297306a34a3fcc634b2cee5450faf55f472b9dad9cce51"
+    },
+    {
+      "artifact": "aggregation_transcript",
+      "content_hash": "944e185d553b2623bb10f1fbe8f39b23196f246214cd44a7d75014bf3219bd17"
+    },
+    {
+      "artifact": "attestations",
+      "content_hash": "7eec862c515df5d3de21823e252eaf16c32dbf9766d2b3deabbd614f68b210c6"
+    },
+    {
+      "artifact": "authority",
+      "content_hash": "d05467728ddbc986cf569afcd62e30475bea4274940dd72d5dbe9c0470e66e6e"
+    },
+    {
+      "artifact": "cells",
+      "content_hash": "951281c9bc8f8d56dbbfec9ee2908c47221e60ef7e7ea9863e68eb216dbdb31d"
+    },
+    {
+      "artifact": "classifications",
+      "content_hash": "131ed2c5958242d161ed92623b26d27dce40cce3daf1cc23b66b68546771828c"
+    },
+    {
+      "artifact": "clipping",
+      "content_hash": "aba5625e2543d299d39fcdb3c0e299e9d17cdb50f9361e0e2c891b02f14a15ef"
+    },
+    {
+      "artifact": "constitution",
+      "content_hash": "f39160c6fb02f1af7de608474fbe90f62b040a820d7e50e9419e56e48bda0af7"
+    },
+    {
+      "artifact": "contract_closure",
+      "content_hash": "aace6a65959f282e24efa29a8ad31eb3dc23fcf58701b77ae621ddffdbe8fe78"
+    },
+    {
+      "artifact": "dropout",
+      "content_hash": "d7de7a35d44a05b1dde0f1b5681a694dd93f59b7da48d768077880ae8c210893"
+    },
+    {
+      "artifact": "eligibility",
+      "content_hash": "8205370e92bea1e0f85de8ec842f3ec4b87a5a61ec3f7e679acb9cdddc03c2bd"
+    },
+    {
+      "artifact": "envelopes",
+      "content_hash": "4f5c24c9212b684818a8e4daa4cf5fef5ebc73f53f148d7f9f4cbfb97bbbf73e"
+    },
+    {
+      "artifact": "exposure",
+      "content_hash": "6f172b77c39720c188e38a3c765b7c57bc0016332075ce43e7e13e628d15db5e"
+    },
+    {
+      "artifact": "global_model",
+      "content_hash": "5d51bd4f70795121652b02ce236da8ff89c35cc13b918b26c967aeddded669c0"
+    },
+    {
+      "artifact": "human_reviews",
+      "content_hash": "85610703ccaf8c3c3be6bedae517b0d85b884e765be3508e88d84e38cb929993"
+    },
+    {
+      "artifact": "incidents",
+      "content_hash": "0f39c987e8aabc5eb9b904eb1acce5faffee4cf89207799827f3097ba4b21da0"
+    },
+    {
+      "artifact": "known_time",
+      "content_hash": "7b3e0d6d083026ce77d43f9b16c83c2c1cb73d0ff2377e27beffb949ba51df67"
+    },
+    {
+      "artifact": "limitations",
+      "content_hash": "90e0589a1d107c61fa119c37f0bcced35760a92a65681c4f6df26a4b869b40ce"
+    },
+    {
+      "artifact": "manifests",
+      "content_hash": "dbe8a0bbcb86066eeb9efbcf6a43af0fa5934518208c614b4abb5e450c2886fc"
+    },
+    {
+      "artifact": "model_risk",
+      "content_hash": "aab870c03886df594d0e9c897f84987d1932e101e29962a98b0e9d9a4af1148a"
+    },
+    {
+      "artifact": "privacy_budget",
+      "content_hash": "efe8701444e22f194b5fb40dcddbb5d214ce0ce2f75eef6f7f261192ab8ee329"
+    },
+    {
+      "artifact": "privacy_policy",
+      "content_hash": "50244be3ab435b5abd4682704ed6e13d822b84b744e186299d152238d9b0e03d"
+    },
+    {
+      "artifact": "protected_policy",
+      "content_hash": "6ab4059ca1f2cfb2d8e676a30a7ec3ba98a375f0b0f94d1ed1eed2820730412b"
+    },
+    {
+      "artifact": "protocols",
+      "content_hash": "63267e4da0d8638c495a46329abf8018688deff6d89d139663765cf226de34ce"
+    },
+    {
+      "artifact": "provenance",
+      "content_hash": "12b907ac5bc20ff32fbe93077aae489044aa450a6dd093057e839ee42b958352"
+    },
+    {
+      "artifact": "receipts",
+      "content_hash": "49bfa8033d6a2dd0576f9c13ae7fb001f07b326455f935e5a111c60e45160dfa"
+    },
+    {
+      "artifact": "replay",
+      "content_hash": "7c670580d1038043265678387693fc85493a3c7e94b5d4b23afe73a7a37a04d0"
+    },
+    {
+      "artifact": "reproduction",
+      "content_hash": "3e6f922e0195914838fd762cde6aaf893dafd987486cb694beff293233052762"
+    },
+    {
+      "artifact": "residency",
+      "content_hash": "ac015b65d523afaeb86fb7634c92b32e0a50ea546112e679922fbf5d81d893e2"
+    },
+    {
+      "artifact": "screening",
+      "content_hash": "90de60f1e980efa389f4e52572c905833067bb5f5135dc4d7ff48d48504a7a8e"
+    },
+    {
+      "artifact": "security",
+      "content_hash": "f7e6e0bc70d70d358ee9f48a0d0428d1d2ebdf835bf870757b6c142ccdb4e54e"
+    },
+    {
+      "artifact": "signatures",
+      "content_hash": "327c279955024a5383cd74b6fd425b0afe18b178d6bf4d0c837737741a5735f6"
+    },
+    {
+      "artifact": "study",
+      "content_hash": "50790aa8d3fee616f4ecc88a16d36bae8055e00f581c65b19db6cff5971c39dc"
+    },
+    {
+      "artifact": "upstream",
+      "content_hash": "8f680768678f0a7668fe53bde62e03e895a755df364fafa3f53b4a035aff674f"
+    }
+  ],
+  "bundle_hash": "8623a05fd4827d056b354a77449702391e6f947b98913072cc330d711fd13055",
+  "bundle_id": "v433_evidence_bundle_337e272c59329a0568de042a",
+  "phase": "SAED_V4_33",
+  "research_only": true,
+  "synthetic_fixture_only": true
+}

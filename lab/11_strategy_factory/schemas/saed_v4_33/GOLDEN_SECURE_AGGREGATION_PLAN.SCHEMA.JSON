@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "aggregation_rule": {
+      "type": "string"
+    },
+    "deterministic_reference": {
+      "type": "boolean"
+    },
+    "dropout_tolerance": {
+      "type": "integer"
+    },
+    "minimum_participants": {
+      "type": "integer"
+    },
+    "network_protocol": {
+      "type": "string"
+    },
+    "participant_cell_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "plan_hash": {
+      "type": "string"
+    },
+    "plan_id": {
+      "type": "string"
+    },
+    "privacy_mechanism": {
+      "type": "string"
+    },
+    "real_secure_multiparty_computation": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "round_id": {
+      "type": "string"
+    },
+    "study_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "aggregation_rule",
+    "deterministic_reference",
+    "dropout_tolerance",
+    "minimum_participants",
+    "network_protocol",
+    "participant_cell_ids",
+    "phase",
+    "plan_hash",
+    "plan_id",
+    "privacy_mechanism",
+    "real_secure_multiparty_computation",
+    "research_only",
+    "round_id",
+    "study_id"
+  ],
+  "title": "GOLDEN_SECURE_AGGREGATION_PLAN",
+  "type": "object"
+}

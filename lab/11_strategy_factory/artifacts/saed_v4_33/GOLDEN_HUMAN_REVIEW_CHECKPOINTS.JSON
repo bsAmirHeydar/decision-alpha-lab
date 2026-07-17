@@ -1,0 +1,34 @@
+{
+  "all_approved": true,
+  "checkpoints": [
+    {
+      "approved": true,
+      "checkpoint_id": "FCR-SCOPE-001",
+      "checkpoint_type": "scope_and_residency",
+      "notes": "synthetic reference only",
+      "reviewer_role": "human_reviewer",
+      "subject_id": "FCR-STUDY-001"
+    },
+    {
+      "approved": true,
+      "checkpoint_id": "FCR-PRIVACY-001",
+      "checkpoint_type": "privacy_budget",
+      "notes": "formal DP guarantee not claimed",
+      "reviewer_role": "privacy_reviewer",
+      "subject_id": "v433_privacy_budget_5d3769c18a8d6be7fcb10768"
+    },
+    {
+      "approved": true,
+      "checkpoint_id": "FCR-AGG-001",
+      "checkpoint_type": "aggregation_release",
+      "notes": "reference aggregate only",
+      "reviewer_role": "evidence_curator",
+      "subject_id": "v433_byzantine_screen_49c19a2c340b942210715d1e"
+    }
+  ],
+  "phase": "SAED_V4_33",
+  "registry_hash": "7360de786a2518c5d7297612d4220e5aa9a87890fdb93bc6e36c7ce8da43545a",
+  "registry_id": "v433_reviews_7fe361af8a368cbcc93bbfde",
+  "research_only": true,
+  "self_approval_denied": true
+}

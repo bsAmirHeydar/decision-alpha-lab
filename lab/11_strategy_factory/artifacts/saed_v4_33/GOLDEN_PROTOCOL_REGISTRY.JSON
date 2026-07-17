@@ -1,0 +1,34 @@
+{
+  "closed": true,
+  "phase": "SAED_V4_33",
+  "protocols": [
+    {
+      "allowed_message_types": [
+        "aggregate_receipt",
+        "clipped_update_commitment",
+        "dropout_notice"
+      ],
+      "deterministic_reference": true,
+      "network_transport_claimed": false,
+      "protocol_id": "PROTO-AGG-REF-001",
+      "purpose": "deterministic confidential aggregation reference",
+      "real_cryptography_claimed": false,
+      "version": "1.0.0"
+    },
+    {
+      "allowed_message_types": [
+        "privacy_budget_receipt",
+        "privacy_policy"
+      ],
+      "deterministic_reference": true,
+      "network_transport_claimed": false,
+      "protocol_id": "PROTO-PRIV-REF-001",
+      "purpose": "privacy budget accounting reference",
+      "real_cryptography_claimed": false,
+      "version": "1.0.0"
+    }
+  ],
+  "registry_hash": "de95fff730c2d5c2fd86b5205cfa74f18d6da997d1e6527fb1e73edd3cbeafda",
+  "registry_id": "v433_protocols_3a1c750333230df5ff31040c",
+  "research_only": true
+}

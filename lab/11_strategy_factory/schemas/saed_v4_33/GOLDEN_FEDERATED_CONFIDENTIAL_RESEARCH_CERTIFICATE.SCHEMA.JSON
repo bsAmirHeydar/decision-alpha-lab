@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accepted_reference": {
+      "type": "boolean"
+    },
+    "all_gates_passed": {
+      "type": "boolean"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "execution_authority": {
+      "type": "boolean"
+    },
+    "formal_privacy_guarantee_claim": {
+      "type": "boolean"
+    },
+    "gates": {
+      "additionalProperties": false,
+      "properties": {
+        "adversarial_review": {
+          "type": "boolean"
+        },
+        "aggregation_threshold": {
+          "type": "boolean"
+        },
+        "cells_attested": {
+          "type": "boolean"
+        },
+        "constitution_frozen": {
+          "type": "boolean"
+        },
+        "deterministic_replay": {
+          "type": "boolean"
+        },
+        "eligibility_threshold": {
+          "type": "boolean"
+        },
+        "exposure_complete": {
+          "type": "boolean"
+        },
+        "human_review": {
+          "type": "boolean"
+        },
+        "incidents_contained": {
+          "type": "boolean"
+        },
+        "privacy_budget_respected": {
+          "type": "boolean"
+        },
+        "provenance_complete": {
+          "type": "boolean"
+        },
+        "raw_data_local": {
+          "type": "boolean"
+        },
+        "raw_vectors_not_disclosed": {
+          "type": "boolean"
+        },
+        "upstream_verified": {
+          "type": "boolean"
+        },
+        "zero_authority": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "adversarial_review",
+        "aggregation_threshold",
+        "cells_attested",
+        "constitution_frozen",
+        "deterministic_replay",
+        "eligibility_threshold",
+        "exposure_complete",
+        "human_review",
+        "incidents_contained",
+        "privacy_budget_respected",
+        "provenance_complete",
+        "raw_data_local",
+        "raw_vectors_not_disclosed",
+        "upstream_verified",
+        "zero_authority"
+      ],
+      "type": "object"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authority": {
+      "type": "boolean"
+    },
+    "promotion_authority": {
+      "type": "boolean"
+    },
+    "real_confidentiality_claim": {
+      "type": "boolean"
+    },
+    "real_federated_runtime_claim": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "risk_allocation_authority": {
+      "type": "boolean"
+    },
+    "runtime_authority": {
+      "type": "boolean"
+    },
+    "synthetic_fixture_only": {
+      "type": "boolean"
+    },
+    "title": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "accepted_reference",
+    "all_gates_passed",
+    "certificate_hash",
+    "certificate_id",
+    "claim_ceiling",
+    "execution_authority",
+    "formal_privacy_guarantee_claim",
+    "gates",
+    "phase",
+    "production_authority",
+    "promotion_authority",
+    "real_confidentiality_claim",
+    "real_federated_runtime_claim",
+    "research_only",
+    "risk_allocation_authority",
+    "runtime_authority",
+    "synthetic_fixture_only",
+    "title",
+    "version"
+  ],
+  "title": "GOLDEN_FEDERATED_CONFIDENTIAL_RESEARCH_CERTIFICATE",
+  "type": "object"
+}

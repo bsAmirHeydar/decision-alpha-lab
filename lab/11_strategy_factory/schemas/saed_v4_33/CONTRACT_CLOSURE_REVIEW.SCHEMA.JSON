@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "additional_properties_denied": {
+      "type": "boolean"
+    },
+    "closed_schema_pairs": {
+      "type": "integer"
+    },
+    "contract_freeze_passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "review_hash": {
+      "type": "string"
+    },
+    "review_id": {
+      "type": "string"
+    },
+    "unknown_fields_rejected": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "additional_properties_denied",
+    "closed_schema_pairs",
+    "contract_freeze_passed",
+    "phase",
+    "research_only",
+    "review_hash",
+    "review_id",
+    "unknown_fields_rejected"
+  ],
+  "title": "CONTRACT_CLOSURE_REVIEW",
+  "type": "object"
+}

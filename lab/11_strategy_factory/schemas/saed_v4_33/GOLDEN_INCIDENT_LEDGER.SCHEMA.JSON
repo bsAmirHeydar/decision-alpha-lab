@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_contained": {
+      "type": "boolean"
+    },
+    "events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "action": {
+            "type": "string"
+          },
+          "cell_id": {
+            "type": "string"
+          },
+          "contained": {
+            "type": "boolean"
+          },
+          "event_hash": {
+            "type": "string"
+          },
+          "event_id": {
+            "type": "string"
+          },
+          "incident_type": {
+            "type": "string"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "previous_event_hash": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "action",
+          "cell_id",
+          "contained",
+          "event_hash",
+          "event_id",
+          "incident_type",
+          "ordinal",
+          "previous_event_hash",
+          "severity"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "incident_count": {
+      "type": "integer"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "all_contained",
+    "events",
+    "incident_count",
+    "ledger_hash",
+    "ledger_id",
+    "phase",
+    "research_only"
+  ],
+  "title": "GOLDEN_INCIDENT_LEDGER",
+  "type": "object"
+}

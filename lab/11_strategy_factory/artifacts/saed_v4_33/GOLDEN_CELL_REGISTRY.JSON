@@ -1,0 +1,62 @@
+{
+  "cell_count": 4,
+  "cells": [
+    {
+      "allowed_protocols": [
+        "PROTO-AGG-REF-001",
+        "PROTO-PRIV-REF-001"
+      ],
+      "cell_id": "CELL-AMS-001",
+      "identity_fingerprint": "14fb5094bc50ecdd69e1a6c2d89da12734a5ac6eb1cd536e09e2c51dd41141b7",
+      "independence_group": "IG-001",
+      "jurisdiction": "NL",
+      "operator_id": "OP-001",
+      "residency_zone": "eu-west-nl",
+      "status": "active"
+    },
+    {
+      "allowed_protocols": [
+        "PROTO-AGG-REF-001",
+        "PROTO-PRIV-REF-001"
+      ],
+      "cell_id": "CELL-FRA-001",
+      "identity_fingerprint": "b9f2b4283cd932e80f588a56df4af3b6a24eacf7f3fc0eb0517beb4add4cc536",
+      "independence_group": "IG-002",
+      "jurisdiction": "DE",
+      "operator_id": "OP-002",
+      "residency_zone": "eu-central-de",
+      "status": "active"
+    },
+    {
+      "allowed_protocols": [
+        "PROTO-AGG-REF-001",
+        "PROTO-PRIV-REF-001"
+      ],
+      "cell_id": "CELL-LON-001",
+      "identity_fingerprint": "1c36f767b8fa5f812ef6f0a84163b7a78e5ec92108b58379b0500ef91fab0039",
+      "independence_group": "IG-003",
+      "jurisdiction": "UK",
+      "operator_id": "OP-003",
+      "residency_zone": "uk-south",
+      "status": "active"
+    },
+    {
+      "allowed_protocols": [
+        "PROTO-AGG-REF-001",
+        "PROTO-PRIV-REF-001"
+      ],
+      "cell_id": "CELL-ZRH-001",
+      "identity_fingerprint": "d6df2cf813b8710cc2777ef7607f0a55dbdb6e755aa23b0a0215f899f8a501ed",
+      "independence_group": "IG-004",
+      "jurisdiction": "CH",
+      "operator_id": "OP-004",
+      "residency_zone": "ch-central",
+      "status": "active"
+    }
+  ],
+  "cross_cell_raw_data_access": false,
+  "phase": "SAED_V4_33",
+  "registry_hash": "9d6dcf93b46111e0f23f7f9156456a3414e9d78d0e041fbedad73426890323b7",
+  "registry_id": "v433_cell_registry_d91236107f8338a7009d4802",
+  "research_only": true
+}

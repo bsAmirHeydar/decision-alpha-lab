@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_cells_attested": {
+      "type": "boolean"
+    },
+    "attestations": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "attestation_id": {
+            "type": "string"
+          },
+          "cell_id": {
+            "type": "string"
+          },
+          "expires_time": {
+            "type": "string"
+          },
+          "human_approved": {
+            "type": "boolean"
+          },
+          "identity_fingerprint": {
+            "type": "string"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "attestation_id",
+          "cell_id",
+          "expires_time",
+          "human_approved",
+          "identity_fingerprint",
+          "known_time",
+          "synthetic_fixture"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "cryptographic_hardware_attestation": {
+      "type": "string"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "all_cells_attested",
+    "attestations",
+    "cryptographic_hardware_attestation",
+    "ledger_hash",
+    "ledger_id",
+    "phase",
+    "research_only"
+  ],
+  "title": "GOLDEN_CELL_IDENTITY_ATTESTATIONS",
+  "type": "object"
+}

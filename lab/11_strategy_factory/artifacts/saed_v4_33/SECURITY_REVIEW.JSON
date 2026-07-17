@@ -1,0 +1,13 @@
+{
+  "external_network_security": "not_claimed",
+  "identity_attestations_complete": true,
+  "passed": true,
+  "phase": "SAED_V4_33",
+  "raw_data_broadcast_denied": true,
+  "raw_payloads_absent": true,
+  "real_cryptographic_security": "not_claimed",
+  "reference_attestations_verified": true,
+  "research_only": true,
+  "review_hash": "dc1081e93c37b8364edbdfa336f76bd53321aa7b434237fb3e11698f59f0bf1e",
+  "review_id": "v433_security_1549f1ec35753de28af5f46e"
+}

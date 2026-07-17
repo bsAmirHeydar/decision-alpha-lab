@@ -1,0 +1,25 @@
+{
+  "budget_respected": true,
+  "events": [
+    {
+      "cumulative_epsilon": 0.5,
+      "delta": 1e-06,
+      "epsilon_spent": 0.5,
+      "event_hash": "89e0a1b91e0e6dd00e5fa1aeae3c9d6ab08620b1c1396fea17f2dd38705c9129",
+      "event_id": "v433_privacy_event_1ec8b48709b23d70ec5ab321",
+      "ordinal": 0,
+      "previous_event_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "released": true,
+      "round_id": "ROUND-001"
+    }
+  ],
+  "formal_dp_guarantee": "not_claimed",
+  "ledger_hash": "8253abfdd03611fb93e40776797f270b01fa456fcb253b32a6d12196e72aa798",
+  "ledger_id": "v433_privacy_budget_5d3769c18a8d6be7fcb10768",
+  "phase": "SAED_V4_33",
+  "policy_id": "PRIV-REF-001",
+  "remaining_epsilon": 1.5,
+  "research_only": true,
+  "spent_epsilon": 0.5,
+  "total_epsilon": 2.0
+}

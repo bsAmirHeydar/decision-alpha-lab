@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_verified": {
+      "type": "boolean"
+    },
+    "events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "attestation": {
+            "type": "string"
+          },
+          "cell_id": {
+            "type": "string"
+          },
+          "commitment": {
+            "type": "string"
+          },
+          "cryptographic_signature": {
+            "type": "string"
+          },
+          "envelope_id": {
+            "type": "string"
+          },
+          "event_hash": {
+            "type": "string"
+          },
+          "event_id": {
+            "type": "string"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "previous_event_hash": {
+            "type": "string"
+          },
+          "verified": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "attestation",
+          "cell_id",
+          "commitment",
+          "cryptographic_signature",
+          "envelope_id",
+          "event_hash",
+          "event_id",
+          "ordinal",
+          "previous_event_hash",
+          "verified"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "real_signature_verification": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "all_verified",
+    "events",
+    "ledger_hash",
+    "ledger_id",
+    "phase",
+    "real_signature_verification",
+    "research_only"
+  ],
+  "title": "GOLDEN_UPDATE_ATTESTATION_LEDGER",
+  "type": "object"
+}

@@ -1,0 +1,14 @@
+{
+  "formal_dp_guarantee": "not_claimed",
+  "outlier_screening_present": true,
+  "participant_threshold_met": true,
+  "passed_reference": true,
+  "phase": "SAED_V4_33",
+  "promotion_eligible": false,
+  "real_byzantine_resistance": "not_claimed",
+  "real_secure_aggregation": "not_claimed",
+  "research_only": true,
+  "review_hash": "33bf53cb9e28240dce61b848680950e6baefecadffb1f59fdb7e50c826baf9ca",
+  "review_id": "v433_model_risk_0b8f3037bf8a226cbeb86d34",
+  "synthetic_fixture_only": true
+}

@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_raw_data_local": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "policies": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "cell_id": {
+            "type": "string"
+          },
+          "deletion_receipt_required": {
+            "type": "boolean"
+          },
+          "forbidden_exports": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "permitted_exports": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "raw_data_must_remain_local": {
+            "type": "boolean"
+          },
+          "residency_zone": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "cell_id",
+          "deletion_receipt_required",
+          "forbidden_exports",
+          "permitted_exports",
+          "raw_data_must_remain_local",
+          "residency_zone"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "policy_hash": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "all_raw_data_local",
+    "phase",
+    "policies",
+    "policy_hash",
+    "policy_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_RESIDENCY_POLICY",
+  "type": "object"
+}

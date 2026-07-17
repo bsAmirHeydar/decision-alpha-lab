@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "count": {
+      "type": "integer"
+    },
+    "envelopes": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "cell_id": {
+            "type": "string"
+          },
+          "commitment": {
+            "type": "string"
+          },
+          "envelope_id": {
+            "type": "string"
+          },
+          "message_type": {
+            "type": "string"
+          },
+          "payload_digest": {
+            "type": "string"
+          },
+          "raw_payload_present": {
+            "type": "boolean"
+          },
+          "real_encryption_claimed": {
+            "type": "boolean"
+          },
+          "real_signature_claimed": {
+            "type": "boolean"
+          },
+          "round_id": {
+            "type": "string"
+          },
+          "schema_hash": {
+            "type": "string"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "cell_id",
+          "commitment",
+          "envelope_id",
+          "message_type",
+          "payload_digest",
+          "raw_payload_present",
+          "real_encryption_claimed",
+          "real_signature_claimed",
+          "round_id",
+          "schema_hash",
+          "synthetic_fixture"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "raw_payloads_present": {
+      "type": "boolean"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "count",
+    "envelopes",
+    "phase",
+    "raw_payloads_present",
+    "registry_hash",
+    "registry_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_SECURE_UPDATE_ENVELOPES",
+  "type": "object"
+}

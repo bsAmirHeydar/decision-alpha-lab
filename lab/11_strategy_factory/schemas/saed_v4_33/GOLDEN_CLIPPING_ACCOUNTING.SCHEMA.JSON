@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_updates_accounted": {
+      "type": "boolean"
+    },
+    "clip_norm": {
+      "type": "number"
+    },
+    "event_count": {
+      "type": "integer"
+    },
+    "events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "cell_id": {
+            "type": "string"
+          },
+          "clip_norm": {
+            "type": "number"
+          },
+          "clipped": {
+            "type": "boolean"
+          },
+          "raw_norm": {
+            "type": "number"
+          },
+          "round_id": {
+            "type": "string"
+          },
+          "update_digest": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "cell_id",
+          "clip_norm",
+          "clipped",
+          "raw_norm",
+          "round_id",
+          "update_digest"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "all_updates_accounted",
+    "clip_norm",
+    "event_count",
+    "events",
+    "ledger_hash",
+    "ledger_id",
+    "phase",
+    "research_only"
+  ],
+  "title": "GOLDEN_CLIPPING_ACCOUNTING",
+  "type": "object"
+}

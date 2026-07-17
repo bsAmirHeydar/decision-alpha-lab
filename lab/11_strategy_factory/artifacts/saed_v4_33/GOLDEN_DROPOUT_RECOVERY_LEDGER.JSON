@@ -1,0 +1,25 @@
+{
+  "completed_cell_ids": [
+    "CELL-AMS-001",
+    "CELL-FRA-001",
+    "CELL-LON-001",
+    "CELL-ZRH-001"
+  ],
+  "dropout_count": 0,
+  "dropout_tolerance": 1,
+  "ledger_hash": "4ae80391e0ae5fd85481aac8d612b78db6b405ede2b37ccc29956da8bcbc8afe",
+  "ledger_id": "v433_dropout_2617c9287e9072e91d34174d",
+  "missing_cell_ids": [],
+  "phase": "SAED_V4_33",
+  "planned_cell_ids": [
+    "CELL-AMS-001",
+    "CELL-FRA-001",
+    "CELL-LON-001",
+    "CELL-ZRH-001"
+  ],
+  "real_secret_share_recovery": "not_claimed",
+  "recovery_required": false,
+  "research_only": true,
+  "round_id": "ROUND-001",
+  "threshold_preserved": true
+}

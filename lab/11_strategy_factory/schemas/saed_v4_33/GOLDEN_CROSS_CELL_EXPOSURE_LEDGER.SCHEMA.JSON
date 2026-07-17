@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "complete": {
+      "type": "boolean"
+    },
+    "event_count": {
+      "type": "integer"
+    },
+    "events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact_hash": {
+            "type": "string"
+          },
+          "cell_id": {
+            "type": "string"
+          },
+          "event_hash": {
+            "type": "string"
+          },
+          "event_id": {
+            "type": "string"
+          },
+          "exposure_type": {
+            "type": "string"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "previous_event_hash": {
+            "type": "string"
+          },
+          "protected": {
+            "type": "boolean"
+          },
+          "raw_data_exposed": {
+            "type": "boolean"
+          },
+          "study_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "artifact_hash",
+          "cell_id",
+          "event_hash",
+          "event_id",
+          "exposure_type",
+          "ordinal",
+          "previous_event_hash",
+          "protected",
+          "raw_data_exposed",
+          "study_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "raw_data_exposure_count": {
+      "type": "integer"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "complete",
+    "event_count",
+    "events",
+    "ledger_hash",
+    "ledger_id",
+    "phase",
+    "raw_data_exposure_count",
+    "research_only"
+  ],
+  "title": "GOLDEN_CROSS_CELL_EXPOSURE_LEDGER",
+  "type": "object"
+}

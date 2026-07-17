@@ -1,0 +1,72 @@
+{
+  "accepted_cell_ids": [
+    "CELL-AMS-001",
+    "CELL-FRA-001",
+    "CELL-LON-001"
+  ],
+  "aggregate_digest": "11bd73e86a0fc37815c7fcb537b2245fee95eacbca8c9c8d095642d708e29db7",
+  "aggregate_update": [
+    0.10303030303,
+    -0.030303030303,
+    0.050303030303
+  ],
+  "deterministic_reference": true,
+  "events": [
+    {
+      "cell_id": "CELL-AMS-001",
+      "event_hash": "3a3ae21b43ed22e831b56c2d1d4f0fa10e64475b755de18d97ad18ba19108b81",
+      "event_id": "v433_aggregation_event_235986d29ba6e16dd4fd23b7",
+      "ordinal": 0,
+      "previous_event_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "round_id": "ROUND-001",
+      "sample_count": 1000,
+      "status": "included",
+      "update_digest": "8bb1ef754e6ef2199dbf26569736c5f6494fecbf89b469975c7e7e4f69fbc181"
+    },
+    {
+      "cell_id": "CELL-FRA-001",
+      "event_hash": "e02e33924b4301f79496b3f57373503525afa2d402d17e3e74c336ba4530cc8d",
+      "event_id": "v433_aggregation_event_a67966acd5853998dc3b8ef6",
+      "ordinal": 1,
+      "previous_event_hash": "3a3ae21b43ed22e831b56c2d1d4f0fa10e64475b755de18d97ad18ba19108b81",
+      "round_id": "ROUND-001",
+      "sample_count": 1100,
+      "status": "included",
+      "update_digest": "663ed121175d006e7e4d80ada1654704802e7498e2fc7eb6134f2e2323f89c37"
+    },
+    {
+      "cell_id": "CELL-LON-001",
+      "event_hash": "33656e110ef406e80ae8221d6ad1e91cf45611784fcf4b1ad472c009ae0e100d",
+      "event_id": "v433_aggregation_event_8f98ff52ac38d4de4cba6e09",
+      "ordinal": 2,
+      "previous_event_hash": "e02e33924b4301f79496b3f57373503525afa2d402d17e3e74c336ba4530cc8d",
+      "round_id": "ROUND-001",
+      "sample_count": 1200,
+      "status": "included",
+      "update_digest": "19cd6672f577313d86b1be119928736ada51dabbc83c79a444ba0d2803ea0046"
+    },
+    {
+      "cell_id": "CELL-ZRH-001",
+      "event_hash": "ca9a6509a93912452c0b508cb1ee1654a833c564c5a20551292d9d5844b245d6",
+      "event_id": "v433_aggregation_event_489429b6255a21ab406b84cf",
+      "ordinal": 3,
+      "previous_event_hash": "33656e110ef406e80ae8221d6ad1e91cf45611784fcf4b1ad472c009ae0e100d",
+      "round_id": "ROUND-001",
+      "sample_count": 1300,
+      "status": "quarantined",
+      "update_digest": "659b96ff84fe5b9106aa3fe6d890ce8dfe1e1782a98c4420123de626cd32480b"
+    }
+  ],
+  "participant_threshold_met": true,
+  "phase": "SAED_V4_33",
+  "quarantined_cell_ids": [
+    "CELL-ZRH-001"
+  ],
+  "raw_individual_vectors_disclosed": false,
+  "real_secure_aggregation": "not_claimed",
+  "research_only": true,
+  "round_id": "ROUND-001",
+  "study_id": "FCR-STUDY-001",
+  "transcript_hash": "878ff6419ac7dc67f74adcecc9e2fb9c35e9c5536a677ff3153d8f799382593c",
+  "transcript_id": "v433_aggregation_transcript_04e559fb9aae1aa510172b66"
+}

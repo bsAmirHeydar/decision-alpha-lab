@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "formal_dp_guarantee": {
+      "type": "string"
+    },
+    "outlier_screening_present": {
+      "type": "boolean"
+    },
+    "participant_threshold_met": {
+      "type": "boolean"
+    },
+    "passed_reference": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "promotion_eligible": {
+      "type": "boolean"
+    },
+    "real_byzantine_resistance": {
+      "type": "string"
+    },
+    "real_secure_aggregation": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "review_hash": {
+      "type": "string"
+    },
+    "review_id": {
+      "type": "string"
+    },
+    "synthetic_fixture_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "formal_dp_guarantee",
+    "outlier_screening_present",
+    "participant_threshold_met",
+    "passed_reference",
+    "phase",
+    "promotion_eligible",
+    "real_byzantine_resistance",
+    "real_secure_aggregation",
+    "research_only",
+    "review_hash",
+    "review_id",
+    "synthetic_fixture_only"
+  ],
+  "title": "PRIVACY_MODEL_RISK_REVIEW",
+  "type": "object"
+}

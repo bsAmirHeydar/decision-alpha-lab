@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_passed": {
+      "type": "boolean"
+    },
+    "challenge_count": {
+      "type": "integer"
+    },
+    "challenges": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "challenge_id": {
+            "type": "string"
+          },
+          "finding": {
+            "type": "string"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "target": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "challenge_id",
+          "finding",
+          "passed",
+          "target"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "real_attack_resistance": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "unresolved_blockers": {
+      "items": {},
+      "type": "array"
+    }
+  },
+  "required": [
+    "all_passed",
+    "challenge_count",
+    "challenges",
+    "phase",
+    "real_attack_resistance",
+    "report_hash",
+    "report_id",
+    "research_only",
+    "unresolved_blockers"
+  ],
+  "title": "GOLDEN_FEDERATED_ADVERSARIAL_REVIEW",
+  "type": "object"
+}

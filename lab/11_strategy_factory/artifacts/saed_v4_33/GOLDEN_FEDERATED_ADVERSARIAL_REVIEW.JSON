@@ -1,0 +1,42 @@
+{
+  "all_passed": true,
+  "challenge_count": 5,
+  "challenges": [
+    {
+      "challenge_id": "ADV-RAW-EXPORT",
+      "finding": "raw export denied",
+      "passed": true,
+      "target": "residency"
+    },
+    {
+      "challenge_id": "ADV-BUDGET",
+      "finding": "claim ceiling preserved",
+      "passed": true,
+      "target": "privacy"
+    },
+    {
+      "challenge_id": "ADV-OUTLIER",
+      "finding": "robust screening accounted",
+      "passed": true,
+      "target": "aggregation"
+    },
+    {
+      "challenge_id": "ADV-THRESHOLD",
+      "finding": "threshold preserved",
+      "passed": true,
+      "target": "quorum"
+    },
+    {
+      "challenge_id": "ADV-AUTHORITY",
+      "finding": "no operational authority",
+      "passed": true,
+      "target": "authority"
+    }
+  ],
+  "phase": "SAED_V4_33",
+  "real_attack_resistance": "not_claimed",
+  "report_hash": "cd586b13bec0a32155a0c7c534cab77d5d3bd75937970afd3d6e30f4d44427ff",
+  "report_id": "v433_adversarial_f6465dd6305e90857ccb9c1a",
+  "research_only": true,
+  "unresolved_blockers": []
+}
