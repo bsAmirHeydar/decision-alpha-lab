@@ -1,0 +1,28 @@
+{
+  "$id": "https://schemas.alpha-lab.local/acl-os/acl-00/v1/subject_state.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "revision": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "state": {
+      "type": "string"
+    },
+    "subject_id": {
+      "type": "string"
+    },
+    "tenant_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "subject_id",
+    "tenant_id",
+    "state",
+    "revision"
+  ],
+  "title": "ACL-00 Subject State",
+  "type": "object"
+}

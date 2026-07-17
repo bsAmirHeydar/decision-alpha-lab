@@ -1,0 +1,60 @@
+{
+  "$id": "https://schemas.alpha-lab.local/acl-os/acl-00/v1/approval_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "approval_id": {
+      "pattern": "^APR_[A-Z0-9_:-]{4,120}$",
+      "type": "string"
+    },
+    "approved_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "approver": {
+      "$ref": "actor.schema.json"
+    },
+    "disposition": {
+      "enum": [
+        "APPROVE",
+        "REJECT",
+        "ABSTAIN"
+      ]
+    },
+    "expires_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "reason_code": {
+      "type": "string"
+    },
+    "request_digest": {
+      "pattern": "^sha256:[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "signature": {
+      "minLength": 20,
+      "type": "string"
+    },
+    "transition_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "approval_id",
+    "transition_id",
+    "approver",
+    "role",
+    "disposition",
+    "approved_at",
+    "expires_at",
+    "request_digest",
+    "signature",
+    "reason_code"
+  ],
+  "title": "ACL-00 Approval Record",
+  "type": "object"
+}

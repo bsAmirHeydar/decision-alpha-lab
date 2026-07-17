@@ -1,0 +1,46 @@
+{
+  "$id": "https://schemas.alpha-lab.local/acl-os/acl-00/v1/evaluation_bundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "approvals": {
+      "items": {
+        "$ref": "approval_record.schema.json"
+      },
+      "type": "array"
+    },
+    "evidence": {
+      "items": {
+        "$ref": "evidence_record.schema.json"
+      },
+      "type": "array"
+    },
+    "request": {
+      "$ref": "transition_request.schema.json"
+    },
+    "security_results": {
+      "items": {
+        "$ref": "security_hook_result.schema.json"
+      },
+      "type": "array"
+    },
+    "waiver": {
+      "oneOf": [
+        {
+          "$ref": "waiver_record.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "request",
+    "evidence",
+    "approvals",
+    "security_results"
+  ],
+  "title": "ACL-00 Evaluation Bundle",
+  "type": "object"
+}

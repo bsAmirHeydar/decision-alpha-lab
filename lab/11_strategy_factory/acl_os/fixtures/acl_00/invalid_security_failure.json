@@ -1,0 +1,135 @@
+{
+  "approvals": [
+    {
+      "approval_id": "APR_DOCTRINE_001",
+      "approved_at": "2026-07-17T12:00:00Z",
+      "approver": {
+        "actor_id": "USR_DOCTRINE_REVIEWER",
+        "attributes": {},
+        "authentication_strength": "HARDWARE_MFA",
+        "roles": [
+          "DOCTRINE_REVIEWER"
+        ],
+        "service_identity": false,
+        "tenant_id": "TEN_ALPHA"
+      },
+      "disposition": "APPROVE",
+      "expires_at": "2026-07-18T12:00:00Z",
+      "reason_code": "SEMANTICS_COMPLETE",
+      "request_digest": "sha256:f5918848e160dff47bfa50cc1811879c218e1bf0845b2d500ab877a9c04ac521",
+      "role": "DOCTRINE_REVIEWER",
+      "signature": "sig:doctrine-reviewer:000001",
+      "transition_id": "TRN_CTX_DEMO_SEMANTIC_001"
+    }
+  ],
+  "evidence": [
+    {
+      "artifact_ref": {
+        "artifact_id": "RPT_SEMANTIC_COMPLETENESS_001",
+        "digest": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "locator": "reports/semantic.json",
+        "version": "1.0.0"
+      },
+      "claims": [
+        "SEMANTIC_COMPLETENESS"
+      ],
+      "environment": "REVIEW",
+      "evidence_class": "DERIVED",
+      "evidence_id": "EVD_SEMANTIC_COMPLETENESS_001",
+      "immutable": true,
+      "known_at": "2026-07-17T12:00:00Z",
+      "observed_at": "2026-07-17T12:00:00Z",
+      "producer": "ACL_CONTEXT_VALIDATOR",
+      "subject_ref": {
+        "artifact_id": "CTX_DEMO_ALPHA",
+        "digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "locator": "contexts/CTX_DEMO_ALPHA",
+        "version": "1.0.0"
+      }
+    }
+  ],
+  "request": {
+    "claim_requested": "RESEARCH_TRIAGE",
+    "evidence_ids": [
+      "EVD_SEMANTIC_COMPLETENESS_001"
+    ],
+    "expected_revision": 0,
+    "from_state": "DRAFT_CONTEXT",
+    "metadata": {
+      "request_digest": "sha256:f5918848e160dff47bfa50cc1811879c218e1bf0845b2d500ab877a9c04ac521"
+    },
+    "rationale": "Validate the frozen semantic definition of the demo context.",
+    "requested_at": "2026-07-17T12:00:00Z",
+    "requested_by": {
+      "actor_id": "USR_CONTEXT_OWNER",
+      "attributes": {},
+      "authentication_strength": "HARDWARE_MFA",
+      "roles": [
+        "CONTEXT_OWNER"
+      ],
+      "service_identity": false,
+      "tenant_id": "TEN_ALPHA"
+    },
+    "schema_version": "1.0.0",
+    "subject_ref": {
+      "artifact_id": "CTX_DEMO_ALPHA",
+      "digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "locator": "contexts/CTX_DEMO_ALPHA",
+      "version": "1.0.0"
+    },
+    "tenant_id": "TEN_ALPHA",
+    "to_state": "SEMANTICALLY_VALIDATED",
+    "transition_id": "TRN_CTX_DEMO_SEMANTIC_001"
+  },
+  "security_results": [
+    {
+      "control_id": "SEC_IDENTITY_STRONG",
+      "evaluated_at": "2026-07-17T12:00:00Z",
+      "evaluator": "ACL_SECURITY_GATE",
+      "evidence_refs": [],
+      "expires_at": "2026-07-18T12:00:00Z",
+      "reason_code": "PASS",
+      "severity": "HIGH",
+      "status": "FAIL",
+      "subject_ref": {
+        "artifact_id": "CTX_DEMO_ALPHA",
+        "digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "locator": "contexts/CTX_DEMO_ALPHA",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "control_id": "SEC_SUBJECT_INTEGRITY",
+      "evaluated_at": "2026-07-17T12:00:00Z",
+      "evaluator": "ACL_SECURITY_GATE",
+      "evidence_refs": [],
+      "expires_at": "2026-07-18T12:00:00Z",
+      "reason_code": "PASS",
+      "severity": "HIGH",
+      "status": "PASS",
+      "subject_ref": {
+        "artifact_id": "CTX_DEMO_ALPHA",
+        "digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "locator": "contexts/CTX_DEMO_ALPHA",
+        "version": "1.0.0"
+      }
+    },
+    {
+      "control_id": "SEC_AUDIT_AVAILABLE",
+      "evaluated_at": "2026-07-17T12:00:00Z",
+      "evaluator": "ACL_SECURITY_GATE",
+      "evidence_refs": [],
+      "expires_at": "2026-07-18T12:00:00Z",
+      "reason_code": "PASS",
+      "severity": "HIGH",
+      "status": "PASS",
+      "subject_ref": {
+        "artifact_id": "CTX_DEMO_ALPHA",
+        "digest": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "locator": "contexts/CTX_DEMO_ALPHA",
+        "version": "1.0.0"
+      }
+    }
+  ],
+  "waiver": null
+}

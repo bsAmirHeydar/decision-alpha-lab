@@ -1,0 +1,109 @@
+{
+  "$id": "https://schemas.alpha-lab.local/acl-os/acl-00/v1/transition_decision.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_next_actions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "applied_waiver_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "approval_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "capital_activation_allowed": {
+      "const": false
+    },
+    "decided_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "decision": {
+      "enum": [
+        "ALLOW",
+        "DENY",
+        "WAIVE"
+      ]
+    },
+    "decision_id": {
+      "type": "string"
+    },
+    "evidence_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "from_state": {
+      "type": "string"
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    },
+    "policy_bundle_digest": {
+      "pattern": "^sha256:[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "reasons": {
+      "items": {
+        "$ref": "reason.schema.json"
+      },
+      "type": "array"
+    },
+    "resulting_revision": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "security_control_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "subject_ref": {
+      "$ref": "artifact_ref.schema.json"
+    },
+    "to_state": {
+      "type": "string"
+    },
+    "transition_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "decision_id",
+    "transition_id",
+    "subject_ref",
+    "from_state",
+    "to_state",
+    "decision",
+    "reasons",
+    "applied_waiver_ids",
+    "evidence_ids",
+    "approval_ids",
+    "security_control_ids",
+    "decided_at",
+    "policy_bundle_digest",
+    "allowed_next_actions",
+    "resulting_revision",
+    "capital_activation_allowed",
+    "live_order_submission_allowed"
+  ],
+  "title": "ACL-00 Transition Decision",
+  "type": "object"
+}

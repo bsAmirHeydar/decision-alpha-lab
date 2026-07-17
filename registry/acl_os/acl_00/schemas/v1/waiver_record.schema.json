@@ -1,0 +1,68 @@
+{
+  "$id": "https://schemas.alpha-lab.local/acl-os/acl-00/v1/waiver_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "approvals": {
+      "items": {
+        "$ref": "approval_record.schema.json"
+      },
+      "minItems": 2,
+      "type": "array"
+    },
+    "compensating_controls": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "expires_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "issued_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "issued_by": {
+      "$ref": "actor.schema.json"
+    },
+    "signature": {
+      "minLength": 20,
+      "type": "string"
+    },
+    "subject_ref": {
+      "$ref": "artifact_ref.schema.json"
+    },
+    "transition_id": {
+      "type": "string"
+    },
+    "waived_policy_ids": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "waiver_id": {
+      "pattern": "^WVR_[A-Z0-9_:-]{4,120}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "waiver_id",
+    "transition_id",
+    "waived_policy_ids",
+    "subject_ref",
+    "issued_by",
+    "issued_at",
+    "expires_at",
+    "compensating_controls",
+    "approvals",
+    "signature"
+  ],
+  "title": "ACL-00 Waiver Record",
+  "type": "object"
+}

@@ -1,0 +1,401 @@
+{
+  "schema_version": "1.0.0",
+  "transitions": {
+    "BATCH_REGISTERED->RESEARCH_RUNNING": {
+      "approval_policy": "none",
+      "claim_ceiling": "RESEARCH_TRIAGE",
+      "evidence_policy": "batch",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "base"
+    },
+    "BATCH_REGISTERED->RETIRED": {
+      "approval_policy": "retirement",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "retirement",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "runtime"
+    },
+    "BATCH_REGISTERED->SUSPENDED": {
+      "approval_policy": "suspension",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "suspension",
+      "requester_capabilities": [
+        "SUSPEND"
+      ],
+      "security_policy": "base"
+    },
+    "CHAMPION->RETIRED": {
+      "approval_policy": "retirement",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "retirement",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "runtime"
+    },
+    "CONTEXT_COMPILED->REPLAY_VALIDATED": {
+      "approval_policy": "none",
+      "claim_ceiling": "RESEARCH_TRIAGE",
+      "evidence_policy": "replay",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "base"
+    },
+    "CONTEXT_COMPILED->RETIRED": {
+      "approval_policy": "retirement",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "retirement",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "runtime"
+    },
+    "CONTEXT_COMPILED->SUSPENDED": {
+      "approval_policy": "suspension",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "suspension",
+      "requester_capabilities": [
+        "SUSPEND"
+      ],
+      "security_policy": "base"
+    },
+    "DRAFT_CONTEXT->SEMANTICALLY_VALIDATED": {
+      "approval_policy": "semantic",
+      "claim_ceiling": "RESEARCH_TRIAGE",
+      "evidence_policy": "semantic",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "base"
+    },
+    "DRAFT_CONTEXT->SUSPENDED": {
+      "approval_policy": "suspension",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "suspension",
+      "requester_capabilities": [
+        "SUSPEND"
+      ],
+      "security_policy": "base"
+    },
+    "EVIDENCE_COMPLETE->RETIRED": {
+      "approval_policy": "retirement",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "retirement",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "runtime"
+    },
+    "EVIDENCE_COMPLETE->STATISTICALLY_ELIGIBLE": {
+      "approval_policy": "statistical",
+      "claim_ceiling": "STATISTICAL_ELIGIBILITY",
+      "evidence_policy": "statistical",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "research"
+    },
+    "EVIDENCE_COMPLETE->SUSPENDED": {
+      "approval_policy": "suspension",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "suspension",
+      "requester_capabilities": [
+        "SUSPEND"
+      ],
+      "security_policy": "base"
+    },
+    "MICRO_LIVE_ELIGIBLE->CHAMPION": {
+      "approval_policy": "champion",
+      "claim_ceiling": "SIGNED_AUTHORIZATION_REQUIRED",
+      "evidence_policy": "champion",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "capital"
+    },
+    "MICRO_LIVE_ELIGIBLE->RETIRED": {
+      "approval_policy": "retirement",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "retirement",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "runtime"
+    },
+    "MICRO_LIVE_ELIGIBLE->SUSPENDED": {
+      "approval_policy": "suspension",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "suspension",
+      "requester_capabilities": [
+        "SUSPEND"
+      ],
+      "security_policy": "base"
+    },
+    "OCCURRENCE_DATASET_READY->RETIRED": {
+      "approval_policy": "retirement",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "retirement",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "runtime"
+    },
+    "OCCURRENCE_DATASET_READY->SETUP_UNIVERSE_READY": {
+      "approval_policy": "research",
+      "claim_ceiling": "RESEARCH_TRIAGE",
+      "evidence_policy": "setup",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "base"
+    },
+    "OCCURRENCE_DATASET_READY->SUSPENDED": {
+      "approval_policy": "suspension",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "suspension",
+      "requester_capabilities": [
+        "SUSPEND"
+      ],
+      "security_policy": "base"
+    },
+    "PAPER_CHALLENGER->RETIRED": {
+      "approval_policy": "retirement",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "retirement",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "runtime"
+    },
+    "PAPER_CHALLENGER->SHADOW_CHALLENGER": {
+      "approval_policy": "shadow",
+      "claim_ceiling": "SHADOW_EVIDENCE",
+      "evidence_policy": "shadow",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "runtime"
+    },
+    "PAPER_CHALLENGER->SUSPENDED": {
+      "approval_policy": "suspension",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "suspension",
+      "requester_capabilities": [
+        "SUSPEND"
+      ],
+      "security_policy": "base"
+    },
+    "REPLAY_VALIDATED->OCCURRENCE_DATASET_READY": {
+      "approval_policy": "data",
+      "claim_ceiling": "RESEARCH_TRIAGE",
+      "evidence_policy": "observed_data",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "base"
+    },
+    "REPLAY_VALIDATED->RETIRED": {
+      "approval_policy": "retirement",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "retirement",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "runtime"
+    },
+    "REPLAY_VALIDATED->SUSPENDED": {
+      "approval_policy": "suspension",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "suspension",
+      "requester_capabilities": [
+        "SUSPEND"
+      ],
+      "security_policy": "base"
+    },
+    "RESEARCH_RUNNING->EVIDENCE_COMPLETE": {
+      "approval_policy": "research",
+      "claim_ceiling": "STATISTICAL_ELIGIBILITY",
+      "evidence_policy": "research_complete",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "research"
+    },
+    "RESEARCH_RUNNING->RETIRED": {
+      "approval_policy": "retirement",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "retirement",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "runtime"
+    },
+    "RESEARCH_RUNNING->SUSPENDED": {
+      "approval_policy": "suspension",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "suspension",
+      "requester_capabilities": [
+        "SUSPEND"
+      ],
+      "security_policy": "base"
+    },
+    "RUNTIME_COMPATIBLE->PAPER_CHALLENGER": {
+      "approval_policy": "paper",
+      "claim_ceiling": "PAPER_EVIDENCE",
+      "evidence_policy": "paper",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "runtime"
+    },
+    "RUNTIME_COMPATIBLE->RETIRED": {
+      "approval_policy": "retirement",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "retirement",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "runtime"
+    },
+    "RUNTIME_COMPATIBLE->SUSPENDED": {
+      "approval_policy": "suspension",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "suspension",
+      "requester_capabilities": [
+        "SUSPEND"
+      ],
+      "security_policy": "base"
+    },
+    "SEMANTICALLY_VALIDATED->CONTEXT_COMPILED": {
+      "approval_policy": "none",
+      "claim_ceiling": "RESEARCH_TRIAGE",
+      "evidence_policy": "compile",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "base"
+    },
+    "SEMANTICALLY_VALIDATED->RETIRED": {
+      "approval_policy": "retirement",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "retirement",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "runtime"
+    },
+    "SEMANTICALLY_VALIDATED->SUSPENDED": {
+      "approval_policy": "suspension",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "suspension",
+      "requester_capabilities": [
+        "SUSPEND"
+      ],
+      "security_policy": "base"
+    },
+    "SETUP_UNIVERSE_READY->BATCH_REGISTERED": {
+      "approval_policy": "research",
+      "claim_ceiling": "RESEARCH_TRIAGE",
+      "evidence_policy": "batch",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "base"
+    },
+    "SETUP_UNIVERSE_READY->RETIRED": {
+      "approval_policy": "retirement",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "retirement",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "runtime"
+    },
+    "SETUP_UNIVERSE_READY->SUSPENDED": {
+      "approval_policy": "suspension",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "suspension",
+      "requester_capabilities": [
+        "SUSPEND"
+      ],
+      "security_policy": "base"
+    },
+    "SHADOW_CHALLENGER->MICRO_LIVE_ELIGIBLE": {
+      "approval_policy": "micro_live",
+      "claim_ceiling": "MICRO_LIVE_EVIDENCE",
+      "evidence_policy": "micro_live",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "capital"
+    },
+    "SHADOW_CHALLENGER->RETIRED": {
+      "approval_policy": "retirement",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "retirement",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "runtime"
+    },
+    "SHADOW_CHALLENGER->SUSPENDED": {
+      "approval_policy": "suspension",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "suspension",
+      "requester_capabilities": [
+        "SUSPEND"
+      ],
+      "security_policy": "base"
+    },
+    "STATISTICALLY_ELIGIBLE->RETIRED": {
+      "approval_policy": "retirement",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "retirement",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "runtime"
+    },
+    "STATISTICALLY_ELIGIBLE->RUNTIME_COMPATIBLE": {
+      "approval_policy": "runtime",
+      "claim_ceiling": "STATISTICAL_ELIGIBILITY",
+      "evidence_policy": "runtime",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "runtime"
+    },
+    "STATISTICALLY_ELIGIBLE->SUSPENDED": {
+      "approval_policy": "suspension",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "suspension",
+      "requester_capabilities": [
+        "SUSPEND"
+      ],
+      "security_policy": "base"
+    },
+    "SUSPENDED->DRAFT_CONTEXT": {
+      "approval_policy": "reinstatement",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "reinstatement",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "runtime"
+    },
+    "SUSPENDED->RETIRED": {
+      "approval_policy": "retirement",
+      "claim_ceiling": "REFERENCE_ONLY",
+      "evidence_policy": "retirement",
+      "requester_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "security_policy": "runtime"
+    }
+  }
+}

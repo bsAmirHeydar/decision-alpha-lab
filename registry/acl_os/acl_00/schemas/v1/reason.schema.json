@@ -1,0 +1,30 @@
+{
+  "$id": "https://schemas.alpha-lab.local/acl-os/acl-00/v1/reason.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "code": {
+      "type": "string"
+    },
+    "details": {
+      "type": "object"
+    },
+    "message": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "waivable": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "code",
+    "message",
+    "waivable",
+    "details"
+  ],
+  "title": "ACL-00 Reason",
+  "type": "object"
+}

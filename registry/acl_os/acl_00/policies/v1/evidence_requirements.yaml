@@ -1,0 +1,172 @@
+{
+  "policies": {
+    "batch": {
+      "required_claims": [
+        "IMMUTABLE_BATCH"
+      ],
+      "required_classes": {
+        "DERIVED": 1
+      },
+      "waivable": false
+    },
+    "champion": {
+      "required_claims": [
+        "CHAMPION_PROMOTION",
+        "ROLLBACK_VERIFIED"
+      ],
+      "required_classes": {
+        "AUTHORIZATION": 3,
+        "OPERATIONAL": 3
+      },
+      "waivable": false
+    },
+    "compile": {
+      "required_claims": [
+        "CONTEXT_COMPILED"
+      ],
+      "required_classes": {
+        "DERIVED": 1
+      },
+      "waivable": false
+    },
+    "default": {
+      "required_claims": [],
+      "required_classes": {},
+      "waivable": false
+    },
+    "micro_live": {
+      "required_claims": [
+        "MICRO_LIVE_QUALIFICATION",
+        "CAPITAL_LIMITS_SIGNED"
+      ],
+      "required_classes": {
+        "AUTHORIZATION": 2,
+        "OPERATIONAL": 2
+      },
+      "waivable": false
+    },
+    "observed_data": {
+      "required_claims": [
+        "KNOWN_TIME_SAFE",
+        "DATA_LINEAGE"
+      ],
+      "required_classes": {
+        "DERIVED": 1,
+        "OBSERVED": 1
+      },
+      "waivable": false
+    },
+    "paper": {
+      "required_claims": [
+        "FROZEN_PAPER_PLAN"
+      ],
+      "required_classes": {
+        "AUTHORIZATION": 1,
+        "PROSPECTIVE": 1
+      },
+      "waivable": false
+    },
+    "reinstatement": {
+      "required_claims": [
+        "ROOT_CAUSE_CLOSED"
+      ],
+      "required_classes": {
+        "AUTHORIZATION": 1,
+        "DERIVED": 1
+      },
+      "waivable": false
+    },
+    "replay": {
+      "required_claims": [
+        "DETERMINISTIC_REPLAY"
+      ],
+      "required_classes": {
+        "DERIVED": 1,
+        "SYNTHETIC": 1
+      },
+      "waivable": false
+    },
+    "research_complete": {
+      "required_claims": [
+        "TRIAL_LEDGER_COMPLETE",
+        "SEARCH_EXPOSURE_COMPLETE"
+      ],
+      "required_classes": {
+        "DERIVED": 1,
+        "ESTIMATED": 1
+      },
+      "waivable": false
+    },
+    "retirement": {
+      "required_claims": [
+        "RETIREMENT_IMPACT_ANALYSIS"
+      ],
+      "required_classes": {
+        "AUTHORIZATION": 1,
+        "DERIVED": 1
+      },
+      "waivable": false
+    },
+    "runtime": {
+      "required_claims": [
+        "RUNTIME_BUNDLE_IMMUTABLE",
+        "PARITY_EVIDENCE"
+      ],
+      "required_classes": {
+        "DERIVED": 2,
+        "OPERATIONAL": 1
+      },
+      "waivable": false
+    },
+    "semantic": {
+      "allowed_environments": [
+        "AUTHORING",
+        "REVIEW"
+      ],
+      "required_claims": [
+        "SEMANTIC_COMPLETENESS"
+      ],
+      "required_classes": {
+        "DERIVED": 1
+      },
+      "waivable": false
+    },
+    "setup": {
+      "required_claims": [
+        "SETUP_UNIVERSE_FROZEN"
+      ],
+      "required_classes": {
+        "DERIVED": 1
+      },
+      "waivable": false
+    },
+    "shadow": {
+      "required_claims": [
+        "SHADOW_RECONCILIATION"
+      ],
+      "required_classes": {
+        "AUTHORIZATION": 1,
+        "OPERATIONAL": 1,
+        "PROSPECTIVE": 1
+      },
+      "waivable": false
+    },
+    "statistical": {
+      "required_claims": [
+        "ANTI_OVERFIT_COMPLETE",
+        "GENERALIZATION_COMPLETE"
+      ],
+      "required_classes": {
+        "AUTHORIZATION": 1,
+        "ESTIMATED": 2
+      },
+      "waivable": false
+    },
+    "suspension": {
+      "required_claims": [],
+      "required_classes": {},
+      "waivable": false
+    }
+  },
+  "schema_version": "1.0.0"
+}

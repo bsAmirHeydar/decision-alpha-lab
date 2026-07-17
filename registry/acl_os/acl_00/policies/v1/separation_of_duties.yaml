@@ -1,0 +1,10 @@
+{
+  "rules": {
+    "capital_authority_cannot_be_model_risk_reviewer_on_same_decision": true,
+    "independent_role_reuse_forbidden": true,
+    "requester_approver_separation": true,
+    "security_reviewer_cannot_sign_own_security_control": true,
+    "service_identity_cannot_authorize_capital": true
+  },
+  "schema_version": "1.0.0"
+}

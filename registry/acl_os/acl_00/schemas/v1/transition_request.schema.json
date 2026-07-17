@@ -1,0 +1,74 @@
+{
+  "$id": "https://schemas.alpha-lab.local/acl-os/acl-00/v1/transition_request.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "claim_requested": {
+      "type": "string"
+    },
+    "evidence_ids": {
+      "items": {
+        "pattern": "^EVD_[A-Z0-9_:-]{4,120}$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "expected_revision": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "from_state": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "rationale": {
+      "minLength": 8,
+      "type": "string"
+    },
+    "requested_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "requested_by": {
+      "$ref": "actor.schema.json"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "subject_ref": {
+      "$ref": "artifact_ref.schema.json"
+    },
+    "tenant_id": {
+      "pattern": "^TEN_[A-Z0-9_:-]{2,80}$",
+      "type": "string"
+    },
+    "to_state": {
+      "type": "string"
+    },
+    "transition_id": {
+      "pattern": "^TRN_[A-Z0-9_:-]{6,120}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "transition_id",
+    "subject_ref",
+    "tenant_id",
+    "from_state",
+    "to_state",
+    "requested_by",
+    "requested_at",
+    "expected_revision",
+    "evidence_ids",
+    "rationale",
+    "claim_requested",
+    "metadata"
+  ],
+  "title": "ACL-00 Transition Request",
+  "type": "object"
+}

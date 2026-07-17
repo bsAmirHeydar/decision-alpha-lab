@@ -1,0 +1,38 @@
+{
+  "$id": "https://schemas.alpha-lab.local/acl-os/acl-00/v1/authority_decision.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actor": {
+      "$ref": "actor.schema.json"
+    },
+    "allowed": {
+      "type": "boolean"
+    },
+    "capabilities": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "evaluated_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "reasons": {
+      "items": {
+        "$ref": "reason.schema.json"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "actor",
+    "capabilities",
+    "allowed",
+    "reasons",
+    "evaluated_at"
+  ],
+  "title": "ACL-00 Authority Decision Envelope",
+  "type": "object"
+}

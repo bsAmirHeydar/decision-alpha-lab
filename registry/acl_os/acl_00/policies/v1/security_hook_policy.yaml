@@ -1,0 +1,73 @@
+{
+  "policies": {
+    "base": {
+      "known_controls": [
+        "SEC_IDENTITY_STRONG",
+        "SEC_SUBJECT_INTEGRITY",
+        "SEC_AUDIT_AVAILABLE"
+      ],
+      "reject_unknown_controls": true,
+      "required_controls": [
+        "SEC_IDENTITY_STRONG",
+        "SEC_SUBJECT_INTEGRITY",
+        "SEC_AUDIT_AVAILABLE"
+      ]
+    },
+    "capital": {
+      "known_controls": [
+        "SEC_IDENTITY_STRONG",
+        "SEC_SUBJECT_INTEGRITY",
+        "SEC_AUDIT_AVAILABLE",
+        "SEC_ARTIFACT_SIGNATURE",
+        "SEC_SUPPLY_CHAIN_CLEAR",
+        "SEC_KEY_CUSTODY",
+        "SEC_KILL_SWITCH",
+        "SEC_CAPITAL_ISOLATION"
+      ],
+      "reject_unknown_controls": true,
+      "required_controls": [
+        "SEC_IDENTITY_STRONG",
+        "SEC_SUBJECT_INTEGRITY",
+        "SEC_AUDIT_AVAILABLE",
+        "SEC_ARTIFACT_SIGNATURE",
+        "SEC_SUPPLY_CHAIN_CLEAR",
+        "SEC_KEY_CUSTODY",
+        "SEC_KILL_SWITCH",
+        "SEC_CAPITAL_ISOLATION"
+      ]
+    },
+    "research": {
+      "known_controls": [
+        "SEC_IDENTITY_STRONG",
+        "SEC_SUBJECT_INTEGRITY",
+        "SEC_AUDIT_AVAILABLE",
+        "SEC_RESEARCH_ENV_ISOLATED"
+      ],
+      "reject_unknown_controls": true,
+      "required_controls": [
+        "SEC_IDENTITY_STRONG",
+        "SEC_SUBJECT_INTEGRITY",
+        "SEC_AUDIT_AVAILABLE",
+        "SEC_RESEARCH_ENV_ISOLATED"
+      ]
+    },
+    "runtime": {
+      "known_controls": [
+        "SEC_IDENTITY_STRONG",
+        "SEC_SUBJECT_INTEGRITY",
+        "SEC_AUDIT_AVAILABLE",
+        "SEC_ARTIFACT_SIGNATURE",
+        "SEC_SUPPLY_CHAIN_CLEAR"
+      ],
+      "reject_unknown_controls": true,
+      "required_controls": [
+        "SEC_IDENTITY_STRONG",
+        "SEC_SUBJECT_INTEGRITY",
+        "SEC_AUDIT_AVAILABLE",
+        "SEC_ARTIFACT_SIGNATURE",
+        "SEC_SUPPLY_CHAIN_CLEAR"
+      ]
+    }
+  },
+  "schema_version": "1.0.0"
+}

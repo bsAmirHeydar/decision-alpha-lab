@@ -1,0 +1,14 @@
+{
+  "bindings": {
+    "CHAMPION": "SIGNED_AUTHORIZATION_REQUIRED",
+    "DRAFT_CONTEXT": "RESEARCH_TRIAGE",
+    "MICRO_LIVE_ELIGIBLE": "MICRO_LIVE_EVIDENCE",
+    "PAPER_CHALLENGER": "PAPER_EVIDENCE",
+    "SHADOW_CHALLENGER": "SHADOW_EVIDENCE",
+    "STATISTICALLY_ELIGIBLE": "STATISTICAL_ELIGIBILITY"
+  },
+  "capital_activation_allowed": false,
+  "live_order_submission_allowed": false,
+  "phase_claim_ceiling": "REFERENCE_CONTROL_PLANE",
+  "schema_version": "1.0.0"
+}

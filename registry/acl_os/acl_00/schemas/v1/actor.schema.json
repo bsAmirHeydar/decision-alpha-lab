@@ -1,0 +1,50 @@
+{
+  "$id": "https://schemas.alpha-lab.local/acl-os/acl-00/v1/actor.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actor_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "attributes": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "authentication_strength": {
+      "enum": [
+        "MFA",
+        "HARDWARE_MFA",
+        "WORKLOAD_IDENTITY"
+      ]
+    },
+    "roles": {
+      "items": {
+        "pattern": "^[A-Z][A-Z0-9_]{2,80}$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "service_identity": {
+      "type": "boolean"
+    },
+    "tenant_id": {
+      "pattern": "^TEN_[A-Z0-9_:-]{2,80}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "actor_id",
+    "roles",
+    "tenant_id",
+    "authentication_strength",
+    "service_identity",
+    "attributes"
+  ],
+  "title": "Actor",
+  "type": "object"
+}

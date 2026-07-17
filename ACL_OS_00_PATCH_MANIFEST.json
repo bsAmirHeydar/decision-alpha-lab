@@ -1,0 +1,35 @@
+{
+  "architecture_dependency": "ACL_OS_ARCHITECTURE_V1",
+  "capital_activation_allowed": false,
+  "claim_ceiling": "REFERENCE_CONTROL_PLANE",
+  "created_at": "2026-07-17",
+  "delivery_file_count": 167,
+  "live_order_submission_allowed": false,
+  "next_phase": "ACL-01 Repository, Identity and Artifact Locator",
+  "patch_id": "ACL_OS_00_CONSTITUTION_UNIFIED_AUTHORITY_V1",
+  "policy_bundle_digest": "sha256:afa152740cfdf4e50f278777a98add238c5fccb6580a5e95c0ab47c869bc7d85",
+  "production_authorized": false,
+  "qa": {
+    "architecture_wikilink_closure": true,
+    "atomic_concepts": 59,
+    "closed_schemas": 14,
+    "mql5_static_files": 6,
+    "phase_delivery_notes": 31,
+    "policy_documents": 10,
+    "python_tests": 78
+  },
+  "scope": [
+    "lifecycle authority",
+    "evidence admissibility",
+    "approval and separation of duties",
+    "security hooks",
+    "claim ceilings",
+    "waiver governance",
+    "optimistic concurrency",
+    "tamper-evident audit",
+    "MQL5 static mirror"
+  ],
+  "status": "accepted_reference_implementation",
+  "title": "ACL-00 Constitution and Unified Authority",
+  "version": "1.0.0"
+}

@@ -1,0 +1,114 @@
+{
+  "policies": {
+    "champion": {
+      "distinct_approvers": true,
+      "distinct_roles": true,
+      "requester_cannot_approve": true,
+      "required_roles": {
+        "CAPITAL_AUTHORITY": 1,
+        "INDEPENDENT_REVIEWER": 1,
+        "MODEL_RISK_REVIEWER": 1,
+        "MQL5_RUNTIME_REVIEWER": 1,
+        "SECURITY_REVIEWER": 1
+      }
+    },
+    "data": {
+      "distinct_approvers": true,
+      "requester_cannot_approve": true,
+      "required_roles": {
+        "DATA_GOVERNANCE_REVIEWER": 1
+      }
+    },
+    "micro_live": {
+      "distinct_approvers": true,
+      "distinct_roles": true,
+      "requester_cannot_approve": true,
+      "required_roles": {
+        "CAPITAL_AUTHORITY": 1,
+        "INDEPENDENT_REVIEWER": 1,
+        "MODEL_RISK_REVIEWER": 1,
+        "SECURITY_REVIEWER": 1
+      }
+    },
+    "none": {
+      "requester_cannot_approve": true,
+      "required_roles": {}
+    },
+    "paper": {
+      "distinct_approvers": true,
+      "distinct_roles": true,
+      "requester_cannot_approve": true,
+      "required_roles": {
+        "MODEL_RISK_REVIEWER": 1,
+        "PAPER_OPERATOR": 1
+      }
+    },
+    "reinstatement": {
+      "distinct_approvers": true,
+      "distinct_roles": true,
+      "requester_cannot_approve": true,
+      "required_roles": {
+        "INDEPENDENT_REVIEWER": 1,
+        "SECURITY_REVIEWER": 1
+      }
+    },
+    "research": {
+      "distinct_approvers": true,
+      "requester_cannot_approve": true,
+      "required_roles": {
+        "RESEARCH_REVIEWER": 1
+      }
+    },
+    "retirement": {
+      "distinct_approvers": true,
+      "distinct_roles": true,
+      "requester_cannot_approve": true,
+      "required_roles": {
+        "CAPITAL_AUTHORITY": 1,
+        "INDEPENDENT_REVIEWER": 1,
+        "MODEL_RISK_REVIEWER": 1
+      }
+    },
+    "runtime": {
+      "distinct_approvers": true,
+      "distinct_roles": true,
+      "requester_cannot_approve": true,
+      "required_roles": {
+        "MQL5_RUNTIME_REVIEWER": 1,
+        "RUNTIME_ENGINEER": 1,
+        "SECURITY_REVIEWER": 1
+      }
+    },
+    "semantic": {
+      "distinct_approvers": true,
+      "requester_cannot_approve": true,
+      "required_roles": {
+        "DOCTRINE_REVIEWER": 1
+      }
+    },
+    "shadow": {
+      "distinct_approvers": true,
+      "distinct_roles": true,
+      "requester_cannot_approve": true,
+      "required_roles": {
+        "INDEPENDENT_REVIEWER": 1,
+        "SECURITY_REVIEWER": 1,
+        "SHADOW_OPERATOR": 1
+      }
+    },
+    "statistical": {
+      "distinct_approvers": true,
+      "distinct_roles": true,
+      "requester_cannot_approve": true,
+      "required_roles": {
+        "INDEPENDENT_REVIEWER": 1,
+        "MODEL_RISK_REVIEWER": 1
+      }
+    },
+    "suspension": {
+      "requester_cannot_approve": false,
+      "required_roles": {}
+    }
+  },
+  "schema_version": "1.0.0"
+}

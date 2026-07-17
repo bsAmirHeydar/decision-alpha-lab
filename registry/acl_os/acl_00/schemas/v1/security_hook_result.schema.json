@@ -1,0 +1,64 @@
+{
+  "$id": "https://schemas.alpha-lab.local/acl-os/acl-00/v1/security_hook_result.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "control_id": {
+      "pattern": "^SEC_[A-Z0-9_.:-]{3,120}$",
+      "type": "string"
+    },
+    "evaluated_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "evaluator": {
+      "type": "string"
+    },
+    "evidence_refs": {
+      "items": {
+        "$ref": "artifact_ref.schema.json"
+      },
+      "type": "array"
+    },
+    "expires_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "reason_code": {
+      "type": "string"
+    },
+    "severity": {
+      "enum": [
+        "INFO",
+        "LOW",
+        "MEDIUM",
+        "HIGH",
+        "CRITICAL"
+      ]
+    },
+    "status": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "DEGRADED",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "subject_ref": {
+      "$ref": "artifact_ref.schema.json"
+    }
+  },
+  "required": [
+    "control_id",
+    "status",
+    "severity",
+    "evaluated_at",
+    "expires_at",
+    "evaluator",
+    "subject_ref",
+    "evidence_refs",
+    "reason_code"
+  ],
+  "title": "ACL-00 Security Hook Result",
+  "type": "object"
+}

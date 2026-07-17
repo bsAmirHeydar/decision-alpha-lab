@@ -1,0 +1,95 @@
+{
+  "actions": {
+    "COMPILE_CONTEXT": {
+      "required_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "states": [
+        "SEMANTICALLY_VALIDATED"
+      ]
+    },
+    "EDIT_CONTEXT": {
+      "required_capabilities": [
+        "AUTHOR_CONTEXT"
+      ],
+      "states": [
+        "DRAFT_CONTEXT"
+      ]
+    },
+    "PROPOSE_SEMANTIC_VALIDATION": {
+      "required_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "states": [
+        "DRAFT_CONTEXT"
+      ]
+    },
+    "READ_AUDIT": {
+      "required_capabilities": [
+        "READ_AUDIT"
+      ],
+      "states": [
+        "DRAFT_CONTEXT",
+        "SEMANTICALLY_VALIDATED",
+        "CONTEXT_COMPILED",
+        "REPLAY_VALIDATED",
+        "OCCURRENCE_DATASET_READY",
+        "SETUP_UNIVERSE_READY",
+        "BATCH_REGISTERED",
+        "RESEARCH_RUNNING",
+        "EVIDENCE_COMPLETE",
+        "STATISTICALLY_ELIGIBLE",
+        "RUNTIME_COMPATIBLE",
+        "PAPER_CHALLENGER",
+        "SHADOW_CHALLENGER",
+        "MICRO_LIVE_ELIGIBLE",
+        "CHAMPION",
+        "SUSPENDED",
+        "RETIRED"
+      ]
+    },
+    "REQUEST_PROMOTION": {
+      "required_capabilities": [
+        "PROPOSE_TRANSITION"
+      ],
+      "states": [
+        "EVIDENCE_COMPLETE",
+        "STATISTICALLY_ELIGIBLE",
+        "RUNTIME_COMPATIBLE"
+      ]
+    },
+    "RUN_RESEARCH": {
+      "required_capabilities": [
+        "RUN_RESEARCH"
+      ],
+      "states": [
+        "BATCH_REGISTERED",
+        "RESEARCH_RUNNING"
+      ]
+    },
+    "SUSPEND": {
+      "required_capabilities": [
+        "SUSPEND"
+      ],
+      "states": [
+        "DRAFT_CONTEXT",
+        "SEMANTICALLY_VALIDATED",
+        "CONTEXT_COMPILED",
+        "REPLAY_VALIDATED",
+        "OCCURRENCE_DATASET_READY",
+        "SETUP_UNIVERSE_READY",
+        "BATCH_REGISTERED",
+        "RESEARCH_RUNNING",
+        "EVIDENCE_COMPLETE",
+        "STATISTICALLY_ELIGIBLE",
+        "RUNTIME_COMPATIBLE",
+        "PAPER_CHALLENGER",
+        "SHADOW_CHALLENGER",
+        "MICRO_LIVE_ELIGIBLE",
+        "CHAMPION",
+        "SUSPENDED"
+      ]
+    }
+  },
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,30 @@
+{
+  "$id": "https://schemas.alpha-lab.local/acl-os/acl-00/v1/artifact_ref.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "digest": {
+      "pattern": "^sha256:[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "locator": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_id",
+    "version",
+    "digest"
+  ],
+  "title": "Artifact Reference",
+  "type": "object"
+}

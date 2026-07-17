@@ -1,0 +1,60 @@
+{
+  "$id": "https://schemas.alpha-lab.local/acl-os/acl-00/v1/audit_event.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actor_id": {
+      "type": "string"
+    },
+    "event_hash": {
+      "pattern": "^sha256:[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "event_id": {
+      "type": "string"
+    },
+    "event_type": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "occurred_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "payload_digest": {
+      "pattern": "^sha256:[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "previous_hash": {
+      "pattern": "^sha256:[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "sequence": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "subject_id": {
+      "type": "string"
+    },
+    "tenant_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "sequence",
+    "event_id",
+    "event_type",
+    "tenant_id",
+    "subject_id",
+    "actor_id",
+    "occurred_at",
+    "payload_digest",
+    "previous_hash",
+    "event_hash",
+    "metadata"
+  ],
+  "title": "ACL-00 Audit Event",
+  "type": "object"
+}

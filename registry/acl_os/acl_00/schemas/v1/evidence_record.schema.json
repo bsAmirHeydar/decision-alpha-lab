@@ -1,0 +1,67 @@
+{
+  "$id": "https://schemas.alpha-lab.local/acl-os/acl-00/v1/evidence_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_ref": {
+      "$ref": "artifact_ref.schema.json"
+    },
+    "claims": {
+      "items": {
+        "pattern": "^[A-Z][A-Z0-9_]{2,100}$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "environment": {
+      "type": "string"
+    },
+    "evidence_class": {
+      "enum": [
+        "OBSERVED",
+        "DERIVED",
+        "ESTIMATED",
+        "SYNTHETIC",
+        "PROSPECTIVE",
+        "OPERATIONAL",
+        "AUTHORIZATION"
+      ]
+    },
+    "evidence_id": {
+      "pattern": "^EVD_[A-Z0-9_:-]{4,120}$",
+      "type": "string"
+    },
+    "immutable": {
+      "const": true
+    },
+    "known_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "observed_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "subject_ref": {
+      "$ref": "artifact_ref.schema.json"
+    }
+  },
+  "required": [
+    "evidence_id",
+    "evidence_class",
+    "subject_ref",
+    "artifact_ref",
+    "claims",
+    "observed_at",
+    "known_at",
+    "environment",
+    "immutable",
+    "producer"
+  ],
+  "title": "ACL-00 Evidence Record",
+  "type": "object"
+}

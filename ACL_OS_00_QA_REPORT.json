@@ -1,0 +1,73 @@
+{
+  "capital_activation_allowed": false,
+  "claim_ceiling": "REFERENCE_CONTROL_PLANE",
+  "live_order_submission_allowed": false,
+  "passed": true,
+  "pytest": {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "........................................................................ [ 92%]\n......                                                                   [100%]\n78 passed in 4.96s\n"
+  },
+  "validation": {
+    "checks": [
+      {
+        "code": "ACL00_SCHEMA_CLOSURE",
+        "details": {
+          "count": 14,
+          "errors": []
+        },
+        "message": "ACL-00 closed schemas",
+        "passed": true
+      },
+      {
+        "code": "ACL00_POLICY_BUNDLE",
+        "details": {
+          "digest": "sha256:afa152740cfdf4e50f278777a98add238c5fccb6580a5e95c0ab47c869bc7d85",
+          "error": null
+        },
+        "message": "policy bundle loads",
+        "passed": true
+      },
+      {
+        "code": "ACL00_TRANSITION_REFERENCES",
+        "details": {
+          "errors": []
+        },
+        "message": "transition references resolve",
+        "passed": true
+      },
+      {
+        "code": "ACL00_OBSIDIAN_DELIVERY",
+        "details": {
+          "bad_frontmatter": [],
+          "count": 31
+        },
+        "message": "phase delivery documentation",
+        "passed": true
+      },
+      {
+        "code": "ACL00_MQL5_STATIC",
+        "details": {
+          "count": 6,
+          "errors": []
+        },
+        "message": "MQL5 non-trading mirror",
+        "passed": true
+      },
+      {
+        "code": "ACL00_REQUIRED_ARTIFACTS",
+        "details": {
+          "missing": []
+        },
+        "message": "delivery artifacts present",
+        "passed": true
+      }
+    ],
+    "counts": {
+      "docs": 31,
+      "mql5": 6,
+      "schemas": 14
+    },
+    "passed": true
+  }
+}
