@@ -1,0 +1,14 @@
+{
+  "deny_by_default": true,
+  "ephemeral_tokens": true,
+  "least_privilege": true,
+  "live_credentials_accessible": false,
+  "memory_isolation": true,
+  "network_access": false,
+  "passed": true,
+  "phase": "SAED_V4_32",
+  "research_only": true,
+  "review_hash": "afcb98a68086915004f0c4398cead07cb649bd78ae4ce6768013497df15874db",
+  "review_id": "v432_security_review_41b4d3fc615cceca2d5d6c52",
+  "supply_chain_attestation": "static_reference_only"
+}

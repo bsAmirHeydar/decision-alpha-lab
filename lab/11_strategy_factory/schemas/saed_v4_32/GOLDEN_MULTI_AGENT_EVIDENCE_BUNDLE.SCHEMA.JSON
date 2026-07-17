@@ -1,0 +1,336 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bundle_hash": {
+      "type": "string"
+    },
+    "bundle_id": {
+      "type": "string"
+    },
+    "complete": {
+      "type": "boolean"
+    },
+    "evidence_hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "adversarial_report": {
+          "type": "string"
+        },
+        "agents": {
+          "type": "string"
+        },
+        "attribution": {
+          "type": "string"
+        },
+        "authority": {
+          "type": "string"
+        },
+        "blocking_issues": {
+          "type": "string"
+        },
+        "budget_ledger": {
+          "type": "string"
+        },
+        "budgets": {
+          "type": "string"
+        },
+        "capabilities": {
+          "type": "string"
+        },
+        "checkpoints": {
+          "type": "string"
+        },
+        "claim_graph": {
+          "type": "string"
+        },
+        "constitution": {
+          "type": "string"
+        },
+        "constitution_coverage": {
+          "type": "string"
+        },
+        "contract_closure": {
+          "type": "string"
+        },
+        "contradictions": {
+          "type": "string"
+        },
+        "delegation": {
+          "type": "string"
+        },
+        "exposure": {
+          "type": "string"
+        },
+        "incidents": {
+          "type": "string"
+        },
+        "known_time": {
+          "type": "string"
+        },
+        "limitations": {
+          "type": "string"
+        },
+        "memory": {
+          "type": "string"
+        },
+        "model_risk": {
+          "type": "string"
+        },
+        "plan": {
+          "type": "string"
+        },
+        "policy_ledger": {
+          "type": "string"
+        },
+        "prompt_ledger": {
+          "type": "string"
+        },
+        "quorum": {
+          "type": "string"
+        },
+        "replay": {
+          "type": "string"
+        },
+        "reproduction": {
+          "type": "string"
+        },
+        "roles": {
+          "type": "string"
+        },
+        "scheduler_trace": {
+          "type": "string"
+        },
+        "security": {
+          "type": "string"
+        },
+        "separation": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "string"
+        },
+        "tasks": {
+          "type": "string"
+        },
+        "tokens": {
+          "type": "string"
+        },
+        "upstream": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "adversarial_report",
+        "agents",
+        "attribution",
+        "authority",
+        "blocking_issues",
+        "budget_ledger",
+        "budgets",
+        "capabilities",
+        "checkpoints",
+        "claim_graph",
+        "constitution",
+        "constitution_coverage",
+        "contract_closure",
+        "contradictions",
+        "delegation",
+        "exposure",
+        "incidents",
+        "known_time",
+        "limitations",
+        "memory",
+        "model_risk",
+        "plan",
+        "policy_ledger",
+        "prompt_ledger",
+        "quorum",
+        "replay",
+        "reproduction",
+        "roles",
+        "scheduler_trace",
+        "security",
+        "separation",
+        "sources",
+        "tasks",
+        "tokens",
+        "upstream"
+      ],
+      "type": "object"
+    },
+    "evidence_ids": {
+      "additionalProperties": false,
+      "properties": {
+        "adversarial_report": {
+          "type": "string"
+        },
+        "agents": {
+          "type": "string"
+        },
+        "attribution": {
+          "type": "string"
+        },
+        "authority": {
+          "type": "string"
+        },
+        "blocking_issues": {
+          "type": "string"
+        },
+        "budget_ledger": {
+          "type": "string"
+        },
+        "budgets": {
+          "type": "string"
+        },
+        "capabilities": {
+          "type": "string"
+        },
+        "checkpoints": {
+          "type": "string"
+        },
+        "claim_graph": {
+          "type": "string"
+        },
+        "constitution": {
+          "type": "string"
+        },
+        "constitution_coverage": {
+          "type": "string"
+        },
+        "contract_closure": {
+          "type": "string"
+        },
+        "contradictions": {
+          "type": "string"
+        },
+        "delegation": {
+          "type": "string"
+        },
+        "exposure": {
+          "type": "string"
+        },
+        "incidents": {
+          "type": "string"
+        },
+        "known_time": {
+          "type": "string"
+        },
+        "limitations": {
+          "type": "string"
+        },
+        "memory": {
+          "type": "string"
+        },
+        "model_risk": {
+          "type": "string"
+        },
+        "plan": {
+          "type": "string"
+        },
+        "policy_ledger": {
+          "type": "string"
+        },
+        "prompt_ledger": {
+          "type": "string"
+        },
+        "quorum": {
+          "type": "string"
+        },
+        "replay": {
+          "type": "string"
+        },
+        "reproduction": {
+          "type": "string"
+        },
+        "roles": {
+          "type": "string"
+        },
+        "scheduler_trace": {
+          "type": "string"
+        },
+        "security": {
+          "type": "string"
+        },
+        "separation": {
+          "type": "string"
+        },
+        "sources": {
+          "type": "string"
+        },
+        "tasks": {
+          "type": "string"
+        },
+        "tokens": {
+          "type": "string"
+        },
+        "upstream": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "adversarial_report",
+        "agents",
+        "attribution",
+        "authority",
+        "blocking_issues",
+        "budget_ledger",
+        "budgets",
+        "capabilities",
+        "checkpoints",
+        "claim_graph",
+        "constitution",
+        "constitution_coverage",
+        "contract_closure",
+        "contradictions",
+        "delegation",
+        "exposure",
+        "incidents",
+        "known_time",
+        "limitations",
+        "memory",
+        "model_risk",
+        "plan",
+        "policy_ledger",
+        "prompt_ledger",
+        "quorum",
+        "replay",
+        "reproduction",
+        "roles",
+        "scheduler_trace",
+        "security",
+        "separation",
+        "sources",
+        "tasks",
+        "tokens",
+        "upstream"
+      ],
+      "type": "object"
+    },
+    "external_agent_execution": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "synthetic_fixture_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "bundle_hash",
+    "bundle_id",
+    "complete",
+    "evidence_hashes",
+    "evidence_ids",
+    "external_agent_execution",
+    "phase",
+    "research_only",
+    "synthetic_fixture_only"
+  ],
+  "title": "GOLDEN_MULTI_AGENT_EVIDENCE_BUNDLE",
+  "type": "object"
+}

@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "amendment_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "cooling_off_epochs": {
+          "type": "integer"
+        },
+        "minimum_independent_approvals": {
+          "type": "integer"
+        },
+        "proposal_roles": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "retroactive_change_allowed": {
+          "type": "boolean"
+        },
+        "review_roles": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "self_approval_allowed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "cooling_off_epochs",
+        "minimum_independent_approvals",
+        "proposal_roles",
+        "retroactive_change_allowed",
+        "review_roles",
+        "self_approval_allowed"
+      ],
+      "type": "object"
+    },
+    "clauses": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "clause_id": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "evidence_required": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "immutable_in_phase": {
+            "type": "boolean"
+          },
+          "priority": {
+            "type": "integer"
+          },
+          "statement": {
+            "type": "string"
+          },
+          "violation_response": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "clause_id",
+          "domain",
+          "evidence_required",
+          "immutable_in_phase",
+          "priority",
+          "statement",
+          "violation_response"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "closed_contract": {
+      "type": "boolean"
+    },
+    "constitution_hash": {
+      "type": "string"
+    },
+    "constitution_id": {
+      "type": "string"
+    },
+    "effective_epoch": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "safe_default": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "amendment_policy",
+    "clauses",
+    "closed_contract",
+    "constitution_hash",
+    "constitution_id",
+    "effective_epoch",
+    "phase",
+    "research_only",
+    "safe_default",
+    "title",
+    "version"
+  ],
+  "title": "GOLDEN_RESEARCH_CONSTITUTION",
+  "type": "object"
+}

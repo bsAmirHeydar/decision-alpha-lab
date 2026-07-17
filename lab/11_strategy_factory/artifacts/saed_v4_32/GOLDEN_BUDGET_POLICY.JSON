@@ -1,0 +1,141 @@
+{
+  "budgets": [
+    {
+      "budget_id": "BUD-001",
+      "compute_units": 30,
+      "hard_stop": true,
+      "human_review_minutes": 60,
+      "max_agent_steps": 60,
+      "protected_exposures": 0,
+      "research_only": true,
+      "source_reads": 40,
+      "task_family": "coordination",
+      "tool_calls": 20
+    },
+    {
+      "budget_id": "BUD-002",
+      "compute_units": 30,
+      "hard_stop": true,
+      "human_review_minutes": 60,
+      "max_agent_steps": 60,
+      "protected_exposures": 0,
+      "research_only": true,
+      "source_reads": 40,
+      "task_family": "proposal",
+      "tool_calls": 20
+    },
+    {
+      "budget_id": "BUD-003",
+      "compute_units": 30,
+      "hard_stop": true,
+      "human_review_minutes": 60,
+      "max_agent_steps": 60,
+      "protected_exposures": 0,
+      "research_only": true,
+      "source_reads": 40,
+      "task_family": "data",
+      "tool_calls": 20
+    },
+    {
+      "budget_id": "BUD-004",
+      "compute_units": 30,
+      "hard_stop": true,
+      "human_review_minutes": 60,
+      "max_agent_steps": 60,
+      "protected_exposures": 0,
+      "research_only": true,
+      "source_reads": 40,
+      "task_family": "leakage",
+      "tool_calls": 20
+    },
+    {
+      "budget_id": "BUD-005",
+      "compute_units": 30,
+      "hard_stop": true,
+      "human_review_minutes": 60,
+      "max_agent_steps": 60,
+      "protected_exposures": 0,
+      "research_only": true,
+      "source_reads": 40,
+      "task_family": "model",
+      "tool_calls": 20
+    },
+    {
+      "budget_id": "BUD-006",
+      "compute_units": 30,
+      "hard_stop": true,
+      "human_review_minutes": 60,
+      "max_agent_steps": 60,
+      "protected_exposures": 0,
+      "research_only": true,
+      "source_reads": 40,
+      "task_family": "causal",
+      "tool_calls": 20
+    },
+    {
+      "budget_id": "BUD-007",
+      "compute_units": 30,
+      "hard_stop": true,
+      "human_review_minutes": 60,
+      "max_agent_steps": 60,
+      "protected_exposures": 0,
+      "research_only": true,
+      "source_reads": 40,
+      "task_family": "execution",
+      "tool_calls": 20
+    },
+    {
+      "budget_id": "BUD-008",
+      "compute_units": 30,
+      "hard_stop": true,
+      "human_review_minutes": 60,
+      "max_agent_steps": 60,
+      "protected_exposures": 0,
+      "research_only": true,
+      "source_reads": 40,
+      "task_family": "challenge",
+      "tool_calls": 20
+    },
+    {
+      "budget_id": "BUD-009",
+      "compute_units": 30,
+      "hard_stop": true,
+      "human_review_minutes": 60,
+      "max_agent_steps": 60,
+      "protected_exposures": 2,
+      "research_only": true,
+      "source_reads": 40,
+      "task_family": "evidence",
+      "tool_calls": 20
+    },
+    {
+      "budget_id": "BUD-010",
+      "compute_units": 30,
+      "hard_stop": true,
+      "human_review_minutes": 60,
+      "max_agent_steps": 60,
+      "protected_exposures": 2,
+      "research_only": true,
+      "source_reads": 40,
+      "task_family": "review",
+      "tool_calls": 20
+    },
+    {
+      "budget_id": "BUD-011",
+      "compute_units": 30,
+      "hard_stop": true,
+      "human_review_minutes": 60,
+      "max_agent_steps": 60,
+      "protected_exposures": 0,
+      "research_only": true,
+      "source_reads": 40,
+      "task_family": "incident",
+      "tool_calls": 20
+    }
+  ],
+  "hard_stop": true,
+  "phase": "SAED_V4_32",
+  "policy_hash": "d4c7cea71e4c46d902c9e0f20140dc41cfda6faf69c92693c4c6381c678bca74",
+  "policy_id": "v432_budget_policy_c17a948320554743c6493489",
+  "research_only": true
+}

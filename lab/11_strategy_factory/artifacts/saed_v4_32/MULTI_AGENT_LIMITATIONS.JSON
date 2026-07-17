@@ -1,0 +1,18 @@
+{
+  "claim_ceiling": "deterministic_closed_contract_multi_agent_research_governance_reference_only",
+  "limitations": [
+    "synthetic_fixture_only",
+    "no_external_agent_runtime",
+    "no_live_llm_or_tool_execution",
+    "no_proof_against_real_model_collusion",
+    "no_metaeditor_compile_evidence",
+    "no_runtime_parity_evidence",
+    "no_broker_qualification",
+    "no_production_authorization",
+    "no_live_trading"
+  ],
+  "limitations_hash": "241386a1fffa38bfd7dc06836d766ebfd93f518f71651b228689479080357b85",
+  "limitations_id": "v432_limitations_cd2658d1c4ba165402807c07",
+  "phase": "SAED_V4_32",
+  "research_only": true
+}

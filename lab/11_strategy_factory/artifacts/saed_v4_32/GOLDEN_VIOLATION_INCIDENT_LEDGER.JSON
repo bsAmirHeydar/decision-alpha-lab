@@ -1,0 +1,184 @@
+{
+  "automatic_containment": true,
+  "counterexamples_preserved": true,
+  "critical_count": 4,
+  "events": [
+    {
+      "affected_task_ids": [
+        "TASK-001"
+      ],
+      "automatic_response": "quarantine",
+      "counterexamples_preserved": true,
+      "detected_by_agent_id": "agent:data_audit:v1",
+      "event_hash": "960f12eb3d5f4c69c67d724e08948126737c5a9b0658b40de5998d5ff7dfa9d8",
+      "event_id": "v432_incident_5a750b326b42cd6b6538b268",
+      "human_review_required": true,
+      "incident_id": "INC-001",
+      "incident_type": "authority_violation",
+      "ordinal": 0,
+      "previous_event_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "research_only": true,
+      "severity": "critical",
+      "status": "contained_synthetic",
+      "trigger": "Synthetic mutation exercises authority_violation control."
+    },
+    {
+      "affected_task_ids": [
+        "TASK-002"
+      ],
+      "automatic_response": "quarantine",
+      "counterexamples_preserved": true,
+      "detected_by_agent_id": "agent:statistical_adversary:v1",
+      "event_hash": "2ec88c68ce72f0056f2ffed2ce9087ccba10aa2d96e86571cbc9cc64d18759e1",
+      "event_id": "v432_incident_b1b1cdf26663fc8e68d1f598",
+      "human_review_required": true,
+      "incident_id": "INC-002",
+      "incident_type": "protected_exposure_attempt",
+      "ordinal": 1,
+      "previous_event_hash": "960f12eb3d5f4c69c67d724e08948126737c5a9b0658b40de5998d5ff7dfa9d8",
+      "research_only": true,
+      "severity": "critical",
+      "status": "contained_synthetic",
+      "trigger": "Synthetic mutation exercises protected_exposure_attempt control."
+    },
+    {
+      "affected_task_ids": [
+        "TASK-003"
+      ],
+      "automatic_response": "quarantine",
+      "counterexamples_preserved": true,
+      "detected_by_agent_id": "agent:leakage_sentinel:v1",
+      "event_hash": "1fd0f07f1889e69eaf67b01033c056936fe6d77cd9664c3b4914a065830ba058",
+      "event_id": "v432_incident_57f37127b747457d38702fdd",
+      "human_review_required": true,
+      "incident_id": "INC-003",
+      "incident_type": "budget_overrun",
+      "ordinal": 2,
+      "previous_event_hash": "2ec88c68ce72f0056f2ffed2ce9087ccba10aa2d96e86571cbc9cc64d18759e1",
+      "research_only": true,
+      "severity": "high",
+      "status": "contained_synthetic",
+      "trigger": "Synthetic mutation exercises budget_overrun control."
+    },
+    {
+      "affected_task_ids": [
+        "TASK-004"
+      ],
+      "automatic_response": "quarantine",
+      "counterexamples_preserved": true,
+      "detected_by_agent_id": "agent:data_audit:v1",
+      "event_hash": "bc299ab459236cf60e9692d4e978a89739655040bdfa29dfc915bfcf2b20d9ef",
+      "event_id": "v432_incident_d12d124597145b43ecfc67cd",
+      "human_review_required": true,
+      "incident_id": "INC-004",
+      "incident_type": "memory_boundary_attempt",
+      "ordinal": 3,
+      "previous_event_hash": "1fd0f07f1889e69eaf67b01033c056936fe6d77cd9664c3b4914a065830ba058",
+      "research_only": true,
+      "severity": "high",
+      "status": "contained_synthetic",
+      "trigger": "Synthetic mutation exercises memory_boundary_attempt control."
+    },
+    {
+      "affected_task_ids": [
+        "TASK-005"
+      ],
+      "automatic_response": "quarantine",
+      "counterexamples_preserved": true,
+      "detected_by_agent_id": "agent:statistical_adversary:v1",
+      "event_hash": "3983efe9195385d46e6d4edb00d725957572c7aa021e489adca4f7c79f892473",
+      "event_id": "v432_incident_bc6ae740df6d63f97455bb5d",
+      "human_review_required": true,
+      "incident_id": "INC-005",
+      "incident_type": "self_approval_attempt",
+      "ordinal": 4,
+      "previous_event_hash": "bc299ab459236cf60e9692d4e978a89739655040bdfa29dfc915bfcf2b20d9ef",
+      "research_only": true,
+      "severity": "high",
+      "status": "contained_synthetic",
+      "trigger": "Synthetic mutation exercises self_approval_attempt control."
+    },
+    {
+      "affected_task_ids": [
+        "TASK-006"
+      ],
+      "automatic_response": "quarantine",
+      "counterexamples_preserved": true,
+      "detected_by_agent_id": "agent:leakage_sentinel:v1",
+      "event_hash": "92c32618cc9fdc6d0dd6d5fcad5ba6845732d70871e888244b4239cb526e44a2",
+      "event_id": "v432_incident_a34970cebf8f06c1af034018",
+      "human_review_required": true,
+      "incident_id": "INC-006",
+      "incident_type": "source_lineage_break",
+      "ordinal": 5,
+      "previous_event_hash": "3983efe9195385d46e6d4edb00d725957572c7aa021e489adca4f7c79f892473",
+      "research_only": true,
+      "severity": "high",
+      "status": "contained_synthetic",
+      "trigger": "Synthetic mutation exercises source_lineage_break control."
+    },
+    {
+      "affected_task_ids": [
+        "TASK-007"
+      ],
+      "automatic_response": "quarantine",
+      "counterexamples_preserved": true,
+      "detected_by_agent_id": "agent:data_audit:v1",
+      "event_hash": "eb7830ac789966e1b2b016d3b9ae12438e2da8facc2aa0a5b4c5bca50cd77171",
+      "event_id": "v432_incident_c51441b53fcba84807e5d52b",
+      "human_review_required": true,
+      "incident_id": "INC-007",
+      "incident_type": "future_suffix_exposure",
+      "ordinal": 6,
+      "previous_event_hash": "92c32618cc9fdc6d0dd6d5fcad5ba6845732d70871e888244b4239cb526e44a2",
+      "research_only": true,
+      "severity": "high",
+      "status": "contained_synthetic",
+      "trigger": "Synthetic mutation exercises future_suffix_exposure control."
+    },
+    {
+      "affected_task_ids": [
+        "TASK-008"
+      ],
+      "automatic_response": "stop_family",
+      "counterexamples_preserved": true,
+      "detected_by_agent_id": "agent:statistical_adversary:v1",
+      "event_hash": "ed334396215d42e8bb04924a77d7367b6d9922b49b6773780431fdce2e76f43c",
+      "event_id": "v432_incident_19e1161d5986630b0f0e39f4",
+      "human_review_required": true,
+      "incident_id": "INC-008",
+      "incident_type": "counterexample_suppression_attempt",
+      "ordinal": 7,
+      "previous_event_hash": "eb7830ac789966e1b2b016d3b9ae12438e2da8facc2aa0a5b4c5bca50cd77171",
+      "research_only": true,
+      "severity": "critical",
+      "status": "contained_synthetic",
+      "trigger": "Synthetic mutation exercises counterexample_suppression_attempt control."
+    },
+    {
+      "affected_task_ids": [
+        "TASK-009"
+      ],
+      "automatic_response": "stop_family",
+      "counterexamples_preserved": true,
+      "detected_by_agent_id": "agent:leakage_sentinel:v1",
+      "event_hash": "0f4a71b6d9e5f30a6ea57f3469997e3bd342fb6e0ac9398b1ef07a9149c53b4d",
+      "event_id": "v432_incident_6660dc084bbcba0b50754e02",
+      "human_review_required": true,
+      "incident_id": "INC-009",
+      "incident_type": "constitution_amendment_attempt",
+      "ordinal": 8,
+      "previous_event_hash": "ed334396215d42e8bb04924a77d7367b6d9922b49b6773780431fdce2e76f43c",
+      "research_only": true,
+      "severity": "critical",
+      "status": "contained_synthetic",
+      "trigger": "Synthetic mutation exercises constitution_amendment_attempt control."
+    }
+  ],
+  "human_review_required": true,
+  "incident_count": 9,
+  "ledger_hash": "fb2737c101474639724856b6b4c1c5fa3bbe7118f44c85b2f71c1b68773e2d98",
+  "ledger_id": "v432_incident_ledger_b6692cf548897ace1c72189c",
+  "phase": "SAED_V4_32",
+  "research_only": true
+}

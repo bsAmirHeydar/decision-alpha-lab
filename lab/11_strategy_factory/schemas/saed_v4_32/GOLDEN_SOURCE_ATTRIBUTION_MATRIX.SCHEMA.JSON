@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_claims_attributed": {
+      "type": "boolean"
+    },
+    "attributed_claim_count": {
+      "type": "integer"
+    },
+    "claim_count": {
+      "type": "integer"
+    },
+    "matrix_hash": {
+      "type": "string"
+    },
+    "matrix_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "attribution_complete": {
+            "type": "boolean"
+          },
+          "claim_id": {
+            "type": "string"
+          },
+          "evidence_role": {
+            "type": "string"
+          },
+          "known_time_epoch": {
+            "type": "integer"
+          },
+          "protected": {
+            "type": "boolean"
+          },
+          "source_hash": {
+            "type": "string"
+          },
+          "source_id": {
+            "type": "string"
+          },
+          "synthetic": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "attribution_complete",
+          "claim_id",
+          "evidence_role",
+          "known_time_epoch",
+          "protected",
+          "source_hash",
+          "source_id",
+          "synthetic"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "all_claims_attributed",
+    "attributed_claim_count",
+    "claim_count",
+    "matrix_hash",
+    "matrix_id",
+    "phase",
+    "research_only",
+    "rows"
+  ],
+  "title": "GOLDEN_SOURCE_ATTRIBUTION_MATRIX",
+  "type": "object"
+}

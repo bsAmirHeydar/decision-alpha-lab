@@ -1,0 +1,90 @@
+{
+  "complete": true,
+  "constitution_id": "v432_constitution_43f1cf4a43975f5aa2c7c5e8",
+  "coverage_hash": "be5c5aacf414abfaf301a272e3ced75577d790846214deca8f5717182bd0bd3d",
+  "coverage_id": "v432_constitution_coverage_3ff5b99bee36d01ec846f665",
+  "exercised_clauses": 13,
+  "phase": "SAED_V4_32",
+  "research_only": true,
+  "rows": [
+    {
+      "clause_id": "C-AUTH-001",
+      "domain": "authority",
+      "has_exercised_test": true,
+      "immutable_in_phase": true
+    },
+    {
+      "clause_id": "C-AUTH-002",
+      "domain": "authority",
+      "has_exercised_test": true,
+      "immutable_in_phase": true
+    },
+    {
+      "clause_id": "C-EVID-001",
+      "domain": "evidence",
+      "has_exercised_test": true,
+      "immutable_in_phase": true
+    },
+    {
+      "clause_id": "C-ID-001",
+      "domain": "identity",
+      "has_exercised_test": true,
+      "immutable_in_phase": true
+    },
+    {
+      "clause_id": "C-TASK-001",
+      "domain": "tasking",
+      "has_exercised_test": true,
+      "immutable_in_phase": true
+    },
+    {
+      "clause_id": "C-PROV-001",
+      "domain": "provenance",
+      "has_exercised_test": true,
+      "immutable_in_phase": true
+    },
+    {
+      "clause_id": "C-REVIEW-001",
+      "domain": "review",
+      "has_exercised_test": true,
+      "immutable_in_phase": true
+    },
+    {
+      "clause_id": "C-BUDGET-001",
+      "domain": "budget",
+      "has_exercised_test": true,
+      "immutable_in_phase": true
+    },
+    {
+      "clause_id": "C-MEM-001",
+      "domain": "memory",
+      "has_exercised_test": true,
+      "immutable_in_phase": true
+    },
+    {
+      "clause_id": "C-SEC-001",
+      "domain": "security",
+      "has_exercised_test": true,
+      "immutable_in_phase": true
+    },
+    {
+      "clause_id": "C-SCI-001",
+      "domain": "science",
+      "has_exercised_test": true,
+      "immutable_in_phase": true
+    },
+    {
+      "clause_id": "C-INC-001",
+      "domain": "incident",
+      "has_exercised_test": true,
+      "immutable_in_phase": true
+    },
+    {
+      "clause_id": "C-AMEND-001",
+      "domain": "amendment",
+      "has_exercised_test": true,
+      "immutable_in_phase": true
+    }
+  ],
+  "total_clauses": 13
+}

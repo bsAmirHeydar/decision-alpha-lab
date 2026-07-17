@@ -1,0 +1,11 @@
+{
+  "claim_known_time_checked": true,
+  "event_time_distinct_from_known_time": true,
+  "future_suffix_exposures": 0,
+  "passed": true,
+  "phase": "SAED_V4_32",
+  "protected_roles_immutable": true,
+  "research_only": true,
+  "review_hash": "f3fc1eefb5a0bf10aea97de677adaae3db9ec9cacf99a0db87af61d93281886f",
+  "review_id": "v432_known_time_review_f9ae65d16049a91dcbf2f9db"
+}

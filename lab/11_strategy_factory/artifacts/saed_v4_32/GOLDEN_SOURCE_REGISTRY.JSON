@@ -1,0 +1,95 @@
+{
+  "known_time_explicit": true,
+  "phase": "SAED_V4_32",
+  "registry_hash": "cf358e6d1e2e3915cb419deb9f97c7e2d7fee3e955ed63afa1a6865011ebd0c1",
+  "registry_id": "v432_source_registry_bb5bfd5770a2e25a4c2ce309",
+  "research_only": true,
+  "role_immutable": true,
+  "source_count": 6,
+  "sources": [
+    {
+      "content_hash": "2dd00bd77e0222ced882665481a9c1d9f907309d16e05ed007a1ea63928477a9",
+      "evidence_role": "challenge",
+      "known_time_epoch": 3200004,
+      "license_class": "synthetic-reference",
+      "lineage_ids": [
+        "challenge:v432:001"
+      ],
+      "protected": false,
+      "source_id": "SRC-CHAL-001",
+      "source_type": "challenge_fixture",
+      "synthetic": false,
+      "uri_class": "content_addressed_local"
+    },
+    {
+      "content_hash": "b277fd623676a525c29b9eb155afc8c9010681814ceafb2d7627f47b9a232576",
+      "evidence_role": "training",
+      "known_time_epoch": 3200002,
+      "license_class": "synthetic-reference",
+      "lineage_ids": [
+        "dataset:v432:001"
+      ],
+      "protected": false,
+      "source_id": "SRC-DATA-001",
+      "source_type": "dataset_manifest",
+      "synthetic": false,
+      "uri_class": "content_addressed_local"
+    },
+    {
+      "content_hash": "bf9422a2a04aad2180fad0913f1cdf8a9d3780fd074817d2569050d0a8095d3a",
+      "evidence_role": "governance",
+      "known_time_epoch": 3200001,
+      "license_class": "internal-governance",
+      "lineage_ids": [
+        "v431_safety_case_certificate_feebba4cd911e125072e3eef"
+      ],
+      "protected": false,
+      "source_id": "SRC-GOV-001",
+      "source_type": "governance",
+      "synthetic": false,
+      "uri_class": "content_addressed_local"
+    },
+    {
+      "content_hash": "9b2bbce6c72dd9bbd9c7a9976d5d76d1fcc2bb9832dec246375bb92006beccc3",
+      "evidence_role": "protected_final",
+      "known_time_epoch": 3200005,
+      "license_class": "sealed-reference",
+      "lineage_ids": [
+        "airgap:v429:reference"
+      ],
+      "protected": true,
+      "source_id": "SRC-PROT-001",
+      "source_type": "sealed_evaluation",
+      "synthetic": false,
+      "uri_class": "air_gapped_reference"
+    },
+    {
+      "content_hash": "f43dc8790ed6215684924d362753e3864cb66c0f06084e89ad36b57e15986c6e",
+      "evidence_role": "synthetic_stress",
+      "known_time_epoch": 3200004,
+      "license_class": "generated",
+      "lineage_ids": [
+        "generator:v422:reference"
+      ],
+      "protected": false,
+      "source_id": "SRC-STRESS-001",
+      "source_type": "synthetic_stress",
+      "synthetic": true,
+      "uri_class": "content_addressed_local"
+    },
+    {
+      "content_hash": "98c41dcd20b86b86830ec0794559835614458ceaae0f0ec77a3ed1cd3a1f7d55",
+      "evidence_role": "validation",
+      "known_time_epoch": 3200003,
+      "license_class": "synthetic-reference",
+      "lineage_ids": [
+        "validation:v432:001"
+      ],
+      "protected": false,
+      "source_id": "SRC-VAL-001",
+      "source_type": "validation_report",
+      "synthetic": false,
+      "uri_class": "content_addressed_local"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "dependency_preserving": true,
+  "deterministic": true,
+  "known_time_ordered": true,
+  "ordered_task_ids": [
+    "TASK-001",
+    "TASK-002",
+    "TASK-003",
+    "TASK-004",
+    "TASK-005",
+    "TASK-006",
+    "TASK-007",
+    "TASK-008",
+    "TASK-009",
+    "TASK-010",
+    "TASK-011"
+  ],
+  "phase": "SAED_V4_32",
+  "plan_hash": "6a55955aeec721c56bc751da28f716651082c5284ba8d627b3f71d2f587abb54",
+  "plan_id": "v432_execution_plan_bd339257fd47e02843e20ef4",
+  "research_only": true,
+  "task_count": 11
+}

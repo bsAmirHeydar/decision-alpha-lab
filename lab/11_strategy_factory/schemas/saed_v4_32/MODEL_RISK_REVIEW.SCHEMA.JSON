@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "agent_collusion_not_proven_absent": {
+      "type": "boolean"
+    },
+    "all_budgets_within_limit": {
+      "type": "boolean"
+    },
+    "automation_bias_controlled_by_human_review": {
+      "type": "boolean"
+    },
+    "blocking_count": {
+      "type": "integer"
+    },
+    "challenge_count": {
+      "type": "integer"
+    },
+    "claim_count": {
+      "type": "integer"
+    },
+    "contradiction_count": {
+      "type": "integer"
+    },
+    "passed_reference": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "real_world_generalization_not_claimed": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "review_hash": {
+      "type": "string"
+    },
+    "review_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "agent_collusion_not_proven_absent",
+    "all_budgets_within_limit",
+    "automation_bias_controlled_by_human_review",
+    "blocking_count",
+    "challenge_count",
+    "claim_count",
+    "contradiction_count",
+    "passed_reference",
+    "phase",
+    "real_world_generalization_not_claimed",
+    "research_only",
+    "review_hash",
+    "review_id"
+  ],
+  "title": "MODEL_RISK_REVIEW",
+  "type": "object"
+}

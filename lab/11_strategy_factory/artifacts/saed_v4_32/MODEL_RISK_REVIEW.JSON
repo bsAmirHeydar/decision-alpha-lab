@@ -1,0 +1,15 @@
+{
+  "agent_collusion_not_proven_absent": true,
+  "all_budgets_within_limit": true,
+  "automation_bias_controlled_by_human_review": true,
+  "blocking_count": 5,
+  "challenge_count": 10,
+  "claim_count": 6,
+  "contradiction_count": 1,
+  "passed_reference": true,
+  "phase": "SAED_V4_32",
+  "real_world_generalization_not_claimed": true,
+  "research_only": true,
+  "review_hash": "459f9c5b702c31a1efc00cee9eb86b7a933b7a28efeb483fb86c29fd6598fd49",
+  "review_id": "v432_model_risk_review_e0c4631543dfc9e67c9952fd"
+}

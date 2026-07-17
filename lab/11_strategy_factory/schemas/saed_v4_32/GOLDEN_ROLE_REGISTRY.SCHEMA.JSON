@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "deny_by_default": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "roles": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "independence_group": {
+            "type": "string"
+          },
+          "may_access_protected_evidence": {
+            "type": "boolean"
+          },
+          "may_approve_research": {
+            "type": "boolean"
+          },
+          "may_block": {
+            "type": "boolean"
+          },
+          "may_delegate": {
+            "type": "boolean"
+          },
+          "may_propose": {
+            "type": "boolean"
+          },
+          "may_review": {
+            "type": "boolean"
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "research_only": {
+            "type": "boolean"
+          },
+          "role_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "independence_group",
+          "may_access_protected_evidence",
+          "may_approve_research",
+          "may_block",
+          "may_delegate",
+          "may_propose",
+          "may_review",
+          "purpose",
+          "research_only",
+          "role_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "deny_by_default",
+    "phase",
+    "registry_hash",
+    "registry_id",
+    "research_only",
+    "roles"
+  ],
+  "title": "GOLDEN_ROLE_REGISTRY",
+  "type": "object"
+}

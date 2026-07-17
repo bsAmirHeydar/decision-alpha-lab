@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "dependency_preserving": {
+      "type": "boolean"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "known_time_ordered": {
+      "type": "boolean"
+    },
+    "ordered_task_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "plan_hash": {
+      "type": "string"
+    },
+    "plan_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "task_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "dependency_preserving",
+    "deterministic",
+    "known_time_ordered",
+    "ordered_task_ids",
+    "phase",
+    "plan_hash",
+    "plan_id",
+    "research_only",
+    "task_count"
+  ],
+  "title": "GOLDEN_DETERMINISTIC_EXECUTION_PLAN",
+  "type": "object"
+}

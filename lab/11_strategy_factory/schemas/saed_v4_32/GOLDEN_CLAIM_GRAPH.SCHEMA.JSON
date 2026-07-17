@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acyclic_dependency_graph": {
+      "type": "boolean"
+    },
+    "claim_count": {
+      "type": "integer"
+    },
+    "edges": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "relation": {
+            "type": "string"
+          },
+          "source_claim_id": {
+            "type": "string"
+          },
+          "target_claim_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "relation",
+          "source_claim_id",
+          "target_claim_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "graph_hash": {
+      "type": "string"
+    },
+    "graph_id": {
+      "type": "string"
+    },
+    "nodes": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "claim_class": {
+            "type": "string"
+          },
+          "claim_hash": {
+            "type": "string"
+          },
+          "claim_id": {
+            "type": "string"
+          },
+          "decision_contribution": {
+            "type": "string"
+          },
+          "depends_on_claim_ids": {
+            "items": {},
+            "type": "array"
+          },
+          "known_time_epoch": {
+            "type": "integer"
+          },
+          "opposing_claim_ids": {
+            "items": {},
+            "type": "array"
+          },
+          "producer_agent_id": {
+            "type": "string"
+          },
+          "research_only": {
+            "type": "boolean"
+          },
+          "statement": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "supporting_source_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "uncertainty_state": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "claim_class",
+          "claim_hash",
+          "claim_id",
+          "decision_contribution",
+          "depends_on_claim_ids",
+          "known_time_epoch",
+          "opposing_claim_ids",
+          "producer_agent_id",
+          "research_only",
+          "statement",
+          "status",
+          "supporting_source_ids",
+          "uncertainty_state"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "acyclic_dependency_graph",
+    "claim_count",
+    "edges",
+    "graph_hash",
+    "graph_id",
+    "nodes",
+    "phase",
+    "research_only"
+  ],
+  "title": "GOLDEN_CLAIM_GRAPH",
+  "type": "object"
+}

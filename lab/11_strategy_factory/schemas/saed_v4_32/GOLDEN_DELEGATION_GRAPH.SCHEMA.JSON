@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acyclic": {
+      "type": "boolean"
+    },
+    "edges": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "owner_agent_id": {
+            "type": "string"
+          },
+          "owner_role": {
+            "type": "string"
+          },
+          "reviewer_agent_id": {
+            "type": "string"
+          },
+          "reviewer_role": {
+            "type": "string"
+          },
+          "self_review": {
+            "type": "boolean"
+          },
+          "task_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "owner_agent_id",
+          "owner_role",
+          "reviewer_agent_id",
+          "reviewer_role",
+          "self_review",
+          "task_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "graph_hash": {
+      "type": "string"
+    },
+    "graph_id": {
+      "type": "string"
+    },
+    "maximum_delegation_depth": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "self_review_edges": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "acyclic",
+    "edges",
+    "graph_hash",
+    "graph_id",
+    "maximum_delegation_depth",
+    "phase",
+    "research_only",
+    "self_review_edges"
+  ],
+  "title": "GOLDEN_DELEGATION_GRAPH",
+  "type": "object"
+}

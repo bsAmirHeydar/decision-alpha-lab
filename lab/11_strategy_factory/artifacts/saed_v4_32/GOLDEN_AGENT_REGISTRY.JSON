@@ -1,0 +1,142 @@
+{
+  "agents": [
+    {
+      "active": true,
+      "agent_id": "agent:causal_auditor:v1",
+      "display_name": "Causal Auditor",
+      "human_supervisor_id": "human:supervisor:1",
+      "identity_fingerprint": "1e77543b421bb29a1012ecd1c06955e2f39bd952b76c1883c8e2ccdcb5cef9e5",
+      "identity_provider": "synthetic-attestation",
+      "memory_namespace": "memory://saed/v4_32/causal_auditor",
+      "prompt_profile_hash": "75a5ae6dc26d3e7deb3d79129bf231e9db43f1900d6bc6ea3f8ce09173a9ca25",
+      "role_id": "causal_auditor",
+      "tool_profile_hash": "64607c108796111c7c38168d06b8cd8f4cbc5fc603af2fe5fc55de1ee8ee8aeb"
+    },
+    {
+      "active": true,
+      "agent_id": "agent:data_audit:v1",
+      "display_name": "Data Audit",
+      "human_supervisor_id": "human:supervisor:2",
+      "identity_fingerprint": "60863e0de9aa06dca85ad5af331a7cc12eefd9edbe929beb7b427798709c2925",
+      "identity_provider": "synthetic-attestation",
+      "memory_namespace": "memory://saed/v4_32/data_audit",
+      "prompt_profile_hash": "b5c9275aead5760b22dc6b24e5c63f8726662dddd32f1ef721ed34adbd48e438",
+      "role_id": "data_audit",
+      "tool_profile_hash": "e7e9404ae84e16fd3269d1afe7ad82d1a92c0364bb968f909fa913febcd97ad9"
+    },
+    {
+      "active": true,
+      "agent_id": "agent:evidence_curator:v1",
+      "display_name": "Evidence Curator",
+      "human_supervisor_id": "human:supervisor:3",
+      "identity_fingerprint": "b0ba6e2685e1b10011c41462a06d47aa7d46dd811e3aca71a2c6ab647901a8a3",
+      "identity_provider": "synthetic-attestation",
+      "memory_namespace": "memory://saed/v4_32/evidence_curator",
+      "prompt_profile_hash": "fdf65c6e07314a96af60907ca4bee5804cc304cc1bcbbda9de9e52691dbb6ded",
+      "role_id": "evidence_curator",
+      "tool_profile_hash": "3dd6fe0fb882e30cb04c7b6344300c316926f4a3d8983363602841d8a420ad7f"
+    },
+    {
+      "active": true,
+      "agent_id": "agent:execution_auditor:v1",
+      "display_name": "Execution Auditor",
+      "human_supervisor_id": "human:supervisor:1",
+      "identity_fingerprint": "1554bbdc35d9d62572574ae00e4d69cd92bb0f11471c8a4903d79e8f8c9f5a3a",
+      "identity_provider": "synthetic-attestation",
+      "memory_namespace": "memory://saed/v4_32/execution_auditor",
+      "prompt_profile_hash": "fc9549434f13f84bdf7cc608d9b64ff6020e165efdae7ba2756c161f50a217bd",
+      "role_id": "execution_auditor",
+      "tool_profile_hash": "ca434dd85f17c73300a8c07e0236d7e38e93c21f0f6c37fef0235c4fc784a4f3"
+    },
+    {
+      "active": true,
+      "agent_id": "agent:human_reviewer:v1",
+      "display_name": "Human Reviewer",
+      "human_supervisor_id": "human:supervisor:2",
+      "identity_fingerprint": "5871f84ed1d4bc321c1aafe71600bc42a300a0617cf40b28136e8ad0ff9168f3",
+      "identity_provider": "synthetic-attestation",
+      "memory_namespace": "memory://saed/v4_32/human_reviewer",
+      "prompt_profile_hash": "090cdecac0eae59c58463c965b638a725e54d8755161142615bb743ef80c38a0",
+      "role_id": "human_reviewer",
+      "tool_profile_hash": "e94d95045d2532d4bdad65df29cdb80857800dbf5ac8eebc6a686ab668e426b0"
+    },
+    {
+      "active": true,
+      "agent_id": "agent:hypothesis:v1",
+      "display_name": "Hypothesis",
+      "human_supervisor_id": "human:supervisor:3",
+      "identity_fingerprint": "600a6023cbbc280f5c4b9f5a97ddea95b9fbea600636963891ab418444dbbc77",
+      "identity_provider": "synthetic-attestation",
+      "memory_namespace": "memory://saed/v4_32/hypothesis",
+      "prompt_profile_hash": "9a6f9854a9eba9ab1ce554bf0fb9f7550ad198b54f7019f5caa2054cb820f31c",
+      "role_id": "hypothesis",
+      "tool_profile_hash": "99b8c444c7a1f4d9d693c4980fcd0b97bc613fe81e46f0cb4eb56edeb2eaf727"
+    },
+    {
+      "active": true,
+      "agent_id": "agent:leakage_sentinel:v1",
+      "display_name": "Leakage Sentinel",
+      "human_supervisor_id": "human:supervisor:1",
+      "identity_fingerprint": "e8f86e4a168ac1d394076c2270c9e86c0f9861b90fd67980913a979b14ce54cf",
+      "identity_provider": "synthetic-attestation",
+      "memory_namespace": "memory://saed/v4_32/leakage_sentinel",
+      "prompt_profile_hash": "8239c609caafad9b98a0b497ef9270b1bcf6515957fed08cde93ed5504f8839e",
+      "role_id": "leakage_sentinel",
+      "tool_profile_hash": "fce016ddd651427b69ea21f142eedb32d9dd3171abe19d326adf9d483c05b98d"
+    },
+    {
+      "active": true,
+      "agent_id": "agent:model_engineering:v1",
+      "display_name": "Model Engineering",
+      "human_supervisor_id": "human:supervisor:2",
+      "identity_fingerprint": "d06107b6542d86b15af2473c9fe699819ce5203d24d5a60585f7fda77f431e3a",
+      "identity_provider": "synthetic-attestation",
+      "memory_namespace": "memory://saed/v4_32/model_engineering",
+      "prompt_profile_hash": "a1760301ed084b4b97646877b5a84300861c73c5811e01fc80e1a04bdf853e8b",
+      "role_id": "model_engineering",
+      "tool_profile_hash": "91660671f5bfd991cc3be9df57f91083cea1129c19e821dd1e4fe57683a4bfe1"
+    },
+    {
+      "active": true,
+      "agent_id": "agent:orchestrator:v1",
+      "display_name": "Orchestrator",
+      "human_supervisor_id": "human:supervisor:3",
+      "identity_fingerprint": "7462e32fad210c92e284fcb5bc789438fe0d661aa603080f48e8717da75e2b32",
+      "identity_provider": "synthetic-attestation",
+      "memory_namespace": "memory://saed/v4_32/orchestrator",
+      "prompt_profile_hash": "33d06d41f7b592e5f83a20985f2a1d0c0c5903379ac29e9f8d6f38f0341dea22",
+      "role_id": "orchestrator",
+      "tool_profile_hash": "8926cb2e72fe4c2f3e6ac2602566ac66ad3878b3ee4bf0b58e6d0e061d9249df"
+    },
+    {
+      "active": true,
+      "agent_id": "agent:statistical_adversary:v1",
+      "display_name": "Statistical Adversary",
+      "human_supervisor_id": "human:supervisor:1",
+      "identity_fingerprint": "42609c601c03f377c6669698fbd9c6d047fac54fc42f80a8d0e595901266c34c",
+      "identity_provider": "synthetic-attestation",
+      "memory_namespace": "memory://saed/v4_32/statistical_adversary",
+      "prompt_profile_hash": "f9b3e155398749549413ba53b9941116b91883e338442736b81f82607c52a2f9",
+      "role_id": "statistical_adversary",
+      "tool_profile_hash": "cf455e28c4f1bf3eb9d3f7ec1179fe04e967b6c9cba89d4aa81b3dcb45f1d964"
+    }
+  ],
+  "identity_isolation": true,
+  "memory_isolation": true,
+  "phase": "SAED_V4_32",
+  "registry_hash": "2c2c2857a5f248aad30d4936b0886a69b8ece2323e4873f952a245a983222ad0",
+  "registry_id": "v432_agent_registry_878407b60cad7d631aca8635",
+  "research_only": true,
+  "role_counts": {
+    "causal_auditor": 1,
+    "data_audit": 1,
+    "evidence_curator": 1,
+    "execution_auditor": 1,
+    "human_reviewer": 1,
+    "hypothesis": 1,
+    "leakage_sentinel": 1,
+    "model_engineering": 1,
+    "orchestrator": 1,
+    "statistical_adversary": 1
+  }
+}

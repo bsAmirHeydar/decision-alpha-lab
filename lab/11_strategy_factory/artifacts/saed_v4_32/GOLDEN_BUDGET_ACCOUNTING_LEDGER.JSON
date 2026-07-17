@@ -1,0 +1,264 @@
+{
+  "all_within_budget": true,
+  "hard_stop_events": 0,
+  "ledger_hash": "dbf70b98923c0e917f6b3f2415607b51a4122c5ca752992325fa45083b0b6980",
+  "ledger_id": "v432_budget_ledger_97ce3cdb06feaf7835697d65",
+  "phase": "SAED_V4_32",
+  "protected_exposure_total": 2,
+  "research_only": true,
+  "rows": [
+    {
+      "budget_id": "BUD-001",
+      "hard_stop_triggered": false,
+      "limits": {
+        "agent_steps": 60,
+        "compute_units": 30,
+        "human_review_minutes": 60,
+        "protected_exposures": 0,
+        "source_reads": 40,
+        "tool_calls": 20
+      },
+      "overrun_dimensions": [],
+      "task_family": "coordination",
+      "used": {
+        "agent_steps": 6,
+        "compute_units": 3,
+        "human_review_minutes": 5,
+        "protected_exposures": 0,
+        "source_reads": 4,
+        "tool_calls": 2
+      },
+      "within_budget": true
+    },
+    {
+      "budget_id": "BUD-002",
+      "hard_stop_triggered": false,
+      "limits": {
+        "agent_steps": 60,
+        "compute_units": 30,
+        "human_review_minutes": 60,
+        "protected_exposures": 0,
+        "source_reads": 40,
+        "tool_calls": 20
+      },
+      "overrun_dimensions": [],
+      "task_family": "proposal",
+      "used": {
+        "agent_steps": 6,
+        "compute_units": 3,
+        "human_review_minutes": 5,
+        "protected_exposures": 0,
+        "source_reads": 4,
+        "tool_calls": 2
+      },
+      "within_budget": true
+    },
+    {
+      "budget_id": "BUD-003",
+      "hard_stop_triggered": false,
+      "limits": {
+        "agent_steps": 60,
+        "compute_units": 30,
+        "human_review_minutes": 60,
+        "protected_exposures": 0,
+        "source_reads": 40,
+        "tool_calls": 20
+      },
+      "overrun_dimensions": [],
+      "task_family": "data",
+      "used": {
+        "agent_steps": 6,
+        "compute_units": 3,
+        "human_review_minutes": 5,
+        "protected_exposures": 0,
+        "source_reads": 4,
+        "tool_calls": 2
+      },
+      "within_budget": true
+    },
+    {
+      "budget_id": "BUD-004",
+      "hard_stop_triggered": false,
+      "limits": {
+        "agent_steps": 60,
+        "compute_units": 30,
+        "human_review_minutes": 60,
+        "protected_exposures": 0,
+        "source_reads": 40,
+        "tool_calls": 20
+      },
+      "overrun_dimensions": [],
+      "task_family": "leakage",
+      "used": {
+        "agent_steps": 6,
+        "compute_units": 3,
+        "human_review_minutes": 5,
+        "protected_exposures": 0,
+        "source_reads": 4,
+        "tool_calls": 2
+      },
+      "within_budget": true
+    },
+    {
+      "budget_id": "BUD-005",
+      "hard_stop_triggered": false,
+      "limits": {
+        "agent_steps": 60,
+        "compute_units": 30,
+        "human_review_minutes": 60,
+        "protected_exposures": 0,
+        "source_reads": 40,
+        "tool_calls": 20
+      },
+      "overrun_dimensions": [],
+      "task_family": "model",
+      "used": {
+        "agent_steps": 6,
+        "compute_units": 3,
+        "human_review_minutes": 5,
+        "protected_exposures": 0,
+        "source_reads": 4,
+        "tool_calls": 2
+      },
+      "within_budget": true
+    },
+    {
+      "budget_id": "BUD-006",
+      "hard_stop_triggered": false,
+      "limits": {
+        "agent_steps": 60,
+        "compute_units": 30,
+        "human_review_minutes": 60,
+        "protected_exposures": 0,
+        "source_reads": 40,
+        "tool_calls": 20
+      },
+      "overrun_dimensions": [],
+      "task_family": "causal",
+      "used": {
+        "agent_steps": 6,
+        "compute_units": 3,
+        "human_review_minutes": 5,
+        "protected_exposures": 0,
+        "source_reads": 4,
+        "tool_calls": 2
+      },
+      "within_budget": true
+    },
+    {
+      "budget_id": "BUD-007",
+      "hard_stop_triggered": false,
+      "limits": {
+        "agent_steps": 60,
+        "compute_units": 30,
+        "human_review_minutes": 60,
+        "protected_exposures": 0,
+        "source_reads": 40,
+        "tool_calls": 20
+      },
+      "overrun_dimensions": [],
+      "task_family": "execution",
+      "used": {
+        "agent_steps": 6,
+        "compute_units": 3,
+        "human_review_minutes": 5,
+        "protected_exposures": 0,
+        "source_reads": 4,
+        "tool_calls": 2
+      },
+      "within_budget": true
+    },
+    {
+      "budget_id": "BUD-008",
+      "hard_stop_triggered": false,
+      "limits": {
+        "agent_steps": 60,
+        "compute_units": 30,
+        "human_review_minutes": 60,
+        "protected_exposures": 0,
+        "source_reads": 40,
+        "tool_calls": 20
+      },
+      "overrun_dimensions": [],
+      "task_family": "challenge",
+      "used": {
+        "agent_steps": 6,
+        "compute_units": 3,
+        "human_review_minutes": 5,
+        "protected_exposures": 0,
+        "source_reads": 4,
+        "tool_calls": 2
+      },
+      "within_budget": true
+    },
+    {
+      "budget_id": "BUD-009",
+      "hard_stop_triggered": false,
+      "limits": {
+        "agent_steps": 60,
+        "compute_units": 30,
+        "human_review_minutes": 60,
+        "protected_exposures": 2,
+        "source_reads": 40,
+        "tool_calls": 20
+      },
+      "overrun_dimensions": [],
+      "task_family": "evidence",
+      "used": {
+        "agent_steps": 6,
+        "compute_units": 3,
+        "human_review_minutes": 5,
+        "protected_exposures": 1,
+        "source_reads": 4,
+        "tool_calls": 2
+      },
+      "within_budget": true
+    },
+    {
+      "budget_id": "BUD-010",
+      "hard_stop_triggered": false,
+      "limits": {
+        "agent_steps": 60,
+        "compute_units": 30,
+        "human_review_minutes": 60,
+        "protected_exposures": 2,
+        "source_reads": 40,
+        "tool_calls": 20
+      },
+      "overrun_dimensions": [],
+      "task_family": "review",
+      "used": {
+        "agent_steps": 6,
+        "compute_units": 3,
+        "human_review_minutes": 5,
+        "protected_exposures": 1,
+        "source_reads": 4,
+        "tool_calls": 2
+      },
+      "within_budget": true
+    },
+    {
+      "budget_id": "BUD-011",
+      "hard_stop_triggered": false,
+      "limits": {
+        "agent_steps": 60,
+        "compute_units": 30,
+        "human_review_minutes": 60,
+        "protected_exposures": 0,
+        "source_reads": 40,
+        "tool_calls": 20
+      },
+      "overrun_dimensions": [],
+      "task_family": "incident",
+      "used": {
+        "agent_steps": 6,
+        "compute_units": 3,
+        "human_review_minutes": 5,
+        "protected_exposures": 0,
+        "source_reads": 4,
+        "tool_calls": 2
+      },
+      "within_budget": true
+    }
+  ]
+}

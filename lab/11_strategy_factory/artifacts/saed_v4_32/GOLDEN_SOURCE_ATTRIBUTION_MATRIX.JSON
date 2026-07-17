@@ -1,0 +1,121 @@
+{
+  "all_claims_attributed": true,
+  "attributed_claim_count": 6,
+  "claim_count": 6,
+  "matrix_hash": "557fb35ff8e9a72e0d523016f40bbff491f9e0502aeca76ad4ee006efbfa6aff",
+  "matrix_id": "v432_attribution_matrix_06e8093a3d85f970374bb9a9",
+  "phase": "SAED_V4_32",
+  "research_only": true,
+  "rows": [
+    {
+      "attribution_complete": true,
+      "claim_id": "CLM-001",
+      "evidence_role": "training",
+      "known_time_epoch": 3200002,
+      "protected": false,
+      "source_hash": "b277fd623676a525c29b9eb155afc8c9010681814ceafb2d7627f47b9a232576",
+      "source_id": "SRC-DATA-001",
+      "synthetic": false
+    },
+    {
+      "attribution_complete": true,
+      "claim_id": "CLM-001",
+      "evidence_role": "governance",
+      "known_time_epoch": 3200001,
+      "protected": false,
+      "source_hash": "bf9422a2a04aad2180fad0913f1cdf8a9d3780fd074817d2569050d0a8095d3a",
+      "source_id": "SRC-GOV-001",
+      "synthetic": false
+    },
+    {
+      "attribution_complete": true,
+      "claim_id": "CLM-002",
+      "evidence_role": "training",
+      "known_time_epoch": 3200002,
+      "protected": false,
+      "source_hash": "b277fd623676a525c29b9eb155afc8c9010681814ceafb2d7627f47b9a232576",
+      "source_id": "SRC-DATA-001",
+      "synthetic": false
+    },
+    {
+      "attribution_complete": true,
+      "claim_id": "CLM-002",
+      "evidence_role": "validation",
+      "known_time_epoch": 3200003,
+      "protected": false,
+      "source_hash": "98c41dcd20b86b86830ec0794559835614458ceaae0f0ec77a3ed1cd3a1f7d55",
+      "source_id": "SRC-VAL-001",
+      "synthetic": false
+    },
+    {
+      "attribution_complete": true,
+      "claim_id": "CLM-003",
+      "evidence_role": "challenge",
+      "known_time_epoch": 3200004,
+      "protected": false,
+      "source_hash": "2dd00bd77e0222ced882665481a9c1d9f907309d16e05ed007a1ea63928477a9",
+      "source_id": "SRC-CHAL-001",
+      "synthetic": false
+    },
+    {
+      "attribution_complete": true,
+      "claim_id": "CLM-003",
+      "evidence_role": "synthetic_stress",
+      "known_time_epoch": 3200004,
+      "protected": false,
+      "source_hash": "f43dc8790ed6215684924d362753e3864cb66c0f06084e89ad36b57e15986c6e",
+      "source_id": "SRC-STRESS-001",
+      "synthetic": true
+    },
+    {
+      "attribution_complete": true,
+      "claim_id": "CLM-004",
+      "evidence_role": "challenge",
+      "known_time_epoch": 3200004,
+      "protected": false,
+      "source_hash": "2dd00bd77e0222ced882665481a9c1d9f907309d16e05ed007a1ea63928477a9",
+      "source_id": "SRC-CHAL-001",
+      "synthetic": false
+    },
+    {
+      "attribution_complete": true,
+      "claim_id": "CLM-004",
+      "evidence_role": "validation",
+      "known_time_epoch": 3200003,
+      "protected": false,
+      "source_hash": "98c41dcd20b86b86830ec0794559835614458ceaae0f0ec77a3ed1cd3a1f7d55",
+      "source_id": "SRC-VAL-001",
+      "synthetic": false
+    },
+    {
+      "attribution_complete": true,
+      "claim_id": "CLM-005",
+      "evidence_role": "governance",
+      "known_time_epoch": 3200001,
+      "protected": false,
+      "source_hash": "bf9422a2a04aad2180fad0913f1cdf8a9d3780fd074817d2569050d0a8095d3a",
+      "source_id": "SRC-GOV-001",
+      "synthetic": false
+    },
+    {
+      "attribution_complete": true,
+      "claim_id": "CLM-005",
+      "evidence_role": "synthetic_stress",
+      "known_time_epoch": 3200004,
+      "protected": false,
+      "source_hash": "f43dc8790ed6215684924d362753e3864cb66c0f06084e89ad36b57e15986c6e",
+      "source_id": "SRC-STRESS-001",
+      "synthetic": true
+    },
+    {
+      "attribution_complete": true,
+      "claim_id": "CLM-006",
+      "evidence_role": "protected_final",
+      "known_time_epoch": 3200005,
+      "protected": true,
+      "source_hash": "9b2bbce6c72dd9bbd9c7a9976d5d76d1fcc2bb9832dec246375bb92006beccc3",
+      "source_id": "SRC-PROT-001",
+      "synthetic": false
+    }
+  ]
+}

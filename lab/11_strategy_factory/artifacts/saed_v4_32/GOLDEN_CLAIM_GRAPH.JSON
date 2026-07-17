@@ -1,0 +1,174 @@
+{
+  "acyclic_dependency_graph": true,
+  "claim_count": 6,
+  "edges": [
+    {
+      "relation": "depends_on",
+      "source_claim_id": "CLM-001",
+      "target_claim_id": "CLM-002"
+    },
+    {
+      "relation": "opposes",
+      "source_claim_id": "CLM-003",
+      "target_claim_id": "CLM-002"
+    },
+    {
+      "relation": "depends_on",
+      "source_claim_id": "CLM-001",
+      "target_claim_id": "CLM-003"
+    },
+    {
+      "relation": "opposes",
+      "source_claim_id": "CLM-002",
+      "target_claim_id": "CLM-003"
+    },
+    {
+      "relation": "depends_on",
+      "source_claim_id": "CLM-002",
+      "target_claim_id": "CLM-004"
+    },
+    {
+      "relation": "depends_on",
+      "source_claim_id": "CLM-003",
+      "target_claim_id": "CLM-004"
+    },
+    {
+      "relation": "depends_on",
+      "source_claim_id": "CLM-004",
+      "target_claim_id": "CLM-005"
+    },
+    {
+      "relation": "depends_on",
+      "source_claim_id": "CLM-005",
+      "target_claim_id": "CLM-006"
+    }
+  ],
+  "graph_hash": "a982d0aaacb0657e922471eab33586aaa914f9e4ea8b56d6a46c21ecc5e42a48",
+  "graph_id": "v432_claim_graph_5d96991e71d6b24e4284295b",
+  "nodes": [
+    {
+      "claim_class": "descriptive",
+      "claim_hash": "dc47b8a55d608638d9d6737386550440096f77bdc66d0a60332f1842966a9d31",
+      "claim_id": "CLM-001",
+      "decision_contribution": "none",
+      "depends_on_claim_ids": [],
+      "known_time_epoch": 3200002,
+      "opposing_claim_ids": [],
+      "producer_agent_id": "agent:data_audit:v1",
+      "research_only": true,
+      "statement": "The synthetic reference task graph is closed and acyclic.",
+      "status": "supported_synthetic",
+      "supporting_source_ids": [
+        "SRC-GOV-001",
+        "SRC-DATA-001"
+      ],
+      "uncertainty_state": "bounded"
+    },
+    {
+      "claim_class": "predictive",
+      "claim_hash": "b7ae2956383b671fda76fb9afc0605e5590c6f74ce72dfac7aa5ae51c7c64be6",
+      "claim_id": "CLM-002",
+      "decision_contribution": "research_recommendation",
+      "depends_on_claim_ids": [
+        "CLM-001"
+      ],
+      "known_time_epoch": 3200003,
+      "opposing_claim_ids": [
+        "CLM-003"
+      ],
+      "producer_agent_id": "agent:model_engineering:v1",
+      "research_only": true,
+      "statement": "The governed challenger may improve the synthetic validation objective.",
+      "status": "challenged",
+      "supporting_source_ids": [
+        "SRC-DATA-001",
+        "SRC-VAL-001"
+      ],
+      "uncertainty_state": "high"
+    },
+    {
+      "claim_class": "associational",
+      "claim_hash": "8929190bc87088b7166bab75209c7823f601d77559a3ab1b4480aa8817599404",
+      "claim_id": "CLM-003",
+      "decision_contribution": "abstain",
+      "depends_on_claim_ids": [
+        "CLM-001"
+      ],
+      "known_time_epoch": 3200004,
+      "opposing_claim_ids": [
+        "CLM-002"
+      ],
+      "producer_agent_id": "agent:statistical_adversary:v1",
+      "research_only": true,
+      "statement": "Observed synthetic uplift may be selection artefact rather than stable value.",
+      "status": "blocked",
+      "supporting_source_ids": [
+        "SRC-CHAL-001",
+        "SRC-STRESS-001"
+      ],
+      "uncertainty_state": "material"
+    },
+    {
+      "claim_class": "causal_hypothesis",
+      "claim_hash": "2b1a0e38f0f5634d740019d52fa53a1c321d7251155cf248539d1e2598af57e5",
+      "claim_id": "CLM-004",
+      "decision_contribution": "skip",
+      "depends_on_claim_ids": [
+        "CLM-002",
+        "CLM-003"
+      ],
+      "known_time_epoch": 3200004,
+      "opposing_claim_ids": [],
+      "producer_agent_id": "agent:causal_auditor:v1",
+      "research_only": true,
+      "statement": "The proposed mechanism remains unidentified under the synthetic confounding challenge.",
+      "status": "blocked",
+      "supporting_source_ids": [
+        "SRC-VAL-001",
+        "SRC-CHAL-001"
+      ],
+      "uncertainty_state": "unresolved"
+    },
+    {
+      "claim_class": "operational_research",
+      "claim_hash": "c374bbe303e80c767ea23d329ea8139530c9f104b642d01dda9225ef9343c2c0",
+      "claim_id": "CLM-005",
+      "decision_contribution": "manual_fallback",
+      "depends_on_claim_ids": [
+        "CLM-004"
+      ],
+      "known_time_epoch": 3200004,
+      "opposing_claim_ids": [],
+      "producer_agent_id": "agent:execution_auditor:v1",
+      "research_only": true,
+      "statement": "No runtime or execution authorization follows from the research evidence.",
+      "status": "supported_synthetic",
+      "supporting_source_ids": [
+        "SRC-GOV-001",
+        "SRC-STRESS-001"
+      ],
+      "uncertainty_state": "bounded"
+    },
+    {
+      "claim_class": "stress_only",
+      "claim_hash": "c07350cb703bcbcf6a7671018ed95e37fad3c933a80add785718be0a8efdc439",
+      "claim_id": "CLM-006",
+      "decision_contribution": "none",
+      "depends_on_claim_ids": [
+        "CLM-005"
+      ],
+      "known_time_epoch": 3200005,
+      "opposing_claim_ids": [],
+      "producer_agent_id": "agent:evidence_curator:v1",
+      "research_only": true,
+      "statement": "Protected synthetic reference inspection does not provide positive promotion evidence.",
+      "status": "supported_synthetic",
+      "supporting_source_ids": [
+        "SRC-PROT-001"
+      ],
+      "uncertainty_state": "bounded"
+    }
+  ],
+  "phase": "SAED_V4_32",
+  "research_only": true
+}

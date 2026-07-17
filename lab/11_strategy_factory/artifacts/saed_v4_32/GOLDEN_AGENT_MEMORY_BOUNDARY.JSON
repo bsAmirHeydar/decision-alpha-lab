@@ -1,0 +1,130 @@
+{
+  "boundary_hash": "47a4db3cbe3cf208b7adaf535a3e14a6238695e652bfaf283a663eba835f8544",
+  "boundary_id": "v432_memory_boundary_e1db0d1b47b33f51c20e568f",
+  "cross_agent_write_denied": true,
+  "namespace_unique": true,
+  "phase": "SAED_V4_32",
+  "research_only": true,
+  "rows": [
+    {
+      "agent_id": "agent:causal_auditor:v1",
+      "cross_agent_write": false,
+      "memory_namespace": "memory://saed/v4_32/causal_auditor",
+      "protected_memory_access": false,
+      "readable_namespaces": [
+        "memory://saed/v4_32/causal_auditor"
+      ],
+      "writable_namespaces": [
+        "memory://saed/v4_32/causal_auditor"
+      ]
+    },
+    {
+      "agent_id": "agent:data_audit:v1",
+      "cross_agent_write": false,
+      "memory_namespace": "memory://saed/v4_32/data_audit",
+      "protected_memory_access": false,
+      "readable_namespaces": [
+        "memory://saed/v4_32/data_audit"
+      ],
+      "writable_namespaces": [
+        "memory://saed/v4_32/data_audit"
+      ]
+    },
+    {
+      "agent_id": "agent:evidence_curator:v1",
+      "cross_agent_write": false,
+      "memory_namespace": "memory://saed/v4_32/evidence_curator",
+      "protected_memory_access": true,
+      "readable_namespaces": [
+        "memory://saed/v4_32/evidence_curator"
+      ],
+      "writable_namespaces": [
+        "memory://saed/v4_32/evidence_curator"
+      ]
+    },
+    {
+      "agent_id": "agent:execution_auditor:v1",
+      "cross_agent_write": false,
+      "memory_namespace": "memory://saed/v4_32/execution_auditor",
+      "protected_memory_access": false,
+      "readable_namespaces": [
+        "memory://saed/v4_32/execution_auditor"
+      ],
+      "writable_namespaces": [
+        "memory://saed/v4_32/execution_auditor"
+      ]
+    },
+    {
+      "agent_id": "agent:human_reviewer:v1",
+      "cross_agent_write": false,
+      "memory_namespace": "memory://saed/v4_32/human_reviewer",
+      "protected_memory_access": true,
+      "readable_namespaces": [
+        "memory://saed/v4_32/human_reviewer"
+      ],
+      "writable_namespaces": [
+        "memory://saed/v4_32/human_reviewer"
+      ]
+    },
+    {
+      "agent_id": "agent:hypothesis:v1",
+      "cross_agent_write": false,
+      "memory_namespace": "memory://saed/v4_32/hypothesis",
+      "protected_memory_access": false,
+      "readable_namespaces": [
+        "memory://saed/v4_32/hypothesis"
+      ],
+      "writable_namespaces": [
+        "memory://saed/v4_32/hypothesis"
+      ]
+    },
+    {
+      "agent_id": "agent:leakage_sentinel:v1",
+      "cross_agent_write": false,
+      "memory_namespace": "memory://saed/v4_32/leakage_sentinel",
+      "protected_memory_access": false,
+      "readable_namespaces": [
+        "memory://saed/v4_32/leakage_sentinel"
+      ],
+      "writable_namespaces": [
+        "memory://saed/v4_32/leakage_sentinel"
+      ]
+    },
+    {
+      "agent_id": "agent:model_engineering:v1",
+      "cross_agent_write": false,
+      "memory_namespace": "memory://saed/v4_32/model_engineering",
+      "protected_memory_access": false,
+      "readable_namespaces": [
+        "memory://saed/v4_32/model_engineering"
+      ],
+      "writable_namespaces": [
+        "memory://saed/v4_32/model_engineering"
+      ]
+    },
+    {
+      "agent_id": "agent:orchestrator:v1",
+      "cross_agent_write": false,
+      "memory_namespace": "memory://saed/v4_32/orchestrator",
+      "protected_memory_access": false,
+      "readable_namespaces": [
+        "memory://saed/v4_32/orchestrator"
+      ],
+      "writable_namespaces": [
+        "memory://saed/v4_32/orchestrator"
+      ]
+    },
+    {
+      "agent_id": "agent:statistical_adversary:v1",
+      "cross_agent_write": false,
+      "memory_namespace": "memory://saed/v4_32/statistical_adversary",
+      "protected_memory_access": false,
+      "readable_namespaces": [
+        "memory://saed/v4_32/statistical_adversary"
+      ],
+      "writable_namespaces": [
+        "memory://saed/v4_32/statistical_adversary"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,178 @@
+{
+  "blocking_count": 5,
+  "challenge_count": 10,
+  "challenges": [
+    {
+      "blocking": true,
+      "challenge_hash": "3700fdb6647e0cab75a9e12167c96364699935612fbaf7b5d9de9e70ec9959b6",
+      "challenge_id": "CHL-001",
+      "challenge_type": "multiplicity",
+      "challenger_agent_id": "agent:data_audit:v1",
+      "claim_id": "CLM-003",
+      "evidence_source_ids": [
+        "SRC-CHAL-001",
+        "SRC-STRESS-001"
+      ],
+      "finding": "Synthetic multiplicity challenge remains material.",
+      "required_resolution": "Resolve multiplicity with independent evidence or retain abstention.",
+      "research_only": true,
+      "severity": "high"
+    },
+    {
+      "blocking": false,
+      "challenge_hash": "727dff28ac5e9185f1187291be41a5c5a6561937772e37e13b7e12b35dd1d15a",
+      "challenge_id": "CHL-002",
+      "challenge_type": "dependence",
+      "challenger_agent_id": "agent:leakage_sentinel:v1",
+      "claim_id": "CLM-004",
+      "evidence_source_ids": [
+        "SRC-CHAL-001",
+        "SRC-STRESS-001"
+      ],
+      "finding": "Synthetic dependence challenge remains material.",
+      "required_resolution": "Resolve dependence with independent evidence or retain abstention.",
+      "research_only": true,
+      "severity": "medium"
+    },
+    {
+      "blocking": true,
+      "challenge_hash": "5d7ad80e0d560c9e352d748f2ffc72989fe2c0e01932647381e132c1b7ed6fc8",
+      "challenge_id": "CHL-003",
+      "challenge_type": "leakage",
+      "challenger_agent_id": "agent:causal_auditor:v1",
+      "claim_id": "CLM-005",
+      "evidence_source_ids": [
+        "SRC-CHAL-001",
+        "SRC-STRESS-001"
+      ],
+      "finding": "Synthetic leakage challenge remains material.",
+      "required_resolution": "Resolve leakage with independent evidence or retain abstention.",
+      "research_only": true,
+      "severity": "critical"
+    },
+    {
+      "blocking": true,
+      "challenge_hash": "69337bed8f389b32f7ff8e50c2aacd96e0fc632bc48b33f9fa04db411afc22f9",
+      "challenge_id": "CHL-004",
+      "challenge_type": "support",
+      "challenger_agent_id": "agent:execution_auditor:v1",
+      "claim_id": "CLM-002",
+      "evidence_source_ids": [
+        "SRC-CHAL-001",
+        "SRC-STRESS-001"
+      ],
+      "finding": "Synthetic support challenge remains material.",
+      "required_resolution": "Resolve support with independent evidence or retain abstention.",
+      "research_only": true,
+      "severity": "high"
+    },
+    {
+      "blocking": false,
+      "challenge_hash": "b86f40b5fc0a664ea9fca5e6f3a01146b41757c45b8d64cf7b474e37cd95b6e2",
+      "challenge_id": "CHL-005",
+      "challenge_type": "calibration",
+      "challenger_agent_id": "agent:statistical_adversary:v1",
+      "claim_id": "CLM-003",
+      "evidence_source_ids": [
+        "SRC-CHAL-001",
+        "SRC-STRESS-001"
+      ],
+      "finding": "Synthetic calibration challenge remains material.",
+      "required_resolution": "Resolve calibration with independent evidence or retain abstention.",
+      "research_only": true,
+      "severity": "medium"
+    },
+    {
+      "blocking": true,
+      "challenge_hash": "2fa07b04cdf3c8f1083bc0b398a9d9022a45fa1789969c2fd1cb889fa5020829",
+      "challenge_id": "CHL-006",
+      "challenge_type": "causal_identification",
+      "challenger_agent_id": "agent:data_audit:v1",
+      "claim_id": "CLM-004",
+      "evidence_source_ids": [
+        "SRC-CHAL-001",
+        "SRC-STRESS-001"
+      ],
+      "finding": "Synthetic causal identification challenge remains material.",
+      "required_resolution": "Resolve causal_identification with independent evidence or retain abstention.",
+      "research_only": true,
+      "severity": "critical"
+    },
+    {
+      "blocking": false,
+      "challenge_hash": "24f7a14de9e7df6469eee2ce05cf9c2d90563f07d6fc06a5c90c271d5b9e623f",
+      "challenge_id": "CHL-007",
+      "challenge_type": "execution_realism",
+      "challenger_agent_id": "agent:leakage_sentinel:v1",
+      "claim_id": "CLM-005",
+      "evidence_source_ids": [
+        "SRC-CHAL-001",
+        "SRC-STRESS-001"
+      ],
+      "finding": "Synthetic execution realism challenge remains material.",
+      "required_resolution": "Resolve execution_realism with independent evidence or retain abstention.",
+      "research_only": true,
+      "severity": "medium"
+    },
+    {
+      "blocking": true,
+      "challenge_hash": "be83b526c0f4b287b45f2f206d663b219f9f0f6bb73a35a42005e3f043f882b1",
+      "challenge_id": "CHL-008",
+      "challenge_type": "selection_bias",
+      "challenger_agent_id": "agent:causal_auditor:v1",
+      "claim_id": "CLM-002",
+      "evidence_source_ids": [
+        "SRC-CHAL-001",
+        "SRC-STRESS-001"
+      ],
+      "finding": "Synthetic selection bias challenge remains material.",
+      "required_resolution": "Resolve selection_bias with independent evidence or retain abstention.",
+      "research_only": true,
+      "severity": "high"
+    },
+    {
+      "blocking": false,
+      "challenge_hash": "836e9d8683fab642fc027e59039000e775751997ebfdf5020eea9ce31d4a91e4",
+      "challenge_id": "CHL-009",
+      "challenge_type": "transport",
+      "challenger_agent_id": "agent:execution_auditor:v1",
+      "claim_id": "CLM-003",
+      "evidence_source_ids": [
+        "SRC-CHAL-001",
+        "SRC-STRESS-001"
+      ],
+      "finding": "Synthetic transport challenge remains material.",
+      "required_resolution": "Resolve transport with independent evidence or retain abstention.",
+      "research_only": true,
+      "severity": "medium"
+    },
+    {
+      "blocking": false,
+      "challenge_hash": "ca0e46a37783c71c254af319c0015b156d99a0b69fd9674a5c289208e274ac59",
+      "challenge_id": "CHL-010",
+      "challenge_type": "baseline",
+      "challenger_agent_id": "agent:statistical_adversary:v1",
+      "claim_id": "CLM-004",
+      "evidence_source_ids": [
+        "SRC-CHAL-001",
+        "SRC-STRESS-001"
+      ],
+      "finding": "Synthetic baseline challenge remains material.",
+      "required_resolution": "Resolve baseline with independent evidence or retain abstention.",
+      "research_only": true,
+      "severity": "medium"
+    }
+  ],
+  "counter_report_required": true,
+  "independent_challenger_groups": [
+    "causal_auditor",
+    "data_audit",
+    "execution_auditor",
+    "leakage_sentinel",
+    "statistical_adversary"
+  ],
+  "phase": "SAED_V4_32",
+  "report_hash": "4112e655d3e5acc6b9b3834c886d0f4b299ce32c819a7ea5c70a305a14da671a",
+  "report_id": "v432_adversarial_report_077a042ca8146dec0e95f7f3",
+  "research_only": true
+}

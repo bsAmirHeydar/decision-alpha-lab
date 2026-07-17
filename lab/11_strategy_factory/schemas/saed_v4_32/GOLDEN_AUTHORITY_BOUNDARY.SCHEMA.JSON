@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "agents_have_zero_live_authority": {
+      "type": "boolean"
+    },
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "constitutional_self_amendment": {
+          "type": "boolean"
+        },
+        "context_truth_mutation": {
+          "type": "boolean"
+        },
+        "counterexample_suppression": {
+          "type": "boolean"
+        },
+        "credential_access": {
+          "type": "boolean"
+        },
+        "evidence_role_mutation": {
+          "type": "boolean"
+        },
+        "execution": {
+          "type": "boolean"
+        },
+        "live_trading": {
+          "type": "boolean"
+        },
+        "online_learning": {
+          "type": "boolean"
+        },
+        "order_submission": {
+          "type": "boolean"
+        },
+        "production_release": {
+          "type": "boolean"
+        },
+        "promotion": {
+          "type": "boolean"
+        },
+        "residual_risk_waiver": {
+          "type": "boolean"
+        },
+        "risk_allocation": {
+          "type": "boolean"
+        },
+        "runtime_activation": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "constitutional_self_amendment",
+        "context_truth_mutation",
+        "counterexample_suppression",
+        "credential_access",
+        "evidence_role_mutation",
+        "execution",
+        "live_trading",
+        "online_learning",
+        "order_submission",
+        "production_release",
+        "promotion",
+        "residual_risk_waiver",
+        "risk_allocation",
+        "runtime_activation"
+      ],
+      "type": "object"
+    },
+    "boundary_hash": {
+      "type": "string"
+    },
+    "boundary_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_actions_only": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "safe_action": {
+      "type": "string"
+    },
+    "ucee_authority_preserved": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "agents_have_zero_live_authority",
+    "authority",
+    "boundary_hash",
+    "boundary_id",
+    "phase",
+    "research_actions_only",
+    "research_only",
+    "safe_action",
+    "ucee_authority_preserved"
+  ],
+  "title": "GOLDEN_AUTHORITY_BOUNDARY",
+  "type": "object"
+}

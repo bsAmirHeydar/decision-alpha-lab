@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allow_events": {
+      "type": "integer"
+    },
+    "deny_by_default": {
+      "type": "boolean"
+    },
+    "deny_events": {
+      "type": "integer"
+    },
+    "event_count": {
+      "type": "integer"
+    },
+    "events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "agent_id": {
+            "type": "string"
+          },
+          "allowed": {
+            "type": "boolean"
+          },
+          "capability_id": {
+            "type": "string"
+          },
+          "clause_id": {
+            "type": "string"
+          },
+          "event_hash": {
+            "type": "string"
+          },
+          "event_id": {
+            "type": "string"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "previous_event_hash": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "violation_response": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "agent_id",
+          "allowed",
+          "capability_id",
+          "clause_id",
+          "event_hash",
+          "event_id",
+          "ordinal",
+          "previous_event_hash",
+          "reason",
+          "violation_response"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "allow_events",
+    "deny_by_default",
+    "deny_events",
+    "event_count",
+    "events",
+    "ledger_hash",
+    "ledger_id",
+    "phase",
+    "research_only"
+  ],
+  "title": "GOLDEN_POLICY_DECISION_LEDGER",
+  "type": "object"
+}

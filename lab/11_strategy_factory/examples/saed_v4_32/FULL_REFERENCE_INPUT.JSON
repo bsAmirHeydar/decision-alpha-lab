@@ -1,0 +1,1885 @@
+{
+  "agents": [
+    {
+      "active": true,
+      "agent_id": "agent:causal_auditor:v1",
+      "display_name": "Causal Auditor",
+      "human_supervisor_id": "human:supervisor:1",
+      "identity_fingerprint": "1e77543b421bb29a1012ecd1c06955e2f39bd952b76c1883c8e2ccdcb5cef9e5",
+      "identity_provider": "synthetic-attestation",
+      "memory_namespace": "memory://saed/v4_32/causal_auditor",
+      "prompt_profile_hash": "75a5ae6dc26d3e7deb3d79129bf231e9db43f1900d6bc6ea3f8ce09173a9ca25",
+      "role_id": "causal_auditor",
+      "tool_profile_hash": "64607c108796111c7c38168d06b8cd8f4cbc5fc603af2fe5fc55de1ee8ee8aeb"
+    },
+    {
+      "active": true,
+      "agent_id": "agent:data_audit:v1",
+      "display_name": "Data Audit",
+      "human_supervisor_id": "human:supervisor:2",
+      "identity_fingerprint": "60863e0de9aa06dca85ad5af331a7cc12eefd9edbe929beb7b427798709c2925",
+      "identity_provider": "synthetic-attestation",
+      "memory_namespace": "memory://saed/v4_32/data_audit",
+      "prompt_profile_hash": "b5c9275aead5760b22dc6b24e5c63f8726662dddd32f1ef721ed34adbd48e438",
+      "role_id": "data_audit",
+      "tool_profile_hash": "e7e9404ae84e16fd3269d1afe7ad82d1a92c0364bb968f909fa913febcd97ad9"
+    },
+    {
+      "active": true,
+      "agent_id": "agent:evidence_curator:v1",
+      "display_name": "Evidence Curator",
+      "human_supervisor_id": "human:supervisor:3",
+      "identity_fingerprint": "b0ba6e2685e1b10011c41462a06d47aa7d46dd811e3aca71a2c6ab647901a8a3",
+      "identity_provider": "synthetic-attestation",
+      "memory_namespace": "memory://saed/v4_32/evidence_curator",
+      "prompt_profile_hash": "fdf65c6e07314a96af60907ca4bee5804cc304cc1bcbbda9de9e52691dbb6ded",
+      "role_id": "evidence_curator",
+      "tool_profile_hash": "3dd6fe0fb882e30cb04c7b6344300c316926f4a3d8983363602841d8a420ad7f"
+    },
+    {
+      "active": true,
+      "agent_id": "agent:execution_auditor:v1",
+      "display_name": "Execution Auditor",
+      "human_supervisor_id": "human:supervisor:1",
+      "identity_fingerprint": "1554bbdc35d9d62572574ae00e4d69cd92bb0f11471c8a4903d79e8f8c9f5a3a",
+      "identity_provider": "synthetic-attestation",
+      "memory_namespace": "memory://saed/v4_32/execution_auditor",
+      "prompt_profile_hash": "fc9549434f13f84bdf7cc608d9b64ff6020e165efdae7ba2756c161f50a217bd",
+      "role_id": "execution_auditor",
+      "tool_profile_hash": "ca434dd85f17c73300a8c07e0236d7e38e93c21f0f6c37fef0235c4fc784a4f3"
+    },
+    {
+      "active": true,
+      "agent_id": "agent:human_reviewer:v1",
+      "display_name": "Human Reviewer",
+      "human_supervisor_id": "human:supervisor:2",
+      "identity_fingerprint": "5871f84ed1d4bc321c1aafe71600bc42a300a0617cf40b28136e8ad0ff9168f3",
+      "identity_provider": "synthetic-attestation",
+      "memory_namespace": "memory://saed/v4_32/human_reviewer",
+      "prompt_profile_hash": "090cdecac0eae59c58463c965b638a725e54d8755161142615bb743ef80c38a0",
+      "role_id": "human_reviewer",
+      "tool_profile_hash": "e94d95045d2532d4bdad65df29cdb80857800dbf5ac8eebc6a686ab668e426b0"
+    },
+    {
+      "active": true,
+      "agent_id": "agent:hypothesis:v1",
+      "display_name": "Hypothesis",
+      "human_supervisor_id": "human:supervisor:3",
+      "identity_fingerprint": "600a6023cbbc280f5c4b9f5a97ddea95b9fbea600636963891ab418444dbbc77",
+      "identity_provider": "synthetic-attestation",
+      "memory_namespace": "memory://saed/v4_32/hypothesis",
+      "prompt_profile_hash": "9a6f9854a9eba9ab1ce554bf0fb9f7550ad198b54f7019f5caa2054cb820f31c",
+      "role_id": "hypothesis",
+      "tool_profile_hash": "99b8c444c7a1f4d9d693c4980fcd0b97bc613fe81e46f0cb4eb56edeb2eaf727"
+    },
+    {
+      "active": true,
+      "agent_id": "agent:leakage_sentinel:v1",
+      "display_name": "Leakage Sentinel",
+      "human_supervisor_id": "human:supervisor:1",
+      "identity_fingerprint": "e8f86e4a168ac1d394076c2270c9e86c0f9861b90fd67980913a979b14ce54cf",
+      "identity_provider": "synthetic-attestation",
+      "memory_namespace": "memory://saed/v4_32/leakage_sentinel",
+      "prompt_profile_hash": "8239c609caafad9b98a0b497ef9270b1bcf6515957fed08cde93ed5504f8839e",
+      "role_id": "leakage_sentinel",
+      "tool_profile_hash": "fce016ddd651427b69ea21f142eedb32d9dd3171abe19d326adf9d483c05b98d"
+    },
+    {
+      "active": true,
+      "agent_id": "agent:model_engineering:v1",
+      "display_name": "Model Engineering",
+      "human_supervisor_id": "human:supervisor:2",
+      "identity_fingerprint": "d06107b6542d86b15af2473c9fe699819ce5203d24d5a60585f7fda77f431e3a",
+      "identity_provider": "synthetic-attestation",
+      "memory_namespace": "memory://saed/v4_32/model_engineering",
+      "prompt_profile_hash": "a1760301ed084b4b97646877b5a84300861c73c5811e01fc80e1a04bdf853e8b",
+      "role_id": "model_engineering",
+      "tool_profile_hash": "91660671f5bfd991cc3be9df57f91083cea1129c19e821dd1e4fe57683a4bfe1"
+    },
+    {
+      "active": true,
+      "agent_id": "agent:orchestrator:v1",
+      "display_name": "Orchestrator",
+      "human_supervisor_id": "human:supervisor:3",
+      "identity_fingerprint": "7462e32fad210c92e284fcb5bc789438fe0d661aa603080f48e8717da75e2b32",
+      "identity_provider": "synthetic-attestation",
+      "memory_namespace": "memory://saed/v4_32/orchestrator",
+      "prompt_profile_hash": "33d06d41f7b592e5f83a20985f2a1d0c0c5903379ac29e9f8d6f38f0341dea22",
+      "role_id": "orchestrator",
+      "tool_profile_hash": "8926cb2e72fe4c2f3e6ac2602566ac66ad3878b3ee4bf0b58e6d0e061d9249df"
+    },
+    {
+      "active": true,
+      "agent_id": "agent:statistical_adversary:v1",
+      "display_name": "Statistical Adversary",
+      "human_supervisor_id": "human:supervisor:1",
+      "identity_fingerprint": "42609c601c03f377c6669698fbd9c6d047fac54fc42f80a8d0e595901266c34c",
+      "identity_provider": "synthetic-attestation",
+      "memory_namespace": "memory://saed/v4_32/statistical_adversary",
+      "prompt_profile_hash": "f9b3e155398749549413ba53b9941116b91883e338442736b81f82607c52a2f9",
+      "role_id": "statistical_adversary",
+      "tool_profile_hash": "cf455e28c4f1bf3eb9d3f7ec1179fe04e967b6c9cba89d4aa81b3dcb45f1d964"
+    }
+  ],
+  "budgets": [
+    {
+      "budget_id": "BUD-001",
+      "compute_units": 30,
+      "hard_stop": true,
+      "human_review_minutes": 60,
+      "max_agent_steps": 60,
+      "protected_exposures": 0,
+      "research_only": true,
+      "source_reads": 40,
+      "task_family": "coordination",
+      "tool_calls": 20
+    },
+    {
+      "budget_id": "BUD-002",
+      "compute_units": 30,
+      "hard_stop": true,
+      "human_review_minutes": 60,
+      "max_agent_steps": 60,
+      "protected_exposures": 0,
+      "research_only": true,
+      "source_reads": 40,
+      "task_family": "proposal",
+      "tool_calls": 20
+    },
+    {
+      "budget_id": "BUD-003",
+      "compute_units": 30,
+      "hard_stop": true,
+      "human_review_minutes": 60,
+      "max_agent_steps": 60,
+      "protected_exposures": 0,
+      "research_only": true,
+      "source_reads": 40,
+      "task_family": "data",
+      "tool_calls": 20
+    },
+    {
+      "budget_id": "BUD-004",
+      "compute_units": 30,
+      "hard_stop": true,
+      "human_review_minutes": 60,
+      "max_agent_steps": 60,
+      "protected_exposures": 0,
+      "research_only": true,
+      "source_reads": 40,
+      "task_family": "leakage",
+      "tool_calls": 20
+    },
+    {
+      "budget_id": "BUD-005",
+      "compute_units": 30,
+      "hard_stop": true,
+      "human_review_minutes": 60,
+      "max_agent_steps": 60,
+      "protected_exposures": 0,
+      "research_only": true,
+      "source_reads": 40,
+      "task_family": "model",
+      "tool_calls": 20
+    },
+    {
+      "budget_id": "BUD-006",
+      "compute_units": 30,
+      "hard_stop": true,
+      "human_review_minutes": 60,
+      "max_agent_steps": 60,
+      "protected_exposures": 0,
+      "research_only": true,
+      "source_reads": 40,
+      "task_family": "causal",
+      "tool_calls": 20
+    },
+    {
+      "budget_id": "BUD-007",
+      "compute_units": 30,
+      "hard_stop": true,
+      "human_review_minutes": 60,
+      "max_agent_steps": 60,
+      "protected_exposures": 0,
+      "research_only": true,
+      "source_reads": 40,
+      "task_family": "execution",
+      "tool_calls": 20
+    },
+    {
+      "budget_id": "BUD-008",
+      "compute_units": 30,
+      "hard_stop": true,
+      "human_review_minutes": 60,
+      "max_agent_steps": 60,
+      "protected_exposures": 0,
+      "research_only": true,
+      "source_reads": 40,
+      "task_family": "challenge",
+      "tool_calls": 20
+    },
+    {
+      "budget_id": "BUD-009",
+      "compute_units": 30,
+      "hard_stop": true,
+      "human_review_minutes": 60,
+      "max_agent_steps": 60,
+      "protected_exposures": 2,
+      "research_only": true,
+      "source_reads": 40,
+      "task_family": "evidence",
+      "tool_calls": 20
+    },
+    {
+      "budget_id": "BUD-010",
+      "compute_units": 30,
+      "hard_stop": true,
+      "human_review_minutes": 60,
+      "max_agent_steps": 60,
+      "protected_exposures": 2,
+      "research_only": true,
+      "source_reads": 40,
+      "task_family": "review",
+      "tool_calls": 20
+    },
+    {
+      "budget_id": "BUD-011",
+      "compute_units": 30,
+      "hard_stop": true,
+      "human_review_minutes": 60,
+      "max_agent_steps": 60,
+      "protected_exposures": 0,
+      "research_only": true,
+      "source_reads": 40,
+      "task_family": "incident",
+      "tool_calls": 20
+    }
+  ],
+  "capabilities": [
+    {
+      "allowed_roles": [
+        "hypothesis"
+      ],
+      "capability_id": "propose_hypothesis",
+      "denied_in_phase": false,
+      "description": "propose hypothesis",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [
+        "data_audit"
+      ],
+      "capability_id": "audit_data",
+      "denied_in_phase": false,
+      "description": "audit data",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [
+        "statistical_adversary"
+      ],
+      "capability_id": "challenge_statistics",
+      "denied_in_phase": false,
+      "description": "challenge statistics",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [
+        "model_engineering"
+      ],
+      "capability_id": "implement_model",
+      "denied_in_phase": false,
+      "description": "implement model",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [
+        "causal_auditor"
+      ],
+      "capability_id": "audit_causality",
+      "denied_in_phase": false,
+      "description": "audit causality",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [
+        "execution_auditor"
+      ],
+      "capability_id": "audit_execution",
+      "denied_in_phase": false,
+      "description": "audit execution",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [
+        "evidence_curator"
+      ],
+      "capability_id": "curate_evidence",
+      "denied_in_phase": false,
+      "description": "curate evidence",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [
+        "orchestrator"
+      ],
+      "capability_id": "schedule_task",
+      "denied_in_phase": false,
+      "description": "schedule task",
+      "maximum_delegation_depth": 1,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [
+        "orchestrator",
+        "hypothesis",
+        "data_audit",
+        "leakage_sentinel",
+        "statistical_adversary",
+        "model_engineering",
+        "causal_auditor",
+        "execution_auditor",
+        "evidence_curator"
+      ],
+      "capability_id": "request_review",
+      "denied_in_phase": false,
+      "description": "request review",
+      "maximum_delegation_depth": 1,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [
+        "data_audit",
+        "leakage_sentinel",
+        "statistical_adversary",
+        "causal_auditor",
+        "execution_auditor",
+        "evidence_curator",
+        "human_reviewer"
+      ],
+      "capability_id": "block_candidate",
+      "denied_in_phase": false,
+      "description": "block candidate",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [
+        "human_reviewer"
+      ],
+      "capability_id": "approve_research_checkpoint",
+      "denied_in_phase": false,
+      "description": "approve research checkpoint",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [
+        "evidence_curator",
+        "human_reviewer"
+      ],
+      "capability_id": "read_protected_evidence",
+      "denied_in_phase": false,
+      "description": "read protected evidence",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": true,
+      "requires_independent_roles": true
+    },
+    {
+      "allowed_roles": [],
+      "capability_id": "promotion",
+      "denied_in_phase": true,
+      "description": "constitutionally forbidden: promotion",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [],
+      "capability_id": "runtime_activation",
+      "denied_in_phase": true,
+      "description": "constitutionally forbidden: runtime activation",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [],
+      "capability_id": "risk_allocation",
+      "denied_in_phase": true,
+      "description": "constitutionally forbidden: risk allocation",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [],
+      "capability_id": "order_submission",
+      "denied_in_phase": true,
+      "description": "constitutionally forbidden: order submission",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [],
+      "capability_id": "credential_access",
+      "denied_in_phase": true,
+      "description": "constitutionally forbidden: credential access",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [],
+      "capability_id": "production_release",
+      "denied_in_phase": true,
+      "description": "constitutionally forbidden: production release",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [],
+      "capability_id": "online_learning",
+      "denied_in_phase": true,
+      "description": "constitutionally forbidden: online learning",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [],
+      "capability_id": "context_truth_mutation",
+      "denied_in_phase": true,
+      "description": "constitutionally forbidden: context truth mutation",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [],
+      "capability_id": "evidence_role_mutation",
+      "denied_in_phase": true,
+      "description": "constitutionally forbidden: evidence role mutation",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [],
+      "capability_id": "counterexample_suppression",
+      "denied_in_phase": true,
+      "description": "constitutionally forbidden: counterexample suppression",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [],
+      "capability_id": "residual_risk_waiver",
+      "denied_in_phase": true,
+      "description": "constitutionally forbidden: residual risk waiver",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    }
+  ],
+  "challenges": [
+    {
+      "blocking": true,
+      "challenge_id": "CHL-001",
+      "challenge_type": "multiplicity",
+      "challenger_agent_id": "agent:data_audit:v1",
+      "claim_id": "CLM-003",
+      "evidence_source_ids": [
+        "SRC-CHAL-001",
+        "SRC-STRESS-001"
+      ],
+      "finding": "Synthetic multiplicity challenge remains material.",
+      "required_resolution": "Resolve multiplicity with independent evidence or retain abstention.",
+      "research_only": true,
+      "severity": "high"
+    },
+    {
+      "blocking": false,
+      "challenge_id": "CHL-002",
+      "challenge_type": "dependence",
+      "challenger_agent_id": "agent:leakage_sentinel:v1",
+      "claim_id": "CLM-004",
+      "evidence_source_ids": [
+        "SRC-CHAL-001",
+        "SRC-STRESS-001"
+      ],
+      "finding": "Synthetic dependence challenge remains material.",
+      "required_resolution": "Resolve dependence with independent evidence or retain abstention.",
+      "research_only": true,
+      "severity": "medium"
+    },
+    {
+      "blocking": true,
+      "challenge_id": "CHL-003",
+      "challenge_type": "leakage",
+      "challenger_agent_id": "agent:causal_auditor:v1",
+      "claim_id": "CLM-005",
+      "evidence_source_ids": [
+        "SRC-CHAL-001",
+        "SRC-STRESS-001"
+      ],
+      "finding": "Synthetic leakage challenge remains material.",
+      "required_resolution": "Resolve leakage with independent evidence or retain abstention.",
+      "research_only": true,
+      "severity": "critical"
+    },
+    {
+      "blocking": true,
+      "challenge_id": "CHL-004",
+      "challenge_type": "support",
+      "challenger_agent_id": "agent:execution_auditor:v1",
+      "claim_id": "CLM-002",
+      "evidence_source_ids": [
+        "SRC-CHAL-001",
+        "SRC-STRESS-001"
+      ],
+      "finding": "Synthetic support challenge remains material.",
+      "required_resolution": "Resolve support with independent evidence or retain abstention.",
+      "research_only": true,
+      "severity": "high"
+    },
+    {
+      "blocking": false,
+      "challenge_id": "CHL-005",
+      "challenge_type": "calibration",
+      "challenger_agent_id": "agent:statistical_adversary:v1",
+      "claim_id": "CLM-003",
+      "evidence_source_ids": [
+        "SRC-CHAL-001",
+        "SRC-STRESS-001"
+      ],
+      "finding": "Synthetic calibration challenge remains material.",
+      "required_resolution": "Resolve calibration with independent evidence or retain abstention.",
+      "research_only": true,
+      "severity": "medium"
+    },
+    {
+      "blocking": true,
+      "challenge_id": "CHL-006",
+      "challenge_type": "causal_identification",
+      "challenger_agent_id": "agent:data_audit:v1",
+      "claim_id": "CLM-004",
+      "evidence_source_ids": [
+        "SRC-CHAL-001",
+        "SRC-STRESS-001"
+      ],
+      "finding": "Synthetic causal identification challenge remains material.",
+      "required_resolution": "Resolve causal_identification with independent evidence or retain abstention.",
+      "research_only": true,
+      "severity": "critical"
+    },
+    {
+      "blocking": false,
+      "challenge_id": "CHL-007",
+      "challenge_type": "execution_realism",
+      "challenger_agent_id": "agent:leakage_sentinel:v1",
+      "claim_id": "CLM-005",
+      "evidence_source_ids": [
+        "SRC-CHAL-001",
+        "SRC-STRESS-001"
+      ],
+      "finding": "Synthetic execution realism challenge remains material.",
+      "required_resolution": "Resolve execution_realism with independent evidence or retain abstention.",
+      "research_only": true,
+      "severity": "medium"
+    },
+    {
+      "blocking": true,
+      "challenge_id": "CHL-008",
+      "challenge_type": "selection_bias",
+      "challenger_agent_id": "agent:causal_auditor:v1",
+      "claim_id": "CLM-002",
+      "evidence_source_ids": [
+        "SRC-CHAL-001",
+        "SRC-STRESS-001"
+      ],
+      "finding": "Synthetic selection bias challenge remains material.",
+      "required_resolution": "Resolve selection_bias with independent evidence or retain abstention.",
+      "research_only": true,
+      "severity": "high"
+    },
+    {
+      "blocking": false,
+      "challenge_id": "CHL-009",
+      "challenge_type": "transport",
+      "challenger_agent_id": "agent:execution_auditor:v1",
+      "claim_id": "CLM-003",
+      "evidence_source_ids": [
+        "SRC-CHAL-001",
+        "SRC-STRESS-001"
+      ],
+      "finding": "Synthetic transport challenge remains material.",
+      "required_resolution": "Resolve transport with independent evidence or retain abstention.",
+      "research_only": true,
+      "severity": "medium"
+    },
+    {
+      "blocking": false,
+      "challenge_id": "CHL-010",
+      "challenge_type": "baseline",
+      "challenger_agent_id": "agent:statistical_adversary:v1",
+      "claim_id": "CLM-004",
+      "evidence_source_ids": [
+        "SRC-CHAL-001",
+        "SRC-STRESS-001"
+      ],
+      "finding": "Synthetic baseline challenge remains material.",
+      "required_resolution": "Resolve baseline with independent evidence or retain abstention.",
+      "research_only": true,
+      "severity": "medium"
+    }
+  ],
+  "checkpoints": [
+    {
+      "checkpoint_id": "CHK-001",
+      "checkpoint_type": "scope_freeze",
+      "decision": "approved_research_only",
+      "evidence_hashes": [
+        "ebe3f0c9d7397378618fb27ccd9b767fc55112d101c9f1484bff3bae22f60383"
+      ],
+      "known_time_epoch": 3200001,
+      "reason": "Synthetic reference checkpoint with no promotion or runtime authority.",
+      "requester_agent_id": "agent:hypothesis:v1",
+      "required_roles": [
+        "human_reviewer",
+        "data_audit"
+      ],
+      "research_only": true,
+      "reviewer_ids": [
+        "agent:human_reviewer:v1",
+        "agent:data_audit:v1"
+      ],
+      "self_approval": false,
+      "task_id": "TASK-001"
+    },
+    {
+      "checkpoint_id": "CHK-002",
+      "checkpoint_type": "candidate_review",
+      "decision": "extension_required",
+      "evidence_hashes": [
+        "71732bee4ad65d0a6c81e531652cd1326fea5845d90c656c65cb5e7ada433b89"
+      ],
+      "known_time_epoch": 3200002,
+      "reason": "Synthetic reference checkpoint with no promotion or runtime authority.",
+      "requester_agent_id": "agent:model_engineering:v1",
+      "required_roles": [
+        "human_reviewer",
+        "statistical_adversary"
+      ],
+      "research_only": true,
+      "reviewer_ids": [
+        "agent:human_reviewer:v1",
+        "agent:statistical_adversary:v1"
+      ],
+      "self_approval": false,
+      "task_id": "TASK-004"
+    },
+    {
+      "checkpoint_id": "CHK-003",
+      "checkpoint_type": "protected_access",
+      "decision": "approved_research_only",
+      "evidence_hashes": [
+        "2ac9e4e65b0f34e262b0977d263eb035e84c8e9fef673e64c5211c9738470655"
+      ],
+      "known_time_epoch": 3200003,
+      "reason": "Synthetic reference checkpoint with no promotion or runtime authority.",
+      "requester_agent_id": "agent:evidence_curator:v1",
+      "required_roles": [
+        "human_reviewer",
+        "statistical_adversary"
+      ],
+      "research_only": true,
+      "reviewer_ids": [
+        "agent:human_reviewer:v1",
+        "agent:statistical_adversary:v1"
+      ],
+      "self_approval": false,
+      "task_id": "TASK-008"
+    },
+    {
+      "checkpoint_id": "CHK-004",
+      "checkpoint_type": "blocking_issue_resolution",
+      "decision": "quarantined",
+      "evidence_hashes": [
+        "4790e5d9b9b99d5eebb3d346ecec3f61c3940b2bd0020a876f942fae35eaf820"
+      ],
+      "known_time_epoch": 3200004,
+      "reason": "Synthetic reference checkpoint with no promotion or runtime authority.",
+      "requester_agent_id": "agent:statistical_adversary:v1",
+      "required_roles": [
+        "human_reviewer",
+        "causal_auditor"
+      ],
+      "research_only": true,
+      "reviewer_ids": [
+        "agent:human_reviewer:v1",
+        "agent:causal_auditor:v1"
+      ],
+      "self_approval": false,
+      "task_id": "TASK-007"
+    },
+    {
+      "checkpoint_id": "CHK-005",
+      "checkpoint_type": "incident_closure",
+      "decision": "approved_research_only",
+      "evidence_hashes": [
+        "9287472100b050314382ffe60ead61295fd83efa69481881e67746ab4133d7c8"
+      ],
+      "known_time_epoch": 3200005,
+      "reason": "Synthetic reference checkpoint with no promotion or runtime authority.",
+      "requester_agent_id": "agent:leakage_sentinel:v1",
+      "required_roles": [
+        "human_reviewer",
+        "evidence_curator"
+      ],
+      "research_only": true,
+      "reviewer_ids": [
+        "agent:human_reviewer:v1",
+        "agent:evidence_curator:v1"
+      ],
+      "self_approval": false,
+      "task_id": "TASK-010"
+    },
+    {
+      "checkpoint_id": "CHK-006",
+      "checkpoint_type": "handoff_review",
+      "decision": "approved_research_only",
+      "evidence_hashes": [
+        "9b3688ab7d8e3d3477827b23f33dd877f9f6cf81163a772195845ff56a2c48dc"
+      ],
+      "known_time_epoch": 3200006,
+      "reason": "Synthetic reference checkpoint with no promotion or runtime authority.",
+      "requester_agent_id": "agent:orchestrator:v1",
+      "required_roles": [
+        "human_reviewer",
+        "statistical_adversary"
+      ],
+      "research_only": true,
+      "reviewer_ids": [
+        "agent:human_reviewer:v1",
+        "agent:statistical_adversary:v1"
+      ],
+      "self_approval": false,
+      "task_id": "TASK-011"
+    }
+  ],
+  "claims": [
+    {
+      "claim_class": "descriptive",
+      "claim_id": "CLM-001",
+      "decision_contribution": "none",
+      "depends_on_claim_ids": [],
+      "known_time_epoch": 3200002,
+      "opposing_claim_ids": [],
+      "producer_agent_id": "agent:data_audit:v1",
+      "research_only": true,
+      "statement": "The synthetic reference task graph is closed and acyclic.",
+      "status": "supported_synthetic",
+      "supporting_source_ids": [
+        "SRC-GOV-001",
+        "SRC-DATA-001"
+      ],
+      "uncertainty_state": "bounded"
+    },
+    {
+      "claim_class": "predictive",
+      "claim_id": "CLM-002",
+      "decision_contribution": "research_recommendation",
+      "depends_on_claim_ids": [
+        "CLM-001"
+      ],
+      "known_time_epoch": 3200003,
+      "opposing_claim_ids": [
+        "CLM-003"
+      ],
+      "producer_agent_id": "agent:model_engineering:v1",
+      "research_only": true,
+      "statement": "The governed challenger may improve the synthetic validation objective.",
+      "status": "challenged",
+      "supporting_source_ids": [
+        "SRC-DATA-001",
+        "SRC-VAL-001"
+      ],
+      "uncertainty_state": "high"
+    },
+    {
+      "claim_class": "associational",
+      "claim_id": "CLM-003",
+      "decision_contribution": "abstain",
+      "depends_on_claim_ids": [
+        "CLM-001"
+      ],
+      "known_time_epoch": 3200004,
+      "opposing_claim_ids": [
+        "CLM-002"
+      ],
+      "producer_agent_id": "agent:statistical_adversary:v1",
+      "research_only": true,
+      "statement": "Observed synthetic uplift may be selection artefact rather than stable value.",
+      "status": "blocked",
+      "supporting_source_ids": [
+        "SRC-CHAL-001",
+        "SRC-STRESS-001"
+      ],
+      "uncertainty_state": "material"
+    },
+    {
+      "claim_class": "causal_hypothesis",
+      "claim_id": "CLM-004",
+      "decision_contribution": "skip",
+      "depends_on_claim_ids": [
+        "CLM-002",
+        "CLM-003"
+      ],
+      "known_time_epoch": 3200004,
+      "opposing_claim_ids": [],
+      "producer_agent_id": "agent:causal_auditor:v1",
+      "research_only": true,
+      "statement": "The proposed mechanism remains unidentified under the synthetic confounding challenge.",
+      "status": "blocked",
+      "supporting_source_ids": [
+        "SRC-VAL-001",
+        "SRC-CHAL-001"
+      ],
+      "uncertainty_state": "unresolved"
+    },
+    {
+      "claim_class": "operational_research",
+      "claim_id": "CLM-005",
+      "decision_contribution": "manual_fallback",
+      "depends_on_claim_ids": [
+        "CLM-004"
+      ],
+      "known_time_epoch": 3200004,
+      "opposing_claim_ids": [],
+      "producer_agent_id": "agent:execution_auditor:v1",
+      "research_only": true,
+      "statement": "No runtime or execution authorization follows from the research evidence.",
+      "status": "supported_synthetic",
+      "supporting_source_ids": [
+        "SRC-GOV-001",
+        "SRC-STRESS-001"
+      ],
+      "uncertainty_state": "bounded"
+    },
+    {
+      "claim_class": "stress_only",
+      "claim_id": "CLM-006",
+      "decision_contribution": "none",
+      "depends_on_claim_ids": [
+        "CLM-005"
+      ],
+      "known_time_epoch": 3200005,
+      "opposing_claim_ids": [],
+      "producer_agent_id": "agent:evidence_curator:v1",
+      "research_only": true,
+      "statement": "Protected synthetic reference inspection does not provide positive promotion evidence.",
+      "status": "supported_synthetic",
+      "supporting_source_ids": [
+        "SRC-PROT-001"
+      ],
+      "uncertainty_state": "bounded"
+    }
+  ],
+  "config": {
+    "deterministic_seed": 432032,
+    "external_agent_runtime": false,
+    "network_access": false,
+    "phase": "SAED_V4_32",
+    "research_only": true,
+    "safe_default": "quarantine",
+    "synthetic_fixture_only": true
+  },
+  "constitution": {
+    "amendment_policy": {
+      "cooling_off_epochs": 2,
+      "minimum_independent_approvals": 2,
+      "proposal_roles": [
+        "human_reviewer"
+      ],
+      "retroactive_change_allowed": false,
+      "review_roles": [
+        "evidence_curator",
+        "statistical_adversary"
+      ],
+      "self_approval_allowed": false
+    },
+    "clauses": [
+      {
+        "clause_id": "C-AUTH-001",
+        "domain": "authority",
+        "evidence_required": [
+          "zero-authority boundary"
+        ],
+        "immutable_in_phase": true,
+        "priority": 10,
+        "statement": "Agents have no promotion, runtime, risk, execution, production, online-learning, credential, or live-trading authority.",
+        "violation_response": "quarantine"
+      },
+      {
+        "clause_id": "C-AUTH-002",
+        "domain": "authority",
+        "evidence_required": [
+          "authorization decision ledger"
+        ],
+        "immutable_in_phase": true,
+        "priority": 20,
+        "statement": "Unlisted capabilities are denied by default and capability tokens are task-scoped and ephemeral.",
+        "violation_response": "reject"
+      },
+      {
+        "clause_id": "C-EVID-001",
+        "domain": "evidence",
+        "evidence_required": [
+          "exposure ledger"
+        ],
+        "immutable_in_phase": true,
+        "priority": 30,
+        "statement": "Protected evidence roles are immutable and every human or agent exposure is ledgered before use.",
+        "violation_response": "stop_family"
+      },
+      {
+        "clause_id": "C-ID-001",
+        "domain": "identity",
+        "evidence_required": [
+          "identity registry"
+        ],
+        "immutable_in_phase": true,
+        "priority": 40,
+        "statement": "Every agent has an attested identity, unique memory namespace, fixed role, and named human supervisor.",
+        "violation_response": "quarantine"
+      },
+      {
+        "clause_id": "C-TASK-001",
+        "domain": "tasking",
+        "evidence_required": [
+          "task registry"
+        ],
+        "immutable_in_phase": true,
+        "priority": 50,
+        "statement": "Every action is bound to a signed typed task envelope, frozen inputs, output contract, known time, and budget.",
+        "violation_response": "reject"
+      },
+      {
+        "clause_id": "C-PROV-001",
+        "domain": "provenance",
+        "evidence_required": [
+          "claim graph"
+        ],
+        "immutable_in_phase": true,
+        "priority": 60,
+        "statement": "Every claim has source-linked provenance, uncertainty, known-time semantics, and preserved opposition.",
+        "violation_response": "manual_review"
+      },
+      {
+        "clause_id": "C-REVIEW-001",
+        "domain": "review",
+        "evidence_required": [
+          "review quorum ledger"
+        ],
+        "immutable_in_phase": true,
+        "priority": 70,
+        "statement": "Proposal, implementation, challenge, evidence custody, and approval are separated; self-approval is forbidden.",
+        "violation_response": "quarantine"
+      },
+      {
+        "clause_id": "C-BUDGET-001",
+        "domain": "budget",
+        "evidence_required": [
+          "budget ledger"
+        ],
+        "immutable_in_phase": true,
+        "priority": 80,
+        "statement": "Compute, tool, source, protected-exposure, agent-step, and human-review budgets hard-stop on exhaustion.",
+        "violation_response": "stop_family"
+      },
+      {
+        "clause_id": "C-MEM-001",
+        "domain": "memory",
+        "evidence_required": [
+          "memory boundary"
+        ],
+        "immutable_in_phase": true,
+        "priority": 90,
+        "statement": "Agent memory is isolated by namespace and no agent may write another agent's memory.",
+        "violation_response": "quarantine"
+      },
+      {
+        "clause_id": "C-SEC-001",
+        "domain": "security",
+        "evidence_required": [
+          "security review"
+        ],
+        "immutable_in_phase": true,
+        "priority": 100,
+        "statement": "Agents cannot access live credentials, arbitrary network resources, or undeclared tools.",
+        "violation_response": "quarantine"
+      },
+      {
+        "clause_id": "C-SCI-001",
+        "domain": "science",
+        "evidence_required": [
+          "adversarial report"
+        ],
+        "immutable_in_phase": true,
+        "priority": 110,
+        "statement": "Baseline preservation, complete search accounting, adversarial challenge, dissent, and counterexamples are mandatory.",
+        "violation_response": "reject"
+      },
+      {
+        "clause_id": "C-INC-001",
+        "domain": "incident",
+        "evidence_required": [
+          "incident ledger"
+        ],
+        "immutable_in_phase": true,
+        "priority": 120,
+        "statement": "Constitutional violations trigger automatic containment, token revocation, evidence preservation, and human review.",
+        "violation_response": "quarantine"
+      },
+      {
+        "clause_id": "C-AMEND-001",
+        "domain": "amendment",
+        "evidence_required": [
+          "amendment policy"
+        ],
+        "immutable_in_phase": true,
+        "priority": 130,
+        "statement": "No agent may amend, approve, or retroactively reinterpret the constitution governing its own work.",
+        "violation_response": "stop_family"
+      }
+    ],
+    "effective_epoch": 3200001,
+    "phase": "SAED_V4_32",
+    "research_only": true,
+    "safe_default": "quarantine",
+    "title": "Multi Agent Research Constitution",
+    "version": "1.0.0"
+  },
+  "incidents": [
+    {
+      "affected_task_ids": [
+        "TASK-001"
+      ],
+      "automatic_response": "quarantine",
+      "counterexamples_preserved": true,
+      "detected_by_agent_id": "agent:data_audit:v1",
+      "human_review_required": true,
+      "incident_id": "INC-001",
+      "incident_type": "authority_violation",
+      "research_only": true,
+      "severity": "critical",
+      "status": "contained_synthetic",
+      "trigger": "Synthetic mutation exercises authority_violation control."
+    },
+    {
+      "affected_task_ids": [
+        "TASK-002"
+      ],
+      "automatic_response": "quarantine",
+      "counterexamples_preserved": true,
+      "detected_by_agent_id": "agent:statistical_adversary:v1",
+      "human_review_required": true,
+      "incident_id": "INC-002",
+      "incident_type": "protected_exposure_attempt",
+      "research_only": true,
+      "severity": "critical",
+      "status": "contained_synthetic",
+      "trigger": "Synthetic mutation exercises protected_exposure_attempt control."
+    },
+    {
+      "affected_task_ids": [
+        "TASK-003"
+      ],
+      "automatic_response": "quarantine",
+      "counterexamples_preserved": true,
+      "detected_by_agent_id": "agent:leakage_sentinel:v1",
+      "human_review_required": true,
+      "incident_id": "INC-003",
+      "incident_type": "budget_overrun",
+      "research_only": true,
+      "severity": "high",
+      "status": "contained_synthetic",
+      "trigger": "Synthetic mutation exercises budget_overrun control."
+    },
+    {
+      "affected_task_ids": [
+        "TASK-004"
+      ],
+      "automatic_response": "quarantine",
+      "counterexamples_preserved": true,
+      "detected_by_agent_id": "agent:data_audit:v1",
+      "human_review_required": true,
+      "incident_id": "INC-004",
+      "incident_type": "memory_boundary_attempt",
+      "research_only": true,
+      "severity": "high",
+      "status": "contained_synthetic",
+      "trigger": "Synthetic mutation exercises memory_boundary_attempt control."
+    },
+    {
+      "affected_task_ids": [
+        "TASK-005"
+      ],
+      "automatic_response": "quarantine",
+      "counterexamples_preserved": true,
+      "detected_by_agent_id": "agent:statistical_adversary:v1",
+      "human_review_required": true,
+      "incident_id": "INC-005",
+      "incident_type": "self_approval_attempt",
+      "research_only": true,
+      "severity": "high",
+      "status": "contained_synthetic",
+      "trigger": "Synthetic mutation exercises self_approval_attempt control."
+    },
+    {
+      "affected_task_ids": [
+        "TASK-006"
+      ],
+      "automatic_response": "quarantine",
+      "counterexamples_preserved": true,
+      "detected_by_agent_id": "agent:leakage_sentinel:v1",
+      "human_review_required": true,
+      "incident_id": "INC-006",
+      "incident_type": "source_lineage_break",
+      "research_only": true,
+      "severity": "high",
+      "status": "contained_synthetic",
+      "trigger": "Synthetic mutation exercises source_lineage_break control."
+    },
+    {
+      "affected_task_ids": [
+        "TASK-007"
+      ],
+      "automatic_response": "quarantine",
+      "counterexamples_preserved": true,
+      "detected_by_agent_id": "agent:data_audit:v1",
+      "human_review_required": true,
+      "incident_id": "INC-007",
+      "incident_type": "future_suffix_exposure",
+      "research_only": true,
+      "severity": "high",
+      "status": "contained_synthetic",
+      "trigger": "Synthetic mutation exercises future_suffix_exposure control."
+    },
+    {
+      "affected_task_ids": [
+        "TASK-008"
+      ],
+      "automatic_response": "stop_family",
+      "counterexamples_preserved": true,
+      "detected_by_agent_id": "agent:statistical_adversary:v1",
+      "human_review_required": true,
+      "incident_id": "INC-008",
+      "incident_type": "counterexample_suppression_attempt",
+      "research_only": true,
+      "severity": "critical",
+      "status": "contained_synthetic",
+      "trigger": "Synthetic mutation exercises counterexample_suppression_attempt control."
+    },
+    {
+      "affected_task_ids": [
+        "TASK-009"
+      ],
+      "automatic_response": "stop_family",
+      "counterexamples_preserved": true,
+      "detected_by_agent_id": "agent:leakage_sentinel:v1",
+      "human_review_required": true,
+      "incident_id": "INC-009",
+      "incident_type": "constitution_amendment_attempt",
+      "research_only": true,
+      "severity": "critical",
+      "status": "contained_synthetic",
+      "trigger": "Synthetic mutation exercises constitution_amendment_attempt control."
+    }
+  ],
+  "roles": [
+    {
+      "independence_group": "coordination",
+      "may_access_protected_evidence": false,
+      "may_approve_research": false,
+      "may_block": false,
+      "may_delegate": true,
+      "may_propose": false,
+      "may_review": false,
+      "purpose": "deterministic task scheduling",
+      "research_only": true,
+      "role_id": "orchestrator"
+    },
+    {
+      "independence_group": "proposal",
+      "may_access_protected_evidence": false,
+      "may_approve_research": false,
+      "may_block": false,
+      "may_delegate": false,
+      "may_propose": true,
+      "may_review": false,
+      "purpose": "bounded hypothesis proposal",
+      "research_only": true,
+      "role_id": "hypothesis"
+    },
+    {
+      "independence_group": "data_assurance",
+      "may_access_protected_evidence": false,
+      "may_approve_research": false,
+      "may_block": true,
+      "may_delegate": false,
+      "may_propose": false,
+      "may_review": true,
+      "purpose": "data lineage and role audit",
+      "research_only": true,
+      "role_id": "data_audit"
+    },
+    {
+      "independence_group": "leakage_assurance",
+      "may_access_protected_evidence": false,
+      "may_approve_research": false,
+      "may_block": true,
+      "may_delegate": false,
+      "may_propose": false,
+      "may_review": true,
+      "purpose": "known-time and exposure audit",
+      "research_only": true,
+      "role_id": "leakage_sentinel"
+    },
+    {
+      "independence_group": "adversary",
+      "may_access_protected_evidence": false,
+      "may_approve_research": false,
+      "may_block": true,
+      "may_delegate": false,
+      "may_propose": false,
+      "may_review": true,
+      "purpose": "independent falsification",
+      "research_only": true,
+      "role_id": "statistical_adversary"
+    },
+    {
+      "independence_group": "builder",
+      "may_access_protected_evidence": false,
+      "may_approve_research": false,
+      "may_block": false,
+      "may_delegate": false,
+      "may_propose": false,
+      "may_review": false,
+      "purpose": "governed implementation",
+      "research_only": true,
+      "role_id": "model_engineering"
+    },
+    {
+      "independence_group": "causal_assurance",
+      "may_access_protected_evidence": false,
+      "may_approve_research": false,
+      "may_block": true,
+      "may_delegate": false,
+      "may_propose": false,
+      "may_review": true,
+      "purpose": "causal assumption audit",
+      "research_only": true,
+      "role_id": "causal_auditor"
+    },
+    {
+      "independence_group": "execution_assurance",
+      "may_access_protected_evidence": false,
+      "may_approve_research": false,
+      "may_block": true,
+      "may_delegate": false,
+      "may_propose": false,
+      "may_review": true,
+      "purpose": "execution realism audit",
+      "research_only": true,
+      "role_id": "execution_auditor"
+    },
+    {
+      "independence_group": "evidence_custody",
+      "may_access_protected_evidence": true,
+      "may_approve_research": false,
+      "may_block": true,
+      "may_delegate": false,
+      "may_propose": false,
+      "may_review": true,
+      "purpose": "protected evidence custody",
+      "research_only": true,
+      "role_id": "evidence_curator"
+    },
+    {
+      "independence_group": "human_governance",
+      "may_access_protected_evidence": true,
+      "may_approve_research": true,
+      "may_block": true,
+      "may_delegate": false,
+      "may_propose": false,
+      "may_review": true,
+      "purpose": "independent human research checkpoint",
+      "research_only": true,
+      "role_id": "human_reviewer"
+    }
+  ],
+  "sources": [
+    {
+      "content_hash": "bf9422a2a04aad2180fad0913f1cdf8a9d3780fd074817d2569050d0a8095d3a",
+      "evidence_role": "governance",
+      "known_time_epoch": 3200001,
+      "license_class": "internal-governance",
+      "lineage_ids": [
+        "v431_safety_case_certificate_feebba4cd911e125072e3eef"
+      ],
+      "protected": false,
+      "source_id": "SRC-GOV-001",
+      "source_type": "governance",
+      "synthetic": false,
+      "uri_class": "content_addressed_local"
+    },
+    {
+      "content_hash": "b277fd623676a525c29b9eb155afc8c9010681814ceafb2d7627f47b9a232576",
+      "evidence_role": "training",
+      "known_time_epoch": 3200002,
+      "license_class": "synthetic-reference",
+      "lineage_ids": [
+        "dataset:v432:001"
+      ],
+      "protected": false,
+      "source_id": "SRC-DATA-001",
+      "source_type": "dataset_manifest",
+      "synthetic": false,
+      "uri_class": "content_addressed_local"
+    },
+    {
+      "content_hash": "98c41dcd20b86b86830ec0794559835614458ceaae0f0ec77a3ed1cd3a1f7d55",
+      "evidence_role": "validation",
+      "known_time_epoch": 3200003,
+      "license_class": "synthetic-reference",
+      "lineage_ids": [
+        "validation:v432:001"
+      ],
+      "protected": false,
+      "source_id": "SRC-VAL-001",
+      "source_type": "validation_report",
+      "synthetic": false,
+      "uri_class": "content_addressed_local"
+    },
+    {
+      "content_hash": "2dd00bd77e0222ced882665481a9c1d9f907309d16e05ed007a1ea63928477a9",
+      "evidence_role": "challenge",
+      "known_time_epoch": 3200004,
+      "license_class": "synthetic-reference",
+      "lineage_ids": [
+        "challenge:v432:001"
+      ],
+      "protected": false,
+      "source_id": "SRC-CHAL-001",
+      "source_type": "challenge_fixture",
+      "synthetic": false,
+      "uri_class": "content_addressed_local"
+    },
+    {
+      "content_hash": "f43dc8790ed6215684924d362753e3864cb66c0f06084e89ad36b57e15986c6e",
+      "evidence_role": "synthetic_stress",
+      "known_time_epoch": 3200004,
+      "license_class": "generated",
+      "lineage_ids": [
+        "generator:v422:reference"
+      ],
+      "protected": false,
+      "source_id": "SRC-STRESS-001",
+      "source_type": "synthetic_stress",
+      "synthetic": true,
+      "uri_class": "content_addressed_local"
+    },
+    {
+      "content_hash": "9b2bbce6c72dd9bbd9c7a9976d5d76d1fcc2bb9832dec246375bb92006beccc3",
+      "evidence_role": "protected_final",
+      "known_time_epoch": 3200005,
+      "license_class": "sealed-reference",
+      "lineage_ids": [
+        "airgap:v429:reference"
+      ],
+      "protected": true,
+      "source_id": "SRC-PROT-001",
+      "source_type": "sealed_evaluation",
+      "synthetic": false,
+      "uri_class": "air_gapped_reference"
+    }
+  ],
+  "tasks": [
+    {
+      "budget_id": "BUD-002",
+      "delegation_depth": 0,
+      "depends_on": [],
+      "input_hashes": [
+        "source:SRC-GOV-001"
+      ],
+      "known_time_epoch": 3200001,
+      "output_contract": "TASK-001_OUTPUT_V1",
+      "owner_agent_id": "agent:hypothesis:v1",
+      "priority": 1,
+      "protected_evidence_allowed": false,
+      "required_capabilities": [
+        "propose_hypothesis"
+      ],
+      "research_only": true,
+      "reviewer_agent_ids": [
+        "agent:data_audit:v1",
+        "agent:human_reviewer:v1"
+      ],
+      "self_review_allowed": false,
+      "task_id": "TASK-001",
+      "task_type": "hypothesis"
+    },
+    {
+      "budget_id": "BUD-003",
+      "delegation_depth": 0,
+      "depends_on": [
+        "TASK-001"
+      ],
+      "input_hashes": [
+        "source:SRC-DATA-001"
+      ],
+      "known_time_epoch": 3200002,
+      "output_contract": "TASK-002_OUTPUT_V1",
+      "owner_agent_id": "agent:data_audit:v1",
+      "priority": 1,
+      "protected_evidence_allowed": false,
+      "required_capabilities": [
+        "audit_data"
+      ],
+      "research_only": true,
+      "reviewer_agent_ids": [
+        "agent:leakage_sentinel:v1",
+        "agent:human_reviewer:v1"
+      ],
+      "self_review_allowed": false,
+      "task_id": "TASK-002",
+      "task_type": "data_audit"
+    },
+    {
+      "budget_id": "BUD-004",
+      "delegation_depth": 0,
+      "depends_on": [
+        "TASK-002"
+      ],
+      "input_hashes": [
+        "source:SRC-DATA-001",
+        "source:SRC-GOV-001"
+      ],
+      "known_time_epoch": 3200002,
+      "output_contract": "TASK-003_OUTPUT_V1",
+      "owner_agent_id": "agent:leakage_sentinel:v1",
+      "priority": 2,
+      "protected_evidence_allowed": false,
+      "required_capabilities": [
+        "request_review"
+      ],
+      "research_only": true,
+      "reviewer_agent_ids": [
+        "agent:data_audit:v1",
+        "agent:human_reviewer:v1"
+      ],
+      "self_review_allowed": false,
+      "task_id": "TASK-003",
+      "task_type": "leakage_audit"
+    },
+    {
+      "budget_id": "BUD-005",
+      "delegation_depth": 0,
+      "depends_on": [
+        "TASK-002",
+        "TASK-003"
+      ],
+      "input_hashes": [
+        "source:SRC-DATA-001"
+      ],
+      "known_time_epoch": 3200003,
+      "output_contract": "TASK-004_OUTPUT_V1",
+      "owner_agent_id": "agent:model_engineering:v1",
+      "priority": 1,
+      "protected_evidence_allowed": false,
+      "required_capabilities": [
+        "implement_model"
+      ],
+      "research_only": true,
+      "reviewer_agent_ids": [
+        "agent:statistical_adversary:v1",
+        "agent:human_reviewer:v1"
+      ],
+      "self_review_allowed": false,
+      "task_id": "TASK-004",
+      "task_type": "model_build"
+    },
+    {
+      "budget_id": "BUD-006",
+      "delegation_depth": 0,
+      "depends_on": [
+        "TASK-004"
+      ],
+      "input_hashes": [
+        "source:SRC-VAL-001"
+      ],
+      "known_time_epoch": 3200003,
+      "output_contract": "TASK-005_OUTPUT_V1",
+      "owner_agent_id": "agent:causal_auditor:v1",
+      "priority": 2,
+      "protected_evidence_allowed": false,
+      "required_capabilities": [
+        "audit_causality"
+      ],
+      "research_only": true,
+      "reviewer_agent_ids": [
+        "agent:statistical_adversary:v1",
+        "agent:human_reviewer:v1"
+      ],
+      "self_review_allowed": false,
+      "task_id": "TASK-005",
+      "task_type": "causal_audit"
+    },
+    {
+      "budget_id": "BUD-007",
+      "delegation_depth": 0,
+      "depends_on": [
+        "TASK-004"
+      ],
+      "input_hashes": [
+        "source:SRC-VAL-001",
+        "source:SRC-STRESS-001"
+      ],
+      "known_time_epoch": 3200004,
+      "output_contract": "TASK-006_OUTPUT_V1",
+      "owner_agent_id": "agent:execution_auditor:v1",
+      "priority": 1,
+      "protected_evidence_allowed": false,
+      "required_capabilities": [
+        "audit_execution"
+      ],
+      "research_only": true,
+      "reviewer_agent_ids": [
+        "agent:statistical_adversary:v1",
+        "agent:human_reviewer:v1"
+      ],
+      "self_review_allowed": false,
+      "task_id": "TASK-006",
+      "task_type": "execution_audit"
+    },
+    {
+      "budget_id": "BUD-008",
+      "delegation_depth": 0,
+      "depends_on": [
+        "TASK-004",
+        "TASK-005",
+        "TASK-006"
+      ],
+      "input_hashes": [
+        "source:SRC-CHAL-001",
+        "source:SRC-STRESS-001"
+      ],
+      "known_time_epoch": 3200004,
+      "output_contract": "TASK-007_OUTPUT_V1",
+      "owner_agent_id": "agent:statistical_adversary:v1",
+      "priority": 2,
+      "protected_evidence_allowed": false,
+      "required_capabilities": [
+        "challenge_statistics"
+      ],
+      "research_only": true,
+      "reviewer_agent_ids": [
+        "agent:causal_auditor:v1",
+        "agent:human_reviewer:v1"
+      ],
+      "self_review_allowed": false,
+      "task_id": "TASK-007",
+      "task_type": "statistical_challenge"
+    },
+    {
+      "budget_id": "BUD-009",
+      "delegation_depth": 0,
+      "depends_on": [
+        "TASK-007"
+      ],
+      "input_hashes": [
+        "source:SRC-GOV-001",
+        "source:SRC-PROT-001"
+      ],
+      "known_time_epoch": 3200005,
+      "output_contract": "TASK-008_OUTPUT_V1",
+      "owner_agent_id": "agent:evidence_curator:v1",
+      "priority": 1,
+      "protected_evidence_allowed": true,
+      "required_capabilities": [
+        "curate_evidence",
+        "read_protected_evidence"
+      ],
+      "research_only": true,
+      "reviewer_agent_ids": [
+        "agent:statistical_adversary:v1",
+        "agent:human_reviewer:v1"
+      ],
+      "self_review_allowed": false,
+      "task_id": "TASK-008",
+      "task_type": "evidence_curation"
+    },
+    {
+      "budget_id": "BUD-010",
+      "delegation_depth": 0,
+      "depends_on": [
+        "TASK-008"
+      ],
+      "input_hashes": [
+        "source:SRC-PROT-001"
+      ],
+      "known_time_epoch": 3200005,
+      "output_contract": "TASK-009_OUTPUT_V1",
+      "owner_agent_id": "agent:human_reviewer:v1",
+      "priority": 2,
+      "protected_evidence_allowed": true,
+      "required_capabilities": [
+        "approve_research_checkpoint",
+        "read_protected_evidence"
+      ],
+      "research_only": true,
+      "reviewer_agent_ids": [
+        "agent:evidence_curator:v1",
+        "agent:statistical_adversary:v1"
+      ],
+      "self_review_allowed": false,
+      "task_id": "TASK-009",
+      "task_type": "human_review"
+    },
+    {
+      "budget_id": "BUD-011",
+      "delegation_depth": 0,
+      "depends_on": [
+        "TASK-009"
+      ],
+      "input_hashes": [
+        "source:SRC-GOV-001"
+      ],
+      "known_time_epoch": 3200006,
+      "output_contract": "TASK-010_OUTPUT_V1",
+      "owner_agent_id": "agent:leakage_sentinel:v1",
+      "priority": 1,
+      "protected_evidence_allowed": false,
+      "required_capabilities": [
+        "request_review"
+      ],
+      "research_only": true,
+      "reviewer_agent_ids": [
+        "agent:human_reviewer:v1",
+        "agent:evidence_curator:v1"
+      ],
+      "self_review_allowed": false,
+      "task_id": "TASK-010",
+      "task_type": "incident_review"
+    },
+    {
+      "budget_id": "BUD-001",
+      "delegation_depth": 0,
+      "depends_on": [
+        "TASK-010"
+      ],
+      "input_hashes": [
+        "source:SRC-GOV-001"
+      ],
+      "known_time_epoch": 3200006,
+      "output_contract": "TASK-011_OUTPUT_V1",
+      "owner_agent_id": "agent:orchestrator:v1",
+      "priority": 2,
+      "protected_evidence_allowed": false,
+      "required_capabilities": [
+        "schedule_task",
+        "request_review"
+      ],
+      "research_only": true,
+      "reviewer_agent_ids": [
+        "agent:human_reviewer:v1",
+        "agent:statistical_adversary:v1"
+      ],
+      "self_review_allowed": false,
+      "task_id": "TASK-011",
+      "task_type": "human_review"
+    }
+  ],
+  "upstream_documents": [
+    {
+      "document_hash": "202d3289991f61854818c05e91172557a7647782b76bb7ec91e3267914dc22ac",
+      "document_id": "v431_safety_case_certificate_feebba4cd911e125072e3eef",
+      "document_type": "formal_verification_safety_case_certificate",
+      "payload": {
+        "accepted_for_formal_verification_safety_case_research_reference": true,
+        "arbitrary_mql5_proof_claim": false,
+        "arbitrary_python_proof_claim": false,
+        "authority_boundary": {
+          "authority": {
+            "counterexample_suppression": false,
+            "execution": false,
+            "external_proof_claim": false,
+            "live_trading": false,
+            "online_learning": false,
+            "production": false,
+            "promotion": false,
+            "research_decision": false,
+            "residual_risk_waiver": false,
+            "risk_allocation": false,
+            "runtime": false,
+            "specification_override": false
+          },
+          "boundary_hash": "87ebe6ac5fc4c1658affb4c6dc995c3147023c50424b3373b3891c41f4caa094",
+          "boundary_id": "v431_authority_094832ac265292815b2941d3",
+          "formal_verification_is_evidence_not_permission": true,
+          "phase": "SAED_V4_31",
+          "research_only": true,
+          "safe_action": "quarantine",
+          "ucee_authority_preserved": true
+        },
+        "bounded_temporal_semantics_claim": true,
+        "certificate_hash": "202d3289991f61854818c05e91172557a7647782b76bb7ec91e3267914dc22ac",
+        "certificate_id": "v431_safety_case_certificate_feebba4cd911e125072e3eef",
+        "claim_class": "finite_formal_verification_and_safety_case_closed_reference_implementation",
+        "evidence_hashes": {
+          "assurance_case": "fa491b0feada3cb15db9110a79495ca132548bf47e2e4a434f291b9f00363d6d",
+          "authority": "5477facb63ac84887ad1f6de4f5fe6f9acdef5d610ab9d2bf6098caddd45494c",
+          "claim_ledger": "6032ccdfbbb0b24bc3f5f45fb97a54e4b78a0f4208202f35fa1703d31cbdcf8a",
+          "constraints": "4216bd6ae9e9439220e1102d8703d8c5ceb3d5f27414713c1d6c2a6c72a61c75",
+          "contract_closure": "30635ebedf8a809a86415eb8d90424dca22599d067c31655ff4f67acfbc6a0ea",
+          "controls": "fcf11f8c7ff18b2c16b653aefad574d2d65594622e23de15cc349be9f0301994",
+          "counterexample_ledger": "e489948573279ce264bb53868b647e06051f749192418e2fffaddd78d6e49a08",
+          "evidence_bundle": "d7b509d966311905c99cc3c9d541b2504fff048d680a033b4ae7da6e1da4368e",
+          "graph": "854c3710b4c1845e6175cceb4c6e141e8db8f0a485f5f48e3dd1e9d9bb210654",
+          "hazards": "d94cfc4ae5bd566c05d90464a2665e9443a212832239a87e6e4ec51b4139e28c",
+          "invariant_report": "340b5d56c9c129c830a85145bd10fef134195040343d8dcdc609b6cc3bedfe93",
+          "invariants": "d0cf119f1143a6acfd991760491ed17be19194b84edff994d9495ba60a39a146",
+          "known_time": "53a89bea90e1db4c33031d209818fe6dd6f1a5637e1b33f5d0f3fabc931ba490",
+          "limitations": "58a96b334000eed48e56a6b3cd62e594e760fbc1ce980dcf294f262769145db6",
+          "mitigation_coverage": "a84c3734f4b636a6edbf278aea796933f9d44f31c8ab6a0cb429ac593834ff66",
+          "model": "b0a1ab8ae2a0a0ce24f040c28e2b33f3750f5ccc05110decfe19282b9d310417",
+          "model_risk": "b59ffa16c85748949c049c76cf069ea9ee8616d6033dcfee956c2ed5f12ab28c",
+          "mutation_scorecard": "2fc3546ee6c4f956c34ffc276e5150d068da2d8593fcf94ec179fbea541aa942",
+          "proof_coverage": "c9a2672a5d20a4067b99ee782b8bfb19d3a17b42414d4a35579329088faf9ab5",
+          "proof_ledger": "0bf29c27ffbcc687541f7114981394b45c35de5d9271bf22ed52f9351257596d",
+          "proof_registry": "e47d3355e427f5bf06e451d110141e174468a3db64dc2caa7e08322e4132dbbb",
+          "replay": "e1f85566186f44ebbbed9471102af07f6e34290d90f94e2c8935c3de4763d2ee",
+          "reproduction": "586fedb54df855ff0b7835408654dc8e51734a08940d89e8d1b9959278273177",
+          "residual_risk": "b90a2a60cf110a1360f155888b351c1f931d338bee996166e6c9ed0a6a881a9c",
+          "security": "3c489c04f73058378858eb4b4be23908e507adf073d1d034e55f831d277d5631",
+          "temporal": "55bf2d468607d219b198048636e9357220c8d414f7d05450ae6d9f82b9df6fa7",
+          "temporal_report": "6469ef5546c08427a92596498b8b598aeacc03f45a9281a45ce9b6c974430c7e",
+          "traceability": "7d02237bdfbe2e8f5362bc734ac7a99be04fce29b1ed5820eda7c06b756a2f3c",
+          "upstream": "04a30ec46c924ac3ae7e267856f7487d7f637badb30d730ca1af8b0afa97459e"
+        },
+        "execution_authority": false,
+        "external_theorem_prover_certification_claim": false,
+        "finite_synthetic_model_claim": true,
+        "gates": {
+          "all_counterexamples_preserved": true,
+          "all_hazards_controlled": true,
+          "all_proof_obligations_discharged": true,
+          "assurance_case_valid": true,
+          "authority_zero": true,
+          "bounded_temporal_properties_passed": true,
+          "contract_closure_passed": true,
+          "deterministic_replay": true,
+          "evidence_traceability_complete": true,
+          "finite_model_compiled": true,
+          "independent_reproduction_exact": true,
+          "invariants_passed": true,
+          "known_time_passed": true,
+          "model_risk_passed": true,
+          "mutation_adequacy_passed": true,
+          "reachable_state_space_complete": true,
+          "residual_risk_within_reference_threshold": true,
+          "security_passed": true,
+          "upstream_verified": true
+        },
+        "general_program_correctness_claim": false,
+        "live_trading_authority": false,
+        "online_learning_authority": false,
+        "phase": "SAED_V4_31",
+        "production_authority": false,
+        "promotion_authority": false,
+        "prospective_success_claim": false,
+        "real_alpha_claim": false,
+        "real_market_correctness_claim": false,
+        "research_only": true,
+        "risk_allocation_authority": false,
+        "runtime_executable": false,
+        "version": "1.0.0"
+      },
+      "phase": "SAED_V4_31"
+    },
+    {
+      "document_hash": "6cc175e203935746566b8def83a3ad4f79637e99efe6ad834df7628ed73e9780",
+      "document_id": "v4_31_to_v4_32_73a13a51d173f4e137fbccbc",
+      "document_type": "v4_31_to_v4_32_handoff",
+      "payload": {
+        "allowed_next_work": [
+          "multi_agent_role_constitution",
+          "agent_authority_lattice",
+          "proposal_review_execution_separation",
+          "debate_and_dissent_protocol",
+          "agent_evidence_provenance",
+          "formal_safety_constraint_binding",
+          "human_approval_boundary"
+        ],
+        "authority": {
+          "execution": false,
+          "live_trading": false,
+          "online_learning": false,
+          "production": false,
+          "promotion": false,
+          "risk_allocation": false,
+          "runtime": false
+        },
+        "certificate_hash": "202d3289991f61854818c05e91172557a7647782b76bb7ec91e3267914dc22ac",
+        "certificate_id": "v431_safety_case_certificate_feebba4cd911e125072e3eef",
+        "entry_gates": {
+          "authority_zero": true,
+          "formal_verification_reference_accepted": true,
+          "proof_obligations_discharged": true,
+          "research_only": true,
+          "safety_case_valid": true
+        },
+        "forbidden_next_work": [
+          "grant_execution_authority_to_agent",
+          "grant_promotion_authority_to_agent",
+          "agent_self_modification_in_production",
+          "suppress_counterexamples",
+          "waive_residual_risk",
+          "runtime_compilation",
+          "risk_allocation",
+          "order_submission",
+          "production_release"
+        ],
+        "handoff_hash": "6cc175e203935746566b8def83a3ad4f79637e99efe6ad834df7628ed73e9780",
+        "handoff_id": "v4_31_to_v4_32_73a13a51d173f4e137fbccbc",
+        "next_phase": "SAED_V4_32",
+        "phase": "SAED_V4_31",
+        "research_only": true
+      },
+      "phase": "SAED_V4_31"
+    }
+  ]
+}

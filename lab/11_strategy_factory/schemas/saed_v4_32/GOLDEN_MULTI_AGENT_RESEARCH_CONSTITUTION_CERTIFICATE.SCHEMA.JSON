@@ -1,0 +1,296 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accepted_reference": {
+      "type": "boolean"
+    },
+    "agent_collusion_absence_claim": {
+      "type": "boolean"
+    },
+    "all_gates_passed": {
+      "type": "boolean"
+    },
+    "authority_boundary": {
+      "additionalProperties": false,
+      "properties": {
+        "agents_have_zero_live_authority": {
+          "type": "boolean"
+        },
+        "authority": {
+          "additionalProperties": false,
+          "properties": {
+            "constitutional_self_amendment": {
+              "type": "boolean"
+            },
+            "context_truth_mutation": {
+              "type": "boolean"
+            },
+            "counterexample_suppression": {
+              "type": "boolean"
+            },
+            "credential_access": {
+              "type": "boolean"
+            },
+            "evidence_role_mutation": {
+              "type": "boolean"
+            },
+            "execution": {
+              "type": "boolean"
+            },
+            "live_trading": {
+              "type": "boolean"
+            },
+            "online_learning": {
+              "type": "boolean"
+            },
+            "order_submission": {
+              "type": "boolean"
+            },
+            "production_release": {
+              "type": "boolean"
+            },
+            "promotion": {
+              "type": "boolean"
+            },
+            "residual_risk_waiver": {
+              "type": "boolean"
+            },
+            "risk_allocation": {
+              "type": "boolean"
+            },
+            "runtime_activation": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "constitutional_self_amendment",
+            "context_truth_mutation",
+            "counterexample_suppression",
+            "credential_access",
+            "evidence_role_mutation",
+            "execution",
+            "live_trading",
+            "online_learning",
+            "order_submission",
+            "production_release",
+            "promotion",
+            "residual_risk_waiver",
+            "risk_allocation",
+            "runtime_activation"
+          ],
+          "type": "object"
+        },
+        "boundary_hash": {
+          "type": "string"
+        },
+        "boundary_id": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "research_actions_only": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "safe_action": {
+          "type": "string"
+        },
+        "ucee_authority_preserved": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "agents_have_zero_live_authority",
+        "authority",
+        "boundary_hash",
+        "boundary_id",
+        "phase",
+        "research_actions_only",
+        "research_only",
+        "safe_action",
+        "ucee_authority_preserved"
+      ],
+      "type": "object"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "claim_class": {
+      "type": "string"
+    },
+    "evidence_bundle_hash": {
+      "type": "string"
+    },
+    "evidence_bundle_id": {
+      "type": "string"
+    },
+    "execution_authority": {
+      "type": "boolean"
+    },
+    "external_agent_runtime_claim": {
+      "type": "boolean"
+    },
+    "gates": {
+      "additionalProperties": false,
+      "properties": {
+        "authority_zero": {
+          "type": "boolean"
+        },
+        "budgets_within_limit": {
+          "type": "boolean"
+        },
+        "constitution_closed": {
+          "type": "boolean"
+        },
+        "contract_closure_passed": {
+          "type": "boolean"
+        },
+        "deny_by_default": {
+          "type": "boolean"
+        },
+        "deterministic_schedule": {
+          "type": "boolean"
+        },
+        "dissent_preserved": {
+          "type": "boolean"
+        },
+        "exposure_accounting_complete": {
+          "type": "boolean"
+        },
+        "human_review_present": {
+          "type": "boolean"
+        },
+        "independent_reproduction_exact": {
+          "type": "boolean"
+        },
+        "known_time_review_passed": {
+          "type": "boolean"
+        },
+        "memory_isolation": {
+          "type": "boolean"
+        },
+        "quorum_valid": {
+          "type": "boolean"
+        },
+        "replay_exact": {
+          "type": "boolean"
+        },
+        "role_registry_complete": {
+          "type": "boolean"
+        },
+        "security_review_passed": {
+          "type": "boolean"
+        },
+        "separation_of_duties": {
+          "type": "boolean"
+        },
+        "source_attribution_complete": {
+          "type": "boolean"
+        },
+        "task_graph_acyclic": {
+          "type": "boolean"
+        },
+        "upstream_verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "authority_zero",
+        "budgets_within_limit",
+        "constitution_closed",
+        "contract_closure_passed",
+        "deny_by_default",
+        "deterministic_schedule",
+        "dissent_preserved",
+        "exposure_accounting_complete",
+        "human_review_present",
+        "independent_reproduction_exact",
+        "known_time_review_passed",
+        "memory_isolation",
+        "quorum_valid",
+        "replay_exact",
+        "role_registry_complete",
+        "security_review_passed",
+        "separation_of_duties",
+        "source_attribution_complete",
+        "task_graph_acyclic",
+        "upstream_verified"
+      ],
+      "type": "object"
+    },
+    "live_trading_authority": {
+      "type": "boolean"
+    },
+    "online_learning_authority": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorization": {
+      "type": "boolean"
+    },
+    "promotion_authority": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "risk_allocation_authority": {
+      "type": "boolean"
+    },
+    "runtime_authority": {
+      "type": "boolean"
+    },
+    "synthetic_fixture_only": {
+      "type": "boolean"
+    },
+    "title": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "accepted_reference",
+    "agent_collusion_absence_claim",
+    "all_gates_passed",
+    "authority_boundary",
+    "certificate_hash",
+    "certificate_id",
+    "claim_ceiling",
+    "claim_class",
+    "evidence_bundle_hash",
+    "evidence_bundle_id",
+    "execution_authority",
+    "external_agent_runtime_claim",
+    "gates",
+    "live_trading_authority",
+    "online_learning_authority",
+    "phase",
+    "production_authorization",
+    "promotion_authority",
+    "research_only",
+    "risk_allocation_authority",
+    "runtime_authority",
+    "synthetic_fixture_only",
+    "title",
+    "version"
+  ],
+  "title": "GOLDEN_MULTI_AGENT_RESEARCH_CONSTITUTION_CERTIFICATE",
+  "type": "object"
+}

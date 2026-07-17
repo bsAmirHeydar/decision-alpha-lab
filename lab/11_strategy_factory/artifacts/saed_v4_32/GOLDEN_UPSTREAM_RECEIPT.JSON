@@ -1,0 +1,24 @@
+{
+  "documents": [
+    {
+      "document_hash": "202d3289991f61854818c05e91172557a7647782b76bb7ec91e3267914dc22ac",
+      "document_id": "v431_safety_case_certificate_feebba4cd911e125072e3eef",
+      "document_type": "formal_verification_safety_case_certificate",
+      "verified": true
+    },
+    {
+      "document_hash": "6cc175e203935746566b8def83a3ad4f79637e99efe6ad834df7628ed73e9780",
+      "document_id": "v4_31_to_v4_32_73a13a51d173f4e137fbccbc",
+      "document_type": "v4_31_to_v4_32_handoff",
+      "verified": true
+    }
+  ],
+  "entry_gate_passed": true,
+  "hash_verified": true,
+  "immutable": true,
+  "phase": "SAED_V4_32",
+  "receipt_hash": "c3fb496e91832d7250ec28ead550ef2b6613329b7a016afe4f90d289251807b7",
+  "receipt_id": "v432_upstream_receipt_de78ad8b7e7c8adca571cc8b",
+  "research_only": true,
+  "source_phase": "SAED_V4_31"
+}

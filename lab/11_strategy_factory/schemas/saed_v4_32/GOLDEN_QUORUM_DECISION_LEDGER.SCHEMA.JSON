@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_quorums_met": {
+      "type": "boolean"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "live_authority_decisions": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "checkpoint_id": {
+            "type": "string"
+          },
+          "decision": {
+            "type": "string"
+          },
+          "independent_roles": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "live_authority_granted": {
+            "type": "boolean"
+          },
+          "minimum_quorum": {
+            "type": "integer"
+          },
+          "quorum_met": {
+            "type": "boolean"
+          },
+          "quorum_size": {
+            "type": "integer"
+          },
+          "reviewer_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "self_approval": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "checkpoint_id",
+          "decision",
+          "independent_roles",
+          "live_authority_granted",
+          "minimum_quorum",
+          "quorum_met",
+          "quorum_size",
+          "reviewer_ids",
+          "self_approval"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "single_agent_decisions": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "all_quorums_met",
+    "ledger_hash",
+    "ledger_id",
+    "live_authority_decisions",
+    "phase",
+    "research_only",
+    "rows",
+    "single_agent_decisions"
+  ],
+  "title": "GOLDEN_QUORUM_DECISION_LEDGER",
+  "type": "object"
+}

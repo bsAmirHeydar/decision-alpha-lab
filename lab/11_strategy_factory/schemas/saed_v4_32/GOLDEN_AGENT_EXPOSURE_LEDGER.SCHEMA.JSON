@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "complete": {
+      "type": "boolean"
+    },
+    "event_count": {
+      "type": "integer"
+    },
+    "events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "agent_id": {
+            "type": "string"
+          },
+          "allowed": {
+            "type": "boolean"
+          },
+          "event_hash": {
+            "type": "string"
+          },
+          "event_id": {
+            "type": "string"
+          },
+          "evidence_role": {
+            "type": "string"
+          },
+          "known_time_epoch": {
+            "type": "integer"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "previous_event_hash": {
+            "type": "string"
+          },
+          "protected": {
+            "type": "boolean"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "role_id": {
+            "type": "string"
+          },
+          "source_id": {
+            "type": "string"
+          },
+          "task_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "agent_id",
+          "allowed",
+          "event_hash",
+          "event_id",
+          "evidence_role",
+          "known_time_epoch",
+          "ordinal",
+          "previous_event_hash",
+          "protected",
+          "reason",
+          "role_id",
+          "source_id",
+          "task_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "future_suffix_exposures": {
+      "type": "integer"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "protected_exposure_count": {
+      "type": "integer"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "unauthorized_exposures": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "complete",
+    "event_count",
+    "events",
+    "future_suffix_exposures",
+    "ledger_hash",
+    "ledger_id",
+    "phase",
+    "protected_exposure_count",
+    "research_only",
+    "unauthorized_exposures"
+  ],
+  "title": "GOLDEN_AGENT_EXPOSURE_LEDGER",
+  "type": "object"
+}

@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acyclic": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "self_review_denied": {
+      "type": "boolean"
+    },
+    "task_count": {
+      "type": "integer"
+    },
+    "tasks": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "budget_id": {
+            "type": "string"
+          },
+          "delegation_depth": {
+            "type": "integer"
+          },
+          "depends_on": {
+            "items": {},
+            "type": "array"
+          },
+          "input_hashes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "known_time_epoch": {
+            "type": "integer"
+          },
+          "output_contract": {
+            "type": "string"
+          },
+          "owner_agent_id": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "integer"
+          },
+          "protected_evidence_allowed": {
+            "type": "boolean"
+          },
+          "required_capabilities": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "research_only": {
+            "type": "boolean"
+          },
+          "reviewer_agent_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "self_review_allowed": {
+            "type": "boolean"
+          },
+          "task_id": {
+            "type": "string"
+          },
+          "task_type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "budget_id",
+          "delegation_depth",
+          "depends_on",
+          "input_hashes",
+          "known_time_epoch",
+          "output_contract",
+          "owner_agent_id",
+          "priority",
+          "protected_evidence_allowed",
+          "required_capabilities",
+          "research_only",
+          "reviewer_agent_ids",
+          "self_review_allowed",
+          "task_id",
+          "task_type"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "acyclic",
+    "phase",
+    "registry_hash",
+    "registry_id",
+    "research_only",
+    "self_review_denied",
+    "task_count",
+    "tasks"
+  ],
+  "title": "GOLDEN_TASK_ENVELOPE_REGISTRY",
+  "type": "object"
+}

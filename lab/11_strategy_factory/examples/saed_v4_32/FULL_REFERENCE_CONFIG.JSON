@@ -1,0 +1,9 @@
+{
+  "deterministic_seed": 432032,
+  "external_agent_runtime": false,
+  "network_access": false,
+  "phase": "SAED_V4_32",
+  "research_only": true,
+  "safe_default": "quarantine",
+  "synthetic_fixture_only": true
+}

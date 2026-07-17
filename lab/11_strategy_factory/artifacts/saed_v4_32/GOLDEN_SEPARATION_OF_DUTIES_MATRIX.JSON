@@ -1,0 +1,47 @@
+{
+  "incompatible_role_pairs": [
+    {
+      "left": "hypothesis",
+      "reason": "proposal_review_separation",
+      "right": "human_reviewer"
+    },
+    {
+      "left": "model_engineering",
+      "reason": "builder_challenger_separation",
+      "right": "statistical_adversary"
+    },
+    {
+      "left": "model_engineering",
+      "reason": "builder_evidence_custody_separation",
+      "right": "evidence_curator"
+    },
+    {
+      "left": "orchestrator",
+      "reason": "scheduler_approval_separation",
+      "right": "human_reviewer"
+    },
+    {
+      "left": "data_audit",
+      "reason": "data_builder_separation",
+      "right": "model_engineering"
+    },
+    {
+      "left": "leakage_sentinel",
+      "reason": "sentinel_builder_separation",
+      "right": "model_engineering"
+    }
+  ],
+  "matrix_hash": "25224e789bb1c7418c31171547518965249fe2e6fd3157e6492fac73cd2fc658",
+  "matrix_id": "v432_separation_matrix_6ca6bd2e9574042314aeab70",
+  "phase": "SAED_V4_32",
+  "research_only": true,
+  "self_approval_denied": true,
+  "single_agent_quorum_denied": true,
+  "two_person_actions": [
+    "protected_evidence_access",
+    "research_checkpoint_approval",
+    "critical_waiver",
+    "incident_closure",
+    "constitution_amendment_proposal"
+  ]
+}

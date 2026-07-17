@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_within_budget": {
+      "type": "boolean"
+    },
+    "hard_stop_events": {
+      "type": "integer"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "protected_exposure_total": {
+      "type": "integer"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "budget_id": {
+            "type": "string"
+          },
+          "hard_stop_triggered": {
+            "type": "boolean"
+          },
+          "limits": {
+            "additionalProperties": false,
+            "properties": {
+              "agent_steps": {
+                "type": "integer"
+              },
+              "compute_units": {
+                "type": "integer"
+              },
+              "human_review_minutes": {
+                "type": "integer"
+              },
+              "protected_exposures": {
+                "type": "integer"
+              },
+              "source_reads": {
+                "type": "integer"
+              },
+              "tool_calls": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "agent_steps",
+              "compute_units",
+              "human_review_minutes",
+              "protected_exposures",
+              "source_reads",
+              "tool_calls"
+            ],
+            "type": "object"
+          },
+          "overrun_dimensions": {
+            "items": {},
+            "type": "array"
+          },
+          "task_family": {
+            "type": "string"
+          },
+          "used": {
+            "additionalProperties": false,
+            "properties": {
+              "agent_steps": {
+                "type": "integer"
+              },
+              "compute_units": {
+                "type": "integer"
+              },
+              "human_review_minutes": {
+                "type": "integer"
+              },
+              "protected_exposures": {
+                "type": "integer"
+              },
+              "source_reads": {
+                "type": "integer"
+              },
+              "tool_calls": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "agent_steps",
+              "compute_units",
+              "human_review_minutes",
+              "protected_exposures",
+              "source_reads",
+              "tool_calls"
+            ],
+            "type": "object"
+          },
+          "within_budget": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "budget_id",
+          "hard_stop_triggered",
+          "limits",
+          "overrun_dimensions",
+          "task_family",
+          "used",
+          "within_budget"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "all_within_budget",
+    "hard_stop_events",
+    "ledger_hash",
+    "ledger_id",
+    "phase",
+    "protected_exposure_total",
+    "research_only",
+    "rows"
+  ],
+  "title": "GOLDEN_BUDGET_ACCOUNTING_LEDGER",
+  "type": "object"
+}

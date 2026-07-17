@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "complete": {
+      "type": "boolean"
+    },
+    "constitution_id": {
+      "type": "string"
+    },
+    "coverage_hash": {
+      "type": "string"
+    },
+    "coverage_id": {
+      "type": "string"
+    },
+    "exercised_clauses": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "clause_id": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "has_exercised_test": {
+            "type": "boolean"
+          },
+          "immutable_in_phase": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "clause_id",
+          "domain",
+          "has_exercised_test",
+          "immutable_in_phase"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "total_clauses": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "complete",
+    "constitution_id",
+    "coverage_hash",
+    "coverage_id",
+    "exercised_clauses",
+    "phase",
+    "research_only",
+    "rows",
+    "total_clauses"
+  ],
+  "title": "GOLDEN_CONSTITUTION_COVERAGE_MATRIX",
+  "type": "object"
+}

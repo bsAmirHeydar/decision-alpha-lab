@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ephemeral": {
+      "type": "boolean"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "live_authority_tokens": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "scope_bound": {
+      "type": "boolean"
+    },
+    "tokens": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "agent_id": {
+            "type": "string"
+          },
+          "capability_id": {
+            "type": "string"
+          },
+          "delegable": {
+            "type": "boolean"
+          },
+          "delegation_depth": {
+            "type": "integer"
+          },
+          "expires_after_task": {
+            "type": "boolean"
+          },
+          "known_time_epoch": {
+            "type": "integer"
+          },
+          "live_authority": {
+            "type": "boolean"
+          },
+          "research_only": {
+            "type": "boolean"
+          },
+          "role_id": {
+            "type": "string"
+          },
+          "task_id": {
+            "type": "string"
+          },
+          "token_hash": {
+            "type": "string"
+          },
+          "token_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "agent_id",
+          "capability_id",
+          "delegable",
+          "delegation_depth",
+          "expires_after_task",
+          "known_time_epoch",
+          "live_authority",
+          "research_only",
+          "role_id",
+          "task_id",
+          "token_hash",
+          "token_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "ephemeral",
+    "ledger_hash",
+    "ledger_id",
+    "live_authority_tokens",
+    "phase",
+    "research_only",
+    "scope_bound",
+    "tokens"
+  ],
+  "title": "GOLDEN_CAPABILITY_TOKEN_LEDGER",
+  "type": "object"
+}

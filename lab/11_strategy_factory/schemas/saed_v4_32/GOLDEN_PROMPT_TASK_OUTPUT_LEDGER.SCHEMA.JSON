@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "complete_output_accounting": {
+      "type": "boolean"
+    },
+    "complete_prompt_accounting": {
+      "type": "boolean"
+    },
+    "complete_tool_accounting": {
+      "type": "boolean"
+    },
+    "complete_trial_accounting": {
+      "type": "boolean"
+    },
+    "event_count": {
+      "type": "integer"
+    },
+    "events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "agent_id": {
+            "type": "string"
+          },
+          "event_hash": {
+            "type": "string"
+          },
+          "event_id": {
+            "type": "string"
+          },
+          "input_hashes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "known_time_epoch": {
+            "type": "integer"
+          },
+          "network_access": {
+            "type": "boolean"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "output_contract": {
+            "type": "string"
+          },
+          "output_hash": {
+            "type": "string"
+          },
+          "previous_event_hash": {
+            "type": "string"
+          },
+          "prompt_profile_hash": {
+            "type": "string"
+          },
+          "research_only": {
+            "type": "boolean"
+          },
+          "role_id": {
+            "type": "string"
+          },
+          "task_id": {
+            "type": "string"
+          },
+          "tool_profile_hash": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "agent_id",
+          "event_hash",
+          "event_id",
+          "input_hashes",
+          "known_time_epoch",
+          "network_access",
+          "ordinal",
+          "output_contract",
+          "output_hash",
+          "previous_event_hash",
+          "prompt_profile_hash",
+          "research_only",
+          "role_id",
+          "task_id",
+          "tool_profile_hash"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "network_access": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "complete_output_accounting",
+    "complete_prompt_accounting",
+    "complete_tool_accounting",
+    "complete_trial_accounting",
+    "event_count",
+    "events",
+    "ledger_hash",
+    "ledger_id",
+    "network_access",
+    "phase",
+    "research_only"
+  ],
+  "title": "GOLDEN_PROMPT_TASK_OUTPUT_LEDGER",
+  "type": "object"
+}

@@ -1,0 +1,268 @@
+{
+  "capabilities": [
+    {
+      "allowed_roles": [
+        "human_reviewer"
+      ],
+      "capability_id": "approve_research_checkpoint",
+      "denied_in_phase": false,
+      "description": "approve research checkpoint",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [
+        "causal_auditor"
+      ],
+      "capability_id": "audit_causality",
+      "denied_in_phase": false,
+      "description": "audit causality",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [
+        "data_audit"
+      ],
+      "capability_id": "audit_data",
+      "denied_in_phase": false,
+      "description": "audit data",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [
+        "execution_auditor"
+      ],
+      "capability_id": "audit_execution",
+      "denied_in_phase": false,
+      "description": "audit execution",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [
+        "data_audit",
+        "leakage_sentinel",
+        "statistical_adversary",
+        "causal_auditor",
+        "execution_auditor",
+        "evidence_curator",
+        "human_reviewer"
+      ],
+      "capability_id": "block_candidate",
+      "denied_in_phase": false,
+      "description": "block candidate",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [
+        "statistical_adversary"
+      ],
+      "capability_id": "challenge_statistics",
+      "denied_in_phase": false,
+      "description": "challenge statistics",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [],
+      "capability_id": "context_truth_mutation",
+      "denied_in_phase": true,
+      "description": "constitutionally forbidden: context truth mutation",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [],
+      "capability_id": "counterexample_suppression",
+      "denied_in_phase": true,
+      "description": "constitutionally forbidden: counterexample suppression",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [],
+      "capability_id": "credential_access",
+      "denied_in_phase": true,
+      "description": "constitutionally forbidden: credential access",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [
+        "evidence_curator"
+      ],
+      "capability_id": "curate_evidence",
+      "denied_in_phase": false,
+      "description": "curate evidence",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [],
+      "capability_id": "evidence_role_mutation",
+      "denied_in_phase": true,
+      "description": "constitutionally forbidden: evidence role mutation",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [
+        "model_engineering"
+      ],
+      "capability_id": "implement_model",
+      "denied_in_phase": false,
+      "description": "implement model",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [],
+      "capability_id": "online_learning",
+      "denied_in_phase": true,
+      "description": "constitutionally forbidden: online learning",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [],
+      "capability_id": "order_submission",
+      "denied_in_phase": true,
+      "description": "constitutionally forbidden: order submission",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [],
+      "capability_id": "production_release",
+      "denied_in_phase": true,
+      "description": "constitutionally forbidden: production release",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [],
+      "capability_id": "promotion",
+      "denied_in_phase": true,
+      "description": "constitutionally forbidden: promotion",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [
+        "hypothesis"
+      ],
+      "capability_id": "propose_hypothesis",
+      "denied_in_phase": false,
+      "description": "propose hypothesis",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [
+        "evidence_curator",
+        "human_reviewer"
+      ],
+      "capability_id": "read_protected_evidence",
+      "denied_in_phase": false,
+      "description": "read protected evidence",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": true,
+      "requires_independent_roles": true
+    },
+    {
+      "allowed_roles": [
+        "orchestrator",
+        "hypothesis",
+        "data_audit",
+        "leakage_sentinel",
+        "statistical_adversary",
+        "model_engineering",
+        "causal_auditor",
+        "execution_auditor",
+        "evidence_curator"
+      ],
+      "capability_id": "request_review",
+      "denied_in_phase": false,
+      "description": "request review",
+      "maximum_delegation_depth": 1,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [],
+      "capability_id": "residual_risk_waiver",
+      "denied_in_phase": true,
+      "description": "constitutionally forbidden: residual risk waiver",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [],
+      "capability_id": "risk_allocation",
+      "denied_in_phase": true,
+      "description": "constitutionally forbidden: risk allocation",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [],
+      "capability_id": "runtime_activation",
+      "denied_in_phase": true,
+      "description": "constitutionally forbidden: runtime activation",
+      "maximum_delegation_depth": 0,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    },
+    {
+      "allowed_roles": [
+        "orchestrator"
+      ],
+      "capability_id": "schedule_task",
+      "denied_in_phase": false,
+      "description": "schedule task",
+      "maximum_delegation_depth": 1,
+      "requires_human_checkpoint": false,
+      "requires_independent_roles": false
+    }
+  ],
+  "deny_by_default": true,
+  "forbidden_capabilities": [
+    "context_truth_mutation",
+    "counterexample_suppression",
+    "credential_access",
+    "evidence_role_mutation",
+    "online_learning",
+    "order_submission",
+    "production_release",
+    "promotion",
+    "residual_risk_waiver",
+    "risk_allocation",
+    "runtime_activation"
+  ],
+  "matrix_hash": "3655ed420bc6d80dd04e05c2a058430afaa869bf83e01bc07111b9ce1aeb210f",
+  "matrix_id": "v432_capability_matrix_7e834d66e6a1b7819f8406c2",
+  "phase": "SAED_V4_32",
+  "research_only": true
+}

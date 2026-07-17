@@ -1,0 +1,20 @@
+{
+  "contradiction_count": 1,
+  "dissent_preserved": true,
+  "ledger_hash": "cb3e4507468adcd5147cf6b56115d6a8d48d4fca9a94e79d621c4a0ee8a88f13",
+  "ledger_id": "v432_contradiction_ledger_75f49da1afb7ebc499f8a309",
+  "phase": "SAED_V4_32",
+  "research_only": true,
+  "rows": [
+    {
+      "left_claim_id": "CLM-002",
+      "left_status": "challenged",
+      "requires_human_review": true,
+      "resolution": "block_and_human_review",
+      "right_claim_id": "CLM-003",
+      "right_status": "blocked",
+      "suppressed": false
+    }
+  ],
+  "suppressed_count": 0
+}

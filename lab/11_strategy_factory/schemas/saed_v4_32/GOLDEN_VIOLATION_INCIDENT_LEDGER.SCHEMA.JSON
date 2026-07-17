@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "automatic_containment": {
+      "type": "boolean"
+    },
+    "counterexamples_preserved": {
+      "type": "boolean"
+    },
+    "critical_count": {
+      "type": "integer"
+    },
+    "events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "affected_task_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "automatic_response": {
+            "type": "string"
+          },
+          "counterexamples_preserved": {
+            "type": "boolean"
+          },
+          "detected_by_agent_id": {
+            "type": "string"
+          },
+          "event_hash": {
+            "type": "string"
+          },
+          "event_id": {
+            "type": "string"
+          },
+          "human_review_required": {
+            "type": "boolean"
+          },
+          "incident_id": {
+            "type": "string"
+          },
+          "incident_type": {
+            "type": "string"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "previous_event_hash": {
+            "type": "string"
+          },
+          "research_only": {
+            "type": "boolean"
+          },
+          "severity": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "trigger": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "affected_task_ids",
+          "automatic_response",
+          "counterexamples_preserved",
+          "detected_by_agent_id",
+          "event_hash",
+          "event_id",
+          "human_review_required",
+          "incident_id",
+          "incident_type",
+          "ordinal",
+          "previous_event_hash",
+          "research_only",
+          "severity",
+          "status",
+          "trigger"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "human_review_required": {
+      "type": "boolean"
+    },
+    "incident_count": {
+      "type": "integer"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "automatic_containment",
+    "counterexamples_preserved",
+    "critical_count",
+    "events",
+    "human_review_required",
+    "incident_count",
+    "ledger_hash",
+    "ledger_id",
+    "phase",
+    "research_only"
+  ],
+  "title": "GOLDEN_VIOLATION_INCIDENT_LEDGER",
+  "type": "object"
+}

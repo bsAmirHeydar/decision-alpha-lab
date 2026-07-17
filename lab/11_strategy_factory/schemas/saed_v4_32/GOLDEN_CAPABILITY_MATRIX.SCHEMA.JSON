@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capabilities": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "allowed_roles": {
+            "items": {},
+            "type": "array"
+          },
+          "capability_id": {
+            "type": "string"
+          },
+          "denied_in_phase": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string"
+          },
+          "maximum_delegation_depth": {
+            "type": "integer"
+          },
+          "requires_human_checkpoint": {
+            "type": "boolean"
+          },
+          "requires_independent_roles": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "allowed_roles",
+          "capability_id",
+          "denied_in_phase",
+          "description",
+          "maximum_delegation_depth",
+          "requires_human_checkpoint",
+          "requires_independent_roles"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "deny_by_default": {
+      "type": "boolean"
+    },
+    "forbidden_capabilities": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "matrix_hash": {
+      "type": "string"
+    },
+    "matrix_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "capabilities",
+    "deny_by_default",
+    "forbidden_capabilities",
+    "matrix_hash",
+    "matrix_id",
+    "phase",
+    "research_only"
+  ],
+  "title": "GOLDEN_CAPABILITY_MATRIX",
+  "type": "object"
+}

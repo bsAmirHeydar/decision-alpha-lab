@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "checkpoint_count": {
+      "type": "integer"
+    },
+    "checkpoints": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "checkpoint_hash": {
+            "type": "string"
+          },
+          "checkpoint_id": {
+            "type": "string"
+          },
+          "checkpoint_type": {
+            "type": "string"
+          },
+          "decision": {
+            "type": "string"
+          },
+          "evidence_hashes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "known_time_epoch": {
+            "type": "integer"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "requester_agent_id": {
+            "type": "string"
+          },
+          "required_roles": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "research_only": {
+            "type": "boolean"
+          },
+          "reviewer_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "self_approval": {
+            "type": "boolean"
+          },
+          "task_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "checkpoint_hash",
+          "checkpoint_id",
+          "checkpoint_type",
+          "decision",
+          "evidence_hashes",
+          "known_time_epoch",
+          "reason",
+          "requester_agent_id",
+          "required_roles",
+          "research_only",
+          "reviewer_ids",
+          "self_approval",
+          "task_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "human_review_present": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "self_approvals": {
+      "type": "integer"
+    },
+    "two_person_integrity": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "checkpoint_count",
+    "checkpoints",
+    "human_review_present",
+    "phase",
+    "registry_hash",
+    "registry_id",
+    "research_only",
+    "self_approvals",
+    "two_person_integrity"
+  ],
+  "title": "GOLDEN_HUMAN_REVIEW_CHECKPOINTS",
+  "type": "object"
+}

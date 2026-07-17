@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "deny_by_default": {
+      "type": "boolean"
+    },
+    "ephemeral_tokens": {
+      "type": "boolean"
+    },
+    "least_privilege": {
+      "type": "boolean"
+    },
+    "live_credentials_accessible": {
+      "type": "boolean"
+    },
+    "memory_isolation": {
+      "type": "boolean"
+    },
+    "network_access": {
+      "type": "boolean"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "review_hash": {
+      "type": "string"
+    },
+    "review_id": {
+      "type": "string"
+    },
+    "supply_chain_attestation": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "deny_by_default",
+    "ephemeral_tokens",
+    "least_privilege",
+    "live_credentials_accessible",
+    "memory_isolation",
+    "network_access",
+    "passed",
+    "phase",
+    "research_only",
+    "review_hash",
+    "review_id",
+    "supply_chain_attestation"
+  ],
+  "title": "SECURITY_REVIEW",
+  "type": "object"
+}

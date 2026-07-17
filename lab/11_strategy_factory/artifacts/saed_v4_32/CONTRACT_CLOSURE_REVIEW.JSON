@@ -1,0 +1,11 @@
+{
+  "all_examples_have_schemas": true,
+  "all_schemas_additional_properties_false": true,
+  "closed_schema_pairs": 38,
+  "passed": true,
+  "phase": "SAED_V4_32",
+  "research_only": true,
+  "review_hash": "507388884e68f1a421a82f224237d71657c422006998bf9c239e6dae5e5dc25e",
+  "review_id": "v432_contract_closure_a470c57b17374bdb4fea5c85",
+  "unknown_fields_allowed": false
+}

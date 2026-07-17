@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "deterministic": {
+      "type": "boolean"
+    },
+    "event_count": {
+      "type": "integer"
+    },
+    "events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "dependency_count": {
+            "type": "integer"
+          },
+          "event_hash": {
+            "type": "string"
+          },
+          "event_id": {
+            "type": "string"
+          },
+          "known_time_epoch": {
+            "type": "integer"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "owner_agent_id": {
+            "type": "string"
+          },
+          "previous_event_hash": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "integer"
+          },
+          "state": {
+            "type": "string"
+          },
+          "step": {
+            "type": "integer"
+          },
+          "task_id": {
+            "type": "string"
+          },
+          "task_type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "dependency_count",
+          "event_hash",
+          "event_id",
+          "known_time_epoch",
+          "ordinal",
+          "owner_agent_id",
+          "previous_event_hash",
+          "priority",
+          "state",
+          "step",
+          "task_id",
+          "task_type"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "final_event_hash": {
+      "type": "string"
+    },
+    "network_access": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "plan_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "trace_hash": {
+      "type": "string"
+    },
+    "trace_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "deterministic",
+    "event_count",
+    "events",
+    "final_event_hash",
+    "network_access",
+    "phase",
+    "plan_id",
+    "research_only",
+    "trace_hash",
+    "trace_id"
+  ],
+  "title": "GOLDEN_SCHEDULER_TRACE",
+  "type": "object"
+}

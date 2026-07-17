@@ -1,0 +1,66 @@
+{
+  "agent_waiver_count": 0,
+  "issues": [
+    {
+      "challenge_id": "CHL-001",
+      "claim_id": "CLM-003",
+      "issue_hash": "da122a6d13ec164f4a369cf096de196a0f15edc0d0ec0baa683f0535f7aac659",
+      "issue_id": "v432_blocking_issue_40180c1d6f3759ed17310ae3",
+      "required_resolution": "Resolve multiplicity with independent evidence or retain abstention.",
+      "severity": "high",
+      "status": "open_synthetic_reference",
+      "suppression_allowed": false,
+      "waivable_by_agent": false
+    },
+    {
+      "challenge_id": "CHL-003",
+      "claim_id": "CLM-005",
+      "issue_hash": "422914074a10334e5245641a223fd75ba6bc204d2a7481b685574c1b3526bb45",
+      "issue_id": "v432_blocking_issue_83e850479186964c4d2f35a6",
+      "required_resolution": "Resolve leakage with independent evidence or retain abstention.",
+      "severity": "critical",
+      "status": "open_synthetic_reference",
+      "suppression_allowed": false,
+      "waivable_by_agent": false
+    },
+    {
+      "challenge_id": "CHL-004",
+      "claim_id": "CLM-002",
+      "issue_hash": "c2497c1632886faa2762846037b31bb1dc6ebfef4ea208fe7e95c733ce410859",
+      "issue_id": "v432_blocking_issue_e2ed017d2264d8be02b51ff9",
+      "required_resolution": "Resolve support with independent evidence or retain abstention.",
+      "severity": "high",
+      "status": "open_synthetic_reference",
+      "suppression_allowed": false,
+      "waivable_by_agent": false
+    },
+    {
+      "challenge_id": "CHL-006",
+      "claim_id": "CLM-004",
+      "issue_hash": "076bcd712fa2a67307649e37cdc3d136f31b6acaee253f3d657a4259d6040af0",
+      "issue_id": "v432_blocking_issue_96b3a1e7509db19b9334ca46",
+      "required_resolution": "Resolve causal_identification with independent evidence or retain abstention.",
+      "severity": "critical",
+      "status": "open_synthetic_reference",
+      "suppression_allowed": false,
+      "waivable_by_agent": false
+    },
+    {
+      "challenge_id": "CHL-008",
+      "claim_id": "CLM-002",
+      "issue_hash": "7f54e272185924459b215dbd2ca5150cce6022954abcd4bb615e3b03b60d385e",
+      "issue_id": "v432_blocking_issue_d3c8ac4be6162965854d3bd5",
+      "required_resolution": "Resolve selection_bias with independent evidence or retain abstention.",
+      "severity": "high",
+      "status": "open_synthetic_reference",
+      "suppression_allowed": false,
+      "waivable_by_agent": false
+    }
+  ],
+  "ledger_hash": "ef7373073601263a70d18f56cc377ff1b364c51911cc5f561d2c34d2fa5171ec",
+  "ledger_id": "v432_blocking_ledger_50cc0048a4450b8c175c307c",
+  "open_count": 5,
+  "phase": "SAED_V4_32",
+  "research_only": true,
+  "suppressed_count": 0
+}

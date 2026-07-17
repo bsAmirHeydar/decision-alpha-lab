@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "incompatible_role_pairs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "left": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "right": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "left",
+          "reason",
+          "right"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "matrix_hash": {
+      "type": "string"
+    },
+    "matrix_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "self_approval_denied": {
+      "type": "boolean"
+    },
+    "single_agent_quorum_denied": {
+      "type": "boolean"
+    },
+    "two_person_actions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "incompatible_role_pairs",
+    "matrix_hash",
+    "matrix_id",
+    "phase",
+    "research_only",
+    "self_approval_denied",
+    "single_agent_quorum_denied",
+    "two_person_actions"
+  ],
+  "title": "GOLDEN_SEPARATION_OF_DUTIES_MATRIX",
+  "type": "object"
+}

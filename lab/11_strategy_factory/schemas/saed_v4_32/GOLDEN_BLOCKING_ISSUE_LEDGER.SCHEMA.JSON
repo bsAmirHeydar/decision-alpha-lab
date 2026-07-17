@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "agent_waiver_count": {
+      "type": "integer"
+    },
+    "issues": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "challenge_id": {
+            "type": "string"
+          },
+          "claim_id": {
+            "type": "string"
+          },
+          "issue_hash": {
+            "type": "string"
+          },
+          "issue_id": {
+            "type": "string"
+          },
+          "required_resolution": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "suppression_allowed": {
+            "type": "boolean"
+          },
+          "waivable_by_agent": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "challenge_id",
+          "claim_id",
+          "issue_hash",
+          "issue_id",
+          "required_resolution",
+          "severity",
+          "status",
+          "suppression_allowed",
+          "waivable_by_agent"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "open_count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "suppressed_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "agent_waiver_count",
+    "issues",
+    "ledger_hash",
+    "ledger_id",
+    "open_count",
+    "phase",
+    "research_only",
+    "suppressed_count"
+  ],
+  "title": "GOLDEN_BLOCKING_ISSUE_LEDGER",
+  "type": "object"
+}

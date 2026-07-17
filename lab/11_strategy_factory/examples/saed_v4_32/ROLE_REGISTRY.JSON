@@ -1,0 +1,122 @@
+[
+  {
+    "independence_group": "coordination",
+    "may_access_protected_evidence": false,
+    "may_approve_research": false,
+    "may_block": false,
+    "may_delegate": true,
+    "may_propose": false,
+    "may_review": false,
+    "purpose": "deterministic task scheduling",
+    "research_only": true,
+    "role_id": "orchestrator"
+  },
+  {
+    "independence_group": "proposal",
+    "may_access_protected_evidence": false,
+    "may_approve_research": false,
+    "may_block": false,
+    "may_delegate": false,
+    "may_propose": true,
+    "may_review": false,
+    "purpose": "bounded hypothesis proposal",
+    "research_only": true,
+    "role_id": "hypothesis"
+  },
+  {
+    "independence_group": "data_assurance",
+    "may_access_protected_evidence": false,
+    "may_approve_research": false,
+    "may_block": true,
+    "may_delegate": false,
+    "may_propose": false,
+    "may_review": true,
+    "purpose": "data lineage and role audit",
+    "research_only": true,
+    "role_id": "data_audit"
+  },
+  {
+    "independence_group": "leakage_assurance",
+    "may_access_protected_evidence": false,
+    "may_approve_research": false,
+    "may_block": true,
+    "may_delegate": false,
+    "may_propose": false,
+    "may_review": true,
+    "purpose": "known-time and exposure audit",
+    "research_only": true,
+    "role_id": "leakage_sentinel"
+  },
+  {
+    "independence_group": "adversary",
+    "may_access_protected_evidence": false,
+    "may_approve_research": false,
+    "may_block": true,
+    "may_delegate": false,
+    "may_propose": false,
+    "may_review": true,
+    "purpose": "independent falsification",
+    "research_only": true,
+    "role_id": "statistical_adversary"
+  },
+  {
+    "independence_group": "builder",
+    "may_access_protected_evidence": false,
+    "may_approve_research": false,
+    "may_block": false,
+    "may_delegate": false,
+    "may_propose": false,
+    "may_review": false,
+    "purpose": "governed implementation",
+    "research_only": true,
+    "role_id": "model_engineering"
+  },
+  {
+    "independence_group": "causal_assurance",
+    "may_access_protected_evidence": false,
+    "may_approve_research": false,
+    "may_block": true,
+    "may_delegate": false,
+    "may_propose": false,
+    "may_review": true,
+    "purpose": "causal assumption audit",
+    "research_only": true,
+    "role_id": "causal_auditor"
+  },
+  {
+    "independence_group": "execution_assurance",
+    "may_access_protected_evidence": false,
+    "may_approve_research": false,
+    "may_block": true,
+    "may_delegate": false,
+    "may_propose": false,
+    "may_review": true,
+    "purpose": "execution realism audit",
+    "research_only": true,
+    "role_id": "execution_auditor"
+  },
+  {
+    "independence_group": "evidence_custody",
+    "may_access_protected_evidence": true,
+    "may_approve_research": false,
+    "may_block": true,
+    "may_delegate": false,
+    "may_propose": false,
+    "may_review": true,
+    "purpose": "protected evidence custody",
+    "research_only": true,
+    "role_id": "evidence_curator"
+  },
+  {
+    "independence_group": "human_governance",
+    "may_access_protected_evidence": true,
+    "may_approve_research": true,
+    "may_block": true,
+    "may_delegate": false,
+    "may_propose": false,
+    "may_review": true,
+    "purpose": "independent human research checkpoint",
+    "research_only": true,
+    "role_id": "human_reviewer"
+  }
+]

@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "agents": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "active": {
+            "type": "boolean"
+          },
+          "agent_id": {
+            "type": "string"
+          },
+          "display_name": {
+            "type": "string"
+          },
+          "human_supervisor_id": {
+            "type": "string"
+          },
+          "identity_fingerprint": {
+            "type": "string"
+          },
+          "identity_provider": {
+            "type": "string"
+          },
+          "memory_namespace": {
+            "type": "string"
+          },
+          "prompt_profile_hash": {
+            "type": "string"
+          },
+          "role_id": {
+            "type": "string"
+          },
+          "tool_profile_hash": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "active",
+          "agent_id",
+          "display_name",
+          "human_supervisor_id",
+          "identity_fingerprint",
+          "identity_provider",
+          "memory_namespace",
+          "prompt_profile_hash",
+          "role_id",
+          "tool_profile_hash"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "identity_isolation": {
+      "type": "boolean"
+    },
+    "memory_isolation": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "role_counts": {
+      "additionalProperties": false,
+      "properties": {
+        "causal_auditor": {
+          "type": "integer"
+        },
+        "data_audit": {
+          "type": "integer"
+        },
+        "evidence_curator": {
+          "type": "integer"
+        },
+        "execution_auditor": {
+          "type": "integer"
+        },
+        "human_reviewer": {
+          "type": "integer"
+        },
+        "hypothesis": {
+          "type": "integer"
+        },
+        "leakage_sentinel": {
+          "type": "integer"
+        },
+        "model_engineering": {
+          "type": "integer"
+        },
+        "orchestrator": {
+          "type": "integer"
+        },
+        "statistical_adversary": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "causal_auditor",
+        "data_audit",
+        "evidence_curator",
+        "execution_auditor",
+        "human_reviewer",
+        "hypothesis",
+        "leakage_sentinel",
+        "model_engineering",
+        "orchestrator",
+        "statistical_adversary"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "agents",
+    "identity_isolation",
+    "memory_isolation",
+    "phase",
+    "registry_hash",
+    "registry_id",
+    "research_only",
+    "role_counts"
+  ],
+  "title": "GOLDEN_AGENT_REGISTRY",
+  "type": "object"
+}

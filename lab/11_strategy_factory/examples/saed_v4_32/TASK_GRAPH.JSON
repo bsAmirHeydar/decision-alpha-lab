@@ -1,0 +1,296 @@
+[
+  {
+    "budget_id": "BUD-002",
+    "delegation_depth": 0,
+    "depends_on": [],
+    "input_hashes": [
+      "source:SRC-GOV-001"
+    ],
+    "known_time_epoch": 3200001,
+    "output_contract": "TASK-001_OUTPUT_V1",
+    "owner_agent_id": "agent:hypothesis:v1",
+    "priority": 1,
+    "protected_evidence_allowed": false,
+    "required_capabilities": [
+      "propose_hypothesis"
+    ],
+    "research_only": true,
+    "reviewer_agent_ids": [
+      "agent:data_audit:v1",
+      "agent:human_reviewer:v1"
+    ],
+    "self_review_allowed": false,
+    "task_id": "TASK-001",
+    "task_type": "hypothesis"
+  },
+  {
+    "budget_id": "BUD-003",
+    "delegation_depth": 0,
+    "depends_on": [
+      "TASK-001"
+    ],
+    "input_hashes": [
+      "source:SRC-DATA-001"
+    ],
+    "known_time_epoch": 3200002,
+    "output_contract": "TASK-002_OUTPUT_V1",
+    "owner_agent_id": "agent:data_audit:v1",
+    "priority": 1,
+    "protected_evidence_allowed": false,
+    "required_capabilities": [
+      "audit_data"
+    ],
+    "research_only": true,
+    "reviewer_agent_ids": [
+      "agent:leakage_sentinel:v1",
+      "agent:human_reviewer:v1"
+    ],
+    "self_review_allowed": false,
+    "task_id": "TASK-002",
+    "task_type": "data_audit"
+  },
+  {
+    "budget_id": "BUD-004",
+    "delegation_depth": 0,
+    "depends_on": [
+      "TASK-002"
+    ],
+    "input_hashes": [
+      "source:SRC-DATA-001",
+      "source:SRC-GOV-001"
+    ],
+    "known_time_epoch": 3200002,
+    "output_contract": "TASK-003_OUTPUT_V1",
+    "owner_agent_id": "agent:leakage_sentinel:v1",
+    "priority": 2,
+    "protected_evidence_allowed": false,
+    "required_capabilities": [
+      "request_review"
+    ],
+    "research_only": true,
+    "reviewer_agent_ids": [
+      "agent:data_audit:v1",
+      "agent:human_reviewer:v1"
+    ],
+    "self_review_allowed": false,
+    "task_id": "TASK-003",
+    "task_type": "leakage_audit"
+  },
+  {
+    "budget_id": "BUD-005",
+    "delegation_depth": 0,
+    "depends_on": [
+      "TASK-002",
+      "TASK-003"
+    ],
+    "input_hashes": [
+      "source:SRC-DATA-001"
+    ],
+    "known_time_epoch": 3200003,
+    "output_contract": "TASK-004_OUTPUT_V1",
+    "owner_agent_id": "agent:model_engineering:v1",
+    "priority": 1,
+    "protected_evidence_allowed": false,
+    "required_capabilities": [
+      "implement_model"
+    ],
+    "research_only": true,
+    "reviewer_agent_ids": [
+      "agent:statistical_adversary:v1",
+      "agent:human_reviewer:v1"
+    ],
+    "self_review_allowed": false,
+    "task_id": "TASK-004",
+    "task_type": "model_build"
+  },
+  {
+    "budget_id": "BUD-006",
+    "delegation_depth": 0,
+    "depends_on": [
+      "TASK-004"
+    ],
+    "input_hashes": [
+      "source:SRC-VAL-001"
+    ],
+    "known_time_epoch": 3200003,
+    "output_contract": "TASK-005_OUTPUT_V1",
+    "owner_agent_id": "agent:causal_auditor:v1",
+    "priority": 2,
+    "protected_evidence_allowed": false,
+    "required_capabilities": [
+      "audit_causality"
+    ],
+    "research_only": true,
+    "reviewer_agent_ids": [
+      "agent:statistical_adversary:v1",
+      "agent:human_reviewer:v1"
+    ],
+    "self_review_allowed": false,
+    "task_id": "TASK-005",
+    "task_type": "causal_audit"
+  },
+  {
+    "budget_id": "BUD-007",
+    "delegation_depth": 0,
+    "depends_on": [
+      "TASK-004"
+    ],
+    "input_hashes": [
+      "source:SRC-VAL-001",
+      "source:SRC-STRESS-001"
+    ],
+    "known_time_epoch": 3200004,
+    "output_contract": "TASK-006_OUTPUT_V1",
+    "owner_agent_id": "agent:execution_auditor:v1",
+    "priority": 1,
+    "protected_evidence_allowed": false,
+    "required_capabilities": [
+      "audit_execution"
+    ],
+    "research_only": true,
+    "reviewer_agent_ids": [
+      "agent:statistical_adversary:v1",
+      "agent:human_reviewer:v1"
+    ],
+    "self_review_allowed": false,
+    "task_id": "TASK-006",
+    "task_type": "execution_audit"
+  },
+  {
+    "budget_id": "BUD-008",
+    "delegation_depth": 0,
+    "depends_on": [
+      "TASK-004",
+      "TASK-005",
+      "TASK-006"
+    ],
+    "input_hashes": [
+      "source:SRC-CHAL-001",
+      "source:SRC-STRESS-001"
+    ],
+    "known_time_epoch": 3200004,
+    "output_contract": "TASK-007_OUTPUT_V1",
+    "owner_agent_id": "agent:statistical_adversary:v1",
+    "priority": 2,
+    "protected_evidence_allowed": false,
+    "required_capabilities": [
+      "challenge_statistics"
+    ],
+    "research_only": true,
+    "reviewer_agent_ids": [
+      "agent:causal_auditor:v1",
+      "agent:human_reviewer:v1"
+    ],
+    "self_review_allowed": false,
+    "task_id": "TASK-007",
+    "task_type": "statistical_challenge"
+  },
+  {
+    "budget_id": "BUD-009",
+    "delegation_depth": 0,
+    "depends_on": [
+      "TASK-007"
+    ],
+    "input_hashes": [
+      "source:SRC-GOV-001",
+      "source:SRC-PROT-001"
+    ],
+    "known_time_epoch": 3200005,
+    "output_contract": "TASK-008_OUTPUT_V1",
+    "owner_agent_id": "agent:evidence_curator:v1",
+    "priority": 1,
+    "protected_evidence_allowed": true,
+    "required_capabilities": [
+      "curate_evidence",
+      "read_protected_evidence"
+    ],
+    "research_only": true,
+    "reviewer_agent_ids": [
+      "agent:statistical_adversary:v1",
+      "agent:human_reviewer:v1"
+    ],
+    "self_review_allowed": false,
+    "task_id": "TASK-008",
+    "task_type": "evidence_curation"
+  },
+  {
+    "budget_id": "BUD-010",
+    "delegation_depth": 0,
+    "depends_on": [
+      "TASK-008"
+    ],
+    "input_hashes": [
+      "source:SRC-PROT-001"
+    ],
+    "known_time_epoch": 3200005,
+    "output_contract": "TASK-009_OUTPUT_V1",
+    "owner_agent_id": "agent:human_reviewer:v1",
+    "priority": 2,
+    "protected_evidence_allowed": true,
+    "required_capabilities": [
+      "approve_research_checkpoint",
+      "read_protected_evidence"
+    ],
+    "research_only": true,
+    "reviewer_agent_ids": [
+      "agent:evidence_curator:v1",
+      "agent:statistical_adversary:v1"
+    ],
+    "self_review_allowed": false,
+    "task_id": "TASK-009",
+    "task_type": "human_review"
+  },
+  {
+    "budget_id": "BUD-011",
+    "delegation_depth": 0,
+    "depends_on": [
+      "TASK-009"
+    ],
+    "input_hashes": [
+      "source:SRC-GOV-001"
+    ],
+    "known_time_epoch": 3200006,
+    "output_contract": "TASK-010_OUTPUT_V1",
+    "owner_agent_id": "agent:leakage_sentinel:v1",
+    "priority": 1,
+    "protected_evidence_allowed": false,
+    "required_capabilities": [
+      "request_review"
+    ],
+    "research_only": true,
+    "reviewer_agent_ids": [
+      "agent:human_reviewer:v1",
+      "agent:evidence_curator:v1"
+    ],
+    "self_review_allowed": false,
+    "task_id": "TASK-010",
+    "task_type": "incident_review"
+  },
+  {
+    "budget_id": "BUD-001",
+    "delegation_depth": 0,
+    "depends_on": [
+      "TASK-010"
+    ],
+    "input_hashes": [
+      "source:SRC-GOV-001"
+    ],
+    "known_time_epoch": 3200006,
+    "output_contract": "TASK-011_OUTPUT_V1",
+    "owner_agent_id": "agent:orchestrator:v1",
+    "priority": 2,
+    "protected_evidence_allowed": false,
+    "required_capabilities": [
+      "schedule_task",
+      "request_review"
+    ],
+    "research_only": true,
+    "reviewer_agent_ids": [
+      "agent:human_reviewer:v1",
+      "agent:statistical_adversary:v1"
+    ],
+    "self_review_allowed": false,
+    "task_id": "TASK-011",
+    "task_type": "human_review"
+  }
+]

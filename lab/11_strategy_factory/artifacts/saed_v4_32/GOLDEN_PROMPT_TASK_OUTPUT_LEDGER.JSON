@@ -1,0 +1,227 @@
+{
+  "complete_output_accounting": true,
+  "complete_prompt_accounting": true,
+  "complete_tool_accounting": true,
+  "complete_trial_accounting": true,
+  "event_count": 11,
+  "events": [
+    {
+      "agent_id": "agent:hypothesis:v1",
+      "event_hash": "9dc8b8ce4c0b6569c25a1f428119a11a430d2b6b617c2fa8de468ef000e3ef8f",
+      "event_id": "v432_prompt_task_output_d2a07dbad1302ecfbf8affdd",
+      "input_hashes": [
+        "source:SRC-GOV-001"
+      ],
+      "known_time_epoch": 3200001,
+      "network_access": false,
+      "ordinal": 0,
+      "output_contract": "TASK-001_OUTPUT_V1",
+      "output_hash": "99093c36e3c25c4cb1cde8c271065f2ff03b90bc2bb7aabd15a012f6635a5432",
+      "previous_event_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "prompt_profile_hash": "9a6f9854a9eba9ab1ce554bf0fb9f7550ad198b54f7019f5caa2054cb820f31c",
+      "research_only": true,
+      "role_id": "hypothesis",
+      "task_id": "TASK-001",
+      "tool_profile_hash": "99b8c444c7a1f4d9d693c4980fcd0b97bc613fe81e46f0cb4eb56edeb2eaf727"
+    },
+    {
+      "agent_id": "agent:data_audit:v1",
+      "event_hash": "fe71e7d6732c44009e827851cb9d24fb007428480303f1111b18efc65278984d",
+      "event_id": "v432_prompt_task_output_a04c4036d798b09e89340b46",
+      "input_hashes": [
+        "source:SRC-DATA-001"
+      ],
+      "known_time_epoch": 3200002,
+      "network_access": false,
+      "ordinal": 1,
+      "output_contract": "TASK-002_OUTPUT_V1",
+      "output_hash": "69c286a95c2817fbdc34da1fbedbcbf0a1c0a2bf4b3886177d6569a9ff3ee408",
+      "previous_event_hash": "9dc8b8ce4c0b6569c25a1f428119a11a430d2b6b617c2fa8de468ef000e3ef8f",
+      "prompt_profile_hash": "b5c9275aead5760b22dc6b24e5c63f8726662dddd32f1ef721ed34adbd48e438",
+      "research_only": true,
+      "role_id": "data_audit",
+      "task_id": "TASK-002",
+      "tool_profile_hash": "e7e9404ae84e16fd3269d1afe7ad82d1a92c0364bb968f909fa913febcd97ad9"
+    },
+    {
+      "agent_id": "agent:leakage_sentinel:v1",
+      "event_hash": "0af0537ca17b3a2d2eec13d59e55860c2b2a5bd425ca6b1f12fba0358fc9272f",
+      "event_id": "v432_prompt_task_output_2e1b8f37a90bb190127c1d64",
+      "input_hashes": [
+        "source:SRC-DATA-001",
+        "source:SRC-GOV-001"
+      ],
+      "known_time_epoch": 3200002,
+      "network_access": false,
+      "ordinal": 2,
+      "output_contract": "TASK-003_OUTPUT_V1",
+      "output_hash": "362710539f6c0d4f0b1892e35d58ebccb436fa65c4e592279437861990b794e9",
+      "previous_event_hash": "fe71e7d6732c44009e827851cb9d24fb007428480303f1111b18efc65278984d",
+      "prompt_profile_hash": "8239c609caafad9b98a0b497ef9270b1bcf6515957fed08cde93ed5504f8839e",
+      "research_only": true,
+      "role_id": "leakage_sentinel",
+      "task_id": "TASK-003",
+      "tool_profile_hash": "fce016ddd651427b69ea21f142eedb32d9dd3171abe19d326adf9d483c05b98d"
+    },
+    {
+      "agent_id": "agent:model_engineering:v1",
+      "event_hash": "b2556c178279b628fad5a2193110eef41c211a8945b5242fc6dc7ac85039a6bc",
+      "event_id": "v432_prompt_task_output_862d685e1d0b63eaad5c3490",
+      "input_hashes": [
+        "source:SRC-DATA-001"
+      ],
+      "known_time_epoch": 3200003,
+      "network_access": false,
+      "ordinal": 3,
+      "output_contract": "TASK-004_OUTPUT_V1",
+      "output_hash": "7f0eafe67c821c666ca6f348307d16c336b6c4a0b6c1987b3cab1b72e1be2c36",
+      "previous_event_hash": "0af0537ca17b3a2d2eec13d59e55860c2b2a5bd425ca6b1f12fba0358fc9272f",
+      "prompt_profile_hash": "a1760301ed084b4b97646877b5a84300861c73c5811e01fc80e1a04bdf853e8b",
+      "research_only": true,
+      "role_id": "model_engineering",
+      "task_id": "TASK-004",
+      "tool_profile_hash": "91660671f5bfd991cc3be9df57f91083cea1129c19e821dd1e4fe57683a4bfe1"
+    },
+    {
+      "agent_id": "agent:causal_auditor:v1",
+      "event_hash": "90e86b95e870d95c7ff3ec981c53b769b559832513e4ca33ea9aecd01dba0317",
+      "event_id": "v432_prompt_task_output_c65779e4161cc66341f8f5c4",
+      "input_hashes": [
+        "source:SRC-VAL-001"
+      ],
+      "known_time_epoch": 3200003,
+      "network_access": false,
+      "ordinal": 4,
+      "output_contract": "TASK-005_OUTPUT_V1",
+      "output_hash": "183a1f700281cf1e903f186f5982d399498e2b3d4ace5e0bc34685810a6fb11f",
+      "previous_event_hash": "b2556c178279b628fad5a2193110eef41c211a8945b5242fc6dc7ac85039a6bc",
+      "prompt_profile_hash": "75a5ae6dc26d3e7deb3d79129bf231e9db43f1900d6bc6ea3f8ce09173a9ca25",
+      "research_only": true,
+      "role_id": "causal_auditor",
+      "task_id": "TASK-005",
+      "tool_profile_hash": "64607c108796111c7c38168d06b8cd8f4cbc5fc603af2fe5fc55de1ee8ee8aeb"
+    },
+    {
+      "agent_id": "agent:execution_auditor:v1",
+      "event_hash": "d0b194c5a8faa93cc1a7cb739030d87ad970a322260f3f6a243c7c6d492880f5",
+      "event_id": "v432_prompt_task_output_5693f9b296f5eebc6fa75608",
+      "input_hashes": [
+        "source:SRC-STRESS-001",
+        "source:SRC-VAL-001"
+      ],
+      "known_time_epoch": 3200004,
+      "network_access": false,
+      "ordinal": 5,
+      "output_contract": "TASK-006_OUTPUT_V1",
+      "output_hash": "e2f351cba6b4de809f577e3440f43ca0a681ee9203666ee0f1b24491dc93d1a6",
+      "previous_event_hash": "90e86b95e870d95c7ff3ec981c53b769b559832513e4ca33ea9aecd01dba0317",
+      "prompt_profile_hash": "fc9549434f13f84bdf7cc608d9b64ff6020e165efdae7ba2756c161f50a217bd",
+      "research_only": true,
+      "role_id": "execution_auditor",
+      "task_id": "TASK-006",
+      "tool_profile_hash": "ca434dd85f17c73300a8c07e0236d7e38e93c21f0f6c37fef0235c4fc784a4f3"
+    },
+    {
+      "agent_id": "agent:statistical_adversary:v1",
+      "event_hash": "1cc486bce432643731c8089afef6ecf1a0490e70eb0a5b1db61cb9d6820ad151",
+      "event_id": "v432_prompt_task_output_6a5fdcec4dfddcc5e6860fff",
+      "input_hashes": [
+        "source:SRC-CHAL-001",
+        "source:SRC-STRESS-001"
+      ],
+      "known_time_epoch": 3200004,
+      "network_access": false,
+      "ordinal": 6,
+      "output_contract": "TASK-007_OUTPUT_V1",
+      "output_hash": "28f144cb6fceb5c975f18b164d30399e4d2225219dbba543d4e34ddbcfd545f4",
+      "previous_event_hash": "d0b194c5a8faa93cc1a7cb739030d87ad970a322260f3f6a243c7c6d492880f5",
+      "prompt_profile_hash": "f9b3e155398749549413ba53b9941116b91883e338442736b81f82607c52a2f9",
+      "research_only": true,
+      "role_id": "statistical_adversary",
+      "task_id": "TASK-007",
+      "tool_profile_hash": "cf455e28c4f1bf3eb9d3f7ec1179fe04e967b6c9cba89d4aa81b3dcb45f1d964"
+    },
+    {
+      "agent_id": "agent:evidence_curator:v1",
+      "event_hash": "8ca3d59b4ee09aaa03bc652154c44413d93218081c54f92174a690062620a236",
+      "event_id": "v432_prompt_task_output_ceb29499e01ee9a6cff2ee14",
+      "input_hashes": [
+        "source:SRC-GOV-001",
+        "source:SRC-PROT-001"
+      ],
+      "known_time_epoch": 3200005,
+      "network_access": false,
+      "ordinal": 7,
+      "output_contract": "TASK-008_OUTPUT_V1",
+      "output_hash": "76fe2ad6aa3cf3841a52d28b03f951c3bd976d23941824f9bc44430097b0b909",
+      "previous_event_hash": "1cc486bce432643731c8089afef6ecf1a0490e70eb0a5b1db61cb9d6820ad151",
+      "prompt_profile_hash": "fdf65c6e07314a96af60907ca4bee5804cc304cc1bcbbda9de9e52691dbb6ded",
+      "research_only": true,
+      "role_id": "evidence_curator",
+      "task_id": "TASK-008",
+      "tool_profile_hash": "3dd6fe0fb882e30cb04c7b6344300c316926f4a3d8983363602841d8a420ad7f"
+    },
+    {
+      "agent_id": "agent:human_reviewer:v1",
+      "event_hash": "4685ca8a6bb35cb1d6da7a616a8441e214297dfb4d8bea083d9314597a9b2332",
+      "event_id": "v432_prompt_task_output_6eac77e1faead8134ad5f46a",
+      "input_hashes": [
+        "source:SRC-PROT-001"
+      ],
+      "known_time_epoch": 3200005,
+      "network_access": false,
+      "ordinal": 8,
+      "output_contract": "TASK-009_OUTPUT_V1",
+      "output_hash": "9a57fee5318e09d8bc1140431d4e1af877123627183c15cb9090169899e49d78",
+      "previous_event_hash": "8ca3d59b4ee09aaa03bc652154c44413d93218081c54f92174a690062620a236",
+      "prompt_profile_hash": "090cdecac0eae59c58463c965b638a725e54d8755161142615bb743ef80c38a0",
+      "research_only": true,
+      "role_id": "human_reviewer",
+      "task_id": "TASK-009",
+      "tool_profile_hash": "e94d95045d2532d4bdad65df29cdb80857800dbf5ac8eebc6a686ab668e426b0"
+    },
+    {
+      "agent_id": "agent:leakage_sentinel:v1",
+      "event_hash": "e75f456b1c20810685176ee86cd70b65653e3a32b3bdd4c94bd30076eb2c3f53",
+      "event_id": "v432_prompt_task_output_2026b9e1f144b132432dcb4c",
+      "input_hashes": [
+        "source:SRC-GOV-001"
+      ],
+      "known_time_epoch": 3200006,
+      "network_access": false,
+      "ordinal": 9,
+      "output_contract": "TASK-010_OUTPUT_V1",
+      "output_hash": "2970c5196fb57aaa1ed9d2a2f9042ed071d0078dbd40f8168be2966f1e459061",
+      "previous_event_hash": "4685ca8a6bb35cb1d6da7a616a8441e214297dfb4d8bea083d9314597a9b2332",
+      "prompt_profile_hash": "8239c609caafad9b98a0b497ef9270b1bcf6515957fed08cde93ed5504f8839e",
+      "research_only": true,
+      "role_id": "leakage_sentinel",
+      "task_id": "TASK-010",
+      "tool_profile_hash": "fce016ddd651427b69ea21f142eedb32d9dd3171abe19d326adf9d483c05b98d"
+    },
+    {
+      "agent_id": "agent:orchestrator:v1",
+      "event_hash": "c68408b0a15923d03cbac937eb7876582731d88f3fa538541233a3da1486f349",
+      "event_id": "v432_prompt_task_output_ed9d85ea1c0369ab6bb9c1ab",
+      "input_hashes": [
+        "source:SRC-GOV-001"
+      ],
+      "known_time_epoch": 3200006,
+      "network_access": false,
+      "ordinal": 10,
+      "output_contract": "TASK-011_OUTPUT_V1",
+      "output_hash": "6bd3ce1ff78fc353d97c7869ea4d90b29ed1018ab3667869d17d5f7d44170db6",
+      "previous_event_hash": "e75f456b1c20810685176ee86cd70b65653e3a32b3bdd4c94bd30076eb2c3f53",
+      "prompt_profile_hash": "33d06d41f7b592e5f83a20985f2a1d0c0c5903379ac29e9f8d6f38f0341dea22",
+      "research_only": true,
+      "role_id": "orchestrator",
+      "task_id": "TASK-011",
+      "tool_profile_hash": "8926cb2e72fe4c2f3e6ac2602566ac66ad3878b3ee4bf0b58e6d0e061d9249df"
+    }
+  ],
+  "ledger_hash": "2581aacb42c32855f34e7ec450f7bc1949c9c6cc352948390a707627f61e3aa0",
+  "ledger_id": "v432_prompt_task_output_ledger_eb34c92514c1634d3a687f65",
+  "network_access": false,
+  "phase": "SAED_V4_32",
+  "research_only": true
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "exact_match": {
+      "type": "boolean"
+    },
+    "external_lab_replication": {
+      "type": "boolean"
+    },
+    "first_run_hash": {
+      "type": "string"
+    },
+    "independent_process_simulated": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "second_run_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "exact_match",
+    "external_lab_replication",
+    "first_run_hash",
+    "independent_process_simulated",
+    "phase",
+    "receipt_hash",
+    "receipt_id",
+    "research_only",
+    "second_run_hash"
+  ],
+  "title": "INDEPENDENT_REPRODUCTION_RECEIPT",
+  "type": "object"
+}

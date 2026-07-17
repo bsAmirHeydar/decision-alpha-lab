@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "boundary_hash": {
+      "type": "string"
+    },
+    "boundary_id": {
+      "type": "string"
+    },
+    "cross_agent_write_denied": {
+      "type": "boolean"
+    },
+    "namespace_unique": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "agent_id": {
+            "type": "string"
+          },
+          "cross_agent_write": {
+            "type": "boolean"
+          },
+          "memory_namespace": {
+            "type": "string"
+          },
+          "protected_memory_access": {
+            "type": "boolean"
+          },
+          "readable_namespaces": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "writable_namespaces": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "agent_id",
+          "cross_agent_write",
+          "memory_namespace",
+          "protected_memory_access",
+          "readable_namespaces",
+          "writable_namespaces"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "boundary_hash",
+    "boundary_id",
+    "cross_agent_write_denied",
+    "namespace_unique",
+    "phase",
+    "research_only",
+    "rows"
+  ],
+  "title": "GOLDEN_AGENT_MEMORY_BOUNDARY",
+  "type": "object"
+}

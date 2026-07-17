@@ -1,0 +1,187 @@
+{
+  "acyclic": true,
+  "edges": [
+    {
+      "owner_agent_id": "agent:hypothesis:v1",
+      "owner_role": "hypothesis",
+      "reviewer_agent_id": "agent:data_audit:v1",
+      "reviewer_role": "data_audit",
+      "self_review": false,
+      "task_id": "TASK-001"
+    },
+    {
+      "owner_agent_id": "agent:hypothesis:v1",
+      "owner_role": "hypothesis",
+      "reviewer_agent_id": "agent:human_reviewer:v1",
+      "reviewer_role": "human_reviewer",
+      "self_review": false,
+      "task_id": "TASK-001"
+    },
+    {
+      "owner_agent_id": "agent:data_audit:v1",
+      "owner_role": "data_audit",
+      "reviewer_agent_id": "agent:human_reviewer:v1",
+      "reviewer_role": "human_reviewer",
+      "self_review": false,
+      "task_id": "TASK-002"
+    },
+    {
+      "owner_agent_id": "agent:data_audit:v1",
+      "owner_role": "data_audit",
+      "reviewer_agent_id": "agent:leakage_sentinel:v1",
+      "reviewer_role": "leakage_sentinel",
+      "self_review": false,
+      "task_id": "TASK-002"
+    },
+    {
+      "owner_agent_id": "agent:leakage_sentinel:v1",
+      "owner_role": "leakage_sentinel",
+      "reviewer_agent_id": "agent:data_audit:v1",
+      "reviewer_role": "data_audit",
+      "self_review": false,
+      "task_id": "TASK-003"
+    },
+    {
+      "owner_agent_id": "agent:leakage_sentinel:v1",
+      "owner_role": "leakage_sentinel",
+      "reviewer_agent_id": "agent:human_reviewer:v1",
+      "reviewer_role": "human_reviewer",
+      "self_review": false,
+      "task_id": "TASK-003"
+    },
+    {
+      "owner_agent_id": "agent:model_engineering:v1",
+      "owner_role": "model_engineering",
+      "reviewer_agent_id": "agent:human_reviewer:v1",
+      "reviewer_role": "human_reviewer",
+      "self_review": false,
+      "task_id": "TASK-004"
+    },
+    {
+      "owner_agent_id": "agent:model_engineering:v1",
+      "owner_role": "model_engineering",
+      "reviewer_agent_id": "agent:statistical_adversary:v1",
+      "reviewer_role": "statistical_adversary",
+      "self_review": false,
+      "task_id": "TASK-004"
+    },
+    {
+      "owner_agent_id": "agent:causal_auditor:v1",
+      "owner_role": "causal_auditor",
+      "reviewer_agent_id": "agent:human_reviewer:v1",
+      "reviewer_role": "human_reviewer",
+      "self_review": false,
+      "task_id": "TASK-005"
+    },
+    {
+      "owner_agent_id": "agent:causal_auditor:v1",
+      "owner_role": "causal_auditor",
+      "reviewer_agent_id": "agent:statistical_adversary:v1",
+      "reviewer_role": "statistical_adversary",
+      "self_review": false,
+      "task_id": "TASK-005"
+    },
+    {
+      "owner_agent_id": "agent:execution_auditor:v1",
+      "owner_role": "execution_auditor",
+      "reviewer_agent_id": "agent:human_reviewer:v1",
+      "reviewer_role": "human_reviewer",
+      "self_review": false,
+      "task_id": "TASK-006"
+    },
+    {
+      "owner_agent_id": "agent:execution_auditor:v1",
+      "owner_role": "execution_auditor",
+      "reviewer_agent_id": "agent:statistical_adversary:v1",
+      "reviewer_role": "statistical_adversary",
+      "self_review": false,
+      "task_id": "TASK-006"
+    },
+    {
+      "owner_agent_id": "agent:statistical_adversary:v1",
+      "owner_role": "statistical_adversary",
+      "reviewer_agent_id": "agent:causal_auditor:v1",
+      "reviewer_role": "causal_auditor",
+      "self_review": false,
+      "task_id": "TASK-007"
+    },
+    {
+      "owner_agent_id": "agent:statistical_adversary:v1",
+      "owner_role": "statistical_adversary",
+      "reviewer_agent_id": "agent:human_reviewer:v1",
+      "reviewer_role": "human_reviewer",
+      "self_review": false,
+      "task_id": "TASK-007"
+    },
+    {
+      "owner_agent_id": "agent:evidence_curator:v1",
+      "owner_role": "evidence_curator",
+      "reviewer_agent_id": "agent:human_reviewer:v1",
+      "reviewer_role": "human_reviewer",
+      "self_review": false,
+      "task_id": "TASK-008"
+    },
+    {
+      "owner_agent_id": "agent:evidence_curator:v1",
+      "owner_role": "evidence_curator",
+      "reviewer_agent_id": "agent:statistical_adversary:v1",
+      "reviewer_role": "statistical_adversary",
+      "self_review": false,
+      "task_id": "TASK-008"
+    },
+    {
+      "owner_agent_id": "agent:human_reviewer:v1",
+      "owner_role": "human_reviewer",
+      "reviewer_agent_id": "agent:evidence_curator:v1",
+      "reviewer_role": "evidence_curator",
+      "self_review": false,
+      "task_id": "TASK-009"
+    },
+    {
+      "owner_agent_id": "agent:human_reviewer:v1",
+      "owner_role": "human_reviewer",
+      "reviewer_agent_id": "agent:statistical_adversary:v1",
+      "reviewer_role": "statistical_adversary",
+      "self_review": false,
+      "task_id": "TASK-009"
+    },
+    {
+      "owner_agent_id": "agent:leakage_sentinel:v1",
+      "owner_role": "leakage_sentinel",
+      "reviewer_agent_id": "agent:evidence_curator:v1",
+      "reviewer_role": "evidence_curator",
+      "self_review": false,
+      "task_id": "TASK-010"
+    },
+    {
+      "owner_agent_id": "agent:leakage_sentinel:v1",
+      "owner_role": "leakage_sentinel",
+      "reviewer_agent_id": "agent:human_reviewer:v1",
+      "reviewer_role": "human_reviewer",
+      "self_review": false,
+      "task_id": "TASK-010"
+    },
+    {
+      "owner_agent_id": "agent:orchestrator:v1",
+      "owner_role": "orchestrator",
+      "reviewer_agent_id": "agent:human_reviewer:v1",
+      "reviewer_role": "human_reviewer",
+      "self_review": false,
+      "task_id": "TASK-011"
+    },
+    {
+      "owner_agent_id": "agent:orchestrator:v1",
+      "owner_role": "orchestrator",
+      "reviewer_agent_id": "agent:statistical_adversary:v1",
+      "reviewer_role": "statistical_adversary",
+      "self_review": false,
+      "task_id": "TASK-011"
+    }
+  ],
+  "graph_hash": "8915ddfeb10f88db047419feb4f2c5a2a2ee48a33a0c24f6ba680c15e62905ff",
+  "graph_id": "v432_delegation_graph_2d61d2e9297c53cd756d99f2",
+  "maximum_delegation_depth": 0,
+  "phase": "SAED_V4_32",
+  "research_only": true,
+  "self_review_edges": 0
+}

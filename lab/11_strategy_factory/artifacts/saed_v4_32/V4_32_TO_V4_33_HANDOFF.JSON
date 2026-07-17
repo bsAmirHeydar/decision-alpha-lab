@@ -1,0 +1,45 @@
+{
+  "allowed_next_work": [
+    "federated_research_contracts",
+    "confidential_aggregation_reference",
+    "privacy_budget_accounting",
+    "cross_cell_identity_attestation",
+    "secure_update_envelopes",
+    "federated_provenance",
+    "federated_adversarial_review"
+  ],
+  "authority": {
+    "execution": false,
+    "live_trading": false,
+    "online_learning": false,
+    "production": false,
+    "promotion": false,
+    "risk_allocation": false,
+    "runtime": false
+  },
+  "certificate_hash": "e9f79a095f417e3619e17995d4a8ba9c8d4fc4406cbf24670457f578fd27e037",
+  "certificate_id": "v432_multi_agent_constitution_certificate_a624ae50b4d8476908e0bd33",
+  "entry_gates": {
+    "authority_zero": true,
+    "human_review_present": true,
+    "multi_agent_constitution_accepted": true,
+    "research_only": true,
+    "source_attribution_complete": true
+  },
+  "forbidden_next_work": [
+    "grant_agent_promotion_authority",
+    "grant_agent_trading_authority",
+    "unreviewed_constitution_amendment",
+    "protected_evidence_broadcast",
+    "live_credential_distribution",
+    "runtime_activation",
+    "risk_allocation",
+    "order_submission",
+    "production_release"
+  ],
+  "handoff_hash": "03522282bfc62e55535f3089c6ce1a99b46458b04156c8ad52d3693ba37cf3c3",
+  "handoff_id": "v4_32_to_v4_33_21cc53bff14b54b65ee975d5",
+  "next_phase": "SAED_V4_33",
+  "phase": "SAED_V4_32",
+  "research_only": true
+}

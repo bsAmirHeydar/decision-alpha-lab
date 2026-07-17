@@ -1,0 +1,169 @@
+{
+  "amendment_policy": {
+    "cooling_off_epochs": 2,
+    "minimum_independent_approvals": 2,
+    "proposal_roles": [
+      "human_reviewer"
+    ],
+    "retroactive_change_allowed": false,
+    "review_roles": [
+      "evidence_curator",
+      "statistical_adversary"
+    ],
+    "self_approval_allowed": false
+  },
+  "clauses": [
+    {
+      "clause_id": "C-AUTH-001",
+      "domain": "authority",
+      "evidence_required": [
+        "zero-authority boundary"
+      ],
+      "immutable_in_phase": true,
+      "priority": 10,
+      "statement": "Agents have no promotion, runtime, risk, execution, production, online-learning, credential, or live-trading authority.",
+      "violation_response": "quarantine"
+    },
+    {
+      "clause_id": "C-AUTH-002",
+      "domain": "authority",
+      "evidence_required": [
+        "authorization decision ledger"
+      ],
+      "immutable_in_phase": true,
+      "priority": 20,
+      "statement": "Unlisted capabilities are denied by default and capability tokens are task-scoped and ephemeral.",
+      "violation_response": "reject"
+    },
+    {
+      "clause_id": "C-EVID-001",
+      "domain": "evidence",
+      "evidence_required": [
+        "exposure ledger"
+      ],
+      "immutable_in_phase": true,
+      "priority": 30,
+      "statement": "Protected evidence roles are immutable and every human or agent exposure is ledgered before use.",
+      "violation_response": "stop_family"
+    },
+    {
+      "clause_id": "C-ID-001",
+      "domain": "identity",
+      "evidence_required": [
+        "identity registry"
+      ],
+      "immutable_in_phase": true,
+      "priority": 40,
+      "statement": "Every agent has an attested identity, unique memory namespace, fixed role, and named human supervisor.",
+      "violation_response": "quarantine"
+    },
+    {
+      "clause_id": "C-TASK-001",
+      "domain": "tasking",
+      "evidence_required": [
+        "task registry"
+      ],
+      "immutable_in_phase": true,
+      "priority": 50,
+      "statement": "Every action is bound to a signed typed task envelope, frozen inputs, output contract, known time, and budget.",
+      "violation_response": "reject"
+    },
+    {
+      "clause_id": "C-PROV-001",
+      "domain": "provenance",
+      "evidence_required": [
+        "claim graph"
+      ],
+      "immutable_in_phase": true,
+      "priority": 60,
+      "statement": "Every claim has source-linked provenance, uncertainty, known-time semantics, and preserved opposition.",
+      "violation_response": "manual_review"
+    },
+    {
+      "clause_id": "C-REVIEW-001",
+      "domain": "review",
+      "evidence_required": [
+        "review quorum ledger"
+      ],
+      "immutable_in_phase": true,
+      "priority": 70,
+      "statement": "Proposal, implementation, challenge, evidence custody, and approval are separated; self-approval is forbidden.",
+      "violation_response": "quarantine"
+    },
+    {
+      "clause_id": "C-BUDGET-001",
+      "domain": "budget",
+      "evidence_required": [
+        "budget ledger"
+      ],
+      "immutable_in_phase": true,
+      "priority": 80,
+      "statement": "Compute, tool, source, protected-exposure, agent-step, and human-review budgets hard-stop on exhaustion.",
+      "violation_response": "stop_family"
+    },
+    {
+      "clause_id": "C-MEM-001",
+      "domain": "memory",
+      "evidence_required": [
+        "memory boundary"
+      ],
+      "immutable_in_phase": true,
+      "priority": 90,
+      "statement": "Agent memory is isolated by namespace and no agent may write another agent's memory.",
+      "violation_response": "quarantine"
+    },
+    {
+      "clause_id": "C-SEC-001",
+      "domain": "security",
+      "evidence_required": [
+        "security review"
+      ],
+      "immutable_in_phase": true,
+      "priority": 100,
+      "statement": "Agents cannot access live credentials, arbitrary network resources, or undeclared tools.",
+      "violation_response": "quarantine"
+    },
+    {
+      "clause_id": "C-SCI-001",
+      "domain": "science",
+      "evidence_required": [
+        "adversarial report"
+      ],
+      "immutable_in_phase": true,
+      "priority": 110,
+      "statement": "Baseline preservation, complete search accounting, adversarial challenge, dissent, and counterexamples are mandatory.",
+      "violation_response": "reject"
+    },
+    {
+      "clause_id": "C-INC-001",
+      "domain": "incident",
+      "evidence_required": [
+        "incident ledger"
+      ],
+      "immutable_in_phase": true,
+      "priority": 120,
+      "statement": "Constitutional violations trigger automatic containment, token revocation, evidence preservation, and human review.",
+      "violation_response": "quarantine"
+    },
+    {
+      "clause_id": "C-AMEND-001",
+      "domain": "amendment",
+      "evidence_required": [
+        "amendment policy"
+      ],
+      "immutable_in_phase": true,
+      "priority": 130,
+      "statement": "No agent may amend, approve, or retroactively reinterpret the constitution governing its own work.",
+      "violation_response": "stop_family"
+    }
+  ],
+  "closed_contract": true,
+  "constitution_hash": "fa6fbcec3bb66aab8213a1de92a48b209940f7066dcaf537cab5ba2d723d9da4",
+  "constitution_id": "v432_constitution_43f1cf4a43975f5aa2c7c5e8",
+  "effective_epoch": 3200001,
+  "phase": "SAED_V4_32",
+  "research_only": true,
+  "safe_default": "quarantine",
+  "title": "Multi Agent Research Constitution",
+  "version": "1.0.0"
+}

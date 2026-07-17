@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "budgets": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "budget_id": {
+            "type": "string"
+          },
+          "compute_units": {
+            "type": "integer"
+          },
+          "hard_stop": {
+            "type": "boolean"
+          },
+          "human_review_minutes": {
+            "type": "integer"
+          },
+          "max_agent_steps": {
+            "type": "integer"
+          },
+          "protected_exposures": {
+            "type": "integer"
+          },
+          "research_only": {
+            "type": "boolean"
+          },
+          "source_reads": {
+            "type": "integer"
+          },
+          "task_family": {
+            "type": "string"
+          },
+          "tool_calls": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "budget_id",
+          "compute_units",
+          "hard_stop",
+          "human_review_minutes",
+          "max_agent_steps",
+          "protected_exposures",
+          "research_only",
+          "source_reads",
+          "task_family",
+          "tool_calls"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "hard_stop": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "policy_hash": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "budgets",
+    "hard_stop",
+    "phase",
+    "policy_hash",
+    "policy_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_BUDGET_POLICY",
+  "type": "object"
+}

@@ -1,0 +1,113 @@
+{
+  "all_quorums_met": true,
+  "ledger_hash": "95c8356bf4de44e8fb57b3a0a483c01bb0781f626948152a7a83a62eecd044ab",
+  "ledger_id": "v432_quorum_ledger_e853ae32a929650420fc6484",
+  "live_authority_decisions": 0,
+  "phase": "SAED_V4_32",
+  "research_only": true,
+  "rows": [
+    {
+      "checkpoint_id": "CHK-001",
+      "decision": "approved_research_only",
+      "independent_roles": [
+        "data_audit",
+        "human_reviewer"
+      ],
+      "live_authority_granted": false,
+      "minimum_quorum": 2,
+      "quorum_met": true,
+      "quorum_size": 2,
+      "reviewer_ids": [
+        "agent:data_audit:v1",
+        "agent:human_reviewer:v1"
+      ],
+      "self_approval": false
+    },
+    {
+      "checkpoint_id": "CHK-002",
+      "decision": "extension_required",
+      "independent_roles": [
+        "human_reviewer",
+        "statistical_adversary"
+      ],
+      "live_authority_granted": false,
+      "minimum_quorum": 2,
+      "quorum_met": true,
+      "quorum_size": 2,
+      "reviewer_ids": [
+        "agent:human_reviewer:v1",
+        "agent:statistical_adversary:v1"
+      ],
+      "self_approval": false
+    },
+    {
+      "checkpoint_id": "CHK-003",
+      "decision": "approved_research_only",
+      "independent_roles": [
+        "human_reviewer",
+        "statistical_adversary"
+      ],
+      "live_authority_granted": false,
+      "minimum_quorum": 2,
+      "quorum_met": true,
+      "quorum_size": 2,
+      "reviewer_ids": [
+        "agent:human_reviewer:v1",
+        "agent:statistical_adversary:v1"
+      ],
+      "self_approval": false
+    },
+    {
+      "checkpoint_id": "CHK-004",
+      "decision": "quarantined",
+      "independent_roles": [
+        "causal_auditor",
+        "human_reviewer"
+      ],
+      "live_authority_granted": false,
+      "minimum_quorum": 2,
+      "quorum_met": true,
+      "quorum_size": 2,
+      "reviewer_ids": [
+        "agent:causal_auditor:v1",
+        "agent:human_reviewer:v1"
+      ],
+      "self_approval": false
+    },
+    {
+      "checkpoint_id": "CHK-005",
+      "decision": "approved_research_only",
+      "independent_roles": [
+        "evidence_curator",
+        "human_reviewer"
+      ],
+      "live_authority_granted": false,
+      "minimum_quorum": 2,
+      "quorum_met": true,
+      "quorum_size": 2,
+      "reviewer_ids": [
+        "agent:evidence_curator:v1",
+        "agent:human_reviewer:v1"
+      ],
+      "self_approval": false
+    },
+    {
+      "checkpoint_id": "CHK-006",
+      "decision": "approved_research_only",
+      "independent_roles": [
+        "human_reviewer",
+        "statistical_adversary"
+      ],
+      "live_authority_granted": false,
+      "minimum_quorum": 2,
+      "quorum_met": true,
+      "quorum_size": 2,
+      "reviewer_ids": [
+        "agent:human_reviewer:v1",
+        "agent:statistical_adversary:v1"
+      ],
+      "self_approval": false
+    }
+  ],
+  "single_agent_decisions": 0
+}

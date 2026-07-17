@@ -1,0 +1,150 @@
+{
+  "checkpoint_count": 6,
+  "checkpoints": [
+    {
+      "checkpoint_hash": "9b4b70ea9aaae125276b8d202f0d0ff65d9c6e496bc7be2324a4337778749043",
+      "checkpoint_id": "CHK-001",
+      "checkpoint_type": "scope_freeze",
+      "decision": "approved_research_only",
+      "evidence_hashes": [
+        "ebe3f0c9d7397378618fb27ccd9b767fc55112d101c9f1484bff3bae22f60383"
+      ],
+      "known_time_epoch": 3200001,
+      "reason": "Synthetic reference checkpoint with no promotion or runtime authority.",
+      "requester_agent_id": "agent:hypothesis:v1",
+      "required_roles": [
+        "human_reviewer",
+        "data_audit"
+      ],
+      "research_only": true,
+      "reviewer_ids": [
+        "agent:human_reviewer:v1",
+        "agent:data_audit:v1"
+      ],
+      "self_approval": false,
+      "task_id": "TASK-001"
+    },
+    {
+      "checkpoint_hash": "286ff56ae06f6492921efb9b5e510bc8e547a13c1a05a18f0609cca0b6ea4104",
+      "checkpoint_id": "CHK-002",
+      "checkpoint_type": "candidate_review",
+      "decision": "extension_required",
+      "evidence_hashes": [
+        "71732bee4ad65d0a6c81e531652cd1326fea5845d90c656c65cb5e7ada433b89"
+      ],
+      "known_time_epoch": 3200002,
+      "reason": "Synthetic reference checkpoint with no promotion or runtime authority.",
+      "requester_agent_id": "agent:model_engineering:v1",
+      "required_roles": [
+        "human_reviewer",
+        "statistical_adversary"
+      ],
+      "research_only": true,
+      "reviewer_ids": [
+        "agent:human_reviewer:v1",
+        "agent:statistical_adversary:v1"
+      ],
+      "self_approval": false,
+      "task_id": "TASK-004"
+    },
+    {
+      "checkpoint_hash": "6915cf22de430ec2b8bf2ae04940a395e5ed20437dc3aa67021abced01fdbc24",
+      "checkpoint_id": "CHK-003",
+      "checkpoint_type": "protected_access",
+      "decision": "approved_research_only",
+      "evidence_hashes": [
+        "2ac9e4e65b0f34e262b0977d263eb035e84c8e9fef673e64c5211c9738470655"
+      ],
+      "known_time_epoch": 3200003,
+      "reason": "Synthetic reference checkpoint with no promotion or runtime authority.",
+      "requester_agent_id": "agent:evidence_curator:v1",
+      "required_roles": [
+        "human_reviewer",
+        "statistical_adversary"
+      ],
+      "research_only": true,
+      "reviewer_ids": [
+        "agent:human_reviewer:v1",
+        "agent:statistical_adversary:v1"
+      ],
+      "self_approval": false,
+      "task_id": "TASK-008"
+    },
+    {
+      "checkpoint_hash": "2ca5ed345a06dbf31a60772e4641ae29542498f5ca1a05690892d91dc4c8caa8",
+      "checkpoint_id": "CHK-004",
+      "checkpoint_type": "blocking_issue_resolution",
+      "decision": "quarantined",
+      "evidence_hashes": [
+        "4790e5d9b9b99d5eebb3d346ecec3f61c3940b2bd0020a876f942fae35eaf820"
+      ],
+      "known_time_epoch": 3200004,
+      "reason": "Synthetic reference checkpoint with no promotion or runtime authority.",
+      "requester_agent_id": "agent:statistical_adversary:v1",
+      "required_roles": [
+        "human_reviewer",
+        "causal_auditor"
+      ],
+      "research_only": true,
+      "reviewer_ids": [
+        "agent:human_reviewer:v1",
+        "agent:causal_auditor:v1"
+      ],
+      "self_approval": false,
+      "task_id": "TASK-007"
+    },
+    {
+      "checkpoint_hash": "28fb45679d89605e719df8241d049e6419c94c1dc7383753dc843307fe4416e4",
+      "checkpoint_id": "CHK-005",
+      "checkpoint_type": "incident_closure",
+      "decision": "approved_research_only",
+      "evidence_hashes": [
+        "9287472100b050314382ffe60ead61295fd83efa69481881e67746ab4133d7c8"
+      ],
+      "known_time_epoch": 3200005,
+      "reason": "Synthetic reference checkpoint with no promotion or runtime authority.",
+      "requester_agent_id": "agent:leakage_sentinel:v1",
+      "required_roles": [
+        "human_reviewer",
+        "evidence_curator"
+      ],
+      "research_only": true,
+      "reviewer_ids": [
+        "agent:human_reviewer:v1",
+        "agent:evidence_curator:v1"
+      ],
+      "self_approval": false,
+      "task_id": "TASK-010"
+    },
+    {
+      "checkpoint_hash": "f65a43c29effd353eb543ab40604d9c3200eed89ba8f342d0aac402eb2277ad1",
+      "checkpoint_id": "CHK-006",
+      "checkpoint_type": "handoff_review",
+      "decision": "approved_research_only",
+      "evidence_hashes": [
+        "9b3688ab7d8e3d3477827b23f33dd877f9f6cf81163a772195845ff56a2c48dc"
+      ],
+      "known_time_epoch": 3200006,
+      "reason": "Synthetic reference checkpoint with no promotion or runtime authority.",
+      "requester_agent_id": "agent:orchestrator:v1",
+      "required_roles": [
+        "human_reviewer",
+        "statistical_adversary"
+      ],
+      "research_only": true,
+      "reviewer_ids": [
+        "agent:human_reviewer:v1",
+        "agent:statistical_adversary:v1"
+      ],
+      "self_approval": false,
+      "task_id": "TASK-011"
+    }
+  ],
+  "human_review_present": true,
+  "phase": "SAED_V4_32",
+  "registry_hash": "c12f3bc7ab46281036b057eab3bfda7d015ab9570dca1f39c6da477b2e083603",
+  "registry_id": "v432_checkpoint_registry_597522f331cbf9a2262f049f",
+  "research_only": true,
+  "self_approvals": 0,
+  "two_person_integrity": true
+}
