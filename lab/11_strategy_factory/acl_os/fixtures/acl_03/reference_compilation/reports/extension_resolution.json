@@ -1,0 +1,9 @@
+{
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "extension_count": 0,
+  "extensions": [],
+  "findings": [],
+  "passed": true,
+  "resolution_digest": "sha256:43163dee617b3e4b5224de310648d5f9342e8954234f6dc4e499e2e15bf720bc",
+  "schema_version": "1.0.0"
+}

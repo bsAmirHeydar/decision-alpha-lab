@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bindings": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "context_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "context_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "feature_binding_ir_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "feature_order_frozen": {
+      "const": true
+    },
+    "fusion_policy": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "missing_view_policy": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "context_id",
+    "context_version",
+    "bindings",
+    "fusion_policy",
+    "missing_view_policy",
+    "feature_order_frozen",
+    "feature_binding_ir_digest"
+  ],
+  "type": "object"
+}

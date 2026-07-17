@@ -1,0 +1,464 @@
+---
+title: ACL-03 Atomic Concepts — MOC
+status: accepted-reference
+version: 1.0.0
+tags: [acl-os, acl-03, atomic-concepts, moc]
+---
+# ACL-03 Atomic Concepts
+
+> Each note defines one stable term used across code, schemas, policies, tests, MQL5 mirrors and operations.
+
+## Abstention
+
+- [[ACL03_ABSTENTION_BOUNDARY]]
+
+## Acl00
+
+- [[ACL03_ACL00_PERMIT_BINDING]]
+
+## Acl02
+
+- [[ACL03_ACL02_READINESS_BINDING]]
+
+## Acl04
+
+- [[ACL03_ACL04_HANDOFF]]
+
+## Adapter
+
+- [[ACL03_ADAPTER_CAPABILITY]]
+- [[ACL03_ADAPTER_IMPLEMENTATION_REQUIRED]]
+- [[ACL03_ADAPTER_QUALIFICATION]]
+
+## Allowed
+
+- [[ACL03_ALLOWED_NEXT_ACTION]]
+
+## Ambiguous
+
+- [[ACL03_AMBIGUOUS_CASE]]
+
+## Approval
+
+- [[ACL03_APPROVAL_INVALIDATION]]
+
+## Artifact
+
+- [[ACL03_ARTIFACT_INVENTORY]]
+
+## Atomic
+
+- [[ACL03_ATOMIC_PUBLICATION]]
+
+## Authority
+
+- [[ACL03_AUTHORITY_SUBJECT_BINDING]]
+
+## Breaking
+
+- [[ACL03_BREAKING_SEMANTIC_CHANGE]]
+
+## Calendar
+
+- [[ACL03_CALENDAR_ADAPTER_CONTRACT]]
+
+## Capital
+
+- [[ACL03_CAPITAL_ACCESS_DENIAL]]
+
+## Claim
+
+- [[ACL03_CLAIM_CEILING]]
+
+## Clean
+
+- [[ACL03_CLEAN_CHECKOUT]]
+
+## Clock
+
+- [[ACL03_CLOCK_RELATION]]
+- [[ACL03_CLOCK_SKEW_TOLERANCE]]
+
+## Closed
+
+- [[ACL03_CLOSED_SCHEMA]]
+
+## Compatibility
+
+- [[ACL03_COMPATIBILITY_REPORT]]
+
+## Compilation
+
+- [[ACL03_COMPILATION_RECEIPT]]
+
+## Compile
+
+- [[ACL03_COMPILE_COMMAND]]
+
+## Compiler
+
+- [[ACL03_COMPILER_AUTHORITY]]
+- [[ACL03_COMPILER_OBSERVABILITY]]
+- [[ACL03_COMPILER_PLAN]]
+- [[ACL03_COMPILER_STEP]]
+- [[ACL03_COMPILER_VERSION]]
+
+## Content
+
+- [[ACL03_CONTENT_DIGEST]]
+
+## Context
+
+- [[ACL03_CONTEXT_COMPILED_STATE]]
+- [[ACL03_CONTEXT_VERSION_BINDING]]
+
+## Contract
+
+- [[ACL03_CONTRACT_ONLY_STATUS]]
+- [[ACL03_CONTRACT_TEST]]
+
+## Data
+
+- [[ACL03_DATA_ADAPTER_CONTRACT]]
+
+## Declarative
+
+- [[ACL03_DECLARATIVE_DETECTOR_IR]]
+
+## Deduplication
+
+- [[ACL03_DEDUPLICATION_RECIPE]]
+
+## Delivery
+
+- [[ACL03_DELIVERY_VALIDATOR]]
+
+## Deterministic
+
+- [[ACL03_DETERMINISTIC_OUTPUT]]
+
+## Direct
+
+- [[ACL03_DIRECT_CODE_GENERATION_PROHIBITION]]
+
+## Domain
+
+- [[ACL03_DOMAIN_LINTER_EXTENSION]]
+
+## Dynamic
+
+- [[ACL03_DYNAMIC_EVAL_PROHIBITION]]
+
+## Event
+
+- [[ACL03_EVENT_ORDERING]]
+
+## Extension
+
+- [[ACL03_EXTENSION_CONFORMANCE]]
+- [[ACL03_EXTENSION_MANIFEST]]
+
+## External
+
+- [[ACL03_EXTERNAL_DATA_QUALIFICATION_REQUIRED]]
+
+## Fail
+
+- [[ACL03_FAIL_CLOSED]]
+
+## Feature
+
+- [[ACL03_FEATURE_ADAPTER_CONTRACT]]
+- [[ACL03_FEATURE_BINDING]]
+- [[ACL03_FEATURE_ORDER_FREEZE]]
+
+## Fixture
+
+- [[ACL03_FIXTURE_ORACLE_BOUNDARY]]
+
+## Freshness
+
+- [[ACL03_FRESHNESS_VECTOR]]
+
+## Future
+
+- [[ACL03_FUTURE_REVISION_PROHIBITION]]
+
+## Generated
+
+- [[ACL03_GENERATED_HEADER]]
+- [[ACL03_GENERATED_ROOT_MARKER]]
+- [[ACL03_GENERATED_SCHEMA]]
+
+## Golden
+
+- [[ACL03_GOLDEN_CASE]]
+- [[ACL03_GOLDEN_CASE_PROVIDER]]
+
+## Guard
+
+- [[ACL03_GUARD_DSL]]
+- [[ACL03_GUARD_IDENTIFIER]]
+- [[ACL03_GUARD_RESULT_UNKNOWN]]
+
+## Hand
+
+- [[ACL03_HAND_EDIT_PROHIBITION]]
+
+## Handoff
+
+- [[ACL03_HANDOFF_DIGEST]]
+
+## Hash
+
+- [[ACL03_HASH_LEDGER]]
+
+## Human
+
+- [[ACL03_HUMAN_REVIEW_EVIDENCE]]
+
+## Idempotent
+
+- [[ACL03_IDEMPOTENT_COMPILATION]]
+
+## Ignored
+
+- [[ACL03_IGNORED_GENERATED_DIRECTORY]]
+
+## Implemented
+
+- [[ACL03_IMPLEMENTED_STATUS]]
+
+## Independent
+
+- [[ACL03_INDEPENDENT_REVIEWER]]
+
+## Ir
+
+- [[ACL03_IR_VERSION]]
+
+## Known
+
+- [[ACL03_KNOWN_TIME_GUARD]]
+
+## Late
+
+- [[ACL03_LATE_DATA_REJECTION]]
+
+## Lineage
+
+- [[ACL03_LINEAGE_CHAIN]]
+
+## Live
+
+- [[ACL03_LIVE_ACTIVATION_BLOCKED]]
+
+## Machine
+
+- [[ACL03_MACHINE_SOURCE_OF_TRUTH]]
+
+## Migration
+
+- [[ACL03_MIGRATION_TRIGGER]]
+
+## Missingness
+
+- [[ACL03_MISSINGNESS_VECTOR]]
+
+## Mql5
+
+- [[ACL03_MQL5_NON_TRADING_BOUNDARY]]
+- [[ACL03_MQL5_STATIC_MIRROR]]
+
+## Mutation
+
+- [[ACL03_MUTATION_TEST]]
+
+## Named
+
+- [[ACL03_NAMED_SECRET_ACCESS]]
+
+## Negative
+
+- [[ACL03_NEGATIVE_CASE]]
+
+## Network
+
+- [[ACL03_NETWORK_ACCESS_PROHIBITION]]
+- [[ACL03_NETWORK_DENY_BY_DEFAULT]]
+
+## No
+
+- [[ACL03_NO_BYPASS]]
+
+## Non
+
+- [[ACL03_NON_ALPHA_CLAIM]]
+- [[ACL03_NON_CAPITAL_CLAIM]]
+- [[ACL03_NON_RUNTIME_CLAIM]]
+- [[ACL03_NON_SECURITY_CLAIM]]
+
+## Obsidian
+
+- [[ACL03_OBSIDIAN_PROJECTION]]
+
+## Occurrence
+
+- [[ACL03_OCCURRENCE_ID_RECIPE]]
+- [[ACL03_OCCURRENCE_PRECEDENCE]]
+- [[ACL03_OCCURRENCE_REVISION]]
+- [[ACL03_OCCURRENCE_TYPE_ID]]
+
+## Onboarding
+
+- [[ACL03_ONBOARDING_BLOCKED_STATE]]
+- [[ACL03_ONBOARDING_GATE]]
+- [[ACL03_ONBOARDING_REPORT]]
+
+## Open
+
+- [[ACL03_OPEN_OBLIGATION]]
+
+## Operator
+
+- [[ACL03_OPERATOR_CLI]]
+
+## Order
+
+- [[ACL03_ORDER_SUBMISSION_DENIAL]]
+
+## Output
+
+- [[ACL03_OUTPUT_CONTAINMENT]]
+- [[ACL03_OUTPUT_MANIFEST]]
+- [[ACL03_OUTPUT_MANIFEST_DIGEST]]
+- [[ACL03_OUTPUT_TREE]]
+
+## Owner
+
+- [[ACL03_OWNER_APPROVAL]]
+
+## Patch
+
+- [[ACL03_PATCH_MANIFEST]]
+
+## Plan
+
+- [[ACL03_PLAN_DIGEST]]
+
+## Plugin
+
+- [[ACL03_PLUGIN_SANDBOX]]
+
+## Policy
+
+- [[ACL03_POLICY_VERSION_BINDING]]
+
+## Positive
+
+- [[ACL03_POSITIVE_CASE]]
+
+## Property
+
+- [[ACL03_PROPERTY_TEST]]
+
+## Public
+
+- [[ACL03_PUBLIC_PORT]]
+
+## Qa
+
+- [[ACL03_QA_REPORT]]
+
+## Qualified
+
+- [[ACL03_QUALIFIED_STATUS]]
+
+## Reason
+
+- [[ACL03_REASON_CODE_ABI]]
+
+## Receipt
+
+- [[ACL03_RECEIPT_DIGEST]]
+
+## Rejected
+
+- [[ACL03_REJECTED_STATUS]]
+
+## Replay
+
+- [[ACL03_REPLAY_DETERMINISM]]
+- [[ACL03_REPLAY_DIGEST]]
+- [[ACL03_REPLAY_EVENT]]
+- [[ACL03_REPLAY_FAILURE]]
+- [[ACL03_REPLAY_REGENERATION]]
+- [[ACL03_REPLAY_TRACE]]
+
+## Reproducible
+
+- [[ACL03_REPRODUCIBLE_BUILD]]
+
+## Research
+
+- [[ACL03_RESEARCH_ENTRY_BLOCKED]]
+
+## Rollback
+
+- [[ACL03_ROLLBACK_EVIDENCE]]
+
+## Schema
+
+- [[ACL03_SCHEMA_INDEX]]
+- [[ACL03_SCHEMA_VERSION]]
+
+## Search
+
+- [[ACL03_SEARCH_AUTHORITY_REQUIRED]]
+
+## Security
+
+- [[ACL03_SECURITY_NEGATIVE_TEST]]
+
+## Semantic
+
+- [[ACL03_SEMANTIC_APPROVAL_BINDING]]
+- [[ACL03_SEMANTIC_IMMUTABILITY]]
+
+## Shell
+
+- [[ACL03_SHELL_EXECUTION_PROHIBITION]]
+
+## Single
+
+- [[ACL03_SINGLE_TRANSITION_OR_FAIL]]
+
+## Source
+
+- [[ACL03_SOURCE_DIGEST]]
+- [[ACL03_SOURCE_FILE_INVENTORY]]
+- [[ACL03_SOURCE_GUARD]]
+- [[ACL03_SOURCE_PACKAGE_DIGEST]]
+- [[ACL03_SOURCE_READ_ONLY]]
+- [[ACL03_SOURCE_SNAPSHOT]]
+- [[ACL03_SOURCE_TAMPER_FINDING]]
+
+## Symlink
+
+- [[ACL03_SYMLINK_REJECTION]]
+
+## Terminal
+
+- [[ACL03_TERMINAL_STATE]]
+
+## Transition
+
+- [[ACL03_TRANSITION_ID]]
+
+## Treatment
+
+- [[ACL03_TREATMENT_AUTHORITY_PROHIBITION]]
+
+## Unknown
+
+- [[ACL03_UNKNOWN_GUARD_POLICY]]

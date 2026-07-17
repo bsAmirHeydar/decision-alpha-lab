@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority_escalation_allowed": {
+      "const": false
+    },
+    "capabilities": {
+      "type": "object"
+    },
+    "extension_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "extension_kind": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "public_ports_only": {
+      "const": true
+    }
+  },
+  "required": [
+    "extension_id",
+    "extension_kind",
+    "capabilities",
+    "public_ports_only",
+    "authority_escalation_allowed"
+  ],
+  "type": "object"
+}

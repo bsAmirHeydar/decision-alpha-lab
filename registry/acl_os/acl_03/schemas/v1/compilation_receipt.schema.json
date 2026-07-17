@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acl04_handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "capital_activation_allowed": {
+      "const": false
+    },
+    "claim_ceiling": {
+      "const": "CONTEXT_COMPILATION_REFERENCE_ONLY"
+    },
+    "compiler_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "context_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "context_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    },
+    "onboarding_report_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "output_manifest_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "plan_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "receipt_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "context_id",
+    "context_version",
+    "compiler_version",
+    "source_digest",
+    "plan_digest",
+    "output_manifest_digest",
+    "onboarding_report_digest",
+    "acl04_handoff_digest",
+    "claim_ceiling",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "receipt_digest"
+  ],
+  "type": "object"
+}

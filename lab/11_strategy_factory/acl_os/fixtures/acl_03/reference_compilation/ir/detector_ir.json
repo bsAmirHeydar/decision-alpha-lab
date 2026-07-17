@@ -1,0 +1,83 @@
+{
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "context_version": "0.1.0",
+  "detector_ir_digest": "sha256:ecd00c0dfd955260869a3ed2f249748a940ab18b503d169dcab9dfdcf4d9737d",
+  "determinism_policy": "SINGLE_TRANSITION_OR_FAIL",
+  "execution_model": "DECLARATIVE_EVENT_GUARD_IR",
+  "generated_code_allowed": false,
+  "initial_state": "OBSERVING",
+  "ir_version": "1.0.0",
+  "schema_version": "1.0.0",
+  "states": [
+    "CANDIDATE",
+    "CONFIRMED",
+    "EXPIRED",
+    "INVALIDATED",
+    "OBSERVING",
+    "UNKNOWN"
+  ],
+  "terminal_states": [
+    "CONFIRMED",
+    "EXPIRED",
+    "INVALIDATED"
+  ],
+  "transitions": [
+    {
+      "event": "BOTH_REFERENCES_DISPLACED",
+      "from_state": "CANDIDATE",
+      "guard_dsl": "primary_displaced and comparison_displaced at same_decision_time",
+      "guard_identifiers": [
+        "comparison_displaced",
+        "primary_displaced",
+        "same_decision_time"
+      ],
+      "priority": 5,
+      "to_state": "INVALIDATED",
+      "transition_id": "TR_6BADF8377FB41035F979",
+      "unknown_guard_policy": "REJECT"
+    },
+    {
+      "event": "COMPARISON_REFERENCE_HELD",
+      "from_state": "CANDIDATE",
+      "guard_dsl": "comparison_close <= comparison_reference at same_decision_time",
+      "guard_identifiers": [
+        "comparison_close",
+        "comparison_reference",
+        "same_decision_time"
+      ],
+      "priority": 10,
+      "to_state": "CONFIRMED",
+      "transition_id": "TR_AAB85908C80FF7915AAB",
+      "unknown_guard_policy": "REJECT"
+    },
+    {
+      "event": "SESSION_EXPIRED",
+      "from_state": "CANDIDATE",
+      "guard_dsl": "decision_time >= registered_session_close",
+      "guard_identifiers": [
+        "decision_time",
+        "registered_session_close"
+      ],
+      "priority": 99,
+      "to_state": "EXPIRED",
+      "transition_id": "TR_C71B21B926EF4F477BDE",
+      "unknown_guard_policy": "REJECT"
+    },
+    {
+      "event": "PRIMARY_REFERENCE_DISPLACED",
+      "from_state": "OBSERVING",
+      "guard_dsl": "primary_close > primary_reference + registered_tick_size at completed_bar_known_time",
+      "guard_identifiers": [
+        "completed_bar_known_time",
+        "primary_close",
+        "primary_reference",
+        "registered_tick_size"
+      ],
+      "priority": 10,
+      "to_state": "CANDIDATE",
+      "transition_id": "TR_A3A631E7006592446C4B",
+      "unknown_guard_policy": "REJECT"
+    }
+  ],
+  "unknown_state": "UNKNOWN"
+}

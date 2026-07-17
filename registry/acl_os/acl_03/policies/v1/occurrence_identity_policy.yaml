@@ -1,0 +1,9 @@
+version: 1.0.0
+required_fields:
+- context_id
+- context_version
+- anchor_time
+- direction
+- subject_key
+algorithm: SHA256_CANONICAL_JSON
+append_only: true

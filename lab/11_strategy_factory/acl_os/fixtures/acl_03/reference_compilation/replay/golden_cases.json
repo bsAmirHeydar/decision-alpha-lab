@@ -1,0 +1,83 @@
+{
+  "cases": [
+    {
+      "case_digest": "sha256:3e3cbf24358a2c4bdeebdeb910dab21d34958c2e2b0689e0b6455799fe490d4a",
+      "case_id": "GOLD_AC20BABC51A3EC869236",
+      "context_id": "CTX_REFERENCE_ALPHA",
+      "events": [
+        {
+          "decision_time": "2026-01-01T14:35:01Z",
+          "event": "PRIMARY_REFERENCE_DISPLACED",
+          "guard_result": true,
+          "known_time": "2026-01-01T14:35:01Z"
+        },
+        {
+          "decision_time": "2026-01-01T14:40:01Z",
+          "event": "COMPARISON_REFERENCE_HELD",
+          "guard_result": null,
+          "known_time": "2026-01-01T14:40:01Z"
+        }
+      ],
+      "example_id": "AMB_001",
+      "expected_classification": "AMBIGUOUS",
+      "expected_terminal_state": "CANDIDATE",
+      "initial_state": "OBSERVING",
+      "kind": "AMBIGUOUS",
+      "schema_version": "1.0.0",
+      "source_fixture": "fixtures/ambiguous/example_001.json"
+    },
+    {
+      "case_digest": "sha256:a17b8bdf75759b1318fdfa9d680171d718b6e3e6d2c92c56d3b38f81d705a2c3",
+      "case_id": "GOLD_2CD3316C019495516099",
+      "context_id": "CTX_REFERENCE_ALPHA",
+      "events": [
+        {
+          "decision_time": "2026-01-01T14:35:01Z",
+          "event": "PRIMARY_REFERENCE_DISPLACED",
+          "guard_result": true,
+          "known_time": "2026-01-01T14:35:01Z"
+        },
+        {
+          "decision_time": "2026-01-01T14:40:01Z",
+          "event": "BOTH_REFERENCES_DISPLACED",
+          "guard_result": true,
+          "known_time": "2026-01-01T14:40:01Z"
+        }
+      ],
+      "example_id": "NEG_001",
+      "expected_classification": "NEGATIVE",
+      "expected_terminal_state": "INVALIDATED",
+      "initial_state": "OBSERVING",
+      "kind": "NEGATIVE",
+      "schema_version": "1.0.0",
+      "source_fixture": "fixtures/negative/example_001.json"
+    },
+    {
+      "case_digest": "sha256:a5fc03d5ca9233d629f03dd80309d9f3c80fa7b798edcf88508dbc5c6da0a35d",
+      "case_id": "GOLD_BEFA8DEBAA77A1606B6C",
+      "context_id": "CTX_REFERENCE_ALPHA",
+      "events": [
+        {
+          "decision_time": "2026-01-01T14:35:01Z",
+          "event": "PRIMARY_REFERENCE_DISPLACED",
+          "guard_result": true,
+          "known_time": "2026-01-01T14:35:01Z"
+        },
+        {
+          "decision_time": "2026-01-01T14:40:01Z",
+          "event": "COMPARISON_REFERENCE_HELD",
+          "guard_result": true,
+          "known_time": "2026-01-01T14:40:01Z"
+        }
+      ],
+      "example_id": "POS_001",
+      "expected_classification": "POSITIVE",
+      "expected_terminal_state": "CONFIRMED",
+      "initial_state": "OBSERVING",
+      "kind": "POSITIVE",
+      "schema_version": "1.0.0",
+      "source_fixture": "fixtures/positive/example_001.json"
+    }
+  ],
+  "schema_version": "1.0.0"
+}

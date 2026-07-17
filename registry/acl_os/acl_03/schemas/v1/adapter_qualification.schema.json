@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adapter_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "contract_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "evidence_refs": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "qualified_environment": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "CONTRACT_ONLY",
+        "IMPLEMENTED",
+        "QUALIFIED",
+        "REJECTED"
+      ]
+    }
+  },
+  "required": [
+    "adapter_id",
+    "status",
+    "contract_digest",
+    "evidence_refs",
+    "qualified_environment"
+  ],
+  "type": "object"
+}

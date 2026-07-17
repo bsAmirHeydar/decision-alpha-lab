@@ -1,0 +1,147 @@
+{
+  "claim_ceiling": "CONTEXT_COMPILATION_REFERENCE_ONLY",
+  "compiler_version": "1.0.0",
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "context_version": "0.1.0",
+  "plan_digest": "sha256:896f211fabd04e2bab22ac604be91eccf81493d2c544e68282f21b5f6572ab5f",
+  "schema_version": "1.0.0",
+  "source_digest": "sha256:9b48c94fd2c13e20972fad92e9e2b966ef1f98f22edc0b7c65a45295b9f0cc8b",
+  "steps": [
+    {
+      "depends_on": [],
+      "idempotent": true,
+      "name": "FREEZE_SOURCE",
+      "order": 1,
+      "side_effect_scope": "DECLARED_OUTPUT_ROOT_ONLY",
+      "step_id": "CSTEP_4CB04DA74C62E3C3CCC1"
+    },
+    {
+      "depends_on": [
+        "CSTEP_4CB04DA74C62E3C3CCC1"
+      ],
+      "idempotent": true,
+      "name": "VALIDATE_PREREQUISITES",
+      "order": 2,
+      "side_effect_scope": "DECLARED_OUTPUT_ROOT_ONLY",
+      "step_id": "CSTEP_201293727D6F61606A79"
+    },
+    {
+      "depends_on": [
+        "CSTEP_201293727D6F61606A79"
+      ],
+      "idempotent": true,
+      "name": "COMPILE_DETECTOR_IR",
+      "order": 3,
+      "side_effect_scope": "DECLARED_OUTPUT_ROOT_ONLY",
+      "step_id": "CSTEP_EA9F522B85B2579185B9"
+    },
+    {
+      "depends_on": [
+        "CSTEP_201293727D6F61606A79"
+      ],
+      "idempotent": true,
+      "name": "COMPILE_OCCURRENCE_IR",
+      "order": 4,
+      "side_effect_scope": "DECLARED_OUTPUT_ROOT_ONLY",
+      "step_id": "CSTEP_4E87427BE709B56F0AE1"
+    },
+    {
+      "depends_on": [
+        "CSTEP_201293727D6F61606A79"
+      ],
+      "idempotent": true,
+      "name": "COMPILE_KNOWN_TIME_IR",
+      "order": 5,
+      "side_effect_scope": "DECLARED_OUTPUT_ROOT_ONLY",
+      "step_id": "CSTEP_403BA22267E74B28EAC3"
+    },
+    {
+      "depends_on": [
+        "CSTEP_201293727D6F61606A79"
+      ],
+      "idempotent": true,
+      "name": "COMPILE_FEATURE_BINDING_IR",
+      "order": 6,
+      "side_effect_scope": "DECLARED_OUTPUT_ROOT_ONLY",
+      "step_id": "CSTEP_3A2CD22667E28032B7C1"
+    },
+    {
+      "depends_on": [
+        "CSTEP_403BA22267E74B28EAC3",
+        "CSTEP_3A2CD22667E28032B7C1"
+      ],
+      "idempotent": true,
+      "name": "EMIT_ADAPTER_CONTRACTS",
+      "order": 7,
+      "side_effect_scope": "DECLARED_OUTPUT_ROOT_ONLY",
+      "step_id": "CSTEP_7985153E48124158E73C"
+    },
+    {
+      "depends_on": [
+        "CSTEP_EA9F522B85B2579185B9",
+        "CSTEP_4E87427BE709B56F0AE1",
+        "CSTEP_403BA22267E74B28EAC3"
+      ],
+      "idempotent": true,
+      "name": "COMPILE_GOLDEN_REPLAY",
+      "order": 8,
+      "side_effect_scope": "DECLARED_OUTPUT_ROOT_ONLY",
+      "step_id": "CSTEP_7759315480E031F70B57"
+    },
+    {
+      "depends_on": [
+        "CSTEP_7759315480E031F70B57"
+      ],
+      "idempotent": true,
+      "name": "RUN_GOLDEN_REPLAY",
+      "order": 9,
+      "side_effect_scope": "DECLARED_OUTPUT_ROOT_ONLY",
+      "step_id": "CSTEP_AF518BC0043D856FF9A8"
+    },
+    {
+      "depends_on": [
+        "CSTEP_EA9F522B85B2579185B9",
+        "CSTEP_4E87427BE709B56F0AE1",
+        "CSTEP_403BA22267E74B28EAC3",
+        "CSTEP_3A2CD22667E28032B7C1"
+      ],
+      "idempotent": true,
+      "name": "EMIT_GENERATED_SCHEMAS",
+      "order": 10,
+      "side_effect_scope": "DECLARED_OUTPUT_ROOT_ONLY",
+      "step_id": "CSTEP_19030E7D62E3A38532D9"
+    },
+    {
+      "depends_on": [
+        "CSTEP_AF518BC0043D856FF9A8",
+        "CSTEP_7985153E48124158E73C",
+        "CSTEP_19030E7D62E3A38532D9"
+      ],
+      "idempotent": true,
+      "name": "BUILD_ONBOARDING_REPORT",
+      "order": 11,
+      "side_effect_scope": "DECLARED_OUTPUT_ROOT_ONLY",
+      "step_id": "CSTEP_741FD7D2311461B10C8C"
+    },
+    {
+      "depends_on": [
+        "CSTEP_741FD7D2311461B10C8C"
+      ],
+      "idempotent": true,
+      "name": "EMIT_ACL04_HANDOFF",
+      "order": 12,
+      "side_effect_scope": "DECLARED_OUTPUT_ROOT_ONLY",
+      "step_id": "CSTEP_15510A4C4C6CBA390FD0"
+    },
+    {
+      "depends_on": [
+        "CSTEP_15510A4C4C6CBA390FD0"
+      ],
+      "idempotent": true,
+      "name": "FINALIZE_RECEIPT",
+      "order": 13,
+      "side_effect_scope": "DECLARED_OUTPUT_ROOT_ONLY",
+      "step_id": "CSTEP_8B70BE6531EEE3FBF8F6"
+    }
+  ]
+}

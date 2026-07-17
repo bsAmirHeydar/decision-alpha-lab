@@ -1,0 +1,11 @@
+version: 1.0.0
+include_authored_files: true
+exclude_directories:
+- generated
+- reports
+- intake
+- __pycache__
+- .pytest_cache
+symlink_policy: REJECT
+digest: SHA256
+mutation_after_approval: REQUIRE_NEW_APPROVAL

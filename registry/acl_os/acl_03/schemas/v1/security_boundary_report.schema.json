@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "claim_ceiling": {
+      "const": "REFERENCE_SECURITY_CONTROLS_ONLY"
+    },
+    "context_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "controls": {
+      "type": "object"
+    },
+    "finding_count": {
+      "type": "integer"
+    },
+    "findings": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "security_report_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "context_id",
+    "passed",
+    "finding_count",
+    "controls",
+    "findings",
+    "claim_ceiling",
+    "security_report_digest"
+  ],
+  "type": "object"
+}

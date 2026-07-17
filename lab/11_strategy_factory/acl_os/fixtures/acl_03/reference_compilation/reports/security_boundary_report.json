@@ -1,0 +1,17 @@
+{
+  "claim_ceiling": "REFERENCE_SECURITY_CONTROLS_ONLY",
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "controls": {
+    "adapter_least_privilege": true,
+    "dynamic_execution_reject": true,
+    "network_access_during_compile": false,
+    "secret_scan": true,
+    "source_symlink_reject": true,
+    "source_write_during_compile": false
+  },
+  "finding_count": 0,
+  "findings": [],
+  "passed": true,
+  "schema_version": "1.0.0",
+  "security_report_digest": "sha256:6d6733813e0ee6dd4fffc02da8e0c95c87901f22da7df70e4379bdd5d265e3fa"
+}

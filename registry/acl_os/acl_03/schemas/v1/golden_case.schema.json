@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "case_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "case_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "context_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "events": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "example_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "expected_classification": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "expected_terminal_state": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "initial_state": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "POSITIVE",
+        "NEGATIVE",
+        "AMBIGUOUS"
+      ]
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_fixture": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "case_id",
+    "example_id",
+    "kind",
+    "context_id",
+    "initial_state",
+    "events",
+    "expected_classification",
+    "source_fixture",
+    "case_digest"
+  ],
+  "type": "object"
+}

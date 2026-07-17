@@ -1,0 +1,17 @@
+symbols:
+- PRIMARY
+markets:
+- NASDAQ_INDEX_FUTURES
+timeframes:
+- M5
+sessions:
+- NEW_YORK_RTH
+directions:
+- BIDIRECTIONAL
+goals:
+- CLASSIFY_RELATIVE_DISPLACEMENT
+non_goals:
+- PREDICT_PROFIT_OR_SEND_ORDERS
+exclusions:
+- exclusion_id: EXC_001
+  reason: Execution and profitability are outside Context semantics.

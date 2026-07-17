@@ -1,0 +1,26 @@
+{
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "event_time": "2026-01-01T14:30:00Z",
+  "events": [
+    {
+      "decision_time": "2026-01-01T14:35:01Z",
+      "event": "PRIMARY_REFERENCE_DISPLACED",
+      "guard_result": true,
+      "known_time": "2026-01-01T14:35:01Z"
+    },
+    {
+      "decision_time": "2026-01-01T14:40:01Z",
+      "event": "COMPARISON_REFERENCE_HELD",
+      "guard_result": null,
+      "known_time": "2026-01-01T14:40:01Z"
+    }
+  ],
+  "expected": "AMBIGUOUS",
+  "expected_terminal_state": "CANDIDATE",
+  "fixture_id": "AMBIGUOUS_001",
+  "inputs": {
+    "close_price": 101.0
+  },
+  "known_time": "2026-01-01T14:35:01Z",
+  "notes": "Unknown confirmation guard leaves the case in CANDIDATE and requires abstention."
+}

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "context_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "detector_ir_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "determinism_policy": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "execution_model": {
+      "const": "DECLARATIVE_EVENT_GUARD_IR"
+    },
+    "generated_code_allowed": {
+      "const": false
+    },
+    "initial_state": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "ir_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "states": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "terminal_states": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "transitions": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "unknown_state": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "ir_version",
+    "context_id",
+    "context_version",
+    "initial_state",
+    "states",
+    "terminal_states",
+    "unknown_state",
+    "determinism_policy",
+    "transitions",
+    "execution_model",
+    "generated_code_allowed",
+    "detector_ir_digest"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,22 @@
+{
+  "adapter_id": "ADP_5165C7CDB2DB97C97FF7",
+  "adapter_kind": "CALENDAR",
+  "calendar_id": "al://default/calendars/session/NYSE_RTH@1.0.0#sha256:1111111111111111111111111111111111111111111111111111111111111111",
+  "capabilities": {
+    "capital_access": false,
+    "filesystem_write": "NONE",
+    "network_egress": "DENY_BY_DEFAULT",
+    "order_submission": false,
+    "secret_access": "NONE"
+  },
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "contract_digest": "sha256:bf159023152fe740ea08e3610a550076a29997b28fa93f0bedb019a641225e6d",
+  "implementation_status": "CONTRACT_ONLY",
+  "required_methods": [
+    "resolve_session",
+    "normalize_time",
+    "is_open",
+    "next_boundary"
+  ],
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,10 @@
+version: 1.0.0
+registration_required: true
+allowed_extension_kinds:
+- DOMAIN_LINTER
+- DATA_ADAPTER
+- CALENDAR_ADAPTER
+- FEATURE_VIEW_ADAPTER
+- GOLDEN_CASE_PROVIDER
+kernel_import: PUBLIC_PORTS_ONLY
+authority_escalation: FORBIDDEN

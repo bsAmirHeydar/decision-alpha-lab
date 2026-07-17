@@ -1,9 +1,7 @@
-feat(acl-os): implement ACL-02 context standard and intake
+feat(acl-os): implement ACL-03 context compiler and onboarding factory
 
-- add closed Context package contracts and canonical template
-- add intake question catalog, session and scaffold
-- add completeness, ambiguity, causal-clock, semantic and security validation
-- bind evaluation to ACL-00 authority and ACL-01 artifact identity
-- add readiness reporting, Obsidian projection, tests and MQL5 mirrors
-
-No live order submission or capital activation authority is introduced.
+- freeze approved Context sources and bind ACL-00/01/02 evidence
+- compile detector, occurrence, known-time and feature-binding IR
+- emit least-privilege adapter contracts and closed generated schemas
+- execute deterministic golden replay and publish onboarding evidence
+- produce immutable ACL-04 handoff, QA, MQL5 mirror and Obsidian documentation

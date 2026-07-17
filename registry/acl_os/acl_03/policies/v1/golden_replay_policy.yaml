@@ -1,0 +1,9 @@
+version: 1.0.0
+minimum_cases: 3
+required_kinds:
+- POSITIVE
+- NEGATIVE
+- AMBIGUOUS
+known_time_monotonic: true
+deterministic_replay: true
+all_cases_must_pass: true

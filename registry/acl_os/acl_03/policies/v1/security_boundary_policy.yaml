@@ -1,0 +1,8 @@
+version: 1.0.0
+source_read_only: true
+output_root_containment: true
+symlink_reject: true
+dynamic_import: FORBIDDEN
+shell_execution: FORBIDDEN
+network_access: FORBIDDEN
+secret_material_in_output: FORBIDDEN

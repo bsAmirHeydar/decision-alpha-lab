@@ -1,0 +1,5 @@
+version: 1.0.0
+language: DECLARATIVE_EVENT_GUARD_IR
+dynamic_execution: FORBIDDEN
+unknown_guard: REJECT_OR_ABSTAIN
+determinism: SINGLE_TRANSITION_OR_FAIL

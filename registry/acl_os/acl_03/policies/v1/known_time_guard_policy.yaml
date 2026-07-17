@@ -1,0 +1,9 @@
+version: 1.0.0
+required_order:
+- event_time<=observation_time
+- observation_time<=known_time
+- known_time<=decision_time
+- decision_time<=maturity_time
+- maturity_time<=correction_time
+future_revision: FORBIDDEN
+late_data_default: REJECT

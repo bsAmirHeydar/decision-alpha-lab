@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_scope": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "capital_activation_allowed": {
+      "const": false
+    },
+    "context_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "context_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "detector_ir_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "feature_binding_ir_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "forbidden_scope": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "handoff_type": {
+      "const": "ACL03_TO_ACL04"
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    },
+    "occurrence_ir_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "onboarding_report_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "search_authority_required": {
+      "const": true
+    },
+    "source_snapshot_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "handoff_type",
+    "context_id",
+    "context_version",
+    "source_snapshot_digest",
+    "detector_ir_digest",
+    "occurrence_ir_digest",
+    "feature_binding_ir_digest",
+    "onboarding_report_digest",
+    "allowed_scope",
+    "forbidden_scope",
+    "search_authority_required",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "handoff_digest"
+  ],
+  "type": "object"
+}

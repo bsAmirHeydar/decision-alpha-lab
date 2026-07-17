@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "append_only": {
+      "const": true
+    },
+    "confirmation_rule": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "context_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "context_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "deduplication_rule": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "expiry_rule": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "identity_recipe": {
+      "type": "object"
+    },
+    "invalidation_rule": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "occurrence_ir_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "occurrence_type_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "precedence": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "revision_policy": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "start_rule": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "context_id",
+    "context_version",
+    "occurrence_type_id",
+    "identity_recipe",
+    "start_rule",
+    "confirmation_rule",
+    "invalidation_rule",
+    "expiry_rule",
+    "deduplication_rule",
+    "precedence",
+    "revision_policy",
+    "append_only",
+    "occurrence_ir_digest"
+  ],
+  "type": "object"
+}

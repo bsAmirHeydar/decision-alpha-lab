@@ -1,6 +1,6 @@
 ---
 title: Context Compiler
-status: proposed-reference
+status: accepted-reference-implementation
 version: 1.0.0
 updated: 2026-07-17
 tags: [acl-os, context-lifecycle]
@@ -64,3 +64,7 @@ This architecture note specifies required mechanics. Only environment-specific e
 
 - [[ACL_OS_HOME]]
 - [[IMPLEMENTATION_MASTER_PLAN]]
+
+## ACL-03 implementation
+
+The accepted reference implementation is delivered in `tools/strategy_factory/acl_os/acl_03/` with closed contracts under `registry/acl_os/acl_03/`, reference compilation evidence, full QA and the bounded `ACL03_TO_ACL04` handoff. See [[00_00_EXECUTIVE_DELIVERY_INDEX]] and [[ACL_03_STATUS]].

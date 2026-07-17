@@ -1,0 +1,7 @@
+version: 1.0.0
+network_egress: DENY_BY_DEFAULT
+filesystem_write: DECLARED_PATHS_ONLY
+secret_access: NAMED_SECRET_ONLY
+order_submission: false
+capital_access: false
+sandbox_required: true

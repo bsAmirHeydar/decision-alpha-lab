@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acl02_readiness": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "authority_permit": {
+      "type": "object"
+    },
+    "context_root": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "output_root": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "semantic_approval": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "context_root",
+    "output_root",
+    "authority_permit",
+    "semantic_approval"
+  ],
+  "type": "object"
+}

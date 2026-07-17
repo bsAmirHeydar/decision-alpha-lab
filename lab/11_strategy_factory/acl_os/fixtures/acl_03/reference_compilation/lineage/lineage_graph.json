@@ -1,0 +1,121 @@
+{
+  "acyclic_required": true,
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "edges": [
+    {
+      "edge_id": "EDGE_20E5B9CA6CC41FEB6F60",
+      "from_node": "SOURCE",
+      "relation": "PLANS",
+      "to_node": "PLAN"
+    },
+    {
+      "edge_id": "EDGE_32A091CEA41D00AD7B7D",
+      "from_node": "SOURCE",
+      "relation": "COMPILES_TO",
+      "to_node": "DETECTOR"
+    },
+    {
+      "edge_id": "EDGE_5514502B699FD5B8D21C",
+      "from_node": "SOURCE",
+      "relation": "COMPILES_TO",
+      "to_node": "OCCURRENCE"
+    },
+    {
+      "edge_id": "EDGE_C60AF7DBB66C56C19A11",
+      "from_node": "SOURCE",
+      "relation": "COMPILES_TO",
+      "to_node": "KNOWN_TIME"
+    },
+    {
+      "edge_id": "EDGE_DED1CEBFDE642D9533BA",
+      "from_node": "SOURCE",
+      "relation": "COMPILES_TO",
+      "to_node": "FEATURE"
+    },
+    {
+      "edge_id": "EDGE_17BEFB862548C0D68149",
+      "from_node": "DETECTOR",
+      "relation": "VALIDATED_BY",
+      "to_node": "REPLAY"
+    },
+    {
+      "edge_id": "EDGE_D493ED1CC56DBC4BF956",
+      "from_node": "OCCURRENCE",
+      "relation": "VALIDATED_BY",
+      "to_node": "REPLAY"
+    },
+    {
+      "edge_id": "EDGE_C237C5214D491F0831FC",
+      "from_node": "KNOWN_TIME",
+      "relation": "VALIDATED_BY",
+      "to_node": "REPLAY"
+    },
+    {
+      "edge_id": "EDGE_A820B18D62B76B4EA75D",
+      "from_node": "REPLAY",
+      "relation": "EVIDENCES",
+      "to_node": "ONBOARDING"
+    },
+    {
+      "edge_id": "EDGE_97CF0DCD5BF5D95AEAF6",
+      "from_node": "FEATURE",
+      "relation": "EVIDENCES",
+      "to_node": "ONBOARDING"
+    },
+    {
+      "edge_id": "EDGE_92B3ED58873D797DA4FE",
+      "from_node": "ONBOARDING",
+      "relation": "BOUNDS",
+      "to_node": "HANDOFF"
+    }
+  ],
+  "lineage_digest": "sha256:5ac63e166f5bbbed419fa23e317f6421ca0e5cb5a96cc6a3653bb17d580858d5",
+  "nodes": [
+    {
+      "digest": "sha256:9b48c94fd2c13e20972fad92e9e2b966ef1f98f22edc0b7c65a45295b9f0cc8b",
+      "kind": "SOURCE_SNAPSHOT",
+      "node_id": "SOURCE"
+    },
+    {
+      "digest": "sha256:896f211fabd04e2bab22ac604be91eccf81493d2c544e68282f21b5f6572ab5f",
+      "kind": "COMPILER_PLAN",
+      "node_id": "PLAN"
+    },
+    {
+      "digest": "sha256:ecd00c0dfd955260869a3ed2f249748a940ab18b503d169dcab9dfdcf4d9737d",
+      "kind": "DETECTOR_IR",
+      "node_id": "DETECTOR"
+    },
+    {
+      "digest": "sha256:504e3db8881ee65eb9090a1cb406de3cf9d9ac6c5898918364810c1993de39ed",
+      "kind": "OCCURRENCE_IR",
+      "node_id": "OCCURRENCE"
+    },
+    {
+      "digest": "sha256:02d34b8a76df0bb7d75b43b086b0b8a0cbdd81ebb40edf80c1e4edd7e78b15f7",
+      "kind": "KNOWN_TIME_IR",
+      "node_id": "KNOWN_TIME"
+    },
+    {
+      "digest": "sha256:ee16ad6b4fb770fcf27368b6d12baa10fde5ff12d8516147da5a73453e146f9f",
+      "kind": "FEATURE_BINDING_IR",
+      "node_id": "FEATURE"
+    },
+    {
+      "digest": "sha256:8884c2dbf92a9e19ca1055a2609392529c44ef1c0ce46d648d8b8dec9bab8b7e",
+      "kind": "GOLDEN_REPLAY",
+      "node_id": "REPLAY"
+    },
+    {
+      "digest": "sha256:3183acd9c4bf978f43af883f33b781497d5211c7071fd649f0e96b44208fc7ba",
+      "kind": "ONBOARDING_REPORT",
+      "node_id": "ONBOARDING"
+    },
+    {
+      "digest": "sha256:795524772053fbbbde499da201c81980d4fe09ef34d2b20a3b01dce5acb3fea0",
+      "kind": "ACL04_HANDOFF",
+      "node_id": "HANDOFF"
+    }
+  ],
+  "schema_version": "1.0.0"
+}

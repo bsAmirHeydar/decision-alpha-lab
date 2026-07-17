@@ -1,0 +1,13 @@
+{
+  "approval_ids": [
+    "APR_REFERENCE_SEMANTIC_OWNER",
+    "APR_REFERENCE_INDEPENDENT_REVIEWER"
+  ],
+  "approver_roles": [
+    "semantic_owner",
+    "independent_reviewer"
+  ],
+  "decision": "APPROVE",
+  "source_snapshot_digest": "sha256:9b48c94fd2c13e20972fad92e9e2b966ef1f98f22edc0b7c65a45295b9f0cc8b",
+  "subject_artifact_id": "al://default/contexts/context/CTX_REFERENCE_ALPHA@0.1.0#sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

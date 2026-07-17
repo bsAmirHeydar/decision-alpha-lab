@@ -1,0 +1,11 @@
+version: 1.0.0
+claim_ceiling: CONTEXT_COMPILATION_REFERENCE_ONLY
+does_not_claim:
+- alpha
+- external_data_quality
+- model_training
+- statistical_eligibility
+- runtime_parity
+- production_security
+- capital_authorization
+- live_trading

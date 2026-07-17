@@ -1,0 +1,5 @@
+#ifndef AL_ACL03_TYPES_MQH
+#define AL_ACL03_TYPES_MQH
+enum ENUM_AL_ACL03_STATE { AL_ACL03_NOT_STARTED=0, AL_ACL03_SOURCE_FROZEN=1, AL_ACL03_IR_COMPILED=2, AL_ACL03_REPLAY_VALIDATED=3, AL_ACL03_CONTEXT_COMPILED=4, AL_ACL03_ONBOARDING_BLOCKED=5 };
+struct AL_ACL03_Guard { string guard_id; string left_clock; string right_clock; bool reject_on_failure; };
+#endif

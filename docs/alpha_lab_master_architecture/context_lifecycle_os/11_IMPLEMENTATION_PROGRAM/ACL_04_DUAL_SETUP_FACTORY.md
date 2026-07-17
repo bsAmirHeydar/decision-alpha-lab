@@ -64,3 +64,7 @@ This architecture note specifies required mechanics. Only environment-specific e
 
 - [[ACL_OS_HOME]]
 - [[IMPLEMENTATION_MASTER_PLAN]]
+
+## ACL-03 dependency
+
+The phase must consume the immutable `ACL03_TO_ACL04` handoff and may not modify compiled Context semantics, occurrence identity, feature order or known-time guards.

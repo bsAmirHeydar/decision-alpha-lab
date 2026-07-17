@@ -1,0 +1,9 @@
+version: 1.0.0
+input_state: SEMANTICALLY_VALIDATED
+output_state: CONTEXT_COMPILED
+deterministic: true
+idempotent: true
+fail_closed: true
+generated_code_allowed: false
+live_order_submission_allowed: false
+capital_activation_allowed: false

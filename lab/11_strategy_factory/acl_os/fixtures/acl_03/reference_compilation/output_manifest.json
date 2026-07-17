@@ -1,0 +1,135 @@
+{
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "context_version": "0.1.0",
+  "entries": [
+    {
+      "bytes": 24,
+      "content_digest": "sha256:62420075caa8f0e9456fd47069a4a246d46153a3e4471eeb8f2cdb8ac3950d4a",
+      "relative_path": ".acl03_generated_root"
+    },
+    {
+      "bytes": 718,
+      "content_digest": "sha256:e3f7273d90ae8c6f6117e9e21e233dcdec14750a4daed57353191038a47a4312",
+      "relative_path": "adapters/ADP_5165C7CDB2DB97C97FF7.json"
+    },
+    {
+      "bytes": 647,
+      "content_digest": "sha256:3c7ec652fa4bb10d7ebb5b659fca26131fde6a004080cd3577eb54f6cf1c3dd8",
+      "relative_path": "adapters/ADP_D943F623E12FAED7F38B.json"
+    },
+    {
+      "bytes": 897,
+      "content_digest": "sha256:48fb2eaf463c95bc3bb9e6acceb3a6a23aad2687afba2ccc4247d24e7fcf6c9c",
+      "relative_path": "adapters/ADP_E33CB4962906C535F71A.json"
+    },
+    {
+      "bytes": 1490,
+      "content_digest": "sha256:94585cebd8d179098bd8b537d8e23994880f207f59aaca82401abd09447419f4",
+      "relative_path": "docs/ACL03_ONBOARDING_REPORT.md"
+    },
+    {
+      "bytes": 213,
+      "content_digest": "sha256:fd875f33ca794fd47af19855477b349dac1a4d2f9eb13f6bbccf127a5fc3151d",
+      "relative_path": "docs/GENERATED_FILES.md"
+    },
+    {
+      "bytes": 1230,
+      "content_digest": "sha256:768fb8b2ca64a01967f2698fa94256c1f0f298c43ae95d70658d6dae9fa14e20",
+      "relative_path": "handoff/acl04_handoff.json"
+    },
+    {
+      "bytes": 2419,
+      "content_digest": "sha256:d11d948390c7f3acb78eac53038dc51474d05490502b668bf164fe61a72d17ae",
+      "relative_path": "ir/detector_ir.json"
+    },
+    {
+      "bytes": 882,
+      "content_digest": "sha256:d76c51dc2aef543ce9f226df4a10d0cc5f00c076fbc20f8143d447758e72b878",
+      "relative_path": "ir/feature_binding_ir.json"
+    },
+    {
+      "bytes": 1649,
+      "content_digest": "sha256:4674489dc73a6d6ac848dae2462fb4dbfcf083ba523e06422b2f769723d4d6b7",
+      "relative_path": "ir/known_time_ir.json"
+    },
+    {
+      "bytes": 1387,
+      "content_digest": "sha256:b6fff5c10d07efb31ee611bafdd891752dc51e428307a8dd0f4292dc0029231d",
+      "relative_path": "ir/occurrence_ir.json"
+    },
+    {
+      "bytes": 3338,
+      "content_digest": "sha256:265e6fd98de43fb35cebcaa964af5218320d14fb8be373981ed3bc70d46991cd",
+      "relative_path": "lineage/lineage_graph.json"
+    },
+    {
+      "bytes": 4102,
+      "content_digest": "sha256:93c8b77c924206c1556abe748628cd3f4f620d14d06c3d615f6b0e926b655be6",
+      "relative_path": "plan/compiler_plan.json"
+    },
+    {
+      "bytes": 2760,
+      "content_digest": "sha256:731df00288e84deb79cc0dd95bc012bd00b39570c8b4711564e104f9c115566f",
+      "relative_path": "replay/golden_cases.json"
+    },
+    {
+      "bytes": 3065,
+      "content_digest": "sha256:93c1fab6b29bb53df0e8fc2fa6ad6ddaa19a83a9ab42ee85229d6d3dd1d10234",
+      "relative_path": "replay/golden_replay_result.json"
+    },
+    {
+      "bytes": 551,
+      "content_digest": "sha256:215b9eb88323c5e5cd8f9fab9db9dc3c58dc1d1c7a2029750e287de2a6ed87ff",
+      "relative_path": "reports/compatibility_report.json"
+    },
+    {
+      "bytes": 50,
+      "content_digest": "sha256:fa5ce8a4cf23dab845aa39ac21183e57e77777145af48c2fe6b856c34f8c6b3b",
+      "relative_path": "reports/compilation_findings.json"
+    },
+    {
+      "bytes": 249,
+      "content_digest": "sha256:a1d65613c7926b5136f84cab925fc8c10c27e60cd3424955ec91c848b3811ace",
+      "relative_path": "reports/extension_resolution.json"
+    },
+    {
+      "bytes": 2081,
+      "content_digest": "sha256:4d4fb14efac3c5be7f191f379f91d48cd220f57a92c63943754e9ecc0560d858",
+      "relative_path": "reports/onboarding_report.json"
+    },
+    {
+      "bytes": 528,
+      "content_digest": "sha256:9860aebf561053049c210ba74fd8345d92482dd497ac62afeea5435405f0d978",
+      "relative_path": "reports/security_boundary_report.json"
+    },
+    {
+      "bytes": 706,
+      "content_digest": "sha256:eb12c99120fb43553ac2720888fefe699b372fe136d812ed30bb275209d0e2f0",
+      "relative_path": "schemas/compiler_receipt.schema.json"
+    },
+    {
+      "bytes": 526,
+      "content_digest": "sha256:1e85b5a3260ec43367f2619e1f192cc43695cacb740536a1cac54ca82371ad62",
+      "relative_path": "schemas/detector_event.schema.json"
+    },
+    {
+      "bytes": 540,
+      "content_digest": "sha256:f6b2f1dcc5e1e52a5999467a7f278958cde4bfa79abbfbbd3bf62fd707c97ab3",
+      "relative_path": "schemas/feature_record.schema.json"
+    },
+    {
+      "bytes": 669,
+      "content_digest": "sha256:9dfe122884ad16a02b87cc8b09e743b942404cf9765e61f730650512124bfc1d",
+      "relative_path": "schemas/occurrence_identity.schema.json"
+    },
+    {
+      "bytes": 4345,
+      "content_digest": "sha256:1f02462085357415d1e0613de4997e287d6f05c24746b995717944b273a520ea",
+      "relative_path": "source/source_snapshot.json"
+    }
+  ],
+  "entry_count": 25,
+  "manifest_digest": "sha256:6ce1b4f08c2bafcf7d33e3533e9d671e09beac9932d5229e9dc58674e7f7b57c",
+  "schema_version": "1.0.0",
+  "source_digest": "sha256:9b48c94fd2c13e20972fad92e9e2b966ef1f98f22edc0b7c65a45295b9f0cc8b"
+}

@@ -1,0 +1,9 @@
+version: 1.0.0
+required_gates:
+- source_frozen
+- authority_bound
+- ir_compiled
+- golden_replay
+- adapter_contracts
+research_entry: false
+live_activation: false

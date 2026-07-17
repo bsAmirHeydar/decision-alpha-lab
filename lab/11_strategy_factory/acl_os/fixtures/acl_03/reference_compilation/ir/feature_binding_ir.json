@@ -1,0 +1,24 @@
+{
+  "bindings": [
+    {
+      "binding_id": "FVB_5CFE7C97F57488B96E7A",
+      "fields": [
+        "close_price"
+      ],
+      "freshness_vector": "REQUIRED",
+      "kind": "TABULAR",
+      "known_time_safe": true,
+      "missingness_vector": "REQUIRED",
+      "runtime_order": 0,
+      "schema_ref": "al://default/schemas/feature/REFERENCE_ALPHA@1.0.0#sha256:0000000000000000000000000000000000000000000000000000000000000000",
+      "view_id": "RELATIVE_DISPLACEMENT_VIEW"
+    }
+  ],
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "context_version": "0.1.0",
+  "feature_binding_ir_digest": "sha256:ee16ad6b4fb770fcf27368b6d12baa10fde5ff12d8516147da5a73453e146f9f",
+  "feature_order_frozen": true,
+  "fusion_policy": "Concatenate registered known-time-safe views with explicit missingness and freshness vectors.",
+  "missing_view_policy": "MASK_AND_ABSTAIN",
+  "schema_version": "1.0.0"
+}

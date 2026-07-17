@@ -1,0 +1,93 @@
+{
+  "case_count": 3,
+  "failed_count": 0,
+  "passed_count": 3,
+  "replay_digest": "sha256:8884c2dbf92a9e19ca1055a2609392529c44ef1c0ce46d648d8b8dec9bab8b7e",
+  "results": [
+    {
+      "case_id": "GOLD_AC20BABC51A3EC869236",
+      "expected_terminal_state": "CANDIDATE",
+      "final_state": "CANDIDATE",
+      "passed": true,
+      "result_digest": "sha256:71cefea40bd91282c3712990a7936133501ccdb068a0b7ceb739f745c53810c6",
+      "schema_version": "1.0.0",
+      "trace": [
+        {
+          "decision_time": "2026-01-01T14:35:01Z",
+          "event": "PRIMARY_REFERENCE_DISPLACED",
+          "index": 0,
+          "known_time": "2026-01-01T14:35:01Z",
+          "state_after": "CANDIDATE",
+          "state_before": "OBSERVING",
+          "transition_id": "TR_A3A631E7006592446C4B"
+        },
+        {
+          "decision_time": "2026-01-01T14:40:01Z",
+          "event": "COMPARISON_REFERENCE_HELD",
+          "index": 1,
+          "known_time": "2026-01-01T14:40:01Z",
+          "state_after": "CANDIDATE",
+          "state_before": "CANDIDATE",
+          "transition_id": null
+        }
+      ]
+    },
+    {
+      "case_id": "GOLD_2CD3316C019495516099",
+      "expected_terminal_state": "INVALIDATED",
+      "final_state": "INVALIDATED",
+      "passed": true,
+      "result_digest": "sha256:53864d7bab0a22458659f03f7d744aa20afeca9caad5877ea29bbe71855d9e22",
+      "schema_version": "1.0.0",
+      "trace": [
+        {
+          "decision_time": "2026-01-01T14:35:01Z",
+          "event": "PRIMARY_REFERENCE_DISPLACED",
+          "index": 0,
+          "known_time": "2026-01-01T14:35:01Z",
+          "state_after": "CANDIDATE",
+          "state_before": "OBSERVING",
+          "transition_id": "TR_A3A631E7006592446C4B"
+        },
+        {
+          "decision_time": "2026-01-01T14:40:01Z",
+          "event": "BOTH_REFERENCES_DISPLACED",
+          "index": 1,
+          "known_time": "2026-01-01T14:40:01Z",
+          "state_after": "INVALIDATED",
+          "state_before": "CANDIDATE",
+          "transition_id": "TR_6BADF8377FB41035F979"
+        }
+      ]
+    },
+    {
+      "case_id": "GOLD_BEFA8DEBAA77A1606B6C",
+      "expected_terminal_state": "CONFIRMED",
+      "final_state": "CONFIRMED",
+      "passed": true,
+      "result_digest": "sha256:b39b36b772e4c1a7743ace299541220d26ed945be38f13c552a9e59dec9878e1",
+      "schema_version": "1.0.0",
+      "trace": [
+        {
+          "decision_time": "2026-01-01T14:35:01Z",
+          "event": "PRIMARY_REFERENCE_DISPLACED",
+          "index": 0,
+          "known_time": "2026-01-01T14:35:01Z",
+          "state_after": "CANDIDATE",
+          "state_before": "OBSERVING",
+          "transition_id": "TR_A3A631E7006592446C4B"
+        },
+        {
+          "decision_time": "2026-01-01T14:40:01Z",
+          "event": "COMPARISON_REFERENCE_HELD",
+          "index": 1,
+          "known_time": "2026-01-01T14:40:01Z",
+          "state_after": "CONFIRMED",
+          "state_before": "CANDIDATE",
+          "transition_id": "TR_AAB85908C80FF7915AAB"
+        }
+      ]
+    }
+  ],
+  "schema_version": "1.0.0"
+}

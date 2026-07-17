@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context_id": {
+      "const": "CTX_REFERENCE_ALPHA"
+    },
+    "freshness_ms": {
+      "type": "object"
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "missingness": {
+      "type": "object"
+    },
+    "values": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "context_id",
+    "known_time",
+    "values",
+    "missingness",
+    "freshness_ms"
+  ],
+  "type": "object"
+}

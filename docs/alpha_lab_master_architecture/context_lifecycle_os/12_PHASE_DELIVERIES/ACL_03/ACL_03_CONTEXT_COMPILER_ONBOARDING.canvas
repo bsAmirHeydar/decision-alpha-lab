@@ -1,0 +1,134 @@
+{
+  "nodes": [
+    {
+      "id": "ACL02",
+      "type": "text",
+      "text": "ACL-02 Approved Context",
+      "x": 0,
+      "y": 0,
+      "width": 260,
+      "height": 100
+    },
+    {
+      "id": "SNAP",
+      "type": "text",
+      "text": "Frozen Source Snapshot",
+      "x": 340,
+      "y": 0,
+      "width": 260,
+      "height": 100
+    },
+    {
+      "id": "PLAN",
+      "type": "text",
+      "text": "Compiler Plan",
+      "x": 680,
+      "y": 0,
+      "width": 260,
+      "height": 100
+    },
+    {
+      "id": "IR",
+      "type": "text",
+      "text": "Compiled IR Set",
+      "x": 1020,
+      "y": 0,
+      "width": 260,
+      "height": 100
+    },
+    {
+      "id": "ADP",
+      "type": "text",
+      "text": "Adapter Contracts",
+      "x": 1360,
+      "y": -160,
+      "width": 260,
+      "height": 100
+    },
+    {
+      "id": "REP",
+      "type": "text",
+      "text": "Golden Replay",
+      "x": 1360,
+      "y": 160,
+      "width": 260,
+      "height": 100
+    },
+    {
+      "id": "ONB",
+      "type": "text",
+      "text": "Onboarding Matrix",
+      "x": 1700,
+      "y": 0,
+      "width": 260,
+      "height": 100
+    },
+    {
+      "id": "ACL04",
+      "type": "text",
+      "text": "Bounded ACL-04 Handoff",
+      "x": 2040,
+      "y": 0,
+      "width": 260,
+      "height": 100
+    }
+  ],
+  "edges": [
+    {
+      "id": "ACL02_SNAP",
+      "fromNode": "ACL02",
+      "fromSide": "right",
+      "toNode": "SNAP",
+      "toSide": "left"
+    },
+    {
+      "id": "SNAP_PLAN",
+      "fromNode": "SNAP",
+      "fromSide": "right",
+      "toNode": "PLAN",
+      "toSide": "left"
+    },
+    {
+      "id": "PLAN_IR",
+      "fromNode": "PLAN",
+      "fromSide": "right",
+      "toNode": "IR",
+      "toSide": "left"
+    },
+    {
+      "id": "IR_ADP",
+      "fromNode": "IR",
+      "fromSide": "right",
+      "toNode": "ADP",
+      "toSide": "left"
+    },
+    {
+      "id": "IR_REP",
+      "fromNode": "IR",
+      "fromSide": "right",
+      "toNode": "REP",
+      "toSide": "left"
+    },
+    {
+      "id": "ADP_ONB",
+      "fromNode": "ADP",
+      "fromSide": "right",
+      "toNode": "ONB",
+      "toSide": "left"
+    },
+    {
+      "id": "REP_ONB",
+      "fromNode": "REP",
+      "fromSide": "right",
+      "toNode": "ONB",
+      "toSide": "left"
+    },
+    {
+      "id": "ONB_ACL04",
+      "fromNode": "ONB",
+      "fromSide": "right",
+      "toNode": "ACL04",
+      "toSide": "left"
+    }
+  ]
+}

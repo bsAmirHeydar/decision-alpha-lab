@@ -1,0 +1,29 @@
+{
+  "allowed_scope": [
+    "DEFINE_HUMAN_SETUP_DSL",
+    "GENERATE_BOUNDED_AI_SETUP_CANDIDATES",
+    "CANONICALIZE_SETUP_BEHAVIOR",
+    "VALIDATE_TREATMENT_ENVELOPE"
+  ],
+  "capital_activation_allowed": false,
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "context_version": "0.1.0",
+  "detector_ir_digest": "sha256:ecd00c0dfd955260869a3ed2f249748a940ab18b503d169dcab9dfdcf4d9737d",
+  "feature_binding_ir_digest": "sha256:ee16ad6b4fb770fcf27368b6d12baa10fde5ff12d8516147da5a73453e146f9f",
+  "forbidden_scope": [
+    "ALTER_CONTEXT_SEMANTICS",
+    "ALTER_CONTEXT_STATE_MACHINE",
+    "BYPASS_KNOWN_TIME_GUARDS",
+    "ACTIVATE_CAPITAL",
+    "SUBMIT_ORDERS",
+    "MODIFY_GENERATED_IR"
+  ],
+  "handoff_digest": "sha256:795524772053fbbbde499da201c81980d4fe09ef34d2b20a3b01dce5acb3fea0",
+  "handoff_type": "ACL03_TO_ACL04",
+  "live_order_submission_allowed": false,
+  "occurrence_ir_digest": "sha256:504e3db8881ee65eb9090a1cb406de3cf9d9ac6c5898918364810c1993de39ed",
+  "onboarding_report_digest": "sha256:3183acd9c4bf978f43af883f33b781497d5211c7071fd649f0e96b44208fc7ba",
+  "schema_version": "1.0.0",
+  "search_authority_required": true,
+  "source_snapshot_digest": "sha256:9b48c94fd2c13e20972fad92e9e2b966ef1f98f22edc0b7c65a45295b9f0cc8b"
+}

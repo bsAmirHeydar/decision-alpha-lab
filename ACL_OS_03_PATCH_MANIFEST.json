@@ -1,0 +1,38 @@
+{
+  "architecture_dependency": "ACL_OS_ARCHITECTURE_V1",
+  "authority_dependency": "ACL_OS_00_CONSTITUTION_UNIFIED_AUTHORITY_V1",
+  "capital_activation_allowed": false,
+  "claim_ceiling": "CONTEXT_COMPILATION_REFERENCE_ONLY",
+  "created_at": "2026-07-17",
+  "intake_dependency": "ACL_OS_02_CONTEXT_STANDARD_INTAKE_V1",
+  "live_order_submission_allowed": false,
+  "next_phase": "ACL-04 Dual Setup Factory",
+  "patch_id": "ACL_OS_03_CONTEXT_COMPILER_ONBOARDING_V1",
+  "production_authorized": false,
+  "qa": {
+    "atomic_concepts": 147,
+    "clean_checkout_required": true,
+    "closed_schemas": 27,
+    "golden_replay_required": true,
+    "mql5_static_files": 12,
+    "phase_delivery_notes": 47,
+    "policy_documents": 14,
+    "python_tests": 106
+  },
+  "repository_dependency": "ACL_OS_01_REPOSITORY_IDENTITY_ARTIFACT_LOCATOR_V1",
+  "scope": [
+    "source snapshot and approval binding",
+    "detector IR",
+    "occurrence IR",
+    "known-time guard IR",
+    "feature-binding IR",
+    "adapter contracts",
+    "generated schemas",
+    "golden replay",
+    "onboarding report",
+    "ACL-04 handoff"
+  ],
+  "status": "accepted_reference_implementation",
+  "title": "ACL-03 Context Compiler and Onboarding Factory",
+  "version": "1.0.0"
+}

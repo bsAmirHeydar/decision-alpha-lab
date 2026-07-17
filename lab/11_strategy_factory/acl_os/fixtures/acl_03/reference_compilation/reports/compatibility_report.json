@@ -1,0 +1,24 @@
+{
+  "compatibility_digest": "sha256:5ff0b8bb2e0c232b88b12d0c207d416b33d985c5009ffe8108f06c8c0783894b",
+  "compatible": true,
+  "compiler_version": "1.0.0",
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "context_schema_version": "1.0.0",
+  "findings": [],
+  "reason_codes": [],
+  "requirements": [
+    {
+      "component": "acl_00",
+      "minimum_version": "1.0.0"
+    },
+    {
+      "component": "acl_01",
+      "minimum_version": "1.0.0"
+    },
+    {
+      "component": "acl_02",
+      "minimum_version": "1.0.0"
+    }
+  ],
+  "schema_version": "1.0.0"
+}

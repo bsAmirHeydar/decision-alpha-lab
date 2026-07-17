@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_next_actions": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "capital_activation_allowed": {
+      "const": false
+    },
+    "claim_ceiling": {
+      "const": "CONTEXT_COMPILATION_REFERENCE_ONLY"
+    },
+    "context_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "context_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decision": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "gates": {
+      "type": "object"
+    },
+    "generated_artifact_count": {
+      "type": "integer"
+    },
+    "highest_state": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    },
+    "open_obligations": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "report_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "context_id",
+    "context_version",
+    "decision",
+    "highest_state",
+    "gates",
+    "open_obligations",
+    "allowed_next_actions",
+    "generated_artifact_count",
+    "claim_ceiling",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "report_digest"
+  ],
+  "type": "object"
+}

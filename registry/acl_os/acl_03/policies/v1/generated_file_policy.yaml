@@ -1,0 +1,6 @@
+version: 1.0.0
+hand_edit: FORBIDDEN
+atomic_publish: true
+replace_only_with_marker: true
+required_header: ACL-03 GENERATED; DO NOT EDIT
+source_digest_required: true

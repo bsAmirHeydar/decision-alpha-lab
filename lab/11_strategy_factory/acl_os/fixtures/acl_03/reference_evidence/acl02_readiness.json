@@ -1,0 +1,44 @@
+{
+  "blocking_count": 0,
+  "blocking_findings": [],
+  "capital_activation_allowed": false,
+  "claim_ceiling": "SEMANTIC_INTAKE_REFERENCE_ONLY",
+  "completeness_score": 1.0,
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "decision": "ACCEPT_FOR_SEMANTIC_REVIEW",
+  "highest_state": "INTAKE_COMPLETE",
+  "live_order_submission_allowed": false,
+  "report_digest": "sha256:8f62f598b8142a7949aaaf72cd1ac3e2513f1d73e8c9b8af1c57b4484df082b4",
+  "stages": {
+    "context_compile": {
+      "ready": false,
+      "reason_codes": [
+        "ACL03_CONTEXT_COMPILER_REQUIRED"
+      ]
+    },
+    "intake_complete": {
+      "blockers": [],
+      "ready": true
+    },
+    "live_activation": {
+      "ready": false,
+      "reason_codes": [
+        "ACL11_RUNTIME_PARITY_REQUIRED",
+        "ACL12_SECURITY_HARDENING_REQUIRED",
+        "ACL14_CAPITAL_AUTHORIZATION_REQUIRED"
+      ]
+    },
+    "research_entry": {
+      "ready": false,
+      "reason_codes": [
+        "ACL05_IMMUTABLE_BATCH_REQUIRED"
+      ]
+    },
+    "semantic_review": {
+      "manual_approval_required": true,
+      "ready": true
+    }
+  },
+  "warning_count": 0,
+  "warning_findings": []
+}

@@ -1,0 +1,8 @@
+{
+  "action": "ACL03_COMPILE_CONTEXT",
+  "capital_activation_allowed": false,
+  "decision": "ALLOW",
+  "live_order_submission_allowed": false,
+  "permit_id": "PERMIT_ACL03_REFERENCE",
+  "subject_artifact_id": "al://default/contexts/context/CTX_REFERENCE_ALPHA@0.1.0#sha256:0000000000000000000000000000000000000000000000000000000000000000"
+}

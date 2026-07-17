@@ -1,0 +1,39 @@
+initial_state: OBSERVING
+states:
+- OBSERVING
+- CANDIDATE
+- CONFIRMED
+- INVALIDATED
+- EXPIRED
+- UNKNOWN
+transitions:
+- from: OBSERVING
+  to: CANDIDATE
+  event: PRIMARY_REFERENCE_DISPLACED
+  guard: primary_close > primary_reference + registered_tick_size at completed_bar_known_time
+  priority: 10
+  unknown_guard_policy: REJECT
+- from: CANDIDATE
+  to: CONFIRMED
+  event: COMPARISON_REFERENCE_HELD
+  guard: comparison_close <= comparison_reference at same_decision_time
+  priority: 10
+  unknown_guard_policy: REJECT
+- from: CANDIDATE
+  to: INVALIDATED
+  event: BOTH_REFERENCES_DISPLACED
+  guard: primary_displaced and comparison_displaced at same_decision_time
+  priority: 5
+  unknown_guard_policy: REJECT
+- from: CANDIDATE
+  to: EXPIRED
+  event: SESSION_EXPIRED
+  guard: decision_time >= registered_session_close
+  priority: 99
+  unknown_guard_policy: REJECT
+terminal_states:
+- CONFIRMED
+- INVALIDATED
+- EXPIRED
+unknown_state: UNKNOWN
+determinism_policy: SINGLE_TRANSITION_OR_FAIL

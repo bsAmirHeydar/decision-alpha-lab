@@ -1,0 +1,15 @@
+{
+  "acl04_handoff_digest": "sha256:795524772053fbbbde499da201c81980d4fe09ef34d2b20a3b01dce5acb3fea0",
+  "capital_activation_allowed": false,
+  "claim_ceiling": "CONTEXT_COMPILATION_REFERENCE_ONLY",
+  "compiler_version": "1.0.0",
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "context_version": "0.1.0",
+  "live_order_submission_allowed": false,
+  "onboarding_report_digest": "sha256:3183acd9c4bf978f43af883f33b781497d5211c7071fd649f0e96b44208fc7ba",
+  "output_manifest_digest": "sha256:6ce1b4f08c2bafcf7d33e3533e9d671e09beac9932d5229e9dc58674e7f7b57c",
+  "plan_digest": "sha256:896f211fabd04e2bab22ac604be91eccf81493d2c544e68282f21b5f6572ab5f",
+  "receipt_digest": "sha256:1b5c88bb23ce99fb3d66cc7c0d24019f3e318aa994ec862866da1c8ec8e0266d",
+  "schema_version": "1.0.0",
+  "source_digest": "sha256:9b48c94fd2c13e20972fad92e9e2b966ef1f98f22edc0b7c65a45295b9f0cc8b"
+}

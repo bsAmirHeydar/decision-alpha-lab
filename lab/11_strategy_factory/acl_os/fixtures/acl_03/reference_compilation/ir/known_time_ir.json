@@ -1,0 +1,56 @@
+{
+  "calendar_id": "al://default/calendars/session/NYSE_RTH@1.0.0#sha256:1111111111111111111111111111111111111111111111111111111111111111",
+  "clock_skew_tolerance_ms": 0,
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "future_revision_allowed": false,
+  "guards": [
+    {
+      "failure_action": "REJECT_EVENT",
+      "guard_id": "KTG_AFFF8FED7951F2EC5D89",
+      "left_clock": "event_time",
+      "operator": "<=",
+      "right_clock": "observation_time"
+    },
+    {
+      "failure_action": "REJECT_EVENT",
+      "guard_id": "KTG_8EC55F2AC99292D1AFD0",
+      "left_clock": "observation_time",
+      "operator": "<=",
+      "right_clock": "known_time"
+    },
+    {
+      "failure_action": "REJECT_EVENT",
+      "guard_id": "KTG_BC2730C5C028CAB08296",
+      "left_clock": "known_time",
+      "operator": "<=",
+      "right_clock": "decision_time"
+    },
+    {
+      "failure_action": "REJECT_EVENT",
+      "guard_id": "KTG_D57E5D999D9A3C07BBE1",
+      "left_clock": "decision_time",
+      "operator": "<=",
+      "right_clock": "maturity_time"
+    },
+    {
+      "failure_action": "REJECT_EVENT",
+      "guard_id": "KTG_B35CC9E3960134C419E2",
+      "left_clock": "maturity_time",
+      "operator": "<=",
+      "right_clock": "correction_time"
+    }
+  ],
+  "known_time_ir_digest": "sha256:02d34b8a76df0bb7d75b43b086b0b8a0cbdd81ebb40edf80c1e4edd7e78b15f7",
+  "late_data_policy": "REJECT",
+  "schema_version": "1.0.0",
+  "source_guards": [
+    {
+      "freshness_slo_ms": 0,
+      "future_revision_allowed": false,
+      "known_time_field": "known_time",
+      "missingness_policy": "REJECT",
+      "source_id": "NASDAQ_M5"
+    }
+  ],
+  "timezone": "UTC"
+}

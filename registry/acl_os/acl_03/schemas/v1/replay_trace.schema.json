@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "decision_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "event": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "index": {
+      "type": "integer"
+    },
+    "known_time": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "state_after": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "state_before": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "transition_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "index",
+    "event",
+    "known_time",
+    "decision_time",
+    "state_before",
+    "state_after",
+    "transition_id"
+  ],
+  "type": "object"
+}

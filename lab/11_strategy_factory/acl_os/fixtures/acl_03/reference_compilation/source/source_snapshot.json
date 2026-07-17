@@ -1,0 +1,130 @@
+{
+  "compiler_version": "1.0.0",
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "context_version": "0.1.0",
+  "files": [
+    {
+      "bytes": 228,
+      "digest": "sha256:d4854cd88b66b176ad66603695445a20bceebb7bd3e25dffc602f2978e8c7d17",
+      "path": "AGENTS.md"
+    },
+    {
+      "bytes": 235,
+      "digest": "sha256:5f7d9855b5a5b462888dc2b0fc6c6aa31bdda047e97e2aa8d44526c5bb609f51",
+      "path": "README.md"
+    },
+    {
+      "bytes": 171,
+      "digest": "sha256:d4c72b5b09488ba7e4c0d9983225de8bb16bb2e38ec695fef94a4428f7a9691d",
+      "path": "adapters/README.md"
+    },
+    {
+      "bytes": 1099,
+      "digest": "sha256:d0d7c98ab2558248de5e9aaf9a43517c4fc51e07dea659ad696d7af5b485d6cc",
+      "path": "context_manifest.yaml"
+    },
+    {
+      "bytes": 455,
+      "digest": "sha256:014a42aef1fa155297d135d3abc0c4efff83c935539ef78c307705a83699c848",
+      "path": "contracts/acceptance_gates.yaml"
+    },
+    {
+      "bytes": 1032,
+      "digest": "sha256:e219599b7a63b247f68d035ff1026d23a33062a2070987505e245430f0e4d307",
+      "path": "contracts/causal_clock.yaml"
+    },
+    {
+      "bytes": 740,
+      "digest": "sha256:2cb3fd23fdabab36d18b3d6e58124731ff3045a0494c7d9982647f998f9795e8",
+      "path": "contracts/data_contract.yaml"
+    },
+    {
+      "bytes": 455,
+      "digest": "sha256:453e09fe254243fb73be9e1c96b32d12f3877296111b9dbf56e7abb90bacfe2c",
+      "path": "contracts/feature_views.yaml"
+    },
+    {
+      "bytes": 834,
+      "digest": "sha256:79b6de6bdd19bc7195cd709cf43fe7c4ab477dc31c6141646aceea4c60bbc901",
+      "path": "contracts/occurrence_contract.yaml"
+    },
+    {
+      "bytes": 385,
+      "digest": "sha256:bab93600e1dcae972057105200f6897f603bfc08d88da71f7a0cfe40a6e78a94",
+      "path": "contracts/ontology.yaml"
+    },
+    {
+      "bytes": 628,
+      "digest": "sha256:5678043b5b1c2006ce332f7fdc1b6265b0409a39e7a1cb1a702a3e9bfd707dca",
+      "path": "contracts/reference_contract.yaml"
+    },
+    {
+      "bytes": 309,
+      "digest": "sha256:7aba1e0d79e3663e5d91d47ddb6751ff31134fc6af2b8d3721dcfec0764f2a9b",
+      "path": "contracts/scope.yaml"
+    },
+    {
+      "bytes": 980,
+      "digest": "sha256:9496f98e035f86895e3a289a2e34d37e34e97933f6fb7ed40a639fd855caedde",
+      "path": "contracts/state_machine.yaml"
+    },
+    {
+      "bytes": 324,
+      "digest": "sha256:f20213a7d388c7b3e39d2380db1cba40ff47757061fe82664a21838c3fe88fd4",
+      "path": "contracts/treatment_envelope.yaml"
+    },
+    {
+      "bytes": 893,
+      "digest": "sha256:4da281e95a18fa4d2b29f885d4a46eb227d50c9abec5355863821b372e0a65b5",
+      "path": "doctrine/context_doctrine.md"
+    },
+    {
+      "bytes": 189,
+      "digest": "sha256:0d2a6939fb307d68d8c9f7e04329138b0aba2c62d0e902dfbdf1062d08920e2e",
+      "path": "doctrine/glossary.yaml"
+    },
+    {
+      "bytes": 733,
+      "digest": "sha256:ee6a12343df64bb6ea4357b4173561c305ee65391c0af2f68ce9e308f9086623",
+      "path": "fixtures/ambiguous/example_001.json"
+    },
+    {
+      "bytes": 649,
+      "digest": "sha256:a42707e27cbf0e015caeb6cba149be2aee5216a5a935f05f29731bf0c88655d1",
+      "path": "fixtures/example_catalog.yaml"
+    },
+    {
+      "bytes": 697,
+      "digest": "sha256:86142329fda9af1ff745b9e18591def95fc863b841bb04dd4ea088bb785dfcc0",
+      "path": "fixtures/negative/example_001.json"
+    },
+    {
+      "bytes": 693,
+      "digest": "sha256:507f3e33a1ba701d07b96b15d3b3a170cbc2591cfff16bc71ddede3c5adc32cf",
+      "path": "fixtures/positive/example_001.json"
+    },
+    {
+      "bytes": 297,
+      "digest": "sha256:08a2131fe6e390f09492737de4142714b7d61c3f1494a71f5778ae4a59d40bad",
+      "path": "governance/amendment_policy.yaml"
+    },
+    {
+      "bytes": 202,
+      "digest": "sha256:a6ca7a77cc9b6bbe0b572ff64b58a3259e91be11f7cb14c26c4957d25036f2b4",
+      "path": "owners.yaml"
+    },
+    {
+      "bytes": 404,
+      "digest": "sha256:e83100230d8b83a1bb4b723861a99dac44e433652899e35a966be677dc62bb43",
+      "path": "security/security_profile.yaml"
+    },
+    {
+      "bytes": 149,
+      "digest": "sha256:ed6eea3404f7595698056ca0a57ddba9d0ae8c5408c793f42ed23d2075c1b9fa",
+      "path": "tests/README.md"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "snapshot_digest": "sha256:9b48c94fd2c13e20972fad92e9e2b966ef1f98f22edc0b7c65a45295b9f0cc8b",
+  "source_package_digest": "sha256:8bcc26c5e51a10de8298f0c95f58c6ccdef6be0305c6b161c17bd94ea3ed7187"
+}

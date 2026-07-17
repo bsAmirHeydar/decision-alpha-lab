@@ -1,0 +1,84 @@
+{
+  "allowed_next_actions": [
+    "IMPLEMENT_REGISTERED_ADAPTERS",
+    "ADD_DOMAIN_GOLDEN_CASES",
+    "REQUEST_ACL04_SETUP_SEARCH_AUTHORITY"
+  ],
+  "capital_activation_allowed": false,
+  "claim_ceiling": "CONTEXT_COMPILATION_REFERENCE_ONLY",
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "context_version": "0.1.0",
+  "decision": "COMPILED_WITH_OBLIGATIONS",
+  "gates": {
+    "adapter_contracts": {
+      "passed": true,
+      "reason_codes": []
+    },
+    "adapter_implementation": {
+      "passed": false,
+      "reason_codes": [
+        "ACL03_ADAPTER_IMPLEMENTATION_REQUIRED"
+      ]
+    },
+    "authority_bound": {
+      "passed": true,
+      "reason_codes": []
+    },
+    "external_data_qualification": {
+      "passed": false,
+      "reason_codes": [
+        "ACL14_REAL_CONTEXT_EVIDENCE_REQUIRED"
+      ]
+    },
+    "golden_replay": {
+      "passed": true,
+      "reason_codes": []
+    },
+    "ir_compiled": {
+      "passed": true,
+      "reason_codes": []
+    },
+    "live_activation": {
+      "passed": false,
+      "reason_codes": [
+        "ACL11_RUNTIME_PARITY_REQUIRED",
+        "ACL12_SECURITY_HARDENING_REQUIRED",
+        "ACL14_CAPITAL_AUTHORIZATION_REQUIRED"
+      ]
+    },
+    "research_entry": {
+      "passed": false,
+      "reason_codes": [
+        "ACL04_SETUP_FACTORY_REQUIRED",
+        "ACL05_IMMUTABLE_BATCH_REQUIRED"
+      ]
+    },
+    "source_frozen": {
+      "passed": true,
+      "reason_codes": []
+    }
+  },
+  "generated_artifact_count": 31,
+  "highest_state": "CONTEXT_COMPILED",
+  "live_order_submission_allowed": false,
+  "open_obligations": [
+    {
+      "code": "ACL03_ADAPTER_IMPLEMENTATION_REQUIRED",
+      "subject_ids": [
+        "ADP_E33CB4962906C535F71A",
+        "ADP_5165C7CDB2DB97C97FF7",
+        "ADP_D943F623E12FAED7F38B"
+      ]
+    },
+    {
+      "code": "ACL04_DUAL_SETUP_FACTORY_REQUIRED",
+      "subject_ids": []
+    },
+    {
+      "code": "ACL05_IMMUTABLE_BATCH_REQUIRED",
+      "subject_ids": []
+    }
+  ],
+  "report_digest": "sha256:3183acd9c4bf978f43af883f33b781497d5211c7071fd649f0e96b44208fc7ba",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,22 @@
+{
+  "adapter_id": "ADP_D943F623E12FAED7F38B",
+  "adapter_kind": "FEATURE_VIEW",
+  "capabilities": {
+    "capital_access": false,
+    "filesystem_write": "DECLARED_OUTPUT_ONLY",
+    "network_egress": "NONE",
+    "order_submission": false,
+    "secret_access": "NONE"
+  },
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "contract_digest": "sha256:7a2c5b51e6219084b351d581a740be47dc427b69dcdea9bf7e74285a911f1c6d",
+  "implementation_status": "CONTRACT_ONLY",
+  "required_methods": [
+    "materialize",
+    "validate_known_time",
+    "missingness_vector",
+    "freshness_vector"
+  ],
+  "schema_version": "1.0.0",
+  "view_id": "RELATIVE_DISPLACEMENT_VIEW"
+}

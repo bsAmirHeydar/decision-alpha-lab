@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adapter_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "adapter_kind": {
+      "enum": [
+        "DATA_SOURCE",
+        "CALENDAR",
+        "FEATURE_VIEW"
+      ]
+    },
+    "artifact_ref": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "calendar_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "capabilities": {
+      "type": "object"
+    },
+    "classification": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "context_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "contract_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "freshness_slo_ms": {
+      "type": "integer"
+    },
+    "implementation_status": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "known_time_field": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "required_methods": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "view_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "adapter_id",
+    "adapter_kind",
+    "context_id",
+    "required_methods",
+    "capabilities",
+    "implementation_status",
+    "contract_digest"
+  ],
+  "type": "object"
+}

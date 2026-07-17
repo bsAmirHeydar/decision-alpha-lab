@@ -1,0 +1,26 @@
+{
+  "context_id": "CTX_REFERENCE_ALPHA",
+  "event_time": "2026-01-01T14:30:00Z",
+  "events": [
+    {
+      "decision_time": "2026-01-01T14:35:01Z",
+      "event": "PRIMARY_REFERENCE_DISPLACED",
+      "guard_result": true,
+      "known_time": "2026-01-01T14:35:01Z"
+    },
+    {
+      "decision_time": "2026-01-01T14:40:01Z",
+      "event": "COMPARISON_REFERENCE_HELD",
+      "guard_result": true,
+      "known_time": "2026-01-01T14:40:01Z"
+    }
+  ],
+  "expected": "POSITIVE",
+  "expected_terminal_state": "CONFIRMED",
+  "fixture_id": "POSITIVE_001",
+  "inputs": {
+    "close_price": 101.0
+  },
+  "known_time": "2026-01-01T14:35:01Z",
+  "notes": "Reference positive path reaches CONFIRMED."
+}

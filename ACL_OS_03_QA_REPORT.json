@@ -1,0 +1,811 @@
+{
+  "capital_activation_allowed": false,
+  "claim_ceiling": "CONTEXT_COMPILATION_REFERENCE_ONLY",
+  "live_order_submission_allowed": false,
+  "passed": true,
+  "pytest": {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "........................................................................ [ 67%]\n..................................                                       [100%]\n106 passed in 4.97s\n"
+  },
+  "validation": {
+    "capital_activation_allowed": false,
+    "checks": [
+      {
+        "code": "SCHEMA_COUNT",
+        "details": {},
+        "message": "27 closed schemas",
+        "passed": true
+      },
+      {
+        "code": "SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_03/schemas/v1/compiler_request.schema.json",
+        "passed": true
+      },
+      {
+        "code": "SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_03/schemas/v1/source_snapshot.schema.json",
+        "passed": true
+      },
+      {
+        "code": "SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_03/schemas/v1/compiler_plan.schema.json",
+        "passed": true
+      },
+      {
+        "code": "SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_03/schemas/v1/detector_ir.schema.json",
+        "passed": true
+      },
+      {
+        "code": "SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_03/schemas/v1/occurrence_ir.schema.json",
+        "passed": true
+      },
+      {
+        "code": "SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_03/schemas/v1/known_time_ir.schema.json",
+        "passed": true
+      },
+      {
+        "code": "SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_03/schemas/v1/feature_binding_ir.schema.json",
+        "passed": true
+      },
+      {
+        "code": "SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_03/schemas/v1/adapter_contract.schema.json",
+        "passed": true
+      },
+      {
+        "code": "SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_03/schemas/v1/golden_case.schema.json",
+        "passed": true
+      },
+      {
+        "code": "SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_03/schemas/v1/golden_replay_result.schema.json",
+        "passed": true
+      },
+      {
+        "code": "SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_03/schemas/v1/onboarding_report.schema.json",
+        "passed": true
+      },
+      {
+        "code": "SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_03/schemas/v1/acl04_handoff.schema.json",
+        "passed": true
+      },
+      {
+        "code": "SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_03/schemas/v1/output_manifest.schema.json",
+        "passed": true
+      },
+      {
+        "code": "SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_03/schemas/v1/compilation_receipt.schema.json",
+        "passed": true
+      },
+      {
+        "code": "SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_03/schemas/v1/compile_finding.schema.json",
+        "passed": true
+      },
+      {
+        "code": "SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_03/schemas/v1/semantic_approval.schema.json",
+        "passed": true
+      },
+      {
+        "code": "SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_03/schemas/v1/authority_permit.schema.json",
+        "passed": true
+      },
+      {
+        "code": "SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_03/schemas/v1/extension_capability.schema.json",
+        "passed": true
+      },
+      {
+        "code": "SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_03/schemas/v1/compile_event.schema.json",
+        "passed": true
+      },
+      {
+        "code": "SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_03/schemas/v1/compatibility_report.schema.json",
+        "passed": true
+      },
+      {
+        "code": "SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_03/schemas/v1/adapter_qualification.schema.json",
+        "passed": true
+      },
+      {
+        "code": "SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_03/schemas/v1/generated_schema_index.schema.json",
+        "passed": true
+      },
+      {
+        "code": "SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_03/schemas/v1/replay_trace.schema.json",
+        "passed": true
+      },
+      {
+        "code": "SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_03/schemas/v1/onboarding_obligation.schema.json",
+        "passed": true
+      },
+      {
+        "code": "SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_03/schemas/v1/lineage_graph.schema.json",
+        "passed": true
+      },
+      {
+        "code": "SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_03/schemas/v1/security_boundary_report.schema.json",
+        "passed": true
+      },
+      {
+        "code": "SCHEMA_CLOSED",
+        "details": {},
+        "message": "registry/acl_os/acl_03/schemas/v1/extension_resolution.schema.json",
+        "passed": true
+      },
+      {
+        "code": "POLICY_COUNT",
+        "details": {},
+        "message": "14 policies",
+        "passed": true
+      },
+      {
+        "code": "POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_03/policies/v1/compiler_policy.yaml",
+        "passed": true
+      },
+      {
+        "code": "POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_03/policies/v1/source_freeze_policy.yaml",
+        "passed": true
+      },
+      {
+        "code": "POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_03/policies/v1/generated_file_policy.yaml",
+        "passed": true
+      },
+      {
+        "code": "POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_03/policies/v1/detector_ir_policy.yaml",
+        "passed": true
+      },
+      {
+        "code": "POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_03/policies/v1/occurrence_identity_policy.yaml",
+        "passed": true
+      },
+      {
+        "code": "POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_03/policies/v1/known_time_guard_policy.yaml",
+        "passed": true
+      },
+      {
+        "code": "POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_03/policies/v1/adapter_capability_policy.yaml",
+        "passed": true
+      },
+      {
+        "code": "POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_03/policies/v1/golden_replay_policy.yaml",
+        "passed": true
+      },
+      {
+        "code": "POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_03/policies/v1/onboarding_gate_policy.yaml",
+        "passed": true
+      },
+      {
+        "code": "POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_03/policies/v1/extension_capability_policy.yaml",
+        "passed": true
+      },
+      {
+        "code": "POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_03/policies/v1/security_boundary_policy.yaml",
+        "passed": true
+      },
+      {
+        "code": "POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_03/policies/v1/acl04_handoff_policy.yaml",
+        "passed": true
+      },
+      {
+        "code": "POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_03/policies/v1/claim_ceiling.yaml",
+        "passed": true
+      },
+      {
+        "code": "POLICY_PARSE",
+        "details": {},
+        "message": "registry/acl_os/acl_03/policies/v1/reason_codes.yaml",
+        "passed": true
+      },
+      {
+        "code": "PHASE_DOCS",
+        "details": {},
+        "message": "47 phase notes",
+        "passed": true
+      },
+      {
+        "code": "ATOMIC_DOCS",
+        "details": {},
+        "message": "147 atomic notes",
+        "passed": true
+      },
+      {
+        "code": "MQL5_STATIC",
+        "details": {},
+        "message": "12 files",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03Types.mqh:OrderSend(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03Types.mqh:CTrade",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03Types.mqh:PositionOpen(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03Types.mqh:WebRequest(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03Types.mqh:FileOpen(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03Types.mqh:capital_activation_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03Types.mqh:live_order_submission_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03ClaimCeiling.mqh:OrderSend(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03ClaimCeiling.mqh:CTrade",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03ClaimCeiling.mqh:PositionOpen(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03ClaimCeiling.mqh:WebRequest(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03ClaimCeiling.mqh:FileOpen(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03ClaimCeiling.mqh:capital_activation_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03ClaimCeiling.mqh:live_order_submission_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03DetectorIR.mqh:OrderSend(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03DetectorIR.mqh:CTrade",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03DetectorIR.mqh:PositionOpen(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03DetectorIR.mqh:WebRequest(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03DetectorIR.mqh:FileOpen(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03DetectorIR.mqh:capital_activation_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03DetectorIR.mqh:live_order_submission_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03OccurrenceIR.mqh:OrderSend(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03OccurrenceIR.mqh:CTrade",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03OccurrenceIR.mqh:PositionOpen(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03OccurrenceIR.mqh:WebRequest(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03OccurrenceIR.mqh:FileOpen(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03OccurrenceIR.mqh:capital_activation_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03OccurrenceIR.mqh:live_order_submission_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03KnownTimeGuard.mqh:OrderSend(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03KnownTimeGuard.mqh:CTrade",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03KnownTimeGuard.mqh:PositionOpen(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03KnownTimeGuard.mqh:WebRequest(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03KnownTimeGuard.mqh:FileOpen(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03KnownTimeGuard.mqh:capital_activation_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03KnownTimeGuard.mqh:live_order_submission_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03FeatureBinding.mqh:OrderSend(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03FeatureBinding.mqh:CTrade",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03FeatureBinding.mqh:PositionOpen(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03FeatureBinding.mqh:WebRequest(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03FeatureBinding.mqh:FileOpen(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03FeatureBinding.mqh:capital_activation_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03FeatureBinding.mqh:live_order_submission_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03AdapterContract.mqh:OrderSend(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03AdapterContract.mqh:CTrade",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03AdapterContract.mqh:PositionOpen(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03AdapterContract.mqh:WebRequest(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03AdapterContract.mqh:FileOpen(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03AdapterContract.mqh:capital_activation_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03AdapterContract.mqh:live_order_submission_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03ReplayEnvelope.mqh:OrderSend(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03ReplayEnvelope.mqh:CTrade",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03ReplayEnvelope.mqh:PositionOpen(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03ReplayEnvelope.mqh:WebRequest(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03ReplayEnvelope.mqh:FileOpen(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03ReplayEnvelope.mqh:capital_activation_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03ReplayEnvelope.mqh:live_order_submission_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03OnboardingGate.mqh:OrderSend(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03OnboardingGate.mqh:CTrade",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03OnboardingGate.mqh:PositionOpen(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03OnboardingGate.mqh:WebRequest(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03OnboardingGate.mqh:FileOpen(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03OnboardingGate.mqh:capital_activation_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03OnboardingGate.mqh:live_order_submission_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03HandoffEnvelope.mqh:OrderSend(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03HandoffEnvelope.mqh:CTrade",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03HandoffEnvelope.mqh:PositionOpen(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03HandoffEnvelope.mqh:WebRequest(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03HandoffEnvelope.mqh:FileOpen(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03HandoffEnvelope.mqh:capital_activation_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03HandoffEnvelope.mqh:live_order_submission_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03ReasonCodes.mqh:OrderSend(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03ReasonCodes.mqh:CTrade",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03ReasonCodes.mqh:PositionOpen(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03ReasonCodes.mqh:WebRequest(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03ReasonCodes.mqh:FileOpen(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03ReasonCodes.mqh:capital_activation_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03ReasonCodes.mqh:live_order_submission_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03StaticBoundary.mqh:OrderSend(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03StaticBoundary.mqh:CTrade",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03StaticBoundary.mqh:PositionOpen(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03StaticBoundary.mqh:WebRequest(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03StaticBoundary.mqh:FileOpen(",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03StaticBoundary.mqh:capital_activation_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "MQL5_NON_TRADING",
+        "details": {},
+        "message": "ACL03StaticBoundary.mqh:live_order_submission_allowed=true",
+        "passed": true
+      },
+      {
+        "code": "MODULE_SERVICE",
+        "details": {},
+        "message": "service exists",
+        "passed": true
+      },
+      {
+        "code": "VALID_FIXTURE",
+        "details": {},
+        "message": "valid compiler fixture exists",
+        "passed": true
+      }
+    ],
+    "claim_ceiling": "CONTEXT_COMPILATION_REFERENCE_ONLY",
+    "live_order_submission_allowed": false,
+    "passed": true
+  }
+}
