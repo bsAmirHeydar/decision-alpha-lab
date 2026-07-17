@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "catalog_hash": {
+      "type": "string"
+    },
+    "catalog_id": {
+      "type": "string"
+    },
+    "closed": {
+      "type": "boolean"
+    },
+    "count": {
+      "type": "integer"
+    },
+    "invariants": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "expression": {
+            "type": "string"
+          },
+          "invariant_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "expression",
+          "invariant_id",
+          "name",
+          "rationale",
+          "severity"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "catalog_hash",
+    "catalog_id",
+    "closed",
+    "count",
+    "invariants",
+    "phase",
+    "research_only"
+  ],
+  "title": "GOLDEN_INVARIANT_CATALOG",
+  "type": "object"
+}

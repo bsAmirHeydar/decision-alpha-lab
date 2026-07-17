@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "count": {
+      "type": "integer"
+    },
+    "frozen": {
+      "type": "boolean"
+    },
+    "obligations": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "claim": {
+            "type": "string"
+          },
+          "criticality": {
+            "type": "string"
+          },
+          "discharge_rule": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "obligation_id": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "targets": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "claim",
+          "criticality",
+          "discharge_rule",
+          "kind",
+          "obligation_id",
+          "owner",
+          "targets"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "count",
+    "frozen",
+    "obligations",
+    "phase",
+    "registry_hash",
+    "registry_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_PROOF_OBLIGATION_REGISTRY",
+  "type": "object"
+}

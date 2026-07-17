@@ -1,0 +1,161 @@
+{
+  "bounded_depth": 8,
+  "complete_for_reachable_finite_state_space": true,
+  "edges": [
+    {
+      "action": "discharge_proofs",
+      "authority_free": true,
+      "edge_hash": "b2540ce8897709d593022e203b41b8d452d0191ba16014fe59bcb38ea518b7d3",
+      "source_state_id": "v431_state_0a2b1c78ff15cb69a1a9d7c6",
+      "target_state_id": "v431_state_c6e981fa5bcfb516a2cd0fcd",
+      "transition_id": "T-003"
+    },
+    {
+      "action": "record_counterexample",
+      "authority_free": true,
+      "edge_hash": "0bd62e1b257d3a9abe4426cb9c83e88015e366e1e5bcff714fa7ae4b6de00e2c",
+      "source_state_id": "v431_state_0a2b1c78ff15cb69a1a9d7c6",
+      "target_state_id": "v431_state_ecf040f9911b04e7788b0260",
+      "transition_id": "T-004"
+    },
+    {
+      "action": "ingest_verified_upstream",
+      "authority_free": true,
+      "edge_hash": "63b2425b940815b61c7e7641ae233c11978887ad36de798073be6b9b0cd59561",
+      "source_state_id": "v431_state_18cddd3b5540662c27d28845",
+      "target_state_id": "v431_state_0a2b1c78ff15cb69a1a9d7c6",
+      "transition_id": "T-001"
+    },
+    {
+      "action": "ingest_unsupported_evidence",
+      "authority_free": true,
+      "edge_hash": "6f82012688134c0b9bcd98ffa7cb2fd624d59aac9f4c64523badae30dced5602",
+      "source_state_id": "v431_state_18cddd3b5540662c27d28845",
+      "target_state_id": "v431_state_0a3ff6f5435c285d20be6f91",
+      "transition_id": "T-002"
+    },
+    {
+      "action": "assemble_research_safety_case",
+      "authority_free": true,
+      "edge_hash": "91b8163ace4bd6e3fbbdd41065add57c9ec5756e99faebe7609f6fda95630a3f",
+      "source_state_id": "v431_state_c6e981fa5bcfb516a2cd0fcd",
+      "target_state_id": "v431_state_af936d057df114dee22f6ba2",
+      "transition_id": "T-005"
+    }
+  ],
+  "graph_hash": "896a6a780fe4c57fa87688e82aed5c3e492f49f16bf91b156819a72657846764",
+  "graph_id": "v431_reachability_graph_1f88607fa5513e7b4cf25e92",
+  "initial_state_id": "v431_state_18cddd3b5540662c27d28845",
+  "model_hash": "7bbd12df1713dc6da7d5dc0ce80f2161c983be1fa7eb35c6d479899e525cc190",
+  "model_id": "v431_formal_model_7bbd12df1713dc6da7d5dc0c",
+  "phase": "SAED_V4_31",
+  "research_only": true,
+  "state_count": 6,
+  "states": [
+    {
+      "shortest_transition_path": [],
+      "state_id": "v431_state_18cddd3b5540662c27d28845",
+      "terminal": false,
+      "values": {
+        "authority_zero": true,
+        "counterexample_present": false,
+        "hazards_controlled": false,
+        "proofs_discharged": false,
+        "safety_case_complete": false,
+        "stage": "IDLE",
+        "unsupported_evidence": false,
+        "upstream_verified": false
+      }
+    },
+    {
+      "shortest_transition_path": [
+        "T-001"
+      ],
+      "state_id": "v431_state_0a2b1c78ff15cb69a1a9d7c6",
+      "terminal": false,
+      "values": {
+        "authority_zero": true,
+        "counterexample_present": false,
+        "hazards_controlled": false,
+        "proofs_discharged": false,
+        "safety_case_complete": false,
+        "stage": "INGESTED",
+        "unsupported_evidence": false,
+        "upstream_verified": true
+      }
+    },
+    {
+      "shortest_transition_path": [
+        "T-001",
+        "T-003",
+        "T-005"
+      ],
+      "state_id": "v431_state_af936d057df114dee22f6ba2",
+      "terminal": true,
+      "values": {
+        "authority_zero": true,
+        "counterexample_present": false,
+        "hazards_controlled": true,
+        "proofs_discharged": true,
+        "safety_case_complete": true,
+        "stage": "QUALIFIED",
+        "unsupported_evidence": false,
+        "upstream_verified": true
+      }
+    },
+    {
+      "shortest_transition_path": [
+        "T-002"
+      ],
+      "state_id": "v431_state_0a3ff6f5435c285d20be6f91",
+      "terminal": true,
+      "values": {
+        "authority_zero": true,
+        "counterexample_present": false,
+        "hazards_controlled": false,
+        "proofs_discharged": false,
+        "safety_case_complete": false,
+        "stage": "QUARANTINED",
+        "unsupported_evidence": true,
+        "upstream_verified": false
+      }
+    },
+    {
+      "shortest_transition_path": [
+        "T-001",
+        "T-004"
+      ],
+      "state_id": "v431_state_ecf040f9911b04e7788b0260",
+      "terminal": true,
+      "values": {
+        "authority_zero": true,
+        "counterexample_present": true,
+        "hazards_controlled": false,
+        "proofs_discharged": false,
+        "safety_case_complete": false,
+        "stage": "REJECTED",
+        "unsupported_evidence": false,
+        "upstream_verified": true
+      }
+    },
+    {
+      "shortest_transition_path": [
+        "T-001",
+        "T-003"
+      ],
+      "state_id": "v431_state_c6e981fa5bcfb516a2cd0fcd",
+      "terminal": false,
+      "values": {
+        "authority_zero": true,
+        "counterexample_present": false,
+        "hazards_controlled": true,
+        "proofs_discharged": true,
+        "safety_case_complete": false,
+        "stage": "VERIFIED",
+        "unsupported_evidence": false,
+        "upstream_verified": true
+      }
+    }
+  ],
+  "transition_instance_count": 5
+}

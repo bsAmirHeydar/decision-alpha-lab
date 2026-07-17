@@ -1,0 +1,23 @@
+{
+  "authority": {
+    "counterexample_suppression": false,
+    "execution": false,
+    "external_proof_claim": false,
+    "live_trading": false,
+    "online_learning": false,
+    "production": false,
+    "promotion": false,
+    "research_decision": false,
+    "residual_risk_waiver": false,
+    "risk_allocation": false,
+    "runtime": false,
+    "specification_override": false
+  },
+  "boundary_hash": "87ebe6ac5fc4c1658affb4c6dc995c3147023c50424b3373b3891c41f4caa094",
+  "boundary_id": "v431_authority_094832ac265292815b2941d3",
+  "formal_verification_is_evidence_not_permission": true,
+  "phase": "SAED_V4_31",
+  "research_only": true,
+  "safe_action": "quarantine",
+  "ucee_authority_preserved": true
+}

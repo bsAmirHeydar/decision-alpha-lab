@@ -1,0 +1,179 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acyclic": {
+      "type": "boolean"
+    },
+    "all_nodes_reachable": {
+      "type": "boolean"
+    },
+    "edge_count": {
+      "type": "integer"
+    },
+    "edges": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "relation": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "relation",
+          "source",
+          "target"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "graph_hash": {
+      "type": "string"
+    },
+    "graph_id": {
+      "type": "string"
+    },
+    "node_count": {
+      "type": "integer"
+    },
+    "nodes": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "evidence_hashes": {
+            "additionalProperties": false,
+            "properties": {
+              "authority": {
+                "type": "string"
+              },
+              "contract_closure": {
+                "type": "string"
+              },
+              "controls": {
+                "type": "string"
+              },
+              "counterexample_ledger": {
+                "type": "string"
+              },
+              "graph": {
+                "type": "string"
+              },
+              "hazards": {
+                "type": "string"
+              },
+              "invariant_report": {
+                "type": "string"
+              },
+              "invariants": {
+                "type": "string"
+              },
+              "known_time": {
+                "type": "string"
+              },
+              "mitigation_coverage": {
+                "type": "string"
+              },
+              "model": {
+                "type": "string"
+              },
+              "mutation_scorecard": {
+                "type": "string"
+              },
+              "residual_risk": {
+                "type": "string"
+              },
+              "security": {
+                "type": "string"
+              },
+              "temporal": {
+                "type": "string"
+              },
+              "temporal_report": {
+                "type": "string"
+              },
+              "upstream": {
+                "type": "string"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "evidence_keys": {
+            "items": {},
+            "type": "array"
+          },
+          "missing_evidence_keys": {
+            "items": {},
+            "type": "array"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "node_type": {
+            "type": "string"
+          },
+          "resolved_status": {
+            "type": "string"
+          },
+          "statement": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "evidence_hashes",
+          "evidence_keys",
+          "missing_evidence_keys",
+          "node_id",
+          "node_type",
+          "resolved_status",
+          "statement",
+          "status"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "notation": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "root_goal_id": {
+      "type": "string"
+    },
+    "valid": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "acyclic",
+    "all_nodes_reachable",
+    "edge_count",
+    "edges",
+    "graph_hash",
+    "graph_id",
+    "node_count",
+    "nodes",
+    "notation",
+    "phase",
+    "research_only",
+    "root_goal_id",
+    "valid"
+  ],
+  "title": "GOLDEN_ASSURANCE_CASE_GRAPH",
+  "type": "object"
+}

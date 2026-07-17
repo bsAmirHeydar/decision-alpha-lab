@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "matrix_hash": "1f14934ad084ed61a4be1736a014bf9f86840390f608f2971c71363f54ada413",
+  "matrix_id": "v431_traceability_64b04b5ef205fbdc32eff1c7",
+  "phase": "SAED_V4_31",
+  "research_only": true,
+  "row_count": 19,
+  "rows": [
+    {
+      "bound": true,
+      "evidence_hash": "b0a1ab8ae2a0a0ce24f040c28e2b33f3750f5ccc05110decfe19282b9d310417",
+      "evidence_key": "model",
+      "node_id": "C-001"
+    },
+    {
+      "bound": true,
+      "evidence_hash": "854c3710b4c1845e6175cceb4c6e141e8db8f0a485f5f48e3dd1e9d9bb210654",
+      "evidence_key": "graph",
+      "node_id": "C-001"
+    },
+    {
+      "bound": true,
+      "evidence_hash": "d0cf119f1143a6acfd991760491ed17be19194b84edff994d9495ba60a39a146",
+      "evidence_key": "invariants",
+      "node_id": "A-001"
+    },
+    {
+      "bound": true,
+      "evidence_hash": "55bf2d468607d219b198048636e9357220c8d414f7d05450ae6d9f82b9df6fa7",
+      "evidence_key": "temporal",
+      "node_id": "A-001"
+    },
+    {
+      "bound": true,
+      "evidence_hash": "340b5d56c9c129c830a85145bd10fef134195040343d8dcdc609b6cc3bedfe93",
+      "evidence_key": "invariant_report",
+      "node_id": "SN-010"
+    },
+    {
+      "bound": true,
+      "evidence_hash": "6469ef5546c08427a92596498b8b598aeacc03f45a9281a45ce9b6c974430c7e",
+      "evidence_key": "temporal_report",
+      "node_id": "SN-011"
+    },
+    {
+      "bound": true,
+      "evidence_hash": "2fc3546ee6c4f956c34ffc276e5150d068da2d8593fcf94ec179fbea541aa942",
+      "evidence_key": "mutation_scorecard",
+      "node_id": "SN-020"
+    },
+    {
+      "bound": true,
+      "evidence_hash": "e489948573279ce264bb53868b647e06051f749192418e2fffaddd78d6e49a08",
+      "evidence_key": "counterexample_ledger",
+      "node_id": "SN-021"
+    },
+    {
+      "bound": true,
+      "evidence_hash": "d94cfc4ae5bd566c05d90464a2665e9443a212832239a87e6e4ec51b4139e28c",
+      "evidence_key": "hazards",
+      "node_id": "SN-030"
+    },
+    {
+      "bound": true,
+      "evidence_hash": "fcf11f8c7ff18b2c16b653aefad574d2d65594622e23de15cc349be9f0301994",
+      "evidence_key": "controls",
+      "node_id": "SN-030"
+    },
+    {
+      "bound": true,
+      "evidence_hash": "a84c3734f4b636a6edbf278aea796933f9d44f31c8ab6a0cb429ac593834ff66",
+      "evidence_key": "mitigation_coverage",
+      "node_id": "SN-030"
+    },
+    {
+      "bound": true,
+      "evidence_hash": "b90a2a60cf110a1360f155888b351c1f931d338bee996166e6c9ed0a6a881a9c",
+      "evidence_key": "residual_risk",
+      "node_id": "SN-031"
+    },
+    {
+      "bound": true,
+      "evidence_hash": "30635ebedf8a809a86415eb8d90424dca22599d067c31655ff4f67acfbc6a0ea",
+      "evidence_key": "contract_closure",
+      "node_id": "SN-040"
+    },
+    {
+      "bound": true,
+      "evidence_hash": "53a89bea90e1db4c33031d209818fe6dd6f1a5637e1b33f5d0f3fabc931ba490",
+      "evidence_key": "known_time",
+      "node_id": "SN-041"
+    },
+    {
+      "bound": true,
+      "evidence_hash": "3c489c04f73058378858eb4b4be23908e507adf073d1d034e55f831d277d5631",
+      "evidence_key": "security",
+      "node_id": "SN-042"
+    },
+    {
+      "bound": true,
+      "evidence_hash": "5477facb63ac84887ad1f6de4f5fe6f9acdef5d610ab9d2bf6098caddd45494c",
+      "evidence_key": "authority",
+      "node_id": "SN-050"
+    },
+    {
+      "bound": true,
+      "evidence_hash": "04a30ec46c924ac3ae7e267856f7487d7f637badb30d730ca1af8b0afa97459e",
+      "evidence_key": "upstream",
+      "node_id": "SN-051"
+    },
+    {
+      "bound": true,
+      "evidence_hash": "854c3710b4c1845e6175cceb4c6e141e8db8f0a485f5f48e3dd1e9d9bb210654",
+      "evidence_key": "graph",
+      "node_id": "J-001"
+    },
+    {
+      "bound": true,
+      "evidence_hash": "b90a2a60cf110a1360f155888b351c1f931d338bee996166e6c9ed0a6a881a9c",
+      "evidence_key": "residual_risk",
+      "node_id": "J-002"
+    }
+  ]
+}

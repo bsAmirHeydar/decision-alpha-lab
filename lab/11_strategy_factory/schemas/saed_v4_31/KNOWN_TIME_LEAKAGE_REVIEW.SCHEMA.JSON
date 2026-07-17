@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bounded_temporal_semantics_declared": {
+      "type": "boolean"
+    },
+    "future_suffix_inputs": {
+      "type": "integer"
+    },
+    "future_suffix_invariant": {
+      "type": "boolean"
+    },
+    "graph_id": {
+      "type": "string"
+    },
+    "model_id": {
+      "type": "string"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "review_hash": {
+      "type": "string"
+    },
+    "review_id": {
+      "type": "string"
+    },
+    "state_variables_known_at_transition": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "bounded_temporal_semantics_declared",
+    "future_suffix_inputs",
+    "future_suffix_invariant",
+    "graph_id",
+    "model_id",
+    "passed",
+    "phase",
+    "research_only",
+    "review_hash",
+    "review_id",
+    "state_variables_known_at_transition"
+  ],
+  "title": "KNOWN_TIME_LEAKAGE_REVIEW",
+  "type": "object"
+}

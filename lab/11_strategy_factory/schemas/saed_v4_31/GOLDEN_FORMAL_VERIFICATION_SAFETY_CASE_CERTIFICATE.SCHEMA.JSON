@@ -1,0 +1,406 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accepted_for_formal_verification_safety_case_research_reference": {
+      "type": "boolean"
+    },
+    "arbitrary_mql5_proof_claim": {
+      "type": "boolean"
+    },
+    "arbitrary_python_proof_claim": {
+      "type": "boolean"
+    },
+    "authority_boundary": {
+      "additionalProperties": false,
+      "properties": {
+        "authority": {
+          "additionalProperties": false,
+          "properties": {
+            "counterexample_suppression": {
+              "type": "boolean"
+            },
+            "execution": {
+              "type": "boolean"
+            },
+            "external_proof_claim": {
+              "type": "boolean"
+            },
+            "live_trading": {
+              "type": "boolean"
+            },
+            "online_learning": {
+              "type": "boolean"
+            },
+            "production": {
+              "type": "boolean"
+            },
+            "promotion": {
+              "type": "boolean"
+            },
+            "research_decision": {
+              "type": "boolean"
+            },
+            "residual_risk_waiver": {
+              "type": "boolean"
+            },
+            "risk_allocation": {
+              "type": "boolean"
+            },
+            "runtime": {
+              "type": "boolean"
+            },
+            "specification_override": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "counterexample_suppression",
+            "execution",
+            "external_proof_claim",
+            "live_trading",
+            "online_learning",
+            "production",
+            "promotion",
+            "research_decision",
+            "residual_risk_waiver",
+            "risk_allocation",
+            "runtime",
+            "specification_override"
+          ],
+          "type": "object"
+        },
+        "boundary_hash": {
+          "type": "string"
+        },
+        "boundary_id": {
+          "type": "string"
+        },
+        "formal_verification_is_evidence_not_permission": {
+          "type": "boolean"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "safe_action": {
+          "type": "string"
+        },
+        "ucee_authority_preserved": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "authority",
+        "boundary_hash",
+        "boundary_id",
+        "formal_verification_is_evidence_not_permission",
+        "phase",
+        "research_only",
+        "safe_action",
+        "ucee_authority_preserved"
+      ],
+      "type": "object"
+    },
+    "bounded_temporal_semantics_claim": {
+      "type": "boolean"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "claim_class": {
+      "type": "string"
+    },
+    "evidence_hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "assurance_case": {
+          "type": "string"
+        },
+        "authority": {
+          "type": "string"
+        },
+        "claim_ledger": {
+          "type": "string"
+        },
+        "constraints": {
+          "type": "string"
+        },
+        "contract_closure": {
+          "type": "string"
+        },
+        "controls": {
+          "type": "string"
+        },
+        "counterexample_ledger": {
+          "type": "string"
+        },
+        "evidence_bundle": {
+          "type": "string"
+        },
+        "graph": {
+          "type": "string"
+        },
+        "hazards": {
+          "type": "string"
+        },
+        "invariant_report": {
+          "type": "string"
+        },
+        "invariants": {
+          "type": "string"
+        },
+        "known_time": {
+          "type": "string"
+        },
+        "limitations": {
+          "type": "string"
+        },
+        "mitigation_coverage": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "model_risk": {
+          "type": "string"
+        },
+        "mutation_scorecard": {
+          "type": "string"
+        },
+        "proof_coverage": {
+          "type": "string"
+        },
+        "proof_ledger": {
+          "type": "string"
+        },
+        "proof_registry": {
+          "type": "string"
+        },
+        "replay": {
+          "type": "string"
+        },
+        "reproduction": {
+          "type": "string"
+        },
+        "residual_risk": {
+          "type": "string"
+        },
+        "security": {
+          "type": "string"
+        },
+        "temporal": {
+          "type": "string"
+        },
+        "temporal_report": {
+          "type": "string"
+        },
+        "traceability": {
+          "type": "string"
+        },
+        "upstream": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "assurance_case",
+        "authority",
+        "claim_ledger",
+        "constraints",
+        "contract_closure",
+        "controls",
+        "counterexample_ledger",
+        "evidence_bundle",
+        "graph",
+        "hazards",
+        "invariant_report",
+        "invariants",
+        "known_time",
+        "limitations",
+        "mitigation_coverage",
+        "model",
+        "model_risk",
+        "mutation_scorecard",
+        "proof_coverage",
+        "proof_ledger",
+        "proof_registry",
+        "replay",
+        "reproduction",
+        "residual_risk",
+        "security",
+        "temporal",
+        "temporal_report",
+        "traceability",
+        "upstream"
+      ],
+      "type": "object"
+    },
+    "execution_authority": {
+      "type": "boolean"
+    },
+    "external_theorem_prover_certification_claim": {
+      "type": "boolean"
+    },
+    "finite_synthetic_model_claim": {
+      "type": "boolean"
+    },
+    "gates": {
+      "additionalProperties": false,
+      "properties": {
+        "all_counterexamples_preserved": {
+          "type": "boolean"
+        },
+        "all_hazards_controlled": {
+          "type": "boolean"
+        },
+        "all_proof_obligations_discharged": {
+          "type": "boolean"
+        },
+        "assurance_case_valid": {
+          "type": "boolean"
+        },
+        "authority_zero": {
+          "type": "boolean"
+        },
+        "bounded_temporal_properties_passed": {
+          "type": "boolean"
+        },
+        "contract_closure_passed": {
+          "type": "boolean"
+        },
+        "deterministic_replay": {
+          "type": "boolean"
+        },
+        "evidence_traceability_complete": {
+          "type": "boolean"
+        },
+        "finite_model_compiled": {
+          "type": "boolean"
+        },
+        "independent_reproduction_exact": {
+          "type": "boolean"
+        },
+        "invariants_passed": {
+          "type": "boolean"
+        },
+        "known_time_passed": {
+          "type": "boolean"
+        },
+        "model_risk_passed": {
+          "type": "boolean"
+        },
+        "mutation_adequacy_passed": {
+          "type": "boolean"
+        },
+        "reachable_state_space_complete": {
+          "type": "boolean"
+        },
+        "residual_risk_within_reference_threshold": {
+          "type": "boolean"
+        },
+        "security_passed": {
+          "type": "boolean"
+        },
+        "upstream_verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "all_counterexamples_preserved",
+        "all_hazards_controlled",
+        "all_proof_obligations_discharged",
+        "assurance_case_valid",
+        "authority_zero",
+        "bounded_temporal_properties_passed",
+        "contract_closure_passed",
+        "deterministic_replay",
+        "evidence_traceability_complete",
+        "finite_model_compiled",
+        "independent_reproduction_exact",
+        "invariants_passed",
+        "known_time_passed",
+        "model_risk_passed",
+        "mutation_adequacy_passed",
+        "reachable_state_space_complete",
+        "residual_risk_within_reference_threshold",
+        "security_passed",
+        "upstream_verified"
+      ],
+      "type": "object"
+    },
+    "general_program_correctness_claim": {
+      "type": "boolean"
+    },
+    "live_trading_authority": {
+      "type": "boolean"
+    },
+    "online_learning_authority": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authority": {
+      "type": "boolean"
+    },
+    "promotion_authority": {
+      "type": "boolean"
+    },
+    "prospective_success_claim": {
+      "type": "boolean"
+    },
+    "real_alpha_claim": {
+      "type": "boolean"
+    },
+    "real_market_correctness_claim": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "risk_allocation_authority": {
+      "type": "boolean"
+    },
+    "runtime_executable": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "accepted_for_formal_verification_safety_case_research_reference",
+    "arbitrary_mql5_proof_claim",
+    "arbitrary_python_proof_claim",
+    "authority_boundary",
+    "bounded_temporal_semantics_claim",
+    "certificate_hash",
+    "certificate_id",
+    "claim_class",
+    "evidence_hashes",
+    "execution_authority",
+    "external_theorem_prover_certification_claim",
+    "finite_synthetic_model_claim",
+    "gates",
+    "general_program_correctness_claim",
+    "live_trading_authority",
+    "online_learning_authority",
+    "phase",
+    "production_authority",
+    "promotion_authority",
+    "prospective_success_claim",
+    "real_alpha_claim",
+    "real_market_correctness_claim",
+    "research_only",
+    "risk_allocation_authority",
+    "runtime_executable",
+    "version"
+  ],
+  "title": "GOLDEN_FORMAL_VERIFICATION_SAFETY_CASE_CERTIFICATE",
+  "type": "object"
+}

@@ -1,0 +1,15 @@
+{
+  "artifact_hash_binding": true,
+  "builtins_disabled": true,
+  "dynamic_imports": false,
+  "expression_ast_allowlist": true,
+  "network_access": false,
+  "order_api_access": false,
+  "passed": true,
+  "phase": "SAED_V4_31",
+  "research_only": true,
+  "review_hash": "7b220bf8c822c781e35a902ea2dd7b6b586e75584770009b3fa1e77f9f940f7d",
+  "review_id": "v431_security_43d22e7047368612dbe12460",
+  "subprocess_access": false,
+  "untrusted_external_solver_output": false
+}

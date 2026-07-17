@@ -1,0 +1,120 @@
+{
+  "all_hazards_controlled": true,
+  "hazard_count": 10,
+  "matrix_hash": "6dfa202527fb31cde1287d49aab623dbea3314ae1f95b4e0b10d2f49ba29dfe9",
+  "matrix_id": "v431_mitigation_coverage_ee976c012777297b75e1d6cf",
+  "phase": "SAED_V4_31",
+  "research_only": true,
+  "rows": [
+    {
+      "control_ids": [
+        "CTRL-001",
+        "CTRL-002"
+      ],
+      "controlled": true,
+      "hazard_id": "HZ-001",
+      "missing_controls": [],
+      "missing_obligations": [],
+      "unverified_controls": []
+    },
+    {
+      "control_ids": [
+        "CTRL-002",
+        "CTRL-012"
+      ],
+      "controlled": true,
+      "hazard_id": "HZ-002",
+      "missing_controls": [],
+      "missing_obligations": [],
+      "unverified_controls": []
+    },
+    {
+      "control_ids": [
+        "CTRL-003",
+        "CTRL-007"
+      ],
+      "controlled": true,
+      "hazard_id": "HZ-003",
+      "missing_controls": [],
+      "missing_obligations": [],
+      "unverified_controls": []
+    },
+    {
+      "control_ids": [
+        "CTRL-004",
+        "CTRL-006"
+      ],
+      "controlled": true,
+      "hazard_id": "HZ-004",
+      "missing_controls": [],
+      "missing_obligations": [],
+      "unverified_controls": []
+    },
+    {
+      "control_ids": [
+        "CTRL-005",
+        "CTRL-008"
+      ],
+      "controlled": true,
+      "hazard_id": "HZ-005",
+      "missing_controls": [],
+      "missing_obligations": [],
+      "unverified_controls": []
+    },
+    {
+      "control_ids": [
+        "CTRL-006",
+        "CTRL-009"
+      ],
+      "controlled": true,
+      "hazard_id": "HZ-006",
+      "missing_controls": [],
+      "missing_obligations": [],
+      "unverified_controls": []
+    },
+    {
+      "control_ids": [
+        "CTRL-007",
+        "CTRL-011"
+      ],
+      "controlled": true,
+      "hazard_id": "HZ-007",
+      "missing_controls": [],
+      "missing_obligations": [],
+      "unverified_controls": []
+    },
+    {
+      "control_ids": [
+        "CTRL-008",
+        "CTRL-010"
+      ],
+      "controlled": true,
+      "hazard_id": "HZ-008",
+      "missing_controls": [],
+      "missing_obligations": [],
+      "unverified_controls": []
+    },
+    {
+      "control_ids": [
+        "CTRL-009",
+        "CTRL-012"
+      ],
+      "controlled": true,
+      "hazard_id": "HZ-009",
+      "missing_controls": [],
+      "missing_obligations": [],
+      "unverified_controls": []
+    },
+    {
+      "control_ids": [
+        "CTRL-010",
+        "CTRL-008"
+      ],
+      "controlled": true,
+      "hazard_id": "HZ-010",
+      "missing_controls": [],
+      "missing_obligations": [],
+      "unverified_controls": []
+    }
+  ]
+}

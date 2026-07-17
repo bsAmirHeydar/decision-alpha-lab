@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "catalog_id": {
+      "type": "string"
+    },
+    "checked_state_count": {
+      "type": "integer"
+    },
+    "model_id": {
+      "type": "string"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "results": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "counterexamples": {
+            "items": {},
+            "type": "array"
+          },
+          "failure_count": {
+            "type": "integer"
+          },
+          "invariant_id": {
+            "type": "string"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "severity": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "counterexamples",
+          "failure_count",
+          "invariant_id",
+          "passed",
+          "severity"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "catalog_id",
+    "checked_state_count",
+    "model_id",
+    "passed",
+    "phase",
+    "report_hash",
+    "report_id",
+    "research_only",
+    "results"
+  ],
+  "title": "GOLDEN_INVARIANT_VERIFICATION_REPORT",
+  "type": "object"
+}

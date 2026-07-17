@@ -1,0 +1,156 @@
+{
+  "catalog_hash": "b6b343131e8d356ed6d4c4f25e3ff97622af0e5b0f33aa11a877886831cda965",
+  "catalog_id": "v431_control_catalog_f90be9a9dbf3b211a9af164c",
+  "closed": true,
+  "controls": [
+    {
+      "constraint": "Every authority flag SHALL remain false in every state and artifact.",
+      "control_id": "CTRL-001",
+      "effectiveness": 0.99,
+      "failure_action": "quarantine",
+      "owner": "governance_owner",
+      "title": "Zero authority boundary",
+      "verification_ids": [
+        "INV-001",
+        "TMP-001",
+        "TMP-011",
+        "AUTHORITY-ZERO"
+      ]
+    },
+    {
+      "constraint": "Qualification SHALL require verified upstream, discharged proofs, controlled hazards and zero authority.",
+      "control_id": "CTRL-002",
+      "effectiveness": 0.96,
+      "failure_action": "reject",
+      "owner": "formal_methods_owner",
+      "title": "Qualification precondition gate",
+      "verification_ids": [
+        "INV-002",
+        "INV-003",
+        "INV-004",
+        "INV-005",
+        "TMP-002"
+      ]
+    },
+    {
+      "constraint": "Unsupported evidence SHALL be marked and quarantined.",
+      "control_id": "CTRL-003",
+      "effectiveness": 0.95,
+      "failure_action": "quarantine",
+      "owner": "evidence_owner",
+      "title": "Unsupported evidence quarantine",
+      "verification_ids": [
+        "INV-006",
+        "TMP-008",
+        "TMP-012"
+      ]
+    },
+    {
+      "constraint": "Every counterexample SHALL be retained and SHALL block qualification.",
+      "control_id": "CTRL-004",
+      "effectiveness": 0.96,
+      "failure_action": "reject",
+      "owner": "formal_methods_owner",
+      "title": "Counterexample preservation",
+      "verification_ids": [
+        "INV-007",
+        "INV-009",
+        "TMP-007",
+        "TMP-010"
+      ]
+    },
+    {
+      "constraint": "Qualified, rejected and quarantined states SHALL have no outgoing transition.",
+      "control_id": "CTRL-005",
+      "effectiveness": 0.92,
+      "failure_action": "quarantine",
+      "owner": "architecture_owner",
+      "title": "Terminal immutability",
+      "verification_ids": [
+        "TMP-005"
+      ]
+    },
+    {
+      "constraint": "The seeded mutation suite SHALL have no survivors.",
+      "control_id": "CTRL-006",
+      "effectiveness": 0.9,
+      "failure_action": "reject",
+      "owner": "qa_owner",
+      "title": "Mutation adequacy",
+      "verification_ids": [
+        "MUTATION-100"
+      ]
+    },
+    {
+      "constraint": "Every golden artifact SHALL reject unknown fields.",
+      "control_id": "CTRL-007",
+      "effectiveness": 0.94,
+      "failure_action": "quarantine",
+      "owner": "schema_owner",
+      "title": "Closed contract enforcement",
+      "verification_ids": [
+        "CONTRACT-CLOSED"
+      ]
+    },
+    {
+      "constraint": "Two isolated runs SHALL produce identical evidence hashes.",
+      "control_id": "CTRL-008",
+      "effectiveness": 0.93,
+      "failure_action": "reject",
+      "owner": "reproducibility_owner",
+      "title": "Deterministic replay",
+      "verification_ids": [
+        "REPLAY-DETERMINISTIC",
+        "REPRODUCTION-EXACT"
+      ]
+    },
+    {
+      "constraint": "Every assurance claim SHALL be supported by hash-bound evidence.",
+      "control_id": "CTRL-009",
+      "effectiveness": 0.91,
+      "failure_action": "reject",
+      "owner": "safety_case_owner",
+      "title": "Assurance traceability",
+      "verification_ids": [
+        "ASSURANCE-VALID"
+      ]
+    },
+    {
+      "constraint": "No future suffix SHALL influence the bounded verification input.",
+      "control_id": "CTRL-010",
+      "effectiveness": 0.9,
+      "failure_action": "quarantine",
+      "owner": "data_governance_owner",
+      "title": "Known-time closure",
+      "verification_ids": [
+        "REPLAY-DETERMINISTIC"
+      ]
+    },
+    {
+      "constraint": "Property expressions SHALL use an AST allowlist with builtins disabled.",
+      "control_id": "CTRL-011",
+      "effectiveness": 0.93,
+      "failure_action": "quarantine",
+      "owner": "security_owner",
+      "title": "Safe expression evaluation",
+      "verification_ids": [
+        "CONTRACT-CLOSED"
+      ]
+    },
+    {
+      "constraint": "Any residual risk above threshold SHALL block certificate acceptance.",
+      "control_id": "CTRL-012",
+      "effectiveness": 0.9,
+      "failure_action": "reject",
+      "owner": "model_risk_owner",
+      "title": "Residual-risk fail closed",
+      "verification_ids": [
+        "INV-002",
+        "TMP-002"
+      ]
+    }
+  ],
+  "count": 12,
+  "phase": "SAED_V4_31",
+  "research_only": true
+}

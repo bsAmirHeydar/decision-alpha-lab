@@ -1,0 +1,19 @@
+{
+  "limitations": [
+    "finite_explicit_state_model_only",
+    "bounded_temporal_semantics_only",
+    "synthetic_reference_model_only",
+    "no_arbitrary_python_or_mql5_program_proof",
+    "no_external_theorem_prover_certificate",
+    "no_real_market_correctness_claim"
+  ],
+  "model_reality_gap": "declared",
+  "passed": true,
+  "phase": "SAED_V4_31",
+  "proof_soundness_scope": "closed_reference_semantics",
+  "research_only": true,
+  "review_hash": "2dbe8113d361bcda9a96f75fa00013c77d93c08ba8a976ef5894da5a3127304d",
+  "review_id": "v431_model_risk_7833619627a618be354c26e3",
+  "specification_error_risk": "declared",
+  "state_explosion_risk": "declared"
+}

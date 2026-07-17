@@ -1,0 +1,134 @@
+[
+  {
+    "bound": 0,
+    "expression": "authority_zero",
+    "kind": "always",
+    "name": "Always zero authority",
+    "property_id": "TMP-001",
+    "rationale": "No reachable state may acquire authority.",
+    "severity": "catastrophic",
+    "target": "False",
+    "trigger": "False"
+  },
+  {
+    "bound": 0,
+    "expression": "stage == 'QUALIFIED' and (not upstream_verified or not proofs_discharged or not hazards_controlled or not authority_zero or unsupported_evidence or counterexample_present)",
+    "kind": "never",
+    "name": "Never unsafe qualification",
+    "property_id": "TMP-002",
+    "rationale": "Unsafe qualification is unreachable.",
+    "severity": "critical",
+    "target": "False",
+    "trigger": "False"
+  },
+  {
+    "bound": 1,
+    "expression": "False",
+    "kind": "leads_to_within",
+    "name": "Ingested resolves in one step",
+    "property_id": "TMP-003",
+    "rationale": "No unresolved ingested state.",
+    "severity": "high",
+    "target": "stage == 'VERIFIED' or stage == 'REJECTED' or stage == 'QUARANTINED'",
+    "trigger": "stage == 'INGESTED'"
+  },
+  {
+    "bound": 1,
+    "expression": "False",
+    "kind": "leads_to_within",
+    "name": "Verified resolves in one step",
+    "property_id": "TMP-004",
+    "rationale": "No unresolved verified state.",
+    "severity": "high",
+    "target": "stage == 'QUALIFIED' or stage == 'QUARANTINED'",
+    "trigger": "stage == 'VERIFIED'"
+  },
+  {
+    "bound": 0,
+    "expression": "stage == 'QUALIFIED' or stage == 'REJECTED' or stage == 'QUARANTINED'",
+    "kind": "terminal",
+    "name": "Terminal states are terminal",
+    "property_id": "TMP-005",
+    "rationale": "No post-decision mutation.",
+    "severity": "critical",
+    "target": "False",
+    "trigger": "False"
+  },
+  {
+    "bound": 0,
+    "expression": "stage == 'QUALIFIED'",
+    "kind": "reachable",
+    "name": "Qualified state is reachable",
+    "property_id": "TMP-006",
+    "rationale": "Positive reference path exists.",
+    "severity": "high",
+    "target": "False",
+    "trigger": "False"
+  },
+  {
+    "bound": 0,
+    "expression": "stage == 'REJECTED'",
+    "kind": "reachable",
+    "name": "Rejected state is reachable",
+    "property_id": "TMP-007",
+    "rationale": "Counterexample rejection path exists.",
+    "severity": "high",
+    "target": "False",
+    "trigger": "False"
+  },
+  {
+    "bound": 0,
+    "expression": "stage == 'QUARANTINED'",
+    "kind": "reachable",
+    "name": "Quarantine state is reachable",
+    "property_id": "TMP-008",
+    "rationale": "Fail-closed path exists.",
+    "severity": "high",
+    "target": "False",
+    "trigger": "False"
+  },
+  {
+    "bound": 0,
+    "expression": "action != 'assemble_research_safety_case' or (post_stage == 'QUALIFIED' and post_safety_case_complete)",
+    "kind": "transition_always",
+    "name": "Safety case action completes flag",
+    "property_id": "TMP-009",
+    "rationale": "Qualification transition must complete safety case.",
+    "severity": "critical",
+    "target": "False",
+    "trigger": "False"
+  },
+  {
+    "bound": 0,
+    "expression": "action != 'record_counterexample' or (post_stage == 'REJECTED' and post_counterexample_present)",
+    "kind": "transition_always",
+    "name": "Counterexample action rejects",
+    "property_id": "TMP-010",
+    "rationale": "Counterexample cannot be discarded.",
+    "severity": "critical",
+    "target": "False",
+    "trigger": "False"
+  },
+  {
+    "bound": 0,
+    "expression": "post_authority_zero",
+    "kind": "transition_always",
+    "name": "Every transition preserves authority",
+    "property_id": "TMP-011",
+    "rationale": "No transition grants authority.",
+    "severity": "catastrophic",
+    "target": "False",
+    "trigger": "False"
+  },
+  {
+    "bound": 0,
+    "expression": "action != 'ingest_unsupported_evidence' or (post_stage == 'QUARANTINED' and post_unsupported_evidence)",
+    "kind": "transition_always",
+    "name": "Unsupported ingestion quarantines",
+    "property_id": "TMP-012",
+    "rationale": "Unsupported evidence fails closed.",
+    "severity": "critical",
+    "target": "False",
+    "trigger": "False"
+  }
+]

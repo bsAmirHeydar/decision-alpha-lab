@@ -1,0 +1,45 @@
+{
+  "allowed_next_work": [
+    "multi_agent_role_constitution",
+    "agent_authority_lattice",
+    "proposal_review_execution_separation",
+    "debate_and_dissent_protocol",
+    "agent_evidence_provenance",
+    "formal_safety_constraint_binding",
+    "human_approval_boundary"
+  ],
+  "authority": {
+    "execution": false,
+    "live_trading": false,
+    "online_learning": false,
+    "production": false,
+    "promotion": false,
+    "risk_allocation": false,
+    "runtime": false
+  },
+  "certificate_hash": "202d3289991f61854818c05e91172557a7647782b76bb7ec91e3267914dc22ac",
+  "certificate_id": "v431_safety_case_certificate_feebba4cd911e125072e3eef",
+  "entry_gates": {
+    "authority_zero": true,
+    "formal_verification_reference_accepted": true,
+    "proof_obligations_discharged": true,
+    "research_only": true,
+    "safety_case_valid": true
+  },
+  "forbidden_next_work": [
+    "grant_execution_authority_to_agent",
+    "grant_promotion_authority_to_agent",
+    "agent_self_modification_in_production",
+    "suppress_counterexamples",
+    "waive_residual_risk",
+    "runtime_compilation",
+    "risk_allocation",
+    "order_submission",
+    "production_release"
+  ],
+  "handoff_hash": "6cc175e203935746566b8def83a3ad4f79637e99efe6ad834df7628ed73e9780",
+  "handoff_id": "v4_31_to_v4_32_73a13a51d173f4e137fbccbc",
+  "next_phase": "SAED_V4_32",
+  "phase": "SAED_V4_31",
+  "research_only": true
+}

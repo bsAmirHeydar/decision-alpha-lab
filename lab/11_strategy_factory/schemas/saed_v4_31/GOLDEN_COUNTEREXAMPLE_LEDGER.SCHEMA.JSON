@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_failures_preserved": {
+      "type": "boolean"
+    },
+    "counterexample_discard_allowed": {
+      "type": "boolean"
+    },
+    "entries": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "counterexamples": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "bound": {
+                  "type": "integer"
+                },
+                "path": {
+                  "items": {},
+                  "type": "array"
+                },
+                "reason": {
+                  "type": "string"
+                },
+                "source_state_id": {
+                  "type": "string"
+                },
+                "state_id": {
+                  "type": "string"
+                },
+                "target_state_id": {
+                  "type": "string"
+                },
+                "transition_id": {
+                  "type": "string"
+                },
+                "values": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "authority_zero": {
+                      "type": "boolean"
+                    },
+                    "counterexample_present": {
+                      "type": "boolean"
+                    },
+                    "hazards_controlled": {
+                      "type": "boolean"
+                    },
+                    "proofs_discharged": {
+                      "type": "boolean"
+                    },
+                    "safety_case_complete": {
+                      "type": "boolean"
+                    },
+                    "stage": {
+                      "type": "string"
+                    },
+                    "unsupported_evidence": {
+                      "type": "boolean"
+                    },
+                    "upstream_verified": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "authority_zero",
+                    "counterexample_present",
+                    "hazards_controlled",
+                    "proofs_discharged",
+                    "safety_case_complete",
+                    "stage",
+                    "unsupported_evidence",
+                    "upstream_verified"
+                  ],
+                  "type": "object"
+                }
+              },
+              "required": [],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "detector_id": {
+            "type": "string"
+          },
+          "minimal_by_breadth_first_reachability": {
+            "type": "boolean"
+          },
+          "mutation_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "counterexamples",
+          "detector_id",
+          "minimal_by_breadth_first_reachability",
+          "mutation_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "entry_count": {
+      "type": "integer"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "all_failures_preserved",
+    "counterexample_discard_allowed",
+    "entries",
+    "entry_count",
+    "ledger_hash",
+    "ledger_id",
+    "phase",
+    "research_only"
+  ],
+  "title": "GOLDEN_COUNTEREXAMPLE_LEDGER",
+  "type": "object"
+}

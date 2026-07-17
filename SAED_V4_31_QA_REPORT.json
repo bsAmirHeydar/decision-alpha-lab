@@ -1,0 +1,26 @@
+{
+  "assurance_case_valid": true,
+  "authority_boundary_passed": true,
+  "bounded_temporal_passed": true,
+  "closed_schema_pairs": 31,
+  "elapsed_seconds": 0.0,
+  "external_evidence": {
+    "broker_qualification": "not_claimed",
+    "external_theorem_prover_certification": "not_claimed",
+    "general_program_proof": "not_claimed",
+    "metaeditor_compile": "pending_local_windows",
+    "runtime_parity": "not_claimed"
+  },
+  "future_suffix_invariance_passed": true,
+  "golden_artifacts": 31,
+  "hazard_control_coverage_passed": true,
+  "model_checking_passed": true,
+  "mql5_static_files": 22,
+  "mutation_score": 1.0,
+  "obsidian_notes": 292,
+  "passed": true,
+  "phase": "SAED_V4_31",
+  "proof_obligations_discharged": true,
+  "python_tests": 302,
+  "version": "1.0.0"
+}

@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "arbitrary_mql5_proof": {
+      "type": "boolean"
+    },
+    "arbitrary_python_proof": {
+      "type": "boolean"
+    },
+    "bounded_temporal_only": {
+      "type": "boolean"
+    },
+    "external_theorem_prover_certification": {
+      "type": "boolean"
+    },
+    "finite_state_only": {
+      "type": "boolean"
+    },
+    "general_program_proof": {
+      "type": "boolean"
+    },
+    "model_reality_gap_eliminated": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_safety_case": {
+      "type": "boolean"
+    },
+    "real_market_correctness": {
+      "type": "boolean"
+    },
+    "register_hash": {
+      "type": "string"
+    },
+    "register_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "specification_correctness_proven": {
+      "type": "boolean"
+    },
+    "state_explosion_resolved": {
+      "type": "boolean"
+    },
+    "synthetic_reference_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "arbitrary_mql5_proof",
+    "arbitrary_python_proof",
+    "bounded_temporal_only",
+    "external_theorem_prover_certification",
+    "finite_state_only",
+    "general_program_proof",
+    "model_reality_gap_eliminated",
+    "phase",
+    "production_safety_case",
+    "real_market_correctness",
+    "register_hash",
+    "register_id",
+    "research_only",
+    "specification_correctness_proven",
+    "state_explosion_resolved",
+    "synthetic_reference_only"
+  ],
+  "title": "FORMAL_METHOD_LIMITATIONS",
+  "type": "object"
+}

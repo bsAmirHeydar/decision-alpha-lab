@@ -1,0 +1,9 @@
+{
+  "claim_ceiling": "finite_synthetic_model_bounded_formal_verification_and_safety_case_research_reference_only",
+  "closed_contracts": true,
+  "fail_closed": true,
+  "phase": "SAED_V4_31",
+  "required_mutation_score": 1.0,
+  "research_only": true,
+  "version": "1.0.0"
+}

@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "complete": {
+      "type": "boolean"
+    },
+    "hazard_controlled": {
+      "type": "integer"
+    },
+    "hazard_total": {
+      "type": "integer"
+    },
+    "invariant_passed": {
+      "type": "integer"
+    },
+    "invariant_total": {
+      "type": "integer"
+    },
+    "matrix_hash": {
+      "type": "string"
+    },
+    "matrix_id": {
+      "type": "string"
+    },
+    "mutation_score": {
+      "type": "number"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "proof_obligation_discharged": {
+      "type": "integer"
+    },
+    "proof_obligation_total": {
+      "type": "integer"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "temporal_passed": {
+      "type": "integer"
+    },
+    "temporal_total": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "complete",
+    "hazard_controlled",
+    "hazard_total",
+    "invariant_passed",
+    "invariant_total",
+    "matrix_hash",
+    "matrix_id",
+    "mutation_score",
+    "phase",
+    "proof_obligation_discharged",
+    "proof_obligation_total",
+    "research_only",
+    "temporal_passed",
+    "temporal_total"
+  ],
+  "title": "GOLDEN_PROOF_COVERAGE_MATRIX",
+  "type": "object"
+}

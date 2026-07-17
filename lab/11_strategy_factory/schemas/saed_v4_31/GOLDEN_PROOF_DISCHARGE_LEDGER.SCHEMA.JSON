@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_discharged": {
+      "type": "boolean"
+    },
+    "discharged_count": {
+      "type": "integer"
+    },
+    "fail_closed": {
+      "type": "boolean"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "statuses": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "criticality": {
+            "type": "string"
+          },
+          "evidence_hashes": {
+            "additionalProperties": false,
+            "properties": {
+              "assurance_case": {
+                "type": "string"
+              },
+              "authority": {
+                "type": "string"
+              },
+              "contract_closure": {
+                "type": "string"
+              },
+              "invariant_report": {
+                "type": "string"
+              },
+              "mitigation_coverage": {
+                "type": "string"
+              },
+              "mutation_scorecard": {
+                "type": "string"
+              },
+              "replay": {
+                "type": "string"
+              },
+              "reproduction": {
+                "type": "string"
+              },
+              "residual_risk": {
+                "type": "string"
+              },
+              "temporal_report": {
+                "type": "string"
+              },
+              "traceability": {
+                "type": "string"
+              },
+              "upstream": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "assurance_case",
+              "authority",
+              "contract_closure",
+              "invariant_report",
+              "mitigation_coverage",
+              "mutation_scorecard",
+              "replay",
+              "reproduction",
+              "residual_risk",
+              "temporal_report",
+              "traceability",
+              "upstream"
+            ],
+            "type": "object"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "obligation_id": {
+            "type": "string"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "targets": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "criticality",
+          "evidence_hashes",
+          "kind",
+          "obligation_id",
+          "passed",
+          "targets"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "total_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "all_discharged",
+    "discharged_count",
+    "fail_closed",
+    "ledger_hash",
+    "ledger_id",
+    "phase",
+    "registry_id",
+    "research_only",
+    "statuses",
+    "total_count"
+  ],
+  "title": "GOLDEN_PROOF_DISCHARGE_LEDGER",
+  "type": "object"
+}

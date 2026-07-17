@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bounded_semantics": {
+      "type": "boolean"
+    },
+    "catalog_hash": {
+      "type": "string"
+    },
+    "catalog_id": {
+      "type": "string"
+    },
+    "closed": {
+      "type": "boolean"
+    },
+    "count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "properties": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "bound": {
+            "type": "integer"
+          },
+          "expression": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "property_id": {
+            "type": "string"
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "trigger": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "bound",
+          "expression",
+          "kind",
+          "name",
+          "property_id",
+          "rationale",
+          "severity",
+          "target",
+          "trigger"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "bounded_semantics",
+    "catalog_hash",
+    "catalog_id",
+    "closed",
+    "count",
+    "phase",
+    "properties",
+    "research_only"
+  ],
+  "title": "GOLDEN_TEMPORAL_PROPERTY_CATALOG",
+  "type": "object"
+}

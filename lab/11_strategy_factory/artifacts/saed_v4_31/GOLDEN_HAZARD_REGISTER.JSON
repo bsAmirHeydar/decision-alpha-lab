@@ -1,0 +1,179 @@
+{
+  "count": 10,
+  "hazards": [
+    {
+      "acceptance_threshold": 2.0,
+      "control_ids": [
+        "CTRL-001",
+        "CTRL-002"
+      ],
+      "detectability": 4,
+      "hazard_id": "HZ-001",
+      "likelihood": 2,
+      "proof_obligation_ids": [
+        "PO-001",
+        "PO-011"
+      ],
+      "severity": 5,
+      "title": "Unauthorized execution authority",
+      "unsafe_control_action": "Formal evidence is treated as execution permission."
+    },
+    {
+      "acceptance_threshold": 2.0,
+      "control_ids": [
+        "CTRL-002",
+        "CTRL-012"
+      ],
+      "detectability": 4,
+      "hazard_id": "HZ-002",
+      "likelihood": 2,
+      "proof_obligation_ids": [
+        "PO-002",
+        "PO-004",
+        "PO-009"
+      ],
+      "severity": 5,
+      "title": "Unsafe qualification",
+      "unsafe_control_action": "A candidate qualifies without all safety preconditions."
+    },
+    {
+      "acceptance_threshold": 2.0,
+      "control_ids": [
+        "CTRL-003",
+        "CTRL-007"
+      ],
+      "detectability": 4,
+      "hazard_id": "HZ-003",
+      "likelihood": 2,
+      "proof_obligation_ids": [
+        "PO-012",
+        "PO-015"
+      ],
+      "severity": 5,
+      "title": "Unsupported evidence acceptance",
+      "unsafe_control_action": "Malformed or unsupported upstream evidence is accepted."
+    },
+    {
+      "acceptance_threshold": 2.0,
+      "control_ids": [
+        "CTRL-004",
+        "CTRL-006"
+      ],
+      "detectability": 4,
+      "hazard_id": "HZ-004",
+      "likelihood": 2,
+      "proof_obligation_ids": [
+        "PO-007",
+        "PO-008"
+      ],
+      "severity": 5,
+      "title": "Counterexample suppression",
+      "unsafe_control_action": "A failing trace is discarded or bypassed."
+    },
+    {
+      "acceptance_threshold": 2.0,
+      "control_ids": [
+        "CTRL-005",
+        "CTRL-008"
+      ],
+      "detectability": 4,
+      "hazard_id": "HZ-005",
+      "likelihood": 2,
+      "proof_obligation_ids": [
+        "PO-005",
+        "PO-013"
+      ],
+      "severity": 4,
+      "title": "Post-decision mutation",
+      "unsafe_control_action": "A terminal safety decision is mutated after issuance."
+    },
+    {
+      "acceptance_threshold": 2.0,
+      "control_ids": [
+        "CTRL-006",
+        "CTRL-009"
+      ],
+      "detectability": 3,
+      "hazard_id": "HZ-006",
+      "likelihood": 3,
+      "proof_obligation_ids": [
+        "PO-008",
+        "PO-010"
+      ],
+      "severity": 4,
+      "title": "Specification under-testing",
+      "unsafe_control_action": "The verifier passes while seeded critical defects survive."
+    },
+    {
+      "acceptance_threshold": 2.0,
+      "control_ids": [
+        "CTRL-007",
+        "CTRL-011"
+      ],
+      "detectability": 4,
+      "hazard_id": "HZ-007",
+      "likelihood": 2,
+      "proof_obligation_ids": [
+        "PO-015"
+      ],
+      "severity": 5,
+      "title": "Schema or expression injection",
+      "unsafe_control_action": "Unknown fields or unsafe expressions alter verification semantics."
+    },
+    {
+      "acceptance_threshold": 2.0,
+      "control_ids": [
+        "CTRL-008",
+        "CTRL-010"
+      ],
+      "detectability": 4,
+      "hazard_id": "HZ-008",
+      "likelihood": 2,
+      "proof_obligation_ids": [
+        "PO-013",
+        "PO-014"
+      ],
+      "severity": 4,
+      "title": "Non-deterministic evidence",
+      "unsafe_control_action": "Repeated verification produces different artifacts."
+    },
+    {
+      "acceptance_threshold": 2.0,
+      "control_ids": [
+        "CTRL-009",
+        "CTRL-012"
+      ],
+      "detectability": 4,
+      "hazard_id": "HZ-009",
+      "likelihood": 2,
+      "proof_obligation_ids": [
+        "PO-010",
+        "PO-009"
+      ],
+      "severity": 4,
+      "title": "Incomplete assurance case",
+      "unsafe_control_action": "A top-level safety claim lacks supporting evidence."
+    },
+    {
+      "acceptance_threshold": 2.0,
+      "control_ids": [
+        "CTRL-010",
+        "CTRL-008"
+      ],
+      "detectability": 4,
+      "hazard_id": "HZ-010",
+      "likelihood": 2,
+      "proof_obligation_ids": [
+        "PO-013"
+      ],
+      "severity": 5,
+      "title": "Future-suffix contamination",
+      "unsafe_control_action": "Information unavailable at transition time changes the result."
+    }
+  ],
+  "method": "closed_stpa_fmea_hybrid_reference",
+  "phase": "SAED_V4_31",
+  "register_hash": "20f56102f42db7985491500e96ee382e32a087b28de7751b2dd07cf224c47ec4",
+  "register_id": "v431_hazard_register_88bd5ec6ed8543746c09379a",
+  "research_only": true
+}

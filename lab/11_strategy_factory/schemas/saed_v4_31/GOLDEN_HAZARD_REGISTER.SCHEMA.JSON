@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "count": {
+      "type": "integer"
+    },
+    "hazards": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "acceptance_threshold": {
+            "type": "number"
+          },
+          "control_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "detectability": {
+            "type": "integer"
+          },
+          "hazard_id": {
+            "type": "string"
+          },
+          "likelihood": {
+            "type": "integer"
+          },
+          "proof_obligation_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "severity": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "unsafe_control_action": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "acceptance_threshold",
+          "control_ids",
+          "detectability",
+          "hazard_id",
+          "likelihood",
+          "proof_obligation_ids",
+          "severity",
+          "title",
+          "unsafe_control_action"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "method": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "register_hash": {
+      "type": "string"
+    },
+    "register_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "count",
+    "hazards",
+    "method",
+    "phase",
+    "register_hash",
+    "register_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_HAZARD_REGISTER",
+  "type": "object"
+}

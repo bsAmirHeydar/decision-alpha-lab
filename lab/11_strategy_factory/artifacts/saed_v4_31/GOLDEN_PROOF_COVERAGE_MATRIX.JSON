@@ -1,0 +1,16 @@
+{
+  "complete": true,
+  "hazard_controlled": 10,
+  "hazard_total": 10,
+  "invariant_passed": 14,
+  "invariant_total": 14,
+  "matrix_hash": "6a302bb759f7b4cf28346b81e5bef21f11ed78f2bf375fa3f2880441b3bbe944",
+  "matrix_id": "v431_proof_coverage_d9b7ffcfb4db996fa9cd0e02",
+  "mutation_score": 1.0,
+  "phase": "SAED_V4_31",
+  "proof_obligation_discharged": 15,
+  "proof_obligation_total": 15,
+  "research_only": true,
+  "temporal_passed": 12,
+  "temporal_total": 12
+}

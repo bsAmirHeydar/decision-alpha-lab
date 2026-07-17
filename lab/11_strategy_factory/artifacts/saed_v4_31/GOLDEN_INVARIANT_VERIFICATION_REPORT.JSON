@@ -1,0 +1,110 @@
+{
+  "catalog_id": "v431_invariant_catalog_4bc5aacdce669f96b5c7aa92",
+  "checked_state_count": 6,
+  "model_id": "v431_formal_model_7bbd12df1713dc6da7d5dc0c",
+  "passed": true,
+  "phase": "SAED_V4_31",
+  "report_hash": "3cb5f4a3e6738357a1f530f1e7f411f316063415f60fc736bf878e76229cee3c",
+  "report_id": "v431_invariant_report_82c763a9c2b8ba2feb857e5d",
+  "research_only": true,
+  "results": [
+    {
+      "counterexamples": [],
+      "failure_count": 0,
+      "invariant_id": "INV-001",
+      "passed": true,
+      "severity": "catastrophic"
+    },
+    {
+      "counterexamples": [],
+      "failure_count": 0,
+      "invariant_id": "INV-002",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "counterexamples": [],
+      "failure_count": 0,
+      "invariant_id": "INV-003",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "counterexamples": [],
+      "failure_count": 0,
+      "invariant_id": "INV-004",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "counterexamples": [],
+      "failure_count": 0,
+      "invariant_id": "INV-005",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "counterexamples": [],
+      "failure_count": 0,
+      "invariant_id": "INV-006",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "counterexamples": [],
+      "failure_count": 0,
+      "invariant_id": "INV-007",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "counterexamples": [],
+      "failure_count": 0,
+      "invariant_id": "INV-008",
+      "passed": true,
+      "severity": "high"
+    },
+    {
+      "counterexamples": [],
+      "failure_count": 0,
+      "invariant_id": "INV-009",
+      "passed": true,
+      "severity": "high"
+    },
+    {
+      "counterexamples": [],
+      "failure_count": 0,
+      "invariant_id": "INV-010",
+      "passed": true,
+      "severity": "high"
+    },
+    {
+      "counterexamples": [],
+      "failure_count": 0,
+      "invariant_id": "INV-011",
+      "passed": true,
+      "severity": "medium"
+    },
+    {
+      "counterexamples": [],
+      "failure_count": 0,
+      "invariant_id": "INV-012",
+      "passed": true,
+      "severity": "critical"
+    },
+    {
+      "counterexamples": [],
+      "failure_count": 0,
+      "invariant_id": "INV-013",
+      "passed": true,
+      "severity": "high"
+    },
+    {
+      "counterexamples": [],
+      "failure_count": 0,
+      "invariant_id": "INV-014",
+      "passed": true,
+      "severity": "critical"
+    }
+  ]
+}

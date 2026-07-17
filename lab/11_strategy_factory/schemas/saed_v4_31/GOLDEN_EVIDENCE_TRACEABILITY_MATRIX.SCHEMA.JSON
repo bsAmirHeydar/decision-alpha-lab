@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "complete": {
+      "type": "boolean"
+    },
+    "matrix_hash": {
+      "type": "string"
+    },
+    "matrix_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "row_count": {
+      "type": "integer"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "bound": {
+            "type": "boolean"
+          },
+          "evidence_hash": {
+            "type": "string"
+          },
+          "evidence_key": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "bound",
+          "evidence_hash",
+          "evidence_key",
+          "node_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "complete",
+    "matrix_hash",
+    "matrix_id",
+    "phase",
+    "research_only",
+    "row_count",
+    "rows"
+  ],
+  "title": "GOLDEN_EVIDENCE_TRACEABILITY_MATRIX",
+  "type": "object"
+}

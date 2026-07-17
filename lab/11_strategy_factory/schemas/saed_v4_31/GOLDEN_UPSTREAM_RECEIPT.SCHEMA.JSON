@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_work_verified": {
+      "type": "boolean"
+    },
+    "authority_zero": {
+      "type": "boolean"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "upstream_phase": {
+      "type": "string"
+    },
+    "verified": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "allowed_work_verified",
+    "authority_zero",
+    "certificate_hash",
+    "certificate_id",
+    "handoff_hash",
+    "handoff_id",
+    "phase",
+    "receipt_hash",
+    "receipt_id",
+    "research_only",
+    "upstream_phase",
+    "verified"
+  ],
+  "title": "GOLDEN_UPSTREAM_RECEIPT",
+  "type": "object"
+}

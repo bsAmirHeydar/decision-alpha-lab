@@ -1,0 +1,262 @@
+{
+  "killed_count": 18,
+  "mutation_count": 18,
+  "passed": true,
+  "phase": "SAED_V4_31",
+  "records": [
+    {
+      "expected_detectors": [
+        "INV-003",
+        "TMP-002"
+      ],
+      "killed": true,
+      "mutant_model_hash": "96e0a6c8e3e641e098e57d5ec2e47f3f75bac9eff071265b361c5aa83e2fb1fb",
+      "mutation_id": "MUT-001",
+      "observed_detectors": [
+        "INV-003",
+        "INV-012",
+        "TMP-002"
+      ]
+    },
+    {
+      "expected_detectors": [
+        "INV-004",
+        "TMP-002"
+      ],
+      "killed": true,
+      "mutant_model_hash": "6f309a7680470360cd2a6e109eef6ef91261b56a6642eef6ed1da5e09efd5b49",
+      "mutation_id": "MUT-002",
+      "observed_detectors": [
+        "INV-004",
+        "INV-013",
+        "TMP-002"
+      ]
+    },
+    {
+      "expected_detectors": [
+        "INV-005",
+        "TMP-002"
+      ],
+      "killed": true,
+      "mutant_model_hash": "5c2ec99a290fec5825396dd70df50c69afcc56b3346294ac39f3c34556cfef25",
+      "mutation_id": "MUT-003",
+      "observed_detectors": [
+        "INV-005",
+        "TMP-002"
+      ]
+    },
+    {
+      "expected_detectors": [
+        "INV-001",
+        "TMP-001",
+        "TMP-011"
+      ],
+      "killed": true,
+      "mutant_model_hash": "8a0d07faddbceac00ecdc7227d05821d6f48d82259557ef7a38953d6c4e6faec",
+      "mutation_id": "MUT-004",
+      "observed_detectors": [
+        "INV-001",
+        "TMP-001",
+        "TMP-002",
+        "TMP-011"
+      ]
+    },
+    {
+      "expected_detectors": [
+        "INV-002",
+        "INV-006",
+        "TMP-002",
+        "TMP-012"
+      ],
+      "killed": true,
+      "mutant_model_hash": "5c4df85bff89ef3ab74a49d1da8f471c4dcb52e96aacd04a36d449f6d9db55c8",
+      "mutation_id": "MUT-005",
+      "observed_detectors": [
+        "INV-002",
+        "INV-003",
+        "INV-004",
+        "INV-005",
+        "INV-006",
+        "INV-014",
+        "TMP-002",
+        "TMP-008",
+        "TMP-012"
+      ]
+    },
+    {
+      "expected_detectors": [
+        "INV-002",
+        "INV-007",
+        "TMP-002",
+        "TMP-010"
+      ],
+      "killed": true,
+      "mutant_model_hash": "ec12c0969b4e338e6f83f2ee248be812f732495580e3adae712791aaea9c4473",
+      "mutation_id": "MUT-006",
+      "observed_detectors": [
+        "INV-002",
+        "INV-004",
+        "INV-005",
+        "INV-007",
+        "INV-014",
+        "TMP-002",
+        "TMP-007",
+        "TMP-010"
+      ]
+    },
+    {
+      "expected_detectors": [
+        "TMP-006"
+      ],
+      "killed": true,
+      "mutant_model_hash": "7546f663b706fa1ffaa379011252c85107ea559b68cacb2899e8d64b9ad363a6",
+      "mutation_id": "MUT-007",
+      "observed_detectors": [
+        "TMP-004",
+        "TMP-006"
+      ]
+    },
+    {
+      "expected_detectors": [
+        "TMP-007"
+      ],
+      "killed": true,
+      "mutant_model_hash": "50d964845edfca1d715c955c0a7a3b206571edcf768d2876897549e3d16f4e81",
+      "mutation_id": "MUT-008",
+      "observed_detectors": [
+        "TMP-007"
+      ]
+    },
+    {
+      "expected_detectors": [
+        "TMP-008"
+      ],
+      "killed": true,
+      "mutant_model_hash": "0c9a649a941df298185ddccd0332025fd4a6651ecb69cd3b4c570eb988322412",
+      "mutation_id": "MUT-009",
+      "observed_detectors": [
+        "TMP-008"
+      ]
+    },
+    {
+      "expected_detectors": [
+        "INV-008"
+      ],
+      "killed": true,
+      "mutant_model_hash": "e13c6a7f89fe1b6aa9e56f69219ba94b7cb6ff206278c3f5445173aba4966a00",
+      "mutation_id": "MUT-010",
+      "observed_detectors": [
+        "INV-008",
+        "TMP-006"
+      ]
+    },
+    {
+      "expected_detectors": [
+        "INV-008"
+      ],
+      "killed": true,
+      "mutant_model_hash": "6e1a056692ce6c44196d751dafa9ee4dfb5ba36be1b2ccff7d417f0bdeca7e39",
+      "mutation_id": "MUT-011",
+      "observed_detectors": [
+        "INV-008",
+        "TMP-006"
+      ]
+    },
+    {
+      "expected_detectors": [
+        "INV-008",
+        "INV-012"
+      ],
+      "killed": true,
+      "mutant_model_hash": "acc9ed5b1d7600db66fce5d35ff477e0cb3625a7a0a3f3b258136f9c6060bce3",
+      "mutation_id": "MUT-012",
+      "observed_detectors": [
+        "INV-003",
+        "INV-008",
+        "INV-012",
+        "TMP-002"
+      ]
+    },
+    {
+      "expected_detectors": [
+        "INV-013"
+      ],
+      "killed": true,
+      "mutant_model_hash": "44bf752d7c076ea26718c2e8e4091488a0eab0e753d11274a97e59286d16623d",
+      "mutation_id": "MUT-013",
+      "observed_detectors": [
+        "INV-013",
+        "TMP-006"
+      ]
+    },
+    {
+      "expected_detectors": [
+        "INV-010"
+      ],
+      "killed": true,
+      "mutant_model_hash": "0e7d9a4d10ab81079cff1bb128d661d80a381bb8b020fd56bdee0f159e9af3ac",
+      "mutation_id": "MUT-014",
+      "observed_detectors": [
+        "INV-010"
+      ]
+    },
+    {
+      "expected_detectors": [
+        "INV-008",
+        "TMP-004"
+      ],
+      "killed": true,
+      "mutant_model_hash": "ebfc3d6039b5402ad80cc28bb240c03e1b4efea8dd92a6f9a4fda4a97dcd99f0",
+      "mutation_id": "MUT-015",
+      "observed_detectors": [
+        "INV-008",
+        "TMP-006",
+        "TMP-007"
+      ]
+    },
+    {
+      "expected_detectors": [
+        "TMP-005",
+        "INV-011"
+      ],
+      "killed": true,
+      "mutant_model_hash": "c811dfaa8fa2d77a6d032d54c44b4d67b1f2e18b5916b6567d0345f6961a77f3",
+      "mutation_id": "MUT-016",
+      "observed_detectors": [
+        "INV-010",
+        "INV-011",
+        "TMP-005"
+      ]
+    },
+    {
+      "expected_detectors": [
+        "INV-009",
+        "TMP-010"
+      ],
+      "killed": true,
+      "mutant_model_hash": "96b3428a48b9c107a481cbfec89286a00437e75aed9442864115838038cf0fcf",
+      "mutation_id": "MUT-017",
+      "observed_detectors": [
+        "INV-009",
+        "TMP-010"
+      ]
+    },
+    {
+      "expected_detectors": [
+        "TMP-012"
+      ],
+      "killed": true,
+      "mutant_model_hash": "8dfb2dfcb507856d5c4781a01552f210616281de598931672f22c82eb3ae503e",
+      "mutation_id": "MUT-018",
+      "observed_detectors": [
+        "TMP-012"
+      ]
+    }
+  ],
+  "required_score": 1.0,
+  "research_only": true,
+  "score": 1.0,
+  "scorecard_hash": "996d37c6c23ee87b1d081b85fa889810c68cdf0a3bb8257820fb9a5dbde57b4f",
+  "scorecard_id": "v431_mutation_scorecard_956091fa4ee7d337344dbfb7",
+  "survivor_count": 0
+}

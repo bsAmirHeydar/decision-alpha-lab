@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "catalog_hash": {
+      "type": "string"
+    },
+    "catalog_id": {
+      "type": "string"
+    },
+    "closed": {
+      "type": "boolean"
+    },
+    "constraints": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "constraint_id": {
+            "type": "string"
+          },
+          "control_id": {
+            "type": "string"
+          },
+          "failure_action": {
+            "type": "string"
+          },
+          "mandatory": {
+            "type": "boolean"
+          },
+          "statement": {
+            "type": "string"
+          },
+          "verification_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "constraint_id",
+          "control_id",
+          "failure_action",
+          "mandatory",
+          "statement",
+          "verification_ids"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "catalog_hash",
+    "catalog_id",
+    "closed",
+    "constraints",
+    "count",
+    "phase",
+    "research_only"
+  ],
+  "title": "GOLDEN_SAFETY_CONSTRAINT_CATALOG",
+  "type": "object"
+}

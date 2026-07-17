@@ -1,0 +1,18 @@
+{
+  "arbitrary_mql5_proof": false,
+  "arbitrary_python_proof": false,
+  "bounded_temporal_only": true,
+  "external_theorem_prover_certification": false,
+  "finite_state_only": true,
+  "general_program_proof": false,
+  "model_reality_gap_eliminated": false,
+  "phase": "SAED_V4_31",
+  "production_safety_case": false,
+  "real_market_correctness": false,
+  "register_hash": "6beb1ee8c074e0da9d0b9d11517b0a07007ab7dd55378de89814148f1ef20561",
+  "register_id": "v431_formal_limitations_0feef5a3d1e1d88c86ee7438",
+  "research_only": true,
+  "specification_correctness_proven": false,
+  "state_explosion_resolved": false,
+  "synthetic_reference_only": true
+}

@@ -1,0 +1,410 @@
+{
+  "acyclic": true,
+  "all_nodes_reachable": true,
+  "edge_count": 21,
+  "edges": [
+    {
+      "relation": "supported_by",
+      "source": "G-001",
+      "target": "S-001"
+    },
+    {
+      "relation": "in_context_of",
+      "source": "G-001",
+      "target": "C-001"
+    },
+    {
+      "relation": "assumed_by",
+      "source": "G-001",
+      "target": "A-001"
+    },
+    {
+      "relation": "supported_by",
+      "source": "S-001",
+      "target": "G-010"
+    },
+    {
+      "relation": "supported_by",
+      "source": "S-001",
+      "target": "G-020"
+    },
+    {
+      "relation": "supported_by",
+      "source": "S-001",
+      "target": "G-030"
+    },
+    {
+      "relation": "supported_by",
+      "source": "S-001",
+      "target": "G-040"
+    },
+    {
+      "relation": "supported_by",
+      "source": "S-001",
+      "target": "G-050"
+    },
+    {
+      "relation": "solved_by",
+      "source": "G-010",
+      "target": "SN-010"
+    },
+    {
+      "relation": "solved_by",
+      "source": "G-010",
+      "target": "SN-011"
+    },
+    {
+      "relation": "justified_by",
+      "source": "G-010",
+      "target": "J-001"
+    },
+    {
+      "relation": "solved_by",
+      "source": "G-020",
+      "target": "SN-020"
+    },
+    {
+      "relation": "solved_by",
+      "source": "G-020",
+      "target": "SN-021"
+    },
+    {
+      "relation": "solved_by",
+      "source": "G-030",
+      "target": "SN-030"
+    },
+    {
+      "relation": "solved_by",
+      "source": "G-030",
+      "target": "SN-031"
+    },
+    {
+      "relation": "justified_by",
+      "source": "G-030",
+      "target": "J-002"
+    },
+    {
+      "relation": "solved_by",
+      "source": "G-040",
+      "target": "SN-040"
+    },
+    {
+      "relation": "solved_by",
+      "source": "G-040",
+      "target": "SN-041"
+    },
+    {
+      "relation": "solved_by",
+      "source": "G-040",
+      "target": "SN-042"
+    },
+    {
+      "relation": "solved_by",
+      "source": "G-050",
+      "target": "SN-050"
+    },
+    {
+      "relation": "solved_by",
+      "source": "G-050",
+      "target": "SN-051"
+    }
+  ],
+  "graph_hash": "a59152c598b0c88b665a85f7979f8d4961fc61dda08e8b4a77d63b71ab962b93",
+  "graph_id": "v431_assurance_case_5d2e795bc5dce650873485d7",
+  "node_count": 22,
+  "nodes": [
+    {
+      "evidence_hashes": {},
+      "evidence_keys": [],
+      "missing_evidence_keys": [],
+      "node_id": "G-001",
+      "node_type": "goal",
+      "resolved_status": "satisfied",
+      "statement": "The V4-31 finite research reference is acceptably controlled for non-authoritative use.",
+      "status": "active"
+    },
+    {
+      "evidence_hashes": {},
+      "evidence_keys": [],
+      "missing_evidence_keys": [],
+      "node_id": "S-001",
+      "node_type": "strategy",
+      "resolved_status": "satisfied",
+      "statement": "Argue by formal properties, adversarial adequacy, safety controls, reproducibility and authority separation.",
+      "status": "active"
+    },
+    {
+      "evidence_hashes": {},
+      "evidence_keys": [],
+      "missing_evidence_keys": [],
+      "node_id": "G-010",
+      "node_type": "goal",
+      "resolved_status": "satisfied",
+      "statement": "All declared invariants and bounded temporal properties hold.",
+      "status": "active"
+    },
+    {
+      "evidence_hashes": {},
+      "evidence_keys": [],
+      "missing_evidence_keys": [],
+      "node_id": "G-020",
+      "node_type": "goal",
+      "resolved_status": "satisfied",
+      "statement": "The verification specification detects seeded critical defects.",
+      "status": "active"
+    },
+    {
+      "evidence_hashes": {},
+      "evidence_keys": [],
+      "missing_evidence_keys": [],
+      "node_id": "G-030",
+      "node_type": "goal",
+      "resolved_status": "satisfied",
+      "statement": "All declared hazards have verified controls and acceptable bounded residual risk.",
+      "status": "active"
+    },
+    {
+      "evidence_hashes": {},
+      "evidence_keys": [],
+      "missing_evidence_keys": [],
+      "node_id": "G-040",
+      "node_type": "goal",
+      "resolved_status": "satisfied",
+      "statement": "Evidence is deterministic, closed and independently reproducible.",
+      "status": "active"
+    },
+    {
+      "evidence_hashes": {},
+      "evidence_keys": [],
+      "missing_evidence_keys": [],
+      "node_id": "G-050",
+      "node_type": "goal",
+      "resolved_status": "satisfied",
+      "statement": "Formal evidence has no promotion, runtime, execution or production authority.",
+      "status": "active"
+    },
+    {
+      "evidence_hashes": {
+        "graph": "854c3710b4c1845e6175cceb4c6e141e8db8f0a485f5f48e3dd1e9d9bb210654",
+        "model": "b0a1ab8ae2a0a0ce24f040c28e2b33f3750f5ccc05110decfe19282b9d310417"
+      },
+      "evidence_keys": [
+        "model",
+        "graph"
+      ],
+      "missing_evidence_keys": [],
+      "node_id": "C-001",
+      "node_type": "context",
+      "resolved_status": "satisfied",
+      "statement": "Proof scope is the finite synthetic reference model with bounded semantics.",
+      "status": "active"
+    },
+    {
+      "evidence_hashes": {
+        "invariants": "d0cf119f1143a6acfd991760491ed17be19194b84edff994d9495ba60a39a146",
+        "temporal": "55bf2d468607d219b198048636e9357220c8d414f7d05450ae6d9f82b9df6fa7"
+      },
+      "evidence_keys": [
+        "invariants",
+        "temporal"
+      ],
+      "missing_evidence_keys": [],
+      "node_id": "A-001",
+      "node_type": "assumption",
+      "resolved_status": "satisfied",
+      "statement": "The closed formal specification accurately states the intended reference semantics.",
+      "status": "active"
+    },
+    {
+      "evidence_hashes": {
+        "invariant_report": "340b5d56c9c129c830a85145bd10fef134195040343d8dcdc609b6cc3bedfe93"
+      },
+      "evidence_keys": [
+        "invariant_report"
+      ],
+      "missing_evidence_keys": [],
+      "node_id": "SN-010",
+      "node_type": "solution",
+      "resolved_status": "satisfied",
+      "statement": "Invariant verification report.",
+      "status": "active"
+    },
+    {
+      "evidence_hashes": {
+        "temporal_report": "6469ef5546c08427a92596498b8b598aeacc03f45a9281a45ce9b6c974430c7e"
+      },
+      "evidence_keys": [
+        "temporal_report"
+      ],
+      "missing_evidence_keys": [],
+      "node_id": "SN-011",
+      "node_type": "solution",
+      "resolved_status": "satisfied",
+      "statement": "Bounded temporal verification report.",
+      "status": "active"
+    },
+    {
+      "evidence_hashes": {
+        "mutation_scorecard": "2fc3546ee6c4f956c34ffc276e5150d068da2d8593fcf94ec179fbea541aa942"
+      },
+      "evidence_keys": [
+        "mutation_scorecard"
+      ],
+      "missing_evidence_keys": [],
+      "node_id": "SN-020",
+      "node_type": "solution",
+      "resolved_status": "satisfied",
+      "statement": "Complete mutation scorecard.",
+      "status": "active"
+    },
+    {
+      "evidence_hashes": {
+        "counterexample_ledger": "e489948573279ce264bb53868b647e06051f749192418e2fffaddd78d6e49a08"
+      },
+      "evidence_keys": [
+        "counterexample_ledger"
+      ],
+      "missing_evidence_keys": [],
+      "node_id": "SN-021",
+      "node_type": "solution",
+      "resolved_status": "satisfied",
+      "statement": "Counterexample preservation ledger.",
+      "status": "active"
+    },
+    {
+      "evidence_hashes": {
+        "controls": "fcf11f8c7ff18b2c16b653aefad574d2d65594622e23de15cc349be9f0301994",
+        "hazards": "d94cfc4ae5bd566c05d90464a2665e9443a212832239a87e6e4ec51b4139e28c",
+        "mitigation_coverage": "a84c3734f4b636a6edbf278aea796933f9d44f31c8ab6a0cb429ac593834ff66"
+      },
+      "evidence_keys": [
+        "hazards",
+        "controls",
+        "mitigation_coverage"
+      ],
+      "missing_evidence_keys": [],
+      "node_id": "SN-030",
+      "node_type": "solution",
+      "resolved_status": "satisfied",
+      "statement": "Hazard and control coverage matrix.",
+      "status": "active"
+    },
+    {
+      "evidence_hashes": {
+        "residual_risk": "b90a2a60cf110a1360f155888b351c1f931d338bee996166e6c9ed0a6a881a9c"
+      },
+      "evidence_keys": [
+        "residual_risk"
+      ],
+      "missing_evidence_keys": [],
+      "node_id": "SN-031",
+      "node_type": "solution",
+      "resolved_status": "satisfied",
+      "statement": "Residual-risk ledger.",
+      "status": "active"
+    },
+    {
+      "evidence_hashes": {
+        "contract_closure": "30635ebedf8a809a86415eb8d90424dca22599d067c31655ff4f67acfbc6a0ea"
+      },
+      "evidence_keys": [
+        "contract_closure"
+      ],
+      "missing_evidence_keys": [],
+      "node_id": "SN-040",
+      "node_type": "solution",
+      "resolved_status": "satisfied",
+      "statement": "Closed-contract review.",
+      "status": "active"
+    },
+    {
+      "evidence_hashes": {
+        "known_time": "53a89bea90e1db4c33031d209818fe6dd6f1a5637e1b33f5d0f3fabc931ba490"
+      },
+      "evidence_keys": [
+        "known_time"
+      ],
+      "missing_evidence_keys": [],
+      "node_id": "SN-041",
+      "node_type": "solution",
+      "resolved_status": "satisfied",
+      "statement": "Known-time and deterministic replay evidence.",
+      "status": "active"
+    },
+    {
+      "evidence_hashes": {
+        "security": "3c489c04f73058378858eb4b4be23908e507adf073d1d034e55f831d277d5631"
+      },
+      "evidence_keys": [
+        "security"
+      ],
+      "missing_evidence_keys": [],
+      "node_id": "SN-042",
+      "node_type": "solution",
+      "resolved_status": "satisfied",
+      "statement": "Security review of expression evaluation and artifact binding.",
+      "status": "active"
+    },
+    {
+      "evidence_hashes": {
+        "authority": "5477facb63ac84887ad1f6de4f5fe6f9acdef5d610ab9d2bf6098caddd45494c"
+      },
+      "evidence_keys": [
+        "authority"
+      ],
+      "missing_evidence_keys": [],
+      "node_id": "SN-050",
+      "node_type": "solution",
+      "resolved_status": "satisfied",
+      "statement": "Zero-authority boundary artifact.",
+      "status": "active"
+    },
+    {
+      "evidence_hashes": {
+        "upstream": "04a30ec46c924ac3ae7e267856f7487d7f637badb30d730ca1af8b0afa97459e"
+      },
+      "evidence_keys": [
+        "upstream"
+      ],
+      "missing_evidence_keys": [],
+      "node_id": "SN-051",
+      "node_type": "solution",
+      "resolved_status": "satisfied",
+      "statement": "Verified V4-30 handoff receipt.",
+      "status": "active"
+    },
+    {
+      "evidence_hashes": {
+        "graph": "854c3710b4c1845e6175cceb4c6e141e8db8f0a485f5f48e3dd1e9d9bb210654"
+      },
+      "evidence_keys": [
+        "graph"
+      ],
+      "missing_evidence_keys": [],
+      "node_id": "J-001",
+      "node_type": "justification",
+      "resolved_status": "satisfied",
+      "statement": "Breadth-first exploration yields minimal reachable counterexample paths in this finite model.",
+      "status": "active"
+    },
+    {
+      "evidence_hashes": {
+        "residual_risk": "b90a2a60cf110a1360f155888b351c1f931d338bee996166e6c9ed0a6a881a9c"
+      },
+      "evidence_keys": [
+        "residual_risk"
+      ],
+      "missing_evidence_keys": [],
+      "node_id": "J-002",
+      "node_type": "justification",
+      "resolved_status": "satisfied",
+      "statement": "Residual-risk thresholds are synthetic research thresholds and not production acceptance criteria.",
+      "status": "active"
+    }
+  ],
+  "notation": "GSN_compatible_closed_graph",
+  "phase": "SAED_V4_31",
+  "research_only": true,
+  "root_goal_id": "G-001",
+  "valid": true
+}

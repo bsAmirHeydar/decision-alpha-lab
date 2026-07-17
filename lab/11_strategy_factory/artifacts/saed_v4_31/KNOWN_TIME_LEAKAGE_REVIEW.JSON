@@ -1,0 +1,13 @@
+{
+  "bounded_temporal_semantics_declared": true,
+  "future_suffix_inputs": 0,
+  "future_suffix_invariant": true,
+  "graph_id": "v431_reachability_graph_1f88607fa5513e7b4cf25e92",
+  "model_id": "v431_formal_model_7bbd12df1713dc6da7d5dc0c",
+  "passed": true,
+  "phase": "SAED_V4_31",
+  "research_only": true,
+  "review_hash": "f5c4385cb8285f34fb5857a72e08ac1bf16fd9e543428b3775c1466de7e149b8",
+  "review_id": "v431_known_time_e7bb38e441f983f16d2a982a",
+  "state_variables_known_at_transition": true
+}

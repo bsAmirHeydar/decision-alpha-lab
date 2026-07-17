@@ -1,0 +1,59 @@
+{
+  "all_claims_satisfied": true,
+  "claims": [
+    {
+      "claim_id": "G-001",
+      "claim_type": "goal",
+      "evidence_hashes": {},
+      "satisfied": true,
+      "statement": "The V4-31 finite research reference is acceptably controlled for non-authoritative use."
+    },
+    {
+      "claim_id": "S-001",
+      "claim_type": "strategy",
+      "evidence_hashes": {},
+      "satisfied": true,
+      "statement": "Argue by formal properties, adversarial adequacy, safety controls, reproducibility and authority separation."
+    },
+    {
+      "claim_id": "G-010",
+      "claim_type": "goal",
+      "evidence_hashes": {},
+      "satisfied": true,
+      "statement": "All declared invariants and bounded temporal properties hold."
+    },
+    {
+      "claim_id": "G-020",
+      "claim_type": "goal",
+      "evidence_hashes": {},
+      "satisfied": true,
+      "statement": "The verification specification detects seeded critical defects."
+    },
+    {
+      "claim_id": "G-030",
+      "claim_type": "goal",
+      "evidence_hashes": {},
+      "satisfied": true,
+      "statement": "All declared hazards have verified controls and acceptable bounded residual risk."
+    },
+    {
+      "claim_id": "G-040",
+      "claim_type": "goal",
+      "evidence_hashes": {},
+      "satisfied": true,
+      "statement": "Evidence is deterministic, closed and independently reproducible."
+    },
+    {
+      "claim_id": "G-050",
+      "claim_type": "goal",
+      "evidence_hashes": {},
+      "satisfied": true,
+      "statement": "Formal evidence has no promotion, runtime, execution or production authority."
+    }
+  ],
+  "ledger_hash": "afa90b31daa31ab51f5c9163f0fa7d17f72b8c3de54feb4e8929dc469db81655",
+  "ledger_id": "v431_claim_ledger_1507a7a19e7e7d83c3d4051e",
+  "phase": "SAED_V4_31",
+  "research_only": true,
+  "root_claim_id": "G-001"
+}

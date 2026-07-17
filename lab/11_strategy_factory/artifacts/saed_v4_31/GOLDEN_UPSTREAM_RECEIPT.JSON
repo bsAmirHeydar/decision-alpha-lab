@@ -1,0 +1,14 @@
+{
+  "allowed_work_verified": true,
+  "authority_zero": true,
+  "certificate_hash": "9906fc2aa24814ed4a1a8687c58b207a21e3b4b3f40637e764687ebd2c79cb7a",
+  "certificate_id": "v430_replication_certificate_377ec57d916174f118645a4b",
+  "handoff_hash": "75c937a1e2cf9e5c6ff973732e10fa104336625e775463215c0abe7cf33951f0",
+  "handoff_id": "v4_30_to_v4_31_e151d4ae6122e5c64f56c3de",
+  "phase": "SAED_V4_31",
+  "receipt_hash": "c536d42d2bf7291e8a402afdb67f3a601c8226dc7370e19d8738d1bb26c55c5d",
+  "receipt_id": "v431_upstream_receipt_f0d007f73aef83a00fca9e55",
+  "research_only": true,
+  "upstream_phase": "SAED_V4_30",
+  "verified": true
+}

@@ -1,0 +1,100 @@
+[
+  {
+    "expression": "authority_zero",
+    "invariant_id": "INV-001",
+    "name": "Authority remains zero",
+    "rationale": "Formal evidence cannot grant authority.",
+    "severity": "catastrophic"
+  },
+  {
+    "expression": "stage != 'QUALIFIED' or safety_case_complete",
+    "invariant_id": "INV-002",
+    "name": "Qualified implies complete safety case",
+    "rationale": "Qualification requires completed assurance case.",
+    "severity": "critical"
+  },
+  {
+    "expression": "stage != 'QUALIFIED' or upstream_verified",
+    "invariant_id": "INV-003",
+    "name": "Qualified implies verified upstream",
+    "rationale": "Unverified evidence cannot qualify.",
+    "severity": "critical"
+  },
+  {
+    "expression": "stage != 'QUALIFIED' or proofs_discharged",
+    "invariant_id": "INV-004",
+    "name": "Qualified implies discharged proofs",
+    "rationale": "Undischarged obligations block qualification.",
+    "severity": "critical"
+  },
+  {
+    "expression": "stage != 'QUALIFIED' or hazards_controlled",
+    "invariant_id": "INV-005",
+    "name": "Qualified implies controlled hazards",
+    "rationale": "Uncontrolled hazards block qualification.",
+    "severity": "critical"
+  },
+  {
+    "expression": "not unsupported_evidence or stage != 'QUALIFIED'",
+    "invariant_id": "INV-006",
+    "name": "Unsupported evidence never qualifies",
+    "rationale": "Unsupported evidence must fail closed.",
+    "severity": "critical"
+  },
+  {
+    "expression": "not counterexample_present or stage != 'QUALIFIED'",
+    "invariant_id": "INV-007",
+    "name": "Counterexample never qualifies",
+    "rationale": "Counterexamples cannot be suppressed.",
+    "severity": "critical"
+  },
+  {
+    "expression": "stage != 'VERIFIED' or (upstream_verified and not unsupported_evidence and not counterexample_present)",
+    "invariant_id": "INV-008",
+    "name": "Verified state is evidence-clean",
+    "rationale": "Verified state must remain clean.",
+    "severity": "high"
+  },
+  {
+    "expression": "stage != 'REJECTED' or counterexample_present",
+    "invariant_id": "INV-009",
+    "name": "Rejected state preserves counterexample",
+    "rationale": "Rejection evidence must be retained.",
+    "severity": "high"
+  },
+  {
+    "expression": "not safety_case_complete or stage == 'QUALIFIED'",
+    "invariant_id": "INV-010",
+    "name": "Safety case completion is qualified only",
+    "rationale": "Completion flag cannot appear elsewhere.",
+    "severity": "high"
+  },
+  {
+    "expression": "stage != 'IDLE' or (not upstream_verified and not proofs_discharged and not hazards_controlled and not safety_case_complete)",
+    "invariant_id": "INV-011",
+    "name": "Idle has no derived acceptance evidence",
+    "rationale": "Initial state is clean.",
+    "severity": "medium"
+  },
+  {
+    "expression": "not proofs_discharged or upstream_verified",
+    "invariant_id": "INV-012",
+    "name": "Proof discharge implies verified upstream",
+    "rationale": "Proofs cannot discharge before upstream binding.",
+    "severity": "critical"
+  },
+  {
+    "expression": "not hazards_controlled or proofs_discharged",
+    "invariant_id": "INV-013",
+    "name": "Hazard control implies proof discharge",
+    "rationale": "Controls require verified evidence.",
+    "severity": "high"
+  },
+  {
+    "expression": "stage != 'QUALIFIED' or (not unsupported_evidence and not counterexample_present)",
+    "invariant_id": "INV-014",
+    "name": "Qualified is not rejected or quarantined",
+    "rationale": "Qualification excludes failure evidence.",
+    "severity": "critical"
+  }
+]

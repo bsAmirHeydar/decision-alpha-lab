@@ -1,0 +1,272 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bundle_hash": {
+      "type": "string"
+    },
+    "bundle_id": {
+      "type": "string"
+    },
+    "complete": {
+      "type": "boolean"
+    },
+    "evidence_hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "assurance_case": {
+          "type": "string"
+        },
+        "authority": {
+          "type": "string"
+        },
+        "claim_ledger": {
+          "type": "string"
+        },
+        "constraints": {
+          "type": "string"
+        },
+        "contract_closure": {
+          "type": "string"
+        },
+        "controls": {
+          "type": "string"
+        },
+        "counterexample_ledger": {
+          "type": "string"
+        },
+        "graph": {
+          "type": "string"
+        },
+        "hazards": {
+          "type": "string"
+        },
+        "invariant_report": {
+          "type": "string"
+        },
+        "invariants": {
+          "type": "string"
+        },
+        "known_time": {
+          "type": "string"
+        },
+        "limitations": {
+          "type": "string"
+        },
+        "mitigation_coverage": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "model_risk": {
+          "type": "string"
+        },
+        "mutation_scorecard": {
+          "type": "string"
+        },
+        "proof_coverage": {
+          "type": "string"
+        },
+        "proof_ledger": {
+          "type": "string"
+        },
+        "proof_registry": {
+          "type": "string"
+        },
+        "replay": {
+          "type": "string"
+        },
+        "reproduction": {
+          "type": "string"
+        },
+        "residual_risk": {
+          "type": "string"
+        },
+        "security": {
+          "type": "string"
+        },
+        "temporal": {
+          "type": "string"
+        },
+        "temporal_report": {
+          "type": "string"
+        },
+        "traceability": {
+          "type": "string"
+        },
+        "upstream": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "assurance_case",
+        "authority",
+        "claim_ledger",
+        "constraints",
+        "contract_closure",
+        "controls",
+        "counterexample_ledger",
+        "graph",
+        "hazards",
+        "invariant_report",
+        "invariants",
+        "known_time",
+        "limitations",
+        "mitigation_coverage",
+        "model",
+        "model_risk",
+        "mutation_scorecard",
+        "proof_coverage",
+        "proof_ledger",
+        "proof_registry",
+        "replay",
+        "reproduction",
+        "residual_risk",
+        "security",
+        "temporal",
+        "temporal_report",
+        "traceability",
+        "upstream"
+      ],
+      "type": "object"
+    },
+    "evidence_ids": {
+      "additionalProperties": false,
+      "properties": {
+        "assurance_case": {
+          "type": "string"
+        },
+        "authority": {
+          "type": "string"
+        },
+        "claim_ledger": {
+          "type": "string"
+        },
+        "constraints": {
+          "type": "string"
+        },
+        "contract_closure": {
+          "type": "string"
+        },
+        "controls": {
+          "type": "string"
+        },
+        "counterexample_ledger": {
+          "type": "string"
+        },
+        "graph": {
+          "type": "string"
+        },
+        "hazards": {
+          "type": "string"
+        },
+        "invariant_report": {
+          "type": "string"
+        },
+        "invariants": {
+          "type": "string"
+        },
+        "known_time": {
+          "type": "string"
+        },
+        "limitations": {
+          "type": "string"
+        },
+        "mitigation_coverage": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "model_risk": {
+          "type": "string"
+        },
+        "mutation_scorecard": {
+          "type": "string"
+        },
+        "proof_coverage": {
+          "type": "string"
+        },
+        "proof_ledger": {
+          "type": "string"
+        },
+        "proof_registry": {
+          "type": "string"
+        },
+        "replay": {
+          "type": "string"
+        },
+        "reproduction": {
+          "type": "string"
+        },
+        "residual_risk": {
+          "type": "string"
+        },
+        "security": {
+          "type": "string"
+        },
+        "temporal": {
+          "type": "string"
+        },
+        "temporal_report": {
+          "type": "string"
+        },
+        "traceability": {
+          "type": "string"
+        },
+        "upstream": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "assurance_case",
+        "authority",
+        "claim_ledger",
+        "constraints",
+        "contract_closure",
+        "controls",
+        "counterexample_ledger",
+        "graph",
+        "hazards",
+        "invariant_report",
+        "invariants",
+        "known_time",
+        "limitations",
+        "mitigation_coverage",
+        "model",
+        "model_risk",
+        "mutation_scorecard",
+        "proof_coverage",
+        "proof_ledger",
+        "proof_registry",
+        "replay",
+        "reproduction",
+        "residual_risk",
+        "security",
+        "temporal",
+        "temporal_report",
+        "traceability",
+        "upstream"
+      ],
+      "type": "object"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "bundle_hash",
+    "bundle_id",
+    "complete",
+    "evidence_hashes",
+    "evidence_ids",
+    "phase",
+    "research_only"
+  ],
+  "title": "GOLDEN_SAFETY_CASE_EVIDENCE_BUNDLE",
+  "type": "object"
+}

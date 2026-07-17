@@ -1,0 +1,1524 @@
+{
+  "assurance_case_plan": {
+    "edges": [
+      {
+        "relation": "supported_by",
+        "source": "G-001",
+        "target": "S-001"
+      },
+      {
+        "relation": "in_context_of",
+        "source": "G-001",
+        "target": "C-001"
+      },
+      {
+        "relation": "assumed_by",
+        "source": "G-001",
+        "target": "A-001"
+      },
+      {
+        "relation": "supported_by",
+        "source": "S-001",
+        "target": "G-010"
+      },
+      {
+        "relation": "supported_by",
+        "source": "S-001",
+        "target": "G-020"
+      },
+      {
+        "relation": "supported_by",
+        "source": "S-001",
+        "target": "G-030"
+      },
+      {
+        "relation": "supported_by",
+        "source": "S-001",
+        "target": "G-040"
+      },
+      {
+        "relation": "supported_by",
+        "source": "S-001",
+        "target": "G-050"
+      },
+      {
+        "relation": "solved_by",
+        "source": "G-010",
+        "target": "SN-010"
+      },
+      {
+        "relation": "solved_by",
+        "source": "G-010",
+        "target": "SN-011"
+      },
+      {
+        "relation": "justified_by",
+        "source": "G-010",
+        "target": "J-001"
+      },
+      {
+        "relation": "solved_by",
+        "source": "G-020",
+        "target": "SN-020"
+      },
+      {
+        "relation": "solved_by",
+        "source": "G-020",
+        "target": "SN-021"
+      },
+      {
+        "relation": "solved_by",
+        "source": "G-030",
+        "target": "SN-030"
+      },
+      {
+        "relation": "solved_by",
+        "source": "G-030",
+        "target": "SN-031"
+      },
+      {
+        "relation": "justified_by",
+        "source": "G-030",
+        "target": "J-002"
+      },
+      {
+        "relation": "solved_by",
+        "source": "G-040",
+        "target": "SN-040"
+      },
+      {
+        "relation": "solved_by",
+        "source": "G-040",
+        "target": "SN-041"
+      },
+      {
+        "relation": "solved_by",
+        "source": "G-040",
+        "target": "SN-042"
+      },
+      {
+        "relation": "solved_by",
+        "source": "G-050",
+        "target": "SN-050"
+      },
+      {
+        "relation": "solved_by",
+        "source": "G-050",
+        "target": "SN-051"
+      }
+    ],
+    "nodes": [
+      {
+        "evidence_keys": [],
+        "node_id": "G-001",
+        "node_type": "goal",
+        "statement": "The V4-31 finite research reference is acceptably controlled for non-authoritative use.",
+        "status": "active"
+      },
+      {
+        "evidence_keys": [],
+        "node_id": "S-001",
+        "node_type": "strategy",
+        "statement": "Argue by formal properties, adversarial adequacy, safety controls, reproducibility and authority separation.",
+        "status": "active"
+      },
+      {
+        "evidence_keys": [],
+        "node_id": "G-010",
+        "node_type": "goal",
+        "statement": "All declared invariants and bounded temporal properties hold.",
+        "status": "active"
+      },
+      {
+        "evidence_keys": [],
+        "node_id": "G-020",
+        "node_type": "goal",
+        "statement": "The verification specification detects seeded critical defects.",
+        "status": "active"
+      },
+      {
+        "evidence_keys": [],
+        "node_id": "G-030",
+        "node_type": "goal",
+        "statement": "All declared hazards have verified controls and acceptable bounded residual risk.",
+        "status": "active"
+      },
+      {
+        "evidence_keys": [],
+        "node_id": "G-040",
+        "node_type": "goal",
+        "statement": "Evidence is deterministic, closed and independently reproducible.",
+        "status": "active"
+      },
+      {
+        "evidence_keys": [],
+        "node_id": "G-050",
+        "node_type": "goal",
+        "statement": "Formal evidence has no promotion, runtime, execution or production authority.",
+        "status": "active"
+      },
+      {
+        "evidence_keys": [
+          "model",
+          "graph"
+        ],
+        "node_id": "C-001",
+        "node_type": "context",
+        "statement": "Proof scope is the finite synthetic reference model with bounded semantics.",
+        "status": "active"
+      },
+      {
+        "evidence_keys": [
+          "invariants",
+          "temporal"
+        ],
+        "node_id": "A-001",
+        "node_type": "assumption",
+        "statement": "The closed formal specification accurately states the intended reference semantics.",
+        "status": "active"
+      },
+      {
+        "evidence_keys": [
+          "invariant_report"
+        ],
+        "node_id": "SN-010",
+        "node_type": "solution",
+        "statement": "Invariant verification report.",
+        "status": "active"
+      },
+      {
+        "evidence_keys": [
+          "temporal_report"
+        ],
+        "node_id": "SN-011",
+        "node_type": "solution",
+        "statement": "Bounded temporal verification report.",
+        "status": "active"
+      },
+      {
+        "evidence_keys": [
+          "mutation_scorecard"
+        ],
+        "node_id": "SN-020",
+        "node_type": "solution",
+        "statement": "Complete mutation scorecard.",
+        "status": "active"
+      },
+      {
+        "evidence_keys": [
+          "counterexample_ledger"
+        ],
+        "node_id": "SN-021",
+        "node_type": "solution",
+        "statement": "Counterexample preservation ledger.",
+        "status": "active"
+      },
+      {
+        "evidence_keys": [
+          "hazards",
+          "controls",
+          "mitigation_coverage"
+        ],
+        "node_id": "SN-030",
+        "node_type": "solution",
+        "statement": "Hazard and control coverage matrix.",
+        "status": "active"
+      },
+      {
+        "evidence_keys": [
+          "residual_risk"
+        ],
+        "node_id": "SN-031",
+        "node_type": "solution",
+        "statement": "Residual-risk ledger.",
+        "status": "active"
+      },
+      {
+        "evidence_keys": [
+          "contract_closure"
+        ],
+        "node_id": "SN-040",
+        "node_type": "solution",
+        "statement": "Closed-contract review.",
+        "status": "active"
+      },
+      {
+        "evidence_keys": [
+          "known_time"
+        ],
+        "node_id": "SN-041",
+        "node_type": "solution",
+        "statement": "Known-time and deterministic replay evidence.",
+        "status": "active"
+      },
+      {
+        "evidence_keys": [
+          "security"
+        ],
+        "node_id": "SN-042",
+        "node_type": "solution",
+        "statement": "Security review of expression evaluation and artifact binding.",
+        "status": "active"
+      },
+      {
+        "evidence_keys": [
+          "authority"
+        ],
+        "node_id": "SN-050",
+        "node_type": "solution",
+        "statement": "Zero-authority boundary artifact.",
+        "status": "active"
+      },
+      {
+        "evidence_keys": [
+          "upstream"
+        ],
+        "node_id": "SN-051",
+        "node_type": "solution",
+        "statement": "Verified V4-30 handoff receipt.",
+        "status": "active"
+      },
+      {
+        "evidence_keys": [
+          "graph"
+        ],
+        "node_id": "J-001",
+        "node_type": "justification",
+        "statement": "Breadth-first exploration yields minimal reachable counterexample paths in this finite model.",
+        "status": "active"
+      },
+      {
+        "evidence_keys": [
+          "residual_risk"
+        ],
+        "node_id": "J-002",
+        "node_type": "justification",
+        "statement": "Residual-risk thresholds are synthetic research thresholds and not production acceptance criteria.",
+        "status": "active"
+      }
+    ],
+    "root_goal_id": "G-001"
+  },
+  "config": {
+    "claim_ceiling": "finite_synthetic_model_bounded_formal_verification_and_safety_case_research_reference_only",
+    "closed_contracts": true,
+    "fail_closed": true,
+    "phase": "SAED_V4_31",
+    "required_mutation_score": 1.0,
+    "research_only": true,
+    "version": "1.0.0"
+  },
+  "controls": [
+    {
+      "constraint": "Every authority flag SHALL remain false in every state and artifact.",
+      "control_id": "CTRL-001",
+      "effectiveness": 0.99,
+      "failure_action": "quarantine",
+      "owner": "governance_owner",
+      "title": "Zero authority boundary",
+      "verification_ids": [
+        "INV-001",
+        "TMP-001",
+        "TMP-011",
+        "AUTHORITY-ZERO"
+      ]
+    },
+    {
+      "constraint": "Qualification SHALL require verified upstream, discharged proofs, controlled hazards and zero authority.",
+      "control_id": "CTRL-002",
+      "effectiveness": 0.96,
+      "failure_action": "reject",
+      "owner": "formal_methods_owner",
+      "title": "Qualification precondition gate",
+      "verification_ids": [
+        "INV-002",
+        "INV-003",
+        "INV-004",
+        "INV-005",
+        "TMP-002"
+      ]
+    },
+    {
+      "constraint": "Unsupported evidence SHALL be marked and quarantined.",
+      "control_id": "CTRL-003",
+      "effectiveness": 0.95,
+      "failure_action": "quarantine",
+      "owner": "evidence_owner",
+      "title": "Unsupported evidence quarantine",
+      "verification_ids": [
+        "INV-006",
+        "TMP-008",
+        "TMP-012"
+      ]
+    },
+    {
+      "constraint": "Every counterexample SHALL be retained and SHALL block qualification.",
+      "control_id": "CTRL-004",
+      "effectiveness": 0.96,
+      "failure_action": "reject",
+      "owner": "formal_methods_owner",
+      "title": "Counterexample preservation",
+      "verification_ids": [
+        "INV-007",
+        "INV-009",
+        "TMP-007",
+        "TMP-010"
+      ]
+    },
+    {
+      "constraint": "Qualified, rejected and quarantined states SHALL have no outgoing transition.",
+      "control_id": "CTRL-005",
+      "effectiveness": 0.92,
+      "failure_action": "quarantine",
+      "owner": "architecture_owner",
+      "title": "Terminal immutability",
+      "verification_ids": [
+        "TMP-005"
+      ]
+    },
+    {
+      "constraint": "The seeded mutation suite SHALL have no survivors.",
+      "control_id": "CTRL-006",
+      "effectiveness": 0.9,
+      "failure_action": "reject",
+      "owner": "qa_owner",
+      "title": "Mutation adequacy",
+      "verification_ids": [
+        "MUTATION-100"
+      ]
+    },
+    {
+      "constraint": "Every golden artifact SHALL reject unknown fields.",
+      "control_id": "CTRL-007",
+      "effectiveness": 0.94,
+      "failure_action": "quarantine",
+      "owner": "schema_owner",
+      "title": "Closed contract enforcement",
+      "verification_ids": [
+        "CONTRACT-CLOSED"
+      ]
+    },
+    {
+      "constraint": "Two isolated runs SHALL produce identical evidence hashes.",
+      "control_id": "CTRL-008",
+      "effectiveness": 0.93,
+      "failure_action": "reject",
+      "owner": "reproducibility_owner",
+      "title": "Deterministic replay",
+      "verification_ids": [
+        "REPLAY-DETERMINISTIC",
+        "REPRODUCTION-EXACT"
+      ]
+    },
+    {
+      "constraint": "Every assurance claim SHALL be supported by hash-bound evidence.",
+      "control_id": "CTRL-009",
+      "effectiveness": 0.91,
+      "failure_action": "reject",
+      "owner": "safety_case_owner",
+      "title": "Assurance traceability",
+      "verification_ids": [
+        "ASSURANCE-VALID"
+      ]
+    },
+    {
+      "constraint": "No future suffix SHALL influence the bounded verification input.",
+      "control_id": "CTRL-010",
+      "effectiveness": 0.9,
+      "failure_action": "quarantine",
+      "owner": "data_governance_owner",
+      "title": "Known-time closure",
+      "verification_ids": [
+        "REPLAY-DETERMINISTIC"
+      ]
+    },
+    {
+      "constraint": "Property expressions SHALL use an AST allowlist with builtins disabled.",
+      "control_id": "CTRL-011",
+      "effectiveness": 0.93,
+      "failure_action": "quarantine",
+      "owner": "security_owner",
+      "title": "Safe expression evaluation",
+      "verification_ids": [
+        "CONTRACT-CLOSED"
+      ]
+    },
+    {
+      "constraint": "Any residual risk above threshold SHALL block certificate acceptance.",
+      "control_id": "CTRL-012",
+      "effectiveness": 0.9,
+      "failure_action": "reject",
+      "owner": "model_risk_owner",
+      "title": "Residual-risk fail closed",
+      "verification_ids": [
+        "INV-002",
+        "TMP-002"
+      ]
+    }
+  ],
+  "formal_model": {
+    "initial_state": {
+      "authority_zero": true,
+      "counterexample_present": false,
+      "hazards_controlled": false,
+      "proofs_discharged": false,
+      "safety_case_complete": false,
+      "stage": "IDLE",
+      "unsupported_evidence": false,
+      "upstream_verified": false
+    },
+    "max_depth": 8,
+    "model_name": "research_safety_case_qualification_fsm",
+    "phase": "SAED_V4_31",
+    "research_only": true,
+    "transitions": [
+      {
+        "action": "ingest_verified_upstream",
+        "authority_free": true,
+        "description": "Bind accepted V4-30 evidence.",
+        "effects": {
+          "stage": "'INGESTED'",
+          "upstream_verified": "True"
+        },
+        "guard": "stage == 'IDLE'",
+        "transition_id": "T-001"
+      },
+      {
+        "action": "ingest_unsupported_evidence",
+        "authority_free": true,
+        "description": "Fail closed on unsupported evidence.",
+        "effects": {
+          "stage": "'QUARANTINED'",
+          "unsupported_evidence": "True"
+        },
+        "guard": "stage == 'IDLE'",
+        "transition_id": "T-002"
+      },
+      {
+        "action": "discharge_proofs",
+        "authority_free": true,
+        "description": "Discharge bounded reference obligations.",
+        "effects": {
+          "counterexample_present": "False",
+          "hazards_controlled": "True",
+          "proofs_discharged": "True",
+          "stage": "'VERIFIED'"
+        },
+        "guard": "stage == 'INGESTED' and upstream_verified and not unsupported_evidence",
+        "transition_id": "T-003"
+      },
+      {
+        "action": "record_counterexample",
+        "authority_free": true,
+        "description": "Preserve a counterexample and reject.",
+        "effects": {
+          "counterexample_present": "True",
+          "stage": "'REJECTED'"
+        },
+        "guard": "stage == 'INGESTED' and upstream_verified",
+        "transition_id": "T-004"
+      },
+      {
+        "action": "assemble_research_safety_case",
+        "authority_free": true,
+        "description": "Qualify only the bounded research reference.",
+        "effects": {
+          "safety_case_complete": "True",
+          "stage": "'QUALIFIED'"
+        },
+        "guard": "stage == 'VERIFIED' and proofs_discharged and hazards_controlled and authority_zero and not unsupported_evidence and not counterexample_present",
+        "transition_id": "T-005"
+      },
+      {
+        "action": "quarantine_failed_safety_case",
+        "authority_free": true,
+        "description": "Fail closed if any safety precondition fails.",
+        "effects": {
+          "stage": "'QUARANTINED'"
+        },
+        "guard": "stage == 'VERIFIED' and (not proofs_discharged or not hazards_controlled or not authority_zero or unsupported_evidence or counterexample_present)",
+        "transition_id": "T-006"
+      }
+    ],
+    "variables": [
+      {
+        "description": "Closed lifecycle state.",
+        "domain": [
+          "IDLE",
+          "INGESTED",
+          "VERIFIED",
+          "QUALIFIED",
+          "REJECTED",
+          "QUARANTINED"
+        ],
+        "name": "stage"
+      },
+      {
+        "description": "V4-30 evidence binding is verified.",
+        "domain": [
+          false,
+          true
+        ],
+        "name": "upstream_verified"
+      },
+      {
+        "description": "All formal proof obligations are discharged.",
+        "domain": [
+          false,
+          true
+        ],
+        "name": "proofs_discharged"
+      },
+      {
+        "description": "All declared hazards have verified controls.",
+        "domain": [
+          false,
+          true
+        ],
+        "name": "hazards_controlled"
+      },
+      {
+        "description": "No execution or promotion authority exists.",
+        "domain": [
+          false,
+          true
+        ],
+        "name": "authority_zero"
+      },
+      {
+        "description": "Unsupported or malformed evidence was observed.",
+        "domain": [
+          false,
+          true
+        ],
+        "name": "unsupported_evidence"
+      },
+      {
+        "description": "A verification counterexample exists.",
+        "domain": [
+          false,
+          true
+        ],
+        "name": "counterexample_present"
+      },
+      {
+        "description": "The bounded research assurance case is complete.",
+        "domain": [
+          false,
+          true
+        ],
+        "name": "safety_case_complete"
+      }
+    ]
+  },
+  "hazards": [
+    {
+      "acceptance_threshold": 2.0,
+      "control_ids": [
+        "CTRL-001",
+        "CTRL-002"
+      ],
+      "detectability": 4,
+      "hazard_id": "HZ-001",
+      "likelihood": 2,
+      "proof_obligation_ids": [
+        "PO-001",
+        "PO-011"
+      ],
+      "severity": 5,
+      "title": "Unauthorized execution authority",
+      "unsafe_control_action": "Formal evidence is treated as execution permission."
+    },
+    {
+      "acceptance_threshold": 2.0,
+      "control_ids": [
+        "CTRL-002",
+        "CTRL-012"
+      ],
+      "detectability": 4,
+      "hazard_id": "HZ-002",
+      "likelihood": 2,
+      "proof_obligation_ids": [
+        "PO-002",
+        "PO-004",
+        "PO-009"
+      ],
+      "severity": 5,
+      "title": "Unsafe qualification",
+      "unsafe_control_action": "A candidate qualifies without all safety preconditions."
+    },
+    {
+      "acceptance_threshold": 2.0,
+      "control_ids": [
+        "CTRL-003",
+        "CTRL-007"
+      ],
+      "detectability": 4,
+      "hazard_id": "HZ-003",
+      "likelihood": 2,
+      "proof_obligation_ids": [
+        "PO-012",
+        "PO-015"
+      ],
+      "severity": 5,
+      "title": "Unsupported evidence acceptance",
+      "unsafe_control_action": "Malformed or unsupported upstream evidence is accepted."
+    },
+    {
+      "acceptance_threshold": 2.0,
+      "control_ids": [
+        "CTRL-004",
+        "CTRL-006"
+      ],
+      "detectability": 4,
+      "hazard_id": "HZ-004",
+      "likelihood": 2,
+      "proof_obligation_ids": [
+        "PO-007",
+        "PO-008"
+      ],
+      "severity": 5,
+      "title": "Counterexample suppression",
+      "unsafe_control_action": "A failing trace is discarded or bypassed."
+    },
+    {
+      "acceptance_threshold": 2.0,
+      "control_ids": [
+        "CTRL-005",
+        "CTRL-008"
+      ],
+      "detectability": 4,
+      "hazard_id": "HZ-005",
+      "likelihood": 2,
+      "proof_obligation_ids": [
+        "PO-005",
+        "PO-013"
+      ],
+      "severity": 4,
+      "title": "Post-decision mutation",
+      "unsafe_control_action": "A terminal safety decision is mutated after issuance."
+    },
+    {
+      "acceptance_threshold": 2.0,
+      "control_ids": [
+        "CTRL-006",
+        "CTRL-009"
+      ],
+      "detectability": 3,
+      "hazard_id": "HZ-006",
+      "likelihood": 3,
+      "proof_obligation_ids": [
+        "PO-008",
+        "PO-010"
+      ],
+      "severity": 4,
+      "title": "Specification under-testing",
+      "unsafe_control_action": "The verifier passes while seeded critical defects survive."
+    },
+    {
+      "acceptance_threshold": 2.0,
+      "control_ids": [
+        "CTRL-007",
+        "CTRL-011"
+      ],
+      "detectability": 4,
+      "hazard_id": "HZ-007",
+      "likelihood": 2,
+      "proof_obligation_ids": [
+        "PO-015"
+      ],
+      "severity": 5,
+      "title": "Schema or expression injection",
+      "unsafe_control_action": "Unknown fields or unsafe expressions alter verification semantics."
+    },
+    {
+      "acceptance_threshold": 2.0,
+      "control_ids": [
+        "CTRL-008",
+        "CTRL-010"
+      ],
+      "detectability": 4,
+      "hazard_id": "HZ-008",
+      "likelihood": 2,
+      "proof_obligation_ids": [
+        "PO-013",
+        "PO-014"
+      ],
+      "severity": 4,
+      "title": "Non-deterministic evidence",
+      "unsafe_control_action": "Repeated verification produces different artifacts."
+    },
+    {
+      "acceptance_threshold": 2.0,
+      "control_ids": [
+        "CTRL-009",
+        "CTRL-012"
+      ],
+      "detectability": 4,
+      "hazard_id": "HZ-009",
+      "likelihood": 2,
+      "proof_obligation_ids": [
+        "PO-010",
+        "PO-009"
+      ],
+      "severity": 4,
+      "title": "Incomplete assurance case",
+      "unsafe_control_action": "A top-level safety claim lacks supporting evidence."
+    },
+    {
+      "acceptance_threshold": 2.0,
+      "control_ids": [
+        "CTRL-010",
+        "CTRL-008"
+      ],
+      "detectability": 4,
+      "hazard_id": "HZ-010",
+      "likelihood": 2,
+      "proof_obligation_ids": [
+        "PO-013"
+      ],
+      "severity": 5,
+      "title": "Future-suffix contamination",
+      "unsafe_control_action": "Information unavailable at transition time changes the result."
+    }
+  ],
+  "invariants": [
+    {
+      "expression": "authority_zero",
+      "invariant_id": "INV-001",
+      "name": "Authority remains zero",
+      "rationale": "Formal evidence cannot grant authority.",
+      "severity": "catastrophic"
+    },
+    {
+      "expression": "stage != 'QUALIFIED' or safety_case_complete",
+      "invariant_id": "INV-002",
+      "name": "Qualified implies complete safety case",
+      "rationale": "Qualification requires completed assurance case.",
+      "severity": "critical"
+    },
+    {
+      "expression": "stage != 'QUALIFIED' or upstream_verified",
+      "invariant_id": "INV-003",
+      "name": "Qualified implies verified upstream",
+      "rationale": "Unverified evidence cannot qualify.",
+      "severity": "critical"
+    },
+    {
+      "expression": "stage != 'QUALIFIED' or proofs_discharged",
+      "invariant_id": "INV-004",
+      "name": "Qualified implies discharged proofs",
+      "rationale": "Undischarged obligations block qualification.",
+      "severity": "critical"
+    },
+    {
+      "expression": "stage != 'QUALIFIED' or hazards_controlled",
+      "invariant_id": "INV-005",
+      "name": "Qualified implies controlled hazards",
+      "rationale": "Uncontrolled hazards block qualification.",
+      "severity": "critical"
+    },
+    {
+      "expression": "not unsupported_evidence or stage != 'QUALIFIED'",
+      "invariant_id": "INV-006",
+      "name": "Unsupported evidence never qualifies",
+      "rationale": "Unsupported evidence must fail closed.",
+      "severity": "critical"
+    },
+    {
+      "expression": "not counterexample_present or stage != 'QUALIFIED'",
+      "invariant_id": "INV-007",
+      "name": "Counterexample never qualifies",
+      "rationale": "Counterexamples cannot be suppressed.",
+      "severity": "critical"
+    },
+    {
+      "expression": "stage != 'VERIFIED' or (upstream_verified and not unsupported_evidence and not counterexample_present)",
+      "invariant_id": "INV-008",
+      "name": "Verified state is evidence-clean",
+      "rationale": "Verified state must remain clean.",
+      "severity": "high"
+    },
+    {
+      "expression": "stage != 'REJECTED' or counterexample_present",
+      "invariant_id": "INV-009",
+      "name": "Rejected state preserves counterexample",
+      "rationale": "Rejection evidence must be retained.",
+      "severity": "high"
+    },
+    {
+      "expression": "not safety_case_complete or stage == 'QUALIFIED'",
+      "invariant_id": "INV-010",
+      "name": "Safety case completion is qualified only",
+      "rationale": "Completion flag cannot appear elsewhere.",
+      "severity": "high"
+    },
+    {
+      "expression": "stage != 'IDLE' or (not upstream_verified and not proofs_discharged and not hazards_controlled and not safety_case_complete)",
+      "invariant_id": "INV-011",
+      "name": "Idle has no derived acceptance evidence",
+      "rationale": "Initial state is clean.",
+      "severity": "medium"
+    },
+    {
+      "expression": "not proofs_discharged or upstream_verified",
+      "invariant_id": "INV-012",
+      "name": "Proof discharge implies verified upstream",
+      "rationale": "Proofs cannot discharge before upstream binding.",
+      "severity": "critical"
+    },
+    {
+      "expression": "not hazards_controlled or proofs_discharged",
+      "invariant_id": "INV-013",
+      "name": "Hazard control implies proof discharge",
+      "rationale": "Controls require verified evidence.",
+      "severity": "high"
+    },
+    {
+      "expression": "stage != 'QUALIFIED' or (not unsupported_evidence and not counterexample_present)",
+      "invariant_id": "INV-014",
+      "name": "Qualified is not rejected or quarantined",
+      "rationale": "Qualification excludes failure evidence.",
+      "severity": "critical"
+    }
+  ],
+  "mutations": [
+    {
+      "description": "Qualification drops upstream verification",
+      "expected_detectors": [
+        "INV-003",
+        "TMP-002"
+      ],
+      "expression": "False",
+      "field": "upstream_verified",
+      "mutation_id": "MUT-001",
+      "operation": "set_effect",
+      "transition": {},
+      "transition_id": "T-005",
+      "value": null
+    },
+    {
+      "description": "Qualification drops proof discharge",
+      "expected_detectors": [
+        "INV-004",
+        "TMP-002"
+      ],
+      "expression": "False",
+      "field": "proofs_discharged",
+      "mutation_id": "MUT-002",
+      "operation": "set_effect",
+      "transition": {},
+      "transition_id": "T-005",
+      "value": null
+    },
+    {
+      "description": "Qualification drops hazard controls",
+      "expected_detectors": [
+        "INV-005",
+        "TMP-002"
+      ],
+      "expression": "False",
+      "field": "hazards_controlled",
+      "mutation_id": "MUT-003",
+      "operation": "set_effect",
+      "transition": {},
+      "transition_id": "T-005",
+      "value": null
+    },
+    {
+      "description": "Qualification acquires authority",
+      "expected_detectors": [
+        "INV-001",
+        "TMP-001",
+        "TMP-011"
+      ],
+      "expression": "False",
+      "field": "authority_zero",
+      "mutation_id": "MUT-004",
+      "operation": "set_effect",
+      "transition": {},
+      "transition_id": "T-005",
+      "value": null
+    },
+    {
+      "description": "Unsupported path qualifies",
+      "expected_detectors": [
+        "INV-002",
+        "INV-006",
+        "TMP-002",
+        "TMP-012"
+      ],
+      "expression": "'QUALIFIED'",
+      "field": "stage",
+      "mutation_id": "MUT-005",
+      "operation": "set_effect",
+      "transition": {},
+      "transition_id": "T-002",
+      "value": null
+    },
+    {
+      "description": "Counterexample path qualifies",
+      "expected_detectors": [
+        "INV-002",
+        "INV-007",
+        "TMP-002",
+        "TMP-010"
+      ],
+      "expression": "'QUALIFIED'",
+      "field": "stage",
+      "mutation_id": "MUT-006",
+      "operation": "set_effect",
+      "transition": {},
+      "transition_id": "T-004",
+      "value": null
+    },
+    {
+      "description": "Remove qualification path",
+      "expected_detectors": [
+        "TMP-006"
+      ],
+      "expression": "",
+      "field": "",
+      "mutation_id": "MUT-007",
+      "operation": "drop_transition",
+      "transition": {},
+      "transition_id": "T-005",
+      "value": null
+    },
+    {
+      "description": "Remove rejection path",
+      "expected_detectors": [
+        "TMP-007"
+      ],
+      "expression": "",
+      "field": "",
+      "mutation_id": "MUT-008",
+      "operation": "drop_transition",
+      "transition": {},
+      "transition_id": "T-004",
+      "value": null
+    },
+    {
+      "description": "Remove quarantine path",
+      "expected_detectors": [
+        "TMP-008"
+      ],
+      "expression": "",
+      "field": "",
+      "mutation_id": "MUT-009",
+      "operation": "drop_transition",
+      "transition": {},
+      "transition_id": "T-002",
+      "value": null
+    },
+    {
+      "description": "Verified carries counterexample",
+      "expected_detectors": [
+        "INV-008"
+      ],
+      "expression": "True",
+      "field": "counterexample_present",
+      "mutation_id": "MUT-010",
+      "operation": "set_effect",
+      "transition": {},
+      "transition_id": "T-003",
+      "value": null
+    },
+    {
+      "description": "Verified carries unsupported evidence",
+      "expected_detectors": [
+        "INV-008"
+      ],
+      "expression": "True",
+      "field": "unsupported_evidence",
+      "mutation_id": "MUT-011",
+      "operation": "set_effect",
+      "transition": {},
+      "transition_id": "T-003",
+      "value": null
+    },
+    {
+      "description": "Proofs discharge without upstream",
+      "expected_detectors": [
+        "INV-008",
+        "INV-012"
+      ],
+      "expression": "False",
+      "field": "upstream_verified",
+      "mutation_id": "MUT-012",
+      "operation": "set_effect",
+      "transition": {},
+      "transition_id": "T-003",
+      "value": null
+    },
+    {
+      "description": "Hazards controlled without proofs",
+      "expected_detectors": [
+        "INV-013"
+      ],
+      "expression": "False",
+      "field": "proofs_discharged",
+      "mutation_id": "MUT-013",
+      "operation": "set_effect",
+      "transition": {},
+      "transition_id": "T-003",
+      "value": null
+    },
+    {
+      "description": "Safety completion outside qualification",
+      "expected_detectors": [
+        "INV-010"
+      ],
+      "expression": "True",
+      "field": "safety_case_complete",
+      "mutation_id": "MUT-014",
+      "operation": "set_effect",
+      "transition": {},
+      "transition_id": "T-003",
+      "value": null
+    },
+    {
+      "description": "Initial state already verified",
+      "expected_detectors": [
+        "INV-008",
+        "TMP-004"
+      ],
+      "expression": "",
+      "field": "stage",
+      "mutation_id": "MUT-015",
+      "operation": "set_initial",
+      "transition": {},
+      "transition_id": "",
+      "value": "VERIFIED"
+    },
+    {
+      "description": "Terminal qualification becomes mutable",
+      "expected_detectors": [
+        "TMP-005",
+        "INV-011"
+      ],
+      "expression": "",
+      "field": "",
+      "mutation_id": "MUT-016",
+      "operation": "add_transition",
+      "transition": {
+        "action": "mutate_qualified",
+        "authority_free": true,
+        "description": "Forbidden post-qualification mutation.",
+        "effects": {
+          "stage": "'IDLE'"
+        },
+        "guard": "stage == 'QUALIFIED'",
+        "transition_id": "T-M16"
+      },
+      "transition_id": "",
+      "value": null
+    },
+    {
+      "description": "Counterexample action fails to preserve flag",
+      "expected_detectors": [
+        "INV-009",
+        "TMP-010"
+      ],
+      "expression": "False",
+      "field": "counterexample_present",
+      "mutation_id": "MUT-017",
+      "operation": "set_effect",
+      "transition": {},
+      "transition_id": "T-004",
+      "value": null
+    },
+    {
+      "description": "Unsupported action fails to preserve marker",
+      "expected_detectors": [
+        "TMP-012"
+      ],
+      "expression": "False",
+      "field": "unsupported_evidence",
+      "mutation_id": "MUT-018",
+      "operation": "set_effect",
+      "transition": {},
+      "transition_id": "T-002",
+      "value": null
+    }
+  ],
+  "proof_obligations": [
+    {
+      "claim": "All authority invariants hold",
+      "criticality": "catastrophic",
+      "discharge_rule": "all targets pass",
+      "kind": "invariants",
+      "obligation_id": "PO-001",
+      "owner": "formal_methods_owner",
+      "targets": [
+        "INV-001"
+      ]
+    },
+    {
+      "claim": "Qualification preconditions are invariant",
+      "criticality": "critical",
+      "discharge_rule": "all targets pass",
+      "kind": "invariants",
+      "obligation_id": "PO-002",
+      "owner": "safety_owner",
+      "targets": [
+        "INV-002",
+        "INV-003",
+        "INV-004",
+        "INV-005",
+        "INV-006",
+        "INV-007",
+        "INV-014"
+      ]
+    },
+    {
+      "claim": "Evidence state consistency holds",
+      "criticality": "high",
+      "discharge_rule": "all targets pass",
+      "kind": "invariants",
+      "obligation_id": "PO-003",
+      "owner": "data_governance_owner",
+      "targets": [
+        "INV-008",
+        "INV-009",
+        "INV-010",
+        "INV-011",
+        "INV-012",
+        "INV-013"
+      ]
+    },
+    {
+      "claim": "Unsafe qualification is unreachable",
+      "criticality": "catastrophic",
+      "discharge_rule": "all targets pass",
+      "kind": "temporal",
+      "obligation_id": "PO-004",
+      "owner": "formal_methods_owner",
+      "targets": [
+        "TMP-001",
+        "TMP-002",
+        "TMP-011"
+      ]
+    },
+    {
+      "claim": "Lifecycle progress and terminality hold",
+      "criticality": "critical",
+      "discharge_rule": "all targets pass",
+      "kind": "temporal",
+      "obligation_id": "PO-005",
+      "owner": "architecture_owner",
+      "targets": [
+        "TMP-003",
+        "TMP-004",
+        "TMP-005"
+      ]
+    },
+    {
+      "claim": "Positive and fail-closed paths are reachable",
+      "criticality": "high",
+      "discharge_rule": "all targets pass",
+      "kind": "temporal",
+      "obligation_id": "PO-006",
+      "owner": "qa_owner",
+      "targets": [
+        "TMP-006",
+        "TMP-007",
+        "TMP-008"
+      ]
+    },
+    {
+      "claim": "Critical transitions preserve semantics",
+      "criticality": "critical",
+      "discharge_rule": "all targets pass",
+      "kind": "temporal",
+      "obligation_id": "PO-007",
+      "owner": "formal_methods_owner",
+      "targets": [
+        "TMP-009",
+        "TMP-010",
+        "TMP-012"
+      ]
+    },
+    {
+      "claim": "Mutation suite kills every seeded defect",
+      "criticality": "critical",
+      "discharge_rule": "score equals one",
+      "kind": "mutation",
+      "obligation_id": "PO-008",
+      "owner": "qa_owner",
+      "targets": [
+        "MUTATION-100"
+      ]
+    },
+    {
+      "claim": "Every hazard has verified controls",
+      "criticality": "critical",
+      "discharge_rule": "all hazards controlled",
+      "kind": "hazard_coverage",
+      "obligation_id": "PO-009",
+      "owner": "safety_owner",
+      "targets": [
+        "HAZARD-COVERAGE"
+      ]
+    },
+    {
+      "claim": "Assurance case is complete and traceable",
+      "criticality": "critical",
+      "discharge_rule": "graph valid and traceability complete",
+      "kind": "assurance_case",
+      "obligation_id": "PO-010",
+      "owner": "safety_case_owner",
+      "targets": [
+        "ASSURANCE-VALID"
+      ]
+    },
+    {
+      "claim": "UCEE authority remains zero",
+      "criticality": "catastrophic",
+      "discharge_rule": "all authority fields false",
+      "kind": "authority",
+      "obligation_id": "PO-011",
+      "owner": "governance_owner",
+      "targets": [
+        "AUTHORITY-ZERO"
+      ]
+    },
+    {
+      "claim": "Upstream handoff is verified",
+      "criticality": "critical",
+      "discharge_rule": "receipt verified",
+      "kind": "upstream",
+      "obligation_id": "PO-012",
+      "owner": "governance_owner",
+      "targets": [
+        "UPSTREAM-VERIFIED"
+      ]
+    },
+    {
+      "claim": "Replay is deterministic and suffix invariant",
+      "criticality": "high",
+      "discharge_rule": "exact hashes match",
+      "kind": "replay",
+      "obligation_id": "PO-013",
+      "owner": "reproducibility_owner",
+      "targets": [
+        "REPLAY-DETERMINISTIC"
+      ]
+    },
+    {
+      "claim": "Independent logical reproduction matches",
+      "criticality": "high",
+      "discharge_rule": "two isolated runs match",
+      "kind": "independent_reproduction",
+      "obligation_id": "PO-014",
+      "owner": "qa_owner",
+      "targets": [
+        "REPRODUCTION-EXACT"
+      ]
+    },
+    {
+      "claim": "All evidence contracts are closed",
+      "criticality": "critical",
+      "discharge_rule": "unknown fields denied",
+      "kind": "contract_closure",
+      "obligation_id": "PO-015",
+      "owner": "schema_owner",
+      "targets": [
+        "CONTRACT-CLOSED"
+      ]
+    }
+  ],
+  "temporal_properties": [
+    {
+      "bound": 0,
+      "expression": "authority_zero",
+      "kind": "always",
+      "name": "Always zero authority",
+      "property_id": "TMP-001",
+      "rationale": "No reachable state may acquire authority.",
+      "severity": "catastrophic",
+      "target": "False",
+      "trigger": "False"
+    },
+    {
+      "bound": 0,
+      "expression": "stage == 'QUALIFIED' and (not upstream_verified or not proofs_discharged or not hazards_controlled or not authority_zero or unsupported_evidence or counterexample_present)",
+      "kind": "never",
+      "name": "Never unsafe qualification",
+      "property_id": "TMP-002",
+      "rationale": "Unsafe qualification is unreachable.",
+      "severity": "critical",
+      "target": "False",
+      "trigger": "False"
+    },
+    {
+      "bound": 1,
+      "expression": "False",
+      "kind": "leads_to_within",
+      "name": "Ingested resolves in one step",
+      "property_id": "TMP-003",
+      "rationale": "No unresolved ingested state.",
+      "severity": "high",
+      "target": "stage == 'VERIFIED' or stage == 'REJECTED' or stage == 'QUARANTINED'",
+      "trigger": "stage == 'INGESTED'"
+    },
+    {
+      "bound": 1,
+      "expression": "False",
+      "kind": "leads_to_within",
+      "name": "Verified resolves in one step",
+      "property_id": "TMP-004",
+      "rationale": "No unresolved verified state.",
+      "severity": "high",
+      "target": "stage == 'QUALIFIED' or stage == 'QUARANTINED'",
+      "trigger": "stage == 'VERIFIED'"
+    },
+    {
+      "bound": 0,
+      "expression": "stage == 'QUALIFIED' or stage == 'REJECTED' or stage == 'QUARANTINED'",
+      "kind": "terminal",
+      "name": "Terminal states are terminal",
+      "property_id": "TMP-005",
+      "rationale": "No post-decision mutation.",
+      "severity": "critical",
+      "target": "False",
+      "trigger": "False"
+    },
+    {
+      "bound": 0,
+      "expression": "stage == 'QUALIFIED'",
+      "kind": "reachable",
+      "name": "Qualified state is reachable",
+      "property_id": "TMP-006",
+      "rationale": "Positive reference path exists.",
+      "severity": "high",
+      "target": "False",
+      "trigger": "False"
+    },
+    {
+      "bound": 0,
+      "expression": "stage == 'REJECTED'",
+      "kind": "reachable",
+      "name": "Rejected state is reachable",
+      "property_id": "TMP-007",
+      "rationale": "Counterexample rejection path exists.",
+      "severity": "high",
+      "target": "False",
+      "trigger": "False"
+    },
+    {
+      "bound": 0,
+      "expression": "stage == 'QUARANTINED'",
+      "kind": "reachable",
+      "name": "Quarantine state is reachable",
+      "property_id": "TMP-008",
+      "rationale": "Fail-closed path exists.",
+      "severity": "high",
+      "target": "False",
+      "trigger": "False"
+    },
+    {
+      "bound": 0,
+      "expression": "action != 'assemble_research_safety_case' or (post_stage == 'QUALIFIED' and post_safety_case_complete)",
+      "kind": "transition_always",
+      "name": "Safety case action completes flag",
+      "property_id": "TMP-009",
+      "rationale": "Qualification transition must complete safety case.",
+      "severity": "critical",
+      "target": "False",
+      "trigger": "False"
+    },
+    {
+      "bound": 0,
+      "expression": "action != 'record_counterexample' or (post_stage == 'REJECTED' and post_counterexample_present)",
+      "kind": "transition_always",
+      "name": "Counterexample action rejects",
+      "property_id": "TMP-010",
+      "rationale": "Counterexample cannot be discarded.",
+      "severity": "critical",
+      "target": "False",
+      "trigger": "False"
+    },
+    {
+      "bound": 0,
+      "expression": "post_authority_zero",
+      "kind": "transition_always",
+      "name": "Every transition preserves authority",
+      "property_id": "TMP-011",
+      "rationale": "No transition grants authority.",
+      "severity": "catastrophic",
+      "target": "False",
+      "trigger": "False"
+    },
+    {
+      "bound": 0,
+      "expression": "action != 'ingest_unsupported_evidence' or (post_stage == 'QUARANTINED' and post_unsupported_evidence)",
+      "kind": "transition_always",
+      "name": "Unsupported ingestion quarantines",
+      "property_id": "TMP-012",
+      "rationale": "Unsupported evidence fails closed.",
+      "severity": "critical",
+      "target": "False",
+      "trigger": "False"
+    }
+  ],
+  "upstream_documents": {
+    "certificate": {
+      "accepted_for_independent_multi_lab_replication_research_reference": true,
+      "certificate_hash": "9906fc2aa24814ed4a1a8687c58b207a21e3b4b3f40637e764687ebd2c79cb7a",
+      "certificate_id": "v430_replication_certificate_377ec57d916174f118645a4b",
+      "execution_authority": false,
+      "live_trading_authority": false,
+      "online_learning_authority": false,
+      "phase": "SAED_V4_30",
+      "production_authority": false,
+      "promotion_authority": false,
+      "research_only": true,
+      "risk_allocation_authority": false,
+      "runtime_executable": false
+    },
+    "handoff": {
+      "allowed_next_work": [
+        "formal_invariant_catalog",
+        "safety_property_specification",
+        "model_checking_reference",
+        "proof_obligation_registry",
+        "assurance_case_graph",
+        "hazard_and_mitigation_ledger",
+        "external_replication_evidence_attachment"
+      ],
+      "authority": {
+        "execution": false,
+        "online_learning": false,
+        "production": false,
+        "promotion": false,
+        "risk_allocation": false,
+        "runtime": false
+      },
+      "certificate_hash": "9906fc2aa24814ed4a1a8687c58b207a21e3b4b3f40637e764687ebd2c79cb7a",
+      "certificate_id": "v430_replication_certificate_377ec57d916174f118645a4b",
+      "entry_gates": {
+        "authority_zero": true,
+        "independent_multi_lab_reference_accepted": true,
+        "metric_reconciliation_verified": true,
+        "research_only": true,
+        "semantic_reconciliation_verified": true,
+        "synthetic_labs_only": true
+      },
+      "forbidden_next_work": [
+        "claim_external_replication_from_synthetic_fixture",
+        "promotion_authorization",
+        "runtime_compilation",
+        "risk_allocation",
+        "order_submission",
+        "production_release",
+        "online_policy_mutation"
+      ],
+      "handoff_hash": "75c937a1e2cf9e5c6ff973732e10fa104336625e775463215c0abe7cf33951f0",
+      "handoff_id": "v4_30_to_v4_31_e151d4ae6122e5c64f56c3de",
+      "next_phase": "SAED_V4_31",
+      "phase": "SAED_V4_30",
+      "research_only": true
+    }
+  }
+}

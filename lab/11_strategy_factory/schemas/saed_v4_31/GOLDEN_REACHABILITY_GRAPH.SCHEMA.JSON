@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bounded_depth": {
+      "type": "integer"
+    },
+    "complete_for_reachable_finite_state_space": {
+      "type": "boolean"
+    },
+    "edges": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "action": {
+            "type": "string"
+          },
+          "authority_free": {
+            "type": "boolean"
+          },
+          "edge_hash": {
+            "type": "string"
+          },
+          "source_state_id": {
+            "type": "string"
+          },
+          "target_state_id": {
+            "type": "string"
+          },
+          "transition_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "action",
+          "authority_free",
+          "edge_hash",
+          "source_state_id",
+          "target_state_id",
+          "transition_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "graph_hash": {
+      "type": "string"
+    },
+    "graph_id": {
+      "type": "string"
+    },
+    "initial_state_id": {
+      "type": "string"
+    },
+    "model_hash": {
+      "type": "string"
+    },
+    "model_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "state_count": {
+      "type": "integer"
+    },
+    "states": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "shortest_transition_path": {
+            "items": {},
+            "type": "array"
+          },
+          "state_id": {
+            "type": "string"
+          },
+          "terminal": {
+            "type": "boolean"
+          },
+          "values": {
+            "additionalProperties": false,
+            "properties": {
+              "authority_zero": {
+                "type": "boolean"
+              },
+              "counterexample_present": {
+                "type": "boolean"
+              },
+              "hazards_controlled": {
+                "type": "boolean"
+              },
+              "proofs_discharged": {
+                "type": "boolean"
+              },
+              "safety_case_complete": {
+                "type": "boolean"
+              },
+              "stage": {
+                "type": "string"
+              },
+              "unsupported_evidence": {
+                "type": "boolean"
+              },
+              "upstream_verified": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "authority_zero",
+              "counterexample_present",
+              "hazards_controlled",
+              "proofs_discharged",
+              "safety_case_complete",
+              "stage",
+              "unsupported_evidence",
+              "upstream_verified"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "shortest_transition_path",
+          "state_id",
+          "terminal",
+          "values"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "transition_instance_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "bounded_depth",
+    "complete_for_reachable_finite_state_space",
+    "edges",
+    "graph_hash",
+    "graph_id",
+    "initial_state_id",
+    "model_hash",
+    "model_id",
+    "phase",
+    "research_only",
+    "state_count",
+    "states",
+    "transition_instance_count"
+  ],
+  "title": "GOLDEN_REACHABILITY_GRAPH",
+  "type": "object"
+}

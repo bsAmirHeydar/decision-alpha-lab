@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_within_threshold": {
+      "type": "boolean"
+    },
+    "entries": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "acceptance_authority": {
+            "type": "string"
+          },
+          "acceptance_threshold": {
+            "type": "number"
+          },
+          "accepted": {
+            "type": "boolean"
+          },
+          "gross_risk_score": {
+            "type": "integer"
+          },
+          "hazard_id": {
+            "type": "string"
+          },
+          "production_acceptance": {
+            "type": "boolean"
+          },
+          "residual_risk_score": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "acceptance_authority",
+          "acceptance_threshold",
+          "accepted",
+          "gross_risk_score",
+          "hazard_id",
+          "production_acceptance",
+          "residual_risk_score"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "residual_risk_eliminated_claim": {
+      "type": "boolean"
+    },
+    "unaccepted_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "all_within_threshold",
+    "entries",
+    "ledger_hash",
+    "ledger_id",
+    "phase",
+    "research_only",
+    "residual_risk_eliminated_claim",
+    "unaccepted_count"
+  ],
+  "title": "GOLDEN_RESIDUAL_RISK_LEDGER",
+  "type": "object"
+}

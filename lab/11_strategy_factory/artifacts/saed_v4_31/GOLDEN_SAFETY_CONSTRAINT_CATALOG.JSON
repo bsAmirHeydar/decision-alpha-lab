@@ -1,0 +1,144 @@
+{
+  "catalog_hash": "6251686154cfdde99fc12aaef2593f88db641b271bfda78de7651b3ff5fc2022",
+  "catalog_id": "v431_safety_constraints_6c29a33a0575fddafae98900",
+  "closed": true,
+  "constraints": [
+    {
+      "constraint_id": "SC-001",
+      "control_id": "CTRL-001",
+      "failure_action": "quarantine",
+      "mandatory": true,
+      "statement": "Every authority flag SHALL remain false in every state and artifact.",
+      "verification_ids": [
+        "INV-001",
+        "TMP-001",
+        "TMP-011",
+        "AUTHORITY-ZERO"
+      ]
+    },
+    {
+      "constraint_id": "SC-002",
+      "control_id": "CTRL-002",
+      "failure_action": "reject",
+      "mandatory": true,
+      "statement": "Qualification SHALL require verified upstream, discharged proofs, controlled hazards and zero authority.",
+      "verification_ids": [
+        "INV-002",
+        "INV-003",
+        "INV-004",
+        "INV-005",
+        "TMP-002"
+      ]
+    },
+    {
+      "constraint_id": "SC-003",
+      "control_id": "CTRL-003",
+      "failure_action": "quarantine",
+      "mandatory": true,
+      "statement": "Unsupported evidence SHALL be marked and quarantined.",
+      "verification_ids": [
+        "INV-006",
+        "TMP-008",
+        "TMP-012"
+      ]
+    },
+    {
+      "constraint_id": "SC-004",
+      "control_id": "CTRL-004",
+      "failure_action": "reject",
+      "mandatory": true,
+      "statement": "Every counterexample SHALL be retained and SHALL block qualification.",
+      "verification_ids": [
+        "INV-007",
+        "INV-009",
+        "TMP-007",
+        "TMP-010"
+      ]
+    },
+    {
+      "constraint_id": "SC-005",
+      "control_id": "CTRL-005",
+      "failure_action": "quarantine",
+      "mandatory": true,
+      "statement": "Qualified, rejected and quarantined states SHALL have no outgoing transition.",
+      "verification_ids": [
+        "TMP-005"
+      ]
+    },
+    {
+      "constraint_id": "SC-006",
+      "control_id": "CTRL-006",
+      "failure_action": "reject",
+      "mandatory": true,
+      "statement": "The seeded mutation suite SHALL have no survivors.",
+      "verification_ids": [
+        "MUTATION-100"
+      ]
+    },
+    {
+      "constraint_id": "SC-007",
+      "control_id": "CTRL-007",
+      "failure_action": "quarantine",
+      "mandatory": true,
+      "statement": "Every golden artifact SHALL reject unknown fields.",
+      "verification_ids": [
+        "CONTRACT-CLOSED"
+      ]
+    },
+    {
+      "constraint_id": "SC-008",
+      "control_id": "CTRL-008",
+      "failure_action": "reject",
+      "mandatory": true,
+      "statement": "Two isolated runs SHALL produce identical evidence hashes.",
+      "verification_ids": [
+        "REPLAY-DETERMINISTIC",
+        "REPRODUCTION-EXACT"
+      ]
+    },
+    {
+      "constraint_id": "SC-009",
+      "control_id": "CTRL-009",
+      "failure_action": "reject",
+      "mandatory": true,
+      "statement": "Every assurance claim SHALL be supported by hash-bound evidence.",
+      "verification_ids": [
+        "ASSURANCE-VALID"
+      ]
+    },
+    {
+      "constraint_id": "SC-010",
+      "control_id": "CTRL-010",
+      "failure_action": "quarantine",
+      "mandatory": true,
+      "statement": "No future suffix SHALL influence the bounded verification input.",
+      "verification_ids": [
+        "REPLAY-DETERMINISTIC"
+      ]
+    },
+    {
+      "constraint_id": "SC-011",
+      "control_id": "CTRL-011",
+      "failure_action": "quarantine",
+      "mandatory": true,
+      "statement": "Property expressions SHALL use an AST allowlist with builtins disabled.",
+      "verification_ids": [
+        "CONTRACT-CLOSED"
+      ]
+    },
+    {
+      "constraint_id": "SC-012",
+      "control_id": "CTRL-012",
+      "failure_action": "reject",
+      "mandatory": true,
+      "statement": "Any residual risk above threshold SHALL block certificate acceptance.",
+      "verification_ids": [
+        "INV-002",
+        "TMP-002"
+      ]
+    }
+  ],
+  "count": 12,
+  "phase": "SAED_V4_31",
+  "research_only": true
+}

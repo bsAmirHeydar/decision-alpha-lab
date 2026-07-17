@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_contract_count": {
+      "type": "integer"
+    },
+    "closed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "review_hash": {
+      "type": "string"
+    },
+    "review_id": {
+      "type": "string"
+    },
+    "schema_draft": {
+      "type": "string"
+    },
+    "unknown_fields_allowed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "artifact_contract_count",
+    "closed",
+    "phase",
+    "research_only",
+    "review_hash",
+    "review_id",
+    "schema_draft",
+    "unknown_fields_allowed"
+  ],
+  "title": "CONTRACT_CLOSURE_REVIEW",
+  "type": "object"
+}

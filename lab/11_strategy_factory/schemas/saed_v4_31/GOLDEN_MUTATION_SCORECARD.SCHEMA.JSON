@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "killed_count": {
+      "type": "integer"
+    },
+    "mutation_count": {
+      "type": "integer"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "expected_detectors": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "killed": {
+            "type": "boolean"
+          },
+          "mutant_model_hash": {
+            "type": "string"
+          },
+          "mutation_id": {
+            "type": "string"
+          },
+          "observed_detectors": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "expected_detectors",
+          "killed",
+          "mutant_model_hash",
+          "mutation_id",
+          "observed_detectors"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "required_score": {
+      "type": "number"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "score": {
+      "type": "number"
+    },
+    "scorecard_hash": {
+      "type": "string"
+    },
+    "scorecard_id": {
+      "type": "string"
+    },
+    "survivor_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "killed_count",
+    "mutation_count",
+    "passed",
+    "phase",
+    "records",
+    "required_score",
+    "research_only",
+    "score",
+    "scorecard_hash",
+    "scorecard_id",
+    "survivor_count"
+  ],
+  "title": "GOLDEN_MUTATION_SCORECARD",
+  "type": "object"
+}

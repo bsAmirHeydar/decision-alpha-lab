@@ -1,0 +1,228 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "initial_state": {
+      "additionalProperties": false,
+      "properties": {
+        "authority_zero": {
+          "type": "boolean"
+        },
+        "counterexample_present": {
+          "type": "boolean"
+        },
+        "hazards_controlled": {
+          "type": "boolean"
+        },
+        "proofs_discharged": {
+          "type": "boolean"
+        },
+        "safety_case_complete": {
+          "type": "boolean"
+        },
+        "stage": {
+          "type": "string"
+        },
+        "unsupported_evidence": {
+          "type": "boolean"
+        },
+        "upstream_verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "authority_zero",
+        "counterexample_present",
+        "hazards_controlled",
+        "proofs_discharged",
+        "safety_case_complete",
+        "stage",
+        "unsupported_evidence",
+        "upstream_verified"
+      ],
+      "type": "object"
+    },
+    "max_depth": {
+      "type": "integer"
+    },
+    "model_hash": {
+      "type": "string"
+    },
+    "model_id": {
+      "type": "string"
+    },
+    "model_name": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "transitions": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "action": {
+            "type": "string"
+          },
+          "authority_free": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string"
+          },
+          "effects": {
+            "additionalProperties": false,
+            "properties": {
+              "counterexample_present": {
+                "type": "string"
+              },
+              "hazards_controlled": {
+                "type": "string"
+              },
+              "proofs_discharged": {
+                "type": "string"
+              },
+              "safety_case_complete": {
+                "type": "string"
+              },
+              "stage": {
+                "type": "string"
+              },
+              "unsupported_evidence": {
+                "type": "string"
+              },
+              "upstream_verified": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "stage"
+            ],
+            "type": "object"
+          },
+          "guard": {
+            "type": "string"
+          },
+          "transition_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "action",
+          "authority_free",
+          "description",
+          "effects",
+          "guard",
+          "transition_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "variable_domains": {
+      "additionalProperties": false,
+      "properties": {
+        "authority_zero": {
+          "items": {
+            "type": "boolean"
+          },
+          "type": "array"
+        },
+        "counterexample_present": {
+          "items": {
+            "type": "boolean"
+          },
+          "type": "array"
+        },
+        "hazards_controlled": {
+          "items": {
+            "type": "boolean"
+          },
+          "type": "array"
+        },
+        "proofs_discharged": {
+          "items": {
+            "type": "boolean"
+          },
+          "type": "array"
+        },
+        "safety_case_complete": {
+          "items": {
+            "type": "boolean"
+          },
+          "type": "array"
+        },
+        "stage": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "unsupported_evidence": {
+          "items": {
+            "type": "boolean"
+          },
+          "type": "array"
+        },
+        "upstream_verified": {
+          "items": {
+            "type": "boolean"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "authority_zero",
+        "counterexample_present",
+        "hazards_controlled",
+        "proofs_discharged",
+        "safety_case_complete",
+        "stage",
+        "unsupported_evidence",
+        "upstream_verified"
+      ],
+      "type": "object"
+    },
+    "variables": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "domain": {
+            "items": {},
+            "type": "array"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "description",
+          "domain",
+          "name"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "initial_state",
+    "max_depth",
+    "model_hash",
+    "model_id",
+    "model_name",
+    "phase",
+    "research_only",
+    "transitions",
+    "variable_domains",
+    "variables"
+  ],
+  "title": "GOLDEN_FORMAL_MODEL",
+  "type": "object"
+}

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bounded_semantics": {
+      "type": "boolean"
+    },
+    "catalog_id": {
+      "type": "string"
+    },
+    "model_id": {
+      "type": "string"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "results": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "counterexamples": {
+            "items": {},
+            "type": "array"
+          },
+          "failure_count": {
+            "type": "integer"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "property_id": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "counterexamples",
+          "failure_count",
+          "kind",
+          "passed",
+          "property_id",
+          "severity"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "bounded_semantics",
+    "catalog_id",
+    "model_id",
+    "passed",
+    "phase",
+    "report_hash",
+    "report_id",
+    "research_only",
+    "results"
+  ],
+  "title": "GOLDEN_BOUNDED_TEMPORAL_VERIFICATION_REPORT",
+  "type": "object"
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "exact_match": {
+      "type": "boolean"
+    },
+    "external_institutional_independence": {
+      "type": "boolean"
+    },
+    "external_signature": {
+      "type": "boolean"
+    },
+    "logical_process_independence": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "run_a_hash": {
+      "type": "string"
+    },
+    "run_b_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "exact_match",
+    "external_institutional_independence",
+    "external_signature",
+    "logical_process_independence",
+    "phase",
+    "receipt_hash",
+    "receipt_id",
+    "research_only",
+    "run_a_hash",
+    "run_b_hash"
+  ],
+  "title": "INDEPENDENT_REPRODUCTION_RECEIPT",
+  "type": "object"
+}

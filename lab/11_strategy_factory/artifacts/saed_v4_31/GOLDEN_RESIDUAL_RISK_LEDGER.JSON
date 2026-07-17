@@ -1,0 +1,101 @@
+{
+  "all_within_threshold": true,
+  "entries": [
+    {
+      "acceptance_authority": "research_reference_only",
+      "acceptance_threshold": 2.0,
+      "accepted": true,
+      "gross_risk_score": 40,
+      "hazard_id": "HZ-001",
+      "production_acceptance": false,
+      "residual_risk_score": 0.016
+    },
+    {
+      "acceptance_authority": "research_reference_only",
+      "acceptance_threshold": 2.0,
+      "accepted": true,
+      "gross_risk_score": 40,
+      "hazard_id": "HZ-002",
+      "production_acceptance": false,
+      "residual_risk_score": 0.16
+    },
+    {
+      "acceptance_authority": "research_reference_only",
+      "acceptance_threshold": 2.0,
+      "accepted": true,
+      "gross_risk_score": 40,
+      "hazard_id": "HZ-003",
+      "production_acceptance": false,
+      "residual_risk_score": 0.12
+    },
+    {
+      "acceptance_authority": "research_reference_only",
+      "acceptance_threshold": 2.0,
+      "accepted": true,
+      "gross_risk_score": 40,
+      "hazard_id": "HZ-004",
+      "production_acceptance": false,
+      "residual_risk_score": 0.16
+    },
+    {
+      "acceptance_authority": "research_reference_only",
+      "acceptance_threshold": 2.0,
+      "accepted": true,
+      "gross_risk_score": 32,
+      "hazard_id": "HZ-005",
+      "production_acceptance": false,
+      "residual_risk_score": 0.1792
+    },
+    {
+      "acceptance_authority": "research_reference_only",
+      "acceptance_threshold": 2.0,
+      "accepted": true,
+      "gross_risk_score": 36,
+      "hazard_id": "HZ-006",
+      "production_acceptance": false,
+      "residual_risk_score": 0.324
+    },
+    {
+      "acceptance_authority": "research_reference_only",
+      "acceptance_threshold": 2.0,
+      "accepted": true,
+      "gross_risk_score": 40,
+      "hazard_id": "HZ-007",
+      "production_acceptance": false,
+      "residual_risk_score": 0.168
+    },
+    {
+      "acceptance_authority": "research_reference_only",
+      "acceptance_threshold": 2.0,
+      "accepted": true,
+      "gross_risk_score": 32,
+      "hazard_id": "HZ-008",
+      "production_acceptance": false,
+      "residual_risk_score": 0.224
+    },
+    {
+      "acceptance_authority": "research_reference_only",
+      "acceptance_threshold": 2.0,
+      "accepted": true,
+      "gross_risk_score": 32,
+      "hazard_id": "HZ-009",
+      "production_acceptance": false,
+      "residual_risk_score": 0.288
+    },
+    {
+      "acceptance_authority": "research_reference_only",
+      "acceptance_threshold": 2.0,
+      "accepted": true,
+      "gross_risk_score": 40,
+      "hazard_id": "HZ-010",
+      "production_acceptance": false,
+      "residual_risk_score": 0.28
+    }
+  ],
+  "ledger_hash": "fd22f6d5b143d206fb22e4c3fab4b3d2be6eceb7837718f13bc3d55dfc206d2e",
+  "ledger_id": "v431_residual_risk_abfc69c426ed9abe2d419a9b",
+  "phase": "SAED_V4_31",
+  "research_only": true,
+  "residual_risk_eliminated_claim": false,
+  "unaccepted_count": 0
+}

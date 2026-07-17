@@ -1,10 +1,11 @@
-feat(strategy-factory): implement SAED V4-30 independent multi-lab replication
+feat(saed-v4): implement V4-31 formal verification and safety case
 
-- freeze independent-replication protocol, package identity and lab eligibility contracts
-- add blinded exchange, immutable preregistration and default-deny environment attestations
-- implement deterministic one-run-per-lab synthetic reference execution
-- add semantic-hash and metric-tolerance reconciliation with fail-closed disagreement adjudication
-- add append-only registration, preregistration, run, result and adjudication ledgers
-- add replication coverage, replay, security, model-risk and authority evidence
-- add closed schemas, golden fixtures, MQL5 static mirrors and modular Obsidian documentation
-- preserve UCEE authority and hand off only to V4-31 formal verification and safety case
+- freeze closed contracts for finite-state formal verification and safety-case evidence
+- add deterministic explicit-state model checking, invariant and bounded temporal verification
+- add proof-obligation, counterexample, mutation, hazard, mitigation and residual-risk ledgers
+- add GSN-compatible assurance-case graph and evidence traceability validation
+- preserve UCEE authority with fail-closed research-only certificates and V4-32 handoff
+- add closed schemas, golden fixtures, negative/mutation tests, QA tooling and MQL5 mirrors
+- add comprehensive Obsidian implementation and atomic-concept documentation
+
+Evidence: synthetic finite reference model only; no general program proof, external theorem-prover certification, MetaEditor compile, runtime parity, promotion, execution or production authority.

@@ -1,0 +1,377 @@
+{
+  "all_discharged": true,
+  "discharged_count": 15,
+  "fail_closed": true,
+  "ledger_hash": "a2d5839bd02f95eff9dabc78b90f09023baf34fa41418b492d99ee9d9cf1f692",
+  "ledger_id": "v431_proof_ledger_1f7d498bb0dc09fab0796140",
+  "phase": "SAED_V4_31",
+  "registry_id": "v431_proof_registry_2e0922bf0cf5fcaa8a821844",
+  "research_only": true,
+  "statuses": [
+    {
+      "criticality": "catastrophic",
+      "evidence_hashes": {
+        "assurance_case": "fa491b0feada3cb15db9110a79495ca132548bf47e2e4a434f291b9f00363d6d",
+        "authority": "5477facb63ac84887ad1f6de4f5fe6f9acdef5d610ab9d2bf6098caddd45494c",
+        "contract_closure": "30635ebedf8a809a86415eb8d90424dca22599d067c31655ff4f67acfbc6a0ea",
+        "invariant_report": "340b5d56c9c129c830a85145bd10fef134195040343d8dcdc609b6cc3bedfe93",
+        "mitigation_coverage": "a84c3734f4b636a6edbf278aea796933f9d44f31c8ab6a0cb429ac593834ff66",
+        "mutation_scorecard": "2fc3546ee6c4f956c34ffc276e5150d068da2d8593fcf94ec179fbea541aa942",
+        "replay": "e1f85566186f44ebbbed9471102af07f6e34290d90f94e2c8935c3de4763d2ee",
+        "reproduction": "586fedb54df855ff0b7835408654dc8e51734a08940d89e8d1b9959278273177",
+        "residual_risk": "b90a2a60cf110a1360f155888b351c1f931d338bee996166e6c9ed0a6a881a9c",
+        "temporal_report": "6469ef5546c08427a92596498b8b598aeacc03f45a9281a45ce9b6c974430c7e",
+        "traceability": "7d02237bdfbe2e8f5362bc734ac7a99be04fce29b1ed5820eda7c06b756a2f3c",
+        "upstream": "04a30ec46c924ac3ae7e267856f7487d7f637badb30d730ca1af8b0afa97459e"
+      },
+      "kind": "invariants",
+      "obligation_id": "PO-001",
+      "passed": true,
+      "targets": [
+        "INV-001"
+      ]
+    },
+    {
+      "criticality": "critical",
+      "evidence_hashes": {
+        "assurance_case": "fa491b0feada3cb15db9110a79495ca132548bf47e2e4a434f291b9f00363d6d",
+        "authority": "5477facb63ac84887ad1f6de4f5fe6f9acdef5d610ab9d2bf6098caddd45494c",
+        "contract_closure": "30635ebedf8a809a86415eb8d90424dca22599d067c31655ff4f67acfbc6a0ea",
+        "invariant_report": "340b5d56c9c129c830a85145bd10fef134195040343d8dcdc609b6cc3bedfe93",
+        "mitigation_coverage": "a84c3734f4b636a6edbf278aea796933f9d44f31c8ab6a0cb429ac593834ff66",
+        "mutation_scorecard": "2fc3546ee6c4f956c34ffc276e5150d068da2d8593fcf94ec179fbea541aa942",
+        "replay": "e1f85566186f44ebbbed9471102af07f6e34290d90f94e2c8935c3de4763d2ee",
+        "reproduction": "586fedb54df855ff0b7835408654dc8e51734a08940d89e8d1b9959278273177",
+        "residual_risk": "b90a2a60cf110a1360f155888b351c1f931d338bee996166e6c9ed0a6a881a9c",
+        "temporal_report": "6469ef5546c08427a92596498b8b598aeacc03f45a9281a45ce9b6c974430c7e",
+        "traceability": "7d02237bdfbe2e8f5362bc734ac7a99be04fce29b1ed5820eda7c06b756a2f3c",
+        "upstream": "04a30ec46c924ac3ae7e267856f7487d7f637badb30d730ca1af8b0afa97459e"
+      },
+      "kind": "invariants",
+      "obligation_id": "PO-002",
+      "passed": true,
+      "targets": [
+        "INV-002",
+        "INV-003",
+        "INV-004",
+        "INV-005",
+        "INV-006",
+        "INV-007",
+        "INV-014"
+      ]
+    },
+    {
+      "criticality": "high",
+      "evidence_hashes": {
+        "assurance_case": "fa491b0feada3cb15db9110a79495ca132548bf47e2e4a434f291b9f00363d6d",
+        "authority": "5477facb63ac84887ad1f6de4f5fe6f9acdef5d610ab9d2bf6098caddd45494c",
+        "contract_closure": "30635ebedf8a809a86415eb8d90424dca22599d067c31655ff4f67acfbc6a0ea",
+        "invariant_report": "340b5d56c9c129c830a85145bd10fef134195040343d8dcdc609b6cc3bedfe93",
+        "mitigation_coverage": "a84c3734f4b636a6edbf278aea796933f9d44f31c8ab6a0cb429ac593834ff66",
+        "mutation_scorecard": "2fc3546ee6c4f956c34ffc276e5150d068da2d8593fcf94ec179fbea541aa942",
+        "replay": "e1f85566186f44ebbbed9471102af07f6e34290d90f94e2c8935c3de4763d2ee",
+        "reproduction": "586fedb54df855ff0b7835408654dc8e51734a08940d89e8d1b9959278273177",
+        "residual_risk": "b90a2a60cf110a1360f155888b351c1f931d338bee996166e6c9ed0a6a881a9c",
+        "temporal_report": "6469ef5546c08427a92596498b8b598aeacc03f45a9281a45ce9b6c974430c7e",
+        "traceability": "7d02237bdfbe2e8f5362bc734ac7a99be04fce29b1ed5820eda7c06b756a2f3c",
+        "upstream": "04a30ec46c924ac3ae7e267856f7487d7f637badb30d730ca1af8b0afa97459e"
+      },
+      "kind": "invariants",
+      "obligation_id": "PO-003",
+      "passed": true,
+      "targets": [
+        "INV-008",
+        "INV-009",
+        "INV-010",
+        "INV-011",
+        "INV-012",
+        "INV-013"
+      ]
+    },
+    {
+      "criticality": "catastrophic",
+      "evidence_hashes": {
+        "assurance_case": "fa491b0feada3cb15db9110a79495ca132548bf47e2e4a434f291b9f00363d6d",
+        "authority": "5477facb63ac84887ad1f6de4f5fe6f9acdef5d610ab9d2bf6098caddd45494c",
+        "contract_closure": "30635ebedf8a809a86415eb8d90424dca22599d067c31655ff4f67acfbc6a0ea",
+        "invariant_report": "340b5d56c9c129c830a85145bd10fef134195040343d8dcdc609b6cc3bedfe93",
+        "mitigation_coverage": "a84c3734f4b636a6edbf278aea796933f9d44f31c8ab6a0cb429ac593834ff66",
+        "mutation_scorecard": "2fc3546ee6c4f956c34ffc276e5150d068da2d8593fcf94ec179fbea541aa942",
+        "replay": "e1f85566186f44ebbbed9471102af07f6e34290d90f94e2c8935c3de4763d2ee",
+        "reproduction": "586fedb54df855ff0b7835408654dc8e51734a08940d89e8d1b9959278273177",
+        "residual_risk": "b90a2a60cf110a1360f155888b351c1f931d338bee996166e6c9ed0a6a881a9c",
+        "temporal_report": "6469ef5546c08427a92596498b8b598aeacc03f45a9281a45ce9b6c974430c7e",
+        "traceability": "7d02237bdfbe2e8f5362bc734ac7a99be04fce29b1ed5820eda7c06b756a2f3c",
+        "upstream": "04a30ec46c924ac3ae7e267856f7487d7f637badb30d730ca1af8b0afa97459e"
+      },
+      "kind": "temporal",
+      "obligation_id": "PO-004",
+      "passed": true,
+      "targets": [
+        "TMP-001",
+        "TMP-002",
+        "TMP-011"
+      ]
+    },
+    {
+      "criticality": "critical",
+      "evidence_hashes": {
+        "assurance_case": "fa491b0feada3cb15db9110a79495ca132548bf47e2e4a434f291b9f00363d6d",
+        "authority": "5477facb63ac84887ad1f6de4f5fe6f9acdef5d610ab9d2bf6098caddd45494c",
+        "contract_closure": "30635ebedf8a809a86415eb8d90424dca22599d067c31655ff4f67acfbc6a0ea",
+        "invariant_report": "340b5d56c9c129c830a85145bd10fef134195040343d8dcdc609b6cc3bedfe93",
+        "mitigation_coverage": "a84c3734f4b636a6edbf278aea796933f9d44f31c8ab6a0cb429ac593834ff66",
+        "mutation_scorecard": "2fc3546ee6c4f956c34ffc276e5150d068da2d8593fcf94ec179fbea541aa942",
+        "replay": "e1f85566186f44ebbbed9471102af07f6e34290d90f94e2c8935c3de4763d2ee",
+        "reproduction": "586fedb54df855ff0b7835408654dc8e51734a08940d89e8d1b9959278273177",
+        "residual_risk": "b90a2a60cf110a1360f155888b351c1f931d338bee996166e6c9ed0a6a881a9c",
+        "temporal_report": "6469ef5546c08427a92596498b8b598aeacc03f45a9281a45ce9b6c974430c7e",
+        "traceability": "7d02237bdfbe2e8f5362bc734ac7a99be04fce29b1ed5820eda7c06b756a2f3c",
+        "upstream": "04a30ec46c924ac3ae7e267856f7487d7f637badb30d730ca1af8b0afa97459e"
+      },
+      "kind": "temporal",
+      "obligation_id": "PO-005",
+      "passed": true,
+      "targets": [
+        "TMP-003",
+        "TMP-004",
+        "TMP-005"
+      ]
+    },
+    {
+      "criticality": "high",
+      "evidence_hashes": {
+        "assurance_case": "fa491b0feada3cb15db9110a79495ca132548bf47e2e4a434f291b9f00363d6d",
+        "authority": "5477facb63ac84887ad1f6de4f5fe6f9acdef5d610ab9d2bf6098caddd45494c",
+        "contract_closure": "30635ebedf8a809a86415eb8d90424dca22599d067c31655ff4f67acfbc6a0ea",
+        "invariant_report": "340b5d56c9c129c830a85145bd10fef134195040343d8dcdc609b6cc3bedfe93",
+        "mitigation_coverage": "a84c3734f4b636a6edbf278aea796933f9d44f31c8ab6a0cb429ac593834ff66",
+        "mutation_scorecard": "2fc3546ee6c4f956c34ffc276e5150d068da2d8593fcf94ec179fbea541aa942",
+        "replay": "e1f85566186f44ebbbed9471102af07f6e34290d90f94e2c8935c3de4763d2ee",
+        "reproduction": "586fedb54df855ff0b7835408654dc8e51734a08940d89e8d1b9959278273177",
+        "residual_risk": "b90a2a60cf110a1360f155888b351c1f931d338bee996166e6c9ed0a6a881a9c",
+        "temporal_report": "6469ef5546c08427a92596498b8b598aeacc03f45a9281a45ce9b6c974430c7e",
+        "traceability": "7d02237bdfbe2e8f5362bc734ac7a99be04fce29b1ed5820eda7c06b756a2f3c",
+        "upstream": "04a30ec46c924ac3ae7e267856f7487d7f637badb30d730ca1af8b0afa97459e"
+      },
+      "kind": "temporal",
+      "obligation_id": "PO-006",
+      "passed": true,
+      "targets": [
+        "TMP-006",
+        "TMP-007",
+        "TMP-008"
+      ]
+    },
+    {
+      "criticality": "critical",
+      "evidence_hashes": {
+        "assurance_case": "fa491b0feada3cb15db9110a79495ca132548bf47e2e4a434f291b9f00363d6d",
+        "authority": "5477facb63ac84887ad1f6de4f5fe6f9acdef5d610ab9d2bf6098caddd45494c",
+        "contract_closure": "30635ebedf8a809a86415eb8d90424dca22599d067c31655ff4f67acfbc6a0ea",
+        "invariant_report": "340b5d56c9c129c830a85145bd10fef134195040343d8dcdc609b6cc3bedfe93",
+        "mitigation_coverage": "a84c3734f4b636a6edbf278aea796933f9d44f31c8ab6a0cb429ac593834ff66",
+        "mutation_scorecard": "2fc3546ee6c4f956c34ffc276e5150d068da2d8593fcf94ec179fbea541aa942",
+        "replay": "e1f85566186f44ebbbed9471102af07f6e34290d90f94e2c8935c3de4763d2ee",
+        "reproduction": "586fedb54df855ff0b7835408654dc8e51734a08940d89e8d1b9959278273177",
+        "residual_risk": "b90a2a60cf110a1360f155888b351c1f931d338bee996166e6c9ed0a6a881a9c",
+        "temporal_report": "6469ef5546c08427a92596498b8b598aeacc03f45a9281a45ce9b6c974430c7e",
+        "traceability": "7d02237bdfbe2e8f5362bc734ac7a99be04fce29b1ed5820eda7c06b756a2f3c",
+        "upstream": "04a30ec46c924ac3ae7e267856f7487d7f637badb30d730ca1af8b0afa97459e"
+      },
+      "kind": "temporal",
+      "obligation_id": "PO-007",
+      "passed": true,
+      "targets": [
+        "TMP-009",
+        "TMP-010",
+        "TMP-012"
+      ]
+    },
+    {
+      "criticality": "critical",
+      "evidence_hashes": {
+        "assurance_case": "fa491b0feada3cb15db9110a79495ca132548bf47e2e4a434f291b9f00363d6d",
+        "authority": "5477facb63ac84887ad1f6de4f5fe6f9acdef5d610ab9d2bf6098caddd45494c",
+        "contract_closure": "30635ebedf8a809a86415eb8d90424dca22599d067c31655ff4f67acfbc6a0ea",
+        "invariant_report": "340b5d56c9c129c830a85145bd10fef134195040343d8dcdc609b6cc3bedfe93",
+        "mitigation_coverage": "a84c3734f4b636a6edbf278aea796933f9d44f31c8ab6a0cb429ac593834ff66",
+        "mutation_scorecard": "2fc3546ee6c4f956c34ffc276e5150d068da2d8593fcf94ec179fbea541aa942",
+        "replay": "e1f85566186f44ebbbed9471102af07f6e34290d90f94e2c8935c3de4763d2ee",
+        "reproduction": "586fedb54df855ff0b7835408654dc8e51734a08940d89e8d1b9959278273177",
+        "residual_risk": "b90a2a60cf110a1360f155888b351c1f931d338bee996166e6c9ed0a6a881a9c",
+        "temporal_report": "6469ef5546c08427a92596498b8b598aeacc03f45a9281a45ce9b6c974430c7e",
+        "traceability": "7d02237bdfbe2e8f5362bc734ac7a99be04fce29b1ed5820eda7c06b756a2f3c",
+        "upstream": "04a30ec46c924ac3ae7e267856f7487d7f637badb30d730ca1af8b0afa97459e"
+      },
+      "kind": "mutation",
+      "obligation_id": "PO-008",
+      "passed": true,
+      "targets": [
+        "MUTATION-100"
+      ]
+    },
+    {
+      "criticality": "critical",
+      "evidence_hashes": {
+        "assurance_case": "fa491b0feada3cb15db9110a79495ca132548bf47e2e4a434f291b9f00363d6d",
+        "authority": "5477facb63ac84887ad1f6de4f5fe6f9acdef5d610ab9d2bf6098caddd45494c",
+        "contract_closure": "30635ebedf8a809a86415eb8d90424dca22599d067c31655ff4f67acfbc6a0ea",
+        "invariant_report": "340b5d56c9c129c830a85145bd10fef134195040343d8dcdc609b6cc3bedfe93",
+        "mitigation_coverage": "a84c3734f4b636a6edbf278aea796933f9d44f31c8ab6a0cb429ac593834ff66",
+        "mutation_scorecard": "2fc3546ee6c4f956c34ffc276e5150d068da2d8593fcf94ec179fbea541aa942",
+        "replay": "e1f85566186f44ebbbed9471102af07f6e34290d90f94e2c8935c3de4763d2ee",
+        "reproduction": "586fedb54df855ff0b7835408654dc8e51734a08940d89e8d1b9959278273177",
+        "residual_risk": "b90a2a60cf110a1360f155888b351c1f931d338bee996166e6c9ed0a6a881a9c",
+        "temporal_report": "6469ef5546c08427a92596498b8b598aeacc03f45a9281a45ce9b6c974430c7e",
+        "traceability": "7d02237bdfbe2e8f5362bc734ac7a99be04fce29b1ed5820eda7c06b756a2f3c",
+        "upstream": "04a30ec46c924ac3ae7e267856f7487d7f637badb30d730ca1af8b0afa97459e"
+      },
+      "kind": "hazard_coverage",
+      "obligation_id": "PO-009",
+      "passed": true,
+      "targets": [
+        "HAZARD-COVERAGE"
+      ]
+    },
+    {
+      "criticality": "critical",
+      "evidence_hashes": {
+        "assurance_case": "fa491b0feada3cb15db9110a79495ca132548bf47e2e4a434f291b9f00363d6d",
+        "authority": "5477facb63ac84887ad1f6de4f5fe6f9acdef5d610ab9d2bf6098caddd45494c",
+        "contract_closure": "30635ebedf8a809a86415eb8d90424dca22599d067c31655ff4f67acfbc6a0ea",
+        "invariant_report": "340b5d56c9c129c830a85145bd10fef134195040343d8dcdc609b6cc3bedfe93",
+        "mitigation_coverage": "a84c3734f4b636a6edbf278aea796933f9d44f31c8ab6a0cb429ac593834ff66",
+        "mutation_scorecard": "2fc3546ee6c4f956c34ffc276e5150d068da2d8593fcf94ec179fbea541aa942",
+        "replay": "e1f85566186f44ebbbed9471102af07f6e34290d90f94e2c8935c3de4763d2ee",
+        "reproduction": "586fedb54df855ff0b7835408654dc8e51734a08940d89e8d1b9959278273177",
+        "residual_risk": "b90a2a60cf110a1360f155888b351c1f931d338bee996166e6c9ed0a6a881a9c",
+        "temporal_report": "6469ef5546c08427a92596498b8b598aeacc03f45a9281a45ce9b6c974430c7e",
+        "traceability": "7d02237bdfbe2e8f5362bc734ac7a99be04fce29b1ed5820eda7c06b756a2f3c",
+        "upstream": "04a30ec46c924ac3ae7e267856f7487d7f637badb30d730ca1af8b0afa97459e"
+      },
+      "kind": "assurance_case",
+      "obligation_id": "PO-010",
+      "passed": true,
+      "targets": [
+        "ASSURANCE-VALID"
+      ]
+    },
+    {
+      "criticality": "catastrophic",
+      "evidence_hashes": {
+        "assurance_case": "fa491b0feada3cb15db9110a79495ca132548bf47e2e4a434f291b9f00363d6d",
+        "authority": "5477facb63ac84887ad1f6de4f5fe6f9acdef5d610ab9d2bf6098caddd45494c",
+        "contract_closure": "30635ebedf8a809a86415eb8d90424dca22599d067c31655ff4f67acfbc6a0ea",
+        "invariant_report": "340b5d56c9c129c830a85145bd10fef134195040343d8dcdc609b6cc3bedfe93",
+        "mitigation_coverage": "a84c3734f4b636a6edbf278aea796933f9d44f31c8ab6a0cb429ac593834ff66",
+        "mutation_scorecard": "2fc3546ee6c4f956c34ffc276e5150d068da2d8593fcf94ec179fbea541aa942",
+        "replay": "e1f85566186f44ebbbed9471102af07f6e34290d90f94e2c8935c3de4763d2ee",
+        "reproduction": "586fedb54df855ff0b7835408654dc8e51734a08940d89e8d1b9959278273177",
+        "residual_risk": "b90a2a60cf110a1360f155888b351c1f931d338bee996166e6c9ed0a6a881a9c",
+        "temporal_report": "6469ef5546c08427a92596498b8b598aeacc03f45a9281a45ce9b6c974430c7e",
+        "traceability": "7d02237bdfbe2e8f5362bc734ac7a99be04fce29b1ed5820eda7c06b756a2f3c",
+        "upstream": "04a30ec46c924ac3ae7e267856f7487d7f637badb30d730ca1af8b0afa97459e"
+      },
+      "kind": "authority",
+      "obligation_id": "PO-011",
+      "passed": true,
+      "targets": [
+        "AUTHORITY-ZERO"
+      ]
+    },
+    {
+      "criticality": "critical",
+      "evidence_hashes": {
+        "assurance_case": "fa491b0feada3cb15db9110a79495ca132548bf47e2e4a434f291b9f00363d6d",
+        "authority": "5477facb63ac84887ad1f6de4f5fe6f9acdef5d610ab9d2bf6098caddd45494c",
+        "contract_closure": "30635ebedf8a809a86415eb8d90424dca22599d067c31655ff4f67acfbc6a0ea",
+        "invariant_report": "340b5d56c9c129c830a85145bd10fef134195040343d8dcdc609b6cc3bedfe93",
+        "mitigation_coverage": "a84c3734f4b636a6edbf278aea796933f9d44f31c8ab6a0cb429ac593834ff66",
+        "mutation_scorecard": "2fc3546ee6c4f956c34ffc276e5150d068da2d8593fcf94ec179fbea541aa942",
+        "replay": "e1f85566186f44ebbbed9471102af07f6e34290d90f94e2c8935c3de4763d2ee",
+        "reproduction": "586fedb54df855ff0b7835408654dc8e51734a08940d89e8d1b9959278273177",
+        "residual_risk": "b90a2a60cf110a1360f155888b351c1f931d338bee996166e6c9ed0a6a881a9c",
+        "temporal_report": "6469ef5546c08427a92596498b8b598aeacc03f45a9281a45ce9b6c974430c7e",
+        "traceability": "7d02237bdfbe2e8f5362bc734ac7a99be04fce29b1ed5820eda7c06b756a2f3c",
+        "upstream": "04a30ec46c924ac3ae7e267856f7487d7f637badb30d730ca1af8b0afa97459e"
+      },
+      "kind": "upstream",
+      "obligation_id": "PO-012",
+      "passed": true,
+      "targets": [
+        "UPSTREAM-VERIFIED"
+      ]
+    },
+    {
+      "criticality": "high",
+      "evidence_hashes": {
+        "assurance_case": "fa491b0feada3cb15db9110a79495ca132548bf47e2e4a434f291b9f00363d6d",
+        "authority": "5477facb63ac84887ad1f6de4f5fe6f9acdef5d610ab9d2bf6098caddd45494c",
+        "contract_closure": "30635ebedf8a809a86415eb8d90424dca22599d067c31655ff4f67acfbc6a0ea",
+        "invariant_report": "340b5d56c9c129c830a85145bd10fef134195040343d8dcdc609b6cc3bedfe93",
+        "mitigation_coverage": "a84c3734f4b636a6edbf278aea796933f9d44f31c8ab6a0cb429ac593834ff66",
+        "mutation_scorecard": "2fc3546ee6c4f956c34ffc276e5150d068da2d8593fcf94ec179fbea541aa942",
+        "replay": "e1f85566186f44ebbbed9471102af07f6e34290d90f94e2c8935c3de4763d2ee",
+        "reproduction": "586fedb54df855ff0b7835408654dc8e51734a08940d89e8d1b9959278273177",
+        "residual_risk": "b90a2a60cf110a1360f155888b351c1f931d338bee996166e6c9ed0a6a881a9c",
+        "temporal_report": "6469ef5546c08427a92596498b8b598aeacc03f45a9281a45ce9b6c974430c7e",
+        "traceability": "7d02237bdfbe2e8f5362bc734ac7a99be04fce29b1ed5820eda7c06b756a2f3c",
+        "upstream": "04a30ec46c924ac3ae7e267856f7487d7f637badb30d730ca1af8b0afa97459e"
+      },
+      "kind": "replay",
+      "obligation_id": "PO-013",
+      "passed": true,
+      "targets": [
+        "REPLAY-DETERMINISTIC"
+      ]
+    },
+    {
+      "criticality": "high",
+      "evidence_hashes": {
+        "assurance_case": "fa491b0feada3cb15db9110a79495ca132548bf47e2e4a434f291b9f00363d6d",
+        "authority": "5477facb63ac84887ad1f6de4f5fe6f9acdef5d610ab9d2bf6098caddd45494c",
+        "contract_closure": "30635ebedf8a809a86415eb8d90424dca22599d067c31655ff4f67acfbc6a0ea",
+        "invariant_report": "340b5d56c9c129c830a85145bd10fef134195040343d8dcdc609b6cc3bedfe93",
+        "mitigation_coverage": "a84c3734f4b636a6edbf278aea796933f9d44f31c8ab6a0cb429ac593834ff66",
+        "mutation_scorecard": "2fc3546ee6c4f956c34ffc276e5150d068da2d8593fcf94ec179fbea541aa942",
+        "replay": "e1f85566186f44ebbbed9471102af07f6e34290d90f94e2c8935c3de4763d2ee",
+        "reproduction": "586fedb54df855ff0b7835408654dc8e51734a08940d89e8d1b9959278273177",
+        "residual_risk": "b90a2a60cf110a1360f155888b351c1f931d338bee996166e6c9ed0a6a881a9c",
+        "temporal_report": "6469ef5546c08427a92596498b8b598aeacc03f45a9281a45ce9b6c974430c7e",
+        "traceability": "7d02237bdfbe2e8f5362bc734ac7a99be04fce29b1ed5820eda7c06b756a2f3c",
+        "upstream": "04a30ec46c924ac3ae7e267856f7487d7f637badb30d730ca1af8b0afa97459e"
+      },
+      "kind": "independent_reproduction",
+      "obligation_id": "PO-014",
+      "passed": true,
+      "targets": [
+        "REPRODUCTION-EXACT"
+      ]
+    },
+    {
+      "criticality": "critical",
+      "evidence_hashes": {
+        "assurance_case": "fa491b0feada3cb15db9110a79495ca132548bf47e2e4a434f291b9f00363d6d",
+        "authority": "5477facb63ac84887ad1f6de4f5fe6f9acdef5d610ab9d2bf6098caddd45494c",
+        "contract_closure": "30635ebedf8a809a86415eb8d90424dca22599d067c31655ff4f67acfbc6a0ea",
+        "invariant_report": "340b5d56c9c129c830a85145bd10fef134195040343d8dcdc609b6cc3bedfe93",
+        "mitigation_coverage": "a84c3734f4b636a6edbf278aea796933f9d44f31c8ab6a0cb429ac593834ff66",
+        "mutation_scorecard": "2fc3546ee6c4f956c34ffc276e5150d068da2d8593fcf94ec179fbea541aa942",
+        "replay": "e1f85566186f44ebbbed9471102af07f6e34290d90f94e2c8935c3de4763d2ee",
+        "reproduction": "586fedb54df855ff0b7835408654dc8e51734a08940d89e8d1b9959278273177",
+        "residual_risk": "b90a2a60cf110a1360f155888b351c1f931d338bee996166e6c9ed0a6a881a9c",
+        "temporal_report": "6469ef5546c08427a92596498b8b598aeacc03f45a9281a45ce9b6c974430c7e",
+        "traceability": "7d02237bdfbe2e8f5362bc734ac7a99be04fce29b1ed5820eda7c06b756a2f3c",
+        "upstream": "04a30ec46c924ac3ae7e267856f7487d7f637badb30d730ca1af8b0afa97459e"
+      },
+      "kind": "contract_closure",
+      "obligation_id": "PO-015",
+      "passed": true,
+      "targets": [
+        "CONTRACT-CLOSED"
+      ]
+    }
+  ],
+  "total_count": 15
+}

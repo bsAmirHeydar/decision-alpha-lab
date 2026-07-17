@@ -1,0 +1,186 @@
+[
+  {
+    "claim": "All authority invariants hold",
+    "criticality": "catastrophic",
+    "discharge_rule": "all targets pass",
+    "kind": "invariants",
+    "obligation_id": "PO-001",
+    "owner": "formal_methods_owner",
+    "targets": [
+      "INV-001"
+    ]
+  },
+  {
+    "claim": "Qualification preconditions are invariant",
+    "criticality": "critical",
+    "discharge_rule": "all targets pass",
+    "kind": "invariants",
+    "obligation_id": "PO-002",
+    "owner": "safety_owner",
+    "targets": [
+      "INV-002",
+      "INV-003",
+      "INV-004",
+      "INV-005",
+      "INV-006",
+      "INV-007",
+      "INV-014"
+    ]
+  },
+  {
+    "claim": "Evidence state consistency holds",
+    "criticality": "high",
+    "discharge_rule": "all targets pass",
+    "kind": "invariants",
+    "obligation_id": "PO-003",
+    "owner": "data_governance_owner",
+    "targets": [
+      "INV-008",
+      "INV-009",
+      "INV-010",
+      "INV-011",
+      "INV-012",
+      "INV-013"
+    ]
+  },
+  {
+    "claim": "Unsafe qualification is unreachable",
+    "criticality": "catastrophic",
+    "discharge_rule": "all targets pass",
+    "kind": "temporal",
+    "obligation_id": "PO-004",
+    "owner": "formal_methods_owner",
+    "targets": [
+      "TMP-001",
+      "TMP-002",
+      "TMP-011"
+    ]
+  },
+  {
+    "claim": "Lifecycle progress and terminality hold",
+    "criticality": "critical",
+    "discharge_rule": "all targets pass",
+    "kind": "temporal",
+    "obligation_id": "PO-005",
+    "owner": "architecture_owner",
+    "targets": [
+      "TMP-003",
+      "TMP-004",
+      "TMP-005"
+    ]
+  },
+  {
+    "claim": "Positive and fail-closed paths are reachable",
+    "criticality": "high",
+    "discharge_rule": "all targets pass",
+    "kind": "temporal",
+    "obligation_id": "PO-006",
+    "owner": "qa_owner",
+    "targets": [
+      "TMP-006",
+      "TMP-007",
+      "TMP-008"
+    ]
+  },
+  {
+    "claim": "Critical transitions preserve semantics",
+    "criticality": "critical",
+    "discharge_rule": "all targets pass",
+    "kind": "temporal",
+    "obligation_id": "PO-007",
+    "owner": "formal_methods_owner",
+    "targets": [
+      "TMP-009",
+      "TMP-010",
+      "TMP-012"
+    ]
+  },
+  {
+    "claim": "Mutation suite kills every seeded defect",
+    "criticality": "critical",
+    "discharge_rule": "score equals one",
+    "kind": "mutation",
+    "obligation_id": "PO-008",
+    "owner": "qa_owner",
+    "targets": [
+      "MUTATION-100"
+    ]
+  },
+  {
+    "claim": "Every hazard has verified controls",
+    "criticality": "critical",
+    "discharge_rule": "all hazards controlled",
+    "kind": "hazard_coverage",
+    "obligation_id": "PO-009",
+    "owner": "safety_owner",
+    "targets": [
+      "HAZARD-COVERAGE"
+    ]
+  },
+  {
+    "claim": "Assurance case is complete and traceable",
+    "criticality": "critical",
+    "discharge_rule": "graph valid and traceability complete",
+    "kind": "assurance_case",
+    "obligation_id": "PO-010",
+    "owner": "safety_case_owner",
+    "targets": [
+      "ASSURANCE-VALID"
+    ]
+  },
+  {
+    "claim": "UCEE authority remains zero",
+    "criticality": "catastrophic",
+    "discharge_rule": "all authority fields false",
+    "kind": "authority",
+    "obligation_id": "PO-011",
+    "owner": "governance_owner",
+    "targets": [
+      "AUTHORITY-ZERO"
+    ]
+  },
+  {
+    "claim": "Upstream handoff is verified",
+    "criticality": "critical",
+    "discharge_rule": "receipt verified",
+    "kind": "upstream",
+    "obligation_id": "PO-012",
+    "owner": "governance_owner",
+    "targets": [
+      "UPSTREAM-VERIFIED"
+    ]
+  },
+  {
+    "claim": "Replay is deterministic and suffix invariant",
+    "criticality": "high",
+    "discharge_rule": "exact hashes match",
+    "kind": "replay",
+    "obligation_id": "PO-013",
+    "owner": "reproducibility_owner",
+    "targets": [
+      "REPLAY-DETERMINISTIC"
+    ]
+  },
+  {
+    "claim": "Independent logical reproduction matches",
+    "criticality": "high",
+    "discharge_rule": "two isolated runs match",
+    "kind": "independent_reproduction",
+    "obligation_id": "PO-014",
+    "owner": "qa_owner",
+    "targets": [
+      "REPRODUCTION-EXACT"
+    ]
+  },
+  {
+    "claim": "All evidence contracts are closed",
+    "criticality": "critical",
+    "discharge_rule": "unknown fields denied",
+    "kind": "contract_closure",
+    "obligation_id": "PO-015",
+    "owner": "schema_owner",
+    "targets": [
+      "CONTRACT-CLOSED"
+    ]
+  }
+]

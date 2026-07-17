@@ -1,0 +1,10 @@
+{
+  "artifact_contract_count": 31,
+  "closed": true,
+  "phase": "SAED_V4_31",
+  "research_only": true,
+  "review_hash": "e59f1aa975fc3a03e56ed8590e767490305ec7aa6ca24fc114d94022c7d338f7",
+  "review_id": "v431_contract_closure_fc1d6a47179dc8e37c2a22f7",
+  "schema_draft": "2020-12",
+  "unknown_fields_allowed": false
+}

@@ -1,0 +1,155 @@
+{
+  "initial_state": {
+    "authority_zero": true,
+    "counterexample_present": false,
+    "hazards_controlled": false,
+    "proofs_discharged": false,
+    "safety_case_complete": false,
+    "stage": "IDLE",
+    "unsupported_evidence": false,
+    "upstream_verified": false
+  },
+  "max_depth": 8,
+  "model_name": "research_safety_case_qualification_fsm",
+  "phase": "SAED_V4_31",
+  "research_only": true,
+  "transitions": [
+    {
+      "action": "ingest_verified_upstream",
+      "authority_free": true,
+      "description": "Bind accepted V4-30 evidence.",
+      "effects": {
+        "stage": "'INGESTED'",
+        "upstream_verified": "True"
+      },
+      "guard": "stage == 'IDLE'",
+      "transition_id": "T-001"
+    },
+    {
+      "action": "ingest_unsupported_evidence",
+      "authority_free": true,
+      "description": "Fail closed on unsupported evidence.",
+      "effects": {
+        "stage": "'QUARANTINED'",
+        "unsupported_evidence": "True"
+      },
+      "guard": "stage == 'IDLE'",
+      "transition_id": "T-002"
+    },
+    {
+      "action": "discharge_proofs",
+      "authority_free": true,
+      "description": "Discharge bounded reference obligations.",
+      "effects": {
+        "counterexample_present": "False",
+        "hazards_controlled": "True",
+        "proofs_discharged": "True",
+        "stage": "'VERIFIED'"
+      },
+      "guard": "stage == 'INGESTED' and upstream_verified and not unsupported_evidence",
+      "transition_id": "T-003"
+    },
+    {
+      "action": "record_counterexample",
+      "authority_free": true,
+      "description": "Preserve a counterexample and reject.",
+      "effects": {
+        "counterexample_present": "True",
+        "stage": "'REJECTED'"
+      },
+      "guard": "stage == 'INGESTED' and upstream_verified",
+      "transition_id": "T-004"
+    },
+    {
+      "action": "assemble_research_safety_case",
+      "authority_free": true,
+      "description": "Qualify only the bounded research reference.",
+      "effects": {
+        "safety_case_complete": "True",
+        "stage": "'QUALIFIED'"
+      },
+      "guard": "stage == 'VERIFIED' and proofs_discharged and hazards_controlled and authority_zero and not unsupported_evidence and not counterexample_present",
+      "transition_id": "T-005"
+    },
+    {
+      "action": "quarantine_failed_safety_case",
+      "authority_free": true,
+      "description": "Fail closed if any safety precondition fails.",
+      "effects": {
+        "stage": "'QUARANTINED'"
+      },
+      "guard": "stage == 'VERIFIED' and (not proofs_discharged or not hazards_controlled or not authority_zero or unsupported_evidence or counterexample_present)",
+      "transition_id": "T-006"
+    }
+  ],
+  "variables": [
+    {
+      "description": "Closed lifecycle state.",
+      "domain": [
+        "IDLE",
+        "INGESTED",
+        "VERIFIED",
+        "QUALIFIED",
+        "REJECTED",
+        "QUARANTINED"
+      ],
+      "name": "stage"
+    },
+    {
+      "description": "V4-30 evidence binding is verified.",
+      "domain": [
+        false,
+        true
+      ],
+      "name": "upstream_verified"
+    },
+    {
+      "description": "All formal proof obligations are discharged.",
+      "domain": [
+        false,
+        true
+      ],
+      "name": "proofs_discharged"
+    },
+    {
+      "description": "All declared hazards have verified controls.",
+      "domain": [
+        false,
+        true
+      ],
+      "name": "hazards_controlled"
+    },
+    {
+      "description": "No execution or promotion authority exists.",
+      "domain": [
+        false,
+        true
+      ],
+      "name": "authority_zero"
+    },
+    {
+      "description": "Unsupported or malformed evidence was observed.",
+      "domain": [
+        false,
+        true
+      ],
+      "name": "unsupported_evidence"
+    },
+    {
+      "description": "A verification counterexample exists.",
+      "domain": [
+        false,
+        true
+      ],
+      "name": "counterexample_present"
+    },
+    {
+      "description": "The bounded research assurance case is complete.",
+      "domain": [
+        false,
+        true
+      ],
+      "name": "safety_case_complete"
+    }
+  ]
+}

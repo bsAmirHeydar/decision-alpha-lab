@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_next_work": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "execution": {
+          "type": "boolean"
+        },
+        "live_trading": {
+          "type": "boolean"
+        },
+        "online_learning": {
+          "type": "boolean"
+        },
+        "production": {
+          "type": "boolean"
+        },
+        "promotion": {
+          "type": "boolean"
+        },
+        "risk_allocation": {
+          "type": "boolean"
+        },
+        "runtime": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "execution",
+        "live_trading",
+        "online_learning",
+        "production",
+        "promotion",
+        "risk_allocation",
+        "runtime"
+      ],
+      "type": "object"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "entry_gates": {
+      "additionalProperties": false,
+      "properties": {
+        "authority_zero": {
+          "type": "boolean"
+        },
+        "formal_verification_reference_accepted": {
+          "type": "boolean"
+        },
+        "proof_obligations_discharged": {
+          "type": "boolean"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "safety_case_valid": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "authority_zero",
+        "formal_verification_reference_accepted",
+        "proof_obligations_discharged",
+        "research_only",
+        "safety_case_valid"
+      ],
+      "type": "object"
+    },
+    "forbidden_next_work": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "allowed_next_work",
+    "authority",
+    "certificate_hash",
+    "certificate_id",
+    "entry_gates",
+    "forbidden_next_work",
+    "handoff_hash",
+    "handoff_id",
+    "next_phase",
+    "phase",
+    "research_only"
+  ],
+  "title": "V4_31_TO_V4_32_HANDOFF",
+  "type": "object"
+}

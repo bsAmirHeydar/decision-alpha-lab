@@ -1,0 +1,108 @@
+{
+  "bounded_semantics": true,
+  "catalog_id": "v431_temporal_catalog_da7e42af5fd7937a211e8380",
+  "model_id": "v431_formal_model_7bbd12df1713dc6da7d5dc0c",
+  "passed": true,
+  "phase": "SAED_V4_31",
+  "report_hash": "1c4087ce236f85026101d61f1bf98d2cd972e6c20532feca91cfe09a6bd579f8",
+  "report_id": "v431_temporal_report_186bf25e08051f2ae07b14d1",
+  "research_only": true,
+  "results": [
+    {
+      "counterexamples": [],
+      "failure_count": 0,
+      "kind": "always",
+      "passed": true,
+      "property_id": "TMP-001",
+      "severity": "catastrophic"
+    },
+    {
+      "counterexamples": [],
+      "failure_count": 0,
+      "kind": "never",
+      "passed": true,
+      "property_id": "TMP-002",
+      "severity": "critical"
+    },
+    {
+      "counterexamples": [],
+      "failure_count": 0,
+      "kind": "leads_to_within",
+      "passed": true,
+      "property_id": "TMP-003",
+      "severity": "high"
+    },
+    {
+      "counterexamples": [],
+      "failure_count": 0,
+      "kind": "leads_to_within",
+      "passed": true,
+      "property_id": "TMP-004",
+      "severity": "high"
+    },
+    {
+      "counterexamples": [],
+      "failure_count": 0,
+      "kind": "terminal",
+      "passed": true,
+      "property_id": "TMP-005",
+      "severity": "critical"
+    },
+    {
+      "counterexamples": [],
+      "failure_count": 0,
+      "kind": "reachable",
+      "passed": true,
+      "property_id": "TMP-006",
+      "severity": "high"
+    },
+    {
+      "counterexamples": [],
+      "failure_count": 0,
+      "kind": "reachable",
+      "passed": true,
+      "property_id": "TMP-007",
+      "severity": "high"
+    },
+    {
+      "counterexamples": [],
+      "failure_count": 0,
+      "kind": "reachable",
+      "passed": true,
+      "property_id": "TMP-008",
+      "severity": "high"
+    },
+    {
+      "counterexamples": [],
+      "failure_count": 0,
+      "kind": "transition_always",
+      "passed": true,
+      "property_id": "TMP-009",
+      "severity": "critical"
+    },
+    {
+      "counterexamples": [],
+      "failure_count": 0,
+      "kind": "transition_always",
+      "passed": true,
+      "property_id": "TMP-010",
+      "severity": "critical"
+    },
+    {
+      "counterexamples": [],
+      "failure_count": 0,
+      "kind": "transition_always",
+      "passed": true,
+      "property_id": "TMP-011",
+      "severity": "catastrophic"
+    },
+    {
+      "counterexamples": [],
+      "failure_count": 0,
+      "kind": "transition_always",
+      "passed": true,
+      "property_id": "TMP-012",
+      "severity": "critical"
+    }
+  ]
+}

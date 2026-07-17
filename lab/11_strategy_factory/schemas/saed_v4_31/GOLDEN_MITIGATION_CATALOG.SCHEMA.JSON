@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "catalog_hash": {
+      "type": "string"
+    },
+    "catalog_id": {
+      "type": "string"
+    },
+    "closed": {
+      "type": "boolean"
+    },
+    "controls": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "constraint": {
+            "type": "string"
+          },
+          "control_id": {
+            "type": "string"
+          },
+          "effectiveness": {
+            "type": "number"
+          },
+          "failure_action": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "verification_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "constraint",
+          "control_id",
+          "effectiveness",
+          "failure_action",
+          "owner",
+          "title",
+          "verification_ids"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "catalog_hash",
+    "catalog_id",
+    "closed",
+    "controls",
+    "count",
+    "phase",
+    "research_only"
+  ],
+  "title": "GOLDEN_MITIGATION_CATALOG",
+  "type": "object"
+}

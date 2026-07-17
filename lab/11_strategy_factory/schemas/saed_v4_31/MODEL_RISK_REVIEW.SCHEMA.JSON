@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "model_reality_gap": {
+      "type": "string"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "proof_soundness_scope": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "review_hash": {
+      "type": "string"
+    },
+    "review_id": {
+      "type": "string"
+    },
+    "specification_error_risk": {
+      "type": "string"
+    },
+    "state_explosion_risk": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "limitations",
+    "model_reality_gap",
+    "passed",
+    "phase",
+    "proof_soundness_scope",
+    "research_only",
+    "review_hash",
+    "review_id",
+    "specification_error_risk",
+    "state_explosion_risk"
+  ],
+  "title": "MODEL_RISK_REVIEW",
+  "type": "object"
+}

@@ -1,0 +1,260 @@
+[
+  {
+    "description": "Qualification drops upstream verification",
+    "expected_detectors": [
+      "INV-003",
+      "TMP-002"
+    ],
+    "expression": "False",
+    "field": "upstream_verified",
+    "mutation_id": "MUT-001",
+    "operation": "set_effect",
+    "transition": {},
+    "transition_id": "T-005",
+    "value": null
+  },
+  {
+    "description": "Qualification drops proof discharge",
+    "expected_detectors": [
+      "INV-004",
+      "TMP-002"
+    ],
+    "expression": "False",
+    "field": "proofs_discharged",
+    "mutation_id": "MUT-002",
+    "operation": "set_effect",
+    "transition": {},
+    "transition_id": "T-005",
+    "value": null
+  },
+  {
+    "description": "Qualification drops hazard controls",
+    "expected_detectors": [
+      "INV-005",
+      "TMP-002"
+    ],
+    "expression": "False",
+    "field": "hazards_controlled",
+    "mutation_id": "MUT-003",
+    "operation": "set_effect",
+    "transition": {},
+    "transition_id": "T-005",
+    "value": null
+  },
+  {
+    "description": "Qualification acquires authority",
+    "expected_detectors": [
+      "INV-001",
+      "TMP-001",
+      "TMP-011"
+    ],
+    "expression": "False",
+    "field": "authority_zero",
+    "mutation_id": "MUT-004",
+    "operation": "set_effect",
+    "transition": {},
+    "transition_id": "T-005",
+    "value": null
+  },
+  {
+    "description": "Unsupported path qualifies",
+    "expected_detectors": [
+      "INV-002",
+      "INV-006",
+      "TMP-002",
+      "TMP-012"
+    ],
+    "expression": "'QUALIFIED'",
+    "field": "stage",
+    "mutation_id": "MUT-005",
+    "operation": "set_effect",
+    "transition": {},
+    "transition_id": "T-002",
+    "value": null
+  },
+  {
+    "description": "Counterexample path qualifies",
+    "expected_detectors": [
+      "INV-002",
+      "INV-007",
+      "TMP-002",
+      "TMP-010"
+    ],
+    "expression": "'QUALIFIED'",
+    "field": "stage",
+    "mutation_id": "MUT-006",
+    "operation": "set_effect",
+    "transition": {},
+    "transition_id": "T-004",
+    "value": null
+  },
+  {
+    "description": "Remove qualification path",
+    "expected_detectors": [
+      "TMP-006"
+    ],
+    "expression": "",
+    "field": "",
+    "mutation_id": "MUT-007",
+    "operation": "drop_transition",
+    "transition": {},
+    "transition_id": "T-005",
+    "value": null
+  },
+  {
+    "description": "Remove rejection path",
+    "expected_detectors": [
+      "TMP-007"
+    ],
+    "expression": "",
+    "field": "",
+    "mutation_id": "MUT-008",
+    "operation": "drop_transition",
+    "transition": {},
+    "transition_id": "T-004",
+    "value": null
+  },
+  {
+    "description": "Remove quarantine path",
+    "expected_detectors": [
+      "TMP-008"
+    ],
+    "expression": "",
+    "field": "",
+    "mutation_id": "MUT-009",
+    "operation": "drop_transition",
+    "transition": {},
+    "transition_id": "T-002",
+    "value": null
+  },
+  {
+    "description": "Verified carries counterexample",
+    "expected_detectors": [
+      "INV-008"
+    ],
+    "expression": "True",
+    "field": "counterexample_present",
+    "mutation_id": "MUT-010",
+    "operation": "set_effect",
+    "transition": {},
+    "transition_id": "T-003",
+    "value": null
+  },
+  {
+    "description": "Verified carries unsupported evidence",
+    "expected_detectors": [
+      "INV-008"
+    ],
+    "expression": "True",
+    "field": "unsupported_evidence",
+    "mutation_id": "MUT-011",
+    "operation": "set_effect",
+    "transition": {},
+    "transition_id": "T-003",
+    "value": null
+  },
+  {
+    "description": "Proofs discharge without upstream",
+    "expected_detectors": [
+      "INV-008",
+      "INV-012"
+    ],
+    "expression": "False",
+    "field": "upstream_verified",
+    "mutation_id": "MUT-012",
+    "operation": "set_effect",
+    "transition": {},
+    "transition_id": "T-003",
+    "value": null
+  },
+  {
+    "description": "Hazards controlled without proofs",
+    "expected_detectors": [
+      "INV-013"
+    ],
+    "expression": "False",
+    "field": "proofs_discharged",
+    "mutation_id": "MUT-013",
+    "operation": "set_effect",
+    "transition": {},
+    "transition_id": "T-003",
+    "value": null
+  },
+  {
+    "description": "Safety completion outside qualification",
+    "expected_detectors": [
+      "INV-010"
+    ],
+    "expression": "True",
+    "field": "safety_case_complete",
+    "mutation_id": "MUT-014",
+    "operation": "set_effect",
+    "transition": {},
+    "transition_id": "T-003",
+    "value": null
+  },
+  {
+    "description": "Initial state already verified",
+    "expected_detectors": [
+      "INV-008",
+      "TMP-004"
+    ],
+    "expression": "",
+    "field": "stage",
+    "mutation_id": "MUT-015",
+    "operation": "set_initial",
+    "transition": {},
+    "transition_id": "",
+    "value": "VERIFIED"
+  },
+  {
+    "description": "Terminal qualification becomes mutable",
+    "expected_detectors": [
+      "TMP-005",
+      "INV-011"
+    ],
+    "expression": "",
+    "field": "",
+    "mutation_id": "MUT-016",
+    "operation": "add_transition",
+    "transition": {
+      "action": "mutate_qualified",
+      "authority_free": true,
+      "description": "Forbidden post-qualification mutation.",
+      "effects": {
+        "stage": "'IDLE'"
+      },
+      "guard": "stage == 'QUALIFIED'",
+      "transition_id": "T-M16"
+    },
+    "transition_id": "",
+    "value": null
+  },
+  {
+    "description": "Counterexample action fails to preserve flag",
+    "expected_detectors": [
+      "INV-009",
+      "TMP-010"
+    ],
+    "expression": "False",
+    "field": "counterexample_present",
+    "mutation_id": "MUT-017",
+    "operation": "set_effect",
+    "transition": {},
+    "transition_id": "T-004",
+    "value": null
+  },
+  {
+    "description": "Unsupported action fails to preserve marker",
+    "expected_detectors": [
+      "TMP-012"
+    ],
+    "expression": "False",
+    "field": "unsupported_evidence",
+    "mutation_id": "MUT-018",
+    "operation": "set_effect",
+    "transition": {},
+    "transition_id": "T-002",
+    "value": null
+  }
+]

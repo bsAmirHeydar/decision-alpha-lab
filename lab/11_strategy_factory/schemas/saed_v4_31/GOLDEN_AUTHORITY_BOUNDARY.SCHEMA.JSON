@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority": {
+      "additionalProperties": false,
+      "properties": {
+        "counterexample_suppression": {
+          "type": "boolean"
+        },
+        "execution": {
+          "type": "boolean"
+        },
+        "external_proof_claim": {
+          "type": "boolean"
+        },
+        "live_trading": {
+          "type": "boolean"
+        },
+        "online_learning": {
+          "type": "boolean"
+        },
+        "production": {
+          "type": "boolean"
+        },
+        "promotion": {
+          "type": "boolean"
+        },
+        "research_decision": {
+          "type": "boolean"
+        },
+        "residual_risk_waiver": {
+          "type": "boolean"
+        },
+        "risk_allocation": {
+          "type": "boolean"
+        },
+        "runtime": {
+          "type": "boolean"
+        },
+        "specification_override": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "counterexample_suppression",
+        "execution",
+        "external_proof_claim",
+        "live_trading",
+        "online_learning",
+        "production",
+        "promotion",
+        "research_decision",
+        "residual_risk_waiver",
+        "risk_allocation",
+        "runtime",
+        "specification_override"
+      ],
+      "type": "object"
+    },
+    "boundary_hash": {
+      "type": "string"
+    },
+    "boundary_id": {
+      "type": "string"
+    },
+    "formal_verification_is_evidence_not_permission": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "safe_action": {
+      "type": "string"
+    },
+    "ucee_authority_preserved": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "authority",
+    "boundary_hash",
+    "boundary_id",
+    "formal_verification_is_evidence_not_permission",
+    "phase",
+    "research_only",
+    "safe_action",
+    "ucee_authority_preserved"
+  ],
+  "title": "GOLDEN_AUTHORITY_BOUNDARY",
+  "type": "object"
+}
