@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "counterfactual_bundle_hash": {
+      "type": "string"
+    },
+    "counterfactual_bundle_id": {
+      "type": "string"
+    },
+    "decision_authority": {
+      "type": "boolean"
+    },
+    "immutable_model": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "anyOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "counterfactual": {
+                "type": "null"
+              },
+              "counterfactual_found": {
+                "type": "boolean"
+              },
+              "decision_threshold": {
+                "type": "number"
+              },
+              "original_score": {
+                "type": "number"
+              },
+              "record_id": {
+                "type": "string"
+              },
+              "safe_fallback": {
+                "type": "string"
+              },
+              "target_direction": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "counterfactual",
+              "counterfactual_found",
+              "decision_threshold",
+              "original_score",
+              "record_id",
+              "safe_fallback",
+              "target_direction"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "counterfactual": {
+                "additionalProperties": false,
+                "properties": {
+                  "crossed": {
+                    "type": "boolean"
+                  },
+                  "delta": {
+                    "type": "number"
+                  },
+                  "feature": {
+                    "type": "string"
+                  },
+                  "feature_index": {
+                    "type": "integer"
+                  },
+                  "score": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "crossed",
+                  "delta",
+                  "feature",
+                  "feature_index",
+                  "score"
+                ],
+                "type": "object"
+              },
+              "counterfactual_found": {
+                "type": "boolean"
+              },
+              "decision_threshold": {
+                "type": "number"
+              },
+              "original_score": {
+                "type": "number"
+              },
+              "record_id": {
+                "type": "string"
+              },
+              "safe_fallback": {
+                "type": "string"
+              },
+              "target_direction": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "counterfactual",
+              "counterfactual_found",
+              "decision_threshold",
+              "original_score",
+              "record_id",
+              "safe_fallback",
+              "target_direction"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "type": "array"
+    },
+    "single_feature_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "counterfactual_bundle_hash",
+    "counterfactual_bundle_id",
+    "decision_authority",
+    "immutable_model",
+    "phase",
+    "records",
+    "single_feature_only"
+  ],
+  "title": "GOLDEN_COUNTERFACTUAL_EXPLANATIONS",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

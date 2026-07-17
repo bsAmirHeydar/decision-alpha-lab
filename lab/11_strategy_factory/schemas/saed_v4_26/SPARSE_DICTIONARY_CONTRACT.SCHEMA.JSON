@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "deterministic": {
+      "type": "boolean"
+    },
+    "dictionary_size": {
+      "type": "integer"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "maximum_reconstruction_error": {
+      "type": "number"
+    },
+    "minimum_records": {
+      "type": "integer"
+    },
+    "randomized_control_required": {
+      "type": "boolean"
+    },
+    "top_k": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "deterministic",
+    "dictionary_size",
+    "exact_version",
+    "maximum_reconstruction_error",
+    "minimum_records",
+    "randomized_control_required",
+    "top_k"
+  ],
+  "title": "SPARSE_DICTIONARY_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ablation_method": {
+      "type": "string"
+    },
+    "allowed_pathways": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "maximum_pathway_concentration": {
+      "type": "number"
+    },
+    "minimum_pathway_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "ablation_method",
+    "allowed_pathways",
+    "baseline_preserved",
+    "deterministic",
+    "exact_version",
+    "maximum_pathway_concentration",
+    "minimum_pathway_count"
+  ],
+  "title": "PATHWAY_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "floor": {
+      "type": "number"
+    },
+    "mean_attribution_cosine": {
+      "type": "number"
+    },
+    "perturbation_magnitude": {
+      "type": "number"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "reference_gate_passed": {
+      "type": "boolean"
+    },
+    "stability_report_hash": {
+      "type": "string"
+    },
+    "stability_report_id": {
+      "type": "string"
+    },
+    "transport_claim": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "floor",
+    "mean_attribution_cosine",
+    "perturbation_magnitude",
+    "phase",
+    "reference_gate_passed",
+    "stability_report_hash",
+    "stability_report_id",
+    "transport_claim"
+  ],
+  "title": "GOLDEN_MECHANISM_STABILITY_REPORT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

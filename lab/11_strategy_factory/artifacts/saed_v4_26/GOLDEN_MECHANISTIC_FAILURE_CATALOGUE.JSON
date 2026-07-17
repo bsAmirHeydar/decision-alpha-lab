@@ -1,0 +1,9 @@
+{
+  "critical_count": 0,
+  "entries": [],
+  "entry_count": 0,
+  "fail_closed": true,
+  "failure_catalogue_hash": "f45ba0b7812bbbea3c84c976388e46f91d391dbb2e807fcb45b3cba03d109d32",
+  "failure_catalogue_id": "mechanistic_failure_catalogue_8af4fd1a8e385e444c350e69",
+  "phase": "SAED_V4_26"
+}

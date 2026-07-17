@@ -1,0 +1,11 @@
+{
+  "attribution_score_correlation": 0.9549236636108979,
+  "faithfulness_report_hash": "42b5287067982757c325b7b7e5b06dc762d4ab01935411129e4635808c04dbf0",
+  "faithfulness_report_id": "faithfulness_666f29536abacab290cd79bb",
+  "interpretability_is_not_proof": true,
+  "mean_top_two_deletion_drop": 0.01882661915719595,
+  "minimum_correlation": 0.3,
+  "minimum_deletion_drop": -0.05,
+  "phase": "SAED_V4_26",
+  "reference_gate_passed": true
+}

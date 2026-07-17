@@ -1,0 +1,37 @@
+{
+  "budget_snapshot_hash": "5bced62fa345efffb32b40b7c8bc3131e49ef640c4904f23049978a127e6ff5a",
+  "budget_snapshot_id": "mechanistic_budget_cd82f43d7f8d3b6c04935856",
+  "complete": true,
+  "counts": {
+    "concept_probes": 240,
+    "counterfactual_trials": 1920,
+    "dictionary_trials": 3,
+    "feature_ablations": 240,
+    "hidden_evaluation_queries": 0,
+    "online_policy_mutations": 0,
+    "order_submissions": 0,
+    "patch_interventions": 36,
+    "pathway_ablations": 200,
+    "protected_evidence_exposures": 0,
+    "records": 40,
+    "runtime_compilations": 0,
+    "trace_interventions": 280
+  },
+  "maxima": {
+    "concept_probes": 300,
+    "counterfactual_trials": 2000,
+    "dictionary_trials": 16,
+    "feature_ablations": 300,
+    "hidden_evaluation_queries": 0,
+    "online_policy_mutations": 0,
+    "order_submissions": 0,
+    "patch_interventions": 64,
+    "pathway_ablations": 240,
+    "protected_evidence_exposures": 0,
+    "records": 64,
+    "runtime_compilations": 0,
+    "trace_interventions": 400
+  },
+  "phase": "SAED_V4_26",
+  "within_budget": true
+}

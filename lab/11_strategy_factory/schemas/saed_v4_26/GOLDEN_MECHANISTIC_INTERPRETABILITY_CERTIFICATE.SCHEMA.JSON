@@ -1,0 +1,324 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accepted_for_mechanistic_interpretability_research": {
+      "type": "boolean"
+    },
+    "authority_boundary": {
+      "additionalProperties": false,
+      "properties": {
+        "authority": {
+          "additionalProperties": false,
+          "properties": {
+            "decision": {
+              "type": "boolean"
+            },
+            "execution": {
+              "type": "boolean"
+            },
+            "online_learning": {
+              "type": "boolean"
+            },
+            "production": {
+              "type": "boolean"
+            },
+            "promotion": {
+              "type": "boolean"
+            },
+            "risk_allocation": {
+              "type": "boolean"
+            },
+            "runtime": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "decision",
+            "execution",
+            "online_learning",
+            "production",
+            "promotion",
+            "risk_allocation",
+            "runtime"
+          ],
+          "type": "object"
+        },
+        "boundary_hash": {
+          "type": "string"
+        },
+        "boundary_id": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "safe_action": {
+          "type": "string"
+        },
+        "ucee_authority_preserved": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "authority",
+        "boundary_hash",
+        "boundary_id",
+        "phase",
+        "research_only",
+        "safe_action",
+        "ucee_authority_preserved"
+      ],
+      "type": "object"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "claim_class": {
+      "type": "string"
+    },
+    "decision_authority": {
+      "type": "boolean"
+    },
+    "evidence_hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "activation_patches": {
+          "type": "string"
+        },
+        "adaptation_mechanisms": {
+          "type": "string"
+        },
+        "attributions": {
+          "type": "string"
+        },
+        "budget_snapshot": {
+          "type": "string"
+        },
+        "calibration_mechanisms": {
+          "type": "string"
+        },
+        "causal_traces": {
+          "type": "string"
+        },
+        "concept_probes": {
+          "type": "string"
+        },
+        "counterfactuals": {
+          "type": "string"
+        },
+        "dataset_summary": {
+          "type": "string"
+        },
+        "exposure_ledger": {
+          "type": "string"
+        },
+        "failure_catalogue": {
+          "type": "string"
+        },
+        "faithfulness": {
+          "type": "string"
+        },
+        "known_time_review": {
+          "type": "string"
+        },
+        "model_risk_review": {
+          "type": "string"
+        },
+        "pathways": {
+          "type": "string"
+        },
+        "sanity": {
+          "type": "string"
+        },
+        "security_review": {
+          "type": "string"
+        },
+        "shortcut_audit": {
+          "type": "string"
+        },
+        "sparse_dictionary": {
+          "type": "string"
+        },
+        "stability": {
+          "type": "string"
+        },
+        "trial_ledger": {
+          "type": "string"
+        },
+        "upstream_receipt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "activation_patches",
+        "adaptation_mechanisms",
+        "attributions",
+        "budget_snapshot",
+        "calibration_mechanisms",
+        "causal_traces",
+        "concept_probes",
+        "counterfactuals",
+        "dataset_summary",
+        "exposure_ledger",
+        "failure_catalogue",
+        "faithfulness",
+        "known_time_review",
+        "model_risk_review",
+        "pathways",
+        "sanity",
+        "security_review",
+        "shortcut_audit",
+        "sparse_dictionary",
+        "stability",
+        "trial_ledger",
+        "upstream_receipt"
+      ],
+      "type": "object"
+    },
+    "execution_authority": {
+      "type": "boolean"
+    },
+    "gates": {
+      "additionalProperties": false,
+      "properties": {
+        "attribution_complete": {
+          "type": "boolean"
+        },
+        "authority_zero": {
+          "type": "boolean"
+        },
+        "baseline_preserved": {
+          "type": "boolean"
+        },
+        "budget_respected": {
+          "type": "boolean"
+        },
+        "causal_trace_complete": {
+          "type": "boolean"
+        },
+        "concept_controls_passed": {
+          "type": "boolean"
+        },
+        "counterfactual_complete": {
+          "type": "boolean"
+        },
+        "critical_failures_absent": {
+          "type": "boolean"
+        },
+        "critical_shortcuts_absent": {
+          "type": "boolean"
+        },
+        "dataset_valid": {
+          "type": "boolean"
+        },
+        "dictionary_control_passed": {
+          "type": "boolean"
+        },
+        "exposure_zero": {
+          "type": "boolean"
+        },
+        "faithfulness_passed": {
+          "type": "boolean"
+        },
+        "pathway_complete": {
+          "type": "boolean"
+        },
+        "sanity_passed": {
+          "type": "boolean"
+        },
+        "stability_passed": {
+          "type": "boolean"
+        },
+        "upstream_verified": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "attribution_complete",
+        "authority_zero",
+        "baseline_preserved",
+        "budget_respected",
+        "causal_trace_complete",
+        "concept_controls_passed",
+        "counterfactual_complete",
+        "critical_failures_absent",
+        "critical_shortcuts_absent",
+        "dataset_valid",
+        "dictionary_control_passed",
+        "exposure_zero",
+        "faithfulness_passed",
+        "pathway_complete",
+        "sanity_passed",
+        "stability_passed",
+        "upstream_verified"
+      ],
+      "type": "object"
+    },
+    "online_learning_authority": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authority": {
+      "type": "boolean"
+    },
+    "promotion_authority": {
+      "type": "boolean"
+    },
+    "prospective_success_claim": {
+      "type": "boolean"
+    },
+    "real_alpha_claim": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "risk_allocation_authority": {
+      "type": "boolean"
+    },
+    "runtime_executable": {
+      "type": "boolean"
+    },
+    "runtime_parity_claim": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "accepted_for_mechanistic_interpretability_research",
+    "authority_boundary",
+    "certificate_hash",
+    "certificate_id",
+    "claim_class",
+    "decision_authority",
+    "evidence_hashes",
+    "execution_authority",
+    "gates",
+    "online_learning_authority",
+    "phase",
+    "production_authority",
+    "promotion_authority",
+    "prospective_success_claim",
+    "real_alpha_claim",
+    "research_only",
+    "risk_allocation_authority",
+    "runtime_executable",
+    "runtime_parity_claim",
+    "version"
+  ],
+  "title": "GOLDEN_MECHANISTIC_INTERPRETABILITY_CERTIFICATE",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

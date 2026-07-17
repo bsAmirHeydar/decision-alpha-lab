@@ -1,0 +1,440 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "items": {
+    "anyOf": [
+      {
+        "additionalProperties": false,
+        "properties": {
+          "adaptation_deltas": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "baseline_score": {
+            "type": "number"
+          },
+          "bias": {
+            "type": "number"
+          },
+          "calibration_components": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "calibration_weights": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "cluster_id": {
+            "type": "string"
+          },
+          "context_id": {
+            "type": "string"
+          },
+          "decision_time": {
+            "type": "string"
+          },
+          "feature_names": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "feature_values": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "feature_weights": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "future_suffix_accessed": {
+            "type": "boolean"
+          },
+          "immutable_model": {
+            "type": "boolean"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "layer_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "layer_matrices": {
+            "items": {
+              "items": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "type": "array"
+            },
+            "type": "array"
+          },
+          "model_generation": {
+            "type": "string"
+          },
+          "model_id": {
+            "type": "string"
+          },
+          "observed_score": {
+            "type": "number"
+          },
+          "observed_target": {
+            "type": "number"
+          },
+          "ood_pvalue": {
+            "type": "number"
+          },
+          "outcome_observed_at": {
+            "type": "string"
+          },
+          "output_weights": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "protected_evidence_accessed": {
+            "type": "boolean"
+          },
+          "record_id": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "support_score": {
+            "type": "number"
+          },
+          "task_id": {
+            "type": "string"
+          },
+          "transfer_sources": {
+            "items": {},
+            "type": "array"
+          },
+          "treatment_interactions": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "left_feature": {
+                  "type": "string"
+                },
+                "right_feature": {
+                  "type": "string"
+                },
+                "weight": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "left_feature",
+                "right_feature",
+                "weight"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "view_names": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "view_values": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "view_weights": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "adaptation_deltas",
+          "baseline_score",
+          "bias",
+          "calibration_components",
+          "calibration_weights",
+          "cluster_id",
+          "context_id",
+          "decision_time",
+          "feature_names",
+          "feature_values",
+          "feature_weights",
+          "future_suffix_accessed",
+          "immutable_model",
+          "known_time",
+          "layer_ids",
+          "layer_matrices",
+          "model_generation",
+          "model_id",
+          "observed_score",
+          "observed_target",
+          "ood_pvalue",
+          "outcome_observed_at",
+          "output_weights",
+          "protected_evidence_accessed",
+          "record_id",
+          "role",
+          "support_score",
+          "task_id",
+          "transfer_sources",
+          "treatment_interactions",
+          "view_names",
+          "view_values",
+          "view_weights"
+        ],
+        "type": "object"
+      },
+      {
+        "additionalProperties": false,
+        "properties": {
+          "adaptation_deltas": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "baseline_score": {
+            "type": "number"
+          },
+          "bias": {
+            "type": "number"
+          },
+          "calibration_components": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "calibration_weights": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "cluster_id": {
+            "type": "string"
+          },
+          "context_id": {
+            "type": "string"
+          },
+          "decision_time": {
+            "type": "string"
+          },
+          "feature_names": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "feature_values": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "feature_weights": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "future_suffix_accessed": {
+            "type": "boolean"
+          },
+          "immutable_model": {
+            "type": "boolean"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "layer_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "layer_matrices": {
+            "items": {
+              "items": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "type": "array"
+            },
+            "type": "array"
+          },
+          "model_generation": {
+            "type": "string"
+          },
+          "model_id": {
+            "type": "string"
+          },
+          "observed_score": {
+            "type": "number"
+          },
+          "observed_target": {
+            "type": "number"
+          },
+          "ood_pvalue": {
+            "type": "number"
+          },
+          "outcome_observed_at": {
+            "type": "string"
+          },
+          "output_weights": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "protected_evidence_accessed": {
+            "type": "boolean"
+          },
+          "record_id": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "support_score": {
+            "type": "number"
+          },
+          "task_id": {
+            "type": "string"
+          },
+          "transfer_sources": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "source_known_time": {
+                  "type": "string"
+                },
+                "source_score": {
+                  "type": "number"
+                },
+                "source_task_id": {
+                  "type": "string"
+                },
+                "weight": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "source_known_time",
+                "source_score",
+                "source_task_id",
+                "weight"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "treatment_interactions": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "left_feature": {
+                  "type": "string"
+                },
+                "right_feature": {
+                  "type": "string"
+                },
+                "weight": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "left_feature",
+                "right_feature",
+                "weight"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "view_names": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "view_values": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "view_weights": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "adaptation_deltas",
+          "baseline_score",
+          "bias",
+          "calibration_components",
+          "calibration_weights",
+          "cluster_id",
+          "context_id",
+          "decision_time",
+          "feature_names",
+          "feature_values",
+          "feature_weights",
+          "future_suffix_accessed",
+          "immutable_model",
+          "known_time",
+          "layer_ids",
+          "layer_matrices",
+          "model_generation",
+          "model_id",
+          "observed_score",
+          "observed_target",
+          "ood_pvalue",
+          "outcome_observed_at",
+          "output_weights",
+          "protected_evidence_accessed",
+          "record_id",
+          "role",
+          "support_score",
+          "task_id",
+          "transfer_sources",
+          "treatment_interactions",
+          "view_names",
+          "view_values",
+          "view_weights"
+        ],
+        "type": "object"
+      }
+    ]
+  },
+  "title": "MODEL_MECHANISM_RECORDS",
+  "type": "array",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "attribution_bundle_hash": {
+      "type": "string"
+    },
+    "attribution_bundle_id": {
+      "type": "string"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "future_suffix_queries": {
+      "type": "integer"
+    },
+    "integration_steps": {
+      "type": "integer"
+    },
+    "method": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "record_count": {
+      "type": "integer"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "baseline_score": {
+            "type": "number"
+          },
+          "completeness_residual": {
+            "type": "number"
+          },
+          "concentration_breach": {
+            "type": "boolean"
+          },
+          "context_id": {
+            "type": "string"
+          },
+          "decision_time": {
+            "type": "string"
+          },
+          "feature_attributions": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "feature": {
+                  "type": "string"
+                },
+                "integrated_gradient": {
+                  "type": "number"
+                },
+                "normalized_attribution": {
+                  "type": "number"
+                },
+                "occlusion_delta": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "feature",
+                "integrated_gradient",
+                "normalized_attribution",
+                "occlusion_delta"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "maximum_feature_concentration": {
+            "type": "number"
+          },
+          "model_id": {
+            "type": "string"
+          },
+          "record_id": {
+            "type": "string"
+          },
+          "score": {
+            "type": "number"
+          },
+          "view_attributions": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "score_delta": {
+                  "type": "number"
+                },
+                "view": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "score_delta",
+                "view"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "baseline_score",
+          "completeness_residual",
+          "concentration_breach",
+          "context_id",
+          "decision_time",
+          "feature_attributions",
+          "maximum_feature_concentration",
+          "model_id",
+          "record_id",
+          "score",
+          "view_attributions"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "attribution_bundle_hash",
+    "attribution_bundle_id",
+    "deterministic",
+    "future_suffix_queries",
+    "integration_steps",
+    "method",
+    "phase",
+    "record_count",
+    "records"
+  ],
+  "title": "GOLDEN_FROZEN_FEATURE_ATTRIBUTIONS",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

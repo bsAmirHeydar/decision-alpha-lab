@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "claim_class": {
+      "type": "string"
+    },
+    "concept_count": {
+      "type": "integer"
+    },
+    "concept_probe_bundle_hash": {
+      "type": "string"
+    },
+    "concept_probe_bundle_id": {
+      "type": "string"
+    },
+    "mean_signal_over_random": {
+      "type": "number"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "random_control_required": {
+      "type": "boolean"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "concepts": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "activation": {
+                  "type": "number"
+                },
+                "concept": {
+                  "type": "string"
+                },
+                "random_control_activation": {
+                  "type": "number"
+                },
+                "signal_over_random": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "activation",
+                "concept",
+                "random_control_activation",
+                "signal_over_random"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "record_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "concepts",
+          "record_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "reference_gate_passed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "claim_class",
+    "concept_count",
+    "concept_probe_bundle_hash",
+    "concept_probe_bundle_id",
+    "mean_signal_over_random",
+    "phase",
+    "random_control_required",
+    "records",
+    "reference_gate_passed"
+  ],
+  "title": "GOLDEN_CONCEPT_PROBE_RESULTS",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

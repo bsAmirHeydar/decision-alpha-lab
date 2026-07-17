@@ -1,0 +1,101 @@
+{
+  "checks": {
+    "authority_boundaries": {
+      "command": "python tools/strategy_factory/saed_v4_26/check_saed_v4_26_boundaries.py",
+      "hidden_evaluation_queries": 0,
+      "network_requests": 0,
+      "online_policy_mutations": 0,
+      "order_submissions": 0,
+      "passed": true,
+      "protected_evidence_exposures": 0,
+      "runtime_compilations": 0
+    },
+    "budget_and_accounting": {
+      "concept_probes": 240,
+      "counterfactual_trials": 1920,
+      "dictionary_trials": 3,
+      "feature_ablations": 240,
+      "passed": true,
+      "patch_interventions": 36,
+      "pathway_ablations": 200,
+      "records": 40,
+      "trace_interventions": 280
+    },
+    "closed_schema_pairs": {
+      "command": "python tools/strategy_factory/saed_v4_26/validate_saed_v4_26_contracts.py",
+      "count": 39,
+      "passed": true,
+      "unknown_fields_rejected": true
+    },
+    "golden_reproduction": {
+      "command": "python tools/strategy_factory/saed_v4_26/reproduce_saed_v4_26_golden.py",
+      "exact_artifacts": 26,
+      "passed": true
+    },
+    "known_time": {
+      "future_suffix_queries": 0,
+      "future_target_attribution_invariance": true,
+      "passed": true,
+      "past_only_activation_patching": true,
+      "protected_evidence_queries": 0
+    },
+    "mechanistic_controls": {
+      "attribution_score_correlation": 0.9549236636108979,
+      "concept_random_control_passed": true,
+      "critical_failures": 0,
+      "critical_shortcuts": 0,
+      "mean_attribution_stability_cosine": 0.9999803644891625,
+      "mean_top_two_deletion_drop": 0.01882661915719595,
+      "parameter_randomization_rank_correlation": 0.8942857142857144,
+      "passed": true,
+      "sparse_dictionary_random_control_passed": true
+    },
+    "mql5_static": {
+      "command": "python tools/strategy_factory/saed_v4_26/validate_saed_v4_26_mql5_static.py",
+      "files": 25,
+      "forbidden_execution_surfaces": 0,
+      "passed": true
+    },
+    "obsidian": {
+      "broken_links": 0,
+      "command": "python tools/strategy_factory/saed_v4_26/validate_saed_v4_26_obsidian.py",
+      "notes": 323,
+      "passed": true
+    },
+    "phase_status": {
+      "command": "python tools/strategy_factory/saed_v4_26/validate_saed_v4_26_status.py",
+      "passed": true
+    },
+    "python_tests": {
+      "command": "python tools/strategy_factory/saed_v4_26/run_saed_v4_26_tests.py",
+      "count": 121,
+      "passed": true
+    }
+  },
+  "claims_excluded": [
+    "causal_proof",
+    "real_alpha",
+    "prospective_success",
+    "promotion_authorization",
+    "runtime_compilation",
+    "runtime_parity",
+    "risk_allocation",
+    "broker_execution",
+    "production_authorization",
+    "online_learning",
+    "live_trading"
+  ],
+  "created": "2026-07-16",
+  "external_evidence": {
+    "broker_qualification": "not_claimed",
+    "independent_external_reproduction": "pending_external",
+    "metaeditor_compile": "pending_local_windows",
+    "prospective_shadow": "not_claimed",
+    "python_mql5_runtime_parity": "not_claimed"
+  },
+  "passed": true,
+  "phase": "SAED_V4_26",
+  "scope": "local deterministic frozen-model mechanistic-interpretability reference implementation",
+  "title": "Mechanistic Interpretability",
+  "version": "1.0.0"
+}

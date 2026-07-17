@@ -1,0 +1,37 @@
+{
+  "cluster_count": 40,
+  "cluster_role_separation_verified": true,
+  "context_count": 4,
+  "dataset_hash": "15b9d8cadc3f92583d7107a51ebdf55cd6945f99d31da0771ec024adf6be58bb",
+  "dataset_summary_hash": "efe05ec783e7fa2ec089c182212a7ac3834b619fb06f5f1911d61c59ff68b79b",
+  "dataset_summary_id": "mechanism_dataset_153f14730cfeb52fef0da815",
+  "feature_registry": [
+    "price_displacement",
+    "structure_alignment",
+    "time_pressure",
+    "liquidity_state",
+    "execution_quality",
+    "ancestry_depth"
+  ],
+  "immutable_models": true,
+  "known_time_verified": true,
+  "layer_registry": [
+    "representation_1",
+    "representation_2"
+  ],
+  "model_count": 2,
+  "phase": "SAED_V4_26",
+  "record_count": 40,
+  "role_counts": {
+    "mechanism_negative": 10,
+    "mechanism_stress": 10,
+    "mechanism_train": 10,
+    "mechanism_validation": 10
+  },
+  "view_registry": [
+    "price_view",
+    "structure_view",
+    "time_view",
+    "liquidity_view"
+  ]
+}

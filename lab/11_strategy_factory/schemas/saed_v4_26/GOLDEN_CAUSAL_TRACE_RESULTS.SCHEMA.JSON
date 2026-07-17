@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "causal_trace_bundle_hash": {
+      "type": "string"
+    },
+    "causal_trace_bundle_id": {
+      "type": "string"
+    },
+    "claim_class": {
+      "type": "string"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "intervention": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "interventions": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "baseline_activation": {
+                  "type": "number"
+                },
+                "layer_id": {
+                  "type": "string"
+                },
+                "neuron_index": {
+                  "type": "integer"
+                },
+                "patched_activation": {
+                  "type": "number"
+                },
+                "score_delta": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "baseline_activation",
+                "layer_id",
+                "neuron_index",
+                "patched_activation",
+                "score_delta"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "record_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "interventions",
+          "record_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "causal_trace_bundle_hash",
+    "causal_trace_bundle_id",
+    "claim_class",
+    "deterministic",
+    "intervention",
+    "phase",
+    "records"
+  ],
+  "title": "GOLDEN_CAUSAL_TRACE_RESULTS",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "causal_claim_denied": {
+      "type": "boolean"
+    },
+    "critical_findings": {
+      "type": "integer"
+    },
+    "external_validity_unknown": {
+      "type": "boolean"
+    },
+    "interpretability_is_not_proof": {
+      "type": "boolean"
+    },
+    "model_risk_review_hash": {
+      "type": "string"
+    },
+    "model_risk_review_id": {
+      "type": "string"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "shortcut_findings": {
+      "type": "integer"
+    },
+    "unresolved_limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "causal_claim_denied",
+    "critical_findings",
+    "external_validity_unknown",
+    "interpretability_is_not_proof",
+    "model_risk_review_hash",
+    "model_risk_review_id",
+    "passed",
+    "phase",
+    "shortcut_findings",
+    "unresolved_limitations"
+  ],
+  "title": "MODEL_RISK_REVIEW",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

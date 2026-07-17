@@ -1,58 +1,31 @@
 ---
 title: V4-26 Mechanistic Interpretability
-status: canonical
-version: 4.0.0
-created: '2026-07-13'
-updated: '2026-07-13'
-capability_tier: core-production
-tags:
-  - saed-v4
-  - implementation
-  - roadmap
+status: accepted-reference
+version: 1.0.0
+phase: SAED_V4_26
+created: 2026-07-16
+updated: 2026-07-16
+capability_tier: research-reference
 ---
-
 # Phase V4-26: Mechanistic Interpretability
 
-## Mission
+V4-26 implements a closed-contract, deterministic and research-only audit of frozen model mechanisms. It consumes immutable V4-25 adaptation, transfer, drift, calibration and replay evidence, then produces feature attributions, pathway ablations, concept probes, causal-tracing challengers, past-only activation patching, bounded counterfactual explanations, sparse-dictionary research, faithfulness controls, sanity checks, stability diagnostics and a mechanistic failure catalogue.
 
-Implement this phase as an additive, closed-contract capability that preserves UCEE authority and can be independently validated.
+## Authority boundary
 
-## Entry gates
+The phase cannot select a treatment, promote a model, compile runtime policy, reserve risk, submit an order or authorize production. UCEE remains authority of record. Interpretability is evidence, not proof of causality or economic value.
 
-- Prior phase artifacts are immutable and hash verified.
-- Data roles, support, treatment universe and authority are frozen.
-- Golden and negative fixtures exist.
-- Compute, exposure and review budgets are approved.
+## Acceptance evidence
 
-## Engineering slices
+- exact V4-25 certificate and handoff verification;
+- closed schemas and unknown-field rejection;
+- immutable-model and known-time enforcement;
+- deterministic golden replay;
+- complete local trial and exposure accounting;
+- parameter-randomization and random-concept controls;
+- fail-closed critical finding handling;
+- static MQL5 mirrors with external MetaEditor compilation explicitly pending.
 
-1. Contract and schema freeze.
-2. Deterministic reference implementation.
-3. Golden, negative and mutation tests.
-4. Distributed or advanced challenger implementation.
-5. Model-risk and security review.
-6. Independent reproduction.
-7. Evidence bundle and handoff.
+## Handoff
 
-## Acceptance gates
-
-- Zero unknown fields in closed contracts.
-- No future-suffix sensitivity.
-- Deterministic identity and replay.
-- Complete trial/exposure accounting.
-- Baseline preserved.
-- Fail-closed fallback verified.
-- UCEE compatibility and no central-engine mutation.
-- Actual external/MetaEditor evidence distinguished from static evidence.
-
-## Deliverables
-
-- Source modules and tests.
-- Schemas and examples.
-- Obsidian implementation documentation.
-- QA report, inventory, file index and hash ledger.
-- Handoff to the next phase.
-
-## Non-goals
-
-This architecture phase does not claim real alpha, prospective success, runtime parity or production authorization unless actual evidence is attached.
+Only frozen audit evidence is handed to [[V4_27_Complete_Search_And_Exposure_Ledger]]. No authority is transferred.

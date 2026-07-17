@@ -1,0 +1,11 @@
+{
+  "broker_credentials_present": false,
+  "findings": [],
+  "network_access": false,
+  "order_surface_present": false,
+  "passed": true,
+  "phase": "SAED_V4_26",
+  "security_review_hash": "ddbf07f764d4a8987b912b0b3a598f954b5c9058c4a4368e619eaec60cc9d081",
+  "security_review_id": "security_review_5aa7449a997d701555d79621",
+  "signing_material_present": false
+}

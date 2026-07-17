@@ -1,0 +1,2170 @@
+{
+  "causal_trace_bundle_hash": "0cf299726534fde18b081db70caba3d64ab82ef928274a9b0a8946419ce95f7f",
+  "causal_trace_bundle_id": "causal_trace_bc1a8b87237946ed199dd720",
+  "claim_class": "causal_trace_challenger_not_causal_proof",
+  "deterministic": true,
+  "intervention": "zero_activation",
+  "phase": "SAED_V4_26",
+  "records": [
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.1471733675230394,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.01687070021123538
+        },
+        {
+          "baseline_activation": 0.3142462427498387,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.019835182427376585
+        },
+        {
+          "baseline_activation": 0.09248493557067516,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.0036478378895744012
+        },
+        {
+          "baseline_activation": 0.3142462427498387,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.032118110373084874
+        },
+        {
+          "baseline_activation": 0.04406346016619335,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.007874266683668196
+        },
+        {
+          "baseline_activation": 0.048889038102764376,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.005836998248150316
+        },
+        {
+          "baseline_activation": 0.17117212828956407,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": 0.023716860567955134
+        }
+      ],
+      "record_id": "mechanism_record_000"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.11691290366440227,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.01349011566570485
+        },
+        {
+          "baseline_activation": 0.2820887874209676,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.017858278113881465
+        },
+        {
+          "baseline_activation": 0.08623527260235452,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.003431615126390286
+        },
+        {
+          "baseline_activation": 0.3044799928894993,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.03136899511283692
+        },
+        {
+          "baseline_activation": 0.03674901996355501,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.006598583776592615
+        },
+        {
+          "baseline_activation": 0.04262053070005514,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.0051071518509522296
+        },
+        {
+          "baseline_activation": 0.15945074608991638,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": 0.022224972873502613
+        }
+      ],
+      "record_id": "mechanism_record_001"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.32331976279665636,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.03691897761308349
+        },
+        {
+          "baseline_activation": 0.18132268028339693,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.011170240780254415
+        },
+        {
+          "baseline_activation": 0.3604038806171992,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.014920440735807117
+        },
+        {
+          "baseline_activation": 0.08315751389798555,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.008577126110491717
+        },
+        {
+          "baseline_activation": 0.16282621280608278,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.02906461295020879
+        },
+        {
+          "baseline_activation": 0.08321753109802237,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.009960171765063752
+        },
+        {
+          "baseline_activation": 0.003179635867196739,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": 0.0004434907640714636
+        }
+      ],
+      "record_id": "mechanism_record_002"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.26947720326712454,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.03072501573015629
+        },
+        {
+          "baseline_activation": 0.11923014936122493,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.007356026013942085
+        },
+        {
+          "baseline_activation": 0.3299748249290428,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.013613422282019672
+        },
+        {
+          "baseline_activation": 0.14820048205255995,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.015245133308804115
+        },
+        {
+          "baseline_activation": 0.15741975310817077,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.02800376691500378
+        },
+        {
+          "baseline_activation": 0.04932031390683331,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.005886787600832
+        },
+        {
+          "baseline_activation": 0.021846899240692434,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": 0.0030380044317488974
+        }
+      ],
+      "record_id": "mechanism_record_003"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.15435628873563503,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.017855662405138695
+        },
+        {
+          "baseline_activation": 0.2506441355964265,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.015884317633152678
+        },
+        {
+          "baseline_activation": 0.015098860452503492,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.0006028089084623156
+        },
+        {
+          "baseline_activation": 0.2692917215027524,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.027841648317816547
+        },
+        {
+          "baseline_activation": 0.0416095684868925,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.007488829839540134
+        },
+        {
+          "baseline_activation": 0.015299071015855592,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.001835885564211992
+        },
+        {
+          "baseline_activation": 0.16949356062664242,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": 0.023708298246063964
+        }
+      ],
+      "record_id": "mechanism_record_004"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.18666063465030697,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.021494359107864125
+        },
+        {
+          "baseline_activation": 0.35169352393830927,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.02223295659948349
+        },
+        {
+          "baseline_activation": 0.13209848322125178,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.005190870427578154
+        },
+        {
+          "baseline_activation": 0.3512552910803897,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.036098015513252535
+        },
+        {
+          "baseline_activation": 0.06313594954298664,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.011343671553473489
+        },
+        {
+          "baseline_activation": 0.05813093296282658,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.006971594804426551
+        },
+        {
+          "baseline_activation": 0.1859045279306542,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": 0.02593655785127419
+        }
+      ],
+      "record_id": "mechanism_record_005"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.29316468434915516,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.03376489293493051
+        },
+        {
+          "baseline_activation": 0.11846610899776477,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.0073682788711904035
+        },
+        {
+          "baseline_activation": 0.23221080707275618,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.009617209492390477
+        },
+        {
+          "baseline_activation": 0.09176611850507717,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.009519973125923842
+        },
+        {
+          "baseline_activation": 0.14302579799991375,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.025652058537076528
+        },
+        {
+          "baseline_activation": 0.033106716188936715,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.00396956625787992
+        },
+        {
+          "baseline_activation": 0.03357658347522969,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": 0.004694207179437082
+        }
+      ],
+      "record_id": "mechanism_record_006"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.337683003298913,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.03860675890934967
+        },
+        {
+          "baseline_activation": 0.19831215943279223,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.012206574496051725
+        },
+        {
+          "baseline_activation": 0.3739221149913687,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.01548974713980994
+        },
+        {
+          "baseline_activation": 0.09270802324965002,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.009569978645885435
+        },
+        {
+          "baseline_activation": 0.16826004377108852,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.030089160124586234
+        },
+        {
+          "baseline_activation": 0.08833198036187857,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.010583995029652404
+        },
+        {
+          "baseline_activation": 0.007828775934933715,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": 0.0010933046848284889
+        }
+      ],
+      "record_id": "mechanism_record_007"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.0645103036386101,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.0074554012592671914
+        },
+        {
+          "baseline_activation": 0.2762336928956726,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.017526675019783056
+        },
+        {
+          "baseline_activation": 0.07943232145642257,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.0031584589248323525
+        },
+        {
+          "baseline_activation": 0.3333568226553337,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.03439572779756289
+        },
+        {
+          "baseline_activation": 0.01933093716457155,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.003475919888887402
+        },
+        {
+          "baseline_activation": 0.04149103982601505,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.0049760471475988055
+        },
+        {
+          "baseline_activation": 0.16339815858823656,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": 0.02281069378296341
+        }
+      ],
+      "record_id": "mechanism_record_008"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.17151289564533348,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.019833060544578396
+        },
+        {
+          "baseline_activation": 0.261506674045969,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.01656359319647116
+        },
+        {
+          "baseline_activation": 0.024719959891529426,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.000984584675705391
+        },
+        {
+          "baseline_activation": 0.27957870537521673,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.028891027873830855
+        },
+        {
+          "baseline_activation": 0.0490333740891687,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.008825341037128231
+        },
+        {
+          "baseline_activation": 0.01671583148405322,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.0020058682165478015
+        },
+        {
+          "baseline_activation": 0.17517051222548202,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": 0.024506294107037696
+        }
+      ],
+      "record_id": "mechanism_record_009"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.3186555530381139,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.03661131225700298
+        },
+        {
+          "baseline_activation": 0.160256553449629,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.009921811482138942
+        },
+        {
+          "baseline_activation": 0.2982977082855613,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.012354547925174542
+        },
+        {
+          "baseline_activation": 0.10921265902673273,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.011310878262146995
+        },
+        {
+          "baseline_activation": 0.1576782838464466,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.028265356204618675
+        },
+        {
+          "baseline_activation": 0.056396483714382994,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.006762555633621936
+        },
+        {
+          "baseline_activation": 0.030198782051327276,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": 0.004221717142363524
+        }
+      ],
+      "record_id": "mechanism_record_010"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.3037539699444948,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.035048498103425696
+        },
+        {
+          "baseline_activation": 0.1313860447534048,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.008167255093983583
+        },
+        {
+          "baseline_activation": 0.24270834153759246,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.01005222010958845
+        },
+        {
+          "baseline_activation": 0.10426961825807962,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.010826765485749623
+        },
+        {
+          "baseline_activation": 0.14770801447341747,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.026544055551282142
+        },
+        {
+          "baseline_activation": 0.036078752713093756,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.004329241197056133
+        },
+        {
+          "baseline_activation": 0.03917627043432264,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": 0.005483166076167889
+        }
+      ],
+      "record_id": "mechanism_record_011"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.3381480480742554,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.0385356712312393
+        },
+        {
+          "baseline_activation": 0.2002567295699605,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.012308466166793042
+        },
+        {
+          "baseline_activation": 0.37394361246530905,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.01546871682524742
+        },
+        {
+          "baseline_activation": 0.08678115656912981,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.008938640241463569
+        },
+        {
+          "baseline_activation": 0.16733762633748828,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.02983702254708326
+        },
+        {
+          "baseline_activation": 0.09013368941200647,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.010783089786920386
+        },
+        {
+          "baseline_activation": 0.005688659198834604,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": 0.0007928990576558381
+        }
+      ],
+      "record_id": "mechanism_record_012"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.09047688300653965,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.010440443902281382
+        },
+        {
+          "baseline_activation": 0.30155110236494287,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.019122179384872318
+        },
+        {
+          "baseline_activation": 0.10483833755501816,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.004144396568434627
+        },
+        {
+          "baseline_activation": 0.35724561429691204,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.03678003175298783
+        },
+        {
+          "baseline_activation": 0.031579381282366516,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.005675046036419773
+        },
+        {
+          "baseline_activation": 0.04775781513826641,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.005726125400902005
+        },
+        {
+          "baseline_activation": 0.17323310461754884,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": 0.024164341830283265
+        }
+      ],
+      "record_id": "mechanism_record_013"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.1885661086621025,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.02180102447187615
+        },
+        {
+          "baseline_activation": 0.2723033794536483,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.017212538939605282
+        },
+        {
+          "baseline_activation": 0.034336491266580546,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.001363304799490983
+        },
+        {
+          "baseline_activation": 0.2898019071132589,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.02994776962647866
+        },
+        {
+          "baseline_activation": 0.056416528063496306,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.010151990704869829
+        },
+        {
+          "baseline_activation": 0.018137026570653927,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.0021746799424948726
+        },
+        {
+          "baseline_activation": 0.18078442303460335,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": 0.025304393074809195
+        }
+      ],
+      "record_id": "mechanism_record_014"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.3317336255121208,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.038019786106717246
+        },
+        {
+          "baseline_activation": 0.17592557477779483,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.01086752545423586
+        },
+        {
+          "baseline_activation": 0.31111099937475406,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.012868909839062193
+        },
+        {
+          "baseline_activation": 0.12462373605945143,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.012883821542908624
+        },
+        {
+          "baseline_activation": 0.1634648850813748,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.029256356642135883
+        },
+        {
+          "baseline_activation": 0.05992583119517281,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.007181123480191176
+        },
+        {
+          "baseline_activation": 0.03711103152204308,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": 0.0051828298450355414
+        }
+      ],
+      "record_id": "mechanism_record_015"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.31426878912629674,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.036246609338652536
+        },
+        {
+          "baseline_activation": 0.1442615563431281,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.008956815915776739
+        },
+        {
+          "baseline_activation": 0.2531493950878874,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.010478415818449716
+        },
+        {
+          "baseline_activation": 0.11674030003528062,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.012116803763269013
+        },
+        {
+          "baseline_activation": 0.1523502934947635,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.027380085539422505
+        },
+        {
+          "baseline_activation": 0.03903909815418662,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.004684574625875515
+        },
+        {
+          "baseline_activation": 0.044758195568868335,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": 0.006264626088166192
+        }
+      ],
+      "record_id": "mechanism_record_016"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.10634635564859943,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.012260754300094268
+        },
+        {
+          "baseline_activation": 0.32143802357327805,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.020300840557680166
+        },
+        {
+          "baseline_activation": 0.09595388319993554,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.0038369933056533467
+        },
+        {
+          "baseline_activation": 0.23856315930662605,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.024566355507603
+        },
+        {
+          "baseline_activation": 0.017719600258275254,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.003177477935119355
+        },
+        {
+          "baseline_activation": 0.07388369088202393,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.008844158949819048
+        },
+        {
+          "baseline_activation": 0.1328450956182197,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": 0.018486598455615844
+        }
+      ],
+      "record_id": "mechanism_record_017"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.1291250904071943,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.014862140269254032
+        },
+        {
+          "baseline_activation": 0.3380152000378751,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.021404985858431647
+        },
+        {
+          "baseline_activation": 0.14286592662461045,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.005597740652731331
+        },
+        {
+          "baseline_activation": 0.39173677734419354,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.04019467221433015
+        },
+        {
+          "baseline_activation": 0.0499693197952406,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.008971350071951989
+        },
+        {
+          "baseline_activation": 0.05690438399594781,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.0068202219410135045
+        },
+        {
+          "baseline_activation": 0.18714508998291543,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": 0.026074736009521426
+        }
+      ],
+      "record_id": "mechanism_record_018"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.3628377408776901,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.04177753253054445
+        },
+        {
+          "baseline_activation": 0.1136567864231443,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.007031046574562827
+        },
+        {
+          "baseline_activation": 0.24458964405763084,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.010186698186247567
+        },
+        {
+          "baseline_activation": 0.0814690524875725,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.008449418630732952
+        },
+        {
+          "baseline_activation": 0.17220001281151115,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.03094366024777262
+        },
+        {
+          "baseline_activation": 0.025264731040049563,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.003031731029248863
+        },
+        {
+          "baseline_activation": 0.03715394926185532,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": 0.005200848915747347
+        }
+      ],
+      "record_id": "mechanism_record_019"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.3446854309908659,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.03956106897232958
+        },
+        {
+          "baseline_activation": 0.1915059670754163,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.011819269771293994
+        },
+        {
+          "baseline_activation": 0.323812186830448,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.013392424814414161
+        },
+        {
+          "baseline_activation": 0.13997492807193002,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.014482433991465093
+        },
+        {
+          "baseline_activation": 0.16918355854099493,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.0303374954208398
+        },
+        {
+          "baseline_activation": 0.06342715660784219,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.007607732024898839
+        },
+        {
+          "baseline_activation": 0.04399536426902485,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": 0.006151800117733364
+        }
+      ],
+      "record_id": "mechanism_record_020"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.061422596939731997,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.007083520411772015
+        },
+        {
+          "baseline_activation": 0.3063387975552685,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.019369679462304834
+        },
+        {
+          "baseline_activation": 0.07088095232701397,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.002835831263995836
+        },
+        {
+          "baseline_activation": 0.24867503676557978,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.025594935659271678
+        },
+        {
+          "baseline_activation": -0.0002259208516904949,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": -4.0515228167892214e-05
+        },
+        {
+          "baseline_activation": 0.06762739183059518,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.008092493922328081
+        },
+        {
+          "baseline_activation": 0.13487815802455896,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": 0.018760899666868336
+        }
+      ],
+      "record_id": "mechanism_record_021"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.12226030926961998,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.014063120654819128
+        },
+        {
+          "baseline_activation": 0.3371513082056118,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.021263012559744
+        },
+        {
+          "baseline_activation": 0.11141057888201251,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.004439298075885056
+        },
+        {
+          "baseline_activation": 0.24761929320989287,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.02543216678270982
+        },
+        {
+          "baseline_activation": 0.024494154988406,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.004385139918611836
+        },
+        {
+          "baseline_activation": 0.07886339368151347,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.009429678531368113
+        },
+        {
+          "baseline_activation": 0.13669566357242594,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": 0.01898668258820474
+        }
+      ],
+      "record_id": "mechanism_record_022"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.28684501141174573,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.03312176888899199
+        },
+        {
+          "baseline_activation": 0.11017592693070492,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.006844292490658321
+        },
+        {
+          "baseline_activation": 0.2679231364872335,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.01110243575297809
+        },
+        {
+          "baseline_activation": 0.12053610433823074,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.012520015205713275
+        },
+        {
+          "baseline_activation": 0.152002632729994,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.027341488518400847
+        },
+        {
+          "baseline_activation": 0.033949411791017056,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.004073471435652509
+        },
+        {
+          "baseline_activation": 0.03193562843935452,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": 0.004470943800053306
+        }
+      ],
+      "record_id": "mechanism_record_023"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.37804354201325807,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.04350282597117128
+        },
+        {
+          "baseline_activation": 0.12511592504531457,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.007726466060347159
+        },
+        {
+          "baseline_activation": 0.2536172729317551,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.010562334182615374
+        },
+        {
+          "baseline_activation": 0.09250971671956904,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.009589398514855074
+        },
+        {
+          "baseline_activation": 0.1785109360425779,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.032079957511571555
+        },
+        {
+          "baseline_activation": 0.02691446678421716,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.0032297243168604717
+        },
+        {
+          "baseline_activation": 0.04323365379217048,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": 0.006052072537794995
+        }
+      ],
+      "record_id": "mechanism_record_024"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.08241265296800149,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.009491928045296694
+        },
+        {
+          "baseline_activation": 0.33068752280399744,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.020895463278681914
+        },
+        {
+          "baseline_activation": 0.13428400311990446,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.005328711488224114
+        },
+        {
+          "baseline_activation": 0.31320943994421546,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.03216107969605464
+        },
+        {
+          "baseline_activation": 0.021966525345708223,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.003937148970452664
+        },
+        {
+          "baseline_activation": 0.07530492301309871,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.00901167865285002
+        },
+        {
+          "baseline_activation": 0.14859911692710892,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": 0.020661233727989836
+        }
+      ],
+      "record_id": "mechanism_record_025"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.08591267150875216,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.009923368339721295
+        },
+        {
+          "baseline_activation": 0.3298188553666132,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.020876599161734954
+        },
+        {
+          "baseline_activation": 0.09483909957282582,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.003783585483881413
+        },
+        {
+          "baseline_activation": 0.2725579610403778,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.028108274507628428
+        },
+        {
+          "baseline_activation": 0.011582395695682268,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.0020812065145584535
+        },
+        {
+          "baseline_activation": 0.07310788479014527,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.00876438013321773
+        },
+        {
+          "baseline_activation": 0.14474107945312828,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": 0.020188526927656214
+        }
+      ],
+      "record_id": "mechanism_record_026"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.25957252584954943,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.029679085279183226
+        },
+        {
+          "baseline_activation": 0.09535936045079349,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.005908199711505413
+        },
+        {
+          "baseline_activation": 0.2804311808963756,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.011592661491038048
+        },
+        {
+          "baseline_activation": 0.06605367672089352,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.0068169804880306994
+        },
+        {
+          "baseline_activation": 0.1403219767186675,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.024997060065619248
+        },
+        {
+          "baseline_activation": 0.04685617752086464,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.005595155002785512
+        },
+        {
+          "baseline_activation": -0.0019220661811087216,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.00026756366567920464
+        }
+      ],
+      "record_id": "mechanism_record_027"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.2988442169386757,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.03445991997126996
+        },
+        {
+          "baseline_activation": 0.12459912425966597,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.007730654068673071
+        },
+        {
+          "baseline_activation": 0.27960175018599914,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.011582617088767233
+        },
+        {
+          "baseline_activation": 0.13443129630485595,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.013952596699908226
+        },
+        {
+          "baseline_activation": 0.157269736652099,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.02827004902611918
+        },
+        {
+          "baseline_activation": 0.037241539301367456,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.00446895452382462
+        },
+        {
+          "baseline_activation": 0.03820581505978744,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": 0.005348214057040446
+        }
+      ],
+      "record_id": "mechanism_record_028"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.39304812061765276,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.04527612672269182
+        },
+        {
+          "baseline_activation": 0.13654183560804264,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.008409315674717477
+        },
+        {
+          "baseline_activation": 0.26260098963442363,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.0109237907737475
+        },
+        {
+          "baseline_activation": 0.10352773625784287,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": 0.010725498205404027
+        },
+        {
+          "baseline_activation": 0.18472626641339068,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.033234684404641335
+        },
+        {
+          "baseline_activation": 0.02857826784323916,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": -0.0034270635109262537
+        },
+        {
+          "baseline_activation": 0.04927391536135793,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": 0.006896547171339584
+        }
+      ],
+      "record_id": "mechanism_record_029"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.6271624103877599,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.06409652613621114
+        },
+        {
+          "baseline_activation": -0.657146727238244,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": 0.039645578464800935
+        },
+        {
+          "baseline_activation": 0.6599499777619069,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.026126793073112775
+        },
+        {
+          "baseline_activation": -0.6409444077807175,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": -0.060046679678712134
+        },
+        {
+          "baseline_activation": 0.4114163073481158,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.07266619083591352
+        },
+        {
+          "baseline_activation": -0.05029944696166729,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": 0.0060117316637471885
+        },
+        {
+          "baseline_activation": -0.4296700478916884,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.06008086061814377
+        }
+      ],
+      "record_id": "mechanism_record_030"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.6711319836119688,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.06745187216656873
+        },
+        {
+          "baseline_activation": -0.6493650422272069,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": 0.03876881553511008
+        },
+        {
+          "baseline_activation": 0.7265118309429184,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.028824145940285262
+        },
+        {
+          "baseline_activation": -0.6633093693537137,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": -0.06151833700813758
+        },
+        {
+          "baseline_activation": 0.4321099161286281,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.07588424443162922
+        },
+        {
+          "baseline_activation": -0.03411457580394229,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": 0.0040691866832947565
+        },
+        {
+          "baseline_activation": -0.4471889910274285,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.06251741901616048
+        }
+      ],
+      "record_id": "mechanism_record_031"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.6586497391027868,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.06814240264646232
+        },
+        {
+          "baseline_activation": -0.5986721451564934,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": 0.036053796036510155
+        },
+        {
+          "baseline_activation": 0.666503334544201,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.02699053494587067
+        },
+        {
+          "baseline_activation": -0.6053665303069469,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": -0.05701800955538705
+        },
+        {
+          "baseline_activation": 0.4157098975168604,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.07410384088751043
+        },
+        {
+          "baseline_activation": -0.03985070867967261,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": 0.004780339946107048
+        },
+        {
+          "baseline_activation": -0.4076521113431116,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.05690472542748792
+        }
+      ],
+      "record_id": "mechanism_record_032"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.6956259848379985,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.06968955414736133
+        },
+        {
+          "baseline_activation": -0.6173581817869555,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": 0.03643464362406268
+        },
+        {
+          "baseline_activation": 0.7283833341248848,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.029412607853504746
+        },
+        {
+          "baseline_activation": -0.6280715487392428,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": -0.05851543505923751
+        },
+        {
+          "baseline_activation": 0.4380454689916058,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.07650309327047738
+        },
+        {
+          "baseline_activation": -0.0331106851732033,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": 0.003938553245252552
+        },
+        {
+          "baseline_activation": -0.4285263823083928,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.05986893287650297
+        }
+      ],
+      "record_id": "mechanism_record_033"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.6107708953030123,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.0636980891339945
+        },
+        {
+          "baseline_activation": -0.5985277675870051,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": 0.03638157026560518
+        },
+        {
+          "baseline_activation": 0.5916169129000419,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.02360679635673041
+        },
+        {
+          "baseline_activation": -0.6211344192533912,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": -0.0590933804627119
+        },
+        {
+          "baseline_activation": 0.3867216321141628,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.0686911522612314
+        },
+        {
+          "baseline_activation": -0.046943867148245604,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": 0.005622098840752432
+        },
+        {
+          "baseline_activation": -0.40033600024930716,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.05597182421359931
+        }
+      ],
+      "record_id": "mechanism_record_034"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.6650976336755294,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.06734423783466975
+        },
+        {
+          "baseline_activation": -0.6963091931702471,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": 0.041972526977883284
+        },
+        {
+          "baseline_activation": 0.6969782836029975,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.027460081592442565
+        },
+        {
+          "baseline_activation": -0.6834714950663655,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": -0.06319475250784895
+        },
+        {
+          "baseline_activation": 0.4322550590257626,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.07662610508155837
+        },
+        {
+          "baseline_activation": -0.05306794274251167,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": 0.006355637842763828
+        },
+        {
+          "baseline_activation": -0.45251374022968704,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.06322631264416861
+        }
+      ],
+      "record_id": "mechanism_record_035"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.6194425159127739,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.06391892334699417
+        },
+        {
+          "baseline_activation": -0.5334105842432716,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": 0.032119197394887555
+        },
+        {
+          "baseline_activation": 0.6652091500980004,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.026653705795164073
+        },
+        {
+          "baseline_activation": -0.6039867946217959,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": -0.05738090404678231
+        },
+        {
+          "baseline_activation": 0.3904972067613187,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.06877002524213616
+        },
+        {
+          "baseline_activation": -0.010690650619620183,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": 0.001275926386331061
+        },
+        {
+          "baseline_activation": -0.40508662226004977,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.05663740380052884
+        }
+      ],
+      "record_id": "mechanism_record_036"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.6947604908097249,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.07094979785276762
+        },
+        {
+          "baseline_activation": -0.6439541110060866,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": 0.03863421513847615
+        },
+        {
+          "baseline_activation": 0.7037037307587044,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.0283384859193061
+        },
+        {
+          "baseline_activation": -0.6477427994979007,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": -0.06018900972689978
+        },
+        {
+          "baseline_activation": 0.4369959608006717,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.07790367278976468
+        },
+        {
+          "baseline_activation": -0.044518258309278864,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": 0.005341071502972972
+        },
+        {
+          "baseline_activation": -0.4319844582306486,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.06024377227668687
+        }
+      ],
+      "record_id": "mechanism_record_037"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.6093897188566838,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.0632200286218359
+        },
+        {
+          "baseline_activation": -0.5710300883590915,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": 0.034536971652814275
+        },
+        {
+          "baseline_activation": 0.6211958413970603,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.02484370853818152
+        },
+        {
+          "baseline_activation": -0.6069321847280473,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": -0.0577721862481686
+        },
+        {
+          "baseline_activation": 0.3870843006344769,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.0683907831825658
+        },
+        {
+          "baseline_activation": -0.03258820446172356,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": 0.0038940489510760345
+        },
+        {
+          "baseline_activation": -0.4002513983699649,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.05597514963397865
+        }
+      ],
+      "record_id": "mechanism_record_038"
+    },
+    {
+      "interventions": [
+        {
+          "baseline_activation": 0.6591589825872295,
+          "layer_id": "representation_1",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.0676630685012235
+        },
+        {
+          "baseline_activation": -0.6325616358658012,
+          "layer_id": "representation_1",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": 0.038142938989299935
+        },
+        {
+          "baseline_activation": 0.6394986206412826,
+          "layer_id": "representation_1",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.02551189573099255
+        },
+        {
+          "baseline_activation": -0.6556670035998613,
+          "layer_id": "representation_1",
+          "neuron_index": 3,
+          "patched_activation": 0.0,
+          "score_delta": -0.061636619670416004
+        },
+        {
+          "baseline_activation": 0.4130282689168664,
+          "layer_id": "representation_2",
+          "neuron_index": 0,
+          "patched_activation": 0.0,
+          "score_delta": 0.07316143513685247
+        },
+        {
+          "baseline_activation": -0.04853638878699834,
+          "layer_id": "representation_2",
+          "neuron_index": 1,
+          "patched_activation": 0.0,
+          "score_delta": 0.005809089005959278
+        },
+        {
+          "baseline_activation": -0.42184122693844583,
+          "layer_id": "representation_2",
+          "neuron_index": 2,
+          "patched_activation": 0.0,
+          "score_delta": -0.05897812447708717
+        }
+      ],
+      "record_id": "mechanism_record_039"
+    }
+  ]
+}

@@ -1,0 +1,304 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "complete": {
+      "type": "boolean"
+    },
+    "entries": {
+      "items": {
+        "anyOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "count": {
+                "type": "integer"
+              },
+              "family": {
+                "type": "string"
+              },
+              "metadata": {
+                "additionalProperties": false,
+                "properties": {
+                  "purpose": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "purpose"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "count",
+              "family",
+              "metadata"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "count": {
+                "type": "integer"
+              },
+              "family": {
+                "type": "string"
+              },
+              "metadata": {
+                "additionalProperties": false,
+                "properties": {
+                  "feature": {
+                    "type": "string"
+                  },
+                  "record_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "feature",
+                  "record_id"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "count",
+              "family",
+              "metadata"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "count": {
+                "type": "integer"
+              },
+              "family": {
+                "type": "string"
+              },
+              "metadata": {
+                "additionalProperties": false,
+                "properties": {
+                  "pathway": {
+                    "type": "string"
+                  },
+                  "record_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "pathway",
+                  "record_id"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "count",
+              "family",
+              "metadata"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "count": {
+                "type": "integer"
+              },
+              "family": {
+                "type": "string"
+              },
+              "metadata": {
+                "additionalProperties": false,
+                "properties": {
+                  "concept": {
+                    "type": "string"
+                  },
+                  "record_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "concept",
+                  "record_id"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "count",
+              "family",
+              "metadata"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "count": {
+                "type": "integer"
+              },
+              "family": {
+                "type": "string"
+              },
+              "metadata": {
+                "additionalProperties": false,
+                "properties": {
+                  "layer": {
+                    "type": "string"
+                  },
+                  "neuron": {
+                    "type": "integer"
+                  },
+                  "record_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "layer",
+                  "neuron",
+                  "record_id"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "count",
+              "family",
+              "metadata"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "count": {
+                "type": "integer"
+              },
+              "family": {
+                "type": "string"
+              },
+              "metadata": {
+                "additionalProperties": false,
+                "properties": {
+                  "record_id": {
+                    "type": "string"
+                  },
+                  "source_record_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "record_id",
+                  "source_record_id"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "count",
+              "family",
+              "metadata"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "count": {
+                "type": "integer"
+              },
+              "family": {
+                "type": "string"
+              },
+              "metadata": {
+                "additionalProperties": false,
+                "properties": {
+                  "delta": {
+                    "type": "number"
+                  },
+                  "feature": {
+                    "type": "string"
+                  },
+                  "record_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "delta",
+                  "feature",
+                  "record_id"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "count",
+              "family",
+              "metadata"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "count": {
+                "type": "integer"
+              },
+              "family": {
+                "type": "string"
+              },
+              "metadata": {
+                "additionalProperties": false,
+                "properties": {
+                  "source_dimension": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "source_dimension"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "count",
+              "family",
+              "metadata"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "trial_family_count": {
+      "type": "integer"
+    },
+    "trial_ledger_hash": {
+      "type": "string"
+    },
+    "trial_ledger_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "complete",
+    "entries",
+    "phase",
+    "trial_family_count",
+    "trial_ledger_hash",
+    "trial_ledger_id"
+  ],
+  "title": "GOLDEN_TRIAL_LEDGER",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

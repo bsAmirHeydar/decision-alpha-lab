@@ -1,0 +1,9 @@
+{
+  "deterministic": true,
+  "dictionary_size": 3,
+  "exact_version": "1.0.0",
+  "maximum_reconstruction_error": 0.25,
+  "minimum_records": 32,
+  "randomized_control_required": true,
+  "top_k": 2
+}

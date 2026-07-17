@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "calibration_mechanism_hash": {
+      "type": "string"
+    },
+    "calibration_mechanism_id": {
+      "type": "string"
+    },
+    "past_only_calibration": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "effects": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "component": {
+                  "type": "string"
+                },
+                "component_value": {
+                  "type": "number"
+                },
+                "score_delta": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "component",
+                "component_value",
+                "score_delta"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "record_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "effects",
+          "record_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "runtime_mutation": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "calibration_mechanism_hash",
+    "calibration_mechanism_id",
+    "past_only_calibration",
+    "phase",
+    "records",
+    "runtime_mutation"
+  ],
+  "title": "GOLDEN_CONTINUAL_CALIBRATION_MECHANISMS",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

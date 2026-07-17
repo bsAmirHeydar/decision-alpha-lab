@@ -1,0 +1,932 @@
+{
+  "claim_class": "associational_probe_only",
+  "concept_count": 3,
+  "concept_probe_bundle_hash": "26cb880243158dff7e228e3b734911fb092a9115b4c5ea60054a46ca49022065",
+  "concept_probe_bundle_id": "concept_probe_a27248a7c7eb8bbddadb10e3",
+  "mean_signal_over_random": 0.0011374303040570892,
+  "phase": "SAED_V4_26",
+  "random_control_required": true,
+  "records": [
+    {
+      "concepts": [
+        {
+          "activation": 0.11298716653790167,
+          "concept": "trend_alignment",
+          "random_control_activation": 0.8993627247917244,
+          "signal_over_random": -0.7863755582538228
+        },
+        {
+          "activation": 0.5952352109161476,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.24516253470928018,
+          "signal_over_random": 0.35007267620686744
+        },
+        {
+          "activation": 0.8412303374251152,
+          "concept": "execution_friction",
+          "random_control_activation": 0.3296457153520565,
+          "signal_over_random": 0.5115846220730587
+        }
+      ],
+      "record_id": "mechanism_record_000"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.08521531999975003,
+          "concept": "trend_alignment",
+          "random_control_activation": 0.908520129775393,
+          "signal_over_random": -0.8233048097756429
+        },
+        {
+          "activation": 0.5882272007294334,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.22171464185471298,
+          "signal_over_random": 0.36651255887472034
+        },
+        {
+          "activation": 0.8499894360161909,
+          "concept": "execution_friction",
+          "random_control_activation": 0.3143801135503799,
+          "signal_over_random": 0.5356093224658109
+        }
+      ],
+      "record_id": "mechanism_record_001"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.9636660589599411,
+          "concept": "trend_alignment",
+          "random_control_activation": -0.02672248675928469,
+          "signal_over_random": 0.9369435722006564
+        },
+        {
+          "activation": 0.33076712292556054,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.7716607456297495,
+          "signal_over_random": -0.44089362270418897
+        },
+        {
+          "activation": 0.057150862273673664,
+          "concept": "execution_friction",
+          "random_control_activation": 0.7014582095065036,
+          "signal_over_random": -0.64430734723283
+        }
+      ],
+      "record_id": "mechanism_record_002"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.9427806998567528,
+          "concept": "trend_alignment",
+          "random_control_activation": 0.01843576372072152,
+          "signal_over_random": 0.9243449361360313
+        },
+        {
+          "activation": 0.22694347160775305,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.6384363036712851,
+          "signal_over_random": -0.41149283206353204
+        },
+        {
+          "activation": 0.2214375881695429,
+          "concept": "execution_friction",
+          "random_control_activation": 0.8227795930868205,
+          "signal_over_random": -0.6013420049172775
+        }
+      ],
+      "record_id": "mechanism_record_003"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.047920037264937286,
+          "concept": "trend_alignment",
+          "random_control_activation": 0.8760945169921054,
+          "signal_over_random": -0.8281744797271681
+        },
+        {
+          "activation": 0.4463097960641532,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.0776293946436142,
+          "signal_over_random": 0.36868040142053904
+        },
+        {
+          "activation": 0.9254652727946759,
+          "concept": "execution_friction",
+          "random_control_activation": 0.38668793698508386,
+          "signal_over_random": 0.5387773358095921
+        }
+      ],
+      "record_id": "mechanism_record_004"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.18678560915315726,
+          "concept": "trend_alignment",
+          "random_control_activation": 0.8670458096141883,
+          "signal_over_random": -0.6802602004610311
+        },
+        {
+          "activation": 0.5938135037525616,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.29098045357331453,
+          "signal_over_random": 0.30283305017924705
+        },
+        {
+          "activation": 0.8257149690056464,
+          "concept": "execution_friction",
+          "random_control_activation": 0.38316477284114353,
+          "signal_over_random": 0.4425501961645029
+        }
+      ],
+      "record_id": "mechanism_record_005"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.9036338081707225,
+          "concept": "trend_alignment",
+          "random_control_activation": 0.07907506526283165,
+          "signal_over_random": 0.8245587429078909
+        },
+        {
+          "activation": 0.19401128060464412,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.5610820558720067,
+          "signal_over_random": -0.36707077526736254
+        },
+        {
+          "activation": 0.3304728895579702,
+          "concept": "execution_friction",
+          "random_control_activation": 0.8668979709837751,
+          "signal_over_random": -0.5364250814258049
+        }
+      ],
+      "record_id": "mechanism_record_006"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.9564222438678217,
+          "concept": "trend_alignment",
+          "random_control_activation": -0.0005776253797326221,
+          "signal_over_random": 0.9558446184880891
+        },
+        {
+          "activation": 0.34949040997770875,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.7755203162238252,
+          "signal_over_random": -0.4260299062461165
+        },
+        {
+          "activation": 0.07549131275576086,
+          "concept": "execution_friction",
+          "random_control_activation": 0.6980773167258261,
+          "signal_over_random": -0.6225860039700652
+        }
+      ],
+      "record_id": "mechanism_record_007"
+    },
+    {
+      "concepts": [
+        {
+          "activation": -0.01722886932851084,
+          "concept": "trend_alignment",
+          "random_control_activation": 0.9460273218567683,
+          "signal_over_random": -0.9287984525282574
+        },
+        {
+          "activation": 0.599871082286769,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.17105603433455174,
+          "signal_over_random": 0.42881504795221725
+        },
+        {
+          "activation": 0.8505040712591936,
+          "concept": "execution_friction",
+          "random_control_activation": 0.22384795338428448,
+          "signal_over_random": 0.626656117874909
+        }
+      ],
+      "record_id": "mechanism_record_008"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.07967396741072552,
+          "concept": "trend_alignment",
+          "random_control_activation": 0.86311090830453,
+          "signal_over_random": -0.7834369408938044
+        },
+        {
+          "activation": 0.44355043055696075,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.09478594562431582,
+          "signal_over_random": 0.34876448493264495
+        },
+        {
+          "activation": 0.9223610773894365,
+          "concept": "execution_friction",
+          "random_control_activation": 0.4126882027451516,
+          "signal_over_random": 0.5096728746442849
+        }
+      ],
+      "record_id": "mechanism_record_009"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.9261224786650003,
+          "concept": "trend_alignment",
+          "random_control_activation": 0.07614474549708475,
+          "signal_over_random": 0.8499777331679156
+        },
+        {
+          "activation": 0.2794190010444075,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.6578056086178536,
+          "signal_over_random": -0.37838660757344617
+        },
+        {
+          "activation": 0.25045921063289994,
+          "concept": "execution_friction",
+          "random_control_activation": 0.8034208748519561,
+          "signal_over_random": -0.5529616642190562
+        }
+      ],
+      "record_id": "mechanism_record_010"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.892878945888035,
+          "concept": "trend_alignment",
+          "random_control_activation": 0.10865366315032887,
+          "signal_over_random": 0.7842252827377061
+        },
+        {
+          "activation": 0.21468715982854072,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.5638025927734475,
+          "signal_over_random": -0.34911543294490677
+        },
+        {
+          "activation": 0.3505881890474427,
+          "concept": "execution_friction",
+          "random_control_activation": 0.8607739275009391,
+          "signal_over_random": -0.5101857384534964
+        }
+      ],
+      "record_id": "mechanism_record_011"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.9573968352076286,
+          "concept": "trend_alignment",
+          "random_control_activation": -0.007092758895461722,
+          "signal_over_random": 0.950304076312167
+        },
+        {
+          "activation": 0.35412883900894465,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.7834929638694502,
+          "signal_over_random": -0.42936412486050557
+        },
+        {
+          "activation": 0.06123446710041588,
+          "concept": "execution_friction",
+          "random_control_activation": 0.6886929877953891,
+          "signal_over_random": -0.6274585206949732
+        }
+      ],
+      "record_id": "mechanism_record_012"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.04580309967349882,
+          "concept": "trend_alignment",
+          "random_control_activation": 0.926678274265602,
+          "signal_over_random": -0.8808751745921032
+        },
+        {
+          "activation": 0.6041410414886247,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.2119997464839867,
+          "signal_over_random": 0.392141295004638
+        },
+        {
+          "activation": 0.8444877379498218,
+          "concept": "execution_friction",
+          "random_control_activation": 0.2714254287805121,
+          "signal_over_random": 0.5730623091693097
+        }
+      ],
+      "record_id": "mechanism_record_013"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.10874880473320962,
+          "concept": "trend_alignment",
+          "random_control_activation": 0.850424500067508,
+          "signal_over_random": -0.7416756953342984
+        },
+        {
+          "activation": 0.44067478470491306,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.11050125270983331,
+          "signal_over_random": 0.33017353199507976
+        },
+        {
+          "activation": 0.9186374009095589,
+          "concept": "execution_friction",
+          "random_control_activation": 0.43613272955264537,
+          "signal_over_random": 0.48250467135691355
+        }
+      ],
+      "record_id": "mechanism_record_014"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.9135683013235455,
+          "concept": "trend_alignment",
+          "random_control_activation": 0.10825980710982455,
+          "signal_over_random": 0.805308494213721
+        },
+        {
+          "activation": 0.29752369518276156,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.6560247914878481,
+          "signal_over_random": -0.35850109630508653
+        },
+        {
+          "activation": 0.27625840436645827,
+          "concept": "execution_friction",
+          "random_control_activation": 0.8001600406016632,
+          "signal_over_random": -0.5239016362352049
+        }
+      ],
+      "record_id": "mechanism_record_015"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.8822936333380726,
+          "concept": "trend_alignment",
+          "random_control_activation": 0.13576751594510614,
+          "signal_over_random": 0.7465261173929665
+        },
+        {
+          "activation": 0.23353615377950449,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.5658689596901942,
+          "signal_over_random": -0.33233280591068975
+        },
+        {
+          "activation": 0.36880753303116715,
+          "concept": "execution_friction",
+          "random_control_activation": 0.8544676958192851,
+          "signal_over_random": -0.4856601627881179
+        }
+      ],
+      "record_id": "mechanism_record_016"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.07780063327336653,
+          "concept": "trend_alignment",
+          "random_control_activation": 0.93129612196649,
+          "signal_over_random": -0.8534954886931235
+        },
+        {
+          "activation": 0.7779640299890126,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.39801141482793795,
+          "signal_over_random": 0.37995261516107465
+        },
+        {
+          "activation": 0.6918216439555235,
+          "concept": "execution_friction",
+          "random_control_activation": 0.13657146808065607,
+          "signal_over_random": 0.5552501758748674
+        }
+      ],
+      "record_id": "mechanism_record_017"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.12575410876817836,
+          "concept": "trend_alignment",
+          "random_control_activation": 0.8966540160056922,
+          "signal_over_random": -0.7708999072375138
+        },
+        {
+          "activation": 0.605805826011097,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.2626224821473567,
+          "signal_over_random": 0.34318334386374033
+        },
+        {
+          "activation": 0.8321598104371356,
+          "concept": "execution_friction",
+          "random_control_activation": 0.33064303062267036,
+          "signal_over_random": 0.5015167798144653
+        }
+      ],
+      "record_id": "mechanism_record_018"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.8990695425066114,
+          "concept": "trend_alignment",
+          "random_control_activation": 0.03812354325167839,
+          "signal_over_random": 0.860945999254933
+        },
+        {
+          "activation": 0.11567856141203225,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.49894793806715915,
+          "signal_over_random": -0.3832693766551269
+        },
+        {
+          "activation": 0.34372339034581106,
+          "concept": "execution_friction",
+          "random_control_activation": 0.9038205716877334,
+          "signal_over_random": -0.5600971813419224
+        }
+      ],
+      "record_id": "mechanism_record_019"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.9012621742096112,
+          "concept": "trend_alignment",
+          "random_control_activation": 0.1374806736993799,
+          "signal_over_random": 0.7637815005102313
+        },
+        {
+          "activation": 0.31377833801314026,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.6537927638361389,
+          "signal_over_random": -0.3400144258229987
+        },
+        {
+          "activation": 0.29955758959226153,
+          "concept": "execution_friction",
+          "random_control_activation": 0.7964434174689203,
+          "signal_over_random": -0.4968858278766588
+        }
+      ],
+      "record_id": "mechanism_record_020"
+    },
+    {
+      "concepts": [
+        {
+          "activation": -0.047104484187038796,
+          "concept": "trend_alignment",
+          "random_control_activation": 0.9688104791642185,
+          "signal_over_random": -0.9217059949771796
+        },
+        {
+          "activation": 0.7688376476129519,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.31658036890416574,
+          "signal_over_random": 0.4522572787087862
+        },
+        {
+          "activation": 0.7031326850075152,
+          "concept": "execution_friction",
+          "random_control_activation": 0.042218867011326475,
+          "signal_over_random": 0.6609138179961888
+        }
+      ],
+      "record_id": "mechanism_record_021"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.11860543609275052,
+          "concept": "trend_alignment",
+          "random_control_activation": 0.9157074644479652,
+          "signal_over_random": -0.7971020283552147
+        },
+        {
+          "activation": 0.7793004775254119,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.42445267313044877,
+          "signal_over_random": 0.3548478043949631
+        },
+        {
+          "activation": 0.6846335830263683,
+          "concept": "execution_friction",
+          "random_control_activation": 0.16607074666955982,
+          "signal_over_random": 0.5185628363568086
+        }
+      ],
+      "record_id": "mechanism_record_022"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.9121299439704668,
+          "concept": "trend_alignment",
+          "random_control_activation": 0.05531398937065874,
+          "signal_over_random": 0.856815954599808
+        },
+        {
+          "activation": 0.1787178822211111,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.5601486770814479,
+          "signal_over_random": -0.3814307948603368
+        },
+        {
+          "activation": 0.3129322555902779,
+          "concept": "execution_friction",
+          "random_control_activation": 0.8703425943518833,
+          "signal_over_random": -0.5574103387616054
+        }
+      ],
+      "record_id": "mechanism_record_023"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.8894830393352614,
+          "concept": "trend_alignment",
+          "random_control_activation": 0.062687862274609,
+          "signal_over_random": 0.8267951770606524
+        },
+        {
+          "activation": 0.1287789555160855,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.4968453294904529,
+          "signal_over_random": -0.36806637397436737
+        },
+        {
+          "activation": 0.3642125148953097,
+          "concept": "execution_friction",
+          "random_control_activation": 0.9020925313185508,
+          "signal_over_random": -0.5378800164232411
+        }
+      ],
+      "record_id": "mechanism_record_024"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.07759634238865691,
+          "concept": "trend_alignment",
+          "random_control_activation": 0.9326235159631939,
+          "signal_over_random": -0.8550271735745371
+        },
+        {
+          "activation": 0.7515591651686137,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.3709246862086022,
+          "signal_over_random": 0.38063447896001146
+        },
+        {
+          "activation": 0.7202168876775097,
+          "concept": "execution_friction",
+          "random_control_activation": 0.16397025861565237,
+          "signal_over_random": 0.5562466290618573
+        }
+      ],
+      "record_id": "mechanism_record_025"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.021623954034914374,
+          "concept": "trend_alignment",
+          "random_control_activation": 0.9509299749528713,
+          "signal_over_random": -0.929306020917957
+        },
+        {
+          "activation": 0.7613925776479974,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.3476912076813362,
+          "signal_over_random": 0.4137013699666612
+        },
+        {
+          "activation": 0.7136505114701577,
+          "concept": "execution_friction",
+          "random_control_activation": 0.10908102236088713,
+          "signal_over_random": 0.6045694891092706
+        }
+      ],
+      "record_id": "mechanism_record_026"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.9810892888256944,
+          "concept": "trend_alignment",
+          "random_control_activation": -0.10971137273982784,
+          "signal_over_random": 0.8713779160858666
+        },
+        {
+          "activation": 0.1868688607318932,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.6724631836917747,
+          "signal_over_random": -0.4855943229598815
+        },
+        {
+          "activation": 0.08102911777221701,
+          "concept": "execution_friction",
+          "random_control_activation": 0.7906605888255422,
+          "signal_over_random": -0.7096314710533252
+        }
+      ],
+      "record_id": "mechanism_record_027"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.9010018212391401,
+          "concept": "trend_alignment",
+          "random_control_activation": 0.0875932092346417,
+          "signal_over_random": 0.8134086120044983
+        },
+        {
+          "activation": 0.2011670902328778,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.563274135226025,
+          "signal_over_random": -0.36210704499314716
+        },
+        {
+          "activation": 0.3352700704881485,
+          "concept": "execution_friction",
+          "random_control_activation": 0.8644413207840241,
+          "signal_over_random": -0.5291712502958756
+        }
+      ],
+      "record_id": "mechanism_record_028"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.8802271830880833,
+          "concept": "trend_alignment",
+          "random_control_activation": 0.08523495655394256,
+          "signal_over_random": 0.7949922265341408
+        },
+        {
+          "activation": 0.14086796089717984,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.4947765398011962,
+          "signal_over_random": -0.35390857890401634
+        },
+        {
+          "activation": 0.3827510383874208,
+          "concept": "execution_friction",
+          "random_control_activation": 0.8999413216988627,
+          "signal_over_random": -0.5171902833114419
+        }
+      ],
+      "record_id": "mechanism_record_029"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.7621086592571692,
+          "concept": "trend_alignment",
+          "random_control_activation": -0.836324757498213,
+          "signal_over_random": -0.0742160982410438
+        },
+        {
+          "activation": -0.4370202072326141,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.27455819582022983,
+          "signal_over_random": 0.16246201141238426
+        },
+        {
+          "activation": -0.5123656170140346,
+          "concept": "execution_friction",
+          "random_control_activation": 0.5275115089174477,
+          "signal_over_random": -0.015145891903413089
+        }
+      ],
+      "record_id": "mechanism_record_030"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.7752449799739719,
+          "concept": "trend_alignment",
+          "random_control_activation": -0.8266253589982501,
+          "signal_over_random": -0.05138037902427817
+        },
+        {
+          "activation": -0.41002318559660356,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.30308524028787,
+          "signal_over_random": 0.10693794530873357
+        },
+        {
+          "activation": -0.5185852148207968,
+          "concept": "execution_friction",
+          "random_control_activation": 0.5235278358351274,
+          "signal_over_random": -0.004942621014330628
+        }
+      ],
+      "record_id": "mechanism_record_031"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.7842017550781908,
+          "concept": "trend_alignment",
+          "random_control_activation": -0.8164913438205189,
+          "signal_over_random": -0.032289588742328124
+        },
+        {
+          "activation": -0.41628040463235344,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.29630394649070785,
+          "signal_over_random": 0.11997645814164559
+        },
+        {
+          "activation": -0.49269995156837043,
+          "concept": "execution_friction",
+          "random_control_activation": 0.5486472335773968,
+          "signal_over_random": -0.05594728200902632
+        }
+      ],
+      "record_id": "mechanism_record_032"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.7899454902471192,
+          "concept": "trend_alignment",
+          "random_control_activation": -0.812135706893359,
+          "signal_over_random": -0.02219021664623977
+        },
+        {
+          "activation": -0.4033019480670227,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.3099003460493495,
+          "signal_over_random": 0.09340160201767317
+        },
+        {
+          "activation": -0.4964183854985176,
+          "concept": "execution_friction",
+          "random_control_activation": 0.5458318410845907,
+          "signal_over_random": -0.04941345558607313
+        }
+      ],
+      "record_id": "mechanism_record_033"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.7644973620262232,
+          "concept": "trend_alignment",
+          "random_control_activation": -0.834102311657778,
+          "signal_over_random": -0.06960494963155484
+        },
+        {
+          "activation": -0.4359226284812061,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.2757297875636854,
+          "signal_over_random": 0.16019284091752073
+        },
+        {
+          "activation": -0.5089726920948611,
+          "concept": "execution_friction",
+          "random_control_activation": 0.5310125939734691,
+          "signal_over_random": -0.022039901878608048
+        }
+      ],
+      "record_id": "mechanism_record_034"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.7613880664164998,
+          "concept": "trend_alignment",
+          "random_control_activation": -0.8369695609346742,
+          "signal_over_random": -0.07558149451817442
+        },
+        {
+          "activation": -0.4374805336577989,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.27406413004584873,
+          "signal_over_random": 0.16341640361195015
+        },
+        {
+          "activation": -0.5132202273576345,
+          "concept": "execution_friction",
+          "random_control_activation": 0.5266075930056596,
+          "signal_over_random": -0.013387365648025118
+        }
+      ],
+      "record_id": "mechanism_record_035"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.786740927934984,
+          "concept": "trend_alignment",
+          "random_control_activation": -0.8172147650124459,
+          "signal_over_random": -0.030473837077461985
+        },
+        {
+          "activation": -0.37821733848608446,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.33581942938368775,
+          "signal_over_random": 0.042397909102396714
+        },
+        {
+          "activation": -0.5307964824016003,
+          "concept": "execution_friction",
+          "random_control_activation": 0.5126732165047658,
+          "signal_over_random": 0.01812326589683444
+        }
+      ],
+      "record_id": "mechanism_record_036"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.7807242077428711,
+          "concept": "trend_alignment",
+          "random_control_activation": -0.8195695876977109,
+          "signal_over_random": -0.03884537995483983
+        },
+        {
+          "activation": -0.4206651778725037,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.2917414143810985,
+          "signal_over_random": 0.12892376349140516
+        },
+        {
+          "activation": -0.49460644208219195,
+          "concept": "execution_friction",
+          "random_control_activation": 0.5464809721353278,
+          "signal_over_random": -0.0518745300531358
+        }
+      ],
+      "record_id": "mechanism_record_037"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.7741740951784575,
+          "concept": "trend_alignment",
+          "random_control_activation": -0.8273758650462711,
+          "signal_over_random": -0.053201769867813664
+        },
+        {
+          "activation": -0.4131779077450358,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.29978789437098824,
+          "signal_over_random": 0.11339001337404758
+        },
+        {
+          "activation": -0.5170610527812783,
+          "concept": "execution_friction",
+          "random_control_activation": 0.5248435722200888,
+          "signal_over_random": -0.007782519438810476
+        }
+      ],
+      "record_id": "mechanism_record_038"
+    },
+    {
+      "concepts": [
+        {
+          "activation": 0.7687913263810198,
+          "concept": "trend_alignment",
+          "random_control_activation": -0.8302394058995004,
+          "signal_over_random": -0.061448079518480636
+        },
+        {
+          "activation": -0.43266788733590705,
+          "concept": "liquidity_pressure",
+          "random_control_activation": 0.279176424088872,
+          "signal_over_random": 0.15349146324703505
+        },
+        {
+          "activation": -0.5043607688559182,
+          "concept": "execution_friction",
+          "random_control_activation": 0.5359049467691,
+          "signal_over_random": -0.03154417791318187
+        }
+      ],
+      "record_id": "mechanism_record_039"
+    }
+  ],
+  "reference_gate_passed": true
+}

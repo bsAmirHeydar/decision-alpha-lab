@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "budget_snapshot_hash": {
+      "type": "string"
+    },
+    "budget_snapshot_id": {
+      "type": "string"
+    },
+    "complete": {
+      "type": "boolean"
+    },
+    "counts": {
+      "additionalProperties": false,
+      "properties": {
+        "concept_probes": {
+          "type": "integer"
+        },
+        "counterfactual_trials": {
+          "type": "integer"
+        },
+        "dictionary_trials": {
+          "type": "integer"
+        },
+        "feature_ablations": {
+          "type": "integer"
+        },
+        "hidden_evaluation_queries": {
+          "type": "integer"
+        },
+        "online_policy_mutations": {
+          "type": "integer"
+        },
+        "order_submissions": {
+          "type": "integer"
+        },
+        "patch_interventions": {
+          "type": "integer"
+        },
+        "pathway_ablations": {
+          "type": "integer"
+        },
+        "protected_evidence_exposures": {
+          "type": "integer"
+        },
+        "records": {
+          "type": "integer"
+        },
+        "runtime_compilations": {
+          "type": "integer"
+        },
+        "trace_interventions": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "concept_probes",
+        "counterfactual_trials",
+        "dictionary_trials",
+        "feature_ablations",
+        "hidden_evaluation_queries",
+        "online_policy_mutations",
+        "order_submissions",
+        "patch_interventions",
+        "pathway_ablations",
+        "protected_evidence_exposures",
+        "records",
+        "runtime_compilations",
+        "trace_interventions"
+      ],
+      "type": "object"
+    },
+    "maxima": {
+      "additionalProperties": false,
+      "properties": {
+        "concept_probes": {
+          "type": "integer"
+        },
+        "counterfactual_trials": {
+          "type": "integer"
+        },
+        "dictionary_trials": {
+          "type": "integer"
+        },
+        "feature_ablations": {
+          "type": "integer"
+        },
+        "hidden_evaluation_queries": {
+          "type": "integer"
+        },
+        "online_policy_mutations": {
+          "type": "integer"
+        },
+        "order_submissions": {
+          "type": "integer"
+        },
+        "patch_interventions": {
+          "type": "integer"
+        },
+        "pathway_ablations": {
+          "type": "integer"
+        },
+        "protected_evidence_exposures": {
+          "type": "integer"
+        },
+        "records": {
+          "type": "integer"
+        },
+        "runtime_compilations": {
+          "type": "integer"
+        },
+        "trace_interventions": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "concept_probes",
+        "counterfactual_trials",
+        "dictionary_trials",
+        "feature_ablations",
+        "hidden_evaluation_queries",
+        "online_policy_mutations",
+        "order_submissions",
+        "patch_interventions",
+        "pathway_ablations",
+        "protected_evidence_exposures",
+        "records",
+        "runtime_compilations",
+        "trace_interventions"
+      ],
+      "type": "object"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "within_budget": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "budget_snapshot_hash",
+    "budget_snapshot_id",
+    "complete",
+    "counts",
+    "maxima",
+    "phase",
+    "within_budget"
+  ],
+  "title": "GOLDEN_BUDGET_SNAPSHOT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

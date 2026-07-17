@@ -1,0 +1,2692 @@
+{
+  "attribution_bundle_hash": "e81c4f957f809041edfc2651e5be6622fd7d4d1a735247a51863dd0d34bfa906",
+  "attribution_bundle_id": "frozen_feature_attribution_7172213dd4b49cc23ddb3d95",
+  "deterministic": true,
+  "future_suffix_queries": 0,
+  "integration_steps": 12,
+  "method": "integrated_gradients_plus_occlusion",
+  "phase": "SAED_V4_26",
+  "record_count": 40,
+  "records": [
+    {
+      "baseline_score": 0.413382421083,
+      "completeness_residual": 0.03311043867948754,
+      "concentration_breach": false,
+      "context_id": "hook",
+      "decision_time": "2025-01-02T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.0006156472070681374,
+          "normalized_attribution": 0.020140855934967433,
+          "occlusion_delta": 0.0011511620076624651
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": 0.0009369070372994281,
+          "normalized_attribution": 0.03065084913252351,
+          "occlusion_delta": 0.0012533836539206922
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.007242718028967199,
+          "normalized_attribution": 0.23694502098646703,
+          "occlusion_delta": 0.00759987843690707
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": -0.007752536140270827,
+          "normalized_attribution": -0.25362368534962254,
+          "occlusion_delta": -0.010669509992838888
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": 0.013498335989757526,
+          "normalized_attribution": 0.4415971312956888,
+          "occlusion_delta": 0.011899600168467195
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": 0.0005209382000770368,
+          "normalized_attribution": 0.017042457300730694,
+          "occlusion_delta": 0.0012531583514208688
+        }
+      ],
+      "maximum_feature_concentration": 0.4415971312956888,
+      "model_id": "context_model_0",
+      "record_id": "mechanism_record_000",
+      "score": 0.46155487008538604,
+      "view_attributions": [
+        {
+          "score_delta": 0.0006485104026033861,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0009046821807888739,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.001907548353735744,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.001624762607873309,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.418240623158,
+      "completeness_residual": 0.03125426717754926,
+      "concentration_breach": false,
+      "context_id": "flag",
+      "decision_time": "2025-01-05T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.006595782691548591,
+          "normalized_attribution": 0.16498552656022006,
+          "occlusion_delta": 0.010313254157991725
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": -0.0025419447810190454,
+          "normalized_attribution": -0.06358367426519405,
+          "occlusion_delta": 0.00048469562187031245
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.022052508306484118,
+          "normalized_attribution": 0.5516168232135434,
+          "occlusion_delta": 0.022517264690319838
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": 0.004018621437585727,
+          "normalized_attribution": 0.10052095481796473,
+          "occlusion_delta": 0.0032841409580071645
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": -0.002894950245207565,
+          "normalized_attribution": -0.07241367899873444,
+          "occlusion_delta": -0.004203500732287813
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": 0.0018741398712570263,
+          "normalized_attribution": 0.046879342144343236,
+          "occlusion_delta": 0.0017642124268189563
+        }
+      ],
+      "maximum_feature_concentration": 0.5516168232135434,
+      "model_id": "context_model_1",
+      "record_id": "mechanism_record_001",
+      "score": 0.4785990476161981,
+      "view_attributions": [
+        {
+          "score_delta": 0.001748359025740831,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.00156262325250478,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.0005232096876200409,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.0007633920725135246,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.423114738868,
+      "completeness_residual": 0.036184636768639034,
+      "concentration_breach": false,
+      "context_id": "divergence",
+      "decision_time": "2025-01-08T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.009669779145599076,
+          "normalized_attribution": 0.33272844259443035,
+          "occlusion_delta": 0.011008813476836632
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": 0.0008020667576630336,
+          "normalized_attribution": 0.027598399003295127,
+          "occlusion_delta": 0.002156798725434117
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.009261963190912437,
+          "normalized_attribution": 0.3186958607303655,
+          "occlusion_delta": 0.008910713934521808
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": -0.003392319548913003,
+          "normalized_attribution": -0.1167266783757072,
+          "occlusion_delta": -0.004503898476931556
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": -0.0022966788361389323,
+          "normalized_attribution": -0.07902666242753706,
+          "occlusion_delta": -0.004352643040222093
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": -0.0036392680986818693,
+          "normalized_attribution": -0.1252239568686647,
+          "occlusion_delta": -0.002778836801815121
+        }
+      ],
+      "maximum_feature_concentration": 0.33272844259443035,
+      "model_id": "context_model_0",
+      "record_id": "mechanism_record_002",
+      "score": 0.4697049182470798,
+      "view_attributions": [
+        {
+          "score_delta": 0.002839808987060377,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0005213091979650586,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.0013947864207189964,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.001307421943977205,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.413382421083,
+      "completeness_residual": 0.03469441483626268,
+      "concentration_breach": false,
+      "context_id": "temporal_cycle",
+      "decision_time": "2025-01-11T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.009355743856934622,
+          "normalized_attribution": 0.3636067975635432,
+          "occlusion_delta": 0.01089501752690214
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": 0.0064237418598520985,
+          "normalized_attribution": 0.24965585224999845,
+          "occlusion_delta": 0.008495473663812647
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.0033137697625732856,
+          "normalized_attribution": 0.1287881786480375,
+          "occlusion_delta": 0.003358900503567297
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": -0.005421710072931833,
+          "normalized_attribution": -0.21071233533991396,
+          "occlusion_delta": -0.00932013128395559
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": -0.0009198910062730805,
+          "normalized_attribution": -0.035751152234735385,
+          "occlusion_delta": -0.005002102298658606
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": -0.00029553110092219354,
+          "normalized_attribution": -0.011485683963771432,
+          "occlusion_delta": -0.0001356540582511112
+        }
+      ],
+      "maximum_feature_concentration": 0.3636067975635432,
+      "model_id": "context_model_1",
+      "record_id": "mechanism_record_003",
+      "score": 0.4605329592184956,
+      "view_attributions": [
+        {
+          "score_delta": 0.0010873942719226704,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0011682222878531823,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.0022676744473908994,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.0004343136171655604,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.418240623158,
+      "completeness_residual": 0.03933547810475829,
+      "concentration_breach": false,
+      "context_id": "hook",
+      "decision_time": "2025-01-14T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.02581261728744344,
+          "normalized_attribution": 0.5163849729049114,
+          "occlusion_delta": 0.03232969103820427
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": 0.004350704699666863,
+          "normalized_attribution": 0.08703644823911838,
+          "occlusion_delta": 0.010718820800736273
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.0016362309010822804,
+          "normalized_attribution": 0.03273302509825558,
+          "occlusion_delta": 0.0016950963974172728
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": -0.00441516218467608,
+          "normalized_attribution": -0.08832592912667622,
+          "occlusion_delta": -0.005350109837044759
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": 0.0068319027143881605,
+          "normalized_attribution": 0.13667315711431033,
+          "occlusion_delta": 0.006549707928421078
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": 0.006940540325101051,
+          "normalized_attribution": 0.13884646751672813,
+          "occlusion_delta": 0.007198954399143032
+        }
+      ],
+      "maximum_feature_concentration": 0.5163849729049114,
+      "model_id": "context_model_0",
+      "record_id": "mechanism_record_004",
+      "score": 0.498732935005764,
+      "view_attributions": [
+        {
+          "score_delta": 0.0021801934556563984,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.001811478399565969,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.0008690776186315863,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.0009779981665242743,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.423114738868,
+      "completeness_residual": 0.04542924380835739,
+      "concentration_breach": false,
+      "context_id": "flag",
+      "decision_time": "2025-01-17T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.000933965412832268,
+          "normalized_attribution": 0.0279793832291495,
+          "occlusion_delta": 0.0017704357621992628
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": 0.001230803720042121,
+          "normalized_attribution": 0.03687195316846914,
+          "occlusion_delta": 0.001800465454174116
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.00803681730667897,
+          "normalized_attribution": 0.24076393866055923,
+          "occlusion_delta": 0.008490590013259747
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": -0.008694570885967035,
+          "normalized_attribution": -0.26046867206116386,
+          "occlusion_delta": -0.011950358478062528
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": 0.01410626486027707,
+          "normalized_attribution": 0.422590157017366,
+          "occlusion_delta": 0.01245602035179677
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": 0.0003780639093800553,
+          "normalized_attribution": 0.011325895863292242,
+          "occlusion_delta": 0.0013707324985261504
+        }
+      ],
+      "maximum_feature_concentration": 0.422590157017366,
+      "model_id": "context_model_1",
+      "record_id": "mechanism_record_005",
+      "score": 0.48453532699960083,
+      "view_attributions": [
+        {
+          "score_delta": 0.0032064744581857263,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0007611841542250475,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.0017033034363238553,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.0014895211132625596,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.413382421083,
+      "completeness_residual": 0.041472088613118505,
+      "concentration_breach": false,
+      "context_id": "divergence",
+      "decision_time": "2025-01-20T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.006722805811372005,
+          "normalized_attribution": 0.18667782803628535,
+          "occlusion_delta": 0.010106819387589783
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": -0.0015983327625775552,
+          "normalized_attribution": -0.04438225600574369,
+          "occlusion_delta": 0.003182685724953005
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.02213555887434215,
+          "normalized_attribution": 0.614656762216995,
+          "occlusion_delta": 0.02233475459986789
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": 0.0008050727737934915,
+          "normalized_attribution": 0.022355135792959235,
+          "occlusion_delta": 0.0006911550615079642
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": -0.0019437363507623928,
+          "normalized_attribution": -0.05397336921761348,
+          "occlusion_delta": -0.0024520935941503286
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": 0.0028073712396436963,
+          "normalized_attribution": 0.07795464873040339,
+          "occlusion_delta": 0.0033417065094767384
+        }
+      ],
+      "maximum_feature_concentration": 0.614656762216995,
+      "model_id": "context_model_0",
+      "record_id": "mechanism_record_006",
+      "score": 0.4837832492819299,
+      "view_attributions": [
+        {
+          "score_delta": 0.001501593150260161,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0014055913930858255,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.002580653119281018,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.0006422091288043053,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.418240623158,
+      "completeness_residual": 0.04532740072668166,
+      "concentration_breach": false,
+      "context_id": "temporal_cycle",
+      "decision_time": "2025-01-23T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.010650589086294569,
+          "normalized_attribution": 0.3210076706086739,
+          "occlusion_delta": 0.012505357165225162
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": 0.0011969370582639212,
+          "normalized_attribution": 0.036075561062902245,
+          "occlusion_delta": 0.0031294524131786905
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.01076893929677127,
+          "normalized_attribution": 0.3245747339019203,
+          "occlusion_delta": 0.010348511564049034
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": -0.003934441015346346,
+          "normalized_attribution": -0.1185836515943326,
+          "occlusion_delta": -0.0052460266022907875
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": -0.0028059677059077046,
+          "normalized_attribution": -0.08457158094998583,
+          "occlusion_delta": -0.005261611838816571
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": -0.003821738255305185,
+          "normalized_attribution": -0.11518680188218505,
+          "occlusion_delta": -0.002802540733046921
+        }
+      ],
+      "maximum_feature_concentration": 0.3245747339019203,
+      "model_id": "context_model_1",
+      "record_id": "mechanism_record_007",
+      "score": 0.47562234234945217,
+      "view_attributions": [
+        {
+          "score_delta": 0.0026111291065696873,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0003895499450790596,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.0012155500884887815,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.0011937956538330408,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.423114738868,
+      "completeness_residual": 0.04231687200404074,
+      "concentration_breach": false,
+      "context_id": "hook",
+      "decision_time": "2025-01-26T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.011598461098864346,
+          "normalized_attribution": 0.46444536487677246,
+          "occlusion_delta": 0.01416014581531616
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": 0.006676111375565619,
+          "normalized_attribution": 0.2673362403298612,
+          "occlusion_delta": 0.008449366852143925
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.0042849228057417746,
+          "normalized_attribution": 0.171584188541737,
+          "occlusion_delta": 0.005006044989229463
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": -0.0017274562390257042,
+          "normalized_attribution": -0.06917374955212875,
+          "occlusion_delta": -0.002177239384192897
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": -1.051147988095913e-06,
+          "normalized_attribution": -4.2091860869240084e-05,
+          "occlusion_delta": -0.0006422255894253381
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": -0.0006847109736141109,
+          "normalized_attribution": -0.027418364838631363,
+          "occlusion_delta": -0.0009443940164945985
+        }
+      ],
+      "maximum_feature_concentration": 0.46444536487677246,
+      "model_id": "context_model_0",
+      "record_id": "mechanism_record_008",
+      "score": 0.48557788779158456,
+      "view_attributions": [
+        {
+          "score_delta": 0.000865041571714853,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.001034441828144217,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.002080450709790349,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.00032407719703864135,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.413382421083,
+      "completeness_residual": 0.04263949398309166,
+      "concentration_breach": false,
+      "context_id": "flag",
+      "decision_time": "2025-01-29T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.028013343764815568,
+          "normalized_attribution": 0.5052833368566162,
+          "occlusion_delta": 0.0354481138707089
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": 0.0050913945370129055,
+          "normalized_attribution": 0.09183469287042338,
+          "occlusion_delta": 0.012415547141849781
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.002172035804085907,
+          "normalized_attribution": 0.03917752582749545,
+          "occlusion_delta": 0.0022565051961768168
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": -0.005284399389679968,
+          "normalized_attribution": -0.09531596725179943,
+          "occlusion_delta": -0.006448303572249681
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": 0.007367130383286365,
+          "normalized_attribution": 0.13288268099576525,
+          "occlusion_delta": 0.00694598579829353
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": 0.007512558151297199,
+          "normalized_attribution": 0.13550579619790032,
+          "occlusion_delta": 0.007882741165169571
+        }
+      ],
+      "maximum_feature_concentration": 0.5052833368566162,
+      "model_id": "context_model_1",
+      "record_id": "mechanism_record_009",
+      "score": 0.5008939783169096,
+      "view_attributions": [
+        {
+          "score_delta": 0.0019434893041211376,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0016664035279081446,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.0006885345174857394,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.0008610995812587952,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.418240623158,
+      "completeness_residual": 0.0488589217753634,
+      "concentration_breach": false,
+      "context_id": "divergence",
+      "decision_time": "2025-02-01T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.000942089538787568,
+          "normalized_attribution": 0.028163951956767932,
+          "occlusion_delta": 0.001628089397206156
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": 0.0023415251907780523,
+          "normalized_attribution": 0.07000035587223015,
+          "occlusion_delta": 0.00385463899060845
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.008106563585292641,
+          "normalized_attribution": 0.24234731195985468,
+          "occlusion_delta": 0.007809476989485087
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": -0.008705498127879277,
+          "normalized_attribution": -0.26025257784824113,
+          "occlusion_delta": -0.011297983165378944
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": 0.013039378596752896,
+          "normalized_attribution": 0.38981478641369965,
+          "occlusion_delta": 0.009542675558602776
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": 0.000315134771715353,
+          "normalized_attribution": 0.009421015949206454,
+          "occlusion_delta": 0.00047272154019678547
+        }
+      ],
+      "maximum_feature_concentration": 0.38981478641369965,
+      "model_id": "context_model_0",
+      "record_id": "mechanism_record_010",
+      "score": 0.4831387384888106,
+      "view_attributions": [
+        {
+          "score_delta": 0.0030062734860640816,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0006387361363572319,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.001540979743247739,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.0013906786343825805,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.423114738868,
+      "completeness_residual": 0.039997535543140825,
+      "concentration_breach": false,
+      "context_id": "temporal_cycle",
+      "decision_time": "2025-02-04T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.007640766032240842,
+          "normalized_attribution": 0.19645530189931523,
+          "occlusion_delta": 0.011647870550020867
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": -0.0012806459047734475,
+          "normalized_attribution": -0.032927284618686915,
+          "occlusion_delta": 0.004304808097126522
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.023411431283801295,
+          "normalized_attribution": 0.6019422373813217,
+          "occlusion_delta": 0.023650102928720995
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": 0.0010005876388552437,
+          "normalized_attribution": 0.025726575822186338,
+          "occlusion_delta": 0.0008090871438809488
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": -0.0024256271222618713,
+          "normalized_attribution": -0.062366431139021516,
+          "occlusion_delta": -0.0031222740259354564
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": 0.003134094599700302,
+          "normalized_attribution": 0.08058216913946839,
+          "occlusion_delta": 0.003779910198197345
+        }
+      ],
+      "maximum_feature_concentration": 0.6019422373813217,
+      "model_id": "context_model_1",
+      "record_id": "mechanism_record_011",
+      "score": 0.4945928809387032,
+      "view_attributions": [
+        {
+          "score_delta": 0.0012795215056458087,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0012708449295007473,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.0023951819247581274,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.0005320991787666207,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.413382421083,
+      "completeness_residual": 0.04000307922611722,
+      "concentration_breach": false,
+      "context_id": "hook",
+      "decision_time": "2025-02-07T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.011772203499909222,
+          "normalized_attribution": 0.3130986970801875,
+          "occlusion_delta": 0.014143954974808637
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": 0.001619570560533005,
+          "normalized_attribution": 0.04307481027967475,
+          "occlusion_delta": 0.0041632765859961895
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.012309166975884208,
+          "normalized_attribution": 0.3273800136330922,
+          "occlusion_delta": 0.011847596889903944
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": -0.004549522204267779,
+          "normalized_attribution": -0.12100109163969247,
+          "occlusion_delta": -0.006162452305286503
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": -0.003276525459399345,
+          "normalized_attribution": -0.08714391084862816,
+          "occlusion_delta": -0.006163956839618956
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": -0.0040720291486634475,
+          "normalized_attribution": -0.10830147651872497,
+          "occlusion_delta": -0.002968996430682047
+        }
+      ],
+      "maximum_feature_concentration": 0.3273800136330922,
+      "model_id": "context_model_0",
+      "record_id": "mechanism_record_012",
+      "score": 0.4671883645331131,
+      "view_attributions": [
+        {
+          "score_delta": 0.002390871448631149,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0019412228222467354,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.001040943173591824,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.0010843970399159186,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.418240623158,
+      "completeness_residual": 0.042307934347950105,
+      "concentration_breach": false,
+      "context_id": "flag",
+      "decision_time": "2025-02-10T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.013297721269019125,
+          "normalized_attribution": 0.4639714240571937,
+          "occlusion_delta": 0.016486454006416795
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": 0.007520768219165808,
+          "normalized_attribution": 0.26240748095540684,
+          "occlusion_delta": 0.00976183874277764
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.004608976741232728,
+          "normalized_attribution": 0.1608120262723757,
+          "occlusion_delta": 0.005488394603956559
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": -0.0023454352139629098,
+          "normalized_attribution": -0.08183469139119125,
+          "occlusion_delta": -0.0029694518461230723
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": -6.399244065202758e-05,
+          "normalized_attribution": -0.0022327632845929512,
+          "occlusion_delta": -0.0009421071814399995
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": -0.0008237532582791585,
+          "normalized_attribution": -0.028741614039239548,
+          "occlusion_delta": -0.0011274519996384846
+        }
+      ],
+      "maximum_feature_concentration": 0.4639714240571937,
+      "model_id": "context_model_1",
+      "record_id": "mechanism_record_013",
+      "score": 0.48274284282247365,
+      "view_attributions": [
+        {
+          "score_delta": 0.0006409242372813484,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0008943917684635649,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.001884749341077352,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.001605435207612138,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.423114738868,
+      "completeness_residual": 0.04136680685408811,
+      "concentration_breach": false,
+      "context_id": "divergence",
+      "decision_time": "2025-02-13T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.03028819363000886,
+          "normalized_attribution": 0.4961846551938427,
+          "occlusion_delta": 0.038704206691309806
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": 0.005891611365264893,
+          "normalized_attribution": 0.09651705180970974,
+          "occlusion_delta": 0.014242212283881117
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.002704999815516621,
+          "normalized_attribution": 0.044313616624258555,
+          "occlusion_delta": 0.002812988674160133
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": -0.006196697702742782,
+          "normalized_attribution": -0.10151501111408488,
+          "occlusion_delta": -0.007589813823294489
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": 0.007865035859510225,
+          "normalized_attribution": 0.12884591777608587,
+          "occlusion_delta": 0.007270618286337127
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": 0.008095642824954931,
+          "normalized_attribution": 0.13262374748201824,
+          "occlusion_delta": 0.008584958431504863
+        }
+      ],
+      "maximum_feature_concentration": 0.4961846551938427,
+      "model_id": "context_model_0",
+      "record_id": "mechanism_record_014",
+      "score": 0.5131303315146009,
+      "view_attributions": [
+        {
+          "score_delta": 0.0017086027126803627,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0015216793050154553,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.0005106429751461361,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.0007452481399005118,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.413382421083,
+      "completeness_residual": 0.047384261156743546,
+      "concentration_breach": false,
+      "context_id": "temporal_cycle",
+      "decision_time": "2025-02-16T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.0012738309634885425,
+          "normalized_attribution": 0.03511347494772544,
+          "occlusion_delta": 0.0022384316752679934
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": 0.0028894448417249308,
+          "normalized_attribution": 0.07964828299108574,
+          "occlusion_delta": 0.004868066693505202
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.008781808193275564,
+          "normalized_attribution": 0.24207277953570097,
+          "occlusion_delta": 0.008461928849661626
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": -0.009570853961790582,
+          "normalized_attribution": -0.2638230271113166,
+          "occlusion_delta": -0.012451586047245111
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": 0.013336934450158822,
+          "normalized_attribution": 0.3676359949773825,
+          "occlusion_delta": 0.009441352524156232
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": 0.0004246810184072025,
+          "normalized_attribution": 0.011706440436788736,
+          "occlusion_delta": 0.0006585773588028698
+        }
+      ],
+      "maximum_feature_concentration": 0.3676359949773825,
+      "model_id": "context_model_1",
+      "record_id": "mechanism_record_015",
+      "score": 0.477902527745008,
+      "view_attributions": [
+        {
+          "score_delta": 0.0027666766463417813,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0005066246516703954,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.001357417792758886,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.001272311842257734,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.418240623158,
+      "completeness_residual": 0.043319977418766885,
+      "concentration_breach": false,
+      "context_id": "hook",
+      "decision_time": "2025-02-19T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.008595292369448226,
+          "normalized_attribution": 0.2061806989683999,
+          "occlusion_delta": 0.013281764411334718
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": -0.0008994973960119168,
+          "normalized_attribution": -0.02157681133561,
+          "occlusion_delta": 0.005543665838100842
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.024632875975719167,
+          "normalized_attribution": 0.5908843315590111,
+          "occlusion_delta": 0.024922010063653077
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": 0.0011566693063416733,
+          "normalized_attribution": 0.027745756142572013,
+          "occlusion_delta": 0.0008707665637588402
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": -0.00294756623470116,
+          "normalized_attribution": -0.07070513025089258,
+          "occlusion_delta": -0.003860530002939455
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": 0.0034562509670122785,
+          "normalized_attribution": 0.08290727174351438,
+          "occlusion_delta": 0.004227723364372882
+        }
+      ],
+      "maximum_feature_concentration": 0.5908843315590111,
+      "model_id": "context_model_0",
+      "record_id": "mechanism_record_016",
+      "score": 0.49555462556457514,
+      "view_attributions": [
+        {
+          "score_delta": 0.0010586054461125816,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0011362528664303762,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.0022087079250929786,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.0004227024633170484,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.423114738868,
+      "completeness_residual": 0.045762494746241056,
+      "concentration_breach": false,
+      "context_id": "flag",
+      "decision_time": "2025-02-22T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.0021478337066532793,
+          "normalized_attribution": 0.06803732399547595,
+          "occlusion_delta": 0.0026143693407463253
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": -0.0008924338745774918,
+          "normalized_attribution": -0.028269792247453764,
+          "occlusion_delta": -0.00037651631552054754
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.014632692882481091,
+          "normalized_attribution": 0.46352250804506706,
+          "occlusion_delta": 0.014595173349993273
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": -0.005950640834112564,
+          "normalized_attribution": -0.18849954591786397,
+          "occlusion_delta": -0.008585659239608467
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": -0.0029793889699120113,
+          "normalized_attribution": -0.09437865325724396,
+          "occlusion_delta": -0.00516933824555843
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": -0.004965472166149065,
+          "normalized_attribution": -0.15729217653689528,
+          "occlusion_delta": -0.004589230126290145
+        }
+      ],
+      "maximum_feature_concentration": 0.46352250804506706,
+      "model_id": "context_model_1",
+      "record_id": "mechanism_record_017",
+      "score": 0.4708698243586243,
+      "view_attributions": [
+        {
+          "score_delta": 0.002302072841283309,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.001924705884826572,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.0009195387583065817,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.0010346077454164715,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.413382421083,
+      "completeness_residual": 0.0418101863041455,
+      "concentration_breach": false,
+      "context_id": "divergence",
+      "decision_time": "2025-02-25T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.015035096783896917,
+          "normalized_attribution": 0.4618763879255804,
+          "occlusion_delta": 0.018966002520010683
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": 0.008354409920264169,
+          "normalized_attribution": 0.2566464807432467,
+          "occlusion_delta": 0.011128998623842756
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.004923124998038967,
+          "normalized_attribution": 0.15123781536516367,
+          "occlusion_delta": 0.006014306508560052
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": -0.003109352950299756,
+          "normalized_attribution": -0.09551895342691426,
+          "occlusion_delta": -0.003844757298701429
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": -0.00015018749993656042,
+          "normalized_attribution": -0.0046137421647040764,
+          "occlusion_delta": -0.0012641488473171814
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": -0.0009800370034026191,
+          "normalized_attribution": -0.030106620374390995,
+          "occlusion_delta": -0.0013252928631635186
+        }
+      ],
+      "maximum_feature_concentration": 0.4618763879255804,
+      "model_id": "context_model_0",
+      "record_id": "mechanism_record_018",
+      "score": 0.4792656616357066,
+      "view_attributions": [
+        {
+          "score_delta": 0.0031593118283981814,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0007510414157305134,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.0016791289861909364,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.0014684913203085737,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.418240623158,
+      "completeness_residual": 0.041496853651079864,
+      "concentration_breach": false,
+      "context_id": "temporal_cycle",
+      "decision_time": "2025-02-28T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.02278931800478445,
+          "normalized_attribution": 0.4540195419391465,
+          "occlusion_delta": 0.024253057214341844
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": 0.0012721627856704387,
+          "normalized_attribution": 0.025344627035388295,
+          "occlusion_delta": 0.0027156889496324776
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.002736976759606935,
+          "normalized_attribution": 0.05452734190790382,
+          "occlusion_delta": 0.0022300766066427613
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": -0.00647561387887019,
+          "normalized_attribution": -0.1290102339368901,
+          "occlusion_delta": -0.0072297297062342
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": 0.007058533708637071,
+          "normalized_attribution": 0.14062343772133165,
+          "occlusion_delta": 0.00480301473225242
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": 0.009861969984571726,
+          "normalized_attribution": 0.19647481745933965,
+          "occlusion_delta": 0.011229901171387835
+        }
+      ],
+      "maximum_feature_concentration": 0.4540195419391465,
+      "model_id": "context_model_1",
+      "record_id": "mechanism_record_019",
+      "score": 0.4969808241734803,
+      "view_attributions": [
+        {
+          "score_delta": 0.0014256205591369753,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0013321065753886252,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.0024517243536331668,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.00060939433479551,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.423114738868,
+      "completeness_residual": 0.044251553481922945,
+      "concentration_breach": false,
+      "context_id": "hook",
+      "decision_time": "2025-03-03T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.0016571037528047745,
+          "normalized_attribution": 0.04218413950955208,
+          "occlusion_delta": 0.0029524724065350116
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": 0.003501078369462044,
+          "normalized_attribution": 0.08912536594120038,
+          "occlusion_delta": 0.006012216695077566
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.00947165908645603,
+          "normalized_attribution": 0.24111573437312087,
+          "occlusion_delta": 0.009128831971143003
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": -0.010494425715286878,
+          "normalized_attribution": -0.26715184109443474,
+          "occlusion_delta": -0.01366680145520155
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": 0.01362108902946968,
+          "normalized_attribution": 0.3467458925964257,
+          "occlusion_delta": 0.009298372934673782
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": 0.0005372695088592024,
+          "normalized_attribution": 0.013677026485266326,
+          "occlusion_delta": 0.0008604443338449674
+        }
+      ],
+      "maximum_feature_concentration": 0.3467458925964257,
+      "model_id": "context_model_0",
+      "record_id": "mechanism_record_020",
+      "score": 0.4856600663816878,
+      "view_attributions": [
+        {
+          "score_delta": 0.002535022542102916,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.00037728275221382557,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.0011787950927788504,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.0011576781691654547,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.413382421083,
+      "completeness_residual": 0.04158139827228321,
+      "concentration_breach": false,
+      "context_id": "flag",
+      "decision_time": "2025-03-06T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.010603632842910252,
+          "normalized_attribution": 0.46214310463354935,
+          "occlusion_delta": 0.01662148587513923
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": -0.0012014154576397984,
+          "normalized_attribution": -0.052361853505671435,
+          "occlusion_delta": 0.004435966760904797
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.0041105834844290525,
+          "normalized_attribution": 0.17915348838389747,
+          "occlusion_delta": 0.004126722124878468
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": 0.0009155843123248575,
+          "normalized_attribution": 0.039904340608558006,
+          "occlusion_delta": -7.548581993588321e-06
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": -0.002972892943382821,
+          "normalized_attribution": -0.1295689878131455,
+          "occlusion_delta": -0.0034854593675667234
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": 0.0031403701403198703,
+          "normalized_attribution": 0.13686822505517826,
+          "occlusion_delta": 0.0033813913066811363
+        }
+      ],
+      "maximum_feature_concentration": 0.46214310463354935,
+      "model_id": "context_model_1",
+      "record_id": "mechanism_record_021",
+      "score": 0.4695596817342446,
+      "view_attributions": [
+        {
+          "score_delta": 0.0009156225074074542,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0010968052145762242,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.002199666993485838,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.0003431947177534034,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.418240623158,
+      "completeness_residual": 0.04428288204849695,
+      "concentration_breach": false,
+      "context_id": "divergence",
+      "decision_time": "2025-03-09T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.0029612290135261343,
+          "normalized_attribution": 0.08370230566275827,
+          "occlusion_delta": 0.003682726257039304
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": -0.0008317759061261346,
+          "normalized_attribution": -0.023511035728568785,
+          "occlusion_delta": -3.401445744360965e-05
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.016202457385830482,
+          "normalized_attribution": 0.4579797896082681,
+          "occlusion_delta": 0.01614966846693633
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": -0.006680498475034047,
+          "normalized_attribution": -0.18883143545559322,
+          "occlusion_delta": -0.00965168989813775
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": -0.0035176304493308073,
+          "normalized_attribution": -0.09942958742252456,
+          "occlusion_delta": -0.006044576061692175
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": -0.005184514427804265,
+          "normalized_attribution": -0.1465458461222871,
+          "occlusion_delta": -0.004697355640822742
+        }
+      ],
+      "maximum_feature_concentration": 0.4579797896082681,
+      "model_id": "context_model_0",
+      "record_id": "mechanism_record_022",
+      "score": 0.4654727723475583,
+      "view_attributions": [
+        {
+          "score_delta": 0.00206621734233986,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0017823856228267876,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.0007335526253426927,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.0009171354057815329,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.423114738868,
+      "completeness_residual": 0.04886194563190142,
+      "concentration_breach": false,
+      "context_id": "temporal_cycle",
+      "decision_time": "2025-03-12T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.015764680604719864,
+          "normalized_attribution": 0.48684219511600013,
+          "occlusion_delta": 0.019380766578822928
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": 0.010774384925291147,
+          "normalized_attribution": 0.3327327295475323,
+          "occlusion_delta": 0.015353191227160723
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.004059918522457869,
+          "normalized_attribution": 0.12537771585893917,
+          "occlusion_delta": 0.00414087005489383
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": -0.00019166487872507296,
+          "normalized_attribution": -0.005918962307249014,
+          "occlusion_delta": -0.0003305581601745766
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": 0.0011696694996593537,
+          "normalized_attribution": 0.03612153528844121,
+          "occlusion_delta": 0.0007203986259012307
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": -0.00042118169972515934,
+          "normalized_attribution": -0.013006861881838187,
+          "occlusion_delta": 9.3358451522918e-05
+        }
+      ],
+      "maximum_feature_concentration": 0.48684219511600013,
+      "model_id": "context_model_1",
+      "record_id": "mechanism_record_023",
+      "score": 0.5031324914735794,
+      "view_attributions": [
+        {
+          "score_delta": 0.0030248994538121243,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0006420068122108269,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.0015498675129272943,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.0013986380245398777,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.413382421083,
+      "completeness_residual": 0.0448848650767339,
+      "concentration_breach": false,
+      "context_id": "hook",
+      "decision_time": "2025-03-15T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.024451802019403997,
+          "normalized_attribution": 0.4476175627913778,
+          "occlusion_delta": 0.02647371149335065
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": 0.0018200802241741254,
+          "normalized_attribution": 0.033318602587371376,
+          "occlusion_delta": 0.003878308876655412
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.0031471646179161614,
+          "normalized_attribution": 0.05761236553678047,
+          "occlusion_delta": 0.0025340880707189206
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": -0.007349440866305512,
+          "normalized_attribution": -0.13453972864022118,
+          "occlusion_delta": -0.008233914856340119
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": 0.007288107901822864,
+          "normalized_attribution": 0.13341696018091878,
+          "occlusion_delta": 0.0046384348880448845
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": 0.010569951789385355,
+          "normalized_attribution": 0.19349478026333042,
+          "occlusion_delta": 0.012169106753211478
+        }
+      ],
+      "maximum_feature_concentration": 0.4476175627913778,
+      "model_id": "context_model_0",
+      "record_id": "mechanism_record_024",
+      "score": 0.4981949518461309,
+      "view_attributions": [
+        {
+          "score_delta": 0.0012055857145640836,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.001195536940399533,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.0022583459063735267,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.0005011208614488782,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.418240623158,
+      "completeness_residual": 0.03798350076594028,
+      "concentration_breach": false,
+      "context_id": "flag",
+      "decision_time": "2025-03-18T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.002782948372674158,
+          "normalized_attribution": 0.1034923577076048,
+          "occlusion_delta": 0.005253196107450453
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": 0.0032020470573194495,
+          "normalized_attribution": 0.11907781067970548,
+          "occlusion_delta": 0.005217380018087969
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.0114223301771188,
+          "normalized_attribution": 0.42477391681141224,
+          "occlusion_delta": 0.011752239603260217
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": -0.0068711725108190165,
+          "normalized_attribution": -0.2555253451134013,
+          "occlusion_delta": -0.007510967633850507
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": 0.0024312000563783687,
+          "normalized_attribution": 0.09041153201548054,
+          "occlusion_delta": 0.0017128978722569244
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": 0.00018067744682326303,
+          "normalized_attribution": 0.006719037672395667,
+          "occlusion_delta": 2.5234368954241138e-05
+        }
+      ],
+      "maximum_feature_concentration": 0.42477391681141224,
+      "model_id": "context_model_1",
+      "record_id": "mechanism_record_025",
+      "score": 0.4693721545234353,
+      "view_attributions": [
+        {
+          "score_delta": 0.0024619383031280195,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.002002723660139094,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.001072527368785714,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.0011172782646207136,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.423114738868,
+      "completeness_residual": 0.03980213736762228,
+      "concentration_breach": false,
+      "context_id": "divergence",
+      "decision_time": "2025-03-21T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.011821395237872345,
+          "normalized_attribution": 0.4577449549797921,
+          "occlusion_delta": 0.018804431495531404
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": -0.000784986732907389,
+          "normalized_attribution": -0.03039604966114805,
+          "occlusion_delta": 0.0057029030737298925
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.0054874956603260605,
+          "normalized_attribution": 0.2124853626364203,
+          "occlusion_delta": 0.0055176716325715525
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": 0.0009027829758293896,
+          "normalized_attribution": 0.034957324775304936,
+          "occlusion_delta": -0.0002716375887745759
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": -0.0034855982160760433,
+          "normalized_attribution": -0.13496841670463752,
+          "occlusion_delta": -0.004124155633396687
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": 0.0033430290567737497,
+          "normalized_attribution": 0.12944789124269712,
+          "occlusion_delta": 0.003673921938214697
+        }
+      ],
+      "maximum_feature_concentration": 0.4577449549797921,
+      "model_id": "context_model_0",
+      "record_id": "mechanism_record_026",
+      "score": 0.4802009942174404,
+      "view_attributions": [
+        {
+          "score_delta": 0.0006838061578343657,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0009554644798092093,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.0020087329835338785,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.0017114509665711597,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.413382421083,
+      "completeness_residual": 0.04090135335427021,
+      "concentration_breach": false,
+      "context_id": "temporal_cycle",
+      "decision_time": "2025-03-24T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.00362619988885741,
+          "normalized_attribution": 0.10656194054498891,
+          "occlusion_delta": 0.004386419602834257
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": -0.0006271314506589576,
+          "normalized_attribution": -0.018429305169955654,
+          "occlusion_delta": 0.000700552270578636
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.017355570702074868,
+          "normalized_attribution": 0.5100224339429893,
+          "occlusion_delta": 0.017286508720539495
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": -0.006986766437367768,
+          "normalized_attribution": -0.20531780169876465,
+          "occlusion_delta": -0.0102131590914043
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": -0.004646385094383976,
+          "normalized_attribution": -0.13654178681608178,
+          "occlusion_delta": -0.008439193133279232
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": -0.0007869803416923893,
+          "normalized_attribution": -0.023126731827219766,
+          "occlusion_delta": -0.0006802264682262416
+        }
+      ],
+      "maximum_feature_concentration": 0.5100224339429893,
+      "model_id": "context_model_1",
+      "record_id": "mechanism_record_027",
+      "score": 0.4622182817040994,
+      "view_attributions": [
+        {
+          "score_delta": 0.0017616413522468788,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.001576545842057575,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.0005274374087707034,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.0007694880520976444,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.418240623158,
+      "completeness_residual": 0.045281025027012256,
+      "concentration_breach": false,
+      "context_id": "hook",
+      "decision_time": "2025-03-27T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.017461294932880067,
+          "normalized_attribution": 0.4896746902224554,
+          "occlusion_delta": 0.021739466880544678
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": 0.011955130453655816,
+          "normalized_attribution": 0.33526292431150034,
+          "occlusion_delta": 0.017314039121647473
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.004250729554802768,
+          "normalized_attribution": 0.11920505815682723,
+          "occlusion_delta": 0.004363825618808825
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": -0.0003324690986405976,
+          "normalized_attribution": -0.00932357557163838,
+          "occlusion_delta": -0.0005539083215556073
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": 0.0012057059218389952,
+          "normalized_attribution": 0.033812135700436785,
+          "occlusion_delta": 0.0005884904180150086
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": -0.00045363972057954616,
+          "normalized_attribution": -0.012721616037141833,
+          "occlusion_delta": 0.00017469986426377204
+        }
+      ],
+      "maximum_feature_concentration": 0.4896746902224554,
+      "model_id": "context_model_0",
+      "record_id": "mechanism_record_028",
+      "score": 0.49760840022896974,
+      "view_attributions": [
+        {
+          "score_delta": 0.002786241723737537,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0005097350720377758,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.0013664769194188797,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.0012807722049676395,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.423114738868,
+      "completeness_residual": 0.04549348288429576,
+      "concentration_breach": false,
+      "context_id": "flag",
+      "decision_time": "2025-03-30T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.02618072657667447,
+          "normalized_attribution": 0.44228212892560836,
+          "occlusion_delta": 0.028808149040748188
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": 0.0024313318332016185,
+          "normalized_attribution": 0.041073520865195376,
+          "occlusion_delta": 0.005169458942594463
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.0035483639324966156,
+          "normalized_attribution": 0.059944018347667744,
+          "occlusion_delta": 0.0028177966396514265
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": -0.008262539998883194,
+          "normalized_attribution": -0.13958259601148315,
+          "occlusion_delta": -0.009266226437735225
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": 0.007473468752253187,
+          "normalized_attribution": 0.12625248044683587,
+          "occlusion_delta": 0.004388219560281015
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": 0.011298198000532498,
+          "normalized_attribution": 0.19086525540320942,
+          "occlusion_delta": 0.01313504753933531
+        }
+      ],
+      "maximum_feature_concentration": 0.44228212892560836,
+      "model_id": "context_model_1",
+      "record_id": "mechanism_record_029",
+      "score": 0.511277770848571,
+      "view_attributions": [
+        {
+          "score_delta": 0.0009900680988729205,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0010610578480518829,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.0020673916543832993,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.00039515861856187495,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.413382421083,
+      "completeness_residual": 0.044074126506989574,
+      "concentration_breach": false,
+      "context_id": "divergence",
+      "decision_time": "2025-04-02T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": -0.0033015192056271014,
+          "normalized_attribution": -0.11972417652809567,
+          "occlusion_delta": -0.00630637840355891
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": -0.0035181082572166567,
+          "normalized_attribution": -0.12757842308294354,
+          "occlusion_delta": -0.0055573993586849335
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.009512671656289329,
+          "normalized_attribution": 0.3449614282692231,
+          "occlusion_delta": 0.007742056558528498
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": 0.005842888829432623,
+          "normalized_attribution": 0.21188277580113538,
+          "occlusion_delta": 0.006208105875061043
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": 0.005274037159219701,
+          "normalized_attribution": 0.19125430340976007,
+          "occlusion_delta": 0.005808573596398747
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": 0.00012681927496575407,
+          "normalized_attribution": 0.004598892908842271,
+          "occlusion_delta": 0.0007196768397886855
+        }
+      ],
+      "maximum_feature_concentration": 0.3449614282692231,
+      "model_id": "context_model_0",
+      "record_id": "mechanism_record_030",
+      "score": 0.4713933370470532,
+      "view_attributions": [
+        {
+          "score_delta": 0.0011530720450365628,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0009600774220090424,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.0004598687201809448,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.0005174786544563936,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.418240623158,
+      "completeness_residual": 0.05025330798335925,
+      "concentration_breach": false,
+      "context_id": "temporal_cycle",
+      "decision_time": "2025-04-05T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": -0.005317511398798362,
+          "normalized_attribution": -0.333197522092433,
+          "occlusion_delta": -0.012996445316005134
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": -0.0012222829282731995,
+          "normalized_attribution": -0.07658876727345522,
+          "occlusion_delta": -0.00875464421814992
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.005394088677055282,
+          "normalized_attribution": 0.33799588686313276,
+          "occlusion_delta": 0.004058445473205552
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": -0.0008925687870290724,
+          "normalized_attribution": -0.05592873918471365,
+          "occlusion_delta": 0.0009304999464029851
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": -0.0008277564250702696,
+          "normalized_attribution": -0.05186756906470018,
+          "occlusion_delta": 0.000786640015747686
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": -0.002304828229798827,
+          "normalized_attribution": -0.1444215155215653,
+          "occlusion_delta": -0.0010752956524062718
+        }
+      ],
+      "maximum_feature_concentration": 0.33799588686313276,
+      "model_id": "context_model_1",
+      "record_id": "mechanism_record_031",
+      "score": 0.4633230720494448,
+      "view_attributions": [
+        {
+          "score_delta": 0.0015284044031457222,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.00036338355408971346,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.0008121833511665066,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.0007102971790622359,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.423114738868,
+      "completeness_residual": 0.039436734472540036,
+      "concentration_breach": false,
+      "context_id": "hook",
+      "decision_time": "2025-04-08T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.0008470660482068348,
+          "normalized_attribution": 0.027683070939653415,
+          "occlusion_delta": -0.0012374106467089585
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": -0.00010556762807673037,
+          "normalized_attribution": -0.003450068791171146,
+          "occlusion_delta": -0.0019773237482468287
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.015735730035937312,
+          "normalized_attribution": 0.5142613516316031,
+          "occlusion_delta": 0.013025098707823313
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": 0.008221216407817977,
+          "normalized_attribution": 0.2686785965623965,
+          "occlusion_delta": 0.01243942475687887
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": 0.004797906279149777,
+          "normalized_attribution": 0.15680097221306638,
+          "occlusion_delta": 0.008351406883550017
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": 0.0008912159649154816,
+          "normalized_attribution": 0.029125939862109415,
+          "occlusion_delta": 0.0006757163746324291
+        }
+      ],
+      "maximum_feature_concentration": 0.5142613516316031,
+      "model_id": "context_model_0",
+      "record_id": "mechanism_record_032",
+      "score": 0.4929390404484907,
+      "view_attributions": [
+        {
+          "score_delta": 0.0007578287865019351,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0007105053031302155,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.0013019850292432245,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.0003242293011682107,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.413382421083,
+      "completeness_residual": 0.04366939327850786,
+      "concentration_breach": false,
+      "context_id": "flag",
+      "decision_time": "2025-04-11T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.00518115044297283,
+          "normalized_attribution": 0.22152148219265133,
+          "occlusion_delta": -0.0018602981212318404
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": -0.012601404998369148,
+          "normalized_attribution": -0.5387764635814991,
+          "occlusion_delta": -0.017375219086048443
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.00230517356515636,
+          "normalized_attribution": 0.09855831643671749,
+          "occlusion_delta": 0.00036322110795944385
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": 0.0007252244128725752,
+          "normalized_attribution": 0.031007165036043456,
+          "occlusion_delta": 0.0015985722543197523
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": 0.0023109718126172276,
+          "normalized_attribution": 0.09880622206806106,
+          "occlusion_delta": 0.002386110936475838
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": 0.00026500477917403475,
+          "normalized_attribution": 0.011330350685027635,
+          "occlusion_delta": 1.9385669076721346e-05
+        }
+      ],
+      "maximum_feature_concentration": 0.5387764635814991,
+      "model_id": "context_model_1",
+      "record_id": "mechanism_record_033",
+      "score": 0.45523793437593174,
+      "view_attributions": [
+        {
+          "score_delta": 0.001188993316968645,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.00017739034213576366,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.0005534410993473515,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.000543536285302515,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.418240623158,
+      "completeness_residual": 0.04141442011250607,
+      "concentration_breach": false,
+      "context_id": "divergence",
+      "decision_time": "2025-04-14T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.0029789705520769094,
+          "normalized_attribution": 0.0739005050649477,
+          "occlusion_delta": 0.0018655260233079174
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": 0.0003605087889324565,
+          "normalized_attribution": 0.008943284640355634,
+          "occlusion_delta": 0.0002610482622198429
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.0036002730005590955,
+          "normalized_attribution": 0.08931340154655644,
+          "occlusion_delta": 0.0024208087861962158
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": 0.009150107212752001,
+          "normalized_attribution": 0.22699034199896856,
+          "occlusion_delta": 0.011523302380778588
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": 0.0145433202368081,
+          "normalized_attribution": 0.36078191846243063,
+          "occlusion_delta": 0.016420297336283363
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": -0.009677377619254912,
+          "normalized_attribution": -0.24007054828674101,
+          "occlusion_delta": -0.009365255070619638
+        }
+      ],
+      "maximum_feature_concentration": 0.36078191846243063,
+      "model_id": "context_model_0",
+      "record_id": "mechanism_record_034",
+      "score": 0.4806108454423797,
+      "view_attributions": [
+        {
+          "score_delta": 0.0004486626557737017,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0005359702538227373,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.0010799873939371096,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.0001680296172558715,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.423114738868,
+      "completeness_residual": 0.04274790287659257,
+      "concentration_breach": false,
+      "context_id": "temporal_cycle",
+      "decision_time": "2025-04-17T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": -0.003993776973137038,
+          "normalized_attribution": -0.12810222716953107,
+          "occlusion_delta": -0.0076242605290234855
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": -0.003981452771720702,
+          "normalized_attribution": -0.12770692275966103,
+          "occlusion_delta": -0.006406319603954658
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.009871678553485808,
+          "normalized_attribution": 0.3166386148022481,
+          "occlusion_delta": 0.007715607490475895
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": 0.006426058424546798,
+          "normalized_attribution": 0.20611876968667342,
+          "occlusion_delta": 0.007008319770908711
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": 0.00661979365056825,
+          "normalized_attribution": 0.2123329158699658,
+          "occlusion_delta": 0.0073086195230278594
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": 0.0002837231380392602,
+          "normalized_attribution": 0.009100549711920633,
+          "occlusion_delta": 0.0010217878452540297
+        }
+      ],
+      "maximum_feature_concentration": 0.3166386148022481,
+      "model_id": "context_model_1",
+      "record_id": "mechanism_record_035",
+      "score": 0.48108866576637493,
+      "view_attributions": [
+        {
+          "score_delta": 0.0009254603316373178,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0007949466053723264,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.00032801537070709097,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.00041019505727296623,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.413382421083,
+      "completeness_residual": 0.04542778059030722,
+      "concentration_breach": false,
+      "context_id": "hook",
+      "decision_time": "2025-04-20T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.0020725306723590187,
+          "normalized_attribution": 0.16219128882446643,
+          "occlusion_delta": 0.0005563253065162255
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": -0.00016616802780977658,
+          "normalized_attribution": -0.013003912053668652,
+          "occlusion_delta": -0.0014305761891435509
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.006828284785306837,
+          "normalized_attribution": 0.5343652205295633,
+          "occlusion_delta": 0.005648505128635295
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": -0.0007108697539989772,
+          "normalized_attribution": -0.05563096514088789,
+          "occlusion_delta": 0.001590174311209891
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": -0.000518688173661852,
+          "normalized_attribution": -0.04059129474232042,
+          "occlusion_delta": 0.0015801370378603075
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": -0.002481769230920638,
+          "normalized_attribution": -0.19421731870909337,
+          "occlusion_delta": -0.0012958261394580006
+        }
+      ],
+      "maximum_feature_concentration": 0.5343652205295633,
+      "model_id": "context_model_0",
+      "record_id": "mechanism_record_036",
+      "score": 0.46383352194458183,
+      "view_attributions": [
+        {
+          "score_delta": 0.0015608697698639706,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0003319977662206153,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.0008002830944591199,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.0007222554681114435,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.418240623158,
+      "completeness_residual": 0.044882910191849236,
+      "concentration_breach": false,
+      "context_id": "flag",
+      "decision_time": "2025-04-23T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.0007029209813750695,
+          "normalized_attribution": 0.02102706149047709,
+          "occlusion_delta": -0.0019474415291835245
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": -0.00047706454400312886,
+          "normalized_attribution": -0.014270829534860122,
+          "occlusion_delta": -0.0028568842953463625
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.016583170279228787,
+          "normalized_attribution": 0.49606620147583347,
+          "occlusion_delta": 0.013322540355909795
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": 0.00919386526946712,
+          "normalized_attribution": 0.2750237586848952,
+          "occlusion_delta": 0.01399540372071062
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": 0.005388272998410604,
+          "normalized_attribution": 0.16118390354975326,
+          "occlusion_delta": 0.009399639888473754
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": 0.0010840551351263643,
+          "normalized_attribution": 0.03242824526418093,
+          "occlusion_delta": 0.0007874242061858272
+        }
+      ],
+      "maximum_feature_concentration": 0.49606620147583347,
+      "model_id": "context_model_1",
+      "record_id": "mechanism_record_037",
+      "score": 0.49559875346945403,
+      "view_attributions": [
+        {
+          "score_delta": 0.0005790255171618797,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0005759939777786882,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.0010834548101344432,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.00024088041482456246,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.423114738868,
+      "completeness_residual": 0.047242609001636994,
+      "concentration_breach": false,
+      "context_id": "divergence",
+      "decision_time": "2025-04-26T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.006535632242690714,
+          "normalized_attribution": 0.2540585246755967,
+          "occlusion_delta": -0.00029341346430233894
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": -0.01331430251930397,
+          "normalized_attribution": -0.517564625659893,
+          "occlusion_delta": -0.01855868589348969
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.0005265862910996955,
+          "normalized_attribution": 0.02046989966132248,
+          "occlusion_delta": 0.00018226224232870125
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": 0.0012790998032280454,
+          "normalized_attribution": 0.04972222990123063,
+          "occlusion_delta": 0.002562667660640172
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": 0.0032804465666808054,
+          "normalized_attribution": 0.12752024349903313,
+          "occlusion_delta": 0.0038118110430723773
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": 0.0007888408477818576,
+          "normalized_attribution": 0.030664476602924085,
+          "occlusion_delta": 0.0008672321940338401
+        }
+      ],
+      "maximum_feature_concentration": 0.517564625659893,
+      "model_id": "context_model_0",
+      "record_id": "mechanism_record_038",
+      "score": 0.46945365110181414,
+      "view_attributions": [
+        {
+          "score_delta": 0.0012611232027555652,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0010222884279406652,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.000548672614949508,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.000571588381646615,
+          "view": "liquidity_view"
+        }
+      ]
+    },
+    {
+      "baseline_score": 0.413382421083,
+      "completeness_residual": 0.041474479892494975,
+      "concentration_breach": false,
+      "context_id": "temporal_cycle",
+      "decision_time": "2025-04-29T00:00:00Z",
+      "feature_attributions": [
+        {
+          "feature": "price_displacement",
+          "integrated_gradient": 0.0036671400834945946,
+          "normalized_attribution": 0.08545971326944998,
+          "occlusion_delta": 0.002003935763580156
+        },
+        {
+          "feature": "structure_alignment",
+          "integrated_gradient": 0.00020103644330267864,
+          "normalized_attribution": 0.004684990594901085,
+          "occlusion_delta": -7.210193981460611e-05
+        },
+        {
+          "feature": "time_pressure",
+          "integrated_gradient": 0.0036918211154812752,
+          "normalized_attribution": 0.08603488462062614,
+          "occlusion_delta": 0.0022053936791116002
+        },
+        {
+          "feature": "liquidity_state",
+          "integrated_gradient": 0.009881282811037099,
+          "normalized_attribution": 0.23027524897845095,
+          "occlusion_delta": 0.012518968042432244
+        },
+        {
+          "feature": "execution_quality",
+          "integrated_gradient": 0.015261737842016862,
+          "normalized_attribution": 0.35566237184192306,
+          "occlusion_delta": 0.017230725925884205
+        },
+        {
+          "feature": "ancestry_depth",
+          "integrated_gradient": -0.010207728104345837,
+          "normalized_attribution": -0.23788279069464877,
+          "occlusion_delta": -0.009815248214707473
+        }
+      ],
+      "maximum_feature_concentration": 0.35566237184192306,
+      "model_id": "context_model_1",
+      "record_id": "mechanism_record_039",
+      "score": 0.47735219116648164,
+      "view_attributions": [
+        {
+          "score_delta": 0.000293767082658547,
+          "view": "price_view"
+        },
+        {
+          "score_delta": -0.0004096909710198382,
+          "view": "structure_view"
+        },
+        {
+          "score_delta": 0.0008644952467229405,
+          "view": "time_view"
+        },
+        {
+          "score_delta": 0.0007362481967164158,
+          "view": "liquidity_view"
+        }
+      ]
+    }
+  ]
+}

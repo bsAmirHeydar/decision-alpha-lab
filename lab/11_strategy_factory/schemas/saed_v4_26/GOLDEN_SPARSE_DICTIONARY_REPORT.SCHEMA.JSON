@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "atoms": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "atom_id": {
+            "type": "string"
+          },
+          "basis": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "source_dimension": {
+            "type": "integer"
+          },
+          "variance": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "atom_id",
+          "basis",
+          "source_dimension",
+          "variance"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "claim_class": {
+      "type": "string"
+    },
+    "dictionary_report_hash": {
+      "type": "string"
+    },
+    "dictionary_report_id": {
+      "type": "string"
+    },
+    "dictionary_size": {
+      "type": "integer"
+    },
+    "encodings": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "active_atoms": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "coefficient": {
+                  "type": "number"
+                },
+                "source_dimension": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "coefficient",
+                "source_dimension"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "reconstruction_error": {
+            "type": "number"
+          },
+          "record_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "active_atoms",
+          "reconstruction_error",
+          "record_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "mean_reconstruction_error": {
+      "type": "number"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "random_control_error": {
+      "type": "number"
+    },
+    "reference_gate_passed": {
+      "type": "boolean"
+    },
+    "top_k": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "atoms",
+    "claim_class",
+    "dictionary_report_hash",
+    "dictionary_report_id",
+    "dictionary_size",
+    "encodings",
+    "mean_reconstruction_error",
+    "phase",
+    "random_control_error",
+    "reference_gate_passed",
+    "top_k"
+  ],
+  "title": "GOLDEN_SPARSE_DICTIONARY_REPORT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

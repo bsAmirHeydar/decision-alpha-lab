@@ -1,0 +1,9 @@
+{
+  "critical_shortcuts_forbidden": true,
+  "exact_version": "1.0.0",
+  "fail_closed": true,
+  "minimum_attribution_score_correlation": 0.3,
+  "minimum_deletion_drop": -0.05,
+  "randomization_rank_correlation_ceiling": 0.95,
+  "stability_cosine_floor": 0.95
+}

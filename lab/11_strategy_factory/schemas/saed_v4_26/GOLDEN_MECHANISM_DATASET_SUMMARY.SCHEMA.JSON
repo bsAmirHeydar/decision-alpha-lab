@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cluster_count": {
+      "type": "integer"
+    },
+    "cluster_role_separation_verified": {
+      "type": "boolean"
+    },
+    "context_count": {
+      "type": "integer"
+    },
+    "dataset_hash": {
+      "type": "string"
+    },
+    "dataset_summary_hash": {
+      "type": "string"
+    },
+    "dataset_summary_id": {
+      "type": "string"
+    },
+    "feature_registry": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "immutable_models": {
+      "type": "boolean"
+    },
+    "known_time_verified": {
+      "type": "boolean"
+    },
+    "layer_registry": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "model_count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "record_count": {
+      "type": "integer"
+    },
+    "role_counts": {
+      "additionalProperties": false,
+      "properties": {
+        "mechanism_negative": {
+          "type": "integer"
+        },
+        "mechanism_stress": {
+          "type": "integer"
+        },
+        "mechanism_train": {
+          "type": "integer"
+        },
+        "mechanism_validation": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "mechanism_negative",
+        "mechanism_stress",
+        "mechanism_train",
+        "mechanism_validation"
+      ],
+      "type": "object"
+    },
+    "view_registry": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "cluster_count",
+    "cluster_role_separation_verified",
+    "context_count",
+    "dataset_hash",
+    "dataset_summary_hash",
+    "dataset_summary_id",
+    "feature_registry",
+    "immutable_models",
+    "known_time_verified",
+    "layer_registry",
+    "model_count",
+    "phase",
+    "record_count",
+    "role_counts",
+    "view_registry"
+  ],
+  "title": "GOLDEN_MECHANISM_DATASET_SUMMARY",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

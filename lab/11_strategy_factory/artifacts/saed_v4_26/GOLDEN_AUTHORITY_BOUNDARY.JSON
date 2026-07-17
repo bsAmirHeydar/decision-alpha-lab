@@ -1,0 +1,17 @@
+{
+  "authority": {
+    "decision": false,
+    "execution": false,
+    "online_learning": false,
+    "production": false,
+    "promotion": false,
+    "risk_allocation": false,
+    "runtime": false
+  },
+  "boundary_hash": "9aaa6ca5ac8b6d7274a73e83b4c486f0cfeb183dcd246e7d82e09590ae4a476f",
+  "boundary_id": "mechanistic_authority_a59dce53d1a234e18a587abb",
+  "phase": "SAED_V4_26",
+  "research_only": true,
+  "safe_action": "skip",
+  "ucee_authority_preserved": true
+}

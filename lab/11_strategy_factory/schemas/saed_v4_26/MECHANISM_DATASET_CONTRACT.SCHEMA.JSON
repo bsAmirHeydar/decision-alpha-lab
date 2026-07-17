@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_roles": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "cluster_role_separation_required": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "future_suffix_forbidden": {
+      "type": "boolean"
+    },
+    "immutable_models_required": {
+      "type": "boolean"
+    },
+    "minimum_contexts": {
+      "type": "integer"
+    },
+    "minimum_models": {
+      "type": "integer"
+    },
+    "minimum_records": {
+      "type": "integer"
+    },
+    "minimum_records_per_role": {
+      "type": "integer"
+    },
+    "protected_evidence_forbidden": {
+      "type": "boolean"
+    },
+    "required_fields": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "strict_known_time": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "allowed_roles",
+    "cluster_role_separation_required",
+    "exact_version",
+    "future_suffix_forbidden",
+    "immutable_models_required",
+    "minimum_contexts",
+    "minimum_models",
+    "minimum_records",
+    "minimum_records_per_role",
+    "protected_evidence_forbidden",
+    "required_fields",
+    "strict_known_time"
+  ],
+  "title": "MECHANISM_DATASET_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

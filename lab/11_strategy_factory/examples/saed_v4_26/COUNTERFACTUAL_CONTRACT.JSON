@@ -1,0 +1,19 @@
+{
+  "decision_threshold": 0.5,
+  "deterministic": true,
+  "deterministic_tie_break": "minimum_absolute_change_then_feature_then_signed_delta",
+  "exact_version": "1.0.0",
+  "immutable_model": true,
+  "maximum_absolute_perturbation": 1.0,
+  "maximum_feature_changes": 1,
+  "perturbation_grid": [
+    -1.0,
+    -0.75,
+    -0.5,
+    -0.25,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ]
+}

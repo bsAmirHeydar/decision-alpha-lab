@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "attribution_score_correlation": {
+      "type": "number"
+    },
+    "faithfulness_report_hash": {
+      "type": "string"
+    },
+    "faithfulness_report_id": {
+      "type": "string"
+    },
+    "interpretability_is_not_proof": {
+      "type": "boolean"
+    },
+    "mean_top_two_deletion_drop": {
+      "type": "number"
+    },
+    "minimum_correlation": {
+      "type": "number"
+    },
+    "minimum_deletion_drop": {
+      "type": "number"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "reference_gate_passed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "attribution_score_correlation",
+    "faithfulness_report_hash",
+    "faithfulness_report_id",
+    "interpretability_is_not_proof",
+    "mean_top_two_deletion_drop",
+    "minimum_correlation",
+    "minimum_deletion_drop",
+    "phase",
+    "reference_gate_passed"
+  ],
+  "title": "GOLDEN_FAITHFULNESS_REPORT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

@@ -1,0 +1,10 @@
+{
+  "floor": 0.95,
+  "mean_attribution_cosine": 0.9999803644891625,
+  "perturbation_magnitude": 0.005,
+  "phase": "SAED_V4_26",
+  "reference_gate_passed": true,
+  "stability_report_hash": "877ea70dd4a8bda69eca69edaa0ddf7091c6a6bd83ccc515e22689351a84c37f",
+  "stability_report_id": "mechanism_stability_9eca77b75f1de853a9678c31",
+  "transport_claim": false
+}

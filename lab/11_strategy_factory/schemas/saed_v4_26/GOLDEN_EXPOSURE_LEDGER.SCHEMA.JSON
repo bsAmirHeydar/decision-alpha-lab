@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "charts_rendered": {
+      "type": "integer"
+    },
+    "complete_for_v4_26": {
+      "type": "boolean"
+    },
+    "concept_probe_queries": {
+      "type": "integer"
+    },
+    "counterfactual_queries": {
+      "type": "integer"
+    },
+    "dictionary_trials": {
+      "type": "integer"
+    },
+    "exposure_ledger_hash": {
+      "type": "string"
+    },
+    "exposure_ledger_id": {
+      "type": "string"
+    },
+    "feature_attribution_queries": {
+      "type": "integer"
+    },
+    "hidden_evaluation_queries": {
+      "type": "integer"
+    },
+    "interpretability_records": {
+      "type": "integer"
+    },
+    "manual_interventions": {
+      "type": "integer"
+    },
+    "narratives_generated": {
+      "type": "integer"
+    },
+    "network_requests": {
+      "type": "integer"
+    },
+    "online_policy_mutations": {
+      "type": "integer"
+    },
+    "order_submissions": {
+      "type": "integer"
+    },
+    "patch_queries": {
+      "type": "integer"
+    },
+    "pathway_queries": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "protected_evidence_exposures": {
+      "type": "integer"
+    },
+    "runtime_compilations": {
+      "type": "integer"
+    },
+    "trace_queries": {
+      "type": "integer"
+    },
+    "v4_27_complete_exposure_ledger_not_claimed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "charts_rendered",
+    "complete_for_v4_26",
+    "concept_probe_queries",
+    "counterfactual_queries",
+    "dictionary_trials",
+    "exposure_ledger_hash",
+    "exposure_ledger_id",
+    "feature_attribution_queries",
+    "hidden_evaluation_queries",
+    "interpretability_records",
+    "manual_interventions",
+    "narratives_generated",
+    "network_requests",
+    "online_policy_mutations",
+    "order_submissions",
+    "patch_queries",
+    "pathway_queries",
+    "phase",
+    "protected_evidence_exposures",
+    "runtime_compilations",
+    "trace_queries",
+    "v4_27_complete_exposure_ledger_not_claimed"
+  ],
+  "title": "GOLDEN_EXPOSURE_LEDGER",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

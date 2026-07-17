@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_value": {
+      "type": "number"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "future_suffix_forbidden": {
+      "type": "boolean"
+    },
+    "integration_steps": {
+      "type": "integer"
+    },
+    "maximum_feature_concentration": {
+      "type": "number"
+    },
+    "method": {
+      "type": "string"
+    },
+    "normalize_abs_sum": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "baseline_value",
+    "deterministic",
+    "exact_version",
+    "future_suffix_forbidden",
+    "integration_steps",
+    "maximum_feature_concentration",
+    "method",
+    "normalize_abs_sum"
+  ],
+  "title": "ATTRIBUTION_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

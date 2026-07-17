@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "certificate_hash": {
+      "type": "string"
+    },
+    "frozen_artifact_hashes": {
+      "additionalProperties": false,
+      "properties": {
+        "GOLDEN_ADAPTATIONS.JSON": {
+          "type": "string"
+        },
+        "GOLDEN_CONTINUAL_CALIBRATION_STATES.JSON": {
+          "type": "string"
+        },
+        "GOLDEN_DRIFT_REPORT.JSON": {
+          "type": "string"
+        },
+        "GOLDEN_META_FEATURES.JSON": {
+          "type": "string"
+        },
+        "GOLDEN_REPLAY_RECEIPT.JSON": {
+          "type": "string"
+        },
+        "GOLDEN_TRANSFER_MAP.JSON": {
+          "type": "string"
+        },
+        "GOLDEN_TRANSFER_REPORT.JSON": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "GOLDEN_ADAPTATIONS.JSON",
+        "GOLDEN_CONTINUAL_CALIBRATION_STATES.JSON",
+        "GOLDEN_DRIFT_REPORT.JSON",
+        "GOLDEN_META_FEATURES.JSON",
+        "GOLDEN_REPLAY_RECEIPT.JSON",
+        "GOLDEN_TRANSFER_MAP.JSON",
+        "GOLDEN_TRANSFER_REPORT.JSON"
+      ],
+      "type": "object"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "hash_verified": {
+      "type": "boolean"
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "upstream_phase": {
+      "type": "string"
+    },
+    "upstream_receipt_hash": {
+      "type": "string"
+    },
+    "upstream_receipt_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "certificate_hash",
+    "frozen_artifact_hashes",
+    "handoff_hash",
+    "hash_verified",
+    "immutable",
+    "phase",
+    "research_only",
+    "upstream_phase",
+    "upstream_receipt_hash",
+    "upstream_receipt_id"
+  ],
+  "title": "GOLDEN_UPSTREAM_RECEIPT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adaptation_mechanism_hash": {
+      "type": "string"
+    },
+    "adaptation_mechanism_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "effects": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "parameter": {
+                  "type": "string"
+                },
+                "parameter_delta": {
+                  "type": "number"
+                },
+                "score_delta": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "parameter",
+                "parameter_delta",
+                "score_delta"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "record_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "effects",
+          "record_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "support_only_frozen_adaptation": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "adaptation_mechanism_hash",
+    "adaptation_mechanism_id",
+    "phase",
+    "records",
+    "support_only_frozen_adaptation"
+  ],
+  "title": "GOLDEN_ADAPTATION_PARAMETER_MECHANISMS",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

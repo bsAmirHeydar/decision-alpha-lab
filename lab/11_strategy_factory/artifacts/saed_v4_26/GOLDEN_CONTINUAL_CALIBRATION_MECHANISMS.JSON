@@ -1,0 +1,809 @@
+{
+  "calibration_mechanism_hash": "57029521f96d4504da064e0e414ba7b7a9ddd208c4be414c7048d3b33bb85446",
+  "calibration_mechanism_id": "calibration_mechanism_80e03913a15b464b3eefff6e",
+  "past_only_calibration": true,
+  "phase": "SAED_V4_26",
+  "records": [
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.58,
+          "score_delta": 0.01437818319212264
+        },
+        {
+          "component": "ood",
+          "component_value": 0.62,
+          "score_delta": 0.012300712141069758
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.08,
+          "score_delta": 0.00278221901979675
+        }
+      ],
+      "record_id": "mechanism_record_000"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.59,
+          "score_delta": 0.01470015269426822
+        },
+        {
+          "component": "ood",
+          "component_value": 0.635,
+          "score_delta": 0.01266024722948561
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.085,
+          "score_delta": 0.0029687586994407433
+        }
+      ],
+      "record_id": "mechanism_record_001"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.6,
+          "score_delta": 0.014913350673837755
+        },
+        {
+          "component": "ood",
+          "component_value": 0.65,
+          "score_delta": 0.012928993998724658
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.09,
+          "score_delta": 0.0031371967914889942
+        }
+      ],
+      "record_id": "mechanism_record_002"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.61,
+          "score_delta": 0.015113910652021834
+        },
+        {
+          "component": "ood",
+          "component_value": 0.665,
+          "score_delta": 0.013186336622004302
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.095,
+          "score_delta": 0.0033025010880582406
+        }
+      ],
+      "record_id": "mechanism_record_003"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.62,
+          "score_delta": 0.015493720468539085
+        },
+        {
+          "component": "ood",
+          "component_value": 0.68,
+          "score_delta": 0.013595622843155908
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.1,
+          "score_delta": 0.003499858275812451
+        }
+      ],
+      "record_id": "mechanism_record_004"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.63,
+          "score_delta": 0.01571442579970639
+        },
+        {
+          "component": "ood",
+          "component_value": 0.695,
+          "score_delta": 0.01387120274058401
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.08,
+          "score_delta": 0.0027968077964118376
+        }
+      ],
+      "record_id": "mechanism_record_005"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.64,
+          "score_delta": 0.01596115574777207
+        },
+        {
+          "component": "ood",
+          "component_value": 0.62,
+          "score_delta": 0.012374465804630697
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.085,
+          "score_delta": 0.00297126204679915
+        }
+      ],
+      "record_id": "mechanism_record_006"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.65,
+          "score_delta": 0.016180038073969838
+        },
+        {
+          "component": "ood",
+          "component_value": 0.635,
+          "score_delta": 0.012651423127778283
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.09,
+          "score_delta": 0.0031415056934299135
+        }
+      ],
+      "record_id": "mechanism_record_007"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.58,
+          "score_delta": 0.014471774076305843
+        },
+        {
+          "component": "ood",
+          "component_value": 0.65,
+          "score_delta": 0.012976528481290606
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.095,
+          "score_delta": 0.0033215475537727857
+        }
+      ],
+      "record_id": "mechanism_record_008"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.59,
+          "score_delta": 0.014746453192778619
+        },
+        {
+          "component": "ood",
+          "component_value": 0.665,
+          "score_delta": 0.013297453804033466
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.1,
+          "score_delta": 0.003499975449790138
+        }
+      ],
+      "record_id": "mechanism_record_009"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.6,
+          "score_delta": 0.014963315124231324
+        },
+        {
+          "component": "ood",
+          "component_value": 0.68,
+          "score_delta": 0.013568741931782924
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.08,
+          "score_delta": 0.002796258523275863
+        }
+      ],
+      "record_id": "mechanism_record_010"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.61,
+          "score_delta": 0.015238465477689422
+        },
+        {
+          "component": "ood",
+          "component_value": 0.695,
+          "score_delta": 0.013890620183729607
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.085,
+          "score_delta": 0.0029744255912649287
+        }
+      ],
+      "record_id": "mechanism_record_011"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.62,
+          "score_delta": 0.015396996293608467
+        },
+        {
+          "component": "ood",
+          "component_value": 0.62,
+          "score_delta": 0.012324017176527036
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.09,
+          "score_delta": 0.003135097187064284
+        }
+      ],
+      "record_id": "mechanism_record_012"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.63,
+          "score_delta": 0.015708963807410103
+        },
+        {
+          "component": "ood",
+          "component_value": 0.635,
+          "score_delta": 0.012671038209142171
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.095,
+          "score_delta": 0.003320228131819425
+        }
+      ],
+      "record_id": "mechanism_record_013"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.64,
+          "score_delta": 0.01599694901762927
+        },
+        {
+          "component": "ood",
+          "component_value": 0.65,
+          "score_delta": 0.01299698042996722
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.1,
+          "score_delta": 0.003498172235149921
+        }
+      ],
+      "record_id": "mechanism_record_014"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.65,
+          "score_delta": 0.016189307747073778
+        },
+        {
+          "component": "ood",
+          "component_value": 0.665,
+          "score_delta": 0.013255313614260189
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.08,
+          "score_delta": 0.002793810409835118
+        }
+      ],
+      "record_id": "mechanism_record_015"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.58,
+          "score_delta": 0.014491055489607718
+        },
+        {
+          "component": "ood",
+          "component_value": 0.68,
+          "score_delta": 0.013592286108300045
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.085,
+          "score_delta": 0.0029745723827914183
+        }
+      ],
+      "record_id": "mechanism_record_016"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.59,
+          "score_delta": 0.014670465287961176
+        },
+        {
+          "component": "ood",
+          "component_value": 0.695,
+          "score_delta": 0.013826863356488694
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.09,
+          "score_delta": 0.003138114722681107
+        }
+      ],
+      "record_id": "mechanism_record_017"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.6,
+          "score_delta": 0.014951120070883062
+        },
+        {
+          "component": "ood",
+          "component_value": 0.62,
+          "score_delta": 0.012363426927429033
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.095,
+          "score_delta": 0.003318318163646361
+        }
+      ],
+      "record_id": "mechanism_record_018"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.61,
+          "score_delta": 0.015241910891218902
+        },
+        {
+          "component": "ood",
+          "component_value": 0.635,
+          "score_delta": 0.012694859918880752
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.1,
+          "score_delta": 0.003499667297484077
+        }
+      ],
+      "record_id": "mechanism_record_019"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.62,
+          "score_delta": 0.015468543229498366
+        },
+        {
+          "component": "ood",
+          "component_value": 0.65,
+          "score_delta": 0.012976706669164118
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.08,
+          "score_delta": 0.0027972184088329577
+        }
+      ],
+      "record_id": "mechanism_record_020"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.63,
+          "score_delta": 0.01565642041947718
+        },
+        {
+          "component": "ood",
+          "component_value": 0.665,
+          "score_delta": 0.013226166118276872
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.085,
+          "score_delta": 0.002962865073775467
+        }
+      ],
+      "record_id": "mechanism_record_021"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.64,
+          "score_delta": 0.01588318487511048
+        },
+        {
+          "component": "ood",
+          "component_value": 0.68,
+          "score_delta": 0.013506448543767258
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.09,
+          "score_delta": 0.0031335744720039638
+        }
+      ],
+      "record_id": "mechanism_record_022"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.65,
+          "score_delta": 0.016246950382811765
+        },
+        {
+          "component": "ood",
+          "component_value": 0.695,
+          "score_delta": 0.013898294840967218
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.095,
+          "score_delta": 0.003324959006086592
+        }
+      ],
+      "record_id": "mechanism_record_023"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.58,
+          "score_delta": 0.01449423059480115
+        },
+        {
+          "component": "ood",
+          "component_value": 0.62,
+          "score_delta": 0.012396187278398363
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.1,
+          "score_delta": 0.0034998087793323696
+        }
+      ],
+      "record_id": "mechanism_record_024"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.59,
+          "score_delta": 0.014663902362494652
+        },
+        {
+          "component": "ood",
+          "component_value": 0.635,
+          "score_delta": 0.012629979383694534
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.08,
+          "score_delta": 0.0027885079766661325
+        }
+      ],
+      "record_id": "mechanism_record_025"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.6,
+          "score_delta": 0.014954229230325022
+        },
+        {
+          "component": "ood",
+          "component_value": 0.65,
+          "score_delta": 0.012963348630763594
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.085,
+          "score_delta": 0.002969600486692814
+        }
+      ],
+      "record_id": "mechanism_record_026"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.61,
+          "score_delta": 0.015123381202840902
+        },
+        {
+          "component": "ood",
+          "component_value": 0.665,
+          "score_delta": 0.013194426787245805
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.09,
+          "score_delta": 0.0031304823450106767
+        }
+      ],
+      "record_id": "mechanism_record_027"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.62,
+          "score_delta": 0.015492385767527539
+        },
+        {
+          "component": "ood",
+          "component_value": 0.68,
+          "score_delta": 0.013594567714899475
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.095,
+          "score_delta": 0.0033247691624301856
+        }
+      ],
+      "record_id": "mechanism_record_028"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.63,
+          "score_delta": 0.015747967777143046
+        },
+        {
+          "component": "ood",
+          "component_value": 0.695,
+          "score_delta": 0.013898062896706753
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.1,
+          "score_delta": 0.003498714628725863
+        }
+      ],
+      "record_id": "mechanism_record_029"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.64,
+          "score_delta": 0.01591306082576449
+        },
+        {
+          "component": "ood",
+          "component_value": 0.62,
+          "score_delta": 0.012339372427950412
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.08,
+          "score_delta": 0.0027899115424716014
+        }
+      ],
+      "record_id": "mechanism_record_030"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.65,
+          "score_delta": 0.016118461133751316
+        },
+        {
+          "component": "ood",
+          "component_value": 0.635,
+          "score_delta": 0.012605466905168117
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.085,
+          "score_delta": 0.002957666362750855
+        }
+      ],
+      "record_id": "mechanism_record_031"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.58,
+          "score_delta": 0.014487114302120407
+        },
+        {
+          "component": "ood",
+          "component_value": 0.65,
+          "score_delta": 0.012989711114321234
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.09,
+          "score_delta": 0.0031490499731292587
+        }
+      ],
+      "record_id": "mechanism_record_032"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.59,
+          "score_delta": 0.014589024247323057
+        },
+        {
+          "component": "ood",
+          "component_value": 0.665,
+          "score_delta": 0.013158966779366399
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.095,
+          "score_delta": 0.003296340535383857
+        }
+      ],
+      "record_id": "mechanism_record_033"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.6,
+          "score_delta": 0.014955558704345284
+        },
+        {
+          "component": "ood",
+          "component_value": 0.68,
+          "score_delta": 0.013561899835721536
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.1,
+          "score_delta": 0.0034937314185257695
+        }
+      ],
+      "record_id": "mechanism_record_034"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.61,
+          "score_delta": 0.015205927807926234
+        },
+        {
+          "component": "ood",
+          "component_value": 0.695,
+          "score_delta": 0.01386196900476716
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.08,
+          "score_delta": 0.002795373147751745
+        }
+      ],
+      "record_id": "mechanism_record_035"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.62,
+          "score_delta": 0.01537949110986242
+        },
+        {
+          "component": "ood",
+          "component_value": 0.62,
+          "score_delta": 0.012310515474379502
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.085,
+          "score_delta": 0.002958126601769806
+        }
+      ],
+      "record_id": "mechanism_record_036"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.63,
+          "score_delta": 0.015739210084359634
+        },
+        {
+          "component": "ood",
+          "component_value": 0.635,
+          "score_delta": 0.012693448260362228
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.09,
+          "score_delta": 0.003149539597523676
+        }
+      ],
+      "record_id": "mechanism_record_037"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.64,
+          "score_delta": 0.015903763480246635
+        },
+        {
+          "component": "ood",
+          "component_value": 0.65,
+          "score_delta": 0.012928031867406042
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.095,
+          "score_delta": 0.003311196006108408
+        }
+      ],
+      "record_id": "mechanism_record_038"
+    },
+    {
+      "effects": [
+        {
+          "component": "support",
+          "component_value": 0.65,
+          "score_delta": 0.01618713197139643
+        },
+        {
+          "component": "ood",
+          "component_value": 0.665,
+          "score_delta": 0.013253617921296201
+        },
+        {
+          "component": "conformal_margin",
+          "component_value": 0.1,
+          "score_delta": 0.0034916549477199688
+        }
+      ],
+      "record_id": "mechanism_record_039"
+    }
+  ],
+  "runtime_mutation": false
+}

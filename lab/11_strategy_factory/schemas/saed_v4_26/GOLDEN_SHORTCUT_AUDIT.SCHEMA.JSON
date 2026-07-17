@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "critical_finding_count": {
+      "type": "integer"
+    },
+    "critical_shortcuts_absent": {
+      "type": "boolean"
+    },
+    "finding_count": {
+      "type": "integer"
+    },
+    "findings": {
+      "items": {},
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "reference_gate_passed": {
+      "type": "boolean"
+    },
+    "shortcut_audit_hash": {
+      "type": "string"
+    },
+    "shortcut_audit_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "critical_finding_count",
+    "critical_shortcuts_absent",
+    "finding_count",
+    "findings",
+    "phase",
+    "reference_gate_passed",
+    "shortcut_audit_hash",
+    "shortcut_audit_id"
+  ],
+  "title": "GOLDEN_SHORTCUT_AUDIT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

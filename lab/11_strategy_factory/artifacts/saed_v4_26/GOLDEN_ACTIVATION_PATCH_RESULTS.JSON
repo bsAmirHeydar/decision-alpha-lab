@@ -1,0 +1,290 @@
+{
+  "activation_patch_bundle_hash": "7bb1057d8c800fb5fbd089d7931db1179b4e2d88a351f22f8133b7ccf218ba7c",
+  "activation_patch_bundle_id": "activation_patch_a66a34ac76e71f99d3ff1781",
+  "claim_class": "activation_patching_challenger",
+  "past_only": true,
+  "phase": "SAED_V4_26",
+  "records": [
+    {
+      "eligible": false,
+      "reason": "no_past_same_model_context_source",
+      "record_id": "mechanism_record_002",
+      "score_delta": 0.0,
+      "source_record_id": null
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_006",
+      "score_delta": -0.006694430005251273,
+      "source_record_id": "mechanism_record_002"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_010",
+      "score_delta": 0.0006295265866836375,
+      "source_record_id": "mechanism_record_006"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_014",
+      "score_delta": -0.007443234250772868,
+      "source_record_id": "mechanism_record_010"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_018",
+      "score_delta": 0.004915470569920144,
+      "source_record_id": "mechanism_record_014"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_022",
+      "score_delta": 0.01423963620574692,
+      "source_record_id": "mechanism_record_018"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_026",
+      "score_delta": 0.0005063224128113997,
+      "source_record_id": "mechanism_record_022"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_030",
+      "score_delta": -0.006335649138465127,
+      "source_record_id": "mechanism_record_026"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_034",
+      "score_delta": 0.0007398722244749134,
+      "source_record_id": "mechanism_record_030"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_038",
+      "score_delta": 0.0016397369616610313,
+      "source_record_id": "mechanism_record_034"
+    },
+    {
+      "eligible": false,
+      "reason": "no_past_same_model_context_source",
+      "record_id": "mechanism_record_000",
+      "score_delta": 0.0,
+      "source_record_id": null
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_004",
+      "score_delta": -0.0033539672112476993,
+      "source_record_id": "mechanism_record_000"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_008",
+      "score_delta": 0.008002897219744565,
+      "source_record_id": "mechanism_record_004"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_012",
+      "score_delta": 0.0012699618878249108,
+      "source_record_id": "mechanism_record_008"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_016",
+      "score_delta": -0.008900312623165041,
+      "source_record_id": "mechanism_record_012"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_020",
+      "score_delta": 3.372912127264094e-06,
+      "source_record_id": "mechanism_record_016"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_024",
+      "score_delta": -0.0059531963853791114,
+      "source_record_id": "mechanism_record_020"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_028",
+      "score_delta": 0.0057664925211649565,
+      "source_record_id": "mechanism_record_024"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_032",
+      "score_delta": 0.006649341634080208,
+      "source_record_id": "mechanism_record_028"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_036",
+      "score_delta": 0.007646041533797776,
+      "source_record_id": "mechanism_record_032"
+    },
+    {
+      "eligible": false,
+      "reason": "no_past_same_model_context_source",
+      "record_id": "mechanism_record_001",
+      "score_delta": 0.0,
+      "source_record_id": null
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_005",
+      "score_delta": -0.006582556977976162,
+      "source_record_id": "mechanism_record_001"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_009",
+      "score_delta": -0.0009285854443643604,
+      "source_record_id": "mechanism_record_005"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_013",
+      "score_delta": 0.007132520599519854,
+      "source_record_id": "mechanism_record_009"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_017",
+      "score_delta": 0.011258777461048364,
+      "source_record_id": "mechanism_record_013"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_021",
+      "score_delta": 0.0021872446989189553,
+      "source_record_id": "mechanism_record_017"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_025",
+      "score_delta": -0.004972323314611726,
+      "source_record_id": "mechanism_record_021"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_029",
+      "score_delta": -0.020995286899174626,
+      "source_record_id": "mechanism_record_025"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_033",
+      "score_delta": 0.013811372822170542,
+      "source_record_id": "mechanism_record_029"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_037",
+      "score_delta": -0.0006958037810539941,
+      "source_record_id": "mechanism_record_033"
+    },
+    {
+      "eligible": false,
+      "reason": "no_past_same_model_context_source",
+      "record_id": "mechanism_record_003",
+      "score_delta": 0.0,
+      "source_record_id": null
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_007",
+      "score_delta": 0.004683535634596447,
+      "source_record_id": "mechanism_record_003"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_011",
+      "score_delta": -0.006957360765751541,
+      "source_record_id": "mechanism_record_007"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_015",
+      "score_delta": 0.00031394047372618195,
+      "source_record_id": "mechanism_record_011"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_019",
+      "score_delta": -0.005736804962403419,
+      "source_record_id": "mechanism_record_015"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_023",
+      "score_delta": 0.005407465423717062,
+      "source_record_id": "mechanism_record_019"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_027",
+      "score_delta": 0.008353302810159113,
+      "source_record_id": "mechanism_record_023"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_031",
+      "score_delta": 9.851844904495977e-05,
+      "source_record_id": "mechanism_record_027"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_035",
+      "score_delta": -0.0015526526111108163,
+      "source_record_id": "mechanism_record_031"
+    },
+    {
+      "eligible": true,
+      "reason": "past_same_model_context_source",
+      "record_id": "mechanism_record_039",
+      "score_delta": -0.0002889415015741026,
+      "source_record_id": "mechanism_record_035"
+    }
+  ],
+  "same_model_required": true
+}

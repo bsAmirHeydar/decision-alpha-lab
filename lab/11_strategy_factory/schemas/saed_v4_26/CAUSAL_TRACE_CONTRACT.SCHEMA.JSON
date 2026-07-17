@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "intervention": {
+      "type": "string"
+    },
+    "layer_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "maximum_neurons_per_layer": {
+      "type": "integer"
+    },
+    "past_only_patch_sources": {
+      "type": "boolean"
+    },
+    "same_model_required": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "baseline_preserved",
+    "deterministic",
+    "exact_version",
+    "intervention",
+    "layer_ids",
+    "maximum_neurons_per_layer",
+    "past_only_patch_sources",
+    "same_model_required"
+  ],
+  "title": "CAUSAL_TRACE_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

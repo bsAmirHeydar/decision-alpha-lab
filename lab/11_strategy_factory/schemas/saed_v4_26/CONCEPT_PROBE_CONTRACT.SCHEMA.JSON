@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "concept_names": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "concept_vectors": {
+      "items": {
+        "items": {
+          "type": "number"
+        },
+        "type": "array"
+      },
+      "type": "array"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "minimum_signal_over_random": {
+      "type": "number"
+    },
+    "minimum_validation_records": {
+      "type": "integer"
+    },
+    "random_control_required": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "concept_names",
+    "concept_vectors",
+    "deterministic",
+    "exact_version",
+    "minimum_signal_over_random",
+    "minimum_validation_records",
+    "random_control_required"
+  ],
+  "title": "CONCEPT_PROBE_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

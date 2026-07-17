@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "critical_shortcuts_forbidden": {
+      "type": "boolean"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "fail_closed": {
+      "type": "boolean"
+    },
+    "minimum_attribution_score_correlation": {
+      "type": "number"
+    },
+    "minimum_deletion_drop": {
+      "type": "number"
+    },
+    "randomization_rank_correlation_ceiling": {
+      "type": "number"
+    },
+    "stability_cosine_floor": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "critical_shortcuts_forbidden",
+    "exact_version",
+    "fail_closed",
+    "minimum_attribution_score_correlation",
+    "minimum_deletion_drop",
+    "randomization_rank_correlation_ceiling",
+    "stability_cosine_floor"
+  ],
+  "title": "FAITHFULNESS_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

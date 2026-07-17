@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "future_patch_sources": {
+      "type": "integer"
+    },
+    "future_suffix_queries": {
+      "type": "integer"
+    },
+    "immutable_model_verified": {
+      "type": "boolean"
+    },
+    "known_time_verified": {
+      "type": "boolean"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "protected_evidence_queries": {
+      "type": "integer"
+    },
+    "query_outcomes_used_for_decision_artifacts": {
+      "type": "boolean"
+    },
+    "review_hash": {
+      "type": "string"
+    },
+    "review_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "future_patch_sources",
+    "future_suffix_queries",
+    "immutable_model_verified",
+    "known_time_verified",
+    "passed",
+    "phase",
+    "protected_evidence_queries",
+    "query_outcomes_used_for_decision_artifacts",
+    "review_hash",
+    "review_id"
+  ],
+  "title": "KNOWN_TIME_LEAKAGE_REVIEW",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

@@ -1,0 +1,1408 @@
+{
+  "adaptation_mechanism_hash": "0f5f53ed9b529c3f22a7ebcd044827db6d03545e5ac65d71bbe552c20fffbdff",
+  "adaptation_mechanism_id": "adaptation_mechanism_eec7ec039e6e40fc7ef4c019",
+  "phase": "SAED_V4_26",
+  "records": [
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": -0.024,
+          "score_delta": -0.0008948019755646852
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0008948019755646852
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": 0.012,
+          "score_delta": 0.00178885530647227
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": 0.024,
+          "score_delta": 0.004470181380828997
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": -0.024,
+          "score_delta": -0.00537232698031348
+        }
+      ],
+      "record_id": "mechanism_record_000"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": -0.012,
+          "score_delta": -0.001497439782930654
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0023950927286436885
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": 0.024,
+          "score_delta": 0.00568653654558543
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": -0.024,
+          "score_delta": -0.001497439782930654
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0011979223523881366
+        }
+      ],
+      "record_id": "mechanism_record_001"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": 0.012,
+          "score_delta": 0.00044832340580197583
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": 0.024,
+          "score_delta": 0.00179299305615932
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": -0.024,
+          "score_delta": -0.002690942131694629
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0017937754151768348
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        }
+      ],
+      "record_id": "mechanism_record_002"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": 0.012,
+          "score_delta": 0.001043283411382545
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": 0.024,
+          "score_delta": 0.0029798611984135914
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": -0.024,
+          "score_delta": -0.0038780096919167617
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0023859322524920623
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0007452382621006559
+        }
+      ],
+      "record_id": "mechanism_record_003"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": 0.024,
+          "score_delta": 0.004199784850376642
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": -0.024,
+          "score_delta": -0.005099922208100294
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": -0.012,
+          "score_delta": -0.00044999801500195113
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0013499788133443102
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": 0.024,
+          "score_delta": 0.0035998489943969703
+        }
+      ],
+      "record_id": "mechanism_record_004"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": -0.024,
+          "score_delta": -0.0011989387464447776
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0010490621405052636
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0019478897434153652
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": 0.024,
+          "score_delta": 0.004793837542387935
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": -0.024,
+          "score_delta": -0.005696308966167241
+        }
+      ],
+      "record_id": "mechanism_record_005"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0016484347612476524
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": 0.012,
+          "score_delta": 0.002546874211352801
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": 0.024,
+          "score_delta": 0.0008989998063858584
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": -0.024,
+          "score_delta": -0.0017983087253002905
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0013486947202613342
+        }
+      ],
+      "record_id": "mechanism_record_006"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": 0.012,
+          "score_delta": 0.000598538445922725
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": 0.024,
+          "score_delta": 0.002094566905010309
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": -0.024,
+          "score_delta": -0.0029937085885097803
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0019457247989452253
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        }
+      ],
+      "record_id": "mechanism_record_007"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0011989163145958992
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": 0.024,
+          "score_delta": 0.003296578993236432
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": -0.024,
+          "score_delta": -0.004197423922144172
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0025482311931415147
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0008992035522140118
+        }
+      ],
+      "record_id": "mechanism_record_008"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": 0.024,
+          "score_delta": 0.004499936528041981
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": -0.024,
+          "score_delta": -0.00539966853262952
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0005999965066070256
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0014999987506211787
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": 0.024,
+          "score_delta": 0.003899962830720194
+        }
+      ],
+      "record_id": "mechanism_record_009"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": -0.024,
+          "score_delta": -0.0014984412855026386
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": -0.012,
+          "score_delta": -0.001198730066253817
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": 0.012,
+          "score_delta": 0.002097302479311225
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": 0.024,
+          "score_delta": 0.0050922720501125895
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": -0.024,
+          "score_delta": -0.0008990301129592204
+        }
+      ],
+      "record_id": "mechanism_record_010"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0017998517891968935
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0026995003595784994
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": 0.024,
+          "score_delta": 0.001199826218543698
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": -0.024,
+          "score_delta": -0.002099837436900065
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0014998687385903153
+        }
+      ],
+      "record_id": "mechanism_record_011"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0007466961287483365
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": 0.024,
+          "score_delta": 0.0023888937787590048
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": -0.024,
+          "score_delta": -0.003287164821085431
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0020915206933301844
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        }
+      ],
+      "record_id": "mechanism_record_012"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0013482629097651966
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": 0.024,
+          "score_delta": 0.003594756118498077
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": -0.024,
+          "score_delta": -0.004495914601120643
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": -0.012,
+          "score_delta": -0.002697260148421865
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0010486716508786853
+        }
+      ],
+      "record_id": "mechanism_record_013"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": 0.024,
+          "score_delta": 0.004797751950950446
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": -0.024,
+          "score_delta": -0.0056941178282144955
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0007494526994062944
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0016489990397071663
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": 0.024,
+          "score_delta": 0.004197930870718292
+        }
+      ],
+      "record_id": "mechanism_record_014"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": -0.024,
+          "score_delta": -0.0017967623585027348
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0013475207095419717
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": 0.012,
+          "score_delta": 0.002245143652784054
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": 0.024,
+          "score_delta": 0.0053866722372119535
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": -0.024,
+          "score_delta": -0.0011977809145837792
+        }
+      ],
+      "record_id": "mechanism_record_015"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0019499035862407532
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0028495994495540966
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": 0.024,
+          "score_delta": 0.0014998369283482638
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": -0.024,
+          "score_delta": -0.0023998942767582965
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0016499119934337836
+        }
+      ],
+      "record_id": "mechanism_record_016"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0008968501382762284
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": 0.024,
+          "score_delta": 0.00268996305033653
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": -0.024,
+          "score_delta": -0.003589224199838037
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0022429357900294322
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        }
+      ],
+      "record_id": "mechanism_record_017"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0014972297671773105
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": 0.024,
+          "score_delta": 0.003891955556852622
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": -0.024,
+          "score_delta": -0.004793506710510098
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0028457408268236506
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0011978149064987287
+        }
+      ],
+      "record_id": "mechanism_record_018"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": 0.024,
+          "score_delta": 0.00509932312871425
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": -0.024,
+          "score_delta": -0.0008999759943733032
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0008999759943733032
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0017998874673770815
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": 0.024,
+          "score_delta": 0.004499469912925991
+        }
+      ],
+      "record_id": "mechanism_record_019"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": -0.024,
+          "score_delta": -0.002098513115035172
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0014988906651094425
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0023976774300445425
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": 0.024,
+          "score_delta": 0.00569320352862368
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": -0.024,
+          "score_delta": -0.0014988906651094425
+        }
+      ],
+      "record_id": "mechanism_record_020"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0020927392563598324
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": 0.012,
+          "score_delta": 0.00044830741168350174
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": 0.024,
+          "score_delta": 0.0017929276846477826
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": -0.024,
+          "score_delta": -0.002690851056752208
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": -0.012,
+          "score_delta": -0.001793713766504279
+        }
+      ],
+      "record_id": "mechanism_record_021"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0010448400035979466
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": 0.024,
+          "score_delta": 0.002984422107769946
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": -0.024,
+          "score_delta": -0.0038834157290699167
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": -0.012,
+          "score_delta": -0.002389329177625743
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        }
+      ],
+      "record_id": "mechanism_record_022"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0016499633601932961
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": 0.024,
+          "score_delta": 0.004199957393775378
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": -0.024,
+          "score_delta": -0.005099297123047464
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0004499796787968968
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0013499665673649686
+        }
+      ],
+      "record_id": "mechanism_record_023"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": 0.024,
+          "score_delta": 0.005399509169941308
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": -0.024,
+          "score_delta": -0.0011999924536729156
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0010499927322832336
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0019499372459783615
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": 0.024,
+          "score_delta": 0.004799623658854391
+        }
+      ],
+      "record_id": "mechanism_record_024"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": -0.024,
+          "score_delta": -0.0023916794277965003
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0016441351550266492
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": 0.012,
+          "score_delta": 0.002539616333034067
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": 0.024,
+          "score_delta": 0.0008965231471877999
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": -0.024,
+          "score_delta": -0.0017936337170771366
+        }
+      ],
+      "record_id": "mechanism_record_025"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": -0.012,
+          "score_delta": -0.002246857197912455
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0005990304464560392
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": 0.024,
+          "score_delta": 0.002096346221410861
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": -0.024,
+          "score_delta": -0.0029959718480316866
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0019472332382243773
+        }
+      ],
+      "record_id": "mechanism_record_026"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": 0.012,
+          "score_delta": 0.001192929569577672
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": 0.024,
+          "score_delta": 0.0032794743982885177
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": -0.024,
+          "score_delta": -0.0041785726994753025
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0025363953951069718
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        }
+      ],
+      "record_id": "mechanism_record_027"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": 0.012,
+          "score_delta": 0.001799920048399628
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": 0.024,
+          "score_delta": 0.004499581854874812
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": -0.024,
+          "score_delta": -0.005399945458544442
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": -0.012,
+          "score_delta": -0.000599989428449299
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0014999396581549251
+        }
+      ],
+      "record_id": "mechanism_record_028"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": 0.024,
+          "score_delta": 0.005698318488679743
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": -0.024,
+          "score_delta": -0.001499130932787196
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0011993222710762197
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0020991181333669395
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": 0.024,
+          "score_delta": 0.005098401522632079
+        }
+      ],
+      "record_id": "mechanism_record_029"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": -0.024,
+          "score_delta": -0.0026919674381580827
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": -0.012,
+          "score_delta": 0.0017937307436138306
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": 0.012,
+          "score_delta": -0.0026919674381580827
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": 0.024,
+          "score_delta": 0.001195905454120516
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": -0.024,
+          "score_delta": 0.002092610783738902
+        }
+      ],
+      "record_id": "mechanism_record_030"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": -0.012,
+          "score_delta": -0.002387908548307005
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0007458817795002459
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": 0.024,
+          "score_delta": -0.002387908548307005
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": -0.024,
+          "score_delta": -0.0032837855155682383
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": -0.012,
+          "score_delta": 0.0020880447693750193
+        }
+      ],
+      "record_id": "mechanism_record_031"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": 0.012,
+          "score_delta": -0.0013497789573967411
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": 0.024,
+          "score_delta": 0.0035988539454470114
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": -0.024,
+          "score_delta": 0.004498409379346313
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0026996411725380143
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        }
+      ],
+      "record_id": "mechanism_record_032"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0019336866492632443
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": 0.024,
+          "score_delta": -0.004765479272774653
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": -0.024,
+          "score_delta": -0.005659848068060913
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": -0.012,
+          "score_delta": 0.0007438886205530792
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": 0.012,
+          "score_delta": -0.001637253709411035
+        }
+      ],
+      "record_id": "mechanism_record_033"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": 0.024,
+          "score_delta": 0.0008985829260509393
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": -0.024,
+          "score_delta": 0.001797034604284986
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": -0.012,
+          "score_delta": -0.001348107800622278
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0022462094153630208
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": 0.024,
+          "score_delta": -0.005393929004898712
+        }
+      ],
+      "record_id": "mechanism_record_034"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": -0.024,
+          "score_delta": -0.0029963523613598664
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": -0.012,
+          "score_delta": 0.001946913362283087
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": 0.012,
+          "score_delta": -0.0028465057687275253
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": 0.024,
+          "score_delta": 0.0014976797368559946
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": -0.024,
+          "score_delta": 0.0023961132561714504
+        }
+      ],
+      "record_id": "mechanism_record_035"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0025375723606714806
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0008951736313279057
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": 0.024,
+          "score_delta": -0.0026868968271838156
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": -0.024,
+          "score_delta": -0.0035829686833310226
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": -0.012,
+          "score_delta": 0.002237484472388196
+        }
+      ],
+      "record_id": "mechanism_record_036"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": 0.012,
+          "score_delta": -0.0014999188834965982
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": 0.024,
+          "score_delta": 0.0038993510070549076
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": -0.024,
+          "score_delta": 0.004799075109951367
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0028498912977201196
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        }
+      ],
+      "record_id": "mechanism_record_037"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": 0.012,
+          "score_delta": 0.0020916131484907674
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": 0.024,
+          "score_delta": -0.005083956914166798
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": -0.024,
+          "score_delta": -0.0008967385570906594
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": -0.012,
+          "score_delta": 0.0008965413559497981
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": 0.012,
+          "score_delta": -0.0017936685676414599
+        }
+      ],
+      "record_id": "mechanism_record_038"
+    },
+    {
+      "effects": [
+        {
+          "parameter": "price_displacement",
+          "parameter_delta": 0.024,
+          "score_delta": 0.001197405500074411
+        },
+        {
+          "parameter": "structure_alignment",
+          "parameter_delta": -0.024,
+          "score_delta": 0.002095280515001907
+        },
+        {
+          "parameter": "time_pressure",
+          "parameter_delta": -0.012,
+          "score_delta": -0.0014971214082854511
+        },
+        {
+          "parameter": "liquidity_state",
+          "parameter_delta": 0.0,
+          "score_delta": 0.0
+        },
+        {
+          "parameter": "execution_quality",
+          "parameter_delta": 0.012,
+          "score_delta": 0.00239453692909275
+        },
+        {
+          "parameter": "ancestry_depth",
+          "parameter_delta": 0.024,
+          "score_delta": -0.005690997478743798
+        }
+      ],
+      "record_id": "mechanism_record_039"
+    }
+  ],
+  "support_only_frozen_adaptation": true
+}

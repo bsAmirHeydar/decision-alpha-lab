@@ -1,0 +1,605 @@
+{
+  "atoms": [
+    {
+      "atom_id": "atom_000",
+      "basis": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "source_dimension": 2,
+      "variance": 0.053015832261160745
+    },
+    {
+      "atom_id": "atom_001",
+      "basis": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "source_dimension": 0,
+      "variance": 0.021665290287350474
+    },
+    {
+      "atom_id": "atom_002",
+      "basis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "source_dimension": 1,
+      "variance": 0.001886768062208737
+    }
+  ],
+  "claim_class": "sparse_dictionary_research_challenger",
+  "dictionary_report_hash": "9af1113ce5d141405823033547abb5a8214eb3f4e0f944430859ee3137de1c3d",
+  "dictionary_report_id": "sparse_dictionary_11d5c2ce580804c748a8a432",
+  "dictionary_size": 3,
+  "encodings": [
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.17117212828956407,
+          "source_dimension": 2
+        },
+        {
+          "coefficient": 0.048889038102764376,
+          "source_dimension": 1
+        }
+      ],
+      "reconstruction_error": 0.000647196173939236,
+      "record_id": "mechanism_record_000"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.15945074608991638,
+          "source_dimension": 2
+        },
+        {
+          "coefficient": 0.04262053070005514,
+          "source_dimension": 1
+        }
+      ],
+      "reconstruction_error": 0.0004501634894272548,
+      "record_id": "mechanism_record_001"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.16282621280608278,
+          "source_dimension": 0
+        },
+        {
+          "coefficient": 0.08321753109802237,
+          "source_dimension": 1
+        }
+      ],
+      "reconstruction_error": 3.3700280826546526e-06,
+      "record_id": "mechanism_record_002"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.15741975310817077,
+          "source_dimension": 0
+        },
+        {
+          "coefficient": 0.04932031390683331,
+          "source_dimension": 1
+        }
+      ],
+      "reconstruction_error": 0.00015909566881098922,
+      "record_id": "mechanism_record_003"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.16949356062664242,
+          "source_dimension": 2
+        },
+        {
+          "coefficient": 0.0416095684868925,
+          "source_dimension": 0
+        }
+      ],
+      "reconstruction_error": 7.802052464939755e-05,
+      "record_id": "mechanism_record_004"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.1859045279306542,
+          "source_dimension": 2
+        },
+        {
+          "coefficient": 0.06313594954298664,
+          "source_dimension": 0
+        }
+      ],
+      "reconstruction_error": 0.0011264017890428792,
+      "record_id": "mechanism_record_005"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.14302579799991375,
+          "source_dimension": 0
+        },
+        {
+          "coefficient": 0.03357658347522969,
+          "source_dimension": 2
+        }
+      ],
+      "reconstruction_error": 0.0003653515522716014,
+      "record_id": "mechanism_record_006"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.16826004377108852,
+          "source_dimension": 0
+        },
+        {
+          "coefficient": 0.08833198036187857,
+          "source_dimension": 1
+        }
+      ],
+      "reconstruction_error": 2.0429910879799092e-05,
+      "record_id": "mechanism_record_007"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.16339815858823656,
+          "source_dimension": 2
+        },
+        {
+          "coefficient": 0.04149103982601505,
+          "source_dimension": 1
+        }
+      ],
+      "reconstruction_error": 0.00012456171055353786,
+      "record_id": "mechanism_record_008"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.17517051222548202,
+          "source_dimension": 2
+        },
+        {
+          "coefficient": 0.0490333740891687,
+          "source_dimension": 0
+        }
+      ],
+      "reconstruction_error": 9.313967406775497e-05,
+      "record_id": "mechanism_record_009"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.1576782838464466,
+          "source_dimension": 0
+        },
+        {
+          "coefficient": 0.056396483714382994,
+          "source_dimension": 1
+        }
+      ],
+      "reconstruction_error": 0.0003039888124611888,
+      "record_id": "mechanism_record_010"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.14770801447341747,
+          "source_dimension": 0
+        },
+        {
+          "coefficient": 0.03917627043432264,
+          "source_dimension": 2
+        }
+      ],
+      "reconstruction_error": 0.00043389213244419007,
+      "record_id": "mechanism_record_011"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.16733762633748828,
+          "source_dimension": 0
+        },
+        {
+          "coefficient": 0.09013368941200647,
+          "source_dimension": 1
+        }
+      ],
+      "reconstruction_error": 1.0786947826828518e-05,
+      "record_id": "mechanism_record_012"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.17323310461754884,
+          "source_dimension": 2
+        },
+        {
+          "coefficient": 0.04775781513826641,
+          "source_dimension": 1
+        }
+      ],
+      "reconstruction_error": 0.0003324191073923602,
+      "record_id": "mechanism_record_013"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.18078442303460335,
+          "source_dimension": 2
+        },
+        {
+          "coefficient": 0.056416528063496306,
+          "source_dimension": 0
+        }
+      ],
+      "reconstruction_error": 0.00010965057760820219,
+      "record_id": "mechanism_record_014"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.1634648850813748,
+          "source_dimension": 0
+        },
+        {
+          "coefficient": 0.05992583119517281,
+          "source_dimension": 1
+        }
+      ],
+      "reconstruction_error": 0.000459076220210025,
+      "record_id": "mechanism_record_015"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.1523502934947635,
+          "source_dimension": 0
+        },
+        {
+          "coefficient": 0.044758195568868335,
+          "source_dimension": 2
+        }
+      ],
+      "reconstruction_error": 0.0005080170615640725,
+      "record_id": "mechanism_record_016"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.1328450956182197,
+          "source_dimension": 2
+        },
+        {
+          "coefficient": 0.07388369088202393,
+          "source_dimension": 1
+        }
+      ],
+      "reconstruction_error": 0.00010466141110435616,
+      "record_id": "mechanism_record_017"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.18714508998291543,
+          "source_dimension": 2
+        },
+        {
+          "coefficient": 0.05690438399594781,
+          "source_dimension": 1
+        }
+      ],
+      "reconstruction_error": 0.0008323109735996747,
+      "record_id": "mechanism_record_018"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.17220001281151115,
+          "source_dimension": 0
+        },
+        {
+          "coefficient": 0.03715394926185532,
+          "source_dimension": 2
+        }
+      ],
+      "reconstruction_error": 0.00021276887817534796,
+      "record_id": "mechanism_record_019"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.16918355854099493,
+          "source_dimension": 0
+        },
+        {
+          "coefficient": 0.06342715660784219,
+          "source_dimension": 1
+        }
+      ],
+      "reconstruction_error": 0.0006451973590547295,
+      "record_id": "mechanism_record_020"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.13487815802455896,
+          "source_dimension": 2
+        },
+        {
+          "coefficient": 0.06762739183059518,
+          "source_dimension": 1
+        }
+      ],
+      "reconstruction_error": 1.7013410409519532e-08,
+      "record_id": "mechanism_record_021"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.13669566357242594,
+          "source_dimension": 2
+        },
+        {
+          "coefficient": 0.07886339368151347,
+          "source_dimension": 1
+        }
+      ],
+      "reconstruction_error": 0.00019998787619868486,
+      "record_id": "mechanism_record_022"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.152002632729994,
+          "source_dimension": 0
+        },
+        {
+          "coefficient": 0.033949411791017056,
+          "source_dimension": 1
+        }
+      ],
+      "reconstruction_error": 0.0003399614546055031,
+      "record_id": "mechanism_record_023"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.1785109360425779,
+          "source_dimension": 0
+        },
+        {
+          "coefficient": 0.04323365379217048,
+          "source_dimension": 2
+        }
+      ],
+      "reconstruction_error": 0.0002414628407595763,
+      "record_id": "mechanism_record_024"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.14859911692710892,
+          "source_dimension": 2
+        },
+        {
+          "coefficient": 0.07530492301309871,
+          "source_dimension": 1
+        }
+      ],
+      "reconstruction_error": 0.00016084274525454725,
+      "record_id": "mechanism_record_025"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.14474107945312828,
+          "source_dimension": 2
+        },
+        {
+          "coefficient": 0.07310788479014527,
+          "source_dimension": 1
+        }
+      ],
+      "reconstruction_error": 4.471729668378637e-05,
+      "record_id": "mechanism_record_026"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.1403219767186675,
+          "source_dimension": 0
+        },
+        {
+          "coefficient": 0.04685617752086464,
+          "source_dimension": 1
+        }
+      ],
+      "reconstruction_error": 1.231446134853955e-06,
+      "record_id": "mechanism_record_027"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.157269736652099,
+          "source_dimension": 0
+        },
+        {
+          "coefficient": 0.03820581505978744,
+          "source_dimension": 2
+        }
+      ],
+      "reconstruction_error": 0.0004623107498450989,
+      "record_id": "mechanism_record_028"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.18472626641339068,
+          "source_dimension": 0
+        },
+        {
+          "coefficient": 0.04927391536135793,
+          "source_dimension": 2
+        }
+      ],
+      "reconstruction_error": 0.0002722391309733058,
+      "record_id": "mechanism_record_029"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": -0.4296700478916884,
+          "source_dimension": 2
+        },
+        {
+          "coefficient": 0.4114163073481158,
+          "source_dimension": 0
+        }
+      ],
+      "reconstruction_error": 0.000843344788216527,
+      "record_id": "mechanism_record_030"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": -0.4471889910274285,
+          "source_dimension": 2
+        },
+        {
+          "coefficient": 0.4321099161286281,
+          "source_dimension": 0
+        }
+      ],
+      "reconstruction_error": 0.00038793476076097493,
+      "record_id": "mechanism_record_031"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.4157098975168604,
+          "source_dimension": 0
+        },
+        {
+          "coefficient": -0.4076521113431116,
+          "source_dimension": 2
+        }
+      ],
+      "reconstruction_error": 0.0005293596607573779,
+      "record_id": "mechanism_record_032"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.4380454689916058,
+          "source_dimension": 0
+        },
+        {
+          "coefficient": -0.4285263823083928,
+          "source_dimension": 2
+        }
+      ],
+      "reconstruction_error": 0.0003654391575463283,
+      "record_id": "mechanism_record_033"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": -0.40033600024930716,
+          "source_dimension": 2
+        },
+        {
+          "coefficient": 0.3867216321141628,
+          "source_dimension": 0
+        }
+      ],
+      "reconstruction_error": 0.0007345755542773777,
+      "record_id": "mechanism_record_034"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": -0.45251374022968704,
+          "source_dimension": 2
+        },
+        {
+          "coefficient": 0.4322550590257626,
+          "source_dimension": 0
+        }
+      ],
+      "reconstruction_error": 0.0009387355156408324,
+      "record_id": "mechanism_record_035"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": -0.40508662226004977,
+          "source_dimension": 2
+        },
+        {
+          "coefficient": 0.3904972067613187,
+          "source_dimension": 0
+        }
+      ],
+      "reconstruction_error": 3.809667022359513e-05,
+      "record_id": "mechanism_record_036"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": 0.4369959608006717,
+          "source_dimension": 0
+        },
+        {
+          "coefficient": -0.4319844582306486,
+          "source_dimension": 2
+        }
+      ],
+      "reconstruction_error": 0.0006606251076305588,
+      "record_id": "mechanism_record_037"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": -0.4002513983699649,
+          "source_dimension": 2
+        },
+        {
+          "coefficient": 0.3870843006344769,
+          "source_dimension": 0
+        }
+      ],
+      "reconstruction_error": 0.00035399702334636644,
+      "record_id": "mechanism_record_038"
+    },
+    {
+      "active_atoms": [
+        {
+          "coefficient": -0.42184122693844583,
+          "source_dimension": 2
+        },
+        {
+          "coefficient": 0.4130282689168664,
+          "source_dimension": 0
+        }
+      ],
+      "reconstruction_error": 0.0007852603454942195,
+      "record_id": "mechanism_record_039"
+    }
+  ],
+  "mean_reconstruction_error": 0.0003595159785231501,
+  "phase": "SAED_V4_26",
+  "random_control_error": 0.03700660702673815,
+  "reference_gate_passed": true,
+  "top_k": 2
+}

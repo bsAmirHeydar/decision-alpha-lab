@@ -1,0 +1,20 @@
+{
+  "certificate_hash": "c8f942ede4435348382cf3b37e692b73d8f51235a8841bc82ba4df4362b03a8d",
+  "frozen_artifact_hashes": {
+    "GOLDEN_ADAPTATIONS.JSON": "cc26b00ea5298ff0fb7167aaf81aea283edb14fa219b8828ca400901457d49a7",
+    "GOLDEN_CONTINUAL_CALIBRATION_STATES.JSON": "43a0e9498564f7ba3bad2556c7a53d1517576e68c308bd65577207c336c3749c",
+    "GOLDEN_DRIFT_REPORT.JSON": "5e250f8fc98dd18d06ce5712b830001b8a45f879107c656a6afdd8c05555e9b5",
+    "GOLDEN_META_FEATURES.JSON": "bfe4ff1bbce59ac128a3c8e243b682c085d0f0ba2018cf20aafdeb879b660f45",
+    "GOLDEN_REPLAY_RECEIPT.JSON": "3f6e7a344b061e601e0756e70179cdc93a3f1f8e06a77e1929cb2ddaccec321b",
+    "GOLDEN_TRANSFER_MAP.JSON": "ffa2a4d4656d18e49ce4dd2c91bac1da3b015baf7b5af4c72db23a920fa88f87",
+    "GOLDEN_TRANSFER_REPORT.JSON": "b28a7c76cb56cc902b46f91049582eec409e900e54ae88d17c3682fa65d77fef"
+  },
+  "handoff_hash": "feb08e6c361c30cce166c19229abe4123021a3e864c063f2ddae13dce88c8c03",
+  "hash_verified": true,
+  "immutable": true,
+  "phase": "SAED_V4_26",
+  "research_only": true,
+  "upstream_phase": "SAED_V4_25",
+  "upstream_receipt_hash": "2e22f1a9f57f921e5768a921d4f31b3fae8ad6ab4004f0afb0d8779e562482d0",
+  "upstream_receipt_id": "v4_25_receipt_70aeebab08f761acc36dc92d"
+}

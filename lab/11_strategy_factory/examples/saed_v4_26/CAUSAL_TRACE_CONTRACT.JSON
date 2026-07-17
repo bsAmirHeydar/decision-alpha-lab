@@ -1,0 +1,13 @@
+{
+  "baseline_preserved": true,
+  "deterministic": true,
+  "exact_version": "1.0.0",
+  "intervention": "zero_activation_and_past_only_patch",
+  "layer_ids": [
+    "representation_1",
+    "representation_2"
+  ],
+  "maximum_neurons_per_layer": 4,
+  "past_only_patch_sources": true,
+  "same_model_required": true
+}

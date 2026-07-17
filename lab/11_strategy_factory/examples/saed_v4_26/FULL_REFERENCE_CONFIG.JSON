@@ -1,0 +1,187 @@
+{
+  "attribution_contract": {
+    "baseline_value": 0.0,
+    "deterministic": true,
+    "exact_version": "1.0.0",
+    "future_suffix_forbidden": true,
+    "integration_steps": 12,
+    "maximum_feature_concentration": 0.72,
+    "method": "integrated_gradients_plus_occlusion",
+    "normalize_abs_sum": true
+  },
+  "causal_trace_contract": {
+    "baseline_preserved": true,
+    "deterministic": true,
+    "exact_version": "1.0.0",
+    "intervention": "zero_activation_and_past_only_patch",
+    "layer_ids": [
+      "representation_1",
+      "representation_2"
+    ],
+    "maximum_neurons_per_layer": 4,
+    "past_only_patch_sources": true,
+    "same_model_required": true
+  },
+  "concept_probe_contract": {
+    "concept_names": [
+      "trend_alignment",
+      "liquidity_pressure",
+      "execution_friction"
+    ],
+    "concept_vectors": [
+      [
+        0.9,
+        0.3,
+        -0.2
+      ],
+      [
+        -0.1,
+        0.9,
+        0.4
+      ],
+      [
+        0.2,
+        -0.3,
+        0.95
+      ]
+    ],
+    "deterministic": true,
+    "exact_version": "1.0.0",
+    "minimum_signal_over_random": -0.25,
+    "minimum_validation_records": 8,
+    "random_control_required": true
+  },
+  "counterfactual_contract": {
+    "decision_threshold": 0.5,
+    "deterministic": true,
+    "deterministic_tie_break": "minimum_absolute_change_then_feature_then_signed_delta",
+    "exact_version": "1.0.0",
+    "immutable_model": true,
+    "maximum_absolute_perturbation": 1.0,
+    "maximum_feature_changes": 1,
+    "perturbation_grid": [
+      -1.0,
+      -0.75,
+      -0.5,
+      -0.25,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ]
+  },
+  "faithfulness_contract": {
+    "critical_shortcuts_forbidden": true,
+    "exact_version": "1.0.0",
+    "fail_closed": true,
+    "minimum_attribution_score_correlation": 0.3,
+    "minimum_deletion_drop": -0.05,
+    "randomization_rank_correlation_ceiling": 0.95,
+    "stability_cosine_floor": 0.95
+  },
+  "mechanism_dataset_contract": {
+    "allowed_roles": [
+      "mechanism_train",
+      "mechanism_validation",
+      "mechanism_stress",
+      "mechanism_negative"
+    ],
+    "cluster_role_separation_required": true,
+    "exact_version": "1.0.0",
+    "future_suffix_forbidden": true,
+    "immutable_models_required": true,
+    "minimum_contexts": 4,
+    "minimum_models": 2,
+    "minimum_records": 32,
+    "minimum_records_per_role": 8,
+    "protected_evidence_forbidden": true,
+    "required_fields": [
+      "adaptation_deltas",
+      "baseline_score",
+      "bias",
+      "calibration_components",
+      "calibration_weights",
+      "cluster_id",
+      "context_id",
+      "decision_time",
+      "feature_names",
+      "feature_values",
+      "feature_weights",
+      "future_suffix_accessed",
+      "immutable_model",
+      "known_time",
+      "layer_ids",
+      "layer_matrices",
+      "model_generation",
+      "model_id",
+      "observed_score",
+      "observed_target",
+      "ood_pvalue",
+      "outcome_observed_at",
+      "output_weights",
+      "protected_evidence_accessed",
+      "record_id",
+      "role",
+      "support_score",
+      "task_id",
+      "transfer_sources",
+      "treatment_interactions",
+      "view_names",
+      "view_values",
+      "view_weights"
+    ],
+    "strict_known_time": true
+  },
+  "pathway_contract": {
+    "ablation_method": "frozen_component_zero_ablation",
+    "allowed_pathways": [
+      "transfer",
+      "adaptation",
+      "calibration",
+      "view_fusion",
+      "treatment_interaction"
+    ],
+    "baseline_preserved": true,
+    "deterministic": true,
+    "exact_version": "1.0.0",
+    "maximum_pathway_concentration": 0.85,
+    "minimum_pathway_count": 5
+  },
+  "research_budget": {
+    "exact_version": "1.0.0",
+    "maximum_concept_probes": 300,
+    "maximum_counterfactual_trials": 2000,
+    "maximum_dictionary_trials": 16,
+    "maximum_feature_ablations": 300,
+    "maximum_hidden_evaluation_queries": 0,
+    "maximum_online_policy_mutations": 0,
+    "maximum_order_submissions": 0,
+    "maximum_patch_interventions": 64,
+    "maximum_pathway_ablations": 240,
+    "maximum_protected_evidence_exposures": 0,
+    "maximum_records": 64,
+    "maximum_runtime_compilations": 0,
+    "maximum_trace_interventions": 400
+  },
+  "sparse_dictionary_contract": {
+    "deterministic": true,
+    "dictionary_size": 3,
+    "exact_version": "1.0.0",
+    "maximum_reconstruction_error": 0.25,
+    "minimum_records": 32,
+    "randomized_control_required": true,
+    "top_k": 2
+  },
+  "upstream_intake": {
+    "certificate_hash": "c8f942ede4435348382cf3b37e692b73d8f51235a8841bc82ba4df4362b03a8d",
+    "exact_version": "1.0.0",
+    "handoff_hash": "feb08e6c361c30cce166c19229abe4123021a3e864c063f2ddae13dce88c8c03",
+    "hash_verified": true,
+    "immutable": true,
+    "online_policy_mutation_denied": true,
+    "promotion_denied": true,
+    "required_phase": "SAED_V4_25",
+    "research_only": true,
+    "runtime_denied": true
+  }
+}

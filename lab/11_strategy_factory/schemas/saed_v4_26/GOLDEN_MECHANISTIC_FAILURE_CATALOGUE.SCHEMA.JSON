@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "critical_count": {
+      "type": "integer"
+    },
+    "entries": {
+      "items": {},
+      "type": "array"
+    },
+    "entry_count": {
+      "type": "integer"
+    },
+    "fail_closed": {
+      "type": "boolean"
+    },
+    "failure_catalogue_hash": {
+      "type": "string"
+    },
+    "failure_catalogue_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "critical_count",
+    "entries",
+    "entry_count",
+    "fail_closed",
+    "failure_catalogue_hash",
+    "failure_catalogue_id",
+    "phase"
+  ],
+  "title": "GOLDEN_MECHANISTIC_FAILURE_CATALOGUE",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

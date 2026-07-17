@@ -1,0 +1,1330 @@
+{
+  "baseline_preserved": true,
+  "deterministic": true,
+  "method": "frozen_component_zero_ablation",
+  "pathway_bundle_hash": "38245fe565a87d42fe9ba94ceb791a6bb7a9a27fbab39728f70cb4f2cf13273d",
+  "pathway_bundle_id": "mechanistic_pathways_7aa03b01dab73bb1e0a0ba07",
+  "phase": "SAED_V4_26",
+  "records": [
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.7459497877289942,
+      "pathways": [
+        {
+          "absolute_share": 0.022737482079594154,
+          "pathway": "adaptation",
+          "score_delta": -0.0008948019755646852
+        },
+        {
+          "absolute_share": 0.7459497877289942,
+          "pathway": "calibration",
+          "score_delta": 0.029355816153935177
+        },
+        {
+          "absolute_share": 0.0,
+          "pathway": "transfer",
+          "score_delta": 0.0
+        },
+        {
+          "absolute_share": 0.14789964242239523,
+          "pathway": "treatment_interaction",
+          "score_delta": -0.005820384674151746
+        },
+        {
+          "absolute_share": 0.08341308776901633,
+          "pathway": "view_fusion",
+          "score_delta": 0.0032826060274567803
+        }
+      ],
+      "record_id": "mechanism_record_000",
+      "score": 0.46155487008538604
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.7849927630307884,
+      "pathways": [
+        {
+          "absolute_share": 0.10097403706574364,
+          "pathway": "adaptation",
+          "score_delta": 0.003891477080738115
+        },
+        {
+          "absolute_share": 0.7849927630307884,
+          "pathway": "calibration",
+          "score_delta": 0.030253136693847826
+        },
+        {
+          "absolute_share": 0.0,
+          "pathway": "transfer",
+          "score_delta": 0.0
+        },
+        {
+          "absolute_share": 0.07606109444713817,
+          "pathway": "treatment_interaction",
+          "score_delta": 0.0029313476451791054
+        },
+        {
+          "absolute_share": 0.037972105456329786,
+          "pathway": "view_fusion",
+          "score_delta": 0.001463421512942653
+        }
+      ],
+      "record_id": "mechanism_record_001",
+      "score": 0.4785990476161981
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.7786530809755037,
+      "pathways": [
+        {
+          "absolute_share": 0.05654308509747833,
+          "pathway": "adaptation",
+          "score_delta": -0.0022423361222511096
+        },
+        {
+          "absolute_share": 0.7786530809755037,
+          "pathway": "calibration",
+          "score_delta": 0.03087914158138777
+        },
+        {
+          "absolute_share": 0.0,
+          "pathway": "transfer",
+          "score_delta": 0.0
+        },
+        {
+          "absolute_share": 0.03769210488035729,
+          "pathway": "treatment_interaction",
+          "score_delta": -0.0014947604671941006
+        },
+        {
+          "absolute_share": 0.12711172904666065,
+          "pathway": "view_fusion",
+          "score_delta": 0.005040885567381859
+        }
+      ],
+      "record_id": "mechanism_record_002",
+      "score": 0.4697049182470798
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.7244908799175691,
+      "pathways": [
+        {
+          "absolute_share": 0.0343194472820392,
+          "pathway": "adaptation",
+          "score_delta": -0.0014910027159361627
+        },
+        {
+          "absolute_share": 0.7244908799175691,
+          "pathway": "calibration",
+          "score_delta": 0.03147538655709642
+        },
+        {
+          "absolute_share": 0.0,
+          "pathway": "transfer",
+          "score_delta": 0.0
+        },
+        {
+          "absolute_share": 0.1809174076663998,
+          "pathway": "treatment_interaction",
+          "score_delta": -0.007859926879763668
+        },
+        {
+          "absolute_share": 0.06027226513399191,
+          "pathway": "view_fusion",
+          "score_delta": 0.002618518598853925
+        }
+      ],
+      "record_id": "mechanism_record_003",
+      "score": 0.4605329592184956
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.6027690525207511,
+      "pathways": [
+        {
+          "absolute_share": 0.06666637783064482,
+          "pathway": "adaptation",
+          "score_delta": 0.0035998489943969703
+        },
+        {
+          "absolute_share": 0.6027690525207511,
+          "pathway": "calibration",
+          "score_delta": 0.032548304530398586
+        },
+        {
+          "absolute_share": 0.10693989500775966,
+          "pathway": "transfer",
+          "score_delta": 0.005774537120983969
+        },
+        {
+          "absolute_share": 0.18284315071274496,
+          "pathway": "treatment_interaction",
+          "score_delta": 0.009873158759243217
+        },
+        {
+          "absolute_share": 0.04078152392809947,
+          "pathway": "view_fusion",
+          "score_delta": 0.0022021194593095372
+        }
+      ],
+      "record_id": "mechanism_record_004",
+      "score": 0.498732935005764
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.617316095669114,
+      "pathways": [
+        {
+          "absolute_share": 0.022907852365730265,
+          "pathway": "adaptation",
+          "score_delta": -0.0011989387464447776
+        },
+        {
+          "absolute_share": 0.617316095669114,
+          "pathway": "calibration",
+          "score_delta": 0.03230875483591489
+        },
+        {
+          "absolute_share": 0.12907179022630075,
+          "pathway": "transfer",
+          "score_delta": 0.006755289317596891
+        },
+        {
+          "absolute_share": 0.12220808560381237,
+          "pathway": "treatment_interaction",
+          "score_delta": -0.006396060469572529
+        },
+        {
+          "absolute_share": 0.10849617613504257,
+          "pathway": "view_fusion",
+          "score_delta": 0.005678413992400155
+        }
+      ],
+      "record_id": "mechanism_record_005",
+      "score": 0.48453532699960083
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.6166120163712482,
+      "pathways": [
+        {
+          "absolute_share": 0.02662259073447183,
+          "pathway": "adaptation",
+          "score_delta": -0.0013486947202613342
+        },
+        {
+          "absolute_share": 0.6166120163712482,
+          "pathway": "calibration",
+          "score_delta": 0.03123743212011243
+        },
+        {
+          "absolute_share": 0.15282983794503788,
+          "pathway": "transfer",
+          "score_delta": 0.007742326717586345
+        },
+        {
+          "absolute_share": 0.138452077517145,
+          "pathway": "treatment_interaction",
+          "score_delta": 0.007013952466872531
+        },
+        {
+          "absolute_share": 0.06548347743209706,
+          "pathway": "view_fusion",
+          "score_delta": 0.0033173788816377447
+        }
+      ],
+      "record_id": "mechanism_record_006",
+      "score": 0.4837832492819299
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.6537699020943754,
+      "pathways": [
+        {
+          "absolute_share": 0.046041160899665916,
+          "pathway": "adaptation",
+          "score_delta": -0.002245128992540757
+        },
+        {
+          "absolute_share": 0.6537699020943754,
+          "pathway": "calibration",
+          "score_delta": 0.031880120591252614
+        },
+        {
+          "absolute_share": 0.17873795230644832,
+          "pathway": "transfer",
+          "score_delta": 0.008715891409972809
+        },
+        {
+          "absolute_share": 0.026087629995006283,
+          "pathway": "treatment_interaction",
+          "score_delta": -0.0012721246229238647
+        },
+        {
+          "absolute_share": 0.09536335470450416,
+          "pathway": "view_fusion",
+          "score_delta": 0.0046502526932283295
+        }
+      ],
+      "record_id": "mechanism_record_007",
+      "score": 0.47562234234945217
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.6604429478494128,
+      "pathways": [
+        {
+          "absolute_share": 0.029014768111653436,
+          "pathway": "adaptation",
+          "score_delta": -0.0013489785941041554
+        },
+        {
+          "absolute_share": 0.6604429478494128,
+          "pathway": "calibration",
+          "score_delta": 0.030705859714180384
+        },
+        {
+          "absolute_share": 0.2090691005769691,
+          "pathway": "transfer",
+          "score_delta": 0.009720213523046084
+        },
+        {
+          "absolute_share": 0.05345025200515204,
+          "pathway": "treatment_interaction",
+          "score_delta": 0.002485053319294439
+        },
+        {
+          "absolute_share": 0.04802293145681267,
+          "pathway": "view_fusion",
+          "score_delta": 0.002232721843996144
+        }
+      ],
+      "record_id": "mechanism_record_008",
+      "score": 0.48557788779158456
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.5357094222600379,
+      "pathways": [
+        {
+          "absolute_share": 0.06630079025498188,
+          "pathway": "adaptation",
+          "score_delta": 0.003899962830720194
+        },
+        {
+          "absolute_share": 0.5357094222600379,
+          "pathway": "calibration",
+          "score_delta": 0.03151164302636272
+        },
+        {
+          "absolute_share": 0.18230736066041667,
+          "pathway": "transfer",
+          "score_delta": 0.01072373236590346
+        },
+        {
+          "absolute_share": 0.18485641466133412,
+          "pathway": "treatment_interaction",
+          "score_delta": 0.010873673502635683
+        },
+        {
+          "absolute_share": 0.03082601216322934,
+          "pathway": "view_fusion",
+          "score_delta": 0.0018132559384824165
+        }
+      ],
+      "record_id": "mechanism_record_009",
+      "score": 0.5008939783169096
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.5316512786462922,
+      "pathways": [
+        {
+          "absolute_share": 0.061146942058028154,
+          "pathway": "adaptation",
+          "score_delta": 0.0035949710615427732
+        },
+        {
+          "absolute_share": 0.5316512786462922,
+          "pathway": "calibration",
+          "score_delta": 0.03125701625032773
+        },
+        {
+          "absolute_share": 0.1988406005084945,
+          "pathway": "transfer",
+          "score_delta": 0.01169030176536806
+        },
+        {
+          "absolute_share": 0.11770097603040844,
+          "pathway": "treatment_interaction",
+          "score_delta": -0.006919914365351387
+        },
+        {
+          "absolute_share": 0.09066020275677664,
+          "pathway": "view_fusion",
+          "score_delta": 0.005330124359038513
+        }
+      ],
+      "record_id": "mechanism_record_010",
+      "score": 0.4831387384888106
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.6384309639225023,
+      "pathways": [
+        {
+          "absolute_share": 0.029872605966830255,
+          "pathway": "adaptation",
+          "score_delta": -0.0014998687385903153
+        },
+        {
+          "absolute_share": 0.6384309639225023,
+          "pathway": "calibration",
+          "score_delta": 0.032054874810677536
+        },
+        {
+          "absolute_share": 0.11498667130795313,
+          "pathway": "transfer",
+          "score_delta": 0.00577334678604402
+        },
+        {
+          "absolute_share": 0.15827959651028498,
+          "pathway": "treatment_interaction",
+          "score_delta": 0.007947034116342788
+        },
+        {
+          "absolute_share": 0.05843016229242935,
+          "pathway": "view_fusion",
+          "score_delta": 0.0029337103669657694
+        }
+      ],
+      "record_id": "mechanism_record_011",
+      "score": 0.4945928809387032
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.7100624982250288,
+      "pathways": [
+        {
+          "absolute_share": 0.051744545482281336,
+          "pathway": "adaptation",
+          "score_delta": -0.002240957208000216
+        },
+        {
+          "absolute_share": 0.7100624982250288,
+          "pathway": "calibration",
+          "score_delta": 0.030751447494555606
+        },
+        {
+          "absolute_share": 0.15538626074524722,
+          "pathway": "transfer",
+          "score_delta": 0.006729481490189149
+        },
+        {
+          "absolute_share": 0.02356885085084283,
+          "pathway": "treatment_interaction",
+          "score_delta": -0.0010207218114721694
+        },
+        {
+          "absolute_share": 0.05923784469659981,
+          "pathway": "view_fusion",
+          "score_delta": 0.002565477652223258
+        }
+      ],
+      "record_id": "mechanism_record_012",
+      "score": 0.4671883645331131
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.6800592070651367,
+      "pathways": [
+        {
+          "absolute_share": 0.02577578527116028,
+          "pathway": "adaptation",
+          "score_delta": -0.0011986675039337147
+        },
+        {
+          "absolute_share": 0.6800592070651367,
+          "pathway": "calibration",
+          "score_delta": 0.031625219704633833
+        },
+        {
+          "absolute_share": 0.1664600773421926,
+          "pathway": "transfer",
+          "score_delta": 0.0077409973474455995
+        },
+        {
+          "absolute_share": 0.05797945457700087,
+          "pathway": "treatment_interaction",
+          "score_delta": 0.002696254929428321
+        },
+        {
+          "absolute_share": 0.06972547574450955,
+          "pathway": "view_fusion",
+          "score_delta": 0.0032424875165597555
+        }
+      ],
+      "record_id": "mechanism_record_013",
+      "score": 0.48274284282247365
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.552937528236777,
+      "pathways": [
+        {
+          "absolute_share": 0.07144925663758282,
+          "pathway": "adaptation",
+          "score_delta": 0.004197930870718292
+        },
+        {
+          "absolute_share": 0.552937528236777,
+          "pathway": "calibration",
+          "score_delta": 0.032487301178482364
+        },
+        {
+          "absolute_share": 0.14879141006641383,
+          "pathway": "transfer",
+          "score_delta": 0.00874209310229479
+        },
+        {
+          "absolute_share": 0.20248799054447134,
+          "pathway": "treatment_interaction",
+          "score_delta": 0.011896982928290223
+        },
+        {
+          "absolute_share": 0.024333814514754987,
+          "pathway": "view_fusion",
+          "score_delta": 0.0014297093624356938
+        }
+      ],
+      "record_id": "mechanism_record_014",
+      "score": 0.5131303315146009
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.5592977623296792,
+      "pathways": [
+        {
+          "absolute_share": 0.057278747231609875,
+          "pathway": "adaptation",
+          "score_delta": 0.0032925462633342506
+        },
+        {
+          "absolute_share": 0.5592977623296792,
+          "pathway": "calibration",
+          "score_delta": 0.03215003550974199
+        },
+        {
+          "absolute_share": 0.16885741075605742,
+          "pathway": "transfer",
+          "score_delta": 0.009706407065312617
+        },
+        {
+          "absolute_share": 0.1289918192632482,
+          "pathway": "treatment_interaction",
+          "score_delta": -0.00741481881226469
+        },
+        {
+          "absolute_share": 0.08557426041940525,
+          "pathway": "view_fusion",
+          "score_delta": 0.0049190533138269155
+        }
+      ],
+      "record_id": "mechanism_record_015",
+      "score": 0.477902527745008
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.5656290910610284,
+      "pathways": [
+        {
+          "absolute_share": 0.03008943118593071,
+          "pathway": "adaptation",
+          "score_delta": -0.0016499119934337836
+        },
+        {
+          "absolute_share": 0.5656290910610284,
+          "pathway": "calibration",
+          "score_delta": 0.031015482326997468
+        },
+        {
+          "absolute_share": 0.19550900575782992,
+          "pathway": "transfer",
+          "score_delta": 0.010720463654859236
+        },
+        {
+          "absolute_share": 0.16225358227888748,
+          "pathway": "treatment_interaction",
+          "score_delta": 0.008896948889638878
+        },
+        {
+          "absolute_share": 0.046518889716323494,
+          "pathway": "view_fusion",
+          "score_delta": 0.0025507984378273507
+        }
+      ],
+      "record_id": "mechanism_record_016",
+      "score": 0.49555462556457514
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.5883865106639671,
+      "pathways": [
+        {
+          "absolute_share": 0.04185218615322522,
+          "pathway": "adaptation",
+          "score_delta": -0.0022429357900294322
+        },
+        {
+          "absolute_share": 0.5883865106639671,
+          "pathway": "calibration",
+          "score_delta": 0.031532717509836605
+        },
+        {
+          "absolute_share": 0.2175180009834574,
+          "pathway": "transfer",
+          "score_delta": 0.011657190560972808
+        },
+        {
+          "absolute_share": 0.10885712505392682,
+          "pathway": "treatment_interaction",
+          "score_delta": -0.005833853956619339
+        },
+        {
+          "absolute_share": 0.04338617714542352,
+          "pathway": "view_fusion",
+          "score_delta": 0.002325145194465028
+        }
+      ],
+      "record_id": "mechanism_record_017",
+      "score": 0.4708698243586243
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.6658775849541015,
+      "pathways": [
+        {
+          "absolute_share": 0.022844362775671197,
+          "pathway": "adaptation",
+          "score_delta": -0.0010482841143213406
+        },
+        {
+          "absolute_share": 0.6658775849541015,
+          "pathway": "calibration",
+          "score_delta": 0.0305558487774249
+        },
+        {
+          "absolute_share": 0.1255675125099918,
+          "pathway": "transfer",
+          "score_delta": 0.005762052981370724
+        },
+        {
+          "absolute_share": 0.06388805284946374,
+          "pathway": "treatment_interaction",
+          "score_delta": 0.002931700549263727
+        },
+        {
+          "absolute_share": 0.1218224869107717,
+          "pathway": "view_fusion",
+          "score_delta": 0.0055902009195758495
+        }
+      ],
+      "record_id": "mechanism_record_018",
+      "score": 0.4792656616357066
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.5990400845824397,
+      "pathways": [
+        {
+          "absolute_share": 0.18312164761436528,
+          "pathway": "adaptation",
+          "score_delta": 0.009597357990729749
+        },
+        {
+          "absolute_share": 0.5990400845824397,
+          "pathway": "calibration",
+          "score_delta": 0.03139553524901606
+        },
+        {
+          "absolute_share": 0.12905593470668356,
+          "pathway": "transfer",
+          "score_delta": 0.006763788019298722
+        },
+        {
+          "absolute_share": 0.028620023140959648,
+          "pathway": "treatment_interaction",
+          "score_delta": -0.0014999679795651422
+        },
+        {
+          "absolute_share": 0.06016230995555181,
+          "pathway": "view_fusion",
+          "score_delta": 0.0031530910392889022
+        }
+      ],
+      "record_id": "mechanism_record_019",
+      "score": 0.4969808241734803
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.5737746422299057,
+      "pathways": [
+        {
+          "absolute_share": 0.05515477431752102,
+          "pathway": "adaptation",
+          "score_delta": 0.0029969807139096916
+        },
+        {
+          "absolute_share": 0.5737746422299057,
+          "pathway": "calibration",
+          "score_delta": 0.031177564556676973
+        },
+        {
+          "absolute_share": 0.14252650885148982,
+          "pathway": "transfer",
+          "score_delta": 0.007744555272581388
+        },
+        {
+          "absolute_share": 0.14532140026774423,
+          "pathway": "treatment_interaction",
+          "score_delta": -0.00789642309863331
+        },
+        {
+          "absolute_share": 0.08322267433333921,
+          "pathway": "view_fusion",
+          "score_delta": 0.004522124385844373
+        }
+      ],
+      "record_id": "mechanism_record_020",
+      "score": 0.4856600663816878
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.5571860077698054,
+      "pathways": [
+        {
+          "absolute_share": 0.07612032904072577,
+          "pathway": "adaptation",
+          "score_delta": -0.004336064182291044
+        },
+        {
+          "absolute_share": 0.5571860077698054,
+          "pathway": "calibration",
+          "score_delta": 0.03173914671167266
+        },
+        {
+          "absolute_share": 0.152772667437194,
+          "pathway": "transfer",
+          "score_delta": 0.008702433366427842
+        },
+        {
+          "absolute_share": 0.17248490901548796,
+          "pathway": "treatment_interaction",
+          "score_delta": 0.009825307449310205
+        },
+        {
+          "absolute_share": 0.04143608673678688,
+          "pathway": "view_fusion",
+          "score_delta": 0.0023603357186955942
+        }
+      ],
+      "record_id": "mechanism_record_021",
+      "score": 0.4695596817342446
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.6157746470610915,
+      "pathways": [
+        {
+          "absolute_share": 0.04256990094851997,
+          "pathway": "adaptation",
+          "score_delta": -0.0022399517692237025
+        },
+        {
+          "absolute_share": 0.6157746470610915,
+          "pathway": "calibration",
+          "score_delta": 0.032400956530192426
+        },
+        {
+          "absolute_share": 0.1838593508337688,
+          "pathway": "transfer",
+          "score_delta": 0.009674348988654158
+        },
+        {
+          "absolute_share": 0.12115137711952377,
+          "pathway": "treatment_interaction",
+          "score_delta": -0.006374767981042251
+        },
+        {
+          "absolute_share": 0.03664472403709588,
+          "pathway": "view_fusion",
+          "score_delta": 0.0019281795966326065
+        }
+      ],
+      "record_id": "mechanism_record_022",
+      "score": 0.4654727723475583
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.5744956255517906,
+      "pathways": [
+        {
+          "absolute_share": 0.028348087319759022,
+          "pathway": "adaptation",
+          "score_delta": 0.0016499633601932961
+        },
+        {
+          "absolute_share": 0.5744956255517906,
+          "pathway": "calibration",
+          "score_delta": 0.0334377667903924
+        },
+        {
+          "absolute_share": 0.18425592994796558,
+          "pathway": "transfer",
+          "score_delta": 0.010724375506653061
+        },
+        {
+          "absolute_share": 0.12069475438635162,
+          "pathway": "treatment_interaction",
+          "score_delta": 0.0070248803828893425
+        },
+        {
+          "absolute_share": 0.09220560279413317,
+          "pathway": "view_fusion",
+          "score_delta": 0.005366706561144796
+        }
+      ],
+      "record_id": "mechanism_record_023",
+      "score": 0.5031324914735794
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.5419939929692444,
+      "pathways": [
+        {
+          "absolute_share": 0.1767250760384031,
+          "pathway": "adaptation",
+          "score_delta": 0.009897870056641389
+        },
+        {
+          "absolute_share": 0.5419939929692444,
+          "pathway": "calibration",
+          "score_delta": 0.03035554565399673
+        },
+        {
+          "absolute_share": 0.20911099819558793,
+          "pathway": "transfer",
+          "score_delta": 0.01171171366255197
+        },
+        {
+          "absolute_share": 0.022764808987335076,
+          "pathway": "treatment_interaction",
+          "score_delta": -0.0012749923568964316
+        },
+        {
+          "absolute_share": 0.04940512380942946,
+          "pathway": "view_fusion",
+          "score_delta": 0.0027670407989625057
+        }
+      ],
+      "record_id": "mechanism_record_024",
+      "score": 0.4981949518461309
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.6934080472492655,
+      "pathways": [
+        {
+          "absolute_share": 0.05530101390928614,
+          "pathway": "adaptation",
+          "score_delta": -0.0023916794277965003
+        },
+        {
+          "absolute_share": 0.6934080472492655,
+          "pathway": "calibration",
+          "score_delta": 0.029988776777131243
+        },
+        {
+          "absolute_share": 0.13293000161654603,
+          "pathway": "transfer",
+          "score_delta": 0.005749007617197821
+        },
+        {
+          "absolute_share": 0.05728285470550824,
+          "pathway": "treatment_interaction",
+          "score_delta": 0.0024773908375234077
+        },
+        {
+          "absolute_share": 0.06107808251939401,
+          "pathway": "view_fusion",
+          "score_delta": 0.0026415283034505466
+        }
+      ],
+      "record_id": "mechanism_record_025",
+      "score": 0.4693721545234353
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.5467392653855901,
+      "pathways": [
+        {
+          "absolute_share": 0.07975213575993799,
+          "pathway": "adaptation",
+          "score_delta": -0.004494424372271988
+        },
+        {
+          "absolute_share": 0.5467392653855901,
+          "pathway": "calibration",
+          "score_delta": 0.030811441677546236
+        },
+        {
+          "absolute_share": 0.11978306890451683,
+          "pathway": "transfer",
+          "score_delta": 0.006750363976339158
+        },
+        {
+          "absolute_share": 0.19247472476268873,
+          "pathway": "treatment_interaction",
+          "score_delta": 0.010846895644571808
+        },
+        {
+          "absolute_share": 0.06125080518726626,
+          "pathway": "view_fusion",
+          "score_delta": 0.0034517835670705432
+        }
+      ],
+      "record_id": "mechanism_record_026",
+      "score": 0.4802009942174404
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.6311736226366341,
+      "pathways": [
+        {
+          "absolute_share": 0.04508904709263061,
+          "pathway": "adaptation",
+          "score_delta": -0.0022378987350036295
+        },
+        {
+          "absolute_share": 0.6311736226366341,
+          "pathway": "calibration",
+          "score_delta": 0.03132695727111612
+        },
+        {
+          "absolute_share": 0.15516083236934788,
+          "pathway": "transfer",
+          "score_delta": 0.007701077154461
+        },
+        {
+          "absolute_share": 0.13886426569555957,
+          "pathway": "treatment_interaction",
+          "score_delta": -0.00689223180740256
+        },
+        {
+          "absolute_share": 0.029712232205827815,
+          "pathway": "view_fusion",
+          "score_delta": 0.0014747033072345372
+        }
+      ],
+      "record_id": "mechanism_record_027",
+      "score": 0.4622182817040994
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.579907467439633,
+      "pathways": [
+        {
+          "absolute_share": 0.03224664873338326,
+          "pathway": "adaptation",
+          "score_delta": 0.001799920048399628
+        },
+        {
+          "absolute_share": 0.579907467439633,
+          "pathway": "calibration",
+          "score_delta": 0.03236885437278547
+        },
+        {
+          "absolute_share": 0.156639267100755,
+          "pathway": "transfer",
+          "score_delta": 0.008743176990339385
+        },
+        {
+          "absolute_share": 0.14240293604270224,
+          "pathway": "treatment_interaction",
+          "score_delta": 0.00794854378988169
+        },
+        {
+          "absolute_share": 0.08880368068352659,
+          "pathway": "view_fusion",
+          "score_delta": 0.004956779433283709
+        }
+      ],
+      "record_id": "mechanism_record_028",
+      "score": 0.49760840022896974
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.5866742358607452,
+      "pathways": [
+        {
+          "absolute_share": 0.18056765752168033,
+          "pathway": "adaptation",
+          "score_delta": 0.010198088562898056
+        },
+        {
+          "absolute_share": 0.5866742358607452,
+          "pathway": "calibration",
+          "score_delta": 0.03313414980841772
+        },
+        {
+          "absolute_share": 0.1723344110760087,
+          "pathway": "transfer",
+          "score_delta": 0.009733091798995064
+        },
+        {
+          "absolute_share": 0.01813858299383515,
+          "pathway": "treatment_interaction",
+          "score_delta": -0.0010244297252092194
+        },
+        {
+          "absolute_share": 0.04228511254773065,
+          "pathway": "view_fusion",
+          "score_delta": 0.00238817587032214
+        }
+      ],
+      "record_id": "mechanism_record_029",
+      "score": 0.511277770848571
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.6760278245118712,
+      "pathways": [
+        {
+          "absolute_share": 0.006532132312679759,
+          "pathway": "adaptation",
+          "score_delta": -0.0002990282197576355
+        },
+        {
+          "absolute_share": 0.6760278245118712,
+          "pathway": "calibration",
+          "score_delta": 0.030947229356944994
+        },
+        {
+          "absolute_share": 0.23319379709320234,
+          "pathway": "transfer",
+          "score_delta": 0.010675155166092576
+        },
+        {
+          "absolute_share": 0.05880477602323404,
+          "pathway": "treatment_interaction",
+          "score_delta": -0.0026919674381580827
+        },
+        {
+          "absolute_share": 0.025441470059012733,
+          "pathway": "view_fusion",
+          "score_delta": 0.0011646606552956906
+        }
+      ],
+      "record_id": "mechanism_record_030",
+      "score": 0.4713933370470532
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.501158521765242,
+      "pathways": [
+        {
+          "absolute_share": 0.08297330301662915,
+          "pathway": "adaptation",
+          "score_delta": -0.005225583648745369
+        },
+        {
+          "absolute_share": 0.501158521765242,
+          "pathway": "calibration",
+          "score_delta": 0.03156251085052009
+        },
+        {
+          "absolute_share": 0.18466203371144516,
+          "pathway": "transfer",
+          "score_delta": 0.01162984802127498
+        },
+        {
+          "absolute_share": 0.1882279490443673,
+          "pathway": "treatment_interaction",
+          "score_delta": -0.011854426146757024
+        },
+        {
+          "absolute_share": 0.042978192462316336,
+          "pathway": "view_fusion",
+          "score_delta": 0.0027067277258891465
+        }
+      ],
+      "record_id": "mechanism_record_031",
+      "score": 0.4633230720494448
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.6178191559259673,
+      "pathways": [
+        {
+          "absolute_share": 0.08179854375281252,
+          "pathway": "adaptation",
+          "score_delta": 0.004048640656725333
+        },
+        {
+          "absolute_share": 0.6178191559259673,
+          "pathway": "calibration",
+          "score_delta": 0.03057912327564627
+        },
+        {
+          "absolute_share": 0.11663034755107209,
+          "pathway": "transfer",
+          "score_delta": 0.005772650040448191
+        },
+        {
+          "absolute_share": 0.149941964490759,
+          "pathway": "treatment_interaction",
+          "score_delta": 0.0074214173716959375
+        },
+        {
+          "absolute_share": 0.03380998827938909,
+          "pathway": "view_fusion",
+          "score_delta": 0.0016734343531223939
+        }
+      ],
+      "record_id": "mechanism_record_032",
+      "score": 0.4929390404484907
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.5332760610191718,
+      "pathways": [
+        {
+          "absolute_share": 0.1619880657615663,
+          "pathway": "adaptation",
+          "score_delta": -0.00938903068453173
+        },
+        {
+          "absolute_share": 0.5332760610191718,
+          "pathway": "calibration",
+          "score_delta": 0.03090934678857793
+        },
+        {
+          "absolute_share": 0.11563336449874016,
+          "pathway": "transfer",
+          "score_delta": 0.006702254282314579
+        },
+        {
+          "absolute_share": 0.1525471988492853,
+          "pathway": "treatment_interaction",
+          "score_delta": -0.008841826242579454
+        },
+        {
+          "absolute_share": 0.03655530987123638,
+          "pathway": "view_fusion",
+          "score_delta": 0.002118791433492362
+        }
+      ],
+      "record_id": "mechanism_record_033",
+      "score": 0.45523793437593174
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.6588409685522607,
+      "pathways": [
+        {
+          "absolute_share": 0.03709208989207532,
+          "pathway": "adaptation",
+          "score_delta": -0.0017975364111065817
+        },
+        {
+          "absolute_share": 0.6588409685522607,
+          "pathway": "calibration",
+          "score_delta": 0.03192838779231033
+        },
+        {
+          "absolute_share": 0.15967462841370808,
+          "pathway": "transfer",
+          "score_delta": 0.0077380638119524114
+        },
+        {
+          "absolute_share": 0.12047282761418532,
+          "pathway": "treatment_interaction",
+          "score_delta": 0.005838287753954008
+        },
+        {
+          "absolute_share": 0.02391948552777054,
+          "pathway": "view_fusion",
+          "score_delta": 0.0011591729205932544
+        }
+      ],
+      "record_id": "mechanism_record_034",
+      "score": 0.4806108454423797
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.71735629842577,
+      "pathways": [
+        {
+          "absolute_share": 0.0,
+          "pathway": "adaptation",
+          "score_delta": 0.0
+        },
+        {
+          "absolute_share": 0.71735629842577,
+          "pathway": "calibration",
+          "score_delta": 0.031784226709009544
+        },
+        {
+          "absolute_share": 0.19693817235397212,
+          "pathway": "transfer",
+          "score_delta": 0.008725827781108364
+        },
+        {
+          "absolute_share": 0.0662172181180444,
+          "pathway": "treatment_interaction",
+          "score_delta": -0.0029339159317657293
+        },
+        {
+          "absolute_share": 0.019488311102213444,
+          "pathway": "view_fusion",
+          "score_delta": 0.0008634773258529571
+        }
+      ],
+      "record_id": "mechanism_record_035",
+      "score": 0.48108866576637493
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.6090397196858253,
+      "pathways": [
+        {
+          "absolute_share": 0.1131716067531423,
+          "pathway": "adaptation",
+          "score_delta": -0.005674610715310224
+        },
+        {
+          "absolute_share": 0.6090397196858253,
+          "pathway": "calibration",
+          "score_delta": 0.030538254413205623
+        },
+        {
+          "absolute_share": 0.19283823749739584,
+          "pathway": "transfer",
+          "score_delta": 0.009669226762956395
+        },
+        {
+          "absolute_share": 0.02975218836397179,
+          "pathway": "treatment_interaction",
+          "score_delta": 0.0014918237156638647
+        },
+        {
+          "absolute_share": 0.055198247699664804,
+          "pathway": "view_fusion",
+          "score_delta": 0.002767731031212639
+        }
+      ],
+      "record_id": "mechanism_record_036",
+      "score": 0.46383352194458183
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.5648711346659875,
+      "pathways": [
+        {
+          "absolute_share": 0.07789798925450579,
+          "pathway": "adaptation",
+          "score_delta": 0.0043492201442064116
+        },
+        {
+          "absolute_share": 0.5648711346659875,
+          "pathway": "calibration",
+          "score_delta": 0.03153802737761863
+        },
+        {
+          "absolute_share": 0.19201268720038123,
+          "pathway": "transfer",
+          "score_delta": 0.01072050068438446
+        },
+        {
+          "absolute_share": 0.14145287104430426,
+          "pathway": "treatment_interaction",
+          "score_delta": 0.007897632302057589
+        },
+        {
+          "absolute_share": 0.023765317834821206,
+          "pathway": "view_fusion",
+          "score_delta": 0.001326871207457947
+        }
+      ],
+      "record_id": "mechanism_record_037",
+      "score": 0.49559875346945403
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.5368167004784054,
+      "pathways": [
+        {
+          "absolute_share": 0.08018334750543757,
+          "pathway": "adaptation",
+          "score_delta": -0.004784744092567961
+        },
+        {
+          "absolute_share": 0.5368167004784054,
+          "pathway": "calibration",
+          "score_delta": 0.032033216575694745
+        },
+        {
+          "absolute_share": 0.19527347342249346,
+          "pathway": "transfer",
+          "score_delta": 0.011652464351530611
+        },
+        {
+          "absolute_share": 0.1650465355464721,
+          "pathway": "treatment_interaction",
+          "score_delta": -0.009848746161430055
+        },
+        {
+          "absolute_share": 0.02267994304719148,
+          "pathway": "view_fusion",
+          "score_delta": 0.0013533698316532394
+        }
+      ],
+      "record_id": "mechanism_record_038",
+      "score": 0.46945365110181414
+    },
+    {
+      "concentration_breach": false,
+      "maximum_pathway_concentration": 0.6845889419275537,
+      "pathways": [
+        {
+          "absolute_share": 0.031213015098088118,
+          "pathway": "adaptation",
+          "score_delta": -0.0014971214082854511
+        },
+        {
+          "absolute_share": 0.6845889419275537,
+          "pathway": "calibration",
+          "score_delta": 0.03283607038968833
+        },
+        {
+          "absolute_share": 0.12008597451945369,
+          "pathway": "transfer",
+          "score_delta": 0.005759881982657533
+        },
+        {
+          "absolute_share": 0.13307341248156862,
+          "pathway": "treatment_interaction",
+          "score_delta": 0.0063828199253957996
+        },
+        {
+          "absolute_share": 0.031038655973335903,
+          "pathway": "view_fusion",
+          "score_delta": 0.0014887583335367882
+        }
+      ],
+      "record_id": "mechanism_record_039",
+      "score": 0.47735219116648164
+    }
+  ]
+}

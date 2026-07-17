@@ -1,0 +1,10 @@
+{
+  "ceiling": 0.95,
+  "label_randomization_queries": 0,
+  "parameter_randomization_mean_rank_correlation": 0.8942857142857144,
+  "phase": "SAED_V4_26",
+  "reference_gate_passed": true,
+  "sanity_method": "frozen_parameter_sign_reverse_and_permutation",
+  "sanity_report_hash": "d40da54c21fa8d587ec5f4f73ea3d71077e45cea59c2a0e8a8b5e25f7bc0b3a8",
+  "sanity_report_id": "sanity_check_933a63b031c85dbd6109a24e"
+}

@@ -1,0 +1,502 @@
+{
+  "counterfactual_bundle_hash": "f7be75868c4c39ee089343a2ccd34e2fbfd09c369dc589c50765266361f4f55b",
+  "counterfactual_bundle_id": "counterfactual_explanation_f901a6df74f881130fdb05d4",
+  "decision_authority": false,
+  "immutable_model": true,
+  "phase": "SAED_V4_26",
+  "records": [
+    {
+      "counterfactual": null,
+      "counterfactual_found": false,
+      "decision_threshold": 0.5,
+      "original_score": 0.46155487008538604,
+      "record_id": "mechanism_record_000",
+      "safe_fallback": "abstain",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": {
+        "crossed": true,
+        "delta": 1.0,
+        "feature": "time_pressure",
+        "feature_index": 2,
+        "score": 0.503529593020217
+      },
+      "counterfactual_found": true,
+      "decision_threshold": 0.5,
+      "original_score": 0.4785990476161981,
+      "record_id": "mechanism_record_001",
+      "safe_fallback": "research_explanation_only",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": null,
+      "counterfactual_found": false,
+      "decision_threshold": 0.5,
+      "original_score": 0.4697049182470798,
+      "record_id": "mechanism_record_002",
+      "safe_fallback": "abstain",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": null,
+      "counterfactual_found": false,
+      "decision_threshold": 0.5,
+      "original_score": 0.4605329592184956,
+      "record_id": "mechanism_record_003",
+      "safe_fallback": "abstain",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": {
+        "crossed": true,
+        "delta": 0.25,
+        "feature": "ancestry_depth",
+        "feature_index": 5,
+        "score": 0.5012337586155574
+      },
+      "counterfactual_found": true,
+      "decision_threshold": 0.5,
+      "original_score": 0.498732935005764,
+      "record_id": "mechanism_record_004",
+      "safe_fallback": "research_explanation_only",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": {
+        "crossed": true,
+        "delta": -1.0,
+        "feature": "liquidity_state",
+        "feature_index": 3,
+        "score": 0.5022821429457651
+      },
+      "counterfactual_found": true,
+      "decision_threshold": 0.5,
+      "original_score": 0.48453532699960083,
+      "record_id": "mechanism_record_005",
+      "safe_fallback": "research_explanation_only",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": {
+        "crossed": true,
+        "delta": 1.0,
+        "feature": "time_pressure",
+        "feature_index": 2,
+        "score": 0.5037760223282899
+      },
+      "counterfactual_found": true,
+      "decision_threshold": 0.5,
+      "original_score": 0.4837832492819299,
+      "record_id": "mechanism_record_006",
+      "safe_fallback": "research_explanation_only",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": null,
+      "counterfactual_found": false,
+      "decision_threshold": 0.5,
+      "original_score": 0.47562234234945217,
+      "record_id": "mechanism_record_007",
+      "safe_fallback": "abstain",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": {
+        "crossed": true,
+        "delta": 0.5,
+        "feature": "price_displacement",
+        "feature_index": 0,
+        "score": 0.5025220641678555
+      },
+      "counterfactual_found": true,
+      "decision_threshold": 0.5,
+      "original_score": 0.48557788779158456,
+      "record_id": "mechanism_record_008",
+      "safe_fallback": "research_explanation_only",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": {
+        "crossed": true,
+        "delta": -0.25,
+        "feature": "ancestry_depth",
+        "feature_index": 5,
+        "score": 0.4980763577100438
+      },
+      "counterfactual_found": true,
+      "decision_threshold": 0.5,
+      "original_score": 0.5008939783169096,
+      "record_id": "mechanism_record_009",
+      "safe_fallback": "research_explanation_only",
+      "target_direction": "below"
+    },
+    {
+      "counterfactual": null,
+      "counterfactual_found": false,
+      "decision_threshold": 0.5,
+      "original_score": 0.4831387384888106,
+      "record_id": "mechanism_record_010",
+      "safe_fallback": "abstain",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": {
+        "crossed": true,
+        "delta": 0.25,
+        "feature": "time_pressure",
+        "feature_index": 2,
+        "score": 0.5003386332170583
+      },
+      "counterfactual_found": true,
+      "decision_threshold": 0.5,
+      "original_score": 0.4945928809387032,
+      "record_id": "mechanism_record_011",
+      "safe_fallback": "research_explanation_only",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": null,
+      "counterfactual_found": false,
+      "decision_threshold": 0.5,
+      "original_score": 0.4671883645331131,
+      "record_id": "mechanism_record_012",
+      "safe_fallback": "abstain",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": {
+        "crossed": true,
+        "delta": 0.5,
+        "feature": "price_displacement",
+        "feature_index": 0,
+        "score": 0.5001355112216572
+      },
+      "counterfactual_found": true,
+      "decision_threshold": 0.5,
+      "original_score": 0.48274284282247365,
+      "record_id": "mechanism_record_013",
+      "safe_fallback": "research_explanation_only",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": {
+        "crossed": true,
+        "delta": -0.5,
+        "feature": "price_displacement",
+        "feature_index": 0,
+        "score": 0.489142261629247
+      },
+      "counterfactual_found": true,
+      "decision_threshold": 0.5,
+      "original_score": 0.5131303315146009,
+      "record_id": "mechanism_record_014",
+      "safe_fallback": "research_explanation_only",
+      "target_direction": "below"
+    },
+    {
+      "counterfactual": null,
+      "counterfactual_found": false,
+      "decision_threshold": 0.5,
+      "original_score": 0.477902527745008,
+      "record_id": "mechanism_record_015",
+      "safe_fallback": "abstain",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": {
+        "crossed": true,
+        "delta": 0.25,
+        "feature": "price_displacement",
+        "feature_index": 0,
+        "score": 0.5001256583760467
+      },
+      "counterfactual_found": true,
+      "decision_threshold": 0.5,
+      "original_score": 0.49555462556457514,
+      "record_id": "mechanism_record_016",
+      "safe_fallback": "research_explanation_only",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": {
+        "crossed": true,
+        "delta": 1.0,
+        "feature": "time_pressure",
+        "feature_index": 2,
+        "score": 0.5001238471460511
+      },
+      "counterfactual_found": true,
+      "decision_threshold": 0.5,
+      "original_score": 0.4708698243586243,
+      "record_id": "mechanism_record_017",
+      "safe_fallback": "research_explanation_only",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": {
+        "crossed": true,
+        "delta": 0.75,
+        "feature": "price_displacement",
+        "feature_index": 0,
+        "score": 0.5051773079002945
+      },
+      "counterfactual_found": true,
+      "decision_threshold": 0.5,
+      "original_score": 0.4792656616357066,
+      "record_id": "mechanism_record_018",
+      "safe_fallback": "research_explanation_only",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": {
+        "crossed": true,
+        "delta": 0.25,
+        "feature": "ancestry_depth",
+        "feature_index": 5,
+        "score": 0.5005188290756423
+      },
+      "counterfactual_found": true,
+      "decision_threshold": 0.5,
+      "original_score": 0.4969808241734803,
+      "record_id": "mechanism_record_019",
+      "safe_fallback": "research_explanation_only",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": {
+        "crossed": true,
+        "delta": -1.0,
+        "feature": "liquidity_state",
+        "feature_index": 3,
+        "score": 0.5024699854148658
+      },
+      "counterfactual_found": true,
+      "decision_threshold": 0.5,
+      "original_score": 0.4856600663816878,
+      "record_id": "mechanism_record_020",
+      "safe_fallback": "research_explanation_only",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": null,
+      "counterfactual_found": false,
+      "decision_threshold": 0.5,
+      "original_score": 0.4695596817342446,
+      "record_id": "mechanism_record_021",
+      "safe_fallback": "abstain",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": null,
+      "counterfactual_found": false,
+      "decision_threshold": 0.5,
+      "original_score": 0.4654727723475583,
+      "record_id": "mechanism_record_022",
+      "safe_fallback": "abstain",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": {
+        "crossed": true,
+        "delta": -0.25,
+        "feature": "price_displacement",
+        "feature_index": 0,
+        "score": 0.4945517267286682
+      },
+      "counterfactual_found": true,
+      "decision_threshold": 0.5,
+      "original_score": 0.5031324914735794,
+      "record_id": "mechanism_record_023",
+      "safe_fallback": "research_explanation_only",
+      "target_direction": "below"
+    },
+    {
+      "counterfactual": {
+        "crossed": true,
+        "delta": 0.25,
+        "feature": "ancestry_depth",
+        "feature_index": 5,
+        "score": 0.5017675707965279
+      },
+      "counterfactual_found": true,
+      "decision_threshold": 0.5,
+      "original_score": 0.4981949518461309,
+      "record_id": "mechanism_record_024",
+      "safe_fallback": "research_explanation_only",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": null,
+      "counterfactual_found": false,
+      "decision_threshold": 0.5,
+      "original_score": 0.4693721545234353,
+      "record_id": "mechanism_record_025",
+      "safe_fallback": "abstain",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": {
+        "crossed": true,
+        "delta": 1.0,
+        "feature": "price_displacement",
+        "feature_index": 0,
+        "score": 0.5031221957876658
+      },
+      "counterfactual_found": true,
+      "decision_threshold": 0.5,
+      "original_score": 0.4802009942174404,
+      "record_id": "mechanism_record_026",
+      "safe_fallback": "research_explanation_only",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": null,
+      "counterfactual_found": false,
+      "decision_threshold": 0.5,
+      "original_score": 0.4622182817040994,
+      "record_id": "mechanism_record_027",
+      "safe_fallback": "abstain",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": {
+        "crossed": true,
+        "delta": 0.25,
+        "feature": "price_displacement",
+        "feature_index": 0,
+        "score": 0.5058919304496426
+      },
+      "counterfactual_found": true,
+      "decision_threshold": 0.5,
+      "original_score": 0.49760840022896974,
+      "record_id": "mechanism_record_028",
+      "safe_fallback": "research_explanation_only",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": {
+        "crossed": true,
+        "delta": -0.5,
+        "feature": "price_displacement",
+        "feature_index": 0,
+        "score": 0.4970371118449698
+      },
+      "counterfactual_found": true,
+      "decision_threshold": 0.5,
+      "original_score": 0.511277770848571,
+      "record_id": "mechanism_record_029",
+      "safe_fallback": "research_explanation_only",
+      "target_direction": "below"
+    },
+    {
+      "counterfactual": null,
+      "counterfactual_found": false,
+      "decision_threshold": 0.5,
+      "original_score": 0.4713933370470532,
+      "record_id": "mechanism_record_030",
+      "safe_fallback": "abstain",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": null,
+      "counterfactual_found": false,
+      "decision_threshold": 0.5,
+      "original_score": 0.4633230720494448,
+      "record_id": "mechanism_record_031",
+      "safe_fallback": "abstain",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": {
+        "crossed": true,
+        "delta": -0.5,
+        "feature": "liquidity_state",
+        "feature_index": 3,
+        "score": 0.5022516534488987
+      },
+      "counterfactual_found": true,
+      "decision_threshold": 0.5,
+      "original_score": 0.4929390404484907,
+      "record_id": "mechanism_record_032",
+      "safe_fallback": "research_explanation_only",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": null,
+      "counterfactual_found": false,
+      "decision_threshold": 0.5,
+      "original_score": 0.45523793437593174,
+      "record_id": "mechanism_record_033",
+      "safe_fallback": "abstain",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": null,
+      "counterfactual_found": false,
+      "decision_threshold": 0.5,
+      "original_score": 0.4806108454423797,
+      "record_id": "mechanism_record_034",
+      "safe_fallback": "abstain",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": {
+        "crossed": true,
+        "delta": 0.75,
+        "feature": "execution_quality",
+        "feature_index": 4,
+        "score": 0.5011932539093672
+      },
+      "counterfactual_found": true,
+      "decision_threshold": 0.5,
+      "original_score": 0.48108866576637493,
+      "record_id": "mechanism_record_035",
+      "safe_fallback": "research_explanation_only",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": null,
+      "counterfactual_found": false,
+      "decision_threshold": 0.5,
+      "original_score": 0.46383352194458183,
+      "record_id": "mechanism_record_036",
+      "safe_fallback": "abstain",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": {
+        "crossed": true,
+        "delta": -0.25,
+        "feature": "liquidity_state",
+        "feature_index": 3,
+        "score": 0.5003961858690638
+      },
+      "counterfactual_found": true,
+      "decision_threshold": 0.5,
+      "original_score": 0.49559875346945403,
+      "record_id": "mechanism_record_037",
+      "safe_fallback": "research_explanation_only",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": null,
+      "counterfactual_found": false,
+      "decision_threshold": 0.5,
+      "original_score": 0.46945365110181414,
+      "record_id": "mechanism_record_038",
+      "safe_fallback": "abstain",
+      "target_direction": "above"
+    },
+    {
+      "counterfactual": null,
+      "counterfactual_found": false,
+      "decision_threshold": 0.5,
+      "original_score": 0.47735219116648164,
+      "record_id": "mechanism_record_039",
+      "safe_fallback": "abstain",
+      "target_direction": "above"
+    }
+  ],
+  "single_feature_only": true
+}

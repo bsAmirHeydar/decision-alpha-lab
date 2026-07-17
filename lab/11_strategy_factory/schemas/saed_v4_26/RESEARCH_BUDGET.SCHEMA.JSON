@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "exact_version": {
+      "type": "string"
+    },
+    "maximum_concept_probes": {
+      "type": "integer"
+    },
+    "maximum_counterfactual_trials": {
+      "type": "integer"
+    },
+    "maximum_dictionary_trials": {
+      "type": "integer"
+    },
+    "maximum_feature_ablations": {
+      "type": "integer"
+    },
+    "maximum_hidden_evaluation_queries": {
+      "type": "integer"
+    },
+    "maximum_online_policy_mutations": {
+      "type": "integer"
+    },
+    "maximum_order_submissions": {
+      "type": "integer"
+    },
+    "maximum_patch_interventions": {
+      "type": "integer"
+    },
+    "maximum_pathway_ablations": {
+      "type": "integer"
+    },
+    "maximum_protected_evidence_exposures": {
+      "type": "integer"
+    },
+    "maximum_records": {
+      "type": "integer"
+    },
+    "maximum_runtime_compilations": {
+      "type": "integer"
+    },
+    "maximum_trace_interventions": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "exact_version",
+    "maximum_concept_probes",
+    "maximum_counterfactual_trials",
+    "maximum_dictionary_trials",
+    "maximum_feature_ablations",
+    "maximum_hidden_evaluation_queries",
+    "maximum_online_policy_mutations",
+    "maximum_order_submissions",
+    "maximum_patch_interventions",
+    "maximum_pathway_ablations",
+    "maximum_protected_evidence_exposures",
+    "maximum_records",
+    "maximum_runtime_compilations",
+    "maximum_trace_interventions"
+  ],
+  "title": "RESEARCH_BUDGET",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

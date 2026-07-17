@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "broker_credentials_present": {
+      "type": "boolean"
+    },
+    "findings": {
+      "items": {},
+      "type": "array"
+    },
+    "network_access": {
+      "type": "boolean"
+    },
+    "order_surface_present": {
+      "type": "boolean"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "security_review_hash": {
+      "type": "string"
+    },
+    "security_review_id": {
+      "type": "string"
+    },
+    "signing_material_present": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "broker_credentials_present",
+    "findings",
+    "network_access",
+    "order_surface_present",
+    "passed",
+    "phase",
+    "security_review_hash",
+    "security_review_id",
+    "signing_material_present"
+  ],
+  "title": "SECURITY_REVIEW",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

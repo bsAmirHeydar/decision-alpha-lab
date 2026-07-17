@@ -1,0 +1,10 @@
+{
+  "baseline_value": 0.0,
+  "deterministic": true,
+  "exact_version": "1.0.0",
+  "future_suffix_forbidden": true,
+  "integration_steps": 12,
+  "maximum_feature_concentration": 0.72,
+  "method": "integrated_gradients_plus_occlusion",
+  "normalize_abs_sum": true
+}

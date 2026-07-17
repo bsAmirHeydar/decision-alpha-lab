@@ -1,0 +1,478 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "attribution_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_value": {
+          "type": "number"
+        },
+        "deterministic": {
+          "type": "boolean"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "future_suffix_forbidden": {
+          "type": "boolean"
+        },
+        "integration_steps": {
+          "type": "integer"
+        },
+        "maximum_feature_concentration": {
+          "type": "number"
+        },
+        "method": {
+          "type": "string"
+        },
+        "normalize_abs_sum": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "baseline_value",
+        "deterministic",
+        "exact_version",
+        "future_suffix_forbidden",
+        "integration_steps",
+        "maximum_feature_concentration",
+        "method",
+        "normalize_abs_sum"
+      ],
+      "type": "object"
+    },
+    "causal_trace_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "baseline_preserved": {
+          "type": "boolean"
+        },
+        "deterministic": {
+          "type": "boolean"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "intervention": {
+          "type": "string"
+        },
+        "layer_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "maximum_neurons_per_layer": {
+          "type": "integer"
+        },
+        "past_only_patch_sources": {
+          "type": "boolean"
+        },
+        "same_model_required": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "baseline_preserved",
+        "deterministic",
+        "exact_version",
+        "intervention",
+        "layer_ids",
+        "maximum_neurons_per_layer",
+        "past_only_patch_sources",
+        "same_model_required"
+      ],
+      "type": "object"
+    },
+    "concept_probe_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "concept_names": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "concept_vectors": {
+          "items": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "type": "array"
+        },
+        "deterministic": {
+          "type": "boolean"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "minimum_signal_over_random": {
+          "type": "number"
+        },
+        "minimum_validation_records": {
+          "type": "integer"
+        },
+        "random_control_required": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "concept_names",
+        "concept_vectors",
+        "deterministic",
+        "exact_version",
+        "minimum_signal_over_random",
+        "minimum_validation_records",
+        "random_control_required"
+      ],
+      "type": "object"
+    },
+    "counterfactual_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "decision_threshold": {
+          "type": "number"
+        },
+        "deterministic": {
+          "type": "boolean"
+        },
+        "deterministic_tie_break": {
+          "type": "string"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "immutable_model": {
+          "type": "boolean"
+        },
+        "maximum_absolute_perturbation": {
+          "type": "number"
+        },
+        "maximum_feature_changes": {
+          "type": "integer"
+        },
+        "perturbation_grid": {
+          "items": {
+            "type": "number"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "decision_threshold",
+        "deterministic",
+        "deterministic_tie_break",
+        "exact_version",
+        "immutable_model",
+        "maximum_absolute_perturbation",
+        "maximum_feature_changes",
+        "perturbation_grid"
+      ],
+      "type": "object"
+    },
+    "faithfulness_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "critical_shortcuts_forbidden": {
+          "type": "boolean"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "fail_closed": {
+          "type": "boolean"
+        },
+        "minimum_attribution_score_correlation": {
+          "type": "number"
+        },
+        "minimum_deletion_drop": {
+          "type": "number"
+        },
+        "randomization_rank_correlation_ceiling": {
+          "type": "number"
+        },
+        "stability_cosine_floor": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "critical_shortcuts_forbidden",
+        "exact_version",
+        "fail_closed",
+        "minimum_attribution_score_correlation",
+        "minimum_deletion_drop",
+        "randomization_rank_correlation_ceiling",
+        "stability_cosine_floor"
+      ],
+      "type": "object"
+    },
+    "mechanism_dataset_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_roles": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "cluster_role_separation_required": {
+          "type": "boolean"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "future_suffix_forbidden": {
+          "type": "boolean"
+        },
+        "immutable_models_required": {
+          "type": "boolean"
+        },
+        "minimum_contexts": {
+          "type": "integer"
+        },
+        "minimum_models": {
+          "type": "integer"
+        },
+        "minimum_records": {
+          "type": "integer"
+        },
+        "minimum_records_per_role": {
+          "type": "integer"
+        },
+        "protected_evidence_forbidden": {
+          "type": "boolean"
+        },
+        "required_fields": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "strict_known_time": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "allowed_roles",
+        "cluster_role_separation_required",
+        "exact_version",
+        "future_suffix_forbidden",
+        "immutable_models_required",
+        "minimum_contexts",
+        "minimum_models",
+        "minimum_records",
+        "minimum_records_per_role",
+        "protected_evidence_forbidden",
+        "required_fields",
+        "strict_known_time"
+      ],
+      "type": "object"
+    },
+    "pathway_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "ablation_method": {
+          "type": "string"
+        },
+        "allowed_pathways": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "baseline_preserved": {
+          "type": "boolean"
+        },
+        "deterministic": {
+          "type": "boolean"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "maximum_pathway_concentration": {
+          "type": "number"
+        },
+        "minimum_pathway_count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "ablation_method",
+        "allowed_pathways",
+        "baseline_preserved",
+        "deterministic",
+        "exact_version",
+        "maximum_pathway_concentration",
+        "minimum_pathway_count"
+      ],
+      "type": "object"
+    },
+    "research_budget": {
+      "additionalProperties": false,
+      "properties": {
+        "exact_version": {
+          "type": "string"
+        },
+        "maximum_concept_probes": {
+          "type": "integer"
+        },
+        "maximum_counterfactual_trials": {
+          "type": "integer"
+        },
+        "maximum_dictionary_trials": {
+          "type": "integer"
+        },
+        "maximum_feature_ablations": {
+          "type": "integer"
+        },
+        "maximum_hidden_evaluation_queries": {
+          "type": "integer"
+        },
+        "maximum_online_policy_mutations": {
+          "type": "integer"
+        },
+        "maximum_order_submissions": {
+          "type": "integer"
+        },
+        "maximum_patch_interventions": {
+          "type": "integer"
+        },
+        "maximum_pathway_ablations": {
+          "type": "integer"
+        },
+        "maximum_protected_evidence_exposures": {
+          "type": "integer"
+        },
+        "maximum_records": {
+          "type": "integer"
+        },
+        "maximum_runtime_compilations": {
+          "type": "integer"
+        },
+        "maximum_trace_interventions": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "exact_version",
+        "maximum_concept_probes",
+        "maximum_counterfactual_trials",
+        "maximum_dictionary_trials",
+        "maximum_feature_ablations",
+        "maximum_hidden_evaluation_queries",
+        "maximum_online_policy_mutations",
+        "maximum_order_submissions",
+        "maximum_patch_interventions",
+        "maximum_pathway_ablations",
+        "maximum_protected_evidence_exposures",
+        "maximum_records",
+        "maximum_runtime_compilations",
+        "maximum_trace_interventions"
+      ],
+      "type": "object"
+    },
+    "sparse_dictionary_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "deterministic": {
+          "type": "boolean"
+        },
+        "dictionary_size": {
+          "type": "integer"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "maximum_reconstruction_error": {
+          "type": "number"
+        },
+        "minimum_records": {
+          "type": "integer"
+        },
+        "randomized_control_required": {
+          "type": "boolean"
+        },
+        "top_k": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "deterministic",
+        "dictionary_size",
+        "exact_version",
+        "maximum_reconstruction_error",
+        "minimum_records",
+        "randomized_control_required",
+        "top_k"
+      ],
+      "type": "object"
+    },
+    "upstream_intake": {
+      "additionalProperties": false,
+      "properties": {
+        "certificate_hash": {
+          "type": "string"
+        },
+        "exact_version": {
+          "type": "string"
+        },
+        "handoff_hash": {
+          "type": "string"
+        },
+        "hash_verified": {
+          "type": "boolean"
+        },
+        "immutable": {
+          "type": "boolean"
+        },
+        "online_policy_mutation_denied": {
+          "type": "boolean"
+        },
+        "promotion_denied": {
+          "type": "boolean"
+        },
+        "required_phase": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "runtime_denied": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "certificate_hash",
+        "exact_version",
+        "handoff_hash",
+        "hash_verified",
+        "immutable",
+        "online_policy_mutation_denied",
+        "promotion_denied",
+        "required_phase",
+        "research_only",
+        "runtime_denied"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "attribution_contract",
+    "causal_trace_contract",
+    "concept_probe_contract",
+    "counterfactual_contract",
+    "faithfulness_contract",
+    "mechanism_dataset_contract",
+    "pathway_contract",
+    "research_budget",
+    "sparse_dictionary_contract",
+    "upstream_intake"
+  ],
+  "title": "FULL_REFERENCE_CONFIG",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

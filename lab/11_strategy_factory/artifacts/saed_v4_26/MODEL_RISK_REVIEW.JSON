@@ -1,0 +1,18 @@
+{
+  "causal_claim_denied": true,
+  "critical_findings": 0,
+  "external_validity_unknown": true,
+  "interpretability_is_not_proof": true,
+  "model_risk_review_hash": "30f2dee827c025f9ba82a10a3db918c22bca93cf39869e705235574a567d6544",
+  "model_risk_review_id": "model_risk_a0df4358a2472fde09ffa765",
+  "passed": true,
+  "phase": "SAED_V4_26",
+  "shortcut_findings": 0,
+  "unresolved_limitations": [
+    "synthetic_reference_records",
+    "no_external_replication",
+    "no_runtime_parity",
+    "no_broker_qualification",
+    "no_prospective_evidence"
+  ]
+}

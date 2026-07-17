@@ -1,0 +1,15 @@
+{
+  "ablation_method": "frozen_component_zero_ablation",
+  "allowed_pathways": [
+    "transfer",
+    "adaptation",
+    "calibration",
+    "view_fusion",
+    "treatment_interaction"
+  ],
+  "baseline_preserved": true,
+  "deterministic": true,
+  "exact_version": "1.0.0",
+  "maximum_pathway_concentration": 0.85,
+  "minimum_pathway_count": 5
+}

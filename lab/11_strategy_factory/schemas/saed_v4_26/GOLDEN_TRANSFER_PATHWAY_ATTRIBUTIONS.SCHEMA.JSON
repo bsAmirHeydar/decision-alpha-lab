@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "method": {
+      "type": "string"
+    },
+    "pathway_bundle_hash": {
+      "type": "string"
+    },
+    "pathway_bundle_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "concentration_breach": {
+            "type": "boolean"
+          },
+          "maximum_pathway_concentration": {
+            "type": "number"
+          },
+          "pathways": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "absolute_share": {
+                  "type": "number"
+                },
+                "pathway": {
+                  "type": "string"
+                },
+                "score_delta": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "absolute_share",
+                "pathway",
+                "score_delta"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "record_id": {
+            "type": "string"
+          },
+          "score": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "concentration_breach",
+          "maximum_pathway_concentration",
+          "pathways",
+          "record_id",
+          "score"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "baseline_preserved",
+    "deterministic",
+    "method",
+    "pathway_bundle_hash",
+    "pathway_bundle_id",
+    "phase",
+    "records"
+  ],
+  "title": "GOLDEN_TRANSFER_PATHWAY_ATTRIBUTIONS",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

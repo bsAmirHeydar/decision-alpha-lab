@@ -1,0 +1,44 @@
+{
+  "allowed_next_work": [
+    "complete_trial_registry",
+    "complete_query_registry",
+    "chart_exposure_registry",
+    "narrative_exposure_registry",
+    "agent_exposure_registry",
+    "manual_intervention_registry",
+    "failed_run_registry",
+    "search_family_freeze",
+    "exposure_deduplication"
+  ],
+  "authority": {
+    "decision": false,
+    "execution": false,
+    "production": false,
+    "promotion": false,
+    "risk_allocation": false,
+    "runtime": false
+  },
+  "certificate_hash": "8667ea2485fa59d247feb1105f92ce2fa68a0fcb9439a364b4485b49228df5fb",
+  "certificate_id": "mechanistic_interpretability_certificate_709fdfcbed56e3e936f5084d",
+  "entry_gates": {
+    "exposure_ledger_available": true,
+    "failure_catalogue_available": true,
+    "mechanistic_certificate_verified": true,
+    "promotion_denied": true,
+    "research_only": true,
+    "runtime_denied": true,
+    "trial_ledger_available": true
+  },
+  "forbidden_next_work": [
+    "promotion_authorization",
+    "runtime_compilation",
+    "risk_allocation",
+    "order_submission",
+    "online_policy_mutation"
+  ],
+  "handoff_hash": "61d55dbc05a2cdc1e0fe67e7150af726f48e3ed2965e477228a6f541fa0f1f00",
+  "handoff_id": "v4_26_to_v4_27_2fc4642cdcd0c581be0e8035",
+  "next_phase": "SAED_V4_27",
+  "phase": "SAED_V4_26",
+  "research_only": true
+}

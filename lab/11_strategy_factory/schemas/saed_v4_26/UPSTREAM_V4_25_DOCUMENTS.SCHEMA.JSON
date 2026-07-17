@@ -1,0 +1,1342 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "certificate": {
+      "additionalProperties": false,
+      "properties": {
+        "accepted_for_continual_meta_transfer_research": {
+          "type": "boolean"
+        },
+        "authority_boundary": {
+          "additionalProperties": false,
+          "properties": {
+            "authority": {
+              "additionalProperties": false,
+              "properties": {
+                "decision": {
+                  "type": "boolean"
+                },
+                "execution": {
+                  "type": "boolean"
+                },
+                "online_learning": {
+                  "type": "boolean"
+                },
+                "order_submission": {
+                  "type": "boolean"
+                },
+                "production": {
+                  "type": "boolean"
+                },
+                "promotion": {
+                  "type": "boolean"
+                },
+                "risk_allocation": {
+                  "type": "boolean"
+                },
+                "runtime": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "decision",
+                "execution",
+                "online_learning",
+                "order_submission",
+                "production",
+                "promotion",
+                "risk_allocation",
+                "runtime"
+              ],
+              "type": "object"
+            },
+            "boundary_hash": {
+              "type": "string"
+            },
+            "boundary_id": {
+              "type": "string"
+            },
+            "broker_credentials_present": {
+              "type": "boolean"
+            },
+            "central_engine_mutation": {
+              "type": "boolean"
+            },
+            "network_access": {
+              "type": "boolean"
+            },
+            "phase": {
+              "type": "string"
+            },
+            "research_only": {
+              "type": "boolean"
+            },
+            "safe_fallback": {
+              "type": "string"
+            },
+            "signing_material_present": {
+              "type": "boolean"
+            },
+            "ucee_authority_preserved": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "authority",
+            "boundary_hash",
+            "boundary_id",
+            "broker_credentials_present",
+            "central_engine_mutation",
+            "network_access",
+            "phase",
+            "research_only",
+            "safe_fallback",
+            "signing_material_present",
+            "ucee_authority_preserved"
+          ],
+          "type": "object"
+        },
+        "budget_hash": {
+          "type": "string"
+        },
+        "certificate_hash": {
+          "type": "string"
+        },
+        "certificate_id": {
+          "type": "string"
+        },
+        "decision_authority": {
+          "type": "boolean"
+        },
+        "drift_report_hash": {
+          "type": "string"
+        },
+        "execution_authority": {
+          "type": "boolean"
+        },
+        "exposure_ledger_hash": {
+          "type": "string"
+        },
+        "gates": {
+          "additionalProperties": false,
+          "properties": {
+            "authority_denied": {
+              "type": "boolean"
+            },
+            "baseline_preserved": {
+              "type": "boolean"
+            },
+            "budget_complete": {
+              "type": "boolean"
+            },
+            "dataset_valid": {
+              "type": "boolean"
+            },
+            "drift_taxonomy_complete": {
+              "type": "boolean"
+            },
+            "exposure_ledger_zero": {
+              "type": "boolean"
+            },
+            "fail_closed_fallback_observed": {
+              "type": "boolean"
+            },
+            "forgetting_within_reference_limits": {
+              "type": "boolean"
+            },
+            "known_time_clean": {
+              "type": "boolean"
+            },
+            "negative_transfer_guard_active": {
+              "type": "boolean"
+            },
+            "recalibration_research_only": {
+              "type": "boolean"
+            },
+            "replay_buffer_safe": {
+              "type": "boolean"
+            },
+            "transfer_map_complete": {
+              "type": "boolean"
+            },
+            "trial_ledger_complete": {
+              "type": "boolean"
+            },
+            "upstream_verified": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "authority_denied",
+            "baseline_preserved",
+            "budget_complete",
+            "dataset_valid",
+            "drift_taxonomy_complete",
+            "exposure_ledger_zero",
+            "fail_closed_fallback_observed",
+            "forgetting_within_reference_limits",
+            "known_time_clean",
+            "negative_transfer_guard_active",
+            "recalibration_research_only",
+            "replay_buffer_safe",
+            "transfer_map_complete",
+            "trial_ledger_complete",
+            "upstream_verified"
+          ],
+          "type": "object"
+        },
+        "guard_fallback_count": {
+          "type": "integer"
+        },
+        "meta_dataset_hash": {
+          "type": "string"
+        },
+        "online_learning_authority": {
+          "type": "boolean"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "production_authority": {
+          "type": "boolean"
+        },
+        "promotion_authority": {
+          "type": "boolean"
+        },
+        "prospective_success_claim": {
+          "type": "boolean"
+        },
+        "real_alpha_claim": {
+          "type": "boolean"
+        },
+        "recalibration_experiment_hash": {
+          "type": "string"
+        },
+        "replay_buffer_hash": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "risk_allocation_authority": {
+          "type": "boolean"
+        },
+        "runtime_executable": {
+          "type": "boolean"
+        },
+        "runtime_parity_claim": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string"
+        },
+        "transfer_map_hash": {
+          "type": "string"
+        },
+        "transfer_report_hash": {
+          "type": "string"
+        },
+        "trial_ledger_hash": {
+          "type": "string"
+        },
+        "upstream_receipt_hash": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "accepted_for_continual_meta_transfer_research",
+        "authority_boundary",
+        "budget_hash",
+        "certificate_hash",
+        "certificate_id",
+        "decision_authority",
+        "drift_report_hash",
+        "execution_authority",
+        "exposure_ledger_hash",
+        "gates",
+        "guard_fallback_count",
+        "meta_dataset_hash",
+        "online_learning_authority",
+        "phase",
+        "production_authority",
+        "promotion_authority",
+        "prospective_success_claim",
+        "real_alpha_claim",
+        "recalibration_experiment_hash",
+        "replay_buffer_hash",
+        "research_only",
+        "risk_allocation_authority",
+        "runtime_executable",
+        "runtime_parity_claim",
+        "title",
+        "transfer_map_hash",
+        "transfer_report_hash",
+        "trial_ledger_hash",
+        "upstream_receipt_hash",
+        "version"
+      ],
+      "type": "object"
+    },
+    "frozen_artifacts": {
+      "additionalProperties": false,
+      "properties": {
+        "GOLDEN_ADAPTATIONS.JSON": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "adaptation_hash": {
+                "type": "string"
+              },
+              "adaptation_id": {
+                "type": "string"
+              },
+              "adapted_parameters": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "baseline_parameters": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "fallback_to_baseline": {
+                "type": "boolean"
+              },
+              "prior_id": {
+                "type": "string"
+              },
+              "promotion_eligible": {
+                "type": "boolean"
+              },
+              "query_outcomes_accessed": {
+                "type": "boolean"
+              },
+              "runtime_executable": {
+                "type": "boolean"
+              },
+              "support_fit_parameters": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              "support_rows": {
+                "type": "integer"
+              },
+              "task_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "adaptation_hash",
+              "adaptation_id",
+              "adapted_parameters",
+              "baseline_parameters",
+              "fallback_to_baseline",
+              "prior_id",
+              "promotion_eligible",
+              "query_outcomes_accessed",
+              "runtime_executable",
+              "support_fit_parameters",
+              "support_rows",
+              "task_id"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "GOLDEN_CONTINUAL_CALIBRATION_STATES.JSON": {
+          "items": {
+            "anyOf": [
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "calibration_state_hash": {
+                    "type": "string"
+                  },
+                  "calibration_state_id": {
+                    "type": "string"
+                  },
+                  "downside_quantile": {
+                    "type": "null"
+                  },
+                  "history_task_ids": {
+                    "items": {},
+                    "type": "array"
+                  },
+                  "past_only": {
+                    "type": "boolean"
+                  },
+                  "ready": {
+                    "type": "boolean"
+                  },
+                  "residual_count": {
+                    "type": "integer"
+                  },
+                  "runtime_mutation": {
+                    "type": "boolean"
+                  },
+                  "task_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "calibration_state_hash",
+                  "calibration_state_id",
+                  "downside_quantile",
+                  "history_task_ids",
+                  "past_only",
+                  "ready",
+                  "residual_count",
+                  "runtime_mutation",
+                  "task_id"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "calibration_state_hash": {
+                    "type": "string"
+                  },
+                  "calibration_state_id": {
+                    "type": "string"
+                  },
+                  "downside_quantile": {
+                    "type": "null"
+                  },
+                  "history_task_ids": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "past_only": {
+                    "type": "boolean"
+                  },
+                  "ready": {
+                    "type": "boolean"
+                  },
+                  "residual_count": {
+                    "type": "integer"
+                  },
+                  "runtime_mutation": {
+                    "type": "boolean"
+                  },
+                  "task_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "calibration_state_hash",
+                  "calibration_state_id",
+                  "downside_quantile",
+                  "history_task_ids",
+                  "past_only",
+                  "ready",
+                  "residual_count",
+                  "runtime_mutation",
+                  "task_id"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "calibration_state_hash": {
+                    "type": "string"
+                  },
+                  "calibration_state_id": {
+                    "type": "string"
+                  },
+                  "downside_quantile": {
+                    "type": "number"
+                  },
+                  "history_task_ids": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "past_only": {
+                    "type": "boolean"
+                  },
+                  "ready": {
+                    "type": "boolean"
+                  },
+                  "residual_count": {
+                    "type": "integer"
+                  },
+                  "runtime_mutation": {
+                    "type": "boolean"
+                  },
+                  "task_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "calibration_state_hash",
+                  "calibration_state_id",
+                  "downside_quantile",
+                  "history_task_ids",
+                  "past_only",
+                  "ready",
+                  "residual_count",
+                  "runtime_mutation",
+                  "task_id"
+                ],
+                "type": "object"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "GOLDEN_DRIFT_REPORT.JSON": {
+          "additionalProperties": false,
+          "properties": {
+            "class_counts": {
+              "additionalProperties": false,
+              "properties": {
+                "novel": {
+                  "type": "integer"
+                },
+                "recurring": {
+                  "type": "integer"
+                },
+                "stationary": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "novel",
+                "recurring",
+                "stationary"
+              ],
+              "type": "object"
+            },
+            "deterministic": {
+              "type": "boolean"
+            },
+            "drift_report_hash": {
+              "type": "string"
+            },
+            "drift_report_id": {
+              "type": "string"
+            },
+            "events": {
+              "items": {
+                "anyOf": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "context_id": {
+                        "type": "string"
+                      },
+                      "deterministic": {
+                        "type": "boolean"
+                      },
+                      "drift_class": {
+                        "type": "string"
+                      },
+                      "drift_event_hash": {
+                        "type": "string"
+                      },
+                      "drift_event_id": {
+                        "type": "string"
+                      },
+                      "fail_closed": {
+                        "type": "boolean"
+                      },
+                      "meta_distance": {
+                        "type": "null"
+                      },
+                      "predecessor_task_id": {
+                        "type": "null"
+                      },
+                      "recurrence_similarity": {
+                        "type": "null"
+                      },
+                      "task_id": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "context_id",
+                      "deterministic",
+                      "drift_class",
+                      "drift_event_hash",
+                      "drift_event_id",
+                      "fail_closed",
+                      "meta_distance",
+                      "predecessor_task_id",
+                      "recurrence_similarity",
+                      "task_id"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "context_id": {
+                        "type": "string"
+                      },
+                      "deterministic": {
+                        "type": "boolean"
+                      },
+                      "drift_class": {
+                        "type": "string"
+                      },
+                      "drift_event_hash": {
+                        "type": "string"
+                      },
+                      "drift_event_id": {
+                        "type": "string"
+                      },
+                      "fail_closed": {
+                        "type": "boolean"
+                      },
+                      "meta_distance": {
+                        "type": "number"
+                      },
+                      "predecessor_task_id": {
+                        "type": "string"
+                      },
+                      "recurrence_similarity": {
+                        "type": "number"
+                      },
+                      "task_id": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "context_id",
+                      "deterministic",
+                      "drift_class",
+                      "drift_event_hash",
+                      "drift_event_id",
+                      "fail_closed",
+                      "meta_distance",
+                      "predecessor_task_id",
+                      "recurrence_similarity",
+                      "task_id"
+                    ],
+                    "type": "object"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            "phase": {
+              "type": "string"
+            },
+            "segments": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "context_id": {
+                    "type": "string"
+                  },
+                  "drift_class": {
+                    "type": "string"
+                  },
+                  "segment_id": {
+                    "type": "string"
+                  },
+                  "task_ids": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "context_id",
+                  "drift_class",
+                  "segment_id",
+                  "task_ids"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "taxonomy_hash": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "class_counts",
+            "deterministic",
+            "drift_report_hash",
+            "drift_report_id",
+            "events",
+            "phase",
+            "segments",
+            "taxonomy_hash"
+          ],
+          "type": "object"
+        },
+        "GOLDEN_META_FEATURES.JSON": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "cluster_id": {
+                "type": "string"
+              },
+              "context_id": {
+                "type": "string"
+              },
+              "decision_time": {
+                "type": "string"
+              },
+              "future_suffix_accessed": {
+                "type": "boolean"
+              },
+              "meta_feature_hash": {
+                "type": "string"
+              },
+              "meta_feature_id": {
+                "type": "string"
+              },
+              "protected_evidence_accessed": {
+                "type": "boolean"
+              },
+              "regime": {
+                "type": "string"
+              },
+              "task_id": {
+                "type": "string"
+              },
+              "uses_query_outcomes": {
+                "type": "boolean"
+              },
+              "uses_support_outcomes": {
+                "type": "boolean"
+              },
+              "vector": {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "cluster_id",
+              "context_id",
+              "decision_time",
+              "future_suffix_accessed",
+              "meta_feature_hash",
+              "meta_feature_id",
+              "protected_evidence_accessed",
+              "regime",
+              "task_id",
+              "uses_query_outcomes",
+              "uses_support_outcomes",
+              "vector"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "GOLDEN_REPLAY_RECEIPT.JSON": {
+          "additionalProperties": false,
+          "properties": {
+            "config_hash": {
+              "type": "string"
+            },
+            "deterministic": {
+              "type": "boolean"
+            },
+            "future_suffix_queries": {
+              "type": "integer"
+            },
+            "hidden_evaluation_queries": {
+              "type": "integer"
+            },
+            "input_hashes": {
+              "additionalProperties": false,
+              "properties": {
+                "tasks": {
+                  "type": "string"
+                },
+                "upstream_documents": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "tasks",
+                "upstream_documents"
+              ],
+              "type": "object"
+            },
+            "network_access": {
+              "type": "boolean"
+            },
+            "online_policy_mutations": {
+              "type": "integer"
+            },
+            "order_submissions": {
+              "type": "integer"
+            },
+            "output_hashes": {
+              "additionalProperties": false,
+              "properties": {
+                "adaptations": {
+                  "type": "string"
+                },
+                "authority_boundary": {
+                  "type": "string"
+                },
+                "budget_snapshot": {
+                  "type": "string"
+                },
+                "certificate": {
+                  "type": "string"
+                },
+                "continual_calibration_states": {
+                  "type": "string"
+                },
+                "drift_report": {
+                  "type": "string"
+                },
+                "exposure_ledger": {
+                  "type": "string"
+                },
+                "handoff": {
+                  "type": "string"
+                },
+                "meta_dataset_summary": {
+                  "type": "string"
+                },
+                "meta_features": {
+                  "type": "string"
+                },
+                "negative_transfer_guards": {
+                  "type": "string"
+                },
+                "recalibration_experiment": {
+                  "type": "string"
+                },
+                "regularizations": {
+                  "type": "string"
+                },
+                "replay_buffer": {
+                  "type": "string"
+                },
+                "transfer_evaluations": {
+                  "type": "string"
+                },
+                "transfer_map": {
+                  "type": "string"
+                },
+                "transfer_report": {
+                  "type": "string"
+                },
+                "trial_ledger": {
+                  "type": "string"
+                },
+                "upstream_receipt": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "adaptations",
+                "authority_boundary",
+                "budget_snapshot",
+                "certificate",
+                "continual_calibration_states",
+                "drift_report",
+                "exposure_ledger",
+                "handoff",
+                "meta_dataset_summary",
+                "meta_features",
+                "negative_transfer_guards",
+                "recalibration_experiment",
+                "regularizations",
+                "replay_buffer",
+                "transfer_evaluations",
+                "transfer_map",
+                "transfer_report",
+                "trial_ledger",
+                "upstream_receipt"
+              ],
+              "type": "object"
+            },
+            "phase": {
+              "type": "string"
+            },
+            "protected_evidence_queries": {
+              "type": "integer"
+            },
+            "replay_hash": {
+              "type": "string"
+            },
+            "replay_id": {
+              "type": "string"
+            },
+            "runtime_compilations": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "config_hash",
+            "deterministic",
+            "future_suffix_queries",
+            "hidden_evaluation_queries",
+            "input_hashes",
+            "network_access",
+            "online_policy_mutations",
+            "order_submissions",
+            "output_hashes",
+            "phase",
+            "protected_evidence_queries",
+            "replay_hash",
+            "replay_id",
+            "runtime_compilations"
+          ],
+          "type": "object"
+        },
+        "GOLDEN_TRANSFER_MAP.JSON": {
+          "additionalProperties": false,
+          "properties": {
+            "deterministic": {
+              "type": "boolean"
+            },
+            "edge_count": {
+              "type": "integer"
+            },
+            "edges": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "distance": {
+                    "type": "number"
+                  },
+                  "edge_id": {
+                    "type": "string"
+                  },
+                  "eligible": {
+                    "type": "boolean"
+                  },
+                  "same_context": {
+                    "type": "boolean"
+                  },
+                  "same_regime": {
+                    "type": "boolean"
+                  },
+                  "source_task_id": {
+                    "type": "string"
+                  },
+                  "target_task_id": {
+                    "type": "string"
+                  },
+                  "weight": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "distance",
+                  "edge_id",
+                  "eligible",
+                  "same_context",
+                  "same_regime",
+                  "source_task_id",
+                  "target_task_id",
+                  "weight"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "future_source_queries": {
+              "type": "integer"
+            },
+            "phase": {
+              "type": "string"
+            },
+            "priors": {
+              "items": {
+                "anyOf": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "fallback_to_scratch": {
+                        "type": "boolean"
+                      },
+                      "prior_parameters": {
+                        "items": {
+                          "type": "number"
+                        },
+                        "type": "array"
+                      },
+                      "source_query_outcomes_accessed": {
+                        "type": "boolean"
+                      },
+                      "source_task_ids": {
+                        "items": {},
+                        "type": "array"
+                      },
+                      "source_weights": {
+                        "items": {},
+                        "type": "array"
+                      },
+                      "target_task_id": {
+                        "type": "string"
+                      },
+                      "transfer_prior_hash": {
+                        "type": "string"
+                      },
+                      "transfer_prior_id": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "fallback_to_scratch",
+                      "prior_parameters",
+                      "source_query_outcomes_accessed",
+                      "source_task_ids",
+                      "source_weights",
+                      "target_task_id",
+                      "transfer_prior_hash",
+                      "transfer_prior_id"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "fallback_to_scratch": {
+                        "type": "boolean"
+                      },
+                      "prior_parameters": {
+                        "items": {
+                          "type": "number"
+                        },
+                        "type": "array"
+                      },
+                      "source_query_outcomes_accessed": {
+                        "type": "boolean"
+                      },
+                      "source_task_ids": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "source_weights": {
+                        "items": {
+                          "type": "number"
+                        },
+                        "type": "array"
+                      },
+                      "target_task_id": {
+                        "type": "string"
+                      },
+                      "transfer_prior_hash": {
+                        "type": "string"
+                      },
+                      "transfer_prior_id": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "fallback_to_scratch",
+                      "prior_parameters",
+                      "source_query_outcomes_accessed",
+                      "source_task_ids",
+                      "source_weights",
+                      "target_task_id",
+                      "transfer_prior_hash",
+                      "transfer_prior_id"
+                    ],
+                    "type": "object"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            "source_query_outcome_queries": {
+              "type": "integer"
+            },
+            "target_count": {
+              "type": "integer"
+            },
+            "transfer_map_hash": {
+              "type": "string"
+            },
+            "transfer_map_id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "deterministic",
+            "edge_count",
+            "edges",
+            "future_source_queries",
+            "phase",
+            "priors",
+            "source_query_outcome_queries",
+            "target_count",
+            "transfer_map_hash",
+            "transfer_map_id"
+          ],
+          "type": "object"
+        },
+        "GOLDEN_TRANSFER_REPORT.JSON": {
+          "additionalProperties": false,
+          "properties": {
+            "accepted_for_transfer_research": {
+              "type": "boolean"
+            },
+            "backward_transfer": {
+              "type": "number"
+            },
+            "bootstrap_draws": {
+              "type": "integer"
+            },
+            "cluster_bootstrap": {
+              "type": "boolean"
+            },
+            "confidence_level": {
+              "type": "number"
+            },
+            "evaluation_count": {
+              "type": "integer"
+            },
+            "forward_transfer": {
+              "type": "number"
+            },
+            "forward_transfer_ci_lower": {
+              "type": "number"
+            },
+            "forward_transfer_ci_upper": {
+              "type": "number"
+            },
+            "gates": {
+              "additionalProperties": false,
+              "properties": {
+                "backward_transfer": {
+                  "type": "boolean"
+                },
+                "forward_transfer": {
+                  "type": "boolean"
+                },
+                "mean_forgetting": {
+                  "type": "boolean"
+                },
+                "worst_task_forgetting": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "backward_transfer",
+                "forward_transfer",
+                "mean_forgetting",
+                "worst_task_forgetting"
+              ],
+              "type": "object"
+            },
+            "mean_forgetting": {
+              "type": "number"
+            },
+            "meta_validation_mean_delta": {
+              "type": "number"
+            },
+            "negative_transfer_count": {
+              "type": "integer"
+            },
+            "phase": {
+              "type": "string"
+            },
+            "transfer_report_hash": {
+              "type": "string"
+            },
+            "transfer_report_id": {
+              "type": "string"
+            },
+            "worst_task_forgetting": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "accepted_for_transfer_research",
+            "backward_transfer",
+            "bootstrap_draws",
+            "cluster_bootstrap",
+            "confidence_level",
+            "evaluation_count",
+            "forward_transfer",
+            "forward_transfer_ci_lower",
+            "forward_transfer_ci_upper",
+            "gates",
+            "mean_forgetting",
+            "meta_validation_mean_delta",
+            "negative_transfer_count",
+            "phase",
+            "transfer_report_hash",
+            "transfer_report_id",
+            "worst_task_forgetting"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "GOLDEN_ADAPTATIONS.JSON",
+        "GOLDEN_CONTINUAL_CALIBRATION_STATES.JSON",
+        "GOLDEN_DRIFT_REPORT.JSON",
+        "GOLDEN_META_FEATURES.JSON",
+        "GOLDEN_REPLAY_RECEIPT.JSON",
+        "GOLDEN_TRANSFER_MAP.JSON",
+        "GOLDEN_TRANSFER_REPORT.JSON"
+      ],
+      "type": "object"
+    },
+    "handoff": {
+      "additionalProperties": false,
+      "properties": {
+        "allowed_next_work": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "authority": {
+          "additionalProperties": false,
+          "properties": {
+            "decision": {
+              "type": "boolean"
+            },
+            "execution": {
+              "type": "boolean"
+            },
+            "production": {
+              "type": "boolean"
+            },
+            "promotion": {
+              "type": "boolean"
+            },
+            "risk_allocation": {
+              "type": "boolean"
+            },
+            "runtime": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "decision",
+            "execution",
+            "production",
+            "promotion",
+            "risk_allocation",
+            "runtime"
+          ],
+          "type": "object"
+        },
+        "certificate_hash": {
+          "type": "string"
+        },
+        "certificate_id": {
+          "type": "string"
+        },
+        "drift_report_hash": {
+          "type": "string"
+        },
+        "entry_gates": {
+          "additionalProperties": false,
+          "properties": {
+            "continual_meta_transfer_certificate_verified": {
+              "type": "boolean"
+            },
+            "frozen_adaptation_artifacts_available": {
+              "type": "boolean"
+            },
+            "frozen_drift_segments_available": {
+              "type": "boolean"
+            },
+            "frozen_replay_artifacts_available": {
+              "type": "boolean"
+            },
+            "frozen_transfer_artifacts_available": {
+              "type": "boolean"
+            },
+            "promotion_denied": {
+              "type": "boolean"
+            },
+            "research_only": {
+              "type": "boolean"
+            },
+            "runtime_denied": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "continual_meta_transfer_certificate_verified",
+            "frozen_adaptation_artifacts_available",
+            "frozen_drift_segments_available",
+            "frozen_replay_artifacts_available",
+            "frozen_transfer_artifacts_available",
+            "promotion_denied",
+            "research_only",
+            "runtime_denied"
+          ],
+          "type": "object"
+        },
+        "forbidden_next_work": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "handoff_hash": {
+          "type": "string"
+        },
+        "handoff_id": {
+          "type": "string"
+        },
+        "next_phase": {
+          "type": "string"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "transfer_report_hash": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "allowed_next_work",
+        "authority",
+        "certificate_hash",
+        "certificate_id",
+        "drift_report_hash",
+        "entry_gates",
+        "forbidden_next_work",
+        "handoff_hash",
+        "handoff_id",
+        "next_phase",
+        "phase",
+        "research_only",
+        "transfer_report_hash"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "certificate",
+    "frozen_artifacts",
+    "handoff"
+  ],
+  "title": "UPSTREAM_V4_25_DOCUMENTS",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "activation_patch_bundle_hash": {
+      "type": "string"
+    },
+    "activation_patch_bundle_id": {
+      "type": "string"
+    },
+    "claim_class": {
+      "type": "string"
+    },
+    "past_only": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "anyOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "eligible": {
+                "type": "boolean"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "record_id": {
+                "type": "string"
+              },
+              "score_delta": {
+                "type": "number"
+              },
+              "source_record_id": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "eligible",
+              "reason",
+              "record_id",
+              "score_delta",
+              "source_record_id"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "eligible": {
+                "type": "boolean"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "record_id": {
+                "type": "string"
+              },
+              "score_delta": {
+                "type": "number"
+              },
+              "source_record_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "eligible",
+              "reason",
+              "record_id",
+              "score_delta",
+              "source_record_id"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "type": "array"
+    },
+    "same_model_required": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "activation_patch_bundle_hash",
+    "activation_patch_bundle_id",
+    "claim_class",
+    "past_only",
+    "phase",
+    "records",
+    "same_model_required"
+  ],
+  "title": "GOLDEN_ACTIVATION_PATCH_RESULTS",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

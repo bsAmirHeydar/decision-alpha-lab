@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "decision_threshold": {
+      "type": "number"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "deterministic_tie_break": {
+      "type": "string"
+    },
+    "exact_version": {
+      "type": "string"
+    },
+    "immutable_model": {
+      "type": "boolean"
+    },
+    "maximum_absolute_perturbation": {
+      "type": "number"
+    },
+    "maximum_feature_changes": {
+      "type": "integer"
+    },
+    "perturbation_grid": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "decision_threshold",
+    "deterministic",
+    "deterministic_tie_break",
+    "exact_version",
+    "immutable_model",
+    "maximum_absolute_perturbation",
+    "maximum_feature_changes",
+    "perturbation_grid"
+  ],
+  "title": "COUNTERFACTUAL_CONTRACT",
+  "type": "object",
+  "x-authority": "research-only-nonproduction",
+  "x-phase": "SAED_V4_26"
+}

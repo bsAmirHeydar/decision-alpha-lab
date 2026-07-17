@@ -1,0 +1,12 @@
+{
+  "future_patch_sources": 0,
+  "future_suffix_queries": 0,
+  "immutable_model_verified": true,
+  "known_time_verified": true,
+  "passed": true,
+  "phase": "SAED_V4_26",
+  "protected_evidence_queries": 0,
+  "query_outcomes_used_for_decision_artifacts": false,
+  "review_hash": "df7cb735aabb82fe630c3b1ddc47764ff6b8b63c38b0a752437d2b9bb4843829",
+  "review_id": "known_time_review_eb64d9774fefa8a896d466e4"
+}
