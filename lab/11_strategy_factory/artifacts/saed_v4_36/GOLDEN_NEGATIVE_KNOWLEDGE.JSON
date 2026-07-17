@@ -1,0 +1,70 @@
+{
+  "deletion_allowed": false,
+  "phase": "SAED_V4_36",
+  "record_count": 6,
+  "records": [
+    {
+      "evidence_hashes": [
+        "7c9f13c0fd495c916aaf92a47a79b5f9c4f5b6a19756ddd96abcc44d432bf0c5"
+      ],
+      "kind": "NEGATIVE_RESULT",
+      "mandatory_for_retrieval": true,
+      "may_be_deleted": false,
+      "memory_id": "mem_n1",
+      "statement": "Clock-only treatment selection failed support and stability gates."
+    },
+    {
+      "evidence_hashes": [
+        "5bcde8bd5dd253ea57e38ae15d9308e48edf3c61f4a16549768008d24caea7d4"
+      ],
+      "kind": "LIMITATION",
+      "mandatory_for_retrieval": true,
+      "may_be_deleted": false,
+      "memory_id": "mem_l1",
+      "statement": "No real market edge or prospective performance is established."
+    },
+    {
+      "evidence_hashes": [
+        "80b6ca13914f47c5272728efc6336742d8c94b21c46369c0a10e9e07c269ad80"
+      ],
+      "kind": "INCIDENT",
+      "mandatory_for_retrieval": true,
+      "may_be_deleted": false,
+      "memory_id": "mem_i1",
+      "statement": "A future-suffix mutation was rejected by the known-time gate."
+    },
+    {
+      "evidence_hashes": [
+        "88f6ab085e9a0b8b9d0fdd3a46e45688c674d62475ae681a1136c19d1dea09d5"
+      ],
+      "kind": "RISK_FINDING",
+      "mandatory_for_retrieval": true,
+      "may_be_deleted": false,
+      "memory_id": "mem_f1",
+      "statement": "A single reference dependency family creates concentration risk."
+    },
+    {
+      "evidence_hashes": [
+        "48a5a793c1498675038fd6afa4744d892899ff7c450c778c24472241dc6cc7a6"
+      ],
+      "kind": "NEGATIVE_RESULT",
+      "mandatory_for_retrieval": true,
+      "may_be_deleted": false,
+      "memory_id": "mem_n2",
+      "statement": "Unconstrained transfer across regimes increased worst-slice error."
+    },
+    {
+      "evidence_hashes": [
+        "44a584f9f2bd258612eee300775c2b146fa08f95cf8f12a2bdfbf6512cbfc50f"
+      ],
+      "kind": "LIMITATION",
+      "mandatory_for_retrieval": true,
+      "may_be_deleted": false,
+      "memory_id": "mem_l2",
+      "statement": "Python and MQL5 runtime parity is not established."
+    }
+  ],
+  "registry_hash": "568e9d5f50317c18193a09536878c18c86305f36d2a2f2deb4b61a63c58a3c62",
+  "registry_id": "v436_negative_b85a7662a22551604fd88d91",
+  "research_only": true
+}

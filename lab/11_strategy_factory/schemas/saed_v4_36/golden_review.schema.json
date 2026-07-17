@@ -1,0 +1,104 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-36/golden_review.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-36 research-memory and active-planner reference artifact schema.",
+  "properties": {
+    "approvals": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "approval_id": {
+            "type": "string"
+          },
+          "decision": {
+            "type": "string"
+          },
+          "independent": {
+            "type": "boolean"
+          },
+          "negative_knowledge_reviewed": {
+            "type": "boolean"
+          },
+          "reviewed_plan_hash": {
+            "type": "string"
+          },
+          "reviewer_id": {
+            "type": "string"
+          },
+          "risk_findings_reviewed": {
+            "type": "boolean"
+          },
+          "role": {
+            "type": "string"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "approval_id",
+          "decision",
+          "independent",
+          "negative_knowledge_reviewed",
+          "reviewed_plan_hash",
+          "reviewer_id",
+          "risk_findings_reviewed",
+          "role",
+          "synthetic_fixture"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "experiment_execution_authorized": {
+      "type": "boolean"
+    },
+    "independent_challenge_present": {
+      "type": "boolean"
+    },
+    "mandatory_reviews_complete": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "quorum_met": {
+      "type": "boolean"
+    },
+    "reference_agenda_accepted": {
+      "type": "boolean"
+    },
+    "required_roles_present": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "review_hash": {
+      "type": "string"
+    },
+    "review_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "approvals",
+    "experiment_execution_authorized",
+    "independent_challenge_present",
+    "mandatory_reviews_complete",
+    "phase",
+    "production_authorized",
+    "quorum_met",
+    "reference_agenda_accepted",
+    "required_roles_present",
+    "research_only",
+    "review_hash",
+    "review_id"
+  ],
+  "title": "GOLDEN_REVIEW",
+  "type": "object"
+}

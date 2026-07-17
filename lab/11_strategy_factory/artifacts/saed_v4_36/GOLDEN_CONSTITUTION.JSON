@@ -1,0 +1,155 @@
+{
+  "append_only_memory": true,
+  "automatic_experiment_execution_allowed": false,
+  "capital_allocation_allowed": false,
+  "clauses": [
+    {
+      "clause_id": "V436-C01",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+      "priority": 1,
+      "requirement": "append-only memory"
+    },
+    {
+      "clause_id": "V436-C02",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+      "priority": 2,
+      "requirement": "known-time isolation"
+    },
+    {
+      "clause_id": "V436-C03",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+      "priority": 3,
+      "requirement": "negative-result preservation"
+    },
+    {
+      "clause_id": "V436-C04",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+      "priority": 4,
+      "requirement": "evidence binding"
+    },
+    {
+      "clause_id": "V436-C05",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+      "priority": 5,
+      "requirement": "semantic deduplication"
+    },
+    {
+      "clause_id": "V436-C06",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+      "priority": 6,
+      "requirement": "explicit supersession"
+    },
+    {
+      "clause_id": "V436-C07",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+      "priority": 7,
+      "requirement": "contradiction visibility"
+    },
+    {
+      "clause_id": "V436-C08",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+      "priority": 8,
+      "requirement": "claim scope control"
+    },
+    {
+      "clause_id": "V436-C09",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+      "priority": 9,
+      "requirement": "deterministic retrieval"
+    },
+    {
+      "clause_id": "V436-C10",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+      "priority": 10,
+      "requirement": "retrieval of negative knowledge"
+    },
+    {
+      "clause_id": "V436-C11",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+      "priority": 11,
+      "requirement": "budget enforcement"
+    },
+    {
+      "clause_id": "V436-C12",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+      "priority": 12,
+      "requirement": "risk hard limits"
+    },
+    {
+      "clause_id": "V436-C13",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+      "priority": 13,
+      "requirement": "exploration floor"
+    },
+    {
+      "clause_id": "V436-C14",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+      "priority": 14,
+      "requirement": "replication floor"
+    },
+    {
+      "clause_id": "V436-C15",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+      "priority": 15,
+      "requirement": "independent challenge"
+    },
+    {
+      "clause_id": "V436-C16",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+      "priority": 16,
+      "requirement": "human approval"
+    },
+    {
+      "clause_id": "V436-C17",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+      "priority": 17,
+      "requirement": "no automatic execution"
+    },
+    {
+      "clause_id": "V436-C18",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+      "priority": 18,
+      "requirement": "baseline preservation"
+    },
+    {
+      "clause_id": "V436-C19",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+      "priority": 19,
+      "requirement": "UCEE non-mutation"
+    },
+    {
+      "clause_id": "V436-C20",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+      "priority": 20,
+      "requirement": "claim ceiling"
+    }
+  ],
+  "constitution_hash": "f5e6b184e9fb66a420eeb595643aa5c051e02dab88d58c6494e88b4d298e8008",
+  "constitution_id": "v436_constitution",
+  "future_suffix_access_allowed": false,
+  "negative_results_mandatory": true,
+  "production_authorization_allowed": false,
+  "research_only": true,
+  "treatment_selection_allowed": false,
+  "version": "1.0.0"
+}

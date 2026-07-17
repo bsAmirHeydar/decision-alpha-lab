@@ -1,0 +1,40 @@
+{
+  "checks": [
+    {
+      "command": "/opt/pyvenv/bin/python -m pytest -q /mnt/data/alpha_work/decision-alpha-lab-main/lab/11_strategy_factory/tests/phase_saed_v4_36_research_memory_active_planner",
+      "returncode": 0
+    },
+    {
+      "command": "/opt/pyvenv/bin/python /mnt/data/alpha_work/decision-alpha-lab-main/tools/strategy_factory/saed_v4_36/validate_contract_closure.py",
+      "returncode": 0
+    },
+    {
+      "command": "/opt/pyvenv/bin/python /mnt/data/alpha_work/decision-alpha-lab-main/tools/strategy_factory/saed_v4_36/validate_authority_boundary.py",
+      "returncode": 0
+    },
+    {
+      "command": "/opt/pyvenv/bin/python /mnt/data/alpha_work/decision-alpha-lab-main/tools/strategy_factory/saed_v4_36/validate_memory_integrity.py",
+      "returncode": 0
+    },
+    {
+      "command": "/opt/pyvenv/bin/python /mnt/data/alpha_work/decision-alpha-lab-main/tools/strategy_factory/saed_v4_36/validate_obsidian.py",
+      "returncode": 0
+    },
+    {
+      "command": "/opt/pyvenv/bin/python /mnt/data/alpha_work/decision-alpha-lab-main/tools/strategy_factory/saed_v4_36/validate_mql5_static.py",
+      "returncode": 0
+    }
+  ],
+  "claim_ceiling": "synthetic_deterministic_research_memory_and_agenda_reference_only",
+  "contract_pairs": 36,
+  "external_embedding_retrieval": false,
+  "external_memory_migration": false,
+  "metaeditor_compile": "pending_local_windows",
+  "mql5_evidence": "static_only",
+  "passed": true,
+  "phase": "SAED_V4_36",
+  "production_authorization": false,
+  "real_compute_scheduler": false,
+  "runtime_parity": false,
+  "version": "1.0.0"
+}

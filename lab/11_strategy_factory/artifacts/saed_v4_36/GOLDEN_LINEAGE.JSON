@@ -1,0 +1,110 @@
+{
+  "edge_count": 12,
+  "edges": [
+    {
+      "relation": "SUPPORTS",
+      "source_id": "ev_001",
+      "target_id": "mem_h1"
+    },
+    {
+      "relation": "SUPPORTS",
+      "source_id": "ev_002",
+      "target_id": "mem_e1"
+    },
+    {
+      "relation": "SUPPORTS",
+      "source_id": "ev_003",
+      "target_id": "mem_r1"
+    },
+    {
+      "relation": "SUPPORTS",
+      "source_id": "ev_004",
+      "target_id": "mem_n1"
+    },
+    {
+      "relation": "SUPPORTS",
+      "source_id": "ev_005",
+      "target_id": "mem_c1"
+    },
+    {
+      "relation": "SUPPORTS",
+      "source_id": "ev_006",
+      "target_id": "mem_l1"
+    },
+    {
+      "relation": "SUPPORTS",
+      "source_id": "ev_007",
+      "target_id": "mem_i1"
+    },
+    {
+      "relation": "SUPPORTS",
+      "source_id": "ev_008",
+      "target_id": "mem_f1"
+    },
+    {
+      "relation": "SUPPORTS",
+      "source_id": "ev_009",
+      "target_id": "mem_d1"
+    },
+    {
+      "relation": "SUPPORTS",
+      "source_id": "ev_010",
+      "target_id": "mem_a1"
+    },
+    {
+      "relation": "SUPPORTS",
+      "source_id": "ev_011",
+      "target_id": "mem_q1"
+    },
+    {
+      "relation": "SUPPORTS",
+      "source_id": "ev_012",
+      "target_id": "mem_m1"
+    }
+  ],
+  "graph_hash": "cb7f355c7b981b68539e52bf53826454b0ce690cb53a5bd86d08fb835ab38a8c",
+  "graph_id": "v436_lineage_51c13d46ed6caa61991e0448",
+  "node_count": 38,
+  "nodes": [
+    "ev_001",
+    "ev_002",
+    "ev_003",
+    "ev_004",
+    "ev_005",
+    "ev_006",
+    "ev_007",
+    "ev_008",
+    "ev_009",
+    "ev_010",
+    "ev_011",
+    "ev_012",
+    "ev_013",
+    "ev_014",
+    "ev_015",
+    "ev_016",
+    "ev_017",
+    "ev_018",
+    "ev_019",
+    "mem_a1",
+    "mem_c1",
+    "mem_c2",
+    "mem_d1",
+    "mem_d2",
+    "mem_ds1",
+    "mem_e1",
+    "mem_f1",
+    "mem_h1",
+    "mem_h2",
+    "mem_i1",
+    "mem_l1",
+    "mem_l2",
+    "mem_m1",
+    "mem_n1",
+    "mem_n2",
+    "mem_q1",
+    "mem_r1",
+    "mem_r2"
+  ],
+  "phase": "SAED_V4_36",
+  "research_only": true
+}

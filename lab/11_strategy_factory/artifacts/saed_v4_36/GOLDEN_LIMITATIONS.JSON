@@ -1,0 +1,16 @@
+{
+  "claim_ceiling": "synthetic_deterministic_research_memory_and_agenda_reference_only",
+  "limitations": [
+    "synthetic reference corpus only",
+    "lexical deterministic retrieval is not semantic embedding retrieval",
+    "planner utility weights are reference policy values",
+    "no experiment is automatically launched",
+    "no real compute scheduler or external literature connector",
+    "no prospective market or broker evidence",
+    "no production or live authority"
+  ],
+  "limitations_hash": "fcb0bbe5d19b001c7ea6efe9adb977103eb718e1236d3681f2edc9e7348338fb",
+  "limitations_id": "v436_limits_71193d53e476c632be5ff8a3",
+  "phase": "SAED_V4_36",
+  "research_only": true
+}

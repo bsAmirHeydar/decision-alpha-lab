@@ -1,0 +1,75 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-36/golden_negative_knowledge.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-36 research-memory and active-planner reference artifact schema.",
+  "properties": {
+    "deletion_allowed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "record_count": {
+      "type": "integer"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "evidence_hashes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "mandatory_for_retrieval": {
+            "type": "boolean"
+          },
+          "may_be_deleted": {
+            "type": "boolean"
+          },
+          "memory_id": {
+            "type": "string"
+          },
+          "statement": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "evidence_hashes",
+          "kind",
+          "mandatory_for_retrieval",
+          "may_be_deleted",
+          "memory_id",
+          "statement"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "deletion_allowed",
+    "phase",
+    "record_count",
+    "records",
+    "registry_hash",
+    "registry_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_NEGATIVE_KNOWLEDGE",
+  "type": "object"
+}

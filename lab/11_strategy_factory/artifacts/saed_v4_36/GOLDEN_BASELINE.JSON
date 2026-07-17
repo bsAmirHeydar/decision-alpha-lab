@@ -1,0 +1,15 @@
+{
+  "automatic_experiments_started": 0,
+  "existing_research_results_immutable": true,
+  "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+  "live_runtime_unchanged": true,
+  "negative_results_preserved": true,
+  "orders_submitted": 0,
+  "phase": "SAED_V4_36",
+  "portfolio_state_unchanged": true,
+  "receipt_hash": "33ce75e7b9715d72ef163bf606a3ffd44f7709fe6704f963911d83073acea48d",
+  "receipt_id": "v436_baseline_ce4fa9f3ebc1936900788cf7",
+  "research_only": true,
+  "treatment_universe_unchanged": true,
+  "ucee_runtime_unchanged": true
+}

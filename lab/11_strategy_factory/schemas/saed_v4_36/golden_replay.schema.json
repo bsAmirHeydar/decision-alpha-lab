@@ -1,0 +1,52 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-36/golden_replay.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-36 research-memory and active-planner reference artifact schema.",
+  "properties": {
+    "deterministic": {
+      "type": "boolean"
+    },
+    "exact_replay_hash": {
+      "type": "string"
+    },
+    "future_suffix_invariant": {
+      "type": "boolean"
+    },
+    "future_suffix_records_seen": {
+      "type": "integer"
+    },
+    "known_time_cutoff": {
+      "type": "string"
+    },
+    "network_access": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "replay_hash": {
+      "type": "string"
+    },
+    "replay_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "deterministic",
+    "exact_replay_hash",
+    "future_suffix_invariant",
+    "future_suffix_records_seen",
+    "known_time_cutoff",
+    "network_access",
+    "phase",
+    "replay_hash",
+    "replay_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_REPLAY",
+  "type": "object"
+}

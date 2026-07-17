@@ -1,0 +1,42 @@
+{
+  "claims": [
+    {
+      "blocking_contradictions": 0,
+      "claim_id": "claim_regime_portability",
+      "declared_state": "UNRESOLVED",
+      "eligible_for_research_use": false,
+      "eligible_for_runtime_use": false,
+      "support_covered": true
+    },
+    {
+      "blocking_contradictions": 1,
+      "claim_id": "claim_runtime_parity",
+      "declared_state": "REFUTED",
+      "eligible_for_research_use": false,
+      "eligible_for_runtime_use": false,
+      "support_covered": true
+    },
+    {
+      "blocking_contradictions": 0,
+      "claim_id": "claim_session_liquidity",
+      "declared_state": "SUPPORTED",
+      "eligible_for_research_use": true,
+      "eligible_for_runtime_use": false,
+      "support_covered": true
+    },
+    {
+      "blocking_contradictions": 0,
+      "claim_id": "claim_tail_conditioning",
+      "declared_state": "CONTESTED",
+      "eligible_for_research_use": false,
+      "eligible_for_runtime_use": false,
+      "support_covered": true
+    }
+  ],
+  "negative_knowledge_count": 6,
+  "phase": "SAED_V4_36",
+  "research_only": true,
+  "runtime_use_allowed": false,
+  "state_hash": "edadb43ecd6f53eb2e55c484fd9a677d912446bf473d6e094ac0b9e310b51cbb",
+  "state_id": "v436_knowledge_222fba7fe0f0b82d12d4fba3"
+}

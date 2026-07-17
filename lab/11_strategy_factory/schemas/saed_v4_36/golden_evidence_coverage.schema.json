@@ -1,0 +1,73 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-36/golden_evidence_coverage.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-36 research-memory and active-planner reference artifact schema.",
+  "properties": {
+    "coverage_hash": {
+      "type": "string"
+    },
+    "coverage_id": {
+      "type": "string"
+    },
+    "covered": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "covered": {
+            "type": "boolean"
+          },
+          "evidence_count": {
+            "type": "integer"
+          },
+          "independent_count": {
+            "type": "integer"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "memory_id": {
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "covered",
+          "evidence_count",
+          "independent_count",
+          "kind",
+          "memory_id",
+          "required"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "uncovered_ids": {
+      "items": {},
+      "type": "array"
+    }
+  },
+  "required": [
+    "coverage_hash",
+    "coverage_id",
+    "covered",
+    "phase",
+    "research_only",
+    "rows",
+    "uncovered_ids"
+  ],
+  "title": "GOLDEN_EVIDENCE_COVERAGE",
+  "type": "object"
+}

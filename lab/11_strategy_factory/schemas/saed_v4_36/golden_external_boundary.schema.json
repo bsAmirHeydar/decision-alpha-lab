@@ -1,0 +1,72 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-36/golden_external_boundary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-36 research-memory and active-planner reference artifact schema.",
+  "properties": {
+    "boundary_hash": {
+      "type": "string"
+    },
+    "boundary_id": {
+      "type": "string"
+    },
+    "external_human_committee": {
+      "type": "boolean"
+    },
+    "external_literature_connector": {
+      "type": "boolean"
+    },
+    "live_trading": {
+      "type": "boolean"
+    },
+    "metaeditor_compile": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorization": {
+      "type": "boolean"
+    },
+    "prospective_evidence": {
+      "type": "boolean"
+    },
+    "real_compute_scheduler": {
+      "type": "boolean"
+    },
+    "real_embedding_service": {
+      "type": "boolean"
+    },
+    "real_longitudinal_memory_migration": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "runtime_parity": {
+      "type": "boolean"
+    },
+    "synthetic_memory_fixture": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "boundary_hash",
+    "boundary_id",
+    "external_human_committee",
+    "external_literature_connector",
+    "live_trading",
+    "metaeditor_compile",
+    "phase",
+    "production_authorization",
+    "prospective_evidence",
+    "real_compute_scheduler",
+    "real_embedding_service",
+    "real_longitudinal_memory_migration",
+    "research_only",
+    "runtime_parity",
+    "synthetic_memory_fixture"
+  ],
+  "title": "GOLDEN_EXTERNAL_BOUNDARY",
+  "type": "object"
+}

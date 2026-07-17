@@ -1,0 +1,966 @@
+{
+  "append_only": true,
+  "chain": [
+    {
+      "entry_hash": "e7c011a6e4cc7967c62d9e7541a9fb0df81cd2f32442e79cb4dd80cfaba6ba35",
+      "event_hash": "db249289340c230cacd6a061d809659f401d83987dfc74e26b85b8363c0cbc7f",
+      "event_id": "v436_memory_event_1a9624712db34d34f3cc7e87",
+      "evidence_hashes": [
+        "c70116407dcd4035ecd33e109e82f5d0afd836e9ac9566e90dddc78f10794935"
+      ],
+      "kind": "HYPOTHESIS",
+      "known_time": "2026-07-10T00:00:00Z",
+      "memory_id": "mem_h1",
+      "ordinal": 0,
+      "owner_id": "alpha_lab_research",
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "semantic_fingerprint": "8110fdb6adc545a4279caf158a84fa30351d7775b64634f59a78a262585242af",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "A session transition may change conditional path distribution.",
+      "status": "ACTIVE",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "context",
+        "liquidity",
+        "mechanism"
+      ],
+      "title": "Liquidity transition mechanism"
+    },
+    {
+      "entry_hash": "d2024e947d01029c7018fa9fa7a4040001dbda1479af4431f7441d46eb1e15c4",
+      "event_hash": "1c2ab7b897c83a3e2ba9587fa0c3de85e0b92d207e2adb2e5434a5b249044b5b",
+      "event_id": "v436_memory_event_16a4bedf7f204904f2e5c658",
+      "evidence_hashes": [
+        "d9cd182846eea93f4701675173a25b263366ffb72de1b791db74dead723e593a"
+      ],
+      "kind": "EXPERIMENT",
+      "known_time": "2026-07-10T01:00:00Z",
+      "memory_id": "mem_e1",
+      "ordinal": 1,
+      "owner_id": "alpha_lab_research",
+      "previous_hash": "db249289340c230cacd6a061d809659f401d83987dfc74e26b85b8363c0cbc7f",
+      "semantic_fingerprint": "e54ba13196de796e3584798eaad42cc7c3abb6554f9dbc2fdd3532516b74347c",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "Ablate session and liquidity views under known-time replay.",
+      "status": "CLOSED",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "ablation",
+        "liquidity",
+        "session"
+      ],
+      "title": "Session transition ablation"
+    },
+    {
+      "entry_hash": "2c087814a846040a7ae80f7b33b32610ffe93ce68714f0c0e1d3f4f805338937",
+      "event_hash": "abac4ec8b4d6967464ab0416512b96bf1707741b83b26b2a0166edd4981c03be",
+      "event_id": "v436_memory_event_6e5c6ae3b161a348a65241a1",
+      "evidence_hashes": [
+        "3d2ea4cc3c77894f5d1d5c2e525df143755da945d1549b7a776a3ef783505190"
+      ],
+      "kind": "RESULT",
+      "known_time": "2026-07-10T02:00:00Z",
+      "memory_id": "mem_r1",
+      "ordinal": 2,
+      "owner_id": "alpha_lab_research",
+      "previous_hash": "1c2ab7b897c83a3e2ba9587fa0c3de85e0b92d207e2adb2e5434a5b249044b5b",
+      "semantic_fingerprint": "88c52c431f1872a201960965600c53839b016086d7d84d115917b22787bab18b",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "Session and liquidity views jointly improved synthetic calibration.",
+      "status": "REPRODUCED",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "calibration",
+        "liquidity",
+        "session"
+      ],
+      "title": "Ablation result"
+    },
+    {
+      "entry_hash": "0aec8007e13fe6500db94748d8b784576325ecff1c429041db03afdb0a0b2517",
+      "event_hash": "092656de9e9572f05760b81ee53d738331e257c37f2e322bc9f9022c65bab3df",
+      "event_id": "v436_memory_event_1ff71a0623c816bd9982461c",
+      "evidence_hashes": [
+        "7c9f13c0fd495c916aaf92a47a79b5f9c4f5b6a19756ddd96abcc44d432bf0c5"
+      ],
+      "kind": "NEGATIVE_RESULT",
+      "known_time": "2026-07-10T03:00:00Z",
+      "memory_id": "mem_n1",
+      "ordinal": 3,
+      "owner_id": "alpha_lab_research",
+      "previous_hash": "abac4ec8b4d6967464ab0416512b96bf1707741b83b26b2a0166edd4981c03be",
+      "semantic_fingerprint": "35cf68702e62aaec4135737681449ad55b8985358e5597a18ebad9dcec7ae509",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "Clock-only treatment selection failed support and stability gates.",
+      "status": "REJECTED",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "negative",
+        "session",
+        "treatment"
+      ],
+      "title": "Standalone clock failure"
+    },
+    {
+      "entry_hash": "ae91c2479031fd1a1e4f4b24a0fd031f604446129c913cbf48c1bd191a3aaa5b",
+      "event_hash": "8520621f100e50916e6263e4b16419f0192dff5b1e23d4d5f5d3a4eefa3357b9",
+      "event_id": "v436_memory_event_8f028fa67ec0674cfe78242b",
+      "evidence_hashes": [
+        "23092c0ea253e81c839aed1dc5f3a31e163a6cf73b477a1c340770f51c1fa921"
+      ],
+      "kind": "CLAIM",
+      "known_time": "2026-07-10T04:00:00Z",
+      "memory_id": "mem_c1",
+      "ordinal": 4,
+      "owner_id": "alpha_lab_research",
+      "previous_hash": "092656de9e9572f05760b81ee53d738331e257c37f2e322bc9f9022c65bab3df",
+      "semantic_fingerprint": "ffdc62e29f7c870d55c4b1107c9585c09877bc9b26f78756f5829e4164307189",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "The interaction is supported only inside the synthetic fixture scope.",
+      "status": "ACTIVE",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "claim",
+        "liquidity",
+        "session"
+      ],
+      "title": "Bounded interaction claim"
+    },
+    {
+      "entry_hash": "de75744cad5b53c901da08172d33c99002fd445d7b728bdf8ef13be3d6adb1ac",
+      "event_hash": "5b8c090786aede2d686c57035c8fca6525b274d1489b54bd4c7ae56f44ee6426",
+      "event_id": "v436_memory_event_31eb23a9665791ac66379e0f",
+      "evidence_hashes": [
+        "5bcde8bd5dd253ea57e38ae15d9308e48edf3c61f4a16549768008d24caea7d4"
+      ],
+      "kind": "LIMITATION",
+      "known_time": "2026-07-11T00:00:00Z",
+      "memory_id": "mem_l1",
+      "ordinal": 5,
+      "owner_id": "alpha_lab_research",
+      "previous_hash": "8520621f100e50916e6263e4b16419f0192dff5b1e23d4d5f5d3a4eefa3357b9",
+      "semantic_fingerprint": "ea6949cb0037a928acc83699bb0f3f2f642f299a478c5886e26e744a8af263ab",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "No real market edge or prospective performance is established.",
+      "status": "ACTIVE",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "boundary",
+        "limitation",
+        "synthetic"
+      ],
+      "title": "Synthetic-only boundary"
+    },
+    {
+      "entry_hash": "a2dde3c053182b9893e39da87ba908dfa3a806a9447ddec3f6a1aeb22818fa7f",
+      "event_hash": "05d856b37d7a02609469c718103d86dd6bc17d90079a9d170bdec59d41d72742",
+      "event_id": "v436_memory_event_66afc120020a1b547d665a59",
+      "evidence_hashes": [
+        "80b6ca13914f47c5272728efc6336742d8c94b21c46369c0a10e9e07c269ad80"
+      ],
+      "kind": "INCIDENT",
+      "known_time": "2026-07-11T01:00:00Z",
+      "memory_id": "mem_i1",
+      "ordinal": 6,
+      "owner_id": "alpha_lab_research",
+      "previous_hash": "5b8c090786aede2d686c57035c8fca6525b274d1489b54bd4c7ae56f44ee6426",
+      "semantic_fingerprint": "b3e8923428603b044dfcb739e4c4eca00bfb6b1688191ceb9f4e6cb8e0f088e4",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "A future-suffix mutation was rejected by the known-time gate.",
+      "status": "CLOSED",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "incident",
+        "leakage",
+        "negative"
+      ],
+      "title": "Leakage mutation caught"
+    },
+    {
+      "entry_hash": "467a3762d44201a4d1fb0f5bcc1115fa1c65df0f33847ff981f0ee087a08ea78",
+      "event_hash": "a02eb79e2eeba73b45e3c075f629e41ef3e51b5b9d4679a8a1b6b0689595913a",
+      "event_id": "v436_memory_event_a94ed6d7db239e2d1c12fa4a",
+      "evidence_hashes": [
+        "88f6ab085e9a0b8b9d0fdd3a46e45688c674d62475ae681a1136c19d1dea09d5"
+      ],
+      "kind": "RISK_FINDING",
+      "known_time": "2026-07-11T02:00:00Z",
+      "memory_id": "mem_f1",
+      "ordinal": 7,
+      "owner_id": "alpha_lab_research",
+      "previous_hash": "05d856b37d7a02609469c718103d86dd6bc17d90079a9d170bdec59d41d72742",
+      "semantic_fingerprint": "587f717e692c2074ad5053941eeee273366805c5041af1dd42e362a80d54d698",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "A single reference dependency family creates concentration risk.",
+      "status": "ACTIVE",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "risk",
+        "supplier",
+        "supply-chain"
+      ],
+      "title": "Supplier concentration"
+    },
+    {
+      "entry_hash": "f0b91052e62d082c308f351d5c967f25d1a92945a5db514eeb7b5ead306b6499",
+      "event_hash": "a182d804ebf0d75441c27978ff9cf0ce64c20136774487dc207161609f713239",
+      "event_id": "v436_memory_event_eb6d77df902bb4dd24134c6c",
+      "evidence_hashes": [
+        "598aadca5e31d7164060267bd524dbed2f6199d5c76f1d12af58fa9f597ccb0c"
+      ],
+      "kind": "DECISION",
+      "known_time": "2026-07-11T03:00:00Z",
+      "memory_id": "mem_d1",
+      "ordinal": 8,
+      "owner_id": "alpha_lab_research",
+      "previous_hash": "a02eb79e2eeba73b45e3c075f629e41ef3e51b5b9d4679a8a1b6b0689595913a",
+      "semantic_fingerprint": "d14dba0ba06a67ac87391f68b66b2139e8fc40a0de48e00b88e42e06cabe6986",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "Manual baseline remains mandatory during active research planning.",
+      "status": "ACTIVE",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "baseline",
+        "decision",
+        "manual"
+      ],
+      "title": "Preserve manual baseline"
+    },
+    {
+      "entry_hash": "a0986e2d672a1c7bbf5f2066ebaa09dec7906f25f047965ae4a24fdb903af8e8",
+      "event_hash": "763f559c7eb39ea571fc62a5b46cd963a4879a5d1f238b334f4f6599a3ce0536",
+      "event_id": "v436_memory_event_e80cef30cb431b7ee4eb313e",
+      "evidence_hashes": [
+        "117165af0ae658e046cf37bc0bc01e0d9521264c9a3f3e70b5ff88ec52fa718e"
+      ],
+      "kind": "ARTIFACT",
+      "known_time": "2026-07-11T04:00:00Z",
+      "memory_id": "mem_a1",
+      "ordinal": 9,
+      "owner_id": "alpha_lab_research",
+      "previous_hash": "a182d804ebf0d75441c27978ff9cf0ce64c20136774487dc207161609f713239",
+      "semantic_fingerprint": "35da30863e62e1e52b8d8a72d83429d988c6cdb825054616e6ffdd576e0dfd7d",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "Immutable model-risk and supply-chain evidence bundle.",
+      "status": "REPRODUCED",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "artifact",
+        "evidence",
+        "v4-35"
+      ],
+      "title": "V4-35 evidence bundle"
+    },
+    {
+      "entry_hash": "3c5965d734657137d7e1477475e0d79602d85b538bc777db325ab029f47cfd44",
+      "event_hash": "d8b87ea09fab05103bccf48a4229d6932d95d82294be85faac3989a6e46276c5",
+      "event_id": "v436_memory_event_48c9ac16e582e4daf26b3daa",
+      "evidence_hashes": [
+        "fb24d78a1ec19f32d7b38635f60e5495e1060e486c571a89d72bdc422cdf6bd1"
+      ],
+      "kind": "QUESTION",
+      "known_time": "2026-07-12T00:00:00Z",
+      "memory_id": "mem_q1",
+      "ordinal": 10,
+      "owner_id": "alpha_lab_research",
+      "previous_hash": "763f559c7eb39ea571fc62a5b46cd963a4879a5d1f238b334f4f6599a3ce0536",
+      "semantic_fingerprint": "f2e3041dc6c1ee0e35fefff91eb1635287357eb53786f6e65210af0d78eaf29a",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_36",
+      "statement": "Does the interaction reproduce across independent regime slices?",
+      "status": "UNRESOLVED",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "question",
+        "regime",
+        "replication"
+      ],
+      "title": "Regime portability question"
+    },
+    {
+      "entry_hash": "09e09c61b0c67bfdfc08c45f6268a587561bddad6b5d52e9ddc09f38607bb99f",
+      "event_hash": "d64384fc502d8144b3a4de26be4451980cd036aac2ea0eb02d39bbebc31ea171",
+      "event_id": "v436_memory_event_f4f3c155997b2d58dbe3fdc1",
+      "evidence_hashes": [
+        "86f5b1367ed9a84d3f4d62fd68463737381c9a38b459c7f9bc31aab5493d0b82"
+      ],
+      "kind": "MODEL",
+      "known_time": "2026-07-12T01:00:00Z",
+      "memory_id": "mem_m1",
+      "ordinal": 11,
+      "owner_id": "alpha_lab_research",
+      "previous_hash": "d8b87ea09fab05103bccf48a4229d6932d95d82294be85faac3989a6e46276c5",
+      "semantic_fingerprint": "02b41560b57336c6f1cbbc7afa0ded00c463c73a104e91861512de43e908f2f8",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_36",
+      "statement": "Deterministic synthetic multimodal reference model.",
+      "status": "ACTIVE",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "model",
+        "multimodal",
+        "reference"
+      ],
+      "title": "Reference fusion model"
+    },
+    {
+      "entry_hash": "88441639911373fac7d59988a8306796f0bf0edab77ec483c1afd48275e303c3",
+      "event_hash": "4d845715af176711d3b4e2b9ed5cfd7473bde8602f6b041040ded673d7f4c173",
+      "event_id": "v436_memory_event_fd4593f9520d4f23dff1c3be",
+      "evidence_hashes": [
+        "ff66db329146a4956fbdf94668f080ebc469df1535c33f5d60f8ab6008cdc822"
+      ],
+      "kind": "DATASET",
+      "known_time": "2026-07-12T02:00:00Z",
+      "memory_id": "mem_ds1",
+      "ordinal": 12,
+      "owner_id": "alpha_lab_research",
+      "previous_hash": "d64384fc502d8144b3a4de26be4451980cd036aac2ea0eb02d39bbebc31ea171",
+      "semantic_fingerprint": "4d396babb19eb126134352a879241d6ea26080824cf193b7b6bf8e67d369712c",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_36",
+      "statement": "Synthetic dataset with immutable known-time boundaries.",
+      "status": "ACTIVE",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "dataset",
+        "known-time",
+        "synthetic"
+      ],
+      "title": "Known-time fixture dataset"
+    },
+    {
+      "entry_hash": "4fc0df67d643c428cc7a086bf4e156472b93ed42ee517aa760f59e9d097e810f",
+      "event_hash": "0278b90e177e46cbb4cbba7772de8486cf1178199a1cf8fb0dc949679d1b7496",
+      "event_id": "v436_memory_event_b37c5c855a6e6cc877bfbee7",
+      "evidence_hashes": [
+        "3f47095611f8da548e1ea6f70830542acee46ac3c7af93371cd8dd1bbb2f3ee3"
+      ],
+      "kind": "HYPOTHESIS",
+      "known_time": "2026-07-12T03:00:00Z",
+      "memory_id": "mem_h2",
+      "ordinal": 13,
+      "owner_id": "alpha_lab_research",
+      "previous_hash": "4d845715af176711d3b4e2b9ed5cfd7473bde8602f6b041040ded673d7f4c173",
+      "semantic_fingerprint": "70f29f10dd16dc28dbf403e3a04358fd6f60317aa23fff39c5189e3f9940eaff",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_36",
+      "statement": "Tail-state conditioning may reduce downside calibration error.",
+      "status": "ACTIVE",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "calibration",
+        "risk",
+        "tail"
+      ],
+      "title": "Tail-risk conditioning"
+    },
+    {
+      "entry_hash": "0391607564ea9e5c1d163dd219b74311f18d60e1c1746ffce3d38e33fbea1df2",
+      "event_hash": "ed70d08fa2b9e6012af9954ebe465c38359cf06e99f032b1e60b5be2c7d8f283",
+      "event_id": "v436_memory_event_db38269a2ccbabacf43595be",
+      "evidence_hashes": [
+        "48a5a793c1498675038fd6afa4744d892899ff7c450c778c24472241dc6cc7a6"
+      ],
+      "kind": "NEGATIVE_RESULT",
+      "known_time": "2026-07-12T04:00:00Z",
+      "memory_id": "mem_n2",
+      "ordinal": 14,
+      "owner_id": "alpha_lab_research",
+      "previous_hash": "0278b90e177e46cbb4cbba7772de8486cf1178199a1cf8fb0dc949679d1b7496",
+      "semantic_fingerprint": "55f410c979dc06324eca0a81c5aa220270c09a47496d273383a0f13a1b1249cd",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_36",
+      "statement": "Unconstrained transfer across regimes increased worst-slice error.",
+      "status": "REJECTED",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "negative",
+        "regime",
+        "transfer"
+      ],
+      "title": "Naive transfer failure"
+    },
+    {
+      "entry_hash": "453f57c8aeb5270a1933a4d2e7bc2d40e17d0cf3da22cd7b4d154bb0179e63f6",
+      "event_hash": "48f0a197bfcb9bdb353061def95888986d1892d81d3608718da3996df7f4d2de",
+      "event_id": "v436_memory_event_e565f737510edab508055702",
+      "evidence_hashes": [
+        "d0d8f43bc53448195537b07d1ce03ee201feb70bd20516118705782abf579656"
+      ],
+      "kind": "RESULT",
+      "known_time": "2026-07-13T00:00:00Z",
+      "memory_id": "mem_r2",
+      "ordinal": 15,
+      "owner_id": "alpha_lab_research",
+      "previous_hash": "ed70d08fa2b9e6012af9954ebe465c38359cf06e99f032b1e60b5be2c7d8f283",
+      "semantic_fingerprint": "9ca4daf2ac7cff85d8611161fc9ce8935fb93da11df560fcca293aee6f4e55df",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_36",
+      "statement": "The bounded interaction reproduced under a second deterministic operator.",
+      "status": "REPRODUCED",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "independent",
+        "replication",
+        "session"
+      ],
+      "title": "Independent replay result"
+    },
+    {
+      "entry_hash": "63839f6c8a03066f7ee5c28a89a8d0d3a4fe1ee0a6f5082cf4a7c46873734625",
+      "event_hash": "b690535bf7fa0b5805999346f4ef8f53f02fc5230f3193d43b819b8e0f2a9176",
+      "event_id": "v436_memory_event_257da6ada32378256b7a67c4",
+      "evidence_hashes": [
+        "6b98ca5770e7bd3a9d417d3cd646a640d56137dacff192e5669b0b87193f314b"
+      ],
+      "kind": "CLAIM",
+      "known_time": "2026-07-13T01:00:00Z",
+      "memory_id": "mem_c2",
+      "ordinal": 16,
+      "owner_id": "alpha_lab_research",
+      "previous_hash": "48f0a197bfcb9bdb353061def95888986d1892d81d3608718da3996df7f4d2de",
+      "semantic_fingerprint": "9e4aaa3ace89577df988bf9429b1932357288398739fe8db6b1bc97269ca0400",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_36",
+      "statement": "Tail-state conditioning remains contested pending stress replication.",
+      "status": "UNRESOLVED",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "claim",
+        "stress",
+        "tail"
+      ],
+      "title": "Tail conditioning claim"
+    },
+    {
+      "entry_hash": "8e7262a03893ebe29a7db7df90b73ccdbd62104d3a96d614f1c507e41d873e1b",
+      "event_hash": "7232d7f07adb5db08c9991adcc0f95d585466c95010827945eeaf43281958e90",
+      "event_id": "v436_memory_event_4b36e5d6890158e765614e83",
+      "evidence_hashes": [
+        "44a584f9f2bd258612eee300775c2b146fa08f95cf8f12a2bdfbf6512cbfc50f"
+      ],
+      "kind": "LIMITATION",
+      "known_time": "2026-07-13T02:00:00Z",
+      "memory_id": "mem_l2",
+      "ordinal": 17,
+      "owner_id": "alpha_lab_research",
+      "previous_hash": "b690535bf7fa0b5805999346f4ef8f53f02fc5230f3193d43b819b8e0f2a9176",
+      "semantic_fingerprint": "30027a528ec1b776fa58a0e34851edf46731695f69e1743c9eaf03438b336ba6",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_36",
+      "statement": "Python and MQL5 runtime parity is not established.",
+      "status": "ACTIVE",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "limitation",
+        "mql5",
+        "runtime"
+      ],
+      "title": "Runtime parity absent"
+    },
+    {
+      "entry_hash": "659090e339bb80b268d79a3fca744c3d593f37df734b65f1f4883ed0be67b299",
+      "event_hash": "47a3272a687b9d03f7264e37107515de74089a7e9e762b63f37bc9b0466587b8",
+      "event_id": "v436_memory_event_d228e858564e40b79773366a",
+      "evidence_hashes": [
+        "07a9040aec783683c1e707d466c077a0f7b23a1a1c9591a18515dad4b0e5a1ad"
+      ],
+      "kind": "DECISION",
+      "known_time": "2026-07-13T03:00:00Z",
+      "memory_id": "mem_d2",
+      "ordinal": 18,
+      "owner_id": "alpha_lab_research",
+      "previous_hash": "7232d7f07adb5db08c9991adcc0f95d585466c95010827945eeaf43281958e90",
+      "semantic_fingerprint": "2cd21821b7ab6264bd18445ccd63cacf5a8d302c209f8d9ef477cc7ffb7adc28",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_36",
+      "statement": "Replace broad portability claim with a regime-bounded statement.",
+      "status": "ACTIVE",
+      "supersedes": "mem_c1",
+      "synthetic_fixture": true,
+      "tags": [
+        "claim",
+        "decision",
+        "scope"
+      ],
+      "title": "Supersede broad claim"
+    }
+  ],
+  "chain_head": "47a3272a687b9d03f7264e37107515de74089a7e9e762b63f37bc9b0466587b8",
+  "cutoff_time": "2026-07-17T00:00:00Z",
+  "entries": [
+    {
+      "entry_hash": "e7c011a6e4cc7967c62d9e7541a9fb0df81cd2f32442e79cb4dd80cfaba6ba35",
+      "evidence_hashes": [
+        "c70116407dcd4035ecd33e109e82f5d0afd836e9ac9566e90dddc78f10794935"
+      ],
+      "kind": "HYPOTHESIS",
+      "known_time": "2026-07-10T00:00:00Z",
+      "memory_id": "mem_h1",
+      "owner_id": "alpha_lab_research",
+      "semantic_fingerprint": "8110fdb6adc545a4279caf158a84fa30351d7775b64634f59a78a262585242af",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "A session transition may change conditional path distribution.",
+      "status": "ACTIVE",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "context",
+        "liquidity",
+        "mechanism"
+      ],
+      "title": "Liquidity transition mechanism"
+    },
+    {
+      "entry_hash": "d2024e947d01029c7018fa9fa7a4040001dbda1479af4431f7441d46eb1e15c4",
+      "evidence_hashes": [
+        "d9cd182846eea93f4701675173a25b263366ffb72de1b791db74dead723e593a"
+      ],
+      "kind": "EXPERIMENT",
+      "known_time": "2026-07-10T01:00:00Z",
+      "memory_id": "mem_e1",
+      "owner_id": "alpha_lab_research",
+      "semantic_fingerprint": "e54ba13196de796e3584798eaad42cc7c3abb6554f9dbc2fdd3532516b74347c",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "Ablate session and liquidity views under known-time replay.",
+      "status": "CLOSED",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "ablation",
+        "liquidity",
+        "session"
+      ],
+      "title": "Session transition ablation"
+    },
+    {
+      "entry_hash": "2c087814a846040a7ae80f7b33b32610ffe93ce68714f0c0e1d3f4f805338937",
+      "evidence_hashes": [
+        "3d2ea4cc3c77894f5d1d5c2e525df143755da945d1549b7a776a3ef783505190"
+      ],
+      "kind": "RESULT",
+      "known_time": "2026-07-10T02:00:00Z",
+      "memory_id": "mem_r1",
+      "owner_id": "alpha_lab_research",
+      "semantic_fingerprint": "88c52c431f1872a201960965600c53839b016086d7d84d115917b22787bab18b",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "Session and liquidity views jointly improved synthetic calibration.",
+      "status": "REPRODUCED",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "calibration",
+        "liquidity",
+        "session"
+      ],
+      "title": "Ablation result"
+    },
+    {
+      "entry_hash": "0aec8007e13fe6500db94748d8b784576325ecff1c429041db03afdb0a0b2517",
+      "evidence_hashes": [
+        "7c9f13c0fd495c916aaf92a47a79b5f9c4f5b6a19756ddd96abcc44d432bf0c5"
+      ],
+      "kind": "NEGATIVE_RESULT",
+      "known_time": "2026-07-10T03:00:00Z",
+      "memory_id": "mem_n1",
+      "owner_id": "alpha_lab_research",
+      "semantic_fingerprint": "35cf68702e62aaec4135737681449ad55b8985358e5597a18ebad9dcec7ae509",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "Clock-only treatment selection failed support and stability gates.",
+      "status": "REJECTED",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "negative",
+        "session",
+        "treatment"
+      ],
+      "title": "Standalone clock failure"
+    },
+    {
+      "entry_hash": "ae91c2479031fd1a1e4f4b24a0fd031f604446129c913cbf48c1bd191a3aaa5b",
+      "evidence_hashes": [
+        "23092c0ea253e81c839aed1dc5f3a31e163a6cf73b477a1c340770f51c1fa921"
+      ],
+      "kind": "CLAIM",
+      "known_time": "2026-07-10T04:00:00Z",
+      "memory_id": "mem_c1",
+      "owner_id": "alpha_lab_research",
+      "semantic_fingerprint": "ffdc62e29f7c870d55c4b1107c9585c09877bc9b26f78756f5829e4164307189",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "The interaction is supported only inside the synthetic fixture scope.",
+      "status": "ACTIVE",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "claim",
+        "liquidity",
+        "session"
+      ],
+      "title": "Bounded interaction claim"
+    },
+    {
+      "entry_hash": "de75744cad5b53c901da08172d33c99002fd445d7b728bdf8ef13be3d6adb1ac",
+      "evidence_hashes": [
+        "5bcde8bd5dd253ea57e38ae15d9308e48edf3c61f4a16549768008d24caea7d4"
+      ],
+      "kind": "LIMITATION",
+      "known_time": "2026-07-11T00:00:00Z",
+      "memory_id": "mem_l1",
+      "owner_id": "alpha_lab_research",
+      "semantic_fingerprint": "ea6949cb0037a928acc83699bb0f3f2f642f299a478c5886e26e744a8af263ab",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "No real market edge or prospective performance is established.",
+      "status": "ACTIVE",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "boundary",
+        "limitation",
+        "synthetic"
+      ],
+      "title": "Synthetic-only boundary"
+    },
+    {
+      "entry_hash": "a2dde3c053182b9893e39da87ba908dfa3a806a9447ddec3f6a1aeb22818fa7f",
+      "evidence_hashes": [
+        "80b6ca13914f47c5272728efc6336742d8c94b21c46369c0a10e9e07c269ad80"
+      ],
+      "kind": "INCIDENT",
+      "known_time": "2026-07-11T01:00:00Z",
+      "memory_id": "mem_i1",
+      "owner_id": "alpha_lab_research",
+      "semantic_fingerprint": "b3e8923428603b044dfcb739e4c4eca00bfb6b1688191ceb9f4e6cb8e0f088e4",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "A future-suffix mutation was rejected by the known-time gate.",
+      "status": "CLOSED",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "incident",
+        "leakage",
+        "negative"
+      ],
+      "title": "Leakage mutation caught"
+    },
+    {
+      "entry_hash": "467a3762d44201a4d1fb0f5bcc1115fa1c65df0f33847ff981f0ee087a08ea78",
+      "evidence_hashes": [
+        "88f6ab085e9a0b8b9d0fdd3a46e45688c674d62475ae681a1136c19d1dea09d5"
+      ],
+      "kind": "RISK_FINDING",
+      "known_time": "2026-07-11T02:00:00Z",
+      "memory_id": "mem_f1",
+      "owner_id": "alpha_lab_research",
+      "semantic_fingerprint": "587f717e692c2074ad5053941eeee273366805c5041af1dd42e362a80d54d698",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "A single reference dependency family creates concentration risk.",
+      "status": "ACTIVE",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "risk",
+        "supplier",
+        "supply-chain"
+      ],
+      "title": "Supplier concentration"
+    },
+    {
+      "entry_hash": "f0b91052e62d082c308f351d5c967f25d1a92945a5db514eeb7b5ead306b6499",
+      "evidence_hashes": [
+        "598aadca5e31d7164060267bd524dbed2f6199d5c76f1d12af58fa9f597ccb0c"
+      ],
+      "kind": "DECISION",
+      "known_time": "2026-07-11T03:00:00Z",
+      "memory_id": "mem_d1",
+      "owner_id": "alpha_lab_research",
+      "semantic_fingerprint": "d14dba0ba06a67ac87391f68b66b2139e8fc40a0de48e00b88e42e06cabe6986",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "Manual baseline remains mandatory during active research planning.",
+      "status": "ACTIVE",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "baseline",
+        "decision",
+        "manual"
+      ],
+      "title": "Preserve manual baseline"
+    },
+    {
+      "entry_hash": "a0986e2d672a1c7bbf5f2066ebaa09dec7906f25f047965ae4a24fdb903af8e8",
+      "evidence_hashes": [
+        "117165af0ae658e046cf37bc0bc01e0d9521264c9a3f3e70b5ff88ec52fa718e"
+      ],
+      "kind": "ARTIFACT",
+      "known_time": "2026-07-11T04:00:00Z",
+      "memory_id": "mem_a1",
+      "owner_id": "alpha_lab_research",
+      "semantic_fingerprint": "35da30863e62e1e52b8d8a72d83429d988c6cdb825054616e6ffdd576e0dfd7d",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "Immutable model-risk and supply-chain evidence bundle.",
+      "status": "REPRODUCED",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "artifact",
+        "evidence",
+        "v4-35"
+      ],
+      "title": "V4-35 evidence bundle"
+    },
+    {
+      "entry_hash": "3c5965d734657137d7e1477475e0d79602d85b538bc777db325ab029f47cfd44",
+      "evidence_hashes": [
+        "fb24d78a1ec19f32d7b38635f60e5495e1060e486c571a89d72bdc422cdf6bd1"
+      ],
+      "kind": "QUESTION",
+      "known_time": "2026-07-12T00:00:00Z",
+      "memory_id": "mem_q1",
+      "owner_id": "alpha_lab_research",
+      "semantic_fingerprint": "f2e3041dc6c1ee0e35fefff91eb1635287357eb53786f6e65210af0d78eaf29a",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_36",
+      "statement": "Does the interaction reproduce across independent regime slices?",
+      "status": "UNRESOLVED",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "question",
+        "regime",
+        "replication"
+      ],
+      "title": "Regime portability question"
+    },
+    {
+      "entry_hash": "09e09c61b0c67bfdfc08c45f6268a587561bddad6b5d52e9ddc09f38607bb99f",
+      "evidence_hashes": [
+        "86f5b1367ed9a84d3f4d62fd68463737381c9a38b459c7f9bc31aab5493d0b82"
+      ],
+      "kind": "MODEL",
+      "known_time": "2026-07-12T01:00:00Z",
+      "memory_id": "mem_m1",
+      "owner_id": "alpha_lab_research",
+      "semantic_fingerprint": "02b41560b57336c6f1cbbc7afa0ded00c463c73a104e91861512de43e908f2f8",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_36",
+      "statement": "Deterministic synthetic multimodal reference model.",
+      "status": "ACTIVE",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "model",
+        "multimodal",
+        "reference"
+      ],
+      "title": "Reference fusion model"
+    },
+    {
+      "entry_hash": "88441639911373fac7d59988a8306796f0bf0edab77ec483c1afd48275e303c3",
+      "evidence_hashes": [
+        "ff66db329146a4956fbdf94668f080ebc469df1535c33f5d60f8ab6008cdc822"
+      ],
+      "kind": "DATASET",
+      "known_time": "2026-07-12T02:00:00Z",
+      "memory_id": "mem_ds1",
+      "owner_id": "alpha_lab_research",
+      "semantic_fingerprint": "4d396babb19eb126134352a879241d6ea26080824cf193b7b6bf8e67d369712c",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_36",
+      "statement": "Synthetic dataset with immutable known-time boundaries.",
+      "status": "ACTIVE",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "dataset",
+        "known-time",
+        "synthetic"
+      ],
+      "title": "Known-time fixture dataset"
+    },
+    {
+      "entry_hash": "4fc0df67d643c428cc7a086bf4e156472b93ed42ee517aa760f59e9d097e810f",
+      "evidence_hashes": [
+        "3f47095611f8da548e1ea6f70830542acee46ac3c7af93371cd8dd1bbb2f3ee3"
+      ],
+      "kind": "HYPOTHESIS",
+      "known_time": "2026-07-12T03:00:00Z",
+      "memory_id": "mem_h2",
+      "owner_id": "alpha_lab_research",
+      "semantic_fingerprint": "70f29f10dd16dc28dbf403e3a04358fd6f60317aa23fff39c5189e3f9940eaff",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_36",
+      "statement": "Tail-state conditioning may reduce downside calibration error.",
+      "status": "ACTIVE",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "calibration",
+        "risk",
+        "tail"
+      ],
+      "title": "Tail-risk conditioning"
+    },
+    {
+      "entry_hash": "0391607564ea9e5c1d163dd219b74311f18d60e1c1746ffce3d38e33fbea1df2",
+      "evidence_hashes": [
+        "48a5a793c1498675038fd6afa4744d892899ff7c450c778c24472241dc6cc7a6"
+      ],
+      "kind": "NEGATIVE_RESULT",
+      "known_time": "2026-07-12T04:00:00Z",
+      "memory_id": "mem_n2",
+      "owner_id": "alpha_lab_research",
+      "semantic_fingerprint": "55f410c979dc06324eca0a81c5aa220270c09a47496d273383a0f13a1b1249cd",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_36",
+      "statement": "Unconstrained transfer across regimes increased worst-slice error.",
+      "status": "REJECTED",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "negative",
+        "regime",
+        "transfer"
+      ],
+      "title": "Naive transfer failure"
+    },
+    {
+      "entry_hash": "453f57c8aeb5270a1933a4d2e7bc2d40e17d0cf3da22cd7b4d154bb0179e63f6",
+      "evidence_hashes": [
+        "d0d8f43bc53448195537b07d1ce03ee201feb70bd20516118705782abf579656"
+      ],
+      "kind": "RESULT",
+      "known_time": "2026-07-13T00:00:00Z",
+      "memory_id": "mem_r2",
+      "owner_id": "alpha_lab_research",
+      "semantic_fingerprint": "9ca4daf2ac7cff85d8611161fc9ce8935fb93da11df560fcca293aee6f4e55df",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_36",
+      "statement": "The bounded interaction reproduced under a second deterministic operator.",
+      "status": "REPRODUCED",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "independent",
+        "replication",
+        "session"
+      ],
+      "title": "Independent replay result"
+    },
+    {
+      "entry_hash": "63839f6c8a03066f7ee5c28a89a8d0d3a4fe1ee0a6f5082cf4a7c46873734625",
+      "evidence_hashes": [
+        "6b98ca5770e7bd3a9d417d3cd646a640d56137dacff192e5669b0b87193f314b"
+      ],
+      "kind": "CLAIM",
+      "known_time": "2026-07-13T01:00:00Z",
+      "memory_id": "mem_c2",
+      "owner_id": "alpha_lab_research",
+      "semantic_fingerprint": "9e4aaa3ace89577df988bf9429b1932357288398739fe8db6b1bc97269ca0400",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_36",
+      "statement": "Tail-state conditioning remains contested pending stress replication.",
+      "status": "UNRESOLVED",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "claim",
+        "stress",
+        "tail"
+      ],
+      "title": "Tail conditioning claim"
+    },
+    {
+      "entry_hash": "8e7262a03893ebe29a7db7df90b73ccdbd62104d3a96d614f1c507e41d873e1b",
+      "evidence_hashes": [
+        "44a584f9f2bd258612eee300775c2b146fa08f95cf8f12a2bdfbf6512cbfc50f"
+      ],
+      "kind": "LIMITATION",
+      "known_time": "2026-07-13T02:00:00Z",
+      "memory_id": "mem_l2",
+      "owner_id": "alpha_lab_research",
+      "semantic_fingerprint": "30027a528ec1b776fa58a0e34851edf46731695f69e1743c9eaf03438b336ba6",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_36",
+      "statement": "Python and MQL5 runtime parity is not established.",
+      "status": "ACTIVE",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "limitation",
+        "mql5",
+        "runtime"
+      ],
+      "title": "Runtime parity absent"
+    },
+    {
+      "entry_hash": "659090e339bb80b268d79a3fca744c3d593f37df734b65f1f4883ed0be67b299",
+      "evidence_hashes": [
+        "07a9040aec783683c1e707d466c077a0f7b23a1a1c9591a18515dad4b0e5a1ad"
+      ],
+      "kind": "DECISION",
+      "known_time": "2026-07-13T03:00:00Z",
+      "memory_id": "mem_d2",
+      "owner_id": "alpha_lab_research",
+      "semantic_fingerprint": "2cd21821b7ab6264bd18445ccd63cacf5a8d302c209f8d9ef477cc7ffb7adc28",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_36",
+      "statement": "Replace broad portability claim with a regime-bounded statement.",
+      "status": "ACTIVE",
+      "supersedes": "mem_c1",
+      "synthetic_fixture": true,
+      "tags": [
+        "claim",
+        "decision",
+        "scope"
+      ],
+      "title": "Supersede broad claim"
+    }
+  ],
+  "entry_count": 19,
+  "memory_store_hash": "4e11c55584ec3b9e4bde6d295f23bce591b1849ac685af2ad5cbf02f8d3445bb",
+  "memory_store_id": "v436_memory_a943f670251d0892ce8a2026",
+  "merkle_root": "19b19e5cc25a03f97dcde7d99e9420ac42b2e1804aa06e329f7d6798e691cbd0",
+  "phase": "SAED_V4_36",
+  "research_only": true,
+  "semantic_duplicates": 0
+}

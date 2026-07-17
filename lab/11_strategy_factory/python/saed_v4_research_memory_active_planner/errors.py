@@ -1,0 +1,12 @@
+class SAEDV436Error(Exception): pass
+class ContractError(SAEDV436Error): pass
+class UpstreamError(SAEDV436Error): pass
+class ConstitutionError(SAEDV436Error): pass
+class MemoryError(SAEDV436Error): pass
+class EvidenceError(SAEDV436Error): pass
+class RetrievalError(SAEDV436Error): pass
+class ContradictionError(SAEDV436Error): pass
+class BudgetError(SAEDV436Error): pass
+class PlannerError(SAEDV436Error): pass
+class GovernanceError(SAEDV436Error): pass
+class AuthorityError(SAEDV436Error): pass

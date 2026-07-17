@@ -1,0 +1,16 @@
+{
+  "destructive_update_allowed": false,
+  "link_count": 1,
+  "links": [
+    {
+      "new_memory_id": "mem_d2",
+      "new_status": "ACTIVE",
+      "old_memory_id": "mem_c1",
+      "reason": "explicit_supersession"
+    }
+  ],
+  "map_hash": "77689e7926d51a05d5d495849be7aae47d1b9d21c71de3a309685e53454f7fb8",
+  "map_id": "v436_supersession_b84a15a301b83babbfcc26cb",
+  "phase": "SAED_V4_36",
+  "research_only": true
+}

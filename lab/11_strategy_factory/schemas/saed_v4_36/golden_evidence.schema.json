@@ -1,0 +1,104 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-36/golden_evidence.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-36 research-memory and active-planner reference artifact schema.",
+  "properties": {
+    "all_valid": {
+      "type": "boolean"
+    },
+    "independent_count": {
+      "type": "integer"
+    },
+    "merkle_root": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "record_count": {
+      "type": "integer"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact_hash": {
+            "type": "string"
+          },
+          "evidence_hash": {
+            "type": "string"
+          },
+          "evidence_id": {
+            "type": "string"
+          },
+          "independent": {
+            "type": "boolean"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "lineage_hash": {
+            "type": "string"
+          },
+          "memory_id": {
+            "type": "string"
+          },
+          "operator_id": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "schema_hash": {
+            "type": "string"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          },
+          "valid": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "artifact_hash",
+          "evidence_hash",
+          "evidence_id",
+          "independent",
+          "known_time",
+          "lineage_hash",
+          "memory_id",
+          "operator_id",
+          "role",
+          "schema_hash",
+          "synthetic_fixture",
+          "valid"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "all_valid",
+    "independent_count",
+    "merkle_root",
+    "phase",
+    "record_count",
+    "records",
+    "registry_hash",
+    "registry_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_EVIDENCE",
+  "type": "object"
+}

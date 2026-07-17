@@ -1,0 +1,56 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-36/golden_availability.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-36 research-memory and active-planner reference artifact schema.",
+  "properties": {
+    "availability_hash": {
+      "type": "string"
+    },
+    "availability_id": {
+      "type": "string"
+    },
+    "compute_units": {
+      "type": "number"
+    },
+    "exposure_units": {
+      "type": "number"
+    },
+    "max_parallel": {
+      "type": "integer"
+    },
+    "max_selected": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "reserve_fraction": {
+      "type": "number"
+    },
+    "review_hours": {
+      "type": "number"
+    },
+    "risk_capacity": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "availability_hash",
+    "availability_id",
+    "compute_units",
+    "exposure_units",
+    "max_parallel",
+    "max_selected",
+    "phase",
+    "research_only",
+    "reserve_fraction",
+    "review_hours",
+    "risk_capacity"
+  ],
+  "title": "GOLDEN_AVAILABILITY",
+  "type": "object"
+}

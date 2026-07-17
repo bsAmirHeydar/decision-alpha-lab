@@ -1,0 +1,64 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-36/golden_supersession.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-36 research-memory and active-planner reference artifact schema.",
+  "properties": {
+    "destructive_update_allowed": {
+      "type": "boolean"
+    },
+    "link_count": {
+      "type": "integer"
+    },
+    "links": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "new_memory_id": {
+            "type": "string"
+          },
+          "new_status": {
+            "type": "string"
+          },
+          "old_memory_id": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "new_memory_id",
+          "new_status",
+          "old_memory_id",
+          "reason"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "map_hash": {
+      "type": "string"
+    },
+    "map_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "destructive_update_allowed",
+    "link_count",
+    "links",
+    "map_hash",
+    "map_id",
+    "phase",
+    "research_only"
+  ],
+  "title": "GOLDEN_SUPERSESSION",
+  "type": "object"
+}

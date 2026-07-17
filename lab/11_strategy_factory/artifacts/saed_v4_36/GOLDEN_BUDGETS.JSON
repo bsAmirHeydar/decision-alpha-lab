@@ -1,0 +1,17 @@
+{
+  "approved_by": "research_governance",
+  "automatic_overrun_allowed": false,
+  "budget_hash": "e5ed89b5c5b820e5d0d5182cafed0c830119ff28ba7f0941a67138459967f057",
+  "budget_id": "v436_budget_reference",
+  "budget_receipt_id": "v436_budget_9c136e2a615d3cfdeb7c450e",
+  "compute_units": 120.0,
+  "exposure_units": 0.0,
+  "max_candidates": 12,
+  "max_parallel": 3,
+  "max_selected": 7,
+  "phase": "SAED_V4_36",
+  "research_only": true,
+  "reserve_fraction": 0.1,
+  "review_hours": 60.0,
+  "risk_capacity": 2.5
+}

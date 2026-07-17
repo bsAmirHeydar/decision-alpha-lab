@@ -1,0 +1,1253 @@
+{
+  "approvals": [
+    {
+      "approval_id": "approval_1",
+      "decision": "APPROVE_REFERENCE",
+      "independent": false,
+      "negative_knowledge_reviewed": true,
+      "reviewed_plan_hash": "runtime_bound",
+      "reviewer_id": "reviewer_1",
+      "risk_findings_reviewed": true,
+      "role": "research_owner",
+      "synthetic_fixture": true
+    },
+    {
+      "approval_id": "approval_2",
+      "decision": "APPROVE_REFERENCE",
+      "independent": false,
+      "negative_knowledge_reviewed": true,
+      "reviewed_plan_hash": "runtime_bound",
+      "reviewer_id": "reviewer_2",
+      "risk_findings_reviewed": true,
+      "role": "risk_reviewer",
+      "synthetic_fixture": true
+    },
+    {
+      "approval_id": "approval_3",
+      "decision": "APPROVE_REFERENCE",
+      "independent": true,
+      "negative_knowledge_reviewed": true,
+      "reviewed_plan_hash": "runtime_bound",
+      "reviewer_id": "reviewer_3",
+      "risk_findings_reviewed": true,
+      "role": "independent_challenger",
+      "synthetic_fixture": true
+    }
+  ],
+  "budgets": {
+    "approved_by": "research_governance",
+    "budget_id": "v436_budget_reference",
+    "compute_units": 120.0,
+    "exposure_units": 0.0,
+    "max_candidates": 12,
+    "max_parallel": 3,
+    "max_selected": 7,
+    "research_only": true,
+    "reserve_fraction": 0.1,
+    "review_hours": 60.0,
+    "risk_capacity": 2.5
+  },
+  "candidate_experiments": [
+    {
+      "candidate_id": "cand_live_probe",
+      "compute_units": 2.0,
+      "cost_efficiency": 0.2,
+      "coverage_gain": 0.2,
+      "exposure_units": 10.0,
+      "family": "live_probe",
+      "gap_ids": [],
+      "information_gain": 0.7,
+      "negative_knowledge_value": 0.1,
+      "novelty": 0.9,
+      "objective_id": "obj_forbidden",
+      "prerequisite_ids": [],
+      "replication_value": 0.1,
+      "reusability": 0.1,
+      "review_hours": 1.0,
+      "risk": 0.95,
+      "synthetic_fixture": true,
+      "title": "Unsafe live probe",
+      "uncertainty_reduction": 0.7
+    }
+  ],
+  "claims": [
+    {
+      "actionability": "RESEARCH_ONLY",
+      "claim_id": "claim_session_liquidity",
+      "confidence": 0.78,
+      "oppose_memory_ids": [
+        "mem_n1"
+      ],
+      "scope": "synthetic known-time fixture",
+      "state": "SUPPORTED",
+      "statement": "Session and liquidity interaction is supported within synthetic scope.",
+      "support_memory_ids": [
+        "mem_r1",
+        "mem_r2"
+      ],
+      "synthetic_fixture": true
+    },
+    {
+      "actionability": "RESEARCH_ONLY",
+      "claim_id": "claim_tail_conditioning",
+      "confidence": 0.44,
+      "oppose_memory_ids": [
+        "mem_n2"
+      ],
+      "scope": "unresolved stress scope",
+      "state": "CONTESTED",
+      "statement": "Tail conditioning improves downside calibration.",
+      "support_memory_ids": [
+        "mem_h2"
+      ],
+      "synthetic_fixture": true
+    },
+    {
+      "actionability": "RESEARCH_ONLY",
+      "claim_id": "claim_runtime_parity",
+      "confidence": 0.1,
+      "oppose_memory_ids": [
+        "mem_l2"
+      ],
+      "scope": "Python to MQL5",
+      "state": "REFUTED",
+      "statement": "Research outputs are runtime portable.",
+      "support_memory_ids": [],
+      "synthetic_fixture": true
+    },
+    {
+      "actionability": "RESEARCH_ONLY",
+      "claim_id": "claim_regime_portability",
+      "confidence": 0.35,
+      "oppose_memory_ids": [
+        "mem_n2"
+      ],
+      "scope": "independent regime slices",
+      "state": "UNRESOLVED",
+      "statement": "Interaction transfers across regime slices.",
+      "support_memory_ids": [
+        "mem_q1"
+      ],
+      "synthetic_fixture": true
+    }
+  ],
+  "constitution": {
+    "append_only_memory": true,
+    "automatic_experiment_execution_allowed": false,
+    "capital_allocation_allowed": false,
+    "clauses": [
+      {
+        "clause_id": "V436-C01",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 1,
+        "requirement": "append-only memory"
+      },
+      {
+        "clause_id": "V436-C02",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 2,
+        "requirement": "known-time isolation"
+      },
+      {
+        "clause_id": "V436-C03",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 3,
+        "requirement": "negative-result preservation"
+      },
+      {
+        "clause_id": "V436-C04",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 4,
+        "requirement": "evidence binding"
+      },
+      {
+        "clause_id": "V436-C05",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 5,
+        "requirement": "semantic deduplication"
+      },
+      {
+        "clause_id": "V436-C06",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 6,
+        "requirement": "explicit supersession"
+      },
+      {
+        "clause_id": "V436-C07",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 7,
+        "requirement": "contradiction visibility"
+      },
+      {
+        "clause_id": "V436-C08",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 8,
+        "requirement": "claim scope control"
+      },
+      {
+        "clause_id": "V436-C09",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 9,
+        "requirement": "deterministic retrieval"
+      },
+      {
+        "clause_id": "V436-C10",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 10,
+        "requirement": "retrieval of negative knowledge"
+      },
+      {
+        "clause_id": "V436-C11",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 11,
+        "requirement": "budget enforcement"
+      },
+      {
+        "clause_id": "V436-C12",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 12,
+        "requirement": "risk hard limits"
+      },
+      {
+        "clause_id": "V436-C13",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 13,
+        "requirement": "exploration floor"
+      },
+      {
+        "clause_id": "V436-C14",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 14,
+        "requirement": "replication floor"
+      },
+      {
+        "clause_id": "V436-C15",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 15,
+        "requirement": "independent challenge"
+      },
+      {
+        "clause_id": "V436-C16",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 16,
+        "requirement": "human approval"
+      },
+      {
+        "clause_id": "V436-C17",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 17,
+        "requirement": "no automatic execution"
+      },
+      {
+        "clause_id": "V436-C18",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 18,
+        "requirement": "baseline preservation"
+      },
+      {
+        "clause_id": "V436-C19",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 19,
+        "requirement": "UCEE non-mutation"
+      },
+      {
+        "clause_id": "V436-C20",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 20,
+        "requirement": "claim ceiling"
+      }
+    ],
+    "constitution_id": "v436_constitution",
+    "future_suffix_access_allowed": false,
+    "negative_results_mandatory": true,
+    "production_authorization_allowed": false,
+    "research_only": true,
+    "treatment_selection_allowed": false,
+    "version": "1.0.0"
+  },
+  "contradictions": [
+    {
+      "claim_id": "claim_tail_conditioning",
+      "contradiction_id": "cx_tail_transfer",
+      "oppose_side": [
+        "mem_n2"
+      ],
+      "required_experiment_family": "tail_stress_replication",
+      "resolution_state": "OPEN",
+      "severity": "HIGH",
+      "support_side": [
+        "mem_h2"
+      ],
+      "synthetic_fixture": true
+    },
+    {
+      "claim_id": "claim_runtime_parity",
+      "contradiction_id": "cx_runtime",
+      "oppose_side": [
+        "mem_l2"
+      ],
+      "required_experiment_family": "runtime_parity",
+      "resolution_state": "OPEN",
+      "severity": "BLOCKING",
+      "support_side": [
+        "mem_m1"
+      ],
+      "synthetic_fixture": true
+    },
+    {
+      "claim_id": "claim_regime_portability",
+      "contradiction_id": "cx_regime",
+      "oppose_side": [
+        "mem_n2"
+      ],
+      "required_experiment_family": "independent_regime_replication",
+      "resolution_state": "BOUNDED",
+      "severity": "HIGH",
+      "support_side": [
+        "mem_r2"
+      ],
+      "synthetic_fixture": true
+    }
+  ],
+  "cutoff_time": "2026-07-17T00:00:00Z",
+  "evidence_gaps": [
+    {
+      "blocking": false,
+      "claim_id": "claim_session_liquidity",
+      "coverage": 0.45,
+      "dimension": "external_replication",
+      "gap_id": "gap_session_external",
+      "required_family": "independent_regime_replication",
+      "severity": "HIGH",
+      "synthetic_fixture": true,
+      "uncertainty": 0.55
+    },
+    {
+      "blocking": false,
+      "claim_id": "claim_session_liquidity",
+      "coverage": 0.6,
+      "dimension": "tail_stability",
+      "gap_id": "gap_session_tail",
+      "required_family": "tail_stress_replication",
+      "severity": "MEDIUM",
+      "synthetic_fixture": true,
+      "uncertainty": 0.4
+    },
+    {
+      "blocking": true,
+      "claim_id": "claim_tail_conditioning",
+      "coverage": 0.28,
+      "dimension": "stress_replication",
+      "gap_id": "gap_tail_stress",
+      "required_family": "tail_stress_replication",
+      "severity": "HIGH",
+      "synthetic_fixture": true,
+      "uncertainty": 0.72
+    },
+    {
+      "blocking": true,
+      "claim_id": "claim_runtime_parity",
+      "coverage": 0.0,
+      "dimension": "runtime_parity",
+      "gap_id": "gap_runtime_parity",
+      "required_family": "runtime_parity",
+      "severity": "BLOCKING",
+      "synthetic_fixture": true,
+      "uncertainty": 1.0
+    },
+    {
+      "blocking": true,
+      "claim_id": "claim_regime_portability",
+      "coverage": 0.35,
+      "dimension": "independent_lab",
+      "gap_id": "gap_regime_independent",
+      "required_family": "independent_regime_replication",
+      "severity": "HIGH",
+      "synthetic_fixture": true,
+      "uncertainty": 0.65
+    },
+    {
+      "blocking": false,
+      "claim_id": "claim_regime_portability",
+      "coverage": 0.5,
+      "dimension": "negative_control",
+      "gap_id": "gap_regime_negative",
+      "required_family": "negative_control_replay",
+      "severity": "MEDIUM",
+      "synthetic_fixture": true,
+      "uncertainty": 0.5
+    }
+  ],
+  "evidence_records": [
+    {
+      "artifact_hash": "40bb4d786471280ed225d7d02e7f3d1c1d0ecf687f1a79af2ca9bae7549253e1",
+      "evidence_id": "ev_001",
+      "independent": false,
+      "known_time": "2026-07-10T00:00:00Z",
+      "lineage_hash": "ad4ee8da8e72c9a3dace44d0bfe24fe6fe2d14a5e62d2ec6905f2367fd8348b3",
+      "memory_id": "mem_h1",
+      "operator_id": "alpha_lab",
+      "role": "PRIMARY",
+      "schema_hash": "22aa1a8124efdb3467e4e417a47f9700370de8412e5804233ce218d5fefa29c8",
+      "synthetic_fixture": true,
+      "valid": true
+    },
+    {
+      "artifact_hash": "583ed28f66e3ddb7621af7b37e0a6eae6f8f996e0d9b30d5f6adb22716738a8f",
+      "evidence_id": "ev_002",
+      "independent": false,
+      "known_time": "2026-07-10T01:00:00Z",
+      "lineage_hash": "b67e3dcf5a84f673fd45217347509dc11bd49161803cd9605c4ee3075f5da02a",
+      "memory_id": "mem_e1",
+      "operator_id": "alpha_lab",
+      "role": "PRIMARY",
+      "schema_hash": "28bfe1852b103a0122e5bc2a18cbae973038e338d9ff0e8383f7c41609050dcb",
+      "synthetic_fixture": true,
+      "valid": true
+    },
+    {
+      "artifact_hash": "91e9067825bedc5776d3f99377da1804df648a43a7d3e4556da1ac89d8216fb1",
+      "evidence_id": "ev_003",
+      "independent": true,
+      "known_time": "2026-07-10T02:00:00Z",
+      "lineage_hash": "42b7841228b498768bbfcbcec9e254986f5664ec52905f7cf8e30f61e2473ac2",
+      "memory_id": "mem_r1",
+      "operator_id": "independent_lab",
+      "role": "REPLICATION",
+      "schema_hash": "00349cce6b38fa4f912ac01c7beab75d2449c631fce3217a185868b5ee380075",
+      "synthetic_fixture": true,
+      "valid": true
+    },
+    {
+      "artifact_hash": "ca0e3af1f68fff81cfbfa868f164ce40a881ba0dc35d56aef0b3ca78d9ae5259",
+      "evidence_id": "ev_004",
+      "independent": false,
+      "known_time": "2026-07-10T03:00:00Z",
+      "lineage_hash": "ecf8d69afcd909ef71aeb8d530a919d347ccee1e562d45d968428b9ec50e598c",
+      "memory_id": "mem_n1",
+      "operator_id": "alpha_lab",
+      "role": "NEGATIVE_CONTROL",
+      "schema_hash": "4f491a708c529371b061a839a3f415dc1bc88eeb868f8aa5b4cb81323fe2c820",
+      "synthetic_fixture": true,
+      "valid": true
+    },
+    {
+      "artifact_hash": "ac540de5e08e6815753558058d0ce5d44ddd82f24af18c8a178e53771b5d8c70",
+      "evidence_id": "ev_005",
+      "independent": false,
+      "known_time": "2026-07-10T04:00:00Z",
+      "lineage_hash": "9ebf66ec590652cc1f61689d120c598d95b11950ae5702b2fabaaa4fc98f1066",
+      "memory_id": "mem_c1",
+      "operator_id": "alpha_lab",
+      "role": "PRIMARY",
+      "schema_hash": "864a6d0fb9b32f3a98ddbae3429ab4782bb147718fed151ede3c6052095b62d4",
+      "synthetic_fixture": true,
+      "valid": true
+    },
+    {
+      "artifact_hash": "26a77094ffb26e377b6d638638c8adb4008efec0de52ad7bc7b894fa62a95673",
+      "evidence_id": "ev_006",
+      "independent": false,
+      "known_time": "2026-07-11T00:00:00Z",
+      "lineage_hash": "3d6f09a72787ab97680cc3eb7436b215801edcf152cc78f36af500211b8ba495",
+      "memory_id": "mem_l1",
+      "operator_id": "alpha_lab",
+      "role": "EXTERNAL_BOUNDARY",
+      "schema_hash": "d981a604cc1138365cae32999a8a8f06ee8be40144a1a9a2f8a0e2b3bd80cb36",
+      "synthetic_fixture": true,
+      "valid": true
+    },
+    {
+      "artifact_hash": "b452d69c5bc088764469c9f3f3cf267ffd02341afad7710766c2382377091d4b",
+      "evidence_id": "ev_007",
+      "independent": false,
+      "known_time": "2026-07-11T01:00:00Z",
+      "lineage_hash": "c5e08fcdf1223f16540dbe3019830bc6a4453f9ef8c3ce0c03c4dca9e3ab7486",
+      "memory_id": "mem_i1",
+      "operator_id": "alpha_lab",
+      "role": "PRIMARY",
+      "schema_hash": "2fc40b7ca0308f0ae4e9ff4c33dbf687d28918453e3e47bd5afbb995aae3a1fa",
+      "synthetic_fixture": true,
+      "valid": true
+    },
+    {
+      "artifact_hash": "5b924dcd508035ddd8a8ba3c9f4f748078719724987fadc9d32dace37831170e",
+      "evidence_id": "ev_008",
+      "independent": false,
+      "known_time": "2026-07-11T02:00:00Z",
+      "lineage_hash": "5cfd4cc322e3ef9ca485310b1fca8a6450580fc03c1dd018217038483b2252ee",
+      "memory_id": "mem_f1",
+      "operator_id": "alpha_lab",
+      "role": "AUDIT",
+      "schema_hash": "1561a0b4d58cb63aff10b4e74e3aa1844d774915ad5dfd20e49c831fc5dadfca",
+      "synthetic_fixture": true,
+      "valid": true
+    },
+    {
+      "artifact_hash": "4c1862dc9c294a72d35306d5492370d4b28eafeed57c7ab2d5b6ca71472abb76",
+      "evidence_id": "ev_009",
+      "independent": false,
+      "known_time": "2026-07-11T03:00:00Z",
+      "lineage_hash": "1e0693813ae84496579f85e99caa41ca6039b4e24e9a84bd7fab595ba563c85c",
+      "memory_id": "mem_d1",
+      "operator_id": "alpha_lab",
+      "role": "PRIMARY",
+      "schema_hash": "281f68e24b386651531c3cd85acd561b6e9ee559459b54d412740d07da204d7c",
+      "synthetic_fixture": true,
+      "valid": true
+    },
+    {
+      "artifact_hash": "657c32ada51929a4b25657e4d9bc18efb06c86ea45e1587dbf0b1b60baa15330",
+      "evidence_id": "ev_010",
+      "independent": true,
+      "known_time": "2026-07-11T04:00:00Z",
+      "lineage_hash": "9ab227e9545496e033316d04b706e44432c39b71de9097ccd112203980f2350b",
+      "memory_id": "mem_a1",
+      "operator_id": "independent_lab",
+      "role": "REPLICATION",
+      "schema_hash": "65da65917372d5d18bcacb48618b76250ded034c3f6e4d9c7a3280d79e9b8661",
+      "synthetic_fixture": true,
+      "valid": true
+    },
+    {
+      "artifact_hash": "7646cd183d350da72fc275b2901944d2a14e5dacfdd514a527bb373a52a77310",
+      "evidence_id": "ev_011",
+      "independent": false,
+      "known_time": "2026-07-12T00:00:00Z",
+      "lineage_hash": "ab60c456dbef18e642730c0de70465ba7039fa1bcd906a2011dd7bd034687086",
+      "memory_id": "mem_q1",
+      "operator_id": "alpha_lab",
+      "role": "PRIMARY",
+      "schema_hash": "986ea4b1354945e49850e21a3483d7d70d7dfa2e56260aa644140b98333c1e78",
+      "synthetic_fixture": true,
+      "valid": true
+    },
+    {
+      "artifact_hash": "18905da3bd8ee3027f9319e553d6c407d8f333101c95f0de09389cbf9b053894",
+      "evidence_id": "ev_012",
+      "independent": false,
+      "known_time": "2026-07-12T01:00:00Z",
+      "lineage_hash": "a902262e0ca43bc89752787455233180e082f8fbb15767c981da5991c9517b5b",
+      "memory_id": "mem_m1",
+      "operator_id": "alpha_lab",
+      "role": "PRIMARY",
+      "schema_hash": "ef522c3db542f5447ae3d6a5e684133a7192325b7b375aef6d67ab4623f8922c",
+      "synthetic_fixture": true,
+      "valid": true
+    },
+    {
+      "artifact_hash": "3c6d1b12dc47da6e6d6dd085267a5f98ce58ea059a4c9508a50a4450967ae68d",
+      "evidence_id": "ev_013",
+      "independent": false,
+      "known_time": "2026-07-12T02:00:00Z",
+      "lineage_hash": "f324bbe758241adeccdda74bed4e739274a30eb4110fded18942a752832dba3d",
+      "memory_id": "mem_ds1",
+      "operator_id": "alpha_lab",
+      "role": "PRIMARY",
+      "schema_hash": "d4047605d31ded6211e868a2d340bdffe210b0563c32d4db44f55720e3d15cfc",
+      "synthetic_fixture": true,
+      "valid": true
+    },
+    {
+      "artifact_hash": "0eed35f1000812953a67944ad12cdead6995befcedda85fa3136be63c6b0b734",
+      "evidence_id": "ev_014",
+      "independent": false,
+      "known_time": "2026-07-12T03:00:00Z",
+      "lineage_hash": "e79d83752a0adaeebbfe8df15c9675b03e259341e6cb2298a37ac011588e708a",
+      "memory_id": "mem_h2",
+      "operator_id": "alpha_lab",
+      "role": "PRIMARY",
+      "schema_hash": "ae2f60b6e44ff8c3ebdc9a76801ad128275265953dcd756dd91ea5708b9da663",
+      "synthetic_fixture": true,
+      "valid": true
+    },
+    {
+      "artifact_hash": "55eecc2b2d285d4a74b14f4e82e3319d9c742e50f89ca741f142f3ede8f7ee11",
+      "evidence_id": "ev_015",
+      "independent": false,
+      "known_time": "2026-07-12T04:00:00Z",
+      "lineage_hash": "221963b1476d54433195f164eb76deea9945f18b6615dff18443bcbff8ff482b",
+      "memory_id": "mem_n2",
+      "operator_id": "alpha_lab",
+      "role": "NEGATIVE_CONTROL",
+      "schema_hash": "44f7bc0328068bfc8f424226a7532b5557aed2cd715538cd0d049bc4daf1855f",
+      "synthetic_fixture": true,
+      "valid": true
+    },
+    {
+      "artifact_hash": "afaac32d0532cb424b079d7680e9edc06fd9787af72fc4228bb079aac8fecee1",
+      "evidence_id": "ev_016",
+      "independent": true,
+      "known_time": "2026-07-13T00:00:00Z",
+      "lineage_hash": "3093fc8e5572801cda87c774b1b275513b00fe5751dc4940ad564918bfd61482",
+      "memory_id": "mem_r2",
+      "operator_id": "independent_lab",
+      "role": "REPLICATION",
+      "schema_hash": "19ce4341d03e2d6d0e3824c62c8a5302e7eed33416820f86e43c770c62c4770a",
+      "synthetic_fixture": true,
+      "valid": true
+    },
+    {
+      "artifact_hash": "ca6743a2963f2ad7325263889313861e9c79c52353342e0aeda8cd0a1b8ac4c9",
+      "evidence_id": "ev_017",
+      "independent": false,
+      "known_time": "2026-07-13T01:00:00Z",
+      "lineage_hash": "6de746cf23d50ed0d1e6f4e4c1502dee98157bcff26d7dda248032f6358cfaf5",
+      "memory_id": "mem_c2",
+      "operator_id": "alpha_lab",
+      "role": "PRIMARY",
+      "schema_hash": "78337e095ceb4a1b817f3e2587b9617776c7daf62afa478469b956bd0a80d601",
+      "synthetic_fixture": true,
+      "valid": true
+    },
+    {
+      "artifact_hash": "059cadf5ca06370bbd3f7d82e334141e6bd0315532643ce77314bea8d24533cc",
+      "evidence_id": "ev_018",
+      "independent": false,
+      "known_time": "2026-07-13T02:00:00Z",
+      "lineage_hash": "5b0a2ba52c982b867fe6b75cc27371003b9d8094d20d4135532c27d1b472a58b",
+      "memory_id": "mem_l2",
+      "operator_id": "alpha_lab",
+      "role": "EXTERNAL_BOUNDARY",
+      "schema_hash": "0f75a28664225fa7c1f72b0deb829184d03de017e1fb54018848f78d97e03dd2",
+      "synthetic_fixture": true,
+      "valid": true
+    },
+    {
+      "artifact_hash": "284649b7f11406e7868ce2936389f9e1967a3d91e8834976d84dee0da6749c96",
+      "evidence_id": "ev_019",
+      "independent": false,
+      "known_time": "2026-07-13T03:00:00Z",
+      "lineage_hash": "73c911c497aa216a001cdba974060b13777a487cababbc1318af30c760cf33bb",
+      "memory_id": "mem_d2",
+      "operator_id": "alpha_lab",
+      "role": "PRIMARY",
+      "schema_hash": "58b3efda87938de6de925ab724067b8bf99a5d6bf4428a06fc310fbe7d0c4357",
+      "synthetic_fixture": true,
+      "valid": true
+    }
+  ],
+  "governance_events": [
+    {
+      "decision": "ACCEPT",
+      "event_type": "MEMORY_FREEZE",
+      "known_time": "2026-07-16T00:00:00Z",
+      "principal_id": "custodian",
+      "subject_id": "memory",
+      "synthetic_fixture": true
+    },
+    {
+      "decision": "ACCEPT_WITH_BLOCK",
+      "event_type": "RISK_REVIEW",
+      "known_time": "2026-07-16T01:00:00Z",
+      "principal_id": "risk_reviewer",
+      "subject_id": "candidates",
+      "synthetic_fixture": true
+    },
+    {
+      "decision": "ACCEPT",
+      "event_type": "NEGATIVE_KNOWLEDGE_REVIEW",
+      "known_time": "2026-07-16T02:00:00Z",
+      "principal_id": "independent_challenger",
+      "subject_id": "negative_registry",
+      "synthetic_fixture": true
+    },
+    {
+      "decision": "ACCEPT",
+      "event_type": "BUDGET_FREEZE",
+      "known_time": "2026-07-16T03:00:00Z",
+      "principal_id": "research_owner",
+      "subject_id": "budget",
+      "synthetic_fixture": true
+    }
+  ],
+  "governance_policy": {
+    "automatic_approval_allowed": false,
+    "automatic_execution_allowed": false,
+    "independent_challenge_required": true,
+    "negative_knowledge_review_required": true,
+    "policy_id": "v436_governance_policy",
+    "quorum": 3,
+    "required_roles": [
+      "independent_challenger",
+      "research_owner",
+      "risk_reviewer"
+    ],
+    "research_only": true,
+    "risk_review_required": true
+  },
+  "lineage_edges": [
+    {
+      "relation": "SUPPORTS",
+      "source_id": "ev_001",
+      "target_id": "mem_h1"
+    },
+    {
+      "relation": "SUPPORTS",
+      "source_id": "ev_002",
+      "target_id": "mem_e1"
+    },
+    {
+      "relation": "SUPPORTS",
+      "source_id": "ev_003",
+      "target_id": "mem_r1"
+    },
+    {
+      "relation": "SUPPORTS",
+      "source_id": "ev_004",
+      "target_id": "mem_n1"
+    },
+    {
+      "relation": "SUPPORTS",
+      "source_id": "ev_005",
+      "target_id": "mem_c1"
+    },
+    {
+      "relation": "SUPPORTS",
+      "source_id": "ev_006",
+      "target_id": "mem_l1"
+    },
+    {
+      "relation": "SUPPORTS",
+      "source_id": "ev_007",
+      "target_id": "mem_i1"
+    },
+    {
+      "relation": "SUPPORTS",
+      "source_id": "ev_008",
+      "target_id": "mem_f1"
+    },
+    {
+      "relation": "SUPPORTS",
+      "source_id": "ev_009",
+      "target_id": "mem_d1"
+    },
+    {
+      "relation": "SUPPORTS",
+      "source_id": "ev_010",
+      "target_id": "mem_a1"
+    },
+    {
+      "relation": "SUPPORTS",
+      "source_id": "ev_011",
+      "target_id": "mem_q1"
+    },
+    {
+      "relation": "SUPPORTS",
+      "source_id": "ev_012",
+      "target_id": "mem_m1"
+    }
+  ],
+  "memory_entries": [
+    {
+      "evidence_hashes": [
+        "c70116407dcd4035ecd33e109e82f5d0afd836e9ac9566e90dddc78f10794935"
+      ],
+      "kind": "HYPOTHESIS",
+      "known_time": "2026-07-10T00:00:00Z",
+      "memory_id": "mem_h1",
+      "owner_id": "alpha_lab_research",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "A session transition may change conditional path distribution.",
+      "status": "ACTIVE",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "context",
+        "liquidity",
+        "mechanism"
+      ],
+      "title": "Liquidity transition mechanism"
+    },
+    {
+      "evidence_hashes": [
+        "d9cd182846eea93f4701675173a25b263366ffb72de1b791db74dead723e593a"
+      ],
+      "kind": "EXPERIMENT",
+      "known_time": "2026-07-10T01:00:00Z",
+      "memory_id": "mem_e1",
+      "owner_id": "alpha_lab_research",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "Ablate session and liquidity views under known-time replay.",
+      "status": "CLOSED",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "ablation",
+        "liquidity",
+        "session"
+      ],
+      "title": "Session transition ablation"
+    },
+    {
+      "evidence_hashes": [
+        "3d2ea4cc3c77894f5d1d5c2e525df143755da945d1549b7a776a3ef783505190"
+      ],
+      "kind": "RESULT",
+      "known_time": "2026-07-10T02:00:00Z",
+      "memory_id": "mem_r1",
+      "owner_id": "alpha_lab_research",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "Session and liquidity views jointly improved synthetic calibration.",
+      "status": "REPRODUCED",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "calibration",
+        "liquidity",
+        "session"
+      ],
+      "title": "Ablation result"
+    },
+    {
+      "evidence_hashes": [
+        "7c9f13c0fd495c916aaf92a47a79b5f9c4f5b6a19756ddd96abcc44d432bf0c5"
+      ],
+      "kind": "NEGATIVE_RESULT",
+      "known_time": "2026-07-10T03:00:00Z",
+      "memory_id": "mem_n1",
+      "owner_id": "alpha_lab_research",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "Clock-only treatment selection failed support and stability gates.",
+      "status": "REJECTED",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "negative",
+        "session",
+        "treatment"
+      ],
+      "title": "Standalone clock failure"
+    },
+    {
+      "evidence_hashes": [
+        "23092c0ea253e81c839aed1dc5f3a31e163a6cf73b477a1c340770f51c1fa921"
+      ],
+      "kind": "CLAIM",
+      "known_time": "2026-07-10T04:00:00Z",
+      "memory_id": "mem_c1",
+      "owner_id": "alpha_lab_research",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "The interaction is supported only inside the synthetic fixture scope.",
+      "status": "ACTIVE",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "claim",
+        "liquidity",
+        "session"
+      ],
+      "title": "Bounded interaction claim"
+    },
+    {
+      "evidence_hashes": [
+        "5bcde8bd5dd253ea57e38ae15d9308e48edf3c61f4a16549768008d24caea7d4"
+      ],
+      "kind": "LIMITATION",
+      "known_time": "2026-07-11T00:00:00Z",
+      "memory_id": "mem_l1",
+      "owner_id": "alpha_lab_research",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "No real market edge or prospective performance is established.",
+      "status": "ACTIVE",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "boundary",
+        "limitation",
+        "synthetic"
+      ],
+      "title": "Synthetic-only boundary"
+    },
+    {
+      "evidence_hashes": [
+        "80b6ca13914f47c5272728efc6336742d8c94b21c46369c0a10e9e07c269ad80"
+      ],
+      "kind": "INCIDENT",
+      "known_time": "2026-07-11T01:00:00Z",
+      "memory_id": "mem_i1",
+      "owner_id": "alpha_lab_research",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "A future-suffix mutation was rejected by the known-time gate.",
+      "status": "CLOSED",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "incident",
+        "leakage",
+        "negative"
+      ],
+      "title": "Leakage mutation caught"
+    },
+    {
+      "evidence_hashes": [
+        "88f6ab085e9a0b8b9d0fdd3a46e45688c674d62475ae681a1136c19d1dea09d5"
+      ],
+      "kind": "RISK_FINDING",
+      "known_time": "2026-07-11T02:00:00Z",
+      "memory_id": "mem_f1",
+      "owner_id": "alpha_lab_research",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "A single reference dependency family creates concentration risk.",
+      "status": "ACTIVE",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "risk",
+        "supplier",
+        "supply-chain"
+      ],
+      "title": "Supplier concentration"
+    },
+    {
+      "evidence_hashes": [
+        "598aadca5e31d7164060267bd524dbed2f6199d5c76f1d12af58fa9f597ccb0c"
+      ],
+      "kind": "DECISION",
+      "known_time": "2026-07-11T03:00:00Z",
+      "memory_id": "mem_d1",
+      "owner_id": "alpha_lab_research",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "Manual baseline remains mandatory during active research planning.",
+      "status": "ACTIVE",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "baseline",
+        "decision",
+        "manual"
+      ],
+      "title": "Preserve manual baseline"
+    },
+    {
+      "evidence_hashes": [
+        "117165af0ae658e046cf37bc0bc01e0d9521264c9a3f3e70b5ff88ec52fa718e"
+      ],
+      "kind": "ARTIFACT",
+      "known_time": "2026-07-11T04:00:00Z",
+      "memory_id": "mem_a1",
+      "owner_id": "alpha_lab_research",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_35",
+      "statement": "Immutable model-risk and supply-chain evidence bundle.",
+      "status": "REPRODUCED",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "artifact",
+        "evidence",
+        "v4-35"
+      ],
+      "title": "V4-35 evidence bundle"
+    },
+    {
+      "evidence_hashes": [
+        "fb24d78a1ec19f32d7b38635f60e5495e1060e486c571a89d72bdc422cdf6bd1"
+      ],
+      "kind": "QUESTION",
+      "known_time": "2026-07-12T00:00:00Z",
+      "memory_id": "mem_q1",
+      "owner_id": "alpha_lab_research",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_36",
+      "statement": "Does the interaction reproduce across independent regime slices?",
+      "status": "UNRESOLVED",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "question",
+        "regime",
+        "replication"
+      ],
+      "title": "Regime portability question"
+    },
+    {
+      "evidence_hashes": [
+        "86f5b1367ed9a84d3f4d62fd68463737381c9a38b459c7f9bc31aab5493d0b82"
+      ],
+      "kind": "MODEL",
+      "known_time": "2026-07-12T01:00:00Z",
+      "memory_id": "mem_m1",
+      "owner_id": "alpha_lab_research",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_36",
+      "statement": "Deterministic synthetic multimodal reference model.",
+      "status": "ACTIVE",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "model",
+        "multimodal",
+        "reference"
+      ],
+      "title": "Reference fusion model"
+    },
+    {
+      "evidence_hashes": [
+        "ff66db329146a4956fbdf94668f080ebc469df1535c33f5d60f8ab6008cdc822"
+      ],
+      "kind": "DATASET",
+      "known_time": "2026-07-12T02:00:00Z",
+      "memory_id": "mem_ds1",
+      "owner_id": "alpha_lab_research",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_36",
+      "statement": "Synthetic dataset with immutable known-time boundaries.",
+      "status": "ACTIVE",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "dataset",
+        "known-time",
+        "synthetic"
+      ],
+      "title": "Known-time fixture dataset"
+    },
+    {
+      "evidence_hashes": [
+        "3f47095611f8da548e1ea6f70830542acee46ac3c7af93371cd8dd1bbb2f3ee3"
+      ],
+      "kind": "HYPOTHESIS",
+      "known_time": "2026-07-12T03:00:00Z",
+      "memory_id": "mem_h2",
+      "owner_id": "alpha_lab_research",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_36",
+      "statement": "Tail-state conditioning may reduce downside calibration error.",
+      "status": "ACTIVE",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "calibration",
+        "risk",
+        "tail"
+      ],
+      "title": "Tail-risk conditioning"
+    },
+    {
+      "evidence_hashes": [
+        "48a5a793c1498675038fd6afa4744d892899ff7c450c778c24472241dc6cc7a6"
+      ],
+      "kind": "NEGATIVE_RESULT",
+      "known_time": "2026-07-12T04:00:00Z",
+      "memory_id": "mem_n2",
+      "owner_id": "alpha_lab_research",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_36",
+      "statement": "Unconstrained transfer across regimes increased worst-slice error.",
+      "status": "REJECTED",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "negative",
+        "regime",
+        "transfer"
+      ],
+      "title": "Naive transfer failure"
+    },
+    {
+      "evidence_hashes": [
+        "d0d8f43bc53448195537b07d1ce03ee201feb70bd20516118705782abf579656"
+      ],
+      "kind": "RESULT",
+      "known_time": "2026-07-13T00:00:00Z",
+      "memory_id": "mem_r2",
+      "owner_id": "alpha_lab_research",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_36",
+      "statement": "The bounded interaction reproduced under a second deterministic operator.",
+      "status": "REPRODUCED",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "independent",
+        "replication",
+        "session"
+      ],
+      "title": "Independent replay result"
+    },
+    {
+      "evidence_hashes": [
+        "6b98ca5770e7bd3a9d417d3cd646a640d56137dacff192e5669b0b87193f314b"
+      ],
+      "kind": "CLAIM",
+      "known_time": "2026-07-13T01:00:00Z",
+      "memory_id": "mem_c2",
+      "owner_id": "alpha_lab_research",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_36",
+      "statement": "Tail-state conditioning remains contested pending stress replication.",
+      "status": "UNRESOLVED",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "claim",
+        "stress",
+        "tail"
+      ],
+      "title": "Tail conditioning claim"
+    },
+    {
+      "evidence_hashes": [
+        "44a584f9f2bd258612eee300775c2b146fa08f95cf8f12a2bdfbf6512cbfc50f"
+      ],
+      "kind": "LIMITATION",
+      "known_time": "2026-07-13T02:00:00Z",
+      "memory_id": "mem_l2",
+      "owner_id": "alpha_lab_research",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_36",
+      "statement": "Python and MQL5 runtime parity is not established.",
+      "status": "ACTIVE",
+      "supersedes": "",
+      "synthetic_fixture": true,
+      "tags": [
+        "limitation",
+        "mql5",
+        "runtime"
+      ],
+      "title": "Runtime parity absent"
+    },
+    {
+      "evidence_hashes": [
+        "07a9040aec783683c1e707d466c077a0f7b23a1a1c9591a18515dad4b0e5a1ad"
+      ],
+      "kind": "DECISION",
+      "known_time": "2026-07-13T03:00:00Z",
+      "memory_id": "mem_d2",
+      "owner_id": "alpha_lab_research",
+      "sensitivity": "PUBLIC_REFERENCE",
+      "source_phase": "SAED_V4_36",
+      "statement": "Replace broad portability claim with a regime-bounded statement.",
+      "status": "ACTIVE",
+      "supersedes": "mem_c1",
+      "synthetic_fixture": true,
+      "tags": [
+        "claim",
+        "decision",
+        "scope"
+      ],
+      "title": "Supersede broad claim"
+    }
+  ],
+  "planner_weights": {
+    "exploration_floor": 0.72,
+    "minimum_utility": 1.0,
+    "negative_knowledge_floor": 0.8,
+    "replication_floor": 0.85,
+    "research_only": true,
+    "risk_hard_limit": 0.6,
+    "weight_id": "v436_reference_weights",
+    "weights": {
+      "cost_efficiency": 0.45,
+      "coverage_gain": 1.0,
+      "exposure_penalty": 1.5,
+      "information_gain": 1.2,
+      "negative_knowledge_value": 0.9,
+      "novelty": 0.65,
+      "replication_value": 0.85,
+      "reusability": 0.55,
+      "risk_penalty": 1.4,
+      "uncertainty_reduction": 1.1
+    }
+  },
+  "queries": [
+    {
+      "include_negative": true,
+      "query_id": "q_negative_transfer",
+      "required_kinds": [],
+      "required_tags": [],
+      "text": "negative regime transfer",
+      "top_k": 6
+    },
+    {
+      "include_negative": true,
+      "query_id": "q_session_evidence",
+      "required_kinds": [
+        "RESULT",
+        "NEGATIVE_RESULT"
+      ],
+      "required_tags": [],
+      "text": "session liquidity calibration",
+      "top_k": 5
+    },
+    {
+      "include_negative": true,
+      "query_id": "q_runtime_limits",
+      "required_kinds": [],
+      "required_tags": [],
+      "text": "runtime mql5 limitation",
+      "top_k": 5
+    },
+    {
+      "include_negative": true,
+      "query_id": "q_tail_stress",
+      "required_kinds": [],
+      "required_tags": [],
+      "text": "tail stress calibration",
+      "top_k": 5
+    }
+  ],
+  "risk_findings": [
+    {
+      "blocking": true,
+      "candidate_id": "cand_live_probe",
+      "category": "AUTHORITY",
+      "finding_id": "rf_06",
+      "mitigation": "reject live authority",
+      "residual_risk": 0.95,
+      "severity": "CRITICAL",
+      "source_phase": "SAED_V4_35",
+      "synthetic_fixture": true
+    }
+  ],
+  "upstream_documents": [
+    {
+      "document_hash": "c71319d539242053fece8249952618588bb05b2836db40b11c308dafff0a5653",
+      "document_id": "v435_certificate_reference",
+      "kind": "v4_35_certificate",
+      "next_phase": "SAED_V4_36",
+      "phase": "SAED_V4_35",
+      "production_authorized": false,
+      "research_only": true
+    },
+    {
+      "document_hash": "f7781bbb1f6103de4b762d7a63c5b90694263be337a03e712a6609b5fc8dfd73",
+      "document_id": "v435_handoff_reference",
+      "kind": "v4_35_handoff",
+      "next_phase": "SAED_V4_36",
+      "phase": "SAED_V4_35",
+      "production_authorized": false,
+      "research_only": true
+    }
+  ]
+}

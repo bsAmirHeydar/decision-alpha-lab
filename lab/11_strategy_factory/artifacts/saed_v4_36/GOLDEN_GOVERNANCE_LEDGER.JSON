@@ -1,0 +1,71 @@
+{
+  "append_only": true,
+  "chain_head": "36fdeab89af791b04aaaab468aa6fe9f3aff37a20cdcb194b14ac72f943d19e2",
+  "event_count": 5,
+  "events": [
+    {
+      "decision": "ACCEPT",
+      "event_hash": "f6ae58c4ba98bb7372165372517d53684fedb8f252d2dd8bd41f6a37dbde0d2b",
+      "event_id": "v436_governance_cf4e26b17094c738a4858c53",
+      "event_type": "MEMORY_FREEZE",
+      "known_time": "2026-07-16T00:00:00Z",
+      "ordinal": 0,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "principal_id": "custodian",
+      "subject_id": "memory",
+      "synthetic_fixture": true
+    },
+    {
+      "decision": "ACCEPT_WITH_BLOCK",
+      "event_hash": "7439114fbf15176d10c33f88c74557450481b7dfa641207c9f67d631b9a5361a",
+      "event_id": "v436_governance_4788afb0219e0ec6adcef5b5",
+      "event_type": "RISK_REVIEW",
+      "known_time": "2026-07-16T01:00:00Z",
+      "ordinal": 1,
+      "previous_hash": "f6ae58c4ba98bb7372165372517d53684fedb8f252d2dd8bd41f6a37dbde0d2b",
+      "principal_id": "risk_reviewer",
+      "subject_id": "candidates",
+      "synthetic_fixture": true
+    },
+    {
+      "decision": "ACCEPT",
+      "event_hash": "5760c109464f229d3044e46e3325cc1e4cf9cd84690fc677d47e4324b34fdc25",
+      "event_id": "v436_governance_4746091ad76f8451c283d459",
+      "event_type": "NEGATIVE_KNOWLEDGE_REVIEW",
+      "known_time": "2026-07-16T02:00:00Z",
+      "ordinal": 2,
+      "previous_hash": "7439114fbf15176d10c33f88c74557450481b7dfa641207c9f67d631b9a5361a",
+      "principal_id": "independent_challenger",
+      "subject_id": "negative_registry",
+      "synthetic_fixture": true
+    },
+    {
+      "decision": "ACCEPT",
+      "event_hash": "a9ce5b737e632a94a3a70c07c99cb58b93bacfcdee45b743910152388815de06",
+      "event_id": "v436_governance_27dfb6c754594cc7f0fd01b4",
+      "event_type": "BUDGET_FREEZE",
+      "known_time": "2026-07-16T03:00:00Z",
+      "ordinal": 3,
+      "previous_hash": "5760c109464f229d3044e46e3325cc1e4cf9cd84690fc677d47e4324b34fdc25",
+      "principal_id": "research_owner",
+      "subject_id": "budget",
+      "synthetic_fixture": true
+    },
+    {
+      "decision": "ACCEPT_REFERENCE",
+      "event_hash": "36fdeab89af791b04aaaab468aa6fe9f3aff37a20cdcb194b14ac72f943d19e2",
+      "event_id": "v436_governance_c9b69bd27c18b0607f9c081e",
+      "event_type": "AGENDA_REVIEW",
+      "known_time": "2026-07-17T00:00:00Z",
+      "ordinal": 4,
+      "previous_hash": "a9ce5b737e632a94a3a70c07c99cb58b93bacfcdee45b743910152388815de06",
+      "principal_id": "committee",
+      "subject_id": "v436_review_f1a4a29b732145a9f9c878d2",
+      "synthetic_fixture": true
+    }
+  ],
+  "ledger_hash": "1fd498a10e315d653ebd59da457e06d1f7f3546ab191adf19568ad05495d012d",
+  "ledger_id": "v436_govledger_c9df152a1e4b18b194d4b76b",
+  "phase": "SAED_V4_36",
+  "research_only": true
+}

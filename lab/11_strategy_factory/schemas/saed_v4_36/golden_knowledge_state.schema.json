@@ -1,0 +1,72 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-36/golden_knowledge_state.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-36 research-memory and active-planner reference artifact schema.",
+  "properties": {
+    "claims": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "blocking_contradictions": {
+            "type": "integer"
+          },
+          "claim_id": {
+            "type": "string"
+          },
+          "declared_state": {
+            "type": "string"
+          },
+          "eligible_for_research_use": {
+            "type": "boolean"
+          },
+          "eligible_for_runtime_use": {
+            "type": "boolean"
+          },
+          "support_covered": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "blocking_contradictions",
+          "claim_id",
+          "declared_state",
+          "eligible_for_research_use",
+          "eligible_for_runtime_use",
+          "support_covered"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "negative_knowledge_count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "runtime_use_allowed": {
+      "type": "boolean"
+    },
+    "state_hash": {
+      "type": "string"
+    },
+    "state_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "claims",
+    "negative_knowledge_count",
+    "phase",
+    "research_only",
+    "runtime_use_allowed",
+    "state_hash",
+    "state_id"
+  ],
+  "title": "GOLDEN_KNOWLEDGE_STATE",
+  "type": "object"
+}

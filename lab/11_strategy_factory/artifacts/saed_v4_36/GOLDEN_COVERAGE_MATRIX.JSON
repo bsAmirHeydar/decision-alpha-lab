@@ -1,0 +1,47 @@
+{
+  "claim_count": 4,
+  "matrix_hash": "1bee14413ca0545d36d2814b43d7e5d68a05d8022ec267ca0e67e725a35aee6e",
+  "matrix_id": "v436_matrix_21cf010e69d21b37a4848d19",
+  "phase": "SAED_V4_36",
+  "research_only": true,
+  "rows": [
+    {
+      "blocking_gaps": 1,
+      "claim_id": "claim_regime_portability",
+      "dimensions": [
+        "independent_lab",
+        "negative_control"
+      ],
+      "mean_coverage": 0.425,
+      "mean_uncertainty": 0.575
+    },
+    {
+      "blocking_gaps": 1,
+      "claim_id": "claim_runtime_parity",
+      "dimensions": [
+        "runtime_parity"
+      ],
+      "mean_coverage": 0.0,
+      "mean_uncertainty": 1.0
+    },
+    {
+      "blocking_gaps": 0,
+      "claim_id": "claim_session_liquidity",
+      "dimensions": [
+        "external_replication",
+        "tail_stability"
+      ],
+      "mean_coverage": 0.525,
+      "mean_uncertainty": 0.475
+    },
+    {
+      "blocking_gaps": 1,
+      "claim_id": "claim_tail_conditioning",
+      "dimensions": [
+        "stress_replication"
+      ],
+      "mean_coverage": 0.28,
+      "mean_uncertainty": 0.72
+    }
+  ]
+}

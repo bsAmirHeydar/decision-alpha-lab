@@ -1,0 +1,80 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-36/golden_certificate.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-36 research-memory and active-planner reference artifact schema.",
+  "properties": {
+    "automatic_execution_authorized": {
+      "type": "boolean"
+    },
+    "capital_allocation_authorized": {
+      "type": "boolean"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "evidence_bundle_hash": {
+      "type": "string"
+    },
+    "experiments_executed": {
+      "type": "integer"
+    },
+    "live_trading_authority": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "reference_accepted": {
+      "type": "boolean"
+    },
+    "reference_agenda_accepted": {
+      "type": "boolean"
+    },
+    "research_memory_accepted": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "runtime_activation_allowed": {
+      "type": "boolean"
+    },
+    "treatment_selection_authorized": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "automatic_execution_authorized",
+    "capital_allocation_authorized",
+    "certificate_hash",
+    "certificate_id",
+    "claim_ceiling",
+    "evidence_bundle_hash",
+    "experiments_executed",
+    "live_trading_authority",
+    "phase",
+    "production_authorized",
+    "reference_accepted",
+    "reference_agenda_accepted",
+    "research_memory_accepted",
+    "research_only",
+    "runtime_activation_allowed",
+    "treatment_selection_authorized",
+    "version"
+  ],
+  "title": "GOLDEN_CERTIFICATE",
+  "type": "object"
+}

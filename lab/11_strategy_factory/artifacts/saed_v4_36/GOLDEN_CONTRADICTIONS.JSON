@@ -1,0 +1,52 @@
+{
+  "blocking_count": 1,
+  "open_count": 3,
+  "phase": "SAED_V4_36",
+  "records": [
+    {
+      "claim_id": "claim_regime_portability",
+      "contradiction_id": "cx_regime",
+      "oppose_side": [
+        "mem_n2"
+      ],
+      "required_experiment_family": "independent_regime_replication",
+      "resolution_state": "BOUNDED",
+      "severity": "HIGH",
+      "support_side": [
+        "mem_r2"
+      ],
+      "synthetic_fixture": true
+    },
+    {
+      "claim_id": "claim_runtime_parity",
+      "contradiction_id": "cx_runtime",
+      "oppose_side": [
+        "mem_l2"
+      ],
+      "required_experiment_family": "runtime_parity",
+      "resolution_state": "OPEN",
+      "severity": "BLOCKING",
+      "support_side": [
+        "mem_m1"
+      ],
+      "synthetic_fixture": true
+    },
+    {
+      "claim_id": "claim_tail_conditioning",
+      "contradiction_id": "cx_tail_transfer",
+      "oppose_side": [
+        "mem_n2"
+      ],
+      "required_experiment_family": "tail_stress_replication",
+      "resolution_state": "OPEN",
+      "severity": "HIGH",
+      "support_side": [
+        "mem_h2"
+      ],
+      "synthetic_fixture": true
+    }
+  ],
+  "register_hash": "6ef362cb24fbecfaba878f45e8083cc7f741d2105db80d61ec86d9a394146687",
+  "register_id": "v436_contradictions_ccbb0d524c5a455b3dedc86c",
+  "research_only": true
+}

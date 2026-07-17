@@ -1,0 +1,13 @@
+{
+  "availability_hash": "462f639c32f31aaf806df77a49916253abb67917045808682f8470d461426fd6",
+  "availability_id": "v436_available_9673b8beadd48b1715bc0fb7",
+  "compute_units": 108.0,
+  "exposure_units": 0.0,
+  "max_parallel": 3,
+  "max_selected": 7,
+  "phase": "SAED_V4_36",
+  "research_only": true,
+  "reserve_fraction": 0.1,
+  "review_hours": 54.0,
+  "risk_capacity": 2.25
+}

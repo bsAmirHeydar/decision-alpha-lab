@@ -1,0 +1,162 @@
+{
+  "coverage_hash": "efb94d11a92cad1dbf2eee19ede0288a0eb13c7b3efdd3856d6d96a5d9fb7ea3",
+  "coverage_id": "v436_coverage_d81eb60147266efce4005111",
+  "covered": true,
+  "phase": "SAED_V4_36",
+  "research_only": true,
+  "rows": [
+    {
+      "covered": true,
+      "evidence_count": 1,
+      "independent_count": 0,
+      "kind": "HYPOTHESIS",
+      "memory_id": "mem_h1",
+      "required": false
+    },
+    {
+      "covered": true,
+      "evidence_count": 1,
+      "independent_count": 0,
+      "kind": "EXPERIMENT",
+      "memory_id": "mem_e1",
+      "required": false
+    },
+    {
+      "covered": true,
+      "evidence_count": 1,
+      "independent_count": 1,
+      "kind": "RESULT",
+      "memory_id": "mem_r1",
+      "required": true
+    },
+    {
+      "covered": true,
+      "evidence_count": 1,
+      "independent_count": 0,
+      "kind": "NEGATIVE_RESULT",
+      "memory_id": "mem_n1",
+      "required": true
+    },
+    {
+      "covered": true,
+      "evidence_count": 1,
+      "independent_count": 0,
+      "kind": "CLAIM",
+      "memory_id": "mem_c1",
+      "required": true
+    },
+    {
+      "covered": true,
+      "evidence_count": 1,
+      "independent_count": 0,
+      "kind": "LIMITATION",
+      "memory_id": "mem_l1",
+      "required": false
+    },
+    {
+      "covered": true,
+      "evidence_count": 1,
+      "independent_count": 0,
+      "kind": "INCIDENT",
+      "memory_id": "mem_i1",
+      "required": false
+    },
+    {
+      "covered": true,
+      "evidence_count": 1,
+      "independent_count": 0,
+      "kind": "RISK_FINDING",
+      "memory_id": "mem_f1",
+      "required": true
+    },
+    {
+      "covered": true,
+      "evidence_count": 1,
+      "independent_count": 0,
+      "kind": "DECISION",
+      "memory_id": "mem_d1",
+      "required": false
+    },
+    {
+      "covered": true,
+      "evidence_count": 1,
+      "independent_count": 1,
+      "kind": "ARTIFACT",
+      "memory_id": "mem_a1",
+      "required": false
+    },
+    {
+      "covered": true,
+      "evidence_count": 1,
+      "independent_count": 0,
+      "kind": "QUESTION",
+      "memory_id": "mem_q1",
+      "required": false
+    },
+    {
+      "covered": true,
+      "evidence_count": 1,
+      "independent_count": 0,
+      "kind": "MODEL",
+      "memory_id": "mem_m1",
+      "required": false
+    },
+    {
+      "covered": true,
+      "evidence_count": 1,
+      "independent_count": 0,
+      "kind": "DATASET",
+      "memory_id": "mem_ds1",
+      "required": false
+    },
+    {
+      "covered": true,
+      "evidence_count": 1,
+      "independent_count": 0,
+      "kind": "HYPOTHESIS",
+      "memory_id": "mem_h2",
+      "required": false
+    },
+    {
+      "covered": true,
+      "evidence_count": 1,
+      "independent_count": 0,
+      "kind": "NEGATIVE_RESULT",
+      "memory_id": "mem_n2",
+      "required": true
+    },
+    {
+      "covered": true,
+      "evidence_count": 1,
+      "independent_count": 1,
+      "kind": "RESULT",
+      "memory_id": "mem_r2",
+      "required": true
+    },
+    {
+      "covered": true,
+      "evidence_count": 1,
+      "independent_count": 0,
+      "kind": "CLAIM",
+      "memory_id": "mem_c2",
+      "required": true
+    },
+    {
+      "covered": true,
+      "evidence_count": 1,
+      "independent_count": 0,
+      "kind": "LIMITATION",
+      "memory_id": "mem_l2",
+      "required": false
+    },
+    {
+      "covered": true,
+      "evidence_count": 1,
+      "independent_count": 0,
+      "kind": "DECISION",
+      "memory_id": "mem_d2",
+      "required": false
+    }
+  ],
+  "uncovered_ids": []
+}

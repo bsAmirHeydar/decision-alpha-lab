@@ -1,0 +1,75 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-36/golden_handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-36 research-memory and active-planner reference artifact schema.",
+  "properties": {
+    "authority_granted": {
+      "type": "boolean"
+    },
+    "capital_authority_granted": {
+      "type": "boolean"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "execution_authority_granted": {
+      "type": "boolean"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "knowledge_state_hash": {
+      "type": "string"
+    },
+    "memory_store_hash": {
+      "type": "string"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "plan_hash": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "risk_register_hash": {
+      "type": "string"
+    },
+    "transferred_artifacts": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "authority_granted",
+    "capital_authority_granted",
+    "certificate_hash",
+    "execution_authority_granted",
+    "handoff_hash",
+    "handoff_id",
+    "knowledge_state_hash",
+    "memory_store_hash",
+    "next_phase",
+    "phase",
+    "plan_hash",
+    "production_authorized",
+    "research_only",
+    "risk_register_hash",
+    "transferred_artifacts"
+  ],
+  "title": "GOLDEN_HANDOFF",
+  "type": "object"
+}

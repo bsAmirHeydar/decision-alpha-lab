@@ -1,0 +1,67 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-36/golden_coverage_matrix.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-36 research-memory and active-planner reference artifact schema.",
+  "properties": {
+    "claim_count": {
+      "type": "integer"
+    },
+    "matrix_hash": {
+      "type": "string"
+    },
+    "matrix_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "blocking_gaps": {
+            "type": "integer"
+          },
+          "claim_id": {
+            "type": "string"
+          },
+          "dimensions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "mean_coverage": {
+            "type": "number"
+          },
+          "mean_uncertainty": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "blocking_gaps",
+          "claim_id",
+          "dimensions",
+          "mean_coverage",
+          "mean_uncertainty"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "claim_count",
+    "matrix_hash",
+    "matrix_id",
+    "phase",
+    "research_only",
+    "rows"
+  ],
+  "title": "GOLDEN_COVERAGE_MATRIX",
+  "type": "object"
+}

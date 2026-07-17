@@ -1,0 +1,191 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-36/golden_scorecard.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-36 research-memory and active-planner reference artifact schema.",
+  "properties": {
+    "candidate_count": {
+      "type": "integer"
+    },
+    "candidates": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_id": {
+            "type": "string"
+          },
+          "compute_units": {
+            "type": "number"
+          },
+          "cost_efficiency": {
+            "type": "number"
+          },
+          "coverage_gain": {
+            "type": "number"
+          },
+          "dimensions": {
+            "additionalProperties": false,
+            "properties": {
+              "cost_efficiency": {
+                "type": "number"
+              },
+              "coverage_gain": {
+                "type": "number"
+              },
+              "exposure_penalty": {
+                "type": "number"
+              },
+              "information_gain": {
+                "type": "number"
+              },
+              "negative_knowledge_value": {
+                "type": "number"
+              },
+              "novelty": {
+                "type": "number"
+              },
+              "replication_value": {
+                "type": "number"
+              },
+              "reusability": {
+                "type": "number"
+              },
+              "risk_penalty": {
+                "type": "number"
+              },
+              "uncertainty_reduction": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "cost_efficiency",
+              "coverage_gain",
+              "exposure_penalty",
+              "information_gain",
+              "negative_knowledge_value",
+              "novelty",
+              "replication_value",
+              "reusability",
+              "risk_penalty",
+              "uncertainty_reduction"
+            ],
+            "type": "object"
+          },
+          "eligible": {
+            "type": "boolean"
+          },
+          "exposure_units": {
+            "type": "number"
+          },
+          "family": {
+            "type": "string"
+          },
+          "gap_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "information_gain": {
+            "type": "number"
+          },
+          "negative_knowledge_value": {
+            "type": "number"
+          },
+          "novelty": {
+            "type": "number"
+          },
+          "objective_id": {
+            "type": "string"
+          },
+          "prerequisite_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "replication_value": {
+            "type": "number"
+          },
+          "reusability": {
+            "type": "number"
+          },
+          "review_hours": {
+            "type": "number"
+          },
+          "risk": {
+            "type": "number"
+          },
+          "risk_blocked": {
+            "type": "boolean"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          },
+          "title": {
+            "type": "string"
+          },
+          "uncertainty_reduction": {
+            "type": "number"
+          },
+          "utility": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "compute_units",
+          "cost_efficiency",
+          "coverage_gain",
+          "dimensions",
+          "eligible",
+          "exposure_units",
+          "family",
+          "gap_ids",
+          "information_gain",
+          "negative_knowledge_value",
+          "novelty",
+          "objective_id",
+          "prerequisite_ids",
+          "replication_value",
+          "reusability",
+          "review_hours",
+          "risk",
+          "risk_blocked",
+          "synthetic_fixture",
+          "title",
+          "uncertainty_reduction",
+          "utility"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "eligible_count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "scorecard_hash": {
+      "type": "string"
+    },
+    "scorecard_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "candidate_count",
+    "candidates",
+    "eligible_count",
+    "phase",
+    "research_only",
+    "scorecard_hash",
+    "scorecard_id"
+  ],
+  "title": "GOLDEN_SCORECARD",
+  "type": "object"
+}

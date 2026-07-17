@@ -1,0 +1,67 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-36/golden_lineage.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-36 research-memory and active-planner reference artifact schema.",
+  "properties": {
+    "edge_count": {
+      "type": "integer"
+    },
+    "edges": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "relation": {
+            "type": "string"
+          },
+          "source_id": {
+            "type": "string"
+          },
+          "target_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "relation",
+          "source_id",
+          "target_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "graph_hash": {
+      "type": "string"
+    },
+    "graph_id": {
+      "type": "string"
+    },
+    "node_count": {
+      "type": "integer"
+    },
+    "nodes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "edge_count",
+    "edges",
+    "graph_hash",
+    "graph_id",
+    "node_count",
+    "nodes",
+    "phase",
+    "research_only"
+  ],
+  "title": "GOLDEN_LINEAGE",
+  "type": "object"
+}

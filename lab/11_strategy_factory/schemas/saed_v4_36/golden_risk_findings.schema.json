@@ -1,0 +1,80 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-36/golden_risk_findings.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-36 research-memory and active-planner reference artifact schema.",
+  "properties": {
+    "blocking_count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "blocking": {
+            "type": "boolean"
+          },
+          "candidate_id": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "finding_id": {
+            "type": "string"
+          },
+          "mitigation": {
+            "type": "string"
+          },
+          "residual_risk": {
+            "type": "number"
+          },
+          "severity": {
+            "type": "string"
+          },
+          "source_phase": {
+            "type": "string"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "blocking",
+          "candidate_id",
+          "category",
+          "finding_id",
+          "mitigation",
+          "residual_risk",
+          "severity",
+          "source_phase",
+          "synthetic_fixture"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "register_hash": {
+      "type": "string"
+    },
+    "register_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "blocking_count",
+    "phase",
+    "records",
+    "register_hash",
+    "register_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_RISK_FINDINGS",
+  "type": "object"
+}

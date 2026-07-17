@@ -1,0 +1,63 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-36/golden_governance_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-36 research-memory and active-planner reference artifact schema.",
+  "properties": {
+    "automatic_approval_allowed": {
+      "type": "boolean"
+    },
+    "automatic_execution_allowed": {
+      "type": "boolean"
+    },
+    "independent_challenge_required": {
+      "type": "boolean"
+    },
+    "negative_knowledge_review_required": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "policy_hash": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "policy_receipt_id": {
+      "type": "string"
+    },
+    "quorum": {
+      "type": "integer"
+    },
+    "required_roles": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "risk_review_required": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "automatic_approval_allowed",
+    "automatic_execution_allowed",
+    "independent_challenge_required",
+    "negative_knowledge_review_required",
+    "phase",
+    "policy_hash",
+    "policy_id",
+    "policy_receipt_id",
+    "quorum",
+    "required_roles",
+    "research_only",
+    "risk_review_required"
+  ],
+  "title": "GOLDEN_GOVERNANCE_POLICY",
+  "type": "object"
+}

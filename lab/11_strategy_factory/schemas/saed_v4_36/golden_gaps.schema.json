@@ -1,0 +1,84 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-36/golden_gaps.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-36 research-memory and active-planner reference artifact schema.",
+  "properties": {
+    "blocking_count": {
+      "type": "integer"
+    },
+    "gap_count": {
+      "type": "integer"
+    },
+    "gaps": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "blocking": {
+            "type": "boolean"
+          },
+          "claim_id": {
+            "type": "string"
+          },
+          "coverage": {
+            "type": "number"
+          },
+          "dimension": {
+            "type": "string"
+          },
+          "gap_id": {
+            "type": "string"
+          },
+          "required_family": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          },
+          "uncertainty": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "blocking",
+          "claim_id",
+          "coverage",
+          "dimension",
+          "gap_id",
+          "required_family",
+          "severity",
+          "synthetic_fixture",
+          "uncertainty"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "blocking_count",
+    "gap_count",
+    "gaps",
+    "phase",
+    "registry_hash",
+    "registry_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_GAPS",
+  "type": "object"
+}

@@ -1,0 +1,126 @@
+{
+  "deterministic": true,
+  "phase": "SAED_V4_36",
+  "queries": [
+    {
+      "negative_recall_count": 3,
+      "query_hash": "bc8f8c240645e3d1334581eb845e4097a20dc710eb7f27c32aeaad368ece0c83",
+      "query_id": "q_negative_transfer",
+      "result_count": 4,
+      "results": [
+        {
+          "kind": "NEGATIVE_RESULT",
+          "memory_id": "mem_n2",
+          "negative_knowledge": true,
+          "score": 1.0,
+          "title": "Naive transfer failure"
+        },
+        {
+          "kind": "INCIDENT",
+          "memory_id": "mem_i1",
+          "negative_knowledge": true,
+          "score": 0.33333333,
+          "title": "Leakage mutation caught"
+        },
+        {
+          "kind": "NEGATIVE_RESULT",
+          "memory_id": "mem_n1",
+          "negative_knowledge": true,
+          "score": 0.33333333,
+          "title": "Standalone clock failure"
+        },
+        {
+          "kind": "QUESTION",
+          "memory_id": "mem_q1",
+          "negative_knowledge": false,
+          "score": 0.33333333,
+          "title": "Regime portability question"
+        }
+      ]
+    },
+    {
+      "negative_recall_count": 1,
+      "query_hash": "f447f4476d4a8ddcfca833662a1ace1eda4979132864576cd0bd4c4110bb369f",
+      "query_id": "q_session_evidence",
+      "result_count": 3,
+      "results": [
+        {
+          "kind": "RESULT",
+          "memory_id": "mem_r1",
+          "negative_knowledge": false,
+          "score": 1.0,
+          "title": "Ablation result"
+        },
+        {
+          "kind": "NEGATIVE_RESULT",
+          "memory_id": "mem_n1",
+          "negative_knowledge": true,
+          "score": 0.33333333,
+          "title": "Standalone clock failure"
+        },
+        {
+          "kind": "RESULT",
+          "memory_id": "mem_r2",
+          "negative_knowledge": false,
+          "score": 0.33333333,
+          "title": "Independent replay result"
+        }
+      ]
+    },
+    {
+      "negative_recall_count": 2,
+      "query_hash": "035e1670cd93c4ae18b0b572aba79d4058baabbdf838c6afc6ea67cdc0ff823c",
+      "query_id": "q_runtime_limits",
+      "result_count": 2,
+      "results": [
+        {
+          "kind": "LIMITATION",
+          "memory_id": "mem_l2",
+          "negative_knowledge": true,
+          "score": 1.0,
+          "title": "Runtime parity absent"
+        },
+        {
+          "kind": "LIMITATION",
+          "memory_id": "mem_l1",
+          "negative_knowledge": true,
+          "score": 0.33333333,
+          "title": "Synthetic-only boundary"
+        }
+      ]
+    },
+    {
+      "negative_recall_count": 0,
+      "query_hash": "decf933020f1cba3a35cc6d54181e0667202784e4e6200fb12731ff6dd7bcce0",
+      "query_id": "q_tail_stress",
+      "result_count": 3,
+      "results": [
+        {
+          "kind": "CLAIM",
+          "memory_id": "mem_c2",
+          "negative_knowledge": false,
+          "score": 0.66666667,
+          "title": "Tail conditioning claim"
+        },
+        {
+          "kind": "HYPOTHESIS",
+          "memory_id": "mem_h2",
+          "negative_knowledge": false,
+          "score": 0.66666667,
+          "title": "Tail-risk conditioning"
+        },
+        {
+          "kind": "RESULT",
+          "memory_id": "mem_r1",
+          "negative_knowledge": false,
+          "score": 0.33333333,
+          "title": "Ablation result"
+        }
+      ]
+    }
+  ],
+  "query_count": 4,
+  "receipt_hash": "43e5044aae0929d2dba13a655008b9a4f1f0b1d45a544f93ed77e4d82dd67498",
+  "receipt_id": "v436_retrieval_0305939116b66856284f5e6b",
+  "research_only": true
+}

@@ -1,0 +1,17 @@
+{
+  "boundary_hash": "1d93e85ad82bb4ac3a3b083261c89c58db81f945c05d3d6b189db99ffb0d3d77",
+  "boundary_id": "v436_external_db93d75e573a3de525e8cb65",
+  "external_human_committee": false,
+  "external_literature_connector": false,
+  "live_trading": false,
+  "metaeditor_compile": false,
+  "phase": "SAED_V4_36",
+  "production_authorization": false,
+  "prospective_evidence": false,
+  "real_compute_scheduler": false,
+  "real_embedding_service": false,
+  "real_longitudinal_memory_migration": false,
+  "research_only": true,
+  "runtime_parity": false,
+  "synthetic_memory_fixture": true
+}

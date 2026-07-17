@@ -1,0 +1,182 @@
+{
+  "automatic_execution_allowed": false,
+  "phase": "SAED_V4_36",
+  "plan_hash": "9c7ad438ba546acd498e5c9572f2c839aaf845e0bbde23e3b2081e0e182a9811",
+  "plan_id": "v436_plan_bde3ab62d5ff25d292a0f6b6",
+  "planner_events": [
+    {
+      "candidate_id": "cand_claim_scope",
+      "event_hash": "d284248dd8d7ed500541273016351478bc12f4b903f9170bc0141adb63f0d604",
+      "event_id": "v436_planner_event_94b81f010766b6fa8521da7d",
+      "event_type": "PROPOSAL_SELECTED",
+      "ordinal": 0,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "rank": 1,
+      "utility": 4.7565
+    },
+    {
+      "candidate_id": "cand_tail_stress",
+      "event_hash": "6f2f8e4d4ac85cff5927fb97f707af8794099d6c9f3aeb0cffd95e9408f18969",
+      "event_id": "v436_planner_event_0324a32f92c45c6e1e9c6e2d",
+      "event_type": "PROPOSAL_SELECTED",
+      "ordinal": 1,
+      "previous_hash": "d284248dd8d7ed500541273016351478bc12f4b903f9170bc0141adb63f0d604",
+      "rank": 2,
+      "utility": 5.084
+    },
+    {
+      "candidate_id": "cand_runtime_parity",
+      "event_hash": "4e72ace23b70385a8fbe8fe205b6e1987ea2f9946a0f9e1433d6c43daf778586",
+      "event_id": "v436_planner_event_82ba361b5779e7344cfe5e9a",
+      "event_type": "PROPOSAL_SELECTED",
+      "ordinal": 2,
+      "previous_hash": "6f2f8e4d4ac85cff5927fb97f707af8794099d6c9f3aeb0cffd95e9408f18969",
+      "rank": 3,
+      "utility": 5.0605
+    },
+    {
+      "candidate_id": "cand_neg_replay",
+      "event_hash": "8f2ef4daaf131c724a4baba253f4f9ce0c50af1a5a29547ceaa4b43715bbccfd",
+      "event_id": "v436_planner_event_8a2841398d17e981d8d4f6cd",
+      "event_type": "PROPOSAL_SELECTED",
+      "ordinal": 3,
+      "previous_hash": "4e72ace23b70385a8fbe8fe205b6e1987ea2f9946a0f9e1433d6c43daf778586",
+      "rank": 4,
+      "utility": 4.2675
+    },
+    {
+      "candidate_id": "cand_memory_ablation",
+      "event_hash": "b35d7b060bbb487f7ce42f3444c23a884ff353f5278a583d77e75d37863200b1",
+      "event_id": "v436_planner_event_46d6ba9c9e8eb15eb0f53831",
+      "event_type": "PROPOSAL_SELECTED",
+      "ordinal": 4,
+      "previous_hash": "8f2ef4daaf131c724a4baba253f4f9ce0c50af1a5a29547ceaa4b43715bbccfd",
+      "rank": 5,
+      "utility": 4.267
+    },
+    {
+      "candidate_id": "cand_supplier_alt",
+      "event_hash": "f9114d39454da994b4b4c2ee985d3ed8fa9d3ec64b9e0baaaf28cad10307c4be",
+      "event_id": "v436_planner_event_08b1ef2061257480c0b420b8",
+      "event_type": "PROPOSAL_SELECTED",
+      "ordinal": 5,
+      "previous_hash": "b35d7b060bbb487f7ce42f3444c23a884ff353f5278a583d77e75d37863200b1",
+      "rank": 6,
+      "utility": 4.007
+    },
+    {
+      "candidate_id": "cand_regime_rep",
+      "event_hash": "8364cf8c66d5a817d726c7efd7072d2ef082d00fb803c85066e11a1facf48604",
+      "event_id": "v436_planner_event_bc3324133442008d6d605ce4",
+      "event_type": "PROPOSAL_SELECTED",
+      "ordinal": 6,
+      "previous_hash": "f9114d39454da994b4b4c2ee985d3ed8fa9d3ec64b9e0baaaf28cad10307c4be",
+      "rank": 7,
+      "utility": 5.1045
+    }
+  ],
+  "rejected": [
+    {
+      "candidate_id": "cand_live_probe",
+      "reason": "INELIGIBLE",
+      "utility": 0.02136364
+    }
+  ],
+  "remaining_budget": {
+    "compute_units": 24.0,
+    "exposure_units": 0.0,
+    "review_hours": 20.0,
+    "risk_capacity": 0.85
+  },
+  "research_only": true,
+  "selected": [
+    {
+      "candidate_id": "cand_claim_scope",
+      "compute_units": 9.0,
+      "exposure_units": 0.0,
+      "family": "claim_falsification",
+      "objective_id": "obj_claim_scope",
+      "prerequisite_ids": [],
+      "review_hours": 4.0,
+      "risk": 0.16,
+      "title": "Claim scope falsification",
+      "utility": 4.7565
+    },
+    {
+      "candidate_id": "cand_tail_stress",
+      "compute_units": 14.0,
+      "exposure_units": 0.0,
+      "family": "tail_stress_replication",
+      "objective_id": "obj_tail_calibration",
+      "prerequisite_ids": [],
+      "review_hours": 5.0,
+      "risk": 0.22,
+      "title": "Tail stress replication",
+      "utility": 5.084
+    },
+    {
+      "candidate_id": "cand_runtime_parity",
+      "compute_units": 20.0,
+      "exposure_units": 0.0,
+      "family": "runtime_parity",
+      "objective_id": "obj_runtime_boundary",
+      "prerequisite_ids": [],
+      "review_hours": 8.0,
+      "risk": 0.42,
+      "title": "Python MQL5 parity investigation",
+      "utility": 5.0605
+    },
+    {
+      "candidate_id": "cand_neg_replay",
+      "compute_units": 7.0,
+      "exposure_units": 0.0,
+      "family": "negative_control_replay",
+      "objective_id": "obj_reduce_false_transfer",
+      "prerequisite_ids": [],
+      "review_hours": 3.0,
+      "risk": 0.1,
+      "title": "Negative transfer replay",
+      "utility": 4.2675
+    },
+    {
+      "candidate_id": "cand_memory_ablation",
+      "compute_units": 8.0,
+      "exposure_units": 0.0,
+      "family": "planner_ablation",
+      "objective_id": "obj_memory_quality",
+      "prerequisite_ids": [],
+      "review_hours": 3.0,
+      "risk": 0.12,
+      "title": "Memory retrieval ablation",
+      "utility": 4.267
+    },
+    {
+      "candidate_id": "cand_supplier_alt",
+      "compute_units": 10.0,
+      "exposure_units": 0.0,
+      "family": "supply_chain_challenge",
+      "objective_id": "obj_supplier_resilience",
+      "prerequisite_ids": [],
+      "review_hours": 5.0,
+      "risk": 0.2,
+      "title": "Supplier concentration challenger",
+      "utility": 4.007
+    },
+    {
+      "candidate_id": "cand_regime_rep",
+      "compute_units": 16.0,
+      "exposure_units": 0.0,
+      "family": "independent_regime_replication",
+      "objective_id": "obj_regime_portability",
+      "prerequisite_ids": [
+        "cand_neg_replay"
+      ],
+      "review_hours": 6.0,
+      "risk": 0.18,
+      "title": "Independent regime replication",
+      "utility": 5.1045
+    }
+  ],
+  "selected_count": 7,
+  "status": "PROPOSED_FOR_HUMAN_REVIEW"
+}

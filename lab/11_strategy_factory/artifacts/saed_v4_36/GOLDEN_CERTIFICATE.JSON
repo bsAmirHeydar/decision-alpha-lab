@@ -1,0 +1,19 @@
+{
+  "automatic_execution_authorized": false,
+  "capital_allocation_authorized": false,
+  "certificate_hash": "daaad066e559132eb4bb7af03b66b1591ff60fef9cf9cd23369d2b87e950c154",
+  "certificate_id": "v436_certificate_7bb91a193ab976a1b7f3db31",
+  "claim_ceiling": "synthetic_deterministic_research_memory_and_agenda_reference_only",
+  "evidence_bundle_hash": "ff9a1811271fd4d24ca240c6f0c334c633b0857a81b8a3f325cfda445434f541",
+  "experiments_executed": 0,
+  "live_trading_authority": false,
+  "phase": "SAED_V4_36",
+  "production_authorized": false,
+  "reference_accepted": true,
+  "reference_agenda_accepted": true,
+  "research_memory_accepted": true,
+  "research_only": true,
+  "runtime_activation_allowed": false,
+  "treatment_selection_authorized": false,
+  "version": "1.0.0"
+}

@@ -1,0 +1,28 @@
+{
+  "documents": [
+    {
+      "document_hash": "c71319d539242053fece8249952618588bb05b2836db40b11c308dafff0a5653",
+      "document_id": "v435_certificate_reference",
+      "kind": "v4_35_certificate",
+      "next_phase": "SAED_V4_36",
+      "phase": "SAED_V4_35",
+      "production_authorized": false,
+      "research_only": true
+    },
+    {
+      "document_hash": "f7781bbb1f6103de4b762d7a63c5b90694263be337a03e712a6609b5fc8dfd73",
+      "document_id": "v435_handoff_reference",
+      "kind": "v4_35_handoff",
+      "next_phase": "SAED_V4_36",
+      "phase": "SAED_V4_35",
+      "production_authorized": false,
+      "research_only": true
+    }
+  ],
+  "phase": "SAED_V4_36",
+  "receipt_hash": "35479f04d6dccc2633f988c8a705acfd2f894b6972943720c89d73466881c616",
+  "receipt_id": "v436_upstream_9006a75f1630c4855bbba607",
+  "research_only": true,
+  "upstream_phase": "SAED_V4_35",
+  "verified": true
+}

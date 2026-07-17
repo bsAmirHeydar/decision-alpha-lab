@@ -1,0 +1,78 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-36/golden_retrieval_index.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-36 research-memory and active-planner reference artifact schema.",
+  "properties": {
+    "deterministic": {
+      "type": "boolean"
+    },
+    "embedding_service_used": {
+      "type": "boolean"
+    },
+    "index_hash": {
+      "type": "string"
+    },
+    "index_id": {
+      "type": "string"
+    },
+    "negative_memory_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "network_access": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "postings": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "document_frequency": {
+            "type": "integer"
+          },
+          "memory_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "token": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "document_frequency",
+          "memory_ids",
+          "token"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "token_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "deterministic",
+    "embedding_service_used",
+    "index_hash",
+    "index_id",
+    "negative_memory_ids",
+    "network_access",
+    "phase",
+    "postings",
+    "research_only",
+    "token_count"
+  ],
+  "title": "GOLDEN_RETRIEVAL_INDEX",
+  "type": "object"
+}

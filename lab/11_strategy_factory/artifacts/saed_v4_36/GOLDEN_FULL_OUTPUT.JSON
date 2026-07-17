@@ -1,0 +1,4260 @@
+{
+  "authority": {
+    "boundary_hash": "06a06a490835545da85897cefae760cd6bd5d0c7fb483f11655e3bc4e3d389b8",
+    "boundary_id": "v436_authority_c80067b4d682cdf0892dc8c0",
+    "failure_action": "ABSTAIN_PRESERVE_BASELINE_AND_ESCALATE",
+    "live_trading_authority": false,
+    "may_allocate_capital": false,
+    "may_compile_live_runtime": false,
+    "may_emit_human_review_agenda": true,
+    "may_execute_experiment": false,
+    "may_mutate_ucee": false,
+    "may_rank_research_proposals": true,
+    "may_record_memory": true,
+    "may_retrieve_evidence": true,
+    "may_select_treatment": false,
+    "may_send_order": false,
+    "phase": "SAED_V4_36",
+    "production_authorization": false,
+    "promotion_authority": false,
+    "research_only": true
+  },
+  "availability": {
+    "availability_hash": "462f639c32f31aaf806df77a49916253abb67917045808682f8470d461426fd6",
+    "availability_id": "v436_available_9673b8beadd48b1715bc0fb7",
+    "compute_units": 108.0,
+    "exposure_units": 0.0,
+    "max_parallel": 3,
+    "max_selected": 7,
+    "phase": "SAED_V4_36",
+    "research_only": true,
+    "reserve_fraction": 0.1,
+    "review_hours": 54.0,
+    "risk_capacity": 2.25
+  },
+  "baseline": {
+    "automatic_experiments_started": 0,
+    "existing_research_results_immutable": true,
+    "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+    "live_runtime_unchanged": true,
+    "negative_results_preserved": true,
+    "orders_submitted": 0,
+    "phase": "SAED_V4_36",
+    "portfolio_state_unchanged": true,
+    "receipt_hash": "33ce75e7b9715d72ef163bf606a3ffd44f7709fe6704f963911d83073acea48d",
+    "receipt_id": "v436_baseline_ce4fa9f3ebc1936900788cf7",
+    "research_only": true,
+    "treatment_universe_unchanged": true,
+    "ucee_runtime_unchanged": true
+  },
+  "budgets": {
+    "approved_by": "research_governance",
+    "automatic_overrun_allowed": false,
+    "budget_hash": "e5ed89b5c5b820e5d0d5182cafed0c830119ff28ba7f0941a67138459967f057",
+    "budget_id": "v436_budget_reference",
+    "budget_receipt_id": "v436_budget_9c136e2a615d3cfdeb7c450e",
+    "compute_units": 120.0,
+    "exposure_units": 0.0,
+    "max_candidates": 12,
+    "max_parallel": 3,
+    "max_selected": 7,
+    "phase": "SAED_V4_36",
+    "research_only": true,
+    "reserve_fraction": 0.1,
+    "review_hours": 60.0,
+    "risk_capacity": 2.5
+  },
+  "certificate": {
+    "automatic_execution_authorized": false,
+    "capital_allocation_authorized": false,
+    "certificate_hash": "daaad066e559132eb4bb7af03b66b1591ff60fef9cf9cd23369d2b87e950c154",
+    "certificate_id": "v436_certificate_7bb91a193ab976a1b7f3db31",
+    "claim_ceiling": "synthetic_deterministic_research_memory_and_agenda_reference_only",
+    "evidence_bundle_hash": "ff9a1811271fd4d24ca240c6f0c334c633b0857a81b8a3f325cfda445434f541",
+    "experiments_executed": 0,
+    "live_trading_authority": false,
+    "phase": "SAED_V4_36",
+    "production_authorized": false,
+    "reference_accepted": true,
+    "reference_agenda_accepted": true,
+    "research_memory_accepted": true,
+    "research_only": true,
+    "runtime_activation_allowed": false,
+    "treatment_selection_authorized": false,
+    "version": "1.0.0"
+  },
+  "claims": {
+    "claim_count": 4,
+    "claims": [
+      {
+        "actionability": "RESEARCH_ONLY",
+        "claim_id": "claim_regime_portability",
+        "confidence": 0.35,
+        "oppose_memory_ids": [
+          "mem_n2"
+        ],
+        "scope": "independent regime slices",
+        "state": "UNRESOLVED",
+        "statement": "Interaction transfers across regime slices.",
+        "support_memory_ids": [
+          "mem_q1"
+        ],
+        "synthetic_fixture": true
+      },
+      {
+        "actionability": "RESEARCH_ONLY",
+        "claim_id": "claim_runtime_parity",
+        "confidence": 0.1,
+        "oppose_memory_ids": [
+          "mem_l2"
+        ],
+        "scope": "Python to MQL5",
+        "state": "REFUTED",
+        "statement": "Research outputs are runtime portable.",
+        "support_memory_ids": [],
+        "synthetic_fixture": true
+      },
+      {
+        "actionability": "RESEARCH_ONLY",
+        "claim_id": "claim_session_liquidity",
+        "confidence": 0.78,
+        "oppose_memory_ids": [
+          "mem_n1"
+        ],
+        "scope": "synthetic known-time fixture",
+        "state": "SUPPORTED",
+        "statement": "Session and liquidity interaction is supported within synthetic scope.",
+        "support_memory_ids": [
+          "mem_r1",
+          "mem_r2"
+        ],
+        "synthetic_fixture": true
+      },
+      {
+        "actionability": "RESEARCH_ONLY",
+        "claim_id": "claim_tail_conditioning",
+        "confidence": 0.44,
+        "oppose_memory_ids": [
+          "mem_n2"
+        ],
+        "scope": "unresolved stress scope",
+        "state": "CONTESTED",
+        "statement": "Tail conditioning improves downside calibration.",
+        "support_memory_ids": [
+          "mem_h2"
+        ],
+        "synthetic_fixture": true
+      }
+    ],
+    "phase": "SAED_V4_36",
+    "registry_hash": "e3980f3ccb08a7a79b775a8b177d8cc9860b1b98fbd9bf9eae95b1f5e03c9d66",
+    "registry_id": "v436_claims_69b3abb050c09c662cf9286c",
+    "research_only": true
+  },
+  "constitution": {
+    "append_only_memory": true,
+    "automatic_experiment_execution_allowed": false,
+    "capital_allocation_allowed": false,
+    "clauses": [
+      {
+        "clause_id": "V436-C01",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 1,
+        "requirement": "append-only memory"
+      },
+      {
+        "clause_id": "V436-C02",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 2,
+        "requirement": "known-time isolation"
+      },
+      {
+        "clause_id": "V436-C03",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 3,
+        "requirement": "negative-result preservation"
+      },
+      {
+        "clause_id": "V436-C04",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 4,
+        "requirement": "evidence binding"
+      },
+      {
+        "clause_id": "V436-C05",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 5,
+        "requirement": "semantic deduplication"
+      },
+      {
+        "clause_id": "V436-C06",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 6,
+        "requirement": "explicit supersession"
+      },
+      {
+        "clause_id": "V436-C07",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 7,
+        "requirement": "contradiction visibility"
+      },
+      {
+        "clause_id": "V436-C08",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 8,
+        "requirement": "claim scope control"
+      },
+      {
+        "clause_id": "V436-C09",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 9,
+        "requirement": "deterministic retrieval"
+      },
+      {
+        "clause_id": "V436-C10",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 10,
+        "requirement": "retrieval of negative knowledge"
+      },
+      {
+        "clause_id": "V436-C11",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 11,
+        "requirement": "budget enforcement"
+      },
+      {
+        "clause_id": "V436-C12",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 12,
+        "requirement": "risk hard limits"
+      },
+      {
+        "clause_id": "V436-C13",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 13,
+        "requirement": "exploration floor"
+      },
+      {
+        "clause_id": "V436-C14",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 14,
+        "requirement": "replication floor"
+      },
+      {
+        "clause_id": "V436-C15",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 15,
+        "requirement": "independent challenge"
+      },
+      {
+        "clause_id": "V436-C16",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 16,
+        "requirement": "human approval"
+      },
+      {
+        "clause_id": "V436-C17",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 17,
+        "requirement": "no automatic execution"
+      },
+      {
+        "clause_id": "V436-C18",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 18,
+        "requirement": "baseline preservation"
+      },
+      {
+        "clause_id": "V436-C19",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 19,
+        "requirement": "UCEE non-mutation"
+      },
+      {
+        "clause_id": "V436-C20",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+        "priority": 20,
+        "requirement": "claim ceiling"
+      }
+    ],
+    "constitution_hash": "f5e6b184e9fb66a420eeb595643aa5c051e02dab88d58c6494e88b4d298e8008",
+    "constitution_id": "v436_constitution",
+    "future_suffix_access_allowed": false,
+    "negative_results_mandatory": true,
+    "production_authorization_allowed": false,
+    "research_only": true,
+    "treatment_selection_allowed": false,
+    "version": "1.0.0"
+  },
+  "contradictions": {
+    "blocking_count": 1,
+    "open_count": 3,
+    "phase": "SAED_V4_36",
+    "records": [
+      {
+        "claim_id": "claim_regime_portability",
+        "contradiction_id": "cx_regime",
+        "oppose_side": [
+          "mem_n2"
+        ],
+        "required_experiment_family": "independent_regime_replication",
+        "resolution_state": "BOUNDED",
+        "severity": "HIGH",
+        "support_side": [
+          "mem_r2"
+        ],
+        "synthetic_fixture": true
+      },
+      {
+        "claim_id": "claim_runtime_parity",
+        "contradiction_id": "cx_runtime",
+        "oppose_side": [
+          "mem_l2"
+        ],
+        "required_experiment_family": "runtime_parity",
+        "resolution_state": "OPEN",
+        "severity": "BLOCKING",
+        "support_side": [
+          "mem_m1"
+        ],
+        "synthetic_fixture": true
+      },
+      {
+        "claim_id": "claim_tail_conditioning",
+        "contradiction_id": "cx_tail_transfer",
+        "oppose_side": [
+          "mem_n2"
+        ],
+        "required_experiment_family": "tail_stress_replication",
+        "resolution_state": "OPEN",
+        "severity": "HIGH",
+        "support_side": [
+          "mem_h2"
+        ],
+        "synthetic_fixture": true
+      }
+    ],
+    "register_hash": "6ef362cb24fbecfaba878f45e8083cc7f741d2105db80d61ec86d9a394146687",
+    "register_id": "v436_contradictions_ccbb0d524c5a455b3dedc86c",
+    "research_only": true
+  },
+  "coverage_matrix": {
+    "claim_count": 4,
+    "matrix_hash": "1bee14413ca0545d36d2814b43d7e5d68a05d8022ec267ca0e67e725a35aee6e",
+    "matrix_id": "v436_matrix_21cf010e69d21b37a4848d19",
+    "phase": "SAED_V4_36",
+    "research_only": true,
+    "rows": [
+      {
+        "blocking_gaps": 1,
+        "claim_id": "claim_regime_portability",
+        "dimensions": [
+          "independent_lab",
+          "negative_control"
+        ],
+        "mean_coverage": 0.425,
+        "mean_uncertainty": 0.575
+      },
+      {
+        "blocking_gaps": 1,
+        "claim_id": "claim_runtime_parity",
+        "dimensions": [
+          "runtime_parity"
+        ],
+        "mean_coverage": 0.0,
+        "mean_uncertainty": 1.0
+      },
+      {
+        "blocking_gaps": 0,
+        "claim_id": "claim_session_liquidity",
+        "dimensions": [
+          "external_replication",
+          "tail_stability"
+        ],
+        "mean_coverage": 0.525,
+        "mean_uncertainty": 0.475
+      },
+      {
+        "blocking_gaps": 1,
+        "claim_id": "claim_tail_conditioning",
+        "dimensions": [
+          "stress_replication"
+        ],
+        "mean_coverage": 0.28,
+        "mean_uncertainty": 0.72
+      }
+    ]
+  },
+  "evidence": {
+    "all_valid": true,
+    "independent_count": 3,
+    "merkle_root": "889c4fe63c7ecd0ba7387b71e7bf3cb99e36a28465da16ebd2343b83e1f08259",
+    "phase": "SAED_V4_36",
+    "record_count": 19,
+    "records": [
+      {
+        "artifact_hash": "40bb4d786471280ed225d7d02e7f3d1c1d0ecf687f1a79af2ca9bae7549253e1",
+        "evidence_hash": "5347aba09f9bf4f3406a4920c434623e9f3a50f6d0e71f4241b14bbf1195fc96",
+        "evidence_id": "ev_001",
+        "independent": false,
+        "known_time": "2026-07-10T00:00:00Z",
+        "lineage_hash": "ad4ee8da8e72c9a3dace44d0bfe24fe6fe2d14a5e62d2ec6905f2367fd8348b3",
+        "memory_id": "mem_h1",
+        "operator_id": "alpha_lab",
+        "role": "PRIMARY",
+        "schema_hash": "22aa1a8124efdb3467e4e417a47f9700370de8412e5804233ce218d5fefa29c8",
+        "synthetic_fixture": true,
+        "valid": true
+      },
+      {
+        "artifact_hash": "583ed28f66e3ddb7621af7b37e0a6eae6f8f996e0d9b30d5f6adb22716738a8f",
+        "evidence_hash": "0b7602179e271977ef03a96ae04e4c5c032028d8166158b522b9ad6e16c337c8",
+        "evidence_id": "ev_002",
+        "independent": false,
+        "known_time": "2026-07-10T01:00:00Z",
+        "lineage_hash": "b67e3dcf5a84f673fd45217347509dc11bd49161803cd9605c4ee3075f5da02a",
+        "memory_id": "mem_e1",
+        "operator_id": "alpha_lab",
+        "role": "PRIMARY",
+        "schema_hash": "28bfe1852b103a0122e5bc2a18cbae973038e338d9ff0e8383f7c41609050dcb",
+        "synthetic_fixture": true,
+        "valid": true
+      },
+      {
+        "artifact_hash": "91e9067825bedc5776d3f99377da1804df648a43a7d3e4556da1ac89d8216fb1",
+        "evidence_hash": "2f5dcfc737230f232c27d3831a73f9b0d1960bc83d44363dc0ebdd88fd485df3",
+        "evidence_id": "ev_003",
+        "independent": true,
+        "known_time": "2026-07-10T02:00:00Z",
+        "lineage_hash": "42b7841228b498768bbfcbcec9e254986f5664ec52905f7cf8e30f61e2473ac2",
+        "memory_id": "mem_r1",
+        "operator_id": "independent_lab",
+        "role": "REPLICATION",
+        "schema_hash": "00349cce6b38fa4f912ac01c7beab75d2449c631fce3217a185868b5ee380075",
+        "synthetic_fixture": true,
+        "valid": true
+      },
+      {
+        "artifact_hash": "ca0e3af1f68fff81cfbfa868f164ce40a881ba0dc35d56aef0b3ca78d9ae5259",
+        "evidence_hash": "4ebe96efeab9cb829a56d842b3205840431a15766ff3213cea8f82aaad4839c3",
+        "evidence_id": "ev_004",
+        "independent": false,
+        "known_time": "2026-07-10T03:00:00Z",
+        "lineage_hash": "ecf8d69afcd909ef71aeb8d530a919d347ccee1e562d45d968428b9ec50e598c",
+        "memory_id": "mem_n1",
+        "operator_id": "alpha_lab",
+        "role": "NEGATIVE_CONTROL",
+        "schema_hash": "4f491a708c529371b061a839a3f415dc1bc88eeb868f8aa5b4cb81323fe2c820",
+        "synthetic_fixture": true,
+        "valid": true
+      },
+      {
+        "artifact_hash": "ac540de5e08e6815753558058d0ce5d44ddd82f24af18c8a178e53771b5d8c70",
+        "evidence_hash": "640ea6e4ffc0ee43dd187ba107a82a9293f2bf2cbb466084886a694c46897457",
+        "evidence_id": "ev_005",
+        "independent": false,
+        "known_time": "2026-07-10T04:00:00Z",
+        "lineage_hash": "9ebf66ec590652cc1f61689d120c598d95b11950ae5702b2fabaaa4fc98f1066",
+        "memory_id": "mem_c1",
+        "operator_id": "alpha_lab",
+        "role": "PRIMARY",
+        "schema_hash": "864a6d0fb9b32f3a98ddbae3429ab4782bb147718fed151ede3c6052095b62d4",
+        "synthetic_fixture": true,
+        "valid": true
+      },
+      {
+        "artifact_hash": "26a77094ffb26e377b6d638638c8adb4008efec0de52ad7bc7b894fa62a95673",
+        "evidence_hash": "1eb06dc32ad5cc18bae4f71104525ece5781ef3780c2c83cfd185337220ee192",
+        "evidence_id": "ev_006",
+        "independent": false,
+        "known_time": "2026-07-11T00:00:00Z",
+        "lineage_hash": "3d6f09a72787ab97680cc3eb7436b215801edcf152cc78f36af500211b8ba495",
+        "memory_id": "mem_l1",
+        "operator_id": "alpha_lab",
+        "role": "EXTERNAL_BOUNDARY",
+        "schema_hash": "d981a604cc1138365cae32999a8a8f06ee8be40144a1a9a2f8a0e2b3bd80cb36",
+        "synthetic_fixture": true,
+        "valid": true
+      },
+      {
+        "artifact_hash": "b452d69c5bc088764469c9f3f3cf267ffd02341afad7710766c2382377091d4b",
+        "evidence_hash": "9a21077b9c08034e0cae2819b9e4e71c5b6945b35470f6cc96b9958421913c04",
+        "evidence_id": "ev_007",
+        "independent": false,
+        "known_time": "2026-07-11T01:00:00Z",
+        "lineage_hash": "c5e08fcdf1223f16540dbe3019830bc6a4453f9ef8c3ce0c03c4dca9e3ab7486",
+        "memory_id": "mem_i1",
+        "operator_id": "alpha_lab",
+        "role": "PRIMARY",
+        "schema_hash": "2fc40b7ca0308f0ae4e9ff4c33dbf687d28918453e3e47bd5afbb995aae3a1fa",
+        "synthetic_fixture": true,
+        "valid": true
+      },
+      {
+        "artifact_hash": "5b924dcd508035ddd8a8ba3c9f4f748078719724987fadc9d32dace37831170e",
+        "evidence_hash": "c3fd6447732d614aa1b07d5f181e17a9472a13a0775cd58d5d3e31473b58f32f",
+        "evidence_id": "ev_008",
+        "independent": false,
+        "known_time": "2026-07-11T02:00:00Z",
+        "lineage_hash": "5cfd4cc322e3ef9ca485310b1fca8a6450580fc03c1dd018217038483b2252ee",
+        "memory_id": "mem_f1",
+        "operator_id": "alpha_lab",
+        "role": "AUDIT",
+        "schema_hash": "1561a0b4d58cb63aff10b4e74e3aa1844d774915ad5dfd20e49c831fc5dadfca",
+        "synthetic_fixture": true,
+        "valid": true
+      },
+      {
+        "artifact_hash": "4c1862dc9c294a72d35306d5492370d4b28eafeed57c7ab2d5b6ca71472abb76",
+        "evidence_hash": "c8462c2933dc37d65a690f654f4147112c0c5c4d0ccf30afc82f02d936c7005f",
+        "evidence_id": "ev_009",
+        "independent": false,
+        "known_time": "2026-07-11T03:00:00Z",
+        "lineage_hash": "1e0693813ae84496579f85e99caa41ca6039b4e24e9a84bd7fab595ba563c85c",
+        "memory_id": "mem_d1",
+        "operator_id": "alpha_lab",
+        "role": "PRIMARY",
+        "schema_hash": "281f68e24b386651531c3cd85acd561b6e9ee559459b54d412740d07da204d7c",
+        "synthetic_fixture": true,
+        "valid": true
+      },
+      {
+        "artifact_hash": "657c32ada51929a4b25657e4d9bc18efb06c86ea45e1587dbf0b1b60baa15330",
+        "evidence_hash": "118edac97c67db342d13790eaa235c4b91c315f615685b9e7d9444b31c1f7aa9",
+        "evidence_id": "ev_010",
+        "independent": true,
+        "known_time": "2026-07-11T04:00:00Z",
+        "lineage_hash": "9ab227e9545496e033316d04b706e44432c39b71de9097ccd112203980f2350b",
+        "memory_id": "mem_a1",
+        "operator_id": "independent_lab",
+        "role": "REPLICATION",
+        "schema_hash": "65da65917372d5d18bcacb48618b76250ded034c3f6e4d9c7a3280d79e9b8661",
+        "synthetic_fixture": true,
+        "valid": true
+      },
+      {
+        "artifact_hash": "7646cd183d350da72fc275b2901944d2a14e5dacfdd514a527bb373a52a77310",
+        "evidence_hash": "b2ad32db18f906ab9105b454e070d5a963d2eb53147998c59ec89f00ee2b138d",
+        "evidence_id": "ev_011",
+        "independent": false,
+        "known_time": "2026-07-12T00:00:00Z",
+        "lineage_hash": "ab60c456dbef18e642730c0de70465ba7039fa1bcd906a2011dd7bd034687086",
+        "memory_id": "mem_q1",
+        "operator_id": "alpha_lab",
+        "role": "PRIMARY",
+        "schema_hash": "986ea4b1354945e49850e21a3483d7d70d7dfa2e56260aa644140b98333c1e78",
+        "synthetic_fixture": true,
+        "valid": true
+      },
+      {
+        "artifact_hash": "18905da3bd8ee3027f9319e553d6c407d8f333101c95f0de09389cbf9b053894",
+        "evidence_hash": "9b992e33b0ac8d1972bd1db65dfb0ee4b92bb9604cd9d930a8eeb2ac2339b540",
+        "evidence_id": "ev_012",
+        "independent": false,
+        "known_time": "2026-07-12T01:00:00Z",
+        "lineage_hash": "a902262e0ca43bc89752787455233180e082f8fbb15767c981da5991c9517b5b",
+        "memory_id": "mem_m1",
+        "operator_id": "alpha_lab",
+        "role": "PRIMARY",
+        "schema_hash": "ef522c3db542f5447ae3d6a5e684133a7192325b7b375aef6d67ab4623f8922c",
+        "synthetic_fixture": true,
+        "valid": true
+      },
+      {
+        "artifact_hash": "3c6d1b12dc47da6e6d6dd085267a5f98ce58ea059a4c9508a50a4450967ae68d",
+        "evidence_hash": "04db635fb685fd2e2f19784442c74901afb66cc3023b1310f55096b96b72cc2f",
+        "evidence_id": "ev_013",
+        "independent": false,
+        "known_time": "2026-07-12T02:00:00Z",
+        "lineage_hash": "f324bbe758241adeccdda74bed4e739274a30eb4110fded18942a752832dba3d",
+        "memory_id": "mem_ds1",
+        "operator_id": "alpha_lab",
+        "role": "PRIMARY",
+        "schema_hash": "d4047605d31ded6211e868a2d340bdffe210b0563c32d4db44f55720e3d15cfc",
+        "synthetic_fixture": true,
+        "valid": true
+      },
+      {
+        "artifact_hash": "0eed35f1000812953a67944ad12cdead6995befcedda85fa3136be63c6b0b734",
+        "evidence_hash": "3895eb60282340af945a082a6b305d0cef67080aa5983636872944aa4790b556",
+        "evidence_id": "ev_014",
+        "independent": false,
+        "known_time": "2026-07-12T03:00:00Z",
+        "lineage_hash": "e79d83752a0adaeebbfe8df15c9675b03e259341e6cb2298a37ac011588e708a",
+        "memory_id": "mem_h2",
+        "operator_id": "alpha_lab",
+        "role": "PRIMARY",
+        "schema_hash": "ae2f60b6e44ff8c3ebdc9a76801ad128275265953dcd756dd91ea5708b9da663",
+        "synthetic_fixture": true,
+        "valid": true
+      },
+      {
+        "artifact_hash": "55eecc2b2d285d4a74b14f4e82e3319d9c742e50f89ca741f142f3ede8f7ee11",
+        "evidence_hash": "7d6ed11134afbb3c3ca5fcd8f2f14d5b2e10f637081e0df6f321f5bad9223a8b",
+        "evidence_id": "ev_015",
+        "independent": false,
+        "known_time": "2026-07-12T04:00:00Z",
+        "lineage_hash": "221963b1476d54433195f164eb76deea9945f18b6615dff18443bcbff8ff482b",
+        "memory_id": "mem_n2",
+        "operator_id": "alpha_lab",
+        "role": "NEGATIVE_CONTROL",
+        "schema_hash": "44f7bc0328068bfc8f424226a7532b5557aed2cd715538cd0d049bc4daf1855f",
+        "synthetic_fixture": true,
+        "valid": true
+      },
+      {
+        "artifact_hash": "afaac32d0532cb424b079d7680e9edc06fd9787af72fc4228bb079aac8fecee1",
+        "evidence_hash": "0bf14a99274619458c34a320d3e4640c2ce017319c0fc36a70d576ab223e827c",
+        "evidence_id": "ev_016",
+        "independent": true,
+        "known_time": "2026-07-13T00:00:00Z",
+        "lineage_hash": "3093fc8e5572801cda87c774b1b275513b00fe5751dc4940ad564918bfd61482",
+        "memory_id": "mem_r2",
+        "operator_id": "independent_lab",
+        "role": "REPLICATION",
+        "schema_hash": "19ce4341d03e2d6d0e3824c62c8a5302e7eed33416820f86e43c770c62c4770a",
+        "synthetic_fixture": true,
+        "valid": true
+      },
+      {
+        "artifact_hash": "ca6743a2963f2ad7325263889313861e9c79c52353342e0aeda8cd0a1b8ac4c9",
+        "evidence_hash": "52d5ed1873b3d1006dc2ba4c81852d67734acf45b0de18834dc8628f7b3a3211",
+        "evidence_id": "ev_017",
+        "independent": false,
+        "known_time": "2026-07-13T01:00:00Z",
+        "lineage_hash": "6de746cf23d50ed0d1e6f4e4c1502dee98157bcff26d7dda248032f6358cfaf5",
+        "memory_id": "mem_c2",
+        "operator_id": "alpha_lab",
+        "role": "PRIMARY",
+        "schema_hash": "78337e095ceb4a1b817f3e2587b9617776c7daf62afa478469b956bd0a80d601",
+        "synthetic_fixture": true,
+        "valid": true
+      },
+      {
+        "artifact_hash": "059cadf5ca06370bbd3f7d82e334141e6bd0315532643ce77314bea8d24533cc",
+        "evidence_hash": "99f52522eed07a397c9150debfe51a693ad9b9cf0dd0788872234c9999a100d4",
+        "evidence_id": "ev_018",
+        "independent": false,
+        "known_time": "2026-07-13T02:00:00Z",
+        "lineage_hash": "5b0a2ba52c982b867fe6b75cc27371003b9d8094d20d4135532c27d1b472a58b",
+        "memory_id": "mem_l2",
+        "operator_id": "alpha_lab",
+        "role": "EXTERNAL_BOUNDARY",
+        "schema_hash": "0f75a28664225fa7c1f72b0deb829184d03de017e1fb54018848f78d97e03dd2",
+        "synthetic_fixture": true,
+        "valid": true
+      },
+      {
+        "artifact_hash": "284649b7f11406e7868ce2936389f9e1967a3d91e8834976d84dee0da6749c96",
+        "evidence_hash": "f82d044790b535ef6d97c15a83aae5cad3cbf3dd55e03d18523afd93263a9da0",
+        "evidence_id": "ev_019",
+        "independent": false,
+        "known_time": "2026-07-13T03:00:00Z",
+        "lineage_hash": "73c911c497aa216a001cdba974060b13777a487cababbc1318af30c760cf33bb",
+        "memory_id": "mem_d2",
+        "operator_id": "alpha_lab",
+        "role": "PRIMARY",
+        "schema_hash": "58b3efda87938de6de925ab724067b8bf99a5d6bf4428a06fc310fbe7d0c4357",
+        "synthetic_fixture": true,
+        "valid": true
+      }
+    ],
+    "registry_hash": "8a846d16fae71508f889d9ab91e2d677c8628da41ca29944ce5ca8da7a3f55d1",
+    "registry_id": "v436_evidence_dd8f5c0879a17ff3edf70979",
+    "research_only": true
+  },
+  "evidence_bundle": {
+    "artifact_count": 31,
+    "artifact_hashes": [
+      "caafe6f27e338354f1adc2cfe40f4e6ad10d71a6aed9f8bb6b2873db7c06fd1b",
+      "ea6b65acb833df6d26a9442d14f578f442155cba241cff3daa95d87a993a3948",
+      "087388ea5681948b6b12de9a0e241f0f95c58c29151d0ba76abc5a30511570d8",
+      "f071fa7199181a31fc4a75c3d6e97bc95311540ac56bbebe9ad1fda48f7194e9",
+      "b2478a4d05b6480198fcb3012483a3aaf3198b97ad44f7b17b979a8f8e9f9289",
+      "983045d70cae8aa1f1cd78c9abf63ce4f82ee28a2db48f707765fbd77f348633",
+      "3f707447b0aa71f7577ba2304add130f291a3977bc11ac4cded7286ae732ff9a",
+      "a66936344c179c53022f08a9534ae351395b7a7c1ad5bfa03266c9dfd80427cd",
+      "600299de09bc91e6c95792654d8500d330fb95661d9eaef4b144f7d5c9b700da",
+      "8d40dd8814b9b8a49017ba4104892a2d23231d47d76ce3ecf5989bd92e42724a",
+      "f1eb87ed8536bd41b4fe990e348b1eb0b2af23a01c877c0161b485b9459b90c0",
+      "4690e5dad62f7b04dd0cea44af3186f568c89b58ea3e766798e6010612e090f2",
+      "588e43b743a4dceae73b97ef51f47c674eae216440ef4de4e92788a8d8f36e10",
+      "cb4135b064e0ea0b36725ac04659a8cb42b0e2b64fcf3e5ea5d08d1f9655c3e9",
+      "c64d1d468ddc9ef7fdc6a1e80b2f825891210165359c876fc0dc80872da86a19",
+      "5903b0566c62fd94d3afc8f433498ed84e2f8e05179f3fc6ad38237408a1c8bf",
+      "bcbec77912b8c2c64f3c0801b3449b663c34672786d12880112a724813045194",
+      "666dca7464f4f02005e550f8598a6e57eb9fa182f2fb6db2424b78e11e999730",
+      "2a514e5cd69e858d2ec50a72169ed59577dbc365b7991aaf9a215df0dbddb634",
+      "7231c77ce3f4413b9701d80b5e1597bc67386c53623db11026edfaccccf28a5b",
+      "57cb7a1414229d2b939bbe3ad57b734d8067fc488a94d161f984804853ac17c1",
+      "437bab4f9a2f954d9f6ca5cfa5a1fbb89c0c3bdbc309611411debcfed7dc76bd",
+      "d4a5c833107691a3935000893223b6d9f034c27f0e2d48a472755c5a82ed7040",
+      "bc7678a3e36908ff9d9ef6b34ac6049a82fabdd05c08bc89e0d95ea66723f5e0",
+      "67b3ac7ecc48e0f97d4d62194995084cd2dfef69cb58fba6f6dd55f07da50b28",
+      "d4f1f9da9942b9dbc9443a94994f95e02c54f4f363bda7b2e232a32ccff088a6",
+      "929610e8806a78f741cf5547e6887bdeefa6e933993899d51b5d0cbddc82c755",
+      "3113d1166684e5f8b27179d1e2cd7fadfd5e293eb6c41e8174e8cf6daaa865d2",
+      "372211b21e9fe365f1b0f5d0919a6044427862730bbf3a96bab7d82e58c6d37e",
+      "3275b13d4335a8f7a31d777eec80d5cf9e6358f87f806b701858ca284c3395ee",
+      "911a0fec0a5dc09266b5e3de7ece3c1ea032ed618053ecb06a4f7acc85e917ae"
+    ],
+    "artifact_keys": [
+      "upstream",
+      "constitution",
+      "authority",
+      "memory",
+      "negative_knowledge",
+      "supersession",
+      "evidence",
+      "lineage",
+      "evidence_coverage",
+      "claims",
+      "contradictions",
+      "knowledge_state",
+      "retrieval_index",
+      "retrieval_receipt",
+      "gaps",
+      "coverage_matrix",
+      "budgets",
+      "availability",
+      "risk_findings",
+      "weights",
+      "scorecard",
+      "plan",
+      "schedule",
+      "governance_policy",
+      "review",
+      "governance_ledger",
+      "baseline",
+      "external_boundary",
+      "limitations",
+      "reproduction",
+      "replay"
+    ],
+    "bundle_hash": "ff9a1811271fd4d24ca240c6f0c334c633b0857a81b8a3f325cfda445434f541",
+    "bundle_id": "v436_bundle_35558f5fce1d5dc698fdeb46",
+    "complete": true,
+    "merkle_root": "e6301b62aa2c795c638ada8295496253b16d196016b112b01c5b0bbf3cf8d816",
+    "phase": "SAED_V4_36",
+    "research_only": true
+  },
+  "evidence_coverage": {
+    "coverage_hash": "efb94d11a92cad1dbf2eee19ede0288a0eb13c7b3efdd3856d6d96a5d9fb7ea3",
+    "coverage_id": "v436_coverage_d81eb60147266efce4005111",
+    "covered": true,
+    "phase": "SAED_V4_36",
+    "research_only": true,
+    "rows": [
+      {
+        "covered": true,
+        "evidence_count": 1,
+        "independent_count": 0,
+        "kind": "HYPOTHESIS",
+        "memory_id": "mem_h1",
+        "required": false
+      },
+      {
+        "covered": true,
+        "evidence_count": 1,
+        "independent_count": 0,
+        "kind": "EXPERIMENT",
+        "memory_id": "mem_e1",
+        "required": false
+      },
+      {
+        "covered": true,
+        "evidence_count": 1,
+        "independent_count": 1,
+        "kind": "RESULT",
+        "memory_id": "mem_r1",
+        "required": true
+      },
+      {
+        "covered": true,
+        "evidence_count": 1,
+        "independent_count": 0,
+        "kind": "NEGATIVE_RESULT",
+        "memory_id": "mem_n1",
+        "required": true
+      },
+      {
+        "covered": true,
+        "evidence_count": 1,
+        "independent_count": 0,
+        "kind": "CLAIM",
+        "memory_id": "mem_c1",
+        "required": true
+      },
+      {
+        "covered": true,
+        "evidence_count": 1,
+        "independent_count": 0,
+        "kind": "LIMITATION",
+        "memory_id": "mem_l1",
+        "required": false
+      },
+      {
+        "covered": true,
+        "evidence_count": 1,
+        "independent_count": 0,
+        "kind": "INCIDENT",
+        "memory_id": "mem_i1",
+        "required": false
+      },
+      {
+        "covered": true,
+        "evidence_count": 1,
+        "independent_count": 0,
+        "kind": "RISK_FINDING",
+        "memory_id": "mem_f1",
+        "required": true
+      },
+      {
+        "covered": true,
+        "evidence_count": 1,
+        "independent_count": 0,
+        "kind": "DECISION",
+        "memory_id": "mem_d1",
+        "required": false
+      },
+      {
+        "covered": true,
+        "evidence_count": 1,
+        "independent_count": 1,
+        "kind": "ARTIFACT",
+        "memory_id": "mem_a1",
+        "required": false
+      },
+      {
+        "covered": true,
+        "evidence_count": 1,
+        "independent_count": 0,
+        "kind": "QUESTION",
+        "memory_id": "mem_q1",
+        "required": false
+      },
+      {
+        "covered": true,
+        "evidence_count": 1,
+        "independent_count": 0,
+        "kind": "MODEL",
+        "memory_id": "mem_m1",
+        "required": false
+      },
+      {
+        "covered": true,
+        "evidence_count": 1,
+        "independent_count": 0,
+        "kind": "DATASET",
+        "memory_id": "mem_ds1",
+        "required": false
+      },
+      {
+        "covered": true,
+        "evidence_count": 1,
+        "independent_count": 0,
+        "kind": "HYPOTHESIS",
+        "memory_id": "mem_h2",
+        "required": false
+      },
+      {
+        "covered": true,
+        "evidence_count": 1,
+        "independent_count": 0,
+        "kind": "NEGATIVE_RESULT",
+        "memory_id": "mem_n2",
+        "required": true
+      },
+      {
+        "covered": true,
+        "evidence_count": 1,
+        "independent_count": 1,
+        "kind": "RESULT",
+        "memory_id": "mem_r2",
+        "required": true
+      },
+      {
+        "covered": true,
+        "evidence_count": 1,
+        "independent_count": 0,
+        "kind": "CLAIM",
+        "memory_id": "mem_c2",
+        "required": true
+      },
+      {
+        "covered": true,
+        "evidence_count": 1,
+        "independent_count": 0,
+        "kind": "LIMITATION",
+        "memory_id": "mem_l2",
+        "required": false
+      },
+      {
+        "covered": true,
+        "evidence_count": 1,
+        "independent_count": 0,
+        "kind": "DECISION",
+        "memory_id": "mem_d2",
+        "required": false
+      }
+    ],
+    "uncovered_ids": []
+  },
+  "external_boundary": {
+    "boundary_hash": "1d93e85ad82bb4ac3a3b083261c89c58db81f945c05d3d6b189db99ffb0d3d77",
+    "boundary_id": "v436_external_db93d75e573a3de525e8cb65",
+    "external_human_committee": false,
+    "external_literature_connector": false,
+    "live_trading": false,
+    "metaeditor_compile": false,
+    "phase": "SAED_V4_36",
+    "production_authorization": false,
+    "prospective_evidence": false,
+    "real_compute_scheduler": false,
+    "real_embedding_service": false,
+    "real_longitudinal_memory_migration": false,
+    "research_only": true,
+    "runtime_parity": false,
+    "synthetic_memory_fixture": true
+  },
+  "gaps": {
+    "blocking_count": 3,
+    "gap_count": 6,
+    "gaps": [
+      {
+        "blocking": true,
+        "claim_id": "claim_regime_portability",
+        "coverage": 0.35,
+        "dimension": "independent_lab",
+        "gap_id": "gap_regime_independent",
+        "required_family": "independent_regime_replication",
+        "severity": "HIGH",
+        "synthetic_fixture": true,
+        "uncertainty": 0.65
+      },
+      {
+        "blocking": false,
+        "claim_id": "claim_regime_portability",
+        "coverage": 0.5,
+        "dimension": "negative_control",
+        "gap_id": "gap_regime_negative",
+        "required_family": "negative_control_replay",
+        "severity": "MEDIUM",
+        "synthetic_fixture": true,
+        "uncertainty": 0.5
+      },
+      {
+        "blocking": true,
+        "claim_id": "claim_runtime_parity",
+        "coverage": 0.0,
+        "dimension": "runtime_parity",
+        "gap_id": "gap_runtime_parity",
+        "required_family": "runtime_parity",
+        "severity": "BLOCKING",
+        "synthetic_fixture": true,
+        "uncertainty": 1.0
+      },
+      {
+        "blocking": false,
+        "claim_id": "claim_session_liquidity",
+        "coverage": 0.45,
+        "dimension": "external_replication",
+        "gap_id": "gap_session_external",
+        "required_family": "independent_regime_replication",
+        "severity": "HIGH",
+        "synthetic_fixture": true,
+        "uncertainty": 0.55
+      },
+      {
+        "blocking": false,
+        "claim_id": "claim_session_liquidity",
+        "coverage": 0.6,
+        "dimension": "tail_stability",
+        "gap_id": "gap_session_tail",
+        "required_family": "tail_stress_replication",
+        "severity": "MEDIUM",
+        "synthetic_fixture": true,
+        "uncertainty": 0.4
+      },
+      {
+        "blocking": true,
+        "claim_id": "claim_tail_conditioning",
+        "coverage": 0.28,
+        "dimension": "stress_replication",
+        "gap_id": "gap_tail_stress",
+        "required_family": "tail_stress_replication",
+        "severity": "HIGH",
+        "synthetic_fixture": true,
+        "uncertainty": 0.72
+      }
+    ],
+    "phase": "SAED_V4_36",
+    "registry_hash": "8c3d8ba850c773c5987f21cf4ab5906d916fd61f99f848c1f779581bc5c779ef",
+    "registry_id": "v436_gaps_907648fcc2d786cffe05b505",
+    "research_only": true
+  },
+  "governance_ledger": {
+    "append_only": true,
+    "chain_head": "36fdeab89af791b04aaaab468aa6fe9f3aff37a20cdcb194b14ac72f943d19e2",
+    "event_count": 5,
+    "events": [
+      {
+        "decision": "ACCEPT",
+        "event_hash": "f6ae58c4ba98bb7372165372517d53684fedb8f252d2dd8bd41f6a37dbde0d2b",
+        "event_id": "v436_governance_cf4e26b17094c738a4858c53",
+        "event_type": "MEMORY_FREEZE",
+        "known_time": "2026-07-16T00:00:00Z",
+        "ordinal": 0,
+        "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "principal_id": "custodian",
+        "subject_id": "memory",
+        "synthetic_fixture": true
+      },
+      {
+        "decision": "ACCEPT_WITH_BLOCK",
+        "event_hash": "7439114fbf15176d10c33f88c74557450481b7dfa641207c9f67d631b9a5361a",
+        "event_id": "v436_governance_4788afb0219e0ec6adcef5b5",
+        "event_type": "RISK_REVIEW",
+        "known_time": "2026-07-16T01:00:00Z",
+        "ordinal": 1,
+        "previous_hash": "f6ae58c4ba98bb7372165372517d53684fedb8f252d2dd8bd41f6a37dbde0d2b",
+        "principal_id": "risk_reviewer",
+        "subject_id": "candidates",
+        "synthetic_fixture": true
+      },
+      {
+        "decision": "ACCEPT",
+        "event_hash": "5760c109464f229d3044e46e3325cc1e4cf9cd84690fc677d47e4324b34fdc25",
+        "event_id": "v436_governance_4746091ad76f8451c283d459",
+        "event_type": "NEGATIVE_KNOWLEDGE_REVIEW",
+        "known_time": "2026-07-16T02:00:00Z",
+        "ordinal": 2,
+        "previous_hash": "7439114fbf15176d10c33f88c74557450481b7dfa641207c9f67d631b9a5361a",
+        "principal_id": "independent_challenger",
+        "subject_id": "negative_registry",
+        "synthetic_fixture": true
+      },
+      {
+        "decision": "ACCEPT",
+        "event_hash": "a9ce5b737e632a94a3a70c07c99cb58b93bacfcdee45b743910152388815de06",
+        "event_id": "v436_governance_27dfb6c754594cc7f0fd01b4",
+        "event_type": "BUDGET_FREEZE",
+        "known_time": "2026-07-16T03:00:00Z",
+        "ordinal": 3,
+        "previous_hash": "5760c109464f229d3044e46e3325cc1e4cf9cd84690fc677d47e4324b34fdc25",
+        "principal_id": "research_owner",
+        "subject_id": "budget",
+        "synthetic_fixture": true
+      },
+      {
+        "decision": "ACCEPT_REFERENCE",
+        "event_hash": "36fdeab89af791b04aaaab468aa6fe9f3aff37a20cdcb194b14ac72f943d19e2",
+        "event_id": "v436_governance_c9b69bd27c18b0607f9c081e",
+        "event_type": "AGENDA_REVIEW",
+        "known_time": "2026-07-17T00:00:00Z",
+        "ordinal": 4,
+        "previous_hash": "a9ce5b737e632a94a3a70c07c99cb58b93bacfcdee45b743910152388815de06",
+        "principal_id": "committee",
+        "subject_id": "v436_review_f1a4a29b732145a9f9c878d2",
+        "synthetic_fixture": true
+      }
+    ],
+    "ledger_hash": "1fd498a10e315d653ebd59da457e06d1f7f3546ab191adf19568ad05495d012d",
+    "ledger_id": "v436_govledger_c9df152a1e4b18b194d4b76b",
+    "phase": "SAED_V4_36",
+    "research_only": true
+  },
+  "governance_policy": {
+    "automatic_approval_allowed": false,
+    "automatic_execution_allowed": false,
+    "independent_challenge_required": true,
+    "negative_knowledge_review_required": true,
+    "phase": "SAED_V4_36",
+    "policy_hash": "adf32d8b22bd0153b0b6d53d87c30f751c42e0f3b594bea0a7628f37ca2272d8",
+    "policy_id": "v436_governance_policy",
+    "policy_receipt_id": "v436_policy_cd15c3183c0c78321d792184",
+    "quorum": 3,
+    "required_roles": [
+      "independent_challenger",
+      "research_owner",
+      "risk_reviewer"
+    ],
+    "research_only": true,
+    "risk_review_required": true
+  },
+  "handoff": {
+    "authority_granted": false,
+    "capital_authority_granted": false,
+    "certificate_hash": "daaad066e559132eb4bb7af03b66b1591ff60fef9cf9cd23369d2b87e950c154",
+    "execution_authority_granted": false,
+    "handoff_hash": "76c288083a2997b2456f656b289d6ce71a6cfe2f2f03de3a5589c485069b7bcd",
+    "handoff_id": "v436_handoff_b7c9ff5f75ee31919ad556d3",
+    "knowledge_state_hash": "edadb43ecd6f53eb2e55c484fd9a677d912446bf473d6e094ac0b9e310b51cbb",
+    "memory_store_hash": "4e11c55584ec3b9e4bde6d295f23bce591b1849ac685af2ad5cbf02f8d3445bb",
+    "next_phase": "SAED_V4_37",
+    "phase": "SAED_V4_36",
+    "plan_hash": "9c7ad438ba546acd498e5c9572f2c839aaf845e0bbde23e3b2081e0e182a9811",
+    "production_authorized": false,
+    "research_only": true,
+    "risk_register_hash": "253d696ae6045fb3a393d4d4d296e7df6b30a7c23a7b19b5cac205c2278d565f",
+    "transferred_artifacts": [
+      "immutable research memory identity",
+      "negative knowledge registry",
+      "evidence coverage matrix",
+      "bounded human-reviewed research agenda",
+      "risk and budget constraints"
+    ]
+  },
+  "knowledge_state": {
+    "claims": [
+      {
+        "blocking_contradictions": 0,
+        "claim_id": "claim_regime_portability",
+        "declared_state": "UNRESOLVED",
+        "eligible_for_research_use": false,
+        "eligible_for_runtime_use": false,
+        "support_covered": true
+      },
+      {
+        "blocking_contradictions": 1,
+        "claim_id": "claim_runtime_parity",
+        "declared_state": "REFUTED",
+        "eligible_for_research_use": false,
+        "eligible_for_runtime_use": false,
+        "support_covered": true
+      },
+      {
+        "blocking_contradictions": 0,
+        "claim_id": "claim_session_liquidity",
+        "declared_state": "SUPPORTED",
+        "eligible_for_research_use": true,
+        "eligible_for_runtime_use": false,
+        "support_covered": true
+      },
+      {
+        "blocking_contradictions": 0,
+        "claim_id": "claim_tail_conditioning",
+        "declared_state": "CONTESTED",
+        "eligible_for_research_use": false,
+        "eligible_for_runtime_use": false,
+        "support_covered": true
+      }
+    ],
+    "negative_knowledge_count": 6,
+    "phase": "SAED_V4_36",
+    "research_only": true,
+    "runtime_use_allowed": false,
+    "state_hash": "edadb43ecd6f53eb2e55c484fd9a677d912446bf473d6e094ac0b9e310b51cbb",
+    "state_id": "v436_knowledge_222fba7fe0f0b82d12d4fba3"
+  },
+  "limitations": {
+    "claim_ceiling": "synthetic_deterministic_research_memory_and_agenda_reference_only",
+    "limitations": [
+      "synthetic reference corpus only",
+      "lexical deterministic retrieval is not semantic embedding retrieval",
+      "planner utility weights are reference policy values",
+      "no experiment is automatically launched",
+      "no real compute scheduler or external literature connector",
+      "no prospective market or broker evidence",
+      "no production or live authority"
+    ],
+    "limitations_hash": "fcb0bbe5d19b001c7ea6efe9adb977103eb718e1236d3681f2edc9e7348338fb",
+    "limitations_id": "v436_limits_71193d53e476c632be5ff8a3",
+    "phase": "SAED_V4_36",
+    "research_only": true
+  },
+  "lineage": {
+    "edge_count": 12,
+    "edges": [
+      {
+        "relation": "SUPPORTS",
+        "source_id": "ev_001",
+        "target_id": "mem_h1"
+      },
+      {
+        "relation": "SUPPORTS",
+        "source_id": "ev_002",
+        "target_id": "mem_e1"
+      },
+      {
+        "relation": "SUPPORTS",
+        "source_id": "ev_003",
+        "target_id": "mem_r1"
+      },
+      {
+        "relation": "SUPPORTS",
+        "source_id": "ev_004",
+        "target_id": "mem_n1"
+      },
+      {
+        "relation": "SUPPORTS",
+        "source_id": "ev_005",
+        "target_id": "mem_c1"
+      },
+      {
+        "relation": "SUPPORTS",
+        "source_id": "ev_006",
+        "target_id": "mem_l1"
+      },
+      {
+        "relation": "SUPPORTS",
+        "source_id": "ev_007",
+        "target_id": "mem_i1"
+      },
+      {
+        "relation": "SUPPORTS",
+        "source_id": "ev_008",
+        "target_id": "mem_f1"
+      },
+      {
+        "relation": "SUPPORTS",
+        "source_id": "ev_009",
+        "target_id": "mem_d1"
+      },
+      {
+        "relation": "SUPPORTS",
+        "source_id": "ev_010",
+        "target_id": "mem_a1"
+      },
+      {
+        "relation": "SUPPORTS",
+        "source_id": "ev_011",
+        "target_id": "mem_q1"
+      },
+      {
+        "relation": "SUPPORTS",
+        "source_id": "ev_012",
+        "target_id": "mem_m1"
+      }
+    ],
+    "graph_hash": "cb7f355c7b981b68539e52bf53826454b0ce690cb53a5bd86d08fb835ab38a8c",
+    "graph_id": "v436_lineage_51c13d46ed6caa61991e0448",
+    "node_count": 38,
+    "nodes": [
+      "ev_001",
+      "ev_002",
+      "ev_003",
+      "ev_004",
+      "ev_005",
+      "ev_006",
+      "ev_007",
+      "ev_008",
+      "ev_009",
+      "ev_010",
+      "ev_011",
+      "ev_012",
+      "ev_013",
+      "ev_014",
+      "ev_015",
+      "ev_016",
+      "ev_017",
+      "ev_018",
+      "ev_019",
+      "mem_a1",
+      "mem_c1",
+      "mem_c2",
+      "mem_d1",
+      "mem_d2",
+      "mem_ds1",
+      "mem_e1",
+      "mem_f1",
+      "mem_h1",
+      "mem_h2",
+      "mem_i1",
+      "mem_l1",
+      "mem_l2",
+      "mem_m1",
+      "mem_n1",
+      "mem_n2",
+      "mem_q1",
+      "mem_r1",
+      "mem_r2"
+    ],
+    "phase": "SAED_V4_36",
+    "research_only": true
+  },
+  "memory": {
+    "append_only": true,
+    "chain": [
+      {
+        "entry_hash": "e7c011a6e4cc7967c62d9e7541a9fb0df81cd2f32442e79cb4dd80cfaba6ba35",
+        "event_hash": "db249289340c230cacd6a061d809659f401d83987dfc74e26b85b8363c0cbc7f",
+        "event_id": "v436_memory_event_1a9624712db34d34f3cc7e87",
+        "evidence_hashes": [
+          "c70116407dcd4035ecd33e109e82f5d0afd836e9ac9566e90dddc78f10794935"
+        ],
+        "kind": "HYPOTHESIS",
+        "known_time": "2026-07-10T00:00:00Z",
+        "memory_id": "mem_h1",
+        "ordinal": 0,
+        "owner_id": "alpha_lab_research",
+        "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "semantic_fingerprint": "8110fdb6adc545a4279caf158a84fa30351d7775b64634f59a78a262585242af",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_35",
+        "statement": "A session transition may change conditional path distribution.",
+        "status": "ACTIVE",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "context",
+          "liquidity",
+          "mechanism"
+        ],
+        "title": "Liquidity transition mechanism"
+      },
+      {
+        "entry_hash": "d2024e947d01029c7018fa9fa7a4040001dbda1479af4431f7441d46eb1e15c4",
+        "event_hash": "1c2ab7b897c83a3e2ba9587fa0c3de85e0b92d207e2adb2e5434a5b249044b5b",
+        "event_id": "v436_memory_event_16a4bedf7f204904f2e5c658",
+        "evidence_hashes": [
+          "d9cd182846eea93f4701675173a25b263366ffb72de1b791db74dead723e593a"
+        ],
+        "kind": "EXPERIMENT",
+        "known_time": "2026-07-10T01:00:00Z",
+        "memory_id": "mem_e1",
+        "ordinal": 1,
+        "owner_id": "alpha_lab_research",
+        "previous_hash": "db249289340c230cacd6a061d809659f401d83987dfc74e26b85b8363c0cbc7f",
+        "semantic_fingerprint": "e54ba13196de796e3584798eaad42cc7c3abb6554f9dbc2fdd3532516b74347c",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_35",
+        "statement": "Ablate session and liquidity views under known-time replay.",
+        "status": "CLOSED",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "ablation",
+          "liquidity",
+          "session"
+        ],
+        "title": "Session transition ablation"
+      },
+      {
+        "entry_hash": "2c087814a846040a7ae80f7b33b32610ffe93ce68714f0c0e1d3f4f805338937",
+        "event_hash": "abac4ec8b4d6967464ab0416512b96bf1707741b83b26b2a0166edd4981c03be",
+        "event_id": "v436_memory_event_6e5c6ae3b161a348a65241a1",
+        "evidence_hashes": [
+          "3d2ea4cc3c77894f5d1d5c2e525df143755da945d1549b7a776a3ef783505190"
+        ],
+        "kind": "RESULT",
+        "known_time": "2026-07-10T02:00:00Z",
+        "memory_id": "mem_r1",
+        "ordinal": 2,
+        "owner_id": "alpha_lab_research",
+        "previous_hash": "1c2ab7b897c83a3e2ba9587fa0c3de85e0b92d207e2adb2e5434a5b249044b5b",
+        "semantic_fingerprint": "88c52c431f1872a201960965600c53839b016086d7d84d115917b22787bab18b",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_35",
+        "statement": "Session and liquidity views jointly improved synthetic calibration.",
+        "status": "REPRODUCED",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "calibration",
+          "liquidity",
+          "session"
+        ],
+        "title": "Ablation result"
+      },
+      {
+        "entry_hash": "0aec8007e13fe6500db94748d8b784576325ecff1c429041db03afdb0a0b2517",
+        "event_hash": "092656de9e9572f05760b81ee53d738331e257c37f2e322bc9f9022c65bab3df",
+        "event_id": "v436_memory_event_1ff71a0623c816bd9982461c",
+        "evidence_hashes": [
+          "7c9f13c0fd495c916aaf92a47a79b5f9c4f5b6a19756ddd96abcc44d432bf0c5"
+        ],
+        "kind": "NEGATIVE_RESULT",
+        "known_time": "2026-07-10T03:00:00Z",
+        "memory_id": "mem_n1",
+        "ordinal": 3,
+        "owner_id": "alpha_lab_research",
+        "previous_hash": "abac4ec8b4d6967464ab0416512b96bf1707741b83b26b2a0166edd4981c03be",
+        "semantic_fingerprint": "35cf68702e62aaec4135737681449ad55b8985358e5597a18ebad9dcec7ae509",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_35",
+        "statement": "Clock-only treatment selection failed support and stability gates.",
+        "status": "REJECTED",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "negative",
+          "session",
+          "treatment"
+        ],
+        "title": "Standalone clock failure"
+      },
+      {
+        "entry_hash": "ae91c2479031fd1a1e4f4b24a0fd031f604446129c913cbf48c1bd191a3aaa5b",
+        "event_hash": "8520621f100e50916e6263e4b16419f0192dff5b1e23d4d5f5d3a4eefa3357b9",
+        "event_id": "v436_memory_event_8f028fa67ec0674cfe78242b",
+        "evidence_hashes": [
+          "23092c0ea253e81c839aed1dc5f3a31e163a6cf73b477a1c340770f51c1fa921"
+        ],
+        "kind": "CLAIM",
+        "known_time": "2026-07-10T04:00:00Z",
+        "memory_id": "mem_c1",
+        "ordinal": 4,
+        "owner_id": "alpha_lab_research",
+        "previous_hash": "092656de9e9572f05760b81ee53d738331e257c37f2e322bc9f9022c65bab3df",
+        "semantic_fingerprint": "ffdc62e29f7c870d55c4b1107c9585c09877bc9b26f78756f5829e4164307189",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_35",
+        "statement": "The interaction is supported only inside the synthetic fixture scope.",
+        "status": "ACTIVE",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "claim",
+          "liquidity",
+          "session"
+        ],
+        "title": "Bounded interaction claim"
+      },
+      {
+        "entry_hash": "de75744cad5b53c901da08172d33c99002fd445d7b728bdf8ef13be3d6adb1ac",
+        "event_hash": "5b8c090786aede2d686c57035c8fca6525b274d1489b54bd4c7ae56f44ee6426",
+        "event_id": "v436_memory_event_31eb23a9665791ac66379e0f",
+        "evidence_hashes": [
+          "5bcde8bd5dd253ea57e38ae15d9308e48edf3c61f4a16549768008d24caea7d4"
+        ],
+        "kind": "LIMITATION",
+        "known_time": "2026-07-11T00:00:00Z",
+        "memory_id": "mem_l1",
+        "ordinal": 5,
+        "owner_id": "alpha_lab_research",
+        "previous_hash": "8520621f100e50916e6263e4b16419f0192dff5b1e23d4d5f5d3a4eefa3357b9",
+        "semantic_fingerprint": "ea6949cb0037a928acc83699bb0f3f2f642f299a478c5886e26e744a8af263ab",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_35",
+        "statement": "No real market edge or prospective performance is established.",
+        "status": "ACTIVE",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "boundary",
+          "limitation",
+          "synthetic"
+        ],
+        "title": "Synthetic-only boundary"
+      },
+      {
+        "entry_hash": "a2dde3c053182b9893e39da87ba908dfa3a806a9447ddec3f6a1aeb22818fa7f",
+        "event_hash": "05d856b37d7a02609469c718103d86dd6bc17d90079a9d170bdec59d41d72742",
+        "event_id": "v436_memory_event_66afc120020a1b547d665a59",
+        "evidence_hashes": [
+          "80b6ca13914f47c5272728efc6336742d8c94b21c46369c0a10e9e07c269ad80"
+        ],
+        "kind": "INCIDENT",
+        "known_time": "2026-07-11T01:00:00Z",
+        "memory_id": "mem_i1",
+        "ordinal": 6,
+        "owner_id": "alpha_lab_research",
+        "previous_hash": "5b8c090786aede2d686c57035c8fca6525b274d1489b54bd4c7ae56f44ee6426",
+        "semantic_fingerprint": "b3e8923428603b044dfcb739e4c4eca00bfb6b1688191ceb9f4e6cb8e0f088e4",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_35",
+        "statement": "A future-suffix mutation was rejected by the known-time gate.",
+        "status": "CLOSED",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "incident",
+          "leakage",
+          "negative"
+        ],
+        "title": "Leakage mutation caught"
+      },
+      {
+        "entry_hash": "467a3762d44201a4d1fb0f5bcc1115fa1c65df0f33847ff981f0ee087a08ea78",
+        "event_hash": "a02eb79e2eeba73b45e3c075f629e41ef3e51b5b9d4679a8a1b6b0689595913a",
+        "event_id": "v436_memory_event_a94ed6d7db239e2d1c12fa4a",
+        "evidence_hashes": [
+          "88f6ab085e9a0b8b9d0fdd3a46e45688c674d62475ae681a1136c19d1dea09d5"
+        ],
+        "kind": "RISK_FINDING",
+        "known_time": "2026-07-11T02:00:00Z",
+        "memory_id": "mem_f1",
+        "ordinal": 7,
+        "owner_id": "alpha_lab_research",
+        "previous_hash": "05d856b37d7a02609469c718103d86dd6bc17d90079a9d170bdec59d41d72742",
+        "semantic_fingerprint": "587f717e692c2074ad5053941eeee273366805c5041af1dd42e362a80d54d698",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_35",
+        "statement": "A single reference dependency family creates concentration risk.",
+        "status": "ACTIVE",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "risk",
+          "supplier",
+          "supply-chain"
+        ],
+        "title": "Supplier concentration"
+      },
+      {
+        "entry_hash": "f0b91052e62d082c308f351d5c967f25d1a92945a5db514eeb7b5ead306b6499",
+        "event_hash": "a182d804ebf0d75441c27978ff9cf0ce64c20136774487dc207161609f713239",
+        "event_id": "v436_memory_event_eb6d77df902bb4dd24134c6c",
+        "evidence_hashes": [
+          "598aadca5e31d7164060267bd524dbed2f6199d5c76f1d12af58fa9f597ccb0c"
+        ],
+        "kind": "DECISION",
+        "known_time": "2026-07-11T03:00:00Z",
+        "memory_id": "mem_d1",
+        "ordinal": 8,
+        "owner_id": "alpha_lab_research",
+        "previous_hash": "a02eb79e2eeba73b45e3c075f629e41ef3e51b5b9d4679a8a1b6b0689595913a",
+        "semantic_fingerprint": "d14dba0ba06a67ac87391f68b66b2139e8fc40a0de48e00b88e42e06cabe6986",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_35",
+        "statement": "Manual baseline remains mandatory during active research planning.",
+        "status": "ACTIVE",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "baseline",
+          "decision",
+          "manual"
+        ],
+        "title": "Preserve manual baseline"
+      },
+      {
+        "entry_hash": "a0986e2d672a1c7bbf5f2066ebaa09dec7906f25f047965ae4a24fdb903af8e8",
+        "event_hash": "763f559c7eb39ea571fc62a5b46cd963a4879a5d1f238b334f4f6599a3ce0536",
+        "event_id": "v436_memory_event_e80cef30cb431b7ee4eb313e",
+        "evidence_hashes": [
+          "117165af0ae658e046cf37bc0bc01e0d9521264c9a3f3e70b5ff88ec52fa718e"
+        ],
+        "kind": "ARTIFACT",
+        "known_time": "2026-07-11T04:00:00Z",
+        "memory_id": "mem_a1",
+        "ordinal": 9,
+        "owner_id": "alpha_lab_research",
+        "previous_hash": "a182d804ebf0d75441c27978ff9cf0ce64c20136774487dc207161609f713239",
+        "semantic_fingerprint": "35da30863e62e1e52b8d8a72d83429d988c6cdb825054616e6ffdd576e0dfd7d",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_35",
+        "statement": "Immutable model-risk and supply-chain evidence bundle.",
+        "status": "REPRODUCED",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "artifact",
+          "evidence",
+          "v4-35"
+        ],
+        "title": "V4-35 evidence bundle"
+      },
+      {
+        "entry_hash": "3c5965d734657137d7e1477475e0d79602d85b538bc777db325ab029f47cfd44",
+        "event_hash": "d8b87ea09fab05103bccf48a4229d6932d95d82294be85faac3989a6e46276c5",
+        "event_id": "v436_memory_event_48c9ac16e582e4daf26b3daa",
+        "evidence_hashes": [
+          "fb24d78a1ec19f32d7b38635f60e5495e1060e486c571a89d72bdc422cdf6bd1"
+        ],
+        "kind": "QUESTION",
+        "known_time": "2026-07-12T00:00:00Z",
+        "memory_id": "mem_q1",
+        "ordinal": 10,
+        "owner_id": "alpha_lab_research",
+        "previous_hash": "763f559c7eb39ea571fc62a5b46cd963a4879a5d1f238b334f4f6599a3ce0536",
+        "semantic_fingerprint": "f2e3041dc6c1ee0e35fefff91eb1635287357eb53786f6e65210af0d78eaf29a",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_36",
+        "statement": "Does the interaction reproduce across independent regime slices?",
+        "status": "UNRESOLVED",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "question",
+          "regime",
+          "replication"
+        ],
+        "title": "Regime portability question"
+      },
+      {
+        "entry_hash": "09e09c61b0c67bfdfc08c45f6268a587561bddad6b5d52e9ddc09f38607bb99f",
+        "event_hash": "d64384fc502d8144b3a4de26be4451980cd036aac2ea0eb02d39bbebc31ea171",
+        "event_id": "v436_memory_event_f4f3c155997b2d58dbe3fdc1",
+        "evidence_hashes": [
+          "86f5b1367ed9a84d3f4d62fd68463737381c9a38b459c7f9bc31aab5493d0b82"
+        ],
+        "kind": "MODEL",
+        "known_time": "2026-07-12T01:00:00Z",
+        "memory_id": "mem_m1",
+        "ordinal": 11,
+        "owner_id": "alpha_lab_research",
+        "previous_hash": "d8b87ea09fab05103bccf48a4229d6932d95d82294be85faac3989a6e46276c5",
+        "semantic_fingerprint": "02b41560b57336c6f1cbbc7afa0ded00c463c73a104e91861512de43e908f2f8",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_36",
+        "statement": "Deterministic synthetic multimodal reference model.",
+        "status": "ACTIVE",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "model",
+          "multimodal",
+          "reference"
+        ],
+        "title": "Reference fusion model"
+      },
+      {
+        "entry_hash": "88441639911373fac7d59988a8306796f0bf0edab77ec483c1afd48275e303c3",
+        "event_hash": "4d845715af176711d3b4e2b9ed5cfd7473bde8602f6b041040ded673d7f4c173",
+        "event_id": "v436_memory_event_fd4593f9520d4f23dff1c3be",
+        "evidence_hashes": [
+          "ff66db329146a4956fbdf94668f080ebc469df1535c33f5d60f8ab6008cdc822"
+        ],
+        "kind": "DATASET",
+        "known_time": "2026-07-12T02:00:00Z",
+        "memory_id": "mem_ds1",
+        "ordinal": 12,
+        "owner_id": "alpha_lab_research",
+        "previous_hash": "d64384fc502d8144b3a4de26be4451980cd036aac2ea0eb02d39bbebc31ea171",
+        "semantic_fingerprint": "4d396babb19eb126134352a879241d6ea26080824cf193b7b6bf8e67d369712c",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_36",
+        "statement": "Synthetic dataset with immutable known-time boundaries.",
+        "status": "ACTIVE",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "dataset",
+          "known-time",
+          "synthetic"
+        ],
+        "title": "Known-time fixture dataset"
+      },
+      {
+        "entry_hash": "4fc0df67d643c428cc7a086bf4e156472b93ed42ee517aa760f59e9d097e810f",
+        "event_hash": "0278b90e177e46cbb4cbba7772de8486cf1178199a1cf8fb0dc949679d1b7496",
+        "event_id": "v436_memory_event_b37c5c855a6e6cc877bfbee7",
+        "evidence_hashes": [
+          "3f47095611f8da548e1ea6f70830542acee46ac3c7af93371cd8dd1bbb2f3ee3"
+        ],
+        "kind": "HYPOTHESIS",
+        "known_time": "2026-07-12T03:00:00Z",
+        "memory_id": "mem_h2",
+        "ordinal": 13,
+        "owner_id": "alpha_lab_research",
+        "previous_hash": "4d845715af176711d3b4e2b9ed5cfd7473bde8602f6b041040ded673d7f4c173",
+        "semantic_fingerprint": "70f29f10dd16dc28dbf403e3a04358fd6f60317aa23fff39c5189e3f9940eaff",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_36",
+        "statement": "Tail-state conditioning may reduce downside calibration error.",
+        "status": "ACTIVE",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "calibration",
+          "risk",
+          "tail"
+        ],
+        "title": "Tail-risk conditioning"
+      },
+      {
+        "entry_hash": "0391607564ea9e5c1d163dd219b74311f18d60e1c1746ffce3d38e33fbea1df2",
+        "event_hash": "ed70d08fa2b9e6012af9954ebe465c38359cf06e99f032b1e60b5be2c7d8f283",
+        "event_id": "v436_memory_event_db38269a2ccbabacf43595be",
+        "evidence_hashes": [
+          "48a5a793c1498675038fd6afa4744d892899ff7c450c778c24472241dc6cc7a6"
+        ],
+        "kind": "NEGATIVE_RESULT",
+        "known_time": "2026-07-12T04:00:00Z",
+        "memory_id": "mem_n2",
+        "ordinal": 14,
+        "owner_id": "alpha_lab_research",
+        "previous_hash": "0278b90e177e46cbb4cbba7772de8486cf1178199a1cf8fb0dc949679d1b7496",
+        "semantic_fingerprint": "55f410c979dc06324eca0a81c5aa220270c09a47496d273383a0f13a1b1249cd",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_36",
+        "statement": "Unconstrained transfer across regimes increased worst-slice error.",
+        "status": "REJECTED",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "negative",
+          "regime",
+          "transfer"
+        ],
+        "title": "Naive transfer failure"
+      },
+      {
+        "entry_hash": "453f57c8aeb5270a1933a4d2e7bc2d40e17d0cf3da22cd7b4d154bb0179e63f6",
+        "event_hash": "48f0a197bfcb9bdb353061def95888986d1892d81d3608718da3996df7f4d2de",
+        "event_id": "v436_memory_event_e565f737510edab508055702",
+        "evidence_hashes": [
+          "d0d8f43bc53448195537b07d1ce03ee201feb70bd20516118705782abf579656"
+        ],
+        "kind": "RESULT",
+        "known_time": "2026-07-13T00:00:00Z",
+        "memory_id": "mem_r2",
+        "ordinal": 15,
+        "owner_id": "alpha_lab_research",
+        "previous_hash": "ed70d08fa2b9e6012af9954ebe465c38359cf06e99f032b1e60b5be2c7d8f283",
+        "semantic_fingerprint": "9ca4daf2ac7cff85d8611161fc9ce8935fb93da11df560fcca293aee6f4e55df",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_36",
+        "statement": "The bounded interaction reproduced under a second deterministic operator.",
+        "status": "REPRODUCED",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "independent",
+          "replication",
+          "session"
+        ],
+        "title": "Independent replay result"
+      },
+      {
+        "entry_hash": "63839f6c8a03066f7ee5c28a89a8d0d3a4fe1ee0a6f5082cf4a7c46873734625",
+        "event_hash": "b690535bf7fa0b5805999346f4ef8f53f02fc5230f3193d43b819b8e0f2a9176",
+        "event_id": "v436_memory_event_257da6ada32378256b7a67c4",
+        "evidence_hashes": [
+          "6b98ca5770e7bd3a9d417d3cd646a640d56137dacff192e5669b0b87193f314b"
+        ],
+        "kind": "CLAIM",
+        "known_time": "2026-07-13T01:00:00Z",
+        "memory_id": "mem_c2",
+        "ordinal": 16,
+        "owner_id": "alpha_lab_research",
+        "previous_hash": "48f0a197bfcb9bdb353061def95888986d1892d81d3608718da3996df7f4d2de",
+        "semantic_fingerprint": "9e4aaa3ace89577df988bf9429b1932357288398739fe8db6b1bc97269ca0400",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_36",
+        "statement": "Tail-state conditioning remains contested pending stress replication.",
+        "status": "UNRESOLVED",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "claim",
+          "stress",
+          "tail"
+        ],
+        "title": "Tail conditioning claim"
+      },
+      {
+        "entry_hash": "8e7262a03893ebe29a7db7df90b73ccdbd62104d3a96d614f1c507e41d873e1b",
+        "event_hash": "7232d7f07adb5db08c9991adcc0f95d585466c95010827945eeaf43281958e90",
+        "event_id": "v436_memory_event_4b36e5d6890158e765614e83",
+        "evidence_hashes": [
+          "44a584f9f2bd258612eee300775c2b146fa08f95cf8f12a2bdfbf6512cbfc50f"
+        ],
+        "kind": "LIMITATION",
+        "known_time": "2026-07-13T02:00:00Z",
+        "memory_id": "mem_l2",
+        "ordinal": 17,
+        "owner_id": "alpha_lab_research",
+        "previous_hash": "b690535bf7fa0b5805999346f4ef8f53f02fc5230f3193d43b819b8e0f2a9176",
+        "semantic_fingerprint": "30027a528ec1b776fa58a0e34851edf46731695f69e1743c9eaf03438b336ba6",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_36",
+        "statement": "Python and MQL5 runtime parity is not established.",
+        "status": "ACTIVE",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "limitation",
+          "mql5",
+          "runtime"
+        ],
+        "title": "Runtime parity absent"
+      },
+      {
+        "entry_hash": "659090e339bb80b268d79a3fca744c3d593f37df734b65f1f4883ed0be67b299",
+        "event_hash": "47a3272a687b9d03f7264e37107515de74089a7e9e762b63f37bc9b0466587b8",
+        "event_id": "v436_memory_event_d228e858564e40b79773366a",
+        "evidence_hashes": [
+          "07a9040aec783683c1e707d466c077a0f7b23a1a1c9591a18515dad4b0e5a1ad"
+        ],
+        "kind": "DECISION",
+        "known_time": "2026-07-13T03:00:00Z",
+        "memory_id": "mem_d2",
+        "ordinal": 18,
+        "owner_id": "alpha_lab_research",
+        "previous_hash": "7232d7f07adb5db08c9991adcc0f95d585466c95010827945eeaf43281958e90",
+        "semantic_fingerprint": "2cd21821b7ab6264bd18445ccd63cacf5a8d302c209f8d9ef477cc7ffb7adc28",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_36",
+        "statement": "Replace broad portability claim with a regime-bounded statement.",
+        "status": "ACTIVE",
+        "supersedes": "mem_c1",
+        "synthetic_fixture": true,
+        "tags": [
+          "claim",
+          "decision",
+          "scope"
+        ],
+        "title": "Supersede broad claim"
+      }
+    ],
+    "chain_head": "47a3272a687b9d03f7264e37107515de74089a7e9e762b63f37bc9b0466587b8",
+    "cutoff_time": "2026-07-17T00:00:00Z",
+    "entries": [
+      {
+        "entry_hash": "e7c011a6e4cc7967c62d9e7541a9fb0df81cd2f32442e79cb4dd80cfaba6ba35",
+        "evidence_hashes": [
+          "c70116407dcd4035ecd33e109e82f5d0afd836e9ac9566e90dddc78f10794935"
+        ],
+        "kind": "HYPOTHESIS",
+        "known_time": "2026-07-10T00:00:00Z",
+        "memory_id": "mem_h1",
+        "owner_id": "alpha_lab_research",
+        "semantic_fingerprint": "8110fdb6adc545a4279caf158a84fa30351d7775b64634f59a78a262585242af",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_35",
+        "statement": "A session transition may change conditional path distribution.",
+        "status": "ACTIVE",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "context",
+          "liquidity",
+          "mechanism"
+        ],
+        "title": "Liquidity transition mechanism"
+      },
+      {
+        "entry_hash": "d2024e947d01029c7018fa9fa7a4040001dbda1479af4431f7441d46eb1e15c4",
+        "evidence_hashes": [
+          "d9cd182846eea93f4701675173a25b263366ffb72de1b791db74dead723e593a"
+        ],
+        "kind": "EXPERIMENT",
+        "known_time": "2026-07-10T01:00:00Z",
+        "memory_id": "mem_e1",
+        "owner_id": "alpha_lab_research",
+        "semantic_fingerprint": "e54ba13196de796e3584798eaad42cc7c3abb6554f9dbc2fdd3532516b74347c",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_35",
+        "statement": "Ablate session and liquidity views under known-time replay.",
+        "status": "CLOSED",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "ablation",
+          "liquidity",
+          "session"
+        ],
+        "title": "Session transition ablation"
+      },
+      {
+        "entry_hash": "2c087814a846040a7ae80f7b33b32610ffe93ce68714f0c0e1d3f4f805338937",
+        "evidence_hashes": [
+          "3d2ea4cc3c77894f5d1d5c2e525df143755da945d1549b7a776a3ef783505190"
+        ],
+        "kind": "RESULT",
+        "known_time": "2026-07-10T02:00:00Z",
+        "memory_id": "mem_r1",
+        "owner_id": "alpha_lab_research",
+        "semantic_fingerprint": "88c52c431f1872a201960965600c53839b016086d7d84d115917b22787bab18b",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_35",
+        "statement": "Session and liquidity views jointly improved synthetic calibration.",
+        "status": "REPRODUCED",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "calibration",
+          "liquidity",
+          "session"
+        ],
+        "title": "Ablation result"
+      },
+      {
+        "entry_hash": "0aec8007e13fe6500db94748d8b784576325ecff1c429041db03afdb0a0b2517",
+        "evidence_hashes": [
+          "7c9f13c0fd495c916aaf92a47a79b5f9c4f5b6a19756ddd96abcc44d432bf0c5"
+        ],
+        "kind": "NEGATIVE_RESULT",
+        "known_time": "2026-07-10T03:00:00Z",
+        "memory_id": "mem_n1",
+        "owner_id": "alpha_lab_research",
+        "semantic_fingerprint": "35cf68702e62aaec4135737681449ad55b8985358e5597a18ebad9dcec7ae509",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_35",
+        "statement": "Clock-only treatment selection failed support and stability gates.",
+        "status": "REJECTED",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "negative",
+          "session",
+          "treatment"
+        ],
+        "title": "Standalone clock failure"
+      },
+      {
+        "entry_hash": "ae91c2479031fd1a1e4f4b24a0fd031f604446129c913cbf48c1bd191a3aaa5b",
+        "evidence_hashes": [
+          "23092c0ea253e81c839aed1dc5f3a31e163a6cf73b477a1c340770f51c1fa921"
+        ],
+        "kind": "CLAIM",
+        "known_time": "2026-07-10T04:00:00Z",
+        "memory_id": "mem_c1",
+        "owner_id": "alpha_lab_research",
+        "semantic_fingerprint": "ffdc62e29f7c870d55c4b1107c9585c09877bc9b26f78756f5829e4164307189",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_35",
+        "statement": "The interaction is supported only inside the synthetic fixture scope.",
+        "status": "ACTIVE",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "claim",
+          "liquidity",
+          "session"
+        ],
+        "title": "Bounded interaction claim"
+      },
+      {
+        "entry_hash": "de75744cad5b53c901da08172d33c99002fd445d7b728bdf8ef13be3d6adb1ac",
+        "evidence_hashes": [
+          "5bcde8bd5dd253ea57e38ae15d9308e48edf3c61f4a16549768008d24caea7d4"
+        ],
+        "kind": "LIMITATION",
+        "known_time": "2026-07-11T00:00:00Z",
+        "memory_id": "mem_l1",
+        "owner_id": "alpha_lab_research",
+        "semantic_fingerprint": "ea6949cb0037a928acc83699bb0f3f2f642f299a478c5886e26e744a8af263ab",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_35",
+        "statement": "No real market edge or prospective performance is established.",
+        "status": "ACTIVE",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "boundary",
+          "limitation",
+          "synthetic"
+        ],
+        "title": "Synthetic-only boundary"
+      },
+      {
+        "entry_hash": "a2dde3c053182b9893e39da87ba908dfa3a806a9447ddec3f6a1aeb22818fa7f",
+        "evidence_hashes": [
+          "80b6ca13914f47c5272728efc6336742d8c94b21c46369c0a10e9e07c269ad80"
+        ],
+        "kind": "INCIDENT",
+        "known_time": "2026-07-11T01:00:00Z",
+        "memory_id": "mem_i1",
+        "owner_id": "alpha_lab_research",
+        "semantic_fingerprint": "b3e8923428603b044dfcb739e4c4eca00bfb6b1688191ceb9f4e6cb8e0f088e4",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_35",
+        "statement": "A future-suffix mutation was rejected by the known-time gate.",
+        "status": "CLOSED",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "incident",
+          "leakage",
+          "negative"
+        ],
+        "title": "Leakage mutation caught"
+      },
+      {
+        "entry_hash": "467a3762d44201a4d1fb0f5bcc1115fa1c65df0f33847ff981f0ee087a08ea78",
+        "evidence_hashes": [
+          "88f6ab085e9a0b8b9d0fdd3a46e45688c674d62475ae681a1136c19d1dea09d5"
+        ],
+        "kind": "RISK_FINDING",
+        "known_time": "2026-07-11T02:00:00Z",
+        "memory_id": "mem_f1",
+        "owner_id": "alpha_lab_research",
+        "semantic_fingerprint": "587f717e692c2074ad5053941eeee273366805c5041af1dd42e362a80d54d698",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_35",
+        "statement": "A single reference dependency family creates concentration risk.",
+        "status": "ACTIVE",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "risk",
+          "supplier",
+          "supply-chain"
+        ],
+        "title": "Supplier concentration"
+      },
+      {
+        "entry_hash": "f0b91052e62d082c308f351d5c967f25d1a92945a5db514eeb7b5ead306b6499",
+        "evidence_hashes": [
+          "598aadca5e31d7164060267bd524dbed2f6199d5c76f1d12af58fa9f597ccb0c"
+        ],
+        "kind": "DECISION",
+        "known_time": "2026-07-11T03:00:00Z",
+        "memory_id": "mem_d1",
+        "owner_id": "alpha_lab_research",
+        "semantic_fingerprint": "d14dba0ba06a67ac87391f68b66b2139e8fc40a0de48e00b88e42e06cabe6986",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_35",
+        "statement": "Manual baseline remains mandatory during active research planning.",
+        "status": "ACTIVE",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "baseline",
+          "decision",
+          "manual"
+        ],
+        "title": "Preserve manual baseline"
+      },
+      {
+        "entry_hash": "a0986e2d672a1c7bbf5f2066ebaa09dec7906f25f047965ae4a24fdb903af8e8",
+        "evidence_hashes": [
+          "117165af0ae658e046cf37bc0bc01e0d9521264c9a3f3e70b5ff88ec52fa718e"
+        ],
+        "kind": "ARTIFACT",
+        "known_time": "2026-07-11T04:00:00Z",
+        "memory_id": "mem_a1",
+        "owner_id": "alpha_lab_research",
+        "semantic_fingerprint": "35da30863e62e1e52b8d8a72d83429d988c6cdb825054616e6ffdd576e0dfd7d",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_35",
+        "statement": "Immutable model-risk and supply-chain evidence bundle.",
+        "status": "REPRODUCED",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "artifact",
+          "evidence",
+          "v4-35"
+        ],
+        "title": "V4-35 evidence bundle"
+      },
+      {
+        "entry_hash": "3c5965d734657137d7e1477475e0d79602d85b538bc777db325ab029f47cfd44",
+        "evidence_hashes": [
+          "fb24d78a1ec19f32d7b38635f60e5495e1060e486c571a89d72bdc422cdf6bd1"
+        ],
+        "kind": "QUESTION",
+        "known_time": "2026-07-12T00:00:00Z",
+        "memory_id": "mem_q1",
+        "owner_id": "alpha_lab_research",
+        "semantic_fingerprint": "f2e3041dc6c1ee0e35fefff91eb1635287357eb53786f6e65210af0d78eaf29a",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_36",
+        "statement": "Does the interaction reproduce across independent regime slices?",
+        "status": "UNRESOLVED",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "question",
+          "regime",
+          "replication"
+        ],
+        "title": "Regime portability question"
+      },
+      {
+        "entry_hash": "09e09c61b0c67bfdfc08c45f6268a587561bddad6b5d52e9ddc09f38607bb99f",
+        "evidence_hashes": [
+          "86f5b1367ed9a84d3f4d62fd68463737381c9a38b459c7f9bc31aab5493d0b82"
+        ],
+        "kind": "MODEL",
+        "known_time": "2026-07-12T01:00:00Z",
+        "memory_id": "mem_m1",
+        "owner_id": "alpha_lab_research",
+        "semantic_fingerprint": "02b41560b57336c6f1cbbc7afa0ded00c463c73a104e91861512de43e908f2f8",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_36",
+        "statement": "Deterministic synthetic multimodal reference model.",
+        "status": "ACTIVE",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "model",
+          "multimodal",
+          "reference"
+        ],
+        "title": "Reference fusion model"
+      },
+      {
+        "entry_hash": "88441639911373fac7d59988a8306796f0bf0edab77ec483c1afd48275e303c3",
+        "evidence_hashes": [
+          "ff66db329146a4956fbdf94668f080ebc469df1535c33f5d60f8ab6008cdc822"
+        ],
+        "kind": "DATASET",
+        "known_time": "2026-07-12T02:00:00Z",
+        "memory_id": "mem_ds1",
+        "owner_id": "alpha_lab_research",
+        "semantic_fingerprint": "4d396babb19eb126134352a879241d6ea26080824cf193b7b6bf8e67d369712c",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_36",
+        "statement": "Synthetic dataset with immutable known-time boundaries.",
+        "status": "ACTIVE",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "dataset",
+          "known-time",
+          "synthetic"
+        ],
+        "title": "Known-time fixture dataset"
+      },
+      {
+        "entry_hash": "4fc0df67d643c428cc7a086bf4e156472b93ed42ee517aa760f59e9d097e810f",
+        "evidence_hashes": [
+          "3f47095611f8da548e1ea6f70830542acee46ac3c7af93371cd8dd1bbb2f3ee3"
+        ],
+        "kind": "HYPOTHESIS",
+        "known_time": "2026-07-12T03:00:00Z",
+        "memory_id": "mem_h2",
+        "owner_id": "alpha_lab_research",
+        "semantic_fingerprint": "70f29f10dd16dc28dbf403e3a04358fd6f60317aa23fff39c5189e3f9940eaff",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_36",
+        "statement": "Tail-state conditioning may reduce downside calibration error.",
+        "status": "ACTIVE",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "calibration",
+          "risk",
+          "tail"
+        ],
+        "title": "Tail-risk conditioning"
+      },
+      {
+        "entry_hash": "0391607564ea9e5c1d163dd219b74311f18d60e1c1746ffce3d38e33fbea1df2",
+        "evidence_hashes": [
+          "48a5a793c1498675038fd6afa4744d892899ff7c450c778c24472241dc6cc7a6"
+        ],
+        "kind": "NEGATIVE_RESULT",
+        "known_time": "2026-07-12T04:00:00Z",
+        "memory_id": "mem_n2",
+        "owner_id": "alpha_lab_research",
+        "semantic_fingerprint": "55f410c979dc06324eca0a81c5aa220270c09a47496d273383a0f13a1b1249cd",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_36",
+        "statement": "Unconstrained transfer across regimes increased worst-slice error.",
+        "status": "REJECTED",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "negative",
+          "regime",
+          "transfer"
+        ],
+        "title": "Naive transfer failure"
+      },
+      {
+        "entry_hash": "453f57c8aeb5270a1933a4d2e7bc2d40e17d0cf3da22cd7b4d154bb0179e63f6",
+        "evidence_hashes": [
+          "d0d8f43bc53448195537b07d1ce03ee201feb70bd20516118705782abf579656"
+        ],
+        "kind": "RESULT",
+        "known_time": "2026-07-13T00:00:00Z",
+        "memory_id": "mem_r2",
+        "owner_id": "alpha_lab_research",
+        "semantic_fingerprint": "9ca4daf2ac7cff85d8611161fc9ce8935fb93da11df560fcca293aee6f4e55df",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_36",
+        "statement": "The bounded interaction reproduced under a second deterministic operator.",
+        "status": "REPRODUCED",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "independent",
+          "replication",
+          "session"
+        ],
+        "title": "Independent replay result"
+      },
+      {
+        "entry_hash": "63839f6c8a03066f7ee5c28a89a8d0d3a4fe1ee0a6f5082cf4a7c46873734625",
+        "evidence_hashes": [
+          "6b98ca5770e7bd3a9d417d3cd646a640d56137dacff192e5669b0b87193f314b"
+        ],
+        "kind": "CLAIM",
+        "known_time": "2026-07-13T01:00:00Z",
+        "memory_id": "mem_c2",
+        "owner_id": "alpha_lab_research",
+        "semantic_fingerprint": "9e4aaa3ace89577df988bf9429b1932357288398739fe8db6b1bc97269ca0400",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_36",
+        "statement": "Tail-state conditioning remains contested pending stress replication.",
+        "status": "UNRESOLVED",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "claim",
+          "stress",
+          "tail"
+        ],
+        "title": "Tail conditioning claim"
+      },
+      {
+        "entry_hash": "8e7262a03893ebe29a7db7df90b73ccdbd62104d3a96d614f1c507e41d873e1b",
+        "evidence_hashes": [
+          "44a584f9f2bd258612eee300775c2b146fa08f95cf8f12a2bdfbf6512cbfc50f"
+        ],
+        "kind": "LIMITATION",
+        "known_time": "2026-07-13T02:00:00Z",
+        "memory_id": "mem_l2",
+        "owner_id": "alpha_lab_research",
+        "semantic_fingerprint": "30027a528ec1b776fa58a0e34851edf46731695f69e1743c9eaf03438b336ba6",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_36",
+        "statement": "Python and MQL5 runtime parity is not established.",
+        "status": "ACTIVE",
+        "supersedes": "",
+        "synthetic_fixture": true,
+        "tags": [
+          "limitation",
+          "mql5",
+          "runtime"
+        ],
+        "title": "Runtime parity absent"
+      },
+      {
+        "entry_hash": "659090e339bb80b268d79a3fca744c3d593f37df734b65f1f4883ed0be67b299",
+        "evidence_hashes": [
+          "07a9040aec783683c1e707d466c077a0f7b23a1a1c9591a18515dad4b0e5a1ad"
+        ],
+        "kind": "DECISION",
+        "known_time": "2026-07-13T03:00:00Z",
+        "memory_id": "mem_d2",
+        "owner_id": "alpha_lab_research",
+        "semantic_fingerprint": "2cd21821b7ab6264bd18445ccd63cacf5a8d302c209f8d9ef477cc7ffb7adc28",
+        "sensitivity": "PUBLIC_REFERENCE",
+        "source_phase": "SAED_V4_36",
+        "statement": "Replace broad portability claim with a regime-bounded statement.",
+        "status": "ACTIVE",
+        "supersedes": "mem_c1",
+        "synthetic_fixture": true,
+        "tags": [
+          "claim",
+          "decision",
+          "scope"
+        ],
+        "title": "Supersede broad claim"
+      }
+    ],
+    "entry_count": 19,
+    "memory_store_hash": "4e11c55584ec3b9e4bde6d295f23bce591b1849ac685af2ad5cbf02f8d3445bb",
+    "memory_store_id": "v436_memory_a943f670251d0892ce8a2026",
+    "merkle_root": "19b19e5cc25a03f97dcde7d99e9420ac42b2e1804aa06e329f7d6798e691cbd0",
+    "phase": "SAED_V4_36",
+    "research_only": true,
+    "semantic_duplicates": 0
+  },
+  "negative_knowledge": {
+    "deletion_allowed": false,
+    "phase": "SAED_V4_36",
+    "record_count": 6,
+    "records": [
+      {
+        "evidence_hashes": [
+          "7c9f13c0fd495c916aaf92a47a79b5f9c4f5b6a19756ddd96abcc44d432bf0c5"
+        ],
+        "kind": "NEGATIVE_RESULT",
+        "mandatory_for_retrieval": true,
+        "may_be_deleted": false,
+        "memory_id": "mem_n1",
+        "statement": "Clock-only treatment selection failed support and stability gates."
+      },
+      {
+        "evidence_hashes": [
+          "5bcde8bd5dd253ea57e38ae15d9308e48edf3c61f4a16549768008d24caea7d4"
+        ],
+        "kind": "LIMITATION",
+        "mandatory_for_retrieval": true,
+        "may_be_deleted": false,
+        "memory_id": "mem_l1",
+        "statement": "No real market edge or prospective performance is established."
+      },
+      {
+        "evidence_hashes": [
+          "80b6ca13914f47c5272728efc6336742d8c94b21c46369c0a10e9e07c269ad80"
+        ],
+        "kind": "INCIDENT",
+        "mandatory_for_retrieval": true,
+        "may_be_deleted": false,
+        "memory_id": "mem_i1",
+        "statement": "A future-suffix mutation was rejected by the known-time gate."
+      },
+      {
+        "evidence_hashes": [
+          "88f6ab085e9a0b8b9d0fdd3a46e45688c674d62475ae681a1136c19d1dea09d5"
+        ],
+        "kind": "RISK_FINDING",
+        "mandatory_for_retrieval": true,
+        "may_be_deleted": false,
+        "memory_id": "mem_f1",
+        "statement": "A single reference dependency family creates concentration risk."
+      },
+      {
+        "evidence_hashes": [
+          "48a5a793c1498675038fd6afa4744d892899ff7c450c778c24472241dc6cc7a6"
+        ],
+        "kind": "NEGATIVE_RESULT",
+        "mandatory_for_retrieval": true,
+        "may_be_deleted": false,
+        "memory_id": "mem_n2",
+        "statement": "Unconstrained transfer across regimes increased worst-slice error."
+      },
+      {
+        "evidence_hashes": [
+          "44a584f9f2bd258612eee300775c2b146fa08f95cf8f12a2bdfbf6512cbfc50f"
+        ],
+        "kind": "LIMITATION",
+        "mandatory_for_retrieval": true,
+        "may_be_deleted": false,
+        "memory_id": "mem_l2",
+        "statement": "Python and MQL5 runtime parity is not established."
+      }
+    ],
+    "registry_hash": "568e9d5f50317c18193a09536878c18c86305f36d2a2f2deb4b61a63c58a3c62",
+    "registry_id": "v436_negative_b85a7662a22551604fd88d91",
+    "research_only": true
+  },
+  "plan": {
+    "automatic_execution_allowed": false,
+    "phase": "SAED_V4_36",
+    "plan_hash": "9c7ad438ba546acd498e5c9572f2c839aaf845e0bbde23e3b2081e0e182a9811",
+    "plan_id": "v436_plan_bde3ab62d5ff25d292a0f6b6",
+    "planner_events": [
+      {
+        "candidate_id": "cand_claim_scope",
+        "event_hash": "d284248dd8d7ed500541273016351478bc12f4b903f9170bc0141adb63f0d604",
+        "event_id": "v436_planner_event_94b81f010766b6fa8521da7d",
+        "event_type": "PROPOSAL_SELECTED",
+        "ordinal": 0,
+        "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "rank": 1,
+        "utility": 4.7565
+      },
+      {
+        "candidate_id": "cand_tail_stress",
+        "event_hash": "6f2f8e4d4ac85cff5927fb97f707af8794099d6c9f3aeb0cffd95e9408f18969",
+        "event_id": "v436_planner_event_0324a32f92c45c6e1e9c6e2d",
+        "event_type": "PROPOSAL_SELECTED",
+        "ordinal": 1,
+        "previous_hash": "d284248dd8d7ed500541273016351478bc12f4b903f9170bc0141adb63f0d604",
+        "rank": 2,
+        "utility": 5.084
+      },
+      {
+        "candidate_id": "cand_runtime_parity",
+        "event_hash": "4e72ace23b70385a8fbe8fe205b6e1987ea2f9946a0f9e1433d6c43daf778586",
+        "event_id": "v436_planner_event_82ba361b5779e7344cfe5e9a",
+        "event_type": "PROPOSAL_SELECTED",
+        "ordinal": 2,
+        "previous_hash": "6f2f8e4d4ac85cff5927fb97f707af8794099d6c9f3aeb0cffd95e9408f18969",
+        "rank": 3,
+        "utility": 5.0605
+      },
+      {
+        "candidate_id": "cand_neg_replay",
+        "event_hash": "8f2ef4daaf131c724a4baba253f4f9ce0c50af1a5a29547ceaa4b43715bbccfd",
+        "event_id": "v436_planner_event_8a2841398d17e981d8d4f6cd",
+        "event_type": "PROPOSAL_SELECTED",
+        "ordinal": 3,
+        "previous_hash": "4e72ace23b70385a8fbe8fe205b6e1987ea2f9946a0f9e1433d6c43daf778586",
+        "rank": 4,
+        "utility": 4.2675
+      },
+      {
+        "candidate_id": "cand_memory_ablation",
+        "event_hash": "b35d7b060bbb487f7ce42f3444c23a884ff353f5278a583d77e75d37863200b1",
+        "event_id": "v436_planner_event_46d6ba9c9e8eb15eb0f53831",
+        "event_type": "PROPOSAL_SELECTED",
+        "ordinal": 4,
+        "previous_hash": "8f2ef4daaf131c724a4baba253f4f9ce0c50af1a5a29547ceaa4b43715bbccfd",
+        "rank": 5,
+        "utility": 4.267
+      },
+      {
+        "candidate_id": "cand_supplier_alt",
+        "event_hash": "f9114d39454da994b4b4c2ee985d3ed8fa9d3ec64b9e0baaaf28cad10307c4be",
+        "event_id": "v436_planner_event_08b1ef2061257480c0b420b8",
+        "event_type": "PROPOSAL_SELECTED",
+        "ordinal": 5,
+        "previous_hash": "b35d7b060bbb487f7ce42f3444c23a884ff353f5278a583d77e75d37863200b1",
+        "rank": 6,
+        "utility": 4.007
+      },
+      {
+        "candidate_id": "cand_regime_rep",
+        "event_hash": "8364cf8c66d5a817d726c7efd7072d2ef082d00fb803c85066e11a1facf48604",
+        "event_id": "v436_planner_event_bc3324133442008d6d605ce4",
+        "event_type": "PROPOSAL_SELECTED",
+        "ordinal": 6,
+        "previous_hash": "f9114d39454da994b4b4c2ee985d3ed8fa9d3ec64b9e0baaaf28cad10307c4be",
+        "rank": 7,
+        "utility": 5.1045
+      }
+    ],
+    "rejected": [
+      {
+        "candidate_id": "cand_live_probe",
+        "reason": "INELIGIBLE",
+        "utility": 0.02136364
+      }
+    ],
+    "remaining_budget": {
+      "compute_units": 24.0,
+      "exposure_units": 0.0,
+      "review_hours": 20.0,
+      "risk_capacity": 0.85
+    },
+    "research_only": true,
+    "selected": [
+      {
+        "candidate_id": "cand_claim_scope",
+        "compute_units": 9.0,
+        "exposure_units": 0.0,
+        "family": "claim_falsification",
+        "objective_id": "obj_claim_scope",
+        "prerequisite_ids": [],
+        "review_hours": 4.0,
+        "risk": 0.16,
+        "title": "Claim scope falsification",
+        "utility": 4.7565
+      },
+      {
+        "candidate_id": "cand_tail_stress",
+        "compute_units": 14.0,
+        "exposure_units": 0.0,
+        "family": "tail_stress_replication",
+        "objective_id": "obj_tail_calibration",
+        "prerequisite_ids": [],
+        "review_hours": 5.0,
+        "risk": 0.22,
+        "title": "Tail stress replication",
+        "utility": 5.084
+      },
+      {
+        "candidate_id": "cand_runtime_parity",
+        "compute_units": 20.0,
+        "exposure_units": 0.0,
+        "family": "runtime_parity",
+        "objective_id": "obj_runtime_boundary",
+        "prerequisite_ids": [],
+        "review_hours": 8.0,
+        "risk": 0.42,
+        "title": "Python MQL5 parity investigation",
+        "utility": 5.0605
+      },
+      {
+        "candidate_id": "cand_neg_replay",
+        "compute_units": 7.0,
+        "exposure_units": 0.0,
+        "family": "negative_control_replay",
+        "objective_id": "obj_reduce_false_transfer",
+        "prerequisite_ids": [],
+        "review_hours": 3.0,
+        "risk": 0.1,
+        "title": "Negative transfer replay",
+        "utility": 4.2675
+      },
+      {
+        "candidate_id": "cand_memory_ablation",
+        "compute_units": 8.0,
+        "exposure_units": 0.0,
+        "family": "planner_ablation",
+        "objective_id": "obj_memory_quality",
+        "prerequisite_ids": [],
+        "review_hours": 3.0,
+        "risk": 0.12,
+        "title": "Memory retrieval ablation",
+        "utility": 4.267
+      },
+      {
+        "candidate_id": "cand_supplier_alt",
+        "compute_units": 10.0,
+        "exposure_units": 0.0,
+        "family": "supply_chain_challenge",
+        "objective_id": "obj_supplier_resilience",
+        "prerequisite_ids": [],
+        "review_hours": 5.0,
+        "risk": 0.2,
+        "title": "Supplier concentration challenger",
+        "utility": 4.007
+      },
+      {
+        "candidate_id": "cand_regime_rep",
+        "compute_units": 16.0,
+        "exposure_units": 0.0,
+        "family": "independent_regime_replication",
+        "objective_id": "obj_regime_portability",
+        "prerequisite_ids": [
+          "cand_neg_replay"
+        ],
+        "review_hours": 6.0,
+        "risk": 0.18,
+        "title": "Independent regime replication",
+        "utility": 5.1045
+      }
+    ],
+    "selected_count": 7,
+    "status": "PROPOSED_FOR_HUMAN_REVIEW"
+  },
+  "replay": {
+    "deterministic": true,
+    "exact_replay_hash": "396c1de9d2542594fba302c391ba2dc297a293350e4a4988e5c99904158e383b",
+    "future_suffix_invariant": true,
+    "future_suffix_records_seen": 0,
+    "known_time_cutoff": "2026-07-17T00:00:00Z",
+    "network_access": false,
+    "phase": "SAED_V4_36",
+    "replay_hash": "13645b99031501096eb3d88f46062dc1ab7751fa911a0c80d5568d364b7715a7",
+    "replay_id": "v436_replay_217eec706c5efa7d529646ff",
+    "research_only": true
+  },
+  "reproduction": {
+    "exact_match": true,
+    "external_reproduction": false,
+    "independent_operator": true,
+    "lab_a_hash": "396c1de9d2542594fba302c391ba2dc297a293350e4a4988e5c99904158e383b",
+    "lab_b_hash": "396c1de9d2542594fba302c391ba2dc297a293350e4a4988e5c99904158e383b",
+    "phase": "SAED_V4_36",
+    "receipt_hash": "80b8f1b8ca6a6936cc7204143e0b4eb51770f5e988cb0fe7f7f69bb0546eb9c6",
+    "receipt_id": "v436_reproduction_7a7c3f105a7fb198c3031aa5",
+    "research_only": true,
+    "synthetic_fixture": true
+  },
+  "retrieval_index": {
+    "deterministic": true,
+    "embedding_service_used": false,
+    "index_hash": "4484064a6e7e8e441498de2747a1dffc62e6c6ef6f08d92cb8b453f47559b75c",
+    "index_id": "v436_index_f88b16fb867536425baaf2e7",
+    "negative_memory_ids": [
+      "mem_f1",
+      "mem_i1",
+      "mem_l1",
+      "mem_l2",
+      "mem_n1",
+      "mem_n2"
+    ],
+    "network_access": false,
+    "phase": "SAED_V4_36",
+    "postings": [
+      {
+        "document_frequency": 5,
+        "memory_ids": [
+          "mem_d2",
+          "mem_f1",
+          "mem_h1",
+          "mem_i1",
+          "mem_r2"
+        ],
+        "token": "a"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_e1"
+        ],
+        "token": "ablate"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_e1",
+          "mem_r1"
+        ],
+        "token": "ablation"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_l2"
+        ],
+        "token": "absent"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_n2",
+          "mem_q1"
+        ],
+        "token": "across"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_d1"
+        ],
+        "token": "active"
+      },
+      {
+        "document_frequency": 5,
+        "memory_ids": [
+          "mem_a1",
+          "mem_e1",
+          "mem_l2",
+          "mem_n1",
+          "mem_r1"
+        ],
+        "token": "and"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_a1"
+        ],
+        "token": "artifact"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_d1"
+        ],
+        "token": "baseline"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_ds1"
+        ],
+        "token": "boundaries"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_l1"
+        ],
+        "token": "boundary"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_c1",
+          "mem_r2"
+        ],
+        "token": "bounded"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_d2"
+        ],
+        "token": "broad"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_a1"
+        ],
+        "token": "bundle"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_i1"
+        ],
+        "token": "by"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_h2",
+          "mem_r1"
+        ],
+        "token": "calibration"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_i1"
+        ],
+        "token": "caught"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_h1"
+        ],
+        "token": "change"
+      },
+      {
+        "document_frequency": 3,
+        "memory_ids": [
+          "mem_c1",
+          "mem_c2",
+          "mem_d2"
+        ],
+        "token": "claim"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_n1"
+        ],
+        "token": "clock"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_n1"
+        ],
+        "token": "clock-only"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_f1"
+        ],
+        "token": "concentration"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_h1"
+        ],
+        "token": "conditional"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_c2",
+          "mem_h2"
+        ],
+        "token": "conditioning"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_c2"
+        ],
+        "token": "contested"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_h1"
+        ],
+        "token": "context"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_f1"
+        ],
+        "token": "creates"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_ds1"
+        ],
+        "token": "dataset"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_d1",
+          "mem_d2"
+        ],
+        "token": "decision"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_f1"
+        ],
+        "token": "dependency"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_m1",
+          "mem_r2"
+        ],
+        "token": "deterministic"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_h1"
+        ],
+        "token": "distribution"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_q1"
+        ],
+        "token": "does"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_h2"
+        ],
+        "token": "downside"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_d1"
+        ],
+        "token": "during"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_l1"
+        ],
+        "token": "edge"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_h2",
+          "mem_n2"
+        ],
+        "token": "error"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_l1",
+          "mem_l2"
+        ],
+        "token": "established"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_a1"
+        ],
+        "token": "evidence"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_n1"
+        ],
+        "token": "failed"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_n1",
+          "mem_n2"
+        ],
+        "token": "failure"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_f1"
+        ],
+        "token": "family"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_c1",
+          "mem_ds1"
+        ],
+        "token": "fixture"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_m1"
+        ],
+        "token": "fusion"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_i1"
+        ],
+        "token": "future-suffix"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_i1"
+        ],
+        "token": "gate"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_n1"
+        ],
+        "token": "gates"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_a1",
+          "mem_ds1"
+        ],
+        "token": "immutable"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_r1"
+        ],
+        "token": "improved"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_i1"
+        ],
+        "token": "incident"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_n2"
+        ],
+        "token": "increased"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_q1",
+          "mem_r2"
+        ],
+        "token": "independent"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_c1"
+        ],
+        "token": "inside"
+      },
+      {
+        "document_frequency": 3,
+        "memory_ids": [
+          "mem_c1",
+          "mem_q1",
+          "mem_r2"
+        ],
+        "token": "interaction"
+      },
+      {
+        "document_frequency": 3,
+        "memory_ids": [
+          "mem_c1",
+          "mem_l1",
+          "mem_l2"
+        ],
+        "token": "is"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_r1"
+        ],
+        "token": "jointly"
+      },
+      {
+        "document_frequency": 3,
+        "memory_ids": [
+          "mem_ds1",
+          "mem_e1",
+          "mem_i1"
+        ],
+        "token": "known-time"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_i1"
+        ],
+        "token": "leakage"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_l1",
+          "mem_l2"
+        ],
+        "token": "limitation"
+      },
+      {
+        "document_frequency": 4,
+        "memory_ids": [
+          "mem_c1",
+          "mem_e1",
+          "mem_h1",
+          "mem_r1"
+        ],
+        "token": "liquidity"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_d1"
+        ],
+        "token": "mandatory"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_d1"
+        ],
+        "token": "manual"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_l1"
+        ],
+        "token": "market"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_h1",
+          "mem_h2"
+        ],
+        "token": "may"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_h1"
+        ],
+        "token": "mechanism"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_m1"
+        ],
+        "token": "model"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_a1"
+        ],
+        "token": "model-risk"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_l2"
+        ],
+        "token": "mql5"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_m1"
+        ],
+        "token": "multimodal"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_i1"
+        ],
+        "token": "mutation"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_n2"
+        ],
+        "token": "naive"
+      },
+      {
+        "document_frequency": 3,
+        "memory_ids": [
+          "mem_i1",
+          "mem_n1",
+          "mem_n2"
+        ],
+        "token": "negative"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_l1"
+        ],
+        "token": "no"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_l2"
+        ],
+        "token": "not"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_c1"
+        ],
+        "token": "only"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_r2"
+        ],
+        "token": "operator"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_l1"
+        ],
+        "token": "or"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_l2"
+        ],
+        "token": "parity"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_h1"
+        ],
+        "token": "path"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_c2"
+        ],
+        "token": "pending"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_l1"
+        ],
+        "token": "performance"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_d1"
+        ],
+        "token": "planning"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_d2",
+          "mem_q1"
+        ],
+        "token": "portability"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_d1"
+        ],
+        "token": "preserve"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_l1"
+        ],
+        "token": "prospective"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_l2"
+        ],
+        "token": "python"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_q1"
+        ],
+        "token": "question"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_l1"
+        ],
+        "token": "real"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_h2"
+        ],
+        "token": "reduce"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_f1",
+          "mem_m1"
+        ],
+        "token": "reference"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_n2",
+          "mem_q1"
+        ],
+        "token": "regime"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_d2"
+        ],
+        "token": "regime-bounded"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_n2"
+        ],
+        "token": "regimes"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_i1"
+        ],
+        "token": "rejected"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_c2",
+          "mem_d1"
+        ],
+        "token": "remains"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_d2"
+        ],
+        "token": "replace"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_e1",
+          "mem_r2"
+        ],
+        "token": "replay"
+      },
+      {
+        "document_frequency": 3,
+        "memory_ids": [
+          "mem_c2",
+          "mem_q1",
+          "mem_r2"
+        ],
+        "token": "replication"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_q1"
+        ],
+        "token": "reproduce"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_r2"
+        ],
+        "token": "reproduced"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_d1"
+        ],
+        "token": "research"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_r1",
+          "mem_r2"
+        ],
+        "token": "result"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_f1",
+          "mem_h2"
+        ],
+        "token": "risk"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_l2"
+        ],
+        "token": "runtime"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_c1",
+          "mem_d2"
+        ],
+        "token": "scope"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_r2"
+        ],
+        "token": "second"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_n1"
+        ],
+        "token": "selection"
+      },
+      {
+        "document_frequency": 6,
+        "memory_ids": [
+          "mem_c1",
+          "mem_e1",
+          "mem_h1",
+          "mem_n1",
+          "mem_r1",
+          "mem_r2"
+        ],
+        "token": "session"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_f1"
+        ],
+        "token": "single"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_q1"
+        ],
+        "token": "slices"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_n1"
+        ],
+        "token": "stability"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_n1"
+        ],
+        "token": "standalone"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_d2"
+        ],
+        "token": "statement"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_c2"
+        ],
+        "token": "stress"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_d2"
+        ],
+        "token": "supersede"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_f1"
+        ],
+        "token": "supplier"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_a1",
+          "mem_f1"
+        ],
+        "token": "supply-chain"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_n1"
+        ],
+        "token": "support"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_c1"
+        ],
+        "token": "supported"
+      },
+      {
+        "document_frequency": 5,
+        "memory_ids": [
+          "mem_c1",
+          "mem_ds1",
+          "mem_l1",
+          "mem_m1",
+          "mem_r1"
+        ],
+        "token": "synthetic"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_l1"
+        ],
+        "token": "synthetic-only"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_c2",
+          "mem_h2"
+        ],
+        "token": "tail"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_h2"
+        ],
+        "token": "tail-risk"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_c2",
+          "mem_h2"
+        ],
+        "token": "tail-state"
+      },
+      {
+        "document_frequency": 4,
+        "memory_ids": [
+          "mem_c1",
+          "mem_i1",
+          "mem_q1",
+          "mem_r2"
+        ],
+        "token": "the"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_n2"
+        ],
+        "token": "transfer"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_e1",
+          "mem_h1"
+        ],
+        "token": "transition"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_n1"
+        ],
+        "token": "treatment"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_n2"
+        ],
+        "token": "unconstrained"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_e1",
+          "mem_r2"
+        ],
+        "token": "under"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_a1"
+        ],
+        "token": "v4-35"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_e1",
+          "mem_r1"
+        ],
+        "token": "views"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_i1"
+        ],
+        "token": "was"
+      },
+      {
+        "document_frequency": 2,
+        "memory_ids": [
+          "mem_d2",
+          "mem_ds1"
+        ],
+        "token": "with"
+      },
+      {
+        "document_frequency": 1,
+        "memory_ids": [
+          "mem_n2"
+        ],
+        "token": "worst-slice"
+      }
+    ],
+    "research_only": true,
+    "token_count": 135
+  },
+  "retrieval_receipt": {
+    "deterministic": true,
+    "phase": "SAED_V4_36",
+    "queries": [
+      {
+        "negative_recall_count": 3,
+        "query_hash": "bc8f8c240645e3d1334581eb845e4097a20dc710eb7f27c32aeaad368ece0c83",
+        "query_id": "q_negative_transfer",
+        "result_count": 4,
+        "results": [
+          {
+            "kind": "NEGATIVE_RESULT",
+            "memory_id": "mem_n2",
+            "negative_knowledge": true,
+            "score": 1.0,
+            "title": "Naive transfer failure"
+          },
+          {
+            "kind": "INCIDENT",
+            "memory_id": "mem_i1",
+            "negative_knowledge": true,
+            "score": 0.33333333,
+            "title": "Leakage mutation caught"
+          },
+          {
+            "kind": "NEGATIVE_RESULT",
+            "memory_id": "mem_n1",
+            "negative_knowledge": true,
+            "score": 0.33333333,
+            "title": "Standalone clock failure"
+          },
+          {
+            "kind": "QUESTION",
+            "memory_id": "mem_q1",
+            "negative_knowledge": false,
+            "score": 0.33333333,
+            "title": "Regime portability question"
+          }
+        ]
+      },
+      {
+        "negative_recall_count": 1,
+        "query_hash": "f447f4476d4a8ddcfca833662a1ace1eda4979132864576cd0bd4c4110bb369f",
+        "query_id": "q_session_evidence",
+        "result_count": 3,
+        "results": [
+          {
+            "kind": "RESULT",
+            "memory_id": "mem_r1",
+            "negative_knowledge": false,
+            "score": 1.0,
+            "title": "Ablation result"
+          },
+          {
+            "kind": "NEGATIVE_RESULT",
+            "memory_id": "mem_n1",
+            "negative_knowledge": true,
+            "score": 0.33333333,
+            "title": "Standalone clock failure"
+          },
+          {
+            "kind": "RESULT",
+            "memory_id": "mem_r2",
+            "negative_knowledge": false,
+            "score": 0.33333333,
+            "title": "Independent replay result"
+          }
+        ]
+      },
+      {
+        "negative_recall_count": 2,
+        "query_hash": "035e1670cd93c4ae18b0b572aba79d4058baabbdf838c6afc6ea67cdc0ff823c",
+        "query_id": "q_runtime_limits",
+        "result_count": 2,
+        "results": [
+          {
+            "kind": "LIMITATION",
+            "memory_id": "mem_l2",
+            "negative_knowledge": true,
+            "score": 1.0,
+            "title": "Runtime parity absent"
+          },
+          {
+            "kind": "LIMITATION",
+            "memory_id": "mem_l1",
+            "negative_knowledge": true,
+            "score": 0.33333333,
+            "title": "Synthetic-only boundary"
+          }
+        ]
+      },
+      {
+        "negative_recall_count": 0,
+        "query_hash": "decf933020f1cba3a35cc6d54181e0667202784e4e6200fb12731ff6dd7bcce0",
+        "query_id": "q_tail_stress",
+        "result_count": 3,
+        "results": [
+          {
+            "kind": "CLAIM",
+            "memory_id": "mem_c2",
+            "negative_knowledge": false,
+            "score": 0.66666667,
+            "title": "Tail conditioning claim"
+          },
+          {
+            "kind": "HYPOTHESIS",
+            "memory_id": "mem_h2",
+            "negative_knowledge": false,
+            "score": 0.66666667,
+            "title": "Tail-risk conditioning"
+          },
+          {
+            "kind": "RESULT",
+            "memory_id": "mem_r1",
+            "negative_knowledge": false,
+            "score": 0.33333333,
+            "title": "Ablation result"
+          }
+        ]
+      }
+    ],
+    "query_count": 4,
+    "receipt_hash": "43e5044aae0929d2dba13a655008b9a4f1f0b1d45a544f93ed77e4d82dd67498",
+    "receipt_id": "v436_retrieval_0305939116b66856284f5e6b",
+    "research_only": true
+  },
+  "review": {
+    "approvals": [
+      {
+        "approval_id": "approval_1",
+        "decision": "APPROVE_REFERENCE",
+        "independent": false,
+        "negative_knowledge_reviewed": true,
+        "reviewed_plan_hash": "9c7ad438ba546acd498e5c9572f2c839aaf845e0bbde23e3b2081e0e182a9811",
+        "reviewer_id": "reviewer_1",
+        "risk_findings_reviewed": true,
+        "role": "research_owner",
+        "synthetic_fixture": true
+      },
+      {
+        "approval_id": "approval_2",
+        "decision": "APPROVE_REFERENCE",
+        "independent": false,
+        "negative_knowledge_reviewed": true,
+        "reviewed_plan_hash": "9c7ad438ba546acd498e5c9572f2c839aaf845e0bbde23e3b2081e0e182a9811",
+        "reviewer_id": "reviewer_2",
+        "risk_findings_reviewed": true,
+        "role": "risk_reviewer",
+        "synthetic_fixture": true
+      },
+      {
+        "approval_id": "approval_3",
+        "decision": "APPROVE_REFERENCE",
+        "independent": true,
+        "negative_knowledge_reviewed": true,
+        "reviewed_plan_hash": "9c7ad438ba546acd498e5c9572f2c839aaf845e0bbde23e3b2081e0e182a9811",
+        "reviewer_id": "reviewer_3",
+        "risk_findings_reviewed": true,
+        "role": "independent_challenger",
+        "synthetic_fixture": true
+      }
+    ],
+    "experiment_execution_authorized": false,
+    "independent_challenge_present": true,
+    "mandatory_reviews_complete": true,
+    "phase": "SAED_V4_36",
+    "production_authorized": false,
+    "quorum_met": true,
+    "reference_agenda_accepted": true,
+    "required_roles_present": true,
+    "research_only": true,
+    "review_hash": "e18fdbf74ee775e849d722984446edc87facb73e7189878d31d72d055808dcb6",
+    "review_id": "v436_review_f1a4a29b732145a9f9c878d2"
+  },
+  "risk_findings": {
+    "blocking_count": 1,
+    "phase": "SAED_V4_36",
+    "records": [
+      {
+        "blocking": false,
+        "candidate_id": "cand_neg_replay",
+        "category": "RESEARCH_OPERATION",
+        "finding_id": "rf_01",
+        "mitigation": "human review and bounded budget",
+        "residual_risk": 0.1,
+        "severity": "MEDIUM",
+        "source_phase": "SAED_V4_35",
+        "synthetic_fixture": true
+      },
+      {
+        "blocking": false,
+        "candidate_id": "cand_regime_rep",
+        "category": "RESEARCH_OPERATION",
+        "finding_id": "rf_02",
+        "mitigation": "human review and bounded budget",
+        "residual_risk": 0.18,
+        "severity": "MEDIUM",
+        "source_phase": "SAED_V4_35",
+        "synthetic_fixture": true
+      },
+      {
+        "blocking": false,
+        "candidate_id": "cand_tail_stress",
+        "category": "RESEARCH_OPERATION",
+        "finding_id": "rf_03",
+        "mitigation": "human review and bounded budget",
+        "residual_risk": 0.22,
+        "severity": "MEDIUM",
+        "source_phase": "SAED_V4_35",
+        "synthetic_fixture": true
+      },
+      {
+        "blocking": false,
+        "candidate_id": "cand_memory_ablation",
+        "category": "RESEARCH_OPERATION",
+        "finding_id": "rf_04",
+        "mitigation": "human review and bounded budget",
+        "residual_risk": 0.12,
+        "severity": "MEDIUM",
+        "source_phase": "SAED_V4_35",
+        "synthetic_fixture": true
+      },
+      {
+        "blocking": false,
+        "candidate_id": "cand_runtime_parity",
+        "category": "RESEARCH_OPERATION",
+        "finding_id": "rf_05",
+        "mitigation": "human review and bounded budget",
+        "residual_risk": 0.42,
+        "severity": "HIGH",
+        "source_phase": "SAED_V4_35",
+        "synthetic_fixture": true
+      },
+      {
+        "blocking": true,
+        "candidate_id": "cand_live_probe",
+        "category": "AUTHORITY",
+        "finding_id": "rf_06",
+        "mitigation": "reject live authority",
+        "residual_risk": 0.95,
+        "severity": "CRITICAL",
+        "source_phase": "SAED_V4_35",
+        "synthetic_fixture": true
+      },
+      {
+        "blocking": false,
+        "candidate_id": "cand_supplier_alt",
+        "category": "RESEARCH_OPERATION",
+        "finding_id": "rf_07",
+        "mitigation": "human review and bounded budget",
+        "residual_risk": 0.2,
+        "severity": "MEDIUM",
+        "source_phase": "SAED_V4_35",
+        "synthetic_fixture": true
+      },
+      {
+        "blocking": false,
+        "candidate_id": "cand_claim_scope",
+        "category": "RESEARCH_OPERATION",
+        "finding_id": "rf_08",
+        "mitigation": "human review and bounded budget",
+        "residual_risk": 0.16,
+        "severity": "MEDIUM",
+        "source_phase": "SAED_V4_35",
+        "synthetic_fixture": true
+      }
+    ],
+    "register_hash": "253d696ae6045fb3a393d4d4d296e7df6b30a7c23a7b19b5cac205c2278d565f",
+    "register_id": "v436_risks_48446802b451d1b54812eba0",
+    "research_only": true
+  },
+  "schedule": {
+    "all_candidates_scheduled": true,
+    "execution_started": false,
+    "phase": "SAED_V4_36",
+    "research_only": true,
+    "schedule_hash": "04624e791842f23bd1ee46a099781df7b4bbde2fdc064e4cfd44dad4b88b9ee3",
+    "schedule_id": "v436_schedule_59f0e3f2ff367de3714d5491",
+    "wave_count": 3,
+    "waves": [
+      {
+        "candidate_ids": [
+          "cand_tail_stress",
+          "cand_runtime_parity",
+          "cand_claim_scope"
+        ],
+        "execution_status": "NOT_EXECUTED",
+        "parallel_count": 3,
+        "wave": 1
+      },
+      {
+        "candidate_ids": [
+          "cand_neg_replay",
+          "cand_memory_ablation",
+          "cand_supplier_alt"
+        ],
+        "execution_status": "NOT_EXECUTED",
+        "parallel_count": 3,
+        "wave": 2
+      },
+      {
+        "candidate_ids": [
+          "cand_regime_rep"
+        ],
+        "execution_status": "NOT_EXECUTED",
+        "parallel_count": 1,
+        "wave": 3
+      }
+    ]
+  },
+  "scorecard": {
+    "candidate_count": 8,
+    "candidates": [
+      {
+        "candidate_id": "cand_regime_rep",
+        "compute_units": 16.0,
+        "cost_efficiency": 0.62,
+        "coverage_gain": 0.91,
+        "dimensions": {
+          "cost_efficiency": 0.62,
+          "coverage_gain": 0.91,
+          "exposure_penalty": 0.0,
+          "information_gain": 0.9,
+          "negative_knowledge_value": 0.6,
+          "novelty": 0.65,
+          "replication_value": 0.96,
+          "reusability": 0.74,
+          "risk_penalty": 0.18,
+          "uncertainty_reduction": 0.82
+        },
+        "eligible": true,
+        "exposure_units": 0.0,
+        "family": "independent_regime_replication",
+        "gap_ids": [
+          "gap_session_external",
+          "gap_regime_independent"
+        ],
+        "information_gain": 0.9,
+        "negative_knowledge_value": 0.6,
+        "novelty": 0.65,
+        "objective_id": "obj_regime_portability",
+        "prerequisite_ids": [
+          "cand_neg_replay"
+        ],
+        "replication_value": 0.96,
+        "reusability": 0.74,
+        "review_hours": 6.0,
+        "risk": 0.18,
+        "risk_blocked": false,
+        "synthetic_fixture": true,
+        "title": "Independent regime replication",
+        "uncertainty_reduction": 0.82,
+        "utility": 5.1045
+      },
+      {
+        "candidate_id": "cand_tail_stress",
+        "compute_units": 14.0,
+        "cost_efficiency": 0.68,
+        "coverage_gain": 0.86,
+        "dimensions": {
+          "cost_efficiency": 0.68,
+          "coverage_gain": 0.86,
+          "exposure_penalty": 0.0,
+          "information_gain": 0.86,
+          "negative_knowledge_value": 0.7,
+          "novelty": 0.78,
+          "replication_value": 0.88,
+          "reusability": 0.7,
+          "risk_penalty": 0.22,
+          "uncertainty_reduction": 0.84
+        },
+        "eligible": true,
+        "exposure_units": 0.0,
+        "family": "tail_stress_replication",
+        "gap_ids": [
+          "gap_session_tail",
+          "gap_tail_stress"
+        ],
+        "information_gain": 0.86,
+        "negative_knowledge_value": 0.7,
+        "novelty": 0.78,
+        "objective_id": "obj_tail_calibration",
+        "prerequisite_ids": [],
+        "replication_value": 0.88,
+        "reusability": 0.7,
+        "review_hours": 5.0,
+        "risk": 0.22,
+        "risk_blocked": false,
+        "synthetic_fixture": true,
+        "title": "Tail stress replication",
+        "uncertainty_reduction": 0.84,
+        "utility": 5.084
+      },
+      {
+        "candidate_id": "cand_runtime_parity",
+        "compute_units": 20.0,
+        "cost_efficiency": 0.5,
+        "coverage_gain": 1.0,
+        "dimensions": {
+          "cost_efficiency": 0.5,
+          "coverage_gain": 1.0,
+          "exposure_penalty": 0.0,
+          "information_gain": 0.92,
+          "negative_knowledge_value": 0.75,
+          "novelty": 0.48,
+          "replication_value": 0.9,
+          "reusability": 0.95,
+          "risk_penalty": 0.42,
+          "uncertainty_reduction": 0.95
+        },
+        "eligible": true,
+        "exposure_units": 0.0,
+        "family": "runtime_parity",
+        "gap_ids": [
+          "gap_runtime_parity"
+        ],
+        "information_gain": 0.92,
+        "negative_knowledge_value": 0.75,
+        "novelty": 0.48,
+        "objective_id": "obj_runtime_boundary",
+        "prerequisite_ids": [],
+        "replication_value": 0.9,
+        "reusability": 0.95,
+        "review_hours": 8.0,
+        "risk": 0.42,
+        "risk_blocked": false,
+        "synthetic_fixture": true,
+        "title": "Python MQL5 parity investigation",
+        "uncertainty_reduction": 0.95,
+        "utility": 5.0605
+      },
+      {
+        "candidate_id": "cand_claim_scope",
+        "compute_units": 9.0,
+        "cost_efficiency": 0.8,
+        "coverage_gain": 0.72,
+        "dimensions": {
+          "cost_efficiency": 0.8,
+          "coverage_gain": 0.72,
+          "exposure_penalty": 0.0,
+          "information_gain": 0.75,
+          "negative_knowledge_value": 0.8,
+          "novelty": 0.68,
+          "replication_value": 0.72,
+          "reusability": 0.83,
+          "risk_penalty": 0.16,
+          "uncertainty_reduction": 0.7
+        },
+        "eligible": true,
+        "exposure_units": 0.0,
+        "family": "claim_falsification",
+        "gap_ids": [
+          "gap_session_external"
+        ],
+        "information_gain": 0.75,
+        "negative_knowledge_value": 0.8,
+        "novelty": 0.68,
+        "objective_id": "obj_claim_scope",
+        "prerequisite_ids": [],
+        "replication_value": 0.72,
+        "reusability": 0.83,
+        "review_hours": 4.0,
+        "risk": 0.16,
+        "risk_blocked": false,
+        "synthetic_fixture": true,
+        "title": "Claim scope falsification",
+        "uncertainty_reduction": 0.7,
+        "utility": 4.7565
+      },
+      {
+        "candidate_id": "cand_neg_replay",
+        "compute_units": 7.0,
+        "cost_efficiency": 0.88,
+        "coverage_gain": 0.58,
+        "dimensions": {
+          "cost_efficiency": 0.88,
+          "coverage_gain": 0.58,
+          "exposure_penalty": 0.0,
+          "information_gain": 0.62,
+          "negative_knowledge_value": 0.95,
+          "novelty": 0.35,
+          "replication_value": 0.62,
+          "reusability": 0.8,
+          "risk_penalty": 0.1,
+          "uncertainty_reduction": 0.58
+        },
+        "eligible": true,
+        "exposure_units": 0.0,
+        "family": "negative_control_replay",
+        "gap_ids": [
+          "gap_regime_negative"
+        ],
+        "information_gain": 0.62,
+        "negative_knowledge_value": 0.95,
+        "novelty": 0.35,
+        "objective_id": "obj_reduce_false_transfer",
+        "prerequisite_ids": [],
+        "replication_value": 0.62,
+        "reusability": 0.8,
+        "review_hours": 3.0,
+        "risk": 0.1,
+        "risk_blocked": false,
+        "synthetic_fixture": true,
+        "title": "Negative transfer replay",
+        "uncertainty_reduction": 0.58,
+        "utility": 4.2675
+      },
+      {
+        "candidate_id": "cand_memory_ablation",
+        "compute_units": 8.0,
+        "cost_efficiency": 0.85,
+        "coverage_gain": 0.5,
+        "dimensions": {
+          "cost_efficiency": 0.85,
+          "coverage_gain": 0.5,
+          "exposure_penalty": 0.0,
+          "information_gain": 0.58,
+          "negative_knowledge_value": 0.84,
+          "novelty": 0.82,
+          "replication_value": 0.55,
+          "reusability": 0.92,
+          "risk_penalty": 0.12,
+          "uncertainty_reduction": 0.54
+        },
+        "eligible": true,
+        "exposure_units": 0.0,
+        "family": "planner_ablation",
+        "gap_ids": [
+          "gap_regime_negative"
+        ],
+        "information_gain": 0.58,
+        "negative_knowledge_value": 0.84,
+        "novelty": 0.82,
+        "objective_id": "obj_memory_quality",
+        "prerequisite_ids": [],
+        "replication_value": 0.55,
+        "reusability": 0.92,
+        "review_hours": 3.0,
+        "risk": 0.12,
+        "risk_blocked": false,
+        "synthetic_fixture": true,
+        "title": "Memory retrieval ablation",
+        "uncertainty_reduction": 0.54,
+        "utility": 4.267
+      },
+      {
+        "candidate_id": "cand_supplier_alt",
+        "compute_units": 10.0,
+        "cost_efficiency": 0.74,
+        "coverage_gain": 0.48,
+        "dimensions": {
+          "cost_efficiency": 0.74,
+          "coverage_gain": 0.48,
+          "exposure_penalty": 0.0,
+          "information_gain": 0.66,
+          "negative_knowledge_value": 0.72,
+          "novelty": 0.74,
+          "replication_value": 0.52,
+          "reusability": 0.8,
+          "risk_penalty": 0.2,
+          "uncertainty_reduction": 0.61
+        },
+        "eligible": true,
+        "exposure_units": 0.0,
+        "family": "supply_chain_challenge",
+        "gap_ids": [],
+        "information_gain": 0.66,
+        "negative_knowledge_value": 0.72,
+        "novelty": 0.74,
+        "objective_id": "obj_supplier_resilience",
+        "prerequisite_ids": [],
+        "replication_value": 0.52,
+        "reusability": 0.8,
+        "review_hours": 5.0,
+        "risk": 0.2,
+        "risk_blocked": false,
+        "synthetic_fixture": true,
+        "title": "Supplier concentration challenger",
+        "uncertainty_reduction": 0.61,
+        "utility": 4.007
+      },
+      {
+        "candidate_id": "cand_live_probe",
+        "compute_units": 2.0,
+        "cost_efficiency": 0.2,
+        "coverage_gain": 0.2,
+        "dimensions": {
+          "cost_efficiency": 0.2,
+          "coverage_gain": 0.2,
+          "exposure_penalty": 0.9090909090909091,
+          "information_gain": 0.7,
+          "negative_knowledge_value": 0.1,
+          "novelty": 0.9,
+          "replication_value": 0.1,
+          "reusability": 0.1,
+          "risk_penalty": 0.95,
+          "uncertainty_reduction": 0.7
+        },
+        "eligible": false,
+        "exposure_units": 10.0,
+        "family": "live_probe",
+        "gap_ids": [],
+        "information_gain": 0.7,
+        "negative_knowledge_value": 0.1,
+        "novelty": 0.9,
+        "objective_id": "obj_forbidden",
+        "prerequisite_ids": [],
+        "replication_value": 0.1,
+        "reusability": 0.1,
+        "review_hours": 1.0,
+        "risk": 0.95,
+        "risk_blocked": true,
+        "synthetic_fixture": true,
+        "title": "Unsafe live probe",
+        "uncertainty_reduction": 0.7,
+        "utility": 0.02136364
+      }
+    ],
+    "eligible_count": 7,
+    "phase": "SAED_V4_36",
+    "research_only": true,
+    "scorecard_hash": "096298271fb101ede6266e471aa4346514f6437faf1020ce6af782d9b16f2ed9",
+    "scorecard_id": "v436_scores_08594b4946d0b8c7d368c5d8"
+  },
+  "supersession": {
+    "destructive_update_allowed": false,
+    "link_count": 1,
+    "links": [
+      {
+        "new_memory_id": "mem_d2",
+        "new_status": "ACTIVE",
+        "old_memory_id": "mem_c1",
+        "reason": "explicit_supersession"
+      }
+    ],
+    "map_hash": "77689e7926d51a05d5d495849be7aae47d1b9d21c71de3a309685e53454f7fb8",
+    "map_id": "v436_supersession_b84a15a301b83babbfcc26cb",
+    "phase": "SAED_V4_36",
+    "research_only": true
+  },
+  "upstream": {
+    "documents": [
+      {
+        "document_hash": "c71319d539242053fece8249952618588bb05b2836db40b11c308dafff0a5653",
+        "document_id": "v435_certificate_reference",
+        "kind": "v4_35_certificate",
+        "next_phase": "SAED_V4_36",
+        "phase": "SAED_V4_35",
+        "production_authorized": false,
+        "research_only": true
+      },
+      {
+        "document_hash": "f7781bbb1f6103de4b762d7a63c5b90694263be337a03e712a6609b5fc8dfd73",
+        "document_id": "v435_handoff_reference",
+        "kind": "v4_35_handoff",
+        "next_phase": "SAED_V4_36",
+        "phase": "SAED_V4_35",
+        "production_authorized": false,
+        "research_only": true
+      }
+    ],
+    "phase": "SAED_V4_36",
+    "receipt_hash": "35479f04d6dccc2633f988c8a705acfd2f894b6972943720c89d73466881c616",
+    "receipt_id": "v436_upstream_9006a75f1630c4855bbba607",
+    "research_only": true,
+    "upstream_phase": "SAED_V4_35",
+    "verified": true
+  },
+  "weights": {
+    "exploration_floor": 0.72,
+    "minimum_utility": 1.0,
+    "negative_knowledge_floor": 0.8,
+    "phase": "SAED_V4_36",
+    "replication_floor": 0.85,
+    "research_only": true,
+    "risk_hard_limit": 0.6,
+    "weight_hash": "893d894e1b233d5b626d906de786cccc2c155d42241708f6d5bb82ce2e6acc37",
+    "weight_id": "v436_reference_weights",
+    "weight_receipt_id": "v436_weights_28a5b650056c69f0c8af00b0",
+    "weights": {
+      "cost_efficiency": 0.45,
+      "coverage_gain": 1.0,
+      "exposure_penalty": 1.5,
+      "information_gain": 1.2,
+      "negative_knowledge_value": 0.9,
+      "novelty": 0.65,
+      "replication_value": 0.85,
+      "reusability": 0.55,
+      "risk_penalty": 1.4,
+      "uncertainty_reduction": 1.1
+    }
+  }
+}

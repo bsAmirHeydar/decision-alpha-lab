@@ -1,0 +1,64 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-36/golden_baseline.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-36 research-memory and active-planner reference artifact schema.",
+  "properties": {
+    "automatic_experiments_started": {
+      "type": "integer"
+    },
+    "existing_research_results_immutable": {
+      "type": "boolean"
+    },
+    "failure_action": {
+      "type": "string"
+    },
+    "live_runtime_unchanged": {
+      "type": "boolean"
+    },
+    "negative_results_preserved": {
+      "type": "boolean"
+    },
+    "orders_submitted": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "portfolio_state_unchanged": {
+      "type": "boolean"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "treatment_universe_unchanged": {
+      "type": "boolean"
+    },
+    "ucee_runtime_unchanged": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "automatic_experiments_started",
+    "existing_research_results_immutable",
+    "failure_action",
+    "live_runtime_unchanged",
+    "negative_results_preserved",
+    "orders_submitted",
+    "phase",
+    "portfolio_state_unchanged",
+    "receipt_hash",
+    "receipt_id",
+    "research_only",
+    "treatment_universe_unchanged",
+    "ucee_runtime_unchanged"
+  ],
+  "title": "GOLDEN_BASELINE",
+  "type": "object"
+}

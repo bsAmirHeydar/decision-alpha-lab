@@ -1,0 +1,101 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-36/golden_weights.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-36 research-memory and active-planner reference artifact schema.",
+  "properties": {
+    "exploration_floor": {
+      "type": "number"
+    },
+    "minimum_utility": {
+      "type": "number"
+    },
+    "negative_knowledge_floor": {
+      "type": "number"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "replication_floor": {
+      "type": "number"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "risk_hard_limit": {
+      "type": "number"
+    },
+    "weight_hash": {
+      "type": "string"
+    },
+    "weight_id": {
+      "type": "string"
+    },
+    "weight_receipt_id": {
+      "type": "string"
+    },
+    "weights": {
+      "additionalProperties": false,
+      "properties": {
+        "cost_efficiency": {
+          "type": "number"
+        },
+        "coverage_gain": {
+          "type": "number"
+        },
+        "exposure_penalty": {
+          "type": "number"
+        },
+        "information_gain": {
+          "type": "number"
+        },
+        "negative_knowledge_value": {
+          "type": "number"
+        },
+        "novelty": {
+          "type": "number"
+        },
+        "replication_value": {
+          "type": "number"
+        },
+        "reusability": {
+          "type": "number"
+        },
+        "risk_penalty": {
+          "type": "number"
+        },
+        "uncertainty_reduction": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "cost_efficiency",
+        "coverage_gain",
+        "exposure_penalty",
+        "information_gain",
+        "negative_knowledge_value",
+        "novelty",
+        "replication_value",
+        "reusability",
+        "risk_penalty",
+        "uncertainty_reduction"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "exploration_floor",
+    "minimum_utility",
+    "negative_knowledge_floor",
+    "phase",
+    "replication_floor",
+    "research_only",
+    "risk_hard_limit",
+    "weight_hash",
+    "weight_id",
+    "weight_receipt_id",
+    "weights"
+  ],
+  "title": "GOLDEN_WEIGHTS",
+  "type": "object"
+}

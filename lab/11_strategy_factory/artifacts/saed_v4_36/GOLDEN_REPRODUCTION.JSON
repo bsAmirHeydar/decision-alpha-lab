@@ -1,0 +1,12 @@
+{
+  "exact_match": true,
+  "external_reproduction": false,
+  "independent_operator": true,
+  "lab_a_hash": "396c1de9d2542594fba302c391ba2dc297a293350e4a4988e5c99904158e383b",
+  "lab_b_hash": "396c1de9d2542594fba302c391ba2dc297a293350e4a4988e5c99904158e383b",
+  "phase": "SAED_V4_36",
+  "receipt_hash": "80b8f1b8ca6a6936cc7204143e0b4eb51770f5e988cb0fe7f7f69bb0546eb9c6",
+  "receipt_id": "v436_reproduction_7a7c3f105a7fb198c3031aa5",
+  "research_only": true,
+  "synthetic_fixture": true
+}

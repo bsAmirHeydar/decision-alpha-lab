@@ -1,0 +1,14 @@
+{
+  "authority": "research_only",
+  "claim_ceiling": "synthetic_deterministic_research_memory_and_agenda_reference_only",
+  "delivery_command": "python tools/strategy_factory/saed_v4_36/validate_saed_v4_36_delivery.py",
+  "file_count": 403,
+  "next_phase": "SAED_V4_37",
+  "patch_type": "additive_reference_implementation",
+  "phase": "SAED_V4_36",
+  "production_authorization": false,
+  "qa_command": "python tools/strategy_factory/saed_v4_36/run_saed_v4_36_full_qa.py",
+  "title": "Research Memory and Active Planner",
+  "upstream_phase": "SAED_V4_35",
+  "version": "1.0.0"
+}

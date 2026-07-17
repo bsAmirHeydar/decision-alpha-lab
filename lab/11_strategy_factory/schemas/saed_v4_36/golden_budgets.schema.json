@@ -1,0 +1,72 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-36/golden_budgets.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-36 research-memory and active-planner reference artifact schema.",
+  "properties": {
+    "approved_by": {
+      "type": "string"
+    },
+    "automatic_overrun_allowed": {
+      "type": "boolean"
+    },
+    "budget_hash": {
+      "type": "string"
+    },
+    "budget_id": {
+      "type": "string"
+    },
+    "budget_receipt_id": {
+      "type": "string"
+    },
+    "compute_units": {
+      "type": "number"
+    },
+    "exposure_units": {
+      "type": "number"
+    },
+    "max_candidates": {
+      "type": "integer"
+    },
+    "max_parallel": {
+      "type": "integer"
+    },
+    "max_selected": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "reserve_fraction": {
+      "type": "number"
+    },
+    "review_hours": {
+      "type": "number"
+    },
+    "risk_capacity": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "approved_by",
+    "automatic_overrun_allowed",
+    "budget_hash",
+    "budget_id",
+    "budget_receipt_id",
+    "compute_units",
+    "exposure_units",
+    "max_candidates",
+    "max_parallel",
+    "max_selected",
+    "phase",
+    "research_only",
+    "reserve_fraction",
+    "review_hours",
+    "risk_capacity"
+  ],
+  "title": "GOLDEN_BUDGETS",
+  "type": "object"
+}

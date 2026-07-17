@@ -1,0 +1,68 @@
+{
+  "claim_count": 4,
+  "claims": [
+    {
+      "actionability": "RESEARCH_ONLY",
+      "claim_id": "claim_regime_portability",
+      "confidence": 0.35,
+      "oppose_memory_ids": [
+        "mem_n2"
+      ],
+      "scope": "independent regime slices",
+      "state": "UNRESOLVED",
+      "statement": "Interaction transfers across regime slices.",
+      "support_memory_ids": [
+        "mem_q1"
+      ],
+      "synthetic_fixture": true
+    },
+    {
+      "actionability": "RESEARCH_ONLY",
+      "claim_id": "claim_runtime_parity",
+      "confidence": 0.1,
+      "oppose_memory_ids": [
+        "mem_l2"
+      ],
+      "scope": "Python to MQL5",
+      "state": "REFUTED",
+      "statement": "Research outputs are runtime portable.",
+      "support_memory_ids": [],
+      "synthetic_fixture": true
+    },
+    {
+      "actionability": "RESEARCH_ONLY",
+      "claim_id": "claim_session_liquidity",
+      "confidence": 0.78,
+      "oppose_memory_ids": [
+        "mem_n1"
+      ],
+      "scope": "synthetic known-time fixture",
+      "state": "SUPPORTED",
+      "statement": "Session and liquidity interaction is supported within synthetic scope.",
+      "support_memory_ids": [
+        "mem_r1",
+        "mem_r2"
+      ],
+      "synthetic_fixture": true
+    },
+    {
+      "actionability": "RESEARCH_ONLY",
+      "claim_id": "claim_tail_conditioning",
+      "confidence": 0.44,
+      "oppose_memory_ids": [
+        "mem_n2"
+      ],
+      "scope": "unresolved stress scope",
+      "state": "CONTESTED",
+      "statement": "Tail conditioning improves downside calibration.",
+      "support_memory_ids": [
+        "mem_h2"
+      ],
+      "synthetic_fixture": true
+    }
+  ],
+  "phase": "SAED_V4_36",
+  "registry_hash": "e3980f3ccb08a7a79b775a8b177d8cc9860b1b98fbd9bf9eae95b1f5e03c9d66",
+  "registry_id": "v436_claims_69b3abb050c09c662cf9286c",
+  "research_only": true
+}

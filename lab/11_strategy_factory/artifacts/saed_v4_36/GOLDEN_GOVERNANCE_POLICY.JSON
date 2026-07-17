@@ -1,0 +1,18 @@
+{
+  "automatic_approval_allowed": false,
+  "automatic_execution_allowed": false,
+  "independent_challenge_required": true,
+  "negative_knowledge_review_required": true,
+  "phase": "SAED_V4_36",
+  "policy_hash": "adf32d8b22bd0153b0b6d53d87c30f751c42e0f3b594bea0a7628f37ca2272d8",
+  "policy_id": "v436_governance_policy",
+  "policy_receipt_id": "v436_policy_cd15c3183c0c78321d792184",
+  "quorum": 3,
+  "required_roles": [
+    "independent_challenger",
+    "research_owner",
+    "risk_reviewer"
+  ],
+  "research_only": true,
+  "risk_review_required": true
+}

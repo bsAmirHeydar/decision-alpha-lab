@@ -1,0 +1,39 @@
+{
+  "all_candidates_scheduled": true,
+  "execution_started": false,
+  "phase": "SAED_V4_36",
+  "research_only": true,
+  "schedule_hash": "04624e791842f23bd1ee46a099781df7b4bbde2fdc064e4cfd44dad4b88b9ee3",
+  "schedule_id": "v436_schedule_59f0e3f2ff367de3714d5491",
+  "wave_count": 3,
+  "waves": [
+    {
+      "candidate_ids": [
+        "cand_tail_stress",
+        "cand_runtime_parity",
+        "cand_claim_scope"
+      ],
+      "execution_status": "NOT_EXECUTED",
+      "parallel_count": 3,
+      "wave": 1
+    },
+    {
+      "candidate_ids": [
+        "cand_neg_replay",
+        "cand_memory_ablation",
+        "cand_supplier_alt"
+      ],
+      "execution_status": "NOT_EXECUTED",
+      "parallel_count": 3,
+      "wave": 2
+    },
+    {
+      "candidate_ids": [
+        "cand_regime_rep"
+      ],
+      "execution_status": "NOT_EXECUTED",
+      "parallel_count": 1,
+      "wave": 3
+    }
+  ]
+}

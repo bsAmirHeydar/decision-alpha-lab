@@ -1,0 +1,97 @@
+{
+  "blocking_count": 1,
+  "phase": "SAED_V4_36",
+  "records": [
+    {
+      "blocking": false,
+      "candidate_id": "cand_neg_replay",
+      "category": "RESEARCH_OPERATION",
+      "finding_id": "rf_01",
+      "mitigation": "human review and bounded budget",
+      "residual_risk": 0.1,
+      "severity": "MEDIUM",
+      "source_phase": "SAED_V4_35",
+      "synthetic_fixture": true
+    },
+    {
+      "blocking": false,
+      "candidate_id": "cand_regime_rep",
+      "category": "RESEARCH_OPERATION",
+      "finding_id": "rf_02",
+      "mitigation": "human review and bounded budget",
+      "residual_risk": 0.18,
+      "severity": "MEDIUM",
+      "source_phase": "SAED_V4_35",
+      "synthetic_fixture": true
+    },
+    {
+      "blocking": false,
+      "candidate_id": "cand_tail_stress",
+      "category": "RESEARCH_OPERATION",
+      "finding_id": "rf_03",
+      "mitigation": "human review and bounded budget",
+      "residual_risk": 0.22,
+      "severity": "MEDIUM",
+      "source_phase": "SAED_V4_35",
+      "synthetic_fixture": true
+    },
+    {
+      "blocking": false,
+      "candidate_id": "cand_memory_ablation",
+      "category": "RESEARCH_OPERATION",
+      "finding_id": "rf_04",
+      "mitigation": "human review and bounded budget",
+      "residual_risk": 0.12,
+      "severity": "MEDIUM",
+      "source_phase": "SAED_V4_35",
+      "synthetic_fixture": true
+    },
+    {
+      "blocking": false,
+      "candidate_id": "cand_runtime_parity",
+      "category": "RESEARCH_OPERATION",
+      "finding_id": "rf_05",
+      "mitigation": "human review and bounded budget",
+      "residual_risk": 0.42,
+      "severity": "HIGH",
+      "source_phase": "SAED_V4_35",
+      "synthetic_fixture": true
+    },
+    {
+      "blocking": true,
+      "candidate_id": "cand_live_probe",
+      "category": "AUTHORITY",
+      "finding_id": "rf_06",
+      "mitigation": "reject live authority",
+      "residual_risk": 0.95,
+      "severity": "CRITICAL",
+      "source_phase": "SAED_V4_35",
+      "synthetic_fixture": true
+    },
+    {
+      "blocking": false,
+      "candidate_id": "cand_supplier_alt",
+      "category": "RESEARCH_OPERATION",
+      "finding_id": "rf_07",
+      "mitigation": "human review and bounded budget",
+      "residual_risk": 0.2,
+      "severity": "MEDIUM",
+      "source_phase": "SAED_V4_35",
+      "synthetic_fixture": true
+    },
+    {
+      "blocking": false,
+      "candidate_id": "cand_claim_scope",
+      "category": "RESEARCH_OPERATION",
+      "finding_id": "rf_08",
+      "mitigation": "human review and bounded budget",
+      "residual_risk": 0.16,
+      "severity": "MEDIUM",
+      "source_phase": "SAED_V4_35",
+      "synthetic_fixture": true
+    }
+  ],
+  "register_hash": "253d696ae6045fb3a393d4d4d296e7df6b30a7c23a7b19b5cac205c2278d565f",
+  "register_id": "v436_risks_48446802b451d1b54812eba0",
+  "research_only": true
+}

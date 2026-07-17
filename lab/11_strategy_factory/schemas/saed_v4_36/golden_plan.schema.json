@@ -1,0 +1,186 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-36/golden_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-36 research-memory and active-planner reference artifact schema.",
+  "properties": {
+    "automatic_execution_allowed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "plan_hash": {
+      "type": "string"
+    },
+    "plan_id": {
+      "type": "string"
+    },
+    "planner_events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_id": {
+            "type": "string"
+          },
+          "event_hash": {
+            "type": "string"
+          },
+          "event_id": {
+            "type": "string"
+          },
+          "event_type": {
+            "type": "string"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "previous_hash": {
+            "type": "string"
+          },
+          "rank": {
+            "type": "integer"
+          },
+          "utility": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "event_hash",
+          "event_id",
+          "event_type",
+          "ordinal",
+          "previous_hash",
+          "rank",
+          "utility"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "rejected": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_id": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "utility": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "reason",
+          "utility"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "remaining_budget": {
+      "additionalProperties": false,
+      "properties": {
+        "compute_units": {
+          "type": "number"
+        },
+        "exposure_units": {
+          "type": "number"
+        },
+        "review_hours": {
+          "type": "number"
+        },
+        "risk_capacity": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "compute_units",
+        "exposure_units",
+        "review_hours",
+        "risk_capacity"
+      ],
+      "type": "object"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "selected": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "candidate_id": {
+            "type": "string"
+          },
+          "compute_units": {
+            "type": "number"
+          },
+          "exposure_units": {
+            "type": "number"
+          },
+          "family": {
+            "type": "string"
+          },
+          "objective_id": {
+            "type": "string"
+          },
+          "prerequisite_ids": {
+            "items": {},
+            "type": "array"
+          },
+          "review_hours": {
+            "type": "number"
+          },
+          "risk": {
+            "type": "number"
+          },
+          "title": {
+            "type": "string"
+          },
+          "utility": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "compute_units",
+          "exposure_units",
+          "family",
+          "objective_id",
+          "prerequisite_ids",
+          "review_hours",
+          "risk",
+          "title",
+          "utility"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "selected_count": {
+      "type": "integer"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "automatic_execution_allowed",
+    "phase",
+    "plan_hash",
+    "plan_id",
+    "planner_events",
+    "rejected",
+    "remaining_budget",
+    "research_only",
+    "selected",
+    "selected_count",
+    "status"
+  ],
+  "title": "GOLDEN_PLAN",
+  "type": "object"
+}

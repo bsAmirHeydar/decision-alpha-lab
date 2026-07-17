@@ -1,0 +1,23 @@
+{
+  "external_evidence_open": [
+    "real longitudinal memory migration",
+    "external semantic embedding retrieval",
+    "real research scheduler integration",
+    "external human committee evidence",
+    "MetaEditor compilation",
+    "Python/MQL5 runtime parity",
+    "production release authorization"
+  ],
+  "implementation_complete": true,
+  "live_trading_authority": false,
+  "next_phase": "SAED_V4_37",
+  "phase": "SAED_V4_36",
+  "production_authorization": false,
+  "qa_passed": true,
+  "reference_certificate": "accepted",
+  "research_only": true,
+  "status": "accepted-reference",
+  "title": "Research Memory and Active Planner",
+  "upstream_phase": "SAED_V4_35",
+  "version": "1.0.0"
+}

@@ -1,0 +1,24 @@
+{
+  "exploration_floor": 0.72,
+  "minimum_utility": 1.0,
+  "negative_knowledge_floor": 0.8,
+  "phase": "SAED_V4_36",
+  "replication_floor": 0.85,
+  "research_only": true,
+  "risk_hard_limit": 0.6,
+  "weight_hash": "893d894e1b233d5b626d906de786cccc2c155d42241708f6d5bb82ce2e6acc37",
+  "weight_id": "v436_reference_weights",
+  "weight_receipt_id": "v436_weights_28a5b650056c69f0c8af00b0",
+  "weights": {
+    "cost_efficiency": 0.45,
+    "coverage_gain": 1.0,
+    "exposure_penalty": 1.5,
+    "information_gain": 1.2,
+    "negative_knowledge_value": 0.9,
+    "novelty": 0.65,
+    "replication_value": 0.85,
+    "reusability": 0.55,
+    "risk_penalty": 1.4,
+    "uncertainty_reduction": 1.1
+  }
+}

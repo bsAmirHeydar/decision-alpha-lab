@@ -1,0 +1,86 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-36/golden_claims.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-36 research-memory and active-planner reference artifact schema.",
+  "properties": {
+    "claim_count": {
+      "type": "integer"
+    },
+    "claims": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "actionability": {
+            "type": "string"
+          },
+          "claim_id": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "oppose_memory_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "statement": {
+            "type": "string"
+          },
+          "support_memory_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "actionability",
+          "claim_id",
+          "confidence",
+          "oppose_memory_ids",
+          "scope",
+          "state",
+          "statement",
+          "support_memory_ids",
+          "synthetic_fixture"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "claim_count",
+    "claims",
+    "phase",
+    "registry_hash",
+    "registry_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_CLAIMS",
+  "type": "object"
+}

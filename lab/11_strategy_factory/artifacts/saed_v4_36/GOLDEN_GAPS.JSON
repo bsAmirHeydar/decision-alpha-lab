@@ -1,0 +1,76 @@
+{
+  "blocking_count": 3,
+  "gap_count": 6,
+  "gaps": [
+    {
+      "blocking": true,
+      "claim_id": "claim_regime_portability",
+      "coverage": 0.35,
+      "dimension": "independent_lab",
+      "gap_id": "gap_regime_independent",
+      "required_family": "independent_regime_replication",
+      "severity": "HIGH",
+      "synthetic_fixture": true,
+      "uncertainty": 0.65
+    },
+    {
+      "blocking": false,
+      "claim_id": "claim_regime_portability",
+      "coverage": 0.5,
+      "dimension": "negative_control",
+      "gap_id": "gap_regime_negative",
+      "required_family": "negative_control_replay",
+      "severity": "MEDIUM",
+      "synthetic_fixture": true,
+      "uncertainty": 0.5
+    },
+    {
+      "blocking": true,
+      "claim_id": "claim_runtime_parity",
+      "coverage": 0.0,
+      "dimension": "runtime_parity",
+      "gap_id": "gap_runtime_parity",
+      "required_family": "runtime_parity",
+      "severity": "BLOCKING",
+      "synthetic_fixture": true,
+      "uncertainty": 1.0
+    },
+    {
+      "blocking": false,
+      "claim_id": "claim_session_liquidity",
+      "coverage": 0.45,
+      "dimension": "external_replication",
+      "gap_id": "gap_session_external",
+      "required_family": "independent_regime_replication",
+      "severity": "HIGH",
+      "synthetic_fixture": true,
+      "uncertainty": 0.55
+    },
+    {
+      "blocking": false,
+      "claim_id": "claim_session_liquidity",
+      "coverage": 0.6,
+      "dimension": "tail_stability",
+      "gap_id": "gap_session_tail",
+      "required_family": "tail_stress_replication",
+      "severity": "MEDIUM",
+      "synthetic_fixture": true,
+      "uncertainty": 0.4
+    },
+    {
+      "blocking": true,
+      "claim_id": "claim_tail_conditioning",
+      "coverage": 0.28,
+      "dimension": "stress_replication",
+      "gap_id": "gap_tail_stress",
+      "required_family": "tail_stress_replication",
+      "severity": "HIGH",
+      "synthetic_fixture": true,
+      "uncertainty": 0.72
+    }
+  ],
+  "phase": "SAED_V4_36",
+  "registry_hash": "8c3d8ba850c773c5987f21cf4ab5906d916fd61f99f848c1f779581bc5c779ef",
+  "registry_id": "v436_gaps_907648fcc2d786cffe05b505",
+  "research_only": true
+}

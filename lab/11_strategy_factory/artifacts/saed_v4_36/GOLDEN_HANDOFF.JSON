@@ -1,0 +1,23 @@
+{
+  "authority_granted": false,
+  "capital_authority_granted": false,
+  "certificate_hash": "daaad066e559132eb4bb7af03b66b1591ff60fef9cf9cd23369d2b87e950c154",
+  "execution_authority_granted": false,
+  "handoff_hash": "76c288083a2997b2456f656b289d6ce71a6cfe2f2f03de3a5589c485069b7bcd",
+  "handoff_id": "v436_handoff_b7c9ff5f75ee31919ad556d3",
+  "knowledge_state_hash": "edadb43ecd6f53eb2e55c484fd9a677d912446bf473d6e094ac0b9e310b51cbb",
+  "memory_store_hash": "4e11c55584ec3b9e4bde6d295f23bce591b1849ac685af2ad5cbf02f8d3445bb",
+  "next_phase": "SAED_V4_37",
+  "phase": "SAED_V4_36",
+  "plan_hash": "9c7ad438ba546acd498e5c9572f2c839aaf845e0bbde23e3b2081e0e182a9811",
+  "production_authorized": false,
+  "research_only": true,
+  "risk_register_hash": "253d696ae6045fb3a393d4d4d296e7df6b30a7c23a7b19b5cac205c2278d565f",
+  "transferred_artifacts": [
+    "immutable research memory identity",
+    "negative knowledge registry",
+    "evidence coverage matrix",
+    "bounded human-reviewed research agenda",
+    "risk and budget constraints"
+  ]
+}

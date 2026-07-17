@@ -1,0 +1,1030 @@
+{
+  "deterministic": true,
+  "embedding_service_used": false,
+  "index_hash": "4484064a6e7e8e441498de2747a1dffc62e6c6ef6f08d92cb8b453f47559b75c",
+  "index_id": "v436_index_f88b16fb867536425baaf2e7",
+  "negative_memory_ids": [
+    "mem_f1",
+    "mem_i1",
+    "mem_l1",
+    "mem_l2",
+    "mem_n1",
+    "mem_n2"
+  ],
+  "network_access": false,
+  "phase": "SAED_V4_36",
+  "postings": [
+    {
+      "document_frequency": 5,
+      "memory_ids": [
+        "mem_d2",
+        "mem_f1",
+        "mem_h1",
+        "mem_i1",
+        "mem_r2"
+      ],
+      "token": "a"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_e1"
+      ],
+      "token": "ablate"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_e1",
+        "mem_r1"
+      ],
+      "token": "ablation"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_l2"
+      ],
+      "token": "absent"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_n2",
+        "mem_q1"
+      ],
+      "token": "across"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_d1"
+      ],
+      "token": "active"
+    },
+    {
+      "document_frequency": 5,
+      "memory_ids": [
+        "mem_a1",
+        "mem_e1",
+        "mem_l2",
+        "mem_n1",
+        "mem_r1"
+      ],
+      "token": "and"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_a1"
+      ],
+      "token": "artifact"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_d1"
+      ],
+      "token": "baseline"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_ds1"
+      ],
+      "token": "boundaries"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_l1"
+      ],
+      "token": "boundary"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_c1",
+        "mem_r2"
+      ],
+      "token": "bounded"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_d2"
+      ],
+      "token": "broad"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_a1"
+      ],
+      "token": "bundle"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_i1"
+      ],
+      "token": "by"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_h2",
+        "mem_r1"
+      ],
+      "token": "calibration"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_i1"
+      ],
+      "token": "caught"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_h1"
+      ],
+      "token": "change"
+    },
+    {
+      "document_frequency": 3,
+      "memory_ids": [
+        "mem_c1",
+        "mem_c2",
+        "mem_d2"
+      ],
+      "token": "claim"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_n1"
+      ],
+      "token": "clock"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_n1"
+      ],
+      "token": "clock-only"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_f1"
+      ],
+      "token": "concentration"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_h1"
+      ],
+      "token": "conditional"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_c2",
+        "mem_h2"
+      ],
+      "token": "conditioning"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_c2"
+      ],
+      "token": "contested"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_h1"
+      ],
+      "token": "context"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_f1"
+      ],
+      "token": "creates"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_ds1"
+      ],
+      "token": "dataset"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_d1",
+        "mem_d2"
+      ],
+      "token": "decision"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_f1"
+      ],
+      "token": "dependency"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_m1",
+        "mem_r2"
+      ],
+      "token": "deterministic"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_h1"
+      ],
+      "token": "distribution"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_q1"
+      ],
+      "token": "does"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_h2"
+      ],
+      "token": "downside"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_d1"
+      ],
+      "token": "during"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_l1"
+      ],
+      "token": "edge"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_h2",
+        "mem_n2"
+      ],
+      "token": "error"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_l1",
+        "mem_l2"
+      ],
+      "token": "established"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_a1"
+      ],
+      "token": "evidence"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_n1"
+      ],
+      "token": "failed"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_n1",
+        "mem_n2"
+      ],
+      "token": "failure"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_f1"
+      ],
+      "token": "family"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_c1",
+        "mem_ds1"
+      ],
+      "token": "fixture"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_m1"
+      ],
+      "token": "fusion"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_i1"
+      ],
+      "token": "future-suffix"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_i1"
+      ],
+      "token": "gate"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_n1"
+      ],
+      "token": "gates"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_a1",
+        "mem_ds1"
+      ],
+      "token": "immutable"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_r1"
+      ],
+      "token": "improved"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_i1"
+      ],
+      "token": "incident"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_n2"
+      ],
+      "token": "increased"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_q1",
+        "mem_r2"
+      ],
+      "token": "independent"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_c1"
+      ],
+      "token": "inside"
+    },
+    {
+      "document_frequency": 3,
+      "memory_ids": [
+        "mem_c1",
+        "mem_q1",
+        "mem_r2"
+      ],
+      "token": "interaction"
+    },
+    {
+      "document_frequency": 3,
+      "memory_ids": [
+        "mem_c1",
+        "mem_l1",
+        "mem_l2"
+      ],
+      "token": "is"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_r1"
+      ],
+      "token": "jointly"
+    },
+    {
+      "document_frequency": 3,
+      "memory_ids": [
+        "mem_ds1",
+        "mem_e1",
+        "mem_i1"
+      ],
+      "token": "known-time"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_i1"
+      ],
+      "token": "leakage"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_l1",
+        "mem_l2"
+      ],
+      "token": "limitation"
+    },
+    {
+      "document_frequency": 4,
+      "memory_ids": [
+        "mem_c1",
+        "mem_e1",
+        "mem_h1",
+        "mem_r1"
+      ],
+      "token": "liquidity"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_d1"
+      ],
+      "token": "mandatory"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_d1"
+      ],
+      "token": "manual"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_l1"
+      ],
+      "token": "market"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_h1",
+        "mem_h2"
+      ],
+      "token": "may"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_h1"
+      ],
+      "token": "mechanism"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_m1"
+      ],
+      "token": "model"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_a1"
+      ],
+      "token": "model-risk"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_l2"
+      ],
+      "token": "mql5"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_m1"
+      ],
+      "token": "multimodal"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_i1"
+      ],
+      "token": "mutation"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_n2"
+      ],
+      "token": "naive"
+    },
+    {
+      "document_frequency": 3,
+      "memory_ids": [
+        "mem_i1",
+        "mem_n1",
+        "mem_n2"
+      ],
+      "token": "negative"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_l1"
+      ],
+      "token": "no"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_l2"
+      ],
+      "token": "not"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_c1"
+      ],
+      "token": "only"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_r2"
+      ],
+      "token": "operator"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_l1"
+      ],
+      "token": "or"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_l2"
+      ],
+      "token": "parity"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_h1"
+      ],
+      "token": "path"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_c2"
+      ],
+      "token": "pending"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_l1"
+      ],
+      "token": "performance"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_d1"
+      ],
+      "token": "planning"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_d2",
+        "mem_q1"
+      ],
+      "token": "portability"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_d1"
+      ],
+      "token": "preserve"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_l1"
+      ],
+      "token": "prospective"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_l2"
+      ],
+      "token": "python"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_q1"
+      ],
+      "token": "question"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_l1"
+      ],
+      "token": "real"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_h2"
+      ],
+      "token": "reduce"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_f1",
+        "mem_m1"
+      ],
+      "token": "reference"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_n2",
+        "mem_q1"
+      ],
+      "token": "regime"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_d2"
+      ],
+      "token": "regime-bounded"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_n2"
+      ],
+      "token": "regimes"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_i1"
+      ],
+      "token": "rejected"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_c2",
+        "mem_d1"
+      ],
+      "token": "remains"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_d2"
+      ],
+      "token": "replace"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_e1",
+        "mem_r2"
+      ],
+      "token": "replay"
+    },
+    {
+      "document_frequency": 3,
+      "memory_ids": [
+        "mem_c2",
+        "mem_q1",
+        "mem_r2"
+      ],
+      "token": "replication"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_q1"
+      ],
+      "token": "reproduce"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_r2"
+      ],
+      "token": "reproduced"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_d1"
+      ],
+      "token": "research"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_r1",
+        "mem_r2"
+      ],
+      "token": "result"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_f1",
+        "mem_h2"
+      ],
+      "token": "risk"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_l2"
+      ],
+      "token": "runtime"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_c1",
+        "mem_d2"
+      ],
+      "token": "scope"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_r2"
+      ],
+      "token": "second"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_n1"
+      ],
+      "token": "selection"
+    },
+    {
+      "document_frequency": 6,
+      "memory_ids": [
+        "mem_c1",
+        "mem_e1",
+        "mem_h1",
+        "mem_n1",
+        "mem_r1",
+        "mem_r2"
+      ],
+      "token": "session"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_f1"
+      ],
+      "token": "single"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_q1"
+      ],
+      "token": "slices"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_n1"
+      ],
+      "token": "stability"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_n1"
+      ],
+      "token": "standalone"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_d2"
+      ],
+      "token": "statement"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_c2"
+      ],
+      "token": "stress"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_d2"
+      ],
+      "token": "supersede"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_f1"
+      ],
+      "token": "supplier"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_a1",
+        "mem_f1"
+      ],
+      "token": "supply-chain"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_n1"
+      ],
+      "token": "support"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_c1"
+      ],
+      "token": "supported"
+    },
+    {
+      "document_frequency": 5,
+      "memory_ids": [
+        "mem_c1",
+        "mem_ds1",
+        "mem_l1",
+        "mem_m1",
+        "mem_r1"
+      ],
+      "token": "synthetic"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_l1"
+      ],
+      "token": "synthetic-only"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_c2",
+        "mem_h2"
+      ],
+      "token": "tail"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_h2"
+      ],
+      "token": "tail-risk"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_c2",
+        "mem_h2"
+      ],
+      "token": "tail-state"
+    },
+    {
+      "document_frequency": 4,
+      "memory_ids": [
+        "mem_c1",
+        "mem_i1",
+        "mem_q1",
+        "mem_r2"
+      ],
+      "token": "the"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_n2"
+      ],
+      "token": "transfer"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_e1",
+        "mem_h1"
+      ],
+      "token": "transition"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_n1"
+      ],
+      "token": "treatment"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_n2"
+      ],
+      "token": "unconstrained"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_e1",
+        "mem_r2"
+      ],
+      "token": "under"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_a1"
+      ],
+      "token": "v4-35"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_e1",
+        "mem_r1"
+      ],
+      "token": "views"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_i1"
+      ],
+      "token": "was"
+    },
+    {
+      "document_frequency": 2,
+      "memory_ids": [
+        "mem_d2",
+        "mem_ds1"
+      ],
+      "token": "with"
+    },
+    {
+      "document_frequency": 1,
+      "memory_ids": [
+        "mem_n2"
+      ],
+      "token": "worst-slice"
+    }
+  ],
+  "research_only": true,
+  "token_count": 135
+}

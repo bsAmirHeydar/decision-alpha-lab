@@ -1,0 +1,48 @@
+{
+  "approvals": [
+    {
+      "approval_id": "approval_1",
+      "decision": "APPROVE_REFERENCE",
+      "independent": false,
+      "negative_knowledge_reviewed": true,
+      "reviewed_plan_hash": "9c7ad438ba546acd498e5c9572f2c839aaf845e0bbde23e3b2081e0e182a9811",
+      "reviewer_id": "reviewer_1",
+      "risk_findings_reviewed": true,
+      "role": "research_owner",
+      "synthetic_fixture": true
+    },
+    {
+      "approval_id": "approval_2",
+      "decision": "APPROVE_REFERENCE",
+      "independent": false,
+      "negative_knowledge_reviewed": true,
+      "reviewed_plan_hash": "9c7ad438ba546acd498e5c9572f2c839aaf845e0bbde23e3b2081e0e182a9811",
+      "reviewer_id": "reviewer_2",
+      "risk_findings_reviewed": true,
+      "role": "risk_reviewer",
+      "synthetic_fixture": true
+    },
+    {
+      "approval_id": "approval_3",
+      "decision": "APPROVE_REFERENCE",
+      "independent": true,
+      "negative_knowledge_reviewed": true,
+      "reviewed_plan_hash": "9c7ad438ba546acd498e5c9572f2c839aaf845e0bbde23e3b2081e0e182a9811",
+      "reviewer_id": "reviewer_3",
+      "risk_findings_reviewed": true,
+      "role": "independent_challenger",
+      "synthetic_fixture": true
+    }
+  ],
+  "experiment_execution_authorized": false,
+  "independent_challenge_present": true,
+  "mandatory_reviews_complete": true,
+  "phase": "SAED_V4_36",
+  "production_authorized": false,
+  "quorum_met": true,
+  "reference_agenda_accepted": true,
+  "required_roles_present": true,
+  "research_only": true,
+  "review_hash": "e18fdbf74ee775e849d722984446edc87facb73e7189878d31d72d055808dcb6",
+  "review_id": "v436_review_f1a4a29b732145a9f9c878d2"
+}

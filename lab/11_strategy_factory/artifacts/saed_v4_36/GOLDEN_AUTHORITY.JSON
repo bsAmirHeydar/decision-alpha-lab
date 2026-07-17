@@ -1,0 +1,20 @@
+{
+  "boundary_hash": "06a06a490835545da85897cefae760cd6bd5d0c7fb483f11655e3bc4e3d389b8",
+  "boundary_id": "v436_authority_c80067b4d682cdf0892dc8c0",
+  "failure_action": "ABSTAIN_PRESERVE_BASELINE_AND_ESCALATE",
+  "live_trading_authority": false,
+  "may_allocate_capital": false,
+  "may_compile_live_runtime": false,
+  "may_emit_human_review_agenda": true,
+  "may_execute_experiment": false,
+  "may_mutate_ucee": false,
+  "may_rank_research_proposals": true,
+  "may_record_memory": true,
+  "may_retrieve_evidence": true,
+  "may_select_treatment": false,
+  "may_send_order": false,
+  "phase": "SAED_V4_36",
+  "production_authorization": false,
+  "promotion_authority": false,
+  "research_only": true
+}
