@@ -1,0 +1,43 @@
+{
+  "all_synthetic": true,
+  "broker_evidence_present": false,
+  "phase": "SAED_V4_37",
+  "report_hash": "07f7c956f86485e33dc7892fb35733d475f3c7d7af8d61e95d9c901fc7c521d8",
+  "report_id": "v437_reconciliation_cd1189cb88ba73f51d544d6d",
+  "research_only": true,
+  "rows": [
+    {
+      "cost_variance_bps": 1.56013374,
+      "expected_cost_bps": 0.73986626,
+      "fill_id": "FILL_01",
+      "fill_ratio": 0.88,
+      "filled_units": 3.96,
+      "opportunity_id": "OPP_03",
+      "planned_units": 4.5,
+      "realized_cost_bps": 2.3,
+      "synthetic_only": true
+    },
+    {
+      "cost_variance_bps": -0.64174963,
+      "expected_cost_bps": 3.44174963,
+      "fill_id": "FILL_02",
+      "fill_ratio": 0.9,
+      "filled_units": 11250.0,
+      "opportunity_id": "OPP_01",
+      "planned_units": 12500.0,
+      "realized_cost_bps": 2.8,
+      "synthetic_only": true
+    },
+    {
+      "cost_variance_bps": -3.8547512,
+      "expected_cost_bps": 7.1547512,
+      "fill_id": "FILL_03",
+      "fill_ratio": 0.92,
+      "filled_units": 8050.0,
+      "opportunity_id": "OPP_04",
+      "planned_units": 8750.0,
+      "realized_cost_bps": 3.3,
+      "synthetic_only": true
+    }
+  ]
+}

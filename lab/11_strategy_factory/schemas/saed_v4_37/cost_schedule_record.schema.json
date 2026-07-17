@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "borrow_bps_annual": {
+      "type": "integer"
+    },
+    "commission_mode": {
+      "type": "string"
+    },
+    "commission_value": {
+      "type": "number"
+    },
+    "cost_schedule_id": {
+      "type": "string"
+    },
+    "exchange_fee_per_unit": {
+      "type": "number"
+    },
+    "funding_bps_annual": {
+      "type": "integer"
+    },
+    "instrument_id": {
+      "type": "string"
+    },
+    "known_time": {
+      "type": "string"
+    },
+    "minimum_fee": {
+      "type": "number"
+    },
+    "regulatory_fee_bps": {
+      "type": "number"
+    },
+    "schedule_hash": {
+      "type": "string"
+    },
+    "synthetic_fixture": {
+      "type": "boolean"
+    },
+    "tax_bps": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "borrow_bps_annual",
+    "commission_mode",
+    "commission_value",
+    "cost_schedule_id",
+    "exchange_fee_per_unit",
+    "funding_bps_annual",
+    "instrument_id",
+    "known_time",
+    "minimum_fee",
+    "regulatory_fee_bps",
+    "schedule_hash",
+    "synthetic_fixture",
+    "tax_bps"
+  ],
+  "title": "SAED V4-37 cost_schedule_record",
+  "type": "object"
+}

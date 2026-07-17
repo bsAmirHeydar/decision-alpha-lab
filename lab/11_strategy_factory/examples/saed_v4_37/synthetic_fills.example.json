@@ -1,0 +1,26 @@
+[
+  {
+    "fill_id": "FILL_01",
+    "filled_units": 3.96,
+    "opportunity_id": "OPP_03",
+    "realized_cost_bps": 1.5,
+    "realized_slippage_bps": 0.8,
+    "synthetic_fixture": true
+  },
+  {
+    "fill_id": "FILL_02",
+    "filled_units": 11250.0,
+    "opportunity_id": "OPP_01",
+    "realized_cost_bps": 1.8,
+    "realized_slippage_bps": 1.0,
+    "synthetic_fixture": true
+  },
+  {
+    "fill_id": "FILL_03",
+    "filled_units": 8050.0,
+    "opportunity_id": "OPP_04",
+    "realized_cost_bps": 2.1,
+    "realized_slippage_bps": 1.2,
+    "synthetic_fixture": true
+  }
+]

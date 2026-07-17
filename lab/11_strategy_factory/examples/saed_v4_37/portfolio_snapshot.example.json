@@ -1,0 +1,16 @@
+{
+  "allocation_count": 3,
+  "gross_notional": 4000000.0,
+  "net_notional": 4000000.0,
+  "phase": "SAED_V4_37",
+  "portfolio_risk_notional": 46475.0944055,
+  "research_only": true,
+  "signed_notional_by_instrument": {
+    "SYN_EQ_A": 1500000.0,
+    "SYN_EQ_C": 700000.0,
+    "SYN_FUT_B": 1800000.0,
+    "SYN_FX_D": 0.0
+  },
+  "snapshot_hash": "59798cd5c38ce5150b111815eb2f41c35872053f1495ac134e37918fb19de3b8",
+  "snapshot_id": "v437_portfolio_3b5427156262232521aa0201"
+}

@@ -1,0 +1,19 @@
+{
+  "boundary_hash": "380dd07f945d3a2fb3e7103fbef5d67e1bbd0f64ea063c6dc57c81ae99384209",
+  "boundary_id": "v437_authority_12ad8fd3f171c7d1525c403c",
+  "failure_action": "ABSTAIN_PRESERVE_BASELINE_AND_ESCALATE",
+  "live_trading_authority": false,
+  "may_activate_capital": false,
+  "may_compile_live_runtime": false,
+  "may_construct_hypothetical_portfolio": true,
+  "may_emit_non_executable_schedule": true,
+  "may_estimate_capacity": true,
+  "may_estimate_costs": true,
+  "may_mutate_ucee": false,
+  "may_promote_model": false,
+  "may_reserve_synthetic_capital": true,
+  "may_send_order": false,
+  "phase": "SAED_V4_37",
+  "production_authorization": false,
+  "research_only": true
+}

@@ -1,0 +1,12 @@
+{
+  "allocated_notional": 1800000.0,
+  "conservative_net_edge_bps": 21.04360244,
+  "context_id": "CTX_C",
+  "direction": "LONG",
+  "expected_net_edge_bps": 21.26013374,
+  "instrument_id": "SYN_FUT_B",
+  "opportunity_id": "OPP_03",
+  "score": 13.78776832,
+  "strategy_cluster": "MOMENTUM",
+  "treatment_id": "TRT_1"
+}

@@ -1,0 +1,16 @@
+{
+  "baseline_receipt_hash": "1f77b132b50351b2e03b14c159d5084d51b95e067afa1ac1d0e45c144a17d3f5",
+  "capital_activation_allowed": false,
+  "decision": "ACCEPT_REFERENCE",
+  "document_hash": "ca8264a5e068f3f7cc0611e2df9efe5bb285c849fc0e2d882abe274692b1d247",
+  "document_id": "v437_certificate_ad7c4e8b55865c1ec434cf62",
+  "evidence_bundle_hash": "86541564b58149065b921c5278d2ac572d3d94afc6b2f66bb7390aaad3221101",
+  "kind": "v4_37_certificate",
+  "next_phase": "SAED_V4_38",
+  "order_submission_allowed": false,
+  "phase": "SAED_V4_37",
+  "production_authorized": false,
+  "research_only": true,
+  "review_bundle_hash": "1d18a6cebb993ae92dc6f065ce1306938dfb53300ec1c7ecfdcd43406ad6d771",
+  "stress_suite_hash": "b48f98d70b57ebb5a149b89c89763d4e8dbf6eec61c892abdefab07aee683097"
+}

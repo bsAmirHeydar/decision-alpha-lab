@@ -1,0 +1,14 @@
+{
+  "authority": "research_only",
+  "claim_ceiling": "synthetic_deterministic_portfolio_execution_economics_reference_only",
+  "delivery_command": "python tools/strategy_factory/saed_v4_37/validate_saed_v4_37_delivery.py",
+  "file_count": 473,
+  "next_phase": "SAED_V4_38",
+  "patch_type": "additive_reference_implementation",
+  "phase": "SAED_V4_37",
+  "production_authorization": false,
+  "qa_command": "python tools/strategy_factory/saed_v4_37/run_saed_v4_37_full_qa.py",
+  "title": "Portfolio Execution Economics",
+  "upstream_phase": "SAED_V4_36",
+  "version": "1.0.0"
+}

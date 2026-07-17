@@ -1,0 +1,18 @@
+{
+  "contract_multiplier": 1,
+  "instrument_hash": "fc3751e32291785f87cf7433b3d2e9dd892b6d454c26bc4064686035544a8ce7",
+  "instrument_id": "SYN_EQ_A",
+  "kind": "ETF",
+  "known_time": "2026-06-30T20:00:00Z",
+  "lot_step": 1,
+  "margin_rate": 0.5,
+  "max_lot": 2000000,
+  "min_lot": 1,
+  "quote_currency": "USD",
+  "settlement_currency": "USD",
+  "shortable": true,
+  "symbol": "SYN-A",
+  "synthetic_fixture": true,
+  "tick_size": 0.01,
+  "tick_value": 0.01
+}

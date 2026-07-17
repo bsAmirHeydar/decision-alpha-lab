@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allocated_notional": {
+      "type": "number"
+    },
+    "conservative_net_edge_bps": {
+      "type": "number"
+    },
+    "context_id": {
+      "type": "string"
+    },
+    "direction": {
+      "type": "string"
+    },
+    "expected_net_edge_bps": {
+      "type": "number"
+    },
+    "instrument_id": {
+      "type": "string"
+    },
+    "opportunity_id": {
+      "type": "string"
+    },
+    "score": {
+      "type": "number"
+    },
+    "strategy_cluster": {
+      "type": "string"
+    },
+    "treatment_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "allocated_notional",
+    "conservative_net_edge_bps",
+    "context_id",
+    "direction",
+    "expected_net_edge_bps",
+    "instrument_id",
+    "opportunity_id",
+    "score",
+    "strategy_cluster",
+    "treatment_id"
+  ],
+  "title": "SAED V4-37 allocation_record",
+  "type": "object"
+}

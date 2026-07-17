@@ -1,0 +1,18 @@
+{
+  "confidence": 0.82,
+  "context_id": "CTX_A",
+  "direction": "LONG",
+  "direction_sign": 1,
+  "expected_gross_bps": 18,
+  "holding_days": 2,
+  "instrument_id": "SYN_EQ_A",
+  "known_time": "2026-06-30T20:00:00Z",
+  "max_notional": 1800000,
+  "opportunity_hash": "e38f9177c780e02b96227f7f5765dc48a7e85b42ab9facb6d444c4bcf91fb64e",
+  "opportunity_id": "OPP_01",
+  "requested_notional": 1500000,
+  "signal_strength": 0.88,
+  "strategy_cluster": "MOMENTUM",
+  "synthetic_fixture": true,
+  "treatment_id": "TRT_1"
+}

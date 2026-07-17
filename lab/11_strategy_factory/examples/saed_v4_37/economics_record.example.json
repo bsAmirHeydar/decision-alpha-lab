@@ -1,0 +1,20 @@
+{
+  "break_even_gross_bps": 3.44174963,
+  "candidate_notional": 1500000.0,
+  "candidate_units": 12500.0,
+  "conservative_net_edge_bps": 13.53218762,
+  "context_id": "CTX_A",
+  "direction": "LONG",
+  "eligible": true,
+  "expected_gross_bps": 18.0,
+  "expected_impact_bps": 2.85017429,
+  "expected_net_edge_bps": 14.55825037,
+  "expected_total_cost_bps": 3.44174963,
+  "explicit_cost_bps": 0.59157534,
+  "instrument_id": "SYN_EQ_A",
+  "opportunity_id": "OPP_01",
+  "rejection_reason": null,
+  "treatment_id": "TRT_1",
+  "upper_impact_bps": 3.87623704,
+  "upper_total_cost_bps": 4.46781238
+}

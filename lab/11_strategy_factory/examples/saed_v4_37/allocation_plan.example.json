@@ -1,0 +1,84 @@
+{
+  "allocations": [
+    {
+      "allocated_notional": 1800000.0,
+      "conservative_net_edge_bps": 21.04360244,
+      "context_id": "CTX_C",
+      "direction": "LONG",
+      "expected_net_edge_bps": 21.26013374,
+      "instrument_id": "SYN_FUT_B",
+      "opportunity_id": "OPP_03",
+      "score": 13.78776832,
+      "strategy_cluster": "MOMENTUM",
+      "treatment_id": "TRT_1"
+    },
+    {
+      "allocated_notional": 1500000.0,
+      "conservative_net_edge_bps": 13.53218762,
+      "context_id": "CTX_A",
+      "direction": "LONG",
+      "expected_net_edge_bps": 14.55825037,
+      "instrument_id": "SYN_EQ_A",
+      "opportunity_id": "OPP_01",
+      "score": 9.76482659,
+      "strategy_cluster": "MOMENTUM",
+      "treatment_id": "TRT_1"
+    },
+    {
+      "allocated_notional": 700000.0,
+      "conservative_net_edge_bps": 7.15109453,
+      "context_id": "CTX_D",
+      "direction": "LONG",
+      "expected_net_edge_bps": 8.8452488,
+      "instrument_id": "SYN_EQ_C",
+      "opportunity_id": "OPP_04",
+      "score": 3.96885746,
+      "strategy_cluster": "VALUE",
+      "treatment_id": "TRT_3"
+    }
+  ],
+  "baseline_preserved": true,
+  "optimization": "DETERMINISTIC_CONSTRAINED_GREEDY_REFERENCE",
+  "phase": "SAED_V4_37",
+  "plan_hash": "01b30d71dfb8ff65ee183fad2a6a41aea267def25ae05b82f14c3c93e5de2435",
+  "plan_id": "v437_allocation_59ae2e6241fa5023e004cd62",
+  "portfolio_snapshot": {
+    "allocation_count": 3,
+    "gross_notional": 4000000.0,
+    "net_notional": 4000000.0,
+    "phase": "SAED_V4_37",
+    "portfolio_risk_notional": 46475.0944055,
+    "research_only": true,
+    "signed_notional_by_instrument": {
+      "SYN_EQ_A": 1500000.0,
+      "SYN_EQ_C": 700000.0,
+      "SYN_FUT_B": 1800000.0,
+      "SYN_FX_D": 0.0
+    },
+    "snapshot_hash": "59798cd5c38ce5150b111815eb2f41c35872053f1495ac134e37918fb19de3b8",
+    "snapshot_id": "v437_portfolio_3b5427156262232521aa0201"
+  },
+  "rejections": [
+    {
+      "opportunity_id": "OPP_02",
+      "reason": "PORTFOLIO_CONSTRAINT_BINDING"
+    },
+    {
+      "opportunity_id": "OPP_05",
+      "reason": "PORTFOLIO_CONSTRAINT_BINDING"
+    },
+    {
+      "opportunity_id": "OPP_06",
+      "reason": "PORTFOLIO_CONSTRAINT_BINDING"
+    },
+    {
+      "opportunity_id": "OPP_07",
+      "reason": "PORTFOLIO_CONSTRAINT_BINDING"
+    },
+    {
+      "opportunity_id": "OPP_08",
+      "reason": "ECONOMICS_GATE_FAILED"
+    }
+  ],
+  "research_only": true
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "automatic_order_submission_allowed": {
+      "type": "boolean"
+    },
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "clauses": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "clause_id": {
+            "type": "string"
+          },
+          "evidence_required": {
+            "type": "boolean"
+          },
+          "failure_action": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "number"
+          },
+          "requirement": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "clause_id",
+          "evidence_required",
+          "failure_action",
+          "priority",
+          "requirement"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "constitution_hash": {
+      "type": "string"
+    },
+    "constitution_id": {
+      "type": "string"
+    },
+    "executable_prices_required": {
+      "type": "boolean"
+    },
+    "full_cost_accounting_required": {
+      "type": "boolean"
+    },
+    "known_time_required": {
+      "type": "boolean"
+    },
+    "production_authorization_allowed": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "automatic_order_submission_allowed",
+    "capital_activation_allowed",
+    "clauses",
+    "constitution_hash",
+    "constitution_id",
+    "executable_prices_required",
+    "full_cost_accounting_required",
+    "known_time_required",
+    "production_authorization_allowed",
+    "research_only",
+    "version"
+  ],
+  "title": "SAED V4-37 constitution",
+  "type": "object"
+}

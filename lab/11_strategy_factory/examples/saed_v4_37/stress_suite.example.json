@@ -1,0 +1,59 @@
+{
+  "all_passed": true,
+  "phase": "SAED_V4_37",
+  "research_only": true,
+  "rows": [
+    {
+      "passed": true,
+      "scenario_id": "BASE",
+      "stressed_cost_value": 1150.2709553,
+      "stressed_gross_value": 7780.0,
+      "stressed_net_value": 6629.7290447,
+      "stressed_risk_notional": 46475.0944055
+    },
+    {
+      "passed": true,
+      "scenario_id": "CORRELATION_BREAK",
+      "stressed_cost_value": 1115.8383773,
+      "stressed_gross_value": 2859.15,
+      "stressed_net_value": 1743.3116227,
+      "stressed_risk_notional": 69712.64160825
+    },
+    {
+      "passed": true,
+      "scenario_id": "COST_2X",
+      "stressed_cost_value": 1972.36849921,
+      "stressed_gross_value": 4761.36,
+      "stressed_net_value": 2788.99150079,
+      "stressed_risk_notional": 51122.60384605
+    },
+    {
+      "passed": true,
+      "scenario_id": "EDGE_DECAY",
+      "stressed_cost_value": 1384.94019313,
+      "stressed_gross_value": 2678.265,
+      "stressed_net_value": 1293.32480687,
+      "stressed_risk_notional": 55770.1132866
+    },
+    {
+      "passed": true,
+      "scenario_id": "FUNDING_SHOCK",
+      "stressed_cost_value": 3803.23531593,
+      "stressed_gross_value": 5041.44,
+      "stressed_net_value": 1238.20468407,
+      "stressed_risk_notional": 51122.60384605
+    },
+    {
+      "passed": true,
+      "scenario_id": "LIQUIDITY_CRUNCH",
+      "stressed_cost_value": 909.73015359,
+      "stressed_gross_value": 1444.1625,
+      "stressed_net_value": 534.43234641,
+      "stressed_risk_notional": 58093.86800687
+    }
+  ],
+  "scenario_count": 6,
+  "suite_hash": "b48f98d70b57ebb5a149b89c89763d4e8dbf6eec61c892abdefab07aee683097",
+  "suite_id": "v437_stress_7b2e38a98d815cd712ac812b",
+  "worst_net_value": 534.43234641
+}

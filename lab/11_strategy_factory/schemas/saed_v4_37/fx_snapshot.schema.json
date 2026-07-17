@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "base_currency": {
+      "type": "string"
+    },
+    "cutoff_time": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "rates": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "base": {
+            "type": "string"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "mid": {
+            "type": "number"
+          },
+          "quote": {
+            "type": "string"
+          },
+          "rate_hash": {
+            "type": "string"
+          },
+          "rate_id": {
+            "type": "string"
+          },
+          "spread_bps": {
+            "type": "number"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "base",
+          "known_time",
+          "mid",
+          "quote",
+          "rate_hash",
+          "rate_id",
+          "spread_bps",
+          "synthetic_fixture"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "snapshot_hash": {
+      "type": "string"
+    },
+    "snapshot_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "base_currency",
+    "cutoff_time",
+    "phase",
+    "rates",
+    "research_only",
+    "snapshot_hash",
+    "snapshot_id"
+  ],
+  "title": "SAED V4-37 fx_snapshot",
+  "type": "object"
+}

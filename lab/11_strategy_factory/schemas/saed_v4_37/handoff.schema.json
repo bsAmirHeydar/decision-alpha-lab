@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allocation_plan_hash": {
+      "type": "string"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "document_hash": {
+      "type": "string"
+    },
+    "document_id": {
+      "type": "string"
+    },
+    "economics_hash": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "permitted_inputs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "schedule_hash": {
+      "type": "string"
+    },
+    "transferred_authority": {
+      "items": {},
+      "type": "array"
+    }
+  },
+  "required": [
+    "allocation_plan_hash",
+    "certificate_hash",
+    "document_hash",
+    "document_id",
+    "economics_hash",
+    "kind",
+    "next_phase",
+    "permitted_inputs",
+    "phase",
+    "production_authorized",
+    "research_only",
+    "schedule_hash",
+    "transferred_authority"
+  ],
+  "title": "SAED V4-37 handoff",
+  "type": "object"
+}

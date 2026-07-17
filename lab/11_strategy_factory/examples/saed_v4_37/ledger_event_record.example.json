@@ -1,0 +1,9 @@
+{
+  "amount": 10000000.0,
+  "event_hash": "4e612e3758ea7333fe644e469346d086fcbd996f1068e8fdd751b078f01d29e7",
+  "event_id": "v437_reservation_event_d8b5c3d97d2df0c77e9adc1a",
+  "event_type": "CAPITAL_OPEN",
+  "opportunity_id": null,
+  "ordinal": 0,
+  "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+}

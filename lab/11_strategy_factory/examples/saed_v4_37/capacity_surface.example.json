@@ -1,0 +1,89 @@
+{
+  "all_bounded": true,
+  "capacity_hash": "e7d8e4d4bf0a9a9abc966f3d3c1bb0383d527eecbd76956520afbf5c3aa05d39",
+  "capacity_id": "v437_capacity_3a17b59d97a2eeb08af79f98",
+  "phase": "SAED_V4_37",
+  "research_only": true,
+  "rows": [
+    {
+      "binding_limit": "OPPORTUNITY_MAX",
+      "capacity_notional": 1800000.0,
+      "capacity_units": 180000.0,
+      "depth_capacity_units": 180000.0,
+      "instrument_id": "SYN_EQ_A",
+      "opportunity_id": "OPP_01",
+      "participation_capacity_units": 480000.0,
+      "unit_notional": 120.0
+    },
+    {
+      "binding_limit": "OPPORTUNITY_MAX",
+      "capacity_notional": 1200000.0,
+      "capacity_units": 180000.0,
+      "depth_capacity_units": 180000.0,
+      "instrument_id": "SYN_EQ_A",
+      "opportunity_id": "OPP_02",
+      "participation_capacity_units": 480000.0,
+      "unit_notional": 120.0
+    },
+    {
+      "binding_limit": "OPPORTUNITY_MAX",
+      "capacity_notional": 1800000.0,
+      "capacity_units": 10000.0,
+      "depth_capacity_units": 27000.0,
+      "instrument_id": "SYN_FUT_B",
+      "opportunity_id": "OPP_03",
+      "participation_capacity_units": 52000.0,
+      "unit_notional": 400000.0
+    },
+    {
+      "binding_limit": "OPPORTUNITY_MAX",
+      "capacity_notional": 1600000.0,
+      "capacity_units": 105000.0,
+      "depth_capacity_units": 105000.0,
+      "instrument_id": "SYN_EQ_C",
+      "opportunity_id": "OPP_04",
+      "participation_capacity_units": 304000.0,
+      "unit_notional": 80.0
+    },
+    {
+      "binding_limit": "OPPORTUNITY_MAX",
+      "capacity_notional": 1200000.0,
+      "capacity_units": 105000.0,
+      "depth_capacity_units": 105000.0,
+      "instrument_id": "SYN_EQ_C",
+      "opportunity_id": "OPP_05",
+      "participation_capacity_units": 304000.0,
+      "unit_notional": 80.0
+    },
+    {
+      "binding_limit": "LIQUIDITY",
+      "capacity_notional": 320000.0,
+      "capacity_units": 500.0,
+      "depth_capacity_units": 8250.0,
+      "instrument_id": "SYN_FX_D",
+      "opportunity_id": "OPP_06",
+      "participation_capacity_units": 14400.0,
+      "unit_notional": 640.0
+    },
+    {
+      "binding_limit": "OPPORTUNITY_MAX",
+      "capacity_notional": 1300000.0,
+      "capacity_units": 10000.0,
+      "depth_capacity_units": 27000.0,
+      "instrument_id": "SYN_FUT_B",
+      "opportunity_id": "OPP_07",
+      "participation_capacity_units": 52000.0,
+      "unit_notional": 400000.0
+    },
+    {
+      "binding_limit": "OPPORTUNITY_MAX",
+      "capacity_notional": 900000.0,
+      "capacity_units": 180000.0,
+      "depth_capacity_units": 180000.0,
+      "instrument_id": "SYN_EQ_A",
+      "opportunity_id": "OPP_08",
+      "participation_capacity_units": 480000.0,
+      "unit_notional": 120.0
+    }
+  ]
+}

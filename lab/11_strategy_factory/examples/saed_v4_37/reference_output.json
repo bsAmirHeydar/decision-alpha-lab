@@ -1,0 +1,1541 @@
+{
+  "allocation_plan": {
+    "allocations": [
+      {
+        "allocated_notional": 1800000.0,
+        "conservative_net_edge_bps": 21.04360244,
+        "context_id": "CTX_C",
+        "direction": "LONG",
+        "expected_net_edge_bps": 21.26013374,
+        "instrument_id": "SYN_FUT_B",
+        "opportunity_id": "OPP_03",
+        "score": 13.78776832,
+        "strategy_cluster": "MOMENTUM",
+        "treatment_id": "TRT_1"
+      },
+      {
+        "allocated_notional": 1500000.0,
+        "conservative_net_edge_bps": 13.53218762,
+        "context_id": "CTX_A",
+        "direction": "LONG",
+        "expected_net_edge_bps": 14.55825037,
+        "instrument_id": "SYN_EQ_A",
+        "opportunity_id": "OPP_01",
+        "score": 9.76482659,
+        "strategy_cluster": "MOMENTUM",
+        "treatment_id": "TRT_1"
+      },
+      {
+        "allocated_notional": 700000.0,
+        "conservative_net_edge_bps": 7.15109453,
+        "context_id": "CTX_D",
+        "direction": "LONG",
+        "expected_net_edge_bps": 8.8452488,
+        "instrument_id": "SYN_EQ_C",
+        "opportunity_id": "OPP_04",
+        "score": 3.96885746,
+        "strategy_cluster": "VALUE",
+        "treatment_id": "TRT_3"
+      }
+    ],
+    "baseline_preserved": true,
+    "optimization": "DETERMINISTIC_CONSTRAINED_GREEDY_REFERENCE",
+    "phase": "SAED_V4_37",
+    "plan_hash": "01b30d71dfb8ff65ee183fad2a6a41aea267def25ae05b82f14c3c93e5de2435",
+    "plan_id": "v437_allocation_59ae2e6241fa5023e004cd62",
+    "portfolio_snapshot": {
+      "allocation_count": 3,
+      "gross_notional": 4000000.0,
+      "net_notional": 4000000.0,
+      "phase": "SAED_V4_37",
+      "portfolio_risk_notional": 46475.0944055,
+      "research_only": true,
+      "signed_notional_by_instrument": {
+        "SYN_EQ_A": 1500000.0,
+        "SYN_EQ_C": 700000.0,
+        "SYN_FUT_B": 1800000.0,
+        "SYN_FX_D": 0.0
+      },
+      "snapshot_hash": "59798cd5c38ce5150b111815eb2f41c35872053f1495ac134e37918fb19de3b8",
+      "snapshot_id": "v437_portfolio_3b5427156262232521aa0201"
+    },
+    "rejections": [
+      {
+        "opportunity_id": "OPP_02",
+        "reason": "PORTFOLIO_CONSTRAINT_BINDING"
+      },
+      {
+        "opportunity_id": "OPP_05",
+        "reason": "PORTFOLIO_CONSTRAINT_BINDING"
+      },
+      {
+        "opportunity_id": "OPP_06",
+        "reason": "PORTFOLIO_CONSTRAINT_BINDING"
+      },
+      {
+        "opportunity_id": "OPP_07",
+        "reason": "PORTFOLIO_CONSTRAINT_BINDING"
+      },
+      {
+        "opportunity_id": "OPP_08",
+        "reason": "ECONOMICS_GATE_FAILED"
+      }
+    ],
+    "research_only": true
+  },
+  "authority_boundary": {
+    "boundary_hash": "380dd07f945d3a2fb3e7103fbef5d67e1bbd0f64ea063c6dc57c81ae99384209",
+    "boundary_id": "v437_authority_12ad8fd3f171c7d1525c403c",
+    "failure_action": "ABSTAIN_PRESERVE_BASELINE_AND_ESCALATE",
+    "live_trading_authority": false,
+    "may_activate_capital": false,
+    "may_compile_live_runtime": false,
+    "may_construct_hypothetical_portfolio": true,
+    "may_emit_non_executable_schedule": true,
+    "may_estimate_capacity": true,
+    "may_estimate_costs": true,
+    "may_mutate_ucee": false,
+    "may_promote_model": false,
+    "may_reserve_synthetic_capital": true,
+    "may_send_order": false,
+    "phase": "SAED_V4_37",
+    "production_authorization": false,
+    "research_only": true
+  },
+  "baseline_receipt": {
+    "allocation_plan_hash": "01b30d71dfb8ff65ee183fad2a6a41aea267def25ae05b82f14c3c93e5de2435",
+    "baseline_preserved": true,
+    "external_capital_mutated": false,
+    "orders_submitted": false,
+    "phase": "SAED_V4_37",
+    "receipt_hash": "1f77b132b50351b2e03b14c159d5084d51b95e067afa1ac1d0e45c144a17d3f5",
+    "receipt_id": "v437_baseline_013dc26fec862d4b03d7198a",
+    "research_only": true,
+    "runtime_compiled": false,
+    "schedule_hash": "f87c7e0a116748e02c66b2ad62ba2efe68e52edb922f981d7e511179cb22b949",
+    "treatment_policy_mutated": false,
+    "ucee_mutated": false
+  },
+  "capacity_surface": {
+    "all_bounded": true,
+    "capacity_hash": "e7d8e4d4bf0a9a9abc966f3d3c1bb0383d527eecbd76956520afbf5c3aa05d39",
+    "capacity_id": "v437_capacity_3a17b59d97a2eeb08af79f98",
+    "phase": "SAED_V4_37",
+    "research_only": true,
+    "rows": [
+      {
+        "binding_limit": "OPPORTUNITY_MAX",
+        "capacity_notional": 1800000.0,
+        "capacity_units": 180000.0,
+        "depth_capacity_units": 180000.0,
+        "instrument_id": "SYN_EQ_A",
+        "opportunity_id": "OPP_01",
+        "participation_capacity_units": 480000.0,
+        "unit_notional": 120.0
+      },
+      {
+        "binding_limit": "OPPORTUNITY_MAX",
+        "capacity_notional": 1200000.0,
+        "capacity_units": 180000.0,
+        "depth_capacity_units": 180000.0,
+        "instrument_id": "SYN_EQ_A",
+        "opportunity_id": "OPP_02",
+        "participation_capacity_units": 480000.0,
+        "unit_notional": 120.0
+      },
+      {
+        "binding_limit": "OPPORTUNITY_MAX",
+        "capacity_notional": 1800000.0,
+        "capacity_units": 10000.0,
+        "depth_capacity_units": 27000.0,
+        "instrument_id": "SYN_FUT_B",
+        "opportunity_id": "OPP_03",
+        "participation_capacity_units": 52000.0,
+        "unit_notional": 400000.0
+      },
+      {
+        "binding_limit": "OPPORTUNITY_MAX",
+        "capacity_notional": 1600000.0,
+        "capacity_units": 105000.0,
+        "depth_capacity_units": 105000.0,
+        "instrument_id": "SYN_EQ_C",
+        "opportunity_id": "OPP_04",
+        "participation_capacity_units": 304000.0,
+        "unit_notional": 80.0
+      },
+      {
+        "binding_limit": "OPPORTUNITY_MAX",
+        "capacity_notional": 1200000.0,
+        "capacity_units": 105000.0,
+        "depth_capacity_units": 105000.0,
+        "instrument_id": "SYN_EQ_C",
+        "opportunity_id": "OPP_05",
+        "participation_capacity_units": 304000.0,
+        "unit_notional": 80.0
+      },
+      {
+        "binding_limit": "LIQUIDITY",
+        "capacity_notional": 320000.0,
+        "capacity_units": 500.0,
+        "depth_capacity_units": 8250.0,
+        "instrument_id": "SYN_FX_D",
+        "opportunity_id": "OPP_06",
+        "participation_capacity_units": 14400.0,
+        "unit_notional": 640.0
+      },
+      {
+        "binding_limit": "OPPORTUNITY_MAX",
+        "capacity_notional": 1300000.0,
+        "capacity_units": 10000.0,
+        "depth_capacity_units": 27000.0,
+        "instrument_id": "SYN_FUT_B",
+        "opportunity_id": "OPP_07",
+        "participation_capacity_units": 52000.0,
+        "unit_notional": 400000.0
+      },
+      {
+        "binding_limit": "OPPORTUNITY_MAX",
+        "capacity_notional": 900000.0,
+        "capacity_units": 180000.0,
+        "depth_capacity_units": 180000.0,
+        "instrument_id": "SYN_EQ_A",
+        "opportunity_id": "OPP_08",
+        "participation_capacity_units": 480000.0,
+        "unit_notional": 120.0
+      }
+    ]
+  },
+  "certificate": {
+    "baseline_receipt_hash": "1f77b132b50351b2e03b14c159d5084d51b95e067afa1ac1d0e45c144a17d3f5",
+    "capital_activation_allowed": false,
+    "decision": "ACCEPT_REFERENCE",
+    "document_hash": "ca8264a5e068f3f7cc0611e2df9efe5bb285c849fc0e2d882abe274692b1d247",
+    "document_id": "v437_certificate_ad7c4e8b55865c1ec434cf62",
+    "evidence_bundle_hash": "86541564b58149065b921c5278d2ac572d3d94afc6b2f66bb7390aaad3221101",
+    "kind": "v4_37_certificate",
+    "next_phase": "SAED_V4_38",
+    "order_submission_allowed": false,
+    "phase": "SAED_V4_37",
+    "production_authorized": false,
+    "research_only": true,
+    "review_bundle_hash": "1d18a6cebb993ae92dc6f065ce1306938dfb53300ec1c7ecfdcd43406ad6d771",
+    "stress_suite_hash": "b48f98d70b57ebb5a149b89c89763d4e8dbf6eec61c892abdefab07aee683097"
+  },
+  "constitution": {
+    "automatic_order_submission_allowed": false,
+    "capital_activation_allowed": false,
+    "clauses": [
+      {
+        "clause_id": "V437-C01",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 1,
+        "requirement": "Known-time inputs only"
+      },
+      {
+        "clause_id": "V437-C02",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 2,
+        "requirement": "Executable-price mathematics"
+      },
+      {
+        "clause_id": "V437-C03",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 3,
+        "requirement": "Explicit spread accounting"
+      },
+      {
+        "clause_id": "V437-C04",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 4,
+        "requirement": "Commission and fee accounting"
+      },
+      {
+        "clause_id": "V437-C05",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 5,
+        "requirement": "Borrow and funding accounting"
+      },
+      {
+        "clause_id": "V437-C06",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 6,
+        "requirement": "Temporary impact accounting"
+      },
+      {
+        "clause_id": "V437-C07",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 7,
+        "requirement": "Permanent impact accounting"
+      },
+      {
+        "clause_id": "V437-C08",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 8,
+        "requirement": "Liquidity participation cap"
+      },
+      {
+        "clause_id": "V437-C09",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 9,
+        "requirement": "Depth capacity cap"
+      },
+      {
+        "clause_id": "V437-C10",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 10,
+        "requirement": "Instrument lot constraints"
+      },
+      {
+        "clause_id": "V437-C11",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 11,
+        "requirement": "Currency conversion lineage"
+      },
+      {
+        "clause_id": "V437-C12",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 12,
+        "requirement": "Gross exposure limit"
+      },
+      {
+        "clause_id": "V437-C13",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 13,
+        "requirement": "Net exposure limit"
+      },
+      {
+        "clause_id": "V437-C14",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 14,
+        "requirement": "Instrument concentration limit"
+      },
+      {
+        "clause_id": "V437-C15",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 15,
+        "requirement": "Cluster concentration limit"
+      },
+      {
+        "clause_id": "V437-C16",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 16,
+        "requirement": "Portfolio dependence risk"
+      },
+      {
+        "clause_id": "V437-C17",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 17,
+        "requirement": "Cash reserve preservation"
+      },
+      {
+        "clause_id": "V437-C18",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 18,
+        "requirement": "Capital reservation ledger"
+      },
+      {
+        "clause_id": "V437-C19",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 19,
+        "requirement": "Stress before acceptance"
+      },
+      {
+        "clause_id": "V437-C20",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 20,
+        "requirement": "Non-executable schedule only"
+      },
+      {
+        "clause_id": "V437-C21",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 21,
+        "requirement": "No broker routing"
+      },
+      {
+        "clause_id": "V437-C22",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 22,
+        "requirement": "No runtime activation"
+      },
+      {
+        "clause_id": "V437-C23",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 23,
+        "requirement": "Independent challenge"
+      },
+      {
+        "clause_id": "V437-C24",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 24,
+        "requirement": "Fail-closed escalation"
+      }
+    ],
+    "constitution_hash": "6416e006dab91f2f9e092bddb9b5879ad76cefd2e3308f715e42906b209c9208",
+    "constitution_id": "v437_constitution_ref",
+    "executable_prices_required": true,
+    "full_cost_accounting_required": true,
+    "known_time_required": true,
+    "production_authorization_allowed": false,
+    "research_only": true,
+    "version": "1.0.0"
+  },
+  "constraints": {
+    "base_currency": "USD",
+    "capital_budget": 10000000,
+    "cash_reserve": 1500000,
+    "constraint_hash": "27c9aab0e9f7fd74f4d269daa800053ad5764c195476ee8fd37402caca158384",
+    "constraint_id": "CONSTRAINT_REF",
+    "gross_limit": 8500000,
+    "known_time": "2026-06-30T20:00:00Z",
+    "max_cluster_notional": 4200000,
+    "max_depth_multiple": 1.5,
+    "max_order_slices": 8,
+    "max_participation_rate": 0.08,
+    "max_portfolio_risk_notional": 120000,
+    "max_single_instrument_notional": 3000000,
+    "max_single_opportunity_notional": 1800000,
+    "max_slice_minutes": 30,
+    "maximum_expected_cost_bps": 18.0,
+    "minimum_net_edge_bps": 3.0,
+    "net_limit": 4000000,
+    "synthetic_fixture": true
+  },
+  "cost_registry": {
+    "cutoff_time": "2026-06-30T20:00:00Z",
+    "phase": "SAED_V4_37",
+    "registry_hash": "48cd6457b83654265b0559286291e42ba70ac76651cd43cab6d4b4fac52650f1",
+    "registry_id": "v437_costs_4490c5d4d13a18f6ff5a43ae",
+    "research_only": true,
+    "schedules": [
+      {
+        "borrow_bps_annual": 120,
+        "commission_mode": "PER_UNIT",
+        "commission_value": 0.0035,
+        "cost_schedule_id": "COST_SYN_EQ_A",
+        "exchange_fee_per_unit": 0.0004,
+        "funding_bps_annual": 45,
+        "instrument_id": "SYN_EQ_A",
+        "known_time": "2026-06-30T20:00:00Z",
+        "minimum_fee": 1.0,
+        "regulatory_fee_bps": 0.02,
+        "schedule_hash": "68d940cb2d2c541fbddd0d2605a9dc34d62f62b265029efee9b153449fc1561e",
+        "synthetic_fixture": true,
+        "tax_bps": 0
+      },
+      {
+        "borrow_bps_annual": 150,
+        "commission_mode": "PER_NOTIONAL_BPS",
+        "commission_value": 0.6,
+        "cost_schedule_id": "COST_SYN_EQ_C",
+        "exchange_fee_per_unit": 0,
+        "funding_bps_annual": 40,
+        "instrument_id": "SYN_EQ_C",
+        "known_time": "2026-06-30T20:00:00Z",
+        "minimum_fee": 1.0,
+        "regulatory_fee_bps": 0.02,
+        "schedule_hash": "27cf71560135f2c48a9853b9a74ab4cac2ae6a668b541acd193f2e86af64ddff",
+        "synthetic_fixture": true,
+        "tax_bps": 1.5
+      },
+      {
+        "borrow_bps_annual": 0,
+        "commission_mode": "PER_UNIT",
+        "commission_value": 1.15,
+        "cost_schedule_id": "COST_SYN_FUT_B",
+        "exchange_fee_per_unit": 0.55,
+        "funding_bps_annual": 35,
+        "instrument_id": "SYN_FUT_B",
+        "known_time": "2026-06-30T20:00:00Z",
+        "minimum_fee": 1.7,
+        "regulatory_fee_bps": 0,
+        "schedule_hash": "a0522509b2cd31946bc1fd05bbd3494e58a897ac9afb1b51c666d383b6ecc7ad",
+        "synthetic_fixture": true,
+        "tax_bps": 0
+      },
+      {
+        "borrow_bps_annual": 0,
+        "commission_mode": "PER_NOTIONAL_BPS",
+        "commission_value": 0.25,
+        "cost_schedule_id": "COST_SYN_FX_D",
+        "exchange_fee_per_unit": 0,
+        "funding_bps_annual": 65,
+        "instrument_id": "SYN_FX_D",
+        "known_time": "2026-06-30T20:00:00Z",
+        "minimum_fee": 0.5,
+        "regulatory_fee_bps": 0,
+        "schedule_hash": "9c6dea5589f92d6cb9c2577ae556b71a7e11a6b52b404e244b3a0d70095cfeb0",
+        "synthetic_fixture": true,
+        "tax_bps": 0
+      }
+    ]
+  },
+  "covariance_matrix": {
+    "instrument_ids": [
+      "SYN_EQ_A",
+      "SYN_EQ_C",
+      "SYN_FUT_B",
+      "SYN_FX_D"
+    ],
+    "matrix": [
+      [
+        0.000144,
+        5.712e-05,
+        0.00011712,
+        -1.152e-05
+      ],
+      [
+        5.712e-05,
+        0.000196,
+        6.272e-05,
+        -2.016e-05
+      ],
+      [
+        0.00011712,
+        6.272e-05,
+        0.000256,
+        -1.024e-05
+      ],
+      [
+        -1.152e-05,
+        -2.016e-05,
+        -1.024e-05,
+        6.4e-05
+      ]
+    ],
+    "phase": "SAED_V4_37",
+    "research_only": true
+  },
+  "dependence_model": {
+    "cluster_map": {
+      "SYN_EQ_A": "RISK_ASSET",
+      "SYN_EQ_C": "RISK_ASSET",
+      "SYN_FUT_B": "INDEX_FUTURE",
+      "SYN_FX_D": "FX"
+    },
+    "correlation_matrix": [
+      [
+        1.0,
+        0.34,
+        0.61,
+        -0.12
+      ],
+      [
+        0.34,
+        1.0,
+        0.28,
+        -0.18
+      ],
+      [
+        0.61,
+        0.28,
+        1.0,
+        -0.08
+      ],
+      [
+        -0.12,
+        -0.18,
+        -0.08,
+        1.0
+      ]
+    ],
+    "dependence_hash": "b0fda182d469cab9e41f4dda8187954792cfa777194cd08ecf750e844e6746d7",
+    "dependence_id": "DEP_REF",
+    "gershgorin_lower_bound": -0.07,
+    "instrument_ids": [
+      "SYN_EQ_A",
+      "SYN_EQ_C",
+      "SYN_FUT_B",
+      "SYN_FX_D"
+    ],
+    "known_time": "2026-06-30T20:00:00Z",
+    "shrinkage": 0.15,
+    "synthetic_fixture": true,
+    "volatility_vector": {
+      "SYN_EQ_A": 0.012,
+      "SYN_EQ_C": 0.014,
+      "SYN_FUT_B": 0.016,
+      "SYN_FX_D": 0.008
+    }
+  },
+  "evidence_bundle": {
+    "artifact_count": 19,
+    "artifact_hashes": [
+      "a44340816acbb9656f1bb6748b150817d03b251a81abd95071e6b01fe72b4f03",
+      "70b39dc32b13cc3aad26af8c7d8dc5bdd8c91f4567fe4f6d4ab0d9a13f50358a",
+      "6c4a735aa3ec277aa59c3bf63890dd7d369fbe138d18a22d49514d05e51c31b1",
+      "5d432b1b7b78e931fc9b9c01bceb6d425aaf61d2f29a4a5fdf4c0e2980310e0b",
+      "22d874048b179817a5152f8c7941de949a0b81369a94988c308b48fc921257f9",
+      "ffd5825929440641a9e8bde2991619f350326f33a7159a0ee91e8be94602f24f",
+      "ef7c1d7615689c5facc25de073652a392a6180b0bd462c6caaaf537e0612f045",
+      "489e1031eaaede1d5ce09ad1673a38a5323331d22468ac1277ba287a2efd0be0",
+      "f730280e346225503fb031bb237b3b2eebe6a892e9f58207d2b1a1363f3f5576",
+      "e12e2bdac1c71efe1a23eb3266b93855ec84f18dc8dc4015c836b6a11e8ebd71",
+      "24f448839eda1692c0e52a72a678af167f7b6c172251c2f261c0754e00e9d55c",
+      "9c4057547e605d19c858593c831042382259233ca8fb03a70343409cae94a768",
+      "fb0ecfd8d57f77267a702aa65044be5d9185b1101e758e0f761be4eafe7da8f4",
+      "aa4c13a2d6707febbbf5025ac1a54806463f15acef587a5ea776bcab08b7e93f",
+      "6f712cfb8763b5e2144fe414e629c02a39ab90b904f1eeb90e445423c4a510c5",
+      "39cb4276c6a8f029b1a37c0031d79498ddac6be2711d3e50100e080aea664186",
+      "865598ac0144e11b08e5a7b87d5d825ee15f3cb850cbd078faca0129da6765bb",
+      "2d58580b61b2789d3bcdc45bb0f736cf24136dfa179263a73f412b6e06876c0e",
+      "d05c8ed9aa459235e90adc96d62350c277a5becf0e8807aa38e562877537cdec"
+    ],
+    "artifact_names": [
+      "allocation_plan",
+      "authority_boundary",
+      "baseline_receipt",
+      "capacity_surface",
+      "constitution",
+      "constraints",
+      "cost_registry",
+      "covariance_matrix",
+      "dependence_model",
+      "fx_snapshot",
+      "instrument_master",
+      "liquidity_registry",
+      "non_executable_schedule",
+      "opportunity_economics",
+      "opportunity_registry",
+      "reservation_ledger",
+      "stress_suite",
+      "synthetic_reconciliation",
+      "upstream_receipt"
+    ],
+    "bundle_hash": "86541564b58149065b921c5278d2ac572d3d94afc6b2f66bb7390aaad3221101",
+    "bundle_id": "v437_evidence_026a465f76fc41b675878a77",
+    "external_broker_evidence": false,
+    "merkle_root": "04c551713eb632762179b39e4184ec2dcf11b80276ee1b360e519f25673cf3be",
+    "metaeditor_evidence": false,
+    "phase": "SAED_V4_37",
+    "production_authorized": false,
+    "research_only": true
+  },
+  "fx_snapshot": {
+    "base_currency": "USD",
+    "cutoff_time": "2026-06-30T20:00:00Z",
+    "phase": "SAED_V4_37",
+    "rates": [
+      {
+        "base": "EUR",
+        "known_time": "2026-06-30T20:00:00Z",
+        "mid": 0.85,
+        "quote": "GBP",
+        "rate_hash": "6cd72ac2d151bf6bb350aec7bd49ca787f9ccb4b2816e215c942264898382216",
+        "rate_id": "EUR_GBP",
+        "spread_bps": 1.1,
+        "synthetic_fixture": true
+      },
+      {
+        "base": "USD",
+        "known_time": "2026-06-30T20:00:00Z",
+        "mid": 0.92,
+        "quote": "EUR",
+        "rate_hash": "ff3adbb508bbe22c66c2006c28b345244e378cdba2c797fe37eff872a3f28a27",
+        "rate_id": "USD_EUR",
+        "spread_bps": 1.2,
+        "synthetic_fixture": true
+      },
+      {
+        "base": "USD",
+        "known_time": "2026-06-30T20:00:00Z",
+        "mid": 156.4,
+        "quote": "JPY",
+        "rate_hash": "d8595b6b38bda519da3b55bb56f86f6b0c5a4a3fcfd39dc33ded649f9b26689b",
+        "rate_id": "USD_JPY",
+        "spread_bps": 1.5,
+        "synthetic_fixture": true
+      }
+    ],
+    "research_only": true,
+    "snapshot_hash": "03225f8b13c521eaa2d8a7e85d57f7336a82e3f28886a17f366139d132b04141",
+    "snapshot_id": "v437_fx_dd19112a25a60b5093585c4a"
+  },
+  "handoff": {
+    "allocation_plan_hash": "01b30d71dfb8ff65ee183fad2a6a41aea267def25ae05b82f14c3c93e5de2435",
+    "certificate_hash": "ca8264a5e068f3f7cc0611e2df9efe5bb285c849fc0e2d882abe274692b1d247",
+    "document_hash": "c4191464c124b3543fc4aafdfc5856ff8c538e70b9d474ceb7aacf4dcbb3aeeb",
+    "document_id": "v437_handoff_f9c3b7d9339e87c64d5123b5",
+    "economics_hash": "9f52f2c8016a18d4d3a851eff080bf0fe96929aeb62b771c2489134c07450134",
+    "kind": "v4_37_handoff",
+    "next_phase": "SAED_V4_38",
+    "permitted_inputs": [
+      "frozen_portfolio_plan",
+      "frozen_cost_and_capacity_evidence",
+      "non_executable_schedule",
+      "authority_boundary"
+    ],
+    "phase": "SAED_V4_37",
+    "production_authorized": false,
+    "research_only": true,
+    "schedule_hash": "f87c7e0a116748e02c66b2ad62ba2efe68e52edb922f981d7e511179cb22b949",
+    "transferred_authority": []
+  },
+  "instrument_master": {
+    "cutoff_time": "2026-06-30T20:00:00Z",
+    "instrument_count": 4,
+    "instruments": [
+      {
+        "contract_multiplier": 1,
+        "instrument_hash": "fc3751e32291785f87cf7433b3d2e9dd892b6d454c26bc4064686035544a8ce7",
+        "instrument_id": "SYN_EQ_A",
+        "kind": "ETF",
+        "known_time": "2026-06-30T20:00:00Z",
+        "lot_step": 1,
+        "margin_rate": 0.5,
+        "max_lot": 2000000,
+        "min_lot": 1,
+        "quote_currency": "USD",
+        "settlement_currency": "USD",
+        "shortable": true,
+        "symbol": "SYN-A",
+        "synthetic_fixture": true,
+        "tick_size": 0.01,
+        "tick_value": 0.01
+      },
+      {
+        "contract_multiplier": 1,
+        "instrument_hash": "8874b565c6899710a3c444e708798ee6c6a430ef0ed74e3e73dd19e2a2d9e5c5",
+        "instrument_id": "SYN_EQ_C",
+        "kind": "EQUITY",
+        "known_time": "2026-06-30T20:00:00Z",
+        "lot_step": 1,
+        "margin_rate": 0.5,
+        "max_lot": 1500000,
+        "min_lot": 1,
+        "quote_currency": "EUR",
+        "settlement_currency": "EUR",
+        "shortable": true,
+        "symbol": "SYN-C",
+        "synthetic_fixture": true,
+        "tick_size": 0.01,
+        "tick_value": 0.01
+      },
+      {
+        "contract_multiplier": 20,
+        "instrument_hash": "c82cc733129673d2aa8c22367197db8b3f7de696d8e803b7a3e1b022de9b664d",
+        "instrument_id": "SYN_FUT_B",
+        "kind": "FUTURE",
+        "known_time": "2026-06-30T20:00:00Z",
+        "lot_step": 1,
+        "margin_rate": 0.12,
+        "max_lot": 10000,
+        "min_lot": 1,
+        "quote_currency": "USD",
+        "settlement_currency": "USD",
+        "shortable": true,
+        "symbol": "SYN-B",
+        "synthetic_fixture": true,
+        "tick_size": 0.25,
+        "tick_value": 5
+      },
+      {
+        "contract_multiplier": 100000,
+        "instrument_hash": "4d235fd7289e4031c5324cd9314a8c8fe78da253670a8b36df67cac3c13892bb",
+        "instrument_id": "SYN_FX_D",
+        "kind": "FX",
+        "known_time": "2026-06-30T20:00:00Z",
+        "lot_step": 0.01,
+        "margin_rate": 0.03,
+        "max_lot": 500,
+        "min_lot": 0.01,
+        "quote_currency": "JPY",
+        "settlement_currency": "USD",
+        "shortable": true,
+        "symbol": "SYN-D",
+        "synthetic_fixture": true,
+        "tick_size": 0.001,
+        "tick_value": 10
+      }
+    ],
+    "master_hash": "a69826dca808e4120a1a68602fee015a518ec0629cf88bfcb526bb06f3668811",
+    "master_id": "v437_instruments_4aac2044a7cd4b6ca66d64aa",
+    "phase": "SAED_V4_37",
+    "research_only": true
+  },
+  "liquidity_registry": {
+    "cutoff_time": "2026-06-30T20:00:00Z",
+    "phase": "SAED_V4_37",
+    "profiles": [
+      {
+        "adv_notional": 720000000,
+        "adv_units": 6000000,
+        "daily_volatility": 0.012,
+        "depth_units": 120000,
+        "instrument_id": "SYN_EQ_A",
+        "known_time": "2026-06-30T20:00:00Z",
+        "liquidity_profile_id": "LIQ_SYN_EQ_A",
+        "max_participation_rate": 0.12,
+        "median_spread_bps": 1.8,
+        "profile_hash": "7bf7f550c2b22d01f9c494e7df2d7735b882299f42cc871db1a75421f53e69c4",
+        "session_minutes": 390,
+        "synthetic_fixture": true,
+        "volume_curve": [
+          0.18,
+          0.12,
+          0.1,
+          0.1,
+          0.11,
+          0.14,
+          0.25
+        ]
+      },
+      {
+        "adv_notional": 320000000,
+        "adv_units": 3800000,
+        "daily_volatility": 0.014,
+        "depth_units": 70000,
+        "instrument_id": "SYN_EQ_C",
+        "known_time": "2026-06-30T20:00:00Z",
+        "liquidity_profile_id": "LIQ_SYN_EQ_C",
+        "max_participation_rate": 0.1,
+        "median_spread_bps": 2.6,
+        "profile_hash": "e7e6193b70253f5ec32333b37d33b7dbb1e2790b928af539dbbe4f9877cc81f2",
+        "session_minutes": 510,
+        "synthetic_fixture": true,
+        "volume_curve": [
+          0.17,
+          0.12,
+          0.11,
+          0.1,
+          0.12,
+          0.15,
+          0.23
+        ]
+      },
+      {
+        "adv_notional": 2600000000,
+        "adv_units": 650000,
+        "daily_volatility": 0.016,
+        "depth_units": 18000,
+        "instrument_id": "SYN_FUT_B",
+        "known_time": "2026-06-30T20:00:00Z",
+        "liquidity_profile_id": "LIQ_SYN_FUT_B",
+        "max_participation_rate": 0.1,
+        "median_spread_bps": 0.9,
+        "profile_hash": "598d91a75365a776af3e0916e5488594a442716de0de28ffebcb1f0b82769bb4",
+        "session_minutes": 1380,
+        "synthetic_fixture": true,
+        "volume_curve": [
+          0.16,
+          0.11,
+          0.1,
+          0.1,
+          0.12,
+          0.16,
+          0.25
+        ]
+      },
+      {
+        "adv_notional": 18000000000,
+        "adv_units": 180000,
+        "daily_volatility": 0.008,
+        "depth_units": 5500,
+        "instrument_id": "SYN_FX_D",
+        "known_time": "2026-06-30T20:00:00Z",
+        "liquidity_profile_id": "LIQ_SYN_FX_D",
+        "max_participation_rate": 0.08,
+        "median_spread_bps": 1.1,
+        "profile_hash": "4185d5ba17b9ea073c565f0d5aacb19a88930c681ccb24a719d8e7dce6c87222",
+        "session_minutes": 1440,
+        "synthetic_fixture": true,
+        "volume_curve": [
+          0.14,
+          0.13,
+          0.13,
+          0.13,
+          0.14,
+          0.15,
+          0.18
+        ]
+      }
+    ],
+    "registry_hash": "4a44c8b66fe2c9ffb26576642aa3b3b3465379a4f4fccdcf29321bc50ae88275",
+    "registry_id": "v437_liquidity_142d06628dc34f7470a091b1",
+    "research_only": true
+  },
+  "non_executable_schedule": {
+    "all_non_executable": true,
+    "order_count": 3,
+    "order_submission_allowed": false,
+    "orders": [
+      {
+        "broker_route": null,
+        "direction": "LONG",
+        "instrument_id": "SYN_FUT_B",
+        "opportunity_id": "OPP_03",
+        "runtime_authorized": false,
+        "slice_count": 1,
+        "slices": [
+          {
+            "executable": false,
+            "max_participation_rate": 0.08,
+            "order_type": "PASSIVE_LIMIT_REFERENCE",
+            "planned_units": 4.5,
+            "slice_index": 0,
+            "window_minutes": 30
+          }
+        ],
+        "status": "NOT_SUBMITTED",
+        "total_units": 4.5
+      },
+      {
+        "broker_route": null,
+        "direction": "LONG",
+        "instrument_id": "SYN_EQ_A",
+        "opportunity_id": "OPP_01",
+        "runtime_authorized": false,
+        "slice_count": 1,
+        "slices": [
+          {
+            "executable": false,
+            "max_participation_rate": 0.08,
+            "order_type": "PASSIVE_LIMIT_REFERENCE",
+            "planned_units": 12500.0,
+            "slice_index": 0,
+            "window_minutes": 30
+          }
+        ],
+        "status": "NOT_SUBMITTED",
+        "total_units": 12500.0
+      },
+      {
+        "broker_route": null,
+        "direction": "LONG",
+        "instrument_id": "SYN_EQ_C",
+        "opportunity_id": "OPP_04",
+        "runtime_authorized": false,
+        "slice_count": 1,
+        "slices": [
+          {
+            "executable": false,
+            "max_participation_rate": 0.08,
+            "order_type": "PASSIVE_LIMIT_REFERENCE",
+            "planned_units": 8750.0,
+            "slice_index": 0,
+            "window_minutes": 30
+          }
+        ],
+        "status": "NOT_SUBMITTED",
+        "total_units": 8750.0
+      }
+    ],
+    "phase": "SAED_V4_37",
+    "research_only": true,
+    "schedule_hash": "f87c7e0a116748e02c66b2ad62ba2efe68e52edb922f981d7e511179cb22b949",
+    "schedule_id": "v437_schedule_cf60ca2c224ac7941eaab5af"
+  },
+  "opportunity_economics": {
+    "economics_hash": "9f52f2c8016a18d4d3a851eff080bf0fe96929aeb62b771c2489134c07450134",
+    "economics_id": "v437_economics_33f365fcfd61052e771cc400",
+    "eligible_count": 7,
+    "phase": "SAED_V4_37",
+    "research_only": true,
+    "rows": [
+      {
+        "break_even_gross_bps": 3.44174963,
+        "candidate_notional": 1500000.0,
+        "candidate_units": 12500.0,
+        "conservative_net_edge_bps": 13.53218762,
+        "context_id": "CTX_A",
+        "direction": "LONG",
+        "eligible": true,
+        "expected_gross_bps": 18.0,
+        "expected_impact_bps": 2.85017429,
+        "expected_net_edge_bps": 14.55825037,
+        "expected_total_cost_bps": 3.44174963,
+        "explicit_cost_bps": 0.59157534,
+        "instrument_id": "SYN_EQ_A",
+        "opportunity_id": "OPP_01",
+        "rejection_reason": null,
+        "treatment_id": "TRT_1",
+        "upper_impact_bps": 3.87623704,
+        "upper_total_cost_bps": 4.46781238
+      },
+      {
+        "break_even_gross_bps": 3.29580241,
+        "candidate_notional": 900000.0,
+        "candidate_units": 7500.0,
+        "conservative_net_edge_bps": 6.80464845,
+        "context_id": "CTX_B",
+        "direction": "SHORT",
+        "eligible": true,
+        "expected_gross_bps": 11.0,
+        "expected_impact_bps": 2.49874762,
+        "expected_net_edge_bps": 7.70419759,
+        "expected_total_cost_bps": 3.29580241,
+        "explicit_cost_bps": 0.79705479,
+        "instrument_id": "SYN_EQ_A",
+        "opportunity_id": "OPP_02",
+        "rejection_reason": null,
+        "treatment_id": "TRT_2",
+        "upper_impact_bps": 3.39829676,
+        "upper_total_cost_bps": 4.19535155
+      },
+      {
+        "break_even_gross_bps": 0.73986626,
+        "candidate_notional": 1800000.0,
+        "candidate_units": 4.5,
+        "conservative_net_edge_bps": 21.04360244,
+        "context_id": "CTX_C",
+        "direction": "LONG",
+        "eligible": true,
+        "expected_gross_bps": 22.0,
+        "expected_impact_bps": 0.60147585,
+        "expected_net_edge_bps": 21.26013374,
+        "expected_total_cost_bps": 0.73986626,
+        "explicit_cost_bps": 0.13839041,
+        "instrument_id": "SYN_FUT_B",
+        "opportunity_id": "OPP_03",
+        "rejection_reason": null,
+        "treatment_id": "TRT_1",
+        "upper_impact_bps": 0.81800715,
+        "upper_total_cost_bps": 0.95639756
+      },
+      {
+        "break_even_gross_bps": 7.1547512,
+        "candidate_notional": 1300000.0,
+        "candidate_units": 16250.0,
+        "conservative_net_edge_bps": 7.15109453,
+        "context_id": "CTX_D",
+        "direction": "LONG",
+        "eligible": true,
+        "expected_gross_bps": 16.0,
+        "expected_impact_bps": 4.70598408,
+        "expected_net_edge_bps": 8.8452488,
+        "expected_total_cost_bps": 7.1547512,
+        "explicit_cost_bps": 2.44876712,
+        "instrument_id": "SYN_EQ_C",
+        "opportunity_id": "OPP_04",
+        "rejection_reason": null,
+        "treatment_id": "TRT_3",
+        "upper_impact_bps": 6.40013835,
+        "upper_total_cost_bps": 8.84890547
+      },
+      {
+        "break_even_gross_bps": 7.48653676,
+        "candidate_notional": 1000000.0,
+        "candidate_units": 12500.0,
+        "conservative_net_edge_bps": 3.95630453,
+        "context_id": "CTX_E",
+        "direction": "SHORT",
+        "eligible": true,
+        "expected_gross_bps": 13.0,
+        "expected_impact_bps": 4.32544087,
+        "expected_net_edge_bps": 5.51346324,
+        "expected_total_cost_bps": 7.48653676,
+        "explicit_cost_bps": 3.16109589,
+        "instrument_id": "SYN_EQ_C",
+        "opportunity_id": "OPP_05",
+        "rejection_reason": null,
+        "treatment_id": "TRT_2",
+        "upper_impact_bps": 5.88259958,
+        "upper_total_cost_bps": 9.04369547
+      },
+      {
+        "break_even_gross_bps": 2.59555083,
+        "candidate_notional": 320000.0,
+        "candidate_units": 500.0,
+        "conservative_net_edge_bps": 5.62416046,
+        "context_id": "CTX_F",
+        "direction": "LONG",
+        "eligible": true,
+        "expected_gross_bps": 9.0,
+        "expected_impact_bps": 2.16746864,
+        "expected_net_edge_bps": 6.40444917,
+        "expected_total_cost_bps": 2.59555083,
+        "explicit_cost_bps": 0.42808219,
+        "instrument_id": "SYN_FX_D",
+        "opportunity_id": "OPP_06",
+        "rejection_reason": null,
+        "treatment_id": "TRT_4",
+        "upper_impact_bps": 2.94775735,
+        "upper_total_cost_bps": 3.37583954
+      },
+      {
+        "break_even_gross_bps": 0.71087887,
+        "candidate_notional": 1000000.0,
+        "candidate_units": 2.5,
+        "conservative_net_edge_bps": 6.08302529,
+        "context_id": "CTX_G",
+        "direction": "SHORT",
+        "eligible": true,
+        "expected_gross_bps": 7.0,
+        "expected_impact_bps": 0.57248846,
+        "expected_net_edge_bps": 6.28912113,
+        "expected_total_cost_bps": 0.71087887,
+        "explicit_cost_bps": 0.13839041,
+        "instrument_id": "SYN_FUT_B",
+        "opportunity_id": "OPP_07",
+        "rejection_reason": null,
+        "treatment_id": "TRT_5",
+        "upper_impact_bps": 0.7785843,
+        "upper_total_cost_bps": 0.91697471
+      },
+      {
+        "break_even_gross_bps": 3.13525544,
+        "candidate_notional": 600000.0,
+        "candidate_units": 5000.0,
+        "conservative_net_edge_bps": -1.46221315,
+        "context_id": "CTX_H",
+        "direction": "LONG",
+        "eligible": false,
+        "expected_gross_bps": 2.5,
+        "expected_impact_bps": 2.29710475,
+        "expected_net_edge_bps": -0.63525543,
+        "expected_total_cost_bps": 3.13525544,
+        "explicit_cost_bps": 0.83815068,
+        "instrument_id": "SYN_EQ_A",
+        "opportunity_id": "OPP_08",
+        "rejection_reason": "ECONOMICS_GATE_FAILED",
+        "treatment_id": "TRT_6",
+        "upper_impact_bps": 3.12406246,
+        "upper_total_cost_bps": 3.96221314
+      }
+    ]
+  },
+  "opportunity_registry": {
+    "cutoff_time": "2026-06-30T20:00:00Z",
+    "opportunities": [
+      {
+        "confidence": 0.82,
+        "context_id": "CTX_A",
+        "direction": "LONG",
+        "direction_sign": 1,
+        "expected_gross_bps": 18,
+        "holding_days": 2,
+        "instrument_id": "SYN_EQ_A",
+        "known_time": "2026-06-30T20:00:00Z",
+        "max_notional": 1800000,
+        "opportunity_hash": "e38f9177c780e02b96227f7f5765dc48a7e85b42ab9facb6d444c4bcf91fb64e",
+        "opportunity_id": "OPP_01",
+        "requested_notional": 1500000,
+        "signal_strength": 0.88,
+        "strategy_cluster": "MOMENTUM",
+        "synthetic_fixture": true,
+        "treatment_id": "TRT_1"
+      },
+      {
+        "confidence": 0.7,
+        "context_id": "CTX_B",
+        "direction": "SHORT",
+        "direction_sign": -1,
+        "expected_gross_bps": 11,
+        "holding_days": 1,
+        "instrument_id": "SYN_EQ_A",
+        "known_time": "2026-06-30T20:00:00Z",
+        "max_notional": 1200000,
+        "opportunity_hash": "be900b55669a8cb7f5c4b6edb2fcb4aa7a8e892c597e1a7565f4dc21f84c0cda",
+        "opportunity_id": "OPP_02",
+        "requested_notional": 900000,
+        "signal_strength": 0.66,
+        "strategy_cluster": "MEAN_REVERSION",
+        "synthetic_fixture": true,
+        "treatment_id": "TRT_2"
+      },
+      {
+        "confidence": 0.78,
+        "context_id": "CTX_C",
+        "direction": "LONG",
+        "direction_sign": 1,
+        "expected_gross_bps": 22,
+        "holding_days": 1,
+        "instrument_id": "SYN_FUT_B",
+        "known_time": "2026-06-30T20:00:00Z",
+        "max_notional": 1800000,
+        "opportunity_hash": "2484c6c38c7f6b5275266de184d3e08bb1fe4e1d438b7e696e97224709e8d2b8",
+        "opportunity_id": "OPP_03",
+        "requested_notional": 1800000,
+        "signal_strength": 0.84,
+        "strategy_cluster": "MOMENTUM",
+        "synthetic_fixture": true,
+        "treatment_id": "TRT_1"
+      },
+      {
+        "confidence": 0.74,
+        "context_id": "CTX_D",
+        "direction": "LONG",
+        "direction_sign": 1,
+        "expected_gross_bps": 16,
+        "holding_days": 3,
+        "instrument_id": "SYN_EQ_C",
+        "known_time": "2026-06-30T20:00:00Z",
+        "max_notional": 1600000,
+        "opportunity_hash": "3f71bdd59539684a9808f22f06a727a389591a0351d4d6a878a41574a417778c",
+        "opportunity_id": "OPP_04",
+        "requested_notional": 1300000,
+        "signal_strength": 0.75,
+        "strategy_cluster": "VALUE",
+        "synthetic_fixture": true,
+        "treatment_id": "TRT_3"
+      },
+      {
+        "confidence": 0.71,
+        "context_id": "CTX_E",
+        "direction": "SHORT",
+        "direction_sign": -1,
+        "expected_gross_bps": 13,
+        "holding_days": 2,
+        "instrument_id": "SYN_EQ_C",
+        "known_time": "2026-06-30T20:00:00Z",
+        "max_notional": 1200000,
+        "opportunity_hash": "b95fa2d08859793e1f9d7cc47a91107fa29a1a885ad94fe314f2eb205004aa10",
+        "opportunity_id": "OPP_05",
+        "requested_notional": 1000000,
+        "signal_strength": 0.72,
+        "strategy_cluster": "MEAN_REVERSION",
+        "synthetic_fixture": true,
+        "treatment_id": "TRT_2"
+      },
+      {
+        "confidence": 0.67,
+        "context_id": "CTX_F",
+        "direction": "LONG",
+        "direction_sign": 1,
+        "expected_gross_bps": 9,
+        "holding_days": 1,
+        "instrument_id": "SYN_FX_D",
+        "known_time": "2026-06-30T20:00:00Z",
+        "max_notional": 1500000,
+        "opportunity_hash": "5c356ce834abfd08232ac8b380efc05cd0724695e5e3d867bd444db0010b5411",
+        "opportunity_id": "OPP_06",
+        "requested_notional": 1200000,
+        "signal_strength": 0.69,
+        "strategy_cluster": "FX_CARRY",
+        "synthetic_fixture": true,
+        "treatment_id": "TRT_4"
+      },
+      {
+        "confidence": 0.61,
+        "context_id": "CTX_G",
+        "direction": "SHORT",
+        "direction_sign": -1,
+        "expected_gross_bps": 7,
+        "holding_days": 1,
+        "instrument_id": "SYN_FUT_B",
+        "known_time": "2026-06-30T20:00:00Z",
+        "max_notional": 1300000,
+        "opportunity_hash": "071be5ba922d78e11397679347e6cb139636210f6d4306d55ca55402392aa5cc",
+        "opportunity_id": "OPP_07",
+        "requested_notional": 1000000,
+        "signal_strength": 0.6,
+        "strategy_cluster": "HEDGE",
+        "synthetic_fixture": true,
+        "treatment_id": "TRT_5"
+      },
+      {
+        "confidence": 0.55,
+        "context_id": "CTX_H",
+        "direction": "LONG",
+        "direction_sign": 1,
+        "expected_gross_bps": 2.5,
+        "holding_days": 4,
+        "instrument_id": "SYN_EQ_A",
+        "known_time": "2026-06-30T20:00:00Z",
+        "max_notional": 900000,
+        "opportunity_hash": "5af4ebc54b109d2619df7da3dafc8193190c07b92d39f4024bdaa6be0e4b3529",
+        "opportunity_id": "OPP_08",
+        "requested_notional": 600000,
+        "signal_strength": 0.52,
+        "strategy_cluster": "EXPLORATION",
+        "synthetic_fixture": true,
+        "treatment_id": "TRT_6"
+      }
+    ],
+    "phase": "SAED_V4_37",
+    "registry_hash": "1a5bf97144db7cd7df6524135e8ea2243b1195e21f9878c190ca3bcb384e2e13",
+    "registry_id": "v437_opportunities_0eb266458949c49b21bf7f69",
+    "research_only": true
+  },
+  "reservation_ledger": {
+    "available_balance": 4500000.0,
+    "event_count": 5,
+    "events": [
+      {
+        "amount": 10000000.0,
+        "event_hash": "4e612e3758ea7333fe644e469346d086fcbd996f1068e8fdd751b078f01d29e7",
+        "event_id": "v437_reservation_event_d8b5c3d97d2df0c77e9adc1a",
+        "event_type": "CAPITAL_OPEN",
+        "opportunity_id": null,
+        "ordinal": 0,
+        "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      {
+        "amount": -1500000.0,
+        "event_hash": "47f82cb279156fbd3c8f712d605d490c8d0a1aec8f5e2245ebaa80913075d77c",
+        "event_id": "v437_reservation_event_cd8db6cf3b9bc0ae062d9414",
+        "event_type": "CASH_RESERVE",
+        "opportunity_id": null,
+        "ordinal": 1,
+        "previous_hash": "4e612e3758ea7333fe644e469346d086fcbd996f1068e8fdd751b078f01d29e7"
+      },
+      {
+        "amount": -1800000.0,
+        "event_hash": "fae1e1d778d92e1b1121aff35a1b6511ffcb8430e81e8a6c95e2cdf7c0822cd1",
+        "event_id": "v437_reservation_event_cead851dd47d4aedfb7a28db",
+        "event_type": "SYNTHETIC_RESERVATION",
+        "opportunity_id": "OPP_03",
+        "ordinal": 2,
+        "previous_hash": "47f82cb279156fbd3c8f712d605d490c8d0a1aec8f5e2245ebaa80913075d77c"
+      },
+      {
+        "amount": -1500000.0,
+        "event_hash": "283741e64c0914c8a7bd781b078b6e8ff5038522806a756b0616b790bb5d70a1",
+        "event_id": "v437_reservation_event_4123e666576294afd2a40aa8",
+        "event_type": "SYNTHETIC_RESERVATION",
+        "opportunity_id": "OPP_01",
+        "ordinal": 3,
+        "previous_hash": "fae1e1d778d92e1b1121aff35a1b6511ffcb8430e81e8a6c95e2cdf7c0822cd1"
+      },
+      {
+        "amount": -700000.0,
+        "event_hash": "aa362fccf795f313a5ef00466605cd5ca06677b19bd5afe5e0ae87254f5ff7e8",
+        "event_id": "v437_reservation_event_6c204c030c8ee9f704e3537d",
+        "event_type": "SYNTHETIC_RESERVATION",
+        "opportunity_id": "OPP_04",
+        "ordinal": 4,
+        "previous_hash": "283741e64c0914c8a7bd781b078b6e8ff5038522806a756b0616b790bb5d70a1"
+      }
+    ],
+    "external_account_mutated": false,
+    "ledger_hash": "6f60b4c353ed2ec1de60f5d9bfd02db44300fe2e8113b31999c7d9fc04aa8814",
+    "ledger_id": "v437_ledger_3b010312e06cab35da24a27f",
+    "phase": "SAED_V4_37",
+    "research_only": true,
+    "synthetic_only": true
+  },
+  "review_bundle": {
+    "approved_reference": true,
+    "capital_activation_approved": false,
+    "phase": "SAED_V4_37",
+    "production_authorized": false,
+    "research_only": true,
+    "review_bundle_hash": "1d18a6cebb993ae92dc6f065ce1306938dfb53300ec1c7ecfdcd43406ad6d771",
+    "review_bundle_id": "v437_reviews_38ee9bfd4a0c453aebe92258",
+    "reviews": [
+      {
+        "decision": "APPROVE_REFERENCE",
+        "findings": [
+          "synthetic_reference_only",
+          "no_capital_activation",
+          "no_order_submission"
+        ],
+        "independent": false,
+        "plan_hash": "01b30d71dfb8ff65ee183fad2a6a41aea267def25ae05b82f14c3c93e5de2435",
+        "review_id": "REVIEW_01",
+        "reviewer_id": "SYN_REVIEWER_1",
+        "role": "PORTFOLIO_RESEARCH",
+        "synthetic_fixture": true
+      },
+      {
+        "decision": "APPROVE_REFERENCE",
+        "findings": [
+          "synthetic_reference_only",
+          "no_capital_activation",
+          "no_order_submission"
+        ],
+        "independent": false,
+        "plan_hash": "01b30d71dfb8ff65ee183fad2a6a41aea267def25ae05b82f14c3c93e5de2435",
+        "review_id": "REVIEW_02",
+        "reviewer_id": "SYN_REVIEWER_2",
+        "role": "EXECUTION_RESEARCH",
+        "synthetic_fixture": true
+      },
+      {
+        "decision": "APPROVE_REFERENCE",
+        "findings": [
+          "synthetic_reference_only",
+          "no_capital_activation",
+          "no_order_submission"
+        ],
+        "independent": false,
+        "plan_hash": "01b30d71dfb8ff65ee183fad2a6a41aea267def25ae05b82f14c3c93e5de2435",
+        "review_id": "REVIEW_03",
+        "reviewer_id": "SYN_REVIEWER_3",
+        "role": "MODEL_RISK",
+        "synthetic_fixture": true
+      },
+      {
+        "decision": "APPROVE_REFERENCE",
+        "findings": [
+          "synthetic_reference_only",
+          "no_capital_activation",
+          "no_order_submission"
+        ],
+        "independent": true,
+        "plan_hash": "01b30d71dfb8ff65ee183fad2a6a41aea267def25ae05b82f14c3c93e5de2435",
+        "review_id": "REVIEW_04",
+        "reviewer_id": "SYN_REVIEWER_4",
+        "role": "INDEPENDENT_CHALLENGE",
+        "synthetic_fixture": true
+      },
+      {
+        "decision": "APPROVE_REFERENCE",
+        "findings": [
+          "synthetic_reference_only",
+          "no_capital_activation",
+          "no_order_submission"
+        ],
+        "independent": false,
+        "plan_hash": "01b30d71dfb8ff65ee183fad2a6a41aea267def25ae05b82f14c3c93e5de2435",
+        "review_id": "REVIEW_05",
+        "reviewer_id": "SYN_REVIEWER_5",
+        "role": "OPERATIONS_OBSERVER",
+        "synthetic_fixture": true
+      }
+    ]
+  },
+  "stress_suite": {
+    "all_passed": true,
+    "phase": "SAED_V4_37",
+    "research_only": true,
+    "rows": [
+      {
+        "passed": true,
+        "scenario_id": "BASE",
+        "stressed_cost_value": 1150.2709553,
+        "stressed_gross_value": 7780.0,
+        "stressed_net_value": 6629.7290447,
+        "stressed_risk_notional": 46475.0944055
+      },
+      {
+        "passed": true,
+        "scenario_id": "CORRELATION_BREAK",
+        "stressed_cost_value": 1115.8383773,
+        "stressed_gross_value": 2859.15,
+        "stressed_net_value": 1743.3116227,
+        "stressed_risk_notional": 69712.64160825
+      },
+      {
+        "passed": true,
+        "scenario_id": "COST_2X",
+        "stressed_cost_value": 1972.36849921,
+        "stressed_gross_value": 4761.36,
+        "stressed_net_value": 2788.99150079,
+        "stressed_risk_notional": 51122.60384605
+      },
+      {
+        "passed": true,
+        "scenario_id": "EDGE_DECAY",
+        "stressed_cost_value": 1384.94019313,
+        "stressed_gross_value": 2678.265,
+        "stressed_net_value": 1293.32480687,
+        "stressed_risk_notional": 55770.1132866
+      },
+      {
+        "passed": true,
+        "scenario_id": "FUNDING_SHOCK",
+        "stressed_cost_value": 3803.23531593,
+        "stressed_gross_value": 5041.44,
+        "stressed_net_value": 1238.20468407,
+        "stressed_risk_notional": 51122.60384605
+      },
+      {
+        "passed": true,
+        "scenario_id": "LIQUIDITY_CRUNCH",
+        "stressed_cost_value": 909.73015359,
+        "stressed_gross_value": 1444.1625,
+        "stressed_net_value": 534.43234641,
+        "stressed_risk_notional": 58093.86800687
+      }
+    ],
+    "scenario_count": 6,
+    "suite_hash": "b48f98d70b57ebb5a149b89c89763d4e8dbf6eec61c892abdefab07aee683097",
+    "suite_id": "v437_stress_7b2e38a98d815cd712ac812b",
+    "worst_net_value": 534.43234641
+  },
+  "synthetic_reconciliation": {
+    "all_synthetic": true,
+    "broker_evidence_present": false,
+    "phase": "SAED_V4_37",
+    "report_hash": "07f7c956f86485e33dc7892fb35733d475f3c7d7af8d61e95d9c901fc7c521d8",
+    "report_id": "v437_reconciliation_cd1189cb88ba73f51d544d6d",
+    "research_only": true,
+    "rows": [
+      {
+        "cost_variance_bps": 1.56013374,
+        "expected_cost_bps": 0.73986626,
+        "fill_id": "FILL_01",
+        "fill_ratio": 0.88,
+        "filled_units": 3.96,
+        "opportunity_id": "OPP_03",
+        "planned_units": 4.5,
+        "realized_cost_bps": 2.3,
+        "synthetic_only": true
+      },
+      {
+        "cost_variance_bps": -0.64174963,
+        "expected_cost_bps": 3.44174963,
+        "fill_id": "FILL_02",
+        "fill_ratio": 0.9,
+        "filled_units": 11250.0,
+        "opportunity_id": "OPP_01",
+        "planned_units": 12500.0,
+        "realized_cost_bps": 2.8,
+        "synthetic_only": true
+      },
+      {
+        "cost_variance_bps": -3.8547512,
+        "expected_cost_bps": 7.1547512,
+        "fill_id": "FILL_03",
+        "fill_ratio": 0.92,
+        "filled_units": 8050.0,
+        "opportunity_id": "OPP_04",
+        "planned_units": 8750.0,
+        "realized_cost_bps": 3.3,
+        "synthetic_only": true
+      }
+    ]
+  },
+  "upstream_receipt": {
+    "documents": [
+      {
+        "document_hash": "bfb17c84bc84e0a647a92b4944fe990666ac77a756aba4c82bc79863be9729cd",
+        "document_id": "v436_cert_ref",
+        "kind": "v4_36_certificate",
+        "next_phase": "SAED_V4_37",
+        "phase": "SAED_V4_36",
+        "production_authorized": false,
+        "research_only": true
+      },
+      {
+        "document_hash": "2d2c08be80d7641e40dda6e78599a872bf2dfd8737f1b30ae7eb08c97c669987",
+        "document_id": "v436_handoff_ref",
+        "kind": "v4_36_handoff",
+        "next_phase": "SAED_V4_37",
+        "phase": "SAED_V4_36",
+        "production_authorized": false,
+        "research_only": true
+      }
+    ],
+    "phase": "SAED_V4_37",
+    "receipt_hash": "1ef2d457a0bb48b3d3c100e79863678058a8558f682b9beae236907a215c3e58",
+    "receipt_id": "v437_upstream_e570076286eb8735993a6124",
+    "research_only": true,
+    "upstream_phase": "SAED_V4_36",
+    "verified": true
+  }
+}

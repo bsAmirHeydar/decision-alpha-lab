@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "SYN_EQ_A": {
+      "type": "number"
+    },
+    "SYN_EQ_C": {
+      "type": "number"
+    },
+    "SYN_FUT_B": {
+      "type": "number"
+    },
+    "SYN_FX_D": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "SYN_EQ_A",
+    "SYN_EQ_C",
+    "SYN_FUT_B",
+    "SYN_FX_D"
+  ],
+  "title": "SAED V4-37 prices",
+  "type": "object"
+}

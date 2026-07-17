@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_synthetic": {
+      "type": "boolean"
+    },
+    "broker_evidence_present": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "cost_variance_bps": {
+            "type": "number"
+          },
+          "expected_cost_bps": {
+            "type": "number"
+          },
+          "fill_id": {
+            "type": "string"
+          },
+          "fill_ratio": {
+            "type": "number"
+          },
+          "filled_units": {
+            "type": "number"
+          },
+          "opportunity_id": {
+            "type": "string"
+          },
+          "planned_units": {
+            "type": "number"
+          },
+          "realized_cost_bps": {
+            "type": "number"
+          },
+          "synthetic_only": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "cost_variance_bps",
+          "expected_cost_bps",
+          "fill_id",
+          "fill_ratio",
+          "filled_units",
+          "opportunity_id",
+          "planned_units",
+          "realized_cost_bps",
+          "synthetic_only"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "all_synthetic",
+    "broker_evidence_present",
+    "phase",
+    "report_hash",
+    "report_id",
+    "research_only",
+    "rows"
+  ],
+  "title": "SAED V4-37 synthetic_reconciliation",
+  "type": "object"
+}

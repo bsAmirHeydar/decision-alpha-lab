@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cutoff_time": {
+      "type": "string"
+    },
+    "opportunities": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "confidence": {
+            "type": "number"
+          },
+          "context_id": {
+            "type": "string"
+          },
+          "direction": {
+            "type": "string"
+          },
+          "direction_sign": {
+            "type": "number"
+          },
+          "expected_gross_bps": {
+            "type": "number"
+          },
+          "holding_days": {
+            "type": "number"
+          },
+          "instrument_id": {
+            "type": "string"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "max_notional": {
+            "type": "number"
+          },
+          "opportunity_hash": {
+            "type": "string"
+          },
+          "opportunity_id": {
+            "type": "string"
+          },
+          "requested_notional": {
+            "type": "number"
+          },
+          "signal_strength": {
+            "type": "number"
+          },
+          "strategy_cluster": {
+            "type": "string"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          },
+          "treatment_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "confidence",
+          "context_id",
+          "direction",
+          "direction_sign",
+          "expected_gross_bps",
+          "holding_days",
+          "instrument_id",
+          "known_time",
+          "max_notional",
+          "opportunity_hash",
+          "opportunity_id",
+          "requested_notional",
+          "signal_strength",
+          "strategy_cluster",
+          "synthetic_fixture",
+          "treatment_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "cutoff_time",
+    "opportunities",
+    "phase",
+    "registry_hash",
+    "registry_id",
+    "research_only"
+  ],
+  "title": "SAED V4-37 opportunity_registry",
+  "type": "object"
+}

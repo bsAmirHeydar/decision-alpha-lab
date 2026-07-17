@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allocation_plan_hash": {
+      "type": "string"
+    },
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "external_capital_mutated": {
+      "type": "boolean"
+    },
+    "orders_submitted": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "runtime_compiled": {
+      "type": "boolean"
+    },
+    "schedule_hash": {
+      "type": "string"
+    },
+    "treatment_policy_mutated": {
+      "type": "boolean"
+    },
+    "ucee_mutated": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "allocation_plan_hash",
+    "baseline_preserved",
+    "external_capital_mutated",
+    "orders_submitted",
+    "phase",
+    "receipt_hash",
+    "receipt_id",
+    "research_only",
+    "runtime_compiled",
+    "schedule_hash",
+    "treatment_policy_mutated",
+    "ucee_mutated"
+  ],
+  "title": "SAED V4-37 baseline_receipt",
+  "type": "object"
+}

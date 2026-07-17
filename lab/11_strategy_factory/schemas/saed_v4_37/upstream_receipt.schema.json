@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "documents": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "document_hash": {
+            "type": "string"
+          },
+          "document_id": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "next_phase": {
+            "type": "string"
+          },
+          "phase": {
+            "type": "string"
+          },
+          "production_authorized": {
+            "type": "boolean"
+          },
+          "research_only": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "document_hash",
+          "document_id",
+          "kind",
+          "next_phase",
+          "phase",
+          "production_authorized",
+          "research_only"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "upstream_phase": {
+      "type": "string"
+    },
+    "verified": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "documents",
+    "phase",
+    "receipt_hash",
+    "receipt_id",
+    "research_only",
+    "upstream_phase",
+    "verified"
+  ],
+  "title": "SAED V4-37 upstream_receipt",
+  "type": "object"
+}

@@ -1,0 +1,40 @@
+{
+  "base_currency": "USD",
+  "cutoff_time": "2026-06-30T20:00:00Z",
+  "phase": "SAED_V4_37",
+  "rates": [
+    {
+      "base": "EUR",
+      "known_time": "2026-06-30T20:00:00Z",
+      "mid": 0.85,
+      "quote": "GBP",
+      "rate_hash": "6cd72ac2d151bf6bb350aec7bd49ca787f9ccb4b2816e215c942264898382216",
+      "rate_id": "EUR_GBP",
+      "spread_bps": 1.1,
+      "synthetic_fixture": true
+    },
+    {
+      "base": "USD",
+      "known_time": "2026-06-30T20:00:00Z",
+      "mid": 0.92,
+      "quote": "EUR",
+      "rate_hash": "ff3adbb508bbe22c66c2006c28b345244e378cdba2c797fe37eff872a3f28a27",
+      "rate_id": "USD_EUR",
+      "spread_bps": 1.2,
+      "synthetic_fixture": true
+    },
+    {
+      "base": "USD",
+      "known_time": "2026-06-30T20:00:00Z",
+      "mid": 156.4,
+      "quote": "JPY",
+      "rate_hash": "d8595b6b38bda519da3b55bb56f86f6b0c5a4a3fcfd39dc33ded649f9b26689b",
+      "rate_id": "USD_JPY",
+      "spread_bps": 1.5,
+      "synthetic_fixture": true
+    }
+  ],
+  "research_only": true,
+  "snapshot_hash": "03225f8b13c521eaa2d8a7e85d57f7336a82e3f28886a17f366139d132b04141",
+  "snapshot_id": "v437_fx_dd19112a25a60b5093585c4a"
+}

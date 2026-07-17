@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "confidence": {
+      "type": "number"
+    },
+    "context_id": {
+      "type": "string"
+    },
+    "direction": {
+      "type": "string"
+    },
+    "direction_sign": {
+      "type": "integer"
+    },
+    "expected_gross_bps": {
+      "type": "integer"
+    },
+    "holding_days": {
+      "type": "integer"
+    },
+    "instrument_id": {
+      "type": "string"
+    },
+    "known_time": {
+      "type": "string"
+    },
+    "max_notional": {
+      "type": "integer"
+    },
+    "opportunity_hash": {
+      "type": "string"
+    },
+    "opportunity_id": {
+      "type": "string"
+    },
+    "requested_notional": {
+      "type": "integer"
+    },
+    "signal_strength": {
+      "type": "number"
+    },
+    "strategy_cluster": {
+      "type": "string"
+    },
+    "synthetic_fixture": {
+      "type": "boolean"
+    },
+    "treatment_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "confidence",
+    "context_id",
+    "direction",
+    "direction_sign",
+    "expected_gross_bps",
+    "holding_days",
+    "instrument_id",
+    "known_time",
+    "max_notional",
+    "opportunity_hash",
+    "opportunity_id",
+    "requested_notional",
+    "signal_strength",
+    "strategy_cluster",
+    "synthetic_fixture",
+    "treatment_id"
+  ],
+  "title": "SAED V4-37 opportunity_record",
+  "type": "object"
+}

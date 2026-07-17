@@ -1,0 +1,50 @@
+{
+  "cluster_map": {
+    "SYN_EQ_A": "RISK_ASSET",
+    "SYN_EQ_C": "RISK_ASSET",
+    "SYN_FUT_B": "INDEX_FUTURE",
+    "SYN_FX_D": "FX"
+  },
+  "correlation_matrix": [
+    [
+      1.0,
+      0.34,
+      0.61,
+      -0.12
+    ],
+    [
+      0.34,
+      1.0,
+      0.28,
+      -0.18
+    ],
+    [
+      0.61,
+      0.28,
+      1.0,
+      -0.08
+    ],
+    [
+      -0.12,
+      -0.18,
+      -0.08,
+      1.0
+    ]
+  ],
+  "dependence_id": "DEP_REF",
+  "instrument_ids": [
+    "SYN_EQ_A",
+    "SYN_EQ_C",
+    "SYN_FUT_B",
+    "SYN_FX_D"
+  ],
+  "known_time": "2026-06-30T20:00:00Z",
+  "shrinkage": 0.15,
+  "synthetic_fixture": true,
+  "volatility_vector": {
+    "SYN_EQ_A": 0.012,
+    "SYN_EQ_C": 0.014,
+    "SYN_FUT_B": 0.016,
+    "SYN_FX_D": 0.008
+  }
+}

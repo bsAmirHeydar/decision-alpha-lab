@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_bounded": {
+      "type": "boolean"
+    },
+    "capacity_hash": {
+      "type": "string"
+    },
+    "capacity_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "binding_limit": {
+            "type": "string"
+          },
+          "capacity_notional": {
+            "type": "number"
+          },
+          "capacity_units": {
+            "type": "number"
+          },
+          "depth_capacity_units": {
+            "type": "number"
+          },
+          "instrument_id": {
+            "type": "string"
+          },
+          "opportunity_id": {
+            "type": "string"
+          },
+          "participation_capacity_units": {
+            "type": "number"
+          },
+          "unit_notional": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "binding_limit",
+          "capacity_notional",
+          "capacity_units",
+          "depth_capacity_units",
+          "instrument_id",
+          "opportunity_id",
+          "participation_capacity_units",
+          "unit_notional"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "all_bounded",
+    "capacity_hash",
+    "capacity_id",
+    "phase",
+    "research_only",
+    "rows"
+  ],
+  "title": "SAED V4-37 capacity_surface",
+  "type": "object"
+}

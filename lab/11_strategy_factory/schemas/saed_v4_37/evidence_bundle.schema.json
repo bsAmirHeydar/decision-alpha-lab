@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_count": {
+      "type": "integer"
+    },
+    "artifact_hashes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "artifact_names": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "bundle_hash": {
+      "type": "string"
+    },
+    "bundle_id": {
+      "type": "string"
+    },
+    "external_broker_evidence": {
+      "type": "boolean"
+    },
+    "merkle_root": {
+      "type": "string"
+    },
+    "metaeditor_evidence": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "artifact_count",
+    "artifact_hashes",
+    "artifact_names",
+    "bundle_hash",
+    "bundle_id",
+    "external_broker_evidence",
+    "merkle_root",
+    "metaeditor_evidence",
+    "phase",
+    "production_authorized",
+    "research_only"
+  ],
+  "title": "SAED V4-37 evidence_bundle",
+  "type": "object"
+}

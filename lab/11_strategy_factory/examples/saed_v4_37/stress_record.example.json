@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "scenario_id": "BASE",
+  "stressed_cost_value": 1150.2709553,
+  "stressed_gross_value": 7780.0,
+  "stressed_net_value": 6629.7290447,
+  "stressed_risk_notional": 46475.0944055
+}

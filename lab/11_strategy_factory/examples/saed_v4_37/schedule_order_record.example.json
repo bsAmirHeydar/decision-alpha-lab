@@ -1,0 +1,20 @@
+{
+  "broker_route": null,
+  "direction": "LONG",
+  "instrument_id": "SYN_FUT_B",
+  "opportunity_id": "OPP_03",
+  "runtime_authorized": false,
+  "slice_count": 1,
+  "slices": [
+    {
+      "executable": false,
+      "max_participation_rate": 0.08,
+      "order_type": "PASSIVE_LIMIT_REFERENCE",
+      "planned_units": 4.5,
+      "slice_index": 0,
+      "window_minutes": 30
+    }
+  ],
+  "status": "NOT_SUBMITTED",
+  "total_units": 4.5
+}

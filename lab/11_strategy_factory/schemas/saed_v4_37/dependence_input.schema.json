@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cluster_map": {
+      "additionalProperties": false,
+      "properties": {
+        "SYN_EQ_A": {
+          "type": "string"
+        },
+        "SYN_EQ_C": {
+          "type": "string"
+        },
+        "SYN_FUT_B": {
+          "type": "string"
+        },
+        "SYN_FX_D": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "SYN_EQ_A",
+        "SYN_EQ_C",
+        "SYN_FUT_B",
+        "SYN_FX_D"
+      ],
+      "type": "object"
+    },
+    "correlation_matrix": {
+      "items": {
+        "items": {
+          "type": "number"
+        },
+        "type": "array"
+      },
+      "type": "array"
+    },
+    "dependence_id": {
+      "type": "string"
+    },
+    "instrument_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "known_time": {
+      "type": "string"
+    },
+    "shrinkage": {
+      "type": "number"
+    },
+    "synthetic_fixture": {
+      "type": "boolean"
+    },
+    "volatility_vector": {
+      "additionalProperties": false,
+      "properties": {
+        "SYN_EQ_A": {
+          "type": "number"
+        },
+        "SYN_EQ_C": {
+          "type": "number"
+        },
+        "SYN_FUT_B": {
+          "type": "number"
+        },
+        "SYN_FX_D": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "SYN_EQ_A",
+        "SYN_EQ_C",
+        "SYN_FUT_B",
+        "SYN_FX_D"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "cluster_map",
+    "correlation_matrix",
+    "dependence_id",
+    "instrument_ids",
+    "known_time",
+    "shrinkage",
+    "synthetic_fixture",
+    "volatility_vector"
+  ],
+  "title": "SAED V4-37 dependence_input",
+  "type": "object"
+}

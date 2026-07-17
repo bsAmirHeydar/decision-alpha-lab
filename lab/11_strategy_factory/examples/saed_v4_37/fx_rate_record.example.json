@@ -1,0 +1,10 @@
+{
+  "base": "EUR",
+  "known_time": "2026-06-30T20:00:00Z",
+  "mid": 0.85,
+  "quote": "GBP",
+  "rate_hash": "6cd72ac2d151bf6bb350aec7bd49ca787f9ccb4b2816e215c942264898382216",
+  "rate_id": "EUR_GBP",
+  "spread_bps": 1.1,
+  "synthetic_fixture": true
+}

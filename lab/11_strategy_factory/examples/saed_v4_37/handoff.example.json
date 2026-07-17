@@ -1,0 +1,20 @@
+{
+  "allocation_plan_hash": "01b30d71dfb8ff65ee183fad2a6a41aea267def25ae05b82f14c3c93e5de2435",
+  "certificate_hash": "ca8264a5e068f3f7cc0611e2df9efe5bb285c849fc0e2d882abe274692b1d247",
+  "document_hash": "c4191464c124b3543fc4aafdfc5856ff8c538e70b9d474ceb7aacf4dcbb3aeeb",
+  "document_id": "v437_handoff_f9c3b7d9339e87c64d5123b5",
+  "economics_hash": "9f52f2c8016a18d4d3a851eff080bf0fe96929aeb62b771c2489134c07450134",
+  "kind": "v4_37_handoff",
+  "next_phase": "SAED_V4_38",
+  "permitted_inputs": [
+    "frozen_portfolio_plan",
+    "frozen_cost_and_capacity_evidence",
+    "non_executable_schedule",
+    "authority_boundary"
+  ],
+  "phase": "SAED_V4_37",
+  "production_authorized": false,
+  "research_only": true,
+  "schedule_hash": "f87c7e0a116748e02c66b2ad62ba2efe68e52edb922f981d7e511179cb22b949",
+  "transferred_authority": []
+}

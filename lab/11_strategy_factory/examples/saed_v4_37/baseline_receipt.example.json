@@ -1,0 +1,14 @@
+{
+  "allocation_plan_hash": "01b30d71dfb8ff65ee183fad2a6a41aea267def25ae05b82f14c3c93e5de2435",
+  "baseline_preserved": true,
+  "external_capital_mutated": false,
+  "orders_submitted": false,
+  "phase": "SAED_V4_37",
+  "receipt_hash": "1f77b132b50351b2e03b14c159d5084d51b95e067afa1ac1d0e45c144a17d3f5",
+  "receipt_id": "v437_baseline_013dc26fec862d4b03d7198a",
+  "research_only": true,
+  "runtime_compiled": false,
+  "schedule_hash": "f87c7e0a116748e02c66b2ad62ba2efe68e52edb922f981d7e511179cb22b949",
+  "treatment_policy_mutated": false,
+  "ucee_mutated": false
+}

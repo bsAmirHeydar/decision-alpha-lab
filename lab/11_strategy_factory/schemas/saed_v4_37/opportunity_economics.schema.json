@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "economics_hash": {
+      "type": "string"
+    },
+    "economics_id": {
+      "type": "string"
+    },
+    "eligible_count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "break_even_gross_bps": {
+            "type": "number"
+          },
+          "candidate_notional": {
+            "type": "number"
+          },
+          "candidate_units": {
+            "type": "number"
+          },
+          "conservative_net_edge_bps": {
+            "type": "number"
+          },
+          "context_id": {
+            "type": "string"
+          },
+          "direction": {
+            "type": "string"
+          },
+          "eligible": {
+            "type": "boolean"
+          },
+          "expected_gross_bps": {
+            "type": "number"
+          },
+          "expected_impact_bps": {
+            "type": "number"
+          },
+          "expected_net_edge_bps": {
+            "type": "number"
+          },
+          "expected_total_cost_bps": {
+            "type": "number"
+          },
+          "explicit_cost_bps": {
+            "type": "number"
+          },
+          "instrument_id": {
+            "type": "string"
+          },
+          "opportunity_id": {
+            "type": "string"
+          },
+          "rejection_reason": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "treatment_id": {
+            "type": "string"
+          },
+          "upper_impact_bps": {
+            "type": "number"
+          },
+          "upper_total_cost_bps": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "break_even_gross_bps",
+          "candidate_notional",
+          "candidate_units",
+          "conservative_net_edge_bps",
+          "context_id",
+          "direction",
+          "eligible",
+          "expected_gross_bps",
+          "expected_impact_bps",
+          "expected_net_edge_bps",
+          "expected_total_cost_bps",
+          "explicit_cost_bps",
+          "instrument_id",
+          "opportunity_id",
+          "rejection_reason",
+          "treatment_id",
+          "upper_impact_bps",
+          "upper_total_cost_bps"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "economics_hash",
+    "economics_id",
+    "eligible_count",
+    "phase",
+    "research_only",
+    "rows"
+  ],
+  "title": "SAED V4-37 opportunity_economics",
+  "type": "object"
+}

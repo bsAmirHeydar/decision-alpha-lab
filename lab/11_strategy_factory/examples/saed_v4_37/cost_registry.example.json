@@ -1,0 +1,69 @@
+{
+  "cutoff_time": "2026-06-30T20:00:00Z",
+  "phase": "SAED_V4_37",
+  "registry_hash": "48cd6457b83654265b0559286291e42ba70ac76651cd43cab6d4b4fac52650f1",
+  "registry_id": "v437_costs_4490c5d4d13a18f6ff5a43ae",
+  "research_only": true,
+  "schedules": [
+    {
+      "borrow_bps_annual": 120,
+      "commission_mode": "PER_UNIT",
+      "commission_value": 0.0035,
+      "cost_schedule_id": "COST_SYN_EQ_A",
+      "exchange_fee_per_unit": 0.0004,
+      "funding_bps_annual": 45,
+      "instrument_id": "SYN_EQ_A",
+      "known_time": "2026-06-30T20:00:00Z",
+      "minimum_fee": 1.0,
+      "regulatory_fee_bps": 0.02,
+      "schedule_hash": "68d940cb2d2c541fbddd0d2605a9dc34d62f62b265029efee9b153449fc1561e",
+      "synthetic_fixture": true,
+      "tax_bps": 0
+    },
+    {
+      "borrow_bps_annual": 150,
+      "commission_mode": "PER_NOTIONAL_BPS",
+      "commission_value": 0.6,
+      "cost_schedule_id": "COST_SYN_EQ_C",
+      "exchange_fee_per_unit": 0,
+      "funding_bps_annual": 40,
+      "instrument_id": "SYN_EQ_C",
+      "known_time": "2026-06-30T20:00:00Z",
+      "minimum_fee": 1.0,
+      "regulatory_fee_bps": 0.02,
+      "schedule_hash": "27cf71560135f2c48a9853b9a74ab4cac2ae6a668b541acd193f2e86af64ddff",
+      "synthetic_fixture": true,
+      "tax_bps": 1.5
+    },
+    {
+      "borrow_bps_annual": 0,
+      "commission_mode": "PER_UNIT",
+      "commission_value": 1.15,
+      "cost_schedule_id": "COST_SYN_FUT_B",
+      "exchange_fee_per_unit": 0.55,
+      "funding_bps_annual": 35,
+      "instrument_id": "SYN_FUT_B",
+      "known_time": "2026-06-30T20:00:00Z",
+      "minimum_fee": 1.7,
+      "regulatory_fee_bps": 0,
+      "schedule_hash": "a0522509b2cd31946bc1fd05bbd3494e58a897ac9afb1b51c666d383b6ecc7ad",
+      "synthetic_fixture": true,
+      "tax_bps": 0
+    },
+    {
+      "borrow_bps_annual": 0,
+      "commission_mode": "PER_NOTIONAL_BPS",
+      "commission_value": 0.25,
+      "cost_schedule_id": "COST_SYN_FX_D",
+      "exchange_fee_per_unit": 0,
+      "funding_bps_annual": 65,
+      "instrument_id": "SYN_FX_D",
+      "known_time": "2026-06-30T20:00:00Z",
+      "minimum_fee": 0.5,
+      "regulatory_fee_bps": 0,
+      "schedule_hash": "9c6dea5589f92d6cb9c2577ae556b71a7e11a6b52b404e244b3a0d70095cfeb0",
+      "synthetic_fixture": true,
+      "tax_bps": 0
+    }
+  ]
+}

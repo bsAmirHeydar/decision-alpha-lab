@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "contract_multiplier": {
+      "type": "integer"
+    },
+    "instrument_hash": {
+      "type": "string"
+    },
+    "instrument_id": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "known_time": {
+      "type": "string"
+    },
+    "lot_step": {
+      "type": "integer"
+    },
+    "margin_rate": {
+      "type": "number"
+    },
+    "max_lot": {
+      "type": "integer"
+    },
+    "min_lot": {
+      "type": "integer"
+    },
+    "quote_currency": {
+      "type": "string"
+    },
+    "settlement_currency": {
+      "type": "string"
+    },
+    "shortable": {
+      "type": "boolean"
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "synthetic_fixture": {
+      "type": "boolean"
+    },
+    "tick_size": {
+      "type": "number"
+    },
+    "tick_value": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "contract_multiplier",
+    "instrument_hash",
+    "instrument_id",
+    "kind",
+    "known_time",
+    "lot_step",
+    "margin_rate",
+    "max_lot",
+    "min_lot",
+    "quote_currency",
+    "settlement_currency",
+    "shortable",
+    "symbol",
+    "synthetic_fixture",
+    "tick_size",
+    "tick_value"
+  ],
+  "title": "SAED V4-37 instrument_record",
+  "type": "object"
+}

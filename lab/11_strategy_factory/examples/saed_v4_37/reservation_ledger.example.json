@@ -1,0 +1,57 @@
+{
+  "available_balance": 4500000.0,
+  "event_count": 5,
+  "events": [
+    {
+      "amount": 10000000.0,
+      "event_hash": "4e612e3758ea7333fe644e469346d086fcbd996f1068e8fdd751b078f01d29e7",
+      "event_id": "v437_reservation_event_d8b5c3d97d2df0c77e9adc1a",
+      "event_type": "CAPITAL_OPEN",
+      "opportunity_id": null,
+      "ordinal": 0,
+      "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "amount": -1500000.0,
+      "event_hash": "47f82cb279156fbd3c8f712d605d490c8d0a1aec8f5e2245ebaa80913075d77c",
+      "event_id": "v437_reservation_event_cd8db6cf3b9bc0ae062d9414",
+      "event_type": "CASH_RESERVE",
+      "opportunity_id": null,
+      "ordinal": 1,
+      "previous_hash": "4e612e3758ea7333fe644e469346d086fcbd996f1068e8fdd751b078f01d29e7"
+    },
+    {
+      "amount": -1800000.0,
+      "event_hash": "fae1e1d778d92e1b1121aff35a1b6511ffcb8430e81e8a6c95e2cdf7c0822cd1",
+      "event_id": "v437_reservation_event_cead851dd47d4aedfb7a28db",
+      "event_type": "SYNTHETIC_RESERVATION",
+      "opportunity_id": "OPP_03",
+      "ordinal": 2,
+      "previous_hash": "47f82cb279156fbd3c8f712d605d490c8d0a1aec8f5e2245ebaa80913075d77c"
+    },
+    {
+      "amount": -1500000.0,
+      "event_hash": "283741e64c0914c8a7bd781b078b6e8ff5038522806a756b0616b790bb5d70a1",
+      "event_id": "v437_reservation_event_4123e666576294afd2a40aa8",
+      "event_type": "SYNTHETIC_RESERVATION",
+      "opportunity_id": "OPP_01",
+      "ordinal": 3,
+      "previous_hash": "fae1e1d778d92e1b1121aff35a1b6511ffcb8430e81e8a6c95e2cdf7c0822cd1"
+    },
+    {
+      "amount": -700000.0,
+      "event_hash": "aa362fccf795f313a5ef00466605cd5ca06677b19bd5afe5e0ae87254f5ff7e8",
+      "event_id": "v437_reservation_event_6c204c030c8ee9f704e3537d",
+      "event_type": "SYNTHETIC_RESERVATION",
+      "opportunity_id": "OPP_04",
+      "ordinal": 4,
+      "previous_hash": "283741e64c0914c8a7bd781b078b6e8ff5038522806a756b0616b790bb5d70a1"
+    }
+  ],
+  "external_account_mutated": false,
+  "ledger_hash": "6f60b4c353ed2ec1de60f5d9bfd02db44300fe2e8113b31999c7d9fc04aa8814",
+  "ledger_id": "v437_ledger_3b010312e06cab35da24a27f",
+  "phase": "SAED_V4_37",
+  "research_only": true,
+  "synthetic_only": true
+}

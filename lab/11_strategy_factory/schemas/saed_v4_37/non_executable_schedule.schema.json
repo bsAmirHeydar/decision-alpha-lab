@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_non_executable": {
+      "type": "boolean"
+    },
+    "order_count": {
+      "type": "integer"
+    },
+    "order_submission_allowed": {
+      "type": "boolean"
+    },
+    "orders": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "broker_route": {
+            "type": "null"
+          },
+          "direction": {
+            "type": "string"
+          },
+          "instrument_id": {
+            "type": "string"
+          },
+          "opportunity_id": {
+            "type": "string"
+          },
+          "runtime_authorized": {
+            "type": "boolean"
+          },
+          "slice_count": {
+            "type": "number"
+          },
+          "slices": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "executable": {
+                  "type": "boolean"
+                },
+                "max_participation_rate": {
+                  "type": "number"
+                },
+                "order_type": {
+                  "type": "string"
+                },
+                "planned_units": {
+                  "type": "number"
+                },
+                "slice_index": {
+                  "type": "number"
+                },
+                "window_minutes": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "executable",
+                "max_participation_rate",
+                "order_type",
+                "planned_units",
+                "slice_index",
+                "window_minutes"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "status": {
+            "type": "string"
+          },
+          "total_units": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "broker_route",
+          "direction",
+          "instrument_id",
+          "opportunity_id",
+          "runtime_authorized",
+          "slice_count",
+          "slices",
+          "status",
+          "total_units"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "schedule_hash": {
+      "type": "string"
+    },
+    "schedule_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "all_non_executable",
+    "order_count",
+    "order_submission_allowed",
+    "orders",
+    "phase",
+    "research_only",
+    "schedule_hash",
+    "schedule_id"
+  ],
+  "title": "SAED V4-37 non_executable_schedule",
+  "type": "object"
+}

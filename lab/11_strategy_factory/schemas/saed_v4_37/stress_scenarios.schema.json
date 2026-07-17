@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "items": {
+    "additionalProperties": false,
+    "properties": {
+      "correlation_multiplier": {
+        "type": "number"
+      },
+      "cost_multiplier": {
+        "type": "number"
+      },
+      "edge_multiplier": {
+        "type": "number"
+      },
+      "fill_ratio": {
+        "type": "number"
+      },
+      "funding_add_bps": {
+        "type": "number"
+      },
+      "liquidity_multiplier": {
+        "type": "number"
+      },
+      "scenario_id": {
+        "type": "string"
+      },
+      "synthetic_fixture": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "correlation_multiplier",
+      "cost_multiplier",
+      "edge_multiplier",
+      "fill_ratio",
+      "funding_add_bps",
+      "liquidity_multiplier",
+      "scenario_id",
+      "synthetic_fixture"
+    ],
+    "type": "object"
+  },
+  "title": "SAED V4-37 stress_scenarios",
+  "type": "array"
+}

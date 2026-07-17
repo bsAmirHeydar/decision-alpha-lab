@@ -1,0 +1,71 @@
+{
+  "all_non_executable": true,
+  "order_count": 3,
+  "order_submission_allowed": false,
+  "orders": [
+    {
+      "broker_route": null,
+      "direction": "LONG",
+      "instrument_id": "SYN_FUT_B",
+      "opportunity_id": "OPP_03",
+      "runtime_authorized": false,
+      "slice_count": 1,
+      "slices": [
+        {
+          "executable": false,
+          "max_participation_rate": 0.08,
+          "order_type": "PASSIVE_LIMIT_REFERENCE",
+          "planned_units": 4.5,
+          "slice_index": 0,
+          "window_minutes": 30
+        }
+      ],
+      "status": "NOT_SUBMITTED",
+      "total_units": 4.5
+    },
+    {
+      "broker_route": null,
+      "direction": "LONG",
+      "instrument_id": "SYN_EQ_A",
+      "opportunity_id": "OPP_01",
+      "runtime_authorized": false,
+      "slice_count": 1,
+      "slices": [
+        {
+          "executable": false,
+          "max_participation_rate": 0.08,
+          "order_type": "PASSIVE_LIMIT_REFERENCE",
+          "planned_units": 12500.0,
+          "slice_index": 0,
+          "window_minutes": 30
+        }
+      ],
+      "status": "NOT_SUBMITTED",
+      "total_units": 12500.0
+    },
+    {
+      "broker_route": null,
+      "direction": "LONG",
+      "instrument_id": "SYN_EQ_C",
+      "opportunity_id": "OPP_04",
+      "runtime_authorized": false,
+      "slice_count": 1,
+      "slices": [
+        {
+          "executable": false,
+          "max_participation_rate": 0.08,
+          "order_type": "PASSIVE_LIMIT_REFERENCE",
+          "planned_units": 8750.0,
+          "slice_index": 0,
+          "window_minutes": 30
+        }
+      ],
+      "status": "NOT_SUBMITTED",
+      "total_units": 8750.0
+    }
+  ],
+  "phase": "SAED_V4_37",
+  "research_only": true,
+  "schedule_hash": "f87c7e0a116748e02c66b2ad62ba2efe68e52edb922f981d7e511179cb22b949",
+  "schedule_id": "v437_schedule_cf60ca2c224ac7941eaab5af"
+}

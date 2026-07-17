@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "broker_route": {
+      "type": "null"
+    },
+    "direction": {
+      "type": "string"
+    },
+    "instrument_id": {
+      "type": "string"
+    },
+    "opportunity_id": {
+      "type": "string"
+    },
+    "runtime_authorized": {
+      "type": "boolean"
+    },
+    "slice_count": {
+      "type": "integer"
+    },
+    "slices": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "executable": {
+            "type": "boolean"
+          },
+          "max_participation_rate": {
+            "type": "number"
+          },
+          "order_type": {
+            "type": "string"
+          },
+          "planned_units": {
+            "type": "number"
+          },
+          "slice_index": {
+            "type": "integer"
+          },
+          "window_minutes": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "executable",
+          "max_participation_rate",
+          "order_type",
+          "planned_units",
+          "slice_index",
+          "window_minutes"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "status": {
+      "type": "string"
+    },
+    "total_units": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "broker_route",
+    "direction",
+    "instrument_id",
+    "opportunity_id",
+    "runtime_authorized",
+    "slice_count",
+    "slices",
+    "status",
+    "total_units"
+  ],
+  "title": "SAED V4-37 schedule_order_record",
+  "type": "object"
+}

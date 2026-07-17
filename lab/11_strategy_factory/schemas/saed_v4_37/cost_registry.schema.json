@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cutoff_time": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "schedules": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "borrow_bps_annual": {
+            "type": "number"
+          },
+          "commission_mode": {
+            "type": "string"
+          },
+          "commission_value": {
+            "type": "number"
+          },
+          "cost_schedule_id": {
+            "type": "string"
+          },
+          "exchange_fee_per_unit": {
+            "type": "number"
+          },
+          "funding_bps_annual": {
+            "type": "number"
+          },
+          "instrument_id": {
+            "type": "string"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "minimum_fee": {
+            "type": "number"
+          },
+          "regulatory_fee_bps": {
+            "type": "number"
+          },
+          "schedule_hash": {
+            "type": "string"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          },
+          "tax_bps": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "borrow_bps_annual",
+          "commission_mode",
+          "commission_value",
+          "cost_schedule_id",
+          "exchange_fee_per_unit",
+          "funding_bps_annual",
+          "instrument_id",
+          "known_time",
+          "minimum_fee",
+          "regulatory_fee_bps",
+          "schedule_hash",
+          "synthetic_fixture",
+          "tax_bps"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "cutoff_time",
+    "phase",
+    "registry_hash",
+    "registry_id",
+    "research_only",
+    "schedules"
+  ],
+  "title": "SAED V4-37 cost_registry",
+  "type": "object"
+}

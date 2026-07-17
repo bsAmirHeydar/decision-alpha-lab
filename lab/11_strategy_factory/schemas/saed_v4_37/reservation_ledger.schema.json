@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "available_balance": {
+      "type": "number"
+    },
+    "event_count": {
+      "type": "integer"
+    },
+    "events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "amount": {
+            "type": "number"
+          },
+          "event_hash": {
+            "type": "string"
+          },
+          "event_id": {
+            "type": "string"
+          },
+          "event_type": {
+            "type": "string"
+          },
+          "opportunity_id": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "ordinal": {
+            "type": "number"
+          },
+          "previous_hash": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "amount",
+          "event_hash",
+          "event_id",
+          "event_type",
+          "opportunity_id",
+          "ordinal",
+          "previous_hash"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "external_account_mutated": {
+      "type": "boolean"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "synthetic_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "available_balance",
+    "event_count",
+    "events",
+    "external_account_mutated",
+    "ledger_hash",
+    "ledger_id",
+    "phase",
+    "research_only",
+    "synthetic_only"
+  ],
+  "title": "SAED V4-37 reservation_ledger",
+  "type": "object"
+}

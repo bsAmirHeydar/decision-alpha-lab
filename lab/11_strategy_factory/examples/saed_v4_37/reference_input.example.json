@@ -1,0 +1,818 @@
+{
+  "base_currency": "USD",
+  "constitution": {
+    "automatic_order_submission_allowed": false,
+    "capital_activation_allowed": false,
+    "clauses": [
+      {
+        "clause_id": "V437-C01",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 1,
+        "requirement": "Known-time inputs only"
+      },
+      {
+        "clause_id": "V437-C02",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 2,
+        "requirement": "Executable-price mathematics"
+      },
+      {
+        "clause_id": "V437-C03",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 3,
+        "requirement": "Explicit spread accounting"
+      },
+      {
+        "clause_id": "V437-C04",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 4,
+        "requirement": "Commission and fee accounting"
+      },
+      {
+        "clause_id": "V437-C05",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 5,
+        "requirement": "Borrow and funding accounting"
+      },
+      {
+        "clause_id": "V437-C06",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 6,
+        "requirement": "Temporary impact accounting"
+      },
+      {
+        "clause_id": "V437-C07",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 7,
+        "requirement": "Permanent impact accounting"
+      },
+      {
+        "clause_id": "V437-C08",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 8,
+        "requirement": "Liquidity participation cap"
+      },
+      {
+        "clause_id": "V437-C09",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 9,
+        "requirement": "Depth capacity cap"
+      },
+      {
+        "clause_id": "V437-C10",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 10,
+        "requirement": "Instrument lot constraints"
+      },
+      {
+        "clause_id": "V437-C11",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 11,
+        "requirement": "Currency conversion lineage"
+      },
+      {
+        "clause_id": "V437-C12",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 12,
+        "requirement": "Gross exposure limit"
+      },
+      {
+        "clause_id": "V437-C13",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 13,
+        "requirement": "Net exposure limit"
+      },
+      {
+        "clause_id": "V437-C14",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 14,
+        "requirement": "Instrument concentration limit"
+      },
+      {
+        "clause_id": "V437-C15",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 15,
+        "requirement": "Cluster concentration limit"
+      },
+      {
+        "clause_id": "V437-C16",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 16,
+        "requirement": "Portfolio dependence risk"
+      },
+      {
+        "clause_id": "V437-C17",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 17,
+        "requirement": "Cash reserve preservation"
+      },
+      {
+        "clause_id": "V437-C18",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 18,
+        "requirement": "Capital reservation ledger"
+      },
+      {
+        "clause_id": "V437-C19",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 19,
+        "requirement": "Stress before acceptance"
+      },
+      {
+        "clause_id": "V437-C20",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 20,
+        "requirement": "Non-executable schedule only"
+      },
+      {
+        "clause_id": "V437-C21",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 21,
+        "requirement": "No broker routing"
+      },
+      {
+        "clause_id": "V437-C22",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 22,
+        "requirement": "No runtime activation"
+      },
+      {
+        "clause_id": "V437-C23",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 23,
+        "requirement": "Independent challenge"
+      },
+      {
+        "clause_id": "V437-C24",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 24,
+        "requirement": "Fail-closed escalation"
+      }
+    ],
+    "constitution_id": "v437_constitution_ref",
+    "executable_prices_required": true,
+    "full_cost_accounting_required": true,
+    "known_time_required": true,
+    "production_authorization_allowed": false,
+    "research_only": true,
+    "version": "1.0.0"
+  },
+  "constraints": {
+    "base_currency": "USD",
+    "capital_budget": 10000000,
+    "cash_reserve": 1500000,
+    "constraint_id": "CONSTRAINT_REF",
+    "gross_limit": 8500000,
+    "known_time": "2026-06-30T20:00:00Z",
+    "max_cluster_notional": 4200000,
+    "max_depth_multiple": 1.5,
+    "max_order_slices": 8,
+    "max_participation_rate": 0.08,
+    "max_portfolio_risk_notional": 120000,
+    "max_single_instrument_notional": 3000000,
+    "max_single_opportunity_notional": 1800000,
+    "max_slice_minutes": 30,
+    "maximum_expected_cost_bps": 18.0,
+    "minimum_net_edge_bps": 3.0,
+    "net_limit": 4000000,
+    "synthetic_fixture": true
+  },
+  "cost_schedules": [
+    {
+      "borrow_bps_annual": 120,
+      "commission_mode": "PER_UNIT",
+      "commission_value": 0.0035,
+      "cost_schedule_id": "COST_SYN_EQ_A",
+      "exchange_fee_per_unit": 0.0004,
+      "funding_bps_annual": 45,
+      "instrument_id": "SYN_EQ_A",
+      "known_time": "2026-06-30T20:00:00Z",
+      "minimum_fee": 1.0,
+      "regulatory_fee_bps": 0.02,
+      "synthetic_fixture": true,
+      "tax_bps": 0
+    },
+    {
+      "borrow_bps_annual": 0,
+      "commission_mode": "PER_UNIT",
+      "commission_value": 1.15,
+      "cost_schedule_id": "COST_SYN_FUT_B",
+      "exchange_fee_per_unit": 0.55,
+      "funding_bps_annual": 35,
+      "instrument_id": "SYN_FUT_B",
+      "known_time": "2026-06-30T20:00:00Z",
+      "minimum_fee": 1.7,
+      "regulatory_fee_bps": 0,
+      "synthetic_fixture": true,
+      "tax_bps": 0
+    },
+    {
+      "borrow_bps_annual": 150,
+      "commission_mode": "PER_NOTIONAL_BPS",
+      "commission_value": 0.6,
+      "cost_schedule_id": "COST_SYN_EQ_C",
+      "exchange_fee_per_unit": 0,
+      "funding_bps_annual": 40,
+      "instrument_id": "SYN_EQ_C",
+      "known_time": "2026-06-30T20:00:00Z",
+      "minimum_fee": 1.0,
+      "regulatory_fee_bps": 0.02,
+      "synthetic_fixture": true,
+      "tax_bps": 1.5
+    },
+    {
+      "borrow_bps_annual": 0,
+      "commission_mode": "PER_NOTIONAL_BPS",
+      "commission_value": 0.25,
+      "cost_schedule_id": "COST_SYN_FX_D",
+      "exchange_fee_per_unit": 0,
+      "funding_bps_annual": 65,
+      "instrument_id": "SYN_FX_D",
+      "known_time": "2026-06-30T20:00:00Z",
+      "minimum_fee": 0.5,
+      "regulatory_fee_bps": 0,
+      "synthetic_fixture": true,
+      "tax_bps": 0
+    }
+  ],
+  "cutoff_time": "2026-06-30T20:00:00Z",
+  "dependence": {
+    "cluster_map": {
+      "SYN_EQ_A": "RISK_ASSET",
+      "SYN_EQ_C": "RISK_ASSET",
+      "SYN_FUT_B": "INDEX_FUTURE",
+      "SYN_FX_D": "FX"
+    },
+    "correlation_matrix": [
+      [
+        1.0,
+        0.34,
+        0.61,
+        -0.12
+      ],
+      [
+        0.34,
+        1.0,
+        0.28,
+        -0.18
+      ],
+      [
+        0.61,
+        0.28,
+        1.0,
+        -0.08
+      ],
+      [
+        -0.12,
+        -0.18,
+        -0.08,
+        1.0
+      ]
+    ],
+    "dependence_id": "DEP_REF",
+    "instrument_ids": [
+      "SYN_EQ_A",
+      "SYN_EQ_C",
+      "SYN_FUT_B",
+      "SYN_FX_D"
+    ],
+    "known_time": "2026-06-30T20:00:00Z",
+    "shrinkage": 0.15,
+    "synthetic_fixture": true,
+    "volatility_vector": {
+      "SYN_EQ_A": 0.012,
+      "SYN_EQ_C": 0.014,
+      "SYN_FUT_B": 0.016,
+      "SYN_FX_D": 0.008
+    }
+  },
+  "fx_rates": [
+    {
+      "base": "USD",
+      "known_time": "2026-06-30T20:00:00Z",
+      "mid": 0.92,
+      "quote": "EUR",
+      "rate_id": "USD_EUR",
+      "spread_bps": 1.2,
+      "synthetic_fixture": true
+    },
+    {
+      "base": "USD",
+      "known_time": "2026-06-30T20:00:00Z",
+      "mid": 156.4,
+      "quote": "JPY",
+      "rate_id": "USD_JPY",
+      "spread_bps": 1.5,
+      "synthetic_fixture": true
+    },
+    {
+      "base": "EUR",
+      "known_time": "2026-06-30T20:00:00Z",
+      "mid": 0.85,
+      "quote": "GBP",
+      "rate_id": "EUR_GBP",
+      "spread_bps": 1.1,
+      "synthetic_fixture": true
+    }
+  ],
+  "instruments": [
+    {
+      "contract_multiplier": 1,
+      "instrument_id": "SYN_EQ_A",
+      "kind": "ETF",
+      "known_time": "2026-06-30T20:00:00Z",
+      "lot_step": 1,
+      "margin_rate": 0.5,
+      "max_lot": 2000000,
+      "min_lot": 1,
+      "quote_currency": "USD",
+      "settlement_currency": "USD",
+      "shortable": true,
+      "symbol": "SYN-A",
+      "synthetic_fixture": true,
+      "tick_size": 0.01,
+      "tick_value": 0.01
+    },
+    {
+      "contract_multiplier": 20,
+      "instrument_id": "SYN_FUT_B",
+      "kind": "FUTURE",
+      "known_time": "2026-06-30T20:00:00Z",
+      "lot_step": 1,
+      "margin_rate": 0.12,
+      "max_lot": 10000,
+      "min_lot": 1,
+      "quote_currency": "USD",
+      "settlement_currency": "USD",
+      "shortable": true,
+      "symbol": "SYN-B",
+      "synthetic_fixture": true,
+      "tick_size": 0.25,
+      "tick_value": 5
+    },
+    {
+      "contract_multiplier": 1,
+      "instrument_id": "SYN_EQ_C",
+      "kind": "EQUITY",
+      "known_time": "2026-06-30T20:00:00Z",
+      "lot_step": 1,
+      "margin_rate": 0.5,
+      "max_lot": 1500000,
+      "min_lot": 1,
+      "quote_currency": "EUR",
+      "settlement_currency": "EUR",
+      "shortable": true,
+      "symbol": "SYN-C",
+      "synthetic_fixture": true,
+      "tick_size": 0.01,
+      "tick_value": 0.01
+    },
+    {
+      "contract_multiplier": 100000,
+      "instrument_id": "SYN_FX_D",
+      "kind": "FX",
+      "known_time": "2026-06-30T20:00:00Z",
+      "lot_step": 0.01,
+      "margin_rate": 0.03,
+      "max_lot": 500,
+      "min_lot": 0.01,
+      "quote_currency": "JPY",
+      "settlement_currency": "USD",
+      "shortable": true,
+      "symbol": "SYN-D",
+      "synthetic_fixture": true,
+      "tick_size": 0.001,
+      "tick_value": 10
+    }
+  ],
+  "liquidity_profiles": [
+    {
+      "adv_notional": 720000000,
+      "adv_units": 6000000,
+      "daily_volatility": 0.012,
+      "depth_units": 120000,
+      "instrument_id": "SYN_EQ_A",
+      "known_time": "2026-06-30T20:00:00Z",
+      "liquidity_profile_id": "LIQ_SYN_EQ_A",
+      "max_participation_rate": 0.12,
+      "median_spread_bps": 1.8,
+      "session_minutes": 390,
+      "synthetic_fixture": true,
+      "volume_curve": [
+        0.18,
+        0.12,
+        0.1,
+        0.1,
+        0.11,
+        0.14,
+        0.25
+      ]
+    },
+    {
+      "adv_notional": 2600000000,
+      "adv_units": 650000,
+      "daily_volatility": 0.016,
+      "depth_units": 18000,
+      "instrument_id": "SYN_FUT_B",
+      "known_time": "2026-06-30T20:00:00Z",
+      "liquidity_profile_id": "LIQ_SYN_FUT_B",
+      "max_participation_rate": 0.1,
+      "median_spread_bps": 0.9,
+      "session_minutes": 1380,
+      "synthetic_fixture": true,
+      "volume_curve": [
+        0.16,
+        0.11,
+        0.1,
+        0.1,
+        0.12,
+        0.16,
+        0.25
+      ]
+    },
+    {
+      "adv_notional": 320000000,
+      "adv_units": 3800000,
+      "daily_volatility": 0.014,
+      "depth_units": 70000,
+      "instrument_id": "SYN_EQ_C",
+      "known_time": "2026-06-30T20:00:00Z",
+      "liquidity_profile_id": "LIQ_SYN_EQ_C",
+      "max_participation_rate": 0.1,
+      "median_spread_bps": 2.6,
+      "session_minutes": 510,
+      "synthetic_fixture": true,
+      "volume_curve": [
+        0.17,
+        0.12,
+        0.11,
+        0.1,
+        0.12,
+        0.15,
+        0.23
+      ]
+    },
+    {
+      "adv_notional": 18000000000,
+      "adv_units": 180000,
+      "daily_volatility": 0.008,
+      "depth_units": 5500,
+      "instrument_id": "SYN_FX_D",
+      "known_time": "2026-06-30T20:00:00Z",
+      "liquidity_profile_id": "LIQ_SYN_FX_D",
+      "max_participation_rate": 0.08,
+      "median_spread_bps": 1.1,
+      "session_minutes": 1440,
+      "synthetic_fixture": true,
+      "volume_curve": [
+        0.14,
+        0.13,
+        0.13,
+        0.13,
+        0.14,
+        0.15,
+        0.18
+      ]
+    }
+  ],
+  "opportunities": [
+    {
+      "confidence": 0.82,
+      "context_id": "CTX_A",
+      "direction": "LONG",
+      "expected_gross_bps": 18,
+      "holding_days": 2,
+      "instrument_id": "SYN_EQ_A",
+      "known_time": "2026-06-30T20:00:00Z",
+      "max_notional": 1800000,
+      "opportunity_id": "OPP_01",
+      "requested_notional": 1500000,
+      "signal_strength": 0.88,
+      "strategy_cluster": "MOMENTUM",
+      "synthetic_fixture": true,
+      "treatment_id": "TRT_1"
+    },
+    {
+      "confidence": 0.7,
+      "context_id": "CTX_B",
+      "direction": "SHORT",
+      "expected_gross_bps": 11,
+      "holding_days": 1,
+      "instrument_id": "SYN_EQ_A",
+      "known_time": "2026-06-30T20:00:00Z",
+      "max_notional": 1200000,
+      "opportunity_id": "OPP_02",
+      "requested_notional": 900000,
+      "signal_strength": 0.66,
+      "strategy_cluster": "MEAN_REVERSION",
+      "synthetic_fixture": true,
+      "treatment_id": "TRT_2"
+    },
+    {
+      "confidence": 0.78,
+      "context_id": "CTX_C",
+      "direction": "LONG",
+      "expected_gross_bps": 22,
+      "holding_days": 1,
+      "instrument_id": "SYN_FUT_B",
+      "known_time": "2026-06-30T20:00:00Z",
+      "max_notional": 1800000,
+      "opportunity_id": "OPP_03",
+      "requested_notional": 1800000,
+      "signal_strength": 0.84,
+      "strategy_cluster": "MOMENTUM",
+      "synthetic_fixture": true,
+      "treatment_id": "TRT_1"
+    },
+    {
+      "confidence": 0.74,
+      "context_id": "CTX_D",
+      "direction": "LONG",
+      "expected_gross_bps": 16,
+      "holding_days": 3,
+      "instrument_id": "SYN_EQ_C",
+      "known_time": "2026-06-30T20:00:00Z",
+      "max_notional": 1600000,
+      "opportunity_id": "OPP_04",
+      "requested_notional": 1300000,
+      "signal_strength": 0.75,
+      "strategy_cluster": "VALUE",
+      "synthetic_fixture": true,
+      "treatment_id": "TRT_3"
+    },
+    {
+      "confidence": 0.71,
+      "context_id": "CTX_E",
+      "direction": "SHORT",
+      "expected_gross_bps": 13,
+      "holding_days": 2,
+      "instrument_id": "SYN_EQ_C",
+      "known_time": "2026-06-30T20:00:00Z",
+      "max_notional": 1200000,
+      "opportunity_id": "OPP_05",
+      "requested_notional": 1000000,
+      "signal_strength": 0.72,
+      "strategy_cluster": "MEAN_REVERSION",
+      "synthetic_fixture": true,
+      "treatment_id": "TRT_2"
+    },
+    {
+      "confidence": 0.67,
+      "context_id": "CTX_F",
+      "direction": "LONG",
+      "expected_gross_bps": 9,
+      "holding_days": 1,
+      "instrument_id": "SYN_FX_D",
+      "known_time": "2026-06-30T20:00:00Z",
+      "max_notional": 1500000,
+      "opportunity_id": "OPP_06",
+      "requested_notional": 1200000,
+      "signal_strength": 0.69,
+      "strategy_cluster": "FX_CARRY",
+      "synthetic_fixture": true,
+      "treatment_id": "TRT_4"
+    },
+    {
+      "confidence": 0.61,
+      "context_id": "CTX_G",
+      "direction": "SHORT",
+      "expected_gross_bps": 7,
+      "holding_days": 1,
+      "instrument_id": "SYN_FUT_B",
+      "known_time": "2026-06-30T20:00:00Z",
+      "max_notional": 1300000,
+      "opportunity_id": "OPP_07",
+      "requested_notional": 1000000,
+      "signal_strength": 0.6,
+      "strategy_cluster": "HEDGE",
+      "synthetic_fixture": true,
+      "treatment_id": "TRT_5"
+    },
+    {
+      "confidence": 0.55,
+      "context_id": "CTX_H",
+      "direction": "LONG",
+      "expected_gross_bps": 2.5,
+      "holding_days": 4,
+      "instrument_id": "SYN_EQ_A",
+      "known_time": "2026-06-30T20:00:00Z",
+      "max_notional": 900000,
+      "opportunity_id": "OPP_08",
+      "requested_notional": 600000,
+      "signal_strength": 0.52,
+      "strategy_cluster": "EXPLORATION",
+      "synthetic_fixture": true,
+      "treatment_id": "TRT_6"
+    }
+  ],
+  "prices": {
+    "SYN_EQ_A": 120.0,
+    "SYN_EQ_C": 80.0,
+    "SYN_FUT_B": 20000.0,
+    "SYN_FX_D": 0.0064
+  },
+  "reviews": [
+    {
+      "decision": "APPROVE_REFERENCE",
+      "findings": [
+        "synthetic_reference_only",
+        "no_capital_activation",
+        "no_order_submission"
+      ],
+      "independent": false,
+      "plan_hash": "01b30d71dfb8ff65ee183fad2a6a41aea267def25ae05b82f14c3c93e5de2435",
+      "review_id": "REVIEW_01",
+      "reviewer_id": "SYN_REVIEWER_1",
+      "role": "PORTFOLIO_RESEARCH",
+      "synthetic_fixture": true
+    },
+    {
+      "decision": "APPROVE_REFERENCE",
+      "findings": [
+        "synthetic_reference_only",
+        "no_capital_activation",
+        "no_order_submission"
+      ],
+      "independent": false,
+      "plan_hash": "01b30d71dfb8ff65ee183fad2a6a41aea267def25ae05b82f14c3c93e5de2435",
+      "review_id": "REVIEW_02",
+      "reviewer_id": "SYN_REVIEWER_2",
+      "role": "EXECUTION_RESEARCH",
+      "synthetic_fixture": true
+    },
+    {
+      "decision": "APPROVE_REFERENCE",
+      "findings": [
+        "synthetic_reference_only",
+        "no_capital_activation",
+        "no_order_submission"
+      ],
+      "independent": false,
+      "plan_hash": "01b30d71dfb8ff65ee183fad2a6a41aea267def25ae05b82f14c3c93e5de2435",
+      "review_id": "REVIEW_03",
+      "reviewer_id": "SYN_REVIEWER_3",
+      "role": "MODEL_RISK",
+      "synthetic_fixture": true
+    },
+    {
+      "decision": "APPROVE_REFERENCE",
+      "findings": [
+        "synthetic_reference_only",
+        "no_capital_activation",
+        "no_order_submission"
+      ],
+      "independent": true,
+      "plan_hash": "01b30d71dfb8ff65ee183fad2a6a41aea267def25ae05b82f14c3c93e5de2435",
+      "review_id": "REVIEW_04",
+      "reviewer_id": "SYN_REVIEWER_4",
+      "role": "INDEPENDENT_CHALLENGE",
+      "synthetic_fixture": true
+    },
+    {
+      "decision": "APPROVE_REFERENCE",
+      "findings": [
+        "synthetic_reference_only",
+        "no_capital_activation",
+        "no_order_submission"
+      ],
+      "independent": false,
+      "plan_hash": "01b30d71dfb8ff65ee183fad2a6a41aea267def25ae05b82f14c3c93e5de2435",
+      "review_id": "REVIEW_05",
+      "reviewer_id": "SYN_REVIEWER_5",
+      "role": "OPERATIONS_OBSERVER",
+      "synthetic_fixture": true
+    }
+  ],
+  "stress_scenarios": [
+    {
+      "correlation_multiplier": 1.0,
+      "cost_multiplier": 1.0,
+      "edge_multiplier": 1.0,
+      "fill_ratio": 1.0,
+      "funding_add_bps": 0,
+      "liquidity_multiplier": 1.0,
+      "scenario_id": "BASE",
+      "synthetic_fixture": true
+    },
+    {
+      "correlation_multiplier": 1.1,
+      "cost_multiplier": 2.0,
+      "edge_multiplier": 0.9,
+      "fill_ratio": 0.85,
+      "funding_add_bps": 1.5,
+      "liquidity_multiplier": 0.8,
+      "scenario_id": "COST_2X",
+      "synthetic_fixture": true
+    },
+    {
+      "correlation_multiplier": 1.25,
+      "cost_multiplier": 2.5,
+      "edge_multiplier": 0.75,
+      "fill_ratio": 0.55,
+      "funding_add_bps": 2.0,
+      "liquidity_multiplier": 0.45,
+      "scenario_id": "LIQUIDITY_CRUNCH",
+      "synthetic_fixture": true
+    },
+    {
+      "correlation_multiplier": 1.5,
+      "cost_multiplier": 1.5,
+      "edge_multiplier": 0.7,
+      "fill_ratio": 0.75,
+      "funding_add_bps": 1.0,
+      "liquidity_multiplier": 0.7,
+      "scenario_id": "CORRELATION_BREAK",
+      "synthetic_fixture": true
+    },
+    {
+      "correlation_multiplier": 1.2,
+      "cost_multiplier": 1.4,
+      "edge_multiplier": 0.45,
+      "fill_ratio": 0.9,
+      "funding_add_bps": 0.5,
+      "liquidity_multiplier": 0.85,
+      "scenario_id": "EDGE_DECAY",
+      "synthetic_fixture": true
+    },
+    {
+      "correlation_multiplier": 1.1,
+      "cost_multiplier": 1.3,
+      "edge_multiplier": 0.8,
+      "fill_ratio": 0.9,
+      "funding_add_bps": 8.0,
+      "liquidity_multiplier": 0.9,
+      "scenario_id": "FUNDING_SHOCK",
+      "synthetic_fixture": true
+    }
+  ],
+  "synthetic_fills": [
+    {
+      "fill_id": "FILL_01",
+      "filled_units": 3.96,
+      "opportunity_id": "OPP_03",
+      "realized_cost_bps": 1.5,
+      "realized_slippage_bps": 0.8,
+      "synthetic_fixture": true
+    },
+    {
+      "fill_id": "FILL_02",
+      "filled_units": 11250.0,
+      "opportunity_id": "OPP_01",
+      "realized_cost_bps": 1.8,
+      "realized_slippage_bps": 1.0,
+      "synthetic_fixture": true
+    },
+    {
+      "fill_id": "FILL_03",
+      "filled_units": 8050.0,
+      "opportunity_id": "OPP_04",
+      "realized_cost_bps": 2.1,
+      "realized_slippage_bps": 1.2,
+      "synthetic_fixture": true
+    }
+  ],
+  "upstream": [
+    {
+      "document_hash": "bfb17c84bc84e0a647a92b4944fe990666ac77a756aba4c82bc79863be9729cd",
+      "document_id": "v436_cert_ref",
+      "kind": "v4_36_certificate",
+      "next_phase": "SAED_V4_37",
+      "phase": "SAED_V4_36",
+      "production_authorized": false,
+      "research_only": true
+    },
+    {
+      "document_hash": "2d2c08be80d7641e40dda6e78599a872bf2dfd8737f1b30ae7eb08c97c669987",
+      "document_id": "v436_handoff_ref",
+      "kind": "v4_36_handoff",
+      "next_phase": "SAED_V4_37",
+      "phase": "SAED_V4_36",
+      "production_authorized": false,
+      "research_only": true
+    }
+  ]
+}

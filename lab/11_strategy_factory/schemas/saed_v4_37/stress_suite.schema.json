@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "passed": {
+            "type": "boolean"
+          },
+          "scenario_id": {
+            "type": "string"
+          },
+          "stressed_cost_value": {
+            "type": "number"
+          },
+          "stressed_gross_value": {
+            "type": "number"
+          },
+          "stressed_net_value": {
+            "type": "number"
+          },
+          "stressed_risk_notional": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "passed",
+          "scenario_id",
+          "stressed_cost_value",
+          "stressed_gross_value",
+          "stressed_net_value",
+          "stressed_risk_notional"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "scenario_count": {
+      "type": "integer"
+    },
+    "suite_hash": {
+      "type": "string"
+    },
+    "suite_id": {
+      "type": "string"
+    },
+    "worst_net_value": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "all_passed",
+    "phase",
+    "research_only",
+    "rows",
+    "scenario_count",
+    "suite_hash",
+    "suite_id",
+    "worst_net_value"
+  ],
+  "title": "SAED V4-37 stress_suite",
+  "type": "object"
+}

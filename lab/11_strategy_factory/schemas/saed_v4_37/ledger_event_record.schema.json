@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "amount": {
+      "type": "number"
+    },
+    "event_hash": {
+      "type": "string"
+    },
+    "event_id": {
+      "type": "string"
+    },
+    "event_type": {
+      "type": "string"
+    },
+    "opportunity_id": {
+      "type": "null"
+    },
+    "ordinal": {
+      "type": "integer"
+    },
+    "previous_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "amount",
+    "event_hash",
+    "event_id",
+    "event_type",
+    "opportunity_id",
+    "ordinal",
+    "previous_hash"
+  ],
+  "title": "SAED V4-37 ledger_event_record",
+  "type": "object"
+}

@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cutoff_time": {
+      "type": "string"
+    },
+    "instrument_count": {
+      "type": "integer"
+    },
+    "instruments": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "contract_multiplier": {
+            "type": "number"
+          },
+          "instrument_hash": {
+            "type": "string"
+          },
+          "instrument_id": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "lot_step": {
+            "type": "number"
+          },
+          "margin_rate": {
+            "type": "number"
+          },
+          "max_lot": {
+            "type": "number"
+          },
+          "min_lot": {
+            "type": "number"
+          },
+          "quote_currency": {
+            "type": "string"
+          },
+          "settlement_currency": {
+            "type": "string"
+          },
+          "shortable": {
+            "type": "boolean"
+          },
+          "symbol": {
+            "type": "string"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          },
+          "tick_size": {
+            "type": "number"
+          },
+          "tick_value": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "contract_multiplier",
+          "instrument_hash",
+          "instrument_id",
+          "kind",
+          "known_time",
+          "lot_step",
+          "margin_rate",
+          "max_lot",
+          "min_lot",
+          "quote_currency",
+          "settlement_currency",
+          "shortable",
+          "symbol",
+          "synthetic_fixture",
+          "tick_size",
+          "tick_value"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "master_hash": {
+      "type": "string"
+    },
+    "master_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "cutoff_time",
+    "instrument_count",
+    "instruments",
+    "master_hash",
+    "master_id",
+    "phase",
+    "research_only"
+  ],
+  "title": "SAED V4-37 instrument_master",
+  "type": "object"
+}

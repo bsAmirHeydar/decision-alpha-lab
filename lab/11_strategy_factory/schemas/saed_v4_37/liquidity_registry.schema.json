@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cutoff_time": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "profiles": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "adv_notional": {
+            "type": "number"
+          },
+          "adv_units": {
+            "type": "number"
+          },
+          "daily_volatility": {
+            "type": "number"
+          },
+          "depth_units": {
+            "type": "number"
+          },
+          "instrument_id": {
+            "type": "string"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "liquidity_profile_id": {
+            "type": "string"
+          },
+          "max_participation_rate": {
+            "type": "number"
+          },
+          "median_spread_bps": {
+            "type": "number"
+          },
+          "profile_hash": {
+            "type": "string"
+          },
+          "session_minutes": {
+            "type": "number"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          },
+          "volume_curve": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "adv_notional",
+          "adv_units",
+          "daily_volatility",
+          "depth_units",
+          "instrument_id",
+          "known_time",
+          "liquidity_profile_id",
+          "max_participation_rate",
+          "median_spread_bps",
+          "profile_hash",
+          "session_minutes",
+          "synthetic_fixture",
+          "volume_curve"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "cutoff_time",
+    "phase",
+    "profiles",
+    "registry_hash",
+    "registry_id",
+    "research_only"
+  ],
+  "title": "SAED V4-37 liquidity_registry",
+  "type": "object"
+}

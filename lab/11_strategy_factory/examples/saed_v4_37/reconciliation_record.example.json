@@ -1,0 +1,11 @@
+{
+  "cost_variance_bps": 1.56013374,
+  "expected_cost_bps": 0.73986626,
+  "fill_id": "FILL_01",
+  "fill_ratio": 0.88,
+  "filled_units": 3.96,
+  "opportunity_id": "OPP_03",
+  "planned_units": 4.5,
+  "realized_cost_bps": 2.3,
+  "synthetic_only": true
+}

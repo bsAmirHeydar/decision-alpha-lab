@@ -1,0 +1,181 @@
+{
+  "automatic_order_submission_allowed": false,
+  "capital_activation_allowed": false,
+  "clauses": [
+    {
+      "clause_id": "V437-C01",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 1,
+      "requirement": "Known-time inputs only"
+    },
+    {
+      "clause_id": "V437-C02",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 2,
+      "requirement": "Executable-price mathematics"
+    },
+    {
+      "clause_id": "V437-C03",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 3,
+      "requirement": "Explicit spread accounting"
+    },
+    {
+      "clause_id": "V437-C04",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 4,
+      "requirement": "Commission and fee accounting"
+    },
+    {
+      "clause_id": "V437-C05",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 5,
+      "requirement": "Borrow and funding accounting"
+    },
+    {
+      "clause_id": "V437-C06",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 6,
+      "requirement": "Temporary impact accounting"
+    },
+    {
+      "clause_id": "V437-C07",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 7,
+      "requirement": "Permanent impact accounting"
+    },
+    {
+      "clause_id": "V437-C08",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 8,
+      "requirement": "Liquidity participation cap"
+    },
+    {
+      "clause_id": "V437-C09",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 9,
+      "requirement": "Depth capacity cap"
+    },
+    {
+      "clause_id": "V437-C10",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 10,
+      "requirement": "Instrument lot constraints"
+    },
+    {
+      "clause_id": "V437-C11",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 11,
+      "requirement": "Currency conversion lineage"
+    },
+    {
+      "clause_id": "V437-C12",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 12,
+      "requirement": "Gross exposure limit"
+    },
+    {
+      "clause_id": "V437-C13",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 13,
+      "requirement": "Net exposure limit"
+    },
+    {
+      "clause_id": "V437-C14",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 14,
+      "requirement": "Instrument concentration limit"
+    },
+    {
+      "clause_id": "V437-C15",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 15,
+      "requirement": "Cluster concentration limit"
+    },
+    {
+      "clause_id": "V437-C16",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 16,
+      "requirement": "Portfolio dependence risk"
+    },
+    {
+      "clause_id": "V437-C17",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 17,
+      "requirement": "Cash reserve preservation"
+    },
+    {
+      "clause_id": "V437-C18",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 18,
+      "requirement": "Capital reservation ledger"
+    },
+    {
+      "clause_id": "V437-C19",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 19,
+      "requirement": "Stress before acceptance"
+    },
+    {
+      "clause_id": "V437-C20",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 20,
+      "requirement": "Non-executable schedule only"
+    },
+    {
+      "clause_id": "V437-C21",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 21,
+      "requirement": "No broker routing"
+    },
+    {
+      "clause_id": "V437-C22",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 22,
+      "requirement": "No runtime activation"
+    },
+    {
+      "clause_id": "V437-C23",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 23,
+      "requirement": "Independent challenge"
+    },
+    {
+      "clause_id": "V437-C24",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 24,
+      "requirement": "Fail-closed escalation"
+    }
+  ],
+  "constitution_id": "v437_constitution_ref",
+  "executable_prices_required": true,
+  "full_cost_accounting_required": true,
+  "known_time_required": true,
+  "production_authorization_allowed": false,
+  "research_only": true,
+  "version": "1.0.0"
+}

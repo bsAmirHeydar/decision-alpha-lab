@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "base": {
+      "type": "string"
+    },
+    "known_time": {
+      "type": "string"
+    },
+    "mid": {
+      "type": "number"
+    },
+    "quote": {
+      "type": "string"
+    },
+    "rate_hash": {
+      "type": "string"
+    },
+    "rate_id": {
+      "type": "string"
+    },
+    "spread_bps": {
+      "type": "number"
+    },
+    "synthetic_fixture": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "base",
+    "known_time",
+    "mid",
+    "quote",
+    "rate_hash",
+    "rate_id",
+    "spread_bps",
+    "synthetic_fixture"
+  ],
+  "title": "SAED V4-37 fx_rate_record",
+  "type": "object"
+}

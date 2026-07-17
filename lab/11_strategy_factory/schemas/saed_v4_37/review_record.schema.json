@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "decision": {
+      "type": "string"
+    },
+    "findings": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "independent": {
+      "type": "boolean"
+    },
+    "plan_hash": {
+      "type": "string"
+    },
+    "review_id": {
+      "type": "string"
+    },
+    "reviewer_id": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "synthetic_fixture": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "decision",
+    "findings",
+    "independent",
+    "plan_hash",
+    "review_id",
+    "reviewer_id",
+    "role",
+    "synthetic_fixture"
+  ],
+  "title": "SAED V4-37 review_record",
+  "type": "object"
+}

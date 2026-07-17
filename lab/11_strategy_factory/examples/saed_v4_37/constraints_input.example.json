@@ -1,0 +1,20 @@
+{
+  "base_currency": "USD",
+  "capital_budget": 10000000,
+  "cash_reserve": 1500000,
+  "constraint_id": "CONSTRAINT_REF",
+  "gross_limit": 8500000,
+  "known_time": "2026-06-30T20:00:00Z",
+  "max_cluster_notional": 4200000,
+  "max_depth_multiple": 1.5,
+  "max_order_slices": 8,
+  "max_participation_rate": 0.08,
+  "max_portfolio_risk_notional": 120000,
+  "max_single_instrument_notional": 3000000,
+  "max_single_opportunity_notional": 1800000,
+  "max_slice_minutes": 30,
+  "maximum_expected_cost_bps": 18.0,
+  "minimum_net_edge_bps": 3.0,
+  "net_limit": 4000000,
+  "synthetic_fixture": true
+}

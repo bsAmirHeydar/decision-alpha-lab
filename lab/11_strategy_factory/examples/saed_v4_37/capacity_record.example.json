@@ -1,0 +1,10 @@
+{
+  "binding_limit": "OPPORTUNITY_MAX",
+  "capacity_notional": 1800000.0,
+  "capacity_units": 180000.0,
+  "depth_capacity_units": 180000.0,
+  "instrument_id": "SYN_EQ_A",
+  "opportunity_id": "OPP_01",
+  "participation_capacity_units": 480000.0,
+  "unit_notional": 120.0
+}

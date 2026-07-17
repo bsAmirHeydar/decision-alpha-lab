@@ -1,0 +1,101 @@
+{
+  "cutoff_time": "2026-06-30T20:00:00Z",
+  "phase": "SAED_V4_37",
+  "profiles": [
+    {
+      "adv_notional": 720000000,
+      "adv_units": 6000000,
+      "daily_volatility": 0.012,
+      "depth_units": 120000,
+      "instrument_id": "SYN_EQ_A",
+      "known_time": "2026-06-30T20:00:00Z",
+      "liquidity_profile_id": "LIQ_SYN_EQ_A",
+      "max_participation_rate": 0.12,
+      "median_spread_bps": 1.8,
+      "profile_hash": "7bf7f550c2b22d01f9c494e7df2d7735b882299f42cc871db1a75421f53e69c4",
+      "session_minutes": 390,
+      "synthetic_fixture": true,
+      "volume_curve": [
+        0.18,
+        0.12,
+        0.1,
+        0.1,
+        0.11,
+        0.14,
+        0.25
+      ]
+    },
+    {
+      "adv_notional": 320000000,
+      "adv_units": 3800000,
+      "daily_volatility": 0.014,
+      "depth_units": 70000,
+      "instrument_id": "SYN_EQ_C",
+      "known_time": "2026-06-30T20:00:00Z",
+      "liquidity_profile_id": "LIQ_SYN_EQ_C",
+      "max_participation_rate": 0.1,
+      "median_spread_bps": 2.6,
+      "profile_hash": "e7e6193b70253f5ec32333b37d33b7dbb1e2790b928af539dbbe4f9877cc81f2",
+      "session_minutes": 510,
+      "synthetic_fixture": true,
+      "volume_curve": [
+        0.17,
+        0.12,
+        0.11,
+        0.1,
+        0.12,
+        0.15,
+        0.23
+      ]
+    },
+    {
+      "adv_notional": 2600000000,
+      "adv_units": 650000,
+      "daily_volatility": 0.016,
+      "depth_units": 18000,
+      "instrument_id": "SYN_FUT_B",
+      "known_time": "2026-06-30T20:00:00Z",
+      "liquidity_profile_id": "LIQ_SYN_FUT_B",
+      "max_participation_rate": 0.1,
+      "median_spread_bps": 0.9,
+      "profile_hash": "598d91a75365a776af3e0916e5488594a442716de0de28ffebcb1f0b82769bb4",
+      "session_minutes": 1380,
+      "synthetic_fixture": true,
+      "volume_curve": [
+        0.16,
+        0.11,
+        0.1,
+        0.1,
+        0.12,
+        0.16,
+        0.25
+      ]
+    },
+    {
+      "adv_notional": 18000000000,
+      "adv_units": 180000,
+      "daily_volatility": 0.008,
+      "depth_units": 5500,
+      "instrument_id": "SYN_FX_D",
+      "known_time": "2026-06-30T20:00:00Z",
+      "liquidity_profile_id": "LIQ_SYN_FX_D",
+      "max_participation_rate": 0.08,
+      "median_spread_bps": 1.1,
+      "profile_hash": "4185d5ba17b9ea073c565f0d5aacb19a88930c681ccb24a719d8e7dce6c87222",
+      "session_minutes": 1440,
+      "synthetic_fixture": true,
+      "volume_curve": [
+        0.14,
+        0.13,
+        0.13,
+        0.13,
+        0.14,
+        0.15,
+        0.18
+      ]
+    }
+  ],
+  "registry_hash": "4a44c8b66fe2c9ffb26576642aa3b3b3465379a4f4fccdcf29321bc50ae88275",
+  "registry_id": "v437_liquidity_142d06628dc34f7470a091b1",
+  "research_only": true
+}

@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_receipt_hash": {
+      "type": "string"
+    },
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "document_hash": {
+      "type": "string"
+    },
+    "document_id": {
+      "type": "string"
+    },
+    "evidence_bundle_hash": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "order_submission_allowed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "review_bundle_hash": {
+      "type": "string"
+    },
+    "stress_suite_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "baseline_receipt_hash",
+    "capital_activation_allowed",
+    "decision",
+    "document_hash",
+    "document_id",
+    "evidence_bundle_hash",
+    "kind",
+    "next_phase",
+    "order_submission_allowed",
+    "phase",
+    "production_authorized",
+    "research_only",
+    "review_bundle_hash",
+    "stress_suite_hash"
+  ],
+  "title": "SAED V4-37 certificate",
+  "type": "object"
+}

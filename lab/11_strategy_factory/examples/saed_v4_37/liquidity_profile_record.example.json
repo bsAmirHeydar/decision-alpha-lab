@@ -1,0 +1,23 @@
+{
+  "adv_notional": 720000000,
+  "adv_units": 6000000,
+  "daily_volatility": 0.012,
+  "depth_units": 120000,
+  "instrument_id": "SYN_EQ_A",
+  "known_time": "2026-06-30T20:00:00Z",
+  "liquidity_profile_id": "LIQ_SYN_EQ_A",
+  "max_participation_rate": 0.12,
+  "median_spread_bps": 1.8,
+  "profile_hash": "7bf7f550c2b22d01f9c494e7df2d7735b882299f42cc871db1a75421f53e69c4",
+  "session_minutes": 390,
+  "synthetic_fixture": true,
+  "volume_curve": [
+    0.18,
+    0.12,
+    0.1,
+    0.1,
+    0.11,
+    0.14,
+    0.25
+  ]
+}

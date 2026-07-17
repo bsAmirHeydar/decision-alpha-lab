@@ -1,0 +1,14 @@
+{
+  "decision": "APPROVE_REFERENCE",
+  "findings": [
+    "synthetic_reference_only",
+    "no_capital_activation",
+    "no_order_submission"
+  ],
+  "independent": false,
+  "plan_hash": "01b30d71dfb8ff65ee183fad2a6a41aea267def25ae05b82f14c3c93e5de2435",
+  "review_id": "REVIEW_01",
+  "reviewer_id": "SYN_REVIEWER_1",
+  "role": "PORTFOLIO_RESEARCH",
+  "synthetic_fixture": true
+}

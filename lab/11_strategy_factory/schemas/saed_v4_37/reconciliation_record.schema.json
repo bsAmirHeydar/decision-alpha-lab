@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cost_variance_bps": {
+      "type": "number"
+    },
+    "expected_cost_bps": {
+      "type": "number"
+    },
+    "fill_id": {
+      "type": "string"
+    },
+    "fill_ratio": {
+      "type": "number"
+    },
+    "filled_units": {
+      "type": "number"
+    },
+    "opportunity_id": {
+      "type": "string"
+    },
+    "planned_units": {
+      "type": "number"
+    },
+    "realized_cost_bps": {
+      "type": "number"
+    },
+    "synthetic_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "cost_variance_bps",
+    "expected_cost_bps",
+    "fill_id",
+    "fill_ratio",
+    "filled_units",
+    "opportunity_id",
+    "planned_units",
+    "realized_cost_bps",
+    "synthetic_only"
+  ],
+  "title": "SAED V4-37 reconciliation_record",
+  "type": "object"
+}

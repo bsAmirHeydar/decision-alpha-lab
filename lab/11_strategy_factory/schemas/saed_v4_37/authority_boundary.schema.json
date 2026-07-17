@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "boundary_hash": {
+      "type": "string"
+    },
+    "boundary_id": {
+      "type": "string"
+    },
+    "failure_action": {
+      "type": "string"
+    },
+    "live_trading_authority": {
+      "type": "boolean"
+    },
+    "may_activate_capital": {
+      "type": "boolean"
+    },
+    "may_compile_live_runtime": {
+      "type": "boolean"
+    },
+    "may_construct_hypothetical_portfolio": {
+      "type": "boolean"
+    },
+    "may_emit_non_executable_schedule": {
+      "type": "boolean"
+    },
+    "may_estimate_capacity": {
+      "type": "boolean"
+    },
+    "may_estimate_costs": {
+      "type": "boolean"
+    },
+    "may_mutate_ucee": {
+      "type": "boolean"
+    },
+    "may_promote_model": {
+      "type": "boolean"
+    },
+    "may_reserve_synthetic_capital": {
+      "type": "boolean"
+    },
+    "may_send_order": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorization": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "boundary_hash",
+    "boundary_id",
+    "failure_action",
+    "live_trading_authority",
+    "may_activate_capital",
+    "may_compile_live_runtime",
+    "may_construct_hypothetical_portfolio",
+    "may_emit_non_executable_schedule",
+    "may_estimate_capacity",
+    "may_estimate_costs",
+    "may_mutate_ucee",
+    "may_promote_model",
+    "may_reserve_synthetic_capital",
+    "may_send_order",
+    "phase",
+    "production_authorization",
+    "research_only"
+  ],
+  "title": "SAED V4-37 authority_boundary",
+  "type": "object"
+}

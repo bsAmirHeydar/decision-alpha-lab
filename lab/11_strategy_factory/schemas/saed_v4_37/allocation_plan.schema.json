@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allocations": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "allocated_notional": {
+            "type": "number"
+          },
+          "conservative_net_edge_bps": {
+            "type": "number"
+          },
+          "context_id": {
+            "type": "string"
+          },
+          "direction": {
+            "type": "string"
+          },
+          "expected_net_edge_bps": {
+            "type": "number"
+          },
+          "instrument_id": {
+            "type": "string"
+          },
+          "opportunity_id": {
+            "type": "string"
+          },
+          "score": {
+            "type": "number"
+          },
+          "strategy_cluster": {
+            "type": "string"
+          },
+          "treatment_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "allocated_notional",
+          "conservative_net_edge_bps",
+          "context_id",
+          "direction",
+          "expected_net_edge_bps",
+          "instrument_id",
+          "opportunity_id",
+          "score",
+          "strategy_cluster",
+          "treatment_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "optimization": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "plan_hash": {
+      "type": "string"
+    },
+    "plan_id": {
+      "type": "string"
+    },
+    "portfolio_snapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "allocation_count": {
+          "type": "integer"
+        },
+        "gross_notional": {
+          "type": "number"
+        },
+        "net_notional": {
+          "type": "number"
+        },
+        "phase": {
+          "type": "string"
+        },
+        "portfolio_risk_notional": {
+          "type": "number"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "signed_notional_by_instrument": {
+          "additionalProperties": false,
+          "properties": {
+            "SYN_EQ_A": {
+              "type": "number"
+            },
+            "SYN_EQ_C": {
+              "type": "number"
+            },
+            "SYN_FUT_B": {
+              "type": "number"
+            },
+            "SYN_FX_D": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "SYN_EQ_A",
+            "SYN_EQ_C",
+            "SYN_FUT_B",
+            "SYN_FX_D"
+          ],
+          "type": "object"
+        },
+        "snapshot_hash": {
+          "type": "string"
+        },
+        "snapshot_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "allocation_count",
+        "gross_notional",
+        "net_notional",
+        "phase",
+        "portfolio_risk_notional",
+        "research_only",
+        "signed_notional_by_instrument",
+        "snapshot_hash",
+        "snapshot_id"
+      ],
+      "type": "object"
+    },
+    "rejections": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "opportunity_id": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "opportunity_id",
+          "reason"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "allocations",
+    "baseline_preserved",
+    "optimization",
+    "phase",
+    "plan_hash",
+    "plan_id",
+    "portfolio_snapshot",
+    "rejections",
+    "research_only"
+  ],
+  "title": "SAED V4-37 allocation_plan",
+  "type": "object"
+}

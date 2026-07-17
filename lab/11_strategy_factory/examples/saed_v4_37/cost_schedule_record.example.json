@@ -1,0 +1,15 @@
+{
+  "borrow_bps_annual": 120,
+  "commission_mode": "PER_UNIT",
+  "commission_value": 0.0035,
+  "cost_schedule_id": "COST_SYN_EQ_A",
+  "exchange_fee_per_unit": 0.0004,
+  "funding_bps_annual": 45,
+  "instrument_id": "SYN_EQ_A",
+  "known_time": "2026-06-30T20:00:00Z",
+  "minimum_fee": 1.0,
+  "regulatory_fee_bps": 0.02,
+  "schedule_hash": "68d940cb2d2c541fbddd0d2605a9dc34d62f62b265029efee9b153449fc1561e",
+  "synthetic_fixture": true,
+  "tax_bps": 0
+}

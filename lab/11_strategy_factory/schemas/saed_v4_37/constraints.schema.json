@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "base_currency": {
+      "type": "string"
+    },
+    "capital_budget": {
+      "type": "integer"
+    },
+    "cash_reserve": {
+      "type": "integer"
+    },
+    "constraint_hash": {
+      "type": "string"
+    },
+    "constraint_id": {
+      "type": "string"
+    },
+    "gross_limit": {
+      "type": "integer"
+    },
+    "known_time": {
+      "type": "string"
+    },
+    "max_cluster_notional": {
+      "type": "integer"
+    },
+    "max_depth_multiple": {
+      "type": "number"
+    },
+    "max_order_slices": {
+      "type": "integer"
+    },
+    "max_participation_rate": {
+      "type": "number"
+    },
+    "max_portfolio_risk_notional": {
+      "type": "integer"
+    },
+    "max_single_instrument_notional": {
+      "type": "integer"
+    },
+    "max_single_opportunity_notional": {
+      "type": "integer"
+    },
+    "max_slice_minutes": {
+      "type": "integer"
+    },
+    "maximum_expected_cost_bps": {
+      "type": "number"
+    },
+    "minimum_net_edge_bps": {
+      "type": "number"
+    },
+    "net_limit": {
+      "type": "integer"
+    },
+    "synthetic_fixture": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "base_currency",
+    "capital_budget",
+    "cash_reserve",
+    "constraint_hash",
+    "constraint_id",
+    "gross_limit",
+    "known_time",
+    "max_cluster_notional",
+    "max_depth_multiple",
+    "max_order_slices",
+    "max_participation_rate",
+    "max_portfolio_risk_notional",
+    "max_single_instrument_notional",
+    "max_single_opportunity_notional",
+    "max_slice_minutes",
+    "maximum_expected_cost_bps",
+    "minimum_net_edge_bps",
+    "net_limit",
+    "synthetic_fixture"
+  ],
+  "title": "SAED V4-37 constraints",
+  "type": "object"
+}
