@@ -1,0 +1,10 @@
+{
+  "cutoff_time": "2026-06-30T23:59:59Z",
+  "future_suffix_invariant": true,
+  "future_suffix_records_seen": 0,
+  "known_time_passed": true,
+  "phase": "SAED_V4_34",
+  "research_only": true,
+  "review_hash": "5acc960b1f160705249232accea973bed69f46de3e8c653d609573e2891f1140",
+  "review_id": "v434_known_time_ce1dd3990bf4421d0c527a64"
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cutoff_time": {
+      "type": "string"
+    },
+    "future_suffix_invariant": {
+      "type": "boolean"
+    },
+    "future_suffix_records_seen": {
+      "type": "integer"
+    },
+    "known_time_passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "review_hash": {
+      "type": "string"
+    },
+    "review_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "cutoff_time",
+    "future_suffix_invariant",
+    "future_suffix_records_seen",
+    "known_time_passed",
+    "phase",
+    "research_only",
+    "review_hash",
+    "review_id"
+  ],
+  "title": "GOLDEN_KNOWN_TIME_REVIEW",
+  "type": "object"
+}

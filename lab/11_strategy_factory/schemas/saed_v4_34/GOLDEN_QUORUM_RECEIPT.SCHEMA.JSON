@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accept_votes": {
+      "type": "integer"
+    },
+    "consensus_protocol": {
+      "type": "string"
+    },
+    "eligible_voters": {
+      "type": "integer"
+    },
+    "evidence_quorum_only": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "threshold": {
+      "type": "integer"
+    },
+    "threshold_met": {
+      "type": "boolean"
+    },
+    "votes": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "domain_id": {
+            "type": "string"
+          },
+          "evidence_hash": {
+            "type": "string"
+          },
+          "vote": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "domain_id",
+          "evidence_hash",
+          "vote"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "accept_votes",
+    "consensus_protocol",
+    "eligible_voters",
+    "evidence_quorum_only",
+    "phase",
+    "receipt_hash",
+    "receipt_id",
+    "research_only",
+    "threshold",
+    "threshold_met",
+    "votes"
+  ],
+  "title": "GOLDEN_QUORUM_RECEIPT",
+  "type": "object"
+}

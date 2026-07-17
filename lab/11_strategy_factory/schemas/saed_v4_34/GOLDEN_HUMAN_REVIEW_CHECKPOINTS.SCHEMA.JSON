@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_required_complete": {
+      "type": "boolean"
+    },
+    "human_override_logged": {
+      "type": "boolean"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorization": {
+      "type": "boolean"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "checkpoint_id": {
+            "type": "string"
+          },
+          "decision": {
+            "type": "string"
+          },
+          "evidence_complete": {
+            "type": "boolean"
+          },
+          "production_authorized": {
+            "type": "boolean"
+          },
+          "reviewer_role": {
+            "type": "string"
+          },
+          "stage": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "checkpoint_id",
+          "decision",
+          "evidence_complete",
+          "production_authorized",
+          "reviewer_role",
+          "stage"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "all_required_complete",
+    "human_override_logged",
+    "ledger_hash",
+    "ledger_id",
+    "phase",
+    "production_authorization",
+    "records",
+    "research_only"
+  ],
+  "title": "GOLDEN_HUMAN_REVIEW_CHECKPOINTS",
+  "type": "object"
+}

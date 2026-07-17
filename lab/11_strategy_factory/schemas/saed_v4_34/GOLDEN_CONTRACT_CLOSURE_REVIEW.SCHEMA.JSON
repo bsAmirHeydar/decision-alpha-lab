@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "additional_properties_allowed": {
+      "type": "integer"
+    },
+    "closed_schema_pairs": {
+      "type": "integer"
+    },
+    "closure_passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "review_hash": {
+      "type": "string"
+    },
+    "review_id": {
+      "type": "string"
+    },
+    "unknown_fields_accepted": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "additional_properties_allowed",
+    "closed_schema_pairs",
+    "closure_passed",
+    "phase",
+    "research_only",
+    "review_hash",
+    "review_id",
+    "unknown_fields_accepted"
+  ],
+  "title": "GOLDEN_CONTRACT_CLOSURE_REVIEW",
+  "type": "object"
+}

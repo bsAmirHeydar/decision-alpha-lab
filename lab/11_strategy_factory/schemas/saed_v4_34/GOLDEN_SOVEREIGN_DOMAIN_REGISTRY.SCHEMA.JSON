@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cross_domain_raw_data_access": {
+      "type": "boolean"
+    },
+    "domain_count": {
+      "type": "integer"
+    },
+    "domains": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "allowed_compute_classes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "domain_id": {
+            "type": "string"
+          },
+          "independence_group": {
+            "type": "string"
+          },
+          "jurisdiction": {
+            "type": "string"
+          },
+          "operator_id": {
+            "type": "string"
+          },
+          "raw_data_must_remain_local": {
+            "type": "boolean"
+          },
+          "residency_zone": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "allowed_compute_classes",
+          "domain_id",
+          "independence_group",
+          "jurisdiction",
+          "operator_id",
+          "raw_data_must_remain_local",
+          "residency_zone",
+          "status"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "cross_domain_raw_data_access",
+    "domain_count",
+    "domains",
+    "phase",
+    "registry_hash",
+    "registry_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_SOVEREIGN_DOMAIN_REGISTRY",
+  "type": "object"
+}

@@ -1,0 +1,69 @@
+{
+  "allowed_routes": [
+    {
+      "encrypted_transport_required": true,
+      "message_class": "aggregate_or_receipt",
+      "raw_data_allowed": false,
+      "route_id": "ROUTE-DOM-CH-C-DOM-EU-A",
+      "source_domain": "DOM-CH-C",
+      "target_domain": "DOM-EU-A"
+    },
+    {
+      "encrypted_transport_required": true,
+      "message_class": "aggregate_or_receipt",
+      "raw_data_allowed": false,
+      "route_id": "ROUTE-DOM-CH-C-DOM-EU-B",
+      "source_domain": "DOM-CH-C",
+      "target_domain": "DOM-EU-B"
+    },
+    {
+      "encrypted_transport_required": true,
+      "message_class": "aggregate_or_receipt",
+      "raw_data_allowed": false,
+      "route_id": "ROUTE-DOM-EU-A-DOM-CH-C",
+      "source_domain": "DOM-EU-A",
+      "target_domain": "DOM-CH-C"
+    },
+    {
+      "encrypted_transport_required": true,
+      "message_class": "aggregate_or_receipt",
+      "raw_data_allowed": false,
+      "route_id": "ROUTE-DOM-EU-A-DOM-EU-B",
+      "source_domain": "DOM-EU-A",
+      "target_domain": "DOM-EU-B"
+    },
+    {
+      "encrypted_transport_required": true,
+      "message_class": "aggregate_or_receipt",
+      "raw_data_allowed": false,
+      "route_id": "ROUTE-DOM-EU-B-DOM-CH-C",
+      "source_domain": "DOM-EU-B",
+      "target_domain": "DOM-CH-C"
+    },
+    {
+      "encrypted_transport_required": true,
+      "message_class": "aggregate_or_receipt",
+      "raw_data_allowed": false,
+      "route_id": "ROUTE-DOM-EU-B-DOM-EU-A",
+      "source_domain": "DOM-EU-B",
+      "target_domain": "DOM-EU-A"
+    }
+  ],
+  "cross_domain_payload_classes": [
+    "aggregate",
+    "attestation",
+    "checkpoint-digest",
+    "evidence-receipt"
+  ],
+  "default_deny": true,
+  "forbidden_protocols": [
+    "ftp",
+    "http-cleartext",
+    "public-object-store"
+  ],
+  "max_message_bytes": 1048576,
+  "policy_hash": "7fefdeb17220d2a7d4b8348a4bc2a95ac303d0548c2ef10315ca8b217990698e",
+  "policy_id": "NET-DENY-001",
+  "public_egress_allowed": false,
+  "research_only": true
+}

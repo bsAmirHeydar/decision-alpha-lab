@@ -1,0 +1,14 @@
+{
+  "all_nodes_attested": true,
+  "default_deny_network": true,
+  "phase": "SAED_V4_34",
+  "public_egress": false,
+  "real_confidential_compute": "not_claimed",
+  "real_hardware_attestation": "not_claimed",
+  "real_network_isolation": "not_claimed",
+  "research_only": true,
+  "review_hash": "16474ed55663177caf8bc39775ad0d9d26dc124366aea631bc08b5c468e89dde",
+  "review_id": "v434_security_a4e2a18d8fe32f886a8622b2",
+  "security_review_passed": true,
+  "telemetry_redaction_passed": true
+}

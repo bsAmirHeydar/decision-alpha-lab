@@ -1,0 +1,58 @@
+{
+  "all_locality_satisfied": true,
+  "checks": [
+    {
+      "domain_id": "DOM-EU-A",
+      "locality_satisfied": true,
+      "raw_data_crossed_domain": false,
+      "task_id": "T00-VALIDATE::r00"
+    },
+    {
+      "domain_id": "DOM-EU-A",
+      "locality_satisfied": true,
+      "raw_data_crossed_domain": false,
+      "task_id": "T10-LOCAL-A::r00"
+    },
+    {
+      "domain_id": "DOM-EU-B",
+      "locality_satisfied": true,
+      "raw_data_crossed_domain": false,
+      "task_id": "T11-LOCAL-B::r00"
+    },
+    {
+      "domain_id": "DOM-CH-C",
+      "locality_satisfied": true,
+      "raw_data_crossed_domain": false,
+      "task_id": "T12-LOCAL-C::r00"
+    },
+    {
+      "domain_id": "DOM-EU-B",
+      "locality_satisfied": true,
+      "raw_data_crossed_domain": false,
+      "task_id": "T20-REDUCE::r00"
+    },
+    {
+      "domain_id": "DOM-CH-C",
+      "locality_satisfied": true,
+      "raw_data_crossed_domain": false,
+      "task_id": "T30-EVALUATE::r00"
+    },
+    {
+      "domain_id": "DOM-CH-C",
+      "locality_satisfied": true,
+      "raw_data_crossed_domain": false,
+      "task_id": "T30-EVALUATE::r01"
+    },
+    {
+      "domain_id": "DOM-EU-B",
+      "locality_satisfied": true,
+      "raw_data_crossed_domain": false,
+      "task_id": "T40-CERTIFY::r00"
+    }
+  ],
+  "phase": "SAED_V4_34",
+  "plan_id": "v434_partition_f197de692fd8169a7b797da5",
+  "proof_hash": "2034e075479a578a2f0331c469d09bf57b00c819d16c5920cc3f9012a6da3f08",
+  "proof_id": "v434_locality_36a1e3a48af797f2f2affc1f",
+  "research_only": true
+}

@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "contracts_closed": {
+      "type": "boolean"
+    },
+    "deterministic_replay": {
+      "type": "boolean"
+    },
+    "evidence_quorum_met": {
+      "type": "boolean"
+    },
+    "execution_authority": {
+      "type": "boolean"
+    },
+    "future_suffix_invariant": {
+      "type": "boolean"
+    },
+    "locality_passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorization": {
+      "type": "boolean"
+    },
+    "promotion_authority": {
+      "type": "boolean"
+    },
+    "recovery_reference_passed": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "resource_budget_passed": {
+      "type": "boolean"
+    },
+    "status": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "ucee_compatibility": {
+      "type": "boolean"
+    },
+    "upstream_verified": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "baseline_preserved",
+    "certificate_hash",
+    "certificate_id",
+    "claim_ceiling",
+    "contracts_closed",
+    "deterministic_replay",
+    "evidence_quorum_met",
+    "execution_authority",
+    "future_suffix_invariant",
+    "locality_passed",
+    "phase",
+    "production_authorization",
+    "promotion_authority",
+    "recovery_reference_passed",
+    "research_only",
+    "resource_budget_passed",
+    "status",
+    "title",
+    "ucee_compatibility",
+    "upstream_verified",
+    "version"
+  ],
+  "title": "GOLDEN_SOVEREIGN_DISTRIBUTED_COMPUTE_CERTIFICATE",
+  "type": "object"
+}

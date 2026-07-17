@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "dag_id": {
+      "type": "string"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "final_tick": {
+      "type": "integer"
+    },
+    "partition_plan_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "schedule_hash": {
+      "type": "string"
+    },
+    "schedule_id": {
+      "type": "string"
+    },
+    "scheduled_task_count": {
+      "type": "integer"
+    },
+    "wave_count": {
+      "type": "integer"
+    },
+    "waves": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "tasks": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "attempt": {
+                  "type": "integer"
+                },
+                "dependencies": {
+                  "items": {},
+                  "type": "array"
+                },
+                "domain_id": {
+                  "type": "string"
+                },
+                "end_tick": {
+                  "type": "integer"
+                },
+                "node_id": {
+                  "type": "string"
+                },
+                "start_tick": {
+                  "type": "integer"
+                },
+                "task_id": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "attempt",
+                "dependencies",
+                "domain_id",
+                "end_tick",
+                "node_id",
+                "start_tick",
+                "task_id"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "tick": {
+            "type": "integer"
+          },
+          "wave": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "tasks",
+          "tick",
+          "wave"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "dag_id",
+    "deterministic",
+    "final_tick",
+    "partition_plan_id",
+    "phase",
+    "research_only",
+    "schedule_hash",
+    "schedule_id",
+    "scheduled_task_count",
+    "wave_count",
+    "waves"
+  ],
+  "title": "GOLDEN_SCHEDULE_PLAN",
+  "type": "object"
+}

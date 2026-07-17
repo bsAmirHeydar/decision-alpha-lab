@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assignment_count": {
+      "type": "integer"
+    },
+    "assignments": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "assignment_reason": {
+            "type": "string"
+          },
+          "compute_class": {
+            "type": "string"
+          },
+          "domain_id": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "raw_data_crossed_domain": {
+            "type": "boolean"
+          },
+          "task_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "assignment_reason",
+          "compute_class",
+          "domain_id",
+          "node_id",
+          "raw_data_crossed_domain",
+          "task_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "dag_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "plan_hash": {
+      "type": "string"
+    },
+    "plan_id": {
+      "type": "string"
+    },
+    "raw_data_crossed_domain": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "seed": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "assignment_count",
+    "assignments",
+    "dag_id",
+    "phase",
+    "plan_hash",
+    "plan_id",
+    "raw_data_crossed_domain",
+    "research_only",
+    "seed"
+  ],
+  "title": "GOLDEN_PARTITION_PLAN",
+  "type": "object"
+}

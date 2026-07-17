@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "claims": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "not_claimed": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "claims",
+    "not_claimed",
+    "phase",
+    "report_hash",
+    "report_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_LIMITATIONS",
+  "type": "object"
+}

@@ -1,0 +1,158 @@
+{
+  "bundle_hash": "957a3a99e2806f84a8fee63b780681ceffeb07b9ca852e89a02d2ff52ddcc589",
+  "bundle_id": "v434_bundle_78dab23576f9b12ee09a8a96",
+  "complete": true,
+  "entries": [
+    {
+      "artifact_hash": "ed88f211b371938d87cc434ee89cfac24dd6c8e98465ff5a67f26f349621add3",
+      "artifact_key": "artifacts"
+    },
+    {
+      "artifact_hash": "f33f2e78f22acbb1189d43de1af8918b5313bcd00f57169136e383433c3de74b",
+      "artifact_key": "attestations"
+    },
+    {
+      "artifact_hash": "4570a08c8f38ca3b5c5fee3f24f103a0ea9a66cb25152dafa3592bd2f26ece2f",
+      "artifact_key": "authority"
+    },
+    {
+      "artifact_hash": "64888f11b4f97cc7cb739b582dc5fd1e8bed68b56361fa5238b632025c2b99bf",
+      "artifact_key": "budget"
+    },
+    {
+      "artifact_hash": "7cd9ec557eee25f5babaa59e28c60ea66a22d41f3486e6e6eeda799abab7da92",
+      "artifact_key": "checkpoints"
+    },
+    {
+      "artifact_hash": "96ed3bac2a93cd41af3a1679dfc4ea54a99cc65891d63422d833596173e75eb6",
+      "artifact_key": "constitution"
+    },
+    {
+      "artifact_hash": "45b931cd00e7d59733f798207355ed6a16dbb1c6200c65c1f6a0e89cbff02cd3",
+      "artifact_key": "contract_closure"
+    },
+    {
+      "artifact_hash": "ecd89ab9ae16d73b1d47d11c45bed7cb5a8e71b4a5c61b7ebf52a9da3a6302cf",
+      "artifact_key": "cost"
+    },
+    {
+      "artifact_hash": "0a1b0fba8c33a82fd1fbcec154a57ce832ed9a1b4fb095f99a51b325d420f259",
+      "artifact_key": "dag"
+    },
+    {
+      "artifact_hash": "520b6113cf440d1e95acf124ae36584898b25aad628cf50ada073d52a9785c22",
+      "artifact_key": "determinism"
+    },
+    {
+      "artifact_hash": "58407f3ebd2f07ceec1a831528f565ae4444b893f167831847c731712e9971b5",
+      "artifact_key": "domains"
+    },
+    {
+      "artifact_hash": "fdc369c61a471d036b11e63b3e953c8ea80f354474edca79010d9edccadb711a",
+      "artifact_key": "execution"
+    },
+    {
+      "artifact_hash": "5fb1f6039196dc6fd4ada9ce3cf2abef9af42ab8b171de89360583a835e7019c",
+      "artifact_key": "exposure"
+    },
+    {
+      "artifact_hash": "35b48f4a2114c787750df473404dc0e9b253a7d157ff542f358aaba8114cde7f",
+      "artifact_key": "failures"
+    },
+    {
+      "artifact_hash": "b1f20ac028abf7054d68830f78949543cf3e88d3bcd5adf1f840902fe1f03050",
+      "artifact_key": "fault_tolerance"
+    },
+    {
+      "artifact_hash": "9f0b5cca60abd40aee15e54c4d598960c206dc3de106249f5f6f6001a18cfb74",
+      "artifact_key": "known_time"
+    },
+    {
+      "artifact_hash": "eb11c645d103b39c2ae5518e2c3bcd7f1b79e196249b4a5d9d5c209a6e0597ac",
+      "artifact_key": "limitations"
+    },
+    {
+      "artifact_hash": "ec38c4e25432c9d3a22cc7f9eab1861be2489cc30bd252d284f250f443838b46",
+      "artifact_key": "locality"
+    },
+    {
+      "artifact_hash": "89fcfeedfe9aeb3f09eb9ec774622dc8fd6a039b2006a7253f2078ad1ed507f5",
+      "artifact_key": "model_risk"
+    },
+    {
+      "artifact_hash": "c36628184c68029f6a2493afa1c2a420d250640f3815bb7a669e677449973aad",
+      "artifact_key": "network"
+    },
+    {
+      "artifact_hash": "87d7cc7c1d96e26828655ba7a0ecdcfd2292fa8ea8b4191fee9862d1eb34eaa7",
+      "artifact_key": "network_events"
+    },
+    {
+      "artifact_hash": "beeb488b83d5f8a66ca5c1c0f199970656692d760dae6f9910989e7e962cddf6",
+      "artifact_key": "nodes"
+    },
+    {
+      "artifact_hash": "dd015a308378304939edb9624411374aca0b0d3925f3cd8347d10ec81b42afff",
+      "artifact_key": "partition"
+    },
+    {
+      "artifact_hash": "019674b3fa4127971fea79cad64a96d423c18b8403c406574fa49dd0c91781a5",
+      "artifact_key": "provenance"
+    },
+    {
+      "artifact_hash": "7a73e47fc79a63b06070b63fd69ed63817178b4ec7f88ade2603da7b02de12a1",
+      "artifact_key": "quorum"
+    },
+    {
+      "artifact_hash": "3023cfed6617fdc4963cc56fc504594cfb978254d5af38ce25b8527a43e74942",
+      "artifact_key": "recovery"
+    },
+    {
+      "artifact_hash": "1f4631aab27a4837de623c37658d12bb6b71fa9905688669520fc70c8e2659c6",
+      "artifact_key": "replay"
+    },
+    {
+      "artifact_hash": "70f656b2da586daaf180886868ccb6437988001b4ee12f423bdcfb6b760c0508",
+      "artifact_key": "reproduction"
+    },
+    {
+      "artifact_hash": "a551671e4d3e545552d2449c6ebabdf7d07323c577e3a8c7fd98b0186d5c4cbe",
+      "artifact_key": "reviews"
+    },
+    {
+      "artifact_hash": "871856a298ceddd918b0e682c1687e0a4a356ee55d6d69230e894aada8bf85f5",
+      "artifact_key": "schedule"
+    },
+    {
+      "artifact_hash": "382501054ed21d11a6ce67b9fc8a8221001e82c14bcd1dc508adb38820718d18",
+      "artifact_key": "security"
+    },
+    {
+      "artifact_hash": "54f360855ea66a44f1b8b7a583f205d20f6c9e73ae6e3706cd77ec1c8b25c784",
+      "artifact_key": "task_receipts"
+    },
+    {
+      "artifact_hash": "b731a207007fc6b00f0a23354e546d5376b21691faac06630a9b0841db9d0099",
+      "artifact_key": "telemetry"
+    },
+    {
+      "artifact_hash": "17af8fcf4026f56f4cc5d141130a47e4a61bf1fef186df5912522f91dacd7ccf",
+      "artifact_key": "ucee"
+    },
+    {
+      "artifact_hash": "4871dd177889f1a1e595a040a1b495856f991588eaa1d4311e917935bee2ab5d",
+      "artifact_key": "upstream"
+    },
+    {
+      "artifact_hash": "ca7c187374b303d056b9c1b1fb4dbdd85cc1fce48e49f3d526adc7a862f77eca",
+      "artifact_key": "usage"
+    },
+    {
+      "artifact_hash": "a872deb83e51c90a6b06f63aa8864c485313b9fb4a541bab778a2bf3849008b1",
+      "artifact_key": "workload"
+    }
+  ],
+  "entry_count": 37,
+  "phase": "SAED_V4_34",
+  "research_only": true
+}

@@ -1,0 +1,66 @@
+{
+  "all_immutable": true,
+  "artifact_count": 5,
+  "artifacts": [
+    {
+      "artifact_id": "ART-DATA-A",
+      "artifact_type": "local_manifest",
+      "contains_raw_rows": false,
+      "content_hash": "73d7dfbad46352750d5fbd38e626c58aa6f2eb9c26f27152c6ca10bc108fbdd1",
+      "immutable": true,
+      "known_time": "2026-06-28T10:00:00Z",
+      "residency_domain": "DOM-EU-A",
+      "schema_hash": "34d93ec7d7a3ff999ff6c5eac36b945ec1a25b15564b421f4698349b3d46eacd",
+      "synthetic_fixture": true
+    },
+    {
+      "artifact_id": "ART-DATA-B",
+      "artifact_type": "local_manifest",
+      "contains_raw_rows": false,
+      "content_hash": "f61ae36b64d3b2c61dd43f4060abeb8707c6e9d1cd9b637326597e11f46bf353",
+      "immutable": true,
+      "known_time": "2026-06-28T10:00:00Z",
+      "residency_domain": "DOM-EU-B",
+      "schema_hash": "ceeb6c8f015216f6517058b28da15d2146372d0dc14b9f7ffa08091ef4314281",
+      "synthetic_fixture": true
+    },
+    {
+      "artifact_id": "ART-DATA-C",
+      "artifact_type": "local_manifest",
+      "contains_raw_rows": false,
+      "content_hash": "52ab0f0e0119328197ca46b82e7903cef39784996ec8adfa10d7bd4683cd263c",
+      "immutable": true,
+      "known_time": "2026-06-28T10:00:00Z",
+      "residency_domain": "DOM-CH-C",
+      "schema_hash": "1693dd53b920228b492af05f1554aa42b4aad6c47f8275a5228cfa8e683e4180",
+      "synthetic_fixture": true
+    },
+    {
+      "artifact_id": "ART-MODEL",
+      "artifact_type": "model_seed",
+      "contains_raw_rows": false,
+      "content_hash": "0bdb03c0eda3963395e10898da7b955da1fdd5f45596c5b5afcb2864d02868d5",
+      "immutable": true,
+      "known_time": "2026-06-28T10:00:00Z",
+      "residency_domain": "DOM-EU-A",
+      "schema_hash": "aad6df5f360dd32f5a7d14d42f21b8dc2e3206428eb1cc20cbada48724d65831",
+      "synthetic_fixture": true
+    },
+    {
+      "artifact_id": "ART-SCHEMA",
+      "artifact_type": "feature_schema",
+      "contains_raw_rows": false,
+      "content_hash": "7d81864503a087408e9da975a0dc60e2779852ea3305e20397eb81049c676289",
+      "immutable": true,
+      "known_time": "2026-06-28T10:00:00Z",
+      "residency_domain": "DOM-EU-A",
+      "schema_hash": "1d241f430acc953f07d88e1084a1532730d085f79e335f0b6ba0f16627d3cefb",
+      "synthetic_fixture": true
+    }
+  ],
+  "phase": "SAED_V4_34",
+  "raw_rows_exported": false,
+  "registry_hash": "390202c0e443f1ba239113f3b4fc988e4d7983f01c52df872d72e90e7fe4bdeb",
+  "registry_id": "v434_artifacts_4fb4704ab27576b6bd5ca7e6",
+  "research_only": true
+}

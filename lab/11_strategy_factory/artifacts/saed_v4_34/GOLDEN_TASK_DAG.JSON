@@ -1,0 +1,149 @@
+{
+  "acyclic": true,
+  "dag_hash": "d0f98caea080d1c12506d64fa89de733d1a5af1d005d768bf4b1e4d84f82cb0e",
+  "dag_id": "v434_dag_01a714b0e513ff2208436136",
+  "deterministic": true,
+  "phase": "SAED_V4_34",
+  "research_only": true,
+  "task_count": 8,
+  "tasks": [
+    {
+      "command_hash": "7de9eac6e75f09b110d14eaa4d83a31c11baf13a10e198671574d47396f33416",
+      "compute_class": "cpu",
+      "cpu_cores": 2,
+      "dependencies": [],
+      "gpu_units": 0,
+      "locality": "any_sovereign_domain",
+      "memory_gb": 4,
+      "output_class": "receipt",
+      "replica": 0,
+      "scratch_gb": 8,
+      "stage": "validation",
+      "task_id": "T00-VALIDATE::r00",
+      "template_id": "T00-VALIDATE"
+    },
+    {
+      "command_hash": "9168ed5aab5f9c7fdc0f46c18945b26051cfa0815b262f848c513d91c666c1ff",
+      "compute_class": "gpu",
+      "cpu_cores": 4,
+      "dependencies": [
+        "T00-VALIDATE::r00"
+      ],
+      "gpu_units": 1,
+      "locality": "domain:DOM-EU-A",
+      "memory_gb": 16,
+      "output_class": "aggregate",
+      "replica": 0,
+      "scratch_gb": 64,
+      "stage": "local_compute",
+      "task_id": "T10-LOCAL-A::r00",
+      "template_id": "T10-LOCAL-A"
+    },
+    {
+      "command_hash": "3284da5f7d5b5916b179bb8f6e6e8dd5a4ddc0adeeb0452a30fcc9fbecf88a67",
+      "compute_class": "gpu",
+      "cpu_cores": 4,
+      "dependencies": [
+        "T00-VALIDATE::r00"
+      ],
+      "gpu_units": 1,
+      "locality": "domain:DOM-EU-B",
+      "memory_gb": 16,
+      "output_class": "aggregate",
+      "replica": 0,
+      "scratch_gb": 64,
+      "stage": "local_compute",
+      "task_id": "T11-LOCAL-B::r00",
+      "template_id": "T11-LOCAL-B"
+    },
+    {
+      "command_hash": "180162e5d36238bb9f0229ec23ecf0635cb0af32c3eed53d1377196bc98bbc94",
+      "compute_class": "gpu",
+      "cpu_cores": 4,
+      "dependencies": [
+        "T00-VALIDATE::r00"
+      ],
+      "gpu_units": 1,
+      "locality": "domain:DOM-CH-C",
+      "memory_gb": 16,
+      "output_class": "aggregate",
+      "replica": 0,
+      "scratch_gb": 64,
+      "stage": "local_compute",
+      "task_id": "T12-LOCAL-C::r00",
+      "template_id": "T12-LOCAL-C"
+    },
+    {
+      "command_hash": "8113da83784a2b26f6bb7fb2839cb74f587cfe58b476113061bfa71d4667aec9",
+      "compute_class": "cpu",
+      "cpu_cores": 4,
+      "dependencies": [
+        "T10-LOCAL-A::r00",
+        "T11-LOCAL-B::r00",
+        "T12-LOCAL-C::r00"
+      ],
+      "gpu_units": 0,
+      "locality": "any_sovereign_domain",
+      "memory_gb": 8,
+      "output_class": "aggregate",
+      "replica": 0,
+      "scratch_gb": 16,
+      "stage": "reduction",
+      "task_id": "T20-REDUCE::r00",
+      "template_id": "T20-REDUCE"
+    },
+    {
+      "command_hash": "d496c3e73c6bb36c9ad79389fa0bb9126d97ab80b7a09b293bf47a43f6ba03f6",
+      "compute_class": "cpu",
+      "cpu_cores": 4,
+      "dependencies": [
+        "T20-REDUCE::r00"
+      ],
+      "gpu_units": 0,
+      "locality": "any_sovereign_domain",
+      "memory_gb": 8,
+      "output_class": "evidence",
+      "replica": 0,
+      "scratch_gb": 16,
+      "stage": "evaluation",
+      "task_id": "T30-EVALUATE::r00",
+      "template_id": "T30-EVALUATE"
+    },
+    {
+      "command_hash": "d496c3e73c6bb36c9ad79389fa0bb9126d97ab80b7a09b293bf47a43f6ba03f6",
+      "compute_class": "cpu",
+      "cpu_cores": 4,
+      "dependencies": [
+        "T20-REDUCE::r00"
+      ],
+      "gpu_units": 0,
+      "locality": "any_sovereign_domain",
+      "memory_gb": 8,
+      "output_class": "evidence",
+      "replica": 1,
+      "scratch_gb": 16,
+      "stage": "evaluation",
+      "task_id": "T30-EVALUATE::r01",
+      "template_id": "T30-EVALUATE"
+    },
+    {
+      "command_hash": "cc262480c09fa10a54e466640afdebc3ff881f6466fe22ee01bb585abb3af98e",
+      "compute_class": "cpu",
+      "cpu_cores": 2,
+      "dependencies": [
+        "T30-EVALUATE::r00",
+        "T30-EVALUATE::r01"
+      ],
+      "gpu_units": 0,
+      "locality": "any_sovereign_domain",
+      "memory_gb": 4,
+      "output_class": "certificate",
+      "replica": 0,
+      "scratch_gb": 8,
+      "stage": "certification",
+      "task_id": "T40-CERTIFY::r00",
+      "template_id": "T40-CERTIFY"
+    }
+  ],
+  "workload_id": "WORKLOAD-SDC-001"
+}

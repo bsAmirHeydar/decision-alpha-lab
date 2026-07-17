@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_success": {
+      "type": "boolean"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "synthetic_execution": {
+      "type": "boolean"
+    },
+    "task_count": {
+      "type": "integer"
+    },
+    "task_receipts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "attempt": {
+            "type": "integer"
+          },
+          "budget_checked": {
+            "type": "boolean"
+          },
+          "dependencies_verified": {
+            "type": "boolean"
+          },
+          "domain_id": {
+            "type": "string"
+          },
+          "locality_verified": {
+            "type": "boolean"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "output_hash": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "synthetic_execution": {
+            "type": "boolean"
+          },
+          "task_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "attempt",
+          "budget_checked",
+          "dependencies_verified",
+          "domain_id",
+          "locality_verified",
+          "node_id",
+          "output_hash",
+          "status",
+          "synthetic_execution",
+          "task_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "all_success",
+    "ledger_hash",
+    "ledger_id",
+    "phase",
+    "research_only",
+    "synthetic_execution",
+    "task_count",
+    "task_receipts"
+  ],
+  "title": "GOLDEN_TASK_RECEIPTS",
+  "type": "object"
+}

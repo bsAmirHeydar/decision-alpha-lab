@@ -1,0 +1,12 @@
+class SAEDV434Error(Exception): pass
+class ContractError(SAEDV434Error): pass
+class UpstreamError(SAEDV434Error): pass
+class ConstitutionError(SAEDV434Error): pass
+class InventoryError(SAEDV434Error): pass
+class PlanningError(SAEDV434Error): pass
+class SchedulingError(SAEDV434Error): pass
+class ExecutionError(SAEDV434Error): pass
+class RecoveryError(SAEDV434Error): pass
+class AccountingError(SAEDV434Error): pass
+class ProvenanceError(SAEDV434Error): pass
+class AuthorityError(SAEDV434Error): pass

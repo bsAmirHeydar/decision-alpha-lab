@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_nodes_attested": {
+      "type": "boolean"
+    },
+    "attestations": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "attestation_fingerprint": {
+            "type": "string"
+          },
+          "attestation_id": {
+            "type": "string"
+          },
+          "expires_time": {
+            "type": "string"
+          },
+          "human_approved": {
+            "type": "boolean"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "runtime_image_hash": {
+            "type": "string"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "attestation_fingerprint",
+          "attestation_id",
+          "expires_time",
+          "human_approved",
+          "known_time",
+          "node_id",
+          "runtime_image_hash",
+          "synthetic_fixture"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "hardware_attestation": {
+      "type": "string"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "all_nodes_attested",
+    "attestations",
+    "hardware_attestation",
+    "ledger_hash",
+    "ledger_id",
+    "phase",
+    "research_only"
+  ],
+  "title": "GOLDEN_NODE_ATTESTATION_LEDGER",
+  "type": "object"
+}

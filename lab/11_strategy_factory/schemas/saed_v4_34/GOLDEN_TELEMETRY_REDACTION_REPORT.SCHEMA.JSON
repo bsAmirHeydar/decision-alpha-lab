@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "forbidden_tokens": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "hits": {
+      "items": {},
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "raw_payloads_logged": {
+      "type": "boolean"
+    },
+    "redaction_passed": {
+      "type": "boolean"
+    },
+    "report_hash": {
+      "type": "string"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "forbidden_tokens",
+    "hits",
+    "phase",
+    "raw_payloads_logged",
+    "redaction_passed",
+    "report_hash",
+    "report_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_TELEMETRY_REDACTION_REPORT",
+  "type": "object"
+}

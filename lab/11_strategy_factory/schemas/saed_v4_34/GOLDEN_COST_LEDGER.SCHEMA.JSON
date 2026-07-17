@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cost_model": {
+      "type": "string"
+    },
+    "cost_units": {
+      "type": "number"
+    },
+    "financial_charge": {
+      "type": "string"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "max_cost_units": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "within_budget": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "cost_model",
+    "cost_units",
+    "financial_charge",
+    "ledger_hash",
+    "ledger_id",
+    "max_cost_units",
+    "phase",
+    "research_only",
+    "within_budget"
+  ],
+  "title": "GOLDEN_COST_LEDGER",
+  "type": "object"
+}

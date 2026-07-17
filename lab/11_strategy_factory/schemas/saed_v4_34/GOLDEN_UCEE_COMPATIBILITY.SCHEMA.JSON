@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "central_engine_mutations": {
+      "type": "integer"
+    },
+    "compatibility_passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "runtime_authority_changes": {
+      "type": "integer"
+    },
+    "schema_additive_only": {
+      "type": "boolean"
+    },
+    "treatment_universe_changes": {
+      "type": "integer"
+    },
+    "ucee_contract_mutations": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "central_engine_mutations",
+    "compatibility_passed",
+    "phase",
+    "receipt_hash",
+    "receipt_id",
+    "research_only",
+    "runtime_authority_changes",
+    "schema_additive_only",
+    "treatment_universe_changes",
+    "ucee_contract_mutations"
+  ],
+  "title": "GOLDEN_UCEE_COMPATIBILITY",
+  "type": "object"
+}

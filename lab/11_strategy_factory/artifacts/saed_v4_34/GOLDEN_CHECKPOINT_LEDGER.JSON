@@ -1,0 +1,40 @@
+{
+  "checkpoint_count": 5,
+  "checkpoints": [
+    {
+      "checkpoint_id": "CP-000",
+      "immutable": true,
+      "state_hash": "2c77d50abba9b8abab3b980374a28aa3292e78a4d69cce6fe175d5178bf37c56",
+      "wave": 0
+    },
+    {
+      "checkpoint_id": "CP-001",
+      "immutable": true,
+      "state_hash": "2c39be95dd103019607c0c057ba6b23d7a50522270bed721f96b4e47aff7da48",
+      "wave": 1
+    },
+    {
+      "checkpoint_id": "CP-002",
+      "immutable": true,
+      "state_hash": "8ec8032049fb117b799c833d93b76a046e0c418e03d6c851c8cf0d3b1b3ccc63",
+      "wave": 2
+    },
+    {
+      "checkpoint_id": "CP-003",
+      "immutable": true,
+      "state_hash": "8a6bbb4a9d0008ccf7630cbba1dd86dae302ff0b8ce217a88d3ae3d7f88e4cdc",
+      "wave": 3
+    },
+    {
+      "checkpoint_id": "CP-004",
+      "immutable": true,
+      "state_hash": "07d7f1a7727d6f4e6d3784b8bf92e191b28ad7bc4c7725a42d5a4c4f426a01a5",
+      "wave": 4
+    }
+  ],
+  "ledger_hash": "999cfba105ae670812c2b5d9f1acdb98f035038ab6569be8a3f3c6721b66a815",
+  "ledger_id": "v434_checkpoints_73cf4f9600bda1691babcf9f",
+  "phase": "SAED_V4_34",
+  "research_only": true,
+  "restartable": true
+}

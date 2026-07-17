@@ -1,0 +1,13 @@
+{
+  "all_recovered": true,
+  "cross_domain_migration": false,
+  "evidence_quorum_met": true,
+  "phase": "SAED_V4_34",
+  "real_chaos_environment": "not_claimed",
+  "real_fault_tolerance": "not_claimed",
+  "research_only": true,
+  "review_hash": "b79d5d2153373d2c66880d231698d5c0ae5ca42a74db056ac8af60a47d4f7824",
+  "review_id": "v434_fault_review_179ffd025421b170254c1571",
+  "review_passed": true,
+  "synthetic_failures": 2
+}

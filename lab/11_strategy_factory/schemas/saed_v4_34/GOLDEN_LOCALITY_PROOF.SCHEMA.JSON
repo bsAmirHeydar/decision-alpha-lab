@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_locality_satisfied": {
+      "type": "boolean"
+    },
+    "checks": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "domain_id": {
+            "type": "string"
+          },
+          "locality_satisfied": {
+            "type": "boolean"
+          },
+          "raw_data_crossed_domain": {
+            "type": "boolean"
+          },
+          "task_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "domain_id",
+          "locality_satisfied",
+          "raw_data_crossed_domain",
+          "task_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "plan_id": {
+      "type": "string"
+    },
+    "proof_hash": {
+      "type": "string"
+    },
+    "proof_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "all_locality_satisfied",
+    "checks",
+    "phase",
+    "plan_id",
+    "proof_hash",
+    "proof_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_LOCALITY_PROOF",
+  "type": "object"
+}

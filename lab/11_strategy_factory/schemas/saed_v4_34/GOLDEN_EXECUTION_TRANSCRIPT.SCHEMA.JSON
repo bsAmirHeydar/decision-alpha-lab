@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_tasks_completed": {
+      "type": "boolean"
+    },
+    "event_count": {
+      "type": "integer"
+    },
+    "events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "attempt": {
+            "type": "integer"
+          },
+          "domain_id": {
+            "type": "string"
+          },
+          "event_hash": {
+            "type": "string"
+          },
+          "event_id": {
+            "type": "string"
+          },
+          "event_type": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "output_hash": {
+            "type": "string"
+          },
+          "previous_event_hash": {
+            "type": "string"
+          },
+          "raw_data_exported": {
+            "type": "boolean"
+          },
+          "task_id": {
+            "type": "string"
+          },
+          "tick": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "attempt",
+          "domain_id",
+          "event_hash",
+          "event_id",
+          "event_type",
+          "node_id",
+          "ordinal",
+          "output_hash",
+          "previous_event_hash",
+          "raw_data_exported",
+          "task_id",
+          "tick"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "network_runtime": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "schedule_id": {
+      "type": "string"
+    },
+    "transcript_hash": {
+      "type": "string"
+    },
+    "transcript_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "all_tasks_completed",
+    "event_count",
+    "events",
+    "network_runtime",
+    "phase",
+    "research_only",
+    "schedule_id",
+    "transcript_hash",
+    "transcript_id"
+  ],
+  "title": "GOLDEN_EXECUTION_TRANSCRIPT",
+  "type": "object"
+}

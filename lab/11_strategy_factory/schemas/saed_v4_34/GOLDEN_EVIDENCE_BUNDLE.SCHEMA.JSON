@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bundle_hash": {
+      "type": "string"
+    },
+    "bundle_id": {
+      "type": "string"
+    },
+    "complete": {
+      "type": "boolean"
+    },
+    "entries": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact_hash": {
+            "type": "string"
+          },
+          "artifact_key": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "artifact_hash",
+          "artifact_key"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "entry_count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "bundle_hash",
+    "bundle_id",
+    "complete",
+    "entries",
+    "entry_count",
+    "phase",
+    "research_only"
+  ],
+  "title": "GOLDEN_EVIDENCE_BUNDLE",
+  "type": "object"
+}

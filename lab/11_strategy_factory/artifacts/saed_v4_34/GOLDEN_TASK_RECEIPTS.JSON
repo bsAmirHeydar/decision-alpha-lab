@@ -1,0 +1,107 @@
+{
+  "all_success": true,
+  "ledger_hash": "3d8dab7614ec677b6e8b1eae8335eeba0a8b6586272feef79e407c2619cad40d",
+  "ledger_id": "v434_task_receipts_5a25fbe5a77d7c1c73ac187d",
+  "phase": "SAED_V4_34",
+  "research_only": true,
+  "synthetic_execution": true,
+  "task_count": 8,
+  "task_receipts": [
+    {
+      "attempt": 1,
+      "budget_checked": true,
+      "dependencies_verified": true,
+      "domain_id": "DOM-EU-A",
+      "locality_verified": true,
+      "node_id": "NODE-A-CPU",
+      "output_hash": "cd4ea7891c655265caeb77bc2eb89561edcb47add6cede69aeb74bc4aab11fdd",
+      "status": "completed",
+      "synthetic_execution": true,
+      "task_id": "T00-VALIDATE::r00"
+    },
+    {
+      "attempt": 1,
+      "budget_checked": true,
+      "dependencies_verified": true,
+      "domain_id": "DOM-EU-A",
+      "locality_verified": true,
+      "node_id": "NODE-A-GPU-R",
+      "output_hash": "30a5bb57a551a85b9abbd4e7cac833402a2d2cf2968d96713701066c4f9f8509",
+      "status": "completed",
+      "synthetic_execution": true,
+      "task_id": "T10-LOCAL-A::r00"
+    },
+    {
+      "attempt": 1,
+      "budget_checked": true,
+      "dependencies_verified": true,
+      "domain_id": "DOM-EU-B",
+      "locality_verified": true,
+      "node_id": "NODE-B-GPU",
+      "output_hash": "78c9486a8a28c0bc64f89fabf5f3dd12c66f09a6bec343313d1203cf1d2d8263",
+      "status": "completed",
+      "synthetic_execution": true,
+      "task_id": "T11-LOCAL-B::r00"
+    },
+    {
+      "attempt": 1,
+      "budget_checked": true,
+      "dependencies_verified": true,
+      "domain_id": "DOM-CH-C",
+      "locality_verified": true,
+      "node_id": "NODE-C-GPU",
+      "output_hash": "5881a756fff20de7851c430b0438c758dcf4b11ed41a84066c06c6b75cfb3c57",
+      "status": "completed",
+      "synthetic_execution": true,
+      "task_id": "T12-LOCAL-C::r00"
+    },
+    {
+      "attempt": 1,
+      "budget_checked": true,
+      "dependencies_verified": true,
+      "domain_id": "DOM-EU-B",
+      "locality_verified": true,
+      "node_id": "NODE-B-CPU-R",
+      "output_hash": "5ebf056e6781bd9f146c1ebafa7d33fff1c3dd1eb432d1798e8efab25b076090",
+      "status": "completed",
+      "synthetic_execution": true,
+      "task_id": "T20-REDUCE::r00"
+    },
+    {
+      "attempt": 1,
+      "budget_checked": true,
+      "dependencies_verified": true,
+      "domain_id": "DOM-CH-C",
+      "locality_verified": true,
+      "node_id": "NODE-C-CPU",
+      "output_hash": "c967a5c97890edb2d39407a038fadc087c4bf4d92c63f89b7c1241044663cae3",
+      "status": "completed",
+      "synthetic_execution": true,
+      "task_id": "T30-EVALUATE::r00"
+    },
+    {
+      "attempt": 1,
+      "budget_checked": true,
+      "dependencies_verified": true,
+      "domain_id": "DOM-CH-C",
+      "locality_verified": true,
+      "node_id": "NODE-C-CPU",
+      "output_hash": "8eb82049c93a79471081cd21319e5b944a8ecdfff211ddd3684e0259132bdffe",
+      "status": "completed",
+      "synthetic_execution": true,
+      "task_id": "T30-EVALUATE::r01"
+    },
+    {
+      "attempt": 1,
+      "budget_checked": true,
+      "dependencies_verified": true,
+      "domain_id": "DOM-EU-B",
+      "locality_verified": true,
+      "node_id": "NODE-B-CPU",
+      "output_hash": "5da36fbf3e31339c22bbcc4b6070d08a47ebb757a8773d9022a0b7d9c6ce9922",
+      "status": "completed",
+      "synthetic_execution": true,
+      "task_id": "T40-CERTIFY::r00"
+    }
+  ]
+}

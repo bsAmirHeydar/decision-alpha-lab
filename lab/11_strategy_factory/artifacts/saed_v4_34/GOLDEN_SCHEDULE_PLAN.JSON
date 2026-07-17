@@ -1,0 +1,133 @@
+{
+  "dag_id": "v434_dag_01a714b0e513ff2208436136",
+  "deterministic": true,
+  "final_tick": 5,
+  "partition_plan_id": "v434_partition_f197de692fd8169a7b797da5",
+  "phase": "SAED_V4_34",
+  "research_only": true,
+  "schedule_hash": "ed4ae1039e08921ea07a331ee93920af097b0d19972a9f9776e6407f32e50227",
+  "schedule_id": "v434_schedule_7e4039e765d5a4b50594d1ee",
+  "scheduled_task_count": 8,
+  "wave_count": 5,
+  "waves": [
+    {
+      "tasks": [
+        {
+          "attempt": 1,
+          "dependencies": [],
+          "domain_id": "DOM-EU-A",
+          "end_tick": 1,
+          "node_id": "NODE-A-CPU",
+          "start_tick": 0,
+          "task_id": "T00-VALIDATE::r00"
+        }
+      ],
+      "tick": 0,
+      "wave": 0
+    },
+    {
+      "tasks": [
+        {
+          "attempt": 1,
+          "dependencies": [
+            "T00-VALIDATE::r00"
+          ],
+          "domain_id": "DOM-EU-A",
+          "end_tick": 2,
+          "node_id": "NODE-A-GPU-R",
+          "start_tick": 1,
+          "task_id": "T10-LOCAL-A::r00"
+        },
+        {
+          "attempt": 1,
+          "dependencies": [
+            "T00-VALIDATE::r00"
+          ],
+          "domain_id": "DOM-EU-B",
+          "end_tick": 2,
+          "node_id": "NODE-B-GPU",
+          "start_tick": 1,
+          "task_id": "T11-LOCAL-B::r00"
+        },
+        {
+          "attempt": 1,
+          "dependencies": [
+            "T00-VALIDATE::r00"
+          ],
+          "domain_id": "DOM-CH-C",
+          "end_tick": 2,
+          "node_id": "NODE-C-GPU",
+          "start_tick": 1,
+          "task_id": "T12-LOCAL-C::r00"
+        }
+      ],
+      "tick": 1,
+      "wave": 1
+    },
+    {
+      "tasks": [
+        {
+          "attempt": 1,
+          "dependencies": [
+            "T10-LOCAL-A::r00",
+            "T11-LOCAL-B::r00",
+            "T12-LOCAL-C::r00"
+          ],
+          "domain_id": "DOM-EU-B",
+          "end_tick": 3,
+          "node_id": "NODE-B-CPU-R",
+          "start_tick": 2,
+          "task_id": "T20-REDUCE::r00"
+        }
+      ],
+      "tick": 2,
+      "wave": 2
+    },
+    {
+      "tasks": [
+        {
+          "attempt": 1,
+          "dependencies": [
+            "T20-REDUCE::r00"
+          ],
+          "domain_id": "DOM-CH-C",
+          "end_tick": 4,
+          "node_id": "NODE-C-CPU",
+          "start_tick": 3,
+          "task_id": "T30-EVALUATE::r00"
+        },
+        {
+          "attempt": 1,
+          "dependencies": [
+            "T20-REDUCE::r00"
+          ],
+          "domain_id": "DOM-CH-C",
+          "end_tick": 4,
+          "node_id": "NODE-C-CPU",
+          "start_tick": 3,
+          "task_id": "T30-EVALUATE::r01"
+        }
+      ],
+      "tick": 3,
+      "wave": 3
+    },
+    {
+      "tasks": [
+        {
+          "attempt": 1,
+          "dependencies": [
+            "T30-EVALUATE::r00",
+            "T30-EVALUATE::r01"
+          ],
+          "domain_id": "DOM-EU-B",
+          "end_tick": 5,
+          "node_id": "NODE-B-CPU",
+          "start_tick": 4,
+          "task_id": "T40-CERTIFY::r00"
+        }
+      ],
+      "tick": 4,
+      "wave": 4
+    }
+  ]
+}

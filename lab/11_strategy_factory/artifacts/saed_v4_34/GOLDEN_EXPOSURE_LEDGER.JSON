@@ -1,0 +1,120 @@
+{
+  "complete_accounting": true,
+  "events": [
+    {
+      "count": 1,
+      "event_hash": "ae793beb60ad875621aa6b05a5a0f00ea2a9183527d1f8b86cceab7fd0b377cd",
+      "event_id": "v434_exposure_event_45153651be58e2c51668c736",
+      "exposure_type": "task_execution",
+      "ordinal": 0,
+      "previous_event_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "subject_id": "T00-VALIDATE::r00"
+    },
+    {
+      "count": 1,
+      "event_hash": "ad334cebf39909fb3cbc5e407e6f44530b7e9963c554c676c26dd0fe313021d8",
+      "event_id": "v434_exposure_event_44220abed1a181a3e5f77bf4",
+      "exposure_type": "task_execution",
+      "ordinal": 1,
+      "previous_event_hash": "ae793beb60ad875621aa6b05a5a0f00ea2a9183527d1f8b86cceab7fd0b377cd",
+      "subject_id": "T10-LOCAL-A::r00"
+    },
+    {
+      "count": 1,
+      "event_hash": "dce1f201a53804a92aa794a07e2427357c082b5951d7ac5a3b599b8af932f226",
+      "event_id": "v434_exposure_event_2e1da506fbeef50d2cdf8cbe",
+      "exposure_type": "task_execution",
+      "ordinal": 2,
+      "previous_event_hash": "ad334cebf39909fb3cbc5e407e6f44530b7e9963c554c676c26dd0fe313021d8",
+      "subject_id": "T11-LOCAL-B::r00"
+    },
+    {
+      "count": 1,
+      "event_hash": "5d3a406b6aafb1ef7d278d7b2df1e5381f6f1ae49d21a389c417becce76d9f85",
+      "event_id": "v434_exposure_event_c942eb6fa387d3fd6ab07195",
+      "exposure_type": "task_execution",
+      "ordinal": 3,
+      "previous_event_hash": "dce1f201a53804a92aa794a07e2427357c082b5951d7ac5a3b599b8af932f226",
+      "subject_id": "T12-LOCAL-C::r00"
+    },
+    {
+      "count": 1,
+      "event_hash": "9d4e4acc448cc399b2e53883673c3da66bfe9a5d388a90394fd30d6ca1c62ba7",
+      "event_id": "v434_exposure_event_f3bf7b935f3a2150e090f18a",
+      "exposure_type": "task_execution",
+      "ordinal": 4,
+      "previous_event_hash": "5d3a406b6aafb1ef7d278d7b2df1e5381f6f1ae49d21a389c417becce76d9f85",
+      "subject_id": "T20-REDUCE::r00"
+    },
+    {
+      "count": 1,
+      "event_hash": "67558501c7b996ac85769a83f73c0740769e554069741e25266855ad2261c6d5",
+      "event_id": "v434_exposure_event_c6a58f238fd627b3468a841d",
+      "exposure_type": "task_execution",
+      "ordinal": 5,
+      "previous_event_hash": "9d4e4acc448cc399b2e53883673c3da66bfe9a5d388a90394fd30d6ca1c62ba7",
+      "subject_id": "T30-EVALUATE::r00"
+    },
+    {
+      "count": 1,
+      "event_hash": "bf5733b2b4236557ed192345c8966f05f6a900ac2007d3911dba58c388909cfc",
+      "event_id": "v434_exposure_event_0ccdf8905df684d6147a863c",
+      "exposure_type": "task_execution",
+      "ordinal": 6,
+      "previous_event_hash": "67558501c7b996ac85769a83f73c0740769e554069741e25266855ad2261c6d5",
+      "subject_id": "T30-EVALUATE::r01"
+    },
+    {
+      "count": 1,
+      "event_hash": "c984b692b7abe75882eae2e0d13e32fc993824d698f0b99049556533e5155627",
+      "event_id": "v434_exposure_event_982fb604dc82c64f43a2b540",
+      "exposure_type": "task_execution",
+      "ordinal": 7,
+      "previous_event_hash": "bf5733b2b4236557ed192345c8966f05f6a900ac2007d3911dba58c388909cfc",
+      "subject_id": "T40-CERTIFY::r00"
+    },
+    {
+      "count": 1,
+      "event_hash": "7b60aa7fadc3f0b6eac915acacc9b68034700a737e4473d7bc1ee8287af9cea2",
+      "event_id": "v434_exposure_event_9918627494cc4188ae42e9e1",
+      "exposure_type": "fault_injection",
+      "ordinal": 8,
+      "previous_event_hash": "c984b692b7abe75882eae2e0d13e32fc993824d698f0b99049556533e5155627",
+      "subject_id": "FAIL-001"
+    },
+    {
+      "count": 1,
+      "event_hash": "e570486d76b4dd895a71c899f81ca0b8dd888b6310d2779962f7c66f0ccd73b7",
+      "event_id": "v434_exposure_event_da7f4e60405fbced7fdd7b05",
+      "exposure_type": "fault_injection",
+      "ordinal": 9,
+      "previous_event_hash": "7b60aa7fadc3f0b6eac915acacc9b68034700a737e4473d7bc1ee8287af9cea2",
+      "subject_id": "FAIL-002"
+    },
+    {
+      "count": 1,
+      "event_hash": "b6c54f5865d811b03849ae7eab04c2be507155ace853eda72ab5e8bf0c35fe4f",
+      "event_id": "v434_exposure_event_fcc38230f015af19e4b88c2a",
+      "exposure_type": "recovery_attempt",
+      "ordinal": 10,
+      "previous_event_hash": "e570486d76b4dd895a71c899f81ca0b8dd888b6310d2779962f7c66f0ccd73b7",
+      "subject_id": "T00-VALIDATE::r00"
+    },
+    {
+      "count": 1,
+      "event_hash": "71cafe01e09acafd55170594c9c0dfaf13530d90b20cea2fbb1aeb55b295aaf8",
+      "event_id": "v434_exposure_event_c57265596b9cb5e93757b4b5",
+      "exposure_type": "recovery_attempt",
+      "ordinal": 11,
+      "previous_event_hash": "b6c54f5865d811b03849ae7eab04c2be507155ace853eda72ab5e8bf0c35fe4f",
+      "subject_id": "T11-LOCAL-B::r00"
+    }
+  ],
+  "ledger_hash": "f0517ec1cefdccc524acbffd6e4476c3075429d9ebe37015aa9ea8fbd42b9d8a",
+  "ledger_id": "v434_exposure_ed9aa29cc9d9c2c1d8248030",
+  "max_exposures": 100,
+  "phase": "SAED_V4_34",
+  "research_only": true,
+  "total_exposures": 12,
+  "within_budget": true
+}

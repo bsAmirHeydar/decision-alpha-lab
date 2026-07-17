@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acyclic": {
+      "type": "boolean"
+    },
+    "dag_hash": {
+      "type": "string"
+    },
+    "dag_id": {
+      "type": "string"
+    },
+    "deterministic": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "task_count": {
+      "type": "integer"
+    },
+    "tasks": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "command_hash": {
+            "type": "string"
+          },
+          "compute_class": {
+            "type": "string"
+          },
+          "cpu_cores": {
+            "type": "integer"
+          },
+          "dependencies": {
+            "items": {},
+            "type": "array"
+          },
+          "gpu_units": {
+            "type": "integer"
+          },
+          "locality": {
+            "type": "string"
+          },
+          "memory_gb": {
+            "type": "integer"
+          },
+          "output_class": {
+            "type": "string"
+          },
+          "replica": {
+            "type": "integer"
+          },
+          "scratch_gb": {
+            "type": "integer"
+          },
+          "stage": {
+            "type": "string"
+          },
+          "task_id": {
+            "type": "string"
+          },
+          "template_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "command_hash",
+          "compute_class",
+          "cpu_cores",
+          "dependencies",
+          "gpu_units",
+          "locality",
+          "memory_gb",
+          "output_class",
+          "replica",
+          "scratch_gb",
+          "stage",
+          "task_id",
+          "template_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "workload_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "acyclic",
+    "dag_hash",
+    "dag_id",
+    "deterministic",
+    "phase",
+    "research_only",
+    "task_count",
+    "tasks",
+    "workload_id"
+  ],
+  "title": "GOLDEN_TASK_DAG",
+  "type": "object"
+}

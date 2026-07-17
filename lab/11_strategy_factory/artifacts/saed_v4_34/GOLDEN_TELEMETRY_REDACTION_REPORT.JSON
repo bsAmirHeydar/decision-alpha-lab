@@ -1,0 +1,16 @@
+{
+  "forbidden_tokens": [
+    "raw_row",
+    "credential",
+    "secret",
+    "private_key",
+    "account_number"
+  ],
+  "hits": [],
+  "phase": "SAED_V4_34",
+  "raw_payloads_logged": false,
+  "redaction_passed": true,
+  "report_hash": "d0782f31bf9849debad2dce4d316bd18944e98cd839c62a439e3f8cf76b7c54b",
+  "report_id": "v434_telemetry_871ff75fccbfc45facbdb13d",
+  "research_only": true
+}

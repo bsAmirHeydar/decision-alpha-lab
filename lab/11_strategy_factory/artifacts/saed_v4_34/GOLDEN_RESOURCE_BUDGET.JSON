@@ -1,0 +1,14 @@
+{
+  "budget_hash": "5de13a4a743ad2411de75f6431345fed4d90dba17849a0c72f7951992d991ae3",
+  "budget_id": "BUDGET-001",
+  "max_cost_units": 100,
+  "max_cpu_core_seconds": 500,
+  "max_exposures": 100,
+  "max_gpu_seconds": 50,
+  "max_memory_gb_seconds": 2000,
+  "max_network_bytes": 50000,
+  "max_scratch_gb_seconds": 5000,
+  "max_task_attempts": 100,
+  "max_wall_clock_ticks": 20,
+  "research_only": true
+}

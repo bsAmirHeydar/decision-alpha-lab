@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_nodes_attested": {
+      "type": "boolean"
+    },
+    "default_deny_network": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "public_egress": {
+      "type": "boolean"
+    },
+    "real_confidential_compute": {
+      "type": "string"
+    },
+    "real_hardware_attestation": {
+      "type": "string"
+    },
+    "real_network_isolation": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "review_hash": {
+      "type": "string"
+    },
+    "review_id": {
+      "type": "string"
+    },
+    "security_review_passed": {
+      "type": "boolean"
+    },
+    "telemetry_redaction_passed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "all_nodes_attested",
+    "default_deny_network",
+    "phase",
+    "public_egress",
+    "real_confidential_compute",
+    "real_hardware_attestation",
+    "real_network_isolation",
+    "research_only",
+    "review_hash",
+    "review_id",
+    "security_review_passed",
+    "telemetry_redaction_passed"
+  ],
+  "title": "GOLDEN_SECURITY_REVIEW",
+  "type": "object"
+}

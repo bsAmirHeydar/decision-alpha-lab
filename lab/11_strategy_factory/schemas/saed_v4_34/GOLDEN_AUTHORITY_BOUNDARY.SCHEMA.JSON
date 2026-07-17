@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "boundary_hash": {
+      "type": "string"
+    },
+    "boundary_id": {
+      "type": "string"
+    },
+    "failure_action": {
+      "type": "string"
+    },
+    "live_trading_authority": {
+      "type": "boolean"
+    },
+    "may_allocate_risk": {
+      "type": "boolean"
+    },
+    "may_compile_live_runtime": {
+      "type": "boolean"
+    },
+    "may_emit_evidence": {
+      "type": "boolean"
+    },
+    "may_export_raw_data": {
+      "type": "boolean"
+    },
+    "may_mutate_ucee": {
+      "type": "boolean"
+    },
+    "may_plan_distributed_compute": {
+      "type": "boolean"
+    },
+    "may_select_treatment": {
+      "type": "boolean"
+    },
+    "may_send_order": {
+      "type": "boolean"
+    },
+    "may_simulate_execution": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorization": {
+      "type": "boolean"
+    },
+    "promotion_authority": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "boundary_hash",
+    "boundary_id",
+    "failure_action",
+    "live_trading_authority",
+    "may_allocate_risk",
+    "may_compile_live_runtime",
+    "may_emit_evidence",
+    "may_export_raw_data",
+    "may_mutate_ucee",
+    "may_plan_distributed_compute",
+    "may_select_treatment",
+    "may_send_order",
+    "may_simulate_execution",
+    "phase",
+    "production_authorization",
+    "promotion_authority",
+    "research_only"
+  ],
+  "title": "GOLDEN_AUTHORITY_BOUNDARY",
+  "type": "object"
+}

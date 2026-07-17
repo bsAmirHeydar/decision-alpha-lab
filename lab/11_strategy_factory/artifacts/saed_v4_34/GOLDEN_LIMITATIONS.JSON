@@ -1,0 +1,27 @@
+{
+  "claims": [
+    "deterministic reference planner",
+    "closed sovereign-compute contracts",
+    "synthetic distributed execution",
+    "complete reference accounting",
+    "fail-closed recovery simulation"
+  ],
+  "not_claimed": [
+    "real cluster execution",
+    "real confidential computing",
+    "real hardware attestation",
+    "real network isolation",
+    "real distributed consensus",
+    "real production scheduling",
+    "MetaEditor compilation",
+    "runtime parity",
+    "broker qualification",
+    "prospective success",
+    "real alpha",
+    "production authorization"
+  ],
+  "phase": "SAED_V4_34",
+  "report_hash": "9a91c11749646e6677a705d77a8ea1a66136c61052e66feb3d127be717173396",
+  "report_id": "v434_limits_86e6e5a3ebf42aedaa316f3a",
+  "research_only": true
+}

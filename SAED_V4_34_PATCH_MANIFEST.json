@@ -1,0 +1,14 @@
+{
+  "authority": "research_only",
+  "claim_ceiling": "synthetic_deterministic_reference_only",
+  "delivery_command": "python tools/strategy_factory/saed_v4_34/validate_saed_v4_34_delivery.py",
+  "file_count": 345,
+  "next_phase": "SAED_V4_35",
+  "patch_type": "additive_reference_implementation",
+  "phase": "SAED_V4_34",
+  "production_authorization": false,
+  "qa_command": "python tools/strategy_factory/saed_v4_34/run_saed_v4_34_full_qa.py",
+  "title": "Sovereign Distributed Compute",
+  "upstream_phase": "SAED_V4_33",
+  "version": "1.0.0"
+}

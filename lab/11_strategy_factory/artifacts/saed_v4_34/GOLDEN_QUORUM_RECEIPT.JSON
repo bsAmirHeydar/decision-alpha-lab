@@ -1,0 +1,29 @@
+{
+  "accept_votes": 3,
+  "consensus_protocol": "not_claimed",
+  "eligible_voters": 3,
+  "evidence_quorum_only": true,
+  "phase": "SAED_V4_34",
+  "receipt_hash": "3c50039d924a293acbce8c1dfbe2ed6563daf299f7d63d6913e011e18e12e0ae",
+  "receipt_id": "v434_quorum_dd9273acef72d56938610fa2",
+  "research_only": true,
+  "threshold": 3,
+  "threshold_met": true,
+  "votes": [
+    {
+      "domain_id": "DOM-CH-C",
+      "evidence_hash": "28633c693d1bc568f9832da1265483c77e13fc6cab98341a7e16ec5743a382b7",
+      "vote": "accept"
+    },
+    {
+      "domain_id": "DOM-EU-A",
+      "evidence_hash": "671e13c9d40f947ea9ae6c37c6479d6e1e14cc8c683afa6c80fd840d911625a6",
+      "vote": "accept"
+    },
+    {
+      "domain_id": "DOM-EU-B",
+      "evidence_hash": "1946cad7073d9b84c7ba4708cffa5bd88165d1800e88a2105fda0b32af8423be",
+      "vote": "accept"
+    }
+  ]
+}

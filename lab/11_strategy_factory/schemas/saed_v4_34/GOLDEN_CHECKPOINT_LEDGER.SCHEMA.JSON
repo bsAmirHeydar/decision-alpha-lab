@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "checkpoint_count": {
+      "type": "integer"
+    },
+    "checkpoints": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "checkpoint_id": {
+            "type": "string"
+          },
+          "immutable": {
+            "type": "boolean"
+          },
+          "state_hash": {
+            "type": "string"
+          },
+          "wave": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "checkpoint_id",
+          "immutable",
+          "state_hash",
+          "wave"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "restartable": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "checkpoint_count",
+    "checkpoints",
+    "ledger_hash",
+    "ledger_id",
+    "phase",
+    "research_only",
+    "restartable"
+  ],
+  "title": "GOLDEN_CHECKPOINT_LEDGER",
+  "type": "object"
+}

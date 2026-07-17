@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "distributed_skew_assessed": {
+      "type": "boolean"
+    },
+    "exposure_budget_passed": {
+      "type": "boolean"
+    },
+    "model_risk_review_passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "recovery_passed": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "resource_budget_passed": {
+      "type": "boolean"
+    },
+    "review_hash": {
+      "type": "string"
+    },
+    "review_id": {
+      "type": "string"
+    },
+    "silent_partial_failure_assessed": {
+      "type": "boolean"
+    },
+    "straggler_bias_assessed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "baseline_preserved",
+    "distributed_skew_assessed",
+    "exposure_budget_passed",
+    "model_risk_review_passed",
+    "phase",
+    "recovery_passed",
+    "research_only",
+    "resource_budget_passed",
+    "review_hash",
+    "review_id",
+    "silent_partial_failure_assessed",
+    "straggler_bias_assessed"
+  ],
+  "title": "GOLDEN_MODEL_RISK_REVIEW",
+  "type": "object"
+}

@@ -1,0 +1,59 @@
+{
+  "all_required_complete": true,
+  "human_override_logged": true,
+  "ledger_hash": "5527bf2f32be21b733c601eb655fc847543ed8828baa0974be0b3ba907faab5c",
+  "ledger_id": "v434_reviews_50b0264ba33b162ceb569718",
+  "phase": "SAED_V4_34",
+  "production_authorization": false,
+  "records": [
+    {
+      "checkpoint_id": "HR-01",
+      "decision": "approve_reference_only",
+      "evidence_complete": true,
+      "production_authorized": false,
+      "reviewer_role": "independent_operator",
+      "stage": "constitution"
+    },
+    {
+      "checkpoint_id": "HR-02",
+      "decision": "approve_reference_only",
+      "evidence_complete": true,
+      "production_authorized": false,
+      "reviewer_role": "independent_operator",
+      "stage": "inventory"
+    },
+    {
+      "checkpoint_id": "HR-03",
+      "decision": "approve_reference_only",
+      "evidence_complete": true,
+      "production_authorized": false,
+      "reviewer_role": "independent_operator",
+      "stage": "planning"
+    },
+    {
+      "checkpoint_id": "HR-04",
+      "decision": "approve_reference_only",
+      "evidence_complete": true,
+      "production_authorized": false,
+      "reviewer_role": "independent_operator",
+      "stage": "execution"
+    },
+    {
+      "checkpoint_id": "HR-05",
+      "decision": "approve_reference_only",
+      "evidence_complete": true,
+      "production_authorized": false,
+      "reviewer_role": "independent_operator",
+      "stage": "recovery"
+    },
+    {
+      "checkpoint_id": "HR-06",
+      "decision": "approve_reference_only",
+      "evidence_complete": true,
+      "production_authorized": false,
+      "reviewer_role": "independent_operator",
+      "stage": "evidence"
+    }
+  ],
+  "research_only": true
+}

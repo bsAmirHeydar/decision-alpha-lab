@@ -1,0 +1,139 @@
+{
+  "baseline_id": "BASELINE-V433-REF",
+  "cutoff_time": "2026-06-30T23:59:59Z",
+  "determinism_seed": 4342026,
+  "input_artifact_ids": [
+    "ART-DATA-A",
+    "ART-DATA-B",
+    "ART-DATA-C",
+    "ART-MODEL",
+    "ART-SCHEMA"
+  ],
+  "max_attempts_per_task": 3,
+  "objective": "deterministic synthetic sovereign distributed-compute qualification",
+  "output_classes": [
+    "aggregate",
+    "certificate",
+    "evidence",
+    "receipt"
+  ],
+  "research_only": true,
+  "synthetic_fixture": true,
+  "task_templates": [
+    {
+      "command_hash": "7de9eac6e75f09b110d14eaa4d83a31c11baf13a10e198671574d47396f33416",
+      "compute_class": "cpu",
+      "cpu_cores": 2,
+      "dependencies": [],
+      "gpu_units": 0,
+      "locality": "any_sovereign_domain",
+      "memory_gb": 4,
+      "output_class": "receipt",
+      "replicas": 1,
+      "scratch_gb": 8,
+      "stage": "validation",
+      "template_id": "T00-VALIDATE"
+    },
+    {
+      "command_hash": "9168ed5aab5f9c7fdc0f46c18945b26051cfa0815b262f848c513d91c666c1ff",
+      "compute_class": "gpu",
+      "cpu_cores": 4,
+      "dependencies": [
+        "T00-VALIDATE"
+      ],
+      "gpu_units": 1,
+      "locality": "domain:DOM-EU-A",
+      "memory_gb": 16,
+      "output_class": "aggregate",
+      "replicas": 1,
+      "scratch_gb": 64,
+      "stage": "local_compute",
+      "template_id": "T10-LOCAL-A"
+    },
+    {
+      "command_hash": "3284da5f7d5b5916b179bb8f6e6e8dd5a4ddc0adeeb0452a30fcc9fbecf88a67",
+      "compute_class": "gpu",
+      "cpu_cores": 4,
+      "dependencies": [
+        "T00-VALIDATE"
+      ],
+      "gpu_units": 1,
+      "locality": "domain:DOM-EU-B",
+      "memory_gb": 16,
+      "output_class": "aggregate",
+      "replicas": 1,
+      "scratch_gb": 64,
+      "stage": "local_compute",
+      "template_id": "T11-LOCAL-B"
+    },
+    {
+      "command_hash": "180162e5d36238bb9f0229ec23ecf0635cb0af32c3eed53d1377196bc98bbc94",
+      "compute_class": "gpu",
+      "cpu_cores": 4,
+      "dependencies": [
+        "T00-VALIDATE"
+      ],
+      "gpu_units": 1,
+      "locality": "domain:DOM-CH-C",
+      "memory_gb": 16,
+      "output_class": "aggregate",
+      "replicas": 1,
+      "scratch_gb": 64,
+      "stage": "local_compute",
+      "template_id": "T12-LOCAL-C"
+    },
+    {
+      "command_hash": "8113da83784a2b26f6bb7fb2839cb74f587cfe58b476113061bfa71d4667aec9",
+      "compute_class": "cpu",
+      "cpu_cores": 4,
+      "dependencies": [
+        "T10-LOCAL-A",
+        "T11-LOCAL-B",
+        "T12-LOCAL-C"
+      ],
+      "gpu_units": 0,
+      "locality": "any_sovereign_domain",
+      "memory_gb": 8,
+      "output_class": "aggregate",
+      "replicas": 1,
+      "scratch_gb": 16,
+      "stage": "reduction",
+      "template_id": "T20-REDUCE"
+    },
+    {
+      "command_hash": "d496c3e73c6bb36c9ad79389fa0bb9126d97ab80b7a09b293bf47a43f6ba03f6",
+      "compute_class": "cpu",
+      "cpu_cores": 4,
+      "dependencies": [
+        "T20-REDUCE"
+      ],
+      "gpu_units": 0,
+      "locality": "any_sovereign_domain",
+      "memory_gb": 8,
+      "output_class": "evidence",
+      "replicas": 2,
+      "scratch_gb": 16,
+      "stage": "evaluation",
+      "template_id": "T30-EVALUATE"
+    },
+    {
+      "command_hash": "cc262480c09fa10a54e466640afdebc3ff881f6466fe22ee01bb585abb3af98e",
+      "compute_class": "cpu",
+      "cpu_cores": 2,
+      "dependencies": [
+        "T30-EVALUATE"
+      ],
+      "gpu_units": 0,
+      "locality": "any_sovereign_domain",
+      "memory_gb": 4,
+      "output_class": "certificate",
+      "replicas": 1,
+      "scratch_gb": 8,
+      "stage": "certification",
+      "template_id": "T40-CERTIFY"
+    }
+  ],
+  "workload_id": "WORKLOAD-SDC-001",
+  "workload_spec_hash": "3b86d95590d3e9cfac8b5c0fe46368496b57200be39416f8feb4b6e29a46565f",
+  "workload_spec_id": "v434_workload_f6020ce6c1ec61d1e5b60992"
+}

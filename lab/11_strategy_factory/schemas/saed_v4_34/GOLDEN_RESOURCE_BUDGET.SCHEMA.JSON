@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "budget_hash": {
+      "type": "string"
+    },
+    "budget_id": {
+      "type": "string"
+    },
+    "max_cost_units": {
+      "type": "integer"
+    },
+    "max_cpu_core_seconds": {
+      "type": "integer"
+    },
+    "max_exposures": {
+      "type": "integer"
+    },
+    "max_gpu_seconds": {
+      "type": "integer"
+    },
+    "max_memory_gb_seconds": {
+      "type": "integer"
+    },
+    "max_network_bytes": {
+      "type": "integer"
+    },
+    "max_scratch_gb_seconds": {
+      "type": "integer"
+    },
+    "max_task_attempts": {
+      "type": "integer"
+    },
+    "max_wall_clock_ticks": {
+      "type": "integer"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "budget_hash",
+    "budget_id",
+    "max_cost_units",
+    "max_cpu_core_seconds",
+    "max_exposures",
+    "max_gpu_seconds",
+    "max_memory_gb_seconds",
+    "max_network_bytes",
+    "max_scratch_gb_seconds",
+    "max_task_attempts",
+    "max_wall_clock_ticks",
+    "research_only"
+  ],
+  "title": "GOLDEN_RESOURCE_BUDGET",
+  "type": "object"
+}

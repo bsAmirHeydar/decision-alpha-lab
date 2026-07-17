@@ -1,0 +1,5 @@
+#ifndef SAEDV434STATICASSERTIONS_MQH
+#define SAEDV434STATICASSERTIONS_MQH
+// SAED_V4_34 static mirror; no runtime or trading authority.
+bool SAED_V4_34_StaticAuthoritySafe(){ return (!SAED_V4_34_PROMOTION_AUTHORITY && !SAED_V4_34_EXECUTION_AUTHORITY && !SAED_V4_34_PRODUCTION_AUTHORIZATION); }
+#endif

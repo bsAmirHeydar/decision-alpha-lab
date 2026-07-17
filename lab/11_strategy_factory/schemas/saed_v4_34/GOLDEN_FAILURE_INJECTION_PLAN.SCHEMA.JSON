@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "failure_count": {
+      "type": "integer"
+    },
+    "failures": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "failure_id": {
+            "type": "string"
+          },
+          "failure_type": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          },
+          "tick": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "failure_id",
+          "failure_type",
+          "node_id",
+          "synthetic_fixture",
+          "tick"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "plan_hash": {
+      "type": "string"
+    },
+    "plan_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "synthetic_faults": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "failure_count",
+    "failures",
+    "phase",
+    "plan_hash",
+    "plan_id",
+    "research_only",
+    "synthetic_faults"
+  ],
+  "title": "GOLDEN_FAILURE_INJECTION_PLAN",
+  "type": "object"
+}

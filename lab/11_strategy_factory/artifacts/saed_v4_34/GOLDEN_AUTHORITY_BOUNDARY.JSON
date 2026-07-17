@@ -1,0 +1,19 @@
+{
+  "boundary_hash": "acc8934a5731d2cafdb5df7f6ea387f8b9727c607db5a12c3d9752515887d130",
+  "boundary_id": "v434_authority_6654b764e37c3f152e9b5a22",
+  "failure_action": "ABSTAIN_AND_PRESERVE_BASELINE",
+  "live_trading_authority": false,
+  "may_allocate_risk": false,
+  "may_compile_live_runtime": false,
+  "may_emit_evidence": true,
+  "may_export_raw_data": false,
+  "may_mutate_ucee": false,
+  "may_plan_distributed_compute": true,
+  "may_select_treatment": false,
+  "may_send_order": false,
+  "may_simulate_execution": true,
+  "phase": "SAED_V4_34",
+  "production_authorization": false,
+  "promotion_authority": false,
+  "research_only": true
+}

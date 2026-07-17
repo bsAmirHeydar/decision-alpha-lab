@@ -1,0 +1,12 @@
+{
+  "central_engine_mutations": 0,
+  "compatibility_passed": true,
+  "phase": "SAED_V4_34",
+  "receipt_hash": "e0d0ad78c0e329ca68e4b165d7b81df306963259ed29f74a5cc875f9d5c5658a",
+  "receipt_id": "v434_ucee_b3a5e9c758c59adeecb0b08a",
+  "research_only": true,
+  "runtime_authority_changes": 0,
+  "schema_additive_only": true,
+  "treatment_universe_changes": 0,
+  "ucee_contract_mutations": 0
+}

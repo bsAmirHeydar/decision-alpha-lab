@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_within_budget": {
+      "type": "boolean"
+    },
+    "checks": {
+      "additionalProperties": false,
+      "properties": {
+        "cpu_core_seconds": {
+          "type": "boolean"
+        },
+        "gpu_seconds": {
+          "type": "boolean"
+        },
+        "memory_gb_seconds": {
+          "type": "boolean"
+        },
+        "network_bytes": {
+          "type": "boolean"
+        },
+        "scratch_gb_seconds": {
+          "type": "boolean"
+        },
+        "task_attempts": {
+          "type": "boolean"
+        },
+        "wall_clock_ticks": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "cpu_core_seconds",
+        "gpu_seconds",
+        "memory_gb_seconds",
+        "network_bytes",
+        "scratch_gb_seconds",
+        "task_attempts",
+        "wall_clock_ticks"
+      ],
+      "type": "object"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "limits": {
+      "additionalProperties": false,
+      "properties": {
+        "cpu_core_seconds": {
+          "type": "integer"
+        },
+        "gpu_seconds": {
+          "type": "integer"
+        },
+        "memory_gb_seconds": {
+          "type": "integer"
+        },
+        "network_bytes": {
+          "type": "integer"
+        },
+        "scratch_gb_seconds": {
+          "type": "integer"
+        },
+        "task_attempts": {
+          "type": "integer"
+        },
+        "wall_clock_ticks": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "cpu_core_seconds",
+        "gpu_seconds",
+        "memory_gb_seconds",
+        "network_bytes",
+        "scratch_gb_seconds",
+        "task_attempts",
+        "wall_clock_ticks"
+      ],
+      "type": "object"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "usage": {
+      "additionalProperties": false,
+      "properties": {
+        "cpu_core_seconds": {
+          "type": "number"
+        },
+        "gpu_seconds": {
+          "type": "number"
+        },
+        "memory_gb_seconds": {
+          "type": "number"
+        },
+        "network_bytes": {
+          "type": "number"
+        },
+        "scratch_gb_seconds": {
+          "type": "number"
+        },
+        "task_attempts": {
+          "type": "integer"
+        },
+        "wall_clock_ticks": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "cpu_core_seconds",
+        "gpu_seconds",
+        "memory_gb_seconds",
+        "network_bytes",
+        "scratch_gb_seconds",
+        "task_attempts",
+        "wall_clock_ticks"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "all_within_budget",
+    "checks",
+    "ledger_hash",
+    "ledger_id",
+    "limits",
+    "phase",
+    "research_only",
+    "usage"
+  ],
+  "title": "GOLDEN_RESOURCE_USAGE_LEDGER",
+  "type": "object"
+}

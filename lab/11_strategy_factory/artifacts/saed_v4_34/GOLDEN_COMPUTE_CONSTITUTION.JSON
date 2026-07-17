@@ -1,0 +1,110 @@
+{
+  "central_engine_mutation_allowed": false,
+  "clauses": [
+    {
+      "clause_id": "C01",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN",
+      "priority": 1,
+      "requirement": "Immutable upstream"
+    },
+    {
+      "clause_id": "C02",
+      "evidence_required": true,
+      "failure_action": "REJECT",
+      "priority": 2,
+      "requirement": "Closed contracts"
+    },
+    {
+      "clause_id": "C03",
+      "evidence_required": true,
+      "failure_action": "REJECT",
+      "priority": 3,
+      "requirement": "Known-time only"
+    },
+    {
+      "clause_id": "C04",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN",
+      "priority": 4,
+      "requirement": "Raw data local"
+    },
+    {
+      "clause_id": "C05",
+      "evidence_required": true,
+      "failure_action": "HALT",
+      "priority": 5,
+      "requirement": "Default-deny network"
+    },
+    {
+      "clause_id": "C06",
+      "evidence_required": true,
+      "failure_action": "QUARANTINE",
+      "priority": 6,
+      "requirement": "Attested nodes only"
+    },
+    {
+      "clause_id": "C07",
+      "evidence_required": true,
+      "failure_action": "REJECT",
+      "priority": 7,
+      "requirement": "Deterministic planning"
+    },
+    {
+      "clause_id": "C08",
+      "evidence_required": true,
+      "failure_action": "HALT",
+      "priority": 8,
+      "requirement": "Complete budgets"
+    },
+    {
+      "clause_id": "C09",
+      "evidence_required": true,
+      "failure_action": "REJECT",
+      "priority": 9,
+      "requirement": "Complete exposure ledger"
+    },
+    {
+      "clause_id": "C10",
+      "evidence_required": true,
+      "failure_action": "PRESERVE_BASELINE",
+      "priority": 10,
+      "requirement": "Checkpoint recovery"
+    },
+    {
+      "clause_id": "C11",
+      "evidence_required": true,
+      "failure_action": "HALT",
+      "priority": 11,
+      "requirement": "UCEE authority preserved"
+    },
+    {
+      "clause_id": "C12",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN",
+      "priority": 12,
+      "requirement": "No production claim"
+    },
+    {
+      "clause_id": "C13",
+      "evidence_required": true,
+      "failure_action": "REJECT",
+      "priority": 13,
+      "requirement": "Independent review"
+    },
+    {
+      "clause_id": "C14",
+      "evidence_required": true,
+      "failure_action": "REJECT",
+      "priority": 14,
+      "requirement": "Evidence bundle required"
+    }
+  ],
+  "constitution_hash": "6d955b2c5a898771347ebac6ed3d9a04a43bb46d9130cc2a162ec9b347b1c770",
+  "constitution_id": "SDC-CONSTITUTION-001",
+  "execution_authority_allowed": false,
+  "public_network_egress_allowed": false,
+  "raw_data_export_allowed": false,
+  "research_only": true,
+  "version": "1.0.0"
+}

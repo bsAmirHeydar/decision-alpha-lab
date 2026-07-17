@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_recovered": {
+      "type": "boolean"
+    },
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "cross_domain_migration": {
+      "type": "boolean"
+    },
+    "events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "attempt": {
+            "type": "integer"
+          },
+          "checkpoint_id": {
+            "type": "string"
+          },
+          "cross_domain_migration": {
+            "type": "boolean"
+          },
+          "domain_id": {
+            "type": "string"
+          },
+          "event_hash": {
+            "type": "string"
+          },
+          "event_id": {
+            "type": "string"
+          },
+          "failed_node_id": {
+            "type": "string"
+          },
+          "failure_id": {
+            "type": "string"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "previous_event_hash": {
+            "type": "string"
+          },
+          "recovered": {
+            "type": "boolean"
+          },
+          "recovery_node_id": {
+            "type": "string"
+          },
+          "task_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "attempt",
+          "checkpoint_id",
+          "cross_domain_migration",
+          "domain_id",
+          "event_hash",
+          "event_id",
+          "failed_node_id",
+          "failure_id",
+          "ordinal",
+          "previous_event_hash",
+          "recovered",
+          "recovery_node_id",
+          "task_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "transcript_hash": {
+      "type": "string"
+    },
+    "transcript_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "all_recovered",
+    "baseline_preserved",
+    "cross_domain_migration",
+    "events",
+    "phase",
+    "research_only",
+    "transcript_hash",
+    "transcript_id"
+  ],
+  "title": "GOLDEN_RECOVERY_TRANSCRIPT",
+  "type": "object"
+}

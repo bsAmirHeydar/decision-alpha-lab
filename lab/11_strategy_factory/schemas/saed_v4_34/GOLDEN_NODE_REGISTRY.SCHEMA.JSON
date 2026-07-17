@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_nodes_ready": {
+      "type": "boolean"
+    },
+    "node_count": {
+      "type": "integer"
+    },
+    "nodes": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "attestation_fingerprint": {
+            "type": "string"
+          },
+          "compute_class": {
+            "type": "string"
+          },
+          "cpu_cores": {
+            "type": "integer"
+          },
+          "domain_id": {
+            "type": "string"
+          },
+          "gpu_units": {
+            "type": "integer"
+          },
+          "memory_gb": {
+            "type": "integer"
+          },
+          "network_zone": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          },
+          "runtime_image_hash": {
+            "type": "string"
+          },
+          "scratch_gb": {
+            "type": "integer"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "attestation_fingerprint",
+          "compute_class",
+          "cpu_cores",
+          "domain_id",
+          "gpu_units",
+          "memory_gb",
+          "network_zone",
+          "node_id",
+          "runtime_image_hash",
+          "scratch_gb",
+          "status"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "all_nodes_ready",
+    "node_count",
+    "nodes",
+    "phase",
+    "registry_hash",
+    "registry_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_NODE_REGISTRY",
+  "type": "object"
+}

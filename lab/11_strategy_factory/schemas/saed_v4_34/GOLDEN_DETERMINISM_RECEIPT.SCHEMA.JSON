@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "exact_match": {
+      "type": "boolean"
+    },
+    "execution_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "plan_hash": {
+      "type": "string"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "repeat_hash": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "schedule_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "exact_match",
+    "execution_hash",
+    "phase",
+    "plan_hash",
+    "receipt_hash",
+    "receipt_id",
+    "repeat_hash",
+    "research_only",
+    "schedule_hash"
+  ],
+  "title": "GOLDEN_DETERMINISM_RECEIPT",
+  "type": "object"
+}

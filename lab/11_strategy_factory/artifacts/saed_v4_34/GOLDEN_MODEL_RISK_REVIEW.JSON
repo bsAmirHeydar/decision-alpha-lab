@@ -1,0 +1,14 @@
+{
+  "baseline_preserved": true,
+  "distributed_skew_assessed": true,
+  "exposure_budget_passed": true,
+  "model_risk_review_passed": true,
+  "phase": "SAED_V4_34",
+  "recovery_passed": true,
+  "research_only": true,
+  "resource_budget_passed": true,
+  "review_hash": "c810eb6a412d593082e0afbdbcd3933796f90e6e5f4b81d3a8268b09346801e8",
+  "review_id": "v434_model_risk_bc818899af89a4702c767561",
+  "silent_partial_failure_assessed": true,
+  "straggler_bias_assessed": true
+}

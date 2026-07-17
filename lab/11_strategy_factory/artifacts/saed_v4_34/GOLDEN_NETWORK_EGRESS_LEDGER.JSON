@@ -1,0 +1,107 @@
+{
+  "events": [
+    {
+      "bytes": 256,
+      "event_hash": "702ba1879e48cbe517abd968457b69dbdc4216b44dc2cc3354d2227e3b8e54e7",
+      "event_id": "v434_network_event_0c4d6adbf1469da3d3111af8",
+      "message_class": "aggregate_or_receipt",
+      "ordinal": 0,
+      "previous_event_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "public_egress": false,
+      "raw_data": false,
+      "route_policy_id": "NET-DENY-001",
+      "task_id": "T00-VALIDATE::r00"
+    },
+    {
+      "bytes": 256,
+      "event_hash": "224a83fbf4485b96ab4c1004bc31e6d1e6fc1075b1a213d09bd0c9329eda42b9",
+      "event_id": "v434_network_event_6c7e6a1cee623bb3df2ca7a3",
+      "message_class": "aggregate_or_receipt",
+      "ordinal": 1,
+      "previous_event_hash": "702ba1879e48cbe517abd968457b69dbdc4216b44dc2cc3354d2227e3b8e54e7",
+      "public_egress": false,
+      "raw_data": false,
+      "route_policy_id": "NET-DENY-001",
+      "task_id": "T10-LOCAL-A::r00"
+    },
+    {
+      "bytes": 256,
+      "event_hash": "83e376e112f2746b38ac834089161fcc72da8795d40577f11eff112d0f463fc0",
+      "event_id": "v434_network_event_a797e17fb9aca32ae096b22b",
+      "message_class": "aggregate_or_receipt",
+      "ordinal": 2,
+      "previous_event_hash": "224a83fbf4485b96ab4c1004bc31e6d1e6fc1075b1a213d09bd0c9329eda42b9",
+      "public_egress": false,
+      "raw_data": false,
+      "route_policy_id": "NET-DENY-001",
+      "task_id": "T11-LOCAL-B::r00"
+    },
+    {
+      "bytes": 256,
+      "event_hash": "8b065e1e0cd1f0f9412153185d716bccb3ec265576c341a7eb709d84cf199f3c",
+      "event_id": "v434_network_event_b59cb0ad657c99bc6d0634cc",
+      "message_class": "aggregate_or_receipt",
+      "ordinal": 3,
+      "previous_event_hash": "83e376e112f2746b38ac834089161fcc72da8795d40577f11eff112d0f463fc0",
+      "public_egress": false,
+      "raw_data": false,
+      "route_policy_id": "NET-DENY-001",
+      "task_id": "T12-LOCAL-C::r00"
+    },
+    {
+      "bytes": 256,
+      "event_hash": "cd154bb5b85bfc2659403239fc2c67364f3740d497c15736c4409317351bd7e3",
+      "event_id": "v434_network_event_5e5c699fe899715e49be2f02",
+      "message_class": "aggregate_or_receipt",
+      "ordinal": 4,
+      "previous_event_hash": "8b065e1e0cd1f0f9412153185d716bccb3ec265576c341a7eb709d84cf199f3c",
+      "public_egress": false,
+      "raw_data": false,
+      "route_policy_id": "NET-DENY-001",
+      "task_id": "T20-REDUCE::r00"
+    },
+    {
+      "bytes": 256,
+      "event_hash": "a2af67aa8ac60c26ec7971e8d226ecb76131c22503be5e14efb1af77f24eafe3",
+      "event_id": "v434_network_event_8cd95487ebe6cf93355319c9",
+      "message_class": "aggregate_or_receipt",
+      "ordinal": 5,
+      "previous_event_hash": "cd154bb5b85bfc2659403239fc2c67364f3740d497c15736c4409317351bd7e3",
+      "public_egress": false,
+      "raw_data": false,
+      "route_policy_id": "NET-DENY-001",
+      "task_id": "T30-EVALUATE::r00"
+    },
+    {
+      "bytes": 256,
+      "event_hash": "f41bfb9dde3f4b007ca3d7f0b7c9046ff90d35f28d17739eec64cd84b369ae77",
+      "event_id": "v434_network_event_4c7fed262f51a018021e3c14",
+      "message_class": "aggregate_or_receipt",
+      "ordinal": 6,
+      "previous_event_hash": "a2af67aa8ac60c26ec7971e8d226ecb76131c22503be5e14efb1af77f24eafe3",
+      "public_egress": false,
+      "raw_data": false,
+      "route_policy_id": "NET-DENY-001",
+      "task_id": "T30-EVALUATE::r01"
+    },
+    {
+      "bytes": 256,
+      "event_hash": "4103c667e9d4fa5a4afeb46a6afe9c8b1a78994e8c238b3513952b82cb8bcf37",
+      "event_id": "v434_network_event_8271d5d02065eba96c87d9b4",
+      "message_class": "aggregate_or_receipt",
+      "ordinal": 7,
+      "previous_event_hash": "f41bfb9dde3f4b007ca3d7f0b7c9046ff90d35f28d17739eec64cd84b369ae77",
+      "public_egress": false,
+      "raw_data": false,
+      "route_policy_id": "NET-DENY-001",
+      "task_id": "T40-CERTIFY::r00"
+    }
+  ],
+  "ledger_hash": "c6b5209a2c89324f92ba465bdb2bf8be326fe6fa3d9f48c11db009c8fdb30481",
+  "ledger_id": "v434_network_1501413914b60f003490e051",
+  "phase": "SAED_V4_34",
+  "policy_respected": true,
+  "public_egress_events": 0,
+  "raw_data_events": 0,
+  "research_only": true
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "deterministic": {
+      "type": "boolean"
+    },
+    "exact_replay_hash": {
+      "type": "string"
+    },
+    "future_suffix_invariant": {
+      "type": "boolean"
+    },
+    "future_suffix_records_seen": {
+      "type": "integer"
+    },
+    "network_access": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "real_cluster_runtime": {
+      "type": "boolean"
+    },
+    "replay_hash": {
+      "type": "string"
+    },
+    "replay_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "deterministic",
+    "exact_replay_hash",
+    "future_suffix_invariant",
+    "future_suffix_records_seen",
+    "network_access",
+    "phase",
+    "real_cluster_runtime",
+    "replay_hash",
+    "replay_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_REPLAY_RECEIPT",
+  "type": "object"
+}

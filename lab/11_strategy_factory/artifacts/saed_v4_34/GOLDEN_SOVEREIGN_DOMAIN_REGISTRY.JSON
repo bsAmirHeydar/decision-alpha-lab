@@ -1,0 +1,49 @@
+{
+  "cross_domain_raw_data_access": false,
+  "domain_count": 3,
+  "domains": [
+    {
+      "allowed_compute_classes": [
+        "cpu",
+        "gpu"
+      ],
+      "domain_id": "DOM-CH-C",
+      "independence_group": "LAB-C",
+      "jurisdiction": "CH",
+      "operator_id": "OP-C",
+      "raw_data_must_remain_local": true,
+      "residency_zone": "CH-ZH-1",
+      "status": "active"
+    },
+    {
+      "allowed_compute_classes": [
+        "cpu",
+        "gpu"
+      ],
+      "domain_id": "DOM-EU-A",
+      "independence_group": "LAB-A",
+      "jurisdiction": "EU",
+      "operator_id": "OP-A",
+      "raw_data_must_remain_local": true,
+      "residency_zone": "EU-NL-1",
+      "status": "active"
+    },
+    {
+      "allowed_compute_classes": [
+        "cpu",
+        "gpu"
+      ],
+      "domain_id": "DOM-EU-B",
+      "independence_group": "LAB-B",
+      "jurisdiction": "EU",
+      "operator_id": "OP-B",
+      "raw_data_must_remain_local": true,
+      "residency_zone": "EU-DE-1",
+      "status": "active"
+    }
+  ],
+  "phase": "SAED_V4_34",
+  "registry_hash": "db183b7f96bcb477c5d630d3496ed25d23ad3b4347c5a26ef902f30de9478661",
+  "registry_id": "v434_domains_52e79ab43af3c1441568f46d",
+  "research_only": true
+}

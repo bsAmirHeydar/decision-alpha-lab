@@ -1,0 +1,76 @@
+{
+  "assignment_count": 8,
+  "assignments": [
+    {
+      "assignment_reason": "deterministic_capability_locality_hash",
+      "compute_class": "cpu",
+      "domain_id": "DOM-EU-A",
+      "node_id": "NODE-A-CPU",
+      "raw_data_crossed_domain": false,
+      "task_id": "T00-VALIDATE::r00"
+    },
+    {
+      "assignment_reason": "deterministic_capability_locality_hash",
+      "compute_class": "gpu",
+      "domain_id": "DOM-EU-A",
+      "node_id": "NODE-A-GPU-R",
+      "raw_data_crossed_domain": false,
+      "task_id": "T10-LOCAL-A::r00"
+    },
+    {
+      "assignment_reason": "deterministic_capability_locality_hash",
+      "compute_class": "gpu",
+      "domain_id": "DOM-EU-B",
+      "node_id": "NODE-B-GPU",
+      "raw_data_crossed_domain": false,
+      "task_id": "T11-LOCAL-B::r00"
+    },
+    {
+      "assignment_reason": "deterministic_capability_locality_hash",
+      "compute_class": "gpu",
+      "domain_id": "DOM-CH-C",
+      "node_id": "NODE-C-GPU",
+      "raw_data_crossed_domain": false,
+      "task_id": "T12-LOCAL-C::r00"
+    },
+    {
+      "assignment_reason": "deterministic_capability_locality_hash",
+      "compute_class": "cpu",
+      "domain_id": "DOM-EU-B",
+      "node_id": "NODE-B-CPU-R",
+      "raw_data_crossed_domain": false,
+      "task_id": "T20-REDUCE::r00"
+    },
+    {
+      "assignment_reason": "deterministic_capability_locality_hash",
+      "compute_class": "cpu",
+      "domain_id": "DOM-CH-C",
+      "node_id": "NODE-C-CPU",
+      "raw_data_crossed_domain": false,
+      "task_id": "T30-EVALUATE::r00"
+    },
+    {
+      "assignment_reason": "deterministic_capability_locality_hash",
+      "compute_class": "cpu",
+      "domain_id": "DOM-CH-C",
+      "node_id": "NODE-C-CPU",
+      "raw_data_crossed_domain": false,
+      "task_id": "T30-EVALUATE::r01"
+    },
+    {
+      "assignment_reason": "deterministic_capability_locality_hash",
+      "compute_class": "cpu",
+      "domain_id": "DOM-EU-B",
+      "node_id": "NODE-B-CPU",
+      "raw_data_crossed_domain": false,
+      "task_id": "T40-CERTIFY::r00"
+    }
+  ],
+  "dag_id": "v434_dag_01a714b0e513ff2208436136",
+  "phase": "SAED_V4_34",
+  "plan_hash": "ecff0776c5745f7a34d23bf65bee0a03e160a31cffd8abdcfdead56ed68f0645",
+  "plan_id": "v434_partition_f197de692fd8169a7b797da5",
+  "raw_data_crossed_domain": false,
+  "research_only": true,
+  "seed": 4342026
+}

@@ -1,0 +1,11 @@
+{
+  "exact_match": true,
+  "execution_hash": "715de8574521ae5f14d1eedc7689eb0f75e26ab2fd010d1f0761205edae5df59",
+  "phase": "SAED_V4_34",
+  "plan_hash": "ecff0776c5745f7a34d23bf65bee0a03e160a31cffd8abdcfdead56ed68f0645",
+  "receipt_hash": "17298b66bf6084660cb237dcc35fcecd567083ef05208269662f8edc821c0b6f",
+  "receipt_id": "v434_determinism_3c067b97d242144d68494a3f",
+  "repeat_hash": "efb8bac426963cac45d0fa21c84807cf932055838ef82efac38c77187a16a75a",
+  "research_only": true,
+  "schedule_hash": "ed4ae1039e08921ea07a331ee93920af097b0d19972a9f9776e6407f32e50227"
+}

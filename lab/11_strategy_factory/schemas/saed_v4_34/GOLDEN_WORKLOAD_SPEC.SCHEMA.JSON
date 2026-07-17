@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_id": {
+      "type": "string"
+    },
+    "cutoff_time": {
+      "type": "string"
+    },
+    "determinism_seed": {
+      "type": "integer"
+    },
+    "input_artifact_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "max_attempts_per_task": {
+      "type": "integer"
+    },
+    "objective": {
+      "type": "string"
+    },
+    "output_classes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "synthetic_fixture": {
+      "type": "boolean"
+    },
+    "task_templates": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "command_hash": {
+            "type": "string"
+          },
+          "compute_class": {
+            "type": "string"
+          },
+          "cpu_cores": {
+            "type": "integer"
+          },
+          "dependencies": {
+            "items": {},
+            "type": "array"
+          },
+          "gpu_units": {
+            "type": "integer"
+          },
+          "locality": {
+            "type": "string"
+          },
+          "memory_gb": {
+            "type": "integer"
+          },
+          "output_class": {
+            "type": "string"
+          },
+          "replicas": {
+            "type": "integer"
+          },
+          "scratch_gb": {
+            "type": "integer"
+          },
+          "stage": {
+            "type": "string"
+          },
+          "template_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "command_hash",
+          "compute_class",
+          "cpu_cores",
+          "dependencies",
+          "gpu_units",
+          "locality",
+          "memory_gb",
+          "output_class",
+          "replicas",
+          "scratch_gb",
+          "stage",
+          "template_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "workload_id": {
+      "type": "string"
+    },
+    "workload_spec_hash": {
+      "type": "string"
+    },
+    "workload_spec_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "baseline_id",
+    "cutoff_time",
+    "determinism_seed",
+    "input_artifact_ids",
+    "max_attempts_per_task",
+    "objective",
+    "output_classes",
+    "research_only",
+    "synthetic_fixture",
+    "task_templates",
+    "workload_id",
+    "workload_spec_hash",
+    "workload_spec_id"
+  ],
+  "title": "GOLDEN_WORKLOAD_SPEC",
+  "type": "object"
+}

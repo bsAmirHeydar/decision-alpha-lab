@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "bytes": {
+            "type": "integer"
+          },
+          "event_hash": {
+            "type": "string"
+          },
+          "event_id": {
+            "type": "string"
+          },
+          "message_class": {
+            "type": "string"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "previous_event_hash": {
+            "type": "string"
+          },
+          "public_egress": {
+            "type": "boolean"
+          },
+          "raw_data": {
+            "type": "boolean"
+          },
+          "route_policy_id": {
+            "type": "string"
+          },
+          "task_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "bytes",
+          "event_hash",
+          "event_id",
+          "message_class",
+          "ordinal",
+          "previous_event_hash",
+          "public_egress",
+          "raw_data",
+          "route_policy_id",
+          "task_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "policy_respected": {
+      "type": "boolean"
+    },
+    "public_egress_events": {
+      "type": "integer"
+    },
+    "raw_data_events": {
+      "type": "integer"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "events",
+    "ledger_hash",
+    "ledger_id",
+    "phase",
+    "policy_respected",
+    "public_egress_events",
+    "raw_data_events",
+    "research_only"
+  ],
+  "title": "GOLDEN_NETWORK_EGRESS_LEDGER",
+  "type": "object"
+}

@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_immutable": {
+      "type": "boolean"
+    },
+    "artifact_count": {
+      "type": "integer"
+    },
+    "artifacts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact_id": {
+            "type": "string"
+          },
+          "artifact_type": {
+            "type": "string"
+          },
+          "contains_raw_rows": {
+            "type": "boolean"
+          },
+          "content_hash": {
+            "type": "string"
+          },
+          "immutable": {
+            "type": "boolean"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "residency_domain": {
+            "type": "string"
+          },
+          "schema_hash": {
+            "type": "string"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "artifact_id",
+          "artifact_type",
+          "contains_raw_rows",
+          "content_hash",
+          "immutable",
+          "known_time",
+          "residency_domain",
+          "schema_hash",
+          "synthetic_fixture"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "raw_rows_exported": {
+      "type": "boolean"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "all_immutable",
+    "artifact_count",
+    "artifacts",
+    "phase",
+    "raw_rows_exported",
+    "registry_hash",
+    "registry_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_ARTIFACT_REGISTRY",
+  "type": "object"
+}

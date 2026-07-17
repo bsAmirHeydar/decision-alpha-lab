@@ -1,0 +1,24 @@
+{
+  "failure_count": 2,
+  "failures": [
+    {
+      "failure_id": "FAIL-001",
+      "failure_type": "process_loss",
+      "node_id": "NODE-A-CPU",
+      "synthetic_fixture": true,
+      "tick": 2
+    },
+    {
+      "failure_id": "FAIL-002",
+      "failure_type": "node_unavailable",
+      "node_id": "NODE-B-GPU",
+      "synthetic_fixture": true,
+      "tick": 3
+    }
+  ],
+  "phase": "SAED_V4_34",
+  "plan_hash": "2051aa59e6c94e93600176d3f03c17872434dad29bdafcfc826e7eef587588de",
+  "plan_id": "v434_failures_6821a77ded4830699824fccf",
+  "research_only": true,
+  "synthetic_faults": true
+}

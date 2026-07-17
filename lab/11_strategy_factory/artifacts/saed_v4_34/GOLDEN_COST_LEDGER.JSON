@@ -1,0 +1,11 @@
+{
+  "cost_model": "synthetic_reference_v1",
+  "cost_units": 0.98688,
+  "financial_charge": "not_claimed",
+  "ledger_hash": "4985937892f995ecf6256cd22d63b24b70910113394a99edcf549d91606e48ce",
+  "ledger_id": "v434_cost_8f4716a9dd197d384290835a",
+  "max_cost_units": 100,
+  "phase": "SAED_V4_34",
+  "research_only": true,
+  "within_budget": true
+}

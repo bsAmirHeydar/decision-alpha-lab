@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_recovered": {
+      "type": "boolean"
+    },
+    "cross_domain_migration": {
+      "type": "boolean"
+    },
+    "evidence_quorum_met": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "real_chaos_environment": {
+      "type": "string"
+    },
+    "real_fault_tolerance": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "review_hash": {
+      "type": "string"
+    },
+    "review_id": {
+      "type": "string"
+    },
+    "review_passed": {
+      "type": "boolean"
+    },
+    "synthetic_failures": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "all_recovered",
+    "cross_domain_migration",
+    "evidence_quorum_met",
+    "phase",
+    "real_chaos_environment",
+    "real_fault_tolerance",
+    "research_only",
+    "review_hash",
+    "review_id",
+    "review_passed",
+    "synthetic_failures"
+  ],
+  "title": "GOLDEN_FAULT_TOLERANCE_REVIEW",
+  "type": "object"
+}

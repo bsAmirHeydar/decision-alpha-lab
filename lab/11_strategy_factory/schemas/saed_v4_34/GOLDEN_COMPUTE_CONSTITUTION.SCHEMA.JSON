@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "central_engine_mutation_allowed": {
+      "type": "boolean"
+    },
+    "clauses": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "clause_id": {
+            "type": "string"
+          },
+          "evidence_required": {
+            "type": "boolean"
+          },
+          "failure_action": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "integer"
+          },
+          "requirement": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "clause_id",
+          "evidence_required",
+          "failure_action",
+          "priority",
+          "requirement"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "constitution_hash": {
+      "type": "string"
+    },
+    "constitution_id": {
+      "type": "string"
+    },
+    "execution_authority_allowed": {
+      "type": "boolean"
+    },
+    "public_network_egress_allowed": {
+      "type": "boolean"
+    },
+    "raw_data_export_allowed": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "central_engine_mutation_allowed",
+    "clauses",
+    "constitution_hash",
+    "constitution_id",
+    "execution_authority_allowed",
+    "public_network_egress_allowed",
+    "raw_data_export_allowed",
+    "research_only",
+    "version"
+  ],
+  "title": "GOLDEN_COMPUTE_CONSTITUTION",
+  "type": "object"
+}

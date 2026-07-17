@@ -1,0 +1,130 @@
+{
+  "all_nodes_attested": true,
+  "attestations": [
+    {
+      "attestation_fingerprint": "c490ae12742638c4b83cc4c86def82e193e6d0cc8dd8ce502a7615a9beb10ce9",
+      "attestation_id": "ATT-NODE-A-CPU",
+      "expires_time": "2026-12-31T23:59:59Z",
+      "human_approved": true,
+      "known_time": "2026-06-29T12:00:00Z",
+      "node_id": "NODE-A-CPU",
+      "runtime_image_hash": "babfbf37dc633e17eb7bfb02032f8c21c876caf6750c9a80b02ed084c4295665",
+      "synthetic_fixture": true
+    },
+    {
+      "attestation_fingerprint": "190c40c6ce6051fd867180c1a42e72177e8547629af927119aa58d8d7b220a98",
+      "attestation_id": "ATT-NODE-A-CPU-R",
+      "expires_time": "2026-12-31T23:59:59Z",
+      "human_approved": true,
+      "known_time": "2026-06-29T12:00:00Z",
+      "node_id": "NODE-A-CPU-R",
+      "runtime_image_hash": "babfbf37dc633e17eb7bfb02032f8c21c876caf6750c9a80b02ed084c4295665",
+      "synthetic_fixture": true
+    },
+    {
+      "attestation_fingerprint": "a919b4f050fe37ffd11fb19cb8a2437ddabbb42d0d7de97aaa93a5d854b4cb02",
+      "attestation_id": "ATT-NODE-A-GPU",
+      "expires_time": "2026-12-31T23:59:59Z",
+      "human_approved": true,
+      "known_time": "2026-06-29T12:00:00Z",
+      "node_id": "NODE-A-GPU",
+      "runtime_image_hash": "e85dca9cd819661b9b857794ba8b581b00024de58f5cd9aad4124492e7349828",
+      "synthetic_fixture": true
+    },
+    {
+      "attestation_fingerprint": "75f75680ab365588c3dd40b339fae4770cef3c456d6c910f46bf4178eee118ca",
+      "attestation_id": "ATT-NODE-A-GPU-R",
+      "expires_time": "2026-12-31T23:59:59Z",
+      "human_approved": true,
+      "known_time": "2026-06-29T12:00:00Z",
+      "node_id": "NODE-A-GPU-R",
+      "runtime_image_hash": "e85dca9cd819661b9b857794ba8b581b00024de58f5cd9aad4124492e7349828",
+      "synthetic_fixture": true
+    },
+    {
+      "attestation_fingerprint": "2df10be43da53524b42005dd5562becb6c2ce7108cd277f330c7119d2e946de5",
+      "attestation_id": "ATT-NODE-B-CPU",
+      "expires_time": "2026-12-31T23:59:59Z",
+      "human_approved": true,
+      "known_time": "2026-06-29T12:00:00Z",
+      "node_id": "NODE-B-CPU",
+      "runtime_image_hash": "babfbf37dc633e17eb7bfb02032f8c21c876caf6750c9a80b02ed084c4295665",
+      "synthetic_fixture": true
+    },
+    {
+      "attestation_fingerprint": "3f086f6de692de93cae4126a751a632483e476375721e581f3bbab496a572e09",
+      "attestation_id": "ATT-NODE-B-CPU-R",
+      "expires_time": "2026-12-31T23:59:59Z",
+      "human_approved": true,
+      "known_time": "2026-06-29T12:00:00Z",
+      "node_id": "NODE-B-CPU-R",
+      "runtime_image_hash": "babfbf37dc633e17eb7bfb02032f8c21c876caf6750c9a80b02ed084c4295665",
+      "synthetic_fixture": true
+    },
+    {
+      "attestation_fingerprint": "54eb0c9e4d8b48fc5e7f3cbd230c5ca109900d365606e6f7c8fc2ee795b15f46",
+      "attestation_id": "ATT-NODE-B-GPU",
+      "expires_time": "2026-12-31T23:59:59Z",
+      "human_approved": true,
+      "known_time": "2026-06-29T12:00:00Z",
+      "node_id": "NODE-B-GPU",
+      "runtime_image_hash": "e85dca9cd819661b9b857794ba8b581b00024de58f5cd9aad4124492e7349828",
+      "synthetic_fixture": true
+    },
+    {
+      "attestation_fingerprint": "582bfd7ab743b21b2b4bef7ce300db80606ce5d6b3b862cdb4bb889af69fad91",
+      "attestation_id": "ATT-NODE-B-GPU-R",
+      "expires_time": "2026-12-31T23:59:59Z",
+      "human_approved": true,
+      "known_time": "2026-06-29T12:00:00Z",
+      "node_id": "NODE-B-GPU-R",
+      "runtime_image_hash": "e85dca9cd819661b9b857794ba8b581b00024de58f5cd9aad4124492e7349828",
+      "synthetic_fixture": true
+    },
+    {
+      "attestation_fingerprint": "682aa636d65ef84316e22206839cd08f55e43ccd36faeb280e8b786a3f9297c3",
+      "attestation_id": "ATT-NODE-C-CPU",
+      "expires_time": "2026-12-31T23:59:59Z",
+      "human_approved": true,
+      "known_time": "2026-06-29T12:00:00Z",
+      "node_id": "NODE-C-CPU",
+      "runtime_image_hash": "babfbf37dc633e17eb7bfb02032f8c21c876caf6750c9a80b02ed084c4295665",
+      "synthetic_fixture": true
+    },
+    {
+      "attestation_fingerprint": "5d57d0e6edd482dbfcf9d527726fba390653eb4f112afa777db2751c4ad2019c",
+      "attestation_id": "ATT-NODE-C-CPU-R",
+      "expires_time": "2026-12-31T23:59:59Z",
+      "human_approved": true,
+      "known_time": "2026-06-29T12:00:00Z",
+      "node_id": "NODE-C-CPU-R",
+      "runtime_image_hash": "babfbf37dc633e17eb7bfb02032f8c21c876caf6750c9a80b02ed084c4295665",
+      "synthetic_fixture": true
+    },
+    {
+      "attestation_fingerprint": "93d4bdad7b5383ea82c6ad3076656de9152ad646b09167229a20fd4d20fc5568",
+      "attestation_id": "ATT-NODE-C-GPU",
+      "expires_time": "2026-12-31T23:59:59Z",
+      "human_approved": true,
+      "known_time": "2026-06-29T12:00:00Z",
+      "node_id": "NODE-C-GPU",
+      "runtime_image_hash": "e85dca9cd819661b9b857794ba8b581b00024de58f5cd9aad4124492e7349828",
+      "synthetic_fixture": true
+    },
+    {
+      "attestation_fingerprint": "73dab4af0a517a7a88975cc03cb5b99c4964b93b604d35f84df83f57b6a88741",
+      "attestation_id": "ATT-NODE-C-GPU-R",
+      "expires_time": "2026-12-31T23:59:59Z",
+      "human_approved": true,
+      "known_time": "2026-06-29T12:00:00Z",
+      "node_id": "NODE-C-GPU-R",
+      "runtime_image_hash": "e85dca9cd819661b9b857794ba8b581b00024de58f5cd9aad4124492e7349828",
+      "synthetic_fixture": true
+    }
+  ],
+  "hardware_attestation": "not_claimed",
+  "ledger_hash": "673def12a526d6d65b0db5bac81e24942dd1305d408cfd84ad2e67835ec91b1f",
+  "ledger_id": "v434_attest_60ece740cf86ddb718bbd715",
+  "phase": "SAED_V4_34",
+  "research_only": true
+}

@@ -1,0 +1,29 @@
+{
+  "authority_granted": false,
+  "certificate_hash": "e509706aba8bf44fa74c8e366e471965ac8257b6dc0759ce85e441c476b56aec",
+  "certificate_id": "v434_certificate_4f5bfdcd2b0e16d30388a2c6",
+  "entry_gates": [
+    "verify V4-34 hashes",
+    "freeze model and dependency identities",
+    "freeze provenance and SBOM boundaries",
+    "approve model-risk and supply-chain review budgets",
+    "preserve UCEE authority"
+  ],
+  "handoff_hash": "b7952a7df88caa5992c508569061c32a6b352cf48700b2dbebfba2371529f4ca",
+  "handoff_id": "v434_handoff_9bab712c3a7fe214049d06f8",
+  "immutable_inputs": [
+    "compute constitution",
+    "domain registry",
+    "node registry",
+    "workload DAG",
+    "resource budget",
+    "execution transcript",
+    "recovery transcript",
+    "exposure ledger",
+    "provenance graph"
+  ],
+  "next_phase": "SAED_V4_35",
+  "phase": "SAED_V4_34",
+  "production_authorized": false,
+  "research_only": true
+}

@@ -1,0 +1,23 @@
+{
+  "baseline_preserved": true,
+  "certificate_hash": "e509706aba8bf44fa74c8e366e471965ac8257b6dc0759ce85e441c476b56aec",
+  "certificate_id": "v434_certificate_4f5bfdcd2b0e16d30388a2c6",
+  "claim_ceiling": "synthetic_deterministic_reference_only",
+  "contracts_closed": true,
+  "deterministic_replay": true,
+  "evidence_quorum_met": true,
+  "execution_authority": false,
+  "future_suffix_invariant": true,
+  "locality_passed": true,
+  "phase": "SAED_V4_34",
+  "production_authorization": false,
+  "promotion_authority": false,
+  "recovery_reference_passed": true,
+  "research_only": true,
+  "resource_budget_passed": true,
+  "status": "accepted_reference",
+  "title": "Sovereign Distributed Compute",
+  "ucee_compatibility": true,
+  "upstream_verified": true,
+  "version": "1.0.0"
+}

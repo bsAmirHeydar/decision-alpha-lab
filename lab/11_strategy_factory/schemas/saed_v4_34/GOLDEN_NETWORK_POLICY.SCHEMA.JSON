@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_routes": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "encrypted_transport_required": {
+            "type": "boolean"
+          },
+          "message_class": {
+            "type": "string"
+          },
+          "raw_data_allowed": {
+            "type": "boolean"
+          },
+          "route_id": {
+            "type": "string"
+          },
+          "source_domain": {
+            "type": "string"
+          },
+          "target_domain": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "encrypted_transport_required",
+          "message_class",
+          "raw_data_allowed",
+          "route_id",
+          "source_domain",
+          "target_domain"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "cross_domain_payload_classes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "default_deny": {
+      "type": "boolean"
+    },
+    "forbidden_protocols": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "max_message_bytes": {
+      "type": "integer"
+    },
+    "policy_hash": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "public_egress_allowed": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "allowed_routes",
+    "cross_domain_payload_classes",
+    "default_deny",
+    "forbidden_protocols",
+    "max_message_bytes",
+    "policy_hash",
+    "policy_id",
+    "public_egress_allowed",
+    "research_only"
+  ],
+  "title": "GOLDEN_NETWORK_POLICY",
+  "type": "object"
+}
