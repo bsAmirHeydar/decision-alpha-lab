@@ -1,0 +1,100 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_datasets.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "cutoff_time": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "record_count": {
+      "type": "integer"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "contains_personal_data": {
+            "type": "boolean"
+          },
+          "content_hash": {
+            "type": "string"
+          },
+          "data_role": {
+            "type": "string"
+          },
+          "dataset_id": {
+            "type": "string"
+          },
+          "immutable": {
+            "type": "boolean"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "license_id": {
+            "type": "string"
+          },
+          "lineage_hash": {
+            "type": "string"
+          },
+          "owner_id": {
+            "type": "string"
+          },
+          "schema_hash": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "contains_personal_data",
+          "content_hash",
+          "data_role",
+          "dataset_id",
+          "immutable",
+          "known_time",
+          "license_id",
+          "lineage_hash",
+          "owner_id",
+          "schema_hash",
+          "status",
+          "version"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "cutoff_time",
+    "kind",
+    "phase",
+    "record_count",
+    "records",
+    "registry_hash",
+    "registry_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_DATASETS",
+  "type": "object"
+}

@@ -1,0 +1,31 @@
+{
+  "auto_expiry_required": true,
+  "exceptions": [
+    {
+      "approver_ids": [
+        "MODEL-RISK",
+        "AUDIT"
+      ],
+      "compensating_controls": [
+        "synthetic-watermark",
+        "claim-ceiling",
+        "production-denial"
+      ],
+      "control_id": "REAL-EXTERNAL-SCANNER",
+      "exception_id": "EXC-REF-001",
+      "expires_time": "2026-12-31T00:00:00Z",
+      "issued_time": "2026-06-20T00:00:00Z",
+      "owner_id": "SECURITY-B",
+      "production_scope_allowed": false,
+      "rationale": "synthetic reference phase has no external scanner attestation",
+      "status": "REFERENCE_ONLY",
+      "subject_id": "SERVICE-VULN-FEED-SYNTH",
+      "synthetic_fixture": true
+    }
+  ],
+  "phase": "SAED_V4_35",
+  "production_waivers": false,
+  "registry_hash": "a775eb6c75ce86bdfa1cd6667b55b14fdd58b5668cfbc6c67228d4c6ab4b80c9",
+  "registry_id": "v435_exceptions_cf4f970111efaee530a74bb4",
+  "research_only": true
+}

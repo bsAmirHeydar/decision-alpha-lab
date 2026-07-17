@@ -1,0 +1,92 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_tools.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "cutoff_time": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "record_count": {
+      "type": "integer"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "content_hash": {
+            "type": "string"
+          },
+          "immutable": {
+            "type": "boolean"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "license_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "network_capable": {
+            "type": "boolean"
+          },
+          "status": {
+            "type": "string"
+          },
+          "supplier_id": {
+            "type": "string"
+          },
+          "tool_id": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "content_hash",
+          "immutable",
+          "known_time",
+          "license_id",
+          "name",
+          "network_capable",
+          "status",
+          "supplier_id",
+          "tool_id",
+          "version"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "cutoff_time",
+    "kind",
+    "phase",
+    "record_count",
+    "records",
+    "registry_hash",
+    "registry_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_TOOLS",
+  "type": "object"
+}

@@ -1,0 +1,14 @@
+{
+  "authority_granted": false,
+  "certificate_hash": "9131f541d08db33d98f8e1f0afe8cff094e8c5e3d2efc2f317e3de9cd135f849",
+  "governance_ledger_hash": "83362aa381ca748f69e5b9f7251e01f2e0a12e1b41cf6b48a27d349a040d5327",
+  "handoff_hash": "58c844bea45fc031166dfb0e570221e4cc1c808968e578ac893841483236490d",
+  "handoff_id": "v435_handoff_80123edeee883cbf21f6646c",
+  "handoff_scope": "immutable research-memory inputs only",
+  "next_phase": "SAED_V4_36",
+  "phase": "SAED_V4_35",
+  "production_authorized": false,
+  "research_only": true,
+  "risk_scorecard_hash": "60bf3eec0b719d9f06fd06b9b70e529a66a713e94d159d9b8c842ced8fc1dc10",
+  "sbom_hash": "817679b975fe989a166070ec12b8565e14c91a5d35585b5f0efc959c20c62f8d"
+}

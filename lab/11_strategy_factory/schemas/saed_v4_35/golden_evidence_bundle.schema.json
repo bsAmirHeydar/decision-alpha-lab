@@ -1,0 +1,56 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_evidence_bundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "bundle_hash": {
+      "type": "string"
+    },
+    "bundle_id": {
+      "type": "string"
+    },
+    "complete": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "reference_count": {
+      "type": "integer"
+    },
+    "references": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact": {
+            "type": "string"
+          },
+          "artifact_hash": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "artifact",
+          "artifact_hash"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "bundle_hash",
+    "bundle_id",
+    "complete",
+    "phase",
+    "reference_count",
+    "references",
+    "research_only"
+  ],
+  "title": "GOLDEN_EVIDENCE_BUNDLE",
+  "type": "object"
+}

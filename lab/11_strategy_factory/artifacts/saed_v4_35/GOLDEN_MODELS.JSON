@@ -1,0 +1,45 @@
+{
+  "cutoff_time": "2026-06-30T23:59:59Z",
+  "kind": "models",
+  "phase": "SAED_V4_35",
+  "record_count": 2,
+  "records": [
+    {
+      "architecture_hash": "6cb411d52128292a133e34df15502bdd1222429deacc9847398545722d233e59",
+      "capabilities": [
+        "embedding",
+        "representation"
+      ],
+      "content_hash": "fdc8a7b5a0437cac35cf34c58f59946feab8455d8bf022acc5b5dfed13652204",
+      "external_origin": false,
+      "immutable": true,
+      "known_time": "2026-06-20T00:00:00Z",
+      "model_family": "multimodal-context-encoder",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "owner_id": "OWNER-ML-1",
+      "status": "approved-reference",
+      "training_evidence_hash": "d57190e5bc7a3d887ca6c996f2b42693e18b945ac290a1d1e242f88d65ee90f5",
+      "version": "1.0.0-ref"
+    },
+    {
+      "architecture_hash": "79a1614bd7e8e6d18a5cb8c7bdc829b4f8542b85e88b668c4d5ec69208250882",
+      "capabilities": [
+        "ranking",
+        "research-only-policy-value"
+      ],
+      "content_hash": "3198d6c1e50c656f3a73ae809e049f11411bc767a42f8d9c48be9a8870df5501",
+      "external_origin": false,
+      "immutable": true,
+      "known_time": "2026-06-20T00:00:00Z",
+      "model_family": "decision-focused-challenger",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "owner_id": "OWNER-ML-2",
+      "status": "approved-reference",
+      "training_evidence_hash": "f9896527b638cf0b22cf5e982b9021baa8403c1fd779f0eef1ffc48207d219b8",
+      "version": "1.0.0-ref"
+    }
+  ],
+  "registry_hash": "cfa7b74136d64f81ee8eacf963eb8f907b190978eed97f4f604edefbd95c7e1e",
+  "registry_id": "v435_models_df3a88426b63e8e4bfa53e87",
+  "research_only": true
+}

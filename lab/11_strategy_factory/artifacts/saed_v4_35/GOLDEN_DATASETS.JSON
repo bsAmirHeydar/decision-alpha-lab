@@ -1,0 +1,39 @@
+{
+  "cutoff_time": "2026-06-30T23:59:59Z",
+  "kind": "datasets",
+  "phase": "SAED_V4_35",
+  "record_count": 2,
+  "records": [
+    {
+      "contains_personal_data": false,
+      "content_hash": "82f1bb9548aac5757d9e6da57d9777682d34a15811dbfc3c2e81a91dfbab74e4",
+      "data_role": "training-synthetic",
+      "dataset_id": "DATASET-CONTEXT-SYNTH",
+      "immutable": true,
+      "known_time": "2026-06-15T00:00:00Z",
+      "license_id": "INTERNAL",
+      "lineage_hash": "bb9c3831c8faee6c821011eb38cd8172bf5ce7a876e0d6cbc90c75c8c0e52721",
+      "owner_id": "OWNER-DATA-1",
+      "schema_hash": "444fc897329265ff99569140a317a98b047a2d51cfb69f409b78687936aae03c",
+      "status": "approved-reference",
+      "version": "1.0.0"
+    },
+    {
+      "contains_personal_data": false,
+      "content_hash": "94142f3155b163113b7e8a8e7a4269d2dd6e12fee921768b82870f8f4f911207",
+      "data_role": "hidden-evaluation-synthetic",
+      "dataset_id": "DATASET-HIDDEN-EVAL-SYNTH",
+      "immutable": true,
+      "known_time": "2026-06-15T00:00:00Z",
+      "license_id": "INTERNAL",
+      "lineage_hash": "0868a98defd866247fda7bf2fb1b09a68b827bbacd4fa6ab2334c39f01416fab",
+      "owner_id": "OWNER-DATA-2",
+      "schema_hash": "c9808632511f2937ba248a1162c43188636a7ce320527cbfba060f662acf5037",
+      "status": "approved-reference",
+      "version": "1.0.0"
+    }
+  ],
+  "registry_hash": "3a60b5118dc7398ff8eec721b8e0063f20259396f27d20b826b695c76dd9f2fe",
+  "registry_id": "v435_datasets_b465f125d62fb4ccc907e5b5",
+  "research_only": true
+}

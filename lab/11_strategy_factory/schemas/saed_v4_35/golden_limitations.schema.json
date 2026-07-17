@@ -1,0 +1,64 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_limitations.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "external_validation_claim": {
+      "type": "boolean"
+    },
+    "live_trading_claim": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorization_claim": {
+      "type": "boolean"
+    },
+    "prospective_success_claim": {
+      "type": "boolean"
+    },
+    "real_alpha_claim": {
+      "type": "boolean"
+    },
+    "real_build_reproduction_claim": {
+      "type": "boolean"
+    },
+    "real_scanner_claim": {
+      "type": "boolean"
+    },
+    "real_signature_claim": {
+      "type": "boolean"
+    },
+    "runtime_parity_claim": {
+      "type": "boolean"
+    },
+    "statement_hash": {
+      "type": "string"
+    },
+    "statement_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "claim_ceiling",
+    "external_validation_claim",
+    "live_trading_claim",
+    "phase",
+    "production_authorization_claim",
+    "prospective_success_claim",
+    "real_alpha_claim",
+    "real_build_reproduction_claim",
+    "real_scanner_claim",
+    "real_signature_claim",
+    "runtime_parity_claim",
+    "statement_hash",
+    "statement_id"
+  ],
+  "title": "GOLDEN_LIMITATIONS",
+  "type": "object"
+}

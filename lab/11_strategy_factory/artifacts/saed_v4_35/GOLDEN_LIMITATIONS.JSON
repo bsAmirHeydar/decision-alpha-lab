@@ -1,0 +1,15 @@
+{
+  "claim_ceiling": "synthetic_deterministic_model-risk-and-supply-chain-reference",
+  "external_validation_claim": false,
+  "live_trading_claim": false,
+  "phase": "SAED_V4_35",
+  "production_authorization_claim": false,
+  "prospective_success_claim": false,
+  "real_alpha_claim": false,
+  "real_build_reproduction_claim": false,
+  "real_scanner_claim": false,
+  "real_signature_claim": false,
+  "runtime_parity_claim": false,
+  "statement_hash": "684b2418cd0dddb2ef4c29022d4f818de103ae708edab4cca3683e5e4379f569",
+  "statement_id": "v435_limits_feaaadc478d75dda4dfc7eeb"
+}

@@ -1,0 +1,72 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_license_review.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "all_licenses_known": {
+      "type": "boolean"
+    },
+    "blocked": {
+      "type": "boolean"
+    },
+    "component_count": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "review_hash": {
+      "type": "string"
+    },
+    "review_id": {
+      "type": "string"
+    },
+    "reviews": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "commercial_use_compatible": {
+            "type": "boolean"
+          },
+          "component_id": {
+            "type": "string"
+          },
+          "decision": {
+            "type": "string"
+          },
+          "license_id": {
+            "type": "string"
+          },
+          "redistribution_review_required": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "commercial_use_compatible",
+          "component_id",
+          "decision",
+          "license_id",
+          "redistribution_review_required"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "all_licenses_known",
+    "blocked",
+    "component_count",
+    "phase",
+    "research_only",
+    "review_hash",
+    "review_id",
+    "reviews"
+  ],
+  "title": "GOLDEN_LICENSE_REVIEW",
+  "type": "object"
+}

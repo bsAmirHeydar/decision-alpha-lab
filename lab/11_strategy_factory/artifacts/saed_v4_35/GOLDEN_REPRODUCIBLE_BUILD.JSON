@@ -1,0 +1,30 @@
+{
+  "exact_output_match": true,
+  "external_build_reproduction": false,
+  "phase": "SAED_V4_35",
+  "provenance_hash": "9019182701e2429927d35bf2fe4432f6cc50f66340c47409ccdc0c8294b0fc6e",
+  "receipt_hash": "1c033fae87308a93d583e469116d7911eb078be3642ea0db543d81bdc748002c",
+  "receipt_id": "v435_reprobuild_0b99c92eb7ed729d4d741cde",
+  "research_only": true,
+  "run_count": 2,
+  "runs": [
+    {
+      "deterministic": true,
+      "environment_hash": "63d3307aedc3260dab42c7a38d2cb5eae5a9abb184144325a748a5a1fa0e2282",
+      "independent_operator": true,
+      "input_hash": "61e781b822be27887cdb1c13c71d9f0e3eafcfdb16123b0c14967e02747cafaa",
+      "lab_id": "LAB-A",
+      "output_hash": "9ca1121202fc8f46337296b2be8bf946728f5e9048564696921db137bac68d33",
+      "run_id": "REPRO-A"
+    },
+    {
+      "deterministic": true,
+      "environment_hash": "63d3307aedc3260dab42c7a38d2cb5eae5a9abb184144325a748a5a1fa0e2282",
+      "independent_operator": true,
+      "input_hash": "61e781b822be27887cdb1c13c71d9f0e3eafcfdb16123b0c14967e02747cafaa",
+      "lab_id": "LAB-B",
+      "output_hash": "9ca1121202fc8f46337296b2be8bf946728f5e9048564696921db137bac68d33",
+      "run_id": "REPRO-B"
+    }
+  ]
+}

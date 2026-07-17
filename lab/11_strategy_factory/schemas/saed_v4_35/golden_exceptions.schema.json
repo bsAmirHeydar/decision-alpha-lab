@@ -1,0 +1,102 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_exceptions.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "auto_expiry_required": {
+      "type": "boolean"
+    },
+    "exceptions": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "approver_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "compensating_controls": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "control_id": {
+            "type": "string"
+          },
+          "exception_id": {
+            "type": "string"
+          },
+          "expires_time": {
+            "type": "string"
+          },
+          "issued_time": {
+            "type": "string"
+          },
+          "owner_id": {
+            "type": "string"
+          },
+          "production_scope_allowed": {
+            "type": "boolean"
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "subject_id": {
+            "type": "string"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "approver_ids",
+          "compensating_controls",
+          "control_id",
+          "exception_id",
+          "expires_time",
+          "issued_time",
+          "owner_id",
+          "production_scope_allowed",
+          "rationale",
+          "status",
+          "subject_id",
+          "synthetic_fixture"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_waivers": {
+      "type": "boolean"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "auto_expiry_required",
+    "exceptions",
+    "phase",
+    "production_waivers",
+    "registry_hash",
+    "registry_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_EXCEPTIONS",
+  "type": "object"
+}

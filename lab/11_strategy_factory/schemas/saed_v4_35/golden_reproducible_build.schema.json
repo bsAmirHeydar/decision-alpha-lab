@@ -1,0 +1,84 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_reproducible_build.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "exact_output_match": {
+      "type": "boolean"
+    },
+    "external_build_reproduction": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "provenance_hash": {
+      "type": "string"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "run_count": {
+      "type": "integer"
+    },
+    "runs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "deterministic": {
+            "type": "boolean"
+          },
+          "environment_hash": {
+            "type": "string"
+          },
+          "independent_operator": {
+            "type": "boolean"
+          },
+          "input_hash": {
+            "type": "string"
+          },
+          "lab_id": {
+            "type": "string"
+          },
+          "output_hash": {
+            "type": "string"
+          },
+          "run_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "deterministic",
+          "environment_hash",
+          "independent_operator",
+          "input_hash",
+          "lab_id",
+          "output_hash",
+          "run_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "exact_output_match",
+    "external_build_reproduction",
+    "phase",
+    "provenance_hash",
+    "receipt_hash",
+    "receipt_id",
+    "research_only",
+    "run_count",
+    "runs"
+  ],
+  "title": "GOLDEN_REPRODUCIBLE_BUILD",
+  "type": "object"
+}

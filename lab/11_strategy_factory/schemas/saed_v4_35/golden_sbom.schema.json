@@ -1,0 +1,88 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_sbom.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "complete": {
+      "type": "boolean"
+    },
+    "component_count": {
+      "type": "integer"
+    },
+    "components": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "component_id": {
+            "type": "string"
+          },
+          "component_type": {
+            "type": "string"
+          },
+          "content_hash": {
+            "type": "string"
+          },
+          "immutable": {
+            "type": "boolean"
+          },
+          "license_id": {
+            "type": "string"
+          },
+          "supplier_id": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "component_id",
+          "component_type",
+          "content_hash",
+          "immutable",
+          "license_id",
+          "supplier_id",
+          "version"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "format": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "sbom_hash": {
+      "type": "string"
+    },
+    "sbom_id": {
+      "type": "string"
+    },
+    "serial_number": {
+      "type": "string"
+    },
+    "spec_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "complete",
+    "component_count",
+    "components",
+    "format",
+    "phase",
+    "research_only",
+    "sbom_hash",
+    "sbom_id",
+    "serial_number",
+    "spec_version"
+  ],
+  "title": "GOLDEN_SBOM",
+  "type": "object"
+}

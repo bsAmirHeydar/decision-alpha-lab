@@ -1,0 +1,103 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_models.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "cutoff_time": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "record_count": {
+      "type": "integer"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "architecture_hash": {
+            "type": "string"
+          },
+          "capabilities": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "content_hash": {
+            "type": "string"
+          },
+          "external_origin": {
+            "type": "boolean"
+          },
+          "immutable": {
+            "type": "boolean"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "model_family": {
+            "type": "string"
+          },
+          "model_id": {
+            "type": "string"
+          },
+          "owner_id": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "training_evidence_hash": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "architecture_hash",
+          "capabilities",
+          "content_hash",
+          "external_origin",
+          "immutable",
+          "known_time",
+          "model_family",
+          "model_id",
+          "owner_id",
+          "status",
+          "training_evidence_hash",
+          "version"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "cutoff_time",
+    "kind",
+    "phase",
+    "record_count",
+    "records",
+    "registry_hash",
+    "registry_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_MODELS",
+  "type": "object"
+}

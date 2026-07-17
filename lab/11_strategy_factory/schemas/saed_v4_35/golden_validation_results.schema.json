@@ -1,0 +1,104 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_validation_results.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "all_passed": {
+      "type": "boolean"
+    },
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "external_validation": {
+      "type": "boolean"
+    },
+    "future_suffix_invariant": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "plan_hash": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "result_count": {
+      "type": "integer"
+    },
+    "result_hash": {
+      "type": "string"
+    },
+    "result_id": {
+      "type": "string"
+    },
+    "results": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "evidence_hash": {
+            "type": "string"
+          },
+          "independent_reviewer": {
+            "type": "boolean"
+          },
+          "metric": {
+            "type": "string"
+          },
+          "model_id": {
+            "type": "string"
+          },
+          "observed": {
+            "type": "number"
+          },
+          "status": {
+            "type": "string"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          },
+          "test_id": {
+            "type": "string"
+          },
+          "threshold": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "category",
+          "evidence_hash",
+          "independent_reviewer",
+          "metric",
+          "model_id",
+          "observed",
+          "status",
+          "synthetic_fixture",
+          "test_id",
+          "threshold"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "all_passed",
+    "baseline_preserved",
+    "external_validation",
+    "future_suffix_invariant",
+    "phase",
+    "plan_hash",
+    "research_only",
+    "result_count",
+    "result_hash",
+    "result_id",
+    "results"
+  ],
+  "title": "GOLDEN_VALIDATION_RESULTS",
+  "type": "object"
+}

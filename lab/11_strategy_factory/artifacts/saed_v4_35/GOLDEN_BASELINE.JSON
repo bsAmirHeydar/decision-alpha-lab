@@ -1,0 +1,11 @@
+{
+  "baseline_behavior": "NO_CHANGE",
+  "fallback": "ABSTAIN_AND_PRESERVE_BASELINE",
+  "live_runtime_unchanged": true,
+  "phase": "SAED_V4_35",
+  "quarantined_artifacts_excluded": true,
+  "receipt_hash": "0f459471637092bcf434845f9100e4532b1ea84b320a030ce0053c43c4941ad8",
+  "receipt_id": "v435_baseline_2c3228d9c51dbdd607b0158c",
+  "research_only": true,
+  "unknown_artifacts_denied": true
+}

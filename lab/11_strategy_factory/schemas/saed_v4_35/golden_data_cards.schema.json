@@ -1,0 +1,94 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_data_cards.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "cards": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "collection_window": {
+            "type": "string"
+          },
+          "dataset_id": {
+            "type": "string"
+          },
+          "known_time_policy": {
+            "type": "string"
+          },
+          "leakage_controls": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "license_review": {
+            "type": "string"
+          },
+          "limitations": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "missingness_policy": {
+            "type": "string"
+          },
+          "privacy_class": {
+            "type": "string"
+          },
+          "review_status": {
+            "type": "string"
+          },
+          "sampling_policy": {
+            "type": "string"
+          },
+          "source_description": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "collection_window",
+          "dataset_id",
+          "known_time_policy",
+          "leakage_controls",
+          "license_review",
+          "limitations",
+          "missingness_policy",
+          "privacy_class",
+          "review_status",
+          "sampling_policy",
+          "source_description"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "coverage_complete": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "cards",
+    "coverage_complete",
+    "phase",
+    "registry_hash",
+    "registry_id",
+    "research_only"
+  ],
+  "title": "GOLDEN_DATA_CARDS",
+  "type": "object"
+}

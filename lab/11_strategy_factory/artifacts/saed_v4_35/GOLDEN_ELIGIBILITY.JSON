@@ -1,0 +1,12 @@
+{
+  "baseline_preserved": true,
+  "blocking_reasons": [],
+  "decision_hash": "86f0e60e09e77c1d9e3c5b7f8fe41ead241272b4de530ec8d11d20894da7b77d",
+  "decision_id": "v435_eligibility_5dfd7ad9f50b215c1fdfe839",
+  "phase": "SAED_V4_35",
+  "production_authorized": false,
+  "production_release_eligible": false,
+  "reference_release_eligible": true,
+  "research_only": true,
+  "runtime_activation_allowed": false
+}

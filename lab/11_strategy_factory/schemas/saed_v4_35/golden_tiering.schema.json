@@ -1,0 +1,84 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_tiering.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "assignments": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "automation_level": {
+            "type": "integer"
+          },
+          "customer_or_market_impact": {
+            "type": "integer"
+          },
+          "decision_materiality": {
+            "type": "integer"
+          },
+          "external_dependency": {
+            "type": "boolean"
+          },
+          "irreversibility": {
+            "type": "integer"
+          },
+          "maximum_capital_at_risk": {
+            "type": "integer"
+          },
+          "model_id": {
+            "type": "string"
+          },
+          "production_capital_authority": {
+            "type": "boolean"
+          },
+          "raw_score": {
+            "type": "integer"
+          },
+          "risk_tier": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "automation_level",
+          "customer_or_market_impact",
+          "decision_materiality",
+          "external_dependency",
+          "irreversibility",
+          "maximum_capital_at_risk",
+          "model_id",
+          "production_capital_authority",
+          "raw_score",
+          "risk_tier"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "tier_method": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "assignments",
+    "phase",
+    "registry_hash",
+    "registry_id",
+    "research_only",
+    "tier_method"
+  ],
+  "title": "GOLDEN_TIERING",
+  "type": "object"
+}

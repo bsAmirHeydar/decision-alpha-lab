@@ -1,0 +1,100 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_build_provenance.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "external_attestation": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "provenance_hash": {
+      "type": "string"
+    },
+    "provenance_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "slsa_level_claim": {
+      "type": "string"
+    },
+    "statement_count": {
+      "type": "integer"
+    },
+    "statements": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "build_type": {
+            "type": "string"
+          },
+          "builder_id": {
+            "type": "string"
+          },
+          "hermetic": {
+            "type": "boolean"
+          },
+          "invocation_hash": {
+            "type": "string"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "materials_hash": {
+            "type": "string"
+          },
+          "network_disabled": {
+            "type": "boolean"
+          },
+          "source_hash": {
+            "type": "string"
+          },
+          "statement_id": {
+            "type": "string"
+          },
+          "subject_hash": {
+            "type": "string"
+          },
+          "subject_id": {
+            "type": "string"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "build_type",
+          "builder_id",
+          "hermetic",
+          "invocation_hash",
+          "known_time",
+          "materials_hash",
+          "network_disabled",
+          "source_hash",
+          "statement_id",
+          "subject_hash",
+          "subject_id",
+          "synthetic_fixture"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "external_attestation",
+    "phase",
+    "provenance_hash",
+    "provenance_id",
+    "research_only",
+    "slsa_level_claim",
+    "statement_count",
+    "statements"
+  ],
+  "title": "GOLDEN_BUILD_PROVENANCE",
+  "type": "object"
+}

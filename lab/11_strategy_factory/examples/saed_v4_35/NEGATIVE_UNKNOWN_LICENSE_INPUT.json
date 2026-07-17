@@ -1,0 +1,1927 @@
+{
+  "build_statements": [
+    {
+      "build_type": "hermetic-reference",
+      "builder_id": "BUILDER-1",
+      "hermetic": true,
+      "invocation_hash": "3735037d9539993f828a598358609dcb5f3fbfee0424ce4da2df13095256d87e",
+      "known_time": "2026-06-26T00:00:00Z",
+      "materials_hash": "e1fa857af207cb3217f1dc8c7355a39707e636a3f7403dc500666a5b23b3527d",
+      "network_disabled": true,
+      "source_hash": "8029cadd8724a291a9f3495657bc105575dec139064c5e6b75ec4a8cc86c9242",
+      "statement_id": "BUILD-001",
+      "subject_hash": "fdc8a7b5a0437cac35cf34c58f59946feab8455d8bf022acc5b5dfed13652204",
+      "subject_id": "MODEL-CONTEXT-ENCODER",
+      "synthetic_fixture": true
+    },
+    {
+      "build_type": "hermetic-reference",
+      "builder_id": "BUILDER-2",
+      "hermetic": true,
+      "invocation_hash": "ebf795428e04cd619cfb5c355d889dd1d4ac2f424f7e8244197fa48ed8266c2a",
+      "known_time": "2026-06-26T00:00:00Z",
+      "materials_hash": "4b45a16af680960de874b0963aad1786482e3e4bf084cd8b4feca01dc01c4223",
+      "network_disabled": true,
+      "source_hash": "012e89adfcaa0c3bb23ba88030081ce835248255b4a80e072a030d1789ca5664",
+      "statement_id": "BUILD-002",
+      "subject_hash": "3198d6c1e50c656f3a73ae809e049f11411bc767a42f8d9c48be9a8870df5501",
+      "subject_id": "MODEL-POLICY-CHALLENGER",
+      "synthetic_fixture": true
+    },
+    {
+      "build_type": "hermetic-reference",
+      "builder_id": "BUILDER-1",
+      "hermetic": true,
+      "invocation_hash": "dd9a666adfad3e1281876f569c8fe60e6dcbe9f13406df07750132c6937d8178",
+      "known_time": "2026-06-26T00:00:00Z",
+      "materials_hash": "1904dd58771fbe8ed527ed04db8c6d6df12785c311862399594c813886b41014",
+      "network_disabled": true,
+      "source_hash": "d33948c9427a7aff0198a83819f97763ef05053b12e157d07b117e17eb776976",
+      "statement_id": "BUILD-003",
+      "subject_hash": "82f1bb9548aac5757d9e6da57d9777682d34a15811dbfc3c2e81a91dfbab74e4",
+      "subject_id": "DATASET-CONTEXT-SYNTH",
+      "synthetic_fixture": true
+    },
+    {
+      "build_type": "hermetic-reference",
+      "builder_id": "BUILDER-2",
+      "hermetic": true,
+      "invocation_hash": "79a809dfca41a1c114a80c918f6882c3b63c35b1b9cfd27335c02369fc963074",
+      "known_time": "2026-06-26T00:00:00Z",
+      "materials_hash": "7a33df85a2319b2a87643882e8b45fb966f21994e75ca2f12dbfa8fd2a83ce38",
+      "network_disabled": true,
+      "source_hash": "fe67764c0b8b67c1a3872f9929ca276377c50ae30706e378fa8f515bb1740609",
+      "statement_id": "BUILD-004",
+      "subject_hash": "94142f3155b163113b7e8a8e7a4269d2dd6e12fee921768b82870f8f4f911207",
+      "subject_id": "DATASET-HIDDEN-EVAL-SYNTH",
+      "synthetic_fixture": true
+    },
+    {
+      "build_type": "hermetic-reference",
+      "builder_id": "BUILDER-1",
+      "hermetic": true,
+      "invocation_hash": "814c0ad2c65ea837bef03356beafcc4d588122ed9356b2cf6f6d247d34e6d7af",
+      "known_time": "2026-06-26T00:00:00Z",
+      "materials_hash": "2f1045eb69cbacb2ce892bae2f09613f762e28d1801401db1ab9667884d36add",
+      "network_disabled": true,
+      "source_hash": "21ec2e0fd5755921cc5ae46e70acc4b5140d6ba980b788bd514e1c9ffab52d1d",
+      "statement_id": "BUILD-005",
+      "subject_hash": "779d8b52c6d2b3ca737b25ab97d1bfcd5e94086fd3905fff2c9e9ab8904578be",
+      "subject_id": "DEP-NUMPY-2.0.0-ref",
+      "synthetic_fixture": true
+    },
+    {
+      "build_type": "hermetic-reference",
+      "builder_id": "BUILDER-2",
+      "hermetic": true,
+      "invocation_hash": "bf4f2f5d68786edcc8c347ca8b28c17c5eb8115c4f9d09e3f1efef07304a6ded",
+      "known_time": "2026-06-26T00:00:00Z",
+      "materials_hash": "448ec4ea4a4105ca503bebf97894f744c3dce6aeafbfc780505bee7eaa4478da",
+      "network_disabled": true,
+      "source_hash": "f2f30a71e9bcb65e3028507eb65a26223b4521301d7c8324d2d0b077035b83e9",
+      "statement_id": "BUILD-006",
+      "subject_hash": "e87d9ee471ebd4c7b02ed3eb59845df122c21515be521bdbc9e79a2f6baad070",
+      "subject_id": "DEP-JSONSCHEMA-4.0.0-ref",
+      "synthetic_fixture": true
+    },
+    {
+      "build_type": "hermetic-reference",
+      "builder_id": "BUILDER-1",
+      "hermetic": true,
+      "invocation_hash": "93f04c82aca8ad2d2e236b7f8da7917f8b80e7fca48ea18e4aa3debb3df614ed",
+      "known_time": "2026-06-26T00:00:00Z",
+      "materials_hash": "a7ffb67aefb13c157adea68a49c9ca8ed4511398b6516b3186725b3ea6699e96",
+      "network_disabled": true,
+      "source_hash": "f6bbca6a5adbb4e104ae4d79677bcf1027f6a96fd71ca4aeff7051471b10bcac",
+      "statement_id": "BUILD-007",
+      "subject_hash": "5fa5095d07701fad668fb5d11c76b80f6812879b397e589c66897c3fc6c4291c",
+      "subject_id": "DEP-PYTEST-8.0.0-ref",
+      "synthetic_fixture": true
+    },
+    {
+      "build_type": "hermetic-reference",
+      "builder_id": "BUILDER-2",
+      "hermetic": true,
+      "invocation_hash": "d8a1a4d868de88fe762bfd480770498f35031759086e2cb7fe15f04b5437ffd0",
+      "known_time": "2026-06-26T00:00:00Z",
+      "materials_hash": "8140a7d90c4d8834511e7f062ed1a6505f462a99872f6b762d1b057b25917beb",
+      "network_disabled": true,
+      "source_hash": "3e292c7624a27acb5882089fdc2b440bc099ca375f0ed0dca0e1f4ac81d4fe8e",
+      "statement_id": "BUILD-008",
+      "subject_hash": "87f27b7b50c2678588b476d390377e7e6d3619a245b20747efabaa93e21ed704",
+      "subject_id": "DEP-TYPING_EXTENSIONS-4.0.0-ref",
+      "synthetic_fixture": true
+    }
+  ],
+  "committee_review": {
+    "conditions": [
+      "reference-only",
+      "no-production-authority"
+    ],
+    "cutoff_time": "2026-06-30T23:59:59Z",
+    "decision": "ACCEPT_REFERENCE_ONLY",
+    "meeting_id": "MRC-2026-Q2-REF",
+    "members": [
+      "CHAIR",
+      "MODEL-RISK",
+      "SECURITY",
+      "LEGAL",
+      "AUDIT",
+      "RESEARCH"
+    ],
+    "minutes_hash": "90e63d85fa1ab2c8ed65222f3ebd794b1e524b4b7cf84bec451542d0451b2985",
+    "quorum_required": 5,
+    "research_only": true,
+    "review_id": "COMMITTEE-REVIEW-001",
+    "votes": [
+      "ACCEPT",
+      "ACCEPT",
+      "ACCEPT",
+      "ACCEPT",
+      "ACCEPT",
+      "ABSTAIN"
+    ]
+  },
+  "constitution": {
+    "central_engine_mutation_allowed": false,
+    "clauses": [
+      {
+        "clause_id": "C01",
+        "evidence_required": true,
+        "failure_action": "REJECT",
+        "priority": 1,
+        "requirement": "Immutable upstream"
+      },
+      {
+        "clause_id": "C02",
+        "evidence_required": true,
+        "failure_action": "REJECT",
+        "priority": 2,
+        "requirement": "Closed contracts"
+      },
+      {
+        "clause_id": "C03",
+        "evidence_required": true,
+        "failure_action": "REJECT",
+        "priority": 3,
+        "requirement": "Known-time only"
+      },
+      {
+        "clause_id": "C04",
+        "evidence_required": true,
+        "failure_action": "REJECT",
+        "priority": 4,
+        "requirement": "Complete inventory"
+      },
+      {
+        "clause_id": "C05",
+        "evidence_required": true,
+        "failure_action": "REJECT",
+        "priority": 5,
+        "requirement": "Complete SBOM"
+      },
+      {
+        "clause_id": "C06",
+        "evidence_required": true,
+        "failure_action": "QUARANTINE",
+        "priority": 6,
+        "requirement": "Pinned immutable artifacts"
+      },
+      {
+        "clause_id": "C07",
+        "evidence_required": true,
+        "failure_action": "QUARANTINE",
+        "priority": 7,
+        "requirement": "Known licenses only"
+      },
+      {
+        "clause_id": "C08",
+        "evidence_required": true,
+        "failure_action": "QUARANTINE",
+        "priority": 8,
+        "requirement": "No unmitigated critical vulnerabilities"
+      },
+      {
+        "clause_id": "C09",
+        "evidence_required": true,
+        "failure_action": "QUARANTINE",
+        "priority": 9,
+        "requirement": "Signed provenance"
+      },
+      {
+        "clause_id": "C10",
+        "evidence_required": true,
+        "failure_action": "REJECT",
+        "priority": 10,
+        "requirement": "Reproducible build evidence"
+      },
+      {
+        "clause_id": "C11",
+        "evidence_required": true,
+        "failure_action": "REJECT",
+        "priority": 11,
+        "requirement": "Three lines governance"
+      },
+      {
+        "clause_id": "C12",
+        "evidence_required": true,
+        "failure_action": "REJECT",
+        "priority": 12,
+        "requirement": "Independent validation"
+      },
+      {
+        "clause_id": "C13",
+        "evidence_required": true,
+        "failure_action": "REJECT",
+        "priority": 13,
+        "requirement": "Complete exposure accounting"
+      },
+      {
+        "clause_id": "C14",
+        "evidence_required": true,
+        "failure_action": "PRESERVE_BASELINE",
+        "priority": 14,
+        "requirement": "Fail closed release"
+      },
+      {
+        "clause_id": "C15",
+        "evidence_required": true,
+        "failure_action": "HALT",
+        "priority": 15,
+        "requirement": "UCEE authority preserved"
+      },
+      {
+        "clause_id": "C16",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN",
+        "priority": 16,
+        "requirement": "No production claim"
+      },
+      {
+        "clause_id": "C17",
+        "evidence_required": true,
+        "failure_action": "REJECT",
+        "priority": 17,
+        "requirement": "Incident and recall readiness"
+      },
+      {
+        "clause_id": "C18",
+        "evidence_required": true,
+        "failure_action": "REJECT",
+        "priority": 18,
+        "requirement": "Evidence bundle required"
+      }
+    ],
+    "constitution_id": "MRSC-CONSTITUTION-001",
+    "execution_authority_allowed": false,
+    "known_critical_vulnerability_allowed": false,
+    "research_only": true,
+    "unknown_license_allowed": false,
+    "unsigned_artifacts_allowed": false,
+    "version": "1.0.0"
+  },
+  "cutoff_time": "2026-06-30T23:59:59Z",
+  "data_cards": [
+    {
+      "collection_window": "2026-01-01/2026-06-15",
+      "dataset_id": "DATASET-CONTEXT-SYNTH",
+      "known_time_policy": "STRICT",
+      "leakage_controls": [
+        "known-time-cutoff",
+        "cluster-aware-split",
+        "future-suffix-test"
+      ],
+      "license_review": "APPROVED",
+      "limitations": [
+        "synthetic-only",
+        "not-market-representative"
+      ],
+      "missingness_policy": "explicit missingness masks",
+      "privacy_class": "NON_PERSONAL_SYNTHETIC",
+      "review_status": "reviewed-reference",
+      "sampling_policy": "deterministic stratified synthetic",
+      "source_description": "deterministic synthetic fixture"
+    },
+    {
+      "collection_window": "2026-01-01/2026-06-15",
+      "dataset_id": "DATASET-HIDDEN-EVAL-SYNTH",
+      "known_time_policy": "STRICT",
+      "leakage_controls": [
+        "known-time-cutoff",
+        "cluster-aware-split",
+        "future-suffix-test"
+      ],
+      "license_review": "APPROVED",
+      "limitations": [
+        "synthetic-only",
+        "not-market-representative"
+      ],
+      "missingness_policy": "explicit missingness masks",
+      "privacy_class": "NON_PERSONAL_SYNTHETIC",
+      "review_status": "reviewed-reference",
+      "sampling_policy": "deterministic stratified synthetic",
+      "source_description": "deterministic synthetic fixture"
+    }
+  ],
+  "datasets": [
+    {
+      "contains_personal_data": false,
+      "content_hash": "82f1bb9548aac5757d9e6da57d9777682d34a15811dbfc3c2e81a91dfbab74e4",
+      "data_role": "training-synthetic",
+      "dataset_id": "DATASET-CONTEXT-SYNTH",
+      "immutable": true,
+      "known_time": "2026-06-15T00:00:00Z",
+      "license_id": "INTERNAL",
+      "lineage_hash": "bb9c3831c8faee6c821011eb38cd8172bf5ce7a876e0d6cbc90c75c8c0e52721",
+      "owner_id": "OWNER-DATA-1",
+      "schema_hash": "444fc897329265ff99569140a317a98b047a2d51cfb69f409b78687936aae03c",
+      "status": "approved-reference",
+      "version": "1.0.0"
+    },
+    {
+      "contains_personal_data": false,
+      "content_hash": "94142f3155b163113b7e8a8e7a4269d2dd6e12fee921768b82870f8f4f911207",
+      "data_role": "hidden-evaluation-synthetic",
+      "dataset_id": "DATASET-HIDDEN-EVAL-SYNTH",
+      "immutable": true,
+      "known_time": "2026-06-15T00:00:00Z",
+      "license_id": "INTERNAL",
+      "lineage_hash": "0868a98defd866247fda7bf2fb1b09a68b827bbacd4fa6ab2334c39f01416fab",
+      "owner_id": "OWNER-DATA-2",
+      "schema_hash": "c9808632511f2937ba248a1162c43188636a7ce320527cbfba060f662acf5037",
+      "status": "approved-reference",
+      "version": "1.0.0"
+    }
+  ],
+  "dependencies": [
+    {
+      "build_only": false,
+      "content_hash": "779d8b52c6d2b3ca737b25ab97d1bfcd5e94086fd3905fff2c9e9ab8904578be",
+      "dependency_id": "DEP-NUMPY-2.0.0-ref",
+      "direct": true,
+      "ecosystem": "python",
+      "immutable": true,
+      "known_time": "2026-06-10T00:00:00Z",
+      "license_id": "UNKNOWN",
+      "name": "numpy",
+      "status": "approved-reference",
+      "supplier_id": "SUPPLIER-NUMPY",
+      "version": "2.0.0-ref"
+    },
+    {
+      "build_only": false,
+      "content_hash": "e87d9ee471ebd4c7b02ed3eb59845df122c21515be521bdbc9e79a2f6baad070",
+      "dependency_id": "DEP-JSONSCHEMA-4.0.0-ref",
+      "direct": true,
+      "ecosystem": "python",
+      "immutable": true,
+      "known_time": "2026-06-10T00:00:00Z",
+      "license_id": "MIT",
+      "name": "jsonschema",
+      "status": "approved-reference",
+      "supplier_id": "SUPPLIER-JSONSCHEMA",
+      "version": "4.0.0-ref"
+    },
+    {
+      "build_only": true,
+      "content_hash": "5fa5095d07701fad668fb5d11c76b80f6812879b397e589c66897c3fc6c4291c",
+      "dependency_id": "DEP-PYTEST-8.0.0-ref",
+      "direct": false,
+      "ecosystem": "python",
+      "immutable": true,
+      "known_time": "2026-06-10T00:00:00Z",
+      "license_id": "MIT",
+      "name": "pytest",
+      "status": "approved-reference",
+      "supplier_id": "SUPPLIER-PYTEST",
+      "version": "8.0.0-ref"
+    },
+    {
+      "build_only": false,
+      "content_hash": "87f27b7b50c2678588b476d390377e7e6d3619a245b20747efabaa93e21ed704",
+      "dependency_id": "DEP-TYPING_EXTENSIONS-4.0.0-ref",
+      "direct": false,
+      "ecosystem": "python",
+      "immutable": true,
+      "known_time": "2026-06-10T00:00:00Z",
+      "license_id": "PSF-2.0",
+      "name": "typing-extensions",
+      "status": "approved-reference",
+      "supplier_id": "SUPPLIER-TYPING-EXTENSIONS",
+      "version": "4.0.0-ref"
+    },
+    {
+      "build_only": true,
+      "content_hash": "3d0a1b9d4890ce7980bcafb8ecfad3a5d34b6ef97ea6ed8e1df369f9be3d0aad",
+      "dependency_id": "DEP-PACKAGING-24.0-ref",
+      "direct": false,
+      "ecosystem": "python",
+      "immutable": true,
+      "known_time": "2026-06-10T00:00:00Z",
+      "license_id": "Apache-2.0",
+      "name": "packaging",
+      "status": "approved-reference",
+      "supplier_id": "SUPPLIER-PACKAGING",
+      "version": "24.0-ref"
+    },
+    {
+      "build_only": true,
+      "content_hash": "634f7761536b414593ef88bbb17dad4f0142a2605d70b0ee741d038ac2eb971f",
+      "dependency_id": "DEP-SETUPTOOLS-70.0-ref",
+      "direct": false,
+      "ecosystem": "python",
+      "immutable": true,
+      "known_time": "2026-06-10T00:00:00Z",
+      "license_id": "MIT",
+      "name": "setuptools",
+      "status": "approved-reference",
+      "supplier_id": "SUPPLIER-SETUPTOOLS",
+      "version": "70.0-ref"
+    }
+  ],
+  "dependency_edges": [
+    {
+      "optional": false,
+      "relation": "contains",
+      "source_id": "RUNTIME-PYTHON-REF",
+      "target_id": "DEP-NUMPY-2.0.0-ref"
+    },
+    {
+      "optional": false,
+      "relation": "contains",
+      "source_id": "RUNTIME-PYTHON-REF",
+      "target_id": "DEP-JSONSCHEMA-4.0.0-ref"
+    },
+    {
+      "optional": false,
+      "relation": "contains",
+      "source_id": "RUNTIME-PYTHON-REF",
+      "target_id": "DEP-PYTEST-8.0.0-ref"
+    },
+    {
+      "optional": false,
+      "relation": "contains",
+      "source_id": "RUNTIME-PYTHON-REF",
+      "target_id": "DEP-TYPING_EXTENSIONS-4.0.0-ref"
+    },
+    {
+      "optional": false,
+      "relation": "contains",
+      "source_id": "RUNTIME-PYTHON-REF",
+      "target_id": "DEP-PACKAGING-24.0-ref"
+    },
+    {
+      "optional": false,
+      "relation": "contains",
+      "source_id": "RUNTIME-PYTHON-REF",
+      "target_id": "DEP-SETUPTOOLS-70.0-ref"
+    }
+  ],
+  "exceptions": [
+    {
+      "approver_ids": [
+        "MODEL-RISK",
+        "AUDIT"
+      ],
+      "compensating_controls": [
+        "synthetic-watermark",
+        "claim-ceiling",
+        "production-denial"
+      ],
+      "control_id": "REAL-EXTERNAL-SCANNER",
+      "exception_id": "EXC-REF-001",
+      "expires_time": "2026-12-31T00:00:00Z",
+      "issued_time": "2026-06-20T00:00:00Z",
+      "owner_id": "SECURITY-B",
+      "production_scope_allowed": false,
+      "rationale": "synthetic reference phase has no external scanner attestation",
+      "status": "REFERENCE_ONLY",
+      "subject_id": "SERVICE-VULN-FEED-SYNTH",
+      "synthetic_fixture": true
+    }
+  ],
+  "external_services": [
+    {
+      "content_hash": "b8f912e1378ed26e0bf6a48cf258255274640267c69f81cb1f37674ce6c2a1b5",
+      "contract_hash": "2e6c8c6287917107393a48be5cb5d8d32dfa8922f958f9e2bcf924172514f40f",
+      "data_export_allowed": false,
+      "immutable": true,
+      "known_time": "2026-06-25T00:00:00Z",
+      "service_id": "SERVICE-VULN-FEED-SYNTH",
+      "service_name": "synthetic-vulnerability-feed",
+      "status": "approved-reference",
+      "supplier_id": "SUPPLIER-SECURITY-REF",
+      "version": "2026-06-ref"
+    }
+  ],
+  "governance_events": [
+    {
+      "actor_id": "ACTOR-1",
+      "decision": "PASS",
+      "event_time": "2026-06-10T12:00:00Z",
+      "event_type": "UPSTREAM_VERIFIED",
+      "evidence_hash": "c23d5ab4f55f5d9d4735911b018dc0c585eac2eea02eafcf19d45e5fc376c3c5",
+      "subject_id": "SAED_V4_35"
+    },
+    {
+      "actor_id": "ACTOR-2",
+      "decision": "PASS",
+      "event_time": "2026-06-11T12:00:00Z",
+      "event_type": "INVENTORY_FROZEN",
+      "evidence_hash": "29e7575498ba735c28aa9a2b81b26d4a739aa47155e115babf43f37aef8f2018",
+      "subject_id": "SAED_V4_35"
+    },
+    {
+      "actor_id": "ACTOR-3",
+      "decision": "PASS",
+      "event_time": "2026-06-12T12:00:00Z",
+      "event_type": "SBOM_BUILT",
+      "evidence_hash": "e3eb2dd84f265ccababafd3ece9193c9dd26f70652d895a96624c29331c2e845",
+      "subject_id": "SAED_V4_35"
+    },
+    {
+      "actor_id": "ACTOR-4",
+      "decision": "PASS",
+      "event_time": "2026-06-13T12:00:00Z",
+      "event_type": "LICENSE_REVIEWED",
+      "evidence_hash": "29a657207317ff56355cec9045c019a967f99b42a2426aa176612a6a7f15a15f",
+      "subject_id": "SAED_V4_35"
+    },
+    {
+      "actor_id": "ACTOR-5",
+      "decision": "PASS",
+      "event_time": "2026-06-14T12:00:00Z",
+      "event_type": "VULNERABILITIES_REVIEWED",
+      "evidence_hash": "392407b596ee727a49948cf765e72bf231c0a967eea6ea2b23957da88805c829",
+      "subject_id": "SAED_V4_35"
+    },
+    {
+      "actor_id": "ACTOR-1",
+      "decision": "PASS",
+      "event_time": "2026-06-15T12:00:00Z",
+      "event_type": "PROVENANCE_ATTESTED",
+      "evidence_hash": "c2f42ff0a3d38ccc52a489412fedfc5f8ac770c4bfe5b77e1c99344ef9bccb0b",
+      "subject_id": "SAED_V4_35"
+    },
+    {
+      "actor_id": "ACTOR-2",
+      "decision": "PASS",
+      "event_time": "2026-06-16T12:00:00Z",
+      "event_type": "MODEL_RISK_SCORED",
+      "evidence_hash": "59781650154c0fa3fa7ca6201c3c435eedb4197a5b4ec93909c9255d0f969294",
+      "subject_id": "SAED_V4_35"
+    },
+    {
+      "actor_id": "ACTOR-3",
+      "decision": "PASS",
+      "event_time": "2026-06-17T12:00:00Z",
+      "event_type": "VALIDATION_COMPLETED",
+      "evidence_hash": "856dadeeacbe3c28ce94d41101c22b36a91b31a38e913ece8cdf4d071234a481",
+      "subject_id": "SAED_V4_35"
+    },
+    {
+      "actor_id": "ACTOR-4",
+      "decision": "PASS",
+      "event_time": "2026-06-18T12:00:00Z",
+      "event_type": "COMMITTEE_DECIDED",
+      "evidence_hash": "b0b3c0086334a5e2ff0c0f477bc8e5649c6ba16f2d6cd043cf8c57f900cff937",
+      "subject_id": "SAED_V4_35"
+    },
+    {
+      "actor_id": "ACTOR-5",
+      "decision": "PASS",
+      "event_time": "2026-06-19T12:00:00Z",
+      "event_type": "AUDIT_COMPLETED",
+      "evidence_hash": "c582675baa4007b7966e143e4a6c7250147e65e8d4c18156d3bd985726d4b65a",
+      "subject_id": "SAED_V4_35"
+    },
+    {
+      "actor_id": "ACTOR-1",
+      "decision": "PASS",
+      "event_time": "2026-06-20T12:00:00Z",
+      "event_type": "INCIDENT_DRILLED",
+      "evidence_hash": "5d2ae2e87df863b4f87ad8b87ee8722713c03fee47ec55da4a4a3e70d40696cf",
+      "subject_id": "SAED_V4_35"
+    },
+    {
+      "actor_id": "ACTOR-2",
+      "decision": "PASS",
+      "event_time": "2026-06-21T12:00:00Z",
+      "event_type": "RECALL_DRILLED",
+      "evidence_hash": "c77ba3394c5aa02a4ca791407fc3acb461f03cf1bf0df8c2c24f801240cf1932",
+      "subject_id": "SAED_V4_35"
+    }
+  ],
+  "incident_plan": {
+    "containment_actions": [
+      "freeze-distribution",
+      "quarantine-subject",
+      "revoke-key",
+      "preserve-evidence",
+      "disable-service",
+      "rollback-artifact",
+      "notify-consumers",
+      "open-root-cause"
+    ],
+    "evidence_preservation": true,
+    "notification_matrix": [
+      "security",
+      "model-risk",
+      "research-owner",
+      "audit"
+    ],
+    "plan_id": "INCIDENT-PLAN-001",
+    "recovery_gates": [
+      "root-cause-known",
+      "artifact-rebuilt",
+      "signatures-rotated",
+      "validation-rerun",
+      "committee-approved",
+      "baseline-confirmed"
+    ],
+    "research_only": true,
+    "roles": [
+      "incident-commander",
+      "security-lead",
+      "model-risk-lead",
+      "artifact-custodian",
+      "communications-owner"
+    ],
+    "severity_levels": [
+      "SEV0",
+      "SEV1",
+      "SEV2",
+      "SEV3"
+    ],
+    "tabletop_completed": true,
+    "triggers": [
+      "hash-mismatch",
+      "signature-failure",
+      "critical-vulnerability",
+      "license-breach",
+      "model-substitution",
+      "data-lineage-break",
+      "key-revocation",
+      "unauthorized-egress"
+    ]
+  },
+  "independent_audit": {
+    "audit_id": "AUDIT-REF-001",
+    "auditor_id": "AUDITOR-D",
+    "auditor_line": 3,
+    "evidence_hash": "2071e29393ba7f1f11c702bcba27add19865ed6c0e53c15e4ba958002e1fdea6",
+    "findings": [],
+    "independent": true,
+    "opinion": "UNQUALIFIED_REFERENCE",
+    "sample_size": 25,
+    "scope": [
+      "inventory",
+      "sbom",
+      "licenses",
+      "vulnerabilities",
+      "provenance",
+      "model-risk",
+      "governance"
+    ],
+    "synthetic_fixture": true
+  },
+  "license_policy": {
+    "allowed_licenses": [
+      "Apache-2.0",
+      "BSD-3-Clause",
+      "INTERNAL",
+      "MIT",
+      "PSF-2.0"
+    ],
+    "commercial_use_required": true,
+    "copyleft_action": "LEGAL_REVIEW",
+    "forbidden_licenses": [
+      "AGPL-3.0",
+      "GPL-3.0-only",
+      "UNKNOWN"
+    ],
+    "policy_id": "LICENSE-POLICY-001",
+    "redistribution_review_required": true,
+    "restricted_licenses": [
+      "MPL-2.0"
+    ],
+    "unknown_license_action": "QUARANTINE"
+  },
+  "model_cards": [
+    {
+      "ethical_risks": [
+        "automation-bias",
+        "false-confidence"
+      ],
+      "evaluation_scope": "closed golden and negative fixtures",
+      "intended_use": [
+        "offline-research",
+        "synthetic-reference-validation"
+      ],
+      "known_failure_modes": [
+        "ood-overconfidence",
+        "missing-view-degradation",
+        "supply-chain-substitution"
+      ],
+      "limitations": [
+        "no-real-alpha-evidence",
+        "no-runtime-parity",
+        "distribution-shift-unverified"
+      ],
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "owner_id": "OWNER-ML-1",
+      "prohibited_uses": [
+        "live-ordering",
+        "capital-allocation",
+        "unreviewed-production"
+      ],
+      "review_status": "reviewed-reference",
+      "training_scope": "synthetic-reference-only"
+    },
+    {
+      "ethical_risks": [
+        "automation-bias",
+        "false-confidence"
+      ],
+      "evaluation_scope": "closed golden and negative fixtures",
+      "intended_use": [
+        "offline-research",
+        "synthetic-reference-validation"
+      ],
+      "known_failure_modes": [
+        "ood-overconfidence",
+        "missing-view-degradation",
+        "supply-chain-substitution"
+      ],
+      "limitations": [
+        "no-real-alpha-evidence",
+        "no-runtime-parity",
+        "distribution-shift-unverified"
+      ],
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "owner_id": "OWNER-ML-2",
+      "prohibited_uses": [
+        "live-ordering",
+        "capital-allocation",
+        "unreviewed-production"
+      ],
+      "review_status": "reviewed-reference",
+      "training_scope": "synthetic-reference-only"
+    }
+  ],
+  "models": [
+    {
+      "architecture_hash": "6cb411d52128292a133e34df15502bdd1222429deacc9847398545722d233e59",
+      "capabilities": [
+        "embedding",
+        "representation"
+      ],
+      "content_hash": "fdc8a7b5a0437cac35cf34c58f59946feab8455d8bf022acc5b5dfed13652204",
+      "external_origin": false,
+      "immutable": true,
+      "known_time": "2026-06-20T00:00:00Z",
+      "model_family": "multimodal-context-encoder",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "owner_id": "OWNER-ML-1",
+      "status": "approved-reference",
+      "training_evidence_hash": "d57190e5bc7a3d887ca6c996f2b42693e18b945ac290a1d1e242f88d65ee90f5",
+      "version": "1.0.0-ref"
+    },
+    {
+      "architecture_hash": "79a1614bd7e8e6d18a5cb8c7bdc829b4f8542b85e88b668c4d5ec69208250882",
+      "capabilities": [
+        "ranking",
+        "research-only-policy-value"
+      ],
+      "content_hash": "3198d6c1e50c656f3a73ae809e049f11411bc767a42f8d9c48be9a8870df5501",
+      "external_origin": false,
+      "immutable": true,
+      "known_time": "2026-06-20T00:00:00Z",
+      "model_family": "decision-focused-challenger",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "owner_id": "OWNER-ML-2",
+      "status": "approved-reference",
+      "training_evidence_hash": "f9896527b638cf0b22cf5e982b9021baa8403c1fd779f0eef1ffc48207d219b8",
+      "version": "1.0.0-ref"
+    }
+  ],
+  "recall_plan": {
+    "artifact_graph_required": true,
+    "consumer_notification_required": true,
+    "drill_completed": true,
+    "kill_distribution_required": true,
+    "plan_id": "RECALL-PLAN-001",
+    "recall_levels": [
+      "ADVISORY",
+      "RESTRICTED",
+      "FULL"
+    ],
+    "research_only": true,
+    "revocation_required": true,
+    "rollback_required": true
+  },
+  "reproduction_runs": [
+    {
+      "deterministic": true,
+      "environment_hash": "63d3307aedc3260dab42c7a38d2cb5eae5a9abb184144325a748a5a1fa0e2282",
+      "independent_operator": true,
+      "input_hash": "61e781b822be27887cdb1c13c71d9f0e3eafcfdb16123b0c14967e02747cafaa",
+      "lab_id": "LAB-A",
+      "output_hash": "9ca1121202fc8f46337296b2be8bf946728f5e9048564696921db137bac68d33",
+      "run_id": "REPRO-A"
+    },
+    {
+      "deterministic": true,
+      "environment_hash": "63d3307aedc3260dab42c7a38d2cb5eae5a9abb184144325a748a5a1fa0e2282",
+      "independent_operator": true,
+      "input_hash": "61e781b822be27887cdb1c13c71d9f0e3eafcfdb16123b0c14967e02747cafaa",
+      "lab_id": "LAB-B",
+      "output_hash": "9ca1121202fc8f46337296b2be8bf946728f5e9048564696921db137bac68d33",
+      "run_id": "REPRO-B"
+    }
+  ],
+  "risk_assessments": [
+    {
+      "dimension_scores": {
+        "change_risk": 1,
+        "concentration_risk": 1,
+        "conceptual_soundness": 1,
+        "cyber_supply_chain_risk": 1,
+        "data_risk": 1,
+        "explainability_risk": 1,
+        "governance_risk": 1,
+        "operational_risk": 1,
+        "third_party_risk": 1,
+        "validation_risk": 1
+      },
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "monitoring_readiness": 1.0,
+      "open_findings": 0,
+      "owner_attestation": true,
+      "validation_coverage": 1.0
+    },
+    {
+      "dimension_scores": {
+        "change_risk": 1,
+        "concentration_risk": 1,
+        "conceptual_soundness": 1,
+        "cyber_supply_chain_risk": 1,
+        "data_risk": 1,
+        "explainability_risk": 1,
+        "governance_risk": 1,
+        "operational_risk": 1,
+        "third_party_risk": 1,
+        "validation_risk": 1
+      },
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "monitoring_readiness": 1.0,
+      "open_findings": 0,
+      "owner_attestation": true,
+      "validation_coverage": 1.0
+    }
+  ],
+  "runtimes": [
+    {
+      "base_image_hash": "6f401ac044ec79bc93fbc11185042af5ab830336925f9e70ddebdbaebc679461",
+      "builder_id": "BUILDER-A",
+      "content_hash": "44635675f9de78760b96f1ff2db3a14c33680cf792e5c86e5821b23531669e34",
+      "image_ref": "python:3.12-ref@sha256:44635675f9de78760b96f1ff2db3a14c33680cf792e5c86e5821b23531669e34",
+      "immutable": true,
+      "known_time": "2026-06-10T00:00:00Z",
+      "network_egress_default_deny": true,
+      "runtime_id": "RUNTIME-PYTHON-REF",
+      "status": "approved-reference"
+    },
+    {
+      "base_image_hash": "17b5e66e1a6231f30debbd9cf60afe5bb1a287e15927a0f9eacf30c58436715b",
+      "builder_id": "BUILDER-B",
+      "content_hash": "c22f8a2ab5f877510dcbb0a8d6909793ce7727c60270e2837f4f5f7e02b9354d",
+      "image_ref": "metaeditor-static-contract-ref",
+      "immutable": true,
+      "known_time": "2026-06-10T00:00:00Z",
+      "network_egress_default_deny": true,
+      "runtime_id": "RUNTIME-MQL5-STATIC",
+      "status": "approved-reference"
+    }
+  ],
+  "signatures": [
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "26eb372b055ce3419784d6fd98e5d7054eb27f4c5f9174691a5939f76055b1a7",
+      "signature_id": "SIG-AEDBE0AF90240992",
+      "subject_hash": "fdc8a7b5a0437cac35cf34c58f59946feab8455d8bf022acc5b5dfed13652204",
+      "subject_id": "MODEL-CONTEXT-ENCODER",
+      "synthetic_fixture": true
+    },
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "98306c12ee8946f3e506389774772fa9701cfae584ef13887609b53df51a0f50",
+      "signature_id": "SIG-A6E71FC626838465",
+      "subject_hash": "3198d6c1e50c656f3a73ae809e049f11411bc767a42f8d9c48be9a8870df5501",
+      "subject_id": "MODEL-POLICY-CHALLENGER",
+      "synthetic_fixture": true
+    },
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "1f52320995ba3cd08d0c81871c55292fc02af66c12548b801da7385eee22f94d",
+      "signature_id": "SIG-43B1E964BE03D034",
+      "subject_hash": "82f1bb9548aac5757d9e6da57d9777682d34a15811dbfc3c2e81a91dfbab74e4",
+      "subject_id": "DATASET-CONTEXT-SYNTH",
+      "synthetic_fixture": true
+    },
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "d42a506668afb7f851a16152c43863060b21cc0a920948fea7bcb6a470eaf91f",
+      "signature_id": "SIG-6C8F2BD572C0C26A",
+      "subject_hash": "94142f3155b163113b7e8a8e7a4269d2dd6e12fee921768b82870f8f4f911207",
+      "subject_id": "DATASET-HIDDEN-EVAL-SYNTH",
+      "synthetic_fixture": true
+    },
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "0087b0595e1a7d59dde648ea0961e000cd955e42c011f21bc11dd7f9eb7902c5",
+      "signature_id": "SIG-0DE91BB42892B917",
+      "subject_hash": "779d8b52c6d2b3ca737b25ab97d1bfcd5e94086fd3905fff2c9e9ab8904578be",
+      "subject_id": "DEP-NUMPY-2.0.0-ref",
+      "synthetic_fixture": true
+    },
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "30fcda90ab561673a6f806cb4fe32b0a5eb0217c58049bf728c41af302e02a94",
+      "signature_id": "SIG-6CFDE22DFCA76A19",
+      "subject_hash": "e87d9ee471ebd4c7b02ed3eb59845df122c21515be521bdbc9e79a2f6baad070",
+      "subject_id": "DEP-JSONSCHEMA-4.0.0-ref",
+      "synthetic_fixture": true
+    },
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "bef05c09c4f83eb08bc0d0f009ee70d9b709d1899ee856b801958a0928a875e9",
+      "signature_id": "SIG-93AE96A1540820D9",
+      "subject_hash": "5fa5095d07701fad668fb5d11c76b80f6812879b397e589c66897c3fc6c4291c",
+      "subject_id": "DEP-PYTEST-8.0.0-ref",
+      "synthetic_fixture": true
+    },
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "9224afbe25712a16b4855fa4b226643fce9a40b22756745e06fae3d1f4fe716f",
+      "signature_id": "SIG-45E3E34211D53F9D",
+      "subject_hash": "87f27b7b50c2678588b476d390377e7e6d3619a245b20747efabaa93e21ed704",
+      "subject_id": "DEP-TYPING_EXTENSIONS-4.0.0-ref",
+      "synthetic_fixture": true
+    },
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "68780d221ff570e6909122f93dd5df1bc3257650b15c88ea1d9257aaf6a4cee4",
+      "signature_id": "SIG-4290022371184B11",
+      "subject_hash": "3d0a1b9d4890ce7980bcafb8ecfad3a5d34b6ef97ea6ed8e1df369f9be3d0aad",
+      "subject_id": "DEP-PACKAGING-24.0-ref",
+      "synthetic_fixture": true
+    },
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "761ed62b7d0736a3d51e519402947428308263238247d8dc92ecdc434483682e",
+      "signature_id": "SIG-B7889E6C8E229B77",
+      "subject_hash": "634f7761536b414593ef88bbb17dad4f0142a2605d70b0ee741d038ac2eb971f",
+      "subject_id": "DEP-SETUPTOOLS-70.0-ref",
+      "synthetic_fixture": true
+    },
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "59967c9cf2b402b38535d1bdfb37a3041bed4e0ad3e31c498f69371aff107ce7",
+      "signature_id": "SIG-C75B1029D2164579",
+      "subject_hash": "150a087a4ea7179627b7ada6c1c6a39ebe41f10c4b7a4895c03a9b4a762f4dee",
+      "subject_id": "TOOL-SCHEMA-GENERATOR",
+      "synthetic_fixture": true
+    },
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "f01f42671ad3a19eebb674c2cd64356ea0a3bcf094b36bf9509fd05cc3473705",
+      "signature_id": "SIG-C8A9452421A9E65D",
+      "subject_hash": "dd5587c7ddae04ee2a0858dc8f739a2d9ba3742bdd0109e604c3701435c984cb",
+      "subject_id": "TOOL-QA-RUNNER",
+      "synthetic_fixture": true
+    },
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "4ec93f136a7a0f7807fbba0dbc46c804e6e313b72d5694c908f3b5ab6a03ac52",
+      "signature_id": "SIG-282F36316FFA93E8",
+      "subject_hash": "44635675f9de78760b96f1ff2db3a14c33680cf792e5c86e5821b23531669e34",
+      "subject_id": "RUNTIME-PYTHON-REF",
+      "synthetic_fixture": true
+    },
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "45a26e74d35575c5f4d31769fac724a3145dd40cce85f76b28e54e941b1ad072",
+      "signature_id": "SIG-574BCEECF6B3C08F",
+      "subject_hash": "c22f8a2ab5f877510dcbb0a8d6909793ce7727c60270e2837f4f5f7e02b9354d",
+      "subject_id": "RUNTIME-MQL5-STATIC",
+      "synthetic_fixture": true
+    },
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "f222d00aaf6112acbfd81bb7451643512a0db8f8f4e6e05ddee667c92c107b32",
+      "signature_id": "SIG-E4FC80150FA29CEB",
+      "subject_hash": "b8f912e1378ed26e0bf6a48cf258255274640267c69f81cb1f37674ce6c2a1b5",
+      "subject_id": "SERVICE-VULN-FEED-SYNTH",
+      "synthetic_fixture": true
+    }
+  ],
+  "threat_model": {
+    "assets": [
+      "models",
+      "datasets",
+      "dependencies",
+      "signing-keys",
+      "evidence-ledger",
+      "runtime-images"
+    ],
+    "controls": [
+      "content-addressing",
+      "closed-sbom",
+      "license-gate",
+      "vulnerability-gate",
+      "signature-coverage",
+      "hermetic-build",
+      "network-deny",
+      "three-lines-review",
+      "independent-validation",
+      "quarantine",
+      "recall",
+      "append-only-ledger",
+      "known-time-cutoff",
+      "baseline-preservation"
+    ],
+    "research_only": true,
+    "residual_risks": [
+      "synthetic-signature-evidence-only",
+      "synthetic-vulnerability-feed-only",
+      "external-build-reproduction-unverified"
+    ],
+    "reviewed_by_security": true,
+    "threat_model_id": "THREAT-MODEL-001",
+    "threats": [
+      "dependency-confusion",
+      "typosquatting",
+      "malicious-weight",
+      "poisoned-data",
+      "license-contamination",
+      "signature-forgery",
+      "key-compromise",
+      "rollback-attack",
+      "model-substitution",
+      "prompt-injection",
+      "unsafe-deserialization",
+      "build-network-exfiltration",
+      "vulnerability-feed-staleness",
+      "waiver-abuse"
+    ],
+    "trust_boundaries": [
+      "supplier-intake",
+      "build-boundary",
+      "research-runtime",
+      "artifact-registry",
+      "operator-review"
+    ]
+  },
+  "three_lines_assignments": [
+    {
+      "active": true,
+      "assignment_id": "ASSIGN-001",
+      "independent_from": [],
+      "line": 1,
+      "principal_id": "OWNER-ML-1",
+      "responsibilities": [
+        "model-owner-control",
+        "evidence-review"
+      ],
+      "role": "MODEL-OWNER"
+    },
+    {
+      "active": true,
+      "assignment_id": "ASSIGN-002",
+      "independent_from": [],
+      "line": 1,
+      "principal_id": "OWNER-DATA-1",
+      "responsibilities": [
+        "data-owner-control",
+        "evidence-review"
+      ],
+      "role": "DATA-OWNER"
+    },
+    {
+      "active": true,
+      "assignment_id": "ASSIGN-003",
+      "independent_from": [],
+      "line": 1,
+      "principal_id": "OWNER-ENG-1",
+      "responsibilities": [
+        "engineering-owner-control",
+        "evidence-review"
+      ],
+      "role": "ENGINEERING-OWNER"
+    },
+    {
+      "active": true,
+      "assignment_id": "ASSIGN-004",
+      "independent_from": [
+        "LINE-1"
+      ],
+      "line": 2,
+      "principal_id": "VALIDATOR-A",
+      "responsibilities": [
+        "model-risk-validator-control",
+        "evidence-review"
+      ],
+      "role": "MODEL-RISK-VALIDATOR"
+    },
+    {
+      "active": true,
+      "assignment_id": "ASSIGN-005",
+      "independent_from": [
+        "LINE-1"
+      ],
+      "line": 2,
+      "principal_id": "SECURITY-B",
+      "responsibilities": [
+        "security-reviewer-control",
+        "evidence-review"
+      ],
+      "role": "SECURITY-REVIEWER"
+    },
+    {
+      "active": true,
+      "assignment_id": "ASSIGN-006",
+      "independent_from": [
+        "LINE-1"
+      ],
+      "line": 2,
+      "principal_id": "LEGAL-C",
+      "responsibilities": [
+        "legal-license-reviewer-control",
+        "evidence-review"
+      ],
+      "role": "LEGAL-LICENSE-REVIEWER"
+    },
+    {
+      "active": true,
+      "assignment_id": "ASSIGN-007",
+      "independent_from": [
+        "LINE-1"
+      ],
+      "line": 3,
+      "principal_id": "AUDITOR-D",
+      "responsibilities": [
+        "internal-audit-control",
+        "evidence-review"
+      ],
+      "role": "INTERNAL-AUDIT"
+    },
+    {
+      "active": true,
+      "assignment_id": "ASSIGN-008",
+      "independent_from": [
+        "LINE-1"
+      ],
+      "line": 3,
+      "principal_id": "AUDITOR-E",
+      "responsibilities": [
+        "assurance-reviewer-control",
+        "evidence-review"
+      ],
+      "role": "ASSURANCE-REVIEWER"
+    }
+  ],
+  "tier_inputs": [
+    {
+      "automation_level": 2,
+      "customer_or_market_impact": 1,
+      "decision_materiality": 2,
+      "external_dependency": false,
+      "irreversibility": 1,
+      "maximum_capital_at_risk": 0,
+      "model_id": "MODEL-CONTEXT-ENCODER"
+    },
+    {
+      "automation_level": 2,
+      "customer_or_market_impact": 1,
+      "decision_materiality": 2,
+      "external_dependency": false,
+      "irreversibility": 1,
+      "maximum_capital_at_risk": 0,
+      "model_id": "MODEL-POLICY-CHALLENGER"
+    }
+  ],
+  "tools": [
+    {
+      "content_hash": "150a087a4ea7179627b7ada6c1c6a39ebe41f10c4b7a4895c03a9b4a762f4dee",
+      "immutable": true,
+      "known_time": "2026-06-10T00:00:00Z",
+      "license_id": "INTERNAL",
+      "name": "closed-schema-generator",
+      "network_capable": false,
+      "status": "approved-reference",
+      "supplier_id": "ALPHA-LAB",
+      "tool_id": "TOOL-SCHEMA-GENERATOR",
+      "version": "1.0.0"
+    },
+    {
+      "content_hash": "dd5587c7ddae04ee2a0858dc8f739a2d9ba3742bdd0109e604c3701435c984cb",
+      "immutable": true,
+      "known_time": "2026-06-10T00:00:00Z",
+      "license_id": "INTERNAL",
+      "name": "saed-qa-runner",
+      "network_capable": false,
+      "status": "approved-reference",
+      "supplier_id": "ALPHA-LAB",
+      "tool_id": "TOOL-QA-RUNNER",
+      "version": "1.0.0"
+    }
+  ],
+  "upstream_documents": [
+    {
+      "document_hash": "8393bc01283ded14d348229bccc5a253eef1969191174a5eb9c5a7928b77baf6",
+      "document_id": "V434-CERT-REF",
+      "kind": "v4_34_certificate",
+      "next_phase": "SAED_V4_35",
+      "phase": "SAED_V4_34",
+      "research_only": true
+    },
+    {
+      "document_hash": "3f1ce912297a52fcee3bfd73fb966960de47cedaaf53767823555cb6639fb646",
+      "document_id": "V434-HANDOFF-REF",
+      "kind": "v4_34_handoff",
+      "next_phase": "SAED_V4_35",
+      "phase": "SAED_V4_34",
+      "research_only": true
+    }
+  ],
+  "validation_plan": {
+    "baseline_test_required": true,
+    "challenge_owners": [
+      "VALIDATOR-A",
+      "VALIDATOR-B",
+      "SECURITY-C"
+    ],
+    "coverage_target": 1.0,
+    "future_suffix_test_required": true,
+    "independence_required": true,
+    "model_ids": [
+      "MODEL-CONTEXT-ENCODER",
+      "MODEL-POLICY-CHALLENGER"
+    ],
+    "plan_id": "VALIDATION-PLAN-001",
+    "research_only": true,
+    "security_test_required": true,
+    "tests": [
+      {
+        "blocking": true,
+        "category": "CONTRACT",
+        "model_id": "MODEL-CONTEXT-ENCODER",
+        "requirement": "CONTRACT deterministic reference requirement 1",
+        "test_id": "VAL-001"
+      },
+      {
+        "blocking": true,
+        "category": "KNOWN_TIME",
+        "model_id": "MODEL-POLICY-CHALLENGER",
+        "requirement": "KNOWN_TIME deterministic reference requirement 2",
+        "test_id": "VAL-002"
+      },
+      {
+        "blocking": true,
+        "category": "REPLAY",
+        "model_id": "MODEL-CONTEXT-ENCODER",
+        "requirement": "REPLAY deterministic reference requirement 3",
+        "test_id": "VAL-003"
+      },
+      {
+        "blocking": true,
+        "category": "BASELINE",
+        "model_id": "MODEL-POLICY-CHALLENGER",
+        "requirement": "BASELINE deterministic reference requirement 4",
+        "test_id": "VAL-004"
+      },
+      {
+        "blocking": true,
+        "category": "SECURITY",
+        "model_id": "MODEL-CONTEXT-ENCODER",
+        "requirement": "SECURITY deterministic reference requirement 5",
+        "test_id": "VAL-005"
+      },
+      {
+        "blocking": true,
+        "category": "LICENSE",
+        "model_id": "MODEL-POLICY-CHALLENGER",
+        "requirement": "LICENSE deterministic reference requirement 6",
+        "test_id": "VAL-006"
+      },
+      {
+        "blocking": true,
+        "category": "VULNERABILITY",
+        "model_id": "MODEL-CONTEXT-ENCODER",
+        "requirement": "VULNERABILITY deterministic reference requirement 7",
+        "test_id": "VAL-007"
+      },
+      {
+        "blocking": true,
+        "category": "PROVENANCE",
+        "model_id": "MODEL-POLICY-CHALLENGER",
+        "requirement": "PROVENANCE deterministic reference requirement 8",
+        "test_id": "VAL-008"
+      },
+      {
+        "blocking": true,
+        "category": "REPRODUCIBILITY",
+        "model_id": "MODEL-CONTEXT-ENCODER",
+        "requirement": "REPRODUCIBILITY deterministic reference requirement 9",
+        "test_id": "VAL-009"
+      },
+      {
+        "blocking": true,
+        "category": "MODEL_RISK",
+        "model_id": "MODEL-POLICY-CHALLENGER",
+        "requirement": "MODEL_RISK deterministic reference requirement 10",
+        "test_id": "VAL-010"
+      },
+      {
+        "blocking": true,
+        "category": "GOVERNANCE",
+        "model_id": "MODEL-CONTEXT-ENCODER",
+        "requirement": "GOVERNANCE deterministic reference requirement 11",
+        "test_id": "VAL-011"
+      },
+      {
+        "blocking": true,
+        "category": "AUTHORITY",
+        "model_id": "MODEL-POLICY-CHALLENGER",
+        "requirement": "AUTHORITY deterministic reference requirement 12",
+        "test_id": "VAL-012"
+      },
+      {
+        "blocking": true,
+        "category": "MUTATION",
+        "model_id": "MODEL-CONTEXT-ENCODER",
+        "requirement": "MUTATION deterministic reference requirement 13",
+        "test_id": "VAL-013"
+      },
+      {
+        "blocking": true,
+        "category": "NEGATIVE_FIXTURE",
+        "model_id": "MODEL-POLICY-CHALLENGER",
+        "requirement": "NEGATIVE_FIXTURE deterministic reference requirement 14",
+        "test_id": "VAL-014"
+      },
+      {
+        "blocking": true,
+        "category": "SUPPLY_CHAIN",
+        "model_id": "MODEL-CONTEXT-ENCODER",
+        "requirement": "SUPPLY_CHAIN deterministic reference requirement 15",
+        "test_id": "VAL-015"
+      },
+      {
+        "blocking": true,
+        "category": "CONTRACT",
+        "model_id": "MODEL-POLICY-CHALLENGER",
+        "requirement": "CONTRACT deterministic reference requirement 16",
+        "test_id": "VAL-016"
+      },
+      {
+        "blocking": true,
+        "category": "KNOWN_TIME",
+        "model_id": "MODEL-CONTEXT-ENCODER",
+        "requirement": "KNOWN_TIME deterministic reference requirement 17",
+        "test_id": "VAL-017"
+      },
+      {
+        "blocking": true,
+        "category": "REPLAY",
+        "model_id": "MODEL-POLICY-CHALLENGER",
+        "requirement": "REPLAY deterministic reference requirement 18",
+        "test_id": "VAL-018"
+      },
+      {
+        "blocking": true,
+        "category": "BASELINE",
+        "model_id": "MODEL-CONTEXT-ENCODER",
+        "requirement": "BASELINE deterministic reference requirement 19",
+        "test_id": "VAL-019"
+      },
+      {
+        "blocking": true,
+        "category": "SECURITY",
+        "model_id": "MODEL-POLICY-CHALLENGER",
+        "requirement": "SECURITY deterministic reference requirement 20",
+        "test_id": "VAL-020"
+      },
+      {
+        "blocking": true,
+        "category": "LICENSE",
+        "model_id": "MODEL-CONTEXT-ENCODER",
+        "requirement": "LICENSE deterministic reference requirement 21",
+        "test_id": "VAL-021"
+      },
+      {
+        "blocking": true,
+        "category": "VULNERABILITY",
+        "model_id": "MODEL-POLICY-CHALLENGER",
+        "requirement": "VULNERABILITY deterministic reference requirement 22",
+        "test_id": "VAL-022"
+      },
+      {
+        "blocking": true,
+        "category": "PROVENANCE",
+        "model_id": "MODEL-CONTEXT-ENCODER",
+        "requirement": "PROVENANCE deterministic reference requirement 23",
+        "test_id": "VAL-023"
+      },
+      {
+        "blocking": true,
+        "category": "REPRODUCIBILITY",
+        "model_id": "MODEL-POLICY-CHALLENGER",
+        "requirement": "REPRODUCIBILITY deterministic reference requirement 24",
+        "test_id": "VAL-024"
+      },
+      {
+        "blocking": true,
+        "category": "MODEL_RISK",
+        "model_id": "MODEL-CONTEXT-ENCODER",
+        "requirement": "MODEL_RISK deterministic reference requirement 25",
+        "test_id": "VAL-025"
+      },
+      {
+        "blocking": true,
+        "category": "GOVERNANCE",
+        "model_id": "MODEL-POLICY-CHALLENGER",
+        "requirement": "GOVERNANCE deterministic reference requirement 26",
+        "test_id": "VAL-026"
+      },
+      {
+        "blocking": true,
+        "category": "AUTHORITY",
+        "model_id": "MODEL-CONTEXT-ENCODER",
+        "requirement": "AUTHORITY deterministic reference requirement 27",
+        "test_id": "VAL-027"
+      },
+      {
+        "blocking": true,
+        "category": "MUTATION",
+        "model_id": "MODEL-POLICY-CHALLENGER",
+        "requirement": "MUTATION deterministic reference requirement 28",
+        "test_id": "VAL-028"
+      },
+      {
+        "blocking": true,
+        "category": "NEGATIVE_FIXTURE",
+        "model_id": "MODEL-CONTEXT-ENCODER",
+        "requirement": "NEGATIVE_FIXTURE deterministic reference requirement 29",
+        "test_id": "VAL-029"
+      },
+      {
+        "blocking": true,
+        "category": "SUPPLY_CHAIN",
+        "model_id": "MODEL-POLICY-CHALLENGER",
+        "requirement": "SUPPLY_CHAIN deterministic reference requirement 30",
+        "test_id": "VAL-030"
+      }
+    ]
+  },
+  "validation_results": [
+    {
+      "category": "CONTRACT",
+      "evidence_hash": "8c1ccf6b851b0f160d21e082759f9fbd5f40413c7ace53cd30a25a110e231a99",
+      "independent_reviewer": true,
+      "metric": "binary-pass",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-001",
+      "threshold": 1.0
+    },
+    {
+      "category": "KNOWN_TIME",
+      "evidence_hash": "89e9bec92acfc9b51493f7e3d911c0b9337ec041880432a1d06033674ee6e783",
+      "independent_reviewer": false,
+      "metric": "binary-pass",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-002",
+      "threshold": 1.0
+    },
+    {
+      "category": "REPLAY",
+      "evidence_hash": "d0e21b7a37b2dd9ec1a209f134dc4368cf1f41c283e0f1846dfba7a9899bab85",
+      "independent_reviewer": false,
+      "metric": "binary-pass",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-003",
+      "threshold": 1.0
+    },
+    {
+      "category": "BASELINE",
+      "evidence_hash": "2ae47619afa6c00058597999f7acf03521129f2cab156aba4519e61135213af4",
+      "independent_reviewer": true,
+      "metric": "binary-pass",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-004",
+      "threshold": 1.0
+    },
+    {
+      "category": "SECURITY",
+      "evidence_hash": "4f0b45ef4af014d1e0343a595e11c1f1db832083fa295bdc7e9c656ea37f59b3",
+      "independent_reviewer": false,
+      "metric": "binary-pass",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-005",
+      "threshold": 1.0
+    },
+    {
+      "category": "LICENSE",
+      "evidence_hash": "2c3d898f8b0d1c60ae5b77739f8edc201976642e71fe854a3b0e22273303181c",
+      "independent_reviewer": false,
+      "metric": "binary-pass",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-006",
+      "threshold": 1.0
+    },
+    {
+      "category": "VULNERABILITY",
+      "evidence_hash": "cff45ee65637f741b4a23664e84f75ae0ab364b13ed56f18fb934129d9f667a9",
+      "independent_reviewer": true,
+      "metric": "binary-pass",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-007",
+      "threshold": 1.0
+    },
+    {
+      "category": "PROVENANCE",
+      "evidence_hash": "7b18a7fab8c4032b85c645f2e56e0adae88144f20f2f99c15c9fc520e787a6e1",
+      "independent_reviewer": false,
+      "metric": "binary-pass",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-008",
+      "threshold": 1.0
+    },
+    {
+      "category": "REPRODUCIBILITY",
+      "evidence_hash": "b70d6a86bab44e670ae99ea05e181ab3051bf98f8a043655525ee879cd333bb4",
+      "independent_reviewer": false,
+      "metric": "binary-pass",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-009",
+      "threshold": 1.0
+    },
+    {
+      "category": "MODEL_RISK",
+      "evidence_hash": "c50eaa738da683c18938ff8fefa650e1659bb8fe0c4eb7dac9d05eaa016498a9",
+      "independent_reviewer": true,
+      "metric": "binary-pass",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-010",
+      "threshold": 1.0
+    },
+    {
+      "category": "GOVERNANCE",
+      "evidence_hash": "6ad2dd5c3f47983c476ab5bab838a551ff7dfbc581921390434a37263511da29",
+      "independent_reviewer": false,
+      "metric": "binary-pass",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-011",
+      "threshold": 1.0
+    },
+    {
+      "category": "AUTHORITY",
+      "evidence_hash": "679ca17fc7bb60a92fbcc8d0daedf07361614d698131b17c9a4206d4e863767e",
+      "independent_reviewer": false,
+      "metric": "binary-pass",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-012",
+      "threshold": 1.0
+    },
+    {
+      "category": "MUTATION",
+      "evidence_hash": "ab69e5dcb5c93a1d7f86f129ae1cd0c4cb900206f7e389fbc9ff30a786255d01",
+      "independent_reviewer": true,
+      "metric": "binary-pass",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-013",
+      "threshold": 1.0
+    },
+    {
+      "category": "NEGATIVE_FIXTURE",
+      "evidence_hash": "59a1a945d411af0db94552062e5154c2be68a1dc3fd7c8a890a50e9ace82ed88",
+      "independent_reviewer": false,
+      "metric": "binary-pass",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-014",
+      "threshold": 1.0
+    },
+    {
+      "category": "SUPPLY_CHAIN",
+      "evidence_hash": "ca9d782ea27011f67e1d3d60ae161d55978de411f5b52463759552181974280b",
+      "independent_reviewer": false,
+      "metric": "binary-pass",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-015",
+      "threshold": 1.0
+    },
+    {
+      "category": "CONTRACT",
+      "evidence_hash": "2540df24847d41a0374229c78e8e87bbea878f8167b5984490cbed0c479d17df",
+      "independent_reviewer": true,
+      "metric": "binary-pass",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-016",
+      "threshold": 1.0
+    },
+    {
+      "category": "KNOWN_TIME",
+      "evidence_hash": "7d04a2e560a36c8e575b3a945f49e372ab54b270fd4102e4780fb1389f9269ed",
+      "independent_reviewer": false,
+      "metric": "binary-pass",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-017",
+      "threshold": 1.0
+    },
+    {
+      "category": "REPLAY",
+      "evidence_hash": "8d1ec9b54c66381633e4b9ff510ddfe6fba14037898ce703babe8f7cd74b5957",
+      "independent_reviewer": false,
+      "metric": "binary-pass",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-018",
+      "threshold": 1.0
+    },
+    {
+      "category": "BASELINE",
+      "evidence_hash": "75c929f824e367d85c0480db11f6c2d775a46b2de1df69a2936378fbe9b7a17f",
+      "independent_reviewer": true,
+      "metric": "binary-pass",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-019",
+      "threshold": 1.0
+    },
+    {
+      "category": "SECURITY",
+      "evidence_hash": "215d168e34a956693688a93319f77e3d55a9d875d01478da567aeaa1a3abde23",
+      "independent_reviewer": false,
+      "metric": "binary-pass",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-020",
+      "threshold": 1.0
+    },
+    {
+      "category": "LICENSE",
+      "evidence_hash": "39afbcd4704cc472289cb1602f738a2ff38df11d3b1d07c7fb0bf5e2e4ab222e",
+      "independent_reviewer": false,
+      "metric": "binary-pass",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-021",
+      "threshold": 1.0
+    },
+    {
+      "category": "VULNERABILITY",
+      "evidence_hash": "e4e0fa2048852b1617c48913bef0664c2cc90cf4fb935fc2b34ed5bf1c250b3c",
+      "independent_reviewer": true,
+      "metric": "binary-pass",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-022",
+      "threshold": 1.0
+    },
+    {
+      "category": "PROVENANCE",
+      "evidence_hash": "c5cd7998c140d0e243d9d6d8109d55bf075332450bb5fb7264793fa8c956ecd0",
+      "independent_reviewer": false,
+      "metric": "binary-pass",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-023",
+      "threshold": 1.0
+    },
+    {
+      "category": "REPRODUCIBILITY",
+      "evidence_hash": "a13d1f491db223db306bade69b2e55d7f70a9f11b420c537642a34fb38872425",
+      "independent_reviewer": false,
+      "metric": "binary-pass",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-024",
+      "threshold": 1.0
+    },
+    {
+      "category": "MODEL_RISK",
+      "evidence_hash": "4df4a48c6077d882a0f01dccab94e1bec57dbf4e68ab4ac4b9b22d7d8729e880",
+      "independent_reviewer": true,
+      "metric": "binary-pass",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-025",
+      "threshold": 1.0
+    },
+    {
+      "category": "GOVERNANCE",
+      "evidence_hash": "9ec3ede095f247545601264aa5e13dd790c7259db4834fcfcfd76c1490d02399",
+      "independent_reviewer": false,
+      "metric": "binary-pass",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-026",
+      "threshold": 1.0
+    },
+    {
+      "category": "AUTHORITY",
+      "evidence_hash": "e3347a6a8942535a1f532b1669a0c6e0878d88906b8c33585c6156edf678fe1b",
+      "independent_reviewer": false,
+      "metric": "binary-pass",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-027",
+      "threshold": 1.0
+    },
+    {
+      "category": "MUTATION",
+      "evidence_hash": "a44a925aad6d70a7f2f75c107ca58ea46709696dafac0822068af9d9e052d474",
+      "independent_reviewer": true,
+      "metric": "binary-pass",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-028",
+      "threshold": 1.0
+    },
+    {
+      "category": "NEGATIVE_FIXTURE",
+      "evidence_hash": "56e92b735829127cd9d9061d12f1b3177c4327e2c63b353657af223c34466b6d",
+      "independent_reviewer": false,
+      "metric": "binary-pass",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-029",
+      "threshold": 1.0
+    },
+    {
+      "category": "SUPPLY_CHAIN",
+      "evidence_hash": "992e42a9d93ffe6aac1ab04183a7647ae14921ba1702af03d16491b7909c927d",
+      "independent_reviewer": false,
+      "metric": "binary-pass",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "observed": 1.0,
+      "status": "PASS",
+      "synthetic_fixture": true,
+      "test_id": "VAL-030",
+      "threshold": 1.0
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "component_id": "DEP-TYPING_EXTENSIONS-4.0.0-ref",
+      "cvss": 2.1,
+      "exploitability": "NO_KNOWN_EXPLOIT",
+      "fix_available": false,
+      "known_time": "2026-06-25T00:00:00Z",
+      "severity": "LOW",
+      "source": "synthetic-feed",
+      "status": "accepted-reference",
+      "synthetic_fixture": true,
+      "vulnerability_id": "VULN-SYNTH-LOW-001"
+    },
+    {
+      "component_id": "DEP-PACKAGING-24.0-ref",
+      "cvss": 8.1,
+      "exploitability": "NO_KNOWN_EXPLOIT",
+      "fix_available": true,
+      "known_time": "2026-06-25T00:00:00Z",
+      "severity": "HIGH",
+      "source": "synthetic-feed",
+      "status": "remediated",
+      "synthetic_fixture": true,
+      "vulnerability_id": "VULN-SYNTH-HIGH-REMEDIATED"
+    }
+  ],
+  "vulnerability_thresholds": {
+    "block_critical": true,
+    "block_high_exploitable": true,
+    "max_unfixed_high": 0,
+    "staleness_days_max": 7
+  }
+}

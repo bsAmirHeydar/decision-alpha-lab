@@ -1,0 +1,130 @@
+{
+  "phase": "SAED_V4_35",
+  "registry_hash": "89dc315c7e67f768f11b1a82b7467a5da91efacca636d6fa24f01bdcf7cb174e",
+  "registry_id": "v435_surface_b0b14c06a5de03f84d70f97a",
+  "research_only": true,
+  "surface_count": 15,
+  "surfaces": [
+    {
+      "component_id": "DATASET-CONTEXT-SYNTH",
+      "component_type": "data",
+      "exposure": "LOW",
+      "network_reachable": false,
+      "review_required": false,
+      "untrusted_input": false
+    },
+    {
+      "component_id": "DATASET-HIDDEN-EVAL-SYNTH",
+      "component_type": "data",
+      "exposure": "LOW",
+      "network_reachable": false,
+      "review_required": false,
+      "untrusted_input": false
+    },
+    {
+      "component_id": "DEP-JSONSCHEMA-4.0.0-ref",
+      "component_type": "library",
+      "exposure": "MEDIUM",
+      "network_reachable": false,
+      "review_required": true,
+      "untrusted_input": false
+    },
+    {
+      "component_id": "DEP-NUMPY-2.0.0-ref",
+      "component_type": "library",
+      "exposure": "MEDIUM",
+      "network_reachable": false,
+      "review_required": true,
+      "untrusted_input": false
+    },
+    {
+      "component_id": "DEP-PACKAGING-24.0-ref",
+      "component_type": "library",
+      "exposure": "MEDIUM",
+      "network_reachable": false,
+      "review_required": true,
+      "untrusted_input": false
+    },
+    {
+      "component_id": "DEP-PYTEST-8.0.0-ref",
+      "component_type": "library",
+      "exposure": "MEDIUM",
+      "network_reachable": false,
+      "review_required": true,
+      "untrusted_input": false
+    },
+    {
+      "component_id": "DEP-SETUPTOOLS-70.0-ref",
+      "component_type": "library",
+      "exposure": "MEDIUM",
+      "network_reachable": false,
+      "review_required": true,
+      "untrusted_input": false
+    },
+    {
+      "component_id": "DEP-TYPING_EXTENSIONS-4.0.0-ref",
+      "component_type": "library",
+      "exposure": "MEDIUM",
+      "network_reachable": false,
+      "review_required": true,
+      "untrusted_input": false
+    },
+    {
+      "component_id": "MODEL-CONTEXT-ENCODER",
+      "component_type": "machine-learning-model",
+      "exposure": "LOW",
+      "network_reachable": false,
+      "review_required": false,
+      "untrusted_input": true
+    },
+    {
+      "component_id": "MODEL-POLICY-CHALLENGER",
+      "component_type": "machine-learning-model",
+      "exposure": "LOW",
+      "network_reachable": false,
+      "review_required": false,
+      "untrusted_input": true
+    },
+    {
+      "component_id": "RUNTIME-MQL5-STATIC",
+      "component_type": "container",
+      "exposure": "HIGH",
+      "network_reachable": false,
+      "review_required": true,
+      "untrusted_input": false
+    },
+    {
+      "component_id": "RUNTIME-PYTHON-REF",
+      "component_type": "container",
+      "exposure": "HIGH",
+      "network_reachable": false,
+      "review_required": true,
+      "untrusted_input": false
+    },
+    {
+      "component_id": "SERVICE-VULN-FEED-SYNTH",
+      "component_type": "service",
+      "exposure": "HIGH",
+      "network_reachable": true,
+      "review_required": true,
+      "untrusted_input": true
+    },
+    {
+      "component_id": "TOOL-QA-RUNNER",
+      "component_type": "application",
+      "exposure": "MEDIUM",
+      "network_reachable": false,
+      "review_required": true,
+      "untrusted_input": false
+    },
+    {
+      "component_id": "TOOL-SCHEMA-GENERATOR",
+      "component_type": "application",
+      "exposure": "MEDIUM",
+      "network_reachable": false,
+      "review_required": true,
+      "untrusted_input": false
+    }
+  ],
+  "threat_model_hash": "a4b9ad8e31d66a58cec19caa2612cd95955a86721dc6a6232389b1a43be6a23e"
+}

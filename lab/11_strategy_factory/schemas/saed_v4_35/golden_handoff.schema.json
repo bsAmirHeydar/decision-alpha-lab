@@ -1,0 +1,60 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "authority_granted": {
+      "type": "boolean"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "governance_ledger_hash": {
+      "type": "string"
+    },
+    "handoff_hash": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "handoff_scope": {
+      "type": "string"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "risk_scorecard_hash": {
+      "type": "string"
+    },
+    "sbom_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "authority_granted",
+    "certificate_hash",
+    "governance_ledger_hash",
+    "handoff_hash",
+    "handoff_id",
+    "handoff_scope",
+    "next_phase",
+    "phase",
+    "production_authorized",
+    "research_only",
+    "risk_scorecard_hash",
+    "sbom_hash"
+  ],
+  "title": "GOLDEN_HANDOFF",
+  "type": "object"
+}

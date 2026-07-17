@@ -1,0 +1,53 @@
+{
+  "all_dimensions_present": true,
+  "phase": "SAED_V4_35",
+  "registry_hash": "60bf3eec0b719d9f06fd06b9b70e529a66a713e94d159d9b8c842ced8fc1dc10",
+  "registry_id": "v435_scorecards_c382b56ef5ebe3d7fce4e900",
+  "research_only": true,
+  "scorecards": [
+    {
+      "aggregate_risk_score": 1.0,
+      "blocking": false,
+      "dimension_scores": {
+        "change_risk": 1.0,
+        "concentration_risk": 1.0,
+        "conceptual_soundness": 1.0,
+        "cyber_supply_chain_risk": 1.0,
+        "data_risk": 1.0,
+        "explainability_risk": 1.0,
+        "governance_risk": 1.0,
+        "operational_risk": 1.0,
+        "third_party_risk": 1.0,
+        "validation_risk": 1.0
+      },
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "monitoring_readiness": 1.0,
+      "open_findings": 0,
+      "production_authorized": false,
+      "risk_tier": "TIER_3",
+      "validation_coverage": 1.0
+    },
+    {
+      "aggregate_risk_score": 1.0,
+      "blocking": false,
+      "dimension_scores": {
+        "change_risk": 1.0,
+        "concentration_risk": 1.0,
+        "conceptual_soundness": 1.0,
+        "cyber_supply_chain_risk": 1.0,
+        "data_risk": 1.0,
+        "explainability_risk": 1.0,
+        "governance_risk": 1.0,
+        "operational_risk": 1.0,
+        "third_party_risk": 1.0,
+        "validation_risk": 1.0
+      },
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "monitoring_readiness": 1.0,
+      "open_findings": 0,
+      "production_authorized": false,
+      "risk_tier": "TIER_3",
+      "validation_coverage": 1.0
+    }
+  ]
+}

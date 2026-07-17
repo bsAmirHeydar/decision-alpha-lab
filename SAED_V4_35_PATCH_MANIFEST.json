@@ -1,0 +1,14 @@
+{
+  "authority": "research_only",
+  "claim_ceiling": "synthetic_deterministic_reference_only",
+  "delivery_command": "python tools/strategy_factory/saed_v4_35/validate_saed_v4_35_delivery.py",
+  "file_count": 402,
+  "next_phase": "SAED_V4_36",
+  "patch_type": "additive_reference_implementation",
+  "phase": "SAED_V4_35",
+  "production_authorization": false,
+  "qa_command": "python tools/strategy_factory/saed_v4_35/run_saed_v4_35_full_qa.py",
+  "title": "Model Risk and Supply Chain",
+  "upstream_phase": "SAED_V4_34",
+  "version": "1.0.0"
+}

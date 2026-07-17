@@ -1,0 +1,231 @@
+{
+  "baseline_test_required": true,
+  "challenge_owners": [
+    "VALIDATOR-A",
+    "VALIDATOR-B",
+    "SECURITY-C"
+  ],
+  "coverage_target": 1.0,
+  "future_suffix_test_required": true,
+  "independence_required": true,
+  "model_ids": [
+    "MODEL-CONTEXT-ENCODER",
+    "MODEL-POLICY-CHALLENGER"
+  ],
+  "plan_hash": "598104a35c40524eccc3f72222647a1136603c51b3b29dc88996e726a2531d60",
+  "plan_id": "VALIDATION-PLAN-001",
+  "research_only": true,
+  "security_test_required": true,
+  "tests": [
+    {
+      "blocking": true,
+      "category": "CONTRACT",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "requirement": "CONTRACT deterministic reference requirement 1",
+      "test_id": "VAL-001"
+    },
+    {
+      "blocking": true,
+      "category": "KNOWN_TIME",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "requirement": "KNOWN_TIME deterministic reference requirement 2",
+      "test_id": "VAL-002"
+    },
+    {
+      "blocking": true,
+      "category": "REPLAY",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "requirement": "REPLAY deterministic reference requirement 3",
+      "test_id": "VAL-003"
+    },
+    {
+      "blocking": true,
+      "category": "BASELINE",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "requirement": "BASELINE deterministic reference requirement 4",
+      "test_id": "VAL-004"
+    },
+    {
+      "blocking": true,
+      "category": "SECURITY",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "requirement": "SECURITY deterministic reference requirement 5",
+      "test_id": "VAL-005"
+    },
+    {
+      "blocking": true,
+      "category": "LICENSE",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "requirement": "LICENSE deterministic reference requirement 6",
+      "test_id": "VAL-006"
+    },
+    {
+      "blocking": true,
+      "category": "VULNERABILITY",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "requirement": "VULNERABILITY deterministic reference requirement 7",
+      "test_id": "VAL-007"
+    },
+    {
+      "blocking": true,
+      "category": "PROVENANCE",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "requirement": "PROVENANCE deterministic reference requirement 8",
+      "test_id": "VAL-008"
+    },
+    {
+      "blocking": true,
+      "category": "REPRODUCIBILITY",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "requirement": "REPRODUCIBILITY deterministic reference requirement 9",
+      "test_id": "VAL-009"
+    },
+    {
+      "blocking": true,
+      "category": "MODEL_RISK",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "requirement": "MODEL_RISK deterministic reference requirement 10",
+      "test_id": "VAL-010"
+    },
+    {
+      "blocking": true,
+      "category": "GOVERNANCE",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "requirement": "GOVERNANCE deterministic reference requirement 11",
+      "test_id": "VAL-011"
+    },
+    {
+      "blocking": true,
+      "category": "AUTHORITY",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "requirement": "AUTHORITY deterministic reference requirement 12",
+      "test_id": "VAL-012"
+    },
+    {
+      "blocking": true,
+      "category": "MUTATION",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "requirement": "MUTATION deterministic reference requirement 13",
+      "test_id": "VAL-013"
+    },
+    {
+      "blocking": true,
+      "category": "NEGATIVE_FIXTURE",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "requirement": "NEGATIVE_FIXTURE deterministic reference requirement 14",
+      "test_id": "VAL-014"
+    },
+    {
+      "blocking": true,
+      "category": "SUPPLY_CHAIN",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "requirement": "SUPPLY_CHAIN deterministic reference requirement 15",
+      "test_id": "VAL-015"
+    },
+    {
+      "blocking": true,
+      "category": "CONTRACT",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "requirement": "CONTRACT deterministic reference requirement 16",
+      "test_id": "VAL-016"
+    },
+    {
+      "blocking": true,
+      "category": "KNOWN_TIME",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "requirement": "KNOWN_TIME deterministic reference requirement 17",
+      "test_id": "VAL-017"
+    },
+    {
+      "blocking": true,
+      "category": "REPLAY",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "requirement": "REPLAY deterministic reference requirement 18",
+      "test_id": "VAL-018"
+    },
+    {
+      "blocking": true,
+      "category": "BASELINE",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "requirement": "BASELINE deterministic reference requirement 19",
+      "test_id": "VAL-019"
+    },
+    {
+      "blocking": true,
+      "category": "SECURITY",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "requirement": "SECURITY deterministic reference requirement 20",
+      "test_id": "VAL-020"
+    },
+    {
+      "blocking": true,
+      "category": "LICENSE",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "requirement": "LICENSE deterministic reference requirement 21",
+      "test_id": "VAL-021"
+    },
+    {
+      "blocking": true,
+      "category": "VULNERABILITY",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "requirement": "VULNERABILITY deterministic reference requirement 22",
+      "test_id": "VAL-022"
+    },
+    {
+      "blocking": true,
+      "category": "PROVENANCE",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "requirement": "PROVENANCE deterministic reference requirement 23",
+      "test_id": "VAL-023"
+    },
+    {
+      "blocking": true,
+      "category": "REPRODUCIBILITY",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "requirement": "REPRODUCIBILITY deterministic reference requirement 24",
+      "test_id": "VAL-024"
+    },
+    {
+      "blocking": true,
+      "category": "MODEL_RISK",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "requirement": "MODEL_RISK deterministic reference requirement 25",
+      "test_id": "VAL-025"
+    },
+    {
+      "blocking": true,
+      "category": "GOVERNANCE",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "requirement": "GOVERNANCE deterministic reference requirement 26",
+      "test_id": "VAL-026"
+    },
+    {
+      "blocking": true,
+      "category": "AUTHORITY",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "requirement": "AUTHORITY deterministic reference requirement 27",
+      "test_id": "VAL-027"
+    },
+    {
+      "blocking": true,
+      "category": "MUTATION",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "requirement": "MUTATION deterministic reference requirement 28",
+      "test_id": "VAL-028"
+    },
+    {
+      "blocking": true,
+      "category": "NEGATIVE_FIXTURE",
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "requirement": "NEGATIVE_FIXTURE deterministic reference requirement 29",
+      "test_id": "VAL-029"
+    },
+    {
+      "blocking": true,
+      "category": "SUPPLY_CHAIN",
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "requirement": "SUPPLY_CHAIN deterministic reference requirement 30",
+      "test_id": "VAL-030"
+    }
+  ]
+}

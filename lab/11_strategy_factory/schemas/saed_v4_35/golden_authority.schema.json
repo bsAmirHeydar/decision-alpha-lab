@@ -1,0 +1,80 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_authority.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "boundary_hash": {
+      "type": "string"
+    },
+    "boundary_id": {
+      "type": "string"
+    },
+    "failure_action": {
+      "type": "string"
+    },
+    "live_trading_authority": {
+      "type": "boolean"
+    },
+    "may_allocate_risk": {
+      "type": "boolean"
+    },
+    "may_compile_live_runtime": {
+      "type": "boolean"
+    },
+    "may_inventory_models": {
+      "type": "boolean"
+    },
+    "may_issue_reference_release_eligibility": {
+      "type": "boolean"
+    },
+    "may_mutate_ucee": {
+      "type": "boolean"
+    },
+    "may_quarantine_artifacts": {
+      "type": "boolean"
+    },
+    "may_score_model_risk": {
+      "type": "boolean"
+    },
+    "may_select_treatment": {
+      "type": "boolean"
+    },
+    "may_send_order": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorization": {
+      "type": "boolean"
+    },
+    "promotion_authority": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "boundary_hash",
+    "boundary_id",
+    "failure_action",
+    "live_trading_authority",
+    "may_allocate_risk",
+    "may_compile_live_runtime",
+    "may_inventory_models",
+    "may_issue_reference_release_eligibility",
+    "may_mutate_ucee",
+    "may_quarantine_artifacts",
+    "may_score_model_risk",
+    "may_select_treatment",
+    "may_send_order",
+    "phase",
+    "production_authorization",
+    "promotion_authority",
+    "research_only"
+  ],
+  "title": "GOLDEN_AUTHORITY",
+  "type": "object"
+}

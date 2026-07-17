@@ -1,0 +1,26 @@
+{
+  "allowed_licenses": [
+    "Apache-2.0",
+    "BSD-3-Clause",
+    "INTERNAL",
+    "MIT",
+    "PSF-2.0"
+  ],
+  "commercial_use_required": true,
+  "copyleft_action": "LEGAL_REVIEW",
+  "forbidden_licenses": [
+    "AGPL-3.0",
+    "GPL-3.0-only",
+    "UNKNOWN"
+  ],
+  "phase": "SAED_V4_35",
+  "policy_hash": "c5d806531789fac5e83a21bb9f361b35226484da772ce09da2332e78e147ac87",
+  "policy_id": "LICENSE-POLICY-001",
+  "policy_receipt_id": "v435_license_policy_b72306356b2b3f77a3c75cfa",
+  "redistribution_review_required": true,
+  "research_only": true,
+  "restricted_licenses": [
+    "MPL-2.0"
+  ],
+  "unknown_license_action": "QUARANTINE"
+}

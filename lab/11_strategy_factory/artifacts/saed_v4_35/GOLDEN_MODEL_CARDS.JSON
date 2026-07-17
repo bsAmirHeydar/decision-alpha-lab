@@ -1,0 +1,69 @@
+{
+  "cards": [
+    {
+      "ethical_risks": [
+        "automation-bias",
+        "false-confidence"
+      ],
+      "evaluation_scope": "closed golden and negative fixtures",
+      "intended_use": [
+        "offline-research",
+        "synthetic-reference-validation"
+      ],
+      "known_failure_modes": [
+        "ood-overconfidence",
+        "missing-view-degradation",
+        "supply-chain-substitution"
+      ],
+      "limitations": [
+        "no-real-alpha-evidence",
+        "no-runtime-parity",
+        "distribution-shift-unverified"
+      ],
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "owner_id": "OWNER-ML-1",
+      "prohibited_uses": [
+        "live-ordering",
+        "capital-allocation",
+        "unreviewed-production"
+      ],
+      "review_status": "reviewed-reference",
+      "training_scope": "synthetic-reference-only"
+    },
+    {
+      "ethical_risks": [
+        "automation-bias",
+        "false-confidence"
+      ],
+      "evaluation_scope": "closed golden and negative fixtures",
+      "intended_use": [
+        "offline-research",
+        "synthetic-reference-validation"
+      ],
+      "known_failure_modes": [
+        "ood-overconfidence",
+        "missing-view-degradation",
+        "supply-chain-substitution"
+      ],
+      "limitations": [
+        "no-real-alpha-evidence",
+        "no-runtime-parity",
+        "distribution-shift-unverified"
+      ],
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "owner_id": "OWNER-ML-2",
+      "prohibited_uses": [
+        "live-ordering",
+        "capital-allocation",
+        "unreviewed-production"
+      ],
+      "review_status": "reviewed-reference",
+      "training_scope": "synthetic-reference-only"
+    }
+  ],
+  "coverage_complete": true,
+  "phase": "SAED_V4_35",
+  "registry_hash": "e05547b939b460f9eedf0e1ff9c918686f884f3aae79db9f5a5ced7da4d7960c",
+  "registry_id": "v435_modelcards_68a484726098dbc79169ca94",
+  "research_only": true
+}

@@ -1,0 +1,139 @@
+{
+  "central_engine_mutation_allowed": false,
+  "clauses": [
+    {
+      "clause_id": "C01",
+      "evidence_required": true,
+      "failure_action": "REJECT",
+      "priority": 1,
+      "requirement": "Immutable upstream"
+    },
+    {
+      "clause_id": "C02",
+      "evidence_required": true,
+      "failure_action": "REJECT",
+      "priority": 2,
+      "requirement": "Closed contracts"
+    },
+    {
+      "clause_id": "C03",
+      "evidence_required": true,
+      "failure_action": "REJECT",
+      "priority": 3,
+      "requirement": "Known-time only"
+    },
+    {
+      "clause_id": "C04",
+      "evidence_required": true,
+      "failure_action": "REJECT",
+      "priority": 4,
+      "requirement": "Complete inventory"
+    },
+    {
+      "clause_id": "C05",
+      "evidence_required": true,
+      "failure_action": "REJECT",
+      "priority": 5,
+      "requirement": "Complete SBOM"
+    },
+    {
+      "clause_id": "C06",
+      "evidence_required": true,
+      "failure_action": "QUARANTINE",
+      "priority": 6,
+      "requirement": "Pinned immutable artifacts"
+    },
+    {
+      "clause_id": "C07",
+      "evidence_required": true,
+      "failure_action": "QUARANTINE",
+      "priority": 7,
+      "requirement": "Known licenses only"
+    },
+    {
+      "clause_id": "C08",
+      "evidence_required": true,
+      "failure_action": "QUARANTINE",
+      "priority": 8,
+      "requirement": "No unmitigated critical vulnerabilities"
+    },
+    {
+      "clause_id": "C09",
+      "evidence_required": true,
+      "failure_action": "QUARANTINE",
+      "priority": 9,
+      "requirement": "Signed provenance"
+    },
+    {
+      "clause_id": "C10",
+      "evidence_required": true,
+      "failure_action": "REJECT",
+      "priority": 10,
+      "requirement": "Reproducible build evidence"
+    },
+    {
+      "clause_id": "C11",
+      "evidence_required": true,
+      "failure_action": "REJECT",
+      "priority": 11,
+      "requirement": "Three lines governance"
+    },
+    {
+      "clause_id": "C12",
+      "evidence_required": true,
+      "failure_action": "REJECT",
+      "priority": 12,
+      "requirement": "Independent validation"
+    },
+    {
+      "clause_id": "C13",
+      "evidence_required": true,
+      "failure_action": "REJECT",
+      "priority": 13,
+      "requirement": "Complete exposure accounting"
+    },
+    {
+      "clause_id": "C14",
+      "evidence_required": true,
+      "failure_action": "PRESERVE_BASELINE",
+      "priority": 14,
+      "requirement": "Fail closed release"
+    },
+    {
+      "clause_id": "C15",
+      "evidence_required": true,
+      "failure_action": "HALT",
+      "priority": 15,
+      "requirement": "UCEE authority preserved"
+    },
+    {
+      "clause_id": "C16",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN",
+      "priority": 16,
+      "requirement": "No production claim"
+    },
+    {
+      "clause_id": "C17",
+      "evidence_required": true,
+      "failure_action": "REJECT",
+      "priority": 17,
+      "requirement": "Incident and recall readiness"
+    },
+    {
+      "clause_id": "C18",
+      "evidence_required": true,
+      "failure_action": "REJECT",
+      "priority": 18,
+      "requirement": "Evidence bundle required"
+    }
+  ],
+  "constitution_hash": "99d0db30337ed61a489f319a4ea63469d62bc2be712d09413b90da3d8f4b81c5",
+  "constitution_id": "MRSC-CONSTITUTION-001",
+  "execution_authority_allowed": false,
+  "known_critical_vulnerability_allowed": false,
+  "research_only": true,
+  "unknown_license_allowed": false,
+  "unsigned_artifacts_allowed": false,
+  "version": "1.0.0"
+}

@@ -1,0 +1,69 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_license_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "allowed_licenses": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "commercial_use_required": {
+      "type": "boolean"
+    },
+    "copyleft_action": {
+      "type": "string"
+    },
+    "forbidden_licenses": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "policy_hash": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "policy_receipt_id": {
+      "type": "string"
+    },
+    "redistribution_review_required": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "restricted_licenses": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "unknown_license_action": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "allowed_licenses",
+    "commercial_use_required",
+    "copyleft_action",
+    "forbidden_licenses",
+    "phase",
+    "policy_hash",
+    "policy_id",
+    "policy_receipt_id",
+    "redistribution_review_required",
+    "research_only",
+    "restricted_licenses",
+    "unknown_license_action"
+  ],
+  "title": "GOLDEN_LICENSE_POLICY",
+  "type": "object"
+}

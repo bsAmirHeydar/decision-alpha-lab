@@ -1,0 +1,16 @@
+{
+  "boundary_hash": "d503398350a5a6dcefff9fa93bfe9df5ef3b357b5f74f418e6610fa3aeb3dff2",
+  "boundary_id": "v435_external_boundary_9315374f9b53e6cd185c8495",
+  "broker_qualification": false,
+  "closed_schema_validation": true,
+  "external_model_validation": false,
+  "metaeditor_compile": false,
+  "phase": "SAED_V4_35",
+  "production_authorization": false,
+  "real_package_signature_verification": false,
+  "real_reproducible_build": false,
+  "real_vulnerability_scanner_attestation": false,
+  "runtime_parity": false,
+  "static_mql5_validation": true,
+  "static_python_tests": true
+}

@@ -1,0 +1,23 @@
+{
+  "cutoff_time": "2026-06-30T23:59:59Z",
+  "kind": "external_services",
+  "phase": "SAED_V4_35",
+  "record_count": 1,
+  "records": [
+    {
+      "content_hash": "b8f912e1378ed26e0bf6a48cf258255274640267c69f81cb1f37674ce6c2a1b5",
+      "contract_hash": "2e6c8c6287917107393a48be5cb5d8d32dfa8922f958f9e2bcf924172514f40f",
+      "data_export_allowed": false,
+      "immutable": true,
+      "known_time": "2026-06-25T00:00:00Z",
+      "service_id": "SERVICE-VULN-FEED-SYNTH",
+      "service_name": "synthetic-vulnerability-feed",
+      "status": "approved-reference",
+      "supplier_id": "SUPPLIER-SECURITY-REF",
+      "version": "2026-06-ref"
+    }
+  ],
+  "registry_hash": "40617fd81793c92bf47e306a792bcc680d68f32c78d333f219e0efc190718fea",
+  "registry_id": "v435_external_services_b46da4f9af58a5849aa02459",
+  "research_only": true
+}

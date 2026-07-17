@@ -1,0 +1,25 @@
+{
+  "audit_id": "AUDIT-REF-001",
+  "auditor_id": "AUDITOR-D",
+  "auditor_line": 3,
+  "evidence_hash": "2071e29393ba7f1f11c702bcba27add19865ed6c0e53c15e4ba958002e1fdea6",
+  "external_audit": false,
+  "findings": [],
+  "independent": true,
+  "opinion": "UNQUALIFIED_REFERENCE",
+  "phase": "SAED_V4_35",
+  "receipt_hash": "b75679a782fb4cf450d1d4f1ffb1809aebfe4513bbbc37b27ec37f0e83ec3d0c",
+  "receipt_id": "v435_audit_cd87b0a47f175af6bf5c7169",
+  "research_only": true,
+  "sample_size": 25,
+  "scope": [
+    "inventory",
+    "sbom",
+    "licenses",
+    "vulnerabilities",
+    "provenance",
+    "model-risk",
+    "governance"
+  ],
+  "synthetic_fixture": true
+}

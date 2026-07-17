@@ -1,0 +1,12 @@
+{
+  "compatibility": "ADDITIVE_ONLY",
+  "execution_authority_granted": false,
+  "phase": "SAED_V4_35",
+  "research_only": true,
+  "review_hash": "1521f7542e24cad98f49a1cb6444e21dff0aaf722daed1284cd7492c1df63a3b",
+  "review_id": "v435_ucee_670aaf83394bb3a4c9fb52c2",
+  "risk_authority_granted": false,
+  "treatment_universe_mutation": false,
+  "ucee_runtime_mutation": false,
+  "ucee_schema_mutation": false
+}

@@ -1,0 +1,76 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_audit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "audit_id": {
+      "type": "string"
+    },
+    "auditor_id": {
+      "type": "string"
+    },
+    "auditor_line": {
+      "type": "integer"
+    },
+    "evidence_hash": {
+      "type": "string"
+    },
+    "external_audit": {
+      "type": "boolean"
+    },
+    "findings": {
+      "items": {},
+      "type": "array"
+    },
+    "independent": {
+      "type": "boolean"
+    },
+    "opinion": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "sample_size": {
+      "type": "integer"
+    },
+    "scope": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "synthetic_fixture": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "audit_id",
+    "auditor_id",
+    "auditor_line",
+    "evidence_hash",
+    "external_audit",
+    "findings",
+    "independent",
+    "opinion",
+    "phase",
+    "receipt_hash",
+    "receipt_id",
+    "research_only",
+    "sample_size",
+    "scope",
+    "synthetic_fixture"
+  ],
+  "title": "GOLDEN_AUDIT",
+  "type": "object"
+}

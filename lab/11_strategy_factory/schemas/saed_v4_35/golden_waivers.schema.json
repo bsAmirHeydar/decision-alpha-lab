@@ -1,0 +1,64 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_waivers.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "active_reference_waivers": {
+      "type": "integer"
+    },
+    "expired_waivers": {
+      "type": "integer"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "review_hash": {
+      "type": "string"
+    },
+    "review_id": {
+      "type": "string"
+    },
+    "reviews": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "exception_id": {
+            "type": "string"
+          },
+          "production_scope_allowed": {
+            "type": "boolean"
+          },
+          "revalidation_required": {
+            "type": "boolean"
+          },
+          "state": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "exception_id",
+          "production_scope_allowed",
+          "revalidation_required",
+          "state"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "active_reference_waivers",
+    "expired_waivers",
+    "phase",
+    "research_only",
+    "review_hash",
+    "review_id",
+    "reviews"
+  ],
+  "title": "GOLDEN_WAIVERS",
+  "type": "object"
+}

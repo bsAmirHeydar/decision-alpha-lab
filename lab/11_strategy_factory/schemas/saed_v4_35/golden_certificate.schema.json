@@ -1,0 +1,56 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_certificate.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "certificate_hash": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "evidence_bundle_hash": {
+      "type": "string"
+    },
+    "live_trading_authority": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "reference_accepted": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "runtime_activation_allowed": {
+      "type": "boolean"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "certificate_hash",
+    "certificate_id",
+    "claim_ceiling",
+    "evidence_bundle_hash",
+    "live_trading_authority",
+    "phase",
+    "production_authorized",
+    "reference_accepted",
+    "research_only",
+    "runtime_activation_allowed",
+    "status"
+  ],
+  "title": "GOLDEN_CERTIFICATE",
+  "type": "object"
+}

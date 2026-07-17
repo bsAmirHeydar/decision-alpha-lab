@@ -1,0 +1,60 @@
+{
+  "assets": [
+    "models",
+    "datasets",
+    "dependencies",
+    "signing-keys",
+    "evidence-ledger",
+    "runtime-images"
+  ],
+  "controls": [
+    "content-addressing",
+    "closed-sbom",
+    "license-gate",
+    "vulnerability-gate",
+    "signature-coverage",
+    "hermetic-build",
+    "network-deny",
+    "three-lines-review",
+    "independent-validation",
+    "quarantine",
+    "recall",
+    "append-only-ledger",
+    "known-time-cutoff",
+    "baseline-preservation"
+  ],
+  "phase": "SAED_V4_35",
+  "receipt_hash": "a4b9ad8e31d66a58cec19caa2612cd95955a86721dc6a6232389b1a43be6a23e",
+  "receipt_id": "v435_threatmodel_d92d230b64f7bee6ba77898b",
+  "research_only": true,
+  "residual_risks": [
+    "synthetic-signature-evidence-only",
+    "synthetic-vulnerability-feed-only",
+    "external-build-reproduction-unverified"
+  ],
+  "reviewed_by_security": true,
+  "threat_model_id": "THREAT-MODEL-001",
+  "threats": [
+    "dependency-confusion",
+    "typosquatting",
+    "malicious-weight",
+    "poisoned-data",
+    "license-contamination",
+    "signature-forgery",
+    "key-compromise",
+    "rollback-attack",
+    "model-substitution",
+    "prompt-injection",
+    "unsafe-deserialization",
+    "build-network-exfiltration",
+    "vulnerability-feed-staleness",
+    "waiver-abuse"
+  ],
+  "trust_boundaries": [
+    "supplier-intake",
+    "build-boundary",
+    "research-runtime",
+    "artifact-registry",
+    "operator-review"
+  ]
+}

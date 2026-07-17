@@ -1,0 +1,23 @@
+{
+  "external_evidence_open": [
+    "real package signature verification",
+    "real vulnerability scanner attestation",
+    "real reproducible build",
+    "external independent validation",
+    "MetaEditor compilation",
+    "Python/MQL5 runtime parity",
+    "production release authorization"
+  ],
+  "implementation_complete": true,
+  "live_trading_authority": false,
+  "next_phase": "SAED_V4_36",
+  "phase": "SAED_V4_35",
+  "production_authorization": false,
+  "qa_passed": true,
+  "reference_certificate": "accepted",
+  "research_only": true,
+  "status": "accepted-reference",
+  "title": "Model Risk and Supply Chain",
+  "upstream_phase": "SAED_V4_34",
+  "version": "1.0.0"
+}

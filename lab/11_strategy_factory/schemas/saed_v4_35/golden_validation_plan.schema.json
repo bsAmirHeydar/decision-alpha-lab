@@ -1,0 +1,90 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_validation_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "baseline_test_required": {
+      "type": "boolean"
+    },
+    "challenge_owners": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "coverage_target": {
+      "type": "number"
+    },
+    "future_suffix_test_required": {
+      "type": "boolean"
+    },
+    "independence_required": {
+      "type": "boolean"
+    },
+    "model_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "plan_hash": {
+      "type": "string"
+    },
+    "plan_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "security_test_required": {
+      "type": "boolean"
+    },
+    "tests": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "blocking": {
+            "type": "boolean"
+          },
+          "category": {
+            "type": "string"
+          },
+          "model_id": {
+            "type": "string"
+          },
+          "requirement": {
+            "type": "string"
+          },
+          "test_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "blocking",
+          "category",
+          "model_id",
+          "requirement",
+          "test_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "baseline_test_required",
+    "challenge_owners",
+    "coverage_target",
+    "future_suffix_test_required",
+    "independence_required",
+    "model_ids",
+    "plan_hash",
+    "plan_id",
+    "research_only",
+    "security_test_required",
+    "tests"
+  ],
+  "title": "GOLDEN_VALIDATION_PLAN",
+  "type": "object"
+}

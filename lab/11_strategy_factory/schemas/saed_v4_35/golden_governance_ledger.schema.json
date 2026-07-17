@@ -1,0 +1,88 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_governance_ledger.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "append_only": {
+      "type": "boolean"
+    },
+    "event_count": {
+      "type": "integer"
+    },
+    "events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "actor_id": {
+            "type": "string"
+          },
+          "decision": {
+            "type": "string"
+          },
+          "event_hash": {
+            "type": "string"
+          },
+          "event_id": {
+            "type": "string"
+          },
+          "event_time": {
+            "type": "string"
+          },
+          "event_type": {
+            "type": "string"
+          },
+          "evidence_hash": {
+            "type": "string"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "previous_hash": {
+            "type": "string"
+          },
+          "subject_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "actor_id",
+          "decision",
+          "event_hash",
+          "event_id",
+          "event_time",
+          "event_type",
+          "evidence_hash",
+          "ordinal",
+          "previous_hash",
+          "subject_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "ledger_hash": {
+      "type": "string"
+    },
+    "ledger_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "append_only",
+    "event_count",
+    "events",
+    "ledger_hash",
+    "ledger_id",
+    "phase",
+    "research_only"
+  ],
+  "title": "GOLDEN_GOVERNANCE_LEDGER",
+  "type": "object"
+}

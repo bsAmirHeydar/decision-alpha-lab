@@ -1,0 +1,115 @@
+{
+  "assignments": [
+    {
+      "active": true,
+      "assignment_id": "ASSIGN-001",
+      "independent_from": [],
+      "line": 1,
+      "principal_id": "OWNER-ML-1",
+      "responsibilities": [
+        "model-owner-control",
+        "evidence-review"
+      ],
+      "role": "MODEL-OWNER"
+    },
+    {
+      "active": true,
+      "assignment_id": "ASSIGN-002",
+      "independent_from": [],
+      "line": 1,
+      "principal_id": "OWNER-DATA-1",
+      "responsibilities": [
+        "data-owner-control",
+        "evidence-review"
+      ],
+      "role": "DATA-OWNER"
+    },
+    {
+      "active": true,
+      "assignment_id": "ASSIGN-003",
+      "independent_from": [],
+      "line": 1,
+      "principal_id": "OWNER-ENG-1",
+      "responsibilities": [
+        "engineering-owner-control",
+        "evidence-review"
+      ],
+      "role": "ENGINEERING-OWNER"
+    },
+    {
+      "active": true,
+      "assignment_id": "ASSIGN-004",
+      "independent_from": [
+        "LINE-1"
+      ],
+      "line": 2,
+      "principal_id": "VALIDATOR-A",
+      "responsibilities": [
+        "model-risk-validator-control",
+        "evidence-review"
+      ],
+      "role": "MODEL-RISK-VALIDATOR"
+    },
+    {
+      "active": true,
+      "assignment_id": "ASSIGN-005",
+      "independent_from": [
+        "LINE-1"
+      ],
+      "line": 2,
+      "principal_id": "SECURITY-B",
+      "responsibilities": [
+        "security-reviewer-control",
+        "evidence-review"
+      ],
+      "role": "SECURITY-REVIEWER"
+    },
+    {
+      "active": true,
+      "assignment_id": "ASSIGN-006",
+      "independent_from": [
+        "LINE-1"
+      ],
+      "line": 2,
+      "principal_id": "LEGAL-C",
+      "responsibilities": [
+        "legal-license-reviewer-control",
+        "evidence-review"
+      ],
+      "role": "LEGAL-LICENSE-REVIEWER"
+    },
+    {
+      "active": true,
+      "assignment_id": "ASSIGN-007",
+      "independent_from": [
+        "LINE-1"
+      ],
+      "line": 3,
+      "principal_id": "AUDITOR-D",
+      "responsibilities": [
+        "internal-audit-control",
+        "evidence-review"
+      ],
+      "role": "INTERNAL-AUDIT"
+    },
+    {
+      "active": true,
+      "assignment_id": "ASSIGN-008",
+      "independent_from": [
+        "LINE-1"
+      ],
+      "line": 3,
+      "principal_id": "AUDITOR-E",
+      "responsibilities": [
+        "assurance-reviewer-control",
+        "evidence-review"
+      ],
+      "role": "ASSURANCE-REVIEWER"
+    }
+  ],
+  "phase": "SAED_V4_35",
+  "registry_hash": "77432b8196e4fde69b63fb0c2364506f8c2db40e7fc4455a06a94288cc42c873",
+  "registry_id": "v435_lines_c0eb69d95b40c6d792603534",
+  "research_only": true,
+  "three_lines_complete": true
+}

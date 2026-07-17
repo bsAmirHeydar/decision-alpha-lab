@@ -1,0 +1,81 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_committee.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "blocking_findings_present": {
+      "type": "boolean"
+    },
+    "conditions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "cutoff_time": {
+      "type": "string"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "meeting_id": {
+      "type": "string"
+    },
+    "members": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "minutes_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "quorum_required": {
+      "type": "integer"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "review_id": {
+      "type": "string"
+    },
+    "votes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "blocking_findings_present",
+    "conditions",
+    "cutoff_time",
+    "decision",
+    "meeting_id",
+    "members",
+    "minutes_hash",
+    "phase",
+    "production_authorized",
+    "quorum_required",
+    "receipt_hash",
+    "receipt_id",
+    "research_only",
+    "review_id",
+    "votes"
+  ],
+  "title": "GOLDEN_COMMITTEE",
+  "type": "object"
+}

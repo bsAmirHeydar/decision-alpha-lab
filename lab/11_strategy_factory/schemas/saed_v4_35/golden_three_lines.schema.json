@@ -1,0 +1,76 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_three_lines.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "assignments": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "active": {
+            "type": "boolean"
+          },
+          "assignment_id": {
+            "type": "string"
+          },
+          "independent_from": {
+            "items": {},
+            "type": "array"
+          },
+          "line": {
+            "type": "integer"
+          },
+          "principal_id": {
+            "type": "string"
+          },
+          "responsibilities": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "role": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "active",
+          "assignment_id",
+          "independent_from",
+          "line",
+          "principal_id",
+          "responsibilities",
+          "role"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "three_lines_complete": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "assignments",
+    "phase",
+    "registry_hash",
+    "registry_id",
+    "research_only",
+    "three_lines_complete"
+  ],
+  "title": "GOLDEN_THREE_LINES",
+  "type": "object"
+}

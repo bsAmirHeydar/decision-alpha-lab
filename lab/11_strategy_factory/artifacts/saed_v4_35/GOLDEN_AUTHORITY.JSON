@@ -1,0 +1,19 @@
+{
+  "boundary_hash": "0b454fc6634f390550a6f6de26d3b065b3cdb230c79b9d9eacea5735739ef4f5",
+  "boundary_id": "v435_authority_b2ccc801cf6eff992378678e",
+  "failure_action": "ABSTAIN_QUARANTINE_AND_PRESERVE_BASELINE",
+  "live_trading_authority": false,
+  "may_allocate_risk": false,
+  "may_compile_live_runtime": false,
+  "may_inventory_models": true,
+  "may_issue_reference_release_eligibility": true,
+  "may_mutate_ucee": false,
+  "may_quarantine_artifacts": true,
+  "may_score_model_risk": true,
+  "may_select_treatment": false,
+  "may_send_order": false,
+  "phase": "SAED_V4_35",
+  "production_authorization": false,
+  "promotion_authority": false,
+  "research_only": true
+}

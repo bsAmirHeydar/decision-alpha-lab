@@ -1,0 +1,33 @@
+{
+  "cutoff_time": "2026-06-30T23:59:59Z",
+  "kind": "runtimes",
+  "phase": "SAED_V4_35",
+  "record_count": 2,
+  "records": [
+    {
+      "base_image_hash": "17b5e66e1a6231f30debbd9cf60afe5bb1a287e15927a0f9eacf30c58436715b",
+      "builder_id": "BUILDER-B",
+      "content_hash": "c22f8a2ab5f877510dcbb0a8d6909793ce7727c60270e2837f4f5f7e02b9354d",
+      "image_ref": "metaeditor-static-contract-ref",
+      "immutable": true,
+      "known_time": "2026-06-10T00:00:00Z",
+      "network_egress_default_deny": true,
+      "runtime_id": "RUNTIME-MQL5-STATIC",
+      "status": "approved-reference"
+    },
+    {
+      "base_image_hash": "6f401ac044ec79bc93fbc11185042af5ab830336925f9e70ddebdbaebc679461",
+      "builder_id": "BUILDER-A",
+      "content_hash": "44635675f9de78760b96f1ff2db3a14c33680cf792e5c86e5821b23531669e34",
+      "image_ref": "python:3.12-ref@sha256:44635675f9de78760b96f1ff2db3a14c33680cf792e5c86e5821b23531669e34",
+      "immutable": true,
+      "known_time": "2026-06-10T00:00:00Z",
+      "network_egress_default_deny": true,
+      "runtime_id": "RUNTIME-PYTHON-REF",
+      "status": "approved-reference"
+    }
+  ],
+  "registry_hash": "7c57e3e557f5cfad51ca757a2918fc2fe6c6b647dc98e24267b739b2ada8ddc4",
+  "registry_id": "v435_runtimes_d428f87a0e7a916b6905c383",
+  "research_only": true
+}

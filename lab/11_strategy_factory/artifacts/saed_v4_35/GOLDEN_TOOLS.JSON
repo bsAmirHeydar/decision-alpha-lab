@@ -1,0 +1,35 @@
+{
+  "cutoff_time": "2026-06-30T23:59:59Z",
+  "kind": "tools",
+  "phase": "SAED_V4_35",
+  "record_count": 2,
+  "records": [
+    {
+      "content_hash": "dd5587c7ddae04ee2a0858dc8f739a2d9ba3742bdd0109e604c3701435c984cb",
+      "immutable": true,
+      "known_time": "2026-06-10T00:00:00Z",
+      "license_id": "INTERNAL",
+      "name": "saed-qa-runner",
+      "network_capable": false,
+      "status": "approved-reference",
+      "supplier_id": "ALPHA-LAB",
+      "tool_id": "TOOL-QA-RUNNER",
+      "version": "1.0.0"
+    },
+    {
+      "content_hash": "150a087a4ea7179627b7ada6c1c6a39ebe41f10c4b7a4895c03a9b4a762f4dee",
+      "immutable": true,
+      "known_time": "2026-06-10T00:00:00Z",
+      "license_id": "INTERNAL",
+      "name": "closed-schema-generator",
+      "network_capable": false,
+      "status": "approved-reference",
+      "supplier_id": "ALPHA-LAB",
+      "tool_id": "TOOL-SCHEMA-GENERATOR",
+      "version": "1.0.0"
+    }
+  ],
+  "registry_hash": "1539af5f908fc6d2e819abdbc66626c222f8782ba0eab8dab91418f12d88bb7e",
+  "registry_id": "v435_tools_878e378906ef552b8529003a",
+  "research_only": true
+}

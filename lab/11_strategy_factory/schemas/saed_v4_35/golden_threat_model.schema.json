@@ -1,0 +1,71 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_threat_model.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "assets": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "controls": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "residual_risks": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "reviewed_by_security": {
+      "type": "boolean"
+    },
+    "threat_model_id": {
+      "type": "string"
+    },
+    "threats": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "trust_boundaries": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "assets",
+    "controls",
+    "phase",
+    "receipt_hash",
+    "receipt_id",
+    "research_only",
+    "residual_risks",
+    "reviewed_by_security",
+    "threat_model_id",
+    "threats",
+    "trust_boundaries"
+  ],
+  "title": "GOLDEN_THREAT_MODEL",
+  "type": "object"
+}

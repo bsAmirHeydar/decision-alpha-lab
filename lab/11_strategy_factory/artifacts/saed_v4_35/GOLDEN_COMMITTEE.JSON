@@ -1,0 +1,34 @@
+{
+  "blocking_findings_present": false,
+  "conditions": [
+    "reference-only",
+    "no-production-authority"
+  ],
+  "cutoff_time": "2026-06-30T23:59:59Z",
+  "decision": "ACCEPT_REFERENCE_ONLY",
+  "meeting_id": "MRC-2026-Q2-REF",
+  "members": [
+    "CHAIR",
+    "MODEL-RISK",
+    "SECURITY",
+    "LEGAL",
+    "AUDIT",
+    "RESEARCH"
+  ],
+  "minutes_hash": "90e63d85fa1ab2c8ed65222f3ebd794b1e524b4b7cf84bec451542d0451b2985",
+  "phase": "SAED_V4_35",
+  "production_authorized": false,
+  "quorum_required": 5,
+  "receipt_hash": "99e158a6608fc595b597edba160885d58232a6810ac8a6f335a664d72b62c0af",
+  "receipt_id": "v435_committee_5a026e5e5fcad6541163d9ed",
+  "research_only": true,
+  "review_id": "COMMITTEE-REVIEW-001",
+  "votes": [
+    "ACCEPT",
+    "ACCEPT",
+    "ACCEPT",
+    "ACCEPT",
+    "ACCEPT",
+    "ABSTAIN"
+  ]
+}

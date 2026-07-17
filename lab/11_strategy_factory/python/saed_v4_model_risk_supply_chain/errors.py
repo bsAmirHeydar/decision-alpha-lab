@@ -1,0 +1,13 @@
+class SAEDV435Error(Exception): pass
+class ContractError(SAEDV435Error): pass
+class UpstreamError(SAEDV435Error): pass
+class ConstitutionError(SAEDV435Error): pass
+class CatalogError(SAEDV435Error): pass
+class SBOMError(SAEDV435Error): pass
+class LicenseError(SAEDV435Error): pass
+class VulnerabilityError(SAEDV435Error): pass
+class ProvenanceError(SAEDV435Error): pass
+class RiskError(SAEDV435Error): pass
+class GovernanceError(SAEDV435Error): pass
+class ReleaseError(SAEDV435Error): pass
+class AuthorityError(SAEDV435Error): pass

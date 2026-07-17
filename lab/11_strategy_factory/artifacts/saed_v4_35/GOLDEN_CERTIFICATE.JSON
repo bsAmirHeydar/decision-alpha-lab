@@ -1,0 +1,13 @@
+{
+  "certificate_hash": "9131f541d08db33d98f8e1f0afe8cff094e8c5e3d2efc2f317e3de9cd135f849",
+  "certificate_id": "v435_certificate_ab742874ad0151aab6376dea",
+  "claim_ceiling": "synthetic_deterministic_reference_only",
+  "evidence_bundle_hash": "d89bae7b7e33f46d26abcf5b0a8620067593c5939a4b73ac0c891a31a08bffe4",
+  "live_trading_authority": false,
+  "phase": "SAED_V4_35",
+  "production_authorized": false,
+  "reference_accepted": true,
+  "research_only": true,
+  "runtime_activation_allowed": false,
+  "status": "ACCEPTED_REFERENCE"
+}

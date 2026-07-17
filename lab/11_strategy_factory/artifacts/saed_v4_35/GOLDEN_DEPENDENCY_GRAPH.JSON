@@ -1,0 +1,58 @@
+{
+  "acyclic": true,
+  "edge_count": 6,
+  "edges": [
+    {
+      "optional": false,
+      "relation": "contains",
+      "source_id": "RUNTIME-PYTHON-REF",
+      "target_id": "DEP-JSONSCHEMA-4.0.0-ref"
+    },
+    {
+      "optional": false,
+      "relation": "contains",
+      "source_id": "RUNTIME-PYTHON-REF",
+      "target_id": "DEP-NUMPY-2.0.0-ref"
+    },
+    {
+      "optional": false,
+      "relation": "contains",
+      "source_id": "RUNTIME-PYTHON-REF",
+      "target_id": "DEP-PACKAGING-24.0-ref"
+    },
+    {
+      "optional": false,
+      "relation": "contains",
+      "source_id": "RUNTIME-PYTHON-REF",
+      "target_id": "DEP-PYTEST-8.0.0-ref"
+    },
+    {
+      "optional": false,
+      "relation": "contains",
+      "source_id": "RUNTIME-PYTHON-REF",
+      "target_id": "DEP-SETUPTOOLS-70.0-ref"
+    },
+    {
+      "optional": false,
+      "relation": "contains",
+      "source_id": "RUNTIME-PYTHON-REF",
+      "target_id": "DEP-TYPING_EXTENSIONS-4.0.0-ref"
+    }
+  ],
+  "graph_hash": "d3dc98a498a4ab7bf8dd87f7d2ef8623ff8e83fad5457b2d6271f003e24a7511",
+  "graph_id": "v435_depgraph_c2a45543c885757aceddd5a6",
+  "node_count": 8,
+  "nodes": [
+    "DEP-JSONSCHEMA-4.0.0-ref",
+    "DEP-NUMPY-2.0.0-ref",
+    "DEP-PACKAGING-24.0-ref",
+    "DEP-PYTEST-8.0.0-ref",
+    "DEP-SETUPTOOLS-70.0-ref",
+    "DEP-TYPING_EXTENSIONS-4.0.0-ref",
+    "RUNTIME-MQL5-STATIC",
+    "RUNTIME-PYTHON-REF"
+  ],
+  "phase": "SAED_V4_35",
+  "research_only": true,
+  "transitive_closure_required": true
+}

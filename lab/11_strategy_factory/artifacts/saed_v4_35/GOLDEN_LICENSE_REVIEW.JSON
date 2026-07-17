@@ -1,0 +1,116 @@
+{
+  "all_licenses_known": true,
+  "blocked": false,
+  "component_count": 15,
+  "phase": "SAED_V4_35",
+  "research_only": true,
+  "review_hash": "26e9d184305dfd0e06082798e7db25cff459f5d970aabc65370f27fc120d5b4a",
+  "review_id": "v435_license_review_aee172d5c5daa81a86deba66",
+  "reviews": [
+    {
+      "commercial_use_compatible": true,
+      "component_id": "DATASET-CONTEXT-SYNTH",
+      "decision": "ALLOW",
+      "license_id": "INTERNAL",
+      "redistribution_review_required": false
+    },
+    {
+      "commercial_use_compatible": true,
+      "component_id": "DATASET-HIDDEN-EVAL-SYNTH",
+      "decision": "ALLOW",
+      "license_id": "INTERNAL",
+      "redistribution_review_required": false
+    },
+    {
+      "commercial_use_compatible": true,
+      "component_id": "DEP-JSONSCHEMA-4.0.0-ref",
+      "decision": "ALLOW",
+      "license_id": "MIT",
+      "redistribution_review_required": false
+    },
+    {
+      "commercial_use_compatible": true,
+      "component_id": "DEP-NUMPY-2.0.0-ref",
+      "decision": "ALLOW",
+      "license_id": "BSD-3-Clause",
+      "redistribution_review_required": false
+    },
+    {
+      "commercial_use_compatible": true,
+      "component_id": "DEP-PACKAGING-24.0-ref",
+      "decision": "ALLOW",
+      "license_id": "Apache-2.0",
+      "redistribution_review_required": false
+    },
+    {
+      "commercial_use_compatible": true,
+      "component_id": "DEP-PYTEST-8.0.0-ref",
+      "decision": "ALLOW",
+      "license_id": "MIT",
+      "redistribution_review_required": false
+    },
+    {
+      "commercial_use_compatible": true,
+      "component_id": "DEP-SETUPTOOLS-70.0-ref",
+      "decision": "ALLOW",
+      "license_id": "MIT",
+      "redistribution_review_required": false
+    },
+    {
+      "commercial_use_compatible": true,
+      "component_id": "DEP-TYPING_EXTENSIONS-4.0.0-ref",
+      "decision": "ALLOW",
+      "license_id": "PSF-2.0",
+      "redistribution_review_required": false
+    },
+    {
+      "commercial_use_compatible": true,
+      "component_id": "MODEL-CONTEXT-ENCODER",
+      "decision": "ALLOW",
+      "license_id": "INTERNAL",
+      "redistribution_review_required": false
+    },
+    {
+      "commercial_use_compatible": true,
+      "component_id": "MODEL-POLICY-CHALLENGER",
+      "decision": "ALLOW",
+      "license_id": "INTERNAL",
+      "redistribution_review_required": false
+    },
+    {
+      "commercial_use_compatible": true,
+      "component_id": "RUNTIME-MQL5-STATIC",
+      "decision": "ALLOW",
+      "license_id": "INTERNAL",
+      "redistribution_review_required": false
+    },
+    {
+      "commercial_use_compatible": true,
+      "component_id": "RUNTIME-PYTHON-REF",
+      "decision": "ALLOW",
+      "license_id": "INTERNAL",
+      "redistribution_review_required": false
+    },
+    {
+      "commercial_use_compatible": true,
+      "component_id": "SERVICE-VULN-FEED-SYNTH",
+      "decision": "ALLOW",
+      "license_id": "INTERNAL",
+      "redistribution_review_required": false
+    },
+    {
+      "commercial_use_compatible": true,
+      "component_id": "TOOL-QA-RUNNER",
+      "decision": "ALLOW",
+      "license_id": "INTERNAL",
+      "redistribution_review_required": false
+    },
+    {
+      "commercial_use_compatible": true,
+      "component_id": "TOOL-SCHEMA-GENERATOR",
+      "decision": "ALLOW",
+      "license_id": "INTERNAL",
+      "redistribution_review_required": false
+    }
+  ]
+}

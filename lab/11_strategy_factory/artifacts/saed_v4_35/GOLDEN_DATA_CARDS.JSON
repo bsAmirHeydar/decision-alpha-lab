@@ -1,0 +1,49 @@
+{
+  "cards": [
+    {
+      "collection_window": "2026-01-01/2026-06-15",
+      "dataset_id": "DATASET-CONTEXT-SYNTH",
+      "known_time_policy": "STRICT",
+      "leakage_controls": [
+        "known-time-cutoff",
+        "cluster-aware-split",
+        "future-suffix-test"
+      ],
+      "license_review": "APPROVED",
+      "limitations": [
+        "synthetic-only",
+        "not-market-representative"
+      ],
+      "missingness_policy": "explicit missingness masks",
+      "privacy_class": "NON_PERSONAL_SYNTHETIC",
+      "review_status": "reviewed-reference",
+      "sampling_policy": "deterministic stratified synthetic",
+      "source_description": "deterministic synthetic fixture"
+    },
+    {
+      "collection_window": "2026-01-01/2026-06-15",
+      "dataset_id": "DATASET-HIDDEN-EVAL-SYNTH",
+      "known_time_policy": "STRICT",
+      "leakage_controls": [
+        "known-time-cutoff",
+        "cluster-aware-split",
+        "future-suffix-test"
+      ],
+      "license_review": "APPROVED",
+      "limitations": [
+        "synthetic-only",
+        "not-market-representative"
+      ],
+      "missingness_policy": "explicit missingness masks",
+      "privacy_class": "NON_PERSONAL_SYNTHETIC",
+      "review_status": "reviewed-reference",
+      "sampling_policy": "deterministic stratified synthetic",
+      "source_description": "deterministic synthetic fixture"
+    }
+  ],
+  "coverage_complete": true,
+  "phase": "SAED_V4_35",
+  "registry_hash": "a66eb2b824ddc09b61336ae6d42596b65dbe031ffa4f30bf162a1e4d0b101a9b",
+  "registry_id": "v435_datacards_7c6f7f98a85521c2828d23c0",
+  "research_only": true
+}

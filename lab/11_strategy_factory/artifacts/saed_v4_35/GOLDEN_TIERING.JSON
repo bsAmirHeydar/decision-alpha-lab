@@ -1,0 +1,33 @@
+{
+  "assignments": [
+    {
+      "automation_level": 2,
+      "customer_or_market_impact": 1,
+      "decision_materiality": 2,
+      "external_dependency": false,
+      "irreversibility": 1,
+      "maximum_capital_at_risk": 0,
+      "model_id": "MODEL-CONTEXT-ENCODER",
+      "production_capital_authority": false,
+      "raw_score": 6,
+      "risk_tier": "TIER_3"
+    },
+    {
+      "automation_level": 2,
+      "customer_or_market_impact": 1,
+      "decision_materiality": 2,
+      "external_dependency": false,
+      "irreversibility": 1,
+      "maximum_capital_at_risk": 0,
+      "model_id": "MODEL-POLICY-CHALLENGER",
+      "production_capital_authority": false,
+      "raw_score": 6,
+      "risk_tier": "TIER_3"
+    }
+  ],
+  "phase": "SAED_V4_35",
+  "registry_hash": "26af0b044288666350ff46a4b15dd30d69a3917c25972f8c0434eec9a30aa75c",
+  "registry_id": "v435_tiers_1bf986f214030c0c89f4be38",
+  "research_only": true,
+  "tier_method": "deterministic-materiality-v1"
+}

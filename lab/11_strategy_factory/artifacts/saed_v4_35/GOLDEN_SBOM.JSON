@@ -1,0 +1,148 @@
+{
+  "complete": true,
+  "component_count": 15,
+  "components": [
+    {
+      "component_id": "DATASET-CONTEXT-SYNTH",
+      "component_type": "data",
+      "content_hash": "82f1bb9548aac5757d9e6da57d9777682d34a15811dbfc3c2e81a91dfbab74e4",
+      "immutable": true,
+      "license_id": "INTERNAL",
+      "supplier_id": "OWNER-DATA-1",
+      "version": "1.0.0"
+    },
+    {
+      "component_id": "DATASET-HIDDEN-EVAL-SYNTH",
+      "component_type": "data",
+      "content_hash": "94142f3155b163113b7e8a8e7a4269d2dd6e12fee921768b82870f8f4f911207",
+      "immutable": true,
+      "license_id": "INTERNAL",
+      "supplier_id": "OWNER-DATA-2",
+      "version": "1.0.0"
+    },
+    {
+      "component_id": "DEP-JSONSCHEMA-4.0.0-ref",
+      "component_type": "library",
+      "content_hash": "e87d9ee471ebd4c7b02ed3eb59845df122c21515be521bdbc9e79a2f6baad070",
+      "immutable": true,
+      "license_id": "MIT",
+      "supplier_id": "SUPPLIER-JSONSCHEMA",
+      "version": "4.0.0-ref"
+    },
+    {
+      "component_id": "DEP-NUMPY-2.0.0-ref",
+      "component_type": "library",
+      "content_hash": "779d8b52c6d2b3ca737b25ab97d1bfcd5e94086fd3905fff2c9e9ab8904578be",
+      "immutable": true,
+      "license_id": "BSD-3-Clause",
+      "supplier_id": "SUPPLIER-NUMPY",
+      "version": "2.0.0-ref"
+    },
+    {
+      "component_id": "DEP-PACKAGING-24.0-ref",
+      "component_type": "library",
+      "content_hash": "3d0a1b9d4890ce7980bcafb8ecfad3a5d34b6ef97ea6ed8e1df369f9be3d0aad",
+      "immutable": true,
+      "license_id": "Apache-2.0",
+      "supplier_id": "SUPPLIER-PACKAGING",
+      "version": "24.0-ref"
+    },
+    {
+      "component_id": "DEP-PYTEST-8.0.0-ref",
+      "component_type": "library",
+      "content_hash": "5fa5095d07701fad668fb5d11c76b80f6812879b397e589c66897c3fc6c4291c",
+      "immutable": true,
+      "license_id": "MIT",
+      "supplier_id": "SUPPLIER-PYTEST",
+      "version": "8.0.0-ref"
+    },
+    {
+      "component_id": "DEP-SETUPTOOLS-70.0-ref",
+      "component_type": "library",
+      "content_hash": "634f7761536b414593ef88bbb17dad4f0142a2605d70b0ee741d038ac2eb971f",
+      "immutable": true,
+      "license_id": "MIT",
+      "supplier_id": "SUPPLIER-SETUPTOOLS",
+      "version": "70.0-ref"
+    },
+    {
+      "component_id": "DEP-TYPING_EXTENSIONS-4.0.0-ref",
+      "component_type": "library",
+      "content_hash": "87f27b7b50c2678588b476d390377e7e6d3619a245b20747efabaa93e21ed704",
+      "immutable": true,
+      "license_id": "PSF-2.0",
+      "supplier_id": "SUPPLIER-TYPING-EXTENSIONS",
+      "version": "4.0.0-ref"
+    },
+    {
+      "component_id": "MODEL-CONTEXT-ENCODER",
+      "component_type": "machine-learning-model",
+      "content_hash": "fdc8a7b5a0437cac35cf34c58f59946feab8455d8bf022acc5b5dfed13652204",
+      "immutable": true,
+      "license_id": "INTERNAL",
+      "supplier_id": "OWNER-ML-1",
+      "version": "1.0.0-ref"
+    },
+    {
+      "component_id": "MODEL-POLICY-CHALLENGER",
+      "component_type": "machine-learning-model",
+      "content_hash": "3198d6c1e50c656f3a73ae809e049f11411bc767a42f8d9c48be9a8870df5501",
+      "immutable": true,
+      "license_id": "INTERNAL",
+      "supplier_id": "OWNER-ML-2",
+      "version": "1.0.0-ref"
+    },
+    {
+      "component_id": "RUNTIME-MQL5-STATIC",
+      "component_type": "container",
+      "content_hash": "c22f8a2ab5f877510dcbb0a8d6909793ce7727c60270e2837f4f5f7e02b9354d",
+      "immutable": true,
+      "license_id": "INTERNAL",
+      "supplier_id": "BUILDER-B",
+      "version": "metaeditor-static-contract-ref"
+    },
+    {
+      "component_id": "RUNTIME-PYTHON-REF",
+      "component_type": "container",
+      "content_hash": "44635675f9de78760b96f1ff2db3a14c33680cf792e5c86e5821b23531669e34",
+      "immutable": true,
+      "license_id": "INTERNAL",
+      "supplier_id": "BUILDER-A",
+      "version": "python:3.12-ref@sha256:44635675f9de78760b96f1ff2db3a14c33680cf792e5c86e5821b23531669e34"
+    },
+    {
+      "component_id": "SERVICE-VULN-FEED-SYNTH",
+      "component_type": "service",
+      "content_hash": "b8f912e1378ed26e0bf6a48cf258255274640267c69f81cb1f37674ce6c2a1b5",
+      "immutable": true,
+      "license_id": "INTERNAL",
+      "supplier_id": "SUPPLIER-SECURITY-REF",
+      "version": "2026-06-ref"
+    },
+    {
+      "component_id": "TOOL-QA-RUNNER",
+      "component_type": "application",
+      "content_hash": "dd5587c7ddae04ee2a0858dc8f739a2d9ba3742bdd0109e604c3701435c984cb",
+      "immutable": true,
+      "license_id": "INTERNAL",
+      "supplier_id": "ALPHA-LAB",
+      "version": "1.0.0"
+    },
+    {
+      "component_id": "TOOL-SCHEMA-GENERATOR",
+      "component_type": "application",
+      "content_hash": "150a087a4ea7179627b7ada6c1c6a39ebe41f10c4b7a4895c03a9b4a762f4dee",
+      "immutable": true,
+      "license_id": "INTERNAL",
+      "supplier_id": "ALPHA-LAB",
+      "version": "1.0.0"
+    }
+  ],
+  "format": "CycloneDX-inspired-closed-reference",
+  "phase": "SAED_V4_35",
+  "research_only": true,
+  "sbom_hash": "817679b975fe989a166070ec12b8565e14c91a5d35585b5f0efc959c20c62f8d",
+  "sbom_id": "v435_sbom_fc2955a1dadddea8fadf01ee",
+  "serial_number": "urn:uuid:716de17e88b12e181c698ce07d9ab262",
+  "spec_version": "1.5-reference"
+}

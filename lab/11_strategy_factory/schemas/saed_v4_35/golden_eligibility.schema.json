@@ -1,0 +1,53 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_eligibility.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "blocking_reasons": {
+      "items": {},
+      "type": "array"
+    },
+    "decision_hash": {
+      "type": "string"
+    },
+    "decision_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "production_release_eligible": {
+      "type": "boolean"
+    },
+    "reference_release_eligible": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "runtime_activation_allowed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "baseline_preserved",
+    "blocking_reasons",
+    "decision_hash",
+    "decision_id",
+    "phase",
+    "production_authorized",
+    "production_release_eligible",
+    "reference_release_eligible",
+    "research_only",
+    "runtime_activation_allowed"
+  ],
+  "title": "GOLDEN_ELIGIBILITY",
+  "type": "object"
+}

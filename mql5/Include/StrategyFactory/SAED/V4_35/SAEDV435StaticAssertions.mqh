@@ -1,0 +1,5 @@
+#ifndef SAEDV435STATICASSERTIONS_MQH
+#define SAEDV435STATICASSERTIONS_MQH
+// SAED V4-35 static mirror; no order or production authority.
+bool SAED_V4_35_StaticAuthoritySafe(){ return (!SAED_V4_35_PROMOTION_AUTHORITY && !SAED_V4_35_EXECUTION_AUTHORITY && !SAED_V4_35_PRODUCTION_AUTHORIZATION); }
+#endif

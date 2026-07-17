@@ -1,0 +1,44 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_tamper_evidence.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "append_only": {
+      "type": "boolean"
+    },
+    "leaf_count": {
+      "type": "integer"
+    },
+    "merkle_root": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "tamper_detection_enabled": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "append_only",
+    "leaf_count",
+    "merkle_root",
+    "phase",
+    "receipt_hash",
+    "receipt_id",
+    "research_only",
+    "tamper_detection_enabled"
+  ],
+  "title": "GOLDEN_TAMPER_EVIDENCE",
+  "type": "object"
+}

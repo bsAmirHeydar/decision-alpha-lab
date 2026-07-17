@@ -1,0 +1,63 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_recall_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "artifact_graph_required": {
+      "type": "boolean"
+    },
+    "consumer_notification_required": {
+      "type": "boolean"
+    },
+    "drill_completed": {
+      "type": "boolean"
+    },
+    "kill_distribution_required": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "plan_id": {
+      "type": "string"
+    },
+    "recall_levels": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "revocation_required": {
+      "type": "boolean"
+    },
+    "rollback_required": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "artifact_graph_required",
+    "consumer_notification_required",
+    "drill_completed",
+    "kill_distribution_required",
+    "phase",
+    "plan_id",
+    "recall_levels",
+    "receipt_hash",
+    "receipt_id",
+    "research_only",
+    "revocation_required",
+    "rollback_required"
+  ],
+  "title": "GOLDEN_RECALL_PLAN",
+  "type": "object"
+}

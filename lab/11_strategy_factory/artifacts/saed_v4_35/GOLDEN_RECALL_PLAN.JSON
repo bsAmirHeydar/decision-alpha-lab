@@ -1,0 +1,18 @@
+{
+  "artifact_graph_required": true,
+  "consumer_notification_required": true,
+  "drill_completed": true,
+  "kill_distribution_required": true,
+  "phase": "SAED_V4_35",
+  "plan_id": "RECALL-PLAN-001",
+  "recall_levels": [
+    "ADVISORY",
+    "RESTRICTED",
+    "FULL"
+  ],
+  "receipt_hash": "8c18a9c55e75fc9475db252cc53013ef4c105e3a69aba1ffbf1d1edd5a28e800",
+  "receipt_id": "v435_recall_21e19510cac36411822f5e2c",
+  "research_only": true,
+  "revocation_required": true,
+  "rollback_required": true
+}

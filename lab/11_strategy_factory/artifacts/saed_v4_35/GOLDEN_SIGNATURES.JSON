@@ -1,0 +1,176 @@
+{
+  "complete_coverage": true,
+  "cryptographic_external_verification": false,
+  "manifest_hash": "47b47a5fa7b9bae3c5317df806acd41fd03b875f0dcd26bc3f863c4734387edb",
+  "manifest_id": "v435_signatures_67ad7e46c9311fa4e804d243",
+  "phase": "SAED_V4_35",
+  "research_only": true,
+  "signature_count": 15,
+  "signatures": [
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "1f52320995ba3cd08d0c81871c55292fc02af66c12548b801da7385eee22f94d",
+      "signature_id": "SIG-43B1E964BE03D034",
+      "subject_hash": "82f1bb9548aac5757d9e6da57d9777682d34a15811dbfc3c2e81a91dfbab74e4",
+      "subject_id": "DATASET-CONTEXT-SYNTH",
+      "synthetic_fixture": true
+    },
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "d42a506668afb7f851a16152c43863060b21cc0a920948fea7bcb6a470eaf91f",
+      "signature_id": "SIG-6C8F2BD572C0C26A",
+      "subject_hash": "94142f3155b163113b7e8a8e7a4269d2dd6e12fee921768b82870f8f4f911207",
+      "subject_id": "DATASET-HIDDEN-EVAL-SYNTH",
+      "synthetic_fixture": true
+    },
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "30fcda90ab561673a6f806cb4fe32b0a5eb0217c58049bf728c41af302e02a94",
+      "signature_id": "SIG-6CFDE22DFCA76A19",
+      "subject_hash": "e87d9ee471ebd4c7b02ed3eb59845df122c21515be521bdbc9e79a2f6baad070",
+      "subject_id": "DEP-JSONSCHEMA-4.0.0-ref",
+      "synthetic_fixture": true
+    },
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "0087b0595e1a7d59dde648ea0961e000cd955e42c011f21bc11dd7f9eb7902c5",
+      "signature_id": "SIG-0DE91BB42892B917",
+      "subject_hash": "779d8b52c6d2b3ca737b25ab97d1bfcd5e94086fd3905fff2c9e9ab8904578be",
+      "subject_id": "DEP-NUMPY-2.0.0-ref",
+      "synthetic_fixture": true
+    },
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "68780d221ff570e6909122f93dd5df1bc3257650b15c88ea1d9257aaf6a4cee4",
+      "signature_id": "SIG-4290022371184B11",
+      "subject_hash": "3d0a1b9d4890ce7980bcafb8ecfad3a5d34b6ef97ea6ed8e1df369f9be3d0aad",
+      "subject_id": "DEP-PACKAGING-24.0-ref",
+      "synthetic_fixture": true
+    },
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "bef05c09c4f83eb08bc0d0f009ee70d9b709d1899ee856b801958a0928a875e9",
+      "signature_id": "SIG-93AE96A1540820D9",
+      "subject_hash": "5fa5095d07701fad668fb5d11c76b80f6812879b397e589c66897c3fc6c4291c",
+      "subject_id": "DEP-PYTEST-8.0.0-ref",
+      "synthetic_fixture": true
+    },
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "761ed62b7d0736a3d51e519402947428308263238247d8dc92ecdc434483682e",
+      "signature_id": "SIG-B7889E6C8E229B77",
+      "subject_hash": "634f7761536b414593ef88bbb17dad4f0142a2605d70b0ee741d038ac2eb971f",
+      "subject_id": "DEP-SETUPTOOLS-70.0-ref",
+      "synthetic_fixture": true
+    },
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "9224afbe25712a16b4855fa4b226643fce9a40b22756745e06fae3d1f4fe716f",
+      "signature_id": "SIG-45E3E34211D53F9D",
+      "subject_hash": "87f27b7b50c2678588b476d390377e7e6d3619a245b20747efabaa93e21ed704",
+      "subject_id": "DEP-TYPING_EXTENSIONS-4.0.0-ref",
+      "synthetic_fixture": true
+    },
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "26eb372b055ce3419784d6fd98e5d7054eb27f4c5f9174691a5939f76055b1a7",
+      "signature_id": "SIG-AEDBE0AF90240992",
+      "subject_hash": "fdc8a7b5a0437cac35cf34c58f59946feab8455d8bf022acc5b5dfed13652204",
+      "subject_id": "MODEL-CONTEXT-ENCODER",
+      "synthetic_fixture": true
+    },
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "98306c12ee8946f3e506389774772fa9701cfae584ef13887609b53df51a0f50",
+      "signature_id": "SIG-A6E71FC626838465",
+      "subject_hash": "3198d6c1e50c656f3a73ae809e049f11411bc767a42f8d9c48be9a8870df5501",
+      "subject_id": "MODEL-POLICY-CHALLENGER",
+      "synthetic_fixture": true
+    },
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "45a26e74d35575c5f4d31769fac724a3145dd40cce85f76b28e54e941b1ad072",
+      "signature_id": "SIG-574BCEECF6B3C08F",
+      "subject_hash": "c22f8a2ab5f877510dcbb0a8d6909793ce7727c60270e2837f4f5f7e02b9354d",
+      "subject_id": "RUNTIME-MQL5-STATIC",
+      "synthetic_fixture": true
+    },
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "4ec93f136a7a0f7807fbba0dbc46c804e6e313b72d5694c908f3b5ab6a03ac52",
+      "signature_id": "SIG-282F36316FFA93E8",
+      "subject_hash": "44635675f9de78760b96f1ff2db3a14c33680cf792e5c86e5821b23531669e34",
+      "subject_id": "RUNTIME-PYTHON-REF",
+      "synthetic_fixture": true
+    },
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "f222d00aaf6112acbfd81bb7451643512a0db8f8f4e6e05ddee667c92c107b32",
+      "signature_id": "SIG-E4FC80150FA29CEB",
+      "subject_hash": "b8f912e1378ed26e0bf6a48cf258255274640267c69f81cb1f37674ce6c2a1b5",
+      "subject_id": "SERVICE-VULN-FEED-SYNTH",
+      "synthetic_fixture": true
+    },
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "f01f42671ad3a19eebb674c2cd64356ea0a3bcf094b36bf9509fd05cc3473705",
+      "signature_id": "SIG-C8A9452421A9E65D",
+      "subject_hash": "dd5587c7ddae04ee2a0858dc8f739a2d9ba3742bdd0109e604c3701435c984cb",
+      "subject_id": "TOOL-QA-RUNNER",
+      "synthetic_fixture": true
+    },
+    {
+      "algorithm": "SHA256-SYNTHETIC-DETACHED",
+      "key_id": "KEY-RESEARCH-ROOT-001",
+      "known_time": "2026-06-26T00:00:00Z",
+      "revoked": false,
+      "signature_digest": "59967c9cf2b402b38535d1bdfb37a3041bed4e0ad3e31c498f69371aff107ce7",
+      "signature_id": "SIG-C75B1029D2164579",
+      "subject_hash": "150a087a4ea7179627b7ada6c1c6a39ebe41f10c4b7a4895c03a9b4a762f4dee",
+      "subject_id": "TOOL-SCHEMA-GENERATOR",
+      "synthetic_fixture": true
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_attack_surface.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "phase": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "surface_count": {
+      "type": "integer"
+    },
+    "surfaces": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "component_id": {
+            "type": "string"
+          },
+          "component_type": {
+            "type": "string"
+          },
+          "exposure": {
+            "type": "string"
+          },
+          "network_reachable": {
+            "type": "boolean"
+          },
+          "review_required": {
+            "type": "boolean"
+          },
+          "untrusted_input": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "component_id",
+          "component_type",
+          "exposure",
+          "network_reachable",
+          "review_required",
+          "untrusted_input"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "threat_model_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "registry_hash",
+    "registry_id",
+    "research_only",
+    "surface_count",
+    "surfaces",
+    "threat_model_hash"
+  ],
+  "title": "GOLDEN_ATTACK_SURFACE",
+  "type": "object"
+}

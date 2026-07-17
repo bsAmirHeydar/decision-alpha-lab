@@ -1,0 +1,88 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_signatures.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "complete_coverage": {
+      "type": "boolean"
+    },
+    "cryptographic_external_verification": {
+      "type": "boolean"
+    },
+    "manifest_hash": {
+      "type": "string"
+    },
+    "manifest_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "signature_count": {
+      "type": "integer"
+    },
+    "signatures": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "algorithm": {
+            "type": "string"
+          },
+          "key_id": {
+            "type": "string"
+          },
+          "known_time": {
+            "type": "string"
+          },
+          "revoked": {
+            "type": "boolean"
+          },
+          "signature_digest": {
+            "type": "string"
+          },
+          "signature_id": {
+            "type": "string"
+          },
+          "subject_hash": {
+            "type": "string"
+          },
+          "subject_id": {
+            "type": "string"
+          },
+          "synthetic_fixture": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "algorithm",
+          "key_id",
+          "known_time",
+          "revoked",
+          "signature_digest",
+          "signature_id",
+          "subject_hash",
+          "subject_id",
+          "synthetic_fixture"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "complete_coverage",
+    "cryptographic_external_verification",
+    "manifest_hash",
+    "manifest_id",
+    "phase",
+    "research_only",
+    "signature_count",
+    "signatures"
+  ],
+  "title": "GOLDEN_SIGNATURES",
+  "type": "object"
+}

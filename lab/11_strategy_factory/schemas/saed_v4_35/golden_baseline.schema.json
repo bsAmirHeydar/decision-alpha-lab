@@ -1,0 +1,48 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_baseline.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "baseline_behavior": {
+      "type": "string"
+    },
+    "fallback": {
+      "type": "string"
+    },
+    "live_runtime_unchanged": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "quarantined_artifacts_excluded": {
+      "type": "boolean"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "unknown_artifacts_denied": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "baseline_behavior",
+    "fallback",
+    "live_runtime_unchanged",
+    "phase",
+    "quarantined_artifacts_excluded",
+    "receipt_hash",
+    "receipt_id",
+    "research_only",
+    "unknown_artifacts_denied"
+  ],
+  "title": "GOLDEN_BASELINE",
+  "type": "object"
+}

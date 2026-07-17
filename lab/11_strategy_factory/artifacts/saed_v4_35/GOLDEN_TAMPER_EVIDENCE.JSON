@@ -1,0 +1,10 @@
+{
+  "append_only": true,
+  "leaf_count": 31,
+  "merkle_root": "98d77d8b1220e2cbb8e9922e6a14f52431689585a03b57c73555ee6d3a1dacb7",
+  "phase": "SAED_V4_35",
+  "receipt_hash": "e584e0a310676ef95a1c3a1b051fe3529b5ad185256983e5e4ecf5a763338844",
+  "receipt_id": "v435_tamper_7a5a8dd24fd8718f03a1e5bd",
+  "research_only": true,
+  "tamper_detection_enabled": true
+}

@@ -1,0 +1,182 @@
+{
+  "bundle_hash": "d89bae7b7e33f46d26abcf5b0a8620067593c5939a4b73ac0c891a31a08bffe4",
+  "bundle_id": "v435_evidence_3878346e09342345a9e1f537",
+  "complete": true,
+  "phase": "SAED_V4_35",
+  "reference_count": 43,
+  "references": [
+    {
+      "artifact": "upstream",
+      "artifact_hash": "7f971727ab00136672e73ba6335edd31061a4f65bd945c17898c0a86c341e6ca"
+    },
+    {
+      "artifact": "constitution",
+      "artifact_hash": "40866d2992ffa1a56eea2d23c59de16ab4b2eb2d169b30b99f4dbe918671582d"
+    },
+    {
+      "artifact": "authority",
+      "artifact_hash": "002c8107e4f3cf70689553043a3dcfe4d14d37ff5e9af888069ed9e57d07d0fd"
+    },
+    {
+      "artifact": "models",
+      "artifact_hash": "17a9e630e25758a84899a35aec961c41430014ef703619bfadf512182abc296e"
+    },
+    {
+      "artifact": "datasets",
+      "artifact_hash": "4de2e284335e819f14fd04092d0522101386090559d7fa1e288287458fe787dd"
+    },
+    {
+      "artifact": "dependencies",
+      "artifact_hash": "9be65988d418ade165196d7c4a1ff318327a54aeb6a6e110e08edcd7b981310c"
+    },
+    {
+      "artifact": "tools",
+      "artifact_hash": "c3164ff2cc1736ca94989d9ce331274737815ea978453473addf57e61167773f"
+    },
+    {
+      "artifact": "runtimes",
+      "artifact_hash": "e9f5dedb71d054a80368e8f52034c06eab7abf01618f6080745fba847e936d90"
+    },
+    {
+      "artifact": "services",
+      "artifact_hash": "6c66ca97fbd482cb6dfa34d36a34a5ffd0adbad8562e1919cee5097825efec24"
+    },
+    {
+      "artifact": "sbom",
+      "artifact_hash": "77aea97a64c58b2adde65dd89773d12ee8304bc68fb55bb806eb2b4d69ee3bbc"
+    },
+    {
+      "artifact": "dependency_graph",
+      "artifact_hash": "338eeedbb49152809232d81ea413f12a500f03d595d7a854ef4e45fba471d7a9"
+    },
+    {
+      "artifact": "license_policy",
+      "artifact_hash": "26a8b290a989b211da43582473164952d004698e9086dd19978876cbaccda4ed"
+    },
+    {
+      "artifact": "license_review",
+      "artifact_hash": "1211fbd78b5b3422809010b642ab0e325588cdecf5a17675108a6021caf06074"
+    },
+    {
+      "artifact": "vulnerability_catalog",
+      "artifact_hash": "0a5f60b7d6686af66de39489f25fc8240f4cc32b162e1dedb035e3038c6a1910"
+    },
+    {
+      "artifact": "vulnerability_review",
+      "artifact_hash": "969804b23fa1f6864858d736634f5afc34d23af791be0fb9770c98ec6f5705cf"
+    },
+    {
+      "artifact": "build_provenance",
+      "artifact_hash": "0c0083931a9e4a6e544933538974dd3d40f3e83eec0f7383385b8b404a8f9627"
+    },
+    {
+      "artifact": "signatures",
+      "artifact_hash": "7aa1c685b255404938a9a184fe85d4bdb02e4cecf48a91b5253ac4f09aef25bd"
+    },
+    {
+      "artifact": "reproducible_build",
+      "artifact_hash": "cb24745e70119d423630f47715f65bbbb52c71244516599a5b75c69fd99a946a"
+    },
+    {
+      "artifact": "tamper_evidence",
+      "artifact_hash": "9af92d8a47ece6622c93bcb9441845caf7559e5b37a7daf2d79a8ff66afdb07e"
+    },
+    {
+      "artifact": "model_cards",
+      "artifact_hash": "95c09d59301ad9f19b678de4fd8c218c9df98121143f7e1cf3573dd3f7de155e"
+    },
+    {
+      "artifact": "data_cards",
+      "artifact_hash": "475afbd4a2d50b13b88804d762944abf98b616a27d901dc14d9256a0c467ffbc"
+    },
+    {
+      "artifact": "tiering",
+      "artifact_hash": "47ba77b4d3691e13297bbfd9061e7728b65f8c4b7a41052e18a30373a1789745"
+    },
+    {
+      "artifact": "scorecards",
+      "artifact_hash": "5ad719dfc9641f64dab3f84fab5d1ffb981e139f0dcc24d73728d34f21124186"
+    },
+    {
+      "artifact": "validation_plan",
+      "artifact_hash": "8d925ba6713cecf6ca190c3affd0f7482bd3f68eb540729ba8d6879b0551acb8"
+    },
+    {
+      "artifact": "validation_results",
+      "artifact_hash": "1146114d79a693b76c9968159635b103e21bd2be6e6b7d4158f10c903914780d"
+    },
+    {
+      "artifact": "threat_model",
+      "artifact_hash": "f34b9948d725e4ca5f9a30935e5f5e8481ed269ca0e034de5d5ef2a6319f8e84"
+    },
+    {
+      "artifact": "attack_surface",
+      "artifact_hash": "865c3ad29cec9d96c21ba28bea41ed0a84b354960b1bbb4c3bf4fd920987a896"
+    },
+    {
+      "artifact": "three_lines",
+      "artifact_hash": "59553be4ff12465cfa23759fe45177aaab2e50122697f340a168b259848ff383"
+    },
+    {
+      "artifact": "committee",
+      "artifact_hash": "52d1c9c9a4b12d2a2444190f92f1bb021c7967befe207ea88d8c54f9dd643b6d"
+    },
+    {
+      "artifact": "audit",
+      "artifact_hash": "8eefda4ea99b849fe34df95a0188d4a3dd727ab47354989cd04827481cf1ddea"
+    },
+    {
+      "artifact": "governance_ledger",
+      "artifact_hash": "04c6ce8a20bb1e1e557f1bef2f108b41785bfcf62ae65f03fb158702b32730f4"
+    },
+    {
+      "artifact": "exceptions",
+      "artifact_hash": "0094a0287453cb2e5248d73002283950d88848a3285e1f5506d468a649c24325"
+    },
+    {
+      "artifact": "waivers",
+      "artifact_hash": "1c14ef59c3c2c8e84766ca04197ea46719c774ac3a5a7ea15124bb5ae483d69a"
+    },
+    {
+      "artifact": "quarantine",
+      "artifact_hash": "caaec759079e9cdc4d51847310dcbf7fbca40859bfd3e5e0f6f1eb5dc164da5e"
+    },
+    {
+      "artifact": "incident_plan",
+      "artifact_hash": "7f7834f53ce970666468ff3c1885485d98c40ec3ee857ca283c175964791dbcf"
+    },
+    {
+      "artifact": "recall_plan",
+      "artifact_hash": "a30cc0ef74e073a50272aec429201201a21946d0f804bf08d1bdb5c12082ae2c"
+    },
+    {
+      "artifact": "baseline",
+      "artifact_hash": "43a20c63091e1b1b41bd0fe1b8bc9bb24603a8a5e2b429e6d82cdab7d19f0c88"
+    },
+    {
+      "artifact": "ucee",
+      "artifact_hash": "6421c95a41bea55569ae1d9609cd8ddb231c8e7db90276833694f0ed4f027d99"
+    },
+    {
+      "artifact": "external_boundary",
+      "artifact_hash": "4cd11c53444917ecd7640c1b78facb6b3c061700781d37bfac87ae7895f53f1c"
+    },
+    {
+      "artifact": "eligibility",
+      "artifact_hash": "d0ee0d4949e1c76587e6c5bfed4e75277b8ddb5290ac711b549a5dfffa7339c3"
+    },
+    {
+      "artifact": "limitations",
+      "artifact_hash": "878eda52c15cba9ede012a603071b588d56394db63a35d12551ec024b4d20692"
+    },
+    {
+      "artifact": "independent_reproduction",
+      "artifact_hash": "0528b280bc26d962a158348bd49628ed067f7fcabdbb30db26ee4606dab65896"
+    },
+    {
+      "artifact": "replay",
+      "artifact_hash": "4873ed6ea7f6374581ba7a60db5cb5ae91d3d8d491c2c252de2ad128cfae8928"
+    }
+  ],
+  "research_only": true
+}

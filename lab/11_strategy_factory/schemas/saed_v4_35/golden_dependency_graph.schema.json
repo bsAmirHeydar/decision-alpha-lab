@@ -1,0 +1,79 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_dependency_graph.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "acyclic": {
+      "type": "boolean"
+    },
+    "edge_count": {
+      "type": "integer"
+    },
+    "edges": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "optional": {
+            "type": "boolean"
+          },
+          "relation": {
+            "type": "string"
+          },
+          "source_id": {
+            "type": "string"
+          },
+          "target_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "optional",
+          "relation",
+          "source_id",
+          "target_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "graph_hash": {
+      "type": "string"
+    },
+    "graph_id": {
+      "type": "string"
+    },
+    "node_count": {
+      "type": "integer"
+    },
+    "nodes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "transitive_closure_required": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "acyclic",
+    "edge_count",
+    "edges",
+    "graph_hash",
+    "graph_id",
+    "node_count",
+    "nodes",
+    "phase",
+    "research_only",
+    "transitive_closure_required"
+  ],
+  "title": "GOLDEN_DEPENDENCY_GRAPH",
+  "type": "object"
+}

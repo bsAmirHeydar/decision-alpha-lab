@@ -1,0 +1,68 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_external_boundary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "boundary_hash": {
+      "type": "string"
+    },
+    "boundary_id": {
+      "type": "string"
+    },
+    "broker_qualification": {
+      "type": "boolean"
+    },
+    "closed_schema_validation": {
+      "type": "boolean"
+    },
+    "external_model_validation": {
+      "type": "boolean"
+    },
+    "metaeditor_compile": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorization": {
+      "type": "boolean"
+    },
+    "real_package_signature_verification": {
+      "type": "boolean"
+    },
+    "real_reproducible_build": {
+      "type": "boolean"
+    },
+    "real_vulnerability_scanner_attestation": {
+      "type": "boolean"
+    },
+    "runtime_parity": {
+      "type": "boolean"
+    },
+    "static_mql5_validation": {
+      "type": "boolean"
+    },
+    "static_python_tests": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "boundary_hash",
+    "boundary_id",
+    "broker_qualification",
+    "closed_schema_validation",
+    "external_model_validation",
+    "metaeditor_compile",
+    "phase",
+    "production_authorization",
+    "real_package_signature_verification",
+    "real_reproducible_build",
+    "real_vulnerability_scanner_attestation",
+    "runtime_parity",
+    "static_mql5_validation",
+    "static_python_tests"
+  ],
+  "title": "GOLDEN_EXTERNAL_BOUNDARY",
+  "type": "object"
+}

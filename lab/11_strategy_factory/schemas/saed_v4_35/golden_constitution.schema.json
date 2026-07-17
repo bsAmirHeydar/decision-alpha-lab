@@ -1,0 +1,80 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_constitution.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "central_engine_mutation_allowed": {
+      "type": "boolean"
+    },
+    "clauses": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "clause_id": {
+            "type": "string"
+          },
+          "evidence_required": {
+            "type": "boolean"
+          },
+          "failure_action": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "integer"
+          },
+          "requirement": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "clause_id",
+          "evidence_required",
+          "failure_action",
+          "priority",
+          "requirement"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "constitution_hash": {
+      "type": "string"
+    },
+    "constitution_id": {
+      "type": "string"
+    },
+    "execution_authority_allowed": {
+      "type": "boolean"
+    },
+    "known_critical_vulnerability_allowed": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "unknown_license_allowed": {
+      "type": "boolean"
+    },
+    "unsigned_artifacts_allowed": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "central_engine_mutation_allowed",
+    "clauses",
+    "constitution_hash",
+    "constitution_id",
+    "execution_authority_allowed",
+    "known_critical_vulnerability_allowed",
+    "research_only",
+    "unknown_license_allowed",
+    "unsigned_artifacts_allowed",
+    "version"
+  ],
+  "title": "GOLDEN_CONSTITUTION",
+  "type": "object"
+}

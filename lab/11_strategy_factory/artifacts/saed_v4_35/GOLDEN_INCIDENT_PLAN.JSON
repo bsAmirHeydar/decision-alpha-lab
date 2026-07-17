@@ -1,0 +1,56 @@
+{
+  "containment_actions": [
+    "freeze-distribution",
+    "quarantine-subject",
+    "revoke-key",
+    "preserve-evidence",
+    "disable-service",
+    "rollback-artifact",
+    "notify-consumers",
+    "open-root-cause"
+  ],
+  "evidence_preservation": true,
+  "notification_matrix": [
+    "security",
+    "model-risk",
+    "research-owner",
+    "audit"
+  ],
+  "phase": "SAED_V4_35",
+  "plan_id": "INCIDENT-PLAN-001",
+  "receipt_hash": "3adb34ebd701e08ae4622d4709d0d729b70c4b04163cfb75e14af908b66111b8",
+  "receipt_id": "v435_incident_6caa69cf9d4ddc05648899ad",
+  "recovery_gates": [
+    "root-cause-known",
+    "artifact-rebuilt",
+    "signatures-rotated",
+    "validation-rerun",
+    "committee-approved",
+    "baseline-confirmed"
+  ],
+  "research_only": true,
+  "roles": [
+    "incident-commander",
+    "security-lead",
+    "model-risk-lead",
+    "artifact-custodian",
+    "communications-owner"
+  ],
+  "severity_levels": [
+    "SEV0",
+    "SEV1",
+    "SEV2",
+    "SEV3"
+  ],
+  "tabletop_completed": true,
+  "triggers": [
+    "hash-mismatch",
+    "signature-failure",
+    "critical-vulnerability",
+    "license-breach",
+    "model-substitution",
+    "data-lineage-break",
+    "key-revocation",
+    "unauthorized-egress"
+  ]
+}

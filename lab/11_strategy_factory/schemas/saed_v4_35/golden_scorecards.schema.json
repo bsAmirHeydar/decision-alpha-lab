@@ -1,0 +1,125 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_scorecards.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "all_dimensions_present": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "registry_hash": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "scorecards": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "aggregate_risk_score": {
+            "type": "number"
+          },
+          "blocking": {
+            "type": "boolean"
+          },
+          "dimension_scores": {
+            "additionalProperties": false,
+            "properties": {
+              "change_risk": {
+                "type": "number"
+              },
+              "concentration_risk": {
+                "type": "number"
+              },
+              "conceptual_soundness": {
+                "type": "number"
+              },
+              "cyber_supply_chain_risk": {
+                "type": "number"
+              },
+              "data_risk": {
+                "type": "number"
+              },
+              "explainability_risk": {
+                "type": "number"
+              },
+              "governance_risk": {
+                "type": "number"
+              },
+              "operational_risk": {
+                "type": "number"
+              },
+              "third_party_risk": {
+                "type": "number"
+              },
+              "validation_risk": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "change_risk",
+              "concentration_risk",
+              "conceptual_soundness",
+              "cyber_supply_chain_risk",
+              "data_risk",
+              "explainability_risk",
+              "governance_risk",
+              "operational_risk",
+              "third_party_risk",
+              "validation_risk"
+            ],
+            "type": "object"
+          },
+          "model_id": {
+            "type": "string"
+          },
+          "monitoring_readiness": {
+            "type": "number"
+          },
+          "open_findings": {
+            "type": "integer"
+          },
+          "production_authorized": {
+            "type": "boolean"
+          },
+          "risk_tier": {
+            "type": "string"
+          },
+          "validation_coverage": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "aggregate_risk_score",
+          "blocking",
+          "dimension_scores",
+          "model_id",
+          "monitoring_readiness",
+          "open_findings",
+          "production_authorized",
+          "risk_tier",
+          "validation_coverage"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "all_dimensions_present",
+    "phase",
+    "registry_hash",
+    "registry_id",
+    "research_only",
+    "scorecards"
+  ],
+  "title": "GOLDEN_SCORECARDS",
+  "type": "object"
+}

@@ -1,0 +1,82 @@
+{
+  "$id": "https://alpha-lab.local/saed/v4-35/golden_incident_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed deterministic SAED V4-35 reference artifact schema.",
+  "properties": {
+    "containment_actions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "evidence_preservation": {
+      "type": "boolean"
+    },
+    "notification_matrix": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "plan_id": {
+      "type": "string"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "recovery_gates": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "roles": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "severity_levels": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "tabletop_completed": {
+      "type": "boolean"
+    },
+    "triggers": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "containment_actions",
+    "evidence_preservation",
+    "notification_matrix",
+    "phase",
+    "plan_id",
+    "receipt_hash",
+    "receipt_id",
+    "recovery_gates",
+    "research_only",
+    "roles",
+    "severity_levels",
+    "tabletop_completed",
+    "triggers"
+  ],
+  "title": "GOLDEN_INCIDENT_PLAN",
+  "type": "object"
+}

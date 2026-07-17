@@ -1,0 +1,16 @@
+{
+  "active_reference_waivers": 1,
+  "expired_waivers": 0,
+  "phase": "SAED_V4_35",
+  "research_only": true,
+  "review_hash": "c8d4e59c30440224299f212ce85c2c729a8d4f9d89fb08be855e862c7b3aa638",
+  "review_id": "v435_waivers_c71652b17472d6b3e424eadc",
+  "reviews": [
+    {
+      "exception_id": "EXC-REF-001",
+      "production_scope_allowed": false,
+      "revalidation_required": true,
+      "state": "ACTIVE_REFERENCE"
+    }
+  ]
+}
