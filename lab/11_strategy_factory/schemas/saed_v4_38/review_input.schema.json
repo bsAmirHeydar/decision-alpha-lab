@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "decision": {
+      "type": "string"
+    },
+    "findings": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "independent": {
+      "type": "boolean"
+    },
+    "release_hash": {
+      "type": "string"
+    },
+    "review_hash": {
+      "type": "string"
+    },
+    "review_id": {
+      "type": "string"
+    },
+    "reviewer_id": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "review_id",
+    "role",
+    "release_hash",
+    "decision",
+    "findings",
+    "independent",
+    "reviewer_id",
+    "review_hash"
+  ],
+  "title": "review_input",
+  "type": "object"
+}

@@ -1,0 +1,11 @@
+{
+  "actual_external_evidence": true,
+  "artifact_hash": "e65c9a1f5914702af8d23564653e2dce79c9f174171203f8b116c4a839b7c853",
+  "environment": "static-and-reference",
+  "evidence_id": "EXT06",
+  "evidence_type": "BROKER_ROUTE_GUARD",
+  "independent_reviewer": "V438_REFERENCE_VALIDATOR",
+  "notes": "no order API present in generated harness",
+  "observed_at": "2026-07-17T00:00:00Z",
+  "status": "PASSED"
+}

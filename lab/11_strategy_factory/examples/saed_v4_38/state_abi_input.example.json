@@ -1,0 +1,52 @@
+{
+  "abi_id": "STATE_ABI_V1",
+  "backward_compatible_with": [],
+  "closed_contract": true,
+  "fields": [
+    {
+      "data_type": "INT64",
+      "default": "0",
+      "direction": "STATE",
+      "enum_values": [],
+      "field_id": "S00",
+      "maximum": 1000000000,
+      "minimum": 0,
+      "name": "sequence",
+      "ordinal": 0,
+      "required": true,
+      "semantic": "sequence",
+      "unit": "count"
+    },
+    {
+      "data_type": "INT64",
+      "default": "0",
+      "direction": "STATE",
+      "enum_values": [],
+      "field_id": "S01",
+      "maximum": 100000,
+      "minimum": 0,
+      "name": "cooldown_bars",
+      "ordinal": 1,
+      "required": true,
+      "semantic": "cooldown_bars",
+      "unit": "bars"
+    },
+    {
+      "data_type": "FLOAT64",
+      "default": "0.0",
+      "direction": "STATE",
+      "enum_values": [],
+      "field_id": "S02",
+      "maximum": 1,
+      "minimum": 0,
+      "name": "drawdown_state",
+      "ordinal": 2,
+      "required": true,
+      "semantic": "drawdown_state",
+      "unit": "ratio"
+    }
+  ],
+  "kind": "STATE",
+  "research_only": true,
+  "version": "1.0.0"
+}

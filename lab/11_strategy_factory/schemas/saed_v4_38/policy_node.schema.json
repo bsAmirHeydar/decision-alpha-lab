@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "inputs": {
+      "items": {},
+      "type": "array"
+    },
+    "node_hash": {
+      "type": "string"
+    },
+    "node_id": {
+      "type": "string"
+    },
+    "op": {
+      "type": "string"
+    },
+    "ordinal": {
+      "type": "integer"
+    },
+    "output_name": {
+      "type": "string"
+    },
+    "params": {
+      "additionalProperties": false,
+      "properties": {
+        "max_size_fraction": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "treatment_id": {
+          "type": "string"
+        },
+        "value": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "name",
+        "value",
+        "treatment_id",
+        "max_size_fraction"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "node_id",
+    "ordinal",
+    "op",
+    "inputs",
+    "params",
+    "output_name",
+    "node_hash"
+  ],
+  "title": "policy_node",
+  "type": "object"
+}

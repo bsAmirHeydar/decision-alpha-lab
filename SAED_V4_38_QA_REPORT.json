@@ -1,0 +1,53 @@
+{
+  "claim_ceiling": "immutable runtime compilation and synthetic MQL5 semantic parity reference only; actual MetaEditor and terminal evidence pending",
+  "duration_seconds": 9.055,
+  "metaeditor_compile": "pending_external",
+  "passed": true,
+  "phase": "SAED_V4_38",
+  "production_authorized": false,
+  "results": [
+    {
+      "command": "C:\\Users\\ABN\\AppData\\Roaming\\MetaQuotes\\Terminal\\4769098028DB821E4654DC6D5C533078\\MQL5\\Shared Projects\\decision-alpha-lab\\.venv\\Scripts\\python.exe -m pytest -q lab/11_strategy_factory/tests/phase_saed_v4_38_immutable_runtime_mql5_parity",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "........................................................................ [ 25%]\n........................................................................ [ 50%]\n........................................................................ [ 75%]\n.......................................................................  [100%]\n287 passed in 4.04s\n"
+    },
+    {
+      "command": "C:\\Users\\ABN\\AppData\\Roaming\\MetaQuotes\\Terminal\\4769098028DB821E4654DC6D5C533078\\MQL5\\Shared Projects\\decision-alpha-lab\\.venv\\Scripts\\python.exe tools/strategy_factory/saed_v4_38/validate_contracts.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\"phase\": \"SAED_V4_38\", \"closed_contract_pairs\": 55, \"passed\": true}\n"
+    },
+    {
+      "command": "C:\\Users\\ABN\\AppData\\Roaming\\MetaQuotes\\Terminal\\4769098028DB821E4654DC6D5C533078\\MQL5\\Shared Projects\\decision-alpha-lab\\.venv\\Scripts\\python.exe tools/strategy_factory/saed_v4_38/validate_mql5_static.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\"phase\": \"SAED_V4_38\", \"mql5_files\": 27, \"evidence_kind\": \"static_only\", \"metaeditor_compile_claimed\": false, \"passed\": true}\n"
+    },
+    {
+      "command": "C:\\Users\\ABN\\AppData\\Roaming\\MetaQuotes\\Terminal\\4769098028DB821E4654DC6D5C533078\\MQL5\\Shared Projects\\decision-alpha-lab\\.venv\\Scripts\\python.exe tools/strategy_factory/saed_v4_38/validate_authority.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\"phase\": \"SAED_V4_38\", \"denied\": [\"may_send_order\", \"may_activate_capital\", \"may_mutate_ucee\", \"may_promote_model\", \"may_claim_metaeditor_compile_without_evidence\", \"may_claim_terminal_parity_without_evidence\", \"may_authorize_production\", \"live_trading_authority\"], \"passed\": true}\n"
+    },
+    {
+      "command": "C:\\Users\\ABN\\AppData\\Roaming\\MetaQuotes\\Terminal\\4769098028DB821E4654DC6D5C533078\\MQL5\\Shared Projects\\decision-alpha-lab\\.venv\\Scripts\\python.exe tools/strategy_factory/saed_v4_38/validate_runtime_bundle.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\"phase\": \"SAED_V4_38\", \"bundle_hash\": \"95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294\", \"tamper_detection\": true, \"passed\": true}\n"
+    },
+    {
+      "command": "C:\\Users\\ABN\\AppData\\Roaming\\MetaQuotes\\Terminal\\4769098028DB821E4654DC6D5C533078\\MQL5\\Shared Projects\\decision-alpha-lab\\.venv\\Scripts\\python.exe tools/strategy_factory/saed_v4_38/validate_external_evidence_separation.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\"phase\": \"SAED_V4_38\", \"metaeditor_compile\": \"pending_external\", \"terminal_parity\": \"pending_external\", \"production_authorized\": false, \"passed\": true}\n"
+    },
+    {
+      "command": "C:\\Users\\ABN\\AppData\\Roaming\\MetaQuotes\\Terminal\\4769098028DB821E4654DC6D5C533078\\MQL5\\Shared Projects\\decision-alpha-lab\\.venv\\Scripts\\python.exe tools/strategy_factory/saed_v4_38/validate_docs.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\"phase\": \"SAED_V4_38\", \"phase_docs\": 145, \"atomic_docs\": 122, \"passed\": true}\n"
+    }
+  ],
+  "terminal_parity": "pending_external"
+}

@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "baseline_hash": {
+      "type": "string"
+    },
+    "evidence_bundle_hash": {
+      "type": "string"
+    },
+    "evidence_bundle_id": {
+      "type": "string"
+    },
+    "evidence_hashes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "evidence_items": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "hash": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "hash"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "evidence_merkle_root": {
+      "type": "string"
+    },
+    "external_runtime_evidence_complete": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "release_hash": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "review_hash": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "evidence_items",
+    "evidence_hashes",
+    "evidence_merkle_root",
+    "release_hash",
+    "review_hash",
+    "baseline_hash",
+    "external_runtime_evidence_complete",
+    "research_only",
+    "evidence_bundle_id",
+    "evidence_bundle_hash"
+  ],
+  "title": "evidence_bundle",
+  "type": "object"
+}

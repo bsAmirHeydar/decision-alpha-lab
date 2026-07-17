@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "bundle_hash": {
+      "type": "string"
+    },
+    "file_count": {
+      "type": "integer"
+    },
+    "file_merkle_root": {
+      "type": "string"
+    },
+    "files": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "content_hash": {
+            "type": "string"
+          },
+          "executable": {
+            "type": "boolean"
+          },
+          "path": {
+            "type": "string"
+          },
+          "research_only": {
+            "type": "boolean"
+          },
+          "role": {
+            "type": "string"
+          },
+          "size_bytes": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "path",
+          "role",
+          "content_hash",
+          "size_bytes",
+          "executable",
+          "research_only"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "manifest_hash": {
+      "type": "string"
+    },
+    "manifest_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "phase",
+    "bundle_hash",
+    "files",
+    "file_count",
+    "file_merkle_root",
+    "research_only",
+    "manifest_id",
+    "manifest_hash"
+  ],
+  "title": "file_manifest",
+  "type": "object"
+}

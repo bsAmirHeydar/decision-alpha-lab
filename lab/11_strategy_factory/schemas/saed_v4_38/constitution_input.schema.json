@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "automatic_order_submission_allowed": {
+      "type": "boolean"
+    },
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "clauses": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "clause_id": {
+            "type": "string"
+          },
+          "evidence_required": {
+            "type": "boolean"
+          },
+          "failure_action": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "integer"
+          },
+          "requirement": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "clause_id",
+          "priority",
+          "requirement",
+          "failure_action",
+          "evidence_required"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "closed_abi_required": {
+      "type": "boolean"
+    },
+    "constitution_id": {
+      "type": "string"
+    },
+    "deterministic_runtime_required": {
+      "type": "boolean"
+    },
+    "external_evidence_separation_required": {
+      "type": "boolean"
+    },
+    "immutable_bundle_required": {
+      "type": "boolean"
+    },
+    "production_authorization_allowed": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "constitution_id",
+    "version",
+    "clauses",
+    "research_only",
+    "immutable_bundle_required",
+    "deterministic_runtime_required",
+    "closed_abi_required",
+    "external_evidence_separation_required",
+    "automatic_order_submission_allowed",
+    "capital_activation_allowed",
+    "production_authorization_allowed"
+  ],
+  "title": "constitution_input",
+  "type": "object"
+}

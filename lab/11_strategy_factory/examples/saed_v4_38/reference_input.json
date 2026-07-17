@@ -1,0 +1,2581 @@
+{
+  "clock_profile": {
+    "allowed_weekdays": [
+      "FRIDAY",
+      "MONDAY",
+      "THURSDAY",
+      "TUESDAY",
+      "WEDNESDAY"
+    ],
+    "bar_close_only": true,
+    "clock_profile_id": "CLOCK_V1",
+    "dst_policy": "UTC_ONLY",
+    "duplicate_timestamp_policy": "REJECT",
+    "max_clock_skew_ms": 1000,
+    "missing_bar_policy": "ABSTAIN",
+    "out_of_order_policy": "REJECT",
+    "research_only": true,
+    "session_calendar_id": "SYNTHETIC_24X5",
+    "timestamp_format": "RFC3339_NANO_UTC",
+    "timezone": "UTC"
+  },
+  "compiler_profile": {
+    "build_timestamp_policy": "OMIT",
+    "compiler_id": "SAED_RUNTIME_COMPILER",
+    "compiler_version": "1.0.0",
+    "deterministic_build": true,
+    "environment_variables_allowed": false,
+    "network_access": false,
+    "optimization_level": "O0_DETERMINISTIC",
+    "research_only": true,
+    "source_language": "PYTHON_REFERENCE",
+    "target_runtime": "MQL5_STATIC_SOURCE"
+  },
+  "constitution": {
+    "automatic_order_submission_allowed": false,
+    "capital_activation_allowed": false,
+    "clauses": [
+      {
+        "clause_id": "V438-C01",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 1,
+        "requirement": "Immutable content-addressed runtime bundle"
+      },
+      {
+        "clause_id": "V438-C02",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 2,
+        "requirement": "Hermetic deterministic compiler"
+      },
+      {
+        "clause_id": "V438-C03",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 3,
+        "requirement": "Closed feature ABI"
+      },
+      {
+        "clause_id": "V438-C04",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 4,
+        "requirement": "Closed model ABI"
+      },
+      {
+        "clause_id": "V438-C05",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 5,
+        "requirement": "Closed policy ABI"
+      },
+      {
+        "clause_id": "V438-C06",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 6,
+        "requirement": "Closed output ABI"
+      },
+      {
+        "clause_id": "V438-C07",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 7,
+        "requirement": "Closed state ABI"
+      },
+      {
+        "clause_id": "V438-C08",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 8,
+        "requirement": "No unknown fields"
+      },
+      {
+        "clause_id": "V438-C09",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 9,
+        "requirement": "Stable field ordinals"
+      },
+      {
+        "clause_id": "V438-C10",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 10,
+        "requirement": "Stable node ordinals"
+      },
+      {
+        "clause_id": "V438-C11",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 11,
+        "requirement": "Canonical serialization"
+      },
+      {
+        "clause_id": "V438-C12",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 12,
+        "requirement": "IEEE-754 binary64 profile"
+      },
+      {
+        "clause_id": "V438-C13",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 13,
+        "requirement": "Explicit quantization"
+      },
+      {
+        "clause_id": "V438-C14",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 14,
+        "requirement": "NaN rejection"
+      },
+      {
+        "clause_id": "V438-C15",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 15,
+        "requirement": "Infinity rejection"
+      },
+      {
+        "clause_id": "V438-C16",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 16,
+        "requirement": "Division-by-zero abstention"
+      },
+      {
+        "clause_id": "V438-C17",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 17,
+        "requirement": "UTC-only clock"
+      },
+      {
+        "clause_id": "V438-C18",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 18,
+        "requirement": "Known-time enforcement"
+      },
+      {
+        "clause_id": "V438-C19",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 19,
+        "requirement": "Duplicate timestamp rejection"
+      },
+      {
+        "clause_id": "V438-C20",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 20,
+        "requirement": "Out-of-order rejection"
+      },
+      {
+        "clause_id": "V438-C21",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 21,
+        "requirement": "No environment-variable dependence"
+      },
+      {
+        "clause_id": "V438-C22",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 22,
+        "requirement": "No network dependence"
+      },
+      {
+        "clause_id": "V438-C23",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 23,
+        "requirement": "No wall-clock build timestamp"
+      },
+      {
+        "clause_id": "V438-C24",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 24,
+        "requirement": "Bundle Merkle root"
+      },
+      {
+        "clause_id": "V438-C25",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 25,
+        "requirement": "File-level integrity manifest"
+      },
+      {
+        "clause_id": "V438-C26",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 26,
+        "requirement": "Synthetic signature clearly labeled"
+      },
+      {
+        "clause_id": "V438-C27",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 27,
+        "requirement": "Independent Python runtime"
+      },
+      {
+        "clause_id": "V438-C28",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 28,
+        "requirement": "Independent MQL5 semantic emulator"
+      },
+      {
+        "clause_id": "V438-C29",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 29,
+        "requirement": "Golden parity vectors"
+      },
+      {
+        "clause_id": "V438-C30",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 30,
+        "requirement": "Boundary vectors"
+      },
+      {
+        "clause_id": "V438-C31",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 31,
+        "requirement": "Mutation tests"
+      },
+      {
+        "clause_id": "V438-C32",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 32,
+        "requirement": "Fail-closed fallback"
+      },
+      {
+        "clause_id": "V438-C33",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 33,
+        "requirement": "State replay ledger"
+      },
+      {
+        "clause_id": "V438-C34",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 34,
+        "requirement": "No order routing"
+      },
+      {
+        "clause_id": "V438-C35",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 35,
+        "requirement": "No capital activation"
+      },
+      {
+        "clause_id": "V438-C36",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 36,
+        "requirement": "External MetaEditor evidence separation"
+      },
+      {
+        "clause_id": "V438-C37",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 37,
+        "requirement": "External terminal evidence separation"
+      },
+      {
+        "clause_id": "V438-C38",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 38,
+        "requirement": "Baseline preservation"
+      },
+      {
+        "clause_id": "V438-C39",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 39,
+        "requirement": "Independent model-risk review"
+      },
+      {
+        "clause_id": "V438-C40",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 40,
+        "requirement": "Bounded V4-39 handoff"
+      }
+    ],
+    "closed_abi_required": true,
+    "constitution_id": "v438_constitution_ref",
+    "deterministic_runtime_required": true,
+    "external_evidence_separation_required": true,
+    "immutable_bundle_required": true,
+    "production_authorization_allowed": false,
+    "research_only": true,
+    "version": "1.0.0"
+  },
+  "cutoff_time": "2026-06-30T20:00:00Z",
+  "external_evidence": [
+    {
+      "actual_external_evidence": true,
+      "artifact_hash": "82990dde0620a6a583af4229acdc25d76010216e7547e89336cb95a8976b8005",
+      "environment": "linux-python",
+      "evidence_id": "EXT00",
+      "evidence_type": "PYTHON_REFERENCE",
+      "independent_reviewer": "V438_REFERENCE_VALIDATOR",
+      "notes": "actual internal reference evidence",
+      "observed_at": "2026-07-17T00:00:00Z",
+      "status": "PASSED"
+    },
+    {
+      "actual_external_evidence": true,
+      "artifact_hash": "6cc773392d00e871c18373438a18b101876d1019751ddbad765d0c8ad872616d",
+      "environment": "cross-platform-static",
+      "evidence_id": "EXT01",
+      "evidence_type": "MQL5_STATIC_VALIDATION",
+      "independent_reviewer": "V438_REFERENCE_VALIDATOR",
+      "notes": "actual static evidence",
+      "observed_at": "2026-07-17T00:00:00Z",
+      "status": "PASSED"
+    },
+    {
+      "actual_external_evidence": false,
+      "artifact_hash": "4efb3e9896a05f695843041fa3904cb4f83332e8d76e82e84b189057d71424e9",
+      "environment": "windows-metaeditor",
+      "evidence_id": "EXT02",
+      "evidence_type": "METAEDITOR_COMPILE",
+      "independent_reviewer": "V438_REFERENCE_VALIDATOR",
+      "notes": "requires actual Windows MetaEditor compile evidence",
+      "observed_at": "2026-07-17T00:00:00Z",
+      "status": "PENDING_EXTERNAL"
+    },
+    {
+      "actual_external_evidence": false,
+      "artifact_hash": "abadf4f7aec1226d795cb1ec92ca462416ea4b443cb201ac326e5da2eea4db34",
+      "environment": "windows-mt5-terminal",
+      "evidence_id": "EXT03",
+      "evidence_type": "TERMINAL_VECTOR_REPLAY",
+      "independent_reviewer": "V438_REFERENCE_VALIDATOR",
+      "notes": "requires actual terminal vector replay evidence",
+      "observed_at": "2026-07-17T00:00:00Z",
+      "status": "PENDING_EXTERNAL"
+    },
+    {
+      "actual_external_evidence": false,
+      "artifact_hash": "77c4feca33cb5e2128da6cfd6b0c90c7d6473863293fb6d1fdf132530b47ac15",
+      "environment": "windows-mt5-terminal",
+      "evidence_id": "EXT04",
+      "evidence_type": "CROSS_RUNTIME_STATE_REPLAY",
+      "independent_reviewer": "V438_REFERENCE_VALIDATOR",
+      "notes": "requires actual state replay evidence",
+      "observed_at": "2026-07-17T00:00:00Z",
+      "status": "PENDING_EXTERNAL"
+    },
+    {
+      "actual_external_evidence": false,
+      "artifact_hash": "d4aa565ad32eecaee86c12730ab04cac85e1601dd964cc36393032804a972140",
+      "environment": "windows-host",
+      "evidence_id": "EXT05",
+      "evidence_type": "WINDOWS_DLL_BOUNDARY",
+      "independent_reviewer": "V438_REFERENCE_VALIDATOR",
+      "notes": "requires actual DLL boundary evidence or explicit N/A approval",
+      "observed_at": "2026-07-17T00:00:00Z",
+      "status": "PENDING_EXTERNAL"
+    },
+    {
+      "actual_external_evidence": true,
+      "artifact_hash": "e65c9a1f5914702af8d23564653e2dce79c9f174171203f8b116c4a839b7c853",
+      "environment": "static-and-reference",
+      "evidence_id": "EXT06",
+      "evidence_type": "BROKER_ROUTE_GUARD",
+      "independent_reviewer": "V438_REFERENCE_VALIDATOR",
+      "notes": "no order API present in generated harness",
+      "observed_at": "2026-07-17T00:00:00Z",
+      "status": "PASSED"
+    }
+  ],
+  "feature_abi": {
+    "abi_id": "FEATURE_ABI_V1",
+    "backward_compatible_with": [],
+    "closed_contract": true,
+    "fields": [
+      {
+        "data_type": "FLOAT64",
+        "default": "0.0",
+        "direction": "INPUT",
+        "enum_values": [],
+        "field_id": "F00",
+        "maximum": 1,
+        "minimum": -1,
+        "name": "price_return_1",
+        "ordinal": 0,
+        "required": true,
+        "semantic": "Canonical runtime feature price_return_1",
+        "unit": "ratio"
+      },
+      {
+        "data_type": "FLOAT64",
+        "default": "0.0",
+        "direction": "INPUT",
+        "enum_values": [],
+        "field_id": "F01",
+        "maximum": 1,
+        "minimum": 0,
+        "name": "volatility_20",
+        "ordinal": 1,
+        "required": true,
+        "semantic": "Canonical runtime feature volatility_20",
+        "unit": "ratio"
+      },
+      {
+        "data_type": "FLOAT64",
+        "default": "0.0",
+        "direction": "INPUT",
+        "enum_values": [],
+        "field_id": "F02",
+        "maximum": 100,
+        "minimum": 0,
+        "name": "spread_bps",
+        "ordinal": 2,
+        "required": true,
+        "semantic": "Canonical runtime feature spread_bps",
+        "unit": "bps"
+      },
+      {
+        "data_type": "FLOAT64",
+        "default": "0.0",
+        "direction": "INPUT",
+        "enum_values": [],
+        "field_id": "F03",
+        "maximum": 10,
+        "minimum": 0,
+        "name": "liquidity_ratio",
+        "ordinal": 3,
+        "required": true,
+        "semantic": "Canonical runtime feature liquidity_ratio",
+        "unit": "ratio"
+      },
+      {
+        "data_type": "FLOAT64",
+        "default": "0.0",
+        "direction": "INPUT",
+        "enum_values": [],
+        "field_id": "F04",
+        "maximum": 1,
+        "minimum": 0,
+        "name": "context_score",
+        "ordinal": 4,
+        "required": true,
+        "semantic": "Canonical runtime feature context_score",
+        "unit": "score"
+      },
+      {
+        "data_type": "FLOAT64",
+        "default": "0.0",
+        "direction": "INPUT",
+        "enum_values": [],
+        "field_id": "F05",
+        "maximum": 1,
+        "minimum": 0,
+        "name": "treatment_score",
+        "ordinal": 5,
+        "required": true,
+        "semantic": "Canonical runtime feature treatment_score",
+        "unit": "score"
+      },
+      {
+        "data_type": "FLOAT64",
+        "default": "0.0",
+        "direction": "INPUT",
+        "enum_values": [],
+        "field_id": "F06",
+        "maximum": 200,
+        "minimum": -100,
+        "name": "expected_edge_bps",
+        "ordinal": 6,
+        "required": true,
+        "semantic": "Canonical runtime feature expected_edge_bps",
+        "unit": "bps"
+      },
+      {
+        "data_type": "FLOAT64",
+        "default": "0.0",
+        "direction": "INPUT",
+        "enum_values": [],
+        "field_id": "F07",
+        "maximum": 100,
+        "minimum": 0,
+        "name": "expected_cost_bps",
+        "ordinal": 7,
+        "required": true,
+        "semantic": "Canonical runtime feature expected_cost_bps",
+        "unit": "bps"
+      },
+      {
+        "data_type": "FLOAT64",
+        "default": "0.0",
+        "direction": "INPUT",
+        "enum_values": [],
+        "field_id": "F08",
+        "maximum": 2,
+        "minimum": 0,
+        "name": "portfolio_risk",
+        "ordinal": 8,
+        "required": true,
+        "semantic": "Canonical runtime feature portfolio_risk",
+        "unit": "ratio"
+      },
+      {
+        "data_type": "FLOAT64",
+        "default": "0.0",
+        "direction": "INPUT",
+        "enum_values": [],
+        "field_id": "F09",
+        "maximum": 1,
+        "minimum": 0,
+        "name": "session_progress",
+        "ordinal": 9,
+        "required": true,
+        "semantic": "Canonical runtime feature session_progress",
+        "unit": "ratio"
+      },
+      {
+        "data_type": "FLOAT64",
+        "default": "0.0",
+        "direction": "INPUT",
+        "enum_values": [],
+        "field_id": "F10",
+        "maximum": 1,
+        "minimum": 0,
+        "name": "drawdown_state",
+        "ordinal": 10,
+        "required": true,
+        "semantic": "Canonical runtime feature drawdown_state",
+        "unit": "ratio"
+      },
+      {
+        "data_type": "FLOAT64",
+        "default": "0.0",
+        "direction": "INPUT",
+        "enum_values": [],
+        "field_id": "F11",
+        "maximum": 1,
+        "minimum": 0,
+        "name": "ood_score",
+        "ordinal": 11,
+        "required": true,
+        "semantic": "Canonical runtime feature ood_score",
+        "unit": "score"
+      }
+    ],
+    "kind": "FEATURE",
+    "research_only": true,
+    "version": "1.0.0"
+  },
+  "initial_state": {
+    "cooldown_bars": 0,
+    "drawdown_state": 0.0,
+    "last_decision": "ABSTAIN",
+    "last_known_time": "",
+    "research_only": true,
+    "sequence": 0,
+    "state_version": "1.0.0"
+  },
+  "model": {
+    "bias": 0.18,
+    "features": [
+      "context_score",
+      "drawdown_state",
+      "expected_cost_bps",
+      "expected_edge_bps",
+      "liquidity_ratio",
+      "ood_score",
+      "portfolio_risk",
+      "price_return_1",
+      "session_progress",
+      "spread_bps",
+      "treatment_score",
+      "volatility_20"
+    ],
+    "model_id": "LINEAR_RUNTIME_REFERENCE",
+    "model_type": "LINEAR_REFERENCE",
+    "output_name": "model_score",
+    "research_only": true,
+    "training_artifact_hash": "c4a6572a21777b96550f62e648d642fb6ed8516a2a4bfbac53733700615d179f",
+    "version": "1.0.0",
+    "weights": [
+      0.25,
+      -0.15,
+      -0.005,
+      0.012,
+      0.02,
+      -0.35,
+      -0.2,
+      0.08,
+      0.04,
+      -0.01,
+      0.28,
+      -0.1
+    ]
+  },
+  "model_abi": {
+    "abi_id": "MODEL_ABI_V1",
+    "backward_compatible_with": [],
+    "closed_contract": true,
+    "fields": [
+      {
+        "data_type": "FLOAT64",
+        "default": "0.0",
+        "direction": "OUTPUT",
+        "enum_values": [],
+        "field_id": "M00",
+        "maximum": 100,
+        "minimum": -100,
+        "name": "model_score",
+        "ordinal": 0,
+        "required": true,
+        "semantic": "Linear reference model score",
+        "unit": "score"
+      }
+    ],
+    "kind": "MODEL",
+    "research_only": true,
+    "version": "1.0.0"
+  },
+  "numeric_profile": {
+    "absolute_tolerance": 1e-09,
+    "comparison_epsilon": 1e-10,
+    "decimal_places": 8,
+    "division_zero_policy": "ABSTAIN",
+    "float_mode": "IEEE754_BINARY64",
+    "infinity_policy": "REJECT",
+    "nan_policy": "REJECT",
+    "profile_id": "NUMERIC_V1",
+    "relative_tolerance": 1e-09,
+    "research_only": true,
+    "rounding_mode": "HALF_EVEN"
+  },
+  "output_abi": {
+    "abi_id": "OUTPUT_ABI_V1",
+    "backward_compatible_with": [],
+    "closed_contract": true,
+    "fields": [
+      {
+        "data_type": "ENUM",
+        "default": "ABSTAIN",
+        "direction": "OUTPUT",
+        "enum_values": [
+          "ABSTAIN",
+          "SELECT"
+        ],
+        "field_id": "O00",
+        "maximum": 0,
+        "minimum": 0,
+        "name": "decision",
+        "ordinal": 0,
+        "required": true,
+        "semantic": "decision",
+        "unit": "enum"
+      },
+      {
+        "data_type": "STRING",
+        "default": "BASELINE",
+        "direction": "OUTPUT",
+        "enum_values": [],
+        "field_id": "O01",
+        "maximum": 0,
+        "minimum": 0,
+        "name": "treatment_id",
+        "ordinal": 1,
+        "required": true,
+        "semantic": "treatment_id",
+        "unit": "id"
+      },
+      {
+        "data_type": "FLOAT64",
+        "default": "0.0",
+        "direction": "OUTPUT",
+        "enum_values": [],
+        "field_id": "O02",
+        "maximum": 1,
+        "minimum": 0,
+        "name": "confidence",
+        "ordinal": 2,
+        "required": true,
+        "semantic": "confidence",
+        "unit": "score"
+      },
+      {
+        "data_type": "FLOAT64",
+        "default": "0.0",
+        "direction": "OUTPUT",
+        "enum_values": [],
+        "field_id": "O03",
+        "maximum": 200,
+        "minimum": -200,
+        "name": "net_edge_bps",
+        "ordinal": 3,
+        "required": true,
+        "semantic": "net_edge_bps",
+        "unit": "bps"
+      },
+      {
+        "data_type": "FLOAT64",
+        "default": "0.0",
+        "direction": "OUTPUT",
+        "enum_values": [],
+        "field_id": "O04",
+        "maximum": 1,
+        "minimum": 0,
+        "name": "size_fraction",
+        "ordinal": 4,
+        "required": true,
+        "semantic": "size_fraction",
+        "unit": "ratio"
+      }
+    ],
+    "kind": "OUTPUT",
+    "research_only": true,
+    "version": "1.0.0"
+  },
+  "parity_vectors": [
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 1.0,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.45,
+        "drawdown_state": 0.0,
+        "expected_cost_bps": 1.0,
+        "expected_edge_bps": 2.0,
+        "liquidity_ratio": 0.5,
+        "ood_score": 0.25,
+        "portfolio_risk": 0.9,
+        "price_return_1": -0.06,
+        "session_progress": 0.06,
+        "spread_bps": 1.0,
+        "treatment_score": 0.4,
+        "volatility_20": 0.05
+      },
+      "known_time": "2026-06-01T00:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV000"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 3.6,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.53,
+        "drawdown_state": 0.11,
+        "expected_cost_bps": 1.7,
+        "expected_edge_bps": 5.3,
+        "liquidity_ratio": 0.65,
+        "ood_score": 0.045,
+        "portfolio_risk": 0.43,
+        "price_return_1": -0.045,
+        "session_progress": 0.145,
+        "spread_bps": 1.8,
+        "treatment_score": 0.47,
+        "volatility_20": 0.06
+      },
+      "known_time": "2026-06-01T01:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV001"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 4.2,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.61,
+        "drawdown_state": 0.22,
+        "expected_cost_bps": 2.4,
+        "expected_edge_bps": 6.6,
+        "liquidity_ratio": 0.8,
+        "ood_score": 0.09,
+        "portfolio_risk": 0.51,
+        "price_return_1": -0.03,
+        "session_progress": 0.23,
+        "spread_bps": 2.6,
+        "treatment_score": 0.54,
+        "volatility_20": 0.07
+      },
+      "known_time": "2026-06-01T02:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV002"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 4.8,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.69,
+        "drawdown_state": 0.33,
+        "expected_cost_bps": 3.1,
+        "expected_edge_bps": 7.9,
+        "liquidity_ratio": 0.95,
+        "ood_score": 0.135,
+        "portfolio_risk": 0.59,
+        "price_return_1": -0.015,
+        "session_progress": 0.315,
+        "spread_bps": 3.4,
+        "treatment_score": 0.61,
+        "volatility_20": 0.08
+      },
+      "known_time": "2026-06-01T03:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV003"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 5.4,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.77,
+        "drawdown_state": 0.44,
+        "expected_cost_bps": 3.8,
+        "expected_edge_bps": 9.2,
+        "liquidity_ratio": 1.1,
+        "ood_score": 0.18,
+        "portfolio_risk": 0.67,
+        "price_return_1": 0.0,
+        "session_progress": 0.4,
+        "spread_bps": 4.2,
+        "treatment_score": 0.68,
+        "volatility_20": 0.09
+      },
+      "known_time": "2026-06-01T04:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV004"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 9.5,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.85,
+        "drawdown_state": 0.55,
+        "expected_cost_bps": 1.0,
+        "expected_edge_bps": 10.5,
+        "liquidity_ratio": 1.25,
+        "ood_score": 0.0,
+        "portfolio_risk": 0.75,
+        "price_return_1": 0.015,
+        "session_progress": 0.485,
+        "spread_bps": 5.0,
+        "treatment_score": 0.75,
+        "volatility_20": 0.1
+      },
+      "known_time": "2026-06-01T05:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV005"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 10.1,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.45,
+        "drawdown_state": 0.0,
+        "expected_cost_bps": 1.7,
+        "expected_edge_bps": 11.8,
+        "liquidity_ratio": 1.4,
+        "ood_score": 0.045,
+        "portfolio_risk": 0.83,
+        "price_return_1": 0.03,
+        "session_progress": 0.57,
+        "spread_bps": 1.0,
+        "treatment_score": 0.82,
+        "volatility_20": 0.11
+      },
+      "known_time": "2026-06-01T06:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV006"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 10.7,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.53,
+        "drawdown_state": 0.11,
+        "expected_cost_bps": 2.4,
+        "expected_edge_bps": 13.1,
+        "liquidity_ratio": 1.55,
+        "ood_score": 0.09,
+        "portfolio_risk": 0.35,
+        "price_return_1": 0.045,
+        "session_progress": 0.655,
+        "spread_bps": 1.8,
+        "treatment_score": 0.4,
+        "volatility_20": 0.05
+      },
+      "known_time": "2026-06-01T07:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV007"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 11.3,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.61,
+        "drawdown_state": 0.22,
+        "expected_cost_bps": 3.1,
+        "expected_edge_bps": 14.4,
+        "liquidity_ratio": 0.5,
+        "ood_score": 0.135,
+        "portfolio_risk": 0.43,
+        "price_return_1": 0.06,
+        "session_progress": 0.74,
+        "spread_bps": 2.6,
+        "treatment_score": 0.47,
+        "volatility_20": 0.06
+      },
+      "known_time": "2026-06-01T08:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV008"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 11.9,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.69,
+        "drawdown_state": 0.33,
+        "expected_cost_bps": 3.8,
+        "expected_edge_bps": 15.7,
+        "liquidity_ratio": 0.65,
+        "ood_score": 0.18,
+        "portfolio_risk": 0.51,
+        "price_return_1": -0.06,
+        "session_progress": 0.825,
+        "spread_bps": 3.4,
+        "treatment_score": 0.54,
+        "volatility_20": 0.07
+      },
+      "known_time": "2026-06-01T09:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV009"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 3.0,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.77,
+        "drawdown_state": 0.44,
+        "expected_cost_bps": 1.0,
+        "expected_edge_bps": 4.0,
+        "liquidity_ratio": 0.8,
+        "ood_score": 0.0,
+        "portfolio_risk": 0.59,
+        "price_return_1": -0.045,
+        "session_progress": 0.06,
+        "spread_bps": 4.2,
+        "treatment_score": 0.61,
+        "volatility_20": 0.08
+      },
+      "known_time": "2026-06-01T10:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV010"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 3.6,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.85,
+        "drawdown_state": 0.55,
+        "expected_cost_bps": 1.7,
+        "expected_edge_bps": 5.3,
+        "liquidity_ratio": 0.95,
+        "ood_score": 0.25,
+        "portfolio_risk": 0.67,
+        "price_return_1": -0.03,
+        "session_progress": 0.145,
+        "spread_bps": 5.0,
+        "treatment_score": 0.68,
+        "volatility_20": 0.09
+      },
+      "known_time": "2026-06-01T11:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV011"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 4.2,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.45,
+        "drawdown_state": 0.0,
+        "expected_cost_bps": 2.4,
+        "expected_edge_bps": 6.6,
+        "liquidity_ratio": 1.1,
+        "ood_score": 0.09,
+        "portfolio_risk": 0.75,
+        "price_return_1": -0.015,
+        "session_progress": 0.23,
+        "spread_bps": 1.0,
+        "treatment_score": 0.75,
+        "volatility_20": 0.1
+      },
+      "known_time": "2026-06-01T12:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV012"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 4.8,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.53,
+        "drawdown_state": 0.11,
+        "expected_cost_bps": 3.1,
+        "expected_edge_bps": 7.9,
+        "liquidity_ratio": 1.25,
+        "ood_score": 0.135,
+        "portfolio_risk": 0.9,
+        "price_return_1": 0.0,
+        "session_progress": 0.315,
+        "spread_bps": 1.8,
+        "treatment_score": 0.82,
+        "volatility_20": 0.11
+      },
+      "known_time": "2026-06-01T13:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV013"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 5.4,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.61,
+        "drawdown_state": 0.22,
+        "expected_cost_bps": 3.8,
+        "expected_edge_bps": 9.2,
+        "liquidity_ratio": 1.4,
+        "ood_score": 0.18,
+        "portfolio_risk": 0.35,
+        "price_return_1": 0.015,
+        "session_progress": 0.4,
+        "spread_bps": 2.6,
+        "treatment_score": 0.4,
+        "volatility_20": 0.05
+      },
+      "known_time": "2026-06-01T14:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV014"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 9.5,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.69,
+        "drawdown_state": 0.33,
+        "expected_cost_bps": 1.0,
+        "expected_edge_bps": 10.5,
+        "liquidity_ratio": 1.55,
+        "ood_score": 0.0,
+        "portfolio_risk": 0.43,
+        "price_return_1": 0.03,
+        "session_progress": 0.485,
+        "spread_bps": 3.4,
+        "treatment_score": 0.47,
+        "volatility_20": 0.06
+      },
+      "known_time": "2026-06-01T15:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV015"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 10.1,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.77,
+        "drawdown_state": 0.44,
+        "expected_cost_bps": 1.7,
+        "expected_edge_bps": 11.8,
+        "liquidity_ratio": 0.5,
+        "ood_score": 0.045,
+        "portfolio_risk": 0.51,
+        "price_return_1": 0.045,
+        "session_progress": 0.57,
+        "spread_bps": 4.2,
+        "treatment_score": 0.54,
+        "volatility_20": 0.07
+      },
+      "known_time": "2026-06-01T16:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV016"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": -0.4,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.85,
+        "drawdown_state": 0.55,
+        "expected_cost_bps": 2.4,
+        "expected_edge_bps": 2.0,
+        "liquidity_ratio": 0.65,
+        "ood_score": 0.09,
+        "portfolio_risk": 0.59,
+        "price_return_1": 0.06,
+        "session_progress": 0.655,
+        "spread_bps": 5.0,
+        "treatment_score": 0.61,
+        "volatility_20": 0.08
+      },
+      "known_time": "2026-06-01T17:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV017"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 11.3,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.45,
+        "drawdown_state": 0.0,
+        "expected_cost_bps": 3.1,
+        "expected_edge_bps": 14.4,
+        "liquidity_ratio": 0.8,
+        "ood_score": 0.135,
+        "portfolio_risk": 0.67,
+        "price_return_1": -0.06,
+        "session_progress": 0.74,
+        "spread_bps": 1.0,
+        "treatment_score": 0.68,
+        "volatility_20": 0.09
+      },
+      "known_time": "2026-06-01T18:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV018"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 11.9,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.53,
+        "drawdown_state": 0.11,
+        "expected_cost_bps": 3.8,
+        "expected_edge_bps": 15.7,
+        "liquidity_ratio": 0.95,
+        "ood_score": 0.18,
+        "portfolio_risk": 0.75,
+        "price_return_1": -0.045,
+        "session_progress": 0.825,
+        "spread_bps": 1.8,
+        "treatment_score": 0.75,
+        "volatility_20": 0.1
+      },
+      "known_time": "2026-06-01T19:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV019"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 3.0,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.61,
+        "drawdown_state": 0.22,
+        "expected_cost_bps": 1.0,
+        "expected_edge_bps": 4.0,
+        "liquidity_ratio": 1.1,
+        "ood_score": 0.0,
+        "portfolio_risk": 0.83,
+        "price_return_1": -0.03,
+        "session_progress": 0.06,
+        "spread_bps": 2.6,
+        "treatment_score": 0.82,
+        "volatility_20": 0.11
+      },
+      "known_time": "2026-06-01T20:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV020"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 3.6,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.69,
+        "drawdown_state": 0.33,
+        "expected_cost_bps": 1.7,
+        "expected_edge_bps": 5.3,
+        "liquidity_ratio": 1.25,
+        "ood_score": 0.045,
+        "portfolio_risk": 0.35,
+        "price_return_1": -0.015,
+        "session_progress": 0.145,
+        "spread_bps": 3.4,
+        "treatment_score": 0.4,
+        "volatility_20": 0.05
+      },
+      "known_time": "2026-06-01T21:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV021"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 4.2,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.77,
+        "drawdown_state": 0.44,
+        "expected_cost_bps": 2.4,
+        "expected_edge_bps": 6.6,
+        "liquidity_ratio": 1.4,
+        "ood_score": 0.25,
+        "portfolio_risk": 0.43,
+        "price_return_1": 0.0,
+        "session_progress": 0.23,
+        "spread_bps": 4.2,
+        "treatment_score": 0.47,
+        "volatility_20": 0.06
+      },
+      "known_time": "2026-06-01T22:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV022"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 4.8,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.85,
+        "drawdown_state": 0.55,
+        "expected_cost_bps": 3.1,
+        "expected_edge_bps": 7.9,
+        "liquidity_ratio": 1.55,
+        "ood_score": 0.135,
+        "portfolio_risk": 0.51,
+        "price_return_1": 0.015,
+        "session_progress": 0.315,
+        "spread_bps": 5.0,
+        "treatment_score": 0.54,
+        "volatility_20": 0.07
+      },
+      "known_time": "2026-06-01T23:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV023"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 5.4,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.45,
+        "drawdown_state": 0.0,
+        "expected_cost_bps": 3.8,
+        "expected_edge_bps": 9.2,
+        "liquidity_ratio": 0.5,
+        "ood_score": 0.18,
+        "portfolio_risk": 0.59,
+        "price_return_1": 0.03,
+        "session_progress": 0.4,
+        "spread_bps": 1.0,
+        "treatment_score": 0.61,
+        "volatility_20": 0.08
+      },
+      "known_time": "2026-06-02T00:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV024"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 9.5,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.53,
+        "drawdown_state": 0.11,
+        "expected_cost_bps": 1.0,
+        "expected_edge_bps": 10.5,
+        "liquidity_ratio": 0.65,
+        "ood_score": 0.0,
+        "portfolio_risk": 0.67,
+        "price_return_1": 0.045,
+        "session_progress": 0.485,
+        "spread_bps": 1.8,
+        "treatment_score": 0.68,
+        "volatility_20": 0.09
+      },
+      "known_time": "2026-06-02T01:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV025"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 10.1,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.61,
+        "drawdown_state": 0.22,
+        "expected_cost_bps": 1.7,
+        "expected_edge_bps": 11.8,
+        "liquidity_ratio": 0.8,
+        "ood_score": 0.045,
+        "portfolio_risk": 0.9,
+        "price_return_1": 0.06,
+        "session_progress": 0.57,
+        "spread_bps": 2.6,
+        "treatment_score": 0.75,
+        "volatility_20": 0.1
+      },
+      "known_time": "2026-06-02T02:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV026"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 10.7,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.69,
+        "drawdown_state": 0.33,
+        "expected_cost_bps": 2.4,
+        "expected_edge_bps": 13.1,
+        "liquidity_ratio": 0.95,
+        "ood_score": 0.09,
+        "portfolio_risk": 0.83,
+        "price_return_1": -0.06,
+        "session_progress": 0.655,
+        "spread_bps": 3.4,
+        "treatment_score": 0.82,
+        "volatility_20": 0.11
+      },
+      "known_time": "2026-06-02T03:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV027"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 11.3,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.77,
+        "drawdown_state": 0.44,
+        "expected_cost_bps": 3.1,
+        "expected_edge_bps": 14.4,
+        "liquidity_ratio": 1.1,
+        "ood_score": 0.135,
+        "portfolio_risk": 0.35,
+        "price_return_1": -0.045,
+        "session_progress": 0.74,
+        "spread_bps": 4.2,
+        "treatment_score": 0.4,
+        "volatility_20": 0.05
+      },
+      "known_time": "2026-06-02T04:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV028"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 11.9,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.85,
+        "drawdown_state": 0.55,
+        "expected_cost_bps": 3.8,
+        "expected_edge_bps": 15.7,
+        "liquidity_ratio": 1.25,
+        "ood_score": 0.18,
+        "portfolio_risk": 0.43,
+        "price_return_1": -0.03,
+        "session_progress": 0.825,
+        "spread_bps": 5.0,
+        "treatment_score": 0.47,
+        "volatility_20": 0.06
+      },
+      "known_time": "2026-06-02T05:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV029"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 3.0,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.45,
+        "drawdown_state": 0.0,
+        "expected_cost_bps": 1.0,
+        "expected_edge_bps": 4.0,
+        "liquidity_ratio": 1.4,
+        "ood_score": 0.0,
+        "portfolio_risk": 0.51,
+        "price_return_1": -0.015,
+        "session_progress": 0.06,
+        "spread_bps": 1.0,
+        "treatment_score": 0.54,
+        "volatility_20": 0.07
+      },
+      "known_time": "2026-06-02T06:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV030"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 3.6,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.53,
+        "drawdown_state": 0.11,
+        "expected_cost_bps": 1.7,
+        "expected_edge_bps": 5.3,
+        "liquidity_ratio": 1.55,
+        "ood_score": 0.045,
+        "portfolio_risk": 0.59,
+        "price_return_1": 0.0,
+        "session_progress": 0.145,
+        "spread_bps": 1.8,
+        "treatment_score": 0.61,
+        "volatility_20": 0.08
+      },
+      "known_time": "2026-06-02T07:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV031"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 4.2,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.61,
+        "drawdown_state": 0.22,
+        "expected_cost_bps": 2.4,
+        "expected_edge_bps": 6.6,
+        "liquidity_ratio": 0.5,
+        "ood_score": 0.09,
+        "portfolio_risk": 0.67,
+        "price_return_1": 0.015,
+        "session_progress": 0.23,
+        "spread_bps": 2.6,
+        "treatment_score": 0.68,
+        "volatility_20": 0.09
+      },
+      "known_time": "2026-06-02T08:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV032"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 4.8,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.69,
+        "drawdown_state": 0.33,
+        "expected_cost_bps": 3.1,
+        "expected_edge_bps": 7.9,
+        "liquidity_ratio": 0.65,
+        "ood_score": 0.25,
+        "portfolio_risk": 0.75,
+        "price_return_1": 0.03,
+        "session_progress": 0.315,
+        "spread_bps": 3.4,
+        "treatment_score": 0.75,
+        "volatility_20": 0.1
+      },
+      "known_time": "2026-06-02T09:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV033"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": -1.8,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.77,
+        "drawdown_state": 0.44,
+        "expected_cost_bps": 3.8,
+        "expected_edge_bps": 2.0,
+        "liquidity_ratio": 0.8,
+        "ood_score": 0.18,
+        "portfolio_risk": 0.83,
+        "price_return_1": 0.045,
+        "session_progress": 0.4,
+        "spread_bps": 4.2,
+        "treatment_score": 0.82,
+        "volatility_20": 0.11
+      },
+      "known_time": "2026-06-02T10:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV034"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 9.5,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.85,
+        "drawdown_state": 0.55,
+        "expected_cost_bps": 1.0,
+        "expected_edge_bps": 10.5,
+        "liquidity_ratio": 0.95,
+        "ood_score": 0.0,
+        "portfolio_risk": 0.35,
+        "price_return_1": 0.06,
+        "session_progress": 0.485,
+        "spread_bps": 5.0,
+        "treatment_score": 0.4,
+        "volatility_20": 0.05
+      },
+      "known_time": "2026-06-02T11:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV035"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 10.1,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.45,
+        "drawdown_state": 0.0,
+        "expected_cost_bps": 1.7,
+        "expected_edge_bps": 11.8,
+        "liquidity_ratio": 1.1,
+        "ood_score": 0.045,
+        "portfolio_risk": 0.43,
+        "price_return_1": -0.06,
+        "session_progress": 0.57,
+        "spread_bps": 1.0,
+        "treatment_score": 0.47,
+        "volatility_20": 0.06
+      },
+      "known_time": "2026-06-02T12:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV036"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 10.7,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.53,
+        "drawdown_state": 0.11,
+        "expected_cost_bps": 2.4,
+        "expected_edge_bps": 13.1,
+        "liquidity_ratio": 1.25,
+        "ood_score": 0.09,
+        "portfolio_risk": 0.51,
+        "price_return_1": -0.045,
+        "session_progress": 0.655,
+        "spread_bps": 1.8,
+        "treatment_score": 0.54,
+        "volatility_20": 0.07
+      },
+      "known_time": "2026-06-02T13:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV037"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 11.3,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.61,
+        "drawdown_state": 0.22,
+        "expected_cost_bps": 3.1,
+        "expected_edge_bps": 14.4,
+        "liquidity_ratio": 1.4,
+        "ood_score": 0.135,
+        "portfolio_risk": 0.59,
+        "price_return_1": -0.03,
+        "session_progress": 0.74,
+        "spread_bps": 2.6,
+        "treatment_score": 0.61,
+        "volatility_20": 0.08
+      },
+      "known_time": "2026-06-02T14:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV038"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 11.9,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.69,
+        "drawdown_state": 0.33,
+        "expected_cost_bps": 3.8,
+        "expected_edge_bps": 15.7,
+        "liquidity_ratio": 1.55,
+        "ood_score": 0.18,
+        "portfolio_risk": 0.9,
+        "price_return_1": -0.015,
+        "session_progress": 0.825,
+        "spread_bps": 3.4,
+        "treatment_score": 0.68,
+        "volatility_20": 0.09
+      },
+      "known_time": "2026-06-02T15:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV039"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 3.0,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.77,
+        "drawdown_state": 0.44,
+        "expected_cost_bps": 1.0,
+        "expected_edge_bps": 4.0,
+        "liquidity_ratio": 0.5,
+        "ood_score": 0.0,
+        "portfolio_risk": 0.75,
+        "price_return_1": 0.0,
+        "session_progress": 0.06,
+        "spread_bps": 4.2,
+        "treatment_score": 0.75,
+        "volatility_20": 0.1
+      },
+      "known_time": "2026-06-02T16:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV040"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 3.6,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.85,
+        "drawdown_state": 0.55,
+        "expected_cost_bps": 1.7,
+        "expected_edge_bps": 5.3,
+        "liquidity_ratio": 0.65,
+        "ood_score": 0.045,
+        "portfolio_risk": 0.83,
+        "price_return_1": 0.015,
+        "session_progress": 0.145,
+        "spread_bps": 5.0,
+        "treatment_score": 0.82,
+        "volatility_20": 0.11
+      },
+      "known_time": "2026-06-02T17:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV041"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 4.2,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.45,
+        "drawdown_state": 0.0,
+        "expected_cost_bps": 2.4,
+        "expected_edge_bps": 6.6,
+        "liquidity_ratio": 0.8,
+        "ood_score": 0.09,
+        "portfolio_risk": 0.35,
+        "price_return_1": 0.03,
+        "session_progress": 0.23,
+        "spread_bps": 1.0,
+        "treatment_score": 0.4,
+        "volatility_20": 0.05
+      },
+      "known_time": "2026-06-02T18:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV042"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 4.8,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.53,
+        "drawdown_state": 0.11,
+        "expected_cost_bps": 3.1,
+        "expected_edge_bps": 7.9,
+        "liquidity_ratio": 0.95,
+        "ood_score": 0.135,
+        "portfolio_risk": 0.43,
+        "price_return_1": 0.045,
+        "session_progress": 0.315,
+        "spread_bps": 1.8,
+        "treatment_score": 0.47,
+        "volatility_20": 0.06
+      },
+      "known_time": "2026-06-02T19:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV043"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 5.4,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.61,
+        "drawdown_state": 0.22,
+        "expected_cost_bps": 3.8,
+        "expected_edge_bps": 9.2,
+        "liquidity_ratio": 1.1,
+        "ood_score": 0.25,
+        "portfolio_risk": 0.51,
+        "price_return_1": 0.06,
+        "session_progress": 0.4,
+        "spread_bps": 2.6,
+        "treatment_score": 0.54,
+        "volatility_20": 0.07
+      },
+      "known_time": "2026-06-02T20:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV044"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 9.5,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.69,
+        "drawdown_state": 0.33,
+        "expected_cost_bps": 1.0,
+        "expected_edge_bps": 10.5,
+        "liquidity_ratio": 1.25,
+        "ood_score": 0.0,
+        "portfolio_risk": 0.59,
+        "price_return_1": -0.06,
+        "session_progress": 0.485,
+        "spread_bps": 3.4,
+        "treatment_score": 0.61,
+        "volatility_20": 0.08
+      },
+      "known_time": "2026-06-02T21:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV045"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 10.1,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.77,
+        "drawdown_state": 0.44,
+        "expected_cost_bps": 1.7,
+        "expected_edge_bps": 11.8,
+        "liquidity_ratio": 1.4,
+        "ood_score": 0.045,
+        "portfolio_risk": 0.67,
+        "price_return_1": -0.045,
+        "session_progress": 0.57,
+        "spread_bps": 4.2,
+        "treatment_score": 0.68,
+        "volatility_20": 0.09
+      },
+      "known_time": "2026-06-02T22:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV046"
+    },
+    {
+      "expected_confidence": 0.0,
+      "expected_decision": "ABSTAIN",
+      "expected_net_edge_bps": 10.7,
+      "expected_size_fraction": 0.0,
+      "expected_treatment_id": "BASELINE",
+      "features": {
+        "context_score": 0.85,
+        "drawdown_state": 0.55,
+        "expected_cost_bps": 2.4,
+        "expected_edge_bps": 13.1,
+        "liquidity_ratio": 1.55,
+        "ood_score": 0.09,
+        "portfolio_risk": 0.75,
+        "price_return_1": -0.03,
+        "session_progress": 0.655,
+        "spread_bps": 5.0,
+        "treatment_score": 0.75,
+        "volatility_20": 0.1
+      },
+      "known_time": "2026-06-02T23:00:00Z",
+      "synthetic_fixture": true,
+      "vector_id": "PV047"
+    }
+  ],
+  "policy_abi": {
+    "abi_id": "POLICY_ABI_V1",
+    "backward_compatible_with": [],
+    "closed_contract": true,
+    "fields": [
+      {
+        "data_type": "BOOL",
+        "default": "False",
+        "direction": "OUTPUT",
+        "enum_values": [],
+        "field_id": "P00",
+        "maximum": 1,
+        "minimum": 0,
+        "name": "policy_allowed",
+        "ordinal": 0,
+        "required": true,
+        "semantic": "Policy gate result",
+        "unit": ""
+      }
+    ],
+    "kind": "POLICY",
+    "research_only": true,
+    "version": "1.0.0"
+  },
+  "policy_graph": {
+    "closed_graph": true,
+    "entry_node_id": "N034",
+    "fallback_decision": "ABSTAIN",
+    "nodes": [
+      {
+        "inputs": [],
+        "node_id": "N000",
+        "op": "FEATURE",
+        "ordinal": 0,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "price_return_1",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_id": "N001",
+        "op": "FEATURE",
+        "ordinal": 1,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "volatility_20",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_id": "N002",
+        "op": "FEATURE",
+        "ordinal": 2,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "spread_bps",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_id": "N003",
+        "op": "FEATURE",
+        "ordinal": 3,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "liquidity_ratio",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_id": "N004",
+        "op": "FEATURE",
+        "ordinal": 4,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "context_score",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_id": "N005",
+        "op": "FEATURE",
+        "ordinal": 5,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "treatment_score",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_id": "N006",
+        "op": "FEATURE",
+        "ordinal": 6,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "expected_edge_bps",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_id": "N007",
+        "op": "FEATURE",
+        "ordinal": 7,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "expected_cost_bps",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_id": "N008",
+        "op": "FEATURE",
+        "ordinal": 8,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "portfolio_risk",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_id": "N009",
+        "op": "FEATURE",
+        "ordinal": 9,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "session_progress",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_id": "N010",
+        "op": "FEATURE",
+        "ordinal": 10,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "drawdown_state",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_id": "N011",
+        "op": "FEATURE",
+        "ordinal": 11,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "ood_score",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_id": "N012",
+        "op": "MODEL_LINEAR",
+        "ordinal": 12,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [
+          "N006",
+          "N007"
+        ],
+        "node_id": "N013",
+        "op": "SUB",
+        "ordinal": 13,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_id": "N014",
+        "op": "CONST",
+        "ordinal": 14,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.2
+        }
+      },
+      {
+        "inputs": [
+          "N011",
+          "N014"
+        ],
+        "node_id": "N015",
+        "op": "LE",
+        "ordinal": 15,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_id": "N016",
+        "op": "CONST",
+        "ordinal": 16,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.8
+        }
+      },
+      {
+        "inputs": [
+          "N008",
+          "N016"
+        ],
+        "node_id": "N017",
+        "op": "LE",
+        "ordinal": 17,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_id": "N018",
+        "op": "CONST",
+        "ordinal": 18,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 3.0
+        }
+      },
+      {
+        "inputs": [
+          "N013",
+          "N018"
+        ],
+        "node_id": "N019",
+        "op": "GE",
+        "ordinal": 19,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_id": "N020",
+        "op": "CONST",
+        "ordinal": 20,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.05
+        }
+      },
+      {
+        "inputs": [
+          "N009",
+          "N020"
+        ],
+        "node_id": "N021",
+        "op": "GE",
+        "ordinal": 21,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_id": "N022",
+        "op": "CONST",
+        "ordinal": 22,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.95
+        }
+      },
+      {
+        "inputs": [
+          "N009",
+          "N022"
+        ],
+        "node_id": "N023",
+        "op": "LE",
+        "ordinal": 23,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_id": "N024",
+        "op": "CONST",
+        "ordinal": 24,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.7
+        }
+      },
+      {
+        "inputs": [
+          "N010",
+          "N024"
+        ],
+        "node_id": "N025",
+        "op": "LE",
+        "ordinal": 25,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_id": "N026",
+        "op": "CONST",
+        "ordinal": 26,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.55
+        }
+      },
+      {
+        "inputs": [
+          "N012",
+          "N026"
+        ],
+        "node_id": "N027",
+        "op": "GE",
+        "ordinal": 27,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [
+          "N015",
+          "N017"
+        ],
+        "node_id": "N028",
+        "op": "AND",
+        "ordinal": 28,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [
+          "N019",
+          "N021"
+        ],
+        "node_id": "N029",
+        "op": "AND",
+        "ordinal": 29,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [
+          "N023",
+          "N025"
+        ],
+        "node_id": "N030",
+        "op": "AND",
+        "ordinal": 30,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [
+          "N028",
+          "N029"
+        ],
+        "node_id": "N031",
+        "op": "AND",
+        "ordinal": 31,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [
+          "N030",
+          "N027"
+        ],
+        "node_id": "N032",
+        "op": "AND",
+        "ordinal": 32,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [
+          "N031",
+          "N032"
+        ],
+        "node_id": "N033",
+        "op": "AND",
+        "ordinal": 33,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [
+          "N033",
+          "N012",
+          "N013"
+        ],
+        "node_id": "N034",
+        "op": "DECISION",
+        "ordinal": 34,
+        "output_name": "decision",
+        "params": {
+          "max_size_fraction": 0.25,
+          "name": "",
+          "treatment_id": "TRT_RUNTIME_REFERENCE",
+          "value": 0.0
+        }
+      }
+    ],
+    "policy_graph_id": "POLICY_RUNTIME_REFERENCE",
+    "research_only": true,
+    "version": "1.0.0"
+  },
+  "reviews": [
+    {
+      "decision": "APPROVE_REFERENCE",
+      "findings": [
+        "reference implementation accepted",
+        "external runtime evidence remains open"
+      ],
+      "independent": true,
+      "release_hash": "PENDING",
+      "review_hash": "PENDING",
+      "review_id": "REV00",
+      "reviewer_id": "REVIEWER_00",
+      "role": "RUNTIME_ENGINEER"
+    },
+    {
+      "decision": "APPROVE_REFERENCE",
+      "findings": [
+        "reference implementation accepted",
+        "external runtime evidence remains open"
+      ],
+      "independent": true,
+      "release_hash": "PENDING",
+      "review_hash": "PENDING",
+      "review_id": "REV01",
+      "reviewer_id": "REVIEWER_01",
+      "role": "MQL5_REVIEWER"
+    },
+    {
+      "decision": "APPROVE_REFERENCE",
+      "findings": [
+        "reference implementation accepted",
+        "external runtime evidence remains open"
+      ],
+      "independent": true,
+      "release_hash": "PENDING",
+      "review_hash": "PENDING",
+      "review_id": "REV02",
+      "reviewer_id": "REVIEWER_02",
+      "role": "MODEL_RISK"
+    },
+    {
+      "decision": "APPROVE_REFERENCE",
+      "findings": [
+        "reference implementation accepted",
+        "external runtime evidence remains open"
+      ],
+      "independent": true,
+      "release_hash": "PENDING",
+      "review_hash": "PENDING",
+      "review_id": "REV03",
+      "reviewer_id": "REVIEWER_03",
+      "role": "INDEPENDENT_VALIDATOR"
+    },
+    {
+      "decision": "APPROVE_REFERENCE",
+      "findings": [
+        "reference implementation accepted",
+        "external runtime evidence remains open"
+      ],
+      "independent": true,
+      "release_hash": "PENDING",
+      "review_hash": "PENDING",
+      "review_id": "REV04",
+      "reviewer_id": "REVIEWER_04",
+      "role": "SECURITY_REVIEWER"
+    }
+  ],
+  "state_abi": {
+    "abi_id": "STATE_ABI_V1",
+    "backward_compatible_with": [],
+    "closed_contract": true,
+    "fields": [
+      {
+        "data_type": "INT64",
+        "default": "0",
+        "direction": "STATE",
+        "enum_values": [],
+        "field_id": "S00",
+        "maximum": 1000000000,
+        "minimum": 0,
+        "name": "sequence",
+        "ordinal": 0,
+        "required": true,
+        "semantic": "sequence",
+        "unit": "count"
+      },
+      {
+        "data_type": "INT64",
+        "default": "0",
+        "direction": "STATE",
+        "enum_values": [],
+        "field_id": "S01",
+        "maximum": 100000,
+        "minimum": 0,
+        "name": "cooldown_bars",
+        "ordinal": 1,
+        "required": true,
+        "semantic": "cooldown_bars",
+        "unit": "bars"
+      },
+      {
+        "data_type": "FLOAT64",
+        "default": "0.0",
+        "direction": "STATE",
+        "enum_values": [],
+        "field_id": "S02",
+        "maximum": 1,
+        "minimum": 0,
+        "name": "drawdown_state",
+        "ordinal": 2,
+        "required": true,
+        "semantic": "drawdown_state",
+        "unit": "ratio"
+      }
+    ],
+    "kind": "STATE",
+    "research_only": true,
+    "version": "1.0.0"
+  },
+  "synthetic_key_id": "V438_REFERENCE_KEY",
+  "upstream": [
+    {
+      "document_hash": "1f433e9a204333681f99e8a9dcd7d456a0a39c9af1491d9cbe4e24ef743f4ea5",
+      "document_id": "v437_cert_ref",
+      "kind": "v4_37_certificate",
+      "next_phase": "SAED_V4_38",
+      "phase": "SAED_V4_37",
+      "production_authorized": false,
+      "research_only": true
+    },
+    {
+      "document_hash": "6b63f3ddc14c69f13dbe58361dc77c1ba4f053662fb38e10102e4654a4a9f5e7",
+      "document_id": "v437_handoff_ref",
+      "kind": "v4_37_handoff",
+      "next_phase": "SAED_V4_38",
+      "phase": "SAED_V4_37",
+      "production_authorized": false,
+      "research_only": true
+    }
+  ]
+}

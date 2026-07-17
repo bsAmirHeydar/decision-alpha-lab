@@ -1,0 +1,511 @@
+{
+  "closed_graph": true,
+  "entry_node_id": "N034",
+  "fallback_decision": "ABSTAIN",
+  "nodes": [
+    {
+      "inputs": [],
+      "node_id": "N000",
+      "op": "FEATURE",
+      "ordinal": 0,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "price_return_1",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_id": "N001",
+      "op": "FEATURE",
+      "ordinal": 1,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "volatility_20",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_id": "N002",
+      "op": "FEATURE",
+      "ordinal": 2,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "spread_bps",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_id": "N003",
+      "op": "FEATURE",
+      "ordinal": 3,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "liquidity_ratio",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_id": "N004",
+      "op": "FEATURE",
+      "ordinal": 4,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "context_score",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_id": "N005",
+      "op": "FEATURE",
+      "ordinal": 5,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "treatment_score",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_id": "N006",
+      "op": "FEATURE",
+      "ordinal": 6,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "expected_edge_bps",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_id": "N007",
+      "op": "FEATURE",
+      "ordinal": 7,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "expected_cost_bps",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_id": "N008",
+      "op": "FEATURE",
+      "ordinal": 8,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "portfolio_risk",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_id": "N009",
+      "op": "FEATURE",
+      "ordinal": 9,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "session_progress",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_id": "N010",
+      "op": "FEATURE",
+      "ordinal": 10,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "drawdown_state",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_id": "N011",
+      "op": "FEATURE",
+      "ordinal": 11,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "ood_score",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_id": "N012",
+      "op": "MODEL_LINEAR",
+      "ordinal": 12,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [
+        "N006",
+        "N007"
+      ],
+      "node_id": "N013",
+      "op": "SUB",
+      "ordinal": 13,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_id": "N014",
+      "op": "CONST",
+      "ordinal": 14,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.2
+      }
+    },
+    {
+      "inputs": [
+        "N011",
+        "N014"
+      ],
+      "node_id": "N015",
+      "op": "LE",
+      "ordinal": 15,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_id": "N016",
+      "op": "CONST",
+      "ordinal": 16,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.8
+      }
+    },
+    {
+      "inputs": [
+        "N008",
+        "N016"
+      ],
+      "node_id": "N017",
+      "op": "LE",
+      "ordinal": 17,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_id": "N018",
+      "op": "CONST",
+      "ordinal": 18,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 3.0
+      }
+    },
+    {
+      "inputs": [
+        "N013",
+        "N018"
+      ],
+      "node_id": "N019",
+      "op": "GE",
+      "ordinal": 19,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_id": "N020",
+      "op": "CONST",
+      "ordinal": 20,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.05
+      }
+    },
+    {
+      "inputs": [
+        "N009",
+        "N020"
+      ],
+      "node_id": "N021",
+      "op": "GE",
+      "ordinal": 21,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_id": "N022",
+      "op": "CONST",
+      "ordinal": 22,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.95
+      }
+    },
+    {
+      "inputs": [
+        "N009",
+        "N022"
+      ],
+      "node_id": "N023",
+      "op": "LE",
+      "ordinal": 23,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_id": "N024",
+      "op": "CONST",
+      "ordinal": 24,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.7
+      }
+    },
+    {
+      "inputs": [
+        "N010",
+        "N024"
+      ],
+      "node_id": "N025",
+      "op": "LE",
+      "ordinal": 25,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_id": "N026",
+      "op": "CONST",
+      "ordinal": 26,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.55
+      }
+    },
+    {
+      "inputs": [
+        "N012",
+        "N026"
+      ],
+      "node_id": "N027",
+      "op": "GE",
+      "ordinal": 27,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [
+        "N015",
+        "N017"
+      ],
+      "node_id": "N028",
+      "op": "AND",
+      "ordinal": 28,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [
+        "N019",
+        "N021"
+      ],
+      "node_id": "N029",
+      "op": "AND",
+      "ordinal": 29,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [
+        "N023",
+        "N025"
+      ],
+      "node_id": "N030",
+      "op": "AND",
+      "ordinal": 30,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [
+        "N028",
+        "N029"
+      ],
+      "node_id": "N031",
+      "op": "AND",
+      "ordinal": 31,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [
+        "N030",
+        "N027"
+      ],
+      "node_id": "N032",
+      "op": "AND",
+      "ordinal": 32,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [
+        "N031",
+        "N032"
+      ],
+      "node_id": "N033",
+      "op": "AND",
+      "ordinal": 33,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [
+        "N033",
+        "N012",
+        "N013"
+      ],
+      "node_id": "N034",
+      "op": "DECISION",
+      "ordinal": 34,
+      "output_name": "decision",
+      "params": {
+        "max_size_fraction": 0.25,
+        "name": "",
+        "treatment_id": "TRT_RUNTIME_REFERENCE",
+        "value": 0.0
+      }
+    }
+  ],
+  "policy_graph_id": "POLICY_RUNTIME_REFERENCE",
+  "research_only": true,
+  "version": "1.0.0"
+}

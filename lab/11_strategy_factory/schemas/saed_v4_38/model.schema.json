@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "bias": {
+      "type": "number"
+    },
+    "features": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "frozen_model_hash": {
+      "type": "string"
+    },
+    "frozen_model_id": {
+      "type": "string"
+    },
+    "model_hash": {
+      "type": "string"
+    },
+    "model_id": {
+      "type": "string"
+    },
+    "model_type": {
+      "type": "string"
+    },
+    "output_name": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "training_artifact_hash": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "weights": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "model_id",
+    "model_type",
+    "version",
+    "features",
+    "weights",
+    "bias",
+    "output_name",
+    "training_artifact_hash",
+    "research_only",
+    "model_hash",
+    "frozen_model_id",
+    "frozen_model_hash"
+  ],
+  "title": "model",
+  "type": "object"
+}

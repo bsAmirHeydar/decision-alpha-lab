@@ -1,0 +1,24 @@
+{
+  "abi_id": "POLICY_ABI_V1",
+  "backward_compatible_with": [],
+  "closed_contract": true,
+  "fields": [
+    {
+      "data_type": "BOOL",
+      "default": "False",
+      "direction": "OUTPUT",
+      "enum_values": [],
+      "field_id": "P00",
+      "maximum": 1,
+      "minimum": 0,
+      "name": "policy_allowed",
+      "ordinal": 0,
+      "required": true,
+      "semantic": "Policy gate result",
+      "unit": ""
+    }
+  ],
+  "kind": "POLICY",
+  "research_only": true,
+  "version": "1.0.0"
+}

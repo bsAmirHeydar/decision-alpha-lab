@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "key_id": {
+      "type": "string"
+    },
+    "payload_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_signature": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "scheme": {
+      "type": "string"
+    },
+    "signature": {
+      "type": "string"
+    },
+    "signature_hash": {
+      "type": "string"
+    },
+    "signature_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "scheme",
+    "key_id",
+    "payload_hash",
+    "signature",
+    "production_signature",
+    "research_only",
+    "signature_id",
+    "signature_hash"
+  ],
+  "title": "synthetic_signature",
+  "type": "object"
+}

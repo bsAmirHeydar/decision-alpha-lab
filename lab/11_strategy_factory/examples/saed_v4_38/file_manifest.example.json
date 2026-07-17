@@ -1,0 +1,27 @@
+{
+  "bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+  "file_count": 2,
+  "file_merkle_root": "25687a83c2aae1b885498353cb9aacafc78470459cc9054b823404580daa5aff",
+  "files": [
+    {
+      "content_hash": "dcf9144048799f5d786ae331999e6624dc32429429e54d707f07336a73cd63f2",
+      "executable": false,
+      "path": "mql5/Experts/StrategyFactory/SAED/V4_38/SAEDV438ParityHarness.mq5",
+      "research_only": true,
+      "role": "PARITY_HARNESS",
+      "size_bytes": 314
+    },
+    {
+      "content_hash": "21fd7f3d00f6f1d2ef34e80a708d3d68a13e20c1fd53fd363bd497f168114993",
+      "executable": false,
+      "path": "mql5/Include/StrategyFactory/SAED/V4_38/SAEDV438CompiledRuntime.mqh",
+      "research_only": true,
+      "role": "COMPILED_RUNTIME",
+      "size_bytes": 2275
+    }
+  ],
+  "manifest_hash": "4114e444a87d780763ba6eba0df0f489a1fb4fdbdf8e87c7bbf86d07e3cd40c7",
+  "manifest_id": "v438_file_manifest_f3f934b8b45b3b4e57486697",
+  "phase": "SAED_V4_38",
+  "research_only": true
+}

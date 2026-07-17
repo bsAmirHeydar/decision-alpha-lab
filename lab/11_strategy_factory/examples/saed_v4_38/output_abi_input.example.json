@@ -1,0 +1,83 @@
+{
+  "abi_id": "OUTPUT_ABI_V1",
+  "backward_compatible_with": [],
+  "closed_contract": true,
+  "fields": [
+    {
+      "data_type": "ENUM",
+      "default": "ABSTAIN",
+      "direction": "OUTPUT",
+      "enum_values": [
+        "ABSTAIN",
+        "SELECT"
+      ],
+      "field_id": "O00",
+      "maximum": 0,
+      "minimum": 0,
+      "name": "decision",
+      "ordinal": 0,
+      "required": true,
+      "semantic": "decision",
+      "unit": "enum"
+    },
+    {
+      "data_type": "STRING",
+      "default": "BASELINE",
+      "direction": "OUTPUT",
+      "enum_values": [],
+      "field_id": "O01",
+      "maximum": 0,
+      "minimum": 0,
+      "name": "treatment_id",
+      "ordinal": 1,
+      "required": true,
+      "semantic": "treatment_id",
+      "unit": "id"
+    },
+    {
+      "data_type": "FLOAT64",
+      "default": "0.0",
+      "direction": "OUTPUT",
+      "enum_values": [],
+      "field_id": "O02",
+      "maximum": 1,
+      "minimum": 0,
+      "name": "confidence",
+      "ordinal": 2,
+      "required": true,
+      "semantic": "confidence",
+      "unit": "score"
+    },
+    {
+      "data_type": "FLOAT64",
+      "default": "0.0",
+      "direction": "OUTPUT",
+      "enum_values": [],
+      "field_id": "O03",
+      "maximum": 200,
+      "minimum": -200,
+      "name": "net_edge_bps",
+      "ordinal": 3,
+      "required": true,
+      "semantic": "net_edge_bps",
+      "unit": "bps"
+    },
+    {
+      "data_type": "FLOAT64",
+      "default": "0.0",
+      "direction": "OUTPUT",
+      "enum_values": [],
+      "field_id": "O04",
+      "maximum": 1,
+      "minimum": 0,
+      "name": "size_fraction",
+      "ordinal": 4,
+      "required": true,
+      "semantic": "size_fraction",
+      "unit": "ratio"
+    }
+  ],
+  "kind": "OUTPUT",
+  "research_only": true,
+  "version": "1.0.0"
+}

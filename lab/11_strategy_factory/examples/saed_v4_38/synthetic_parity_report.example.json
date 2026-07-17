@@ -1,0 +1,1264 @@
+{
+  "actual_metaeditor_compile_evidence": false,
+  "actual_terminal_runtime_evidence": false,
+  "exact_count": 48,
+  "mismatch_count": 0,
+  "parity_kind": "SYNTHETIC_MQL5_SEMANTIC_EMULATOR",
+  "parity_report_hash": "efb61231eb0021e33997bcb2fe1171112e52c0feab828a9261a32e4aac4a190a",
+  "parity_report_id": "v438_parity_8b1f5838e1358293ddf5f441",
+  "passed": true,
+  "phase": "SAED_V4_38",
+  "research_only": true,
+  "rows": [
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 1.0,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 1.0,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV000"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 3.6,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 3.6,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV001"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 4.2,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 4.2,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV002"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 4.8,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 4.8,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV003"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 5.4,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 5.4,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV004"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 9.5,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 9.5,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV005"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 10.1,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 10.1,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV006"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 10.7,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 10.7,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV007"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 11.3,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 11.3,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV008"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 11.9,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 11.9,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV009"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 3.0,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 3.0,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV010"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 3.6,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 3.6,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV011"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 4.2,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 4.2,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV012"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 4.8,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 4.8,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV013"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 5.4,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 5.4,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV014"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 9.5,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 9.5,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV015"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 10.1,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 10.1,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV016"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": -0.4,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": -0.4,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV017"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 11.3,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 11.3,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV018"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 11.9,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 11.9,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV019"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 3.0,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 3.0,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV020"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 3.6,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 3.6,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV021"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 4.2,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 4.2,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV022"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 4.8,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 4.8,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV023"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 5.4,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 5.4,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV024"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 9.5,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 9.5,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV025"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 10.1,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 10.1,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV026"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 10.7,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 10.7,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV027"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 11.3,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 11.3,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV028"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 11.9,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 11.9,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV029"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 3.0,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 3.0,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV030"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 3.6,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 3.6,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV031"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 4.2,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 4.2,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV032"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 4.8,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 4.8,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV033"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": -1.8,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": -1.8,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV034"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 9.5,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 9.5,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV035"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 10.1,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 10.1,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV036"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 10.7,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 10.7,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV037"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 11.3,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 11.3,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV038"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 11.9,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 11.9,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV039"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 3.0,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 3.0,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV040"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 3.6,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 3.6,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV041"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 4.2,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 4.2,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV042"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 4.8,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 4.8,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV043"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 5.4,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 5.4,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV044"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 9.5,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 9.5,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV045"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 10.1,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 10.1,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV046"
+    },
+    {
+      "mql5_emulator_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 10.7,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "python_decision": {
+        "capital_activation_allowed": false,
+        "confidence": 0.0,
+        "decision": "ABSTAIN",
+        "net_edge_bps": 10.7,
+        "order_submission_allowed": false,
+        "reason": "FAIL_CLOSED_FALLBACK",
+        "research_only": true,
+        "size_fraction": 0.0,
+        "treatment_id": "BASELINE"
+      },
+      "status": "EXACT",
+      "vector_id": "PV047"
+    }
+  ],
+  "vector_count": 48,
+  "within_tolerance_count": 0
+}

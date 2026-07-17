@@ -1,0 +1,38 @@
+{
+  "bundle_format": "SAED_IMMUTABLE_RUNTIME_BUNDLE_V1",
+  "bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+  "bundle_id": "v438_bundle_610020a66b90e72de4f588a2",
+  "bundle_version": "1.0.0",
+  "compiler": {
+    "build_timestamp_policy": "OMIT",
+    "compiler_id": "SAED_RUNTIME_COMPILER",
+    "compiler_version": "1.0.0",
+    "deterministic_build": true,
+    "environment_variables_allowed": false,
+    "network_access": false,
+    "optimization_level": "O0_DETERMINISTIC",
+    "research_only": true,
+    "source_language": "PYTHON_REFERENCE",
+    "target_runtime": "MQL5_STATIC_SOURCE"
+  },
+  "component_count": 10,
+  "components": {
+    "abis": "f5f65216f97ca23e3e952e27dce92718c096c520eb30bd861f629bcad5af717c",
+    "authority": "603f83f7000516d1cd4ac043e3fef9b7a8d9921b19b9afcc30777d562306b363",
+    "clock": "0fd55acf48c45c996195edf848b8377b873c9190b4c2bc8b404165cdf9e34d2d",
+    "compiler": "6ca150bbd4c52e28e26deaa2e17a6c2036032568c205c916beb4f98aa1c6ed18",
+    "constitution": "d2fd9dcefc5db9dcd8d84ad91403e1c4e5339551c8771a33208ba064aedc790b",
+    "model": "b8a93ad20c73b567cbb5b34000dcc66232aa2223296830a1c35fc8cd6d3cce63",
+    "numeric": "9c26e3e2573d5e8a5e7c97c8e381d3c548931425b65f2929c7ececc2f5b1051b",
+    "policy": "7eb3aad47d0643ccaa5a6b61d8d6f249f622c1bc0b91a8f6b2db2a4c2f514c2c",
+    "state": "79ddba9bf0253f38df74ceddfbc841978aa937fb242aac4ef8f65ed8d26cbdb2",
+    "upstream": "ac7dea58141ea34451f54875a9ff4210466e003cf4c0ad81e0a8b0c1a2ddf22e"
+  },
+  "merkle_root": "04d55cb2f2fac9933542201bc59c2334696f1206515f5f6105ec13d2c6e5c012",
+  "mutable_fields": [],
+  "network_dependencies": [],
+  "phase": "SAED_V4_38",
+  "production_authorized": false,
+  "research_only": true,
+  "runtime_authority": "RESEARCH_DECISION_ONLY"
+}

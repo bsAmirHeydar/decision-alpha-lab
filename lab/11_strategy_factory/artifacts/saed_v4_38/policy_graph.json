@@ -1,0 +1,550 @@
+{
+  "closed_graph": true,
+  "entry_node_id": "N034",
+  "fallback_decision": "ABSTAIN",
+  "frozen_graph_hash": "7eb3aad47d0643ccaa5a6b61d8d6f249f622c1bc0b91a8f6b2db2a4c2f514c2c",
+  "frozen_graph_id": "v438_policy_3a058b61b176235754d63d16",
+  "graph_hash": "0254373897aac68587253a8f318eb919b49b4e8b18c316e3465150c24fab60ae",
+  "node_count": 35,
+  "nodes": [
+    {
+      "inputs": [],
+      "node_hash": "49283dc16cfe596ea030d9dca8c8a47840a66cc9925934304fe387c70e786cc2",
+      "node_id": "N000",
+      "op": "FEATURE",
+      "ordinal": 0,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "price_return_1",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_hash": "0677fea715a1c2b3c23b6932b9e4860f4eadb72395163db1c9b35c71e914979a",
+      "node_id": "N001",
+      "op": "FEATURE",
+      "ordinal": 1,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "volatility_20",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_hash": "a39e10c17a93b6956a8be4a2e995503949a067d9ff7b4387e304a70f30e8e683",
+      "node_id": "N002",
+      "op": "FEATURE",
+      "ordinal": 2,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "spread_bps",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_hash": "47d5225853bd2285f55a7e2a73ea5a071635f52bb6067a07ac58708163004763",
+      "node_id": "N003",
+      "op": "FEATURE",
+      "ordinal": 3,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "liquidity_ratio",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_hash": "70d14085acfe1637068eafcd304dbd345cdb4b1feb7b17fefc39d09138f75cfc",
+      "node_id": "N004",
+      "op": "FEATURE",
+      "ordinal": 4,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "context_score",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_hash": "730635a4fcba3ce5287e87dea7162341272409cd5d167099933b08e70eac05dd",
+      "node_id": "N005",
+      "op": "FEATURE",
+      "ordinal": 5,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "treatment_score",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_hash": "d2c05f82e30bddcfb2a72f68037578e946487789bfca37232183311f67c9cc1d",
+      "node_id": "N006",
+      "op": "FEATURE",
+      "ordinal": 6,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "expected_edge_bps",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_hash": "20510d47922b09d860e1c84e044bce61fe8051ac09aeea6c118484ca91f929de",
+      "node_id": "N007",
+      "op": "FEATURE",
+      "ordinal": 7,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "expected_cost_bps",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_hash": "d3a63c52d745e3b7adb89bb1271023fdab55d2b508df0f94975f37b634193327",
+      "node_id": "N008",
+      "op": "FEATURE",
+      "ordinal": 8,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "portfolio_risk",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_hash": "d1b62661bbef47cec8dc1094cb0630eba1805727674f7416c61aae73f051b7ef",
+      "node_id": "N009",
+      "op": "FEATURE",
+      "ordinal": 9,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "session_progress",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_hash": "9e76bb7b652c76bd0ecbccc411dd8342e4b7736834cc42cba3b7cb54947bbaad",
+      "node_id": "N010",
+      "op": "FEATURE",
+      "ordinal": 10,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "drawdown_state",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_hash": "fe5ab919b5b09349db3087ad0d77cf2904c57bf24abefcb034135cf6df354c70",
+      "node_id": "N011",
+      "op": "FEATURE",
+      "ordinal": 11,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "ood_score",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_hash": "34061c91aa699341cab03c06fff3aaf1abba5a8c82ee7345e14d1aeab2a44907",
+      "node_id": "N012",
+      "op": "MODEL_LINEAR",
+      "ordinal": 12,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [
+        "N006",
+        "N007"
+      ],
+      "node_hash": "8bd8e7a3d08e6ab71adfde41b0cad820cb77bf4b61f2408c7a85573a0b00923e",
+      "node_id": "N013",
+      "op": "SUB",
+      "ordinal": 13,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_hash": "b077b947c7d5f0f0532de8a2a0cd5cdfbd818e6f8badbc29479e2d8f01973945",
+      "node_id": "N014",
+      "op": "CONST",
+      "ordinal": 14,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.2
+      }
+    },
+    {
+      "inputs": [
+        "N011",
+        "N014"
+      ],
+      "node_hash": "451edd4feccbda578143cce9f2578d8f16f7f337d2308983e5089a80d588c363",
+      "node_id": "N015",
+      "op": "LE",
+      "ordinal": 15,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_hash": "7da72b52844ff5d78a9e71c7211f3d970f82e59752e8f90885812cc65ca80be9",
+      "node_id": "N016",
+      "op": "CONST",
+      "ordinal": 16,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.8
+      }
+    },
+    {
+      "inputs": [
+        "N008",
+        "N016"
+      ],
+      "node_hash": "8881715c1a6f43cff4e7c78cac57c3d512d6a10eb9380a7621ab66d83db49f29",
+      "node_id": "N017",
+      "op": "LE",
+      "ordinal": 17,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_hash": "05421c885b661f341b169411b3b64b8b71e6ed0389192f1d6246f7197c7f5fde",
+      "node_id": "N018",
+      "op": "CONST",
+      "ordinal": 18,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 3.0
+      }
+    },
+    {
+      "inputs": [
+        "N013",
+        "N018"
+      ],
+      "node_hash": "7635bd2835eadb41c00bd1237a2c3a8b4d39351f39e655568b3cab2bcd95c12c",
+      "node_id": "N019",
+      "op": "GE",
+      "ordinal": 19,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_hash": "f54ee458a0e370e1f06bf69b6ea54f54e268e0f939623a1ea3ed9ce28ebf9f36",
+      "node_id": "N020",
+      "op": "CONST",
+      "ordinal": 20,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.05
+      }
+    },
+    {
+      "inputs": [
+        "N009",
+        "N020"
+      ],
+      "node_hash": "f4616860e54fe6e0f0d4e8bc24ebc01072c230ee2994e89b22145c5dfff05da0",
+      "node_id": "N021",
+      "op": "GE",
+      "ordinal": 21,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_hash": "5f6b1434e6cd6f4fda41fcf085a8cea01e184c164d0d4f43af557322874a3b8c",
+      "node_id": "N022",
+      "op": "CONST",
+      "ordinal": 22,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.95
+      }
+    },
+    {
+      "inputs": [
+        "N009",
+        "N022"
+      ],
+      "node_hash": "21d60ae189ffdb649e6a36c46117563398319c3d2d5f279752aa252917cc9c8e",
+      "node_id": "N023",
+      "op": "LE",
+      "ordinal": 23,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_hash": "ca43712e7220b0deb19c54261794aa95a5ce12e7c7326c536bf2813309b913c3",
+      "node_id": "N024",
+      "op": "CONST",
+      "ordinal": 24,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.7
+      }
+    },
+    {
+      "inputs": [
+        "N010",
+        "N024"
+      ],
+      "node_hash": "1638bb4cceb66576115652ab0617cf44e0576debda1d66032114ebb792e56c20",
+      "node_id": "N025",
+      "op": "LE",
+      "ordinal": 25,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [],
+      "node_hash": "4f576f9e8342d755afbda50d8a7f12446a8ce12e91bc84d3a01549e3e5815c75",
+      "node_id": "N026",
+      "op": "CONST",
+      "ordinal": 26,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.55
+      }
+    },
+    {
+      "inputs": [
+        "N012",
+        "N026"
+      ],
+      "node_hash": "be3315bf73a84652c9e2fac96168b7dc542f5976f698b0cd0df3a46fb28296dd",
+      "node_id": "N027",
+      "op": "GE",
+      "ordinal": 27,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [
+        "N015",
+        "N017"
+      ],
+      "node_hash": "398066195a373c6b5fdef0d51dd8919f25e64919d23c0722743201425e14e8bb",
+      "node_id": "N028",
+      "op": "AND",
+      "ordinal": 28,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [
+        "N019",
+        "N021"
+      ],
+      "node_hash": "df467498e4a0e402bc0dfb708783d7503940dc10e917bf04dba8e9faacf849be",
+      "node_id": "N029",
+      "op": "AND",
+      "ordinal": 29,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [
+        "N023",
+        "N025"
+      ],
+      "node_hash": "89a66a5bfba33f690bd731113000286f43390403a6ab0978880d21b45d415eb1",
+      "node_id": "N030",
+      "op": "AND",
+      "ordinal": 30,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [
+        "N028",
+        "N029"
+      ],
+      "node_hash": "a2821f082040d25ac78cd32a4235dcf3b782c7c1aa64d8747414be51e499534e",
+      "node_id": "N031",
+      "op": "AND",
+      "ordinal": 31,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [
+        "N030",
+        "N027"
+      ],
+      "node_hash": "6b53b98cc7768e280a3c52abb21d13ac23f2037feab2b02b57cb52adce29890e",
+      "node_id": "N032",
+      "op": "AND",
+      "ordinal": 32,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [
+        "N031",
+        "N032"
+      ],
+      "node_hash": "b4da695082a25ff757d3c439384f6e117df831f2e65c66a9d6b376a994f97663",
+      "node_id": "N033",
+      "op": "AND",
+      "ordinal": 33,
+      "output_name": "",
+      "params": {
+        "max_size_fraction": 0.0,
+        "name": "",
+        "treatment_id": "",
+        "value": 0.0
+      }
+    },
+    {
+      "inputs": [
+        "N033",
+        "N012",
+        "N013"
+      ],
+      "node_hash": "4fece5c926e5f2e11d76c6a13a15cf2a00a0576e754c9431b4530ea68d5c74af",
+      "node_id": "N034",
+      "op": "DECISION",
+      "ordinal": 34,
+      "output_name": "decision",
+      "params": {
+        "max_size_fraction": 0.25,
+        "name": "",
+        "treatment_id": "TRT_RUNTIME_REFERENCE",
+        "value": 0.0
+      }
+    }
+  ],
+  "policy_graph_id": "POLICY_RUNTIME_REFERENCE",
+  "research_only": true,
+  "version": "1.0.0"
+}

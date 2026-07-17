@@ -1,0 +1,15 @@
+{
+  "absolute_tolerance": 1e-09,
+  "comparison_epsilon": 1e-10,
+  "decimal_places": 8,
+  "division_zero_policy": "ABSTAIN",
+  "float_mode": "IEEE754_BINARY64",
+  "frozen_profile_id": "v438_numeric_f845cfbc42ed3afcdcbddcee",
+  "infinity_policy": "REJECT",
+  "nan_policy": "REJECT",
+  "profile_hash": "9c26e3e2573d5e8a5e7c97c8e381d3c548931425b65f2929c7ececc2f5b1051b",
+  "profile_id": "NUMERIC_V1",
+  "relative_tolerance": 1e-09,
+  "research_only": true,
+  "rounding_mode": "HALF_EVEN"
+}

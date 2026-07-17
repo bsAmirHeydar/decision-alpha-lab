@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "actual_metaeditor_compile_passed": {
+      "type": "boolean"
+    },
+    "actual_terminal_parity_passed": {
+      "type": "boolean"
+    },
+    "bundle_hash": {
+      "type": "string"
+    },
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "certificate_hash": {
+      "type": "string"
+    },
+    "certificate_id": {
+      "type": "string"
+    },
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "evidence_hash": {
+      "type": "string"
+    },
+    "next_phase": {
+      "type": "string"
+    },
+    "order_submission_allowed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "release_hash": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "status": {
+      "type": "string"
+    },
+    "synthetic_parity_passed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "phase",
+    "status",
+    "bundle_hash",
+    "synthetic_parity_passed",
+    "actual_metaeditor_compile_passed",
+    "actual_terminal_parity_passed",
+    "release_hash",
+    "evidence_hash",
+    "next_phase",
+    "research_only",
+    "production_authorized",
+    "capital_activation_allowed",
+    "order_submission_allowed",
+    "claim_ceiling",
+    "certificate_id",
+    "certificate_hash"
+  ],
+  "title": "certificate",
+  "type": "object"
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "automatic_replacement": {
+      "type": "boolean"
+    },
+    "baseline_id": {
+      "type": "string"
+    },
+    "baseline_preserved": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "receipt_hash": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "release_hash": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "phase",
+    "baseline_id",
+    "baseline_preserved",
+    "automatic_replacement",
+    "release_hash",
+    "research_only",
+    "receipt_id",
+    "receipt_hash"
+  ],
+  "title": "baseline_receipt",
+  "type": "object"
+}

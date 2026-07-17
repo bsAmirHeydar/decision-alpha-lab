@@ -1,0 +1,53 @@
+{
+  "baseline_hash": "7f40752af643121bb7cc043cf6aa2114cbed9319b89ee8e4468eb44959a41089",
+  "evidence_bundle_hash": "4c1b5ad6541913b618cdd78854defe8170129ac631c7ce0bc216622237802a23",
+  "evidence_bundle_id": "v438_evidence_b8981df896fa8730c5ac4976",
+  "evidence_hashes": [
+    "077af6e70610d3f771df0b2d24a1f6f27df552d81a0bf60550564e5a1dd59ab2",
+    "3bc2245eeaf2d97dc62b66478b609a32167bc2e8652ec3047a699aa4ec5f2d4e",
+    "4114e444a87d780763ba6eba0df0f489a1fb4fdbdf8e87c7bbf86d07e3cd40c7",
+    "6e2df2a9bfb44d1dd2c1f112b4a87e06936bdf47255f6956ea1c3ab8250abf72",
+    "7f40752af643121bb7cc043cf6aa2114cbed9319b89ee8e4468eb44959a41089",
+    "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+    "b5d52c1c5279d8fec37f1aed1b1e7261b3e110d7ed3cb0be27517e8ce4c6b215",
+    "c15e84b4cb6e5edb6cd0d42d4c032876b301f9ef6e5c1b708f3da87a7205bd32",
+    "efb61231eb0021e33997bcb2fe1171112e52c0feab828a9261a32e4aac4a190a",
+    "fc5249c1571350733238c96ab5d7010d7c55d6afd6b451988c9584d040f9e83a"
+  ],
+  "evidence_items": [
+    {
+      "hash": "3bc2245eeaf2d97dc62b66478b609a32167bc2e8652ec3047a699aa4ec5f2d4e",
+      "kind": "CODEGEN"
+    },
+    {
+      "hash": "077af6e70610d3f771df0b2d24a1f6f27df552d81a0bf60550564e5a1dd59ab2",
+      "kind": "EXTERNAL_MATRIX"
+    },
+    {
+      "hash": "4114e444a87d780763ba6eba0df0f489a1fb4fdbdf8e87c7bbf86d07e3cd40c7",
+      "kind": "FILE_MANIFEST"
+    },
+    {
+      "hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "kind": "RUNTIME_BUNDLE"
+    },
+    {
+      "hash": "6e2df2a9bfb44d1dd2c1f112b4a87e06936bdf47255f6956ea1c3ab8250abf72",
+      "kind": "STATE_LEDGER"
+    },
+    {
+      "hash": "efb61231eb0021e33997bcb2fe1171112e52c0feab828a9261a32e4aac4a190a",
+      "kind": "SYNTHETIC_PARITY"
+    },
+    {
+      "hash": "c15e84b4cb6e5edb6cd0d42d4c032876b301f9ef6e5c1b708f3da87a7205bd32",
+      "kind": "SYNTHETIC_SIGNATURE"
+    }
+  ],
+  "evidence_merkle_root": "844e1d5b6de88e1ff4136870806501b7bd1b04277d275a645153eeb526f8046f",
+  "external_runtime_evidence_complete": false,
+  "phase": "SAED_V4_38",
+  "release_hash": "b5d52c1c5279d8fec37f1aed1b1e7261b3e110d7ed3cb0be27517e8ce4c6b215",
+  "research_only": true,
+  "review_hash": "fc5249c1571350733238c96ab5d7010d7c55d6afd6b451988c9584d040f9e83a"
+}

@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "abi_hash": {
+      "type": "string"
+    },
+    "abi_id": {
+      "type": "string"
+    },
+    "backward_compatible_with": {
+      "items": {},
+      "type": "array"
+    },
+    "closed_contract": {
+      "type": "boolean"
+    },
+    "field_count": {
+      "type": "integer"
+    },
+    "fields": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "data_type": {
+            "type": "string"
+          },
+          "default": {
+            "type": "string"
+          },
+          "direction": {
+            "type": "string"
+          },
+          "enum_values": {
+            "items": {},
+            "type": "array"
+          },
+          "field_hash": {
+            "type": "string"
+          },
+          "field_id": {
+            "type": "string"
+          },
+          "maximum": {
+            "type": "integer"
+          },
+          "minimum": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "ordinal": {
+            "type": "integer"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "semantic": {
+            "type": "string"
+          },
+          "unit": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "field_id",
+          "ordinal",
+          "name",
+          "data_type",
+          "direction",
+          "required",
+          "default",
+          "minimum",
+          "maximum",
+          "enum_values",
+          "semantic",
+          "unit",
+          "field_hash"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "frozen_abi_hash": {
+      "type": "string"
+    },
+    "frozen_abi_id": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "abi_id",
+    "version",
+    "kind",
+    "fields",
+    "closed_contract",
+    "backward_compatible_with",
+    "research_only",
+    "field_count",
+    "abi_hash",
+    "frozen_abi_id",
+    "frozen_abi_hash"
+  ],
+  "title": "abi_record",
+  "type": "object"
+}

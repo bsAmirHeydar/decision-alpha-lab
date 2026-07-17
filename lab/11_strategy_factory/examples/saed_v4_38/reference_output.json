@@ -1,0 +1,4399 @@
+{
+  "abi_registry": {
+    "abi_hashes": [
+      "1c953220670936b4512ab26b7ff6966a9d349f0713d5920e7d70cf05f0a11904",
+      "b4a209174c6be4902086240720520dba1eb2ed1a66b9b96bee0b28b1a7342398",
+      "3c8c48abf60abd64326579e07f6cdcfe6f9c2de7ed0461fcbd440b03aef2bdcc",
+      "c943e90e3bf4ff2604993ab9f03da98fce8aee442044fd9f6f1a25ffe0bd7d3e",
+      "64bf85cc3fbc3fce14b296cf23c6caab1182d7f0b58aad996c749d63d921f01a"
+    ],
+    "abis": [
+      {
+        "abi_hash": "1c953220670936b4512ab26b7ff6966a9d349f0713d5920e7d70cf05f0a11904",
+        "abi_id": "FEATURE_ABI_V1",
+        "backward_compatible_with": [],
+        "closed_contract": true,
+        "field_count": 12,
+        "fields": [
+          {
+            "data_type": "FLOAT64",
+            "default": "0.0",
+            "direction": "INPUT",
+            "enum_values": [],
+            "field_hash": "b37aee29d5ad30a7b463eba8a3174bb9449edc677bc1737f400c34df87b2f45b",
+            "field_id": "F00",
+            "maximum": 1,
+            "minimum": -1,
+            "name": "price_return_1",
+            "ordinal": 0,
+            "required": true,
+            "semantic": "Canonical runtime feature price_return_1",
+            "unit": "ratio"
+          },
+          {
+            "data_type": "FLOAT64",
+            "default": "0.0",
+            "direction": "INPUT",
+            "enum_values": [],
+            "field_hash": "79bc6d7fde0e7cf673c7d187c25fe7be1585eacd820696f9b430e1e67a60e210",
+            "field_id": "F01",
+            "maximum": 1,
+            "minimum": 0,
+            "name": "volatility_20",
+            "ordinal": 1,
+            "required": true,
+            "semantic": "Canonical runtime feature volatility_20",
+            "unit": "ratio"
+          },
+          {
+            "data_type": "FLOAT64",
+            "default": "0.0",
+            "direction": "INPUT",
+            "enum_values": [],
+            "field_hash": "fb09f8ec3c31c52a34612482af1ad5df6ac05af82ba6b6885021d4cf524681e4",
+            "field_id": "F02",
+            "maximum": 100,
+            "minimum": 0,
+            "name": "spread_bps",
+            "ordinal": 2,
+            "required": true,
+            "semantic": "Canonical runtime feature spread_bps",
+            "unit": "bps"
+          },
+          {
+            "data_type": "FLOAT64",
+            "default": "0.0",
+            "direction": "INPUT",
+            "enum_values": [],
+            "field_hash": "aaeda56c9f7625bc4b5ca4271334fa8473e317c849c2401e3420bdab204a7f21",
+            "field_id": "F03",
+            "maximum": 10,
+            "minimum": 0,
+            "name": "liquidity_ratio",
+            "ordinal": 3,
+            "required": true,
+            "semantic": "Canonical runtime feature liquidity_ratio",
+            "unit": "ratio"
+          },
+          {
+            "data_type": "FLOAT64",
+            "default": "0.0",
+            "direction": "INPUT",
+            "enum_values": [],
+            "field_hash": "a67bb59e1b021ecff74cc4f40b9d4441957acd83b02a6f6e52f6f09d00516d66",
+            "field_id": "F04",
+            "maximum": 1,
+            "minimum": 0,
+            "name": "context_score",
+            "ordinal": 4,
+            "required": true,
+            "semantic": "Canonical runtime feature context_score",
+            "unit": "score"
+          },
+          {
+            "data_type": "FLOAT64",
+            "default": "0.0",
+            "direction": "INPUT",
+            "enum_values": [],
+            "field_hash": "a41973bc88a783cd10596a7c8a9e4fb1698bf28f871420e8a43271956c468aeb",
+            "field_id": "F05",
+            "maximum": 1,
+            "minimum": 0,
+            "name": "treatment_score",
+            "ordinal": 5,
+            "required": true,
+            "semantic": "Canonical runtime feature treatment_score",
+            "unit": "score"
+          },
+          {
+            "data_type": "FLOAT64",
+            "default": "0.0",
+            "direction": "INPUT",
+            "enum_values": [],
+            "field_hash": "c32263895bfcebddf521e3de41828747b1948dac9ef3b3a51b8c7da4313e96e8",
+            "field_id": "F06",
+            "maximum": 200,
+            "minimum": -100,
+            "name": "expected_edge_bps",
+            "ordinal": 6,
+            "required": true,
+            "semantic": "Canonical runtime feature expected_edge_bps",
+            "unit": "bps"
+          },
+          {
+            "data_type": "FLOAT64",
+            "default": "0.0",
+            "direction": "INPUT",
+            "enum_values": [],
+            "field_hash": "ee548d268431d66600a4a1bcdb0854a2a56bcf009a6e1cb755972ef2d624d68a",
+            "field_id": "F07",
+            "maximum": 100,
+            "minimum": 0,
+            "name": "expected_cost_bps",
+            "ordinal": 7,
+            "required": true,
+            "semantic": "Canonical runtime feature expected_cost_bps",
+            "unit": "bps"
+          },
+          {
+            "data_type": "FLOAT64",
+            "default": "0.0",
+            "direction": "INPUT",
+            "enum_values": [],
+            "field_hash": "02cc87f9b3946d7983d0006536da315c6fd7e32bf717499d1024f5d7bc8f5c04",
+            "field_id": "F08",
+            "maximum": 2,
+            "minimum": 0,
+            "name": "portfolio_risk",
+            "ordinal": 8,
+            "required": true,
+            "semantic": "Canonical runtime feature portfolio_risk",
+            "unit": "ratio"
+          },
+          {
+            "data_type": "FLOAT64",
+            "default": "0.0",
+            "direction": "INPUT",
+            "enum_values": [],
+            "field_hash": "42346cae4d97bd39d1ac9aa03dac73ee6c832c4184de8bdc55bd49e4472ca4ef",
+            "field_id": "F09",
+            "maximum": 1,
+            "minimum": 0,
+            "name": "session_progress",
+            "ordinal": 9,
+            "required": true,
+            "semantic": "Canonical runtime feature session_progress",
+            "unit": "ratio"
+          },
+          {
+            "data_type": "FLOAT64",
+            "default": "0.0",
+            "direction": "INPUT",
+            "enum_values": [],
+            "field_hash": "2fbf54959ec9b428b0cf55af09902659e0bc58e359f5d57742acf61209994399",
+            "field_id": "F10",
+            "maximum": 1,
+            "minimum": 0,
+            "name": "drawdown_state",
+            "ordinal": 10,
+            "required": true,
+            "semantic": "Canonical runtime feature drawdown_state",
+            "unit": "ratio"
+          },
+          {
+            "data_type": "FLOAT64",
+            "default": "0.0",
+            "direction": "INPUT",
+            "enum_values": [],
+            "field_hash": "4fd0c302cae0c46b1a9b78977017be4555dca87d6af88193bea19ce6463ecb46",
+            "field_id": "F11",
+            "maximum": 1,
+            "minimum": 0,
+            "name": "ood_score",
+            "ordinal": 11,
+            "required": true,
+            "semantic": "Canonical runtime feature ood_score",
+            "unit": "score"
+          }
+        ],
+        "frozen_abi_hash": "aa49e3d2fb14d18b1e78ae76404dd954f64f76c9d7e5c733459abd9b08145a6f",
+        "frozen_abi_id": "v438_feature_abi_49f99e00f66770cca17a576b",
+        "kind": "FEATURE",
+        "research_only": true,
+        "version": "1.0.0"
+      },
+      {
+        "abi_hash": "b4a209174c6be4902086240720520dba1eb2ed1a66b9b96bee0b28b1a7342398",
+        "abi_id": "MODEL_ABI_V1",
+        "backward_compatible_with": [],
+        "closed_contract": true,
+        "field_count": 1,
+        "fields": [
+          {
+            "data_type": "FLOAT64",
+            "default": "0.0",
+            "direction": "OUTPUT",
+            "enum_values": [],
+            "field_hash": "65651302a0c9ffe7848c149840df8a892abc80698ba4b375f419bc4d95687f2b",
+            "field_id": "M00",
+            "maximum": 100,
+            "minimum": -100,
+            "name": "model_score",
+            "ordinal": 0,
+            "required": true,
+            "semantic": "Linear reference model score",
+            "unit": "score"
+          }
+        ],
+        "frozen_abi_hash": "f62afe8d8a739bd612eefaddbf4cff6407ea53cbcb0a70f751b368e039fc451d",
+        "frozen_abi_id": "v438_model_abi_5e160cb0be5314a4147eeb0c",
+        "kind": "MODEL",
+        "research_only": true,
+        "version": "1.0.0"
+      },
+      {
+        "abi_hash": "3c8c48abf60abd64326579e07f6cdcfe6f9c2de7ed0461fcbd440b03aef2bdcc",
+        "abi_id": "POLICY_ABI_V1",
+        "backward_compatible_with": [],
+        "closed_contract": true,
+        "field_count": 1,
+        "fields": [
+          {
+            "data_type": "BOOL",
+            "default": "False",
+            "direction": "OUTPUT",
+            "enum_values": [],
+            "field_hash": "ca6432be1d6dd969031436c05ee970bf0a86158b77175867019f5c44942fdfc5",
+            "field_id": "P00",
+            "maximum": 1,
+            "minimum": 0,
+            "name": "policy_allowed",
+            "ordinal": 0,
+            "required": true,
+            "semantic": "Policy gate result",
+            "unit": ""
+          }
+        ],
+        "frozen_abi_hash": "654c1c04d9ea671faeb46517637cf2d16045e8185742fc3a1eee1fdeb3b3bac2",
+        "frozen_abi_id": "v438_policy_abi_0ab765995d5460db1acd0a50",
+        "kind": "POLICY",
+        "research_only": true,
+        "version": "1.0.0"
+      },
+      {
+        "abi_hash": "c943e90e3bf4ff2604993ab9f03da98fce8aee442044fd9f6f1a25ffe0bd7d3e",
+        "abi_id": "OUTPUT_ABI_V1",
+        "backward_compatible_with": [],
+        "closed_contract": true,
+        "field_count": 5,
+        "fields": [
+          {
+            "data_type": "ENUM",
+            "default": "ABSTAIN",
+            "direction": "OUTPUT",
+            "enum_values": [
+              "ABSTAIN",
+              "SELECT"
+            ],
+            "field_hash": "631486b458693d9bbe3d5e76385cc17a23e04d7fa17c162efb54ed46ce0f0230",
+            "field_id": "O00",
+            "maximum": 0,
+            "minimum": 0,
+            "name": "decision",
+            "ordinal": 0,
+            "required": true,
+            "semantic": "decision",
+            "unit": "enum"
+          },
+          {
+            "data_type": "STRING",
+            "default": "BASELINE",
+            "direction": "OUTPUT",
+            "enum_values": [],
+            "field_hash": "1fddeb37c57cef88323dca0a67f956bde1bc10747291e439b1f618930202c05a",
+            "field_id": "O01",
+            "maximum": 0,
+            "minimum": 0,
+            "name": "treatment_id",
+            "ordinal": 1,
+            "required": true,
+            "semantic": "treatment_id",
+            "unit": "id"
+          },
+          {
+            "data_type": "FLOAT64",
+            "default": "0.0",
+            "direction": "OUTPUT",
+            "enum_values": [],
+            "field_hash": "614cf7ed680591db54bad3409163e9f7232b0617fd37cf35e399086c35e57189",
+            "field_id": "O02",
+            "maximum": 1,
+            "minimum": 0,
+            "name": "confidence",
+            "ordinal": 2,
+            "required": true,
+            "semantic": "confidence",
+            "unit": "score"
+          },
+          {
+            "data_type": "FLOAT64",
+            "default": "0.0",
+            "direction": "OUTPUT",
+            "enum_values": [],
+            "field_hash": "112e6aaaff304284844dd2172f78466203bd05272bc6f1fcd1d71676837c4c48",
+            "field_id": "O03",
+            "maximum": 200,
+            "minimum": -200,
+            "name": "net_edge_bps",
+            "ordinal": 3,
+            "required": true,
+            "semantic": "net_edge_bps",
+            "unit": "bps"
+          },
+          {
+            "data_type": "FLOAT64",
+            "default": "0.0",
+            "direction": "OUTPUT",
+            "enum_values": [],
+            "field_hash": "6beb3a62628395068e4fb90bd4ea55e5b7e53bfd953b4a17934bf9ab20afb9ec",
+            "field_id": "O04",
+            "maximum": 1,
+            "minimum": 0,
+            "name": "size_fraction",
+            "ordinal": 4,
+            "required": true,
+            "semantic": "size_fraction",
+            "unit": "ratio"
+          }
+        ],
+        "frozen_abi_hash": "8b02f17dcbcd5c2289b95e2d072fe2cfc9a0fff4a4ccdf036ceb981d8cf398bc",
+        "frozen_abi_id": "v438_output_abi_71b82e47b78bdb91d0dab3fb",
+        "kind": "OUTPUT",
+        "research_only": true,
+        "version": "1.0.0"
+      },
+      {
+        "abi_hash": "64bf85cc3fbc3fce14b296cf23c6caab1182d7f0b58aad996c749d63d921f01a",
+        "abi_id": "STATE_ABI_V1",
+        "backward_compatible_with": [],
+        "closed_contract": true,
+        "field_count": 3,
+        "fields": [
+          {
+            "data_type": "INT64",
+            "default": "0",
+            "direction": "STATE",
+            "enum_values": [],
+            "field_hash": "9cdf2314bd7b86bb26f11294b80e12c98d0b37fbdc062fc57c26d8706a4ea600",
+            "field_id": "S00",
+            "maximum": 1000000000,
+            "minimum": 0,
+            "name": "sequence",
+            "ordinal": 0,
+            "required": true,
+            "semantic": "sequence",
+            "unit": "count"
+          },
+          {
+            "data_type": "INT64",
+            "default": "0",
+            "direction": "STATE",
+            "enum_values": [],
+            "field_hash": "77173f76f157c90fd19ac9ce4c14e8c35185b683248a8b60a43969eb245729a5",
+            "field_id": "S01",
+            "maximum": 100000,
+            "minimum": 0,
+            "name": "cooldown_bars",
+            "ordinal": 1,
+            "required": true,
+            "semantic": "cooldown_bars",
+            "unit": "bars"
+          },
+          {
+            "data_type": "FLOAT64",
+            "default": "0.0",
+            "direction": "STATE",
+            "enum_values": [],
+            "field_hash": "d888b3a3ec9bef8ff65f2120f1c174a2e7e301fc2b1e2c60944dfb4881cc735e",
+            "field_id": "S02",
+            "maximum": 1,
+            "minimum": 0,
+            "name": "drawdown_state",
+            "ordinal": 2,
+            "required": true,
+            "semantic": "drawdown_state",
+            "unit": "ratio"
+          }
+        ],
+        "frozen_abi_hash": "2b6a80f0f8e68525f4fea7555bf18d5f48e29323ee003448ef765a1dc2c2d6d2",
+        "frozen_abi_id": "v438_state_abi_b90f5923f8b35e7bb54ee712",
+        "kind": "STATE",
+        "research_only": true,
+        "version": "1.0.0"
+      }
+    ],
+    "phase": "SAED_V4_38",
+    "registry_hash": "f5f65216f97ca23e3e952e27dce92718c096c520eb30bd861f629bcad5af717c",
+    "registry_id": "v438_abis_886f7b34a16a591483b003e5",
+    "research_only": true
+  },
+  "authority_boundary": {
+    "boundary_hash": "603f83f7000516d1cd4ac043e3fef9b7a8d9921b19b9afcc30777d562306b363",
+    "boundary_id": "v438_authority_82188e4efbb2e22a3dee6f98",
+    "failure_action": "ABSTAIN_PRESERVE_BASELINE_AND_ESCALATE",
+    "live_trading_authority": false,
+    "may_accept_external_evidence": true,
+    "may_activate_capital": false,
+    "may_authorize_production": false,
+    "may_claim_metaeditor_compile_without_evidence": false,
+    "may_claim_terminal_parity_without_evidence": false,
+    "may_compile_immutable_bundle": true,
+    "may_emit_parity_vectors": true,
+    "may_generate_mql5_source": true,
+    "may_mutate_ucee": false,
+    "may_promote_model": false,
+    "may_run_python_reference": true,
+    "may_run_synthetic_mql5_emulator": true,
+    "may_send_order": false,
+    "phase": "SAED_V4_38",
+    "research_only": true
+  },
+  "baseline_receipt": {
+    "automatic_replacement": false,
+    "baseline_id": "BASELINE_MANUAL_POLICY_V1",
+    "baseline_preserved": true,
+    "phase": "SAED_V4_38",
+    "receipt_hash": "7f40752af643121bb7cc043cf6aa2114cbed9319b89ee8e4468eb44959a41089",
+    "receipt_id": "v438_baseline_c0a62de4343019430d33c9c3",
+    "release_hash": "b5d52c1c5279d8fec37f1aed1b1e7261b3e110d7ed3cb0be27517e8ce4c6b215",
+    "research_only": true
+  },
+  "certificate": {
+    "actual_metaeditor_compile_passed": false,
+    "actual_terminal_parity_passed": false,
+    "bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+    "capital_activation_allowed": false,
+    "certificate_hash": "71578a06e75ee1b533046ba2822cf58523ab700d0db5d6a4018a42672e878702",
+    "certificate_id": "v438_certificate_2bb3bf921e3ef9a9c769dad7",
+    "claim_ceiling": "immutable runtime compilation and synthetic MQL5 semantic parity reference; actual MetaEditor and terminal evidence pending",
+    "evidence_hash": "4c1b5ad6541913b618cdd78854defe8170129ac631c7ce0bc216622237802a23",
+    "next_phase": "SAED_V4_39",
+    "order_submission_allowed": false,
+    "phase": "SAED_V4_38",
+    "production_authorized": false,
+    "release_hash": "b5d52c1c5279d8fec37f1aed1b1e7261b3e110d7ed3cb0be27517e8ce4c6b215",
+    "research_only": true,
+    "status": "ACCEPTED_REFERENCE_EXTERNAL_GATES_OPEN",
+    "synthetic_parity_passed": true
+  },
+  "clock_profile": {
+    "allowed_weekdays": [
+      "FRIDAY",
+      "MONDAY",
+      "THURSDAY",
+      "TUESDAY",
+      "WEDNESDAY"
+    ],
+    "bar_close_only": true,
+    "clock_hash": "0fd55acf48c45c996195edf848b8377b873c9190b4c2bc8b404165cdf9e34d2d",
+    "clock_profile_id": "CLOCK_V1",
+    "dst_policy": "UTC_ONLY",
+    "duplicate_timestamp_policy": "REJECT",
+    "frozen_clock_id": "v438_clock_e5b1991f75317673658e9cb2",
+    "max_clock_skew_ms": 1000,
+    "missing_bar_policy": "ABSTAIN",
+    "out_of_order_policy": "REJECT",
+    "research_only": true,
+    "session_calendar_id": "SYNTHETIC_24X5",
+    "timestamp_format": "RFC3339_NANO_UTC",
+    "timezone": "UTC"
+  },
+  "codegen_manifest": {
+    "bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+    "codegen_hash": "3bc2245eeaf2d97dc62b66478b609a32167bc2e8652ec3047a699aa4ec5f2d4e",
+    "codegen_id": "v438_codegen_119121dbdac676b2a12bdcbb",
+    "files": [
+      {
+        "content": "#ifndef SAED_V4_38_COMPILED_RUNTIME_MQH\n#define SAED_V4_38_COMPILED_RUNTIME_MQH\n// SAED_V4_38 research-only immutable generated runtime.\n#define SAED_V4_38_BUNDLE_HASH \"95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294\"\n#define SAED_V4_38_POLICY_HASH \"7eb3aad47d0643ccaa5a6b61d8d6f249f622c1bc0b91a8f6b2db2a4c2f514c2c\"\n#define SAED_V4_38_MODEL_HASH \"b8a93ad20c73b567cbb5b34000dcc66232aa2223296830a1c35fc8cd6d3cce63\"\n#define SAED_V4_38_FEATURE_COUNT 12\n#define SAED_V4_38_ORDER_SUBMISSION_ALLOWED 0\n#define SAED_V4_38_CAPITAL_ACTIVATION_ALLOWED 0\nenum SAEDV438FeatureIndex {\n   SAEDV438_FEATURE_PRICE_RETURN_1 = 0,\n   SAEDV438_FEATURE_VOLATILITY_20 = 1,\n   SAEDV438_FEATURE_SPREAD_BPS = 2,\n   SAEDV438_FEATURE_LIQUIDITY_RATIO = 3,\n   SAEDV438_FEATURE_CONTEXT_SCORE = 4,\n   SAEDV438_FEATURE_TREATMENT_SCORE = 5,\n   SAEDV438_FEATURE_EXPECTED_EDGE_BPS = 6,\n   SAEDV438_FEATURE_EXPECTED_COST_BPS = 7,\n   SAEDV438_FEATURE_PORTFOLIO_RISK = 8,\n   SAEDV438_FEATURE_SESSION_PROGRESS = 9,\n   SAEDV438_FEATURE_DRAWDOWN_STATE = 10,\n   SAEDV438_FEATURE_OOD_SCORE = 11\n};\nstatic const double SAEDV438Weights[12]={\n   0.25,\n   -0.15,\n   -0.005,\n   0.012,\n   0.02,\n   -0.35,\n   -0.2,\n   0.08,\n   0.04,\n   -0.01,\n   0.28,\n   -0.1\n};\nstatic const double SAEDV438Bias=0.18;\ndouble SAEDV438Quantize(const double x){return MathRound(x*100000000.0)/100000000.0;}\ndouble SAEDV438LinearScore(const double &features[]){double s=SAEDV438Bias; for(int i=0;i<12;i++) s+=SAEDV438Weights[i]*features[i]; return SAEDV438Quantize(s);}\nbool SAEDV438Evaluate(const double &f[],string &decision,string &treatment,double &confidence,double &net_edge,double &size_fraction){\n if(ArraySize(f)!=12){decision=\"ABSTAIN\";treatment=\"BASELINE\";confidence=0;net_edge=0;size_fraction=0;return false;}\n const double model_score=SAEDV438LinearScore(f);\n net_edge=SAEDV438Quantize(f[6]-f[7]);\n const bool allowed=(f[11]<=0.20 && f[8]<=0.80 && net_edge>=3.0 && f[9]>=0.05 && f[9]<=0.95 && f[10]<=0.70 && model_score>=0.55);\n if(!allowed){decision=\"ABSTAIN\";treatment=\"BASELINE\";confidence=0;size_fraction=0;return false;}\n decision=\"SELECT\";treatment=\"TRT_RUNTIME_REFERENCE\";confidence=SAEDV438Quantize(MathMax(0.0,MathMin(1.0,model_score)));size_fraction=SAEDV438Quantize(confidence*0.25);return true;\n}\n#endif\n",
+        "content_hash": "21fd7f3d00f6f1d2ef34e80a708d3d68a13e20c1fd53fd363bd497f168114993",
+        "executable": false,
+        "path": "mql5/Include/StrategyFactory/SAED/V4_38/SAEDV438CompiledRuntime.mqh",
+        "research_only": true,
+        "role": "COMPILED_RUNTIME",
+        "size_bytes": 2275
+      },
+      {
+        "content": "#property strict\n#include <StrategyFactory/SAED/V4_38/SAEDV438CompiledRuntime.mqh>\n// SAED_V4_38 parity harness only. No orders, no capital activation.\nint OnInit(){Print(\"SAED V4-38 research-only parity harness: \",SAED_V4_38_BUNDLE_HASH);return(INIT_SUCCEEDED);}\nvoid OnTick(){/* intentionally non-executable */}\n",
+        "content_hash": "dcf9144048799f5d786ae331999e6624dc32429429e54d707f07336a73cd63f2",
+        "executable": false,
+        "path": "mql5/Experts/StrategyFactory/SAED/V4_38/SAEDV438ParityHarness.mq5",
+        "research_only": true,
+        "role": "PARITY_HARNESS",
+        "size_bytes": 314
+      }
+    ],
+    "generator_version": "1.0.0",
+    "phase": "SAED_V4_38",
+    "production_authorized": false,
+    "research_only": true,
+    "source_count": 2
+  },
+  "constitution": {
+    "automatic_order_submission_allowed": false,
+    "capital_activation_allowed": false,
+    "clauses": [
+      {
+        "clause_id": "V438-C01",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 1,
+        "requirement": "Immutable content-addressed runtime bundle"
+      },
+      {
+        "clause_id": "V438-C02",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 2,
+        "requirement": "Hermetic deterministic compiler"
+      },
+      {
+        "clause_id": "V438-C03",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 3,
+        "requirement": "Closed feature ABI"
+      },
+      {
+        "clause_id": "V438-C04",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 4,
+        "requirement": "Closed model ABI"
+      },
+      {
+        "clause_id": "V438-C05",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 5,
+        "requirement": "Closed policy ABI"
+      },
+      {
+        "clause_id": "V438-C06",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 6,
+        "requirement": "Closed output ABI"
+      },
+      {
+        "clause_id": "V438-C07",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 7,
+        "requirement": "Closed state ABI"
+      },
+      {
+        "clause_id": "V438-C08",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 8,
+        "requirement": "No unknown fields"
+      },
+      {
+        "clause_id": "V438-C09",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 9,
+        "requirement": "Stable field ordinals"
+      },
+      {
+        "clause_id": "V438-C10",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 10,
+        "requirement": "Stable node ordinals"
+      },
+      {
+        "clause_id": "V438-C11",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 11,
+        "requirement": "Canonical serialization"
+      },
+      {
+        "clause_id": "V438-C12",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 12,
+        "requirement": "IEEE-754 binary64 profile"
+      },
+      {
+        "clause_id": "V438-C13",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 13,
+        "requirement": "Explicit quantization"
+      },
+      {
+        "clause_id": "V438-C14",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 14,
+        "requirement": "NaN rejection"
+      },
+      {
+        "clause_id": "V438-C15",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 15,
+        "requirement": "Infinity rejection"
+      },
+      {
+        "clause_id": "V438-C16",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 16,
+        "requirement": "Division-by-zero abstention"
+      },
+      {
+        "clause_id": "V438-C17",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 17,
+        "requirement": "UTC-only clock"
+      },
+      {
+        "clause_id": "V438-C18",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 18,
+        "requirement": "Known-time enforcement"
+      },
+      {
+        "clause_id": "V438-C19",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 19,
+        "requirement": "Duplicate timestamp rejection"
+      },
+      {
+        "clause_id": "V438-C20",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 20,
+        "requirement": "Out-of-order rejection"
+      },
+      {
+        "clause_id": "V438-C21",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 21,
+        "requirement": "No environment-variable dependence"
+      },
+      {
+        "clause_id": "V438-C22",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 22,
+        "requirement": "No network dependence"
+      },
+      {
+        "clause_id": "V438-C23",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 23,
+        "requirement": "No wall-clock build timestamp"
+      },
+      {
+        "clause_id": "V438-C24",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 24,
+        "requirement": "Bundle Merkle root"
+      },
+      {
+        "clause_id": "V438-C25",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 25,
+        "requirement": "File-level integrity manifest"
+      },
+      {
+        "clause_id": "V438-C26",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 26,
+        "requirement": "Synthetic signature clearly labeled"
+      },
+      {
+        "clause_id": "V438-C27",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 27,
+        "requirement": "Independent Python runtime"
+      },
+      {
+        "clause_id": "V438-C28",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 28,
+        "requirement": "Independent MQL5 semantic emulator"
+      },
+      {
+        "clause_id": "V438-C29",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 29,
+        "requirement": "Golden parity vectors"
+      },
+      {
+        "clause_id": "V438-C30",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 30,
+        "requirement": "Boundary vectors"
+      },
+      {
+        "clause_id": "V438-C31",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 31,
+        "requirement": "Mutation tests"
+      },
+      {
+        "clause_id": "V438-C32",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 32,
+        "requirement": "Fail-closed fallback"
+      },
+      {
+        "clause_id": "V438-C33",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 33,
+        "requirement": "State replay ledger"
+      },
+      {
+        "clause_id": "V438-C34",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 34,
+        "requirement": "No order routing"
+      },
+      {
+        "clause_id": "V438-C35",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 35,
+        "requirement": "No capital activation"
+      },
+      {
+        "clause_id": "V438-C36",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 36,
+        "requirement": "External MetaEditor evidence separation"
+      },
+      {
+        "clause_id": "V438-C37",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 37,
+        "requirement": "External terminal evidence separation"
+      },
+      {
+        "clause_id": "V438-C38",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 38,
+        "requirement": "Baseline preservation"
+      },
+      {
+        "clause_id": "V438-C39",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 39,
+        "requirement": "Independent model-risk review"
+      },
+      {
+        "clause_id": "V438-C40",
+        "evidence_required": true,
+        "failure_action": "ABSTAIN_AND_ESCALATE",
+        "priority": 40,
+        "requirement": "Bounded V4-39 handoff"
+      }
+    ],
+    "closed_abi_required": true,
+    "constitution_hash": "d2fd9dcefc5db9dcd8d84ad91403e1c4e5339551c8771a33208ba064aedc790b",
+    "constitution_id": "v438_constitution_ref",
+    "deterministic_runtime_required": true,
+    "external_evidence_separation_required": true,
+    "immutable_bundle_required": true,
+    "production_authorization_allowed": false,
+    "research_only": true,
+    "version": "1.0.0"
+  },
+  "evidence_bundle": {
+    "baseline_hash": "7f40752af643121bb7cc043cf6aa2114cbed9319b89ee8e4468eb44959a41089",
+    "evidence_bundle_hash": "4c1b5ad6541913b618cdd78854defe8170129ac631c7ce0bc216622237802a23",
+    "evidence_bundle_id": "v438_evidence_b8981df896fa8730c5ac4976",
+    "evidence_hashes": [
+      "077af6e70610d3f771df0b2d24a1f6f27df552d81a0bf60550564e5a1dd59ab2",
+      "3bc2245eeaf2d97dc62b66478b609a32167bc2e8652ec3047a699aa4ec5f2d4e",
+      "4114e444a87d780763ba6eba0df0f489a1fb4fdbdf8e87c7bbf86d07e3cd40c7",
+      "6e2df2a9bfb44d1dd2c1f112b4a87e06936bdf47255f6956ea1c3ab8250abf72",
+      "7f40752af643121bb7cc043cf6aa2114cbed9319b89ee8e4468eb44959a41089",
+      "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+      "b5d52c1c5279d8fec37f1aed1b1e7261b3e110d7ed3cb0be27517e8ce4c6b215",
+      "c15e84b4cb6e5edb6cd0d42d4c032876b301f9ef6e5c1b708f3da87a7205bd32",
+      "efb61231eb0021e33997bcb2fe1171112e52c0feab828a9261a32e4aac4a190a",
+      "fc5249c1571350733238c96ab5d7010d7c55d6afd6b451988c9584d040f9e83a"
+    ],
+    "evidence_items": [
+      {
+        "hash": "3bc2245eeaf2d97dc62b66478b609a32167bc2e8652ec3047a699aa4ec5f2d4e",
+        "kind": "CODEGEN"
+      },
+      {
+        "hash": "077af6e70610d3f771df0b2d24a1f6f27df552d81a0bf60550564e5a1dd59ab2",
+        "kind": "EXTERNAL_MATRIX"
+      },
+      {
+        "hash": "4114e444a87d780763ba6eba0df0f489a1fb4fdbdf8e87c7bbf86d07e3cd40c7",
+        "kind": "FILE_MANIFEST"
+      },
+      {
+        "hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+        "kind": "RUNTIME_BUNDLE"
+      },
+      {
+        "hash": "6e2df2a9bfb44d1dd2c1f112b4a87e06936bdf47255f6956ea1c3ab8250abf72",
+        "kind": "STATE_LEDGER"
+      },
+      {
+        "hash": "efb61231eb0021e33997bcb2fe1171112e52c0feab828a9261a32e4aac4a190a",
+        "kind": "SYNTHETIC_PARITY"
+      },
+      {
+        "hash": "c15e84b4cb6e5edb6cd0d42d4c032876b301f9ef6e5c1b708f3da87a7205bd32",
+        "kind": "SYNTHETIC_SIGNATURE"
+      }
+    ],
+    "evidence_merkle_root": "844e1d5b6de88e1ff4136870806501b7bd1b04277d275a645153eeb526f8046f",
+    "external_runtime_evidence_complete": false,
+    "phase": "SAED_V4_38",
+    "release_hash": "b5d52c1c5279d8fec37f1aed1b1e7261b3e110d7ed3cb0be27517e8ce4c6b215",
+    "research_only": true,
+    "review_hash": "fc5249c1571350733238c96ab5d7010d7c55d6afd6b451988c9584d040f9e83a"
+  },
+  "external_evidence_matrix": {
+    "actual_metaeditor_compile_passed": false,
+    "actual_terminal_parity_passed": false,
+    "external_runtime_evidence_complete": false,
+    "items": [
+      {
+        "actual_external_evidence": true,
+        "artifact_hash": "e65c9a1f5914702af8d23564653e2dce79c9f174171203f8b116c4a839b7c853",
+        "environment": "static-and-reference",
+        "evidence_id": "EXT06",
+        "evidence_type": "BROKER_ROUTE_GUARD",
+        "independent_reviewer": "V438_REFERENCE_VALIDATOR",
+        "notes": "no order API present in generated harness",
+        "observed_at": "2026-07-17T00:00:00Z",
+        "status": "PASSED"
+      },
+      {
+        "actual_external_evidence": false,
+        "artifact_hash": "77c4feca33cb5e2128da6cfd6b0c90c7d6473863293fb6d1fdf132530b47ac15",
+        "environment": "windows-mt5-terminal",
+        "evidence_id": "EXT04",
+        "evidence_type": "CROSS_RUNTIME_STATE_REPLAY",
+        "independent_reviewer": "V438_REFERENCE_VALIDATOR",
+        "notes": "requires actual state replay evidence",
+        "observed_at": "2026-07-17T00:00:00Z",
+        "status": "PENDING_EXTERNAL"
+      },
+      {
+        "actual_external_evidence": false,
+        "artifact_hash": "4efb3e9896a05f695843041fa3904cb4f83332e8d76e82e84b189057d71424e9",
+        "environment": "windows-metaeditor",
+        "evidence_id": "EXT02",
+        "evidence_type": "METAEDITOR_COMPILE",
+        "independent_reviewer": "V438_REFERENCE_VALIDATOR",
+        "notes": "requires actual Windows MetaEditor compile evidence",
+        "observed_at": "2026-07-17T00:00:00Z",
+        "status": "PENDING_EXTERNAL"
+      },
+      {
+        "actual_external_evidence": true,
+        "artifact_hash": "6cc773392d00e871c18373438a18b101876d1019751ddbad765d0c8ad872616d",
+        "environment": "cross-platform-static",
+        "evidence_id": "EXT01",
+        "evidence_type": "MQL5_STATIC_VALIDATION",
+        "independent_reviewer": "V438_REFERENCE_VALIDATOR",
+        "notes": "actual static evidence",
+        "observed_at": "2026-07-17T00:00:00Z",
+        "status": "PASSED"
+      },
+      {
+        "actual_external_evidence": true,
+        "artifact_hash": "82990dde0620a6a583af4229acdc25d76010216e7547e89336cb95a8976b8005",
+        "environment": "linux-python",
+        "evidence_id": "EXT00",
+        "evidence_type": "PYTHON_REFERENCE",
+        "independent_reviewer": "V438_REFERENCE_VALIDATOR",
+        "notes": "actual internal reference evidence",
+        "observed_at": "2026-07-17T00:00:00Z",
+        "status": "PASSED"
+      },
+      {
+        "actual_external_evidence": false,
+        "artifact_hash": "abadf4f7aec1226d795cb1ec92ca462416ea4b443cb201ac326e5da2eea4db34",
+        "environment": "windows-mt5-terminal",
+        "evidence_id": "EXT03",
+        "evidence_type": "TERMINAL_VECTOR_REPLAY",
+        "independent_reviewer": "V438_REFERENCE_VALIDATOR",
+        "notes": "requires actual terminal vector replay evidence",
+        "observed_at": "2026-07-17T00:00:00Z",
+        "status": "PENDING_EXTERNAL"
+      },
+      {
+        "actual_external_evidence": false,
+        "artifact_hash": "d4aa565ad32eecaee86c12730ab04cac85e1601dd964cc36393032804a972140",
+        "environment": "windows-host",
+        "evidence_id": "EXT05",
+        "evidence_type": "WINDOWS_DLL_BOUNDARY",
+        "independent_reviewer": "V438_REFERENCE_VALIDATOR",
+        "notes": "requires actual DLL boundary evidence or explicit N/A approval",
+        "observed_at": "2026-07-17T00:00:00Z",
+        "status": "PENDING_EXTERNAL"
+      }
+    ],
+    "matrix_hash": "077af6e70610d3f771df0b2d24a1f6f27df552d81a0bf60550564e5a1dd59ab2",
+    "matrix_id": "v438_external_38cf210a98da27e1f54f7663",
+    "phase": "SAED_V4_38",
+    "research_only": true
+  },
+  "file_manifest": {
+    "bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+    "file_count": 2,
+    "file_merkle_root": "25687a83c2aae1b885498353cb9aacafc78470459cc9054b823404580daa5aff",
+    "files": [
+      {
+        "content_hash": "dcf9144048799f5d786ae331999e6624dc32429429e54d707f07336a73cd63f2",
+        "executable": false,
+        "path": "mql5/Experts/StrategyFactory/SAED/V4_38/SAEDV438ParityHarness.mq5",
+        "research_only": true,
+        "role": "PARITY_HARNESS",
+        "size_bytes": 314
+      },
+      {
+        "content_hash": "21fd7f3d00f6f1d2ef34e80a708d3d68a13e20c1fd53fd363bd497f168114993",
+        "executable": false,
+        "path": "mql5/Include/StrategyFactory/SAED/V4_38/SAEDV438CompiledRuntime.mqh",
+        "research_only": true,
+        "role": "COMPILED_RUNTIME",
+        "size_bytes": 2275
+      }
+    ],
+    "manifest_hash": "4114e444a87d780763ba6eba0df0f489a1fb4fdbdf8e87c7bbf86d07e3cd40c7",
+    "manifest_id": "v438_file_manifest_f3f934b8b45b3b4e57486697",
+    "phase": "SAED_V4_38",
+    "research_only": true
+  },
+  "handoff": {
+    "allowed_next_work": [
+      "prospective_paper",
+      "shadow_replay",
+      "micro_live_qualification_only_after_external_gates"
+    ],
+    "bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+    "certificate_hash": "71578a06e75ee1b533046ba2822cf58523ab700d0db5d6a4018a42672e878702",
+    "external_runtime_evidence_complete": false,
+    "forbidden_next_work": [
+      "capital_activation_without_authorization",
+      "live_order_submission_without_release",
+      "silent_bundle_mutation"
+    ],
+    "handoff_hash": "4f4c1cd099165a50bab9a80d75ba690f9fc399778c65688769f1c0ea838cb538",
+    "handoff_id": "v438_handoff_3dd0305d2b7b21db0bce038b",
+    "kind": "v4_38_handoff",
+    "next_phase": "SAED_V4_39",
+    "phase": "SAED_V4_38",
+    "production_authorized": false,
+    "required_external_gates": [
+      "METAEDITOR_COMPILE",
+      "TERMINAL_VECTOR_REPLAY",
+      "CROSS_RUNTIME_STATE_REPLAY",
+      "WINDOWS_DLL_BOUNDARY"
+    ],
+    "research_only": true
+  },
+  "initial_state": {
+    "cooldown_bars": 0,
+    "drawdown_state": 0.0,
+    "last_decision": "ABSTAIN",
+    "last_known_time": "",
+    "research_only": true,
+    "sequence": 0,
+    "state_hash": "79ddba9bf0253f38df74ceddfbc841978aa937fb242aac4ef8f65ed8d26cbdb2",
+    "state_id": "v438_state_c9ca3a7fac631af2d2e8d35f",
+    "state_version": "1.0.0"
+  },
+  "model": {
+    "bias": 0.18,
+    "features": [
+      "context_score",
+      "drawdown_state",
+      "expected_cost_bps",
+      "expected_edge_bps",
+      "liquidity_ratio",
+      "ood_score",
+      "portfolio_risk",
+      "price_return_1",
+      "session_progress",
+      "spread_bps",
+      "treatment_score",
+      "volatility_20"
+    ],
+    "frozen_model_hash": "b8a93ad20c73b567cbb5b34000dcc66232aa2223296830a1c35fc8cd6d3cce63",
+    "frozen_model_id": "v438_model_1ef4ba52c59375c4c40c3518",
+    "model_hash": "f2a19571009fc3aee449a25df5fd71c2954e09d30d6c535bccc488fb1fa70d17",
+    "model_id": "LINEAR_RUNTIME_REFERENCE",
+    "model_type": "LINEAR_REFERENCE",
+    "output_name": "model_score",
+    "research_only": true,
+    "training_artifact_hash": "c4a6572a21777b96550f62e648d642fb6ed8516a2a4bfbac53733700615d179f",
+    "version": "1.0.0",
+    "weights": [
+      0.25,
+      -0.15,
+      -0.005,
+      0.012,
+      0.02,
+      -0.35,
+      -0.2,
+      0.08,
+      0.04,
+      -0.01,
+      0.28,
+      -0.1
+    ]
+  },
+  "numeric_profile": {
+    "absolute_tolerance": 1e-09,
+    "comparison_epsilon": 1e-10,
+    "decimal_places": 8,
+    "division_zero_policy": "ABSTAIN",
+    "float_mode": "IEEE754_BINARY64",
+    "frozen_profile_id": "v438_numeric_f845cfbc42ed3afcdcbddcee",
+    "infinity_policy": "REJECT",
+    "nan_policy": "REJECT",
+    "profile_hash": "9c26e3e2573d5e8a5e7c97c8e381d3c548931425b65f2929c7ececc2f5b1051b",
+    "profile_id": "NUMERIC_V1",
+    "relative_tolerance": 1e-09,
+    "research_only": true,
+    "rounding_mode": "HALF_EVEN"
+  },
+  "parity_vectors": {
+    "cutoff_time": "2026-06-30T20:00:00Z",
+    "phase": "SAED_V4_38",
+    "research_only": true,
+    "vector_count": 48,
+    "vector_set_hash": "4439e39c244d48b9bb8290682477ac97e4d01bf6f5fe1a4f7b3492c444b9e88d",
+    "vector_set_id": "v438_vectors_c5466941ed790790da993f50",
+    "vectors": [
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 1.0,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.45,
+          "drawdown_state": 0.0,
+          "expected_cost_bps": 1.0,
+          "expected_edge_bps": 2.0,
+          "liquidity_ratio": 0.5,
+          "ood_score": 0.25,
+          "portfolio_risk": 0.9,
+          "price_return_1": -0.06,
+          "session_progress": 0.06,
+          "spread_bps": 1.0,
+          "treatment_score": 0.4,
+          "volatility_20": 0.05
+        },
+        "known_time": "2026-06-01T00:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "5ff5c8ded885d4d76bba1022162e2b2479c7dbe9086b3da9a76a016b53ee52ae",
+        "vector_id": "PV000"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 3.6,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.53,
+          "drawdown_state": 0.11,
+          "expected_cost_bps": 1.7,
+          "expected_edge_bps": 5.3,
+          "liquidity_ratio": 0.65,
+          "ood_score": 0.045,
+          "portfolio_risk": 0.43,
+          "price_return_1": -0.045,
+          "session_progress": 0.145,
+          "spread_bps": 1.8,
+          "treatment_score": 0.47,
+          "volatility_20": 0.06
+        },
+        "known_time": "2026-06-01T01:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "2829c83f797cf16b8f903651a08e0b499f438119eecd0e1db536d8dd7a764c0a",
+        "vector_id": "PV001"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 4.2,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.61,
+          "drawdown_state": 0.22,
+          "expected_cost_bps": 2.4,
+          "expected_edge_bps": 6.6,
+          "liquidity_ratio": 0.8,
+          "ood_score": 0.09,
+          "portfolio_risk": 0.51,
+          "price_return_1": -0.03,
+          "session_progress": 0.23,
+          "spread_bps": 2.6,
+          "treatment_score": 0.54,
+          "volatility_20": 0.07
+        },
+        "known_time": "2026-06-01T02:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "1e26202e7004a107fb10a847b1401593dcc8dc9f93698e6ed0deb3d25a777dc2",
+        "vector_id": "PV002"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 4.8,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.69,
+          "drawdown_state": 0.33,
+          "expected_cost_bps": 3.1,
+          "expected_edge_bps": 7.9,
+          "liquidity_ratio": 0.95,
+          "ood_score": 0.135,
+          "portfolio_risk": 0.59,
+          "price_return_1": -0.015,
+          "session_progress": 0.315,
+          "spread_bps": 3.4,
+          "treatment_score": 0.61,
+          "volatility_20": 0.08
+        },
+        "known_time": "2026-06-01T03:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "ded3e825b943e7e25411304a54ff25e5c01b31fb5dfd816a10e0677f5cf413aa",
+        "vector_id": "PV003"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 5.4,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.77,
+          "drawdown_state": 0.44,
+          "expected_cost_bps": 3.8,
+          "expected_edge_bps": 9.2,
+          "liquidity_ratio": 1.1,
+          "ood_score": 0.18,
+          "portfolio_risk": 0.67,
+          "price_return_1": 0.0,
+          "session_progress": 0.4,
+          "spread_bps": 4.2,
+          "treatment_score": 0.68,
+          "volatility_20": 0.09
+        },
+        "known_time": "2026-06-01T04:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "d5e2f3348be8ffcdb1365692d2dcec9226719d8890c3c32ced31158350812e24",
+        "vector_id": "PV004"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 9.5,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.85,
+          "drawdown_state": 0.55,
+          "expected_cost_bps": 1.0,
+          "expected_edge_bps": 10.5,
+          "liquidity_ratio": 1.25,
+          "ood_score": 0.0,
+          "portfolio_risk": 0.75,
+          "price_return_1": 0.015,
+          "session_progress": 0.485,
+          "spread_bps": 5.0,
+          "treatment_score": 0.75,
+          "volatility_20": 0.1
+        },
+        "known_time": "2026-06-01T05:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "68799e69416a4e69a57c70e511ae812f5a9f7bb9574305caa815faebe0fe9b0d",
+        "vector_id": "PV005"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 10.1,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.45,
+          "drawdown_state": 0.0,
+          "expected_cost_bps": 1.7,
+          "expected_edge_bps": 11.8,
+          "liquidity_ratio": 1.4,
+          "ood_score": 0.045,
+          "portfolio_risk": 0.83,
+          "price_return_1": 0.03,
+          "session_progress": 0.57,
+          "spread_bps": 1.0,
+          "treatment_score": 0.82,
+          "volatility_20": 0.11
+        },
+        "known_time": "2026-06-01T06:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "1fc2979354e3c06cc3924c6dc3f1fd848c2347b6fb094cef921ed108941e9994",
+        "vector_id": "PV006"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 10.7,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.53,
+          "drawdown_state": 0.11,
+          "expected_cost_bps": 2.4,
+          "expected_edge_bps": 13.1,
+          "liquidity_ratio": 1.55,
+          "ood_score": 0.09,
+          "portfolio_risk": 0.35,
+          "price_return_1": 0.045,
+          "session_progress": 0.655,
+          "spread_bps": 1.8,
+          "treatment_score": 0.4,
+          "volatility_20": 0.05
+        },
+        "known_time": "2026-06-01T07:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "29623426142102af9d698ae2da80920ff77c808e8b1fb1bbffacb0be04c0917b",
+        "vector_id": "PV007"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 11.3,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.61,
+          "drawdown_state": 0.22,
+          "expected_cost_bps": 3.1,
+          "expected_edge_bps": 14.4,
+          "liquidity_ratio": 0.5,
+          "ood_score": 0.135,
+          "portfolio_risk": 0.43,
+          "price_return_1": 0.06,
+          "session_progress": 0.74,
+          "spread_bps": 2.6,
+          "treatment_score": 0.47,
+          "volatility_20": 0.06
+        },
+        "known_time": "2026-06-01T08:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "b5f7042f418982bfe9e25945bb24c175fb3d0645b490529e05ffdb50a8050128",
+        "vector_id": "PV008"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 11.9,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.69,
+          "drawdown_state": 0.33,
+          "expected_cost_bps": 3.8,
+          "expected_edge_bps": 15.7,
+          "liquidity_ratio": 0.65,
+          "ood_score": 0.18,
+          "portfolio_risk": 0.51,
+          "price_return_1": -0.06,
+          "session_progress": 0.825,
+          "spread_bps": 3.4,
+          "treatment_score": 0.54,
+          "volatility_20": 0.07
+        },
+        "known_time": "2026-06-01T09:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "46e2d24df503b9674c0ab8c7d99a10805c5af24339ec5635aaa72ec35fdc6c1a",
+        "vector_id": "PV009"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 3.0,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.77,
+          "drawdown_state": 0.44,
+          "expected_cost_bps": 1.0,
+          "expected_edge_bps": 4.0,
+          "liquidity_ratio": 0.8,
+          "ood_score": 0.0,
+          "portfolio_risk": 0.59,
+          "price_return_1": -0.045,
+          "session_progress": 0.06,
+          "spread_bps": 4.2,
+          "treatment_score": 0.61,
+          "volatility_20": 0.08
+        },
+        "known_time": "2026-06-01T10:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "b8b21acb05edb2d6ef8d0a13ad48991f8952b90f4cedfa66e931a0528f9fddd2",
+        "vector_id": "PV010"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 3.6,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.85,
+          "drawdown_state": 0.55,
+          "expected_cost_bps": 1.7,
+          "expected_edge_bps": 5.3,
+          "liquidity_ratio": 0.95,
+          "ood_score": 0.25,
+          "portfolio_risk": 0.67,
+          "price_return_1": -0.03,
+          "session_progress": 0.145,
+          "spread_bps": 5.0,
+          "treatment_score": 0.68,
+          "volatility_20": 0.09
+        },
+        "known_time": "2026-06-01T11:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "fa8e8f297cd58abf9d1794243adc0dc46d5159aa65315740e86a4aa94f3d6ab9",
+        "vector_id": "PV011"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 4.2,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.45,
+          "drawdown_state": 0.0,
+          "expected_cost_bps": 2.4,
+          "expected_edge_bps": 6.6,
+          "liquidity_ratio": 1.1,
+          "ood_score": 0.09,
+          "portfolio_risk": 0.75,
+          "price_return_1": -0.015,
+          "session_progress": 0.23,
+          "spread_bps": 1.0,
+          "treatment_score": 0.75,
+          "volatility_20": 0.1
+        },
+        "known_time": "2026-06-01T12:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "4abb021632bbdb95525e894185a181ee577ac166d6ea13d208e6432d50895c2c",
+        "vector_id": "PV012"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 4.8,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.53,
+          "drawdown_state": 0.11,
+          "expected_cost_bps": 3.1,
+          "expected_edge_bps": 7.9,
+          "liquidity_ratio": 1.25,
+          "ood_score": 0.135,
+          "portfolio_risk": 0.9,
+          "price_return_1": 0.0,
+          "session_progress": 0.315,
+          "spread_bps": 1.8,
+          "treatment_score": 0.82,
+          "volatility_20": 0.11
+        },
+        "known_time": "2026-06-01T13:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "aeea95a85c0b7b1bd5b24cc7edcf57d22773f9edcd853056f8f9b03e22eb75f5",
+        "vector_id": "PV013"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 5.4,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.61,
+          "drawdown_state": 0.22,
+          "expected_cost_bps": 3.8,
+          "expected_edge_bps": 9.2,
+          "liquidity_ratio": 1.4,
+          "ood_score": 0.18,
+          "portfolio_risk": 0.35,
+          "price_return_1": 0.015,
+          "session_progress": 0.4,
+          "spread_bps": 2.6,
+          "treatment_score": 0.4,
+          "volatility_20": 0.05
+        },
+        "known_time": "2026-06-01T14:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "d326cc95e50ea4b336c70ed5f3a6b19ea0f1a214720d9d6d8cd3b03839e0cd49",
+        "vector_id": "PV014"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 9.5,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.69,
+          "drawdown_state": 0.33,
+          "expected_cost_bps": 1.0,
+          "expected_edge_bps": 10.5,
+          "liquidity_ratio": 1.55,
+          "ood_score": 0.0,
+          "portfolio_risk": 0.43,
+          "price_return_1": 0.03,
+          "session_progress": 0.485,
+          "spread_bps": 3.4,
+          "treatment_score": 0.47,
+          "volatility_20": 0.06
+        },
+        "known_time": "2026-06-01T15:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "2b914642f6cd804507ef99140cb9be32eb4c0d2993864ccfdd7bfe337cf748f3",
+        "vector_id": "PV015"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 10.1,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.77,
+          "drawdown_state": 0.44,
+          "expected_cost_bps": 1.7,
+          "expected_edge_bps": 11.8,
+          "liquidity_ratio": 0.5,
+          "ood_score": 0.045,
+          "portfolio_risk": 0.51,
+          "price_return_1": 0.045,
+          "session_progress": 0.57,
+          "spread_bps": 4.2,
+          "treatment_score": 0.54,
+          "volatility_20": 0.07
+        },
+        "known_time": "2026-06-01T16:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "b64dd8d1d6a6fd4dc072ff9c49521cd8eceefed753d1b7ff24fef84c5f43d018",
+        "vector_id": "PV016"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": -0.4,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.85,
+          "drawdown_state": 0.55,
+          "expected_cost_bps": 2.4,
+          "expected_edge_bps": 2.0,
+          "liquidity_ratio": 0.65,
+          "ood_score": 0.09,
+          "portfolio_risk": 0.59,
+          "price_return_1": 0.06,
+          "session_progress": 0.655,
+          "spread_bps": 5.0,
+          "treatment_score": 0.61,
+          "volatility_20": 0.08
+        },
+        "known_time": "2026-06-01T17:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "7ccf4dc7e710a0927ec2e39c8261fd90a33184ccd0b2da7bbe8f59bdfdc3dc17",
+        "vector_id": "PV017"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 11.3,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.45,
+          "drawdown_state": 0.0,
+          "expected_cost_bps": 3.1,
+          "expected_edge_bps": 14.4,
+          "liquidity_ratio": 0.8,
+          "ood_score": 0.135,
+          "portfolio_risk": 0.67,
+          "price_return_1": -0.06,
+          "session_progress": 0.74,
+          "spread_bps": 1.0,
+          "treatment_score": 0.68,
+          "volatility_20": 0.09
+        },
+        "known_time": "2026-06-01T18:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "fd53f4a439b9612351f0b6463c01e03983fce8108c368a0ea4dac08a38b2a2e1",
+        "vector_id": "PV018"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 11.9,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.53,
+          "drawdown_state": 0.11,
+          "expected_cost_bps": 3.8,
+          "expected_edge_bps": 15.7,
+          "liquidity_ratio": 0.95,
+          "ood_score": 0.18,
+          "portfolio_risk": 0.75,
+          "price_return_1": -0.045,
+          "session_progress": 0.825,
+          "spread_bps": 1.8,
+          "treatment_score": 0.75,
+          "volatility_20": 0.1
+        },
+        "known_time": "2026-06-01T19:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "841426cf9aff7361e59bda9bef25f68bb167c9801f7b799ae85665371c67aae0",
+        "vector_id": "PV019"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 3.0,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.61,
+          "drawdown_state": 0.22,
+          "expected_cost_bps": 1.0,
+          "expected_edge_bps": 4.0,
+          "liquidity_ratio": 1.1,
+          "ood_score": 0.0,
+          "portfolio_risk": 0.83,
+          "price_return_1": -0.03,
+          "session_progress": 0.06,
+          "spread_bps": 2.6,
+          "treatment_score": 0.82,
+          "volatility_20": 0.11
+        },
+        "known_time": "2026-06-01T20:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "ff9dbb057c1da7cfb2c34c9d0341da05fed630004ce907a9752e574f63883c47",
+        "vector_id": "PV020"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 3.6,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.69,
+          "drawdown_state": 0.33,
+          "expected_cost_bps": 1.7,
+          "expected_edge_bps": 5.3,
+          "liquidity_ratio": 1.25,
+          "ood_score": 0.045,
+          "portfolio_risk": 0.35,
+          "price_return_1": -0.015,
+          "session_progress": 0.145,
+          "spread_bps": 3.4,
+          "treatment_score": 0.4,
+          "volatility_20": 0.05
+        },
+        "known_time": "2026-06-01T21:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "7a0d73a1332dfc14733d56d26fc19a8887933de478b18c30a6409ccc5b3134f5",
+        "vector_id": "PV021"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 4.2,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.77,
+          "drawdown_state": 0.44,
+          "expected_cost_bps": 2.4,
+          "expected_edge_bps": 6.6,
+          "liquidity_ratio": 1.4,
+          "ood_score": 0.25,
+          "portfolio_risk": 0.43,
+          "price_return_1": 0.0,
+          "session_progress": 0.23,
+          "spread_bps": 4.2,
+          "treatment_score": 0.47,
+          "volatility_20": 0.06
+        },
+        "known_time": "2026-06-01T22:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "844c798805bad80d4a3df4c9d66a9f969f1320bdaa3a169b06d747e6400760a7",
+        "vector_id": "PV022"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 4.8,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.85,
+          "drawdown_state": 0.55,
+          "expected_cost_bps": 3.1,
+          "expected_edge_bps": 7.9,
+          "liquidity_ratio": 1.55,
+          "ood_score": 0.135,
+          "portfolio_risk": 0.51,
+          "price_return_1": 0.015,
+          "session_progress": 0.315,
+          "spread_bps": 5.0,
+          "treatment_score": 0.54,
+          "volatility_20": 0.07
+        },
+        "known_time": "2026-06-01T23:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "c612e21e2351a2574bfdd0e72af276abb1113ddd40ac6fe9aad1ea0479c04143",
+        "vector_id": "PV023"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 5.4,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.45,
+          "drawdown_state": 0.0,
+          "expected_cost_bps": 3.8,
+          "expected_edge_bps": 9.2,
+          "liquidity_ratio": 0.5,
+          "ood_score": 0.18,
+          "portfolio_risk": 0.59,
+          "price_return_1": 0.03,
+          "session_progress": 0.4,
+          "spread_bps": 1.0,
+          "treatment_score": 0.61,
+          "volatility_20": 0.08
+        },
+        "known_time": "2026-06-02T00:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "d35370c6cf9e512d11d806e708aa423904fb7e99e63f0a7967342d09b94e4f7e",
+        "vector_id": "PV024"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 9.5,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.53,
+          "drawdown_state": 0.11,
+          "expected_cost_bps": 1.0,
+          "expected_edge_bps": 10.5,
+          "liquidity_ratio": 0.65,
+          "ood_score": 0.0,
+          "portfolio_risk": 0.67,
+          "price_return_1": 0.045,
+          "session_progress": 0.485,
+          "spread_bps": 1.8,
+          "treatment_score": 0.68,
+          "volatility_20": 0.09
+        },
+        "known_time": "2026-06-02T01:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "23676f25876c68f8b2a46d76165e2862f20e6136acf287d7e605254572cd1bf8",
+        "vector_id": "PV025"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 10.1,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.61,
+          "drawdown_state": 0.22,
+          "expected_cost_bps": 1.7,
+          "expected_edge_bps": 11.8,
+          "liquidity_ratio": 0.8,
+          "ood_score": 0.045,
+          "portfolio_risk": 0.9,
+          "price_return_1": 0.06,
+          "session_progress": 0.57,
+          "spread_bps": 2.6,
+          "treatment_score": 0.75,
+          "volatility_20": 0.1
+        },
+        "known_time": "2026-06-02T02:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "908def65366af141099691663ff57ceff37e3a92717961f73cb308540d1fb449",
+        "vector_id": "PV026"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 10.7,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.69,
+          "drawdown_state": 0.33,
+          "expected_cost_bps": 2.4,
+          "expected_edge_bps": 13.1,
+          "liquidity_ratio": 0.95,
+          "ood_score": 0.09,
+          "portfolio_risk": 0.83,
+          "price_return_1": -0.06,
+          "session_progress": 0.655,
+          "spread_bps": 3.4,
+          "treatment_score": 0.82,
+          "volatility_20": 0.11
+        },
+        "known_time": "2026-06-02T03:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "7bc34b224702b89bc163d6cbd80a624a1f90e018361f3e977d13ac85868efef6",
+        "vector_id": "PV027"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 11.3,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.77,
+          "drawdown_state": 0.44,
+          "expected_cost_bps": 3.1,
+          "expected_edge_bps": 14.4,
+          "liquidity_ratio": 1.1,
+          "ood_score": 0.135,
+          "portfolio_risk": 0.35,
+          "price_return_1": -0.045,
+          "session_progress": 0.74,
+          "spread_bps": 4.2,
+          "treatment_score": 0.4,
+          "volatility_20": 0.05
+        },
+        "known_time": "2026-06-02T04:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "865a39f84cb59d9d03a9046c436785988cea3644388bd7ca04f1c4db64bc47be",
+        "vector_id": "PV028"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 11.9,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.85,
+          "drawdown_state": 0.55,
+          "expected_cost_bps": 3.8,
+          "expected_edge_bps": 15.7,
+          "liquidity_ratio": 1.25,
+          "ood_score": 0.18,
+          "portfolio_risk": 0.43,
+          "price_return_1": -0.03,
+          "session_progress": 0.825,
+          "spread_bps": 5.0,
+          "treatment_score": 0.47,
+          "volatility_20": 0.06
+        },
+        "known_time": "2026-06-02T05:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "6f319fc6311d289d189acb11a621b9c491a1c11547190115dc5ebe288c81380d",
+        "vector_id": "PV029"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 3.0,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.45,
+          "drawdown_state": 0.0,
+          "expected_cost_bps": 1.0,
+          "expected_edge_bps": 4.0,
+          "liquidity_ratio": 1.4,
+          "ood_score": 0.0,
+          "portfolio_risk": 0.51,
+          "price_return_1": -0.015,
+          "session_progress": 0.06,
+          "spread_bps": 1.0,
+          "treatment_score": 0.54,
+          "volatility_20": 0.07
+        },
+        "known_time": "2026-06-02T06:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "a6acecf08022c000734bf0417d95a7b652c7e5ad2ab6b674bd31309edb4bbed0",
+        "vector_id": "PV030"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 3.6,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.53,
+          "drawdown_state": 0.11,
+          "expected_cost_bps": 1.7,
+          "expected_edge_bps": 5.3,
+          "liquidity_ratio": 1.55,
+          "ood_score": 0.045,
+          "portfolio_risk": 0.59,
+          "price_return_1": 0.0,
+          "session_progress": 0.145,
+          "spread_bps": 1.8,
+          "treatment_score": 0.61,
+          "volatility_20": 0.08
+        },
+        "known_time": "2026-06-02T07:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "cd947f1227827e20e591c546e01b39de416c4b211ad9b8c76921ac47de726919",
+        "vector_id": "PV031"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 4.2,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.61,
+          "drawdown_state": 0.22,
+          "expected_cost_bps": 2.4,
+          "expected_edge_bps": 6.6,
+          "liquidity_ratio": 0.5,
+          "ood_score": 0.09,
+          "portfolio_risk": 0.67,
+          "price_return_1": 0.015,
+          "session_progress": 0.23,
+          "spread_bps": 2.6,
+          "treatment_score": 0.68,
+          "volatility_20": 0.09
+        },
+        "known_time": "2026-06-02T08:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "9e8943427a666a7d903aec003dcbb66dcb8c0d99f759da65a65f081035e6b78d",
+        "vector_id": "PV032"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 4.8,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.69,
+          "drawdown_state": 0.33,
+          "expected_cost_bps": 3.1,
+          "expected_edge_bps": 7.9,
+          "liquidity_ratio": 0.65,
+          "ood_score": 0.25,
+          "portfolio_risk": 0.75,
+          "price_return_1": 0.03,
+          "session_progress": 0.315,
+          "spread_bps": 3.4,
+          "treatment_score": 0.75,
+          "volatility_20": 0.1
+        },
+        "known_time": "2026-06-02T09:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "ec4e1fb4085847d892d2421d1ceae04ac64b5469d005611d00cb783370d18273",
+        "vector_id": "PV033"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": -1.8,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.77,
+          "drawdown_state": 0.44,
+          "expected_cost_bps": 3.8,
+          "expected_edge_bps": 2.0,
+          "liquidity_ratio": 0.8,
+          "ood_score": 0.18,
+          "portfolio_risk": 0.83,
+          "price_return_1": 0.045,
+          "session_progress": 0.4,
+          "spread_bps": 4.2,
+          "treatment_score": 0.82,
+          "volatility_20": 0.11
+        },
+        "known_time": "2026-06-02T10:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "db207d9914ee042c5f21cda56c594e93b700fd14f0d0b517bb77036e9ddf5080",
+        "vector_id": "PV034"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 9.5,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.85,
+          "drawdown_state": 0.55,
+          "expected_cost_bps": 1.0,
+          "expected_edge_bps": 10.5,
+          "liquidity_ratio": 0.95,
+          "ood_score": 0.0,
+          "portfolio_risk": 0.35,
+          "price_return_1": 0.06,
+          "session_progress": 0.485,
+          "spread_bps": 5.0,
+          "treatment_score": 0.4,
+          "volatility_20": 0.05
+        },
+        "known_time": "2026-06-02T11:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "d3e5187c3ae18749e040ea2fb1d2188aa122d6d858a7384f3e13d69e5fe3fda6",
+        "vector_id": "PV035"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 10.1,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.45,
+          "drawdown_state": 0.0,
+          "expected_cost_bps": 1.7,
+          "expected_edge_bps": 11.8,
+          "liquidity_ratio": 1.1,
+          "ood_score": 0.045,
+          "portfolio_risk": 0.43,
+          "price_return_1": -0.06,
+          "session_progress": 0.57,
+          "spread_bps": 1.0,
+          "treatment_score": 0.47,
+          "volatility_20": 0.06
+        },
+        "known_time": "2026-06-02T12:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "37012d4e0e18007859800266d96fa463d6cae6b0891c10e36fc46c92e7a4a33a",
+        "vector_id": "PV036"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 10.7,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.53,
+          "drawdown_state": 0.11,
+          "expected_cost_bps": 2.4,
+          "expected_edge_bps": 13.1,
+          "liquidity_ratio": 1.25,
+          "ood_score": 0.09,
+          "portfolio_risk": 0.51,
+          "price_return_1": -0.045,
+          "session_progress": 0.655,
+          "spread_bps": 1.8,
+          "treatment_score": 0.54,
+          "volatility_20": 0.07
+        },
+        "known_time": "2026-06-02T13:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "a2f104f58529099d3d27749758f9e7fd17303ed0c4d94d62f50249e0fb3910d6",
+        "vector_id": "PV037"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 11.3,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.61,
+          "drawdown_state": 0.22,
+          "expected_cost_bps": 3.1,
+          "expected_edge_bps": 14.4,
+          "liquidity_ratio": 1.4,
+          "ood_score": 0.135,
+          "portfolio_risk": 0.59,
+          "price_return_1": -0.03,
+          "session_progress": 0.74,
+          "spread_bps": 2.6,
+          "treatment_score": 0.61,
+          "volatility_20": 0.08
+        },
+        "known_time": "2026-06-02T14:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "0e30f5c0ac491b172de326bd26f5244d7de19e73f914a7a95c8fdd6760f18edf",
+        "vector_id": "PV038"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 11.9,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.69,
+          "drawdown_state": 0.33,
+          "expected_cost_bps": 3.8,
+          "expected_edge_bps": 15.7,
+          "liquidity_ratio": 1.55,
+          "ood_score": 0.18,
+          "portfolio_risk": 0.9,
+          "price_return_1": -0.015,
+          "session_progress": 0.825,
+          "spread_bps": 3.4,
+          "treatment_score": 0.68,
+          "volatility_20": 0.09
+        },
+        "known_time": "2026-06-02T15:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "bec5df684d0c7bde9f3b087eec956a0e78da237e8c62aaa1d5bc87f48c1ee5ac",
+        "vector_id": "PV039"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 3.0,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.77,
+          "drawdown_state": 0.44,
+          "expected_cost_bps": 1.0,
+          "expected_edge_bps": 4.0,
+          "liquidity_ratio": 0.5,
+          "ood_score": 0.0,
+          "portfolio_risk": 0.75,
+          "price_return_1": 0.0,
+          "session_progress": 0.06,
+          "spread_bps": 4.2,
+          "treatment_score": 0.75,
+          "volatility_20": 0.1
+        },
+        "known_time": "2026-06-02T16:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "ff92692f2b2dd6eba89fd7d6aba4ef2ab4e0d58290bbf2b8dea2c95b1333c65d",
+        "vector_id": "PV040"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 3.6,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.85,
+          "drawdown_state": 0.55,
+          "expected_cost_bps": 1.7,
+          "expected_edge_bps": 5.3,
+          "liquidity_ratio": 0.65,
+          "ood_score": 0.045,
+          "portfolio_risk": 0.83,
+          "price_return_1": 0.015,
+          "session_progress": 0.145,
+          "spread_bps": 5.0,
+          "treatment_score": 0.82,
+          "volatility_20": 0.11
+        },
+        "known_time": "2026-06-02T17:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "4932f014aada5e980fb212fc43068005cac83d0908a2edc3f8c60a8efa063d24",
+        "vector_id": "PV041"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 4.2,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.45,
+          "drawdown_state": 0.0,
+          "expected_cost_bps": 2.4,
+          "expected_edge_bps": 6.6,
+          "liquidity_ratio": 0.8,
+          "ood_score": 0.09,
+          "portfolio_risk": 0.35,
+          "price_return_1": 0.03,
+          "session_progress": 0.23,
+          "spread_bps": 1.0,
+          "treatment_score": 0.4,
+          "volatility_20": 0.05
+        },
+        "known_time": "2026-06-02T18:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "b86dfe3e949634d568a2179c99c4e3b68937a9c34d0858765a7b360e4a3c6534",
+        "vector_id": "PV042"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 4.8,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.53,
+          "drawdown_state": 0.11,
+          "expected_cost_bps": 3.1,
+          "expected_edge_bps": 7.9,
+          "liquidity_ratio": 0.95,
+          "ood_score": 0.135,
+          "portfolio_risk": 0.43,
+          "price_return_1": 0.045,
+          "session_progress": 0.315,
+          "spread_bps": 1.8,
+          "treatment_score": 0.47,
+          "volatility_20": 0.06
+        },
+        "known_time": "2026-06-02T19:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "739642c877f968129338d28ba69d8cf3a89631c8dbbade55c64d4d13b54d5e6e",
+        "vector_id": "PV043"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 5.4,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.61,
+          "drawdown_state": 0.22,
+          "expected_cost_bps": 3.8,
+          "expected_edge_bps": 9.2,
+          "liquidity_ratio": 1.1,
+          "ood_score": 0.25,
+          "portfolio_risk": 0.51,
+          "price_return_1": 0.06,
+          "session_progress": 0.4,
+          "spread_bps": 2.6,
+          "treatment_score": 0.54,
+          "volatility_20": 0.07
+        },
+        "known_time": "2026-06-02T20:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "5aff154cac25b02218cc33ca223e7925d8f357d2bfc51981b47c8df6e282d893",
+        "vector_id": "PV044"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 9.5,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.69,
+          "drawdown_state": 0.33,
+          "expected_cost_bps": 1.0,
+          "expected_edge_bps": 10.5,
+          "liquidity_ratio": 1.25,
+          "ood_score": 0.0,
+          "portfolio_risk": 0.59,
+          "price_return_1": -0.06,
+          "session_progress": 0.485,
+          "spread_bps": 3.4,
+          "treatment_score": 0.61,
+          "volatility_20": 0.08
+        },
+        "known_time": "2026-06-02T21:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "85cac0e0cdf4c87d486c4d53224133d1ac33bc749dc9ea0304d5751b0b2f3eef",
+        "vector_id": "PV045"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 10.1,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.77,
+          "drawdown_state": 0.44,
+          "expected_cost_bps": 1.7,
+          "expected_edge_bps": 11.8,
+          "liquidity_ratio": 1.4,
+          "ood_score": 0.045,
+          "portfolio_risk": 0.67,
+          "price_return_1": -0.045,
+          "session_progress": 0.57,
+          "spread_bps": 4.2,
+          "treatment_score": 0.68,
+          "volatility_20": 0.09
+        },
+        "known_time": "2026-06-02T22:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "e68a5f37259db2c51784e4305008daaa1c7130513dbfeb9766c7e493d70bcfff",
+        "vector_id": "PV046"
+      },
+      {
+        "expected_confidence": 0.0,
+        "expected_decision": "ABSTAIN",
+        "expected_net_edge_bps": 10.7,
+        "expected_size_fraction": 0.0,
+        "expected_treatment_id": "BASELINE",
+        "features": {
+          "context_score": 0.85,
+          "drawdown_state": 0.55,
+          "expected_cost_bps": 2.4,
+          "expected_edge_bps": 13.1,
+          "liquidity_ratio": 1.55,
+          "ood_score": 0.09,
+          "portfolio_risk": 0.75,
+          "price_return_1": -0.03,
+          "session_progress": 0.655,
+          "spread_bps": 5.0,
+          "treatment_score": 0.75,
+          "volatility_20": 0.1
+        },
+        "known_time": "2026-06-02T23:00:00Z",
+        "synthetic_fixture": true,
+        "vector_hash": "2c1f9ef296f0eae72160dec7f5077cda8c890b1bc0705bcc6b283f1e4ca5a6a6",
+        "vector_id": "PV047"
+      }
+    ]
+  },
+  "policy_graph": {
+    "closed_graph": true,
+    "entry_node_id": "N034",
+    "fallback_decision": "ABSTAIN",
+    "frozen_graph_hash": "7eb3aad47d0643ccaa5a6b61d8d6f249f622c1bc0b91a8f6b2db2a4c2f514c2c",
+    "frozen_graph_id": "v438_policy_3a058b61b176235754d63d16",
+    "graph_hash": "0254373897aac68587253a8f318eb919b49b4e8b18c316e3465150c24fab60ae",
+    "node_count": 35,
+    "nodes": [
+      {
+        "inputs": [],
+        "node_hash": "49283dc16cfe596ea030d9dca8c8a47840a66cc9925934304fe387c70e786cc2",
+        "node_id": "N000",
+        "op": "FEATURE",
+        "ordinal": 0,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "price_return_1",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_hash": "0677fea715a1c2b3c23b6932b9e4860f4eadb72395163db1c9b35c71e914979a",
+        "node_id": "N001",
+        "op": "FEATURE",
+        "ordinal": 1,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "volatility_20",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_hash": "a39e10c17a93b6956a8be4a2e995503949a067d9ff7b4387e304a70f30e8e683",
+        "node_id": "N002",
+        "op": "FEATURE",
+        "ordinal": 2,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "spread_bps",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_hash": "47d5225853bd2285f55a7e2a73ea5a071635f52bb6067a07ac58708163004763",
+        "node_id": "N003",
+        "op": "FEATURE",
+        "ordinal": 3,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "liquidity_ratio",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_hash": "70d14085acfe1637068eafcd304dbd345cdb4b1feb7b17fefc39d09138f75cfc",
+        "node_id": "N004",
+        "op": "FEATURE",
+        "ordinal": 4,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "context_score",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_hash": "730635a4fcba3ce5287e87dea7162341272409cd5d167099933b08e70eac05dd",
+        "node_id": "N005",
+        "op": "FEATURE",
+        "ordinal": 5,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "treatment_score",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_hash": "d2c05f82e30bddcfb2a72f68037578e946487789bfca37232183311f67c9cc1d",
+        "node_id": "N006",
+        "op": "FEATURE",
+        "ordinal": 6,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "expected_edge_bps",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_hash": "20510d47922b09d860e1c84e044bce61fe8051ac09aeea6c118484ca91f929de",
+        "node_id": "N007",
+        "op": "FEATURE",
+        "ordinal": 7,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "expected_cost_bps",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_hash": "d3a63c52d745e3b7adb89bb1271023fdab55d2b508df0f94975f37b634193327",
+        "node_id": "N008",
+        "op": "FEATURE",
+        "ordinal": 8,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "portfolio_risk",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_hash": "d1b62661bbef47cec8dc1094cb0630eba1805727674f7416c61aae73f051b7ef",
+        "node_id": "N009",
+        "op": "FEATURE",
+        "ordinal": 9,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "session_progress",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_hash": "9e76bb7b652c76bd0ecbccc411dd8342e4b7736834cc42cba3b7cb54947bbaad",
+        "node_id": "N010",
+        "op": "FEATURE",
+        "ordinal": 10,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "drawdown_state",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_hash": "fe5ab919b5b09349db3087ad0d77cf2904c57bf24abefcb034135cf6df354c70",
+        "node_id": "N011",
+        "op": "FEATURE",
+        "ordinal": 11,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "ood_score",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_hash": "34061c91aa699341cab03c06fff3aaf1abba5a8c82ee7345e14d1aeab2a44907",
+        "node_id": "N012",
+        "op": "MODEL_LINEAR",
+        "ordinal": 12,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [
+          "N006",
+          "N007"
+        ],
+        "node_hash": "8bd8e7a3d08e6ab71adfde41b0cad820cb77bf4b61f2408c7a85573a0b00923e",
+        "node_id": "N013",
+        "op": "SUB",
+        "ordinal": 13,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_hash": "b077b947c7d5f0f0532de8a2a0cd5cdfbd818e6f8badbc29479e2d8f01973945",
+        "node_id": "N014",
+        "op": "CONST",
+        "ordinal": 14,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.2
+        }
+      },
+      {
+        "inputs": [
+          "N011",
+          "N014"
+        ],
+        "node_hash": "451edd4feccbda578143cce9f2578d8f16f7f337d2308983e5089a80d588c363",
+        "node_id": "N015",
+        "op": "LE",
+        "ordinal": 15,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_hash": "7da72b52844ff5d78a9e71c7211f3d970f82e59752e8f90885812cc65ca80be9",
+        "node_id": "N016",
+        "op": "CONST",
+        "ordinal": 16,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.8
+        }
+      },
+      {
+        "inputs": [
+          "N008",
+          "N016"
+        ],
+        "node_hash": "8881715c1a6f43cff4e7c78cac57c3d512d6a10eb9380a7621ab66d83db49f29",
+        "node_id": "N017",
+        "op": "LE",
+        "ordinal": 17,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_hash": "05421c885b661f341b169411b3b64b8b71e6ed0389192f1d6246f7197c7f5fde",
+        "node_id": "N018",
+        "op": "CONST",
+        "ordinal": 18,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 3.0
+        }
+      },
+      {
+        "inputs": [
+          "N013",
+          "N018"
+        ],
+        "node_hash": "7635bd2835eadb41c00bd1237a2c3a8b4d39351f39e655568b3cab2bcd95c12c",
+        "node_id": "N019",
+        "op": "GE",
+        "ordinal": 19,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_hash": "f54ee458a0e370e1f06bf69b6ea54f54e268e0f939623a1ea3ed9ce28ebf9f36",
+        "node_id": "N020",
+        "op": "CONST",
+        "ordinal": 20,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.05
+        }
+      },
+      {
+        "inputs": [
+          "N009",
+          "N020"
+        ],
+        "node_hash": "f4616860e54fe6e0f0d4e8bc24ebc01072c230ee2994e89b22145c5dfff05da0",
+        "node_id": "N021",
+        "op": "GE",
+        "ordinal": 21,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_hash": "5f6b1434e6cd6f4fda41fcf085a8cea01e184c164d0d4f43af557322874a3b8c",
+        "node_id": "N022",
+        "op": "CONST",
+        "ordinal": 22,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.95
+        }
+      },
+      {
+        "inputs": [
+          "N009",
+          "N022"
+        ],
+        "node_hash": "21d60ae189ffdb649e6a36c46117563398319c3d2d5f279752aa252917cc9c8e",
+        "node_id": "N023",
+        "op": "LE",
+        "ordinal": 23,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_hash": "ca43712e7220b0deb19c54261794aa95a5ce12e7c7326c536bf2813309b913c3",
+        "node_id": "N024",
+        "op": "CONST",
+        "ordinal": 24,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.7
+        }
+      },
+      {
+        "inputs": [
+          "N010",
+          "N024"
+        ],
+        "node_hash": "1638bb4cceb66576115652ab0617cf44e0576debda1d66032114ebb792e56c20",
+        "node_id": "N025",
+        "op": "LE",
+        "ordinal": 25,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [],
+        "node_hash": "4f576f9e8342d755afbda50d8a7f12446a8ce12e91bc84d3a01549e3e5815c75",
+        "node_id": "N026",
+        "op": "CONST",
+        "ordinal": 26,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.55
+        }
+      },
+      {
+        "inputs": [
+          "N012",
+          "N026"
+        ],
+        "node_hash": "be3315bf73a84652c9e2fac96168b7dc542f5976f698b0cd0df3a46fb28296dd",
+        "node_id": "N027",
+        "op": "GE",
+        "ordinal": 27,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [
+          "N015",
+          "N017"
+        ],
+        "node_hash": "398066195a373c6b5fdef0d51dd8919f25e64919d23c0722743201425e14e8bb",
+        "node_id": "N028",
+        "op": "AND",
+        "ordinal": 28,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [
+          "N019",
+          "N021"
+        ],
+        "node_hash": "df467498e4a0e402bc0dfb708783d7503940dc10e917bf04dba8e9faacf849be",
+        "node_id": "N029",
+        "op": "AND",
+        "ordinal": 29,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [
+          "N023",
+          "N025"
+        ],
+        "node_hash": "89a66a5bfba33f690bd731113000286f43390403a6ab0978880d21b45d415eb1",
+        "node_id": "N030",
+        "op": "AND",
+        "ordinal": 30,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [
+          "N028",
+          "N029"
+        ],
+        "node_hash": "a2821f082040d25ac78cd32a4235dcf3b782c7c1aa64d8747414be51e499534e",
+        "node_id": "N031",
+        "op": "AND",
+        "ordinal": 31,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [
+          "N030",
+          "N027"
+        ],
+        "node_hash": "6b53b98cc7768e280a3c52abb21d13ac23f2037feab2b02b57cb52adce29890e",
+        "node_id": "N032",
+        "op": "AND",
+        "ordinal": 32,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [
+          "N031",
+          "N032"
+        ],
+        "node_hash": "b4da695082a25ff757d3c439384f6e117df831f2e65c66a9d6b376a994f97663",
+        "node_id": "N033",
+        "op": "AND",
+        "ordinal": 33,
+        "output_name": "",
+        "params": {
+          "max_size_fraction": 0.0,
+          "name": "",
+          "treatment_id": "",
+          "value": 0.0
+        }
+      },
+      {
+        "inputs": [
+          "N033",
+          "N012",
+          "N013"
+        ],
+        "node_hash": "4fece5c926e5f2e11d76c6a13a15cf2a00a0576e754c9431b4530ea68d5c74af",
+        "node_id": "N034",
+        "op": "DECISION",
+        "ordinal": 34,
+        "output_name": "decision",
+        "params": {
+          "max_size_fraction": 0.25,
+          "name": "",
+          "treatment_id": "TRT_RUNTIME_REFERENCE",
+          "value": 0.0
+        }
+      }
+    ],
+    "policy_graph_id": "POLICY_RUNTIME_REFERENCE",
+    "research_only": true,
+    "version": "1.0.0"
+  },
+  "release_candidate": {
+    "bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+    "capital_activation_allowed": false,
+    "codegen_hash": "3bc2245eeaf2d97dc62b66478b609a32167bc2e8652ec3047a699aa4ec5f2d4e",
+    "decision": "ACCEPT_REFERENCE_BLOCK_EXTERNAL",
+    "external_matrix_hash": "077af6e70610d3f771df0b2d24a1f6f27df552d81a0bf60550564e5a1dd59ab2",
+    "external_runtime_qualified": false,
+    "gates": [
+      {
+        "gate_id": "G01_BUNDLE_IMMUTABILITY",
+        "status": "PASSED"
+      },
+      {
+        "gate_id": "G02_HERMETIC_BUILD",
+        "status": "PASSED"
+      },
+      {
+        "gate_id": "G03_SYNTHETIC_PARITY",
+        "status": "PASSED"
+      },
+      {
+        "gate_id": "G04_METAEDITOR_COMPILE",
+        "status": "PENDING_EXTERNAL"
+      },
+      {
+        "gate_id": "G05_TERMINAL_PARITY",
+        "status": "PENDING_EXTERNAL"
+      },
+      {
+        "gate_id": "G06_PRODUCTION_AUTHORITY",
+        "status": "DENIED"
+      }
+    ],
+    "internal_reference_accepted": true,
+    "manifest_hash": "4114e444a87d780763ba6eba0df0f489a1fb4fdbdf8e87c7bbf86d07e3cd40c7",
+    "order_submission_allowed": false,
+    "parity_report_hash": "efb61231eb0021e33997bcb2fe1171112e52c0feab828a9261a32e4aac4a190a",
+    "phase": "SAED_V4_38",
+    "production_authorized": false,
+    "release_candidate_hash": "b5d52c1c5279d8fec37f1aed1b1e7261b3e110d7ed3cb0be27517e8ce4c6b215",
+    "release_candidate_id": "v438_release_9b46cb2e2997cb38e14e2128",
+    "release_eligible_for_v4_39_shadow": false,
+    "research_only": true
+  },
+  "review_bundle": {
+    "approved_external_runtime": false,
+    "approved_reference": true,
+    "phase": "SAED_V4_38",
+    "production_authorized": false,
+    "release_hash": "b5d52c1c5279d8fec37f1aed1b1e7261b3e110d7ed3cb0be27517e8ce4c6b215",
+    "research_only": true,
+    "review_bundle_hash": "fc5249c1571350733238c96ab5d7010d7c55d6afd6b451988c9584d040f9e83a",
+    "review_bundle_id": "v438_review_5680d8cd36bdb3fbe97ed666",
+    "reviews": [
+      {
+        "decision": "APPROVE_REFERENCE",
+        "findings": [
+          "reference implementation accepted",
+          "external runtime evidence remains open"
+        ],
+        "independent": true,
+        "release_hash": "b5d52c1c5279d8fec37f1aed1b1e7261b3e110d7ed3cb0be27517e8ce4c6b215",
+        "review_hash": "963750a825a2a25b6a0b364365d422055d126b3c50e3837a2f377e16bc3d5618",
+        "review_id": "REV03",
+        "reviewer_id": "REVIEWER_03",
+        "role": "INDEPENDENT_VALIDATOR"
+      },
+      {
+        "decision": "APPROVE_REFERENCE",
+        "findings": [
+          "reference implementation accepted",
+          "external runtime evidence remains open"
+        ],
+        "independent": true,
+        "release_hash": "b5d52c1c5279d8fec37f1aed1b1e7261b3e110d7ed3cb0be27517e8ce4c6b215",
+        "review_hash": "7bf2ff3ff7631415bca32d74c556cb41a67d3377e3c697a1064d7652f1a00d35",
+        "review_id": "REV02",
+        "reviewer_id": "REVIEWER_02",
+        "role": "MODEL_RISK"
+      },
+      {
+        "decision": "APPROVE_REFERENCE",
+        "findings": [
+          "reference implementation accepted",
+          "external runtime evidence remains open"
+        ],
+        "independent": true,
+        "release_hash": "b5d52c1c5279d8fec37f1aed1b1e7261b3e110d7ed3cb0be27517e8ce4c6b215",
+        "review_hash": "4c89e02e2c19a639aff1140528c89cbb4cd3f4b0551f9c22d6b6081833b9d228",
+        "review_id": "REV01",
+        "reviewer_id": "REVIEWER_01",
+        "role": "MQL5_REVIEWER"
+      },
+      {
+        "decision": "APPROVE_REFERENCE",
+        "findings": [
+          "reference implementation accepted",
+          "external runtime evidence remains open"
+        ],
+        "independent": true,
+        "release_hash": "b5d52c1c5279d8fec37f1aed1b1e7261b3e110d7ed3cb0be27517e8ce4c6b215",
+        "review_hash": "90624e8a97d3dda355495450c2ed7c344fea6bd0201d720b4b087ba788befa48",
+        "review_id": "REV00",
+        "reviewer_id": "REVIEWER_00",
+        "role": "RUNTIME_ENGINEER"
+      },
+      {
+        "decision": "APPROVE_REFERENCE",
+        "findings": [
+          "reference implementation accepted",
+          "external runtime evidence remains open"
+        ],
+        "independent": true,
+        "release_hash": "b5d52c1c5279d8fec37f1aed1b1e7261b3e110d7ed3cb0be27517e8ce4c6b215",
+        "review_hash": "6dd7b258dece77ffad6be2461b9abe73058627982bc30e07922fba9963c24a0b",
+        "review_id": "REV04",
+        "reviewer_id": "REVIEWER_04",
+        "role": "SECURITY_REVIEWER"
+      }
+    ],
+    "role_count": 5
+  },
+  "runtime_bundle": {
+    "bundle_format": "SAED_IMMUTABLE_RUNTIME_BUNDLE_V1",
+    "bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+    "bundle_id": "v438_bundle_610020a66b90e72de4f588a2",
+    "bundle_version": "1.0.0",
+    "compiler": {
+      "build_timestamp_policy": "OMIT",
+      "compiler_id": "SAED_RUNTIME_COMPILER",
+      "compiler_version": "1.0.0",
+      "deterministic_build": true,
+      "environment_variables_allowed": false,
+      "network_access": false,
+      "optimization_level": "O0_DETERMINISTIC",
+      "research_only": true,
+      "source_language": "PYTHON_REFERENCE",
+      "target_runtime": "MQL5_STATIC_SOURCE"
+    },
+    "component_count": 10,
+    "components": {
+      "abis": "f5f65216f97ca23e3e952e27dce92718c096c520eb30bd861f629bcad5af717c",
+      "authority": "603f83f7000516d1cd4ac043e3fef9b7a8d9921b19b9afcc30777d562306b363",
+      "clock": "0fd55acf48c45c996195edf848b8377b873c9190b4c2bc8b404165cdf9e34d2d",
+      "compiler": "6ca150bbd4c52e28e26deaa2e17a6c2036032568c205c916beb4f98aa1c6ed18",
+      "constitution": "d2fd9dcefc5db9dcd8d84ad91403e1c4e5339551c8771a33208ba064aedc790b",
+      "model": "b8a93ad20c73b567cbb5b34000dcc66232aa2223296830a1c35fc8cd6d3cce63",
+      "numeric": "9c26e3e2573d5e8a5e7c97c8e381d3c548931425b65f2929c7ececc2f5b1051b",
+      "policy": "7eb3aad47d0643ccaa5a6b61d8d6f249f622c1bc0b91a8f6b2db2a4c2f514c2c",
+      "state": "79ddba9bf0253f38df74ceddfbc841978aa937fb242aac4ef8f65ed8d26cbdb2",
+      "upstream": "ac7dea58141ea34451f54875a9ff4210466e003cf4c0ad81e0a8b0c1a2ddf22e"
+    },
+    "merkle_root": "04d55cb2f2fac9933542201bc59c2334696f1206515f5f6105ec13d2c6e5c012",
+    "mutable_fields": [],
+    "network_dependencies": [],
+    "phase": "SAED_V4_38",
+    "production_authorized": false,
+    "research_only": true,
+    "runtime_authority": "RESEARCH_DECISION_ONLY"
+  },
+  "state_ledger": {
+    "events": [
+      {
+        "cooldown_bars": 0,
+        "drawdown_state": 0.0,
+        "event_hash": "f1de0a36dade8598ee9cf9519dd4aac565bed4ef41381bbda87e262c97b00d93",
+        "event_id": "v438_state_event_d51a7ebc755b0cc76a1ba886",
+        "last_decision": "ABSTAIN",
+        "last_known_time": "",
+        "ordinal": 0,
+        "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "research_only": true,
+        "sequence": 0,
+        "state_hash": "79ddba9bf0253f38df74ceddfbc841978aa937fb242aac4ef8f65ed8d26cbdb2",
+        "state_id": "v438_state_c9ca3a7fac631af2d2e8d35f",
+        "state_version": "1.0.0"
+      },
+      {
+        "cooldown_bars": 0,
+        "drawdown_state": 0.0,
+        "event_hash": "7f3abaf1b747c9ecdeb40116cb33ae860003d935c25e3e0638287cabe138b9c8",
+        "event_id": "v438_state_event_a44b0daf4a0420348bb9e1b3",
+        "last_decision": "ABSTAIN",
+        "last_known_time": "2026-06-01T00:00:00Z",
+        "ordinal": 1,
+        "previous_hash": "f1de0a36dade8598ee9cf9519dd4aac565bed4ef41381bbda87e262c97b00d93",
+        "research_only": true,
+        "sequence": 1,
+        "state_hash": "cd69e352844ce8b68f4955110178c3a2c3215871e7632bc9b64e3c8b62a0e585",
+        "state_id": "v438_state_a12a2035f29e169163353a0b",
+        "state_version": "1.0.0"
+      },
+      {
+        "cooldown_bars": 0,
+        "drawdown_state": 0.0,
+        "event_hash": "5e54e2edca00afafd82d9f80060b53ce8c3b180dd6c1dad622527f9685d324ed",
+        "event_id": "v438_state_event_d89aca070f5b32021e5f1cc2",
+        "last_decision": "ABSTAIN",
+        "last_known_time": "2026-06-01T01:00:00Z",
+        "ordinal": 2,
+        "previous_hash": "7f3abaf1b747c9ecdeb40116cb33ae860003d935c25e3e0638287cabe138b9c8",
+        "research_only": true,
+        "sequence": 2,
+        "state_hash": "b917384d375a4d614a64a0475a22dbd8735e422c1eb2d1ad452842ebd7cca563",
+        "state_id": "v438_state_6dc2ac858d827efa9c843355",
+        "state_version": "1.0.0"
+      },
+      {
+        "cooldown_bars": 0,
+        "drawdown_state": 0.0,
+        "event_hash": "725070fb256e4a797f1c5107f168776a8c40d7fd78785c141e414dabfadfa611",
+        "event_id": "v438_state_event_aee75417d201c933f5e9cc9b",
+        "last_decision": "ABSTAIN",
+        "last_known_time": "2026-06-01T02:00:00Z",
+        "ordinal": 3,
+        "previous_hash": "5e54e2edca00afafd82d9f80060b53ce8c3b180dd6c1dad622527f9685d324ed",
+        "research_only": true,
+        "sequence": 3,
+        "state_hash": "1ba87823911c8e96f009da4fcfd46b56382a22a581eb25200029e3bb03b128e6",
+        "state_id": "v438_state_1441bdf5092c8500087a8ed9",
+        "state_version": "1.0.0"
+      },
+      {
+        "cooldown_bars": 0,
+        "drawdown_state": 0.0,
+        "event_hash": "176c7968f7fc44aac8b77e59e2d6315a3119260f78d934d4e89dc6d774a73a2f",
+        "event_id": "v438_state_event_c700c0d351c4711145c134f8",
+        "last_decision": "ABSTAIN",
+        "last_known_time": "2026-06-01T03:00:00Z",
+        "ordinal": 4,
+        "previous_hash": "725070fb256e4a797f1c5107f168776a8c40d7fd78785c141e414dabfadfa611",
+        "research_only": true,
+        "sequence": 4,
+        "state_hash": "5744f5f6fdb6c388ac6d6334302a6f2d5008daaf5f32bf7ed5b5162b43ac406c",
+        "state_id": "v438_state_e855443fd89c2b9e60ab3d9d",
+        "state_version": "1.0.0"
+      },
+      {
+        "cooldown_bars": 0,
+        "drawdown_state": 0.0,
+        "event_hash": "8084d4a4135915cccb70228de8510efbf73973e050dd7ec8a6a6a4c1f6d62c85",
+        "event_id": "v438_state_event_03de8e0537a189128731dbef",
+        "last_decision": "ABSTAIN",
+        "last_known_time": "2026-06-01T04:00:00Z",
+        "ordinal": 5,
+        "previous_hash": "176c7968f7fc44aac8b77e59e2d6315a3119260f78d934d4e89dc6d774a73a2f",
+        "research_only": true,
+        "sequence": 5,
+        "state_hash": "2295b10457266a31a5fe4176b853a92a3d1d4f07444fec085832d6bbc521e603",
+        "state_id": "v438_state_61a2085723f1fd89b6c9639f",
+        "state_version": "1.0.0"
+      }
+    ],
+    "ledger_hash": "6e2df2a9bfb44d1dd2c1f112b4a87e06936bdf47255f6956ea1c3ab8250abf72",
+    "ledger_id": "v438_state_ledger_f6f5bc40718dc75d4de55da8",
+    "phase": "SAED_V4_38",
+    "research_only": true
+  },
+  "synthetic_parity_report": {
+    "actual_metaeditor_compile_evidence": false,
+    "actual_terminal_runtime_evidence": false,
+    "exact_count": 48,
+    "mismatch_count": 0,
+    "parity_kind": "SYNTHETIC_MQL5_SEMANTIC_EMULATOR",
+    "parity_report_hash": "efb61231eb0021e33997bcb2fe1171112e52c0feab828a9261a32e4aac4a190a",
+    "parity_report_id": "v438_parity_8b1f5838e1358293ddf5f441",
+    "passed": true,
+    "phase": "SAED_V4_38",
+    "research_only": true,
+    "rows": [
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 1.0,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 1.0,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV000"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 3.6,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 3.6,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV001"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 4.2,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 4.2,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV002"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 4.8,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 4.8,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV003"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 5.4,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 5.4,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV004"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 9.5,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 9.5,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV005"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 10.1,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 10.1,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV006"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 10.7,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 10.7,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV007"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 11.3,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 11.3,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV008"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 11.9,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 11.9,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV009"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 3.0,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 3.0,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV010"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 3.6,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 3.6,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV011"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 4.2,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 4.2,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV012"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 4.8,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 4.8,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV013"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 5.4,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 5.4,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV014"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 9.5,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 9.5,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV015"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 10.1,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 10.1,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV016"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": -0.4,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": -0.4,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV017"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 11.3,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 11.3,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV018"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 11.9,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 11.9,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV019"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 3.0,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 3.0,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV020"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 3.6,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 3.6,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV021"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 4.2,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 4.2,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV022"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 4.8,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 4.8,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV023"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 5.4,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 5.4,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV024"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 9.5,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 9.5,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV025"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 10.1,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 10.1,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV026"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 10.7,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 10.7,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV027"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 11.3,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 11.3,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV028"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 11.9,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 11.9,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV029"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 3.0,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 3.0,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV030"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 3.6,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 3.6,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV031"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 4.2,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 4.2,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV032"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 4.8,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 4.8,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV033"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": -1.8,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": -1.8,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV034"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 9.5,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 9.5,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV035"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 10.1,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 10.1,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV036"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 10.7,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 10.7,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV037"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 11.3,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 11.3,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV038"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 11.9,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 11.9,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV039"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 3.0,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 3.0,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV040"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 3.6,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 3.6,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV041"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 4.2,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 4.2,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV042"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 4.8,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 4.8,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV043"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 5.4,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 5.4,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV044"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 9.5,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 9.5,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV045"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 10.1,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 10.1,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV046"
+      },
+      {
+        "mql5_emulator_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 10.7,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "python_decision": {
+          "capital_activation_allowed": false,
+          "confidence": 0.0,
+          "decision": "ABSTAIN",
+          "net_edge_bps": 10.7,
+          "order_submission_allowed": false,
+          "reason": "FAIL_CLOSED_FALLBACK",
+          "research_only": true,
+          "size_fraction": 0.0,
+          "treatment_id": "BASELINE"
+        },
+        "status": "EXACT",
+        "vector_id": "PV047"
+      }
+    ],
+    "vector_count": 48,
+    "within_tolerance_count": 0
+  },
+  "synthetic_signature": {
+    "key_id": "V438_REFERENCE_KEY",
+    "payload_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+    "phase": "SAED_V4_38",
+    "production_signature": false,
+    "research_only": true,
+    "scheme": "SYNTHETIC_SHA256_ENVELOPE",
+    "signature": "3123ad7db5c9df395c6069bd92b53fd681efa1325db18e86b1005f05905ba123",
+    "signature_hash": "c15e84b4cb6e5edb6cd0d42d4c032876b301f9ef6e5c1b708f3da87a7205bd32",
+    "signature_id": "v438_signature_4132bbbb884aec04b35de815"
+  },
+  "upstream_receipt": {
+    "documents": [
+      {
+        "document_hash": "1f433e9a204333681f99e8a9dcd7d456a0a39c9af1491d9cbe4e24ef743f4ea5",
+        "document_id": "v437_cert_ref",
+        "kind": "v4_37_certificate",
+        "next_phase": "SAED_V4_38",
+        "phase": "SAED_V4_37",
+        "production_authorized": false,
+        "research_only": true
+      },
+      {
+        "document_hash": "6b63f3ddc14c69f13dbe58361dc77c1ba4f053662fb38e10102e4654a4a9f5e7",
+        "document_id": "v437_handoff_ref",
+        "kind": "v4_37_handoff",
+        "next_phase": "SAED_V4_38",
+        "phase": "SAED_V4_37",
+        "production_authorized": false,
+        "research_only": true
+      }
+    ],
+    "phase": "SAED_V4_38",
+    "receipt_hash": "ac7dea58141ea34451f54875a9ff4210466e003cf4c0ad81e0a8b0c1a2ddf22e",
+    "receipt_id": "v438_upstream_7c35b01ccf54fe26137fd7c1",
+    "research_only": true,
+    "upstream_phase": "SAED_V4_37",
+    "verified": true
+  }
+}

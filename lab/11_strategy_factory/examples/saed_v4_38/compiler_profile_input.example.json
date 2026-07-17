@@ -1,0 +1,12 @@
+{
+  "build_timestamp_policy": "OMIT",
+  "compiler_id": "SAED_RUNTIME_COMPILER",
+  "compiler_version": "1.0.0",
+  "deterministic_build": true,
+  "environment_variables_allowed": false,
+  "network_access": false,
+  "optimization_level": "O0_DETERMINISTIC",
+  "research_only": true,
+  "source_language": "PYTHON_REFERENCE",
+  "target_runtime": "MQL5_STATIC_SOURCE"
+}

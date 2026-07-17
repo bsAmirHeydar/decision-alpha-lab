@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "cooldown_bars": {
+      "type": "integer"
+    },
+    "drawdown_state": {
+      "type": "number"
+    },
+    "last_decision": {
+      "type": "string"
+    },
+    "last_known_time": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "sequence": {
+      "type": "integer"
+    },
+    "state_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "state_version",
+    "last_known_time",
+    "sequence",
+    "last_decision",
+    "cooldown_bars",
+    "drawdown_state",
+    "research_only"
+  ],
+  "title": "initial_state_input",
+  "type": "object"
+}

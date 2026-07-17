@@ -1,0 +1,9 @@
+{
+  "cooldown_bars": 0,
+  "drawdown_state": 0.0,
+  "last_decision": "ABSTAIN",
+  "last_known_time": "",
+  "research_only": true,
+  "sequence": 0,
+  "state_version": "1.0.0"
+}

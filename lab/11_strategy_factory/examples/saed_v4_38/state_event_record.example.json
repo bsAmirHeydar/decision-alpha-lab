@@ -1,0 +1,15 @@
+{
+  "cooldown_bars": 0,
+  "drawdown_state": 0.0,
+  "event_hash": "f1de0a36dade8598ee9cf9519dd4aac565bed4ef41381bbda87e262c97b00d93",
+  "event_id": "v438_state_event_d51a7ebc755b0cc76a1ba886",
+  "last_decision": "ABSTAIN",
+  "last_known_time": "",
+  "ordinal": 0,
+  "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "research_only": true,
+  "sequence": 0,
+  "state_hash": "79ddba9bf0253f38df74ceddfbc841978aa937fb242aac4ef8f65ed8d26cbdb2",
+  "state_id": "v438_state_c9ca3a7fac631af2d2e8d35f",
+  "state_version": "1.0.0"
+}

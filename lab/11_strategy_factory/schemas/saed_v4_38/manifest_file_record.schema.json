@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "content_hash": {
+      "type": "string"
+    },
+    "executable": {
+      "type": "boolean"
+    },
+    "path": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "role": {
+      "type": "string"
+    },
+    "size_bytes": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "path",
+    "role",
+    "content_hash",
+    "size_bytes",
+    "executable",
+    "research_only"
+  ],
+  "title": "manifest_file_record",
+  "type": "object"
+}

@@ -1,0 +1,28 @@
+{
+  "allowed_next_work": [
+    "prospective_paper",
+    "shadow_replay",
+    "micro_live_qualification_only_after_external_gates"
+  ],
+  "bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+  "certificate_hash": "71578a06e75ee1b533046ba2822cf58523ab700d0db5d6a4018a42672e878702",
+  "external_runtime_evidence_complete": false,
+  "forbidden_next_work": [
+    "capital_activation_without_authorization",
+    "live_order_submission_without_release",
+    "silent_bundle_mutation"
+  ],
+  "handoff_hash": "4f4c1cd099165a50bab9a80d75ba690f9fc399778c65688769f1c0ea838cb538",
+  "handoff_id": "v438_handoff_3dd0305d2b7b21db0bce038b",
+  "kind": "v4_38_handoff",
+  "next_phase": "SAED_V4_39",
+  "phase": "SAED_V4_38",
+  "production_authorized": false,
+  "required_external_gates": [
+    "METAEDITOR_COMPILE",
+    "TERMINAL_VECTOR_REPLAY",
+    "CROSS_RUNTIME_STATE_REPLAY",
+    "WINDOWS_DLL_BOUNDARY"
+  ],
+  "research_only": true
+}

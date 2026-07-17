@@ -1,0 +1,13 @@
+{
+  "decision": "APPROVE_REFERENCE",
+  "findings": [
+    "reference implementation accepted",
+    "external runtime evidence remains open"
+  ],
+  "independent": true,
+  "release_hash": "b5d52c1c5279d8fec37f1aed1b1e7261b3e110d7ed3cb0be27517e8ce4c6b215",
+  "review_hash": "963750a825a2a25b6a0b364365d422055d126b3c50e3837a2f377e16bc3d5618",
+  "review_id": "REV03",
+  "reviewer_id": "REVIEWER_03",
+  "role": "INDEPENDENT_VALIDATOR"
+}

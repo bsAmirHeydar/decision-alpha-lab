@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "expected_confidence": {
+      "type": "number"
+    },
+    "expected_decision": {
+      "type": "string"
+    },
+    "expected_net_edge_bps": {
+      "type": "number"
+    },
+    "expected_size_fraction": {
+      "type": "number"
+    },
+    "expected_treatment_id": {
+      "type": "string"
+    },
+    "features": {
+      "additionalProperties": false,
+      "properties": {
+        "context_score": {
+          "type": "number"
+        },
+        "drawdown_state": {
+          "type": "number"
+        },
+        "expected_cost_bps": {
+          "type": "number"
+        },
+        "expected_edge_bps": {
+          "type": "number"
+        },
+        "liquidity_ratio": {
+          "type": "number"
+        },
+        "ood_score": {
+          "type": "number"
+        },
+        "portfolio_risk": {
+          "type": "number"
+        },
+        "price_return_1": {
+          "type": "number"
+        },
+        "session_progress": {
+          "type": "number"
+        },
+        "spread_bps": {
+          "type": "number"
+        },
+        "treatment_score": {
+          "type": "number"
+        },
+        "volatility_20": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "price_return_1",
+        "volatility_20",
+        "spread_bps",
+        "liquidity_ratio",
+        "context_score",
+        "treatment_score",
+        "expected_edge_bps",
+        "expected_cost_bps",
+        "portfolio_risk",
+        "session_progress",
+        "drawdown_state",
+        "ood_score"
+      ],
+      "type": "object"
+    },
+    "known_time": {
+      "type": "string"
+    },
+    "synthetic_fixture": {
+      "type": "boolean"
+    },
+    "vector_hash": {
+      "type": "string"
+    },
+    "vector_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "vector_id",
+    "known_time",
+    "features",
+    "expected_decision",
+    "expected_treatment_id",
+    "expected_confidence",
+    "expected_net_edge_bps",
+    "expected_size_fraction",
+    "synthetic_fixture",
+    "vector_hash"
+  ],
+  "title": "parity_vector_record",
+  "type": "object"
+}

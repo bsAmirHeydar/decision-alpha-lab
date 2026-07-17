@@ -1,0 +1,20 @@
+[
+  {
+    "document_hash": "1f433e9a204333681f99e8a9dcd7d456a0a39c9af1491d9cbe4e24ef743f4ea5",
+    "document_id": "v437_cert_ref",
+    "kind": "v4_37_certificate",
+    "next_phase": "SAED_V4_38",
+    "phase": "SAED_V4_37",
+    "production_authorized": false,
+    "research_only": true
+  },
+  {
+    "document_hash": "6b63f3ddc14c69f13dbe58361dc77c1ba4f053662fb38e10102e4654a4a9f5e7",
+    "document_id": "v437_handoff_ref",
+    "kind": "v4_37_handoff",
+    "next_phase": "SAED_V4_38",
+    "phase": "SAED_V4_37",
+    "production_authorized": false,
+    "research_only": true
+  }
+]

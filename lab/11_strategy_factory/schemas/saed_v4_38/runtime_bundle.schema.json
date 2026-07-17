@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "bundle_format": {
+      "type": "string"
+    },
+    "bundle_hash": {
+      "type": "string"
+    },
+    "bundle_id": {
+      "type": "string"
+    },
+    "bundle_version": {
+      "type": "string"
+    },
+    "compiler": {
+      "additionalProperties": false,
+      "properties": {
+        "build_timestamp_policy": {
+          "type": "string"
+        },
+        "compiler_id": {
+          "type": "string"
+        },
+        "compiler_version": {
+          "type": "string"
+        },
+        "deterministic_build": {
+          "type": "boolean"
+        },
+        "environment_variables_allowed": {
+          "type": "boolean"
+        },
+        "network_access": {
+          "type": "boolean"
+        },
+        "optimization_level": {
+          "type": "string"
+        },
+        "research_only": {
+          "type": "boolean"
+        },
+        "source_language": {
+          "type": "string"
+        },
+        "target_runtime": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "compiler_id",
+        "compiler_version",
+        "source_language",
+        "target_runtime",
+        "optimization_level",
+        "deterministic_build",
+        "network_access",
+        "environment_variables_allowed",
+        "build_timestamp_policy",
+        "research_only"
+      ],
+      "type": "object"
+    },
+    "component_count": {
+      "type": "integer"
+    },
+    "components": {
+      "additionalProperties": false,
+      "properties": {
+        "abis": {
+          "type": "string"
+        },
+        "authority": {
+          "type": "string"
+        },
+        "clock": {
+          "type": "string"
+        },
+        "compiler": {
+          "type": "string"
+        },
+        "constitution": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "numeric": {
+          "type": "string"
+        },
+        "policy": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "upstream": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "abis",
+        "authority",
+        "clock",
+        "compiler",
+        "constitution",
+        "model",
+        "numeric",
+        "policy",
+        "state",
+        "upstream"
+      ],
+      "type": "object"
+    },
+    "merkle_root": {
+      "type": "string"
+    },
+    "mutable_fields": {
+      "items": {},
+      "type": "array"
+    },
+    "network_dependencies": {
+      "items": {},
+      "type": "array"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "runtime_authority": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase",
+    "bundle_format",
+    "bundle_version",
+    "components",
+    "component_count",
+    "merkle_root",
+    "compiler",
+    "mutable_fields",
+    "network_dependencies",
+    "runtime_authority",
+    "research_only",
+    "production_authorized",
+    "bundle_id",
+    "bundle_hash"
+  ],
+  "title": "runtime_bundle",
+  "type": "object"
+}

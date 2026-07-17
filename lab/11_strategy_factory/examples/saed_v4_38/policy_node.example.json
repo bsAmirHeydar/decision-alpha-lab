@@ -1,0 +1,14 @@
+{
+  "inputs": [],
+  "node_hash": "49283dc16cfe596ea030d9dca8c8a47840a66cc9925934304fe387c70e786cc2",
+  "node_id": "N000",
+  "op": "FEATURE",
+  "ordinal": 0,
+  "output_name": "",
+  "params": {
+    "max_size_fraction": 0.0,
+    "name": "price_return_1",
+    "treatment_id": "",
+    "value": 0.0
+  }
+}

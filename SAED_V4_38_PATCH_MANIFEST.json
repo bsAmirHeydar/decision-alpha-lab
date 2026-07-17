@@ -1,0 +1,16 @@
+{
+  "authority": "research_only",
+  "claim_ceiling": "immutable runtime compilation and synthetic MQL5 semantic parity reference only",
+  "delivery_command": "python tools/strategy_factory/saed_v4_38/validate_saed_v4_38_delivery.py",
+  "file_count": 479,
+  "metaeditor_compile": "pending_external",
+  "next_phase": "SAED_V4_39",
+  "patch_type": "additive_reference_implementation",
+  "phase": "SAED_V4_38",
+  "production_authorization": false,
+  "qa_command": "python tools/strategy_factory/saed_v4_38/run_saed_v4_38_full_qa.py",
+  "terminal_parity": "pending_external",
+  "title": "Immutable Runtime and MQL5 Parity",
+  "upstream_phase": "SAED_V4_37",
+  "version": "1.0.0"
+}

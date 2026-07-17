@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "boundary_hash": {
+      "type": "string"
+    },
+    "boundary_id": {
+      "type": "string"
+    },
+    "failure_action": {
+      "type": "string"
+    },
+    "live_trading_authority": {
+      "type": "boolean"
+    },
+    "may_accept_external_evidence": {
+      "type": "boolean"
+    },
+    "may_activate_capital": {
+      "type": "boolean"
+    },
+    "may_authorize_production": {
+      "type": "boolean"
+    },
+    "may_claim_metaeditor_compile_without_evidence": {
+      "type": "boolean"
+    },
+    "may_claim_terminal_parity_without_evidence": {
+      "type": "boolean"
+    },
+    "may_compile_immutable_bundle": {
+      "type": "boolean"
+    },
+    "may_emit_parity_vectors": {
+      "type": "boolean"
+    },
+    "may_generate_mql5_source": {
+      "type": "boolean"
+    },
+    "may_mutate_ucee": {
+      "type": "boolean"
+    },
+    "may_promote_model": {
+      "type": "boolean"
+    },
+    "may_run_python_reference": {
+      "type": "boolean"
+    },
+    "may_run_synthetic_mql5_emulator": {
+      "type": "boolean"
+    },
+    "may_send_order": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "phase",
+    "research_only",
+    "may_compile_immutable_bundle",
+    "may_generate_mql5_source",
+    "may_run_python_reference",
+    "may_run_synthetic_mql5_emulator",
+    "may_emit_parity_vectors",
+    "may_accept_external_evidence",
+    "may_send_order",
+    "may_activate_capital",
+    "may_mutate_ucee",
+    "may_promote_model",
+    "may_claim_metaeditor_compile_without_evidence",
+    "may_claim_terminal_parity_without_evidence",
+    "may_authorize_production",
+    "live_trading_authority",
+    "failure_action",
+    "boundary_id",
+    "boundary_hash"
+  ],
+  "title": "authority_boundary",
+  "type": "object"
+}

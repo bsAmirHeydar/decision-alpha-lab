@@ -1,0 +1,22 @@
+{
+  "allowed_weekdays": [
+    "FRIDAY",
+    "MONDAY",
+    "THURSDAY",
+    "TUESDAY",
+    "WEDNESDAY"
+  ],
+  "bar_close_only": true,
+  "clock_hash": "0fd55acf48c45c996195edf848b8377b873c9190b4c2bc8b404165cdf9e34d2d",
+  "clock_profile_id": "CLOCK_V1",
+  "dst_policy": "UTC_ONLY",
+  "duplicate_timestamp_policy": "REJECT",
+  "frozen_clock_id": "v438_clock_e5b1991f75317673658e9cb2",
+  "max_clock_skew_ms": 1000,
+  "missing_bar_policy": "ABSTAIN",
+  "out_of_order_policy": "REJECT",
+  "research_only": true,
+  "session_calendar_id": "SYNTHETIC_24X5",
+  "timestamp_format": "RFC3339_NANO_UTC",
+  "timezone": "UTC"
+}

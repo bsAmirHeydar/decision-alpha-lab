@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "data_type": {
+      "type": "string"
+    },
+    "default": {
+      "type": "string"
+    },
+    "direction": {
+      "type": "string"
+    },
+    "enum_values": {
+      "items": {},
+      "type": "array"
+    },
+    "field_hash": {
+      "type": "string"
+    },
+    "field_id": {
+      "type": "string"
+    },
+    "maximum": {
+      "type": "integer"
+    },
+    "minimum": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "ordinal": {
+      "type": "integer"
+    },
+    "required": {
+      "type": "boolean"
+    },
+    "semantic": {
+      "type": "string"
+    },
+    "unit": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "field_id",
+    "ordinal",
+    "name",
+    "data_type",
+    "direction",
+    "required",
+    "default",
+    "minimum",
+    "maximum",
+    "enum_values",
+    "semantic",
+    "unit",
+    "field_hash"
+  ],
+  "title": "abi_field",
+  "type": "object"
+}

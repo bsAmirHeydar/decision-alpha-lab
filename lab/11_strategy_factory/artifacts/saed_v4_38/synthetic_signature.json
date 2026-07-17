@@ -1,0 +1,11 @@
+{
+  "key_id": "V438_REFERENCE_KEY",
+  "payload_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+  "phase": "SAED_V4_38",
+  "production_signature": false,
+  "research_only": true,
+  "scheme": "SYNTHETIC_SHA256_ENVELOPE",
+  "signature": "3123ad7db5c9df395c6069bd92b53fd681efa1325db18e86b1005f05905ba123",
+  "signature_hash": "c15e84b4cb6e5edb6cd0d42d4c032876b301f9ef6e5c1b708f3da87a7205bd32",
+  "signature_id": "v438_signature_4132bbbb884aec04b35de815"
+}

@@ -1,0 +1,78 @@
+{
+  "approved_external_runtime": false,
+  "approved_reference": true,
+  "phase": "SAED_V4_38",
+  "production_authorized": false,
+  "release_hash": "b5d52c1c5279d8fec37f1aed1b1e7261b3e110d7ed3cb0be27517e8ce4c6b215",
+  "research_only": true,
+  "review_bundle_hash": "fc5249c1571350733238c96ab5d7010d7c55d6afd6b451988c9584d040f9e83a",
+  "review_bundle_id": "v438_review_5680d8cd36bdb3fbe97ed666",
+  "reviews": [
+    {
+      "decision": "APPROVE_REFERENCE",
+      "findings": [
+        "reference implementation accepted",
+        "external runtime evidence remains open"
+      ],
+      "independent": true,
+      "release_hash": "b5d52c1c5279d8fec37f1aed1b1e7261b3e110d7ed3cb0be27517e8ce4c6b215",
+      "review_hash": "963750a825a2a25b6a0b364365d422055d126b3c50e3837a2f377e16bc3d5618",
+      "review_id": "REV03",
+      "reviewer_id": "REVIEWER_03",
+      "role": "INDEPENDENT_VALIDATOR"
+    },
+    {
+      "decision": "APPROVE_REFERENCE",
+      "findings": [
+        "reference implementation accepted",
+        "external runtime evidence remains open"
+      ],
+      "independent": true,
+      "release_hash": "b5d52c1c5279d8fec37f1aed1b1e7261b3e110d7ed3cb0be27517e8ce4c6b215",
+      "review_hash": "7bf2ff3ff7631415bca32d74c556cb41a67d3377e3c697a1064d7652f1a00d35",
+      "review_id": "REV02",
+      "reviewer_id": "REVIEWER_02",
+      "role": "MODEL_RISK"
+    },
+    {
+      "decision": "APPROVE_REFERENCE",
+      "findings": [
+        "reference implementation accepted",
+        "external runtime evidence remains open"
+      ],
+      "independent": true,
+      "release_hash": "b5d52c1c5279d8fec37f1aed1b1e7261b3e110d7ed3cb0be27517e8ce4c6b215",
+      "review_hash": "4c89e02e2c19a639aff1140528c89cbb4cd3f4b0551f9c22d6b6081833b9d228",
+      "review_id": "REV01",
+      "reviewer_id": "REVIEWER_01",
+      "role": "MQL5_REVIEWER"
+    },
+    {
+      "decision": "APPROVE_REFERENCE",
+      "findings": [
+        "reference implementation accepted",
+        "external runtime evidence remains open"
+      ],
+      "independent": true,
+      "release_hash": "b5d52c1c5279d8fec37f1aed1b1e7261b3e110d7ed3cb0be27517e8ce4c6b215",
+      "review_hash": "90624e8a97d3dda355495450c2ed7c344fea6bd0201d720b4b087ba788befa48",
+      "review_id": "REV00",
+      "reviewer_id": "REVIEWER_00",
+      "role": "RUNTIME_ENGINEER"
+    },
+    {
+      "decision": "APPROVE_REFERENCE",
+      "findings": [
+        "reference implementation accepted",
+        "external runtime evidence remains open"
+      ],
+      "independent": true,
+      "release_hash": "b5d52c1c5279d8fec37f1aed1b1e7261b3e110d7ed3cb0be27517e8ce4c6b215",
+      "review_hash": "6dd7b258dece77ffad6be2461b9abe73058627982bc30e07922fba9963c24a0b",
+      "review_id": "REV04",
+      "reviewer_id": "REVIEWER_04",
+      "role": "SECURITY_REVIEWER"
+    }
+  ],
+  "role_count": 5
+}

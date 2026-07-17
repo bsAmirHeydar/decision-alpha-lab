@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "actual_metaeditor_compile_evidence": {
+      "type": "boolean"
+    },
+    "actual_terminal_runtime_evidence": {
+      "type": "boolean"
+    },
+    "exact_count": {
+      "type": "integer"
+    },
+    "mismatch_count": {
+      "type": "integer"
+    },
+    "parity_kind": {
+      "type": "string"
+    },
+    "parity_report_hash": {
+      "type": "string"
+    },
+    "parity_report_id": {
+      "type": "string"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "mql5_emulator_decision": {
+            "additionalProperties": false,
+            "properties": {
+              "capital_activation_allowed": {
+                "type": "boolean"
+              },
+              "confidence": {
+                "type": "number"
+              },
+              "decision": {
+                "type": "string"
+              },
+              "net_edge_bps": {
+                "type": "number"
+              },
+              "order_submission_allowed": {
+                "type": "boolean"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "research_only": {
+                "type": "boolean"
+              },
+              "size_fraction": {
+                "type": "number"
+              },
+              "treatment_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "decision",
+              "treatment_id",
+              "confidence",
+              "net_edge_bps",
+              "size_fraction",
+              "reason",
+              "research_only",
+              "order_submission_allowed",
+              "capital_activation_allowed"
+            ],
+            "type": "object"
+          },
+          "python_decision": {
+            "additionalProperties": false,
+            "properties": {
+              "capital_activation_allowed": {
+                "type": "boolean"
+              },
+              "confidence": {
+                "type": "number"
+              },
+              "decision": {
+                "type": "string"
+              },
+              "net_edge_bps": {
+                "type": "number"
+              },
+              "order_submission_allowed": {
+                "type": "boolean"
+              },
+              "reason": {
+                "type": "string"
+              },
+              "research_only": {
+                "type": "boolean"
+              },
+              "size_fraction": {
+                "type": "number"
+              },
+              "treatment_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "decision",
+              "treatment_id",
+              "confidence",
+              "net_edge_bps",
+              "size_fraction",
+              "reason",
+              "research_only",
+              "order_submission_allowed",
+              "capital_activation_allowed"
+            ],
+            "type": "object"
+          },
+          "status": {
+            "type": "string"
+          },
+          "vector_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "vector_id",
+          "python_decision",
+          "mql5_emulator_decision",
+          "status"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "vector_count": {
+      "type": "integer"
+    },
+    "within_tolerance_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "phase",
+    "parity_kind",
+    "rows",
+    "vector_count",
+    "exact_count",
+    "within_tolerance_count",
+    "mismatch_count",
+    "passed",
+    "actual_metaeditor_compile_evidence",
+    "actual_terminal_runtime_evidence",
+    "research_only",
+    "parity_report_id",
+    "parity_report_hash"
+  ],
+  "title": "synthetic_parity_report",
+  "type": "object"
+}

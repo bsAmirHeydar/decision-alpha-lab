@@ -1,0 +1,44 @@
+{
+  "bundle_hash": "95b81258450a1c00de2efba48ebbda68a7363ceb8b5212a26d0af2ad923a8294",
+  "capital_activation_allowed": false,
+  "codegen_hash": "3bc2245eeaf2d97dc62b66478b609a32167bc2e8652ec3047a699aa4ec5f2d4e",
+  "decision": "ACCEPT_REFERENCE_BLOCK_EXTERNAL",
+  "external_matrix_hash": "077af6e70610d3f771df0b2d24a1f6f27df552d81a0bf60550564e5a1dd59ab2",
+  "external_runtime_qualified": false,
+  "gates": [
+    {
+      "gate_id": "G01_BUNDLE_IMMUTABILITY",
+      "status": "PASSED"
+    },
+    {
+      "gate_id": "G02_HERMETIC_BUILD",
+      "status": "PASSED"
+    },
+    {
+      "gate_id": "G03_SYNTHETIC_PARITY",
+      "status": "PASSED"
+    },
+    {
+      "gate_id": "G04_METAEDITOR_COMPILE",
+      "status": "PENDING_EXTERNAL"
+    },
+    {
+      "gate_id": "G05_TERMINAL_PARITY",
+      "status": "PENDING_EXTERNAL"
+    },
+    {
+      "gate_id": "G06_PRODUCTION_AUTHORITY",
+      "status": "DENIED"
+    }
+  ],
+  "internal_reference_accepted": true,
+  "manifest_hash": "4114e444a87d780763ba6eba0df0f489a1fb4fdbdf8e87c7bbf86d07e3cd40c7",
+  "order_submission_allowed": false,
+  "parity_report_hash": "efb61231eb0021e33997bcb2fe1171112e52c0feab828a9261a32e4aac4a190a",
+  "phase": "SAED_V4_38",
+  "production_authorized": false,
+  "release_candidate_hash": "b5d52c1c5279d8fec37f1aed1b1e7261b3e110d7ed3cb0be27517e8ce4c6b215",
+  "release_candidate_id": "v438_release_9b46cb2e2997cb38e14e2128",
+  "release_eligible_for_v4_39_shadow": false,
+  "research_only": true
+}

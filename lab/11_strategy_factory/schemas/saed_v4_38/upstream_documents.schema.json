@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "closed_contract": true,
+  "items": {
+    "additionalProperties": false,
+    "properties": {
+      "document_hash": {
+        "type": "string"
+      },
+      "document_id": {
+        "type": "string"
+      },
+      "kind": {
+        "type": "string"
+      },
+      "next_phase": {
+        "type": "string"
+      },
+      "phase": {
+        "type": "string"
+      },
+      "production_authorized": {
+        "type": "boolean"
+      },
+      "research_only": {
+        "type": "boolean"
+      }
+    },
+    "required": [
+      "kind",
+      "phase",
+      "document_id",
+      "document_hash",
+      "next_phase",
+      "research_only",
+      "production_authorized"
+    ],
+    "type": "object"
+  },
+  "title": "upstream_documents",
+  "type": "array"
+}

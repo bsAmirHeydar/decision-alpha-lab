@@ -1,0 +1,10 @@
+{
+  "automatic_replacement": false,
+  "baseline_id": "BASELINE_MANUAL_POLICY_V1",
+  "baseline_preserved": true,
+  "phase": "SAED_V4_38",
+  "receipt_hash": "7f40752af643121bb7cc043cf6aa2114cbed9319b89ee8e4468eb44959a41089",
+  "receipt_id": "v438_baseline_c0a62de4343019430d33c9c3",
+  "release_hash": "b5d52c1c5279d8fec37f1aed1b1e7261b3e110d7ed3cb0be27517e8ce4c6b215",
+  "research_only": true
+}

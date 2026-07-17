@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "cooldown_bars": {
+      "type": "integer"
+    },
+    "drawdown_state": {
+      "type": "number"
+    },
+    "event_hash": {
+      "type": "string"
+    },
+    "event_id": {
+      "type": "string"
+    },
+    "last_decision": {
+      "type": "string"
+    },
+    "last_known_time": {
+      "type": "string"
+    },
+    "ordinal": {
+      "type": "integer"
+    },
+    "previous_hash": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "sequence": {
+      "type": "integer"
+    },
+    "state_hash": {
+      "type": "string"
+    },
+    "state_id": {
+      "type": "string"
+    },
+    "state_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "state_version",
+    "last_known_time",
+    "sequence",
+    "last_decision",
+    "cooldown_bars",
+    "drawdown_state",
+    "research_only",
+    "state_id",
+    "state_hash",
+    "ordinal",
+    "previous_hash",
+    "event_id",
+    "event_hash"
+  ],
+  "title": "state_event_record",
+  "type": "object"
+}

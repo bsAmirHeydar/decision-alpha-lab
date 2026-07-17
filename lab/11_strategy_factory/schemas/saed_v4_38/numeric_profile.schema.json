@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "absolute_tolerance": {
+      "type": "number"
+    },
+    "comparison_epsilon": {
+      "type": "number"
+    },
+    "decimal_places": {
+      "type": "integer"
+    },
+    "division_zero_policy": {
+      "type": "string"
+    },
+    "float_mode": {
+      "type": "string"
+    },
+    "frozen_profile_id": {
+      "type": "string"
+    },
+    "infinity_policy": {
+      "type": "string"
+    },
+    "nan_policy": {
+      "type": "string"
+    },
+    "profile_hash": {
+      "type": "string"
+    },
+    "profile_id": {
+      "type": "string"
+    },
+    "relative_tolerance": {
+      "type": "number"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "rounding_mode": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "profile_id",
+    "float_mode",
+    "rounding_mode",
+    "decimal_places",
+    "absolute_tolerance",
+    "relative_tolerance",
+    "nan_policy",
+    "infinity_policy",
+    "division_zero_policy",
+    "comparison_epsilon",
+    "research_only",
+    "frozen_profile_id",
+    "profile_hash"
+  ],
+  "title": "numeric_profile",
+  "type": "object"
+}

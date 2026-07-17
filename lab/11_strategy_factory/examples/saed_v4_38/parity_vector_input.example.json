@@ -1,0 +1,24 @@
+{
+  "expected_confidence": 0.0,
+  "expected_decision": "ABSTAIN",
+  "expected_net_edge_bps": 1.0,
+  "expected_size_fraction": 0.0,
+  "expected_treatment_id": "BASELINE",
+  "features": {
+    "context_score": 0.45,
+    "drawdown_state": 0.0,
+    "expected_cost_bps": 1.0,
+    "expected_edge_bps": 2.0,
+    "liquidity_ratio": 0.5,
+    "ood_score": 0.25,
+    "portfolio_risk": 0.9,
+    "price_return_1": -0.06,
+    "session_progress": 0.06,
+    "spread_bps": 1.0,
+    "treatment_score": 0.4,
+    "volatility_20": 0.05
+  },
+  "known_time": "2026-06-01T00:00:00Z",
+  "synthetic_fixture": true,
+  "vector_id": "PV000"
+}

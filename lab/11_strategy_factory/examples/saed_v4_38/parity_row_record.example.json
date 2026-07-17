@@ -1,0 +1,26 @@
+{
+  "mql5_emulator_decision": {
+    "capital_activation_allowed": false,
+    "confidence": 0.0,
+    "decision": "ABSTAIN",
+    "net_edge_bps": 1.0,
+    "order_submission_allowed": false,
+    "reason": "FAIL_CLOSED_FALLBACK",
+    "research_only": true,
+    "size_fraction": 0.0,
+    "treatment_id": "BASELINE"
+  },
+  "python_decision": {
+    "capital_activation_allowed": false,
+    "confidence": 0.0,
+    "decision": "ABSTAIN",
+    "net_edge_bps": 1.0,
+    "order_submission_allowed": false,
+    "reason": "FAIL_CLOSED_FALLBACK",
+    "research_only": true,
+    "size_fraction": 0.0,
+    "treatment_id": "BASELINE"
+  },
+  "status": "EXACT",
+  "vector_id": "PV000"
+}

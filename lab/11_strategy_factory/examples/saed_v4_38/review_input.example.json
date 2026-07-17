@@ -1,0 +1,13 @@
+{
+  "decision": "APPROVE_REFERENCE",
+  "findings": [
+    "reference implementation accepted",
+    "external runtime evidence remains open"
+  ],
+  "independent": true,
+  "release_hash": "PENDING",
+  "review_hash": "PENDING",
+  "review_id": "REV00",
+  "reviewer_id": "REVIEWER_00",
+  "role": "RUNTIME_ENGINEER"
+}

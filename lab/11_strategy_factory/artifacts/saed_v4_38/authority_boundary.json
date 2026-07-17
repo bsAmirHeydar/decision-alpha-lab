@@ -1,0 +1,21 @@
+{
+  "boundary_hash": "603f83f7000516d1cd4ac043e3fef9b7a8d9921b19b9afcc30777d562306b363",
+  "boundary_id": "v438_authority_82188e4efbb2e22a3dee6f98",
+  "failure_action": "ABSTAIN_PRESERVE_BASELINE_AND_ESCALATE",
+  "live_trading_authority": false,
+  "may_accept_external_evidence": true,
+  "may_activate_capital": false,
+  "may_authorize_production": false,
+  "may_claim_metaeditor_compile_without_evidence": false,
+  "may_claim_terminal_parity_without_evidence": false,
+  "may_compile_immutable_bundle": true,
+  "may_emit_parity_vectors": true,
+  "may_generate_mql5_source": true,
+  "may_mutate_ucee": false,
+  "may_promote_model": false,
+  "may_run_python_reference": true,
+  "may_run_synthetic_mql5_emulator": true,
+  "may_send_order": false,
+  "phase": "SAED_V4_38",
+  "research_only": true
+}

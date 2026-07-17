@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "build_timestamp_policy": {
+      "type": "string"
+    },
+    "compiler_id": {
+      "type": "string"
+    },
+    "compiler_version": {
+      "type": "string"
+    },
+    "deterministic_build": {
+      "type": "boolean"
+    },
+    "environment_variables_allowed": {
+      "type": "boolean"
+    },
+    "network_access": {
+      "type": "boolean"
+    },
+    "optimization_level": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "source_language": {
+      "type": "string"
+    },
+    "target_runtime": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "compiler_id",
+    "compiler_version",
+    "source_language",
+    "target_runtime",
+    "optimization_level",
+    "deterministic_build",
+    "network_access",
+    "environment_variables_allowed",
+    "build_timestamp_policy",
+    "research_only"
+  ],
+  "title": "compiler_profile_input",
+  "type": "object"
+}

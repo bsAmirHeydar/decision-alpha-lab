@@ -1,0 +1,294 @@
+{
+  "automatic_order_submission_allowed": false,
+  "capital_activation_allowed": false,
+  "clauses": [
+    {
+      "clause_id": "V438-C01",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 1,
+      "requirement": "Immutable content-addressed runtime bundle"
+    },
+    {
+      "clause_id": "V438-C02",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 2,
+      "requirement": "Hermetic deterministic compiler"
+    },
+    {
+      "clause_id": "V438-C03",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 3,
+      "requirement": "Closed feature ABI"
+    },
+    {
+      "clause_id": "V438-C04",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 4,
+      "requirement": "Closed model ABI"
+    },
+    {
+      "clause_id": "V438-C05",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 5,
+      "requirement": "Closed policy ABI"
+    },
+    {
+      "clause_id": "V438-C06",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 6,
+      "requirement": "Closed output ABI"
+    },
+    {
+      "clause_id": "V438-C07",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 7,
+      "requirement": "Closed state ABI"
+    },
+    {
+      "clause_id": "V438-C08",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 8,
+      "requirement": "No unknown fields"
+    },
+    {
+      "clause_id": "V438-C09",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 9,
+      "requirement": "Stable field ordinals"
+    },
+    {
+      "clause_id": "V438-C10",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 10,
+      "requirement": "Stable node ordinals"
+    },
+    {
+      "clause_id": "V438-C11",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 11,
+      "requirement": "Canonical serialization"
+    },
+    {
+      "clause_id": "V438-C12",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 12,
+      "requirement": "IEEE-754 binary64 profile"
+    },
+    {
+      "clause_id": "V438-C13",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 13,
+      "requirement": "Explicit quantization"
+    },
+    {
+      "clause_id": "V438-C14",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 14,
+      "requirement": "NaN rejection"
+    },
+    {
+      "clause_id": "V438-C15",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 15,
+      "requirement": "Infinity rejection"
+    },
+    {
+      "clause_id": "V438-C16",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 16,
+      "requirement": "Division-by-zero abstention"
+    },
+    {
+      "clause_id": "V438-C17",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 17,
+      "requirement": "UTC-only clock"
+    },
+    {
+      "clause_id": "V438-C18",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 18,
+      "requirement": "Known-time enforcement"
+    },
+    {
+      "clause_id": "V438-C19",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 19,
+      "requirement": "Duplicate timestamp rejection"
+    },
+    {
+      "clause_id": "V438-C20",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 20,
+      "requirement": "Out-of-order rejection"
+    },
+    {
+      "clause_id": "V438-C21",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 21,
+      "requirement": "No environment-variable dependence"
+    },
+    {
+      "clause_id": "V438-C22",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 22,
+      "requirement": "No network dependence"
+    },
+    {
+      "clause_id": "V438-C23",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 23,
+      "requirement": "No wall-clock build timestamp"
+    },
+    {
+      "clause_id": "V438-C24",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 24,
+      "requirement": "Bundle Merkle root"
+    },
+    {
+      "clause_id": "V438-C25",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 25,
+      "requirement": "File-level integrity manifest"
+    },
+    {
+      "clause_id": "V438-C26",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 26,
+      "requirement": "Synthetic signature clearly labeled"
+    },
+    {
+      "clause_id": "V438-C27",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 27,
+      "requirement": "Independent Python runtime"
+    },
+    {
+      "clause_id": "V438-C28",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 28,
+      "requirement": "Independent MQL5 semantic emulator"
+    },
+    {
+      "clause_id": "V438-C29",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 29,
+      "requirement": "Golden parity vectors"
+    },
+    {
+      "clause_id": "V438-C30",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 30,
+      "requirement": "Boundary vectors"
+    },
+    {
+      "clause_id": "V438-C31",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 31,
+      "requirement": "Mutation tests"
+    },
+    {
+      "clause_id": "V438-C32",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 32,
+      "requirement": "Fail-closed fallback"
+    },
+    {
+      "clause_id": "V438-C33",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 33,
+      "requirement": "State replay ledger"
+    },
+    {
+      "clause_id": "V438-C34",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 34,
+      "requirement": "No order routing"
+    },
+    {
+      "clause_id": "V438-C35",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 35,
+      "requirement": "No capital activation"
+    },
+    {
+      "clause_id": "V438-C36",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 36,
+      "requirement": "External MetaEditor evidence separation"
+    },
+    {
+      "clause_id": "V438-C37",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 37,
+      "requirement": "External terminal evidence separation"
+    },
+    {
+      "clause_id": "V438-C38",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 38,
+      "requirement": "Baseline preservation"
+    },
+    {
+      "clause_id": "V438-C39",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 39,
+      "requirement": "Independent model-risk review"
+    },
+    {
+      "clause_id": "V438-C40",
+      "evidence_required": true,
+      "failure_action": "ABSTAIN_AND_ESCALATE",
+      "priority": 40,
+      "requirement": "Bounded V4-39 handoff"
+    }
+  ],
+  "closed_abi_required": true,
+  "constitution_id": "v438_constitution_ref",
+  "deterministic_runtime_required": true,
+  "external_evidence_separation_required": true,
+  "immutable_bundle_required": true,
+  "production_authorization_allowed": false,
+  "research_only": true,
+  "version": "1.0.0"
+}

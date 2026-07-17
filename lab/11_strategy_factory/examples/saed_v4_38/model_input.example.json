@@ -1,0 +1,37 @@
+{
+  "bias": 0.18,
+  "features": [
+    "context_score",
+    "drawdown_state",
+    "expected_cost_bps",
+    "expected_edge_bps",
+    "liquidity_ratio",
+    "ood_score",
+    "portfolio_risk",
+    "price_return_1",
+    "session_progress",
+    "spread_bps",
+    "treatment_score",
+    "volatility_20"
+  ],
+  "model_id": "LINEAR_RUNTIME_REFERENCE",
+  "model_type": "LINEAR_REFERENCE",
+  "output_name": "model_score",
+  "research_only": true,
+  "training_artifact_hash": "c4a6572a21777b96550f62e648d642fb6ed8516a2a4bfbac53733700615d179f",
+  "version": "1.0.0",
+  "weights": [
+    0.25,
+    -0.15,
+    -0.005,
+    0.012,
+    0.02,
+    -0.35,
+    -0.2,
+    0.08,
+    0.04,
+    -0.01,
+    0.28,
+    -0.1
+  ]
+}

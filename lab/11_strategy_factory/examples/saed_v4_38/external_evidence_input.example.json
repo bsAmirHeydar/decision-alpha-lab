@@ -1,0 +1,11 @@
+{
+  "actual_external_evidence": true,
+  "artifact_hash": "82990dde0620a6a583af4229acdc25d76010216e7547e89336cb95a8976b8005",
+  "environment": "linux-python",
+  "evidence_id": "EXT00",
+  "evidence_type": "PYTHON_REFERENCE",
+  "independent_reviewer": "V438_REFERENCE_VALIDATOR",
+  "notes": "actual internal reference evidence",
+  "observed_at": "2026-07-17T00:00:00Z",
+  "status": "PASSED"
+}

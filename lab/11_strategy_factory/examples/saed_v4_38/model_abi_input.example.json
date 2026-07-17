@@ -1,0 +1,24 @@
+{
+  "abi_id": "MODEL_ABI_V1",
+  "backward_compatible_with": [],
+  "closed_contract": true,
+  "fields": [
+    {
+      "data_type": "FLOAT64",
+      "default": "0.0",
+      "direction": "OUTPUT",
+      "enum_values": [],
+      "field_id": "M00",
+      "maximum": 100,
+      "minimum": -100,
+      "name": "model_score",
+      "ordinal": 0,
+      "required": true,
+      "semantic": "Linear reference model score",
+      "unit": "score"
+    }
+  ],
+  "kind": "MODEL",
+  "research_only": true,
+  "version": "1.0.0"
+}

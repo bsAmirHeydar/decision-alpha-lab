@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "actual_external_evidence": {
+      "type": "boolean"
+    },
+    "artifact_hash": {
+      "type": "string"
+    },
+    "environment": {
+      "type": "string"
+    },
+    "evidence_id": {
+      "type": "string"
+    },
+    "evidence_type": {
+      "type": "string"
+    },
+    "independent_reviewer": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "observed_at": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "evidence_id",
+    "evidence_type",
+    "status",
+    "environment",
+    "artifact_hash",
+    "observed_at",
+    "independent_reviewer",
+    "actual_external_evidence",
+    "notes"
+  ],
+  "title": "external_evidence_input",
+  "type": "object"
+}

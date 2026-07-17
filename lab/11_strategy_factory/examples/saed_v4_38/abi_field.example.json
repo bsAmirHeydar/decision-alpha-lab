@@ -1,0 +1,15 @@
+{
+  "data_type": "FLOAT64",
+  "default": "0.0",
+  "direction": "INPUT",
+  "enum_values": [],
+  "field_hash": "b37aee29d5ad30a7b463eba8a3174bb9449edc677bc1737f400c34df87b2f45b",
+  "field_id": "F00",
+  "maximum": 1,
+  "minimum": -1,
+  "name": "price_return_1",
+  "ordinal": 0,
+  "required": true,
+  "semantic": "Canonical runtime feature price_return_1",
+  "unit": "ratio"
+}

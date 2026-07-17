@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "allowed_weekdays": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "bar_close_only": {
+      "type": "boolean"
+    },
+    "clock_hash": {
+      "type": "string"
+    },
+    "clock_profile_id": {
+      "type": "string"
+    },
+    "dst_policy": {
+      "type": "string"
+    },
+    "duplicate_timestamp_policy": {
+      "type": "string"
+    },
+    "frozen_clock_id": {
+      "type": "string"
+    },
+    "max_clock_skew_ms": {
+      "type": "integer"
+    },
+    "missing_bar_policy": {
+      "type": "string"
+    },
+    "out_of_order_policy": {
+      "type": "string"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "session_calendar_id": {
+      "type": "string"
+    },
+    "timestamp_format": {
+      "type": "string"
+    },
+    "timezone": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "clock_profile_id",
+    "timezone",
+    "timestamp_format",
+    "bar_close_only",
+    "session_calendar_id",
+    "allowed_weekdays",
+    "dst_policy",
+    "missing_bar_policy",
+    "duplicate_timestamp_policy",
+    "out_of_order_policy",
+    "max_clock_skew_ms",
+    "research_only",
+    "frozen_clock_id",
+    "clock_hash"
+  ],
+  "title": "clock_profile",
+  "type": "object"
+}

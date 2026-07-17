@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "bundle_hash": {
+      "type": "string"
+    },
+    "codegen_hash": {
+      "type": "string"
+    },
+    "codegen_id": {
+      "type": "string"
+    },
+    "files": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "content": {
+            "type": "string"
+          },
+          "content_hash": {
+            "type": "string"
+          },
+          "executable": {
+            "type": "boolean"
+          },
+          "path": {
+            "type": "string"
+          },
+          "research_only": {
+            "type": "boolean"
+          },
+          "role": {
+            "type": "string"
+          },
+          "size_bytes": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "path",
+          "role",
+          "content",
+          "content_hash",
+          "size_bytes",
+          "executable",
+          "research_only"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "generator_version": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    },
+    "source_count": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "phase",
+    "generator_version",
+    "files",
+    "source_count",
+    "bundle_hash",
+    "research_only",
+    "production_authorized",
+    "codegen_id",
+    "codegen_hash"
+  ],
+  "title": "codegen_manifest",
+  "type": "object"
+}

@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "closed_contract": true,
+  "properties": {
+    "bundle_hash": {
+      "type": "string"
+    },
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "codegen_hash": {
+      "type": "string"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "external_matrix_hash": {
+      "type": "string"
+    },
+    "external_runtime_qualified": {
+      "type": "boolean"
+    },
+    "gates": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "gate_id": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "gate_id",
+          "status"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "internal_reference_accepted": {
+      "type": "boolean"
+    },
+    "manifest_hash": {
+      "type": "string"
+    },
+    "order_submission_allowed": {
+      "type": "boolean"
+    },
+    "parity_report_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_authorized": {
+      "type": "boolean"
+    },
+    "release_candidate_hash": {
+      "type": "string"
+    },
+    "release_candidate_id": {
+      "type": "string"
+    },
+    "release_eligible_for_v4_39_shadow": {
+      "type": "boolean"
+    },
+    "research_only": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "phase",
+    "bundle_hash",
+    "manifest_hash",
+    "codegen_hash",
+    "parity_report_hash",
+    "external_matrix_hash",
+    "gates",
+    "internal_reference_accepted",
+    "external_runtime_qualified",
+    "release_eligible_for_v4_39_shadow",
+    "production_authorized",
+    "capital_activation_allowed",
+    "order_submission_allowed",
+    "decision",
+    "research_only",
+    "release_candidate_id",
+    "release_candidate_hash"
+  ],
+  "title": "release_candidate",
+  "type": "object"
+}

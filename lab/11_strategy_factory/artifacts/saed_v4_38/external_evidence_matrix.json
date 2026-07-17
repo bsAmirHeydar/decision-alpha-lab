@@ -1,0 +1,88 @@
+{
+  "actual_metaeditor_compile_passed": false,
+  "actual_terminal_parity_passed": false,
+  "external_runtime_evidence_complete": false,
+  "items": [
+    {
+      "actual_external_evidence": true,
+      "artifact_hash": "e65c9a1f5914702af8d23564653e2dce79c9f174171203f8b116c4a839b7c853",
+      "environment": "static-and-reference",
+      "evidence_id": "EXT06",
+      "evidence_type": "BROKER_ROUTE_GUARD",
+      "independent_reviewer": "V438_REFERENCE_VALIDATOR",
+      "notes": "no order API present in generated harness",
+      "observed_at": "2026-07-17T00:00:00Z",
+      "status": "PASSED"
+    },
+    {
+      "actual_external_evidence": false,
+      "artifact_hash": "77c4feca33cb5e2128da6cfd6b0c90c7d6473863293fb6d1fdf132530b47ac15",
+      "environment": "windows-mt5-terminal",
+      "evidence_id": "EXT04",
+      "evidence_type": "CROSS_RUNTIME_STATE_REPLAY",
+      "independent_reviewer": "V438_REFERENCE_VALIDATOR",
+      "notes": "requires actual state replay evidence",
+      "observed_at": "2026-07-17T00:00:00Z",
+      "status": "PENDING_EXTERNAL"
+    },
+    {
+      "actual_external_evidence": false,
+      "artifact_hash": "4efb3e9896a05f695843041fa3904cb4f83332e8d76e82e84b189057d71424e9",
+      "environment": "windows-metaeditor",
+      "evidence_id": "EXT02",
+      "evidence_type": "METAEDITOR_COMPILE",
+      "independent_reviewer": "V438_REFERENCE_VALIDATOR",
+      "notes": "requires actual Windows MetaEditor compile evidence",
+      "observed_at": "2026-07-17T00:00:00Z",
+      "status": "PENDING_EXTERNAL"
+    },
+    {
+      "actual_external_evidence": true,
+      "artifact_hash": "6cc773392d00e871c18373438a18b101876d1019751ddbad765d0c8ad872616d",
+      "environment": "cross-platform-static",
+      "evidence_id": "EXT01",
+      "evidence_type": "MQL5_STATIC_VALIDATION",
+      "independent_reviewer": "V438_REFERENCE_VALIDATOR",
+      "notes": "actual static evidence",
+      "observed_at": "2026-07-17T00:00:00Z",
+      "status": "PASSED"
+    },
+    {
+      "actual_external_evidence": true,
+      "artifact_hash": "82990dde0620a6a583af4229acdc25d76010216e7547e89336cb95a8976b8005",
+      "environment": "linux-python",
+      "evidence_id": "EXT00",
+      "evidence_type": "PYTHON_REFERENCE",
+      "independent_reviewer": "V438_REFERENCE_VALIDATOR",
+      "notes": "actual internal reference evidence",
+      "observed_at": "2026-07-17T00:00:00Z",
+      "status": "PASSED"
+    },
+    {
+      "actual_external_evidence": false,
+      "artifact_hash": "abadf4f7aec1226d795cb1ec92ca462416ea4b443cb201ac326e5da2eea4db34",
+      "environment": "windows-mt5-terminal",
+      "evidence_id": "EXT03",
+      "evidence_type": "TERMINAL_VECTOR_REPLAY",
+      "independent_reviewer": "V438_REFERENCE_VALIDATOR",
+      "notes": "requires actual terminal vector replay evidence",
+      "observed_at": "2026-07-17T00:00:00Z",
+      "status": "PENDING_EXTERNAL"
+    },
+    {
+      "actual_external_evidence": false,
+      "artifact_hash": "d4aa565ad32eecaee86c12730ab04cac85e1601dd964cc36393032804a972140",
+      "environment": "windows-host",
+      "evidence_id": "EXT05",
+      "evidence_type": "WINDOWS_DLL_BOUNDARY",
+      "independent_reviewer": "V438_REFERENCE_VALIDATOR",
+      "notes": "requires actual DLL boundary evidence or explicit N/A approval",
+      "observed_at": "2026-07-17T00:00:00Z",
+      "status": "PENDING_EXTERNAL"
+    }
+  ],
+  "matrix_hash": "077af6e70610d3f771df0b2d24a1f6f27df552d81a0bf60550564e5a1dd59ab2",
+  "matrix_id": "v438_external_38cf210a98da27e1f54f7663",
+  "phase": "SAED_V4_38",
+  "research_only": true
+}
