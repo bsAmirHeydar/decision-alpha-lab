@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capabilities": {
+      "items": {
+        "pattern": "^[a-z][a-z0-9_.-]{2,96}$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "compatibility": {
+      "additionalProperties": false,
+      "properties": {
+        "acl_os": {
+          "type": "string"
+        },
+        "mql5_contract": {
+          "type": "string"
+        },
+        "python": {
+          "type": "string"
+        },
+        "saed": {
+          "type": "string"
+        },
+        "ucee": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "acl_os"
+      ],
+      "type": "object"
+    },
+    "conformance_suite": {
+      "type": "string"
+    },
+    "entrypoint": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "extension_id": {
+      "pattern": "^EXT_[A-Z0-9_]{3,96}$",
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "CONTEXT_ADAPTER",
+        "SETUP_GENERATOR",
+        "FEATURE_VIEW",
+        "MODEL_ADAPTER",
+        "VALIDATION_TEST",
+        "REPORT_BLOCK",
+        "STORE_ADAPTER",
+        "RUNTIME_ADAPTER",
+        "SECURITY_CONTROL"
+      ]
+    },
+    "network_egress": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "owners": {
+      "additionalProperties": false,
+      "properties": {
+        "capital": {
+          "type": "string"
+        },
+        "security": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "semantic": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "technical": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "semantic",
+        "technical",
+        "security"
+      ],
+      "type": "object"
+    },
+    "permissions": {
+      "items": {
+        "pattern": "^[a-z][a-z0-9_.:-]{2,96}$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "secret_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "extension_id",
+    "version",
+    "kind",
+    "entrypoint",
+    "capabilities",
+    "permissions",
+    "compatibility",
+    "owners"
+  ],
+  "title": "ACL Extension Manifest",
+  "type": "object"
+}

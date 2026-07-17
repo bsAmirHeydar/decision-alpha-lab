@@ -1,0 +1,10 @@
+{
+  "fixture_id": "AMBIGUOUS_001",
+  "classification": "AMBIGUOUS",
+  "input": {
+    "REPLACE_ME": true
+  },
+  "expected": {
+    "REPLACE_ME": true
+  }
+}

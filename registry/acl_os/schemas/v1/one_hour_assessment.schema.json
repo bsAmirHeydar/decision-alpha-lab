@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assessment_id": {
+      "pattern": "^OHA_[A-Z0-9_:-]{5,120}$",
+      "type": "string"
+    },
+    "claim_ceiling": {
+      "const": "RESEARCH_TRIAGE"
+    },
+    "completeness": {
+      "type": "object"
+    },
+    "context_id": {
+      "pattern": "^CTX_[A-Z0-9_]{3,96}$",
+      "type": "string"
+    },
+    "data_cut": {
+      "type": "string"
+    },
+    "decision": {
+      "enum": [
+        "INSUFFICIENT_DEFINITION",
+        "INSUFFICIENT_SUPPORT",
+        "NO_PRELIMINARY_VALUE",
+        "RESEARCHABLE",
+        "PRIORITY_RESEARCH_CANDIDATE"
+      ]
+    },
+    "evidence_gaps": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "pattern": "^[A-Z0-9_]{3,80}$",
+            "type": "string"
+          },
+          "evidence_refs": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "artifact_id": {
+                  "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+                  "type": "string"
+                },
+                "digest": {
+                  "pattern": "^sha256:[a-f0-9]{64}$",
+                  "type": "string"
+                },
+                "locator": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "version": {
+                  "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "artifact_id",
+                "version",
+                "digest"
+              ],
+              "type": "object"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "message": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "random_baselines": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "baseline_id": {
+            "type": "string"
+          },
+          "comparison": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "baseline_id",
+          "comparison"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "setup_families": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "support": {
+      "type": "object"
+    },
+    "value_summary": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "assessment_id",
+    "context_id",
+    "data_cut",
+    "claim_ceiling",
+    "completeness",
+    "support",
+    "random_baselines",
+    "setup_families",
+    "value_summary",
+    "evidence_gaps",
+    "decision"
+  ],
+  "title": "ACL One-Hour Context Assessment",
+  "type": "object"
+}

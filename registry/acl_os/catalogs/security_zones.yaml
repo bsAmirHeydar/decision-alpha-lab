@@ -1,0 +1,10 @@
+schema_version: 1.0.0
+zones:
+  Z0_PUBLIC_DOCS: {trust: untrusted, secrets: forbidden}
+  Z1_DEVELOPER: {trust: authenticated, secrets: short_lived}
+  Z2_RESEARCH: {trust: controlled, egress: restricted}
+  Z3_HIDDEN_EVALUATION: {trust: isolated, human_access: dual_control}
+  Z4_BUILD_SIGNING: {trust: hardened, egress: deny_by_default}
+  Z5_RUNTIME_CONTROL: {trust: hardened, write_access: minimal}
+  Z6_TERMINAL_EXECUTION: {trust: isolated, internet: broker_only}
+  Z7_SECURITY_AUDIT: {trust: append_only, deletion: prohibited}

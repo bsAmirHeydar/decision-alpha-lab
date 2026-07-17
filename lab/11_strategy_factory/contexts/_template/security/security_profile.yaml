@@ -1,0 +1,6 @@
+classification: CONFIDENTIAL
+allowed_zones: [Z1_DEVELOPER, Z2_RESEARCH]
+secret_refs: []
+network_egress: []
+plugin_capabilities: []
+required_controls: [PROVENANCE, DEPENDENCY_SCAN, SIGNATURE_VERIFY, AUDIT]

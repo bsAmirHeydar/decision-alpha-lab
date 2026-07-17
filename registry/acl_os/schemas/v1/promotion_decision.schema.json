@@ -1,0 +1,230 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "approvals": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "actor": {
+            "type": "string"
+          },
+          "decision": {
+            "enum": [
+              "APPROVE",
+              "REJECT",
+              "ABSTAIN"
+            ]
+          },
+          "role": {
+            "enum": [
+              "RESEARCH_OWNER",
+              "MODEL_RISK",
+              "SECURITY",
+              "RUNTIME_OWNER",
+              "CAPITAL_AUTHORITY"
+            ]
+          },
+          "signature_ref": {
+            "additionalProperties": false,
+            "properties": {
+              "artifact_id": {
+                "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+                "type": "string"
+              },
+              "digest": {
+                "pattern": "^sha256:[a-f0-9]{64}$",
+                "type": "string"
+              },
+              "locator": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "version": {
+                "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "artifact_id",
+              "version",
+              "digest"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "role",
+          "actor",
+          "decision"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "candidate_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+          "type": "string"
+        },
+        "digest": {
+          "pattern": "^sha256:[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "locator": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "version": {
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "version",
+        "digest"
+      ],
+      "type": "object"
+    },
+    "current_state": {
+      "type": "string"
+    },
+    "decided_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "decision_id": {
+      "pattern": "^PROM_[A-Z0-9_:-]{6,120}$",
+      "type": "string"
+    },
+    "evidence_refs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact_id": {
+            "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+            "type": "string"
+          },
+          "digest": {
+            "pattern": "^sha256:[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "locator": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "version": {
+            "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "artifact_id",
+          "version",
+          "digest"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "expires_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "guardrails": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "evidence_refs": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "artifact_id": {
+                  "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+                  "type": "string"
+                },
+                "digest": {
+                  "pattern": "^sha256:[a-f0-9]{64}$",
+                  "type": "string"
+                },
+                "locator": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "version": {
+                  "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "artifact_id",
+                "version",
+                "digest"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "gate": {
+            "type": "string"
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "reason_code": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "gate",
+          "passed",
+          "reason_code"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "objective_summary": {
+      "type": "object"
+    },
+    "outcome": {
+      "enum": [
+        "REJECT",
+        "RESEARCH_ONLY",
+        "RETEST_WITH_NEW_DATA",
+        "STATISTICALLY_ELIGIBLE",
+        "PAPER_CHALLENGER",
+        "SHADOW_CHALLENGER",
+        "MICRO_LIVE_ELIGIBLE",
+        "CHAMPION"
+      ]
+    },
+    "requested_state": {
+      "type": "string"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "decision_id",
+    "candidate_ref",
+    "current_state",
+    "requested_state",
+    "outcome",
+    "guardrails",
+    "objective_summary",
+    "evidence_refs",
+    "approvals",
+    "decided_at"
+  ],
+  "title": "ACL Promotion Decision",
+  "type": "object"
+}

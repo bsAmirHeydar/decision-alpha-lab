@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+      "type": "string"
+    },
+    "classification": {
+      "enum": [
+        "PUBLIC",
+        "INTERNAL",
+        "CONFIDENTIAL",
+        "RESTRICTED"
+      ]
+    },
+    "digest": {
+      "pattern": "^sha256:[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "locations": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "status": {
+            "enum": [
+              "PRIMARY",
+              "MIRROR",
+              "ARCHIVE",
+              "REVOKED"
+            ]
+          },
+          "uri": {
+            "minLength": 3,
+            "type": "string"
+          },
+          "verified_at": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "zone": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "uri",
+          "status"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "media_type": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "owners": {
+      "additionalProperties": false,
+      "properties": {
+        "capital": {
+          "type": "string"
+        },
+        "security": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "semantic": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "technical": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "semantic",
+        "technical",
+        "security"
+      ],
+      "type": "object"
+    },
+    "revoked": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "artifact_id",
+    "version",
+    "digest",
+    "media_type",
+    "locations",
+    "classification",
+    "owners"
+  ],
+  "title": "ACL Artifact Locator",
+  "type": "object"
+}

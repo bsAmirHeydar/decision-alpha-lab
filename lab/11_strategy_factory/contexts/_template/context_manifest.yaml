@@ -1,0 +1,23 @@
+schema_version: 1.0.0
+context_id: CTX_REPLACE_ME
+context_version: 0.1.0
+status: DRAFT
+owners:
+  semantic: REPLACE_ME
+  technical: REPLACE_ME
+  security: REPLACE_ME
+  capital: REPLACE_ME
+classification: CONFIDENTIAL
+description: REPLACE_ME_WITH_A_PRECISE_DESCRIPTION
+contracts:
+  doctrine: doctrine/context_doctrine.md
+  scope: contracts/scope.yaml
+  causal_clock: contracts/causal_clock.yaml
+  data: contracts/data_contract.yaml
+  state_machine: contracts/state_machine.yaml
+  occurrence: contracts/occurrence_contract.yaml
+  feature_views: contracts/feature_views.yaml
+  treatment_envelope: contracts/treatment_envelope.yaml
+  acceptance_gates: contracts/acceptance_gates.yaml
+extensions: []
+tags: []

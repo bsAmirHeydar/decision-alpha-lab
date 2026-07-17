@@ -1,0 +1,9 @@
+schema_version: 1.0.0
+classes:
+  OBSERVED: direct immutable observation
+  DERIVED: deterministic transformation of observed evidence
+  ESTIMATED: statistical or model-dependent estimate
+  SYNTHETIC: generated fixture or scenario
+  PROSPECTIVE: evidence after a predeclared freeze
+  OPERATIONAL: paper, shadow, micro-live or live environment evidence
+  AUTHORIZATION: signed governance decision

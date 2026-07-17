@@ -1,0 +1,8 @@
+initial_state: OBSERVING
+states: [OBSERVING, CANDIDATE, CONFIRMED, INVALIDATED, EXPIRED]
+transitions:
+  - from: OBSERVING
+    to: CANDIDATE
+    guard: REPLACE_ME
+terminal_states: [CONFIRMED, INVALIDATED, EXPIRED]
+unknown_guard_policy: REJECT

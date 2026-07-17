@@ -1,0 +1,7 @@
+views:
+  - view_id: REPLACE_ME
+    kind: TABULAR
+    known_time_safe: true
+    fields: [REPLACE_ME]
+    missingness_vector: required
+    freshness_vector: required

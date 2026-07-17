@@ -1,0 +1,6 @@
+enabled: false
+allowed_generator_extensions: []
+search_space_ref: REPLACE_ME
+max_candidates: 0
+max_trials: 0
+forbidden_mutations: [CONTEXT_SEMANTICS, SECURITY_POLICY, CAPITAL_AUTHORITY]

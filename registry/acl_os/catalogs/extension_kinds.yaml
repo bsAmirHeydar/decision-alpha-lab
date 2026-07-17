@@ -1,0 +1,12 @@
+schema_version: 1.0.0
+kinds:
+  CONTEXT_ADAPTER: [read_market_data, emit_context_events]
+  SETUP_GENERATOR: [read_context_contracts, emit_setup_candidates]
+  FEATURE_VIEW: [read_known_time_data, emit_feature_artifacts]
+  MODEL_ADAPTER: [read_frozen_dataset, emit_model_artifacts]
+  VALIDATION_TEST: [read_evidence, emit_gate_result]
+  REPORT_BLOCK: [read_structured_artifacts, emit_projection]
+  STORE_ADAPTER: [artifact_io]
+  RUNTIME_ADAPTER: [read_signed_generation, emit_runtime_evidence]
+  SECURITY_CONTROL: [read_security_metadata, emit_control_result]
+default_permissions: []

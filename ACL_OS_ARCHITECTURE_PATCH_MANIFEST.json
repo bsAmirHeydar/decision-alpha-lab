@@ -1,0 +1,27 @@
+{
+  "capital_activation_allowed": false,
+  "created_at": "2026-07-17",
+  "entry_note": "docs/alpha_lab_master_architecture/context_lifecycle_os/00_START_HERE/00_ACL_OS_HOME.md",
+  "non_claims": [
+    "real alpha",
+    "production security qualification",
+    "MQL5 parity",
+    "broker qualification",
+    "capital authorization"
+  ],
+  "patch_id": "ACL_OS_ARCHITECTURE_V1",
+  "production_authorized": false,
+  "scope": [
+    "extensible context-to-execution lifecycle",
+    "canonical foldering and ownership",
+    "Context and Setup standards",
+    "immutable research and validation",
+    "automated reports and memory",
+    "defense-in-depth security",
+    "one-hour assessment",
+    "ACL-00 through ACL-15 program"
+  ],
+  "status": "proposed_reference_architecture",
+  "title": "Alpha Lab Context Lifecycle OS Architecture",
+  "version": "1.0.0"
+}

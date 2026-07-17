@@ -1,0 +1,6 @@
+terms:
+  REPLACE_ME_TERM:
+    definition: REPLACE_ME
+    observable: true
+    synonyms: []
+    forbidden_ambiguities: []

@@ -1,0 +1,150 @@
+{
+  "edges": [
+    {
+      "fromNode": "intake",
+      "fromSide": "right",
+      "id": "e1",
+      "toNode": "compile",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "compile",
+      "fromSide": "right",
+      "id": "e2",
+      "toNode": "setups",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "setups",
+      "fromSide": "right",
+      "id": "e3",
+      "toNode": "batch",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "batch",
+      "fromSide": "right",
+      "id": "e4",
+      "toNode": "validate",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "validate",
+      "fromSide": "right",
+      "id": "e5",
+      "toNode": "promote",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "promote",
+      "fromSide": "right",
+      "id": "e6",
+      "toNode": "operate",
+      "toSide": "left"
+    },
+    {
+      "fromNode": "operate",
+      "fromSide": "bottom",
+      "id": "e7",
+      "toNode": "memory",
+      "toSide": "right"
+    },
+    {
+      "fromNode": "memory",
+      "fromSide": "top",
+      "id": "e8",
+      "toNode": "batch",
+      "toSide": "bottom"
+    },
+    {
+      "fromNode": "security",
+      "fromSide": "top",
+      "id": "e9",
+      "toNode": "setups",
+      "toSide": "bottom"
+    }
+  ],
+  "nodes": [
+    {
+      "height": 140,
+      "id": "intake",
+      "text": "Context Intake\nDoctrine + Examples + Constraints",
+      "type": "text",
+      "width": 320,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "height": 140,
+      "id": "compile",
+      "text": "Context Compiler\nContracts + Occurrences + Views",
+      "type": "text",
+      "width": 320,
+      "x": 430,
+      "y": 0
+    },
+    {
+      "height": 140,
+      "id": "setups",
+      "text": "Dual Setup Factory\nHuman DSL + Bounded AI",
+      "type": "text",
+      "width": 320,
+      "x": 860,
+      "y": 0
+    },
+    {
+      "height": 140,
+      "id": "batch",
+      "text": "Immutable Batch + Research DAG",
+      "type": "text",
+      "width": 320,
+      "x": 1290,
+      "y": 0
+    },
+    {
+      "height": 140,
+      "id": "validate",
+      "text": "Integrity + Value + Overfit + Generalization",
+      "type": "text",
+      "width": 340,
+      "x": 1720,
+      "y": 0
+    },
+    {
+      "height": 140,
+      "id": "promote",
+      "text": "Promotion + Signed Runtime",
+      "type": "text",
+      "width": 320,
+      "x": 2160,
+      "y": 0
+    },
+    {
+      "height": 140,
+      "id": "operate",
+      "text": "Paper → Shadow → Micro-Live → Fleet",
+      "type": "text",
+      "width": 360,
+      "x": 2590,
+      "y": 0
+    },
+    {
+      "height": 140,
+      "id": "memory",
+      "text": "Reports + Experience + Research Memory",
+      "type": "text",
+      "width": 360,
+      "x": 1290,
+      "y": 300
+    },
+    {
+      "height": 120,
+      "id": "security",
+      "text": "Independent Security Policy Plane",
+      "type": "text",
+      "width": 850,
+      "x": 860,
+      "y": 560
+    }
+  ]
+}

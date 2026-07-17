@@ -1,0 +1,8 @@
+allowed_entry_atoms: []
+allowed_stop_atoms: []
+allowed_exit_atoms: []
+allowed_management_atoms: []
+allowed_sizing_atoms: []
+forbidden_actions: [DIRECT_ORDER_SEND, UNBOUNDED_CODE_GENERATION]
+max_search_trials: 0
+requires_human_search_authority: true

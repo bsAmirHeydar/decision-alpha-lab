@@ -1,0 +1,7 @@
+timezone: REPLACE_ME
+event_time_field: REPLACE_ME
+known_time_field: REPLACE_ME
+decision_time_rule: REPLACE_ME
+maturity_time_rule: REPLACE_ME
+late_data_policy: REJECT
+clock_skew_tolerance_ms: 0

@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "classification": {
+      "enum": [
+        "PUBLIC",
+        "INTERNAL",
+        "CONFIDENTIAL",
+        "RESTRICTED"
+      ]
+    },
+    "context_id": {
+      "pattern": "^CTX_[A-Z0-9_]{3,96}$",
+      "type": "string"
+    },
+    "context_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "contracts": {
+      "additionalProperties": false,
+      "properties": {
+        "acceptance_gates": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "causal_clock": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "data": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "doctrine": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "feature_views": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "occurrence": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "scope": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "state_machine": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "treatment_envelope": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "doctrine",
+        "scope",
+        "causal_clock",
+        "data",
+        "state_machine",
+        "occurrence",
+        "feature_views",
+        "treatment_envelope",
+        "acceptance_gates"
+      ],
+      "type": "object"
+    },
+    "description": {
+      "minLength": 20,
+      "type": "string"
+    },
+    "extensions": {
+      "items": {
+        "pattern": "^EXT_[A-Z0-9_]{3,96}$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "owners": {
+      "additionalProperties": false,
+      "properties": {
+        "capital": {
+          "type": "string"
+        },
+        "security": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "semantic": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "technical": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "semantic",
+        "technical",
+        "security"
+      ],
+      "type": "object"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "DRAFT",
+        "SEMANTIC_REVIEW",
+        "VALIDATED",
+        "COMPILED",
+        "RETIRED"
+      ]
+    },
+    "supersedes": {
+      "pattern": "^CTX_[A-Z0-9_]{3,96}@[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "type": "string"
+    },
+    "tags": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "schema_version",
+    "context_id",
+    "context_version",
+    "status",
+    "owners",
+    "classification",
+    "contracts",
+    "extensions"
+  ],
+  "title": "ACL Context Manifest",
+  "type": "object"
+}

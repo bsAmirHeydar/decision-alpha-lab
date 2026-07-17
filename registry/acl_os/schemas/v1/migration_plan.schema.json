@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_type": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "migration_id": {
+      "pattern": "^MIG_[A-Z0-9_:-]{5,120}$",
+      "type": "string"
+    },
+    "owners": {
+      "additionalProperties": false,
+      "properties": {
+        "capital": {
+          "type": "string"
+        },
+        "security": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "semantic": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "technical": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "semantic",
+        "technical",
+        "security"
+      ],
+      "type": "object"
+    },
+    "rollback": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "source_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "DRAFT",
+        "APPROVED",
+        "RUNNING",
+        "VERIFIED",
+        "ROLLED_BACK",
+        "FAILED"
+      ]
+    },
+    "steps": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "action": {
+            "minLength": 5,
+            "type": "string"
+          },
+          "idempotency_key": {
+            "type": "string"
+          },
+          "order": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "order",
+          "action"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "target_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "verification": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "migration_id",
+    "artifact_type",
+    "source_version",
+    "target_version",
+    "steps",
+    "verification",
+    "rollback",
+    "owners",
+    "status"
+  ],
+  "title": "ACL Migration Plan",
+  "type": "object"
+}

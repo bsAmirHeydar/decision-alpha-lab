@@ -1,0 +1,10 @@
+{
+  "fixture_id": "POSITIVE_001",
+  "classification": "POSITIVE",
+  "input": {
+    "REPLACE_ME": true
+  },
+  "expected": {
+    "REPLACE_ME": true
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "confidence": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "created_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "disposition": {
+      "enum": [
+        "ACTIVE",
+        "SUPERSEDED",
+        "RETRACTED",
+        "PENDING_REVIEW"
+      ]
+    },
+    "evidence_refs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact_id": {
+            "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+            "type": "string"
+          },
+          "digest": {
+            "pattern": "^sha256:[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "locator": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "version": {
+            "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "artifact_id",
+          "version",
+          "digest"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "experience_id": {
+      "pattern": "^EXP_[A-Z0-9_:-]{6,120}$",
+      "type": "string"
+    },
+    "negative_result": {
+      "type": "boolean"
+    },
+    "retest_conditions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "scope": {
+      "enum": [
+        "RUN",
+        "RESEARCH",
+        "DECISION",
+        "DOCTRINE_PROPOSAL",
+        "OPERATIONS",
+        "SECURITY"
+      ]
+    },
+    "statement": {
+      "minLength": 20,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "experience_id",
+    "scope",
+    "statement",
+    "evidence_refs",
+    "confidence",
+    "disposition",
+    "created_at"
+  ],
+  "title": "ACL Experience Record",
+  "type": "object"
+}

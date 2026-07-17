@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "batch_id": {
+      "pattern": "^BATCH_[A-Z0-9_:-]{6,120}$",
+      "type": "string"
+    },
+    "claim_ceiling": {
+      "enum": [
+        "DIAGNOSTIC",
+        "RESEARCH_TRIAGE",
+        "STATISTICAL_ELIGIBILITY",
+        "PAPER_ELIGIBILITY",
+        "SHADOW_ELIGIBILITY"
+      ]
+    },
+    "context_ref": {
+      "additionalProperties": false,
+      "properties": {
+        "artifact_id": {
+          "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+          "type": "string"
+        },
+        "digest": {
+          "pattern": "^sha256:[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "locator": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "version": {
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "artifact_id",
+        "version",
+        "digest"
+      ],
+      "type": "object"
+    },
+    "created_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "frozen_inputs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact_id": {
+            "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+            "type": "string"
+          },
+          "digest": {
+            "pattern": "^sha256:[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "locator": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "version": {
+            "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "artifact_id",
+          "version",
+          "digest"
+        ],
+        "type": "object"
+      },
+      "minItems": 5,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "hypothesis": {
+      "minLength": 20,
+      "type": "string"
+    },
+    "parent_batch_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "sealed_digest": {
+      "pattern": "^sha256:[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "search_budget": {
+      "additionalProperties": false,
+      "properties": {
+        "max_compute_seconds": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "max_gpu_seconds": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "max_human_overrides": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "max_trials": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "max_trials",
+        "max_compute_seconds"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "batch_id",
+    "context_ref",
+    "hypothesis",
+    "frozen_inputs",
+    "search_budget",
+    "claim_ceiling",
+    "created_at"
+  ],
+  "title": "ACL Immutable Research Batch",
+  "type": "object"
+}

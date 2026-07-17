@@ -1,0 +1,318 @@
+{
+  "architecture": {
+    "checks": [
+      {
+        "code": "OBSIDIAN_NOTE_COUNT",
+        "details": {
+          "count": 287
+        },
+        "message": "architecture note count",
+        "passed": true
+      },
+      {
+        "code": "FRONTMATTER",
+        "details": {
+          "files": []
+        },
+        "message": "all architecture notes have frontmatter",
+        "passed": true
+      },
+      {
+        "code": "WIKILINK_CLOSURE",
+        "details": {
+          "links": []
+        },
+        "message": "all wikilinks resolve",
+        "passed": true
+      },
+      {
+        "code": "SCHEMA_CLOSURE",
+        "details": {
+          "count": 11,
+          "errors": []
+        },
+        "message": "closed public schemas",
+        "passed": true
+      },
+      {
+        "code": "YAML_PARSE",
+        "details": {
+          "errors": []
+        },
+        "message": "registry YAML parses",
+        "passed": true
+      },
+      {
+        "code": "REQUIRED_ARTIFACTS",
+        "details": {
+          "missing": []
+        },
+        "message": "required architecture artifacts",
+        "passed": true
+      },
+      {
+        "code": "SECURITY_COVERAGE",
+        "details": {
+          "count": 37
+        },
+        "message": "security note coverage",
+        "passed": true
+      },
+      {
+        "code": "IMPLEMENTATION_PHASES",
+        "details": {
+          "count": 16
+        },
+        "message": "ACL-00 through ACL-15",
+        "passed": true
+      }
+    ],
+    "counts": {
+      "notes": 287,
+      "phase_notes": 16,
+      "schemas": 11,
+      "security_notes": 37
+    },
+    "passed": true,
+    "repo": "/mnt/data/acl_work/integrated"
+  },
+  "capital_activation_allowed": false,
+  "claim_ceiling": "REFERENCE_ARCHITECTURE_ONLY",
+  "context_template": {
+    "allow_placeholders": true,
+    "checks": [
+      {
+        "code": "MANIFEST_SCHEMA",
+        "details": {
+          "errors": []
+        },
+        "message": "context manifest schema",
+        "passed": true
+      },
+      {
+        "code": "REQUIRED_DIRECTORY",
+        "details": {},
+        "message": "doctrine",
+        "passed": true
+      },
+      {
+        "code": "REQUIRED_DIRECTORY",
+        "details": {},
+        "message": "contracts",
+        "passed": true
+      },
+      {
+        "code": "REQUIRED_DIRECTORY",
+        "details": {},
+        "message": "security",
+        "passed": true
+      },
+      {
+        "code": "REQUIRED_DIRECTORY",
+        "details": {},
+        "message": "setups/manual",
+        "passed": true
+      },
+      {
+        "code": "REQUIRED_DIRECTORY",
+        "details": {},
+        "message": "setups/ai",
+        "passed": true
+      },
+      {
+        "code": "REQUIRED_DIRECTORY",
+        "details": {},
+        "message": "setups/baselines",
+        "passed": true
+      },
+      {
+        "code": "REQUIRED_DIRECTORY",
+        "details": {},
+        "message": "fixtures/positive",
+        "passed": true
+      },
+      {
+        "code": "REQUIRED_DIRECTORY",
+        "details": {},
+        "message": "fixtures/negative",
+        "passed": true
+      },
+      {
+        "code": "REQUIRED_DIRECTORY",
+        "details": {},
+        "message": "fixtures/ambiguous",
+        "passed": true
+      },
+      {
+        "code": "REQUIRED_DIRECTORY",
+        "details": {},
+        "message": "adapters",
+        "passed": true
+      },
+      {
+        "code": "REQUIRED_DIRECTORY",
+        "details": {},
+        "message": "generated",
+        "passed": true
+      },
+      {
+        "code": "REQUIRED_DIRECTORY",
+        "details": {},
+        "message": "tests",
+        "passed": true
+      },
+      {
+        "code": "CONTRACT_FILE",
+        "details": {},
+        "message": "doctrine:doctrine/context_doctrine.md",
+        "passed": true
+      },
+      {
+        "code": "CONTRACT_FILE",
+        "details": {},
+        "message": "scope:contracts/scope.yaml",
+        "passed": true
+      },
+      {
+        "code": "CONTRACT_FILE",
+        "details": {},
+        "message": "causal_clock:contracts/causal_clock.yaml",
+        "passed": true
+      },
+      {
+        "code": "CONTRACT_FILE",
+        "details": {},
+        "message": "data:contracts/data_contract.yaml",
+        "passed": true
+      },
+      {
+        "code": "CONTRACT_FILE",
+        "details": {},
+        "message": "state_machine:contracts/state_machine.yaml",
+        "passed": true
+      },
+      {
+        "code": "CONTRACT_FILE",
+        "details": {},
+        "message": "occurrence:contracts/occurrence_contract.yaml",
+        "passed": true
+      },
+      {
+        "code": "CONTRACT_FILE",
+        "details": {},
+        "message": "feature_views:contracts/feature_views.yaml",
+        "passed": true
+      },
+      {
+        "code": "CONTRACT_FILE",
+        "details": {},
+        "message": "treatment_envelope:contracts/treatment_envelope.yaml",
+        "passed": true
+      },
+      {
+        "code": "CONTRACT_FILE",
+        "details": {},
+        "message": "acceptance_gates:contracts/acceptance_gates.yaml",
+        "passed": true
+      },
+      {
+        "code": "PLACEHOLDER_SCAN",
+        "details": {
+          "locations": [
+            "README.md:3",
+            "context_manifest.yaml:6",
+            "context_manifest.yaml:7",
+            "context_manifest.yaml:8",
+            "context_manifest.yaml:9",
+            "context_manifest.yaml:11",
+            "owners.yaml:1",
+            "owners.yaml:2",
+            "owners.yaml:3",
+            "owners.yaml:4",
+            "doctrine/context_doctrine.md:8",
+            "doctrine/context_doctrine.md:11",
+            "doctrine/context_doctrine.md:14",
+            "doctrine/context_doctrine.md:17",
+            "doctrine/glossary.yaml:2",
+            "doctrine/glossary.yaml:3",
+            "contracts/scope.yaml:1",
+            "contracts/scope.yaml:2",
+            "contracts/scope.yaml:3",
+            "contracts/scope.yaml:4",
+            "contracts/scope.yaml:6",
+            "contracts/causal_clock.yaml:1",
+            "contracts/causal_clock.yaml:2",
+            "contracts/causal_clock.yaml:3",
+            "contracts/causal_clock.yaml:4",
+            "contracts/causal_clock.yaml:5",
+            "contracts/data_contract.yaml:2",
+            "contracts/data_contract.yaml:3",
+            "contracts/data_contract.yaml:7",
+            "contracts/data_contract.yaml:8",
+            "contracts/state_machine.yaml:6",
+            "contracts/occurrence_contract.yaml:2",
+            "contracts/occurrence_contract.yaml:3",
+            "contracts/occurrence_contract.yaml:4",
+            "contracts/occurrence_contract.yaml:5",
+            "contracts/occurrence_contract.yaml:6",
+            "contracts/feature_views.yaml:2",
+            "contracts/feature_views.yaml:5",
+            "fixtures/positive/example_001.json:5",
+            "fixtures/positive/example_001.json:8",
+            "fixtures/negative/example_001.json:5",
+            "fixtures/negative/example_001.json:8",
+            "fixtures/ambiguous/example_001.json:5",
+            "fixtures/ambiguous/example_001.json:8",
+            "setups/ai/search_authority.yaml:3"
+          ]
+        },
+        "message": "45 placeholders",
+        "passed": true
+      },
+      {
+        "code": "FIXTURE_COVERAGE",
+        "details": {
+          "count": 1
+        },
+        "message": "positive",
+        "passed": true
+      },
+      {
+        "code": "FIXTURE_COVERAGE",
+        "details": {
+          "count": 1
+        },
+        "message": "negative",
+        "passed": true
+      },
+      {
+        "code": "FIXTURE_COVERAGE",
+        "details": {
+          "count": 1
+        },
+        "message": "ambiguous",
+        "passed": true
+      },
+      {
+        "code": "GENERATED_TEMPLATE_EMPTY",
+        "details": {
+          "files": []
+        },
+        "message": "generated directory must be compiler-owned",
+        "passed": true
+      }
+    ],
+    "context_root": "/mnt/data/acl_work/integrated/lab/11_strategy_factory/contexts/_template",
+    "passed": true
+  },
+  "passed": true,
+  "phase": "ACL_OS_ARCHITECTURE",
+  "production_authorized": false,
+  "pytest": {
+    "passed": true,
+    "stderr": "",
+    "stdout": "..........                                                               [100%]\n10 passed in 1.57s\n"
+  },
+  "status": "passed_reference_architecture_qa",
+  "version": "1.0.0"
+}

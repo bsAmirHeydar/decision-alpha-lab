@@ -1,0 +1,2 @@
+baselines: [NEVER_TRADE, ALWAYS_TAKE_VALID_CONTEXT, SIMPLE_RULE_BASED]
+manual_baseline_required: true

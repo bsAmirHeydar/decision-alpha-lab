@@ -1,0 +1,7 @@
+identity_fields: [context_id, context_version, anchor_time, direction, subject_key]
+start_rule: REPLACE_ME
+confirmation_rule: REPLACE_ME
+invalidation_rule: REPLACE_ME
+expiry_rule: REPLACE_ME
+deduplication_rule: REPLACE_ME
+revision_policy: APPEND_NEW_REVISION

@@ -1,0 +1,9 @@
+sources:
+  - source_id: REPLACE_ME
+    fields: [REPLACE_ME]
+    classification: CONFIDENTIAL
+    freshness_slo_ms: 0
+    missingness_policy: REJECT
+synchronization: REPLACE_ME
+precision_policy: REPLACE_ME
+corporate_action_policy: NOT_APPLICABLE

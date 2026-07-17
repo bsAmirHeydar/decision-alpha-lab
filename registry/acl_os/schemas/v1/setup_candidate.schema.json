@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "behavior_digest": {
+      "pattern": "^sha256:[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "context_id": {
+      "pattern": "^CTX_[A-Z0-9_]{3,96}$",
+      "type": "string"
+    },
+    "origin": {
+      "enum": [
+        "HUMAN",
+        "AI",
+        "HYBRID",
+        "BASELINE"
+      ]
+    },
+    "policy_ir": {
+      "minProperties": 1,
+      "type": "object"
+    },
+    "provenance": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact_id": {
+            "pattern": "^[A-Z][A-Z0-9_.:-]{2,127}$",
+            "type": "string"
+          },
+          "digest": {
+            "pattern": "^sha256:[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "locator": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "version": {
+            "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "artifact_id",
+          "version",
+          "digest"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "schema_version": {
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$",
+      "type": "string"
+    },
+    "search_exposure_id": {
+      "type": "string"
+    },
+    "setup_id": {
+      "pattern": "^SETUP_[A-Z0-9_]{3,120}$",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "DRAFT",
+        "COMPILED",
+        "INVALID",
+        "DUPLICATE",
+        "ELIGIBLE",
+        "REJECTED",
+        "RETIRED"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "setup_id",
+    "context_id",
+    "origin",
+    "policy_ir",
+    "provenance",
+    "status"
+  ],
+  "title": "ACL Setup Candidate",
+  "type": "object"
+}

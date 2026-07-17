@@ -1,0 +1,18 @@
+schema_version: 1.0.0
+baselines:
+  - id: NEVER_TRADE
+    preserves: [capital]
+  - id: UNCONDITIONAL_TIME_MATCHED
+    preserves: [session, weekday, direction_rate]
+  - id: OCCURRENCE_COUNT_MATCHED
+    preserves: [trade_count, holding_window]
+  - id: BLOCK_SHUFFLED_CONTEXT
+    preserves: [serial_dependence_approximately]
+  - id: CIRCULAR_TIME_SHIFT
+    preserves: [intraday_structure]
+  - id: LABEL_PERMUTATION_WITHIN_REGIME
+    preserves: [regime_distribution]
+requirements:
+  - predeclare baseline family
+  - use identical cost model
+  - report uncertainty and multiple testing exposure

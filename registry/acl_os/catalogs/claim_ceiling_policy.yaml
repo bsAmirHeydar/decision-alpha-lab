@@ -1,0 +1,14 @@
+schema_version: 1.0.0
+ceilings:
+  architecture: REFERENCE_ONLY
+  synthetic_fixture: DIAGNOSTIC
+  one_hour_assessment: RESEARCH_TRIAGE
+  retrospective_batch: STATISTICAL_ELIGIBILITY
+  prospective_paper: PAPER_EVIDENCE
+  shadow: SHADOW_EVIDENCE
+  micro_live: MICRO_LIVE_EVIDENCE
+  capital_authorization: SIGNED_AUTHORIZATION_REQUIRED
+forbidden_inference:
+  - local tests imply alpha
+  - backtest implies live parity
+  - model score implies capital authorization
