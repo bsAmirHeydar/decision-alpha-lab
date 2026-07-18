@@ -1,0 +1,11 @@
+{
+  "arbitrary_narrative_execution_denied": true,
+  "finding_count": 0,
+  "findings": [],
+  "passed": true,
+  "poisoning_report_digest": "sha256:33163944c8f0526c9032243eb5753a2cc94e5a42d0d0e0a81c196697e371bfb3",
+  "record_count": 12,
+  "report_id": "REPORT_2FED2879ED0864D2A8EC4EFF7830B4AA",
+  "schema_version": "1.0.0",
+  "structured_fields_only": true
+}

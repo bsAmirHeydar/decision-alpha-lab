@@ -1,0 +1,39 @@
+{
+  "$id": "https://alpha-lab.local/acl09/plan_proposal.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capital_activation_allowed": {},
+    "estimated_cost_units": {},
+    "live_order_submission_allowed": {},
+    "priority_score": {},
+    "promotion_allowed": {},
+    "proposal_digest": {},
+    "proposal_fingerprint": {},
+    "proposal_id": {},
+    "proposal_status": {},
+    "question_id": {},
+    "research_execution_allowed": {},
+    "schema_version": {
+      "type": "string"
+    },
+    "target_gate": {}
+  },
+  "required": [
+    "schema_version",
+    "proposal_id",
+    "question_id",
+    "target_gate",
+    "proposal_fingerprint",
+    "proposal_status",
+    "priority_score",
+    "estimated_cost_units",
+    "research_execution_allowed",
+    "promotion_allowed",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "proposal_digest"
+  ],
+  "title": "plan_proposal",
+  "type": "object"
+}

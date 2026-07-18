@@ -1,0 +1,15 @@
+{
+  "acl08_batch_report_digest": "sha256:9505b34734f74efe22c0142395f6143975c7d4cd3755563bde8fb14cff62af1d",
+  "acl08_experience_bundle_digest": "sha256:adfd0cb0548dd7fe3b3bfbe5fab7c0bcac6d6082e5c7aa76ef473791f81147b1",
+  "acl08_handoff_digest": "sha256:43e36592ccd6b68f384eb417b2db1af9593ff6615a2b3e132ceed3db7c0522aa",
+  "acl08_input_bundle_digest": "sha256:53fd077f2ad4e8b8afcbb85221310ecf43c1e4176f8f7cb8bf5bb5ecba626675",
+  "acl08_report_run_digest": "sha256:e00555476326b090046a6b8aab0c73806c3ad8a3a549c2022d18aa1554494fac",
+  "batch_id": "BATCH_81FF4FC3C8B796422B0EF6818FEB2D5E",
+  "binding_digest": "sha256:3232a33da490d1600106da8de9dc6fe4b6f653ab215add4950c96e5d0966aee0",
+  "memory_run_id": "MEMRUN_86C46AE40D92F8AE6DDD9796C670D534",
+  "report_id": "REPORT_2FED2879ED0864D2A8EC4EFF7830B4AA",
+  "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+  "schema_version": "1.0.0",
+  "source_decisions_mutated": false,
+  "validation_id": "VALIDATION_3AC66AA2ED2AC1AEE9B8EDB7ABB9C13A"
+}

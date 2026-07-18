@@ -1,0 +1,5 @@
+{
+  "policy_id": "ACL09_PROMOTION_DENIAL_POLICY_V1",
+  "promotion_allowed": false,
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,18 @@
+{
+  "automatic_scheduling_allowed": false,
+  "baseline_sources_allowed": false,
+  "capital_activation_allowed": false,
+  "diagnostic_sources_allowed": false,
+  "exact_duplicate_proposals_suppressed": true,
+  "live_order_submission_allowed": false,
+  "max_selected_proposals": 6,
+  "max_total_cost_units": 100,
+  "policy_digest": "sha256:0b214dc9d9103fa4281a1b61afb69c71f81e67fa5d551f0d04ea931c039e559a",
+  "policy_id": "ACL09_PLANNER_POLICY_V1",
+  "promotion_allowed": false,
+  "requires_human_approval": true,
+  "requires_new_frozen_batch": true,
+  "research_execution_allowed": false,
+  "schema_version": "1.0.0",
+  "selection_method": "DETERMINISTIC_INFORMATION_VALUE_GREEDY_V1"
+}

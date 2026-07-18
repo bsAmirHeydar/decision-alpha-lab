@@ -1,0 +1,14 @@
+{
+  "duplicate_fingerprint": "sha256:cee378b3b9faaab9387aed04f15c3d742765fa297648ea02505dee21b3d9a73a",
+  "experience_digest": "sha256:8947ed12a31b38076075b8824892c5a1c12506ce410fb3249ec485d39802aa99",
+  "experience_id": "EXP08_D3BA349B7DFAFABCBC68733F",
+  "planner_eligible": false,
+  "promotion_allowed": false,
+  "quarantine_digest": "sha256:120655ffe1f19acfd3a584b574fe42b7e8b73f66bc22a50c24c11bdf88a56776",
+  "quarantine_id": "MEMQUAR_E4517B4F0DBB96F25C6433EE",
+  "reason_codes": [
+    "DIAGNOSTIC_LANE_NON_SELECTABLE"
+  ],
+  "schema_version": "1.0.0",
+  "selectable": false
+}

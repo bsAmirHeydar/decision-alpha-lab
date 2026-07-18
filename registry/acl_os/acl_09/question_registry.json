@@ -1,0 +1,88 @@
+{
+  "closed_world": true,
+  "entries": [
+    {
+      "cost_units": 28,
+      "decision_relevance": 10,
+      "information_gain": 10,
+      "question_id": "SCHEDULE_INDEPENDENT_REPLICATION",
+      "requires_human_approval": true,
+      "requires_new_batch": true,
+      "risk_reduction": 10,
+      "target_gate": "INDEPENDENT_REPLICATION"
+    },
+    {
+      "cost_units": 24,
+      "decision_relevance": 10,
+      "information_gain": 10,
+      "question_id": "RUN_PROSPECTIVE_SHADOW_EVALUATION",
+      "requires_human_approval": true,
+      "requires_new_batch": true,
+      "risk_reduction": 9,
+      "target_gate": "PROSPECTIVE_EVIDENCE"
+    },
+    {
+      "cost_units": 14,
+      "decision_relevance": 9,
+      "information_gain": 9,
+      "question_id": "COLLECT_EXECUTION_COST_EVIDENCE",
+      "requires_human_approval": true,
+      "requires_new_batch": true,
+      "risk_reduction": 10,
+      "target_gate": "EXECUTION_ECONOMICS"
+    },
+    {
+      "cost_units": 16,
+      "decision_relevance": 8,
+      "information_gain": 8,
+      "question_id": "BUILD_OOD_AND_ABSTENTION_EVIDENCE",
+      "requires_human_approval": true,
+      "requires_new_batch": true,
+      "risk_reduction": 9,
+      "target_gate": "OOD_AND_ABSTENTION"
+    },
+    {
+      "cost_units": 12,
+      "decision_relevance": 8,
+      "information_gain": 8,
+      "question_id": "COLLECT_TAIL_PATH_EVIDENCE",
+      "requires_human_approval": true,
+      "requires_new_batch": true,
+      "risk_reduction": 8,
+      "target_gate": "DISTRIBUTIONAL_ROBUSTNESS"
+    },
+    {
+      "cost_units": 10,
+      "decision_relevance": 8,
+      "information_gain": 8,
+      "question_id": "ADD_TEMPORAL_HOLDOUT_EVIDENCE",
+      "requires_human_approval": true,
+      "requires_new_batch": true,
+      "risk_reduction": 7,
+      "target_gate": "TEMPORAL_GENERALIZATION"
+    },
+    {
+      "cost_units": 8,
+      "decision_relevance": 7,
+      "information_gain": 7,
+      "question_id": "COLLECT_SIGNIFICANCE_EVIDENCE",
+      "requires_human_approval": true,
+      "requires_new_batch": true,
+      "risk_reduction": 6,
+      "target_gate": "STATISTICAL_SIGNIFICANCE"
+    },
+    {
+      "cost_units": 6,
+      "decision_relevance": 7,
+      "information_gain": 5,
+      "question_id": "REDUCE_OR_REFREEZE_TESTING_FAMILY",
+      "requires_human_approval": true,
+      "requires_new_batch": true,
+      "risk_reduction": 8,
+      "target_gate": "MULTIPLE_TESTING"
+    }
+  ],
+  "registry_digest": "sha256:6070ca82697c6df573d1498759e9fbc3835b85a880dad0ccef981013e01c1b41",
+  "registry_id": "ACL09_RESEARCH_QUESTION_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}

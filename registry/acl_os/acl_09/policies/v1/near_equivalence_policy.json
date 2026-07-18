@@ -1,0 +1,6 @@
+{
+  "auto_merge_allowed": false,
+  "policy_id": "ACL09_NEAR_EQUIVALENCE_POLICY_V1",
+  "schema_version": "1.0.0",
+  "threshold_bps": 7500
+}

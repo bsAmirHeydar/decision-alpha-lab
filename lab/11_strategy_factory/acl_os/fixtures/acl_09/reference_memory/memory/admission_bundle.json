@@ -1,0 +1,87 @@
+{
+  "admission_bundle_digest": "sha256:f2822be5b67296b449ff6594dd9cd146779d61560baa3aa59872e68c8322dfb8",
+  "admission_decisions": [
+    {
+      "admission_decision_digest": "sha256:2d73510fe942aca951c22495bec6bf25a9d00d0112e07918db3fa8fd36bc4331",
+      "admission_decision_id": "MEMADM_AC222086D8435B0F0A049DE6",
+      "admission_status": "ADMITTED_NEW",
+      "experience_id": "EXP08_2F7BB840B72D496EE7523A18"
+    },
+    {
+      "admission_decision_digest": "sha256:ce377437d83735fc98051eecc90dbbfc964c20fae1ed557a4d6420a98a8769dc",
+      "admission_decision_id": "MEMADM_54B402A772FA7B64A44D4B97",
+      "admission_status": "LINKED_BATCH_DUPLICATE",
+      "experience_id": "EXP08_36398305C6598A04173C8513"
+    },
+    {
+      "admission_decision_digest": "sha256:3eda9ed2a63b082694a3ac2fabc441b228f7d8b5243ca46846bd441ec73fc738",
+      "admission_decision_id": "MEMADM_D5A412E64A7820D81A44449E",
+      "admission_status": "ADMITTED_NEW",
+      "experience_id": "EXP08_3FDDD5021A95C10885C43598"
+    },
+    {
+      "admission_decision_digest": "sha256:b4a2b91a8618c308699d4ad35c035b0b2a78c252878a85c284b2c95085002dd8",
+      "admission_decision_id": "MEMADM_703E8174A69756F3ED484E73",
+      "admission_status": "ADMITTED_NEW",
+      "experience_id": "EXP08_42E896C9F4F7E2645FBF33F7"
+    },
+    {
+      "admission_decision_digest": "sha256:530757b82d959fa32567b8263f1fd6fc4113c8ba180bba4a33b6b5ea80f75fab",
+      "admission_decision_id": "MEMADM_6083BB5DE5BF742A6E0E61FC",
+      "admission_status": "ADMITTED_NEW",
+      "experience_id": "EXP08_65B8EAAAB2ECDCB58439B46A"
+    },
+    {
+      "admission_decision_digest": "sha256:1a8c557225784be9258b5e8b4dd88842aaab8f9c56001f5783ec46fd06130738",
+      "admission_decision_id": "MEMADM_E7A00EA6BC1BCC47F70E387A",
+      "admission_status": "LINKED_BATCH_DUPLICATE",
+      "experience_id": "EXP08_75860C4E28F543BA654EB266"
+    },
+    {
+      "admission_decision_digest": "sha256:0d44bd4bd985ee288355048c6e826dfd9c8cd7fcfb032accb0b0f474046719fd",
+      "admission_decision_id": "MEMADM_5C5567102A1F3FD1FEC46D2C",
+      "admission_status": "LINKED_BATCH_DUPLICATE",
+      "experience_id": "EXP08_793E3B34EA7EFD89165A1434"
+    },
+    {
+      "admission_decision_digest": "sha256:348f3b334504341f23a51b6f7c784d1b195ce1c663ae269131177d0324912dcd",
+      "admission_decision_id": "MEMADM_3525ABBD85B2082B86766678",
+      "admission_status": "LINKED_BATCH_DUPLICATE",
+      "experience_id": "EXP08_79B236E2BCE57BC695056A63"
+    },
+    {
+      "admission_decision_digest": "sha256:10d24947819d2e2613cf7e1ad3a7c838ffaf30dd3e8872fc4aa298373e267350",
+      "admission_decision_id": "MEMADM_F00A86EB72014FE7B343D199",
+      "admission_status": "LINKED_BATCH_DUPLICATE",
+      "experience_id": "EXP08_854B67FAA886FE9757CB123D"
+    },
+    {
+      "admission_decision_digest": "sha256:f81fdb8194f95d4e7dbc97d0f483e05bb09421a0a6dabc206482f89192289282",
+      "admission_decision_id": "MEMADM_E7912814F67B7F38AEED5350",
+      "admission_status": "ADMITTED_NEW",
+      "experience_id": "EXP08_A08D11F3D16ABC113808722A"
+    },
+    {
+      "admission_decision_digest": "sha256:1bf341426b502dfdacaa5749ec6526212b8ee8d75e951828888bbd7796bc4e54",
+      "admission_decision_id": "MEMADM_0A35C214BC2673DD2D933D88",
+      "admission_status": "LINKED_BATCH_DUPLICATE",
+      "experience_id": "EXP08_B5D0EB7C5BB7B4CC90B233B2"
+    },
+    {
+      "admission_decision_digest": "sha256:7995228c3ec4164df2f09c29326e615185e0eb3c40a5a9d8d5b49dbf789aff66",
+      "admission_decision_id": "MEMADM_E4517B4F0DBB96F25C6433EE",
+      "admission_status": "QUARANTINED_DIAGNOSTIC",
+      "experience_id": "EXP08_D3BA349B7DFAFABCBC68733F"
+    }
+  ],
+  "decision_count": 12,
+  "memory_run_id": "MEMRUN_86C46AE40D92F8AE6DDD9796C670D534",
+  "report_id": "REPORT_2FED2879ED0864D2A8EC4EFF7830B4AA",
+  "schema_version": "1.0.0",
+  "source_semantics_mutated": false,
+  "status_counts": {
+    "ADMITTED_NEW": 5,
+    "LINKED_BATCH_DUPLICATE": 6,
+    "QUARANTINED_DIAGNOSTIC": 1
+  }
+}

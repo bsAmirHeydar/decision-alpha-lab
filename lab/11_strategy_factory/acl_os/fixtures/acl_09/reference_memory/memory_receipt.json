@@ -1,0 +1,17 @@
+{
+  "acl10_handoff_digest": "sha256:13e63cfae2a79d62f6190202802db56708470e0f8b2924870a7261bf0d967a4f",
+  "capital_activation_allowed": false,
+  "claim_ceiling": "MEMORY_AND_ACTIVE_PLANNING_REFERENCE_ONLY",
+  "event_ledger_digest": "sha256:b9f40859279b6a865cb0d67f856f21f6f23033d0d424fe9b32914231da4a48bf",
+  "live_order_submission_allowed": false,
+  "memory_index_digest": "sha256:1fc6bb15b530fd1aef292d3f273d12cc3e192980986928292b4d8a2c515c1763",
+  "memory_run_digest": "sha256:e6eda83b750af3265f4d770f4ef03c78f231dd77dbe1bdd1c144847044d7d0c1",
+  "memory_run_id": "MEMRUN_86C46AE40D92F8AE6DDD9796C670D534",
+  "output_manifest_digest": "sha256:d9001211c5f6b5b59e2f84adf270cedce200afe6e53522a1371f827846027dde",
+  "plan_portfolio_digest": "sha256:1f8e43f77ddaa5c6c6033fe356d27af76e17b30c27fe96104d981b67791bada4",
+  "receipt_digest": "sha256:67e10ae59b1afd1239ad82006e6b7a33bc98106b2bd48d5fbf9570a1d4ac8cc7",
+  "report_id": "REPORT_2FED2879ED0864D2A8EC4EFF7830B4AA",
+  "research_execution_allowed": false,
+  "schema_version": "1.0.0",
+  "service_version": "1.0.0"
+}

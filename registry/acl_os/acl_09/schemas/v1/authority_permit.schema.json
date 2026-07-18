@@ -1,0 +1,39 @@
+{
+  "$id": "https://alpha-lab.local/acl09/authority_permit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action": {},
+    "capital_activation_allowed": {},
+    "doctrine_amendment_allowed": {},
+    "live_order_submission_allowed": {},
+    "network_access_allowed": {},
+    "permit_digest": {},
+    "permit_id": {},
+    "phase": {},
+    "report_id": {},
+    "research_execution_allowed": {},
+    "schema_version": {
+      "type": "string"
+    },
+    "secret_access_allowed": {},
+    "upstream_handoff_digest": {}
+  },
+  "required": [
+    "schema_version",
+    "permit_id",
+    "phase",
+    "action",
+    "report_id",
+    "upstream_handoff_digest",
+    "network_access_allowed",
+    "secret_access_allowed",
+    "research_execution_allowed",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "doctrine_amendment_allowed",
+    "permit_digest"
+  ],
+  "title": "authority_permit",
+  "type": "object"
+}

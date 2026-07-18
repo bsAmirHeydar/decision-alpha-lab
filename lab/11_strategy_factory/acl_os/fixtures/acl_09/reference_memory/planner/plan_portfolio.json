@@ -1,0 +1,73 @@
+{
+  "automatic_scheduling_allowed": false,
+  "deferred_count": 2,
+  "max_selected_proposals": 6,
+  "max_total_cost_units": 100,
+  "memory_run_id": "MEMRUN_86C46AE40D92F8AE6DDD9796C670D534",
+  "policy_id": "ACL09_PLANNER_POLICY_V1",
+  "portfolio_digest": "sha256:1f8e43f77ddaa5c6c6033fe356d27af76e17b30c27fe96104d981b67791bada4",
+  "proposal_count": 8,
+  "proposals": [
+    {
+      "proposal_digest": "sha256:ad61ea33bc6dfd813bd8a98e7a1ecce7381a24c1b1c0a9152b556df464ea86f3",
+      "proposal_fingerprint": "sha256:fc77bad675b6e7a6e7dfd06cc2be278d6308b4c3cd75388e59c1e5c585ae8c25",
+      "proposal_id": "PLAN09_87B81C97F6096DA39ECB32D6",
+      "proposal_status": "SELECTED_PROPOSAL_NOT_AUTHORIZED",
+      "question_id": "COLLECT_EXECUTION_COST_EVIDENCE"
+    },
+    {
+      "proposal_digest": "sha256:c8f03bb68e64d8cb89269e89c5176a2860586a7e2b3103132cc7071320b8aee0",
+      "proposal_fingerprint": "sha256:a55cb8ea9a5291d7e88a10d04610841bea46b341cb79e4b2ba81a53ca2c06607",
+      "proposal_id": "PLAN09_6DF2221205F0B6024D3383D5",
+      "proposal_status": "SELECTED_PROPOSAL_NOT_AUTHORIZED",
+      "question_id": "RUN_PROSPECTIVE_SHADOW_EVALUATION"
+    },
+    {
+      "proposal_digest": "sha256:3dd9858c8115d12af995eb4d977afd9967e51b9708e24bbb6109c5b79be460c6",
+      "proposal_fingerprint": "sha256:d90d1150fbe49b0aced98e35b4cb086e827441a4ec9778d050915442e21d61d8",
+      "proposal_id": "PLAN09_A030F086037DDC71BEE4592C",
+      "proposal_status": "SELECTED_PROPOSAL_NOT_AUTHORIZED",
+      "question_id": "SCHEDULE_INDEPENDENT_REPLICATION"
+    },
+    {
+      "proposal_digest": "sha256:69ded6dcb6e90d116f064f491e74ce4e7ba04e49b29f9e8d6a854aa487c8e72b",
+      "proposal_fingerprint": "sha256:5bac62d8a3dcf11d8457233a8d1dfdcfa3b63ac604b7f310befba2a2150b263a",
+      "proposal_id": "PLAN09_E2D8E0AB292CCC5C35E3376F",
+      "proposal_status": "SELECTED_PROPOSAL_NOT_AUTHORIZED",
+      "question_id": "ADD_TEMPORAL_HOLDOUT_EVIDENCE"
+    },
+    {
+      "proposal_digest": "sha256:add42cd122b20fb8e16c3d4a5a5d9785bf6d489253b046ef2232be103a992171",
+      "proposal_fingerprint": "sha256:eba2605910bfde9a4efe11a0b3eb673a20684973d45ee98dd34e51cf08a4d80e",
+      "proposal_id": "PLAN09_55F31812AA9AD712215D721A",
+      "proposal_status": "SELECTED_PROPOSAL_NOT_AUTHORIZED",
+      "question_id": "COLLECT_TAIL_PATH_EVIDENCE"
+    },
+    {
+      "proposal_digest": "sha256:f6a3ae4385f3ce9d3c4a3dcbd933b541bb00d073a39cb171120e77ffce6441f0",
+      "proposal_fingerprint": "sha256:a9fb0eae0a1091b2a50f5b1b7826b0bdcc52ebb24f7920a0d9f8d097d05fd478",
+      "proposal_id": "PLAN09_7CDF3AA9F79D954E35450ADF",
+      "proposal_status": "DEFERRED_BUDGET",
+      "question_id": "BUILD_OOD_AND_ABSTENTION_EVIDENCE"
+    },
+    {
+      "proposal_digest": "sha256:443175e7f32a524a9fd962c3df804a38f721a5eaa9bb8e782864f3cf254b7ac8",
+      "proposal_fingerprint": "sha256:c4c882300804ee966000f7731c4c12535d055cf88b30421860846efa7281c6ab",
+      "proposal_id": "PLAN09_B605E04A39FD027A6A3D88FE",
+      "proposal_status": "SELECTED_PROPOSAL_NOT_AUTHORIZED",
+      "question_id": "REDUCE_OR_REFREEZE_TESTING_FAMILY"
+    },
+    {
+      "proposal_digest": "sha256:033f4fa4ae84232b93e23adf6f85a2cad7ea9a0f4461cb9c0c2535ba351cf1ff",
+      "proposal_fingerprint": "sha256:865d25ae786629d035f608c1e6646751cc84a2c547193fed48878495ddb12187",
+      "proposal_id": "PLAN09_29F1F9F0C39E45C112C7251A",
+      "proposal_status": "DEFERRED_BUDGET",
+      "question_id": "COLLECT_SIGNIFICANCE_EVIDENCE"
+    }
+  ],
+  "research_execution_allowed": false,
+  "schema_version": "1.0.0",
+  "selected_cost_units": 94,
+  "selected_count": 6,
+  "suppressed_count": 0
+}

@@ -1,0 +1,6 @@
+{
+  "control_tokens_denied": true,
+  "policy_id": "ACL09_MEMORY_POISONING_POLICY_V1",
+  "schema_version": "1.0.0",
+  "structured_fields_only": true
+}

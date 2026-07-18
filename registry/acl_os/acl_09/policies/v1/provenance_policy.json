@@ -1,0 +1,5 @@
+{
+  "policy_id": "ACL09_PROVENANCE_POLICY_V1",
+  "schema_version": "1.0.0",
+  "source_decision_digests_required": true
+}

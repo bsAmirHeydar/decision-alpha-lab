@@ -1,0 +1,6 @@
+{
+  "automatic_admission": false,
+  "policy": "APPEND_ONLY_GOVERNED_ADMISSION",
+  "policy_id": "ACL09_MEMORY_ADMISSION_POLICY_V1",
+  "schema_version": "1.0.0"
+}

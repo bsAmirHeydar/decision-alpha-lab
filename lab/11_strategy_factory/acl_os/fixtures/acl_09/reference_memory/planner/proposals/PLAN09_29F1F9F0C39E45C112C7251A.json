@@ -1,0 +1,27 @@
+{
+  "capital_activation_allowed": false,
+  "decision_relevance_units": 7,
+  "estimated_cost_units": 8,
+  "information_gain_units": 7,
+  "live_order_submission_allowed": false,
+  "priority_score": 53,
+  "promotion_allowed": false,
+  "proposal_digest": "sha256:033f4fa4ae84232b93e23adf6f85a2cad7ea9a0f4461cb9c0c2535ba351cf1ff",
+  "proposal_fingerprint": "sha256:865d25ae786629d035f608c1e6646751cc84a2c547193fed48878495ddb12187",
+  "proposal_id": "PLAN09_29F1F9F0C39E45C112C7251A",
+  "proposal_status": "DEFERRED_BUDGET",
+  "question_id": "COLLECT_SIGNIFICANCE_EVIDENCE",
+  "reason_codes": [
+    "PLANNER_BUDGET_OR_COUNT_CAP_REACHED"
+  ],
+  "requires_human_approval": true,
+  "requires_new_frozen_batch": true,
+  "research_execution_allowed": false,
+  "risk_reduction_units": 6,
+  "schema_version": "1.0.0",
+  "source_count": 1,
+  "source_memory_entry_ids": [
+    "MEMENTRY_6E166ADDAB85BDB89EC77A34"
+  ],
+  "target_gate": "STATISTICAL_SIGNIFICANCE"
+}

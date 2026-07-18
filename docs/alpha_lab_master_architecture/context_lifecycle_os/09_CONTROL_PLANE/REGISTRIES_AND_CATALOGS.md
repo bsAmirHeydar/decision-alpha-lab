@@ -1,66 +1,17 @@
 ---
 title: Registries and Catalogs
-status: proposed-reference
-version: 1.0.0
-updated: 2026-07-17
-tags: [acl-os, context-lifecycle]
+status: accepted-reference
+version: 2.0.0
+updated: 2026-07-18
+tags: [acl-os, acl-09, control-plane]
 ---
 # Registries and Catalogs
 
-Provides authoritative discovery for Contexts, schemas, extensions, atoms, gates, policies and artifacts.
+ACL-09 adds a closed Research Question Registry with target gate, cost, information gain, risk reduction, new-batch requirement and human-approval requirement.
 
-## Responsibility boundary
-
-This component owns a narrow part of stateful orchestration, policy enforcement, registries and operator interfaces. It communicates through versioned contracts and immutable references. It may not infer adjacent authority, reach into private implementation folders, or create an alternative identity, security or evidence system.
-
-## Required inputs
-
-- Exact artifact identities and versions.
-- Declared owner and authority scope.
-- Applicable policy, security classification and compatibility range.
-- Known-time-safe evidence or an explicit UNKNOWN state.
-
-## Produced artifacts
-
-- Closed-schema machine result with reason codes.
-- Lineage links to all source artifacts and transformations.
-- Human-readable Obsidian projection.
-- Security, test and migration evidence appropriate to the artifact class.
-
-## Non-negotiable invariants
-
-- Unknown fields and unresolved identities fail closed.
-- Generated content is never hand-edited.
-- Passing local tests does not prove alpha, live parity or capital authorization.
-- Every material mutation is authenticated, authorized, attributable and replayable.
-- Breaking semantics require a new version, migration and rollback.
-
-## Reference workflow
-
-1. Resolve exact inputs and owners.
-2. Validate schema, compatibility, security classification and authority.
-3. Execute deterministic domain logic in the declared environment.
-4. Validate outputs and append evidence events.
-5. Publish structured artifacts and projections atomically.
-6. Expose only policy-approved next actions.
-
-## Failure semantics
-
-The component stops with explicit reason codes for missing evidence, ambiguous semantics, incompatible versions, integrity mismatch, insufficient support, policy denial, security failure or unavailable dependency. It does not substitute a permissive default.
-
-## Extension and evolution
-
-New behavior enters through a registered extension manifest, bounded capabilities and conformance suite. Additive changes use compatible minor versions. Breaking changes require a major version, impact analysis, idempotent migration, dual-read or shadow period where needed, rollback and deprecation evidence.
-
-## Verification obligations
-
-Unit and property tests cover deterministic logic. Contract tests cover every adapter. Mutation tests prove guards are effective. Security-negative tests attempt bypass. Golden replay proves deterministic projection. Clean-checkout delivery validation proves the package has no hidden build dependency.
-
-## Claim ceiling
-
-This architecture note specifies required mechanics. Only environment-specific evidence can establish external data quality, statistical edge, broker behavior, MQL5 parity, operational security or production authorization.
+## Control invariant
+Unknown identity, incompatible policy, budget breach, poisoning or hidden authority fails closed. All outputs are content-addressed, attributable and replayable.
 
 ## Related
-
-- [[ACL_OS_HOME]]
-- [[IMPLEMENTATION_MASTER_PLAN]]
+- [[ACL09_MEMORY_AND_ACTIVE_PLANNER_RUNTIME]]
+- [[ACL09_EVENT_LEDGER]]

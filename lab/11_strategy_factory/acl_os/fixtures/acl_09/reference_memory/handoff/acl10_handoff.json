@@ -1,0 +1,35 @@
+{
+  "admission_bundle_digest": "sha256:f2822be5b67296b449ff6594dd9cd146779d61560baa3aa59872e68c8322dfb8",
+  "batch_id": "BATCH_81FF4FC3C8B796422B0EF6818FEB2D5E",
+  "capital_activation_allowed": false,
+  "claim_ceiling": "MEMORY_AND_ACTIVE_PLANNING_REFERENCE_ONLY",
+  "equivalence_report_digest": "sha256:360934d670c7447f27ec71b34908d554e9c5383315294c60eb8fb72e9f981890",
+  "event_ledger_digest": "sha256:b9f40859279b6a865cb0d67f856f21f6f23033d0d424fe9b32914231da4a48bf",
+  "forbidden_acl10_actions": [
+    "EXECUTE_RESEARCH_PLAN",
+    "MUTATE_MEMORY_HISTORY",
+    "PROMOTE_WITHOUT_VALIDATED_EVIDENCE",
+    "AUTHORIZE_EXECUTION",
+    "ACTIVATE_CAPITAL"
+  ],
+  "handoff_digest": "sha256:13e63cfae2a79d62f6190202802db56708470e0f8b2924870a7261bf0d967a4f",
+  "handoff_type": "ACL09_TO_ACL10",
+  "live_order_submission_allowed": false,
+  "memory_index_digest": "sha256:1fc6bb15b530fd1aef292d3f273d12cc3e192980986928292b4d8a2c515c1763",
+  "memory_run_digest": "sha256:e6eda83b750af3265f4d770f4ef03c78f231dd77dbe1bdd1c144847044d7d0c1",
+  "memory_run_id": "MEMRUN_86C46AE40D92F8AE6DDD9796C670D534",
+  "plan_portfolio_digest": "sha256:1f8e43f77ddaa5c6c6033fe356d27af76e17b30c27fe96104d981b67791bada4",
+  "promotion_allowed": false,
+  "provenance_graph_digest": "sha256:4908545f6841ee796115bbe5d0f7cedc828081e71e6b6b78d101457337aa18bb",
+  "report_id": "REPORT_2FED2879ED0864D2A8EC4EFF7830B4AA",
+  "reporting_eligible_candidate_count": 0,
+  "required_acl10_actions": [
+    "VERIFY_MEMORY_AND_PLANNER_PACKAGE",
+    "EVALUATE_PROMOTION_PREREQUISITES",
+    "ISSUE_NON_PROMOTIONAL_STATE_DECISION"
+  ],
+  "research_execution_allowed": false,
+  "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+  "schema_version": "1.0.0",
+  "validation_id": "VALIDATION_3AC66AA2ED2AC1AEE9B8EDB7ABB9C13A"
+}

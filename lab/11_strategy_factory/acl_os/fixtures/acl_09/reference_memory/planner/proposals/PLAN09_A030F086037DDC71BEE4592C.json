@@ -1,0 +1,28 @@
+{
+  "capital_activation_allowed": false,
+  "decision_relevance_units": 10,
+  "estimated_cost_units": 28,
+  "information_gain_units": 10,
+  "live_order_submission_allowed": false,
+  "priority_score": 62,
+  "promotion_allowed": false,
+  "proposal_digest": "sha256:3dd9858c8115d12af995eb4d977afd9967e51b9708e24bbb6109c5b79be460c6",
+  "proposal_fingerprint": "sha256:d90d1150fbe49b0aced98e35b4cb086e827441a4ec9778d050915442e21d61d8",
+  "proposal_id": "PLAN09_A030F086037DDC71BEE4592C",
+  "proposal_status": "SELECTED_PROPOSAL_NOT_AUTHORIZED",
+  "question_id": "SCHEDULE_INDEPENDENT_REPLICATION",
+  "reason_codes": [
+    "HIGHEST_BOUNDED_INFORMATION_VALUE_WITHIN_POLICY"
+  ],
+  "requires_human_approval": true,
+  "requires_new_frozen_batch": true,
+  "research_execution_allowed": false,
+  "risk_reduction_units": 10,
+  "schema_version": "1.0.0",
+  "source_count": 2,
+  "source_memory_entry_ids": [
+    "MEMENTRY_6E166ADDAB85BDB89EC77A34",
+    "MEMENTRY_76A1BF78CCE0151F0B10FBB2"
+  ],
+  "target_gate": "INDEPENDENT_REPLICATION"
+}

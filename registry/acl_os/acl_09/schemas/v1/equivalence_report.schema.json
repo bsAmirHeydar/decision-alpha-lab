@@ -1,0 +1,29 @@
+{
+  "$id": "https://alpha-lab.local/acl09/equivalence_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "clusters": {},
+    "equivalence_report_digest": {},
+    "exact_duplicate_count": {},
+    "near_equivalence_count": {},
+    "near_equivalences": {},
+    "record_count": {},
+    "schema_version": {
+      "type": "string"
+    },
+    "unique_fingerprint_count": {}
+  },
+  "required": [
+    "schema_version",
+    "record_count",
+    "unique_fingerprint_count",
+    "exact_duplicate_count",
+    "clusters",
+    "near_equivalence_count",
+    "near_equivalences",
+    "equivalence_report_digest"
+  ],
+  "title": "equivalence_report",
+  "type": "object"
+}

@@ -1,0 +1,15 @@
+{
+  "automatic_scheduling_allowed": false,
+  "capital_activation_allowed": false,
+  "diagnostic_memory_selectable": false,
+  "doctrine_amendment_allowed": false,
+  "live_order_submission_allowed": false,
+  "memory_run_id": "MEMRUN_86C46AE40D92F8AE6DDD9796C670D534",
+  "network_access_allowed": false,
+  "passed": true,
+  "promotion_allowed": false,
+  "research_execution_allowed": false,
+  "schema_version": "1.0.0",
+  "secret_access_allowed": false,
+  "security_report_digest": "sha256:da504f65f5285e19216e054b43448afc017642db897f0fc8a79b7c99d2d401fd"
+}

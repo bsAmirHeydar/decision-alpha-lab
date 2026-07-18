@@ -1,0 +1,37 @@
+{
+  "$id": "https://alpha-lab.local/acl09/memory_run.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capital_activation_allowed": {},
+    "claim_ceiling": {},
+    "live_order_submission_allowed": {},
+    "memory_index_digest": {},
+    "memory_run_digest": {},
+    "memory_run_id": {},
+    "portfolio_digest": {},
+    "promotion_allowed": {},
+    "report_id": {},
+    "research_execution_allowed": {},
+    "schema_version": {
+      "type": "string"
+    },
+    "state": {}
+  },
+  "required": [
+    "schema_version",
+    "memory_run_id",
+    "report_id",
+    "state",
+    "claim_ceiling",
+    "memory_index_digest",
+    "portfolio_digest",
+    "research_execution_allowed",
+    "promotion_allowed",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "memory_run_digest"
+  ],
+  "title": "memory_run",
+  "type": "object"
+}

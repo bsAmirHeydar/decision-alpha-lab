@@ -1,0 +1,9 @@
+{
+  "closed_world": true,
+  "policy_count": 26,
+  "question_registry_digest": "sha256:6070ca82697c6df573d1498759e9fbc3835b85a880dad0ccef981013e01c1b41",
+  "registry_digest": "sha256:fdebea09d6b526bc434da719802ad0be1dd1144bdd8bc92be84833b1c6a3cf2d",
+  "registry_id": "ACL09_REGISTRY_MANIFEST_V1",
+  "schema_count": 28,
+  "schema_version": "1.0.0"
+}

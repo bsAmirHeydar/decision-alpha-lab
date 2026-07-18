@@ -1,0 +1,66 @@
+{
+  "checks": {
+    "acl08_direct_regression": {
+      "command": "pytest -q lab/11_strategy_factory/acl_os/tests_acl_08",
+      "failed": 0,
+      "passed": 39
+    },
+    "acl09_direct_tests": {
+      "command": "pytest -q lab/11_strategy_factory/acl_os/tests_acl_09",
+      "failed": 0,
+      "passed": 32
+    },
+    "acl10_handoff_binding": true,
+    "delivery_validation": true,
+    "diagnostic_quarantine": true,
+    "event_chain": true,
+    "exact_duplicate_aliasing": true,
+    "near_equivalence_no_auto_merge": true,
+    "planner_budget_enforcement": true,
+    "policy_count": 26,
+    "prior_memory_idempotency": true,
+    "proposal_execution_denial": true,
+    "python_compileall": true,
+    "question_registry_count": 8,
+    "reference_artifact_count": 64,
+    "reference_json_parse_count": 59,
+    "reference_replay": true,
+    "schema_count": 28,
+    "source_decision_digest_preservation": true,
+    "static_registry_validation": true
+  },
+  "claim_ceiling": "MEMORY_AND_ACTIVE_PLANNING_REFERENCE_ONLY",
+  "not_claimed": [
+    "alpha",
+    "research execution authorization",
+    "automatic scheduling",
+    "promotion eligibility",
+    "production readiness",
+    "MetaEditor compilation",
+    "MT5 runtime parity",
+    "live order safety",
+    "capital authorization",
+    "automatic doctrine amendment"
+  ],
+  "phase": "ACL-09",
+  "reference_result": {
+    "acl10_handoff_digest": "sha256:13e63cfae2a79d62f6190202802db56708470e0f8b2924870a7261bf0d967a4f",
+    "admission_decisions": 12,
+    "deferred_proposals": 2,
+    "diagnostic_quarantines": 1,
+    "duplicate_aliases": 6,
+    "event_count": 9,
+    "exact_duplicates": 6,
+    "generated_manifest_artifact_count": 62,
+    "memory_run_id": "MEMRUN_86C46AE40D92F8AE6DDD9796C670D534",
+    "near_equivalence_pairs": 1,
+    "new_memory_entries": 5,
+    "planner_proposals": 8,
+    "report_id": "REPORT_2FED2879ED0864D2A8EC4EFF7830B4AA",
+    "selected_cost_units": 94,
+    "selected_proposals_not_authorized": 6,
+    "unique_fingerprints": 6
+  },
+  "schema_version": "1.0.0",
+  "status": "PASS"
+}

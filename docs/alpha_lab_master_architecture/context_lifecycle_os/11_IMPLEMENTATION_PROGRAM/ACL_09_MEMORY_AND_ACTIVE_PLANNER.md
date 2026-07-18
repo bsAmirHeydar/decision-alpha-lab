@@ -1,27 +1,31 @@
 ---
 title: ACL-09 — Memory and Active Planner
-status: proposed-reference
+status: accepted-reference-implementation
 version: 1.0.0
 updated: 2026-07-18
-tags: [acl-os, acl-09, memory]
+tags: [acl-os, acl-09, memory, planner]
 ---
 # ACL-09 — Memory and Active Planner
 
-ACL-09 consumes `ACL08_TO_ACL09` and owns governed memory admission, duplicate detection and bounded research planning.
+ACL-09 consumes `ACL08_TO_ACL09` and implements governed memory admission, exact and near duplicate detection, diagnostic quarantine, append-only indexing, prior-memory idempotency and bounded research-plan proposals.
 
-## ACL-08 dependency contract
+## Implemented outputs
 
-ACL-09 must verify the ACL-08 manifest, receipt, report run, Batch Report, Experience Bundle, Event Ledger and Provenance Graph. It must preserve source decision digests and may not rewrite ACL-07 validation semantics.
+- ACL-08 binding and authority report
+- Memory and planner policy snapshots
+- Closed research-question registry
+- Memory-poisoning report
+- Duplicate/equivalence clusters
+- Admission decision for every experience record
+- Canonical memory entries, duplicate aliases and diagnostic quarantine
+- Immutable memory index
+- Bounded planner proposals, portfolio and budget report
+- Event ledger and provenance graph
+- Human-readable Obsidian projections
+- `ACL09_TO_ACL10` handoff
 
-Required actions are:
+## Claim ceiling
 
-- `INGEST_REPORT_PACKAGE`
-- `INDEX_EXPERIENCE_RECORDS`
-- `DETECT_RESEARCH_DUPLICATES`
-- `PROPOSE_BOUNDED_RESEARCH_QUESTIONS`
+`MEMORY_AND_ACTIVE_PLANNING_REFERENCE_ONLY`
 
-Forbidden actions include inferring alpha from summaries, promoting reporting output, granting execution authority, activating capital or amending doctrine without approval.
-
-## Outputs expected
-
-A governed memory-admission decision, duplicate/equivalence report, bounded planner proposals, security evidence, human projection and an explicit handoff to ACL-10. Planner proposals are not experiment execution or promotion permission.
+No research proposal is executed. No validation decision is rewritten. No alpha, promotion, order, capital or doctrine authority is created.

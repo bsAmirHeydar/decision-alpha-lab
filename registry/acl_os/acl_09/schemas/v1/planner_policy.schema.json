@@ -1,0 +1,31 @@
+{
+  "$id": "https://alpha-lab.local/acl09/planner_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capital_activation_allowed": {},
+    "live_order_submission_allowed": {},
+    "max_selected_proposals": {},
+    "max_total_cost_units": {},
+    "policy_digest": {},
+    "policy_id": {},
+    "promotion_allowed": {},
+    "research_execution_allowed": {},
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "policy_id",
+    "max_selected_proposals",
+    "max_total_cost_units",
+    "research_execution_allowed",
+    "promotion_allowed",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "policy_digest"
+  ],
+  "title": "planner_policy",
+  "type": "object"
+}

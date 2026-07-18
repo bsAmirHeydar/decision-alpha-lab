@@ -1,0 +1,28 @@
+{
+  "capital_activation_allowed": false,
+  "decision_relevance_units": 8,
+  "estimated_cost_units": 16,
+  "information_gain_units": 8,
+  "live_order_submission_allowed": false,
+  "priority_score": 58,
+  "promotion_allowed": false,
+  "proposal_digest": "sha256:f6a3ae4385f3ce9d3c4a3dcbd933b541bb00d073a39cb171120e77ffce6441f0",
+  "proposal_fingerprint": "sha256:a9fb0eae0a1091b2a50f5b1b7826b0bdcc52ebb24f7920a0d9f8d097d05fd478",
+  "proposal_id": "PLAN09_7CDF3AA9F79D954E35450ADF",
+  "proposal_status": "DEFERRED_BUDGET",
+  "question_id": "BUILD_OOD_AND_ABSTENTION_EVIDENCE",
+  "reason_codes": [
+    "PLANNER_BUDGET_OR_COUNT_CAP_REACHED"
+  ],
+  "requires_human_approval": true,
+  "requires_new_frozen_batch": true,
+  "research_execution_allowed": false,
+  "risk_reduction_units": 9,
+  "schema_version": "1.0.0",
+  "source_count": 2,
+  "source_memory_entry_ids": [
+    "MEMENTRY_6E166ADDAB85BDB89EC77A34",
+    "MEMENTRY_76A1BF78CCE0151F0B10FBB2"
+  ],
+  "target_gate": "OOD_AND_ABSTENTION"
+}

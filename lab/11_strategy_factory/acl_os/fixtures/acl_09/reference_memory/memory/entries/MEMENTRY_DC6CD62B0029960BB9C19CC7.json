@@ -1,0 +1,48 @@
+{
+  "append_only": true,
+  "bounded_research_questions": [
+    "ADD_TEMPORAL_HOLDOUT_EVIDENCE",
+    "BUILD_OOD_AND_ABSTENTION_EVIDENCE",
+    "COLLECT_EXECUTION_COST_EVIDENCE",
+    "COLLECT_SIGNIFICANCE_EVIDENCE",
+    "COLLECT_TAIL_PATH_EVIDENCE",
+    "REDUCE_OR_REFREEZE_TESTING_FAMILY",
+    "RUN_PROSPECTIVE_SHADOW_EVALUATION",
+    "SCHEDULE_INDEPENDENT_REPLICATION"
+  ],
+  "candidate_id": "CAND_CF4A585DC367BA2EC830",
+  "canonical_experience_digest": "sha256:c0a0f0fab1e97a979a6145b563fb4404c996cce84d634c2d84f69c2118a0509c",
+  "canonical_experience_id": "EXP08_3FDDD5021A95C10885C43598",
+  "capital_activation_allowed": false,
+  "duplicate_fingerprint": "sha256:c2ab99d0f882418061b7e4e5e6ca6a4d88c8a19ab1000abb22bdfd4174dfcbfc",
+  "experience_class": "BASELINE_REFERENCE",
+  "failed_gate_ids": [
+    "MINIMUM_SUPPORT",
+    "EFFECT_SIZE",
+    "OVERFIT_CONTROL"
+  ],
+  "knowledge_polarity": "NEUTRAL_REFERENCE",
+  "live_order_submission_allowed": false,
+  "memory_entry_digest": "sha256:6524021cc352eb99d1de43ebb2b352fe94aad248a17fbf5f9e133e4346b52adc",
+  "memory_entry_id": "MEMENTRY_DC6CD62B0029960BB9C19CC7",
+  "promotion_allowed": false,
+  "reason_codes": [
+    "BASELINE_NOT_PROMOTABLE"
+  ],
+  "schema_version": "1.0.0",
+  "security_classification": "INTERNAL_RESEARCH",
+  "setup_id": "SETUP_CE82D176E29FCA349EE1",
+  "source_candidate_report_digest": "sha256:ae1bc5151b0c10a685c9d80260fa1c64b1f817c3cef0bf9825ca774cf563291c",
+  "source_decision_digest": "sha256:ac1903360d0c1c5bb8aecc483ff40bb40feba2c1206a4ee5fd138b88869f2b4d",
+  "source_semantics_mutated": false,
+  "unknown_gate_ids": [
+    "STATISTICAL_SIGNIFICANCE",
+    "MULTIPLE_TESTING",
+    "TEMPORAL_GENERALIZATION",
+    "DISTRIBUTIONAL_ROBUSTNESS",
+    "EXECUTION_ECONOMICS",
+    "OOD_AND_ABSTENTION",
+    "PROSPECTIVE_EVIDENCE",
+    "INDEPENDENT_REPLICATION"
+  ]
+}

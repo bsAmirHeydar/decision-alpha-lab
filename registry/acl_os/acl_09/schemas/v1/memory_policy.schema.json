@@ -1,0 +1,31 @@
+{
+  "$id": "https://alpha-lab.local/acl09/memory_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accepted_experience_classes": {},
+    "append_only": {},
+    "diagnostic_quarantine_required": {},
+    "doctrine_amendment_allowed": {},
+    "near_duplicate_threshold_bps": {},
+    "policy_digest": {},
+    "policy_id": {},
+    "promotion_allowed": {},
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "policy_id",
+    "accepted_experience_classes",
+    "append_only",
+    "diagnostic_quarantine_required",
+    "near_duplicate_threshold_bps",
+    "doctrine_amendment_allowed",
+    "promotion_allowed",
+    "policy_digest"
+  ],
+  "title": "memory_policy",
+  "type": "object"
+}

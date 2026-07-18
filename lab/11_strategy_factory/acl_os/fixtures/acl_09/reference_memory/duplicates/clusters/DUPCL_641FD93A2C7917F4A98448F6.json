@@ -1,0 +1,14 @@
+{
+  "canonical_experience_id": "EXP08_A08D11F3D16ABC113808722A",
+  "cluster_digest": "sha256:418908ad0eb2a1c54b1a7c7af3cc34c34b034ee9b1673f2d43f2620240c07bed",
+  "cluster_id": "DUPCL_641FD93A2C7917F4A98448F6",
+  "duplicate_fingerprint": "sha256:4e4b3fbbe5811e93fd0310c23294a4ac1c32fe06ce7239b0a110fc5a90c71f7d",
+  "exact_duplicate_count": 0,
+  "member_count": 1,
+  "member_experience_ids": [
+    "EXP08_A08D11F3D16ABC113808722A"
+  ],
+  "merge_semantics": "ALIAS_ONLY_NO_SOURCE_MUTATION",
+  "prior_memory_entry_id": null,
+  "schema_version": "1.0.0"
+}

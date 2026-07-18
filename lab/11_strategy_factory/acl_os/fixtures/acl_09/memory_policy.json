@@ -1,0 +1,20 @@
+{
+  "accepted_experience_classes": [
+    "BASELINE_REFERENCE",
+    "DIAGNOSTIC_EXCLUSION",
+    "INSUFFICIENT_EVIDENCE",
+    "NEGATIVE_VALIDATION",
+    "REPORTABLE_EVIDENCE"
+  ],
+  "append_only": true,
+  "diagnostic_quarantine_required": true,
+  "doctrine_amendment_allowed": false,
+  "near_duplicate_threshold_bps": 7500,
+  "policy_digest": "sha256:0d59c3f9f6c786ce662912a1887442bb2b552232081c1e25d86e7abf80e30688",
+  "policy_id": "ACL09_MEMORY_POLICY_V1",
+  "promotion_allowed": false,
+  "retention_mode": "RETAIN_UNTIL_GOVERNED_RETIREMENT",
+  "schema_version": "1.0.0",
+  "security_classification": "INTERNAL_RESEARCH",
+  "source_semantics_mutation_allowed": false
+}

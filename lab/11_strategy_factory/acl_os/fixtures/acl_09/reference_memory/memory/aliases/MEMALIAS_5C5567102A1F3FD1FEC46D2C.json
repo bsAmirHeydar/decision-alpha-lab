@@ -1,0 +1,10 @@
+{
+  "alias_digest": "sha256:3b3902ea06e2982a438d5bae7ea74d274e5dde986427e939934781d914618ff8",
+  "alias_id": "MEMALIAS_5C5567102A1F3FD1FEC46D2C",
+  "duplicate_scope": "CURRENT_BATCH",
+  "experience_digest": "sha256:ce475690f5a8f643d17966383db5ed7addf2ddb23811dc35f84c804e6b767b9a",
+  "experience_id": "EXP08_793E3B34EA7EFD89165A1434",
+  "schema_version": "1.0.0",
+  "source_semantics_mutated": false,
+  "target_memory_entry_id": "MEMENTRY_6E166ADDAB85BDB89EC77A34"
+}

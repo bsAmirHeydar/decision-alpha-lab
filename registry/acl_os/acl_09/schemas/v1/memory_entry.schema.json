@@ -1,0 +1,35 @@
+{
+  "$id": "https://alpha-lab.local/acl09/memory_entry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "append_only": {},
+    "canonical_experience_id": {},
+    "capital_activation_allowed": {},
+    "duplicate_fingerprint": {},
+    "experience_class": {},
+    "live_order_submission_allowed": {},
+    "memory_entry_digest": {},
+    "memory_entry_id": {},
+    "promotion_allowed": {},
+    "schema_version": {
+      "type": "string"
+    },
+    "source_decision_digest": {}
+  },
+  "required": [
+    "schema_version",
+    "memory_entry_id",
+    "canonical_experience_id",
+    "duplicate_fingerprint",
+    "experience_class",
+    "source_decision_digest",
+    "append_only",
+    "promotion_allowed",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "memory_entry_digest"
+  ],
+  "title": "memory_entry",
+  "type": "object"
+}

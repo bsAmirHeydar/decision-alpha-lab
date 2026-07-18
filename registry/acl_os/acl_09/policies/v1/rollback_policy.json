@@ -1,0 +1,5 @@
+{
+  "immutable_snapshot_rollback_by_pointer": true,
+  "policy_id": "ACL09_ROLLBACK_POLICY_V1",
+  "schema_version": "1.0.0"
+}

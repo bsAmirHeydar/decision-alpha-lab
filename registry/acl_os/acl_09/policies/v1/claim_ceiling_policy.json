@@ -1,0 +1,5 @@
+{
+  "claim_ceiling": "MEMORY_AND_ACTIVE_PLANNING_REFERENCE_ONLY",
+  "policy_id": "ACL09_CLAIM_CEILING_POLICY_V1",
+  "schema_version": "1.0.0"
+}

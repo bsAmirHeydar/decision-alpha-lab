@@ -1,0 +1,18 @@
+{
+  "action": "ACL09_GOVERN_MEMORY_AND_PLAN",
+  "capital_activation_allowed": false,
+  "doctrine_amendment_allowed": false,
+  "expires_at": "2027-07-18T02:00:00Z",
+  "issued_at": "2026-07-18T02:00:00Z",
+  "issuer": "ALPHA_LAB_REFERENCE_AUTHORITY",
+  "live_order_submission_allowed": false,
+  "network_access_allowed": false,
+  "permit_digest": "sha256:9a8350fa176eb218a956ce675dce57fd6fbe8fc7c9f6c3008a54e8c5737d7a72",
+  "permit_id": "PERMIT_ACL09_REFERENCE_V1",
+  "phase": "ACL-09",
+  "report_id": "REPORT_2FED2879ED0864D2A8EC4EFF7830B4AA",
+  "research_execution_allowed": false,
+  "schema_version": "1.0.0",
+  "secret_access_allowed": false,
+  "upstream_handoff_digest": "sha256:43e36592ccd6b68f384eb417b2db1af9593ff6615a2b3e132ceed3db7c0522aa"
+}

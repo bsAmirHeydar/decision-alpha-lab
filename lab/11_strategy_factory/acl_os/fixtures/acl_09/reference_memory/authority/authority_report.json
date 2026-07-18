@@ -1,0 +1,18 @@
+{
+  "authority_report_digest": "sha256:e14f6dcf951a691d619c83ba2c796ae1a6f9d0070b7e8293463ef5a07b966110",
+  "checks": {
+    "action": true,
+    "capital_denied": true,
+    "doctrine_denied": true,
+    "handoff_bound": true,
+    "network_denied": true,
+    "order_denied": true,
+    "phase": true,
+    "report_bound": true,
+    "research_execution_denied": true,
+    "secret_denied": true
+  },
+  "passed": true,
+  "permit_id": "PERMIT_ACL09_REFERENCE_V1",
+  "schema_version": "1.0.0"
+}

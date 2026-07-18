@@ -1,0 +1,11 @@
+{
+  "budget_expansion_allowed": false,
+  "budget_report_digest": "sha256:b23d0761cc4b308ce905955404ecdd9ef3e698740da2318fc80e241a92fefb15",
+  "memory_run_id": "MEMRUN_86C46AE40D92F8AE6DDD9796C670D534",
+  "passed": true,
+  "remaining_cost_units": 6,
+  "remaining_proposal_slots": 0,
+  "schema_version": "1.0.0",
+  "selected_cost_units": 94,
+  "selected_count": 6
+}

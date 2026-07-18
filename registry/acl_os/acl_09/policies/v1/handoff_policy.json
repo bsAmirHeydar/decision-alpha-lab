@@ -1,0 +1,6 @@
+{
+  "policy_id": "ACL09_HANDOFF_POLICY_V1",
+  "promotion_state_decision_non_promotional_when_no_eligible_candidates": true,
+  "schema_version": "1.0.0",
+  "target": "ACL-10"
+}

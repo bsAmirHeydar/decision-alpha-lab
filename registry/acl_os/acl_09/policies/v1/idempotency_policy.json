@@ -1,0 +1,6 @@
+{
+  "policy_id": "ACL09_IDEMPOTENCY_POLICY_V1",
+  "prior_memory_supported": true,
+  "schema_version": "1.0.0",
+  "stable_ids": true
+}

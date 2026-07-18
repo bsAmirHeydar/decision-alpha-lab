@@ -1,0 +1,18 @@
+{
+  "admission_decision_digest": "sha256:7995228c3ec4164df2f09c29326e615185e0eb3c40a5a9d8d5b49dbf789aff66",
+  "admission_decision_id": "MEMADM_E4517B4F0DBB96F25C6433EE",
+  "admission_status": "QUARANTINED_DIAGNOSTIC",
+  "capital_activation_allowed": false,
+  "experience_digest": "sha256:8947ed12a31b38076075b8824892c5a1c12506ce410fb3249ec485d39802aa99",
+  "experience_id": "EXP08_D3BA349B7DFAFABCBC68733F",
+  "live_order_submission_allowed": false,
+  "promotion_allowed": false,
+  "reason_codes": [
+    "DIAGNOSTIC_NON_SELECTABLE"
+  ],
+  "schema_version": "1.0.0",
+  "setup_id": "SETUP_0CBC9D269F0833852BAE",
+  "source_decision_digest": "sha256:a9941a4ee89344e7b705bdebe050f6845ad60faf342c66bcd6dcbb1806432594",
+  "source_semantics_mutated": false,
+  "target_memory_identity": "MEMQUAR_E4517B4F0DBB96F25C6433EE"
+}

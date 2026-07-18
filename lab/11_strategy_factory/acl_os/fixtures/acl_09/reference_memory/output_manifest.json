@@ -1,0 +1,319 @@
+{
+  "artifact_count": 62,
+  "files": [
+    {
+      "digest": "sha256:3328d432e1b5903ad87b435b5793d4828480c0704d297e1b6b0e52ce02d2ce1a",
+      "path": ".acl09_generated_root",
+      "size_bytes": 43
+    },
+    {
+      "digest": "sha256:94d55df63ea9f936d11354ddfdffb66b284b0ebe44d5fc1a7de370d129bc7f74",
+      "path": "authority/authority_report.json",
+      "size_bytes": 485
+    },
+    {
+      "digest": "sha256:28611ed77b0b1e6b25a9183526b594d60569aad81ef5528d15d9f2e5ebb252e9",
+      "path": "binding/acl08_binding.json",
+      "size_bytes": 986
+    },
+    {
+      "digest": "sha256:24004a867ef00ca169594a7e1f26774469d7840ff8ae518afb6b827dd696a123",
+      "path": "docs/ACL09_MEMORY_AND_PLANNER_SUMMARY.md",
+      "size_bytes": 595
+    },
+    {
+      "digest": "sha256:696f45243c0069a525f2d07590dce470c2cfdfddd5dd062696302a224d1b75aa",
+      "path": "docs/BOUNDED_RESEARCH_PLAN.md",
+      "size_bytes": 804
+    },
+    {
+      "digest": "sha256:8e87e1cbc1ed5dd8a3da949ff3bb58de83f4cac1b52114a95ec828840bf53f7b",
+      "path": "docs/DUPLICATE_AND_EQUIVALENCE.md",
+      "size_bytes": 303
+    },
+    {
+      "digest": "sha256:ed97a01c205fa0b3bfd3f59003af10caaa5939201e65993a203c55481dbd1dd5",
+      "path": "docs/GOVERNED_MEMORY_INDEX.md",
+      "size_bytes": 500
+    },
+    {
+      "digest": "sha256:39028f42c352a83315b3574935207d6dde6d97dba952e7b630bfd52f7b9e2c99",
+      "path": "duplicates/clusters/DUPCL_5A3575B4FA1393822D1EE1C8.json",
+      "size_bytes": 551
+    },
+    {
+      "digest": "sha256:0c432ccec017db217381936d5b0a2473e78cace01ea159e466941e0b431ad9b0",
+      "path": "duplicates/clusters/DUPCL_641FD93A2C7917F4A98448F6.json",
+      "size_bytes": 551
+    },
+    {
+      "digest": "sha256:b8e5561f04a64220e6ae2c3e109a5bf5daf86e73e903df73d0490dfb4bdfd49a",
+      "path": "duplicates/clusters/DUPCL_6F9AC38FFC8C459C47424FCB.json",
+      "size_bytes": 551
+    },
+    {
+      "digest": "sha256:ece24ff7568c0ce37e4a93b6292c8faa63e999ec546b6baef5cbd77884e36423",
+      "path": "duplicates/clusters/DUPCL_7A07E049002C4BB694802BA8.json",
+      "size_bytes": 703
+    },
+    {
+      "digest": "sha256:4ac945b83519bd3eb12d0b8cadf3b090bcf102c96cec91a315631dcabe806c45",
+      "path": "duplicates/clusters/DUPCL_9A025ACB822F9561A6975D0D.json",
+      "size_bytes": 589
+    },
+    {
+      "digest": "sha256:f6161127e38fda30605d539b1326d4d49e7727e26f44c3700129c06a2fca7d8c",
+      "path": "duplicates/clusters/DUPCL_CFE272B8A9F4C99F4C2A7852.json",
+      "size_bytes": 589
+    },
+    {
+      "digest": "sha256:dfb330053a316d988e8a64480ce208f6e05bcd6973f15c96091e79827cd68743",
+      "path": "duplicates/equivalence_report.json",
+      "size_bytes": 4767
+    },
+    {
+      "digest": "sha256:2bcfeeaa7168e788414696dcff97c609e000af33177f56d16b36a187851e18b8",
+      "path": "duplicates/near_equivalences/NEARDUP_56CEFA633B28B27332E6A6E5.json",
+      "size_bytes": 455
+    },
+    {
+      "digest": "sha256:f3f1d21207938d04692f5411d3c43ad10b2b0ae0d5ceb9018a25eafada91ba5d",
+      "path": "events/memory_event_ledger.json",
+      "size_bytes": 6482
+    },
+    {
+      "digest": "sha256:3d91878a9e84efaabe0dad41fe4241e8b970af4286c2e8f2b4187b97f4b65553",
+      "path": "handoff/acl10_handoff.json",
+      "size_bytes": 1773
+    },
+    {
+      "digest": "sha256:d6597737c11e8c68a0c75cd051488747399439249e1cf320ce0842fdf27b0fd2",
+      "path": "lineage/memory_provenance_graph.json",
+      "size_bytes": 2956
+    },
+    {
+      "digest": "sha256:b6d22fa315a3530fc7814e19d5f7fa10eb85b08c1eb72e82c46c56642d733972",
+      "path": "memory/admission_bundle.json",
+      "size_bytes": 3976
+    },
+    {
+      "digest": "sha256:fd840f5b27164d9c15aca16e5d51ad0531bceff2d05cd18745d8fe6430bdb5b0",
+      "path": "memory/admission_decisions/MEMADM_0A35C214BC2673DD2D933D88.json",
+      "size_bytes": 817
+    },
+    {
+      "digest": "sha256:6053a466988a58b60f5f5c96e16f35edcf52178a111abbc0d7e1b7288c21068e",
+      "path": "memory/admission_decisions/MEMADM_3525ABBD85B2082B86766678.json",
+      "size_bytes": 817
+    },
+    {
+      "digest": "sha256:822faf3ba37ed24bdf464cb5ce59b8da0177b63da2dc06cd11d76d617d6b7a62",
+      "path": "memory/admission_decisions/MEMADM_54B402A772FA7B64A44D4B97.json",
+      "size_bytes": 817
+    },
+    {
+      "digest": "sha256:0b0d61c3cf3f7b36f4d35756c7b0d6a699d2283a6ade9175c6ea63d1a3b22901",
+      "path": "memory/admission_decisions/MEMADM_5C5567102A1F3FD1FEC46D2C.json",
+      "size_bytes": 817
+    },
+    {
+      "digest": "sha256:6e2438d462c33337efd633d0686c1249cc528f8c35f3ddd95c803a26faa6fdf3",
+      "path": "memory/admission_decisions/MEMADM_6083BB5DE5BF742A6E0E61FC.json",
+      "size_bytes": 811
+    },
+    {
+      "digest": "sha256:a9851a78521baca372dafd63b7ac687f9f1b1f271e7e206f95f768c4ebcaf9c3",
+      "path": "memory/admission_decisions/MEMADM_703E8174A69756F3ED484E73.json",
+      "size_bytes": 811
+    },
+    {
+      "digest": "sha256:73e8014bf716dc03ef25c6aaf0c31e8818419d337662e1450b368efb215fb7ee",
+      "path": "memory/admission_decisions/MEMADM_AC222086D8435B0F0A049DE6.json",
+      "size_bytes": 811
+    },
+    {
+      "digest": "sha256:01ce9517f53e0435ab0604e471609870ebc70eb14e478113b2d2d2b9c9d8d604",
+      "path": "memory/admission_decisions/MEMADM_D5A412E64A7820D81A44449E.json",
+      "size_bytes": 811
+    },
+    {
+      "digest": "sha256:abea7c3972c7534ef1db1cefd5229f1cfc53beb159efa6c6a48892c8c891baca",
+      "path": "memory/admission_decisions/MEMADM_E4517B4F0DBB96F25C6433EE.json",
+      "size_bytes": 815
+    },
+    {
+      "digest": "sha256:59741562cd366ac4e6860e5302842474f2e764b6c4023770fd10da92df6056af",
+      "path": "memory/admission_decisions/MEMADM_E7912814F67B7F38AEED5350.json",
+      "size_bytes": 811
+    },
+    {
+      "digest": "sha256:9e3676146517112e233ba6fe7ecb6b90c94f037f2dfa0813f821dfe1cb724e56",
+      "path": "memory/admission_decisions/MEMADM_E7A00EA6BC1BCC47F70E387A.json",
+      "size_bytes": 817
+    },
+    {
+      "digest": "sha256:72308f6c697c68a58770cf1b5ef3f737dcac22f79472f66e20339f0c403bc402",
+      "path": "memory/admission_decisions/MEMADM_F00A86EB72014FE7B343D199.json",
+      "size_bytes": 817
+    },
+    {
+      "digest": "sha256:3955e6e1df798d45ae2520d409084ee37e381c0c572aaa114cf26218cf8625a3",
+      "path": "memory/aliases/MEMALIAS_0A35C214BC2673DD2D933D88.json",
+      "size_bytes": 467
+    },
+    {
+      "digest": "sha256:d65b19c51343d0657b9dd77d9581ec46de6004d94b91fc51d6298c2f74d3242a",
+      "path": "memory/aliases/MEMALIAS_3525ABBD85B2082B86766678.json",
+      "size_bytes": 467
+    },
+    {
+      "digest": "sha256:c509b87e988fe59c279c5153d9fe6d9777ca79449ad631a8776da42897a8c448",
+      "path": "memory/aliases/MEMALIAS_54B402A772FA7B64A44D4B97.json",
+      "size_bytes": 467
+    },
+    {
+      "digest": "sha256:9245acbef1e3ee7faf693324e2c0f81e464edc52431120cb016b31d4cf1470fa",
+      "path": "memory/aliases/MEMALIAS_5C5567102A1F3FD1FEC46D2C.json",
+      "size_bytes": 467
+    },
+    {
+      "digest": "sha256:5a77a244e658267559429d6ba64e649ad20a51907171b6ceb72084aa5ed6303a",
+      "path": "memory/aliases/MEMALIAS_E7A00EA6BC1BCC47F70E387A.json",
+      "size_bytes": 467
+    },
+    {
+      "digest": "sha256:4ad5871b3cc50b576d88269cd38148379ed7470d5822c9d4d355fc3ed5c615e3",
+      "path": "memory/aliases/MEMALIAS_F00A86EB72014FE7B343D199.json",
+      "size_bytes": 467
+    },
+    {
+      "digest": "sha256:336e8765689915c1449a038d9c8823a54d7d7e250f583c9f62624b6a9a1ead2e",
+      "path": "memory/entries/MEMENTRY_5520B9F0DBFE1AFCDA093821.json",
+      "size_bytes": 1718
+    },
+    {
+      "digest": "sha256:6fe0573beb1660665cc2ebe5d7a3337bbab41e7de8dcb4be93dc4d20717af7f0",
+      "path": "memory/entries/MEMENTRY_6E166ADDAB85BDB89EC77A34.json",
+      "size_bytes": 1866
+    },
+    {
+      "digest": "sha256:98412bf50c72028a8f30503143df4c6d35e6d3c8276b8d9fb9d90cd91f4846bb",
+      "path": "memory/entries/MEMENTRY_76A1BF78CCE0151F0B10FBB2.json",
+      "size_bytes": 1788
+    },
+    {
+      "digest": "sha256:a031eb2a3bba2f30500cb4db6df953a7c4da43811e3c70fbd2bdeac7a3da72c2",
+      "path": "memory/entries/MEMENTRY_AAAEF85C8C874CE9AAAE85C6.json",
+      "size_bytes": 1699
+    },
+    {
+      "digest": "sha256:b27a0ef138ed6519d17c81414f86ab7a422ce7a6266aa71e8beb17d9f5b39db4",
+      "path": "memory/entries/MEMENTRY_DC6CD62B0029960BB9C19CC7.json",
+      "size_bytes": 1833
+    },
+    {
+      "digest": "sha256:ad08b94ef06b01f14e096b35f0849d0604c62419101f7de15f50ef95d3f4ead4",
+      "path": "memory/memory_index.json",
+      "size_bytes": 3735
+    },
+    {
+      "digest": "sha256:e532d201a908f3a6a4f1cc6027caf658252c3dd0ea20526df77c4a881b44aeed",
+      "path": "memory/quarantine/MEMQUAR_E4517B4F0DBB96F25C6433EE.json",
+      "size_bytes": 582
+    },
+    {
+      "digest": "sha256:fb1e809f9477e386a206da1b780371a1008935851d020351bea7a52d8628b9d2",
+      "path": "planner/budget_report.json",
+      "size_bytes": 364
+    },
+    {
+      "digest": "sha256:b22e929837bb3dbf06e3a6457cf1ee2997add8a42eff9556ec9a9a404ef6e126",
+      "path": "planner/duplicate_suppression_report.json",
+      "size_bytes": 358
+    },
+    {
+      "digest": "sha256:4357d86951d6ee0edf3f610991be5e41c17c199c272be378a99d20c2609115dc",
+      "path": "planner/plan_portfolio.json",
+      "size_bytes": 3603
+    },
+    {
+      "digest": "sha256:1fffee65356a0284e92cc24caaec0f391583f40c58f4540d950518213c96a99a",
+      "path": "planner/proposals/PLAN09_29F1F9F0C39E45C112C7251A.json",
+      "size_bytes": 948
+    },
+    {
+      "digest": "sha256:dfe69a2feadd4c37953770fb5feddc1fbdc3f519437bd917a35a7f45188127a0",
+      "path": "planner/proposals/PLAN09_55F31812AA9AD712215D721A.json",
+      "size_bytes": 1017
+    },
+    {
+      "digest": "sha256:04f3c65a7016b4b53c43f754ce6de328a39816e2602b7f89675ff1fb9fb2d522",
+      "path": "planner/proposals/PLAN09_6DF2221205F0B6024D3383D5.json",
+      "size_bytes": 1021
+    },
+    {
+      "digest": "sha256:d587ac8d38f63c2d6f23eaeca4aa23d99387993affe05f0a6c2098ab8af0ecbd",
+      "path": "planner/proposals/PLAN09_7CDF3AA9F79D954E35450ADF.json",
+      "size_bytes": 988
+    },
+    {
+      "digest": "sha256:936db74e0faa8da5ae7aa1fff60f1c89363199713c993b58be0fdf04fd76a92e",
+      "path": "planner/proposals/PLAN09_87B81C97F6096DA39ECB32D6.json",
+      "size_bytes": 1017
+    },
+    {
+      "digest": "sha256:3dc1a0db173fb6ed666d6911b747e4f5fcd04034cf33d138f90f16b14a0fb9ef",
+      "path": "planner/proposals/PLAN09_A030F086037DDC71BEE4592C.json",
+      "size_bytes": 1024
+    },
+    {
+      "digest": "sha256:a56f993bd5530fe6f95234436afa10c2929b209a929acb28e23ce6b9dbee9bd1",
+      "path": "planner/proposals/PLAN09_B605E04A39FD027A6A3D88FE.json",
+      "size_bytes": 973
+    },
+    {
+      "digest": "sha256:4de05fba3b2b97a4f3f15b7a049e6557d6ad52e52bb80acb4bd7b5ffdd2f881a",
+      "path": "planner/proposals/PLAN09_E2D8E0AB292CCC5C35E3376F.json",
+      "size_bytes": 1018
+    },
+    {
+      "digest": "sha256:3bc551d7c406160230c0f735719632b74fe72b88992ffa0929fadd4fecd263eb",
+      "path": "policy/memory_policy_snapshot.json",
+      "size_bytes": 669
+    },
+    {
+      "digest": "sha256:72ab193e3db1c40710bd7931400f3c08ae93e0e4f153dfaa6f6c8d3016a75cda",
+      "path": "policy/planner_policy_snapshot.json",
+      "size_bytes": 684
+    },
+    {
+      "digest": "sha256:cc5e3e0e3d462a932e3649e62acc417cfcb56dcb9acb9b896fafb20313ad18ab",
+      "path": "policy/research_question_registry_snapshot.json",
+      "size_bytes": 2613
+    },
+    {
+      "digest": "sha256:e23fe2aa92863bf8f6b73cf9243e5988c5969d01117a7014b2938c475dc5e739",
+      "path": "reports/integrity_report.json",
+      "size_bytes": 404
+    },
+    {
+      "digest": "sha256:82a361d1e56736d76090e15beaea32e56bdfa7439e22598e4414171a725fc711",
+      "path": "run/memory_run.json",
+      "size_bytes": 1599
+    },
+    {
+      "digest": "sha256:93b82062770edd9a1c416633aed3fbb51df3141c1d4a04cbc35c9accb292b41d",
+      "path": "security/memory_poisoning_report.json",
+      "size_bytes": 356
+    },
+    {
+      "digest": "sha256:dc863eabaa88432135653cfb2994a630be7399df624e9923fd9636ae6666980d",
+      "path": "security/security_boundary_report.json",
+      "size_bytes": 555
+    }
+  ],
+  "manifest_digest": "sha256:d9001211c5f6b5b59e2f84adf270cedce200afe6e53522a1371f827846027dde",
+  "memory_run_id": "MEMRUN_86C46AE40D92F8AE6DDD9796C670D534",
+  "schema_version": "1.0.0",
+  "self_reference_policy": "MANIFEST_AND_RECEIPT_EXCLUDED_AND_MUTUALLY_BOUND"
+}

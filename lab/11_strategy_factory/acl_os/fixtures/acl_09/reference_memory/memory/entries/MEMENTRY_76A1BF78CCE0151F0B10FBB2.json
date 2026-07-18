@@ -1,0 +1,47 @@
+{
+  "append_only": true,
+  "bounded_research_questions": [
+    "ADD_TEMPORAL_HOLDOUT_EVIDENCE",
+    "BUILD_OOD_AND_ABSTENTION_EVIDENCE",
+    "COLLECT_EXECUTION_COST_EVIDENCE",
+    "COLLECT_TAIL_PATH_EVIDENCE",
+    "RUN_PROSPECTIVE_SHADOW_EVALUATION",
+    "SCHEDULE_INDEPENDENT_REPLICATION"
+  ],
+  "candidate_id": "CAND_9D4260503DE908B07D22",
+  "canonical_experience_digest": "sha256:6ca773babf3780224974babb688183fafee2f9adce36845807f5259134d830db",
+  "canonical_experience_id": "EXP08_2F7BB840B72D496EE7523A18",
+  "capital_activation_allowed": false,
+  "duplicate_fingerprint": "sha256:93b8dfc09aad0d6bf707aea993f5aae3fd6a6184d90b021fac6ed8e7079a376e",
+  "experience_class": "INSUFFICIENT_EVIDENCE",
+  "failed_gate_ids": [
+    "MINIMUM_SUPPORT",
+    "EFFECT_SIZE",
+    "STATISTICAL_SIGNIFICANCE",
+    "MULTIPLE_TESTING",
+    "OVERFIT_CONTROL"
+  ],
+  "knowledge_polarity": "UNKNOWN",
+  "live_order_submission_allowed": false,
+  "memory_entry_digest": "sha256:f3814115f3ec2f333cf331a3fd080e8166d3ee66ed4d8472fac3d68353042aae",
+  "memory_entry_id": "MEMENTRY_76A1BF78CCE0151F0B10FBB2",
+  "promotion_allowed": false,
+  "reason_codes": [
+    "ONE_OR_MORE_REQUIRED_GATES_NOT_PASSED"
+  ],
+  "schema_version": "1.0.0",
+  "security_classification": "INTERNAL_RESEARCH",
+  "setup_id": "SETUP_978582F1C2791E47056F",
+  "source_candidate_report_digest": "sha256:556812ae24e9e818faa1facea3cebf17f3e83e1dd4276393b62ddefcc5a63d59",
+  "source_decision_digest": "sha256:3654fd7c0b6ec9d1446fbeaab367feaf0d7da4b079b40267ff69a5cce7fc97ec",
+  "source_semantics_mutated": false,
+  "unknown_gate_ids": [
+    "BASELINE_DOMINANCE",
+    "TEMPORAL_GENERALIZATION",
+    "DISTRIBUTIONAL_ROBUSTNESS",
+    "EXECUTION_ECONOMICS",
+    "OOD_AND_ABSTENTION",
+    "PROSPECTIVE_EVIDENCE",
+    "INDEPENDENT_REPLICATION"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "alias_count": 6,
+  "aliases": [
+    {
+      "alias_digest": "sha256:82b07af2430e144e67af1e33dfaf25363afe6410a2b7b634bee5cd10716c238d",
+      "alias_id": "MEMALIAS_0A35C214BC2673DD2D933D88",
+      "target_memory_entry_id": "MEMENTRY_76A1BF78CCE0151F0B10FBB2"
+    },
+    {
+      "alias_digest": "sha256:dd1b2da28caa1de1045921ff552d482b21a3448c94631437644753c85aeb9124",
+      "alias_id": "MEMALIAS_3525ABBD85B2082B86766678",
+      "target_memory_entry_id": "MEMENTRY_76A1BF78CCE0151F0B10FBB2"
+    },
+    {
+      "alias_digest": "sha256:d49a9a364da98dbc7b3925682abe264b27959722d811d915e5bbb369e252b55e",
+      "alias_id": "MEMALIAS_54B402A772FA7B64A44D4B97",
+      "target_memory_entry_id": "MEMENTRY_76A1BF78CCE0151F0B10FBB2"
+    },
+    {
+      "alias_digest": "sha256:3b3902ea06e2982a438d5bae7ea74d274e5dde986427e939934781d914618ff8",
+      "alias_id": "MEMALIAS_5C5567102A1F3FD1FEC46D2C",
+      "target_memory_entry_id": "MEMENTRY_6E166ADDAB85BDB89EC77A34"
+    },
+    {
+      "alias_digest": "sha256:850a3da9e965c2fc1908904d44997ebe938f84ad49229a055bfdb6a6b7339d90",
+      "alias_id": "MEMALIAS_E7A00EA6BC1BCC47F70E387A",
+      "target_memory_entry_id": "MEMENTRY_DC6CD62B0029960BB9C19CC7"
+    },
+    {
+      "alias_digest": "sha256:91443948ff17d8a3cd0192d09cc4d987fce073c32a7a754dd5c2f1543ada83a4",
+      "alias_id": "MEMALIAS_F00A86EB72014FE7B343D199",
+      "target_memory_entry_id": "MEMENTRY_76A1BF78CCE0151F0B10FBB2"
+    }
+  ],
+  "append_only": true,
+  "decision_count": 12,
+  "entries": [
+    {
+      "duplicate_fingerprint": "sha256:4e4b3fbbe5811e93fd0310c23294a4ac1c32fe06ce7239b0a110fc5a90c71f7d",
+      "experience_class": "BASELINE_REFERENCE",
+      "memory_entry_digest": "sha256:ddea005821b0dff9ca42f70d90ec9fdfc1f283ded1b94b3f7bded5bbb4e50bc3",
+      "memory_entry_id": "MEMENTRY_5520B9F0DBFE1AFCDA093821"
+    },
+    {
+      "duplicate_fingerprint": "sha256:3f84f3a6ecff303e229e4903ee5936bd5af37bfc69cc50f733cd3aa4473014b0",
+      "experience_class": "INSUFFICIENT_EVIDENCE",
+      "memory_entry_digest": "sha256:755bead4bcd1ab5a27c884f71f3741d2f99cae9d8c79d8b3ffd11f3ee7bcdcc3",
+      "memory_entry_id": "MEMENTRY_6E166ADDAB85BDB89EC77A34"
+    },
+    {
+      "duplicate_fingerprint": "sha256:93b8dfc09aad0d6bf707aea993f5aae3fd6a6184d90b021fac6ed8e7079a376e",
+      "experience_class": "INSUFFICIENT_EVIDENCE",
+      "memory_entry_digest": "sha256:f3814115f3ec2f333cf331a3fd080e8166d3ee66ed4d8472fac3d68353042aae",
+      "memory_entry_id": "MEMENTRY_76A1BF78CCE0151F0B10FBB2"
+    },
+    {
+      "duplicate_fingerprint": "sha256:55316836cf3148c08c3dec6634404e0c2557b4807c00792f5d167ee2dc8550c7",
+      "experience_class": "BASELINE_REFERENCE",
+      "memory_entry_digest": "sha256:f5b6b0d2c3502f31fcd6272b2394e6b467b5b647126336a86e31c58a90170bc8",
+      "memory_entry_id": "MEMENTRY_AAAEF85C8C874CE9AAAE85C6"
+    },
+    {
+      "duplicate_fingerprint": "sha256:c2ab99d0f882418061b7e4e5e6ca6a4d88c8a19ab1000abb22bdfd4174dfcbfc",
+      "experience_class": "BASELINE_REFERENCE",
+      "memory_entry_digest": "sha256:6524021cc352eb99d1de43ebb2b352fe94aad248a17fbf5f9e133e4346b52adc",
+      "memory_entry_id": "MEMENTRY_DC6CD62B0029960BB9C19CC7"
+    }
+  ],
+  "entry_count": 5,
+  "history_rewritten": false,
+  "memory_index_digest": "sha256:1fc6bb15b530fd1aef292d3f273d12cc3e192980986928292b4d8a2c515c1763",
+  "memory_run_id": "MEMRUN_86C46AE40D92F8AE6DDD9796C670D534",
+  "parent_memory_index_digest": "GENESIS",
+  "quarantine_count": 1,
+  "quarantines": [
+    {
+      "quarantine_digest": "sha256:120655ffe1f19acfd3a584b574fe42b7e8b73f66bc22a50c24c11bdf88a56776",
+      "quarantine_id": "MEMQUAR_E4517B4F0DBB96F25C6433EE"
+    }
+  ],
+  "report_id": "REPORT_2FED2879ED0864D2A8EC4EFF7830B4AA",
+  "schema_version": "1.0.0"
+}

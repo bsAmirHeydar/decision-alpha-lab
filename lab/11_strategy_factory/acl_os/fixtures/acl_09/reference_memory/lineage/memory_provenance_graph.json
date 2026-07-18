@@ -1,0 +1,100 @@
+{
+  "diagnostic_memory_selectable": false,
+  "edges": [
+    {
+      "from": "ACL08_HANDOFF",
+      "relation": "BINDS",
+      "to": "ACL08_REPORT"
+    },
+    {
+      "from": "ACL08_HANDOFF",
+      "relation": "BINDS",
+      "to": "ACL08_EXPERIENCE"
+    },
+    {
+      "from": "ACL08_EXPERIENCE",
+      "relation": "CLASSIFIED_BY",
+      "to": "ACL09_EQUIVALENCE"
+    },
+    {
+      "from": "ACL09_MEMORY_POLICY",
+      "relation": "GOVERNS",
+      "to": "ACL09_MEMORY"
+    },
+    {
+      "from": "ACL09_EQUIVALENCE",
+      "relation": "CONTROLS_ADMISSION",
+      "to": "ACL09_MEMORY"
+    },
+    {
+      "from": "ACL09_MEMORY",
+      "relation": "BOUNDS_SOURCES_FOR",
+      "to": "ACL09_PLAN"
+    },
+    {
+      "from": "ACL09_PLANNER_POLICY",
+      "relation": "GOVERNS",
+      "to": "ACL09_PLAN"
+    },
+    {
+      "from": "ACL09_PLAN",
+      "relation": "RECORDED_IN",
+      "to": "ACL09_EVENTS"
+    }
+  ],
+  "execution_authority_granted": false,
+  "graph_digest": "sha256:4908545f6841ee796115bbe5d0f7cedc828081e71e6b6b78d101457337aa18bb",
+  "graph_id": "MEMPROV_509FF1CCC7AD835F047E10DC",
+  "memory_run_id": "MEMRUN_86C46AE40D92F8AE6DDD9796C670D534",
+  "nodes": [
+    {
+      "artifact_type": "ACL08_TO_ACL09",
+      "digest": "sha256:43e36592ccd6b68f384eb417b2db1af9593ff6615a2b3e132ceed3db7c0522aa",
+      "node_id": "ACL08_HANDOFF"
+    },
+    {
+      "artifact_type": "BATCH_REPORT",
+      "digest": "sha256:9505b34734f74efe22c0142395f6143975c7d4cd3755563bde8fb14cff62af1d",
+      "node_id": "ACL08_REPORT"
+    },
+    {
+      "artifact_type": "EXPERIENCE_BUNDLE",
+      "digest": "sha256:adfd0cb0548dd7fe3b3bfbe5fab7c0bcac6d6082e5c7aa76ef473791f81147b1",
+      "node_id": "ACL08_EXPERIENCE"
+    },
+    {
+      "artifact_type": "MEMORY_POLICY",
+      "digest": "sha256:0d59c3f9f6c786ce662912a1887442bb2b552232081c1e25d86e7abf80e30688",
+      "node_id": "ACL09_MEMORY_POLICY"
+    },
+    {
+      "artifact_type": "PLANNER_POLICY",
+      "digest": "sha256:0b214dc9d9103fa4281a1b61afb69c71f81e67fa5d551f0d04ea931c039e559a",
+      "node_id": "ACL09_PLANNER_POLICY"
+    },
+    {
+      "artifact_type": "DUPLICATE_EQUIVALENCE_REPORT",
+      "digest": "sha256:360934d670c7447f27ec71b34908d554e9c5383315294c60eb8fb72e9f981890",
+      "node_id": "ACL09_EQUIVALENCE"
+    },
+    {
+      "artifact_type": "MEMORY_INDEX",
+      "digest": "sha256:1fc6bb15b530fd1aef292d3f273d12cc3e192980986928292b4d8a2c515c1763",
+      "node_id": "ACL09_MEMORY"
+    },
+    {
+      "artifact_type": "PLAN_PORTFOLIO",
+      "digest": "sha256:1f8e43f77ddaa5c6c6033fe356d27af76e17b30c27fe96104d981b67791bada4",
+      "node_id": "ACL09_PLAN"
+    },
+    {
+      "artifact_type": "MEMORY_EVENT_LEDGER",
+      "digest": "sha256:b9f40859279b6a865cb0d67f856f21f6f23033d0d424fe9b32914231da4a48bf",
+      "node_id": "ACL09_EVENTS"
+    }
+  ],
+  "reaches_acl07_validation": true,
+  "research_execution_authority_granted": false,
+  "schema_version": "1.0.0",
+  "source_decisions_mutated": false
+}

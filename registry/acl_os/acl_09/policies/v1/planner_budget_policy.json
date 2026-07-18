@@ -1,0 +1,6 @@
+{
+  "max_selected_proposals": 6,
+  "max_total_cost_units": 100,
+  "policy_id": "ACL09_PLANNER_BUDGET_POLICY_V1",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,5 @@
+{
+  "capital_activation_allowed": false,
+  "policy_id": "ACL09_CAPITAL_DENIAL_POLICY_V1",
+  "schema_version": "1.0.0"
+}

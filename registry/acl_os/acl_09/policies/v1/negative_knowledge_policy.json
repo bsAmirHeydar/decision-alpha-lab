@@ -1,0 +1,5 @@
+{
+  "explicit_validation_failure_required": true,
+  "policy_id": "ACL09_NEGATIVE_KNOWLEDGE_POLICY_V1",
+  "schema_version": "1.0.0"
+}

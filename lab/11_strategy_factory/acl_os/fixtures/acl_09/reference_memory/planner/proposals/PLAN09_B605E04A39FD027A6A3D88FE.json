@@ -1,0 +1,27 @@
+{
+  "capital_activation_allowed": false,
+  "decision_relevance_units": 7,
+  "estimated_cost_units": 6,
+  "information_gain_units": 5,
+  "live_order_submission_allowed": false,
+  "priority_score": 53,
+  "promotion_allowed": false,
+  "proposal_digest": "sha256:443175e7f32a524a9fd962c3df804a38f721a5eaa9bb8e782864f3cf254b7ac8",
+  "proposal_fingerprint": "sha256:c4c882300804ee966000f7731c4c12535d055cf88b30421860846efa7281c6ab",
+  "proposal_id": "PLAN09_B605E04A39FD027A6A3D88FE",
+  "proposal_status": "SELECTED_PROPOSAL_NOT_AUTHORIZED",
+  "question_id": "REDUCE_OR_REFREEZE_TESTING_FAMILY",
+  "reason_codes": [
+    "HIGHEST_BOUNDED_INFORMATION_VALUE_WITHIN_POLICY"
+  ],
+  "requires_human_approval": true,
+  "requires_new_frozen_batch": true,
+  "research_execution_allowed": false,
+  "risk_reduction_units": 8,
+  "schema_version": "1.0.0",
+  "source_count": 1,
+  "source_memory_entry_ids": [
+    "MEMENTRY_6E166ADDAB85BDB89EC77A34"
+  ],
+  "target_gate": "MULTIPLE_TESTING"
+}

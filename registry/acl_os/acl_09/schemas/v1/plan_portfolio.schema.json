@@ -1,0 +1,35 @@
+{
+  "$id": "https://alpha-lab.local/acl09/plan_portfolio.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "automatic_scheduling_allowed": {},
+    "deferred_count": {},
+    "memory_run_id": {},
+    "portfolio_digest": {},
+    "proposal_count": {},
+    "proposals": {},
+    "research_execution_allowed": {},
+    "schema_version": {
+      "type": "string"
+    },
+    "selected_cost_units": {},
+    "selected_count": {},
+    "suppressed_count": {}
+  },
+  "required": [
+    "schema_version",
+    "memory_run_id",
+    "proposal_count",
+    "selected_count",
+    "deferred_count",
+    "suppressed_count",
+    "selected_cost_units",
+    "proposals",
+    "research_execution_allowed",
+    "automatic_scheduling_allowed",
+    "portfolio_digest"
+  ],
+  "title": "plan_portfolio",
+  "type": "object"
+}

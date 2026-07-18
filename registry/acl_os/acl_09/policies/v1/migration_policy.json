@@ -1,0 +1,5 @@
+{
+  "breaking_changes_require_major_version": true,
+  "policy_id": "ACL09_MIGRATION_POLICY_V1",
+  "schema_version": "1.0.0"
+}

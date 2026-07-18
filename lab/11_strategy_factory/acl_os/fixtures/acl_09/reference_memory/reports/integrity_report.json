@@ -1,0 +1,11 @@
+{
+  "acl08_bundle_verified": true,
+  "duplicate_fingerprints_preserved": true,
+  "experience_records_verified": 12,
+  "integrity_report_digest": "sha256:158cf6db559906856633f601c7c865ae0b8a25f3687e53c06a98a55e96043a3e",
+  "memory_history_rewritten": false,
+  "memory_run_id": "MEMRUN_86C46AE40D92F8AE6DDD9796C670D534",
+  "passed": true,
+  "schema_version": "1.0.0",
+  "source_decisions_mutated": false
+}

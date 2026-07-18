@@ -1,0 +1,5 @@
+{
+  "mutation_allowed": false,
+  "policy_id": "ACL09_SOURCE_SEMANTICS_POLICY_V1",
+  "schema_version": "1.0.0"
+}

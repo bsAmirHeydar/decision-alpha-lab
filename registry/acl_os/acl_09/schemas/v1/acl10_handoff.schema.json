@@ -1,0 +1,39 @@
+{
+  "$id": "https://alpha-lab.local/acl09/acl10_handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capital_activation_allowed": {},
+    "forbidden_acl10_actions": {},
+    "handoff_digest": {},
+    "handoff_type": {},
+    "live_order_submission_allowed": {},
+    "memory_index_digest": {},
+    "memory_run_digest": {},
+    "memory_run_id": {},
+    "plan_portfolio_digest": {},
+    "promotion_allowed": {},
+    "required_acl10_actions": {},
+    "research_execution_allowed": {},
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "handoff_type",
+    "memory_run_id",
+    "memory_run_digest",
+    "memory_index_digest",
+    "plan_portfolio_digest",
+    "required_acl10_actions",
+    "forbidden_acl10_actions",
+    "research_execution_allowed",
+    "promotion_allowed",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "handoff_digest"
+  ],
+  "title": "acl10_handoff",
+  "type": "object"
+}

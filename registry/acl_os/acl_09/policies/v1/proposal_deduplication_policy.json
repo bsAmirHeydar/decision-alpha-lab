@@ -1,0 +1,5 @@
+{
+  "policy_id": "ACL09_PROPOSAL_DEDUPLICATION_POLICY_V1",
+  "prior_proposal_fingerprint_suppression": true,
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,12 @@
+{
+  "auto_merge_allowed": false,
+  "equivalence_score_bps": 7639,
+  "human_review_required": true,
+  "left_experience_id": "EXP08_2F7BB840B72D496EE7523A18",
+  "pair_digest": "sha256:ce63184b03d8e44a0d4f86ebf04a6f9a19fe3ad7885eeebd0f5483f63d311742",
+  "pair_id": "NEARDUP_56CEFA633B28B27332E6A6E5",
+  "question_jaccard_bps": 7500,
+  "right_experience_id": "EXP08_42E896C9F4F7E2645FBF33F7",
+  "schema_version": "1.0.0",
+  "unknown_gate_jaccard_bps": 7778
+}

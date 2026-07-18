@@ -1,0 +1,5 @@
+{
+  "formula": "4*decision_relevance+3*information_gain+2*risk_reduction-cost",
+  "policy_id": "ACL09_INFORMATION_VALUE_POLICY_V1",
+  "schema_version": "1.0.0"
+}

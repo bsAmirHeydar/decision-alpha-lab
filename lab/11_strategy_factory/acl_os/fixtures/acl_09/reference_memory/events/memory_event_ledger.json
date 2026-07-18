@@ -1,0 +1,145 @@
+{
+  "event_count": 9,
+  "events": [
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:c16b045dcb76d0f533df0c735dacdbe4380bd4e9dfb65572c5a9db5261bab071",
+      "event_id": "MEMEVT_2EE75FA0BC72A5E6AE1764EB",
+      "event_type": "ACL08_PACKAGE_ACCEPTED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T02:00:00Z",
+      "payload": {
+        "acl08_handoff_digest": "sha256:43e36592ccd6b68f384eb417b2db1af9593ff6615a2b3e132ceed3db7c0522aa"
+      },
+      "previous_event_digest": "GENESIS",
+      "research_execution_allowed": false,
+      "schema_version": "1.0.0",
+      "sequence": 1
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:2514dc22171a188fe0fb477d46787f5ae791f0030554626db1279ca38f038a7b",
+      "event_id": "MEMEVT_692D633B0BADC09746B53177",
+      "event_type": "MEMORY_AND_PLANNER_POLICIES_BOUND",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T02:00:00Z",
+      "payload": {
+        "memory_policy_digest": "sha256:0d59c3f9f6c786ce662912a1887442bb2b552232081c1e25d86e7abf80e30688",
+        "planner_policy_digest": "sha256:0b214dc9d9103fa4281a1b61afb69c71f81e67fa5d551f0d04ea931c039e559a"
+      },
+      "previous_event_digest": "sha256:c16b045dcb76d0f533df0c735dacdbe4380bd4e9dfb65572c5a9db5261bab071",
+      "research_execution_allowed": false,
+      "schema_version": "1.0.0",
+      "sequence": 2
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:c766f7d5ab6d6a4171f404a65caab5480daff82e4237cb4a2505ec59edc5de47",
+      "event_id": "MEMEVT_B35B17A0F18DFD8D626C8489",
+      "event_type": "MEMORY_POISONING_GUARD_PASSED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T02:00:00Z",
+      "payload": {
+        "poisoning_report_digest": "sha256:33163944c8f0526c9032243eb5753a2cc94e5a42d0d0e0a81c196697e371bfb3"
+      },
+      "previous_event_digest": "sha256:2514dc22171a188fe0fb477d46787f5ae791f0030554626db1279ca38f038a7b",
+      "research_execution_allowed": false,
+      "schema_version": "1.0.0",
+      "sequence": 3
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:aa397e712b6fae085b90d5720bff81fd75f2feaf686c28ec9cf570471189a7dc",
+      "event_id": "MEMEVT_CC1F5B642393110098DF72A1",
+      "event_type": "DUPLICATE_EQUIVALENCE_CLASSIFIED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T02:00:00Z",
+      "payload": {
+        "equivalence_report_digest": "sha256:360934d670c7447f27ec71b34908d554e9c5383315294c60eb8fb72e9f981890"
+      },
+      "previous_event_digest": "sha256:c766f7d5ab6d6a4171f404a65caab5480daff82e4237cb4a2505ec59edc5de47",
+      "research_execution_allowed": false,
+      "schema_version": "1.0.0",
+      "sequence": 4
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:f1c062b4446e2502c4f76b617b85ced8b80bf2e055c1c847ad30ce953797ff96",
+      "event_id": "MEMEVT_CC8A12CD55B8D5B859C2BBFF",
+      "event_type": "MEMORY_ADMISSION_DECISIONS_ISSUED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T02:00:00Z",
+      "payload": {
+        "admission_bundle_digest": "sha256:f2822be5b67296b449ff6594dd9cd146779d61560baa3aa59872e68c8322dfb8"
+      },
+      "previous_event_digest": "sha256:aa397e712b6fae085b90d5720bff81fd75f2feaf686c28ec9cf570471189a7dc",
+      "research_execution_allowed": false,
+      "schema_version": "1.0.0",
+      "sequence": 5
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:0b6462d8fb3ce70c8b86c2c0e1898cb6bf2eef968f0bf10be34ee6a152fcac4e",
+      "event_id": "MEMEVT_69D737DC8C978AE9AA231CB3",
+      "event_type": "GOVERNED_MEMORY_INDEX_PUBLISHED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T02:00:00Z",
+      "payload": {
+        "memory_index_digest": "sha256:1fc6bb15b530fd1aef292d3f273d12cc3e192980986928292b4d8a2c515c1763"
+      },
+      "previous_event_digest": "sha256:f1c062b4446e2502c4f76b617b85ced8b80bf2e055c1c847ad30ce953797ff96",
+      "research_execution_allowed": false,
+      "schema_version": "1.0.0",
+      "sequence": 6
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:54b1a27b1157cdd711b9b9932bb5fe93918978a4030609e1ac826c5e3891a71b",
+      "event_id": "MEMEVT_22FE581EEF250302172EEF3A",
+      "event_type": "BOUNDED_RESEARCH_PROPOSALS_COMPILED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T02:00:00Z",
+      "payload": {
+        "portfolio_digest": "sha256:1f8e43f77ddaa5c6c6033fe356d27af76e17b30c27fe96104d981b67791bada4"
+      },
+      "previous_event_digest": "sha256:0b6462d8fb3ce70c8b86c2c0e1898cb6bf2eef968f0bf10be34ee6a152fcac4e",
+      "research_execution_allowed": false,
+      "schema_version": "1.0.0",
+      "sequence": 7
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:0c4e8026fa8fe6005fb9655063f187bfcbb2cc94981d3748e748189e76557b7c",
+      "event_id": "MEMEVT_C56FA0D07960E96DC3165FDE",
+      "event_type": "PLANNER_BUDGET_ENFORCED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T02:00:00Z",
+      "payload": {
+        "budget_report_digest": "sha256:b23d0761cc4b308ce905955404ecdd9ef3e698740da2318fc80e241a92fefb15"
+      },
+      "previous_event_digest": "sha256:54b1a27b1157cdd711b9b9932bb5fe93918978a4030609e1ac826c5e3891a71b",
+      "research_execution_allowed": false,
+      "schema_version": "1.0.0",
+      "sequence": 8
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:18c0104837e9d1b20ea3cfabda54f67f9b6fbc6f9adcb4d0d7f112f893436db1",
+      "event_id": "MEMEVT_534738BA7C8089931D15F9A2",
+      "event_type": "ACL10_HANDOFF_PREPARED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T02:00:00Z",
+      "payload": {
+        "selected_proposal_count": 6
+      },
+      "previous_event_digest": "sha256:0c4e8026fa8fe6005fb9655063f187bfcbb2cc94981d3748e748189e76557b7c",
+      "research_execution_allowed": false,
+      "schema_version": "1.0.0",
+      "sequence": 9
+    }
+  ],
+  "ledger_digest": "sha256:b9f40859279b6a865cb0d67f856f21f6f23033d0d424fe9b32914231da4a48bf",
+  "memory_run_id": "MEMRUN_86C46AE40D92F8AE6DDD9796C670D534",
+  "schema_version": "1.0.0",
+  "terminal_event_digest": "sha256:18c0104837e9d1b20ea3cfabda54f67f9b6fbc6f9adcb4d0d7f112f893436db1"
+}

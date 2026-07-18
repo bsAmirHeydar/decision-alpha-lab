@@ -1,0 +1,28 @@
+{
+  "capital_activation_allowed": false,
+  "decision_relevance_units": 8,
+  "estimated_cost_units": 12,
+  "information_gain_units": 8,
+  "live_order_submission_allowed": false,
+  "priority_score": 60,
+  "promotion_allowed": false,
+  "proposal_digest": "sha256:add42cd122b20fb8e16c3d4a5a5d9785bf6d489253b046ef2232be103a992171",
+  "proposal_fingerprint": "sha256:eba2605910bfde9a4efe11a0b3eb673a20684973d45ee98dd34e51cf08a4d80e",
+  "proposal_id": "PLAN09_55F31812AA9AD712215D721A",
+  "proposal_status": "SELECTED_PROPOSAL_NOT_AUTHORIZED",
+  "question_id": "COLLECT_TAIL_PATH_EVIDENCE",
+  "reason_codes": [
+    "HIGHEST_BOUNDED_INFORMATION_VALUE_WITHIN_POLICY"
+  ],
+  "requires_human_approval": true,
+  "requires_new_frozen_batch": true,
+  "research_execution_allowed": false,
+  "risk_reduction_units": 8,
+  "schema_version": "1.0.0",
+  "source_count": 2,
+  "source_memory_entry_ids": [
+    "MEMENTRY_6E166ADDAB85BDB89EC77A34",
+    "MEMENTRY_76A1BF78CCE0151F0B10FBB2"
+  ],
+  "target_gate": "DISTRIBUTIONAL_ROBUSTNESS"
+}

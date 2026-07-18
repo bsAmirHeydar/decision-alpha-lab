@@ -1,0 +1,18 @@
+{
+  "admission_decision_digest": "sha256:b4a2b91a8618c308699d4ad35c035b0b2a78c252878a85c284b2c95085002dd8",
+  "admission_decision_id": "MEMADM_703E8174A69756F3ED484E73",
+  "admission_status": "ADMITTED_NEW",
+  "capital_activation_allowed": false,
+  "experience_digest": "sha256:c65de5253390f9cdd64bbd5af3cc6fe68b4432181523cb42ea46bd0692e3c716",
+  "experience_id": "EXP08_42E896C9F4F7E2645FBF33F7",
+  "live_order_submission_allowed": false,
+  "promotion_allowed": false,
+  "reason_codes": [
+    "CANONICAL_FINGERPRINT_ADMITTED"
+  ],
+  "schema_version": "1.0.0",
+  "setup_id": "SETUP_A553D83C10BF06E79C12",
+  "source_decision_digest": "sha256:466325d4568fbf8411308bfba22846262ab3089850a425d5a5d3294ae162ca00",
+  "source_semantics_mutated": false,
+  "target_memory_identity": "MEMENTRY_6E166ADDAB85BDB89EC77A34"
+}
