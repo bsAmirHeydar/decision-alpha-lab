@@ -1,0 +1,6 @@
+{
+  "independent_replication_required": true,
+  "policy_id": "ACL07_REPLICATION_V1",
+  "same_pipeline_rerun_not_independent": true,
+  "schema_version": "1.0.0"
+}

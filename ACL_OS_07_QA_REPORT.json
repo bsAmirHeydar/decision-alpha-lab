@@ -1,0 +1,114 @@
+{
+  "acl08_handoff_digest": "sha256:a4d7cbbc0d9139e824a09bb8c05cb81c4f197efd239f6b4d72d76603bbd61542",
+  "all_declared_checks_passed": true,
+  "atomic_concept_document_count": 91,
+  "base_commit_message": "feat(acl-os): implement ACL-06 research DAG orchestration",
+  "candidate_count": 12,
+  "canonical_validation_document_count": 24,
+  "checks": [
+    {
+      "evidence": "44 passed; clean overlay rerun 5.66s",
+      "name": "ACL-07 pytest suite",
+      "result": "PASS"
+    },
+    {
+      "evidence": "25 passed in 0.70s",
+      "name": "ACL-06 direct regression suite",
+      "result": "PASS"
+    },
+    {
+      "name": "Python compileall ACL-07",
+      "result": "PASS"
+    },
+    {
+      "evidence": "18 Draft 2020-12 schemas",
+      "name": "Closed schema registry validation",
+      "result": "PASS"
+    },
+    {
+      "evidence": "22 policy documents",
+      "name": "Machine policy parse validation",
+      "result": "PASS"
+    },
+    {
+      "evidence": "84 JSON files before delivery metadata",
+      "name": "Patch JSON parse validation",
+      "result": "PASS"
+    },
+    {
+      "name": "ACL-06 complete evidence binding",
+      "result": "PASS"
+    },
+    {
+      "name": "Reference deterministic replay",
+      "result": "PASS"
+    },
+    {
+      "evidence": "5 events",
+      "name": "Validation event hash chain",
+      "result": "PASS"
+    },
+    {
+      "name": "Diagnostic lane isolation",
+      "result": "PASS"
+    },
+    {
+      "evidence": "Benjamini-Hochberg FDR",
+      "name": "Multiple-testing family correction",
+      "result": "PASS"
+    },
+    {
+      "name": "Output manifest and receipt binding",
+      "result": "PASS"
+    },
+    {
+      "name": "ACL07_TO_ACL08 authority denial",
+      "result": "PASS"
+    },
+    {
+      "evidence": "base + ACL-04 + ACL-05 + ACL-06 + ACL-07 ZIP",
+      "name": "Clean overlay installation and QA",
+      "result": "PASS"
+    }
+  ],
+  "claim_ceiling": "VALIDATION_DECISION_REFERENCE_ONLY",
+  "commit_message": "feat(acl-os): implement ACL-07 unified validation gate",
+  "decision_counts": {
+    "BASELINE_REFERENCE_ONLY": 4,
+    "DIAGNOSTIC_EXCLUDED": 1,
+    "EVIDENCE_INSUFFICIENT": 7
+  },
+  "event_count": 5,
+  "gate_count": 15,
+  "generated_at": "2026-07-18T00:00:00Z",
+  "limitations": {
+    "acl05_full_regression_rerun_in_this_delivery": false,
+    "alpha_validated": false,
+    "capital_authorized": false,
+    "execution_authorized": false,
+    "execution_economics_evidence_bound": false,
+    "independent_replication_bound": false,
+    "live_market_tested": false,
+    "metaeditor_compilation_performed": false,
+    "mt5_runtime_parity_proven": false,
+    "ood_evidence_bound": false,
+    "promotion_authorized": false,
+    "prospective_evidence_bound": false,
+    "synthetic_reference_data_only": true
+  },
+  "mql5_static_contract_file_count": 13,
+  "payload_file_count": 318,
+  "phase": "ACL-07",
+  "phase_delivery_document_count": 53,
+  "policy_count": 22,
+  "python_module_count": 24,
+  "reason_code_count": 21,
+  "reference_batch_id": "BATCH_81FF4FC3C8B796422B0EF6818FEB2D5E",
+  "reference_run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+  "reference_validation_file_count": 43,
+  "reference_validation_id": "VALIDATION_3AC66AA2ED2AC1AEE9B8EDB7ABB9C13A",
+  "reporting_eligible_candidate_count": 0,
+  "schema_count": 18,
+  "schema_version": "1.0.0",
+  "status": "accepted_reference_implementation"
+}

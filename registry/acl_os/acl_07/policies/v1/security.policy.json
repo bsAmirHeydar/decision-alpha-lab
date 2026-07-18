@@ -1,0 +1,8 @@
+{
+  "capital": false,
+  "network": false,
+  "orders": false,
+  "policy_id": "ACL07_SECURITY_V1",
+  "schema_version": "1.0.0",
+  "secrets": false
+}

@@ -1,0 +1,93 @@
+{
+  "claim_ceiling": "VALIDATION_DECISION_REFERENCE_ONLY",
+  "codes": [
+    {
+      "code": "ACL06_BUNDLE_VERIFIED",
+      "meaning": "The complete ACL-06 generated root passed integrity checks."
+    },
+    {
+      "code": "ALL_REFERENCE_GATES_PASSED",
+      "meaning": "All registered reference gates passed; reporting only, not promotion."
+    },
+    {
+      "code": "BASELINE_DOMINANCE_NOT_ESTABLISHED",
+      "meaning": "Held-out behavior did not exceed the best baseline by the required margin."
+    },
+    {
+      "code": "BASELINE_NOT_PROMOTABLE",
+      "meaning": "Baseline remains a comparator only."
+    },
+    {
+      "code": "CANDIDATE_IS_BASELINE",
+      "meaning": "Baseline artifacts are reference comparators, not promotable candidates."
+    },
+    {
+      "code": "DIAGNOSTIC_LANE_EXCLUDED_FROM_TESTING_FAMILY",
+      "meaning": "Diagnostic candidate is excluded from multiple-testing family."
+    },
+    {
+      "code": "DIAGNOSTIC_LANE_NON_SELECTABLE",
+      "meaning": "Diagnostic evidence is visible but cannot enter selection or promotion."
+    },
+    {
+      "code": "EFFECT_THRESHOLD_NOT_MET",
+      "meaning": "Directional effect or signed result is below policy."
+    },
+    {
+      "code": "EXECUTION_ECONOMICS_EVIDENCE_MISSING",
+      "meaning": "Side-aware cost and fill evidence is absent."
+    },
+    {
+      "code": "FDR_THRESHOLD_NOT_MET",
+      "meaning": "Family-corrected q-value did not clear policy."
+    },
+    {
+      "code": "INDEPENDENT_REPLICATION_MISSING",
+      "meaning": "No independent replication is bound."
+    },
+    {
+      "code": "INSUFFICIENT_TOTAL_OR_TEST_SUPPORT",
+      "meaning": "Total or held-out support is below the frozen threshold."
+    },
+    {
+      "code": "ONE_OR_MORE_REQUIRED_GATES_NOT_PASSED",
+      "meaning": "At least one required gate is FAIL or UNKNOWN."
+    },
+    {
+      "code": "OOD_EVIDENCE_MISSING",
+      "meaning": "Out-of-distribution and selective-control evidence is absent."
+    },
+    {
+      "code": "OVERFIT_CONTROL_BATTERY_NOT_CLEARED",
+      "meaning": "Overfit controls did not clear."
+    },
+    {
+      "code": "PROSPECTIVE_EVIDENCE_MISSING",
+      "meaning": "No frozen prospective run is bound."
+    },
+    {
+      "code": "RESEARCH_LANE_CONFIRMED",
+      "meaning": "Candidate belongs to the research lane."
+    },
+    {
+      "code": "SEGMENT_GENERALIZATION_NOT_ESTABLISHED",
+      "meaning": "Train, validation and test behavior is missing or unstable."
+    },
+    {
+      "code": "SIGNIFICANCE_OR_CONFIDENCE_BOUND_NOT_MET",
+      "meaning": "Nominal p-value or Wilson lower bound did not clear policy."
+    },
+    {
+      "code": "TAIL_EVIDENCE_INSUFFICIENT_OR_ADVERSE",
+      "meaning": "Tail sample is too small or adverse."
+    },
+    {
+      "code": "UPSTREAM_KNOWN_TIME_AND_SPLIT_EVIDENCE_VERIFIED",
+      "meaning": "Known-time and purged-split evidence is bound from ACL-06."
+    }
+  ],
+  "immutability": "append_only_with_version_bump",
+  "phase_id": "ACL-07",
+  "registry_id": "ACL07_REASON_CODE_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}

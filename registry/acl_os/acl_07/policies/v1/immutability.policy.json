@@ -1,0 +1,6 @@
+{
+  "decision_mutation_allowed": false,
+  "policy_id": "ACL07_IMMUTABILITY_V1",
+  "schema_version": "1.0.0",
+  "upstream_results_mutable": false
+}

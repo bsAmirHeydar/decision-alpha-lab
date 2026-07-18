@@ -1,0 +1,7 @@
+{
+  "diagnostic_promotable": false,
+  "diagnostic_selectable": false,
+  "future_aware_evidence_segregated": true,
+  "policy_id": "ACL07_DIAGNOSTIC_ISOLATION_V1",
+  "schema_version": "1.0.0"
+}

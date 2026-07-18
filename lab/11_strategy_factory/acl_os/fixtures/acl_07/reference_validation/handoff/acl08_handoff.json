@@ -1,0 +1,29 @@
+{
+  "alpha_claim_allowed": false,
+  "batch_id": "BATCH_81FF4FC3C8B796422B0EF6818FEB2D5E",
+  "capital_activation_allowed": false,
+  "claim_ceiling": "VALIDATION_DECISION_REFERENCE_ONLY",
+  "decision_bundle_digest": "sha256:6006139d47ed5c5c4bc44cc41c1e931d8ba9ac86ed928ecaf1ba8ae0d79f6e10",
+  "event_ledger_digest": "sha256:a87be239037cde65c8b0a64a6de834a2d7924ba67fb753b8acf61f0218f2bdbb",
+  "forbidden_acl08_actions": [
+    "MUTATE_VALIDATION_DECISIONS",
+    "INFER_ALPHA_FROM_REPORTING",
+    "PROMOTE_DIAGNOSTIC_LANE",
+    "AUTHORIZE_EXECUTION",
+    "ACTIVATE_CAPITAL"
+  ],
+  "gate_matrix_digest": "sha256:a421ec17b8b6874eba0290237831636b2b8c8d89ccb0b771e253779234cf264a",
+  "handoff_digest": "sha256:a4d7cbbc0d9139e824a09bb8c05cb81c4f197efd239f6b4d72d76603bbd61542",
+  "handoff_type": "ACL07_TO_ACL08",
+  "live_order_submission_allowed": false,
+  "provenance_graph_digest": "sha256:45e33459531e5c9addc26659bc59c810e3214f937d64da3ab0a78aa99a740b63",
+  "required_acl08_actions": [
+    "BUILD_BATCH_REPORT",
+    "PROJECT_VALIDATION_EVIDENCE",
+    "CAPTURE_NON_PROMOTIONAL_EXPERIENCE"
+  ],
+  "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+  "schema_version": "1.0.0",
+  "validation_id": "VALIDATION_3AC66AA2ED2AC1AEE9B8EDB7ABB9C13A",
+  "validation_run_digest": "sha256:9e64a028561083909d612ca33705e19a3749ee86a93856639fcedbbbdb298207"
+}

@@ -1,0 +1,16 @@
+{
+  "allowed": [
+    "VERIFY_RESEARCH_EVIDENCE",
+    "APPLY_UNIFIED_VALIDATION_GATES",
+    "ISSUE_NON_PROMOTIONAL_VALIDATION_DECISION"
+  ],
+  "denied": [
+    "MUTATE_RESEARCH_RESULTS",
+    "PROMOTE_DIAGNOSTIC_LANE",
+    "AUTHORIZE_EXECUTION",
+    "ACTIVATE_CAPITAL"
+  ],
+  "phase": "ACL-07",
+  "policy_id": "ACL07_AUTHORITY_BOUNDARY_V1",
+  "schema_version": "1.0.0"
+}

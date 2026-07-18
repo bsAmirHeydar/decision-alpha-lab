@@ -1,0 +1,6 @@
+{
+  "breaking_change_requires_major": true,
+  "dual_read_required_when_needed": true,
+  "policy_id": "ACL07_MIGRATION_V1",
+  "schema_version": "1.0.0"
+}

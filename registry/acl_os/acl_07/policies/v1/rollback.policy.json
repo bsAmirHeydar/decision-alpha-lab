@@ -1,0 +1,6 @@
+{
+  "in_place_rewrite_forbidden": true,
+  "policy_id": "ACL07_ROLLBACK_V1",
+  "rollback_is_artifact_selection": true,
+  "schema_version": "1.0.0"
+}

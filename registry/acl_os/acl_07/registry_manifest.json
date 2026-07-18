@@ -1,0 +1,12 @@
+{
+  "capital_activation_allowed": false,
+  "claim_ceiling": "VALIDATION_DECISION_REFERENCE_ONLY",
+  "gate_count": 15,
+  "live_order_submission_allowed": false,
+  "manifest_digest": "sha256:51e38f479f39014134b948109ae83ed890a915abc6a9c36fe2b49d4921ab8fe3",
+  "phase_id": "ACL-07",
+  "phase_version": "1.0.0",
+  "policy_count": 22,
+  "schema_count": 18,
+  "schema_version": "1.0.0"
+}

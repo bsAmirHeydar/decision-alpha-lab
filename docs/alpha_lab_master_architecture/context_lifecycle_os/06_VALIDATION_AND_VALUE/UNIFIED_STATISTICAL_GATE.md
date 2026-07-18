@@ -64,3 +64,7 @@ This architecture note specifies required mechanics. Only environment-specific e
 
 - [[ACL_OS_HOME]]
 - [[IMPLEMENTATION_MASTER_PLAN]]
+
+## ACL-07 binding
+
+ACL-07 realizes this gate as a closed fifteen-gate registry, an immutable policy snapshot, per-candidate gate vectors and a non-promotional decision bundle.

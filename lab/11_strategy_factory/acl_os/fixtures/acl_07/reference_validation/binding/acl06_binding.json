@@ -1,0 +1,11 @@
+{
+  "acl06_handoff_digest": "sha256:e232a3cfa75c6fd50d2d25ad324519489d630b60199f0e8ebe58ce3e6fe73d69",
+  "acl06_input_bundle_digest": "sha256:b0c151a140c59eb0ba43ed3c736a95669de38d9c4223336944c37dc3e90a86e0",
+  "acl06_result_bundle_digest": "sha256:d1e77c5bf5230e01e9df0141cbb1c0a5f1daafd549588d077575802c9f31fb28",
+  "batch_id": "BATCH_81FF4FC3C8B796422B0EF6818FEB2D5E",
+  "binding_digest": "sha256:e5acf03a60eefad0cdd4ef9d0d7852c6cb2efb521a7e0cc366a1af5633b91564",
+  "research_results_mutated": false,
+  "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+  "schema_version": "1.0.0",
+  "validation_id": "VALIDATION_3AC66AA2ED2AC1AEE9B8EDB7ABB9C13A"
+}

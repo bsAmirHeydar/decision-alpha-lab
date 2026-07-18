@@ -1,0 +1,6 @@
+{
+  "baseline_candidates_non_promotable": true,
+  "nonbaseline_must_dominate_best_baseline": true,
+  "policy_id": "ACL07_BASELINE_V1",
+  "schema_version": "1.0.0"
+}

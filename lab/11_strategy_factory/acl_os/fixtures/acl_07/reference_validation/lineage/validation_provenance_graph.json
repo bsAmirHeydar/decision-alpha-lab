@@ -1,0 +1,69 @@
+{
+  "diagnostic_lane_promoted": false,
+  "edges": [
+    {
+      "from": "ACL06_HANDOFF",
+      "relation": "BINDS",
+      "to": "ACL06_RESULT_BUNDLE"
+    },
+    {
+      "from": "ACL06_RESULT_BUNDLE",
+      "relation": "VALIDATED_BY",
+      "to": "ACL07_GATE_MATRIX"
+    },
+    {
+      "from": "ACL07_POLICY",
+      "relation": "GOVERNS",
+      "to": "ACL07_GATE_MATRIX"
+    },
+    {
+      "from": "ACL07_GATE_MATRIX",
+      "relation": "DETERMINES",
+      "to": "ACL07_DECISIONS"
+    },
+    {
+      "from": "ACL07_DECISIONS",
+      "relation": "RECORDED_IN",
+      "to": "ACL07_EVENTS"
+    }
+  ],
+  "execution_authority_granted": false,
+  "graph_digest": "sha256:45e33459531e5c9addc26659bc59c810e3214f937d64da3ab0a78aa99a740b63",
+  "graph_id": "VALPROV_31F92FE399D0C54DA8F2E875",
+  "nodes": [
+    {
+      "artifact_type": "ACL06_TO_ACL07",
+      "digest": "sha256:e232a3cfa75c6fd50d2d25ad324519489d630b60199f0e8ebe58ce3e6fe73d69",
+      "node_id": "ACL06_HANDOFF"
+    },
+    {
+      "artifact_type": "RESEARCH_RESULT_BUNDLE",
+      "digest": "sha256:d1e77c5bf5230e01e9df0141cbb1c0a5f1daafd549588d077575802c9f31fb28",
+      "node_id": "ACL06_RESULT_BUNDLE"
+    },
+    {
+      "artifact_type": "VALIDATION_POLICY",
+      "digest": "sha256:2d83c915b1593e796dccb62d76e1cd5cda17f94bf0e7a8c941f515100c958aa5",
+      "node_id": "ACL07_POLICY"
+    },
+    {
+      "artifact_type": "VALIDATION_GATE_MATRIX",
+      "digest": "sha256:a421ec17b8b6874eba0290237831636b2b8c8d89ccb0b771e253779234cf264a",
+      "node_id": "ACL07_GATE_MATRIX"
+    },
+    {
+      "artifact_type": "VALIDATION_DECISION_BUNDLE",
+      "digest": "sha256:6006139d47ed5c5c4bc44cc41c1e931d8ba9ac86ed928ecaf1ba8ae0d79f6e10",
+      "node_id": "ACL07_DECISIONS"
+    },
+    {
+      "artifact_type": "VALIDATION_EVENT_LEDGER",
+      "digest": "sha256:a87be239037cde65c8b0a64a6de834a2d7924ba67fb753b8acf61f0218f2bdbb",
+      "node_id": "ACL07_EVENTS"
+    }
+  ],
+  "reaches_acl06_research_run": true,
+  "research_results_mutated": false,
+  "schema_version": "1.0.0",
+  "validation_id": "VALIDATION_3AC66AA2ED2AC1AEE9B8EDB7ABB9C13A"
+}

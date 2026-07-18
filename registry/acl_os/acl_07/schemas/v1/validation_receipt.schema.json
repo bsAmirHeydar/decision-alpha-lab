@@ -1,0 +1,80 @@
+{
+  "$id": "https://alpha-lab.local/acl07/validation_receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acl08_handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "batch_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "capital_activation_allowed": {},
+    "claim_ceiling": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decision_bundle_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "event_ledger_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "gate_matrix_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "live_order_submission_allowed": {},
+    "output_manifest_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "receipt_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "validation_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "validation_run_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "validator_version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "validation_id",
+    "run_id",
+    "batch_id",
+    "validator_version",
+    "claim_ceiling",
+    "validation_run_digest",
+    "decision_bundle_digest",
+    "gate_matrix_digest",
+    "event_ledger_digest",
+    "acl08_handoff_digest",
+    "output_manifest_digest",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "receipt_digest"
+  ],
+  "title": "validation_receipt",
+  "type": "object"
+}

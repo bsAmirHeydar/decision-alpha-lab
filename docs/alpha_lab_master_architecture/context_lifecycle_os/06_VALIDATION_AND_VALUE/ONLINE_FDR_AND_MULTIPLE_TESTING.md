@@ -64,3 +64,7 @@ This architecture note specifies required mechanics. Only environment-specific e
 
 - [[ACL_OS_HOME]]
 - [[IMPLEMENTATION_MASTER_PLAN]]
+
+## ACL-07 binding
+
+ACL-07 uses Benjamini-Hochberg over all RESEARCH candidates in the frozen Batch. Diagnostic candidates are excluded and cannot benefit from family correction.

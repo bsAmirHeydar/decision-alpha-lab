@@ -1,0 +1,11 @@
+{
+  "allowed": [
+    "PASS",
+    "FAIL",
+    "UNKNOWN",
+    "NOT_APPLICABLE"
+  ],
+  "policy_id": "ACL07_GATE_STATUS_V1",
+  "schema_version": "1.0.0",
+  "unknown_fails_eligibility": true
+}

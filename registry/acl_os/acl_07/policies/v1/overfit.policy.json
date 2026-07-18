@@ -1,0 +1,6 @@
+{
+  "policy_id": "ACL07_OVERFIT_V1",
+  "schema_version": "1.0.0",
+  "search_exposure_inherited": true,
+  "segment_stability_required": true
+}

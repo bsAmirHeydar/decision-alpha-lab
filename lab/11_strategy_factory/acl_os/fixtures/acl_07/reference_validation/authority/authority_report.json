@@ -1,0 +1,17 @@
+{
+  "checks": {
+    "action_exact": true,
+    "batch_exact": true,
+    "capital_denied": true,
+    "handoff_bound": true,
+    "network_denied": true,
+    "order_denied": true,
+    "run_exact": true,
+    "secret_denied": true,
+    "subject_exact": true
+  },
+  "passed": true,
+  "permit_id": "PERMIT_ACL07_REFERENCE_VALIDATION_V1",
+  "report_digest": "sha256:c986d158fbae991ec0774d6f44bdd8f32a5ea1779fc9c897778c41405fe3d0b4",
+  "schema_version": "1.0.0"
+}

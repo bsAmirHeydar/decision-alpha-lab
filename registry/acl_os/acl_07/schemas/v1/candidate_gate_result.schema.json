@@ -1,0 +1,48 @@
+{
+  "$id": "https://alpha-lab.local/acl07/candidate_gate_result.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_gate_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "candidate_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "gates": {},
+    "lane": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "origin": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "setup_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "validation_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "validation_id",
+    "setup_id",
+    "candidate_id",
+    "lane",
+    "origin",
+    "gates",
+    "candidate_gate_digest"
+  ],
+  "title": "candidate_gate_result",
+  "type": "object"
+}

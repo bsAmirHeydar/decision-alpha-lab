@@ -64,3 +64,7 @@ This architecture note specifies required mechanics. Only environment-specific e
 
 - [[ACL_OS_HOME]]
 - [[IMPLEMENTATION_MASTER_PLAN]]
+
+## ACL-07 binding
+
+ACL-07 binds frozen search exposure to train/validation/test stability, baseline dominance and held-out behavior.

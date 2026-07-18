@@ -1,0 +1,6 @@
+{
+  "append_only": true,
+  "hash_chained": true,
+  "policy_id": "ACL07_EVENT_LEDGER_V1",
+  "schema_version": "1.0.0"
+}

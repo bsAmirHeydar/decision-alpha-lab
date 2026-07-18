@@ -1,0 +1,16 @@
+{
+  "action": "ACL07_APPLY_UNIFIED_VALIDATION_GATES",
+  "batch_id": "BATCH_81FF4FC3C8B796422B0EF6818FEB2D5E",
+  "capital_activation_allowed": false,
+  "expires_at": "2027-07-18T00:00:00Z",
+  "issued_at": "2026-07-18T00:00:00Z",
+  "live_order_submission_allowed": false,
+  "network_access_allowed": false,
+  "permit_digest": "sha256:bf78dff74a93cdbea6891f7c87b3fb4fbd0e7d7275b53444452137176f889914",
+  "permit_id": "PERMIT_ACL07_REFERENCE_VALIDATION_V1",
+  "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+  "schema_version": "1.0.0",
+  "secret_access_allowed": false,
+  "subject": "ACL-07",
+  "upstream_handoff_digest": "sha256:e232a3cfa75c6fd50d2d25ad324519489d630b60199f0e8ebe58ce3e6fe73d69"
+}

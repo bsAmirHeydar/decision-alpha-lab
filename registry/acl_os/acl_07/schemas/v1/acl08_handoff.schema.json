@@ -1,0 +1,81 @@
+{
+  "$id": "https://alpha-lab.local/acl07/acl08_handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alpha_claim_allowed": {},
+    "batch_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "capital_activation_allowed": {},
+    "claim_ceiling": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decision_bundle_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "event_ledger_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "forbidden_acl08_actions": {},
+    "gate_matrix_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "handoff_type": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "live_order_submission_allowed": {},
+    "provenance_graph_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "required_acl08_actions": {},
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "validation_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "validation_run_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "handoff_type",
+    "validation_id",
+    "run_id",
+    "batch_id",
+    "claim_ceiling",
+    "validation_run_digest",
+    "decision_bundle_digest",
+    "gate_matrix_digest",
+    "event_ledger_digest",
+    "provenance_graph_digest",
+    "required_acl08_actions",
+    "forbidden_acl08_actions",
+    "alpha_claim_allowed",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "handoff_digest"
+  ],
+  "title": "acl08_handoff",
+  "type": "object"
+}

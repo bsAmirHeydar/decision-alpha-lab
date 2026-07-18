@@ -16,3 +16,11 @@ Each phase has an explicit claim ceiling. A reference implementation must not be
 ## ACL-06 — Research DAG Orchestration
 
 Consumes the immutable ACL-05 Batch, plans a closed deterministic DAG, executes bounded descriptive research, writes task receipts and hands evidence to ACL-07. No execution or capital authority is granted.
+
+## ACL-07 — Unified Validation Gate
+
+Consumes ACL-06 descriptive evidence, applies a closed fifteen-gate validation policy, isolates diagnostics, corrects multiple testing and issues immutable non-promotional decisions for ACL-08. No execution or capital authority is granted.
+
+## ACL-08 — Reporting and Experience
+
+Consumes ACL-07 validation decisions and produces deterministic reports, redacted audience views and non-promotional experience candidates for ACL-09. No alpha, promotion, execution or capital authority is granted.

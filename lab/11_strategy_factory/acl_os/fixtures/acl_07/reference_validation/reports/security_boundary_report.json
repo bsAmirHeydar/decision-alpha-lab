@@ -1,0 +1,11 @@
+{
+  "capital_activation_allowed": false,
+  "live_order_submission_allowed": false,
+  "network_access_allowed": false,
+  "passed": true,
+  "promotion_authority_granted": false,
+  "report_digest": "sha256:378c15494e240d66b676841198897ae91f0c66b172358bf42cc7999b915686aa",
+  "schema_version": "1.0.0",
+  "secret_access_allowed": false,
+  "validation_id": "VALIDATION_3AC66AA2ED2AC1AEE9B8EDB7ABB9C13A"
+}

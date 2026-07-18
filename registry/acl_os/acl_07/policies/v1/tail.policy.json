@@ -1,0 +1,6 @@
+{
+  "policy_id": "ACL07_TAIL_V1",
+  "schema_version": "1.0.0",
+  "small_sample_returns_unknown": true,
+  "tail_evidence_required": true
+}

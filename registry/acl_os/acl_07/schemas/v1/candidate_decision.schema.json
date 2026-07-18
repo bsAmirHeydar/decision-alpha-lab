@@ -1,0 +1,70 @@
+{
+  "$id": "https://alpha-lab.local/acl07/candidate_decision.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alpha_claim_allowed": {},
+    "candidate_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "candidate_result_digest": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "capital_activation_allowed": {},
+    "decision_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "decision_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decision_status": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "gate_result_digests": {},
+    "gate_summary": {},
+    "lane": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "live_order_submission_allowed": {},
+    "origin": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "promotion_allowed": {},
+    "reason_codes": {},
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "setup_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "decision_id",
+    "setup_id",
+    "candidate_id",
+    "candidate_result_digest",
+    "lane",
+    "origin",
+    "decision_status",
+    "reason_codes",
+    "gate_summary",
+    "gate_result_digests",
+    "alpha_claim_allowed",
+    "promotion_allowed",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "decision_digest"
+  ],
+  "title": "candidate_decision",
+  "type": "object"
+}

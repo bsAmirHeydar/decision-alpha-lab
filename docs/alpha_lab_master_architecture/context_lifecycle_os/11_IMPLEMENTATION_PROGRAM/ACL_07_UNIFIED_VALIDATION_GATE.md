@@ -1,37 +1,33 @@
 ---
 title: ACL-07 — Unified Validation Gate
-status: proposed-reference
+status: accepted-reference
 version: 1.0.0
 updated: 2026-07-18
-tags: [acl-os, acl-06]
+tags: [acl-os, acl-07, validation]
 ---
 # ACL-07 — Unified Validation Gate
 
-## Accepted ACL-06 dependency contract
+ACL-07 is the deterministic qualification boundary between descriptive research and reporting. It consumes the immutable ACL-06 research run, validates the full evidence bundle, applies a closed fifteen-gate policy and publishes non-promotional decisions for ACL-08.
 
-ACL-07 starts only from a byte-valid `ACL06_TO_ACL07` handoff. It must resolve the exact research run, DAG, result bundle, task receipt set, resource accounting, run object index, event ledger and provenance graph. Every candidate result remains descriptive and `NOT_VALIDATED` until ACL-07 applies the full validation battery.
+## Implemented scope
 
-ACL-07 may verify research evidence, apply unified validation gates and issue a non-promotional validation decision. It may not mutate the frozen Batch, rewrite research results, promote the diagnostic lane, infer alpha without gates, authorize execution or activate capital.
-
-## Minimum intake checks
-
-- exact ACL-06 output manifest and receipt;
-- complete successful task receipt set;
-- resource usage within the ACL-05 frozen budget;
-- candidate and segment lineage to the frozen Batch;
-- diagnostic-lane non-selectability;
-- known-time and split evidence;
-- event-chain and provenance completeness;
-- no order or capital authority.
-
-## Required ACL-07 outputs
-
-ACL-07 must produce gate-level reason codes, support/effect evidence, leakage and data-quality results, overfit controls, distributional and temporal robustness evidence, multiple-testing controls and a decision that remains separate from execution authority.
+1. Exact ACL-06 generated-root verification.
+2. ACL-00-style authority permit binding.
+3. Frozen validation policy and gate registry.
+4. Data/leakage and diagnostic-isolation controls.
+5. Support, effect, confidence and multiple-testing controls.
+6. Baseline dominance and temporal generalization.
+7. Overfit and distributional robustness diagnostics.
+8. Execution-economics, OOD, prospective and replication evidence gates.
+9. Candidate decision bundle with explicit reason codes.
+10. Hash-chained events, provenance, Obsidian projection and ACL-08 handoff.
 
 ## Claim ceiling
 
-Receiving a completed research run does not establish alpha or promotion eligibility.
+`VALIDATION_DECISION_REFERENCE_ONLY`
 
-## Related
+This phase does not authorize promotion, execution, capital or production operation.
 
-[[ACL_06_RESEARCH_DAG_ORCHESTRATION]], [[UNIFIED_STATISTICAL_GATE]], [[PROMOTION_DECISION_POLICY]]
+## Reference result
+
+The synthetic ACL-06 fixture is intentionally too small and lacks economics, OOD, prospective and replication evidence. Therefore no candidate becomes reporting-eligible in the reference run. Baselines remain baseline-only and the future-aware candidate remains diagnostic-excluded.

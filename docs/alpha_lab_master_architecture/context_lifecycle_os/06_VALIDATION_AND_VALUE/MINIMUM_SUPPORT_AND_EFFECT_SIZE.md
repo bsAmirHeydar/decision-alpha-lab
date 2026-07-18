@@ -64,3 +64,7 @@ This architecture note specifies required mechanics. Only environment-specific e
 
 - [[ACL_OS_HOME]]
 - [[IMPLEMENTATION_MASTER_PLAN]]
+
+## ACL-07 binding
+
+ACL-07 separates minimum total/test support from effect and confidence. A candidate cannot compensate for low support with a high point estimate.

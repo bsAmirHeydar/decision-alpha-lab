@@ -1,0 +1,42 @@
+{
+  "alpha_claim_allowed": false,
+  "candidate_id": "CAND_BF0DDD4F6D9FEB94F60A",
+  "candidate_result_digest": "sha256:2fea7111cca776dd74a527ca834dbffde15064880cb4e6fdc921eee701f61601",
+  "capital_activation_allowed": false,
+  "decision_digest": "sha256:b782378ff6d1d4707ec2df7cc3e1376e7e91ca101ad69cb8fc3531302a0b9370",
+  "decision_id": "VALDEC_C065854B0CA8DA4D19289A0E",
+  "decision_status": "BASELINE_REFERENCE_ONLY",
+  "gate_result_digests": {
+    "BASELINE_DOMINANCE": "sha256:6dd51bb07aa7ef1695449d28e9e5fe0b3938d0195c88e5cf66739349aa5379a3",
+    "DATA_QUALITY_AND_LEAKAGE": "sha256:f466a4a57f5995b698bbf0572c578cabb883ed0a5e6d7479a349cc054ebea708",
+    "DIAGNOSTIC_ISOLATION": "sha256:7a5d26beb13d820b1d8b16c7543dd8bba956df4cf5feb7e5db60c1fde9342f8b",
+    "DISTRIBUTIONAL_ROBUSTNESS": "sha256:d9aaad516847cb021b96dedc362def8e353200e8d729228132077700a60966d7",
+    "EFFECT_SIZE": "sha256:46111c611504e5c82c2cac9426c830b51d650fd13057396ba19e17728ca37232",
+    "EXECUTION_ECONOMICS": "sha256:7f0b1d6b1a5c20feb4687714bc982c4ecc5070a307b74da27e2a576465d3f5ad",
+    "INDEPENDENT_REPLICATION": "sha256:0ef526f471340ec0045e83df518a8b61459a3861de3cf4307c7719a7749bf9c4",
+    "INPUT_INTEGRITY": "sha256:004c532b8742b9d78e9c8c683adc88bc5d8995228b87198c8b6e5f6c51446043",
+    "MINIMUM_SUPPORT": "sha256:f9c4851c6eefc6ec7b93ca4cbf3cc5f9706d341034b62897b9c59f72c344371a",
+    "MULTIPLE_TESTING": "sha256:abe8a88ca3b6949fbc2fcd7d1efcb49251332fbaff3ce6fdb9011cedae7d23f0",
+    "OOD_AND_ABSTENTION": "sha256:84ebc644de29090c7fe5833dce84b06c90b4a3963c31a00b9d770be573c3cb68",
+    "OVERFIT_CONTROL": "sha256:18d0ab57e549a1bd699e13db634599fefe7b01be313e143da1396fc656fd8332",
+    "PROSPECTIVE_EVIDENCE": "sha256:736bc84b37aaef37fb9e014cb4601dc6f2e09022ee5b2d510390fbdec8d47e3c",
+    "STATISTICAL_SIGNIFICANCE": "sha256:475da8695179322f6c60dd021d9fb3ab9c36c6b2b0bfc5cfb41965a908b1f994",
+    "TEMPORAL_GENERALIZATION": "sha256:c69405c23209cc733514797668e87cb911e0340d844e94cf50824eb075aeb61e"
+  },
+  "gate_summary": {
+    "failed": 3,
+    "not_applicable": 1,
+    "passed": 3,
+    "total": 15,
+    "unknown": 8
+  },
+  "lane": "RESEARCH",
+  "live_order_submission_allowed": false,
+  "origin": "BASELINE",
+  "promotion_allowed": false,
+  "reason_codes": [
+    "BASELINE_NOT_PROMOTABLE"
+  ],
+  "schema_version": "1.0.0",
+  "setup_id": "SETUP_B2465EF6482D65D3F6D5"
+}

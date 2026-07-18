@@ -1,0 +1,35 @@
+{
+  "$id": "https://alpha-lab.local/acl07/validation_event_ledger.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "event_count": {},
+    "events": {},
+    "ledger_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "terminal_event_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "validation_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "validation_id",
+    "event_count",
+    "events",
+    "terminal_event_digest",
+    "ledger_digest"
+  ],
+  "title": "validation_event_ledger",
+  "type": "object"
+}

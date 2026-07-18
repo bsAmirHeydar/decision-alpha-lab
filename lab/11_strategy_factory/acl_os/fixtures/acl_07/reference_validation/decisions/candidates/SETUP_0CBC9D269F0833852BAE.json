@@ -1,0 +1,42 @@
+{
+  "alpha_claim_allowed": false,
+  "candidate_id": "CAND_2FEB91284275BBB47978",
+  "candidate_result_digest": "sha256:f2c5d221c6e128c0e6afc291e975e0ec20e11ad0a027904dc7bc4027621c39cb",
+  "capital_activation_allowed": false,
+  "decision_digest": "sha256:a9941a4ee89344e7b705bdebe050f6845ad60faf342c66bcd6dcbb1806432594",
+  "decision_id": "VALDEC_BA946DF13BE59346833650D7",
+  "decision_status": "DIAGNOSTIC_EXCLUDED",
+  "gate_result_digests": {
+    "BASELINE_DOMINANCE": "sha256:55c40affdd31138e93f19c2bc789af8bc4859f85381086aa75c0dab1b802ee1f",
+    "DATA_QUALITY_AND_LEAKAGE": "sha256:4ebb83969def8d6881c6c391bdf35bb145d4b610ef8589d52929a125ddbd92d6",
+    "DIAGNOSTIC_ISOLATION": "sha256:8111170002d747d9243972e17286f0472d7e8309d93794311e58f2f0ece01149",
+    "DISTRIBUTIONAL_ROBUSTNESS": "sha256:27076457ebef48c7c4f34f6c5fd59359f6e1fa29760160a24145010f0d24f89b",
+    "EFFECT_SIZE": "sha256:c56ca11b8e95fb208c30e2a0b3b224723001a36c1167aa09b18f8230344bceaf",
+    "EXECUTION_ECONOMICS": "sha256:15acbf679fabdca7ef571cf4101ddaaff8611a66644c98140b2583b31d5f6719",
+    "INDEPENDENT_REPLICATION": "sha256:c746da0a700f7aa97881359590fcb8e8ba583577fde5b02aeee5cec07504c935",
+    "INPUT_INTEGRITY": "sha256:004c532b8742b9d78e9c8c683adc88bc5d8995228b87198c8b6e5f6c51446043",
+    "MINIMUM_SUPPORT": "sha256:291a9bfbc5fb07d6eea46b68296c3a27e646e3d7cea677a443b6ab53b049cb49",
+    "MULTIPLE_TESTING": "sha256:73e9283ff5da7de9cb9536e7bd7aedb495db7a6e225c21a5745aad3a4ada2d70",
+    "OOD_AND_ABSTENTION": "sha256:e8bc2ef05f047fc0d6dc0ba60d5b31fab65b1e99d4d80e05d5423323494b82c0",
+    "OVERFIT_CONTROL": "sha256:480a86b401dea9be0a5bd95d3f96ff879dcb6c1fa77a6daec650d46581e6253b",
+    "PROSPECTIVE_EVIDENCE": "sha256:702bc7193898b63e03be79824fed07199daf5cc3987b98b29584301d51ed47e7",
+    "STATISTICAL_SIGNIFICANCE": "sha256:bf20b8a8702c3bfcc55408901502698ae33c914b782167f980402c06d6919474",
+    "TEMPORAL_GENERALIZATION": "sha256:d39cdacaf39139049e3a35a2611676d54eb39c020df85be5efcbb92be765c0a1"
+  },
+  "gate_summary": {
+    "failed": 2,
+    "not_applicable": 2,
+    "passed": 6,
+    "total": 15,
+    "unknown": 5
+  },
+  "lane": "DIAGNOSTIC",
+  "live_order_submission_allowed": false,
+  "origin": "BASELINE",
+  "promotion_allowed": false,
+  "reason_codes": [
+    "DIAGNOSTIC_LANE_NON_SELECTABLE"
+  ],
+  "schema_version": "1.0.0",
+  "setup_id": "SETUP_0CBC9D269F0833852BAE"
+}

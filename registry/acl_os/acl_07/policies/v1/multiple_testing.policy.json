@@ -1,0 +1,7 @@
+{
+  "diagnostic_excluded": true,
+  "family_scope": "ALL_RESEARCH_CANDIDATES_IN_FROZEN_BATCH",
+  "method": "BENJAMINI_HOCHBERG",
+  "policy_id": "ACL07_MULTIPLE_TESTING_V1",
+  "schema_version": "1.0.0"
+}

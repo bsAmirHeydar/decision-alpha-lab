@@ -1,0 +1,79 @@
+{
+  "event_count": 5,
+  "events": [
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:b92f3c30659cc9fb0eac7cf66aa78d0eae6024f7a4590f8c42ea5a54f39dbef5",
+      "event_id": "VALEVT_0C479568C27240A59D2F056A",
+      "event_type": "ACL06_EVIDENCE_ACCEPTED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T00:00:00Z",
+      "payload": {
+        "binding_digest": "sha256:e5acf03a60eefad0cdd4ef9d0d7852c6cb2efb521a7e0cc366a1af5633b91564"
+      },
+      "previous_event_digest": "GENESIS",
+      "schema_version": "1.0.0",
+      "sequence": 1
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:3791e59ef7685e6e3deef43808bbfa3b5f1e6f1ca57321b2c726fd1c7e5a9a48",
+      "event_id": "VALEVT_6A10557ACD8E2454E6748E14",
+      "event_type": "VALIDATION_POLICY_BOUND",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T00:00:00Z",
+      "payload": {
+        "policy_digest": "sha256:2d83c915b1593e796dccb62d76e1cd5cda17f94bf0e7a8c941f515100c958aa5"
+      },
+      "previous_event_digest": "sha256:b92f3c30659cc9fb0eac7cf66aa78d0eae6024f7a4590f8c42ea5a54f39dbef5",
+      "schema_version": "1.0.0",
+      "sequence": 2
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:252e5f32c076e356e9d2747161d402a3a47ce6c24346ea1504a0619120db7977",
+      "event_id": "VALEVT_4FA085CC064DB16613DAE6B4",
+      "event_type": "UNIFIED_GATES_APPLIED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T00:00:00Z",
+      "payload": {
+        "gate_matrix_digest": "sha256:a421ec17b8b6874eba0290237831636b2b8c8d89ccb0b771e253779234cf264a"
+      },
+      "previous_event_digest": "sha256:3791e59ef7685e6e3deef43808bbfa3b5f1e6f1ca57321b2c726fd1c7e5a9a48",
+      "schema_version": "1.0.0",
+      "sequence": 3
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:ff63df13a4a86f25921bfc19f93b5788fd09679a91442527c4eb733dcb1f4bba",
+      "event_id": "VALEVT_C2DADA895EE918777A2B571C",
+      "event_type": "NON_PROMOTIONAL_DECISIONS_ISSUED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T00:00:00Z",
+      "payload": {
+        "decision_bundle_digest": "sha256:6006139d47ed5c5c4bc44cc41c1e931d8ba9ac86ed928ecaf1ba8ae0d79f6e10"
+      },
+      "previous_event_digest": "sha256:252e5f32c076e356e9d2747161d402a3a47ce6c24346ea1504a0619120db7977",
+      "schema_version": "1.0.0",
+      "sequence": 4
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:d02a471578b7bf50dd4d72aa48035e00f691ab41a0b4e2c024f26f47bf23b19c",
+      "event_id": "VALEVT_2B9EB9E14114C541FE03C14D",
+      "event_type": "VALIDATION_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T00:00:00Z",
+      "payload": {
+        "validation_run_digest": "sha256:9e64a028561083909d612ca33705e19a3749ee86a93856639fcedbbbdb298207"
+      },
+      "previous_event_digest": "sha256:ff63df13a4a86f25921bfc19f93b5788fd09679a91442527c4eb733dcb1f4bba",
+      "schema_version": "1.0.0",
+      "sequence": 5
+    }
+  ],
+  "ledger_digest": "sha256:a87be239037cde65c8b0a64a6de834a2d7924ba67fb753b8acf61f0218f2bdbb",
+  "schema_version": "1.0.0",
+  "terminal_event_digest": "sha256:d02a471578b7bf50dd4d72aa48035e00f691ab41a0b4e2c024f26f47bf23b19c",
+  "validation_id": "VALIDATION_3AC66AA2ED2AC1AEE9B8EDB7ABB9C13A"
+}

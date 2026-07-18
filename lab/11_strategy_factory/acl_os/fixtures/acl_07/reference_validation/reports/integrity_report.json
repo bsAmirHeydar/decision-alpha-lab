@@ -1,0 +1,10 @@
+{
+  "acl06_bundle_verified": true,
+  "candidate_files_verified": 12,
+  "passed": true,
+  "report_digest": "sha256:1f05baca0f8d3de738c9865d76b19f5bccc438839b2580bdc1250051b076c6bf",
+  "research_results_mutated": false,
+  "schema_version": "1.0.0",
+  "segment_results_verified": 36,
+  "validation_id": "VALIDATION_3AC66AA2ED2AC1AEE9B8EDB7ABB9C13A"
+}

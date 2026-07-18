@@ -1,0 +1,20 @@
+{
+  "alpha_claim_allowed": false,
+  "batch_id": "BATCH_81FF4FC3C8B796422B0EF6818FEB2D5E",
+  "capital_activation_allowed": false,
+  "claim_ceiling": "VALIDATION_DECISION_REFERENCE_ONLY",
+  "decision_bundle_digest": "sha256:6006139d47ed5c5c4bc44cc41c1e931d8ba9ac86ed928ecaf1ba8ae0d79f6e10",
+  "gate_matrix_digest": "sha256:a421ec17b8b6874eba0290237831636b2b8c8d89ccb0b771e253779234cf264a",
+  "gate_registry_digest": "sha256:1342c299276ee63b0470e0b5188ea994d8127d30292f046e46d0145c47dbb2ee",
+  "input_binding_digest": "sha256:e5acf03a60eefad0cdd4ef9d0d7852c6cb2efb521a7e0cc366a1af5633b91564",
+  "live_order_submission_allowed": false,
+  "policy_digest": "sha256:2d83c915b1593e796dccb62d76e1cd5cda17f94bf0e7a8c941f515100c958aa5",
+  "promotion_allowed": false,
+  "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+  "schema_version": "1.0.0",
+  "state": "COMPLETED_NON_PROMOTIONAL",
+  "validated_at": "2026-07-18T00:00:00Z",
+  "validation_id": "VALIDATION_3AC66AA2ED2AC1AEE9B8EDB7ABB9C13A",
+  "validation_run_digest": "sha256:9e64a028561083909d612ca33705e19a3749ee86a93856639fcedbbbdb298207",
+  "validator_version": "1.0.0"
+}

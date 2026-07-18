@@ -1,0 +1,11 @@
+{
+  "policy_id": "ACL07_GENERALIZATION_V1",
+  "schema_version": "1.0.0",
+  "segments": [
+    "TRAIN",
+    "VALIDATION",
+    "TEST"
+  ],
+  "test_required": true,
+  "train_only_success_insufficient": true
+}

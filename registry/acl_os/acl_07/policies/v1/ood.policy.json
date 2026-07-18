@@ -1,0 +1,6 @@
+{
+  "abstention_is_first_class": true,
+  "ood_evidence_required": true,
+  "policy_id": "ACL07_OOD_V1",
+  "schema_version": "1.0.0"
+}

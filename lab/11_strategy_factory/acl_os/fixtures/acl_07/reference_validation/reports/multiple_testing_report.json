@@ -1,0 +1,22 @@
+{
+  "diagnostic_candidates_excluded": true,
+  "family_size": 11,
+  "maximum_fdr_q": 0.1,
+  "method": "BENJAMINI_HOCHBERG",
+  "q_values": {
+    "SETUP_030571B7D3BF97CDE8EF": 1.0,
+    "SETUP_0A56F08F1AC14EFB10F5": 1.0,
+    "SETUP_0FA71C242B64C3FB7F83": 1.0,
+    "SETUP_5013929BAE3E6FDFEFC8": null,
+    "SETUP_5F6EC931E571A2575FD9": 1.0,
+    "SETUP_978582F1C2791E47056F": 1.0,
+    "SETUP_A553D83C10BF06E79C12": null,
+    "SETUP_A9F7B7384FDE580E5660": 1.0,
+    "SETUP_B2465EF6482D65D3F6D5": null,
+    "SETUP_CE82D176E29FCA349EE1": null,
+    "SETUP_EE3007877556A11CDA6F": 1.0
+  },
+  "report_digest": "sha256:ca88276e0201e49a17aea9a9bd0ebfe14ba8889ebc9b2427f1f2489ed44bdf07",
+  "schema_version": "1.0.0",
+  "validation_id": "VALIDATION_3AC66AA2ED2AC1AEE9B8EDB7ABB9C13A"
+}

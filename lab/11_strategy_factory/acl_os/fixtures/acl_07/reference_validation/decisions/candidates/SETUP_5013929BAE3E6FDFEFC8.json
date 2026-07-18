@@ -1,0 +1,42 @@
+{
+  "alpha_claim_allowed": false,
+  "candidate_id": "CAND_EC8D44BBAD25430FABAE",
+  "candidate_result_digest": "sha256:5fd3534fe57a2ac7d5acc0d2a2c5ed46f2308d0c90379d3461e9d6aeb6f8037a",
+  "capital_activation_allowed": false,
+  "decision_digest": "sha256:7ca1f25471aa8bef6e0991e05608f019fa471499cd470c8d6cfd0bf666746385",
+  "decision_id": "VALDEC_5C532AB10AB92C62995F2773",
+  "decision_status": "EVIDENCE_INSUFFICIENT",
+  "gate_result_digests": {
+    "BASELINE_DOMINANCE": "sha256:22bb1553f793d1b4e516bb39a58c9e8d399bd312072c863b28f2ae5f18b3bc66",
+    "DATA_QUALITY_AND_LEAKAGE": "sha256:007d0941199ebf1c46387977e8d56ac906b4e644c784587d4fc40f92a3ffb4dd",
+    "DIAGNOSTIC_ISOLATION": "sha256:5fc845b00ad3d01563e3a35d3958fd2d220bcf393b9ba8dd9df6fbe074068917",
+    "DISTRIBUTIONAL_ROBUSTNESS": "sha256:633223550d1d8d06eca883bcf01f5d867398b8c926dfa14ce9f842d1a956eb1c",
+    "EFFECT_SIZE": "sha256:76b6060a668b824575f397371eed433cdeb27fdb125a1595aa916a10c6bb1214",
+    "EXECUTION_ECONOMICS": "sha256:1d93728ce362051628d203e74028611550b1878e475330d8a4861a3391b21de5",
+    "INDEPENDENT_REPLICATION": "sha256:373420df45904a9c5207147507ab67cdda1c4f4800b3927260870ecb9c0f9cfc",
+    "INPUT_INTEGRITY": "sha256:004c532b8742b9d78e9c8c683adc88bc5d8995228b87198c8b6e5f6c51446043",
+    "MINIMUM_SUPPORT": "sha256:12cb34ce19723bdb2af314fec3c86db8ac7b117f479d60bad6ce24cc920638fd",
+    "MULTIPLE_TESTING": "sha256:a8edf07a169340f43c7881b42c5373644d75e80e7bf175f709f2ba202a5c3f9e",
+    "OOD_AND_ABSTENTION": "sha256:d28ed491bd47f741131d834b6b8f5a989e3b92661db37ec69f981db3cb83f6d6",
+    "OVERFIT_CONTROL": "sha256:8c42531c0ef0e07fdc2c6dd47b1206e96f23525d5fc6b11f0de5a423eb340b7b",
+    "PROSPECTIVE_EVIDENCE": "sha256:367331eaa9952b4d9aa9a28bfb56ee7d1a9383e1f822a63abbddcef53b6feb05",
+    "STATISTICAL_SIGNIFICANCE": "sha256:3b42f692f85540dec4a14ef596cdf018b0ec4cc61a969ad3e41f6fb9f51f3278",
+    "TEMPORAL_GENERALIZATION": "sha256:4bf54e5e8f101de298170cb0885f6a9a4db2f9edf8615a12b55498cd02fdd9b5"
+  },
+  "gate_summary": {
+    "failed": 3,
+    "not_applicable": 0,
+    "passed": 3,
+    "total": 15,
+    "unknown": 9
+  },
+  "lane": "RESEARCH",
+  "live_order_submission_allowed": false,
+  "origin": "AI",
+  "promotion_allowed": false,
+  "reason_codes": [
+    "ONE_OR_MORE_REQUIRED_GATES_NOT_PASSED"
+  ],
+  "schema_version": "1.0.0",
+  "setup_id": "SETUP_5013929BAE3E6FDFEFC8"
+}

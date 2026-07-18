@@ -1,0 +1,31 @@
+{
+  "diagnostic_lane_selectable": false,
+  "evidence_availability": {
+    "execution_economics": false,
+    "independent_replications": 0,
+    "ood_evaluation": false,
+    "prospective_runs": 0
+  },
+  "execution_authority_granted": false,
+  "policy_digest": "sha256:2d83c915b1593e796dccb62d76e1cd5cda17f94bf0e7a8c941f515100c958aa5",
+  "policy_id": "ACL07_REFERENCE_VALIDATION_POLICY_V1",
+  "promotion_authority_granted": false,
+  "schema_version": "1.0.0",
+  "thresholds": {
+    "maximum_coverage": 0.95,
+    "maximum_fdr_q": 0.1,
+    "maximum_segment_accuracy_spread": 0.25,
+    "maximum_single_loss": 10.0,
+    "maximum_train_test_accuracy_gap": 0.2,
+    "minimum_accuracy": 0.55,
+    "minimum_baseline_accuracy_advantage": 0.05,
+    "minimum_coverage": 0.05,
+    "minimum_effect_over_chance": 0.05,
+    "minimum_independent_replications": 1,
+    "minimum_prospective_runs": 1,
+    "minimum_tail_observations": 30,
+    "minimum_test_support": 8,
+    "minimum_total_support": 30,
+    "minimum_wilson_lower": 0.5
+  }
+}

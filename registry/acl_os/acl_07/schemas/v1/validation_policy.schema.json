@@ -1,0 +1,149 @@
+{
+  "$id": "https://alpha-lab.local/acl07/validation_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "diagnostic_lane_selectable": {
+      "const": false
+    },
+    "evidence_availability": {
+      "additionalProperties": false,
+      "properties": {
+        "execution_economics": {
+          "type": "boolean"
+        },
+        "independent_replications": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "ood_evaluation": {
+          "type": "boolean"
+        },
+        "prospective_runs": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "execution_economics",
+        "ood_evaluation",
+        "prospective_runs",
+        "independent_replications"
+      ],
+      "type": "object"
+    },
+    "execution_authority_granted": {
+      "const": false
+    },
+    "policy_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "promotion_authority_granted": {
+      "const": false
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "thresholds": {
+      "additionalProperties": false,
+      "properties": {
+        "maximum_coverage": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "maximum_fdr_q": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "maximum_segment_accuracy_spread": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "maximum_single_loss": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "maximum_train_test_accuracy_gap": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "minimum_accuracy": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "minimum_baseline_accuracy_advantage": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "minimum_coverage": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "minimum_effect_over_chance": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "minimum_independent_replications": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "minimum_prospective_runs": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "minimum_tail_observations": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "minimum_test_support": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "minimum_total_support": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "minimum_wilson_lower": {
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "minimum_total_support",
+        "minimum_test_support",
+        "minimum_coverage",
+        "maximum_coverage",
+        "minimum_accuracy",
+        "minimum_wilson_lower",
+        "minimum_effect_over_chance",
+        "maximum_fdr_q",
+        "minimum_baseline_accuracy_advantage",
+        "maximum_train_test_accuracy_gap",
+        "maximum_segment_accuracy_spread",
+        "minimum_tail_observations",
+        "maximum_single_loss",
+        "minimum_prospective_runs",
+        "minimum_independent_replications"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "policy_id",
+    "thresholds",
+    "evidence_availability",
+    "diagnostic_lane_selectable",
+    "promotion_authority_granted",
+    "execution_authority_granted",
+    "policy_digest"
+  ],
+  "title": "validation_policy",
+  "type": "object"
+}

@@ -1,0 +1,113 @@
+{
+  "closed_world": true,
+  "entries": [
+    {
+      "closed_world": true,
+      "gate_id": "INPUT_INTEGRITY",
+      "hard_fail": true,
+      "order": 1,
+      "required_for_eligibility": true
+    },
+    {
+      "closed_world": true,
+      "gate_id": "DATA_QUALITY_AND_LEAKAGE",
+      "hard_fail": true,
+      "order": 2,
+      "required_for_eligibility": true
+    },
+    {
+      "closed_world": true,
+      "gate_id": "DIAGNOSTIC_ISOLATION",
+      "hard_fail": true,
+      "order": 3,
+      "required_for_eligibility": true
+    },
+    {
+      "closed_world": true,
+      "gate_id": "MINIMUM_SUPPORT",
+      "hard_fail": false,
+      "order": 4,
+      "required_for_eligibility": true
+    },
+    {
+      "closed_world": true,
+      "gate_id": "EFFECT_SIZE",
+      "hard_fail": false,
+      "order": 5,
+      "required_for_eligibility": true
+    },
+    {
+      "closed_world": true,
+      "gate_id": "STATISTICAL_SIGNIFICANCE",
+      "hard_fail": false,
+      "order": 6,
+      "required_for_eligibility": true
+    },
+    {
+      "closed_world": true,
+      "gate_id": "MULTIPLE_TESTING",
+      "hard_fail": false,
+      "order": 7,
+      "required_for_eligibility": true
+    },
+    {
+      "closed_world": true,
+      "gate_id": "BASELINE_DOMINANCE",
+      "hard_fail": false,
+      "order": 8,
+      "required_for_eligibility": true
+    },
+    {
+      "closed_world": true,
+      "gate_id": "TEMPORAL_GENERALIZATION",
+      "hard_fail": false,
+      "order": 9,
+      "required_for_eligibility": true
+    },
+    {
+      "closed_world": true,
+      "gate_id": "OVERFIT_CONTROL",
+      "hard_fail": false,
+      "order": 10,
+      "required_for_eligibility": true
+    },
+    {
+      "closed_world": true,
+      "gate_id": "DISTRIBUTIONAL_ROBUSTNESS",
+      "hard_fail": false,
+      "order": 11,
+      "required_for_eligibility": true
+    },
+    {
+      "closed_world": true,
+      "gate_id": "EXECUTION_ECONOMICS",
+      "hard_fail": false,
+      "order": 12,
+      "required_for_eligibility": true
+    },
+    {
+      "closed_world": true,
+      "gate_id": "OOD_AND_ABSTENTION",
+      "hard_fail": false,
+      "order": 13,
+      "required_for_eligibility": true
+    },
+    {
+      "closed_world": true,
+      "gate_id": "PROSPECTIVE_EVIDENCE",
+      "hard_fail": false,
+      "order": 14,
+      "required_for_eligibility": true
+    },
+    {
+      "closed_world": true,
+      "gate_id": "INDEPENDENT_REPLICATION",
+      "hard_fail": false,
+      "order": 15,
+      "required_for_eligibility": true
+    }
+  ],
+  "registry_digest": "sha256:1342c299276ee63b0470e0b5188ea994d8127d30292f046e46d0145c47dbb2ee",
+  "registry_id": "ACL07_GATE_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,6 @@
+{
+  "must_reach_acl06": true,
+  "orphan_evidence_allowed": false,
+  "policy_id": "ACL07_PROVENANCE_V1",
+  "schema_version": "1.0.0"
+}

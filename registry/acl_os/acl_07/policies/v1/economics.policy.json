@@ -1,0 +1,6 @@
+{
+  "missing_economics_returns_unknown": true,
+  "policy_id": "ACL07_ECONOMICS_V1",
+  "schema_version": "1.0.0",
+  "side_aware_costs_required": true
+}

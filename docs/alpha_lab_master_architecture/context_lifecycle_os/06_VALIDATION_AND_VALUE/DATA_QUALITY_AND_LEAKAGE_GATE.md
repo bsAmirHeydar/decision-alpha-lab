@@ -64,3 +64,7 @@ This architecture note specifies required mechanics. Only environment-specific e
 
 - [[ACL_OS_HOME]]
 - [[IMPLEMENTATION_MASTER_PLAN]]
+
+## ACL-07 binding
+
+ACL-07 verifies the complete ACL-06 bundle and inherits known-time, label maturity and purged-split evidence. Any digest mismatch stops validation.

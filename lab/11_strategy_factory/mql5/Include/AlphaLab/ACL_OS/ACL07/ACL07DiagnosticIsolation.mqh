@@ -1,0 +1,4 @@
+#ifndef ALPHALAB_ACL07_DIAGNOSTIC_ISOLATION_MQH
+#define ALPHALAB_ACL07_DIAGNOSTIC_ISOLATION_MQH
+bool ACL07DiagnosticSelectable(){ return false; }
+#endif

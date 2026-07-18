@@ -1,0 +1,34 @@
+{
+  "$id": "https://alpha-lab.local/acl07/gate_matrix.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_count": {},
+    "candidate_gate_digests": {},
+    "gate_count_per_candidate": {},
+    "gate_matrix_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "gate_order": {},
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "validation_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "validation_id",
+    "candidate_count",
+    "gate_count_per_candidate",
+    "candidate_gate_digests",
+    "gate_order",
+    "gate_matrix_digest"
+  ],
+  "title": "gate_matrix",
+  "type": "object"
+}

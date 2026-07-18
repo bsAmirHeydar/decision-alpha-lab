@@ -1,0 +1,64 @@
+{
+  "$id": "https://alpha-lab.local/acl07/gate_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "closed_world": {
+      "const": true
+    },
+    "entries": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "closed_world": {
+            "const": true
+          },
+          "gate_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "hard_fail": {
+            "type": "boolean"
+          },
+          "order": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "required_for_eligibility": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "gate_id",
+          "order",
+          "hard_fail",
+          "required_for_eligibility",
+          "closed_world"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "registry_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "registry_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "registry_id",
+    "closed_world",
+    "entries",
+    "registry_digest"
+  ],
+  "title": "gate_registry",
+  "type": "object"
+}

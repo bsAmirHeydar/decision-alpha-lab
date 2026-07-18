@@ -1,0 +1,6 @@
+{
+  "policy_id": "ACL07_PROSPECTIVE_V1",
+  "prospective_evidence_required": true,
+  "retrospective_only_not_promotable": true,
+  "schema_version": "1.0.0"
+}

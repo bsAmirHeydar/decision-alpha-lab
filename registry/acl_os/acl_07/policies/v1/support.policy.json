@@ -1,0 +1,6 @@
+{
+  "policy_id": "ACL07_SUPPORT_V1",
+  "schema_version": "1.0.0",
+  "support_is_precommitted": true,
+  "zero_signal_is_not_success": true
+}

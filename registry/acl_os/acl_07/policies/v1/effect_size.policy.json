@@ -1,0 +1,6 @@
+{
+  "accuracy_alone_insufficient": true,
+  "policy_id": "ACL07_EFFECT_SIZE_V1",
+  "schema_version": "1.0.0",
+  "signed_effect_required": true
+}

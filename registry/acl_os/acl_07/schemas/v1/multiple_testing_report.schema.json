@@ -1,0 +1,39 @@
+{
+  "$id": "https://alpha-lab.local/acl07/multiple_testing_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "diagnostic_candidates_excluded": {},
+    "family_size": {},
+    "maximum_fdr_q": {},
+    "method": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "q_values": {},
+    "report_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "validation_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "validation_id",
+    "method",
+    "family_size",
+    "maximum_fdr_q",
+    "q_values",
+    "diagnostic_candidates_excluded",
+    "report_digest"
+  ],
+  "title": "multiple_testing_report",
+  "type": "object"
+}

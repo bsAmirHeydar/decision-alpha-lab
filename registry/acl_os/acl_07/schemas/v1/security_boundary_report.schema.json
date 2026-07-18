@@ -1,0 +1,38 @@
+{
+  "$id": "https://alpha-lab.local/acl07/security_boundary_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capital_activation_allowed": {},
+    "live_order_submission_allowed": {},
+    "network_access_allowed": {},
+    "passed": {},
+    "promotion_authority_granted": {},
+    "report_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "secret_access_allowed": {},
+    "validation_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "validation_id",
+    "network_access_allowed",
+    "secret_access_allowed",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "promotion_authority_granted",
+    "passed",
+    "report_digest"
+  ],
+  "title": "security_boundary_report",
+  "type": "object"
+}

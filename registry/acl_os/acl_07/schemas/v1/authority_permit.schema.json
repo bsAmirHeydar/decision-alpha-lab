@@ -1,0 +1,75 @@
+{
+  "$id": "https://alpha-lab.local/acl07/authority_permit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "const": "ACL07_APPLY_UNIFIED_VALIDATION_GATES"
+    },
+    "batch_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "capital_activation_allowed": {
+      "const": false
+    },
+    "expires_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "issued_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    },
+    "network_access_allowed": {
+      "const": false
+    },
+    "permit_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "permit_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "secret_access_allowed": {
+      "const": false
+    },
+    "subject": {
+      "const": "ACL-07"
+    },
+    "upstream_handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "permit_id",
+    "subject",
+    "action",
+    "run_id",
+    "batch_id",
+    "upstream_handoff_digest",
+    "issued_at",
+    "expires_at",
+    "network_access_allowed",
+    "secret_access_allowed",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "permit_digest"
+  ],
+  "title": "authority_permit",
+  "type": "object"
+}
