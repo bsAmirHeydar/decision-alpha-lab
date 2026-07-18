@@ -1,0 +1,35 @@
+{
+  "$id": "https://alpha-lab.local/lcm00/large_file_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "external_storage_required": {
+      "type": "boolean"
+    },
+    "files": {
+      "type": "array"
+    },
+    "large_file_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "large_file_report_digest": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "threshold_bytes": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "threshold_bytes",
+    "large_file_count",
+    "files",
+    "large_file_report_digest"
+  ],
+  "title": "large_file_report",
+  "type": "object"
+}

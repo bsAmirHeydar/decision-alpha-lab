@@ -1,0 +1,8 @@
+{
+  "event_reordering_allowed": false,
+  "hash_chain_required": true,
+  "phase_id": "LCM-00",
+  "policy_digest": "sha256:6125b6cbd463655936ce5fa515ee114eb9afd6434b612a41a2407de4bfda3f81",
+  "policy_id": "LCM00_EVENT_LEDGER_POLICY_V1",
+  "schema_version": "1.0.0"
+}

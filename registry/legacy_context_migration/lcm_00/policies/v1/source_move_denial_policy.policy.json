@@ -1,0 +1,7 @@
+{
+  "phase_id": "LCM-00",
+  "policy_digest": "sha256:f95383d3c03374a53e5e3be30c19b9769528e59c1070c351be7106cc2a4f448d",
+  "policy_id": "LCM00_SOURCE_MOVE_DENIAL_POLICY_V1",
+  "schema_version": "1.0.0",
+  "source_move_count_must_equal": 0
+}

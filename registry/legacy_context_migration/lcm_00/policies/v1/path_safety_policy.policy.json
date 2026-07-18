@@ -1,0 +1,9 @@
+{
+  "absolute_paths_allowed": false,
+  "duplicate_paths_allowed": false,
+  "phase_id": "LCM-00",
+  "policy_digest": "sha256:4e5dee0354f00ac79bd62d3e54d04d1a3da55ec4feab7db226fe6110e0a4263d",
+  "policy_id": "LCM00_PATH_SAFETY_POLICY_V1",
+  "schema_version": "1.0.0",
+  "traversal_allowed": false
+}

@@ -1,0 +1,12 @@
+{
+  "classifications": [
+    "NON_SEMANTIC",
+    "SEMANTIC_BUG_FIX",
+    "SEMANTIC_DOMAIN_CHANGE",
+    "SECURITY_HOTFIX",
+    "DOCUMENTATION_ONLY"
+  ],
+  "registry_id": "LCM00_AMENDMENT_CLASSIFICATION_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "semantic_or_security_requires_recharacterization": true
+}

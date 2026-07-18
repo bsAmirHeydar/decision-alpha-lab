@@ -1,0 +1,8 @@
+{
+  "claim_ceiling": "BASELINE_AND_GOVERNANCE_REFERENCE_ONLY",
+  "operational_git_freeze_claim_allowed_without_git_metadata": false,
+  "phase_id": "LCM-00",
+  "policy_digest": "sha256:16422a93a32b8e7a7908ef23c5fd451b89967e3025577376df902e762803582b",
+  "policy_id": "LCM00_CLAIM_CEILING_POLICY_V1",
+  "schema_version": "1.0.0"
+}

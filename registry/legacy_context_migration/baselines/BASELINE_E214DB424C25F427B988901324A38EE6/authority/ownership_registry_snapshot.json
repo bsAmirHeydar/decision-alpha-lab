@@ -1,0 +1,57 @@
+{
+  "assignment_policy": "UNKNOWN_IS_BLOCKING; NO_DEFAULT_PERSONAL_ASSIGNMENT",
+  "assignments": [
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED",
+      "required_for_lcm01": true,
+      "role": "PROGRAM_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED",
+      "required_for_lcm01": false,
+      "role": "DOMAIN_OWNER"
+    },
+    {
+      "assignee_id": "ALPHA_LAB_REFERENCE_AUTOMATION",
+      "assignment_status": "ASSIGNED",
+      "required_for_lcm01": true,
+      "role": "MIGRATION_ENGINEER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED",
+      "required_for_lcm01": false,
+      "role": "INDEPENDENT_PARITY_REVIEWER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED",
+      "required_for_lcm01": false,
+      "role": "SECURITY_REVIEWER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED",
+      "required_for_lcm01": false,
+      "role": "KNOWLEDGE_CURATOR"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED",
+      "required_for_lcm01": false,
+      "role": "RELEASE_OPERATOR"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED",
+      "required_for_lcm01": false,
+      "role": "PRODUCTION_KEY_CUSTODIAN"
+    }
+  ],
+  "human_approval_claimed": false,
+  "registry_digest": "sha256:60df6e3978680cae2843fc597343cfbafa8cef0b4dc3da4a90ef1f99ef6cd680",
+  "registry_id": "LCM00_REFERENCE_OWNERSHIP_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}

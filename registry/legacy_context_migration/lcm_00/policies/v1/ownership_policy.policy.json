@@ -1,0 +1,8 @@
+{
+  "missing_required_owner_blocks_destructive_actions": true,
+  "phase_id": "LCM-00",
+  "policy_digest": "sha256:e4622e03a87a120e75990764d0d2c1fce634864715354edf4940985ca8831876",
+  "policy_id": "LCM00_OWNERSHIP_POLICY_V1",
+  "schema_version": "1.0.0",
+  "unknown_assignment_is_approval": false
+}

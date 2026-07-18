@@ -1,0 +1,51 @@
+{
+  "$id": "https://alpha-lab.local/lcm00/restore_rehearsal_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "copied_record_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "external_artifacts_restored": {
+      "type": "boolean"
+    },
+    "git_metadata_restored": {
+      "type": "boolean"
+    },
+    "method": {
+      "type": "string"
+    },
+    "mismatch_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "mismatches": {
+      "type": "array"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "restore_rehearsal_digest": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "verified_record_count": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "copied_record_count",
+    "mismatch_count",
+    "passed",
+    "restore_rehearsal_digest"
+  ],
+  "title": "restore_rehearsal_report",
+  "type": "object"
+}

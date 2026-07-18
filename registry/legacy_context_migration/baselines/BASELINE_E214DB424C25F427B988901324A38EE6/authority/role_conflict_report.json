@@ -1,0 +1,11 @@
+{
+  "conflicts": [],
+  "destructive_action_ownership_ready": false,
+  "lcm01_ownership_ready": false,
+  "missing_required_roles": [
+    "PROGRAM_OWNER"
+  ],
+  "registry_id": "LCM00_REFERENCE_OWNERSHIP_REGISTRY_V1",
+  "report_digest": "sha256:952a30dd397c4e74b29b557ba88c43b434efdb411e30b957ceb32667dcbb8e6a",
+  "schema_version": "1.0.0"
+}

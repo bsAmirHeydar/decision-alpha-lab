@@ -1,0 +1,9 @@
+{
+  "direct_manifest_mutation_allowed": false,
+  "old_new_hash_required": true,
+  "phase_id": "LCM-00",
+  "policy_digest": "sha256:64a337468c7c1bcb979a02513b4abd662a4baf2c163315a9f3ef827e8d925980",
+  "policy_id": "LCM00_AMENDMENT_POLICY_V1",
+  "schema_version": "1.0.0",
+  "semantic_change_requires_recharacterization": true
+}

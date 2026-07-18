@@ -1,0 +1,86 @@
+{
+  "$id": "https://alpha-lab.local/lcm00/baseline_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "baseline_id": {
+      "type": "string"
+    },
+    "manifest_digest": {
+      "type": "string"
+    },
+    "path_semantics": {
+      "const": "ROOT_RELATIVE_POSIX_BYTE_EXACT"
+    },
+    "phase_id": {
+      "const": "LCM-00"
+    },
+    "record_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "binary": {
+            "type": "boolean"
+          },
+          "extension": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "FILE",
+              "SYMLINK"
+            ]
+          },
+          "mode_octal": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "size_bytes": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "symlink_target": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "path",
+          "kind",
+          "size_bytes"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "scope_policy_digest": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "baseline_id",
+    "record_count",
+    "records",
+    "manifest_digest"
+  ],
+  "title": "baseline_manifest",
+  "type": "object"
+}

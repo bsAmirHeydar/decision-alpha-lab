@@ -1,0 +1,10 @@
+{
+  "affected_identity_required": true,
+  "old_and_new_hash_required": true,
+  "policy_digest": "sha256:551619ed99c37c7cab6027da86bbc8e64fb2115f13434b1af01b363937ecad45",
+  "policy_id": "LCM00_SIDE_LANE_AMENDMENT_POLICY_V1",
+  "retroactive_silent_baseline_change_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_classification_required": true,
+  "semantic_or_security_change_requires_recharacterization": true
+}

@@ -1,0 +1,8 @@
+{
+  "allowed_and_forbidden_actions_required": true,
+  "missing_approval_inference_allowed": false,
+  "phase_id": "LCM-00",
+  "policy_digest": "sha256:2f56e2b804cb0ad08b8bacf5debeb74a07ff672e9fd98c878e547da7663f6a8c",
+  "policy_id": "LCM00_HANDOFF_POLICY_V1",
+  "schema_version": "1.0.0"
+}

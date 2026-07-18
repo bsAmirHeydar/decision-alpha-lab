@@ -1,0 +1,71 @@
+{
+  "$id": "https://alpha-lab.local/lcm00/baseline_summary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "baseline_id": {
+      "type": "string"
+    },
+    "baseline_summary_digest": {
+      "type": "string"
+    },
+    "binary_file_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "blockers": {
+      "type": "array"
+    },
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "excluded_record_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "extension_counts": {
+      "type": "object"
+    },
+    "file_record_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "large_file_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "semantic_change_performed": {
+      "type": "boolean"
+    },
+    "source_file_deleted": {
+      "type": "boolean"
+    },
+    "source_file_moved": {
+      "type": "boolean"
+    },
+    "state": {
+      "type": "string"
+    },
+    "symlink_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "total_bytes": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "baseline_id",
+    "state",
+    "file_record_count",
+    "total_bytes",
+    "blockers",
+    "baseline_summary_digest"
+  ],
+  "title": "baseline_summary",
+  "type": "object"
+}

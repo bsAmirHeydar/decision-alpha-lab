@@ -1,0 +1,17 @@
+{
+  "environment_digest": "sha256:6e2ae6b39e0535cd9ae14570474286ea44417244218845119eb202c40c659c9e",
+  "filesystem_encoding": "utf-8",
+  "git_version": "git version 2.47.3",
+  "machine": "x86_64",
+  "metaeditor_available": false,
+  "mt5_runtime_available": false,
+  "network_used": false,
+  "operating_system": "Linux",
+  "os_release": "4.4.0",
+  "powershell_version": "UNAVAILABLE",
+  "preferred_encoding": "utf-8",
+  "python_implementation": "CPython",
+  "python_version": "3.13.5",
+  "schema_version": "1.0.0",
+  "secret_accessed": false
+}

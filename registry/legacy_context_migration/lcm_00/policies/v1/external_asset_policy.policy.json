@@ -1,0 +1,8 @@
+{
+  "phase_id": "LCM-00",
+  "policy_digest": "sha256:1ad7223ce889b041ddd42a817b9b24e3bb447bac7fb6876aa895752d58c39f4c",
+  "policy_id": "LCM00_EXTERNAL_ASSET_POLICY_V1",
+  "register_required": true,
+  "schema_version": "1.0.0",
+  "unknown_external_asset_is_recoverable": false
+}

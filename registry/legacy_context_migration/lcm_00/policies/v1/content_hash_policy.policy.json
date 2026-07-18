@@ -1,0 +1,9 @@
+{
+  "algorithm": "SHA-256",
+  "hash_required_for_every_regular_file": true,
+  "mtime_as_provenance": false,
+  "phase_id": "LCM-00",
+  "policy_digest": "sha256:a769ba2b53ef57c1867e2c0a35ede8c7608602c612bfc2bcb148af62f33f6a1e",
+  "policy_id": "LCM00_CONTENT_HASH_POLICY_V1",
+  "schema_version": "1.0.0"
+}

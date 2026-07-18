@@ -1,0 +1,57 @@
+{
+  "$id": "https://alpha-lab.local/lcm00/baseline_receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_id": {
+      "type": "string"
+    },
+    "baseline_manifest_digest": {
+      "type": "string"
+    },
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "event_ledger_digest": {
+      "type": "string"
+    },
+    "handoff_digest": {
+      "type": "string"
+    },
+    "receipt_digest": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "repository_state_digest": {
+      "type": "string"
+    },
+    "restore_rehearsal_digest": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "scope_policy_digest": {
+      "type": "string"
+    },
+    "semantic_change_performed": {
+      "type": "boolean"
+    },
+    "source_file_deleted": {
+      "type": "boolean"
+    },
+    "source_file_moved": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "receipt_id",
+    "baseline_id",
+    "baseline_manifest_digest",
+    "receipt_digest"
+  ],
+  "title": "baseline_receipt",
+  "type": "object"
+}

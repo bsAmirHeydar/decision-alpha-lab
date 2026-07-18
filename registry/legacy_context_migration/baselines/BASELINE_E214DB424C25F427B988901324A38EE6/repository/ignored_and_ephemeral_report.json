@@ -1,0 +1,29 @@
+{
+  "excluded_record_count": 4,
+  "excluded_records": [
+    {
+      "layer_id": "ACL_OS_10",
+      "path": ".pytest_cache/.gitignore",
+      "reason": "EXCLUDED_DIRECTORY:.pytest_cache"
+    },
+    {
+      "layer_id": "ACL_OS_10",
+      "path": ".pytest_cache/CACHEDIR.TAG",
+      "reason": "EXCLUDED_DIRECTORY:.pytest_cache"
+    },
+    {
+      "layer_id": "ACL_OS_10",
+      "path": ".pytest_cache/README.md",
+      "reason": "EXCLUDED_DIRECTORY:.pytest_cache"
+    },
+    {
+      "layer_id": "ACL_OS_10",
+      "path": ".pytest_cache/v/cache/nodeids",
+      "reason": "EXCLUDED_DIRECTORY:.pytest_cache"
+    }
+  ],
+  "ignored_git_files_observed": false,
+  "ignored_git_files_state": "UNKNOWN",
+  "report_digest": "sha256:a8189bdd8b71ebf1d1acc6e8a95ef7edd35d8ba48157bb120f798a3a461b5036",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,77 @@
+{
+  "acl15_regression_tests": {
+    "failed": 0,
+    "passed": 39,
+    "test_command": "python -m pytest -q lab/11_strategy_factory/acl_os/tests_acl_15"
+  },
+  "baseline_excluded_ephemeral_record_count": 4,
+  "baseline_file_reverification_after_install": {
+    "checked_file_count": 38595,
+    "mismatch_count": 0,
+    "passed": true
+  },
+  "baseline_id": "BASELINE_E214DB424C25F427B988901324A38EE6",
+  "baseline_package_verification": {
+    "artifact_count_excluding_output_manifest": 30,
+    "passed": true
+  },
+  "baseline_record_count": 38595,
+  "baseline_source_layer_count": 14,
+  "claim_ceiling": "BASELINE_AND_GOVERNANCE_REFERENCE_ONLY",
+  "phase_id": "LCM-00",
+  "phase_tests": {
+    "failed": 0,
+    "passed": 29,
+    "test_command": "python -m pytest -q lab/11_strategy_factory/migration/tests_lcm_00"
+  },
+  "pycache_or_pyc_in_patch": 0,
+  "python_compileall": {
+    "module_root": "tools/strategy_factory/lcm/lcm_00",
+    "passed": true
+  },
+  "registry_validation": {
+    "json_count": 54,
+    "passed": true,
+    "yaml_count": 0
+  },
+  "restore_rehearsal": {
+    "copied_record_count": 38595,
+    "external_artifacts_restored": false,
+    "git_metadata_restored": false,
+    "method": "CLEAN_TAR_RESTORATION_CONTAINER_AND_FULL_PATH_HASH_COMPARISON",
+    "mismatch_count": 0,
+    "passed": true,
+    "verified_record_count": 38595
+  },
+  "result": "PASSED",
+  "schema_validation": {
+    "draft": "2020-12",
+    "passed": true,
+    "schema_count": 23
+  },
+  "schema_version": "1.0.0",
+  "security_boundary": {
+    "capital_authority_created": false,
+    "live_order_authority_created": false,
+    "network_accessed": false,
+    "production_key_accessed": false,
+    "runtime_authority_created": false,
+    "secret_accessed": false
+  },
+  "source_changes": {
+    "deleted": 0,
+    "moved": 0,
+    "overwritten": 0,
+    "semantic_refactors": 0
+  },
+  "source_path_collision_check": {
+    "collision_count": 0,
+    "passed": true
+  },
+  "tool_limitations": [
+    "SOURCE_ARCHIVE_DID_NOT_INCLUDE_GIT_METADATA",
+    "HOST_LOCAL_UNTRACKED_MQL5_ASSETS_NOT_OBSERVABLE",
+    "HUMAN_PROGRAM_OWNER_NOT_ASSIGNED_IN_REFERENCE_FIXTURE",
+    "METAEDITOR_AND_MT5_RUNTIME_NOT_AVAILABLE_IN_REFERENCE_ENVIRONMENT"
+  ]
+}

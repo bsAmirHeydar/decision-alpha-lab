@@ -1,0 +1,9 @@
+{
+  "clean_restore_verification_required": true,
+  "exact_manifest_required": true,
+  "phase_id": "LCM-00",
+  "policy_digest": "sha256:fddaff1fc8cbfe13b30a324efd092b486876b7412b3ccd58c32fdd0e28368aa7",
+  "policy_id": "LCM00_ROLLBACK_POLICY_V1",
+  "prose_only_rollback_allowed": false,
+  "schema_version": "1.0.0"
+}

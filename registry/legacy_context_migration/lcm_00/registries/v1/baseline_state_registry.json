@@ -1,0 +1,19 @@
+{
+  "dynamic_state_registration_allowed": false,
+  "registry_id": "LCM00_BASELINE_STATE_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "states": [
+    {
+      "meaning": "Content, Git anchor, external assets, and required human approvals are captured.",
+      "state": "FROZEN_OPERATIONAL_BASELINE"
+    },
+    {
+      "meaning": "Content is hash-bound, but operational Git or human evidence remains unknown.",
+      "state": "FROZEN_CONTENT_REFERENCE_GIT_AND_HUMAN_APPROVALS_PENDING"
+    },
+    {
+      "meaning": "One or more mandatory integrity gates failed.",
+      "state": "FREEZE_REJECTED"
+    }
+  ]
+}

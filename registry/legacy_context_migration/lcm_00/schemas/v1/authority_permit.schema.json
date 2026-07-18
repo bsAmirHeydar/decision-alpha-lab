@@ -1,0 +1,52 @@
+{
+  "$id": "https://alpha-lab.local/lcm00/authority_permit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "const": "LCM00_FREEZE_REFERENCE_BASELINE"
+    },
+    "capabilities": {
+      "type": "object"
+    },
+    "expires_at": {
+      "type": "string"
+    },
+    "human_approval_claimed": {
+      "type": "boolean"
+    },
+    "issued_at": {
+      "type": "string"
+    },
+    "issuer": {
+      "type": "string"
+    },
+    "permit_digest": {
+      "type": "string"
+    },
+    "permit_id": {
+      "type": "string"
+    },
+    "phase_id": {
+      "const": "LCM-00"
+    },
+    "reference_only": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "source_program_digest": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "permit_id",
+    "phase_id",
+    "action",
+    "capabilities",
+    "permit_digest"
+  ],
+  "title": "authority_permit",
+  "type": "object"
+}

@@ -1,0 +1,15 @@
+{
+  "bug_fix_inside_parity_allowed": false,
+  "capital_authority_allowed": false,
+  "claim_ceiling": "BASELINE_AND_GOVERNANCE_REFERENCE_ONLY",
+  "constitution_digest": "sha256:4db67cd5af56ba969a4d4d3bc409f2dd91549d92336effcc3ea9dd40188344b0",
+  "destructive_action_requires_human_approval": true,
+  "execution_authority_allowed": false,
+  "phase_id": "LCM-00",
+  "program_id": "ALPHA_LAB_LEGACY_CONTEXT_MIGRATION_PROGRAM",
+  "schema_version": "1.0.0",
+  "semantic_refactor_allowed": false,
+  "source_delete_allowed": false,
+  "source_move_allowed": false,
+  "unknown_is_pass": false
+}

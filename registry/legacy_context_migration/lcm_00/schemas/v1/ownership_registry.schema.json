@@ -1,0 +1,32 @@
+{
+  "$id": "https://alpha-lab.local/lcm00/ownership_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "assignment_policy": {
+      "type": "string"
+    },
+    "assignments": {
+      "type": "array"
+    },
+    "human_approval_claimed": {
+      "type": "boolean"
+    },
+    "registry_digest": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "registry_id",
+    "assignments",
+    "registry_digest"
+  ],
+  "title": "ownership_registry",
+  "type": "object"
+}

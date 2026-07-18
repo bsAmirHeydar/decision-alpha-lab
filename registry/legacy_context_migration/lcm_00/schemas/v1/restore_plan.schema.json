@@ -1,0 +1,38 @@
+{
+  "$id": "https://alpha-lab.local/lcm00/restore_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_id": {
+      "type": "string"
+    },
+    "content_restore_supported": {
+      "type": "boolean"
+    },
+    "external_asset_restore_supported": {
+      "type": "boolean"
+    },
+    "git_restore_supported_in_reference_environment": {
+      "type": "boolean"
+    },
+    "restore_plan_digest": {
+      "type": "string"
+    },
+    "rollback_requires_exact_manifest": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "steps": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "baseline_id",
+    "steps",
+    "restore_plan_digest"
+  ],
+  "title": "restore_plan",
+  "type": "object"
+}

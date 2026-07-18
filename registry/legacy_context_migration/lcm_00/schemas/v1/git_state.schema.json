@@ -1,0 +1,49 @@
+{
+  "$id": "https://alpha-lab.local/lcm00/git_state.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "branch": {
+      "type": "string"
+    },
+    "git_state_digest": {
+      "type": "string"
+    },
+    "head_commit": {
+      "type": "string"
+    },
+    "lfs_available": {},
+    "reason_codes": {
+      "type": "array"
+    },
+    "repository_metadata_available": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "status_porcelain_v2": {
+      "type": "string"
+    },
+    "submodule_status": {
+      "type": "string"
+    },
+    "tags_pointing_at_head": {
+      "type": "array"
+    },
+    "working_tree_clean": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "repository_metadata_available",
+    "state",
+    "head_commit",
+    "git_state_digest"
+  ],
+  "title": "git_state",
+  "type": "object"
+}

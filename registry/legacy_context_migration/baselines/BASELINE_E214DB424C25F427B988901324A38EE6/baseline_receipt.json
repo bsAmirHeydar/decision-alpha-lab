@@ -1,0 +1,16 @@
+{
+  "baseline_id": "BASELINE_E214DB424C25F427B988901324A38EE6",
+  "baseline_manifest_digest": "sha256:6c90efabe69899c449caf188d7785de20f10d7db6027eeb985dd488c79555b6c",
+  "claim_ceiling": "BASELINE_AND_GOVERNANCE_REFERENCE_ONLY",
+  "event_ledger_digest": "sha256:4ae799229c15b23a1e35634d216d0f295c225452b0a225d8c80c9d424441c3a7",
+  "handoff_digest": "sha256:8864d3dc54d5d28bdf3e5abe81f812f2b0ad85fb7f7326c131355cfb71dd616e",
+  "receipt_digest": "sha256:095765fd0ecb22b96685adf766be2b7f0334f0619eea34afe19d84bed1a01732",
+  "receipt_id": "LCM00RECEIPT_F59E27271618CF03D7427C1ACED0C2E4",
+  "repository_state_digest": "sha256:a22311f1d64dba5ccc51970cc66e83d57a36150bf93f7c0375c98a77f7c2b90b",
+  "restore_rehearsal_digest": "sha256:fbabbcf8fb8c3266eff3fa7ee987e059ddc61ccdbda3beef835155034fb297a8",
+  "schema_version": "1.0.0",
+  "scope_policy_digest": "sha256:265b383bfc572f931394c28327524846bf5f5869246ca7d602e2ad85e024377c",
+  "semantic_change_performed": false,
+  "source_file_deleted": false,
+  "source_file_moved": false
+}

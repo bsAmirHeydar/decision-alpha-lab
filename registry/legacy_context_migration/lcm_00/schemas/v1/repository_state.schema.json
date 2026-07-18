@@ -1,0 +1,44 @@
+{
+  "$id": "https://alpha-lab.local/lcm00/repository_state.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_id": {
+      "type": "string"
+    },
+    "content_manifest_digest": {
+      "type": "string"
+    },
+    "environment_digest": {
+      "type": "string"
+    },
+    "git_metadata_complete": {
+      "type": "boolean"
+    },
+    "git_state_digest": {
+      "type": "string"
+    },
+    "host_local_assets_complete": {
+      "type": "boolean"
+    },
+    "repository_state_digest": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "source_root_name": {
+      "type": "string"
+    },
+    "source_tree_byte_exact": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "baseline_id",
+    "content_manifest_digest",
+    "repository_state_digest"
+  ],
+  "title": "repository_state",
+  "type": "object"
+}

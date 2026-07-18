@@ -1,0 +1,17 @@
+{
+  "baseline_id": "BASELINE_E214DB424C25F427B988901324A38EE6",
+  "content_restore_supported": true,
+  "external_asset_restore_supported": false,
+  "git_restore_supported_in_reference_environment": false,
+  "restore_plan_digest": "sha256:ee73119c1613fe79ef7b7c4a4e39a6139253132812925f110b3cbd29aec666b5",
+  "rollback_requires_exact_manifest": true,
+  "schema_version": "1.0.0",
+  "steps": [
+    "CHECKOUT_OR_RESTORE_GIT_ANCHOR",
+    "APPLY_ORDERED_APPROVED_PATCH_LAYERS_IF_REQUIRED",
+    "RESTORE_EXTERNAL_ASSETS_FROM_REGISTER",
+    "RECOMPUTE_COMPLETE_BASELINE_PATH_HASH_SET",
+    "VERIFY_NO_UNDECLARED_ADDITIONS",
+    "RECORD_RESTORATION_RECEIPT"
+  ]
+}

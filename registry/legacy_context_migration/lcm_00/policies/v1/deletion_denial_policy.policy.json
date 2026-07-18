@@ -1,0 +1,7 @@
+{
+  "phase_id": "LCM-00",
+  "policy_digest": "sha256:268b885209168d2a6ee558c4c1e70fbb72d8d582e843a6d94e28e0ebdb40e20d",
+  "policy_id": "LCM00_DELETION_DENIAL_POLICY_V1",
+  "schema_version": "1.0.0",
+  "source_delete_count_must_equal": 0
+}

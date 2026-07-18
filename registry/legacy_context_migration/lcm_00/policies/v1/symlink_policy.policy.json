@@ -1,0 +1,8 @@
+{
+  "follow_symlinks": false,
+  "phase_id": "LCM-00",
+  "policy_digest": "sha256:30a131c1938e8bcc09fcc2047cc131872e639422a45308309e45766a52485e47",
+  "policy_id": "LCM00_SYMLINK_POLICY_V1",
+  "schema_version": "1.0.0",
+  "symlink_presence_is_reference_pass": false
+}

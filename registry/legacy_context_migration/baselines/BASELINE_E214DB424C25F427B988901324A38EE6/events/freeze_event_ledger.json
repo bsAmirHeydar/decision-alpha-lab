@@ -1,0 +1,145 @@
+{
+  "event_count": 8,
+  "events": [
+    {
+      "capital_authority": false,
+      "delete_authority": false,
+      "event_digest": "sha256:ade5291b7a9342392e2ade6c4cb35cd757aaa00fa9ce54c66a169bb4a8a82d80",
+      "event_id": "LCM00EVT_94BED5A1289FCC4F8BFF3A10F3811BA8",
+      "event_type": "PROGRAM_CONSTITUTION_BOUND",
+      "execution_authority": false,
+      "move_authority": false,
+      "occurred_at": "2026-07-18T00:00:00Z",
+      "payload": {
+        "constitution_digest": "sha256:4db67cd5af56ba969a4d4d3bc409f2dd91549d92336effcc3ea9dd40188344b0"
+      },
+      "previous_event_digest": "GENESIS",
+      "semantic_change_authority": false,
+      "sequence": 1
+    },
+    {
+      "capital_authority": false,
+      "delete_authority": false,
+      "event_digest": "sha256:cb0dc4394710b54f44369928bb9c4cf5959d8f945adf1acc0f2d6abfc8fa4107",
+      "event_id": "LCM00EVT_6676263CF9AC57520853AAF806F2658D",
+      "event_type": "SOURCE_SCOPE_FROZEN",
+      "execution_authority": false,
+      "move_authority": false,
+      "occurred_at": "2026-07-18T00:00:00Z",
+      "payload": {
+        "scope_policy_digest": "sha256:265b383bfc572f931394c28327524846bf5f5869246ca7d602e2ad85e024377c"
+      },
+      "previous_event_digest": "sha256:ade5291b7a9342392e2ade6c4cb35cd757aaa00fa9ce54c66a169bb4a8a82d80",
+      "semantic_change_authority": false,
+      "sequence": 2
+    },
+    {
+      "capital_authority": false,
+      "delete_authority": false,
+      "event_digest": "sha256:7f15ad98eb498369123573afa9a58dd824963fd07023c20446c2a0f139e0a0e5",
+      "event_id": "LCM00EVT_01C77A9C3FF71019A072D8BA88BD286C",
+      "event_type": "REPOSITORY_STATE_CAPTURED",
+      "execution_authority": false,
+      "move_authority": false,
+      "occurred_at": "2026-07-18T00:00:00Z",
+      "payload": {
+        "repository_state_digest": "sha256:a22311f1d64dba5ccc51970cc66e83d57a36150bf93f7c0375c98a77f7c2b90b"
+      },
+      "previous_event_digest": "sha256:cb0dc4394710b54f44369928bb9c4cf5959d8f945adf1acc0f2d6abfc8fa4107",
+      "semantic_change_authority": false,
+      "sequence": 3
+    },
+    {
+      "capital_authority": false,
+      "delete_authority": false,
+      "event_digest": "sha256:d3e6050395f062f0d18a2dd3efb0e59304dd9750acdacb85403cd9a6ca8d73d7",
+      "event_id": "LCM00EVT_6032002F41C548BC0F2390767E7F9208",
+      "event_type": "OWNERSHIP_AND_AUTHORITY_RECORDED",
+      "execution_authority": false,
+      "move_authority": false,
+      "occurred_at": "2026-07-18T00:00:00Z",
+      "payload": {
+        "ownership_registry_id": "LCM00_REFERENCE_OWNERSHIP_REGISTRY_V1",
+        "permit_digest": "sha256:3194ab07b2bbd7b92886b6d555abd03ca1e41f8c45ed20c80e4906e69d6541a0"
+      },
+      "previous_event_digest": "sha256:7f15ad98eb498369123573afa9a58dd824963fd07023c20446c2a0f139e0a0e5",
+      "semantic_change_authority": false,
+      "sequence": 4
+    },
+    {
+      "capital_authority": false,
+      "delete_authority": false,
+      "event_digest": "sha256:5d3de2e33dc2f823bba2d8a24a68d59e19ccf196eb8a4caf0014e12c66bcd793",
+      "event_id": "LCM00EVT_6FCC3CEDEB3A661FF68885FC9B25914E",
+      "event_type": "CONTENT_MANIFEST_CREATED",
+      "execution_authority": false,
+      "move_authority": false,
+      "occurred_at": "2026-07-18T00:00:00Z",
+      "payload": {
+        "baseline_id": "BASELINE_E214DB424C25F427B988901324A38EE6",
+        "manifest_digest": "sha256:6c90efabe69899c449caf188d7785de20f10d7db6027eeb985dd488c79555b6c"
+      },
+      "previous_event_digest": "sha256:d3e6050395f062f0d18a2dd3efb0e59304dd9750acdacb85403cd9a6ca8d73d7",
+      "semantic_change_authority": false,
+      "sequence": 5
+    },
+    {
+      "capital_authority": false,
+      "delete_authority": false,
+      "event_digest": "sha256:ef931a228605802e78d1efbd2feb3b5e8a3df4a35f75bae28a9f246fed0e6d76",
+      "event_id": "LCM00EVT_590AAE641EADB08ADBBADEE25568AEB9",
+      "event_type": "RESTORE_REHEARSAL_COMPLETED",
+      "execution_authority": false,
+      "move_authority": false,
+      "occurred_at": "2026-07-18T00:00:00Z",
+      "payload": {
+        "passed": true,
+        "restore_rehearsal_digest": "sha256:fbabbcf8fb8c3266eff3fa7ee987e059ddc61ccdbda3beef835155034fb297a8"
+      },
+      "previous_event_digest": "sha256:5d3de2e33dc2f823bba2d8a24a68d59e19ccf196eb8a4caf0014e12c66bcd793",
+      "semantic_change_authority": false,
+      "sequence": 6
+    },
+    {
+      "capital_authority": false,
+      "delete_authority": false,
+      "event_digest": "sha256:482909f14ab3599fc6340de1d62c56ab3adf6fae39c348a517868095a5f9cb4f",
+      "event_id": "LCM00EVT_23F295DD607F70965F9F4684E2C4FA32",
+      "event_type": "BASELINE_VERIFIED",
+      "execution_authority": false,
+      "move_authority": false,
+      "occurred_at": "2026-07-18T00:00:00Z",
+      "payload": {
+        "blockers": [
+          "GIT_METADATA_UNKNOWN",
+          "HUMAN_ROLE_ASSIGNMENTS_INCOMPLETE",
+          "UNTRACKED_HOST_LOCAL_ASSETS_NOT_OBSERVABLE_FROM_SOURCE_ARCHIVE"
+        ],
+        "record_count": 38595
+      },
+      "previous_event_digest": "sha256:ef931a228605802e78d1efbd2feb3b5e8a3df4a35f75bae28a9f246fed0e6d76",
+      "semantic_change_authority": false,
+      "sequence": 7
+    },
+    {
+      "capital_authority": false,
+      "delete_authority": false,
+      "event_digest": "sha256:878424068168e85bbcb50e0c9e894da05ca0bcd20d5358894fb40baae4554e8c",
+      "event_id": "LCM00EVT_03D673CC5E3050B5219D88B6EFAD41A2",
+      "event_type": "LCM01_HANDOFF_PREPARED",
+      "execution_authority": false,
+      "move_authority": false,
+      "occurred_at": "2026-07-18T00:00:00Z",
+      "payload": {
+        "handoff_digest": "sha256:8864d3dc54d5d28bdf3e5abe81f812f2b0ad85fb7f7326c131355cfb71dd616e"
+      },
+      "previous_event_digest": "sha256:482909f14ab3599fc6340de1d62c56ab3adf6fae39c348a517868095a5f9cb4f",
+      "semantic_change_authority": false,
+      "sequence": 8
+    }
+  ],
+  "head_event_digest": "sha256:878424068168e85bbcb50e0c9e894da05ca0bcd20d5358894fb40baae4554e8c",
+  "ledger_digest": "sha256:4ae799229c15b23a1e35634d216d0f295c225452b0a225d8c80c9d424441c3a7",
+  "phase_id": "LCM-00",
+  "schema_version": "1.0.0"
+}

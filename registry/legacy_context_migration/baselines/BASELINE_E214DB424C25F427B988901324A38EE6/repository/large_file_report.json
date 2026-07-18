@@ -1,0 +1,8 @@
+{
+  "external_storage_required": false,
+  "files": [],
+  "large_file_count": 0,
+  "large_file_report_digest": "sha256:186cec4865f8e6c88d00f9185e5c2af92d93ba824d362542ba5cee8a2e3eed99",
+  "schema_version": "1.0.0",
+  "threshold_bytes": 10485760
+}

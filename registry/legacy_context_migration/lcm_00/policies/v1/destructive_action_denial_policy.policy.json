@@ -1,0 +1,9 @@
+{
+  "delete_allowed": false,
+  "move_allowed": false,
+  "phase_id": "LCM-00",
+  "policy_digest": "sha256:a2a2d4a35d75f3a885f9a0ff46647d3b4e3f70f0c9d01ec34917d4cce1d598f6",
+  "policy_id": "LCM00_DESTRUCTIVE_ACTION_DENIAL_POLICY_V1",
+  "quarantine_allowed": false,
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,57 @@
+{
+  "$id": "https://alpha-lab.local/lcm00/amendment.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "affected_identities": {
+      "type": "array"
+    },
+    "amendment_digest": {
+      "type": "string"
+    },
+    "amendment_id": {
+      "type": "string"
+    },
+    "applied_to_baseline": {
+      "type": "boolean"
+    },
+    "approval_status": {
+      "type": "string"
+    },
+    "baseline_id": {
+      "type": "string"
+    },
+    "classification": {
+      "type": "string"
+    },
+    "new_sha256": {
+      "type": "string"
+    },
+    "old_sha256": {
+      "type": "string"
+    },
+    "path": {
+      "type": "string"
+    },
+    "rationale": {
+      "type": "string"
+    },
+    "recharacterization_required": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "amendment_id",
+    "baseline_id",
+    "path",
+    "old_sha256",
+    "new_sha256",
+    "classification",
+    "amendment_digest"
+  ],
+  "title": "amendment",
+  "type": "object"
+}

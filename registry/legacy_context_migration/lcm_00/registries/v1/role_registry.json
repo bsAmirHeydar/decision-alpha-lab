@@ -1,0 +1,16 @@
+{
+  "registry_id": "LCM00_ROLE_REGISTRY_V1",
+  "roles": [
+    "PROGRAM_OWNER",
+    "DOMAIN_OWNER",
+    "MIGRATION_ENGINEER",
+    "INDEPENDENT_PARITY_REVIEWER",
+    "SECURITY_REVIEWER",
+    "KNOWLEDGE_CURATOR",
+    "RELEASE_OPERATOR",
+    "PRODUCTION_KEY_CUSTODIAN"
+  ],
+  "schema_version": "1.0.0",
+  "unknown_role_assignment_allowed": true,
+  "unknown_role_assignment_is_approval": false
+}

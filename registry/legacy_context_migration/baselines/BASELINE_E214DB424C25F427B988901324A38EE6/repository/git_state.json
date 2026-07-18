@@ -1,0 +1,15 @@
+{
+  "branch": "UNKNOWN",
+  "git_state_digest": "sha256:c7152d43bcd6de36125efa9b386db5e5fadf4fb9319e98f80266281cfd0f2001",
+  "head_commit": "UNKNOWN",
+  "lfs_available": "UNKNOWN",
+  "reason_codes": [
+    "SOURCE_ARCHIVE_EXCLUDED_GIT_METADATA"
+  ],
+  "repository_metadata_available": false,
+  "schema_version": "1.0.0",
+  "state": "UNKNOWN_GIT_METADATA",
+  "status_porcelain_v2": "UNKNOWN",
+  "submodule_status": "UNKNOWN",
+  "tags_pointing_at_head": []
+}

@@ -1,0 +1,8 @@
+{
+  "migration_engineer_can_be_release_operator": false,
+  "phase_id": "LCM-00",
+  "policy_digest": "sha256:6607769e6d49a3822dece31721bd0e4543a7b0b545cdb6d5f406463e4c54c0d6",
+  "policy_id": "LCM00_SEPARATION_OF_DUTIES_POLICY_V1",
+  "schema_version": "1.0.0",
+  "self_review_allowed": false
+}

@@ -1,0 +1,23 @@
+{
+  "allowed_actions": [
+    "LCM00_FREEZE_REFERENCE_BASELINE",
+    "RUN_FORENSIC_REPOSITORY_SURVEY",
+    "REGISTER_DISCOVERED_ARTIFACTS",
+    "REPORT_SCOPE_DRIFT",
+    "PROPOSE_OWNERSHIP_ASSIGNMENTS"
+  ],
+  "dynamic_action_registration_allowed": false,
+  "forbidden_actions": [
+    "MOVE_SOURCE_FILE",
+    "DELETE_SOURCE_FILE",
+    "SEMANTIC_REFACTOR",
+    "MERGE_LEGACY_IMPLEMENTATIONS",
+    "CUTOVER_CONSUMER",
+    "QUARANTINE_SOURCE",
+    "AUTHORIZE_RUNTIME",
+    "AUTHORIZE_LIVE_ORDER",
+    "ACTIVATE_CAPITAL"
+  ],
+  "registry_id": "LCM00_ACTION_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}

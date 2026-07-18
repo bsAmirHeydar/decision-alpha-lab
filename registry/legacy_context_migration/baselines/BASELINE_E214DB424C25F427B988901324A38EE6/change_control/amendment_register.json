@@ -1,0 +1,8 @@
+{
+  "amendment_count": 0,
+  "amendments": [],
+  "baseline_id": "BASELINE_E214DB424C25F427B988901324A38EE6",
+  "direct_baseline_mutation_allowed": false,
+  "register_digest": "sha256:c7fc7af9664e215669c948e3664bd20b11e4fea69e71e0eeac633f084debc2f2",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,8 @@
+{
+  "excluded_files_report_required": true,
+  "phase_id": "LCM-00",
+  "policy_digest": "sha256:690910661a9a2f7e781324cc985c8cba37e07e59c278ce419e29785c96c2e3f2",
+  "policy_id": "LCM00_IGNORED_FILE_POLICY_V1",
+  "schema_version": "1.0.0",
+  "silent_ignore_allowed": false
+}

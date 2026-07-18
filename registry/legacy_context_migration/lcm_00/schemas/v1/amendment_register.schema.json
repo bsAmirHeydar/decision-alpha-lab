@@ -1,0 +1,34 @@
+{
+  "$id": "https://alpha-lab.local/lcm00/amendment_register.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "amendment_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "amendments": {
+      "type": "array"
+    },
+    "baseline_id": {
+      "type": "string"
+    },
+    "direct_baseline_mutation_allowed": {
+      "type": "boolean"
+    },
+    "register_digest": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "baseline_id",
+    "amendment_count",
+    "amendments",
+    "register_digest"
+  ],
+  "title": "amendment_register",
+  "type": "object"
+}

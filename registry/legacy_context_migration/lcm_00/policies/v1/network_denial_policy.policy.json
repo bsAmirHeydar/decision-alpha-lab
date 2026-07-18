@@ -1,0 +1,7 @@
+{
+  "network_access_allowed": false,
+  "phase_id": "LCM-00",
+  "policy_digest": "sha256:27708e94b73c8850f26437166fb475e34505119100f4d62a842b013742e73c41",
+  "policy_id": "LCM00_NETWORK_DENIAL_POLICY_V1",
+  "schema_version": "1.0.0"
+}

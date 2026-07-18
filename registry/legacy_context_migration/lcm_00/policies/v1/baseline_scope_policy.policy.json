@@ -1,0 +1,12 @@
+{
+  "phase_id": "LCM-00",
+  "policy_digest": "sha256:39a6add8895c3e9117dbfbf32f497d2e3bac71cc503ae5f5c7084ea47e68c7d4",
+  "policy_id": "LCM00_BASELINE_SCOPE_POLICY_V1",
+  "rules": [
+    "root-relative POSIX path",
+    "byte-exact hash",
+    "ephemeral caches excluded and reported",
+    "symlinks never followed"
+  ],
+  "schema_version": "1.0.0"
+}

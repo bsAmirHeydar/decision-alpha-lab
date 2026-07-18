@@ -1,0 +1,8 @@
+{
+  "git_add_dot_allowed": false,
+  "inventory_move_refactor_cutover_delete_same_commit_allowed": false,
+  "phase_id": "LCM-00",
+  "policy_digest": "sha256:615013aa4857f6e45c159ad54f10a222e93340247743cad2c77d5d64282b71d0",
+  "policy_id": "LCM00_PATCH_BOUNDARY_POLICY_V1",
+  "schema_version": "1.0.0"
+}

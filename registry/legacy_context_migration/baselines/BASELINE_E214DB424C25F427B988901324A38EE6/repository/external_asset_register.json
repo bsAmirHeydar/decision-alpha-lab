@@ -1,0 +1,13 @@
+{
+  "all_external_assets_recoverable": false,
+  "assets": [],
+  "baseline_id": "BASELINE_E214DB424C25F427B988901324A38EE6",
+  "external_asset_register_digest": "sha256:93fdb2231891e7b4d971c03220f9c8150c11f49b7d7247d0b00451e40a099f30",
+  "schema_version": "1.0.0",
+  "unresolved_asset_classes": [
+    "GIT_OBJECT_DATABASE",
+    "HOST_LOCAL_UNTRACKED_MQL5_FILES",
+    "EXTERNAL_ARTIFACT_STORE_OBJECTS",
+    "BROKER_OR_TERMINAL_LOCAL_STATE"
+  ]
+}

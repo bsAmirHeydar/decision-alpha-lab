@@ -1,0 +1,8 @@
+{
+  "full_path_hash_comparison_required": true,
+  "phase_id": "LCM-00",
+  "policy_digest": "sha256:0b0800be394f5b603fbdd05cf5c6e0fc59416f3c55a348c38f8295342b9beb27",
+  "policy_id": "LCM00_RESTORATION_POLICY_V1",
+  "sample_only_verification_allowed": false,
+  "schema_version": "1.0.0"
+}

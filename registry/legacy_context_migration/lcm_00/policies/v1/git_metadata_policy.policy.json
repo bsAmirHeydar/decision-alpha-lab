@@ -1,0 +1,8 @@
+{
+  "invent_commit_or_branch_allowed": false,
+  "missing_git_metadata_status": "UNKNOWN",
+  "phase_id": "LCM-00",
+  "policy_digest": "sha256:58f542594db5c605f5eb2630e779b539770eb287617973d3b15bc90abb48f361",
+  "policy_id": "LCM00_GIT_METADATA_POLICY_V1",
+  "schema_version": "1.0.0"
+}

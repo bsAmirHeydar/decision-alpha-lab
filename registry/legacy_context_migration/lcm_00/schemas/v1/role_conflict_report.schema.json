@@ -1,0 +1,36 @@
+{
+  "$id": "https://alpha-lab.local/lcm00/role_conflict_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "conflicts": {
+      "type": "array"
+    },
+    "destructive_action_ownership_ready": {
+      "type": "boolean"
+    },
+    "lcm01_ownership_ready": {
+      "type": "boolean"
+    },
+    "missing_required_roles": {
+      "type": "array"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "report_digest": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "missing_required_roles",
+    "conflicts",
+    "lcm01_ownership_ready",
+    "report_digest"
+  ],
+  "title": "role_conflict_report",
+  "type": "object"
+}

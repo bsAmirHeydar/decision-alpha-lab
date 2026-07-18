@@ -1,0 +1,12 @@
+{
+  "classes": [
+    "IN_SCOPE",
+    "EPHEMERAL_EXCLUDED",
+    "GIT_METADATA_SEPARATE",
+    "EXTERNAL_ASSET_UNRESOLVED",
+    "SYMLINK_RECORDED_NOT_FOLLOWED"
+  ],
+  "registry_id": "LCM00_SCOPE_CLASS_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "unknown_class_allowed": false
+}

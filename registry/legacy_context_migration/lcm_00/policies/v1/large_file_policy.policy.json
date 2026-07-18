@@ -1,0 +1,8 @@
+{
+  "automatic_deletion_allowed": false,
+  "phase_id": "LCM-00",
+  "policy_digest": "sha256:890fba39f0de83941223736a5073f40c436a400932f5e54898ef160daa583350",
+  "policy_id": "LCM00_LARGE_FILE_POLICY_V1",
+  "schema_version": "1.0.0",
+  "threshold_bytes": 10485760
+}

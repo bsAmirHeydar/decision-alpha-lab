@@ -1,0 +1,89 @@
+{
+  "baseline_id": "BASELINE_E214DB424C25F427B988901324A38EE6",
+  "capital_authority_created": false,
+  "edges": [
+    {
+      "from": "LCM00NODE_BD4CAB2CB227FD1A789D197631A948B2",
+      "relation": "DERIVES_AND_BINDS",
+      "to": "LCM00NODE_0B9D3251D3DD373EBA73B092EE3C6BF1"
+    },
+    {
+      "from": "LCM00NODE_0B9D3251D3DD373EBA73B092EE3C6BF1",
+      "relation": "DERIVES_AND_BINDS",
+      "to": "LCM00NODE_C995FFBBCDD3D933D96BE5FEE8B1A564"
+    },
+    {
+      "from": "LCM00NODE_C995FFBBCDD3D933D96BE5FEE8B1A564",
+      "relation": "DERIVES_AND_BINDS",
+      "to": "LCM00NODE_D5FDE4251CA2E2B9A036F98AB74F5A07"
+    },
+    {
+      "from": "LCM00NODE_D5FDE4251CA2E2B9A036F98AB74F5A07",
+      "relation": "DERIVES_AND_BINDS",
+      "to": "LCM00NODE_89A7951167E5301A015CB5B17259846F"
+    },
+    {
+      "from": "LCM00NODE_89A7951167E5301A015CB5B17259846F",
+      "relation": "DERIVES_AND_BINDS",
+      "to": "LCM00NODE_32A50FC0270B421897BCAD332778A316"
+    },
+    {
+      "from": "LCM00NODE_32A50FC0270B421897BCAD332778A316",
+      "relation": "DERIVES_AND_BINDS",
+      "to": "LCM00NODE_1043AB5ACE3CEAF8537A8F2427E59E68"
+    },
+    {
+      "from": "LCM00NODE_1043AB5ACE3CEAF8537A8F2427E59E68",
+      "relation": "DERIVES_AND_BINDS",
+      "to": "LCM00NODE_8FB601D32897DEE17FBBCD67FDE49DAF"
+    }
+  ],
+  "execution_authority_created": false,
+  "nodes": [
+    {
+      "artifact_digest": "sha256:6c90efabe69899c449caf188d7785de20f10d7db6027eeb985dd488c79555b6c",
+      "artifact_role": "baseline_manifest",
+      "node_id": "LCM00NODE_89A7951167E5301A015CB5B17259846F"
+    },
+    {
+      "artifact_digest": "sha256:095765fd0ecb22b96685adf766be2b7f0334f0619eea34afe19d84bed1a01732",
+      "artifact_role": "baseline_receipt",
+      "node_id": "LCM00NODE_1043AB5ACE3CEAF8537A8F2427E59E68"
+    },
+    {
+      "artifact_digest": "sha256:8864d3dc54d5d28bdf3e5abe81f812f2b0ad85fb7f7326c131355cfb71dd616e",
+      "artifact_role": "lcm01_handoff",
+      "node_id": "LCM00NODE_8FB601D32897DEE17FBBCD67FDE49DAF"
+    },
+    {
+      "artifact_digest": "sha256:60df6e3978680cae2843fc597343cfbafa8cef0b4dc3da4a90ef1f99ef6cd680",
+      "artifact_role": "ownership_registry",
+      "node_id": "LCM00NODE_D5FDE4251CA2E2B9A036F98AB74F5A07"
+    },
+    {
+      "artifact_digest": "sha256:4db67cd5af56ba969a4d4d3bc409f2dd91549d92336effcc3ea9dd40188344b0",
+      "artifact_role": "program_constitution",
+      "node_id": "LCM00NODE_BD4CAB2CB227FD1A789D197631A948B2"
+    },
+    {
+      "artifact_digest": "sha256:a22311f1d64dba5ccc51970cc66e83d57a36150bf93f7c0375c98a77f7c2b90b",
+      "artifact_role": "repository_state",
+      "node_id": "LCM00NODE_C995FFBBCDD3D933D96BE5FEE8B1A564"
+    },
+    {
+      "artifact_digest": "sha256:fbabbcf8fb8c3266eff3fa7ee987e059ddc61ccdbda3beef835155034fb297a8",
+      "artifact_role": "restore_rehearsal",
+      "node_id": "LCM00NODE_32A50FC0270B421897BCAD332778A316"
+    },
+    {
+      "artifact_digest": "sha256:265b383bfc572f931394c28327524846bf5f5869246ca7d602e2ad85e024377c",
+      "artifact_role": "scope_policy",
+      "node_id": "LCM00NODE_0B9D3251D3DD373EBA73B092EE3C6BF1"
+    }
+  ],
+  "provenance_digest": "sha256:d7ec063d3e1fb6c110f649bf55ded6a5229c06755b27e3518c053760d6267df3",
+  "schema_version": "1.0.0",
+  "source_behavior_mutated": false,
+  "source_file_deleted": false,
+  "source_file_moved": false
+}

@@ -1,0 +1,157 @@
+{
+  "artifact_count": 30,
+  "artifacts": [
+    {
+      "path": "authority/authority_permit_snapshot.json",
+      "sha256": "sha256:471b76e47bc5dd705ea14e8994437d45dd09ffb2e72c4df1b97b60e3be9ca762",
+      "size_bytes": 967
+    },
+    {
+      "path": "authority/ownership_registry_snapshot.json",
+      "sha256": "sha256:5cc3d8ba2a94dd080af6b0c38058e0939fb90e038b00db60cfc99a81514cbf8e",
+      "size_bytes": 1554
+    },
+    {
+      "path": "authority/role_conflict_report.json",
+      "sha256": "sha256:44777258ef444146623df8bb455132a76efd7f07060a0317b5fa30b53e8c7bff",
+      "size_bytes": 339
+    },
+    {
+      "path": "baseline_file_hashes.sha256",
+      "sha256": "sha256:484b0c7454fc33339aca7e750f21cd63c6673ed348baa9353224108911b493cf",
+      "size_bytes": 6281148
+    },
+    {
+      "path": "baseline_file_index.txt",
+      "sha256": "sha256:e4b4d2e6ab76d0ddcaf0b4ce893119eb3a6e529a72ee2ef7c1165139d01c03eb",
+      "size_bytes": 3733878
+    },
+    {
+      "path": "baseline_manifest.json",
+      "sha256": "sha256:403fb769719c5fd0a08ad9774aed1b0fdce22192ca979d6a3afa04989848155d",
+      "size_bytes": 25945166
+    },
+    {
+      "path": "baseline_receipt.json",
+      "sha256": "sha256:997ceddcb6901f5313148da32c6f34d5fb21017670508fab35735c4029d7f0f4",
+      "size_bytes": 1024
+    },
+    {
+      "path": "baseline_summary.json",
+      "sha256": "sha256:b142b8bc209a9447db42a46e13649441a5f658aa9685b83290bdd89b5e6a5f1e",
+      "size_bytes": 1278
+    },
+    {
+      "path": "change_control/AMENDMENT_RUNBOOK.md",
+      "sha256": "sha256:d710e52a5c6b7b72ed4458381fc89ceaabde7584ecd60cf2cfa33443c4b8454b",
+      "size_bytes": 404
+    },
+    {
+      "path": "change_control/amendment_policy_snapshot.json",
+      "sha256": "sha256:3291369b9a04fa33d3ad7f79c116527d2a5fc6bcf4f2c19602d2e516e2a9a699",
+      "size_bytes": 421
+    },
+    {
+      "path": "change_control/amendment_register.json",
+      "sha256": "sha256:1be2abc462c257acb2cdb67d32c77615e9b282886ba272d052140ccc4aa434f6",
+      "size_bytes": 279
+    },
+    {
+      "path": "docs/LCM00_AUTHORITY_AND_OWNERSHIP.md",
+      "sha256": "sha256:e552582a0c07906806924abc26ec6f81e70fa3899e03081fb4fd8ca4044f9cd9",
+      "size_bytes": 521
+    },
+    {
+      "path": "docs/LCM00_BASELINE_EXECUTIVE_BRIEF.md",
+      "sha256": "sha256:5565eb8cb38331756f5ea928ccf2799ad0237c7f13e790dbdf216c79155b14b8",
+      "size_bytes": 835
+    },
+    {
+      "path": "docs/LCM00_BASELINE_SCOPE.md",
+      "sha256": "sha256:9a39bb388573019b64e32553bbde7bd0a5f3f4ea1ea040b490565a0d96e3da2e",
+      "size_bytes": 479
+    },
+    {
+      "path": "docs/LCM00_RESTORE_AND_ROLLBACK.md",
+      "sha256": "sha256:73e3e51a2eb3545afc3e6dec8f7a8597ed94324ca5f1cd7833bf628b1643aa42",
+      "size_bytes": 569
+    },
+    {
+      "path": "docs/LCM00_TO_LCM01_HANDOFF.md",
+      "sha256": "sha256:6505b54fcfe93b6753bc771f2e78b5639e90c4024c9d864e6523e119c7df5568",
+      "size_bytes": 434
+    },
+    {
+      "path": "events/freeze_event_ledger.json",
+      "sha256": "sha256:e30e01d7064608187f587536054b55b05b6735c458c4bc126eab5d6238d63c9d",
+      "size_bytes": 6104
+    },
+    {
+      "path": "governance/program_constitution_snapshot.json",
+      "sha256": "sha256:23af0aca45de0c32d0659e63b1b4e63d4262dab88aeecb808cad5760a9fef588",
+      "size_bytes": 585
+    },
+    {
+      "path": "handoff/lcm00_to_lcm01_handoff.json",
+      "sha256": "sha256:46e0d92fc4e62f5b43c55070759166489ebd05c5c414a7e3d3dee2d398f67745",
+      "size_bytes": 1235
+    },
+    {
+      "path": "lineage/baseline_provenance_graph.json",
+      "sha256": "sha256:40d918ed80bbc8e2d91de063d700a38c260e6c9a66c7752336b7c2e943428013",
+      "size_bytes": 3330
+    },
+    {
+      "path": "repository/environment_capture.json",
+      "sha256": "sha256:73e0ef49be1fee3a39fe9a99e31e89dc2fa1d464a77eef11c51a5d53c301bf08",
+      "size_bytes": 543
+    },
+    {
+      "path": "repository/external_asset_register.json",
+      "sha256": "sha256:a0d2878e2678ff7cf585650c1aa260077a70df6211ff17836468cc1fc1705624",
+      "size_bytes": 444
+    },
+    {
+      "path": "repository/git_state.json",
+      "sha256": "sha256:dad4be4e97a6efafed5e7d2e2868e6e17203047f17d9965a08b9d94baab10e51",
+      "size_bytes": 455
+    },
+    {
+      "path": "repository/ignored_and_ephemeral_report.json",
+      "sha256": "sha256:4b29e42caab2f9fd27eea1800cad38e2830480eda10d66ee2be8551e2c0b01c5",
+      "size_bytes": 817
+    },
+    {
+      "path": "repository/large_file_report.json",
+      "sha256": "sha256:ba7302f7e1abaae8d885756f56e076eb66933bbadffa497836f0b34850552415",
+      "size_bytes": 246
+    },
+    {
+      "path": "repository/repository_state.json",
+      "sha256": "sha256:296c1e1c6820d44e0fbb19cf23165e84c037d8d5b17775ecfa5f270b70069ef3",
+      "size_bytes": 4115
+    },
+    {
+      "path": "repository/symlink_report.json",
+      "sha256": "sha256:da6bab8597b8643e6acf5a83dbe8b0300678482af3b94c855492d98573f45eb7",
+      "size_bytes": 214
+    },
+    {
+      "path": "restoration/restore_plan.json",
+      "sha256": "sha256:fdf784a0435a36e8cfcbee03710aa20d8f187c9118c4e4469a0a1e8032d0313d",
+      "size_bytes": 655
+    },
+    {
+      "path": "restoration/restore_rehearsal_report.json",
+      "sha256": "sha256:4c4c02eaf4debf1236cd22618e53bfc0bca0c2e8c6d4c84a77b7c2e47bdf9fdf",
+      "size_bytes": 3957
+    },
+    {
+      "path": "scope/scope_policy_snapshot.json",
+      "sha256": "sha256:de5c74ddf20e2fe54d332bc64865122fed4740f2eea2506d389931318647d18c",
+      "size_bytes": 605
+    }
+  ],
+  "output_manifest_digest": "sha256:2368b8a85c3ddcced6f58304dfb72b1d535b44ec8d0be2635657ce8e5780c7a8",
+  "schema_version": "1.0.0"
+}

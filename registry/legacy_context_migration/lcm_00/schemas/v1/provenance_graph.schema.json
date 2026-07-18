@@ -1,0 +1,45 @@
+{
+  "$id": "https://alpha-lab.local/lcm00/provenance_graph.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_id": {
+      "type": "string"
+    },
+    "capital_authority_created": {
+      "type": "boolean"
+    },
+    "edges": {
+      "type": "array"
+    },
+    "execution_authority_created": {
+      "type": "boolean"
+    },
+    "nodes": {
+      "type": "array"
+    },
+    "provenance_digest": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "source_behavior_mutated": {
+      "type": "boolean"
+    },
+    "source_file_deleted": {
+      "type": "boolean"
+    },
+    "source_file_moved": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "baseline_id",
+    "nodes",
+    "edges",
+    "provenance_digest"
+  ],
+  "title": "provenance_graph",
+  "type": "object"
+}

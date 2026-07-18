@@ -1,0 +1,28 @@
+{
+  "excluded_dir_names": [
+    ".git",
+    ".pytest_cache",
+    "__pycache__",
+    ".mypy_cache",
+    ".ruff_cache"
+  ],
+  "excluded_file_globs": [
+    "*.pyc",
+    "*.pyo",
+    "*.tmp",
+    "*.temp",
+    "*.lock",
+    ".DS_Store",
+    "Thumbs.db"
+  ],
+  "follow_symlinks": false,
+  "include_symlinks_as_records": true,
+  "included_roots": [
+    "."
+  ],
+  "path_semantics": "ROOT_RELATIVE_POSIX_BYTE_EXACT",
+  "policy_id": "LCM00_REFERENCE_SCOPE_V1",
+  "schema_version": "1.0.0",
+  "scope_policy_digest": "sha256:265b383bfc572f931394c28327524846bf5f5869246ca7d602e2ad85e024377c",
+  "version": "1.0.0"
+}

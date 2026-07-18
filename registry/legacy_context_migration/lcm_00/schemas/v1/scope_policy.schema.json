@@ -1,0 +1,45 @@
+{
+  "$id": "https://alpha-lab.local/lcm00/scope_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "excluded_dir_names": {
+      "type": "array"
+    },
+    "excluded_file_globs": {
+      "type": "array"
+    },
+    "follow_symlinks": {
+      "type": "boolean"
+    },
+    "include_symlinks_as_records": {
+      "type": "boolean"
+    },
+    "included_roots": {
+      "type": "array"
+    },
+    "path_semantics": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "scope_policy_digest": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "policy_id",
+    "included_roots",
+    "excluded_dir_names",
+    "scope_policy_digest"
+  ],
+  "title": "scope_policy",
+  "type": "object"
+}

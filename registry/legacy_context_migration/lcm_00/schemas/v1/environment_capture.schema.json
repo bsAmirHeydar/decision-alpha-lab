@@ -1,0 +1,59 @@
+{
+  "$id": "https://alpha-lab.local/lcm00/environment_capture.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "environment_digest": {
+      "type": "string"
+    },
+    "filesystem_encoding": {
+      "type": "string"
+    },
+    "git_version": {
+      "type": "string"
+    },
+    "machine": {
+      "type": "string"
+    },
+    "metaeditor_available": {
+      "type": "boolean"
+    },
+    "mt5_runtime_available": {
+      "type": "boolean"
+    },
+    "network_used": {
+      "type": "boolean"
+    },
+    "operating_system": {
+      "type": "string"
+    },
+    "os_release": {
+      "type": "string"
+    },
+    "powershell_version": {
+      "type": "string"
+    },
+    "preferred_encoding": {
+      "type": "string"
+    },
+    "python_implementation": {
+      "type": "string"
+    },
+    "python_version": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "secret_accessed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "python_version",
+    "operating_system",
+    "environment_digest"
+  ],
+  "title": "environment_capture",
+  "type": "object"
+}

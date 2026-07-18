@@ -1,0 +1,101 @@
+{
+  "claim_ceiling": "CONTENT_RESTORE_REHEARSAL_REFERENCE_ONLY",
+  "copied_record_count": 38595,
+  "external_artifacts_restored": false,
+  "git_metadata_restored": false,
+  "method": "CLEAN_TAR_RESTORATION_CONTAINER_AND_FULL_PATH_HASH_COMPARISON",
+  "mismatch_count": 0,
+  "mismatches": [],
+  "passed": true,
+  "restoration_container_retained": false,
+  "restore_rehearsal_digest": "sha256:fbabbcf8fb8c3266eff3fa7ee987e059ddc61ccdbda3beef835155034fb297a8",
+  "schema_version": "1.0.0",
+  "source_layer_count": 14,
+  "source_layers": [
+    {
+      "archive_name": "decision-alpha-lab-main (5).zip",
+      "archive_sha256": "sha256:b39818246147ddeb62b7b4656660c4de88f6a6f20ed095f8ddd0a7e888cce37c",
+      "layer_id": "BASE_DECISION_ALPHA_LAB",
+      "strip_prefix": "decision-alpha-lab-main"
+    },
+    {
+      "archive_name": "ACL_OS_04_DUAL_SETUP_FACTORY_PATCH.zip",
+      "archive_sha256": "sha256:940c14781bed818c2e958540ba262d08715496c76fd777eca8945a2d4c243b5d",
+      "layer_id": "ACL_OS_04",
+      "strip_prefix": ""
+    },
+    {
+      "archive_name": "ACL_OS_05_IMMUTABLE_BATCH_AND_ARTIFACT_STORE_PATCH.zip",
+      "archive_sha256": "sha256:4d63524e851a3bc5c3aa21f7d8f0df413c1fc07ae41aceaf0d73b5c3fcdaaa2c",
+      "layer_id": "ACL_OS_05",
+      "strip_prefix": ""
+    },
+    {
+      "archive_name": "ACL_OS_06_RESEARCH_DAG_ORCHESTRATION_PATCH.zip",
+      "archive_sha256": "sha256:2a54a04bcf0d94f5606c2cdf4de1043b979a04972dd728ad4c249367009ced36",
+      "layer_id": "ACL_OS_06",
+      "strip_prefix": ""
+    },
+    {
+      "archive_name": "ACL_OS_07_UNIFIED_VALIDATION_GATE_PATCH.zip",
+      "archive_sha256": "sha256:2ab863773a9028587c60509750ce816793d4ae965269f7e5e37b623e654d0a10",
+      "layer_id": "ACL_OS_07",
+      "strip_prefix": ""
+    },
+    {
+      "archive_name": "ACL_OS_08_REPORTING_AND_EXPERIENCE_PATCH.zip",
+      "archive_sha256": "sha256:27bed05bbc06db22ca2df641936d032779d90cd5549cc645a50483363a0409dd",
+      "layer_id": "ACL_OS_08",
+      "strip_prefix": ""
+    },
+    {
+      "archive_name": "ACL_OS_09_MEMORY_AND_ACTIVE_PLANNER_PATCH.zip",
+      "archive_sha256": "sha256:1636687f1868b35d1df376e64603f1547ff517d7cc1d8bc6e557acd2d745a744",
+      "layer_id": "ACL_OS_09",
+      "strip_prefix": ""
+    },
+    {
+      "archive_name": "ACL_OS_10_PROMOTION_STATE_MACHINE_PATCH.zip",
+      "archive_sha256": "sha256:721fc9d969eff60245332c4ff4798a2fe82f20965bf430c3d0d0be5bf86d6bdd",
+      "layer_id": "ACL_OS_10",
+      "strip_prefix": ""
+    },
+    {
+      "archive_name": "ACL_OS_11_RUNTIME_PARITY_AND_HANDOFF_PATCH.zip",
+      "archive_sha256": "sha256:4a5e4f439a444847e03ba7eb31c641746d12552ec1ce2b551ced1bba6e7a6df3",
+      "layer_id": "ACL_OS_11",
+      "strip_prefix": ""
+    },
+    {
+      "archive_name": "ACL_OS_12_SECURITY_HARDENING_PATCH.zip",
+      "archive_sha256": "sha256:80d2c54615f5cec96747bc2aca801d2174ff6a15d42d2382d89f80d342227558",
+      "layer_id": "ACL_OS_12",
+      "strip_prefix": ""
+    },
+    {
+      "archive_name": "ACL_OS_13_ONE_HOUR_ASSESSMENT_PRODUCT_PATCH.zip",
+      "archive_sha256": "sha256:26ad68a75790eed7af94680926412d95cbc600d96f1a6a4648116a6ab06a1414",
+      "layer_id": "ACL_OS_13",
+      "strip_prefix": ""
+    },
+    {
+      "archive_name": "ACL_OS_14_FIRST_REAL_CONTEXT_PILOT_PATCH.zip",
+      "archive_sha256": "sha256:7e096de47c239513fda6b531a72b9e514e63986374a07a41a57c0269a9f8104a",
+      "layer_id": "ACL_OS_14",
+      "strip_prefix": ""
+    },
+    {
+      "archive_name": "ACL_OS_15_FLEET_OPERATIONS_AND_CLOSURE_PATCH.zip",
+      "archive_sha256": "sha256:0d389950dcc8e5ffe9356e494f0aa78c37d910b483e54802f667e08d06159b7d",
+      "layer_id": "ACL_OS_15",
+      "strip_prefix": ""
+    },
+    {
+      "archive_name": "ALPHA_LAB_LCM_IMPLEMENTATION_PROGRAM_PATCH.zip",
+      "archive_sha256": "sha256:201a03537654dfa8e8fe7e3a6e442a9770f220120f855e851e986245257fe3ad",
+      "layer_id": "LCM_IMPLEMENTATION_PROGRAM",
+      "strip_prefix": ""
+    }
+  ],
+  "verified_record_count": 38595
+}

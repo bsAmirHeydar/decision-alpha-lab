@@ -1,0 +1,8 @@
+{
+  "baseline_to_handoff_trace_required": true,
+  "invented_evidence_allowed": false,
+  "phase_id": "LCM-00",
+  "policy_digest": "sha256:0719077a04fc496276f46902d70ae4ba85b81e4175e0ebf38b3e3edc8cf6add8",
+  "policy_id": "LCM00_PROVENANCE_POLICY_V1",
+  "schema_version": "1.0.0"
+}

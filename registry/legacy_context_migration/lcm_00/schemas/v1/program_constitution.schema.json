@@ -1,0 +1,54 @@
+{
+  "$id": "https://alpha-lab.local/lcm00/program_constitution.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bug_fix_inside_parity_allowed": {
+      "type": "boolean"
+    },
+    "capital_authority_allowed": {
+      "type": "boolean"
+    },
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "constitution_digest": {
+      "type": "string"
+    },
+    "destructive_action_requires_human_approval": {
+      "type": "boolean"
+    },
+    "execution_authority_allowed": {
+      "type": "boolean"
+    },
+    "phase_id": {
+      "const": "LCM-00"
+    },
+    "program_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "semantic_refactor_allowed": {
+      "type": "boolean"
+    },
+    "source_delete_allowed": {
+      "type": "boolean"
+    },
+    "source_move_allowed": {
+      "type": "boolean"
+    },
+    "unknown_is_pass": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "program_id",
+    "phase_id",
+    "claim_ceiling",
+    "constitution_digest"
+  ],
+  "title": "program_constitution",
+  "type": "object"
+}

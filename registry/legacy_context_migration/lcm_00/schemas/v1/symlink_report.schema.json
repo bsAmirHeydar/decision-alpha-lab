@@ -1,0 +1,35 @@
+{
+  "$id": "https://alpha-lab.local/lcm00/symlink_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "passed": {
+      "type": "boolean"
+    },
+    "report_digest": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "symlink_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "symlinks": {
+      "type": "array"
+    },
+    "symlinks_followed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "symlink_count",
+    "symlinks",
+    "symlinks_followed",
+    "passed",
+    "report_digest"
+  ],
+  "title": "symlink_report",
+  "type": "object"
+}
