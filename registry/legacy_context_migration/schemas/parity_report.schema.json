@@ -1,0 +1,42 @@
+{
+  "$id": "al://schemas/lcm/parity-report/1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cutover_recommended": {
+      "type": "boolean"
+    },
+    "dimensions": {
+      "minItems": 1,
+      "type": "array"
+    },
+    "hard_mismatch_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "parity_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "source_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "target_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "parity_id",
+    "source_digest",
+    "target_digest",
+    "dimensions",
+    "hard_mismatch_count",
+    "cutover_recommended"
+  ],
+  "type": "object"
+}

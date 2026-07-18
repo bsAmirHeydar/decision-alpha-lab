@@ -1,0 +1,16 @@
+---
+title: "LCM Operations MOC"
+status: proposed-reference
+version: 1.0.0
+updated: 2026-07-18
+tags: [acl-os, lcm, legacy-migration]
+---
+# LCM Operations MOC
+
+- [[PATCH_COMMIT_AND_RELEASE_STRATEGY]]
+- [[ROLLBACK_AND_RESTORATION]]
+- [[DEPRECATION_AND_QUARANTINE_STANDARD]]
+- [[CONTROLLED_DELETION_STANDARD]]
+- [[ROOT_RELEASE_ARTIFACT_RELOCATION]]
+- [[MIGRATION_DASHBOARD_AND_STATUS_REPORTING]]
+- [[ROOT_CLEANUP_RELEASE_TRAIN]]

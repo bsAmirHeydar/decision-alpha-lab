@@ -1,0 +1,16 @@
+---
+title: "LCM Governance MOC"
+status: proposed-reference
+version: 1.0.0
+updated: 2026-07-18
+tags: [acl-os, lcm, legacy-migration]
+---
+# LCM Governance MOC
+
+- [[MIGRATION_CONSTITUTION]]
+- [[AUTHORITY_OWNERSHIP_AND_SEPARATION_OF_DUTIES]]
+- [[SCOPE_NON_GOALS_AND_CLAIM_CEILING]]
+- [[BASELINE_FREEZE_AND_CHANGE_CONTROL]]
+- [[DECISION_ADR_AND_WAIVER_GOVERNANCE]]
+- [[MIGRATION_STATE_MACHINE]]
+- [[ARTIFACT_CLASSIFICATION_STANDARD]]

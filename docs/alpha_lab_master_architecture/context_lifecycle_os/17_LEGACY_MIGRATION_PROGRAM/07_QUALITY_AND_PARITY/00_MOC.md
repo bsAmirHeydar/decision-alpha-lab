@@ -1,0 +1,17 @@
+---
+title: "Quality and Parity MOC"
+status: proposed-reference
+version: 1.0.0
+updated: 2026-07-18
+tags: [acl-os, lcm, legacy-migration]
+---
+# Quality and Parity MOC
+
+- [[BEHAVIORAL_PARITY_STANDARD]]
+- [[PARITY_DIMENSION_MATRIX]]
+- [[GOLDEN_FIXTURE_STANDARD]]
+- [[MQL5_COMPILE_AND_TESTER_EVIDENCE]]
+- [[PERFORMANCE_AND_INCREMENTAL_RUNTIME_PARITY]]
+- [[HOSTILE_REVIEW_AND_SECURITY_NEGATIVE_TESTS]]
+- [[LCM_DEFINITION_OF_DONE]]
+- [[CONTEXT_MIGRATION_ACCEPTANCE_GATE]]

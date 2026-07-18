@@ -1,0 +1,5 @@
+schema_version: 1.0.0
+status: NOT_AUTHORIZED
+dual_run_required: true
+side_effect_owner: LEGACY
+rollback_ready: false

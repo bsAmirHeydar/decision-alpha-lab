@@ -1,0 +1,9 @@
+schema_version: 1.0.0
+migration_id: LCMR_REPLACE_ME
+canonical_id: CTX_REPLACE_ME_V1
+state: DISCOVERED
+claim_ceiling: LEGACY_MIGRATION_REFERENCE_ONLY
+owners:
+- REPLACE_ME
+disposition: QUARANTINE_UNCERTAIN
+legacy_sources: []

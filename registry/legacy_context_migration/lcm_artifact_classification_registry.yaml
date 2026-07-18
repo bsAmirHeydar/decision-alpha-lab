@@ -1,0 +1,38 @@
+schema_version: 1.0.0
+dispositions:
+- id: KEEP_CANONICAL
+  destructive: false
+- id: MOVE_WITHOUT_SEMANTIC_CHANGE
+  destructive: false
+- id: WRAP_LEGACY
+  destructive: false
+- id: REWRITE_WITH_PARITY
+  destructive: false
+- id: EXTRACT_SHARED_LOGIC
+  destructive: false
+- id: MERGE_AFTER_EQUIVALENCE_PROOF
+  destructive: false
+- id: ARCHIVE_REFERENCE_ONLY
+  destructive: false
+- id: QUARANTINE_UNCERTAIN
+  destructive: false
+- id: DELETE_AFTER_PROOF
+  destructive: true
+- id: SECURITY_RESTRICTED
+  destructive: false
+roles:
+- CONTEXT
+- SETUP
+- TREATMENT
+- VISUALIZER
+- PLATFORM_ADAPTER
+- SHARED_ENGINE
+- EXECUTION_ADAPTER
+- RESEARCH
+- DIAGNOSTIC
+- PLATFORM_KERNEL
+- GENERATED_PROJECTION
+- SOURCE_EVIDENCE
+- RELEASE_METADATA
+- INSTALLER
+- COMMIT_RECORD

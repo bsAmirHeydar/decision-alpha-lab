@@ -1,0 +1,20 @@
+---
+title: "Target Architecture MOC"
+status: proposed-reference
+version: 1.0.0
+updated: 2026-07-18
+tags: [acl-os, lcm, legacy-migration]
+---
+# Target Architecture MOC
+
+- [[TARGET_REPOSITORY_TOPOLOGY]]
+- [[CANONICAL_IDENTITY_AND_NAMING]]
+- [[CONTEXT_PACKAGE_TARGET]]
+- [[SETUP_PACKAGE_TARGET]]
+- [[TREATMENT_PACKAGE_TARGET]]
+- [[VISUALIZER_PACKAGE_TARGET]]
+- [[PLATFORM_ADAPTER_TARGET]]
+- [[SHARED_ENGINE_TARGET]]
+- [[DOCUMENTATION_TARGET_TOPOLOGY]]
+- [[LEGACY_QUARANTINE_TARGET]]
+- [[CURRENT_TO_TARGET_PATH_MAP]]

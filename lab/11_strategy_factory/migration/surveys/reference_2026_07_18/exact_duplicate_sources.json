@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "paths": [
+        "mql5/Indicators/EXP0013_AstroFractalOscillator.mq5",
+        "mql5/Indicators/Research/EXP0013_AstroFractalOscillator.mq5"
+      ],
+      "sha256": "4161809ed7484c57774844c8514cc48c0aa608698a971bd068b9bbd8558beda6"
+    }
+  ]
+}

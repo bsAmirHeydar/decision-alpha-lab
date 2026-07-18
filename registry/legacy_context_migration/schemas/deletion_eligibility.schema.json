@@ -1,0 +1,89 @@
+{
+  "$id": "al://schemas/lcm/deletion-eligibility/1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": {
+      "type": "string"
+    },
+    "eligible": {
+      "type": "boolean"
+    },
+    "gates": {
+      "additionalProperties": false,
+      "properties": {
+        "CANONICAL_SUCCESSOR_OR_ARCHIVE": {
+          "type": "boolean"
+        },
+        "CLEAN_CLONE_VERIFIED": {
+          "type": "boolean"
+        },
+        "DOCUMENTATION_UPDATED": {
+          "type": "boolean"
+        },
+        "INDEPENDENT_REVIEW_APPROVED": {
+          "type": "boolean"
+        },
+        "LEGACY_MAPPING_COMPLETE": {
+          "type": "boolean"
+        },
+        "OWNER_APPROVED": {
+          "type": "boolean"
+        },
+        "PARITY_APPROVED": {
+          "type": "boolean"
+        },
+        "POST_DELETE_MANIFEST_READY": {
+          "type": "boolean"
+        },
+        "QUARANTINE_PERIOD_COMPLETE": {
+          "type": "boolean"
+        },
+        "ROLLBACK_TAG_PRESENT": {
+          "type": "boolean"
+        },
+        "SOURCE_EVIDENCE_RETAINED": {
+          "type": "boolean"
+        },
+        "ZERO_ACTIVE_REFERENCES": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "CANONICAL_SUCCESSOR_OR_ARCHIVE",
+        "LEGACY_MAPPING_COMPLETE",
+        "ZERO_ACTIVE_REFERENCES",
+        "PARITY_APPROVED",
+        "OWNER_APPROVED",
+        "INDEPENDENT_REVIEW_APPROVED",
+        "QUARANTINE_PERIOD_COMPLETE",
+        "ROLLBACK_TAG_PRESENT",
+        "SOURCE_EVIDENCE_RETAINED",
+        "DOCUMENTATION_UPDATED",
+        "CLEAN_CLONE_VERIFIED",
+        "POST_DELETE_MANIFEST_READY"
+      ],
+      "type": "object"
+    },
+    "original_path": {
+      "pattern": "^(?!/)(?!.*\\.\\.).+$",
+      "type": "string"
+    },
+    "original_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "artifact_id",
+    "original_path",
+    "original_sha256",
+    "gates",
+    "eligible"
+  ],
+  "type": "object"
+}

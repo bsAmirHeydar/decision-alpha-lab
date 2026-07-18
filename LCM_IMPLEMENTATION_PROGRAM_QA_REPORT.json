@@ -1,0 +1,48 @@
+{
+  "checks": {
+    "destructive_changes": {
+      "context_migrations": 0,
+      "deletions": 0,
+      "status": "PASS"
+    },
+    "json_parse": {
+      "count": 5,
+      "status": "PASS"
+    },
+    "json_schema_meta_validation": {
+      "count": 3,
+      "status": "PASS"
+    },
+    "lcm_phase_count": {
+      "count": 17,
+      "status": "PASS"
+    },
+    "program_frontmatter": {
+      "count": 105,
+      "missing": [],
+      "status": "PASS"
+    },
+    "program_wiki_links": {
+      "checked_docs": 105,
+      "missing": [],
+      "status": "PASS"
+    },
+    "survey_source_row_count": {
+      "actual": 2457,
+      "expected": 2457,
+      "status": "PASS"
+    },
+    "yaml_parse": {
+      "count": 11,
+      "status": "PASS"
+    }
+  },
+  "generated_at": "2026-07-18",
+  "limitations": [
+    "No Context or Setup was migrated.",
+    "No source file was moved or deleted.",
+    "No MetaEditor compilation or MT5 parity was performed.",
+    "API-pattern scans are triage evidence and do not prove runtime reachability."
+  ],
+  "status": "PASS"
+}

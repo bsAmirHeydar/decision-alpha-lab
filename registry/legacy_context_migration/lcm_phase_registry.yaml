@@ -1,0 +1,164 @@
+schema_version: 1.0.0
+program_id: LCM
+claim_ceiling: LEGACY_MIGRATION_PROGRAM_DESIGN_ONLY
+phases:
+- phase_id: LCM-00
+  slug: LCM_00_BASELINE_FREEZE_AND_GOVERNANCE
+  title: LCM-00 — Baseline Freeze and Governance
+  owned_responsibility: Create immutable baseline, authority, ownership, change-control
+    and rollback contracts.
+  forbidden_scope: No file move, refactor, merge, redirect or deletion.
+  acceptance_gate: All in-scope paths are hashed; active changes are declared; owners
+    and reviewers are named; clean restoration is demonstrated.
+  destructive_actions_allowed: false
+- phase_id: LCM-01
+  slug: LCM_01_FORENSIC_REPOSITORY_SURVEY
+  title: LCM-01 — Forensic Repository Survey
+  owned_responsibility: Build complete inventories, include/import graphs, compile-unit
+    catalog, API risk scan, documentation namespace map and root classification.
+  forbidden_scope: No semantic classification based only on file name; no deletion.
+  acceptance_gate: Every file has metadata and initial family; unknowns are explicit;
+    survey replay is deterministic.
+  destructive_actions_allowed: false
+- phase_id: LCM-02
+  slug: LCM_02_CLASSIFICATION_OWNERSHIP_AND_AUTHORITY
+  title: LCM-02 — Classification, Ownership and Authority
+  owned_responsibility: Assign artifact role, migration disposition, semantic owner,
+    code owner, security class and active/inactive status.
+  forbidden_scope: No owner guess from author name or folder; no merge decision without
+    evidence.
+  acceptance_gate: All active candidates are owned or blocked; every file has one
+    primary disposition.
+  destructive_actions_allowed: false
+- phase_id: LCM-03
+  slug: LCM_03_CANONICAL_IDENTITY_ALIAS_AND_LOCATOR
+  title: LCM-03 — Canonical Identity, Alias and Locator
+  owned_responsibility: Create stable IDs, legacy aliases, canonical locator entries
+    and version rules.
+  forbidden_scope: No path becomes identity; no semantic breaking change under same
+    major version.
+  acceptance_gate: All migration candidates resolve uniquely; collisions and ambiguous
+    aliases are closed or blocked.
+  destructive_actions_allowed: false
+- phase_id: LCM-04
+  slug: LCM_04_BEHAVIORAL_CHARACTERIZATION_AND_GOLDEN_TRACES
+  title: LCM-04 — Behavioral Characterization and Golden Traces
+  owned_responsibility: Capture legacy outputs, state, events, time semantics, visual
+    anchors, failure behavior and dry execution intents.
+  forbidden_scope: No behavior correction hidden in fixtures; no future-aware diagnostic
+    promoted.
+  acceptance_gate: Critical paths and edge cases are represented; traces are stable
+    across replay.
+  destructive_actions_allowed: false
+- phase_id: LCM-05
+  slug: LCM_05_TARGET_TOPOLOGY_AND_REPOSITORY_LOCATOR_MIGRATION
+  title: LCM-05 — Target Topology and Repository Locator
+  owned_responsibility: Approve destination packages, dependency directions, authored/generated
+    boundaries and release artifact homes.
+  forbidden_scope: No broad move; no old path removal.
+  acceptance_gate: Every candidate has an approved destination or archive/quarantine
+    decision.
+  destructive_actions_allowed: false
+- phase_id: LCM-06
+  slug: LCM_06_MIGRATION_FRAMEWORK_AND_COMPATIBILITY_LAYER
+  title: LCM-06 — Migration Framework and Compatibility Layer
+  owned_responsibility: Implement packet validators, alias resolver, trace normalizer/comparator,
+    compatibility adapter contracts and status registry.
+  forbidden_scope: No domain rewrite; adapters may not expand authority.
+  acceptance_gate: Framework handles reference fixtures, rejects malformed packets
+    and supports deterministic replay.
+  destructive_actions_allowed: false
+- phase_id: LCM-07
+  slug: LCM_07_SHARED_ENGINE_EXTRACTION
+  title: LCM-07 — Shared Engine Extraction
+  owned_responsibility: Extract only proven common primitives with explicit variance
+    parameters and parity tests.
+  forbidden_scope: No merge by code similarity; no Context-specific rule in shared
+    kernel.
+  acceptance_gate: Each extraction has at least two verified consumers or a platform-wide
+    requirement; all consumers retain parity.
+  destructive_actions_allowed: false
+- phase_id: LCM-08
+  slug: LCM_08_CONTEXT_PACKAGE_MIGRATION
+  title: LCM-08 — Context Package Migration
+  owned_responsibility: Create canonical ACL-02-compatible Context packages and bind
+    observed legacy semantics.
+  forbidden_scope: No Setup, Treatment, drawing or order behavior folded into Context.
+  acceptance_gate: Context emits deterministic observations and passes known-time/state
+    parity.
+  destructive_actions_allowed: false
+- phase_id: LCM-09
+  slug: LCM_09_SETUP_PACKAGE_MIGRATION
+  title: LCM-09 — Setup Package Migration
+  owned_responsibility: Separate eligibility, trigger, confirmation, invalidation,
+    expiry and abstention into versioned Setup packages.
+  forbidden_scope: No independent Context clock or broker call in Setup.
+  acceptance_gate: Setup decisions match approved traces and preserve no-trade/invalidation
+    behavior.
+  destructive_actions_allowed: false
+- phase_id: LCM-10
+  slug: LCM_10_TREATMENT_AND_EXECUTION_SEPARATION
+  title: LCM-10 — Treatment and Execution Separation
+  owned_responsibility: Extract treatment policy and isolate all execution capability
+    behind guarded adapters.
+  forbidden_scope: No live submission; no Context or Setup calculation in order router.
+  acceptance_gate: All direct order paths are identified; dry request parity passes;
+    live authority remains false.
+  destructive_actions_allowed: false
+- phase_id: LCM-11
+  slug: LCM_11_VISUALIZATION_AND_OBJECT_LIFECYCLE
+  title: LCM-11 — Visualization and Object Lifecycle
+  owned_responsibility: Convert drawings to deterministic projections with owned prefixes,
+    stable IDs and restart/timeframe policies.
+  forbidden_scope: Drawing may not change domain state or produce hidden signals.
+  acceptance_gate: Anchor, persistence, update and deletion parity pass for approved
+    cases.
+  destructive_actions_allowed: false
+- phase_id: LCM-12
+  slug: LCM_12_DOCUMENTATION_AND_OBSIDIAN_RECONCILIATION
+  title: LCM-12 — Documentation and Obsidian Reconciliation
+  owned_responsibility: Resolve canonical documents, generated projections, duplicate
+    namespaces, legacy source evidence and redirects.
+  forbidden_scope: No deletion of source authority or open decisions; generated pages
+    cannot become canonical.
+  acceptance_gate: Every active identity has one canonical documentation entry and
+    all legacy pages have disposition.
+  destructive_actions_allowed: false
+- phase_id: LCM-13
+  slug: LCM_13_WAVE_CUTOVER_DUAL_RUN_AND_CONSUMER_SWITCH
+  title: LCM-13 — Wave Cutover, Dual Run and Consumer Switch
+  owned_responsibility: Execute family waves, compare legacy/canonical behavior and
+    switch consumers after approval.
+  forbidden_scope: No mixed side-effect ownership; no family-wide big-bang cutover.
+  acceptance_gate: Each cutover wave meets parity, performance, security and rollback
+    gates.
+  destructive_actions_allowed: false
+- phase_id: LCM-14
+  slug: LCM_14_DEPRECATION_QUARANTINE_AND_REDIRECTS
+  title: LCM-14 — Deprecation, Quarantine and Redirects
+  owned_responsibility: Mark legacy paths deprecated, install temporary wrappers,
+    move inactive originals outside runtime paths and preserve evidence.
+  forbidden_scope: No deletion; no redirect that changes semantics or hides unresolved
+    consumer.
+  acceptance_gate: No active consumer depends on quarantined originals; restoration
+    is possible.
+  destructive_actions_allowed: false
+- phase_id: LCM-15
+  slug: LCM_15_CONTROLLED_DELETION_AND_ROOT_HYGIENE
+  title: LCM-15 — Controlled Deletion and Root Hygiene
+  owned_responsibility: Delete only approved dead artifacts and relocate release metadata,
+    installers and records from root.
+  forbidden_scope: No bulk delete, no `git clean`, no removal without delete eligibility.
+  acceptance_gate: Every deletion has successor/archive, zero active references, owner
+    approval, quarantine completion and rollback tag.
+  destructive_actions_allowed: true
+- phase_id: LCM-16
+  slug: LCM_16_FULL_CUTOVER_AND_PROGRAM_CLOSURE
+  title: LCM-16 — Full Cutover and Program Closure
+  owned_responsibility: Verify clean clone, compile/test/replay, documentation, registries,
+    rollback and residual risk; close the program.
+  forbidden_scope: No claim of alpha, production parity or capital readiness from
+    migration closure.
+  acceptance_gate: All active contexts resolve through canonical packages; no hidden
+    authority or unresolved active legacy path remains.
+  destructive_actions_allowed: false

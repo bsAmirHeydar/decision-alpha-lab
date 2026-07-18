@@ -1,0 +1,92 @@
+{
+  "$id": "al://schemas/lcm/migration-record/1.0.0",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "canonical_id": {
+      "minLength": 5,
+      "type": "string"
+    },
+    "claim_ceiling": {
+      "const": "LEGACY_MIGRATION_REFERENCE_ONLY"
+    },
+    "disposition": {
+      "enum": [
+        "KEEP_CANONICAL",
+        "MOVE_WITHOUT_SEMANTIC_CHANGE",
+        "WRAP_LEGACY",
+        "REWRITE_WITH_PARITY",
+        "EXTRACT_SHARED_LOGIC",
+        "MERGE_AFTER_EQUIVALENCE_PROOF",
+        "ARCHIVE_REFERENCE_ONLY",
+        "QUARANTINE_UNCERTAIN",
+        "DELETE_AFTER_PROOF",
+        "SECURITY_RESTRICTED"
+      ]
+    },
+    "legacy_sources": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "pattern": "^(?!/)(?!.*\\.\\.).+$",
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "migration_id": {
+      "pattern": "^LCMR_[A-Z0-9_]+$",
+      "type": "string"
+    },
+    "owners": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "state": {
+      "enum": [
+        "DISCOVERED",
+        "INVENTORIED",
+        "OWNED",
+        "CHARACTERIZED",
+        "CANONICAL_SPECIFIED",
+        "ADAPTED",
+        "PARITY_VERIFIED",
+        "DUAL_RUN",
+        "CUTOVER_APPROVED",
+        "CUTOVER",
+        "QUARANTINED",
+        "DELETE_ELIGIBLE",
+        "RETIRED"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "migration_id",
+    "canonical_id",
+    "state",
+    "owners",
+    "legacy_sources",
+    "disposition",
+    "claim_ceiling"
+  ],
+  "type": "object"
+}

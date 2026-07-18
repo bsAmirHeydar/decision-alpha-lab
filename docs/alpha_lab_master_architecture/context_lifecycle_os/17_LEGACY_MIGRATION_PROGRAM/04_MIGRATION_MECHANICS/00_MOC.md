@@ -1,0 +1,18 @@
+---
+title: "Migration Mechanics MOC"
+status: proposed-reference
+version: 1.0.0
+updated: 2026-07-18
+tags: [acl-os, lcm, legacy-migration]
+---
+# Migration Mechanics MOC
+
+- [[MIGRATION_PACKET_AND_MANIFEST]]
+- [[LEGACY_ALIAS_AND_LOCATOR]]
+- [[DEPENDENCY_AND_REACHABILITY_ANALYSIS]]
+- [[BEHAVIORAL_CHARACTERIZATION_HARNESS]]
+- [[KNOWN_TIME_AND_CLOSED_BAR_PARITY]]
+- [[STATE_EVENT_AND_REASON_CODE_PARITY]]
+- [[VISUAL_PARITY]]
+- [[EXECUTION_REQUEST_PARITY_AND_AUTHORITY]]
+- [[DUAL_RUN_AND_CUTOVER]]
