@@ -1,0 +1,27 @@
+{
+  "$id": "https://alpha-lab.local/acl14/first_real_context_pilot_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "pilot_contract_digest": {
+      "type": "string"
+    },
+    "pilot_contract_id": {
+      "type": "string"
+    },
+    "pilot_request_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "pilot_contract_id",
+    "pilot_request_id",
+    "pilot_contract_digest"
+  ],
+  "title": "first_real_context_pilot_contract",
+  "type": "object"
+}

@@ -1,0 +1,31 @@
+{
+  "$id": "https://alpha-lab.local/acl14/pilot_readiness_matrix.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "gate_count": {
+      "type": "integer"
+    },
+    "gates": {
+      "type": "array"
+    },
+    "readiness_matrix_digest": {
+      "type": "string"
+    },
+    "readiness_matrix_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "readiness_matrix_id",
+    "gate_count",
+    "gates",
+    "readiness_matrix_digest"
+  ],
+  "title": "pilot_readiness_matrix",
+  "type": "object"
+}

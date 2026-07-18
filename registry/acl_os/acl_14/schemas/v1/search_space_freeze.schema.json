@@ -1,0 +1,19 @@
+{
+  "$id": "https://alpha-lab.local/acl14/search_space_freeze.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "search_space_freeze_digest": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "search_space_freeze_digest"
+  ],
+  "title": "search_space_freeze",
+  "type": "object"
+}

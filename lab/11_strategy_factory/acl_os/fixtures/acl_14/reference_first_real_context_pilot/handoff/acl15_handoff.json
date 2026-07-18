@@ -1,0 +1,35 @@
+{
+  "alpha_claim_allowed": false,
+  "capital_activation_allowed": false,
+  "event_ledger_digest": "sha256:27cb83ed14710da2ba7c61201fd4e77c4c95653535083b4761f9202a5b030356",
+  "forbidden_acl15_actions": [
+    "TREAT_PILOT_DESIGN_AS_PROSPECTIVE_EVIDENCE",
+    "INVENT_PILOT_OUTCOMES",
+    "BYPASS_VALIDATION_OR_PROMOTION",
+    "AUTHORIZE_RUNTIME_OR_LIVE_ORDER",
+    "ACTIVATE_CAPITAL"
+  ],
+  "handoff_digest": "sha256:dc41bd0bf95524d6e79e3ceefc67b22bb85f253a8990df1c6a7544a8343f8b6b",
+  "handoff_type": "ACL14_TO_ACL15",
+  "live_order_submission_allowed": false,
+  "pilot_contract_digest": "sha256:7f15d8ff228001cacd172745b9fe5e8d033ce4d45f797baf282cf14e27d464e7",
+  "pilot_contract_id": "PILOT_8BDD42A1425EBEC115615A7E8D99DE94",
+  "pilot_execution_manifest_digest": "sha256:2661659737913aed2931bdc7c6bdd8e06bd74edc15ec75cecd7d682b2f139ad1",
+  "pilot_execution_materialized": false,
+  "pilot_readiness_decision": "PILOT_CONTRACT_AUTHORED_REAL_EVIDENCE_REQUIRED",
+  "pilot_readiness_decision_digest": "sha256:65c915bffdf853936d34b862773cbc68c8c8d32487d6f7ce36fd3d60fb417617",
+  "pilot_ready_non_capital": false,
+  "pilot_run_id": "PILOTRUN_4D706242CEEF5700D2A4D71BDB2A17E2",
+  "production_security_ready": false,
+  "prospective_evidence_present": false,
+  "provenance_graph_digest": "sha256:997cf1c63d70e5e75bc7cbcbe98b6c64346b605e50b6bd075551ae5bb28a532d",
+  "readiness_matrix_digest": "sha256:f997c4f508b88d8bc329e7bc409b8c6f3502f4b30d278e65e640e84bc50c0639",
+  "required_acl15_actions": [
+    "VERIFY_FIRST_REAL_CONTEXT_PILOT_PACKAGE",
+    "REGISTER_FLEET_OPERATIONS_CONTRACT",
+    "ISSUE_NON_CAPITAL_CLOSURE_DECISION"
+  ],
+  "runtime_activation_allowed": false,
+  "schema_version": "1.0.0",
+  "validation_claim_allowed": false
+}

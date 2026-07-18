@@ -1,0 +1,12 @@
+{
+  "boundary_contract_id": "NONCAP_E05BB006EC9C6C9E4C6E91F0",
+  "broker_connection_allowed": false,
+  "capital_allocation_allowed": false,
+  "external_signal_distribution_allowed": false,
+  "manual_trade_instruction_allowed": false,
+  "non_capital_boundary_digest": "sha256:99cf69a1742d936138d931ccca80ec4e4d93085adf513c114d6b88c85f2bd04e",
+  "order_submission_allowed": false,
+  "pilot_mode": "NO_SEND_PROSPECTIVE_OBSERVATION",
+  "runtime_activation_allowed": false,
+  "schema_version": "1.0.0"
+}

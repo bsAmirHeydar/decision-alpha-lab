@@ -1,0 +1,27 @@
+{
+  "$id": "https://alpha-lab.local/acl14/pilot_readiness_decision.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "pilot_readiness_decision_digest": {
+      "type": "string"
+    },
+    "pilot_readiness_decision_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "state": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "pilot_readiness_decision_id",
+    "state",
+    "pilot_readiness_decision_digest"
+  ],
+  "title": "pilot_readiness_decision",
+  "type": "object"
+}

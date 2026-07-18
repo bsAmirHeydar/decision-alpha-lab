@@ -1,35 +1,55 @@
 ---
 title: ACL-14 — First Real Context Pilot
-status: dependency-contract
+status: accepted-reference
 version: 2.0.0
 updated: 2026-07-18
 tags: [acl-os, acl-14, real-context-pilot]
 ---
 # ACL-14 — First Real Context Pilot
 
-ACL-14 consumes `ACL13_TO_ACL14` and replaces the synthetic triage fixture with an approved, owner-signed, known-time-safe real Context package.
+ACL-14 consumes the exact `ACL13_TO_ACL14` package, authors an immutable first-real-Context pilot contract and evaluates whether all prerequisites for a separately authorized no-send prospective pilot are present.
 
-## Required actions
+## Responsibility boundary
 
-- `VERIFY_ONE_HOUR_ASSESSMENT_PACKAGE`
-- `AUTHOR_FIRST_REAL_CONTEXT_PILOT_CONTRACT`
-- `ISSUE_NON_CAPITAL_PILOT_READINESS_DECISION`
+ACL-14 owns Context identity, independent approval, data mapping, availability semantics, precommitted period, frozen evaluation/search rules, support targets, stop/failure conditions and the non-capital boundary. The reference implementation does not execute a pilot or create prospective outcomes.
 
-## Mandatory new evidence
+## Required inputs
 
-- approved real Context doctrine and examples;
-- exact data mapping and availability semantics;
-- precommitted pilot period and frozen evaluation rules;
-- independent owner approval;
-- explicit support, failure and stop conditions;
-- non-capital execution boundary.
+- exact ACL-13 manifest, receipt, decision, evidence, events, provenance and handoff;
+- ACL-14 action-bound permit;
+- approved Context identity and doctrine;
+- independent Context owner and pilot reviewer;
+- approved real data sources with source digests;
+- versioned data mapping and externally verified availability semantics;
+- precommitted pilot period;
+- frozen outcomes, metrics, setup families and missingness behavior;
+- support, stop and failure contracts;
+- strict no-send, non-capital boundary.
 
-## Forbidden actions
+## Produced artifacts
 
-- treat ACL-13 triage as validation;
-- reuse the synthetic reference fixture as real evidence;
-- invent prospective evidence;
-- broaden setup search after observing pilot outcomes;
-- authorize runtime, live orders or capital.
+A pilot contract, approval bundle, mapping and availability contracts, evaluation/search freezes, support/stop/failure contracts, readiness matrix, non-capital decision, explicit empty execution manifest, reports, event ledger, provenance graph, receipt, manifest and `ACL14_TO_ACL15` handoff.
 
-ACL-14 may prepare and evaluate a first real research pilot. It may not bypass ACL-07 validation, ACL-10 promotion, ACL-11 parity or ACL-12 production security.
+## Reference result
+
+The bundled fixture is explicitly representative and not real market evidence. It proves mechanics and therefore produces `PILOT_CONTRACT_AUTHORED_REAL_EVIDENCE_REQUIRED`, not pilot readiness or prospective evidence.
+
+## Non-negotiable invariants
+
+- Reference or synthetic material never becomes real evidence.
+- UNKNOWN mandatory gates block readiness.
+- The search space and evaluation rules cannot change after outcomes are observed.
+- No pilot execution, broker connection, runtime activation, order submission or capital allocation is authorized.
+- A real pilot package must be rebuilt from approved inputs before start.
+
+## Verification obligations
+
+Direct tests, ACL-13 regression, schema/policy validation, hostile security tests, deterministic replay, event/provenance verification, MQL5 forbidden-API scan and clean-overlay delivery validation.
+
+## Handoff
+
+ACL-15 receives the immutable pilot package and may register fleet/closure contracts. It may not invent pilot outcomes or bypass validation, promotion, runtime custody or security.
+
+## Claim ceiling
+
+`FIRST_REAL_CONTEXT_PILOT_REFERENCE_ONLY`

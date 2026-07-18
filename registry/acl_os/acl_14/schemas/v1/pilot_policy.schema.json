@@ -1,0 +1,23 @@
+{
+  "$id": "https://alpha-lab.local/acl14/pilot_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "closed": {
+      "type": "boolean"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "policy_id",
+    "closed"
+  ],
+  "title": "pilot_policy",
+  "type": "object"
+}

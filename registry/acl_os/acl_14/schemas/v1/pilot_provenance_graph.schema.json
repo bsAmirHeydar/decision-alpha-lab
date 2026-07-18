@@ -1,0 +1,19 @@
+{
+  "$id": "https://alpha-lab.local/acl14/pilot_provenance_graph.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "graph_digest": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "graph_digest"
+  ],
+  "title": "pilot_provenance_graph",
+  "type": "object"
+}

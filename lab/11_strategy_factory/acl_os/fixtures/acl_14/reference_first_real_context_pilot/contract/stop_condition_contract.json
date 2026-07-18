@@ -1,0 +1,21 @@
+{
+  "automatic_order_action_allowed": false,
+  "conditions": [
+    {
+      "condition_id": "STOP_KNOWN_TIME_BREACH",
+      "trigger": "known_time_violation_count > 0"
+    },
+    {
+      "condition_id": "STOP_DATA_MAPPING_DRIFT",
+      "trigger": "mapping_digest_changed == true"
+    },
+    {
+      "condition_id": "STOP_AUTHORITY_ESCALATION",
+      "trigger": "order_or_capital_authority_requested == true"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "stop_contract_digest": "sha256:744880e8444e40d1dc5c1c99582c26e963ff29f7c42cb8687e57d8a8a29320d5",
+  "stop_contract_id": "STOP_E05BB006EC9C6C9E4C6E91F0",
+  "terminal_on_breach": true
+}

@@ -1,0 +1,11 @@
+{
+  "capital_activation_allowed": false,
+  "claim_ceiling": "FIRST_REAL_CONTEXT_PILOT_REFERENCE_ONLY",
+  "closed": true,
+  "live_order_submission_allowed": false,
+  "phase": "ACL-14",
+  "pilot_execution_allowed": false,
+  "policy_id": "ACL14_EXECUTION_DENIAL_POLICY_V1",
+  "runtime_activation_allowed": false,
+  "schema_version": "1.0.0"
+}

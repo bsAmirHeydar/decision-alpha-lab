@@ -1,0 +1,23 @@
+{
+  "acl13_handoff_digest": "sha256:ef5f1f566e4b67d375abdd22626e7b090c6a0fdf890d20647884876bc89b84e7",
+  "acl13_manifest_digest": "sha256:25b33c4170c4f446b93086bf9f45065e9c910ce03a87f13302473893ca939ff0",
+  "alpha_claim_allowed": false,
+  "assessment_result": "BOUNDED_TRIAGE_COMPLETE_PILOT_DESIGN_ELIGIBLE_NON_CAPITAL",
+  "assessment_result_digest": "sha256:232187672ca54d4922149921895467f10fa9c9b78d47f8c27ecc774f338fc355",
+  "assessment_run_id": "TRIAGERUN_E1E8EDCC30AB0BAF2D0A72A3CBEB3291",
+  "binding_digest": "sha256:be69b51eb9b2a76ab6f8eaf9277afb6499124cc2663522604998c7bfa44b2bcd",
+  "capital_activation_allowed": false,
+  "context_id": "CTX_SYNTHETIC_ONE_HOUR_TRIAGE",
+  "context_version": "1.0.0",
+  "evidence_bundle_digest": "sha256:382c7f113c9c7e9cecd2fee5eea2f9c31236d9448cebf1d0567e0af0972a7588",
+  "live_order_submission_allowed": false,
+  "pilot_design_allowed": true,
+  "pilot_execution_allowed": false,
+  "production_security_ready": false,
+  "report_digest": "sha256:6e53b10e212b9d18b4cff71bdf6c5816a3a598d28a681b40064cbd725d374ff2",
+  "report_id": "ONEHOUR_17E4C9AE717BFBFED911CC05417ECFBC",
+  "runtime_activation_allowed": false,
+  "schema_version": "1.0.0",
+  "synthetic_reference_data": true,
+  "validation_claim_allowed": false
+}

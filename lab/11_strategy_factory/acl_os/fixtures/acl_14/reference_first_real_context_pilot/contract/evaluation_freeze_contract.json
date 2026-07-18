@@ -1,0 +1,25 @@
+{
+  "evaluation_freeze_digest": "sha256:ea4be42dd868a17722e714e98a23bfd089404edc4d457c507a9fe810871715c9",
+  "evaluation_freeze_id": "EVALFREEZE_E05BB006EC9C6C9E4C6E91F0",
+  "evaluation_windows": [
+    "DAILY",
+    "FULL_PILOT"
+  ],
+  "frozen": true,
+  "frozen_at": "2026-07-18T09:40:00Z",
+  "metrics": [
+    "SUPPORT",
+    "MEAN_SIGNED_OUTCOME",
+    "HIT_RATE",
+    "COVERAGE"
+  ],
+  "pilot_request_id": "PILOTREQ_REFERENCE_FIRST_REAL_CONTEXT_001",
+  "post_outcome_change_allowed": false,
+  "primary_outcome": "SIGNED_FORWARD_DELTA_AT_FIXED_HORIZON",
+  "schema_version": "1.0.0",
+  "secondary_outcomes": [
+    "CONTEXT_OCCURRENCE_SUPPORT",
+    "ABSTENTION_RATE",
+    "FAILURE_SIGNATURE_RATE"
+  ]
+}

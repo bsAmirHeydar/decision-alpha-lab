@@ -1,0 +1,16 @@
+{
+  "capital_activation_allowed": false,
+  "execution_count": 0,
+  "executions": [],
+  "order_submission_allowed": false,
+  "pilot_contract_id": "PILOT_8BDD42A1425EBEC115615A7E8D99DE94",
+  "pilot_execution_allowed": false,
+  "pilot_execution_manifest_digest": "sha256:2661659737913aed2931bdc7c6bdd8e06bd74edc15ec75cecd7d682b2f139ad1",
+  "pilot_execution_manifest_id": "PILOTEXEC_E05BB006EC9C6C9E4C6E91F0",
+  "pilot_execution_materialized": false,
+  "pilot_ready_non_capital": false,
+  "prospective_observation_rows": 0,
+  "reason_code": "PILOT_NOT_READY_REAL_EVIDENCE_REQUIRED",
+  "runtime_activation_allowed": false,
+  "schema_version": "1.0.0"
+}

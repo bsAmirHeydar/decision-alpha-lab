@@ -1,0 +1,4 @@
+#ifndef ALPHALAB_ACL14_HANDOFF_MQH
+#define ALPHALAB_ACL14_HANDOFF_MQH
+struct ACL14ACL15Handoff{string handoff_digest;bool pilot_execution_materialized;bool capital_activation_allowed;};
+#endif

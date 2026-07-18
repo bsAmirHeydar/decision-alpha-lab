@@ -1,0 +1,19 @@
+{
+  "$id": "https://alpha-lab.local/acl14/pilot_design_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "pilot_design_report_digest": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "pilot_design_report_digest"
+  ],
+  "title": "pilot_design_report",
+  "type": "object"
+}

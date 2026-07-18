@@ -1,0 +1,30 @@
+{
+  "file_count": 5,
+  "files": [
+    {
+      "digest": "sha256:e5b4330be83ff6e1cfcfad9abe648c66e97b85f73dad0fc4cb0fc6a052b12c46",
+      "path": "docs/ACL14_EXECUTIVE_BRIEF.md"
+    },
+    {
+      "digest": "sha256:387430a7b0204993b44aa82e7e58d3fe72a4005693210fb12b476cf4c02e475d",
+      "path": "docs/ACL14_FIRST_REAL_CONTEXT_PILOT_CONTRACT.md"
+    },
+    {
+      "digest": "sha256:606e07eb8f19df4a04a78dcbf33f255e23639964eb16006571e5b348a9fa1894",
+      "path": "docs/ACL14_READINESS_MATRIX.md"
+    },
+    {
+      "digest": "sha256:669d2ad1ad40e8b96bdbaf442adedee2631f0048f063250025e798812e1f367d",
+      "path": "docs/ACL14_LIMITATIONS_AND_NEXT_ACTIONS.md"
+    },
+    {
+      "digest": "sha256:50454aad14a3845653a467225cb4add918285bbba1c24c4e6982979d0bc0959e",
+      "path": "docs/ACL14_ACL15_HANDOFF.md"
+    }
+  ],
+  "generated_projection": true,
+  "pilot_run_id": "PILOTRUN_4D706242CEEF5700D2A4D71BDB2A17E2",
+  "projection_manifest_digest": "sha256:e8518ce395ae179d9f66e1b97a03e49ded975f24c07f23b1e7815361549bbb21",
+  "schema_version": "1.0.0",
+  "source_of_truth": false
+}

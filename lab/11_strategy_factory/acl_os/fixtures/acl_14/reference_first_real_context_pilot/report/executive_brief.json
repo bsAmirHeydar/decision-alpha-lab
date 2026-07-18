@@ -1,0 +1,15 @@
+{
+  "alpha_claim_allowed": false,
+  "answer_first": "The pilot contract is authored, but real Context evidence and approvals are still required before a non-capital pilot may start.",
+  "capital_activation_allowed": false,
+  "executive_brief_digest": "sha256:8c003fc30a6ee83447ff4bd752976a8a009ee3f9fab2e7ae2be9c2382a549160",
+  "live_order_submission_allowed": false,
+  "pilot_execution_allowed": false,
+  "report_id": "PILOTREPORT_5AC05817293501B1D033DE43D1CCA19C",
+  "satisfied_gates": 19,
+  "schema_version": "1.0.0",
+  "state": "PILOT_CONTRACT_AUTHORED_REAL_EVIDENCE_REQUIRED",
+  "unknown_gates": 4,
+  "unsatisfied_gates": 1,
+  "validation_claim_allowed": false
+}

@@ -1,0 +1,16 @@
+{
+  "ai_generation_allowed": false,
+  "broadening_after_outcome_allowed": false,
+  "dynamic_generation_allowed": false,
+  "families": [
+    "FAM_CONTEXT_ONLY",
+    "FAM_CONTEXT_CONFIRMED",
+    "FAM_CONTEXT_HIGH_OPTIONALITY"
+  ],
+  "family_count": 3,
+  "frozen": true,
+  "pilot_request_id": "PILOTREQ_REFERENCE_FIRST_REAL_CONTEXT_001",
+  "schema_version": "1.0.0",
+  "search_space_freeze_digest": "sha256:1c33d365b90e2b3fce9b1d7bdc3845c87fd8f6e66915c7ac028ac4515993effb",
+  "search_space_freeze_id": "SEARCHFREEZE_E05BB006EC9C6C9E4C6E91F0"
+}

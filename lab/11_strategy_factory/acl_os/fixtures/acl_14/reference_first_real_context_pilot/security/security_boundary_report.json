@@ -1,0 +1,17 @@
+{
+  "acl13_security_status_preserved": true,
+  "capital_activation_allowed": false,
+  "decision_digest": "sha256:65c915bffdf853936d34b862773cbc68c8c8d32487d6f7ce36fd3d60fb417617",
+  "live_order_submission_allowed": false,
+  "network_access_allowed": false,
+  "pilot_execution_allowed": false,
+  "production_security_ready": false,
+  "real_context_data_classification_required": true,
+  "reference_fixture_contains_real_market_data": false,
+  "runtime_activation_allowed": false,
+  "runtime_generation_allowed": false,
+  "schema_version": "1.0.0",
+  "secret_access_allowed": false,
+  "security_report_digest": "sha256:5af4cf7384262e566b7a8698e32d381f373ce56e0dc59c0f826fed43c1761a27",
+  "source_binding_digest": "sha256:be69b51eb9b2a76ab6f8eaf9277afb6499124cc2663522604998c7bfa44b2bcd"
+}

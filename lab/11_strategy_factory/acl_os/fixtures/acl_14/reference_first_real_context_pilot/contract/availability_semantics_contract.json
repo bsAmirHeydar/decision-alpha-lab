@@ -1,0 +1,14 @@
+{
+  "availability_contract_digest": "sha256:15f2f37ab54903978c31fb88e7c6c4fd72286705a9e28f88fc9075ee9e61ad08",
+  "availability_contract_id": "AVAIL_FIRST_REAL_CONTEXT_V1",
+  "context_id": "CTX_FIRST_REAL_CONTEXT_PILOT_REFERENCE",
+  "externally_verified": false,
+  "future_data_allowed": false,
+  "known_time_enforced": true,
+  "rules": [
+    "event_time <= available_at",
+    "label_available_at <= evaluation_cut_at",
+    "late corrections create a new dataset version"
+  ],
+  "schema_version": "1.0.0"
+}

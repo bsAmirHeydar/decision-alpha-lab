@@ -1,0 +1,4 @@
+from __future__ import annotations
+from .canonical import stable_id,with_digest
+def build_manifest(req:dict,contract:dict,readiness:dict)->dict:
+    return with_digest({'schema_version':'1.0.0','pilot_execution_manifest_id':stable_id('PILOTEXEC',req['pilot_request_id']),'pilot_contract_id':contract['pilot_contract_id'],'pilot_ready_non_capital':readiness['pilot_ready_non_capital'],'execution_count':0,'executions':[],'prospective_observation_rows':0,'pilot_execution_materialized':False,'pilot_execution_allowed':False,'order_submission_allowed':False,'runtime_activation_allowed':False,'capital_activation_allowed':False,'reason_code':'PILOT_EXECUTION_OUTSIDE_REFERENCE_PHASE' if readiness['pilot_ready_non_capital'] else 'PILOT_NOT_READY_REAL_EVIDENCE_REQUIRED'},'pilot_execution_manifest_digest')

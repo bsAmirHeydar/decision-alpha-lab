@@ -40,3 +40,7 @@ ACL-12 consumes the ACL-11 non-executable runtime-custody package and produces a
 ## ACL-13 One-Hour Assessment Product
 
 ACL-13 consumes ACL-12 reference security readiness plus a known-time-safe bounded Context request and produces deterministic one-hour research triage, constrained baselines, setup-family diagnostics, uncertainty and a non-capital ACL-14 pilot-design handoff. It does not validate alpha or authorize pilot execution, runtime, orders or capital.
+
+## ACL-14 First Real Context Pilot
+
+ACL-14 consumes ACL-13 research-triage evidence, authors immutable real-Context pilot contracts and evaluates closed non-capital readiness gates. The bundled reference fixture is not real market evidence, produces no pilot execution or prospective outcomes, and grants no runtime, order or capital authority.

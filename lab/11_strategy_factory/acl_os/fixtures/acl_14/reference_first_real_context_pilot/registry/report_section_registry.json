@@ -1,0 +1,79 @@
+{
+  "closed": true,
+  "registry_digest": "sha256:0fbaca75249f7b2e79231136f8c45d839efe0ecf2f8dd2318a820a1362e8b653",
+  "registry_id": "ACL14_REPORT_SECTION_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "section_count": 14,
+  "sections": [
+    {
+      "required": true,
+      "section_id": "IDENTITY_AND_SCOPE",
+      "version": "1.0.0"
+    },
+    {
+      "required": true,
+      "section_id": "UPSTREAM_TRIAGE",
+      "version": "1.0.0"
+    },
+    {
+      "required": true,
+      "section_id": "REAL_CONTEXT_EVIDENCE",
+      "version": "1.0.0"
+    },
+    {
+      "required": true,
+      "section_id": "OWNER_AND_DOCTRINE",
+      "version": "1.0.0"
+    },
+    {
+      "required": true,
+      "section_id": "DATA_MAPPING",
+      "version": "1.0.0"
+    },
+    {
+      "required": true,
+      "section_id": "KNOWN_TIME_AND_AVAILABILITY",
+      "version": "1.0.0"
+    },
+    {
+      "required": true,
+      "section_id": "PILOT_PERIOD",
+      "version": "1.0.0"
+    },
+    {
+      "required": true,
+      "section_id": "EVALUATION_FREEZE",
+      "version": "1.0.0"
+    },
+    {
+      "required": true,
+      "section_id": "SEARCH_SPACE_FREEZE",
+      "version": "1.0.0"
+    },
+    {
+      "required": true,
+      "section_id": "SUPPORT_AND_STOP_RULES",
+      "version": "1.0.0"
+    },
+    {
+      "required": true,
+      "section_id": "READINESS_MATRIX",
+      "version": "1.0.0"
+    },
+    {
+      "required": true,
+      "section_id": "NON_CAPITAL_BOUNDARY",
+      "version": "1.0.0"
+    },
+    {
+      "required": true,
+      "section_id": "LIMITATIONS",
+      "version": "1.0.0"
+    },
+    {
+      "required": true,
+      "section_id": "NEXT_ALLOWED_ACTIONS",
+      "version": "1.0.0"
+    }
+  ]
+}

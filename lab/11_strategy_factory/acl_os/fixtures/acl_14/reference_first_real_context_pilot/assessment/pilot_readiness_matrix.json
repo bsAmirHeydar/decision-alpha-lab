@@ -1,0 +1,290 @@
+{
+  "all_required_gates_satisfied": false,
+  "gate_count": 24,
+  "gates": [
+    {
+      "evidence_digests": [
+        "sha256:be69b51eb9b2a76ab6f8eaf9277afb6499124cc2663522604998c7bfa44b2bcd"
+      ],
+      "gate_id": "ACL13_PACKAGE_INTEGRITY",
+      "gate_result_digest": "sha256:fd2d7cb177c63125570d02f5785d9c6d9598df82349c4b57115220af6f9b3535",
+      "reason_codes": [
+        "ACL13_PACKAGE_VERIFIED"
+      ],
+      "schema_version": "1.0.0",
+      "status": "SATISFIED"
+    },
+    {
+      "evidence_digests": [
+        "sha256:232187672ca54d4922149921895467f10fa9c9b78d47f8c27ecc774f338fc355"
+      ],
+      "gate_id": "ACL13_PILOT_DESIGN_ELIGIBLE",
+      "gate_result_digest": "sha256:9709ff8f97ee014fe7e484125effa5dc2ad8896b47f3c498a5515895958dcdc1",
+      "reason_codes": [
+        "ACL13_PILOT_DESIGN_ALLOWED"
+      ],
+      "schema_version": "1.0.0",
+      "status": "SATISFIED"
+    },
+    {
+      "evidence_digests": [],
+      "gate_id": "REAL_CONTEXT_IDENTITY",
+      "gate_result_digest": "sha256:10789560e78f26fedaee593e9e8e694c832924412f0ee91093c777a67e4a7d44",
+      "reason_codes": [
+        "REAL_CONTEXT_EVIDENCE_REQUIRED"
+      ],
+      "schema_version": "1.0.0",
+      "status": "UNSATISFIED"
+    },
+    {
+      "evidence_digests": [
+        "sha256:655ee1676808f6caddf5449d23c63cb2e42401c73102eb58c18a503e22329011"
+      ],
+      "gate_id": "INDEPENDENT_OWNER_APPROVAL",
+      "gate_result_digest": "sha256:f09bfa3f8c1ec9d555c0d739f8b874f039514b116aa91c108f712a9fa42ead1d",
+      "reason_codes": [
+        "REAL_OWNER_APPROVAL_MISSING"
+      ],
+      "schema_version": "1.0.0",
+      "status": "UNKNOWN"
+    },
+    {
+      "evidence_digests": [
+        "sha256:655ee1676808f6caddf5449d23c63cb2e42401c73102eb58c18a503e22329011"
+      ],
+      "gate_id": "DOCTRINE_APPROVAL",
+      "gate_result_digest": "sha256:48898f614922a4e5381ced6578867ac027c22366e57b8ad730ea5e2582e64a8b",
+      "reason_codes": [
+        "DOCTRINE_APPROVAL_MISSING"
+      ],
+      "schema_version": "1.0.0",
+      "status": "UNKNOWN"
+    },
+    {
+      "evidence_digests": [],
+      "gate_id": "REAL_DATA_SOURCE_APPROVAL",
+      "gate_result_digest": "sha256:403e877efb62c4031b924e3dfd32602edfa64f8e999d13251f1934d16fd28c10",
+      "reason_codes": [
+        "REAL_DATA_SOURCE_APPROVAL_MISSING"
+      ],
+      "schema_version": "1.0.0",
+      "status": "UNKNOWN"
+    },
+    {
+      "evidence_digests": [
+        "sha256:4adfffa19e9441bef3bafcb76ac598fdc24392736af98a576a48d867e9956d7c"
+      ],
+      "gate_id": "DATA_MAPPING_COMPLETE",
+      "gate_result_digest": "sha256:70086a40037150cb00c7e2d2f661fba4f6379d804d7d26af683d0b1e78d64c58",
+      "reason_codes": [
+        "DATA_MAPPING_COMPLETE"
+      ],
+      "schema_version": "1.0.0",
+      "status": "SATISFIED"
+    },
+    {
+      "evidence_digests": [
+        "sha256:15f2f37ab54903978c31fb88e7c6c4fd72286705a9e28f88fc9075ee9e61ad08"
+      ],
+      "gate_id": "AVAILABILITY_SEMANTICS_COMPLETE",
+      "gate_result_digest": "sha256:656bb83c9334774dd4579efc63c44210ae40a9b2943d11e56334d56078bc5274",
+      "reason_codes": [
+        "AVAILABILITY_EXTERNAL_VERIFICATION_MISSING"
+      ],
+      "schema_version": "1.0.0",
+      "status": "UNKNOWN"
+    },
+    {
+      "evidence_digests": [
+        "sha256:15f2f37ab54903978c31fb88e7c6c4fd72286705a9e28f88fc9075ee9e61ad08"
+      ],
+      "gate_id": "KNOWN_TIME_GUARD",
+      "gate_result_digest": "sha256:9145eb6b9cda27b86ab6749c16803acb7c77e153ac4008c4e1e56ee18d6eca30",
+      "reason_codes": [
+        "KNOWN_TIME_GUARD_FROZEN"
+      ],
+      "schema_version": "1.0.0",
+      "status": "SATISFIED"
+    },
+    {
+      "evidence_digests": [
+        "sha256:7f15d8ff228001cacd172745b9fe5e8d033ce4d45f797baf282cf14e27d464e7"
+      ],
+      "gate_id": "PILOT_PERIOD_PRECOMMITTED",
+      "gate_result_digest": "sha256:7af2d823f8c186ea157190a2714266df7282830d908e7f9e9a23863c45a0c163",
+      "reason_codes": [
+        "PILOT_PERIOD_PRECOMMITTED"
+      ],
+      "schema_version": "1.0.0",
+      "status": "SATISFIED"
+    },
+    {
+      "evidence_digests": [
+        "sha256:ea4be42dd868a17722e714e98a23bfd089404edc4d457c507a9fe810871715c9"
+      ],
+      "gate_id": "EVALUATION_RULES_FROZEN",
+      "gate_result_digest": "sha256:97a16ae17722c147aa91851538cf4b1a08d8e718c157ce3bfe6c166d95d48c44",
+      "reason_codes": [
+        "EVALUATION_RULES_FROZEN"
+      ],
+      "schema_version": "1.0.0",
+      "status": "SATISFIED"
+    },
+    {
+      "evidence_digests": [
+        "sha256:1c33d365b90e2b3fce9b1d7bdc3845c87fd8f6e66915c7ac028ac4515993effb"
+      ],
+      "gate_id": "SETUP_SEARCH_SPACE_FROZEN",
+      "gate_result_digest": "sha256:acc94d6033b9c02b62cfaf96ba17d4455a1a57c02a8dc9960d3e98db59f1ea1a",
+      "reason_codes": [
+        "SETUP_SEARCH_SPACE_FROZEN"
+      ],
+      "schema_version": "1.0.0",
+      "status": "SATISFIED"
+    },
+    {
+      "evidence_digests": [
+        "sha256:4146d07c4dff64e8c87c950df79a21856e3a9dbb47b238e42eb5ef3c10d10a2b"
+      ],
+      "gate_id": "SUPPORT_TARGETS_PRECOMMITTED",
+      "gate_result_digest": "sha256:b5ddd1da2a9496d684c90a820cfbf3a8bf14c7bc0d76f784e1253c70d4aec03a",
+      "reason_codes": [
+        "SUPPORT_TARGETS_PRECOMMITTED"
+      ],
+      "schema_version": "1.0.0",
+      "status": "SATISFIED"
+    },
+    {
+      "evidence_digests": [
+        "sha256:744880e8444e40d1dc5c1c99582c26e963ff29f7c42cb8687e57d8a8a29320d5"
+      ],
+      "gate_id": "STOP_CONDITIONS_FROZEN",
+      "gate_result_digest": "sha256:7f07dd9ac28c73792f290b66eca87e17759f0c935a2e14b00833f212dc737f71",
+      "reason_codes": [
+        "STOP_CONDITIONS_FROZEN"
+      ],
+      "schema_version": "1.0.0",
+      "status": "SATISFIED"
+    },
+    {
+      "evidence_digests": [
+        "sha256:905e750cd1fa4c988750dac8fd8b6b414e0193246757c449fa0f01d6fe4d1e65"
+      ],
+      "gate_id": "FAILURE_CONDITIONS_FROZEN",
+      "gate_result_digest": "sha256:568e1d05e55aac925b9d5a476ec902b9e8812cb54e595c4496a596cca4ac01b9",
+      "reason_codes": [
+        "FAILURE_CONDITIONS_FROZEN"
+      ],
+      "schema_version": "1.0.0",
+      "status": "SATISFIED"
+    },
+    {
+      "evidence_digests": [
+        "sha256:99cf69a1742d936138d931ccca80ec4e4d93085adf513c114d6b88c85f2bd04e"
+      ],
+      "gate_id": "NON_CAPITAL_BOUNDARY",
+      "gate_result_digest": "sha256:9df55e187060d7acadf21e69510b2149fea30c95d5fe9c3a74f3f0a4037b925e",
+      "reason_codes": [
+        "NON_CAPITAL_BOUNDARY_ENFORCED"
+      ],
+      "schema_version": "1.0.0",
+      "status": "SATISFIED"
+    },
+    {
+      "evidence_digests": [],
+      "gate_id": "SYNTHETIC_REUSE_DENIED",
+      "gate_result_digest": "sha256:133e210c196762beeed5fa8da7b785218a59955b601fe377394c60b45023cb9d",
+      "reason_codes": [
+        "SYNTHETIC_REUSE_AS_REAL_DENIED"
+      ],
+      "schema_version": "1.0.0",
+      "status": "SATISFIED"
+    },
+    {
+      "evidence_digests": [],
+      "gate_id": "PROSPECTIVE_EVIDENCE_NOT_INVENTED",
+      "gate_result_digest": "sha256:b86e1061875832a622e901ee70c91793327a1781f8a180d73f074841f48853a9",
+      "reason_codes": [
+        "NO_PROSPECTIVE_OUTCOMES_PRESENT"
+      ],
+      "schema_version": "1.0.0",
+      "status": "SATISFIED"
+    },
+    {
+      "evidence_digests": [
+        "sha256:be69b51eb9b2a76ab6f8eaf9277afb6499124cc2663522604998c7bfa44b2bcd"
+      ],
+      "gate_id": "SECURITY_STATUS_PRESERVED",
+      "gate_result_digest": "sha256:a6bd51465436a316b966e6d89e361c63965581a3d40df29133f86fe0e6339a7c",
+      "reason_codes": [
+        "ACL13_SECURITY_STATUS_PRESERVED"
+      ],
+      "schema_version": "1.0.0",
+      "status": "SATISFIED"
+    },
+    {
+      "evidence_digests": [],
+      "gate_id": "RUNTIME_AUTHORITY_DENIED",
+      "gate_result_digest": "sha256:a03addd8d4645d43e6f1e33a2fd80f42db3b47abf3e02d0bbbfdd23a60c05be4",
+      "reason_codes": [
+        "RUNTIME_AUTHORITY_DENIED"
+      ],
+      "schema_version": "1.0.0",
+      "status": "SATISFIED"
+    },
+    {
+      "evidence_digests": [],
+      "gate_id": "LIVE_ORDER_AUTHORITY_DENIED",
+      "gate_result_digest": "sha256:1235b8fc82d730a325ecc95f375ba3c08428eebf6f19641d831d183d93526e2d",
+      "reason_codes": [
+        "LIVE_ORDER_AUTHORITY_DENIED"
+      ],
+      "schema_version": "1.0.0",
+      "status": "SATISFIED"
+    },
+    {
+      "evidence_digests": [],
+      "gate_id": "CAPITAL_AUTHORITY_DENIED",
+      "gate_result_digest": "sha256:db06ffcb1709f46a16a3548d13d21c0bcd4bbf0be709b17ac97c4f3d059ef89a",
+      "reason_codes": [
+        "CAPITAL_AUTHORITY_DENIED"
+      ],
+      "schema_version": "1.0.0",
+      "status": "SATISFIED"
+    },
+    {
+      "evidence_digests": [],
+      "gate_id": "OPERATOR_SEPARATION",
+      "gate_result_digest": "sha256:d9503ac40cc5c8ec4fb005a5b01215c180efb0b3b6fa40f0a71ce72daa0f790c",
+      "reason_codes": [
+        "OPERATOR_SEPARATION_PRESENT"
+      ],
+      "schema_version": "1.0.0",
+      "status": "SATISFIED"
+    },
+    {
+      "evidence_digests": [
+        "sha256:7f15d8ff228001cacd172745b9fe5e8d033ce4d45f797baf282cf14e27d464e7"
+      ],
+      "gate_id": "AUDIT_AND_PROVENANCE",
+      "gate_result_digest": "sha256:4e15f0c75ca53f81fdb8a1890b53453fe89f18e24c413eafb79ad089d7cd54d8",
+      "reason_codes": [
+        "AUDIT_AND_PROVENANCE_REQUIRED"
+      ],
+      "schema_version": "1.0.0",
+      "status": "SATISFIED"
+    }
+  ],
+  "pilot_ready_non_capital": false,
+  "pilot_request_id": "PILOTREQ_REFERENCE_FIRST_REAL_CONTEXT_001",
+  "readiness_matrix_digest": "sha256:f997c4f508b88d8bc329e7bc409b8c6f3502f4b30d278e65e640e84bc50c0639",
+  "readiness_matrix_id": "PILOTREADY_E05BB006EC9C6C9E4C6E91F0B275",
+  "schema_version": "1.0.0",
+  "status_counts": {
+    "NOT_APPLICABLE": 0,
+    "SATISFIED": 19,
+    "UNKNOWN": 4,
+    "UNSATISFIED": 1
+  },
+  "unknown_blocks_readiness": true
+}

@@ -1,0 +1,19 @@
+{
+  "$id": "https://alpha-lab.local/acl14/failure_condition_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "failure_contract_digest": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "failure_contract_digest"
+  ],
+  "title": "failure_condition_contract",
+  "type": "object"
+}

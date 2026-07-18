@@ -1,0 +1,12 @@
+{
+  "acl15_handoff_digest": "sha256:dc41bd0bf95524d6e79e3ceefc67b22bb85f253a8990df1c6a7544a8343f8b6b",
+  "artifact_count": 37,
+  "output_manifest_digest": "sha256:1821e1158612d647f4fc65921d23020227117b3ae55af2f0f4eebfde1116d90f",
+  "pilot_contract_digest": "sha256:7f15d8ff228001cacd172745b9fe5e8d033ce4d45f797baf282cf14e27d464e7",
+  "pilot_readiness_decision_digest": "sha256:65c915bffdf853936d34b862773cbc68c8c8d32487d6f7ce36fd3d60fb417617",
+  "pilot_run_digest": "sha256:11a1ca2a0c32f0b94cf3c4dd943f2829c31c675321c84a792cbbeb8753e2de51",
+  "pilot_run_id": "PILOTRUN_4D706242CEEF5700D2A4D71BDB2A17E2",
+  "receipt_digest": "sha256:db0099a57136997f96458d576a4b4f8d6be4c2c4c6d99b8a73a4e3dcd708c98f",
+  "reference_only": true,
+  "schema_version": "1.0.0"
+}

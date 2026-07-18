@@ -1,0 +1,194 @@
+{
+  "artifact_count": 37,
+  "files": [
+    {
+      "digest": "sha256:dd6d5d816222db714f25d2e0036ac470cb12bfe4eebface4fc33afbb8023cfcb",
+      "path": ".acl14_generated_root",
+      "size_bytes": 41
+    },
+    {
+      "digest": "sha256:ba303da92f88ef7e89e94b15e867d3f9d9e02cc2a8fffeaacf302f7c4de8e525",
+      "path": "assessment/evidence_classification_report.json",
+      "size_bytes": 453
+    },
+    {
+      "digest": "sha256:4944165538f43124e201120428ff9a9c6e67fd5de7ef80b763f0d5bb178698cd",
+      "path": "assessment/pilot_readiness_matrix.json",
+      "size_bytes": 9696
+    },
+    {
+      "digest": "sha256:c836e98ef74313e1317de472da70c68e32160a0a300f15c235ac693311d1e76b",
+      "path": "authority/authority_report.json",
+      "size_bytes": 858
+    },
+    {
+      "digest": "sha256:14309a806df6dc2c27d9f80e6f05775c728e32fb6bf671970e7b2bb66c4e64cc",
+      "path": "binding/acl13_binding.json",
+      "size_bytes": 1254
+    },
+    {
+      "digest": "sha256:3c720c92e7ed4ecdc8230df97e0bc06cbe6ec27454c21ecd5b166690ed789212",
+      "path": "contract/availability_semantics_contract.json",
+      "size_bytes": 506
+    },
+    {
+      "digest": "sha256:6f5e6a452a3c81ec0eeb4e56928dbaca9a8e5c8689b4bcfde89e76cad8fe5b91",
+      "path": "contract/context_owner_approval_bundle.json",
+      "size_bytes": 779
+    },
+    {
+      "digest": "sha256:aa6623730f18d925c7b7329d80ed89da4e0cf0a3b7ba2c8c82a06c3b1a6d6042",
+      "path": "contract/data_mapping_contract.json",
+      "size_bytes": 825
+    },
+    {
+      "digest": "sha256:444189e3b95b99ab7415f4ae8909435ef769ba7be5ef73c0bbd14932e42148e9",
+      "path": "contract/evaluation_freeze_contract.json",
+      "size_bytes": 699
+    },
+    {
+      "digest": "sha256:3193531c8da20786891d2873337b65a7698c2c5a3800db814847928c77c3b50f",
+      "path": "contract/failure_condition_contract.json",
+      "size_bytes": 681
+    },
+    {
+      "digest": "sha256:d70692f672601d8467e1c9d852d87685a3bdbf517c941f45d074f565719cb163",
+      "path": "contract/first_real_context_pilot_contract.json",
+      "size_bytes": 2138
+    },
+    {
+      "digest": "sha256:b08bf2cead747751127e6bbe41748fee03e61afe7adc5670ac6c7053886b8cb5",
+      "path": "contract/non_capital_boundary_contract.json",
+      "size_bytes": 499
+    },
+    {
+      "digest": "sha256:ab9eb5fae941ca0fea26cedd924a96cf27b8dc9272bf457bc73b839086eaa8ef",
+      "path": "contract/search_space_freeze.json",
+      "size_bytes": 541
+    },
+    {
+      "digest": "sha256:c02eabba778bb0eebb44e451aa2add18ed87d1627da29413b259704d7436013f",
+      "path": "contract/stop_condition_contract.json",
+      "size_bytes": 634
+    },
+    {
+      "digest": "sha256:68c5d77356ac5e6cacb89bbb57e708499bfbcff57b6247a02de22b27cafb515d",
+      "path": "contract/support_target_contract.json",
+      "size_bytes": 359
+    },
+    {
+      "digest": "sha256:adbef122fa10e9633b17b6a27dea2847c74e2d7d8139c5e82c0421c606aa0d75",
+      "path": "decision/pilot_readiness_decision.json",
+      "size_bytes": 1147
+    },
+    {
+      "digest": "sha256:50454aad14a3845653a467225cb4add918285bbba1c24c4e6982979d0bc0959e",
+      "path": "docs/ACL14_ACL15_HANDOFF.md",
+      "size_bytes": 157
+    },
+    {
+      "digest": "sha256:e5b4330be83ff6e1cfcfad9abe648c66e97b85f73dad0fc4cb0fc6a052b12c46",
+      "path": "docs/ACL14_EXECUTIVE_BRIEF.md",
+      "size_bytes": 181
+    },
+    {
+      "digest": "sha256:387430a7b0204993b44aa82e7e58d3fe72a4005693210fb12b476cf4c02e475d",
+      "path": "docs/ACL14_FIRST_REAL_CONTEXT_PILOT_CONTRACT.md",
+      "size_bytes": 279
+    },
+    {
+      "digest": "sha256:669d2ad1ad40e8b96bdbaf442adedee2631f0048f063250025e798812e1f367d",
+      "path": "docs/ACL14_LIMITATIONS_AND_NEXT_ACTIONS.md",
+      "size_bytes": 304
+    },
+    {
+      "digest": "sha256:606e07eb8f19df4a04a78dcbf33f255e23639964eb16006571e5b348a9fa1894",
+      "path": "docs/ACL14_READINESS_MATRIX.md",
+      "size_bytes": 1093
+    },
+    {
+      "digest": "sha256:f2fa20150c4bc275944d70c1e9bf539b6c302e2fb4c60c2baaf72446e3d27c5a",
+      "path": "docs/obsidian_projection_manifest.json",
+      "size_bytes": 1078
+    },
+    {
+      "digest": "sha256:fa5b64379c7a65a24c751578ea40336b52df15f604c4ea6b18c2d008bb6a62e8",
+      "path": "events/pilot_event_ledger.json",
+      "size_bytes": 6753
+    },
+    {
+      "digest": "sha256:c8c3db50dee02ece5c4cc009e5723c2c2c982429d223964e962a57f09783da3c",
+      "path": "execution/pilot_execution_manifest.json",
+      "size_bytes": 648
+    },
+    {
+      "digest": "sha256:bc4f41b953f1fb4ccf387b5f39a86a15a39dccbbde217bdee6f04272b7f0d369",
+      "path": "handoff/acl15_handoff.json",
+      "size_bytes": 1730
+    },
+    {
+      "digest": "sha256:cb9f158b2dfb4b594aa4bc57b13d8b77fc31c8ab32f52bc60660c8d1162709fe",
+      "path": "input/pilot_input_validation_report.json",
+      "size_bytes": 603
+    },
+    {
+      "digest": "sha256:8abe35da05395855c0e406245a0e3582452ec62a1c8476c02014a42c0c69eba7",
+      "path": "input/pilot_request.json",
+      "size_bytes": 5114
+    },
+    {
+      "digest": "sha256:e064b87db78bbaa3e467492c47a7ee5a6b99ccf1d6d47632057abc9248fcb43c",
+      "path": "lineage/pilot_provenance_graph.json",
+      "size_bytes": 2056
+    },
+    {
+      "digest": "sha256:4a1f37ad15da90201770ea6128ecfe3604d4fe81c6f1db0ee2ec6080ad84827e",
+      "path": "policy/pilot_policy.json",
+      "size_bytes": 528
+    },
+    {
+      "digest": "sha256:2110aaa5645b8d746536ee3147260e091224e4a9b40e76773f3a3015376061fc",
+      "path": "registry/readiness_gate_registry.json",
+      "size_bytes": 3187
+    },
+    {
+      "digest": "sha256:23c86efcd5618d7731cd63c4c8b6294a586efcfbbff8ffe3588d0f9311c6fb0a",
+      "path": "registry/readiness_state_registry.json",
+      "size_bytes": 385
+    },
+    {
+      "digest": "sha256:f3dd8071e41661945f393557370d7a0d7e61034573e715c21083b3469f7223e8",
+      "path": "registry/report_section_registry.json",
+      "size_bytes": 1694
+    },
+    {
+      "digest": "sha256:ba329acfb959b2de6e976337609b8dfaa254e124098a45538994ade7a7e27317",
+      "path": "report/executive_brief.json",
+      "size_bytes": 668
+    },
+    {
+      "digest": "sha256:bad73061f530a09652fa616c7cb83e80f9e22e96395349980e62c93c5d034f0e",
+      "path": "report/pilot_design_report.json",
+      "size_bytes": 1786
+    },
+    {
+      "digest": "sha256:374bf458216a097d47f2acd5d357aa2ee0edc3fbd8d422f6d721e42424721cd7",
+      "path": "reports/integrity_report.json",
+      "size_bytes": 560
+    },
+    {
+      "digest": "sha256:d372eaaab2175104033f81cea7bb02acac4b65f4a08a122096b939395009c9eb",
+      "path": "run/pilot_run.json",
+      "size_bytes": 1047
+    },
+    {
+      "digest": "sha256:f068dc5d782502d9053d913c8f513ea8c8024c20c2ba9a4c0ed96430061d2e68",
+      "path": "security/security_boundary_report.json",
+      "size_bytes": 787
+    }
+  ],
+  "manifest_digest": "sha256:1821e1158612d647f4fc65921d23020227117b3ae55af2f0f4eebfde1116d90f",
+  "pilot_run_id": "PILOTRUN_4D706242CEEF5700D2A4D71BDB2A17E2",
+  "schema_version": "1.0.0",
+  "self_reference_policy": "MANIFEST_AND_RECEIPT_EXCLUDED_AND_MUTUALLY_BOUND"
+}

@@ -1,0 +1,9 @@
+# First Real Context Pilot Contract
+
+Pilot Contract ID: `PILOT_8BDD42A1425EBEC115615A7E8D99DE94`
+
+Context: `CTX_FIRST_REAL_CONTEXT_PILOT_REFERENCE@1.0.0`
+
+Evidence classification: `REFERENCE_REPRESENTATIVE_NOT_REAL`
+
+Period: `2026-08-03T13:30:00Z` through `2026-08-28T20:00:00Z`

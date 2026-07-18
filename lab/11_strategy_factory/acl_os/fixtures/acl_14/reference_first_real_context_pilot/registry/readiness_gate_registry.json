@@ -1,0 +1,129 @@
+{
+  "closed": true,
+  "gate_count": 24,
+  "gates": [
+    {
+      "gate_id": "ACL13_PACKAGE_INTEGRITY",
+      "unknown_blocks_readiness": true,
+      "version": "1.0.0"
+    },
+    {
+      "gate_id": "ACL13_PILOT_DESIGN_ELIGIBLE",
+      "unknown_blocks_readiness": true,
+      "version": "1.0.0"
+    },
+    {
+      "gate_id": "REAL_CONTEXT_IDENTITY",
+      "unknown_blocks_readiness": true,
+      "version": "1.0.0"
+    },
+    {
+      "gate_id": "INDEPENDENT_OWNER_APPROVAL",
+      "unknown_blocks_readiness": true,
+      "version": "1.0.0"
+    },
+    {
+      "gate_id": "DOCTRINE_APPROVAL",
+      "unknown_blocks_readiness": true,
+      "version": "1.0.0"
+    },
+    {
+      "gate_id": "REAL_DATA_SOURCE_APPROVAL",
+      "unknown_blocks_readiness": true,
+      "version": "1.0.0"
+    },
+    {
+      "gate_id": "DATA_MAPPING_COMPLETE",
+      "unknown_blocks_readiness": true,
+      "version": "1.0.0"
+    },
+    {
+      "gate_id": "AVAILABILITY_SEMANTICS_COMPLETE",
+      "unknown_blocks_readiness": true,
+      "version": "1.0.0"
+    },
+    {
+      "gate_id": "KNOWN_TIME_GUARD",
+      "unknown_blocks_readiness": true,
+      "version": "1.0.0"
+    },
+    {
+      "gate_id": "PILOT_PERIOD_PRECOMMITTED",
+      "unknown_blocks_readiness": true,
+      "version": "1.0.0"
+    },
+    {
+      "gate_id": "EVALUATION_RULES_FROZEN",
+      "unknown_blocks_readiness": true,
+      "version": "1.0.0"
+    },
+    {
+      "gate_id": "SETUP_SEARCH_SPACE_FROZEN",
+      "unknown_blocks_readiness": true,
+      "version": "1.0.0"
+    },
+    {
+      "gate_id": "SUPPORT_TARGETS_PRECOMMITTED",
+      "unknown_blocks_readiness": true,
+      "version": "1.0.0"
+    },
+    {
+      "gate_id": "STOP_CONDITIONS_FROZEN",
+      "unknown_blocks_readiness": true,
+      "version": "1.0.0"
+    },
+    {
+      "gate_id": "FAILURE_CONDITIONS_FROZEN",
+      "unknown_blocks_readiness": true,
+      "version": "1.0.0"
+    },
+    {
+      "gate_id": "NON_CAPITAL_BOUNDARY",
+      "unknown_blocks_readiness": true,
+      "version": "1.0.0"
+    },
+    {
+      "gate_id": "SYNTHETIC_REUSE_DENIED",
+      "unknown_blocks_readiness": true,
+      "version": "1.0.0"
+    },
+    {
+      "gate_id": "PROSPECTIVE_EVIDENCE_NOT_INVENTED",
+      "unknown_blocks_readiness": true,
+      "version": "1.0.0"
+    },
+    {
+      "gate_id": "SECURITY_STATUS_PRESERVED",
+      "unknown_blocks_readiness": true,
+      "version": "1.0.0"
+    },
+    {
+      "gate_id": "RUNTIME_AUTHORITY_DENIED",
+      "unknown_blocks_readiness": true,
+      "version": "1.0.0"
+    },
+    {
+      "gate_id": "LIVE_ORDER_AUTHORITY_DENIED",
+      "unknown_blocks_readiness": true,
+      "version": "1.0.0"
+    },
+    {
+      "gate_id": "CAPITAL_AUTHORITY_DENIED",
+      "unknown_blocks_readiness": true,
+      "version": "1.0.0"
+    },
+    {
+      "gate_id": "OPERATOR_SEPARATION",
+      "unknown_blocks_readiness": true,
+      "version": "1.0.0"
+    },
+    {
+      "gate_id": "AUDIT_AND_PROVENANCE",
+      "unknown_blocks_readiness": true,
+      "version": "1.0.0"
+    }
+  ],
+  "registry_digest": "sha256:83a301830e8e38bcd526c6c9566aedea73f2bf0ec04917bb5d3a6e9763c89e21",
+  "registry_id": "ACL14_PILOT_READINESS_GATE_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}

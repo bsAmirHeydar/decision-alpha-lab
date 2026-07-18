@@ -1,0 +1,19 @@
+{
+  "$id": "https://alpha-lab.local/acl14/pilot_execution_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "pilot_execution_manifest_digest": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "pilot_execution_manifest_digest"
+  ],
+  "title": "pilot_execution_manifest",
+  "type": "object"
+}

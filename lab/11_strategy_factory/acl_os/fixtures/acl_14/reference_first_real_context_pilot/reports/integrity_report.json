@@ -1,0 +1,15 @@
+{
+  "acl13_package_verified": true,
+  "capital_authority_created": false,
+  "integrity_report_digest": "sha256:37a326608dd5506122b69fb5ed6f4af05e794345ddf9b631f032072a8f443923",
+  "live_order_authority_created": false,
+  "passed": true,
+  "pilot_execution_materialized": false,
+  "pilot_request_verified": true,
+  "prospective_evidence_invented": false,
+  "real_context_evidence_invented": false,
+  "reference_fixture_not_real_market_evidence": true,
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "validation_evidence_invented": false
+}

@@ -1,0 +1,10 @@
+{
+  "classification": "REFERENCE_REPRESENTATIVE_NOT_REAL",
+  "evidence_classification_digest": "sha256:f4043f15f4240cca0451f6f3d3b745bb997a1dddb30d3280fdca4ad4f7e075fe",
+  "pilot_request_id": "PILOTREQ_REFERENCE_FIRST_REAL_CONTEXT_001",
+  "prospective_outcomes_present": false,
+  "real_context_evidence_present": false,
+  "reference_fixture_not_real_market_evidence": true,
+  "schema_version": "1.0.0",
+  "synthetic_or_reference_reuse_as_real": false
+}

@@ -1,0 +1,10 @@
+{
+  "minimum_distinct_days": 10,
+  "minimum_mature_outcomes": 30,
+  "minimum_occurrences": 30,
+  "minimum_state_support": 8,
+  "schema_version": "1.0.0",
+  "support_contract_digest": "sha256:4146d07c4dff64e8c87c950df79a21856e3a9dbb47b238e42eb5ef3c10d10a2b",
+  "support_contract_id": "SUPPORT_E05BB006EC9C6C9E4C6E91F0",
+  "target_is_validation_claim": false
+}

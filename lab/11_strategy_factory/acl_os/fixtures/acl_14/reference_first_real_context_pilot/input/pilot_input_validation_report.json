@@ -1,0 +1,15 @@
+{
+  "context_id": "CTX_FIRST_REAL_CONTEXT_PILOT_REFERENCE",
+  "context_version": "1.0.0",
+  "evaluation_rules_frozen": true,
+  "evidence_classification": "REFERENCE_REPRESENTATIVE_NOT_REAL",
+  "input_validation_digest": "sha256:0ac936e42a8b1e318688be96bb9616e32c97eb0b8bba69cc52c45ab13459e112",
+  "known_time_contract_present": true,
+  "non_capital_boundary_valid": true,
+  "pilot_request_id": "PILOTREQ_REFERENCE_FIRST_REAL_CONTEXT_001",
+  "real_context_evidence_present": false,
+  "request_valid": true,
+  "schema_version": "1.0.0",
+  "search_space_frozen": true,
+  "synthetic_reuse_as_real": false
+}

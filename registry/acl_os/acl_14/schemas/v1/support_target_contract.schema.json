@@ -1,0 +1,19 @@
+{
+  "$id": "https://alpha-lab.local/acl14/support_target_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "support_contract_digest": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "support_contract_digest"
+  ],
+  "title": "support_target_contract",
+  "type": "object"
+}

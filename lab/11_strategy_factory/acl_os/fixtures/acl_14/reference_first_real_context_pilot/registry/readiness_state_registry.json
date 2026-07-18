@@ -1,0 +1,12 @@
+{
+  "closed": true,
+  "registry_digest": "sha256:560617838fdc2cedcbd0cc1ea4abae9e30b4a9dfa90ffa61a26ab33448569b01",
+  "registry_id": "ACL14_PILOT_READINESS_STATE_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "states": [
+    "INPUT_REJECTED",
+    "PILOT_BLOCKED_POLICY_OR_INTEGRITY",
+    "PILOT_CONTRACT_AUTHORED_REAL_EVIDENCE_REQUIRED",
+    "PILOT_READY_NON_CAPITAL_NOT_EXECUTED"
+  ]
+}

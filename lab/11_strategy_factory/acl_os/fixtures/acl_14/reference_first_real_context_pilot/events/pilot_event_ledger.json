@@ -1,0 +1,155 @@
+{
+  "event_count": 9,
+  "events": [
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:3a83d3f675175a8cdf762df7538b4a09f2da9625bafde88c64895db464e293e8",
+      "event_id": "ACL14EVT_8B88CF6F7680CAD48429B22032E7",
+      "event_type": "ACL13_PACKAGE_ACCEPTED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-18T10:00:00Z",
+      "payload": {
+        "binding_digest": "sha256:be69b51eb9b2a76ab6f8eaf9277afb6499124cc2663522604998c7bfa44b2bcd"
+      },
+      "pilot_execution_authority": false,
+      "previous_event_digest": "GENESIS",
+      "runtime_activation_authority": false,
+      "schema_version": "1.0.0",
+      "sequence": 1
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:ff8d378dd85bb2f7da72a70b2c7251df106b54273dfa43fc0ddfdf2889db926a",
+      "event_id": "ACL14EVT_90FB5E305115E6948328D35B760C",
+      "event_type": "AUTHORITY_AND_POLICY_BOUND",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-18T10:00:00Z",
+      "payload": {
+        "authority_report_digest": "sha256:b2710b97311f7a70da47dd8661b8dc707f4627c9a14798b0696331d988729822",
+        "policy_id": "ACL14_FIRST_REAL_CONTEXT_PILOT_POLICY_V1"
+      },
+      "pilot_execution_authority": false,
+      "previous_event_digest": "sha256:3a83d3f675175a8cdf762df7538b4a09f2da9625bafde88c64895db464e293e8",
+      "runtime_activation_authority": false,
+      "schema_version": "1.0.0",
+      "sequence": 2
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:fe8cf4497e75a35f8dc75f9af20e3888a1e04be5e469be5abaf2dd24c5b0b3b8",
+      "event_id": "ACL14EVT_D5272113E123D2263140BF69C566",
+      "event_type": "PILOT_REQUEST_VALIDATED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-18T10:00:00Z",
+      "payload": {
+        "input_validation_digest": "sha256:0ac936e42a8b1e318688be96bb9616e32c97eb0b8bba69cc52c45ab13459e112"
+      },
+      "pilot_execution_authority": false,
+      "previous_event_digest": "sha256:ff8d378dd85bb2f7da72a70b2c7251df106b54273dfa43fc0ddfdf2889db926a",
+      "runtime_activation_authority": false,
+      "schema_version": "1.0.0",
+      "sequence": 3
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:5a5e4af4a7eef211e70da02783c0e33024357a072bf4ada907f5fea59665e52e",
+      "event_id": "ACL14EVT_05D2890555AAF6EC8156F05C32F4",
+      "event_type": "PILOT_CONTRACT_AUTHORED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-18T10:00:00Z",
+      "payload": {
+        "pilot_contract_digest": "sha256:7f15d8ff228001cacd172745b9fe5e8d033ce4d45f797baf282cf14e27d464e7"
+      },
+      "pilot_execution_authority": false,
+      "previous_event_digest": "sha256:fe8cf4497e75a35f8dc75f9af20e3888a1e04be5e469be5abaf2dd24c5b0b3b8",
+      "runtime_activation_authority": false,
+      "schema_version": "1.0.0",
+      "sequence": 4
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:56bff62ca856e13228ec6bcc354658f27e2e07947e01a539f367f7369d67d9e1",
+      "event_id": "ACL14EVT_83D2231559EC17B583AB65E6DF35",
+      "event_type": "READINESS_GATES_ASSESSED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-18T10:00:00Z",
+      "payload": {
+        "readiness_matrix_digest": "sha256:f997c4f508b88d8bc329e7bc409b8c6f3502f4b30d278e65e640e84bc50c0639"
+      },
+      "pilot_execution_authority": false,
+      "previous_event_digest": "sha256:5a5e4af4a7eef211e70da02783c0e33024357a072bf4ada907f5fea59665e52e",
+      "runtime_activation_authority": false,
+      "schema_version": "1.0.0",
+      "sequence": 5
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:5e13df00eb96157c2797f35004862622d4c892bafda85f47e29f44ab8c7b4bc4",
+      "event_id": "ACL14EVT_95D3F465574CDC2A708069854B18",
+      "event_type": "NON_CAPITAL_READINESS_DECISION_ISSUED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-18T10:00:00Z",
+      "payload": {
+        "decision_digest": "sha256:65c915bffdf853936d34b862773cbc68c8c8d32487d6f7ce36fd3d60fb417617"
+      },
+      "pilot_execution_authority": false,
+      "previous_event_digest": "sha256:56bff62ca856e13228ec6bcc354658f27e2e07947e01a539f367f7369d67d9e1",
+      "runtime_activation_authority": false,
+      "schema_version": "1.0.0",
+      "sequence": 6
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:947f01c82a907f1b3cdcef0ba931cb662a1910ff31fc071dc114900855f39883",
+      "event_id": "ACL14EVT_D78F6893BA171D2FF2D384AD8938",
+      "event_type": "EMPTY_EXECUTION_MANIFEST_PUBLISHED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-18T10:00:00Z",
+      "payload": {
+        "execution_manifest_digest": "sha256:2661659737913aed2931bdc7c6bdd8e06bd74edc15ec75cecd7d682b2f139ad1"
+      },
+      "pilot_execution_authority": false,
+      "previous_event_digest": "sha256:5e13df00eb96157c2797f35004862622d4c892bafda85f47e29f44ab8c7b4bc4",
+      "runtime_activation_authority": false,
+      "schema_version": "1.0.0",
+      "sequence": 7
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:7a4dda2d06e71bd7ca85562b66554e5565756f440f3eb9784abd5d88d4ed5958",
+      "event_id": "ACL14EVT_FDACC8CBC74822E01C3B55880EE6",
+      "event_type": "SECURITY_BOUNDARY_VERIFIED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-18T10:00:00Z",
+      "payload": {
+        "security_report_digest": "sha256:5af4cf7384262e566b7a8698e32d381f373ce56e0dc59c0f826fed43c1761a27"
+      },
+      "pilot_execution_authority": false,
+      "previous_event_digest": "sha256:947f01c82a907f1b3cdcef0ba931cb662a1910ff31fc071dc114900855f39883",
+      "runtime_activation_authority": false,
+      "schema_version": "1.0.0",
+      "sequence": 8
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:0bd676e309c813b3c944c1d3fe9a073fc344b4666f785df140f8e04c0e3c226b",
+      "event_id": "ACL14EVT_01F47E85FDE9123496E29AF31550",
+      "event_type": "ACL15_HANDOFF_PREPARED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-18T10:00:00Z",
+      "payload": {
+        "pilot_execution_materialized": false,
+        "pilot_ready_non_capital": false
+      },
+      "pilot_execution_authority": false,
+      "previous_event_digest": "sha256:7a4dda2d06e71bd7ca85562b66554e5565756f440f3eb9784abd5d88d4ed5958",
+      "runtime_activation_authority": false,
+      "schema_version": "1.0.0",
+      "sequence": 9
+    }
+  ],
+  "final_event_digest": "sha256:0bd676e309c813b3c944c1d3fe9a073fc344b4666f785df140f8e04c0e3c226b",
+  "ledger_digest": "sha256:27cb83ed14710da2ba7c61201fd4e77c4c95653535083b4761f9202a5b030356",
+  "pilot_run_id": "PILOTRUN_4D706242CEEF5700D2A4D71BDB2A17E2",
+  "schema_version": "1.0.0"
+}

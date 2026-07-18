@@ -1,0 +1,19 @@
+{
+  "$id": "https://alpha-lab.local/acl14/integrity_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "integrity_report_digest": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "integrity_report_digest"
+  ],
+  "title": "integrity_report",
+  "type": "object"
+}

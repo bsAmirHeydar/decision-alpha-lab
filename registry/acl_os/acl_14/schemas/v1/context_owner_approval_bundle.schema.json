@@ -1,0 +1,19 @@
+{
+  "$id": "https://alpha-lab.local/acl14/context_owner_approval_bundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "owner_approval_bundle_digest": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "owner_approval_bundle_digest"
+  ],
+  "title": "context_owner_approval_bundle",
+  "type": "object"
+}

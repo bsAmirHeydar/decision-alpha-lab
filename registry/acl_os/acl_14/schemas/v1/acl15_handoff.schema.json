@@ -1,0 +1,27 @@
+{
+  "$id": "https://alpha-lab.local/acl14/acl15_handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "handoff_digest": {
+      "type": "string"
+    },
+    "handoff_type": {
+      "type": "string"
+    },
+    "pilot_run_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "handoff_type",
+    "pilot_run_id",
+    "handoff_digest"
+  ],
+  "title": "acl15_handoff",
+  "type": "object"
+}

@@ -1,0 +1,19 @@
+{
+  "$id": "https://alpha-lab.local/acl14/security_boundary_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "security_report_digest": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "security_report_digest"
+  ],
+  "title": "security_boundary_report",
+  "type": "object"
+}

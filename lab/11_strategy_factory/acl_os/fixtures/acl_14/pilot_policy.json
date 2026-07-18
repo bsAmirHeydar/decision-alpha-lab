@@ -1,0 +1,17 @@
+{
+  "capital_activation_allowed": false,
+  "closed": true,
+  "externally_verified_availability_required": true,
+  "live_order_submission_allowed": false,
+  "minimum_independent_approvals": 2,
+  "pilot_execution_in_reference_phase_allowed": false,
+  "policy_id": "ACL14_FIRST_REAL_CONTEXT_PILOT_POLICY_V1",
+  "real_context_evidence_required": true,
+  "required_owner_roles": [
+    "CONTEXT_OWNER",
+    "PILOT_REVIEWER"
+  ],
+  "runtime_generation_allowed": false,
+  "schema_version": "1.0.0",
+  "unknown_blocks_readiness": true
+}

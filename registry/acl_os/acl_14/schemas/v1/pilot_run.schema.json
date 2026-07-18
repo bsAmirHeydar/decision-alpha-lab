@@ -1,0 +1,27 @@
+{
+  "$id": "https://alpha-lab.local/acl14/pilot_run.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "pilot_run_digest": {
+      "type": "string"
+    },
+    "pilot_run_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "state": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "pilot_run_id",
+    "state",
+    "pilot_run_digest"
+  ],
+  "title": "pilot_run",
+  "type": "object"
+}

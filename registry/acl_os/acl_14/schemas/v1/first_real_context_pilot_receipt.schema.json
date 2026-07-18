@@ -1,0 +1,27 @@
+{
+  "$id": "https://alpha-lab.local/acl14/first_real_context_pilot_receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "output_manifest_digest": {
+      "type": "string"
+    },
+    "pilot_run_id": {
+      "type": "string"
+    },
+    "receipt_digest": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "pilot_run_id",
+    "output_manifest_digest",
+    "receipt_digest"
+  ],
+  "title": "first_real_context_pilot_receipt",
+  "type": "object"
+}

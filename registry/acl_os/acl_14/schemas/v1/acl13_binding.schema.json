@@ -1,0 +1,19 @@
+{
+  "$id": "https://alpha-lab.local/acl14/acl13_binding.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "binding_digest": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "binding_digest"
+  ],
+  "title": "acl13_binding",
+  "type": "object"
+}

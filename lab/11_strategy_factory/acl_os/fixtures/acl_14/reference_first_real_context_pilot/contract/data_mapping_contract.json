@@ -1,0 +1,29 @@
+{
+  "availability_time_field": "available_at",
+  "context_id": "CTX_FIRST_REAL_CONTEXT_PILOT_REFERENCE",
+  "data_mapping_contract_digest": "sha256:4adfffa19e9441bef3bafcb76ac598fdc24392736af98a576a48d867e9956d7c",
+  "event_time_field": "event_time",
+  "fields": [
+    {
+      "canonical_field": "event_time",
+      "source_field": "event_time"
+    },
+    {
+      "canonical_field": "available_at",
+      "source_field": "available_at"
+    },
+    {
+      "canonical_field": "context_present",
+      "source_field": "context_present"
+    },
+    {
+      "canonical_field": "primary_outcome",
+      "source_field": "forward_outcome"
+    }
+  ],
+  "label_availability_field": "label_available_at",
+  "mapping_complete": true,
+  "mapping_contract_id": "MAP_FIRST_REAL_CONTEXT_V1",
+  "schema_version": "1.0.0",
+  "timezone": "UTC"
+}

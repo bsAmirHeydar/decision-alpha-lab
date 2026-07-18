@@ -1,0 +1,43 @@
+{
+  "$id": "https://alpha-lab.local/acl14/pilot_request.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "context_id": {
+      "type": "string"
+    },
+    "context_version": {
+      "type": "string"
+    },
+    "evidence_classification": {
+      "type": "string"
+    },
+    "pilot_request_digest": {
+      "type": "string"
+    },
+    "pilot_request_id": {
+      "type": "string"
+    },
+    "real_context_evidence_present": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "source_assessment_run_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "pilot_request_id",
+    "source_assessment_run_id",
+    "context_id",
+    "context_version",
+    "evidence_classification",
+    "real_context_evidence_present",
+    "pilot_request_digest"
+  ],
+  "title": "pilot_request",
+  "type": "object"
+}

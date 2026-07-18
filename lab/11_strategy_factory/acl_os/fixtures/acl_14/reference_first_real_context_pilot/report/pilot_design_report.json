@@ -1,0 +1,49 @@
+{
+  "claim_ceiling": "FIRST_REAL_CONTEXT_PILOT_REFERENCE_ONLY",
+  "context_id": "CTX_FIRST_REAL_CONTEXT_PILOT_REFERENCE",
+  "context_version": "1.0.0",
+  "created_at": "2026-07-18T10:00:00Z",
+  "evidence_classification": "REFERENCE_REPRESENTATIVE_NOT_REAL",
+  "limitations": [
+    "Reference fixture is not real market evidence.",
+    "No prospective pilot outcomes exist.",
+    "No validation, alpha, runtime, live-order or capital claim is allowed.",
+    "Production security remains not ready."
+  ],
+  "next_allowed_actions": [
+    "Provide approved real Context evidence and independent owner approvals.",
+    "Externally verify availability semantics.",
+    "Rebuild the immutable pilot package before any prospective observation begins."
+  ],
+  "pilot_contract_id": "PILOT_8BDD42A1425EBEC115615A7E8D99DE94",
+  "pilot_design_report_digest": "sha256:2f023ab3b3479a8e7a131ad8cd6b857ada787d0548902600a3e3cb8c7059abbd",
+  "pilot_execution_materialized": false,
+  "pilot_ready_non_capital": false,
+  "readiness_state": "PILOT_CONTRACT_AUTHORED_REAL_EVIDENCE_REQUIRED",
+  "readiness_status_counts": {
+    "NOT_APPLICABLE": 0,
+    "SATISFIED": 19,
+    "UNKNOWN": 4,
+    "UNSATISFIED": 1
+  },
+  "real_context_evidence_present": false,
+  "report_id": "PILOTREPORT_5AC05817293501B1D033DE43D1CCA19C",
+  "schema_version": "1.0.0",
+  "section_order": [
+    "IDENTITY_AND_SCOPE",
+    "UPSTREAM_TRIAGE",
+    "REAL_CONTEXT_EVIDENCE",
+    "OWNER_AND_DOCTRINE",
+    "DATA_MAPPING",
+    "KNOWN_TIME_AND_AVAILABILITY",
+    "PILOT_PERIOD",
+    "EVALUATION_FREEZE",
+    "SEARCH_SPACE_FREEZE",
+    "SUPPORT_AND_STOP_RULES",
+    "READINESS_MATRIX",
+    "NON_CAPITAL_BOUNDARY",
+    "LIMITATIONS",
+    "NEXT_ALLOWED_ACTIONS"
+  ],
+  "source_assessment_run_id": "TRIAGERUN_E1E8EDCC30AB0BAF2D0A72A3CBEB3291"
+}

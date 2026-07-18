@@ -1,0 +1,4 @@
+#ifndef ALPHALAB_ACL14_PILOT_CONTRACT_MQH
+#define ALPHALAB_ACL14_PILOT_CONTRACT_MQH
+struct ACL14PilotContract{string pilot_contract_id;string context_id;string context_version;bool real_context_evidence_present;bool pilot_execution_allowed;};
+#endif

@@ -1,0 +1,21 @@
+{
+  "conditions": [
+    {
+      "condition_id": "FAIL_INSUFFICIENT_SUPPORT",
+      "rule": "mature_occurrences < 30 at pilot end"
+    },
+    {
+      "condition_id": "FAIL_AVAILABILITY_UNVERIFIED",
+      "rule": "availability semantics not externally verified before start"
+    },
+    {
+      "condition_id": "FAIL_OWNER_APPROVAL_MISSING",
+      "rule": "independent approvals incomplete before start"
+    }
+  ],
+  "failure_contract_digest": "sha256:905e750cd1fa4c988750dac8fd8b6b414e0193246757c449fa0f01d6fe4d1e65",
+  "failure_contract_id": "FAIL_E05BB006EC9C6C9E4C6E91F0",
+  "failure_preservation_required": true,
+  "post_hoc_repair_allowed": false,
+  "schema_version": "1.0.0"
+}
