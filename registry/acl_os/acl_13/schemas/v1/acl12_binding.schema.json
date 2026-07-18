@@ -1,0 +1,67 @@
+{
+  "$id": "https://alpha-lab.local/schemas/acl13/acl12_binding.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acl12_handoff_digest": {
+      "type": "string"
+    },
+    "binding_digest": {
+      "type": "string"
+    },
+    "event_ledger_digest": {
+      "type": "string"
+    },
+    "open_production_risk_count": {
+      "type": "integer"
+    },
+    "production_security_ready": {
+      "type": "boolean"
+    },
+    "provenance_graph_digest": {
+      "type": "string"
+    },
+    "runtime_candidate_count": {
+      "type": "integer"
+    },
+    "runtime_custody_run_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "security_control_matrix_digest": {
+      "type": "string"
+    },
+    "security_evidence_bundle_digest": {
+      "type": "string"
+    },
+    "security_hardening_run_id": {
+      "type": "string"
+    },
+    "security_readiness_decision_digest": {
+      "type": "string"
+    },
+    "security_risk_register_digest": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "acl12_handoff_digest",
+    "binding_digest",
+    "event_ledger_digest",
+    "open_production_risk_count",
+    "production_security_ready",
+    "provenance_graph_digest",
+    "runtime_candidate_count",
+    "runtime_custody_run_id",
+    "schema_version",
+    "security_control_matrix_digest",
+    "security_evidence_bundle_digest",
+    "security_hardening_run_id",
+    "security_readiness_decision_digest",
+    "security_risk_register_digest"
+  ],
+  "title": "Acl12 Binding",
+  "type": "object"
+}

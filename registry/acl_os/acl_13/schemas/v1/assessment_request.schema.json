@@ -1,0 +1,187 @@
+{
+  "$id": "https://alpha-lab.local/schemas/acl13/assessment_request.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assessment_cut_at": {
+      "type": "string"
+    },
+    "assessment_request_digest": {
+      "type": "string"
+    },
+    "assessment_request_id": {
+      "type": "string"
+    },
+    "context_id": {
+      "type": "string"
+    },
+    "context_version": {
+      "type": "string"
+    },
+    "declared_setup_families": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "clauses": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "field": {
+                  "type": "string"
+                },
+                "operator": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "field",
+                "operator",
+                "value"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "family_id": {
+            "type": "string"
+          },
+          "family_name": {
+            "type": "string"
+          },
+          "minimum_support": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "family_id",
+          "family_name",
+          "minimum_support",
+          "clauses"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "doctrine_summary": {
+      "type": "string"
+    },
+    "known_time_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "available_at_field": {
+          "type": "string"
+        },
+        "event_time_field": {
+          "type": "string"
+        },
+        "future_data_allowed": {
+          "type": "boolean"
+        },
+        "label_available_at_field": {
+          "type": "string"
+        },
+        "timezone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "timezone",
+        "event_time_field",
+        "available_at_field",
+        "label_available_at_field",
+        "future_data_allowed"
+      ],
+      "type": "object"
+    },
+    "observations": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "available_at": {
+            "type": "string"
+          },
+          "confirmation": {
+            "type": "boolean"
+          },
+          "context_present": {
+            "type": "boolean"
+          },
+          "direction": {
+            "type": "string"
+          },
+          "event_time": {
+            "type": "string"
+          },
+          "forward_delta": {
+            "type": "number"
+          },
+          "label_available_at": {
+            "type": "string"
+          },
+          "observation_id": {
+            "type": "string"
+          },
+          "optionality_score": {
+            "type": "number"
+          },
+          "state": {
+            "type": "string"
+          },
+          "x_location_score": {
+            "type": "number"
+          },
+          "y_state_score": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "observation_id",
+          "event_time",
+          "available_at",
+          "label_available_at",
+          "context_present",
+          "direction",
+          "state",
+          "confirmation",
+          "x_location_score",
+          "y_state_score",
+          "optionality_score",
+          "forward_delta"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "owner_roles": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "synthetic_reference_data": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "schema_version",
+    "assessment_request_id",
+    "context_id",
+    "context_version",
+    "owner_roles",
+    "doctrine_summary",
+    "assessment_cut_at",
+    "known_time_contract",
+    "synthetic_reference_data",
+    "observations",
+    "declared_setup_families",
+    "assessment_request_digest"
+  ],
+  "title": "Assessment Request",
+  "type": "object"
+}

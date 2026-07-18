@@ -1,0 +1,51 @@
+{
+  "$id": "https://alpha-lab.local/schemas/acl13/input_validation_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assessment_cut_at": {
+      "type": "string"
+    },
+    "assessment_request_id": {
+      "type": "string"
+    },
+    "context_id": {
+      "type": "string"
+    },
+    "context_version": {
+      "type": "string"
+    },
+    "declared_setup_family_count": {
+      "type": "integer"
+    },
+    "input_validation_digest": {
+      "type": "string"
+    },
+    "known_time_safe": {
+      "type": "boolean"
+    },
+    "observation_count": {
+      "type": "integer"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "source_request_digest": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "assessment_cut_at",
+    "assessment_request_id",
+    "context_id",
+    "context_version",
+    "declared_setup_family_count",
+    "input_validation_digest",
+    "known_time_safe",
+    "observation_count",
+    "schema_version",
+    "source_request_digest"
+  ],
+  "title": "Input Validation Report",
+  "type": "object"
+}

@@ -1,0 +1,72 @@
+{
+  "alpha_claim_allowed": false,
+  "assessment_request_id": "ACL13_REFERENCE_TRIAGE_REQUEST_V1",
+  "budget_usage_digest": "sha256:b78837b0e8de6a4bfb6527da16b01bab1080e2ec14d8aee7f67af7b62c07595a",
+  "capital_activation_allowed": false,
+  "claim_ceiling": "RESEARCH_TRIAGE_REFERENCE_ONLY",
+  "context_id": "CTX_SYNTHETIC_ONE_HOUR_TRIAGE",
+  "context_version": "1.0.0",
+  "decision": "BOUNDED_TRIAGE_COMPLETE_PILOT_DESIGN_ELIGIBLE_NON_CAPITAL",
+  "first_real_context_pilot_design_allowed": true,
+  "first_real_context_pilot_execution_allowed": false,
+  "live_order_submission_allowed": false,
+  "report_digest": "sha256:6e53b10e212b9d18b4cff71bdf6c5816a3a598d28a681b40064cbd725d374ff2",
+  "report_id": "ONEHOUR_17E4C9AE717BFBFED911CC05417ECFBC",
+  "reported_at": "2026-07-18T06:00:00Z",
+  "runtime_activation_allowed": false,
+  "schema_version": "1.0.0",
+  "section_count": 12,
+  "sections": [
+    {
+      "artifact_digest": "sha256:79a8ee74e2763aebc238213949751a3e7905a1e97c2edac56f5bfe98622a41ff",
+      "section_id": "IDENTITY_AND_SCOPE"
+    },
+    {
+      "artifact_digest": "sha256:deec859234acd0b584df8ca0d109648a03c4a68a730fcd12568d8c2efa92885a",
+      "section_id": "INPUT_COMPLETENESS"
+    },
+    {
+      "artifact_digest": "sha256:700b201ca6cf220e94be5e4c6cb32a6e35a0dd15b7212a001eb6da015b28dc6d",
+      "section_id": "SECURITY_READINESS"
+    },
+    {
+      "artifact_digest": "sha256:d4de88182d8f0e4acceb8a9e62d02d895286859fc4476151cae20baa0951f470",
+      "section_id": "FAST_DATA_SLICE"
+    },
+    {
+      "artifact_digest": "sha256:ea8b8eca6a67cc5592d1c261e3f4f46bcf80f1fa79c5fa60cd41db4328e462f4",
+      "section_id": "SUPPORT_DIAGNOSTICS"
+    },
+    {
+      "artifact_digest": "sha256:9176e938be9bc49688677b0d54b5a19d88b789a13720dd8aab1bdbf6df6abdfa",
+      "section_id": "CONSTRAINED_BASELINES"
+    },
+    {
+      "artifact_digest": "sha256:3e2506e2d2a62c49b247d421e647e8ede334fb0f3f7779c76e5ced4073f6524e",
+      "section_id": "SETUP_FAMILY_DISCOVERY"
+    },
+    {
+      "artifact_digest": "sha256:7b52b1acc8862af8705c18708062f46107a05c669209e30693c2405845d92e0a",
+      "section_id": "VALUE_DECOMPOSITION"
+    },
+    {
+      "artifact_digest": "sha256:b7161d3eaaffea78f9c0e95cc08b88b8f13b91c3a9bd9844fd5b89ed3336a8a4",
+      "section_id": "UNCERTAINTY"
+    },
+    {
+      "artifact_digest": "sha256:b7161d3eaaffea78f9c0e95cc08b88b8f13b91c3a9bd9844fd5b89ed3336a8a4",
+      "section_id": "FAILURE_SIGNATURES"
+    },
+    {
+      "artifact_digest": "sha256:b7161d3eaaffea78f9c0e95cc08b88b8f13b91c3a9bd9844fd5b89ed3336a8a4",
+      "section_id": "LIMITATIONS"
+    },
+    {
+      "artifact_digest": "sha256:232187672ca54d4922149921895467f10fa9c9b78d47f8c27ecc774f338fc355",
+      "section_id": "NEXT_ALLOWED_ACTIONS"
+    }
+  ],
+  "source_security_hardening_run_id": "SECRUN_C91A61225508CFD51B96BE7AFF855A4E",
+  "source_security_readiness": "REFERENCE_SECURITY_HARDENED_PRODUCTION_NOT_READY",
+  "validation_claim_allowed": false
+}

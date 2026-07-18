@@ -1,0 +1,11 @@
+from __future__ import annotations
+from .canonical import stable_id,with_digest
+def build_report(request:dict,binding:dict,sections:dict,decision:dict,budget:dict,reported_at:str)->tuple[dict,dict]:
+    section_refs=[]
+    for sid,item in sections.items():
+        digest=next((v for k,v in item.items() if k.endswith('_digest')),None)
+        section_refs.append({'section_id':sid,'artifact_digest':digest})
+    report_id=stable_id('ONEHOUR',request['assessment_request_id'],decision['assessment_result_digest'],length=32)
+    report=with_digest({'schema_version':'1.0.0','report_id':report_id,'reported_at':reported_at,'context_id':request['context_id'],'context_version':request['context_version'],'assessment_request_id':request['assessment_request_id'],'source_security_hardening_run_id':binding['security_hardening_run_id'],'source_security_readiness':'REFERENCE_SECURITY_HARDENED_PRODUCTION_NOT_READY','decision':decision['decision'],'claim_ceiling':'RESEARCH_TRIAGE_REFERENCE_ONLY','section_count':len(section_refs),'sections':section_refs,'budget_usage_digest':budget['budget_usage_digest'],'first_real_context_pilot_design_allowed':decision['first_real_context_pilot_design_allowed'],'first_real_context_pilot_execution_allowed':False,'validation_claim_allowed':False,'alpha_claim_allowed':False,'runtime_activation_allowed':False,'live_order_submission_allowed':False,'capital_activation_allowed':False},'report_digest')
+    executive=with_digest({'schema_version':'1.0.0','report_id':report_id,'answer_first':'A bounded descriptive signal is visible in the synthetic reference fixture; only design of a real non-capital pilot is allowed.','decision':decision['decision'],'key_findings':['Input contract is complete and known-time safe.','Minimum triage support is met.','Conditioned descriptive value exceeds the deterministic circular-shift p90 baseline.','The evidence is synthetic and not validation.','Production security, runtime parity and execution economics are not established.'],'next_allowed_action':'AUTHOR_FIRST_REAL_CONTEXT_PILOT_CONTRACT' if decision['first_real_context_pilot_design_allowed'] else 'REPAIR_TRIAGE_INPUT_OR_SUPPORT','forbidden_interpretations':['ALPHA_PROVEN','VALIDATED_STRATEGY','PRODUCTION_SECURITY_READY','RUNTIME_READY','LIVE_ORDER_AUTHORIZED','CAPITAL_AUTHORIZED']},'executive_summary_digest')
+    return report,executive

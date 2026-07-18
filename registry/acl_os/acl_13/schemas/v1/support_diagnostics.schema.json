@@ -1,0 +1,97 @@
+{
+  "$id": "https://alpha-lab.local/schemas/acl13/support_diagnostics.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context_occurrences": {
+      "type": "integer"
+    },
+    "direction_support": {
+      "additionalProperties": false,
+      "properties": {
+        "LONG": {
+          "type": "integer"
+        },
+        "SHORT": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "LONG",
+        "SHORT"
+      ],
+      "type": "object"
+    },
+    "minimum_triage_support": {
+      "type": "integer"
+    },
+    "negative_outcomes": {
+      "type": "integer"
+    },
+    "non_occurrences": {
+      "type": "integer"
+    },
+    "occurrence_rate": {
+      "type": "number"
+    },
+    "positive_outcomes": {
+      "type": "integer"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "state_support": {
+      "additionalProperties": false,
+      "properties": {
+        "A": {
+          "type": "integer"
+        },
+        "B": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "A",
+        "B"
+      ],
+      "type": "object"
+    },
+    "support_diagnostics_digest": {
+      "type": "string"
+    },
+    "support_sufficient_for_triage": {
+      "type": "boolean"
+    },
+    "support_sufficient_for_validation": {
+      "type": "boolean"
+    },
+    "total_observations": {
+      "type": "integer"
+    },
+    "validation_support_claimed": {
+      "type": "boolean"
+    },
+    "zero_outcomes": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "context_occurrences",
+    "direction_support",
+    "minimum_triage_support",
+    "negative_outcomes",
+    "non_occurrences",
+    "occurrence_rate",
+    "positive_outcomes",
+    "schema_version",
+    "state_support",
+    "support_diagnostics_digest",
+    "support_sufficient_for_triage",
+    "support_sufficient_for_validation",
+    "total_observations",
+    "validation_support_claimed",
+    "zero_outcomes"
+  ],
+  "title": "Support Diagnostics",
+  "type": "object"
+}

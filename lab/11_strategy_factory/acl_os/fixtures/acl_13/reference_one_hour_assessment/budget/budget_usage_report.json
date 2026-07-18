@@ -1,0 +1,15 @@
+{
+  "budget_breached": false,
+  "budget_expansion_used": false,
+  "budget_usage_digest": "sha256:b78837b0e8de6a4bfb6527da16b01bab1080e2ec14d8aee7f67af7b62c07595a",
+  "charged_cpu_seconds": 3.07,
+  "gpu_calls": 0,
+  "network_calls": 0,
+  "observations_processed": 48,
+  "peak_memory_mb": 64,
+  "profile_id": "ACL13_ONE_HOUR_BUDGET_V1",
+  "random_trials_executed": 32,
+  "schema_version": "1.0.0",
+  "setup_families_evaluated": 3,
+  "wall_clock_budget_seconds": 3600
+}

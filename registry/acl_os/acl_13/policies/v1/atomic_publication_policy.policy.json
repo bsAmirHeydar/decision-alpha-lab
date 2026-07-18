@@ -1,0 +1,5 @@
+{
+  "non_empty_destination_denied": true,
+  "policy_id": "ACL13_ATOMIC_PUBLICATION_V1",
+  "staging_required": true
+}

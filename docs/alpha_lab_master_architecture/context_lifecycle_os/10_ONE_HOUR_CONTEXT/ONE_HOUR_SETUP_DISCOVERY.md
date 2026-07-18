@@ -1,66 +1,53 @@
 ---
 title: One-Hour Setup Discovery
-status: proposed-reference
-version: 1.0.0
-updated: 2026-07-17
-tags: [acl-os, context-lifecycle]
+status: accepted-reference
+version: 2.0.0
+updated: 2026-07-18
+tags: [acl-os, acl-13, one-hour-assessment]
 ---
 # One-Hour Setup Discovery
 
-Produces a small diverse set of feasible human baseline and AI candidate Setup families.
+## Purpose
+
+Restricts setup-family evaluation to predeclared bounded hypotheses.
 
 ## Responsibility boundary
 
-This component owns a narrow part of bounded rapid Context triage with explicit limitations and escalation. It communicates through versioned contracts and immutable references. It may not infer adjacent authority, reach into private implementation folders, or create an alternative identity, security or evidence system.
+This contract owns bounded research triage only. It does not validate alpha, authorize a real pilot, generate runtime code, submit orders or activate capital.
 
 ## Required inputs
 
-- Exact artifact identities and versions.
-- Declared owner and authority scope.
-- Applicable policy, security classification and compatibility range.
-- Known-time-safe evidence or an explicit UNKNOWN state.
+- exact `ACL12_TO_ACL13` handoff and immutable ACL-12 package;
+- action-bound ACL-13 authority permit;
+- exact Context identity, version and owners;
+- explicit doctrine summary without invented market semantics;
+- known-time-safe observation slice or explicit UNKNOWN;
+- predeclared bounded setup families;
+- frozen one-hour budget profile.
 
-## Produced artifacts
+## Invariants
 
-- Closed-schema machine result with reason codes.
-- Lineage links to all source artifacts and transformations.
-- Human-readable Obsidian projection.
-- Security, test and migration evidence appropriate to the artifact class.
+- ACL-12 production-not-ready status is preserved;
+- zero runtime candidates remains zero;
+- synthetic evidence is visibly classified and cannot become real evidence;
+- deterministic baselines replace unstable randomness;
+- triage evidence never becomes validation or capital authority;
+- generated projections are not sources of truth.
 
-## Non-negotiable invariants
+## Failure behavior
 
-- Unknown fields and unresolved identities fail closed.
-- Generated content is never hand-edited.
-- Passing local tests does not prove alpha, live parity or capital authorization.
-- Every material mutation is authenticated, authorized, attributable and replayable.
-- Breaking semantics require a new version, migration and rollback.
+Integrity mismatch, unknown identity, future-data leakage, budget breach, unregistered family, path escape, destination conflict or authority escalation stops publication.
 
-## Reference workflow
+## Evidence and verification
 
-1. Resolve exact inputs and owners.
-2. Validate schema, compatibility, security classification and authority.
-3. Execute deterministic domain logic in the declared environment.
-4. Validate outputs and append evidence events.
-5. Publish structured artifacts and projections atomically.
-6. Expose only policy-approved next actions.
-
-## Failure semantics
-
-The component stops with explicit reason codes for missing evidence, ambiguous semantics, incompatible versions, integrity mismatch, insufficient support, policy denial, security failure or unavailable dependency. It does not substitute a permissive default.
-
-## Extension and evolution
-
-New behavior enters through a registered extension manifest, bounded capabilities and conformance suite. Additive changes use compatible minor versions. Breaking changes require a major version, impact analysis, idempotent migration, dual-read or shadow period where needed, rollback and deprecation evidence.
-
-## Verification obligations
-
-Unit and property tests cover deterministic logic. Contract tests cover every adapter. Mutation tests prove guards are effective. Security-negative tests attempt bypass. Golden replay proves deterministic projection. Clean-checkout delivery validation proves the package has no hidden build dependency.
+Machine contracts live under `registry/acl_os/acl_13`; reference tests and replay fixtures live under `lab/11_strategy_factory/acl_os`. The phase requires deterministic replay, schema validation, security-negative tests and clean-overlay delivery validation.
 
 ## Claim ceiling
 
-This architecture note specifies required mechanics. Only environment-specific evidence can establish external data quality, statistical edge, broker behavior, MQL5 parity, operational security or production authorization.
+`RESEARCH_TRIAGE_REFERENCE_ONLY`
 
 ## Related
 
-- [[ACL_OS_HOME]]
-- [[IMPLEMENTATION_MASTER_PLAN]]
+- [[ACL_13_ONE_HOUR_ASSESSMENT_PRODUCT]]
+- [[ACL13_ACL14_HANDOFF]]
+- [[ADR_011_ONE_HOUR_ASSESSMENT_IS_TRIAGE]]

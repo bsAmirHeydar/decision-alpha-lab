@@ -1,1 +1,1 @@
-feat(acl-os): implement ACL-12 security hardening
+feat(acl-os): implement ACL-13 one-hour assessment product

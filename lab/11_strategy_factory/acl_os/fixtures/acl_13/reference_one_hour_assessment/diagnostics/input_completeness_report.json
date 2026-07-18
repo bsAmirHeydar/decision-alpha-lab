@@ -1,0 +1,61 @@
+{
+  "check_count": 10,
+  "completeness_ratio": 1.0,
+  "completeness_report_digest": "sha256:deec859234acd0b584df8ca0d109648a03c4a68a730fcd12568d8c2efa92885a",
+  "failed_count": 0,
+  "passed_count": 10,
+  "results": [
+    {
+      "check_id": "EXACT_CONTEXT_IDENTITY",
+      "required": true,
+      "status": "PASS"
+    },
+    {
+      "check_id": "DECLARED_OWNER",
+      "required": true,
+      "status": "PASS"
+    },
+    {
+      "check_id": "DOCTRINE_SUMMARY",
+      "required": true,
+      "status": "PASS"
+    },
+    {
+      "check_id": "KNOWN_TIME_CONTRACT",
+      "required": true,
+      "status": "PASS"
+    },
+    {
+      "check_id": "ASSESSMENT_CUT",
+      "required": true,
+      "status": "PASS"
+    },
+    {
+      "check_id": "OBSERVATIONS_PRESENT",
+      "required": true,
+      "status": "PASS"
+    },
+    {
+      "check_id": "SETUP_FAMILIES_DECLARED",
+      "required": true,
+      "status": "PASS"
+    },
+    {
+      "check_id": "SECURITY_PACKAGE_BOUND",
+      "required": true,
+      "status": "PASS"
+    },
+    {
+      "check_id": "PRODUCTION_SECURITY_DISCLOSED",
+      "required": true,
+      "status": "PASS"
+    },
+    {
+      "check_id": "RUNTIME_CANDIDATE_COUNT_DISCLOSED",
+      "required": true,
+      "status": "PASS"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "triage_input_complete": true
+}

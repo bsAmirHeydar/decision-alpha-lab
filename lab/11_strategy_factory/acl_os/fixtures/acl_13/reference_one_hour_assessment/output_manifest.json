@@ -1,0 +1,169 @@
+{
+  "artifact_count": 32,
+  "assessment_run_id": "TRIAGERUN_E1E8EDCC30AB0BAF2D0A72A3CBEB3291",
+  "files": [
+    {
+      "digest": "sha256:14292ecb715c87125f3c3b92548d6b3979978079d73ef003ce9b3a72e6844689",
+      "path": ".acl13_generated_root",
+      "size_bytes": 36
+    },
+    {
+      "digest": "sha256:0a8c30b5156536a0937413ae7d2367a51b6ed9e2daf4354c99d101f4933b5155",
+      "path": "authority/authority_report.json",
+      "size_bytes": 731
+    },
+    {
+      "digest": "sha256:1cbc7f96d57d0595b0d85c6a7143d4a759f2d829cbfa06e4e0dfb1c960c734c0",
+      "path": "baselines/constrained_random_baseline.json",
+      "size_bytes": 1518
+    },
+    {
+      "digest": "sha256:be6b840cbfb185e2dc176fb741fe0a9253f54f5205874fa61ef67071914fc51d",
+      "path": "binding/acl12_binding.json",
+      "size_bytes": 1129
+    },
+    {
+      "digest": "sha256:d6e410a39477fa0a23ece5f5b07bcc9e019568ae2eeab7b06ae0d367ac399fa5",
+      "path": "budget/budget_usage_report.json",
+      "size_bytes": 467
+    },
+    {
+      "digest": "sha256:70e2658a4041a1781b8071dad3b09b28911dcef6445f430256158062d98a806e",
+      "path": "budget/budget_validation_report.json",
+      "size_bytes": 397
+    },
+    {
+      "digest": "sha256:930a7173a7840d6e6ad7eb433e5703f474344c1c7f815890dc682bdc7f94ee18",
+      "path": "decision/one_hour_assessment_result.json",
+      "size_bytes": 1167
+    },
+    {
+      "digest": "sha256:2b3dee747916a87eccdbfb1271c07cf3d9ee9285eb11e8cac4a3b5144152edfc",
+      "path": "diagnostics/input_completeness_report.json",
+      "size_bytes": 1316
+    },
+    {
+      "digest": "sha256:2e9c87a9579b210667a501205ff8bcfea1bf490fa84cdc84c53ce62f35a268ce",
+      "path": "diagnostics/support_diagnostics.json",
+      "size_bytes": 605
+    },
+    {
+      "digest": "sha256:17751c0e87c32226dbae3ad052b50ff322165dc4129b9ef4a57d5a4793692c09",
+      "path": "discovery/setup_family_catalog.json",
+      "size_bytes": 2398
+    },
+    {
+      "digest": "sha256:4bbdfc2eee16d537c8d6bb513e1a8ee4b11a4871030bf6c1fe88bc8fbf74249a",
+      "path": "docs/ACL13_EXECUTIVE_BRIEF.md",
+      "size_bytes": 577
+    },
+    {
+      "digest": "sha256:efd67632e26a4b0969a9838b2c995e5295592536f612922dc808729c52e3ba81",
+      "path": "docs/ACL13_LIMITATIONS_AND_ESCALATION.md",
+      "size_bytes": 1116
+    },
+    {
+      "digest": "sha256:6c4c4699b505a1440b1fbeb1d276e99164c4724ec02a613bf75489f6c8a51959",
+      "path": "docs/ACL13_ONE_HOUR_ASSESSMENT_SUMMARY.md",
+      "size_bytes": 968
+    },
+    {
+      "digest": "sha256:21fe7b4c5a51fc8ca838b6de157bcf74bcb48b59126a473371a5f71054ce9e34",
+      "path": "docs/ACL13_SETUP_FAMILY_CATALOG.md",
+      "size_bytes": 400
+    },
+    {
+      "digest": "sha256:d86828afd24fb380f625743f798d992d4e9a33cd5efb7e27946db28b31fbce23",
+      "path": "docs/obsidian_projection_manifest.json",
+      "size_bytes": 431
+    },
+    {
+      "digest": "sha256:baef3671c7151e8d41e531d455a2c7234a2f890454513208b9781676b6828633",
+      "path": "events/one_hour_assessment_event_ledger.json",
+      "size_bytes": 6956
+    },
+    {
+      "digest": "sha256:7153c19a43bc3ee392952b34c7218beff034fcb045b889cb7b70d405a55a9c66",
+      "path": "evidence/one_hour_evidence_bundle.json",
+      "size_bytes": 1521
+    },
+    {
+      "digest": "sha256:aecbbe1002b3925402e9b88a092c2e35842b94ac5493cb1f7579f98b694ded52",
+      "path": "handoff/acl14_handoff.json",
+      "size_bytes": 1699
+    },
+    {
+      "digest": "sha256:ba46b95b6187f8ff92dec35c2b677005da6cf18b379aebdd98d1a819d8f06d0a",
+      "path": "input/assessment_request.json",
+      "size_bytes": 21938
+    },
+    {
+      "digest": "sha256:8a3874ec8c0da3a403f23a1b90742d87347c5fce18857a2e0e2ee2d094ae554a",
+      "path": "input/input_validation_report.json",
+      "size_bytes": 518
+    },
+    {
+      "digest": "sha256:911266f38d50225ac9af9962a314bf397eadbc702d7e34f4f909221f866effd5",
+      "path": "lineage/one_hour_assessment_provenance_graph.json",
+      "size_bytes": 2094
+    },
+    {
+      "digest": "sha256:3cc2ca3136cbc9bd1ebc0c8e179ad73482f5e96edbe0ee249aaed0068dfbde48",
+      "path": "policy/one_hour_budget_profile.json",
+      "size_bytes": 530
+    },
+    {
+      "digest": "sha256:8085eff9685cb989f34d6d6305bcb3dfb047b98e9eb79e0c6052855c610803ee",
+      "path": "registry/report_section_registry.json",
+      "size_bytes": 1484
+    },
+    {
+      "digest": "sha256:a5478c8218650f047ab567c525861f0ed9e0d5e0fe8a13123c05a632c5b22cbd",
+      "path": "registry/triage_state_registry.json",
+      "size_bytes": 390
+    },
+    {
+      "digest": "sha256:0dfa6c18f7a1db1c55016308dd3027887882ff964b8d9f83ec37e47591c5234d",
+      "path": "report/executive_summary.json",
+      "size_bytes": 1031
+    },
+    {
+      "digest": "sha256:bfa913aa2344debfc52363ca6de03e02b2110ad2070ce6d1f8d7dc7b96325144",
+      "path": "report/one_hour_assessment_report.json",
+      "size_bytes": 2941
+    },
+    {
+      "digest": "sha256:79bcad442d0a5a33813573375184e1244348dc1edc9d2af7f4b83c0e1b582b98",
+      "path": "reports/integrity_report.json",
+      "size_bytes": 543
+    },
+    {
+      "digest": "sha256:1b1f6bbb68762acd84dfe0a9337293ff8a4ee52d1bd889a7b56c86a0111c5bcd",
+      "path": "run/one_hour_assessment_run.json",
+      "size_bytes": 1083
+    },
+    {
+      "digest": "sha256:b26139682eaf43c45f5835c00d2ceabd0394567f7469ffd5b437c21fb89dc1b7",
+      "path": "security/security_boundary_report.json",
+      "size_bytes": 651
+    },
+    {
+      "digest": "sha256:2da6a3f90ceb4e90eb34d1b9e2cd7d53ed6f925fe375a29a41b48c7247b6aeb6",
+      "path": "slice/fast_data_slice.json",
+      "size_bytes": 20425
+    },
+    {
+      "digest": "sha256:d98cfe486aca4307a3f9e2c671cd6fabac85115f6ce63b9a355f3e18cee724fb",
+      "path": "uncertainty/uncertainty_and_limitations.json",
+      "size_bytes": 2012
+    },
+    {
+      "digest": "sha256:8cca552a6ffe991cb2ba883b6edff6b102787ed78493424cb1d0a31f58bbc1ea",
+      "path": "value/context_value_decomposition.json",
+      "size_bytes": 1186
+    }
+  ],
+  "manifest_digest": "sha256:25b33c4170c4f446b93086bf9f45065e9c910ce03a87f13302473893ca939ff0",
+  "schema_version": "1.0.0",
+  "self_reference_policy": "MANIFEST_AND_RECEIPT_EXCLUDED_AND_MUTUALLY_BOUND"
+}

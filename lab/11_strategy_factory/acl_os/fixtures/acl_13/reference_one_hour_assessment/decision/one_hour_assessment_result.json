@@ -1,0 +1,30 @@
+{
+  "alpha_claim_allowed": false,
+  "assessment_result_digest": "sha256:232187672ca54d4922149921895467f10fa9c9b78d47f8c27ecc774f338fc355",
+  "assessment_result_id": "TRIAGEDEC_640119F1DEB5F2B7C678BE313867",
+  "capital_activation_allowed": false,
+  "claim_ceiling": "RESEARCH_TRIAGE_REFERENCE_ONLY",
+  "context_id": "CTX_SYNTHETIC_ONE_HOUR_TRIAGE",
+  "context_version": "1.0.0",
+  "decided_at": "2026-07-18T06:00:00Z",
+  "decision": "BOUNDED_TRIAGE_COMPLETE_PILOT_DESIGN_ELIGIBLE_NON_CAPITAL",
+  "descriptive_value_signal_observed": true,
+  "first_real_context_pilot_design_allowed": true,
+  "first_real_context_pilot_execution_allowed": false,
+  "input_complete": true,
+  "live_order_submission_allowed": false,
+  "production_security_ready": false,
+  "reason_codes": [
+    "TRIAGE_INPUT_COMPLETE",
+    "MINIMUM_TRIAGE_SUPPORT_MET",
+    "DESCRIPTIVE_VALUE_SIGNAL_OBSERVED",
+    "SYNTHETIC_REFERENCE_LIMITATION",
+    "VALIDATION_NOT_PERFORMED",
+    "PRODUCTION_SECURITY_NOT_READY"
+  ],
+  "runtime_activation_allowed": false,
+  "runtime_generation_allowed": false,
+  "schema_version": "1.0.0",
+  "triage_support_sufficient": true,
+  "validation_claim_allowed": false
+}

@@ -1,0 +1,89 @@
+{
+  "$id": "https://alpha-lab.local/schemas/acl13/constrained_random_baseline.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "always_participate_mean": {
+      "type": "number"
+    },
+    "baseline_report_digest": {
+      "type": "string"
+    },
+    "conditioned_exceeds_random_p90": {
+      "type": "boolean"
+    },
+    "conditioned_mean": {
+      "type": "number"
+    },
+    "conditioned_minus_random_mean": {
+      "type": "number"
+    },
+    "descriptive_only": {
+      "type": "boolean"
+    },
+    "excluded_identity_equivalent_shift_count": {
+      "type": "integer"
+    },
+    "excluded_identity_equivalent_shifts": {
+      "items": {
+        "type": "integer"
+      },
+      "type": "array"
+    },
+    "method": {
+      "type": "string"
+    },
+    "never_participate_mean": {
+      "type": "number"
+    },
+    "random_max": {
+      "type": "number"
+    },
+    "random_mean": {
+      "type": "number"
+    },
+    "random_p90": {
+      "type": "number"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "statistical_validation_claimed": {
+      "type": "boolean"
+    },
+    "support_per_trial": {
+      "type": "integer"
+    },
+    "trial_count": {
+      "type": "integer"
+    },
+    "trial_means": {
+      "items": {
+        "type": "number"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "always_participate_mean",
+    "baseline_report_digest",
+    "conditioned_exceeds_random_p90",
+    "conditioned_mean",
+    "conditioned_minus_random_mean",
+    "descriptive_only",
+    "excluded_identity_equivalent_shift_count",
+    "excluded_identity_equivalent_shifts",
+    "method",
+    "never_participate_mean",
+    "random_max",
+    "random_mean",
+    "random_p90",
+    "schema_version",
+    "statistical_validation_claimed",
+    "support_per_trial",
+    "trial_count",
+    "trial_means"
+  ],
+  "title": "Constrained Random Baseline",
+  "type": "object"
+}

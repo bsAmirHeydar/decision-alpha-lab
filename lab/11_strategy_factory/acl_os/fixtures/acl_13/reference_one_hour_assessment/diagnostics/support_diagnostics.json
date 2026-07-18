@@ -1,0 +1,23 @@
+{
+  "context_occurrences": 16,
+  "direction_support": {
+    "LONG": 12,
+    "SHORT": 4
+  },
+  "minimum_triage_support": 12,
+  "negative_outcomes": 4,
+  "non_occurrences": 32,
+  "occurrence_rate": 0.3333333333333333,
+  "positive_outcomes": 12,
+  "schema_version": "1.0.0",
+  "state_support": {
+    "A": 8,
+    "B": 8
+  },
+  "support_diagnostics_digest": "sha256:ea8b8eca6a67cc5592d1c261e3f4f46bcf80f1fa79c5fa60cd41db4328e462f4",
+  "support_sufficient_for_triage": true,
+  "support_sufficient_for_validation": false,
+  "total_observations": 48,
+  "validation_support_claimed": false,
+  "zero_outcomes": 0
+}

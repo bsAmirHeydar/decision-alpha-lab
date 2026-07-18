@@ -1,0 +1,63 @@
+{
+  "$id": "https://alpha-lab.local/schemas/acl13/integrity_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acl12_package_verified": {
+      "type": "boolean"
+    },
+    "budget_breached": {
+      "type": "boolean"
+    },
+    "capital_authority_created": {
+      "type": "boolean"
+    },
+    "integrity_report_digest": {
+      "type": "string"
+    },
+    "live_order_authority_created": {
+      "type": "boolean"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "pilot_execution_authority_created": {
+      "type": "boolean"
+    },
+    "production_security_reinterpreted": {
+      "type": "boolean"
+    },
+    "request_known_time_safe": {
+      "type": "boolean"
+    },
+    "runtime_candidate_invented": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "synthetic_reference_disclosed": {
+      "type": "boolean"
+    },
+    "validation_evidence_invented": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "acl12_package_verified",
+    "budget_breached",
+    "capital_authority_created",
+    "integrity_report_digest",
+    "live_order_authority_created",
+    "passed",
+    "pilot_execution_authority_created",
+    "production_security_reinterpreted",
+    "request_known_time_safe",
+    "runtime_candidate_invented",
+    "schema_version",
+    "synthetic_reference_disclosed",
+    "validation_evidence_invented"
+  ],
+  "title": "Integrity Report",
+  "type": "object"
+}

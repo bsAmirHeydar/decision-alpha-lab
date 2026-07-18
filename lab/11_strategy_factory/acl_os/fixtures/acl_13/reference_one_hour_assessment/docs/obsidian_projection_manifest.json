@@ -1,0 +1,11 @@
+{
+  "documents": [
+    "docs/ACL13_ONE_HOUR_ASSESSMENT_SUMMARY.md",
+    "docs/ACL13_EXECUTIVE_BRIEF.md",
+    "docs/ACL13_SETUP_FAMILY_CATALOG.md",
+    "docs/ACL13_LIMITATIONS_AND_ESCALATION.md"
+  ],
+  "handoff_digest": "sha256:ef5f1f566e4b67d375abdd22626e7b090c6a0fdf890d20647884876bc89b84e7",
+  "projection_manifest_digest": "sha256:4cd662675571cee46a89409c44667d4e05935b909f54a7b3d2f3ca984b0e1b7b",
+  "schema_version": "1.0.0"
+}

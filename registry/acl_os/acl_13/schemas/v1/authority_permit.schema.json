@@ -1,0 +1,83 @@
+{
+  "$id": "https://alpha-lab.local/schemas/acl13/authority_permit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acl12_handoff_digest": {
+      "type": "string"
+    },
+    "action": {
+      "type": "string"
+    },
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "expires_at": {
+      "type": "string"
+    },
+    "issued_at": {
+      "type": "string"
+    },
+    "issued_by": {
+      "type": "string"
+    },
+    "live_order_submission_allowed": {
+      "type": "boolean"
+    },
+    "network_access_allowed": {
+      "type": "boolean"
+    },
+    "permit_digest": {
+      "type": "string"
+    },
+    "permit_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "pilot_execution_allowed": {
+      "type": "boolean"
+    },
+    "production_key_access_allowed": {
+      "type": "boolean"
+    },
+    "runtime_activation_allowed": {
+      "type": "boolean"
+    },
+    "runtime_generation_allowed": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "secret_access_allowed": {
+      "type": "boolean"
+    },
+    "security_hardening_run_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "permit_id",
+    "phase",
+    "action",
+    "security_hardening_run_id",
+    "acl12_handoff_digest",
+    "issued_by",
+    "issued_at",
+    "expires_at",
+    "network_access_allowed",
+    "secret_access_allowed",
+    "production_key_access_allowed",
+    "runtime_generation_allowed",
+    "runtime_activation_allowed",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "pilot_execution_allowed",
+    "permit_digest"
+  ],
+  "title": "Authority Permit",
+  "type": "object"
+}

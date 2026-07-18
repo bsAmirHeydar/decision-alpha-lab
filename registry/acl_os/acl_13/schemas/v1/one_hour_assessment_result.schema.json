@@ -1,0 +1,98 @@
+{
+  "$id": "https://alpha-lab.local/schemas/acl13/one_hour_assessment_result.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alpha_claim_allowed": {
+      "type": "boolean"
+    },
+    "assessment_result_digest": {
+      "type": "string"
+    },
+    "assessment_result_id": {
+      "type": "string"
+    },
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "context_id": {
+      "type": "string"
+    },
+    "context_version": {
+      "type": "string"
+    },
+    "decided_at": {
+      "type": "string"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "descriptive_value_signal_observed": {
+      "type": "boolean"
+    },
+    "first_real_context_pilot_design_allowed": {
+      "type": "boolean"
+    },
+    "first_real_context_pilot_execution_allowed": {
+      "type": "boolean"
+    },
+    "input_complete": {
+      "type": "boolean"
+    },
+    "live_order_submission_allowed": {
+      "type": "boolean"
+    },
+    "production_security_ready": {
+      "type": "boolean"
+    },
+    "reason_codes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "runtime_activation_allowed": {
+      "type": "boolean"
+    },
+    "runtime_generation_allowed": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "triage_support_sufficient": {
+      "type": "boolean"
+    },
+    "validation_claim_allowed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "alpha_claim_allowed",
+    "assessment_result_digest",
+    "assessment_result_id",
+    "capital_activation_allowed",
+    "claim_ceiling",
+    "context_id",
+    "context_version",
+    "decided_at",
+    "decision",
+    "descriptive_value_signal_observed",
+    "first_real_context_pilot_design_allowed",
+    "first_real_context_pilot_execution_allowed",
+    "input_complete",
+    "live_order_submission_allowed",
+    "production_security_ready",
+    "reason_codes",
+    "runtime_activation_allowed",
+    "runtime_generation_allowed",
+    "schema_version",
+    "triage_support_sufficient",
+    "validation_claim_allowed"
+  ],
+  "title": "One Hour Assessment Result",
+  "type": "object"
+}

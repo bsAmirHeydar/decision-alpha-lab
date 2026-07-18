@@ -1,0 +1,63 @@
+{
+  "alpha_claim_allowed": false,
+  "gap_count": 7,
+  "gaps": [
+    {
+      "blocks_validation": true,
+      "gap_id": "REAL_CONTEXT_DATA",
+      "next_action": "REPLACE_SYNTHETIC_FIXTURE_WITH_APPROVED_REAL_CONTEXT_INPUT",
+      "status": "MISSING"
+    },
+    {
+      "blocks_validation": true,
+      "gap_id": "PROSPECTIVE_EVIDENCE",
+      "next_action": "RUN_PRECOMMITTED_PROSPECTIVE_PILOT",
+      "status": "MISSING"
+    },
+    {
+      "blocks_validation": true,
+      "gap_id": "INDEPENDENT_REPLICATION",
+      "next_action": "REPLICATE_ON_INDEPENDENT_PERIOD_OR_LAB",
+      "status": "MISSING"
+    },
+    {
+      "blocks_validation": true,
+      "gap_id": "EXECUTION_ECONOMICS",
+      "next_action": "COLLECT_BROKER_AND_FILL_EVIDENCE",
+      "status": "MISSING"
+    },
+    {
+      "blocks_validation": false,
+      "gap_id": "PRODUCTION_SECURITY",
+      "next_action": "CLOSE_ACL12_PRODUCTION_SECURITY_BLOCKERS",
+      "status": "UNKNOWN"
+    },
+    {
+      "blocks_validation": true,
+      "gap_id": "RUNTIME_PARITY",
+      "next_action": "PRODUCE_METAEDITOR_AND_STRATEGY_TESTER_PARITY_EVIDENCE",
+      "status": "MISSING"
+    },
+    {
+      "blocks_validation": true,
+      "gap_id": "SAMPLE_SUPPORT",
+      "next_action": "INCREASE_MATURE_OCCURRENCE_SUPPORT",
+      "status": "LIMITED"
+    }
+  ],
+  "limitations": [
+    "Reference observations are synthetic.",
+    "Circular-shift baselines are descriptive, not inferential validation.",
+    "Declared setup families are bounded examples, not discovered alpha.",
+    "No prospective, independent, execution-economics or runtime-parity evidence exists.",
+    "ACL-12 explicitly reports production security not ready."
+  ],
+  "missing_count": 5,
+  "production_security_ready": false,
+  "random_baseline_descriptive_only": true,
+  "schema_version": "1.0.0",
+  "triage_support_limited": true,
+  "uncertainty_report_digest": "sha256:b7161d3eaaffea78f9c0e95cc08b88b8f13b91c3a9bd9844fd5b89ed3336a8a4",
+  "unknown_count": 1,
+  "validation_claim_allowed": false
+}

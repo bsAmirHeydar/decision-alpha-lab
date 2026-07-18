@@ -1,0 +1,67 @@
+{
+  "$id": "https://alpha-lab.local/schemas/acl13/security_boundary_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acl12_package_verified": {
+      "type": "boolean"
+    },
+    "assessment_result_digest": {
+      "type": "string"
+    },
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "live_order_submission_allowed": {
+      "type": "boolean"
+    },
+    "network_access_allowed": {
+      "type": "boolean"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "pilot_execution_allowed": {
+      "type": "boolean"
+    },
+    "production_key_material_accessed": {
+      "type": "boolean"
+    },
+    "production_security_reinterpreted": {
+      "type": "boolean"
+    },
+    "runtime_activation_allowed": {
+      "type": "boolean"
+    },
+    "runtime_candidate_count": {
+      "type": "integer"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "security_report_digest": {
+      "type": "string"
+    },
+    "source_production_security_ready": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "acl12_package_verified",
+    "assessment_result_digest",
+    "capital_activation_allowed",
+    "live_order_submission_allowed",
+    "network_access_allowed",
+    "passed",
+    "pilot_execution_allowed",
+    "production_key_material_accessed",
+    "production_security_reinterpreted",
+    "runtime_activation_allowed",
+    "runtime_candidate_count",
+    "schema_version",
+    "security_report_digest",
+    "source_production_security_ready"
+  ],
+  "title": "Security Boundary Report",
+  "type": "object"
+}

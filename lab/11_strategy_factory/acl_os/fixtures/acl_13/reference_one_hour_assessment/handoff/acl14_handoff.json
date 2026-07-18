@@ -1,0 +1,34 @@
+{
+  "alpha_claim_allowed": false,
+  "assessment_result": "BOUNDED_TRIAGE_COMPLETE_PILOT_DESIGN_ELIGIBLE_NON_CAPITAL",
+  "assessment_result_digest": "sha256:232187672ca54d4922149921895467f10fa9c9b78d47f8c27ecc774f338fc355",
+  "assessment_run_id": "TRIAGERUN_E1E8EDCC30AB0BAF2D0A72A3CBEB3291",
+  "budget_usage_digest": "sha256:b78837b0e8de6a4bfb6527da16b01bab1080e2ec14d8aee7f67af7b62c07595a",
+  "capital_activation_allowed": false,
+  "event_ledger_digest": "sha256:ea93648f694e0de614ac9b6e1c7f7346d14917b83dac93649b96941cbec3a96d",
+  "evidence_bundle_digest": "sha256:382c7f113c9c7e9cecd2fee5eea2f9c31236d9448cebf1d0567e0af0972a7588",
+  "first_real_context_pilot_design_allowed": true,
+  "first_real_context_pilot_execution_allowed": false,
+  "forbidden_acl14_actions": [
+    "TREAT_TRIAGE_AS_VALIDATION",
+    "INVENT_PROSPECTIVE_EVIDENCE",
+    "REUSE_SYNTHETIC_DATA_AS_REAL_CONTEXT",
+    "AUTHORIZE_RUNTIME_OR_LIVE_ORDER",
+    "ACTIVATE_CAPITAL"
+  ],
+  "handoff_digest": "sha256:ef5f1f566e4b67d375abdd22626e7b090c6a0fdf890d20647884876bc89b84e7",
+  "handoff_type": "ACL13_TO_ACL14",
+  "live_order_submission_allowed": false,
+  "production_security_ready": false,
+  "provenance_graph_digest": "sha256:5f8916def9a31d979aed4917faa6a05f4171a9143c3a9e7d7aef757b8ed70063",
+  "report_digest": "sha256:6e53b10e212b9d18b4cff71bdf6c5816a3a598d28a681b40064cbd725d374ff2",
+  "report_id": "ONEHOUR_17E4C9AE717BFBFED911CC05417ECFBC",
+  "required_acl14_actions": [
+    "VERIFY_ONE_HOUR_ASSESSMENT_PACKAGE",
+    "AUTHOR_FIRST_REAL_CONTEXT_PILOT_CONTRACT",
+    "ISSUE_NON_CAPITAL_PILOT_READINESS_DECISION"
+  ],
+  "runtime_activation_allowed": false,
+  "schema_version": "1.0.0",
+  "validation_claim_allowed": false
+}

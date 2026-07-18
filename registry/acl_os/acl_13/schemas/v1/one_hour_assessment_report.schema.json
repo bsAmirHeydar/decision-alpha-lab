@@ -1,0 +1,111 @@
+{
+  "$id": "https://alpha-lab.local/schemas/acl13/one_hour_assessment_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alpha_claim_allowed": {
+      "type": "boolean"
+    },
+    "assessment_request_id": {
+      "type": "string"
+    },
+    "budget_usage_digest": {
+      "type": "string"
+    },
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "context_id": {
+      "type": "string"
+    },
+    "context_version": {
+      "type": "string"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "first_real_context_pilot_design_allowed": {
+      "type": "boolean"
+    },
+    "first_real_context_pilot_execution_allowed": {
+      "type": "boolean"
+    },
+    "live_order_submission_allowed": {
+      "type": "boolean"
+    },
+    "report_digest": {
+      "type": "string"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "reported_at": {
+      "type": "string"
+    },
+    "runtime_activation_allowed": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "section_count": {
+      "type": "integer"
+    },
+    "sections": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact_digest": {
+            "type": "string"
+          },
+          "section_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "artifact_digest",
+          "section_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "source_security_hardening_run_id": {
+      "type": "string"
+    },
+    "source_security_readiness": {
+      "type": "string"
+    },
+    "validation_claim_allowed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "alpha_claim_allowed",
+    "assessment_request_id",
+    "budget_usage_digest",
+    "capital_activation_allowed",
+    "claim_ceiling",
+    "context_id",
+    "context_version",
+    "decision",
+    "first_real_context_pilot_design_allowed",
+    "first_real_context_pilot_execution_allowed",
+    "live_order_submission_allowed",
+    "report_digest",
+    "report_id",
+    "reported_at",
+    "runtime_activation_allowed",
+    "schema_version",
+    "section_count",
+    "sections",
+    "source_security_hardening_run_id",
+    "source_security_readiness",
+    "validation_claim_allowed"
+  ],
+  "title": "One Hour Assessment Report",
+  "type": "object"
+}

@@ -1,0 +1,69 @@
+{
+  "closed": true,
+  "registry_digest": "sha256:281758fbc32a3278b2a3380d4221a14939c3c838ef8670d4f3e41178d13b3f99",
+  "registry_id": "ACL13_REPORT_SECTION_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "section_count": 12,
+  "sections": [
+    {
+      "required": true,
+      "section_id": "IDENTITY_AND_SCOPE",
+      "version": "1.0.0"
+    },
+    {
+      "required": true,
+      "section_id": "INPUT_COMPLETENESS",
+      "version": "1.0.0"
+    },
+    {
+      "required": true,
+      "section_id": "SECURITY_READINESS",
+      "version": "1.0.0"
+    },
+    {
+      "required": true,
+      "section_id": "FAST_DATA_SLICE",
+      "version": "1.0.0"
+    },
+    {
+      "required": true,
+      "section_id": "SUPPORT_DIAGNOSTICS",
+      "version": "1.0.0"
+    },
+    {
+      "required": true,
+      "section_id": "CONSTRAINED_BASELINES",
+      "version": "1.0.0"
+    },
+    {
+      "required": true,
+      "section_id": "SETUP_FAMILY_DISCOVERY",
+      "version": "1.0.0"
+    },
+    {
+      "required": true,
+      "section_id": "VALUE_DECOMPOSITION",
+      "version": "1.0.0"
+    },
+    {
+      "required": true,
+      "section_id": "UNCERTAINTY",
+      "version": "1.0.0"
+    },
+    {
+      "required": true,
+      "section_id": "FAILURE_SIGNATURES",
+      "version": "1.0.0"
+    },
+    {
+      "required": true,
+      "section_id": "LIMITATIONS",
+      "version": "1.0.0"
+    },
+    {
+      "required": true,
+      "section_id": "NEXT_ALLOWED_ACTIONS",
+      "version": "1.0.0"
+    }
+  ]
+}

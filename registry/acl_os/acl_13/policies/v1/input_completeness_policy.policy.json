@@ -1,0 +1,13 @@
+{
+  "policy_id": "ACL13_INPUT_COMPLETENESS_V1",
+  "required_checks": [
+    "IDENTITY",
+    "OWNER",
+    "DOCTRINE",
+    "KNOWN_TIME",
+    "CUT",
+    "OBSERVATIONS",
+    "SETUP_FAMILIES",
+    "SECURITY_BINDING"
+  ]
+}

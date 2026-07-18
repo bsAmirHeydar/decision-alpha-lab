@@ -1,0 +1,51 @@
+{
+  "$id": "https://alpha-lab.local/schemas/acl13/budget_validation_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "budget_validation_digest": {
+      "type": "string"
+    },
+    "max_observations": {
+      "type": "integer"
+    },
+    "max_random_trials": {
+      "type": "integer"
+    },
+    "max_setup_families": {
+      "type": "integer"
+    },
+    "profile_id": {
+      "type": "string"
+    },
+    "request_observation_count": {
+      "type": "integer"
+    },
+    "request_setup_family_count": {
+      "type": "integer"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "wall_clock_budget_seconds": {
+      "type": "integer"
+    },
+    "within_budget": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "budget_validation_digest",
+    "max_observations",
+    "max_random_trials",
+    "max_setup_families",
+    "profile_id",
+    "request_observation_count",
+    "request_setup_family_count",
+    "schema_version",
+    "wall_clock_budget_seconds",
+    "within_budget"
+  ],
+  "title": "Budget Validation Report",
+  "type": "object"
+}

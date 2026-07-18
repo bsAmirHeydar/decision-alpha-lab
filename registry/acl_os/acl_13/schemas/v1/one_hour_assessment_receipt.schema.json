@@ -1,0 +1,51 @@
+{
+  "$id": "https://alpha-lab.local/schemas/acl13/one_hour_assessment_receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acl14_handoff_digest": {
+      "type": "string"
+    },
+    "artifact_count": {
+      "type": "integer"
+    },
+    "assessment_result_digest": {
+      "type": "string"
+    },
+    "assessment_run_digest": {
+      "type": "string"
+    },
+    "assessment_run_id": {
+      "type": "string"
+    },
+    "output_manifest_digest": {
+      "type": "string"
+    },
+    "receipt_digest": {
+      "type": "string"
+    },
+    "reference_only": {
+      "type": "boolean"
+    },
+    "report_digest": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "acl14_handoff_digest",
+    "artifact_count",
+    "assessment_result_digest",
+    "assessment_run_digest",
+    "assessment_run_id",
+    "output_manifest_digest",
+    "receipt_digest",
+    "reference_only",
+    "report_digest",
+    "schema_version"
+  ],
+  "title": "One Hour Assessment Receipt",
+  "type": "object"
+}

@@ -1,0 +1,34 @@
+{
+  "$id": "https://alpha-lab.local/schemas/acl13/triage_state_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "closed": {
+      "type": "boolean"
+    },
+    "registry_digest": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "states": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "closed",
+    "registry_digest",
+    "registry_id",
+    "schema_version",
+    "states"
+  ],
+  "title": "Triage State Registry",
+  "type": "object"
+}

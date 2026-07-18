@@ -1,0 +1,62 @@
+{
+  "$id": "https://alpha-lab.local/schemas/acl13/one_hour_evidence_bundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "evidence_bundle_digest": {
+      "type": "string"
+    },
+    "evidence_bundle_id": {
+      "type": "string"
+    },
+    "evidence_count": {
+      "type": "integer"
+    },
+    "evidence_refs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "execution_economics_present": {
+      "type": "boolean"
+    },
+    "independent_replication_present": {
+      "type": "boolean"
+    },
+    "production_attestation_present": {
+      "type": "boolean"
+    },
+    "prospective_evidence_present": {
+      "type": "boolean"
+    },
+    "reference_only": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "source_security_readiness_decision": {
+      "type": "string"
+    },
+    "synthetic_reference_data": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "evidence_bundle_digest",
+    "evidence_bundle_id",
+    "evidence_count",
+    "evidence_refs",
+    "execution_economics_present",
+    "independent_replication_present",
+    "production_attestation_present",
+    "prospective_evidence_present",
+    "reference_only",
+    "schema_version",
+    "source_security_readiness_decision",
+    "synthetic_reference_data"
+  ],
+  "title": "One Hour Evidence Bundle",
+  "type": "object"
+}

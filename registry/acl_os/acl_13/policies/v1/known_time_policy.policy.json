@@ -1,0 +1,7 @@
+{
+  "available_before_cut": true,
+  "event_before_available": true,
+  "future_data_allowed": false,
+  "label_before_cut": true,
+  "policy_id": "ACL13_KNOWN_TIME_V1"
+}

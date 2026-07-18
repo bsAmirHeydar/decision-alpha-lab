@@ -1,0 +1,100 @@
+{
+  "$id": "https://alpha-lab.local/schemas/acl13/one_hour_assessment_event_ledger.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assessment_run_id": {
+      "type": "string"
+    },
+    "event_count": {
+      "type": "integer"
+    },
+    "events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "capital_authority": {
+            "type": "boolean"
+          },
+          "event_digest": {
+            "type": "string"
+          },
+          "event_id": {
+            "type": "string"
+          },
+          "event_type": {
+            "type": "string"
+          },
+          "live_order_authority": {
+            "type": "boolean"
+          },
+          "occurred_at": {
+            "type": "string"
+          },
+          "payload": {
+            "additionalProperties": false,
+            "properties": {
+              "binding_digest": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "binding_digest"
+            ],
+            "type": "object"
+          },
+          "pilot_execution_authority": {
+            "type": "boolean"
+          },
+          "previous_event_digest": {
+            "type": "string"
+          },
+          "runtime_activation_authority": {
+            "type": "boolean"
+          },
+          "schema_version": {
+            "type": "string"
+          },
+          "sequence": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "capital_authority",
+          "event_digest",
+          "event_id",
+          "event_type",
+          "live_order_authority",
+          "occurred_at",
+          "payload",
+          "pilot_execution_authority",
+          "previous_event_digest",
+          "runtime_activation_authority",
+          "schema_version",
+          "sequence"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "ledger_digest": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "terminal_event_digest": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "assessment_run_id",
+    "event_count",
+    "events",
+    "ledger_digest",
+    "schema_version",
+    "terminal_event_digest"
+  ],
+  "title": "One Hour Assessment Event Ledger",
+  "type": "object"
+}

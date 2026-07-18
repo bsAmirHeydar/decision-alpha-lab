@@ -1,0 +1,12 @@
+{
+  "closed": true,
+  "registry_digest": "sha256:0ed7cd4160617a2d315e76f0209bbada0502b595237d96f8bee87bd86d0681e8",
+  "registry_id": "ACL13_TRIAGE_STATE_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "states": [
+    "INPUT_REJECTED",
+    "BOUNDED_TRIAGE_COMPLETE_PILOT_DESIGN_ELIGIBLE_NON_CAPITAL",
+    "BOUNDED_TRIAGE_COMPLETE_ESCALATION_REQUIRED",
+    "INSUFFICIENT_INPUT_FOR_TRIAGE"
+  ]
+}

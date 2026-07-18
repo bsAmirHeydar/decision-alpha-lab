@@ -1,0 +1,11 @@
+{
+  "checks": [
+    "KNOWN_TIME",
+    "SYNTHETIC_DISCLOSURE",
+    "CLAIM_ESCALATION",
+    "AUTHORITY_ESCALATION",
+    "UNSTABLE_RANDOMNESS",
+    "PATH_ESCAPE"
+  ],
+  "policy_id": "ACL13_HOSTILE_REVIEW_V1"
+}

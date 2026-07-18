@@ -1,0 +1,20 @@
+{
+  "acl12_handoff_digest": "sha256:700b201ca6cf220e94be5e4c6cb32a6e35a0dd15b7212a001eb6da015b28dc6d",
+  "action": "ACL13_BUILD_ONE_HOUR_ASSESSMENT",
+  "capital_activation_allowed": false,
+  "expires_at": "2026-07-18T07:05:00Z",
+  "issued_at": "2026-07-18T05:55:00Z",
+  "issued_by": "ACL_OS_REFERENCE_AUTHORITY",
+  "live_order_submission_allowed": false,
+  "network_access_allowed": false,
+  "permit_digest": "sha256:aa78f97f94773b26fae44c802ef9f2232797ca933eacb4a9a39e84c537bc92d7",
+  "permit_id": "ACL13_REFERENCE_ASSESSMENT_PERMIT_V1",
+  "phase": "ACL-13",
+  "pilot_execution_allowed": false,
+  "production_key_access_allowed": false,
+  "runtime_activation_allowed": false,
+  "runtime_generation_allowed": false,
+  "schema_version": "1.0.0",
+  "secret_access_allowed": false,
+  "security_hardening_run_id": "SECRUN_C91A61225508CFD51B96BE7AFF855A4E"
+}

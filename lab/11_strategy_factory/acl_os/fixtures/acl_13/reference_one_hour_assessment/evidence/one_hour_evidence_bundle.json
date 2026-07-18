@@ -1,0 +1,27 @@
+{
+  "evidence_bundle_digest": "sha256:382c7f113c9c7e9cecd2fee5eea2f9c31236d9448cebf1d0567e0af0972a7588",
+  "evidence_bundle_id": "TRIAGEEVID_1AD7D7B5D8DF652995D8758CA0BB",
+  "evidence_count": 12,
+  "evidence_refs": [
+    "sha256:3e2506e2d2a62c49b247d421e647e8ede334fb0f3f7779c76e5ced4073f6524e",
+    "sha256:79a8ee74e2763aebc238213949751a3e7905a1e97c2edac56f5bfe98622a41ff",
+    "sha256:7b52b1acc8862af8705c18708062f46107a05c669209e30693c2405845d92e0a",
+    "sha256:9176e938be9bc49688677b0d54b5a19d88b789a13720dd8aab1bdbf6df6abdfa",
+    "sha256:94671682b0cd88779faa12ed0146feda0ffa486568a6e140e977c1637f1c2c8a",
+    "sha256:a5cf0553c89eb951a0a2acdd01dd819f3a96518c8959506208079f1f02e74326",
+    "sha256:aba343ce386dda29ca165a3b398a77ca93714c6f305752f0ba1ff291c0f6c336",
+    "sha256:b7161d3eaaffea78f9c0e95cc08b88b8f13b91c3a9bd9844fd5b89ed3336a8a4",
+    "sha256:b78837b0e8de6a4bfb6527da16b01bab1080e2ec14d8aee7f67af7b62c07595a",
+    "sha256:d4de88182d8f0e4acceb8a9e62d02d895286859fc4476151cae20baa0951f470",
+    "sha256:deec859234acd0b584df8ca0d109648a03c4a68a730fcd12568d8c2efa92885a",
+    "sha256:ea8b8eca6a67cc5592d1c261e3f4f46bcf80f1fa79c5fa60cd41db4328e462f4"
+  ],
+  "execution_economics_present": false,
+  "independent_replication_present": false,
+  "production_attestation_present": false,
+  "prospective_evidence_present": false,
+  "reference_only": true,
+  "schema_version": "1.0.0",
+  "source_security_readiness_decision": "REFERENCE_SECURITY_HARDENED_PRODUCTION_NOT_READY",
+  "synthetic_reference_data": true
+}

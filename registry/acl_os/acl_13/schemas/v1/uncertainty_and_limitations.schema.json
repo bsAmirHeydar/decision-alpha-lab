@@ -1,0 +1,86 @@
+{
+  "$id": "https://alpha-lab.local/schemas/acl13/uncertainty_and_limitations.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alpha_claim_allowed": {
+      "type": "boolean"
+    },
+    "gap_count": {
+      "type": "integer"
+    },
+    "gaps": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "blocks_validation": {
+            "type": "boolean"
+          },
+          "gap_id": {
+            "type": "string"
+          },
+          "next_action": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "blocks_validation",
+          "gap_id",
+          "next_action",
+          "status"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "missing_count": {
+      "type": "integer"
+    },
+    "production_security_ready": {
+      "type": "boolean"
+    },
+    "random_baseline_descriptive_only": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "triage_support_limited": {
+      "type": "boolean"
+    },
+    "uncertainty_report_digest": {
+      "type": "string"
+    },
+    "unknown_count": {
+      "type": "integer"
+    },
+    "validation_claim_allowed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "alpha_claim_allowed",
+    "gap_count",
+    "gaps",
+    "limitations",
+    "missing_count",
+    "production_security_ready",
+    "random_baseline_descriptive_only",
+    "schema_version",
+    "triage_support_limited",
+    "uncertainty_report_digest",
+    "unknown_count",
+    "validation_claim_allowed"
+  ],
+  "title": "Uncertainty And Limitations",
+  "type": "object"
+}

@@ -1,0 +1,5 @@
+{
+  "max_trials": 256,
+  "policy_id": "ACL13_RANDOMIZATION_V1",
+  "unstable_randomness_allowed": false
+}

@@ -1,0 +1,12 @@
+{
+  "budget_validation_digest": "sha256:aba343ce386dda29ca165a3b398a77ca93714c6f305752f0ba1ff291c0f6c336",
+  "max_observations": 10000,
+  "max_random_trials": 256,
+  "max_setup_families": 8,
+  "profile_id": "ACL13_ONE_HOUR_BUDGET_V1",
+  "request_observation_count": 48,
+  "request_setup_family_count": 3,
+  "schema_version": "1.0.0",
+  "wall_clock_budget_seconds": 3600,
+  "within_budget": true
+}

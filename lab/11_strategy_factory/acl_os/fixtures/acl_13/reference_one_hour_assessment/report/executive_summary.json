@@ -1,0 +1,23 @@
+{
+  "answer_first": "A bounded descriptive signal is visible in the synthetic reference fixture; only design of a real non-capital pilot is allowed.",
+  "decision": "BOUNDED_TRIAGE_COMPLETE_PILOT_DESIGN_ELIGIBLE_NON_CAPITAL",
+  "executive_summary_digest": "sha256:0ff0396722ed75b0ec7aa3c51c20203303049225165fbb291ed0fb448943ce81",
+  "forbidden_interpretations": [
+    "ALPHA_PROVEN",
+    "VALIDATED_STRATEGY",
+    "PRODUCTION_SECURITY_READY",
+    "RUNTIME_READY",
+    "LIVE_ORDER_AUTHORIZED",
+    "CAPITAL_AUTHORIZED"
+  ],
+  "key_findings": [
+    "Input contract is complete and known-time safe.",
+    "Minimum triage support is met.",
+    "Conditioned descriptive value exceeds the deterministic circular-shift p90 baseline.",
+    "The evidence is synthetic and not validation.",
+    "Production security, runtime parity and execution economics are not established."
+  ],
+  "next_allowed_action": "AUTHOR_FIRST_REAL_CONTEXT_PILOT_CONTRACT",
+  "report_id": "ONEHOUR_17E4C9AE717BFBFED911CC05417ECFBC",
+  "schema_version": "1.0.0"
+}

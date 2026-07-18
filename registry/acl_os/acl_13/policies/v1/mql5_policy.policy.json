@@ -1,0 +1,5 @@
+{
+  "order_apis_allowed": false,
+  "policy_id": "ACL13_MQL5_STATIC_ONLY_V1",
+  "runtime_implementation": false
+}

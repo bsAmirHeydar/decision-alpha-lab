@@ -1,0 +1,9 @@
+{
+  "causal_claim_allowed": false,
+  "components": [
+    "X_LOCATION_SCORE",
+    "Y_STATE_SCORE",
+    "OPTIONALITY_SCORE"
+  ],
+  "policy_id": "ACL13_VALUE_V1"
+}

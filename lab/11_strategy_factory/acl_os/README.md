@@ -36,3 +36,7 @@ Consumes ACL-09 memory and planner evidence, evaluates closed promotion prerequi
 ## ACL-12 Security Hardening
 
 ACL-12 consumes the ACL-11 non-executable runtime-custody package and produces a reference-only security hardening package and ACL-13 handoff.
+
+## ACL-13 One-Hour Assessment Product
+
+ACL-13 consumes ACL-12 reference security readiness plus a known-time-safe bounded Context request and produces deterministic one-hour research triage, constrained baselines, setup-family diagnostics, uncertainty and a non-capital ACL-14 pilot-design handoff. It does not validate alpha or authorize pilot execution, runtime, orders or capital.

@@ -1,0 +1,103 @@
+{
+  "$id": "https://alpha-lab.local/schemas/acl13/context_value_decomposition.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alpha_claimed": {
+      "type": "boolean"
+    },
+    "always_participate_mean": {
+      "type": "number"
+    },
+    "best_declared_family_id": {
+      "type": "string"
+    },
+    "best_declared_family_mean": {
+      "type": "number"
+    },
+    "best_declared_family_support": {
+      "type": "integer"
+    },
+    "causal_claimed": {
+      "type": "boolean"
+    },
+    "components": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "component_id": {
+            "type": "string"
+          },
+          "descriptive_spread": {
+            "type": "number"
+          },
+          "high_mean": {
+            "type": "number"
+          },
+          "high_support": {
+            "type": "integer"
+          },
+          "low_mean": {
+            "type": "number"
+          },
+          "low_support": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "component_id",
+          "descriptive_spread",
+          "high_mean",
+          "high_support",
+          "low_mean",
+          "low_support"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "conditioned_mean": {
+      "type": "number"
+    },
+    "conditioned_minus_random_mean": {
+      "type": "number"
+    },
+    "context_occurrence_support": {
+      "type": "integer"
+    },
+    "random_mean": {
+      "type": "number"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "validation_claimed": {
+      "type": "boolean"
+    },
+    "value_decomposition_digest": {
+      "type": "string"
+    },
+    "value_signal_observed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "alpha_claimed",
+    "always_participate_mean",
+    "best_declared_family_id",
+    "best_declared_family_mean",
+    "best_declared_family_support",
+    "causal_claimed",
+    "components",
+    "conditioned_mean",
+    "conditioned_minus_random_mean",
+    "context_occurrence_support",
+    "random_mean",
+    "schema_version",
+    "validation_claimed",
+    "value_decomposition_digest",
+    "value_signal_observed"
+  ],
+  "title": "Context Value Decomposition",
+  "type": "object"
+}

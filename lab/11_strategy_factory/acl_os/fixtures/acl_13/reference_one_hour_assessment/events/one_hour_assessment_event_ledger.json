@@ -1,0 +1,157 @@
+{
+  "assessment_run_id": "TRIAGERUN_E1E8EDCC30AB0BAF2D0A72A3CBEB3291",
+  "event_count": 9,
+  "events": [
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:4ebf82051ebbbfa225e75923d01c4c372d48d4fd9be60bcc8c0e72e92c88c9c0",
+      "event_id": "TRIAGEEVT_C422B391EB6EC56999256F0B",
+      "event_type": "ACL12_SECURITY_PACKAGE_ACCEPTED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-18T06:00:00Z",
+      "payload": {
+        "binding_digest": "sha256:94671682b0cd88779faa12ed0146feda0ffa486568a6e140e977c1637f1c2c8a"
+      },
+      "pilot_execution_authority": false,
+      "previous_event_digest": "GENESIS",
+      "runtime_activation_authority": false,
+      "schema_version": "1.0.0",
+      "sequence": 1
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:86f19fe719c320a53845c8d99ee1593c7de3dbb04ecccab517e17b14c62821b7",
+      "event_id": "TRIAGEEVT_D77C1A052269C0BC1BE70141",
+      "event_type": "AUTHORITY_AND_BUDGET_BOUND",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-18T06:00:00Z",
+      "payload": {
+        "authority_report_digest": "sha256:8196dc9364065733fcbc14261a8fd0168b1e7a4b4e57156ff91affd3d4c3eccb",
+        "budget_validation_digest": "sha256:aba343ce386dda29ca165a3b398a77ca93714c6f305752f0ba1ff291c0f6c336"
+      },
+      "pilot_execution_authority": false,
+      "previous_event_digest": "sha256:4ebf82051ebbbfa225e75923d01c4c372d48d4fd9be60bcc8c0e72e92c88c9c0",
+      "runtime_activation_authority": false,
+      "schema_version": "1.0.0",
+      "sequence": 2
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:cce8a1852be3ef6f081ba9d043783bb62f3599572002bae9dd1421e73f47fd1a",
+      "event_id": "TRIAGEEVT_29A5FDA4B109F54517BB50A3",
+      "event_type": "INPUT_CONTRACT_VALIDATED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-18T06:00:00Z",
+      "payload": {
+        "input_validation_digest": "sha256:a5cf0553c89eb951a0a2acdd01dd819f3a96518c8959506208079f1f02e74326"
+      },
+      "pilot_execution_authority": false,
+      "previous_event_digest": "sha256:86f19fe719c320a53845c8d99ee1593c7de3dbb04ecccab517e17b14c62821b7",
+      "runtime_activation_authority": false,
+      "schema_version": "1.0.0",
+      "sequence": 3
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:9066c56fd38cfb54277d2dda7d5be7f627fa81bd986e3a85031347c1244fc71d",
+      "event_id": "TRIAGEEVT_9EA530A359377216835DB7C0",
+      "event_type": "FAST_DATA_SLICE_MATERIALIZED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-18T06:00:00Z",
+      "payload": {
+        "slice_digest": "sha256:d4de88182d8f0e4acceb8a9e62d02d895286859fc4476151cae20baa0951f470"
+      },
+      "pilot_execution_authority": false,
+      "previous_event_digest": "sha256:cce8a1852be3ef6f081ba9d043783bb62f3599572002bae9dd1421e73f47fd1a",
+      "runtime_activation_authority": false,
+      "schema_version": "1.0.0",
+      "sequence": 4
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:737c1053c491e5d1190e55afc18e1b9525c7dc56d3ebcea708b8f9115b7126f8",
+      "event_id": "TRIAGEEVT_327C1B4BB5B0D68F3CAED165",
+      "event_type": "SUPPORT_AND_BASELINES_COMPUTED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-18T06:00:00Z",
+      "payload": {
+        "baseline_digest": "sha256:9176e938be9bc49688677b0d54b5a19d88b789a13720dd8aab1bdbf6df6abdfa",
+        "support_digest": "sha256:ea8b8eca6a67cc5592d1c261e3f4f46bcf80f1fa79c5fa60cd41db4328e462f4"
+      },
+      "pilot_execution_authority": false,
+      "previous_event_digest": "sha256:9066c56fd38cfb54277d2dda7d5be7f627fa81bd986e3a85031347c1244fc71d",
+      "runtime_activation_authority": false,
+      "schema_version": "1.0.0",
+      "sequence": 5
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:3193057a8b8b361158cef78a35a6070d3b585dae9f6737236e810ddb79d20024",
+      "event_id": "TRIAGEEVT_8215B13BEC99FA1D70A3CB3D",
+      "event_type": "SETUP_FAMILIES_AND_VALUE_ASSESSED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-18T06:00:00Z",
+      "payload": {
+        "catalog_digest": "sha256:3e2506e2d2a62c49b247d421e647e8ede334fb0f3f7779c76e5ced4073f6524e",
+        "value_digest": "sha256:7b52b1acc8862af8705c18708062f46107a05c669209e30693c2405845d92e0a"
+      },
+      "pilot_execution_authority": false,
+      "previous_event_digest": "sha256:737c1053c491e5d1190e55afc18e1b9525c7dc56d3ebcea708b8f9115b7126f8",
+      "runtime_activation_authority": false,
+      "schema_version": "1.0.0",
+      "sequence": 6
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:7259e6356e9bcae6e813e2336dcf1597b408a012716920bc7e263b4b28b6bdb7",
+      "event_id": "TRIAGEEVT_697C16C93A4FE1EA33E2D2EA",
+      "event_type": "NON_CAPITAL_TRIAGE_DECISION_ISSUED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-18T06:00:00Z",
+      "payload": {
+        "assessment_result_digest": "sha256:232187672ca54d4922149921895467f10fa9c9b78d47f8c27ecc774f338fc355"
+      },
+      "pilot_execution_authority": false,
+      "previous_event_digest": "sha256:3193057a8b8b361158cef78a35a6070d3b585dae9f6737236e810ddb79d20024",
+      "runtime_activation_authority": false,
+      "schema_version": "1.0.0",
+      "sequence": 7
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:d56c4545274f6f62c1f80430e2d935f0c7bf714732f573f85ce2d1ca8e6891d8",
+      "event_id": "TRIAGEEVT_5AA33A5201982F95E3C89E4D",
+      "event_type": "ONE_HOUR_REPORT_BUILT",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-18T06:00:00Z",
+      "payload": {
+        "report_digest": "sha256:6e53b10e212b9d18b4cff71bdf6c5816a3a598d28a681b40064cbd725d374ff2"
+      },
+      "pilot_execution_authority": false,
+      "previous_event_digest": "sha256:7259e6356e9bcae6e813e2336dcf1597b408a012716920bc7e263b4b28b6bdb7",
+      "runtime_activation_authority": false,
+      "schema_version": "1.0.0",
+      "sequence": 8
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:539862009026c40b6e6180cd77c21d93e2d0ef8cef98fe3f1cd96c084f9d2ccf",
+      "event_id": "TRIAGEEVT_1E7F8D555C5EA7DA63BA2BAF",
+      "event_type": "ACL14_HANDOFF_PREPARED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-18T06:00:00Z",
+      "payload": {
+        "pilot_design_allowed": true,
+        "pilot_execution_allowed": false
+      },
+      "pilot_execution_authority": false,
+      "previous_event_digest": "sha256:d56c4545274f6f62c1f80430e2d935f0c7bf714732f573f85ce2d1ca8e6891d8",
+      "runtime_activation_authority": false,
+      "schema_version": "1.0.0",
+      "sequence": 9
+    }
+  ],
+  "ledger_digest": "sha256:ea93648f694e0de614ac9b6e1c7f7346d14917b83dac93649b96941cbec3a96d",
+  "schema_version": "1.0.0",
+  "terminal_event_digest": "sha256:539862009026c40b6e6180cd77c21d93e2d0ef8cef98fe3f1cd96c084f9d2ccf"
+}

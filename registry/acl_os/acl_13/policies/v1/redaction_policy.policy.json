@@ -1,0 +1,5 @@
+{
+  "policy_id": "ACL13_REDACTION_V1",
+  "production_keys_allowed": false,
+  "production_secrets_allowed": false
+}

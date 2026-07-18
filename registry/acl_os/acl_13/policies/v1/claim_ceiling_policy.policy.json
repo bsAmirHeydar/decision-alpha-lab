@@ -1,0 +1,12 @@
+{
+  "claim_ceiling": "RESEARCH_TRIAGE_REFERENCE_ONLY",
+  "forbidden_claims": [
+    "ALPHA",
+    "VALIDATION",
+    "PRODUCTION_SECURITY",
+    "RUNTIME_PARITY",
+    "LIVE_READINESS",
+    "CAPITAL_READINESS"
+  ],
+  "policy_id": "ACL13_CLAIM_CEILING_V1"
+}

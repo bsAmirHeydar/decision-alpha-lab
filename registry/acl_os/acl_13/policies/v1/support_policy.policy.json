@@ -1,0 +1,5 @@
+{
+  "minimum_triage_occurrences": 12,
+  "policy_id": "ACL13_SUPPORT_V1",
+  "validation_support_claim_allowed": false
+}

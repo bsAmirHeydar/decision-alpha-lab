@@ -1,0 +1,49 @@
+{
+  "$id": "https://alpha-lab.local/schemas/acl13/executive_summary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "answer_first": {
+      "type": "string"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "executive_summary_digest": {
+      "type": "string"
+    },
+    "forbidden_interpretations": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "key_findings": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "next_allowed_action": {
+      "type": "string"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "answer_first",
+    "decision",
+    "executive_summary_digest",
+    "forbidden_interpretations",
+    "key_findings",
+    "next_allowed_action",
+    "report_id",
+    "schema_version"
+  ],
+  "title": "Executive Summary",
+  "type": "object"
+}

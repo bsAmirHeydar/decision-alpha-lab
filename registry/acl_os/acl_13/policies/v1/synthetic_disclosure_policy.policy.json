@@ -1,0 +1,5 @@
+{
+  "policy_id": "ACL13_SYNTHETIC_DISCLOSURE_V1",
+  "reuse_as_real_data_allowed": false,
+  "synthetic_reference_must_be_disclosed": true
+}

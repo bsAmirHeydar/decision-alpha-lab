@@ -1,0 +1,107 @@
+{
+  "$id": "https://alpha-lab.local/schemas/acl13/fast_data_slice.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assessment_cut_at": {
+      "type": "string"
+    },
+    "context_id": {
+      "type": "string"
+    },
+    "known_time_safe": {
+      "type": "boolean"
+    },
+    "row_count": {
+      "type": "integer"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "available_at": {
+            "type": "string"
+          },
+          "confirmation": {
+            "type": "boolean"
+          },
+          "context_present": {
+            "type": "boolean"
+          },
+          "direction": {
+            "type": "string"
+          },
+          "event_time": {
+            "type": "string"
+          },
+          "forward_delta": {
+            "type": "number"
+          },
+          "label_available_at": {
+            "type": "string"
+          },
+          "observation_id": {
+            "type": "string"
+          },
+          "optionality_score": {
+            "type": "number"
+          },
+          "state": {
+            "type": "string"
+          },
+          "x_location_score": {
+            "type": "number"
+          },
+          "y_state_score": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "available_at",
+          "confirmation",
+          "context_present",
+          "direction",
+          "event_time",
+          "forward_delta",
+          "label_available_at",
+          "observation_id",
+          "optionality_score",
+          "state",
+          "x_location_score",
+          "y_state_score"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "slice_digest": {
+      "type": "string"
+    },
+    "slice_id": {
+      "type": "string"
+    },
+    "synthetic_reference_data": {
+      "type": "boolean"
+    },
+    "timezone": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "assessment_cut_at",
+    "context_id",
+    "known_time_safe",
+    "row_count",
+    "rows",
+    "schema_version",
+    "slice_digest",
+    "slice_id",
+    "synthetic_reference_data",
+    "timezone"
+  ],
+  "title": "Fast Data Slice",
+  "type": "object"
+}

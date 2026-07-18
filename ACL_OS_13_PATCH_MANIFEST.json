@@ -1,0 +1,16 @@
+{
+  "base_commit_message": "feat(acl-os): implement ACL-12 security hardening",
+  "claim_ceiling": "RESEARCH_TRIAGE_REFERENCE_ONLY",
+  "commit_message": "feat(acl-os): implement ACL-13 one-hour assessment product",
+  "deletion_count": 0,
+  "file_index": "ACL_OS_13_FILE_INDEX.txt",
+  "metadata_file_count": 5,
+  "patch_id": "ACL_OS_13_ONE_HOUR_ASSESSMENT_PRODUCT_PATCH",
+  "payload_file_count": 374,
+  "phase": "ACL-13",
+  "qa_report": "ACL_OS_13_QA_REPORT.json",
+  "root_relative": true,
+  "schema_version": "1.0.0",
+  "self_reference_policy": "ZIP_DIGEST_EXCLUDED_FROM_INTERNAL_MANIFEST",
+  "total_file_count": 379
+}

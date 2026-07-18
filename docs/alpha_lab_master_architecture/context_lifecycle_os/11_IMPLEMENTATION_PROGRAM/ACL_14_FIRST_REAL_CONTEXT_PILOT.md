@@ -1,66 +1,35 @@
 ---
 title: ACL-14 — First Real Context Pilot
-status: proposed-reference
-version: 1.0.0
-updated: 2026-07-17
-tags: [acl-os, context-lifecycle]
+status: dependency-contract
+version: 2.0.0
+updated: 2026-07-18
+tags: [acl-os, acl-14, real-context-pilot]
 ---
 # ACL-14 — First Real Context Pilot
 
-Implements First Real Context Pilot as an independently testable lifecycle increment, binding upstream ACL-13 — One-Hour Assessment Product and handing explicit contracts to ACL-15 — Fleet Operations and Closure.
+ACL-14 consumes `ACL13_TO_ACL14` and replaces the synthetic triage fixture with an approved, owner-signed, known-time-safe real Context package.
 
-## Responsibility boundary
+## Required actions
 
-This component owns a narrow part of implementation sequencing, acceptance evidence, migrations and handoff. It communicates through versioned contracts and immutable references. It may not infer adjacent authority, reach into private implementation folders, or create an alternative identity, security or evidence system.
+- `VERIFY_ONE_HOUR_ASSESSMENT_PACKAGE`
+- `AUTHOR_FIRST_REAL_CONTEXT_PILOT_CONTRACT`
+- `ISSUE_NON_CAPITAL_PILOT_READINESS_DECISION`
 
-## Required inputs
+## Mandatory new evidence
 
-- Exact artifact identities and versions.
-- Declared owner and authority scope.
-- Applicable policy, security classification and compatibility range.
-- Known-time-safe evidence or an explicit UNKNOWN state.
+- approved real Context doctrine and examples;
+- exact data mapping and availability semantics;
+- precommitted pilot period and frozen evaluation rules;
+- independent owner approval;
+- explicit support, failure and stop conditions;
+- non-capital execution boundary.
 
-## Produced artifacts
+## Forbidden actions
 
-- Closed-schema machine result with reason codes.
-- Lineage links to all source artifacts and transformations.
-- Human-readable Obsidian projection.
-- Security, test and migration evidence appropriate to the artifact class.
+- treat ACL-13 triage as validation;
+- reuse the synthetic reference fixture as real evidence;
+- invent prospective evidence;
+- broaden setup search after observing pilot outcomes;
+- authorize runtime, live orders or capital.
 
-## Non-negotiable invariants
-
-- Unknown fields and unresolved identities fail closed.
-- Generated content is never hand-edited.
-- Passing local tests does not prove alpha, live parity or capital authorization.
-- Every material mutation is authenticated, authorized, attributable and replayable.
-- Breaking semantics require a new version, migration and rollback.
-
-## Reference workflow
-
-1. Resolve exact inputs and owners.
-2. Validate schema, compatibility, security classification and authority.
-3. Execute deterministic domain logic in the declared environment.
-4. Validate outputs and append evidence events.
-5. Publish structured artifacts and projections atomically.
-6. Expose only policy-approved next actions.
-
-## Failure semantics
-
-The component stops with explicit reason codes for missing evidence, ambiguous semantics, incompatible versions, integrity mismatch, insufficient support, policy denial, security failure or unavailable dependency. It does not substitute a permissive default.
-
-## Extension and evolution
-
-New behavior enters through a registered extension manifest, bounded capabilities and conformance suite. Additive changes use compatible minor versions. Breaking changes require a major version, impact analysis, idempotent migration, dual-read or shadow period where needed, rollback and deprecation evidence.
-
-## Verification obligations
-
-Unit and property tests cover deterministic logic. Contract tests cover every adapter. Mutation tests prove guards are effective. Security-negative tests attempt bypass. Golden replay proves deterministic projection. Clean-checkout delivery validation proves the package has no hidden build dependency.
-
-## Claim ceiling
-
-This architecture note specifies required mechanics. Only environment-specific evidence can establish external data quality, statistical edge, broker behavior, MQL5 parity, operational security or production authorization.
-
-## Related
-
-- [[ACL_OS_HOME]]
-- [[IMPLEMENTATION_MASTER_PLAN]]
+ACL-14 may prepare and evaluate a first real research pilot. It may not bypass ACL-07 validation, ACL-10 promotion, ACL-11 parity or ACL-12 production security.

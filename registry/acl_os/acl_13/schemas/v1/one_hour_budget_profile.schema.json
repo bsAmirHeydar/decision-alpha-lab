@@ -1,0 +1,67 @@
+{
+  "$id": "https://alpha-lab.local/schemas/acl13/one_hour_budget_profile.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "automatic_execution_allowed": {
+      "type": "boolean"
+    },
+    "budget_expansion_allowed": {
+      "type": "boolean"
+    },
+    "budget_profile_digest": {
+      "type": "string"
+    },
+    "capital_funding_allowed": {
+      "type": "boolean"
+    },
+    "cpu_seconds_ceiling": {
+      "type": "integer"
+    },
+    "gpu_required": {
+      "type": "boolean"
+    },
+    "max_observations": {
+      "type": "integer"
+    },
+    "max_random_trials": {
+      "type": "integer"
+    },
+    "max_setup_families": {
+      "type": "integer"
+    },
+    "memory_mb_ceiling": {
+      "type": "integer"
+    },
+    "network_access_allowed": {
+      "type": "boolean"
+    },
+    "profile_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "wall_clock_budget_seconds": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_version",
+    "profile_id",
+    "wall_clock_budget_seconds",
+    "cpu_seconds_ceiling",
+    "memory_mb_ceiling",
+    "max_observations",
+    "max_setup_families",
+    "max_random_trials",
+    "network_access_allowed",
+    "gpu_required",
+    "budget_expansion_allowed",
+    "automatic_execution_allowed",
+    "capital_funding_allowed",
+    "budget_profile_digest"
+  ],
+  "title": "One Hour Budget Profile",
+  "type": "object"
+}

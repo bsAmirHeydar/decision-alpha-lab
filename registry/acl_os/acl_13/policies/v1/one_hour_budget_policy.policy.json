@@ -1,0 +1,16 @@
+{
+  "automatic_execution_allowed": false,
+  "budget_expansion_allowed": false,
+  "budget_profile_digest": "sha256:ef9d7256bd25e4c7e6e68f0761e669376bc3ca3d68d100a80146d570cc58c867",
+  "capital_funding_allowed": false,
+  "cpu_seconds_ceiling": 120,
+  "gpu_required": false,
+  "max_observations": 10000,
+  "max_random_trials": 256,
+  "max_setup_families": 8,
+  "memory_mb_ceiling": 512,
+  "network_access_allowed": false,
+  "profile_id": "ACL13_ONE_HOUR_BUDGET_V1",
+  "schema_version": "1.0.0",
+  "wall_clock_budget_seconds": 3600
+}

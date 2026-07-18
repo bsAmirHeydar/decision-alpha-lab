@@ -1,0 +1,55 @@
+{
+  "$id": "https://alpha-lab.local/schemas/acl13/output_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_count": {
+      "type": "integer"
+    },
+    "assessment_run_id": {
+      "type": "string"
+    },
+    "files": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "digest": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "size_bytes": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "digest",
+          "path",
+          "size_bytes"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "manifest_digest": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "self_reference_policy": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_count",
+    "assessment_run_id",
+    "files",
+    "manifest_digest",
+    "schema_version",
+    "self_reference_policy"
+  ],
+  "title": "Output Manifest",
+  "type": "object"
+}

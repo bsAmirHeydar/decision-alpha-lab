@@ -1,0 +1,46 @@
+{
+  "$id": "https://alpha-lab.local/schemas/acl13/authority_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acl12_handoff_digest": {
+      "type": "string"
+    },
+    "action": {
+      "type": "string"
+    },
+    "authority_report_digest": {
+      "type": "string"
+    },
+    "denied_capabilities": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "permit_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "security_hardening_run_id": {
+      "type": "string"
+    },
+    "validated": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "acl12_handoff_digest",
+    "action",
+    "authority_report_digest",
+    "denied_capabilities",
+    "permit_id",
+    "schema_version",
+    "security_hardening_run_id",
+    "validated"
+  ],
+  "title": "Authority Report",
+  "type": "object"
+}

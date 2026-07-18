@@ -1,0 +1,63 @@
+{
+  "$id": "https://alpha-lab.local/schemas/acl13/budget_usage_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "budget_breached": {
+      "type": "boolean"
+    },
+    "budget_expansion_used": {
+      "type": "boolean"
+    },
+    "budget_usage_digest": {
+      "type": "string"
+    },
+    "charged_cpu_seconds": {
+      "type": "number"
+    },
+    "gpu_calls": {
+      "type": "integer"
+    },
+    "network_calls": {
+      "type": "integer"
+    },
+    "observations_processed": {
+      "type": "integer"
+    },
+    "peak_memory_mb": {
+      "type": "integer"
+    },
+    "profile_id": {
+      "type": "string"
+    },
+    "random_trials_executed": {
+      "type": "integer"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "setup_families_evaluated": {
+      "type": "integer"
+    },
+    "wall_clock_budget_seconds": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "budget_breached",
+    "budget_expansion_used",
+    "budget_usage_digest",
+    "charged_cpu_seconds",
+    "gpu_calls",
+    "network_calls",
+    "observations_processed",
+    "peak_memory_mb",
+    "profile_id",
+    "random_trials_executed",
+    "schema_version",
+    "setup_families_evaluated",
+    "wall_clock_budget_seconds"
+  ],
+  "title": "Budget Usage Report",
+  "type": "object"
+}

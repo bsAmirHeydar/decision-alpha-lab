@@ -1,0 +1,81 @@
+{
+  "ai_generation_used": false,
+  "catalog_digest": "sha256:3e2506e2d2a62c49b247d421e647e8ede334fb0f3f7779c76e5ced4073f6524e",
+  "catalog_id": "SETUPCAT_1AD7D7B5D8DF652995D8758CA0BB",
+  "dynamic_generation_used": false,
+  "families": [
+    {
+      "clauses": [
+        {
+          "field": "context_present",
+          "operator": "EQ",
+          "value": true
+        },
+        {
+          "field": "confirmation",
+          "operator": "EQ",
+          "value": true
+        }
+      ],
+      "dynamic_generation_used": false,
+      "family_id": "FAM_CONTEXT_CONFIRMED",
+      "family_name": "Context and Confirmation",
+      "family_result_digest": "sha256:b8eb5f1c4865b3d2c5b4cc6a2b7480a8e0d5d0ecbfa3d161675d2441f56681e1",
+      "hit_rate": 0.75,
+      "mean_forward_delta": 0.3625,
+      "minimum_support_met": true,
+      "schema_version": "1.0.0",
+      "selection_authority": false,
+      "source": "PREDECLARED_BOUNDED_FAMILY",
+      "support": 16
+    },
+    {
+      "clauses": [
+        {
+          "field": "context_present",
+          "operator": "EQ",
+          "value": true
+        },
+        {
+          "field": "optionality_score",
+          "operator": "GTE",
+          "value": 0.6
+        }
+      ],
+      "dynamic_generation_used": false,
+      "family_id": "FAM_CONTEXT_HIGH_OPTIONALITY",
+      "family_name": "Context with High Optionality",
+      "family_result_digest": "sha256:a77c6310746460de837adb8d8ad623f9427b273e611bc1e24bedf33a4f678e5d",
+      "hit_rate": 0.75,
+      "mean_forward_delta": 0.3625,
+      "minimum_support_met": true,
+      "schema_version": "1.0.0",
+      "selection_authority": false,
+      "source": "PREDECLARED_BOUNDED_FAMILY",
+      "support": 16
+    },
+    {
+      "clauses": [
+        {
+          "field": "context_present",
+          "operator": "EQ",
+          "value": true
+        }
+      ],
+      "dynamic_generation_used": false,
+      "family_id": "FAM_CONTEXT_ONLY",
+      "family_name": "Context Present",
+      "family_result_digest": "sha256:37e013cdbb86b600cd289ba978ad40a42b6771e39615060951ad68ff63f4dde0",
+      "hit_rate": 0.75,
+      "mean_forward_delta": 0.3625,
+      "minimum_support_met": true,
+      "schema_version": "1.0.0",
+      "selection_authority": false,
+      "source": "PREDECLARED_BOUNDED_FAMILY",
+      "support": 16
+    }
+  ],
+  "family_count": 3,
+  "promotion_allowed": false,
+  "schema_version": "1.0.0"
+}

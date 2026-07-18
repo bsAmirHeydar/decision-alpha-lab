@@ -1,0 +1,5 @@
+{
+  "fail_closed": true,
+  "permissive_defaults_allowed": false,
+  "policy_id": "ACL13_FAILURE_POLICY_V1"
+}

@@ -1,0 +1,42 @@
+{
+  "alpha_claimed": false,
+  "always_participate_mean": 0.10833333333333334,
+  "best_declared_family_id": "FAM_CONTEXT_CONFIRMED",
+  "best_declared_family_mean": 0.3625,
+  "best_declared_family_support": 16,
+  "causal_claimed": false,
+  "components": [
+    {
+      "component_id": "X_LOCATION_SCORE",
+      "descriptive_spread": 0.07500000000000001,
+      "high_mean": 0.4,
+      "high_support": 8,
+      "low_mean": 0.325,
+      "low_support": 8
+    },
+    {
+      "component_id": "Y_STATE_SCORE",
+      "descriptive_spread": 0.07500000000000001,
+      "high_mean": 0.4,
+      "high_support": 8,
+      "low_mean": 0.325,
+      "low_support": 8
+    },
+    {
+      "component_id": "OPTIONALITY_SCORE",
+      "descriptive_spread": 0.3625,
+      "high_mean": 0.3625,
+      "high_support": 16,
+      "low_mean": 0.0,
+      "low_support": 0
+    }
+  ],
+  "conditioned_mean": 0.3625,
+  "conditioned_minus_random_mean": 0.38125,
+  "context_occurrence_support": 16,
+  "random_mean": -0.01875,
+  "schema_version": "1.0.0",
+  "validation_claimed": false,
+  "value_decomposition_digest": "sha256:7b52b1acc8862af8705c18708062f46107a05c669209e30693c2405845d92e0a",
+  "value_signal_observed": true
+}

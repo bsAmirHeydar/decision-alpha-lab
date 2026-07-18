@@ -1,0 +1,12 @@
+{
+  "assessment_cut_at": "2026-01-06T03:00:00Z",
+  "assessment_request_id": "ACL13_REFERENCE_TRIAGE_REQUEST_V1",
+  "context_id": "CTX_SYNTHETIC_ONE_HOUR_TRIAGE",
+  "context_version": "1.0.0",
+  "declared_setup_family_count": 3,
+  "input_validation_digest": "sha256:a5cf0553c89eb951a0a2acdd01dd819f3a96518c8959506208079f1f02e74326",
+  "known_time_safe": true,
+  "observation_count": 48,
+  "schema_version": "1.0.0",
+  "source_request_digest": "sha256:79a8ee74e2763aebc238213949751a3e7905a1e97c2edac56f5bfe98622a41ff"
+}

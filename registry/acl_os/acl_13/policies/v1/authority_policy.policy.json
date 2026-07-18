@@ -1,0 +1,13 @@
+{
+  "denied_capabilities": [
+    "NETWORK",
+    "SECRETS",
+    "PRODUCTION_KEYS",
+    "PILOT_EXECUTION",
+    "RUNTIME_ACTIVATION",
+    "LIVE_ORDER",
+    "CAPITAL"
+  ],
+  "policy_id": "ACL13_AUTHORITY_POLICY_V1",
+  "required_action": "ACL13_BUILD_ONE_HOUR_ASSESSMENT"
+}

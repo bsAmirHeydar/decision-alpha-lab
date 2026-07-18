@@ -1,0 +1,63 @@
+{
+  "$id": "https://alpha-lab.local/schemas/acl13/input_completeness_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "check_count": {
+      "type": "integer"
+    },
+    "completeness_ratio": {
+      "type": "number"
+    },
+    "completeness_report_digest": {
+      "type": "string"
+    },
+    "failed_count": {
+      "type": "integer"
+    },
+    "passed_count": {
+      "type": "integer"
+    },
+    "results": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "check_id": {
+            "type": "string"
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "check_id",
+          "required",
+          "status"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "triage_input_complete": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "check_count",
+    "completeness_ratio",
+    "completeness_report_digest",
+    "failed_count",
+    "passed_count",
+    "results",
+    "schema_version",
+    "triage_input_complete"
+  ],
+  "title": "Input Completeness Report",
+  "type": "object"
+}

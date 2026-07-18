@@ -1,0 +1,6 @@
+{
+  "new_real_input_required": true,
+  "pilot_design_allowed": true,
+  "pilot_execution_allowed": false,
+  "policy_id": "ACL13_PILOT_BOUNDARY_V1"
+}

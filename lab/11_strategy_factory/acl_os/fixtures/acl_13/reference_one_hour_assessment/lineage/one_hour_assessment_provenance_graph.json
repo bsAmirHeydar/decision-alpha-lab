@@ -1,0 +1,67 @@
+{
+  "capital_authority_created": false,
+  "edges": [
+    {
+      "from": "ACL12_HANDOFF",
+      "to": "ACL13_REQUEST"
+    },
+    {
+      "from": "ACL13_REQUEST",
+      "to": "ACL13_FAST_SLICE"
+    },
+    {
+      "from": "ACL13_FAST_SLICE",
+      "to": "ACL13_EVIDENCE"
+    },
+    {
+      "from": "ACL13_EVIDENCE",
+      "to": "ACL13_DECISION"
+    },
+    {
+      "from": "ACL13_DECISION",
+      "to": "ACL13_REPORT"
+    }
+  ],
+  "graph_digest": "sha256:5f8916def9a31d979aed4917faa6a05f4171a9143c3a9e7d7aef757b8ed70063",
+  "live_order_authority_created": false,
+  "nodes": [
+    {
+      "artifact_digest": "sha256:700b201ca6cf220e94be5e4c6cb32a6e35a0dd15b7212a001eb6da015b28dc6d",
+      "artifact_type": "ACL12_TO_ACL13",
+      "node_id": "ACL12_HANDOFF"
+    },
+    {
+      "artifact_digest": "sha256:79a8ee74e2763aebc238213949751a3e7905a1e97c2edac56f5bfe98622a41ff",
+      "artifact_type": "ONE_HOUR_ASSESSMENT_REQUEST",
+      "node_id": "ACL13_REQUEST"
+    },
+    {
+      "artifact_digest": "sha256:d4de88182d8f0e4acceb8a9e62d02d895286859fc4476151cae20baa0951f470",
+      "artifact_type": "FAST_DATA_SLICE",
+      "node_id": "ACL13_FAST_SLICE"
+    },
+    {
+      "artifact_digest": "sha256:382c7f113c9c7e9cecd2fee5eea2f9c31236d9448cebf1d0567e0af0972a7588",
+      "artifact_type": "ONE_HOUR_EVIDENCE_BUNDLE",
+      "node_id": "ACL13_EVIDENCE"
+    },
+    {
+      "artifact_digest": "sha256:232187672ca54d4922149921895467f10fa9c9b78d47f8c27ecc774f338fc355",
+      "artifact_type": "ONE_HOUR_ASSESSMENT_RESULT",
+      "node_id": "ACL13_DECISION"
+    },
+    {
+      "artifact_digest": "sha256:6e53b10e212b9d18b4cff71bdf6c5816a3a598d28a681b40064cbd725d374ff2",
+      "artifact_type": "ONE_HOUR_ASSESSMENT_REPORT",
+      "node_id": "ACL13_REPORT"
+    }
+  ],
+  "pilot_execution_authority_created": false,
+  "production_security_evidence_invented": false,
+  "reaches_acl12_security_readiness": true,
+  "runtime_candidate_invented": false,
+  "schema_version": "1.0.0",
+  "source_security_readiness_reinterpreted": false,
+  "synthetic_reference_disclosed": true,
+  "validation_evidence_invented": false
+}

@@ -1,0 +1,119 @@
+{
+  "$id": "https://alpha-lab.local/schemas/acl13/setup_family_catalog.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "ai_generation_used": {
+      "type": "boolean"
+    },
+    "catalog_digest": {
+      "type": "string"
+    },
+    "catalog_id": {
+      "type": "string"
+    },
+    "dynamic_generation_used": {
+      "type": "boolean"
+    },
+    "families": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "clauses": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "field": {
+                  "type": "string"
+                },
+                "operator": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "field",
+                "operator",
+                "value"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "dynamic_generation_used": {
+            "type": "boolean"
+          },
+          "family_id": {
+            "type": "string"
+          },
+          "family_name": {
+            "type": "string"
+          },
+          "family_result_digest": {
+            "type": "string"
+          },
+          "hit_rate": {
+            "type": "number"
+          },
+          "mean_forward_delta": {
+            "type": "number"
+          },
+          "minimum_support_met": {
+            "type": "boolean"
+          },
+          "schema_version": {
+            "type": "string"
+          },
+          "selection_authority": {
+            "type": "boolean"
+          },
+          "source": {
+            "type": "string"
+          },
+          "support": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "clauses",
+          "dynamic_generation_used",
+          "family_id",
+          "family_name",
+          "family_result_digest",
+          "hit_rate",
+          "mean_forward_delta",
+          "minimum_support_met",
+          "schema_version",
+          "selection_authority",
+          "source",
+          "support"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "family_count": {
+      "type": "integer"
+    },
+    "promotion_allowed": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "ai_generation_used",
+    "catalog_digest",
+    "catalog_id",
+    "dynamic_generation_used",
+    "families",
+    "family_count",
+    "promotion_allowed",
+    "schema_version"
+  ],
+  "title": "Setup Family Catalog",
+  "type": "object"
+}

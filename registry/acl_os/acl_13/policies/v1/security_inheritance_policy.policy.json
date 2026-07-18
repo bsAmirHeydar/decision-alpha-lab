@@ -1,0 +1,5 @@
+{
+  "policy_id": "ACL13_SECURITY_INHERITANCE_V1",
+  "reinterpretation_allowed": false,
+  "source_decision": "REFERENCE_SECURITY_HARDENED_PRODUCTION_NOT_READY"
+}

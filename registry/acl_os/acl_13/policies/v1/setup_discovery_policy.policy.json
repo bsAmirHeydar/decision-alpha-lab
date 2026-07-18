@@ -1,0 +1,6 @@
+{
+  "ai_generation_allowed": false,
+  "dynamic_generation_allowed": false,
+  "policy_id": "ACL13_SETUP_DISCOVERY_V1",
+  "predeclared_only": true
+}

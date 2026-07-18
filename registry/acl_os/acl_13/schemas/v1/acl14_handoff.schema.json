@@ -1,0 +1,105 @@
+{
+  "$id": "https://alpha-lab.local/schemas/acl13/acl14_handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alpha_claim_allowed": {
+      "type": "boolean"
+    },
+    "assessment_result": {
+      "type": "string"
+    },
+    "assessment_result_digest": {
+      "type": "string"
+    },
+    "assessment_run_id": {
+      "type": "string"
+    },
+    "budget_usage_digest": {
+      "type": "string"
+    },
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "event_ledger_digest": {
+      "type": "string"
+    },
+    "evidence_bundle_digest": {
+      "type": "string"
+    },
+    "first_real_context_pilot_design_allowed": {
+      "type": "boolean"
+    },
+    "first_real_context_pilot_execution_allowed": {
+      "type": "boolean"
+    },
+    "forbidden_acl14_actions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "handoff_digest": {
+      "type": "string"
+    },
+    "handoff_type": {
+      "type": "string"
+    },
+    "live_order_submission_allowed": {
+      "type": "boolean"
+    },
+    "production_security_ready": {
+      "type": "boolean"
+    },
+    "provenance_graph_digest": {
+      "type": "string"
+    },
+    "report_digest": {
+      "type": "string"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "required_acl14_actions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "runtime_activation_allowed": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "validation_claim_allowed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "alpha_claim_allowed",
+    "assessment_result",
+    "assessment_result_digest",
+    "assessment_run_id",
+    "budget_usage_digest",
+    "capital_activation_allowed",
+    "event_ledger_digest",
+    "evidence_bundle_digest",
+    "first_real_context_pilot_design_allowed",
+    "first_real_context_pilot_execution_allowed",
+    "forbidden_acl14_actions",
+    "handoff_digest",
+    "handoff_type",
+    "live_order_submission_allowed",
+    "production_security_ready",
+    "provenance_graph_digest",
+    "report_digest",
+    "report_id",
+    "required_acl14_actions",
+    "runtime_activation_allowed",
+    "schema_version",
+    "validation_claim_allowed"
+  ],
+  "title": "Acl14 Handoff",
+  "type": "object"
+}

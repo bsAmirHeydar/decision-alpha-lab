@@ -1,0 +1,55 @@
+{
+  "$id": "https://alpha-lab.local/schemas/acl13/report_section_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "closed": {
+      "type": "boolean"
+    },
+    "registry_digest": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "section_count": {
+      "type": "integer"
+    },
+    "sections": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "required": {
+            "type": "boolean"
+          },
+          "section_id": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "required",
+          "section_id",
+          "version"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "closed",
+    "registry_digest",
+    "registry_id",
+    "schema_version",
+    "section_count",
+    "sections"
+  ],
+  "title": "Report Section Registry",
+  "type": "object"
+}

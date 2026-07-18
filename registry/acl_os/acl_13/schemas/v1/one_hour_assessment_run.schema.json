@@ -1,0 +1,103 @@
+{
+  "$id": "https://alpha-lab.local/schemas/acl13/one_hour_assessment_run.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alpha_claim_allowed": {
+      "type": "boolean"
+    },
+    "assessed_at": {
+      "type": "string"
+    },
+    "assessment_run_digest": {
+      "type": "string"
+    },
+    "assessment_run_id": {
+      "type": "string"
+    },
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "context_id": {
+      "type": "string"
+    },
+    "context_occurrence_count": {
+      "type": "integer"
+    },
+    "context_version": {
+      "type": "string"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "first_real_context_pilot_design_allowed": {
+      "type": "boolean"
+    },
+    "first_real_context_pilot_execution_allowed": {
+      "type": "boolean"
+    },
+    "live_order_submission_allowed": {
+      "type": "boolean"
+    },
+    "observation_count": {
+      "type": "integer"
+    },
+    "production_security_ready": {
+      "type": "boolean"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "runtime_activation_allowed": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "security_hardening_run_id": {
+      "type": "string"
+    },
+    "service_version": {
+      "type": "string"
+    },
+    "setup_family_count": {
+      "type": "integer"
+    },
+    "state": {
+      "type": "string"
+    },
+    "validation_claim_allowed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "alpha_claim_allowed",
+    "assessed_at",
+    "assessment_run_digest",
+    "assessment_run_id",
+    "capital_activation_allowed",
+    "claim_ceiling",
+    "context_id",
+    "context_occurrence_count",
+    "context_version",
+    "decision",
+    "first_real_context_pilot_design_allowed",
+    "first_real_context_pilot_execution_allowed",
+    "live_order_submission_allowed",
+    "observation_count",
+    "production_security_ready",
+    "report_id",
+    "runtime_activation_allowed",
+    "schema_version",
+    "security_hardening_run_id",
+    "service_version",
+    "setup_family_count",
+    "state",
+    "validation_claim_allowed"
+  ],
+  "title": "One Hour Assessment Run",
+  "type": "object"
+}

@@ -1,0 +1,5 @@
+{
+  "deterministic": true,
+  "policy_id": "ACL13_REPLAY_V1",
+  "same_input_same_digest": true
+}

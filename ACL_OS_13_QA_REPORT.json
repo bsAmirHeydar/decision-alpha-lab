@@ -1,0 +1,127 @@
+{
+  "claim_ceiling": "RESEARCH_TRIAGE_REFERENCE_ONLY",
+  "clean_overlay_commands": [
+    {
+      "command": "/opt/pyvenv/bin/python -m compileall -q tools/strategy_factory/acl_os/acl_13",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "command": "/opt/pyvenv/bin/python -m pytest -q lab/11_strategy_factory/acl_os/tests_acl_13",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "...........................................                              [100%]\n43 passed in 1.63s\n"
+    },
+    {
+      "command": "/opt/pyvenv/bin/python -m tools.strategy_factory.acl_os.acl_13.cli verify --output lab/11_strategy_factory/acl_os/fixtures/acl_13/reference_one_hour_assessment",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"assessment_run_id\": \"TRIAGERUN_E1E8EDCC30AB0BAF2D0A72A3CBEB3291\",\n  \"errors\": [],\n  \"passed\": true,\n  \"report_id\": \"ONEHOUR_17E4C9AE717BFBFED911CC05417ECFBC\"\n}\n"
+    }
+  ],
+  "commands": [
+    {
+      "command": "/opt/pyvenv/bin/python -m compileall -q tools/strategy_factory/acl_os/acl_13",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "command": "/opt/pyvenv/bin/python -m pytest -q lab/11_strategy_factory/acl_os/tests_acl_13",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "...........................................                              [100%]\n43 passed in 1.69s\n"
+    },
+    {
+      "command": "/opt/pyvenv/bin/python -m pytest -q lab/11_strategy_factory/acl_os/tests_acl_12",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ".......................................                                  [100%]\n39 passed in 1.44s\n"
+    },
+    {
+      "command": "/opt/pyvenv/bin/python -m tools.strategy_factory.acl_os.acl_13.cli verify --output lab/11_strategy_factory/acl_os/fixtures/acl_13/reference_one_hour_assessment",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"assessment_run_id\": \"TRIAGERUN_E1E8EDCC30AB0BAF2D0A72A3CBEB3291\",\n  \"errors\": [],\n  \"passed\": true,\n  \"report_id\": \"ONEHOUR_17E4C9AE717BFBFED911CC05417ECFBC\"\n}\n"
+    }
+  ],
+  "counts": {
+    "atomic_concept_docs": 117,
+    "canonical_obsidian_docs": 41,
+    "constrained_random_trials": 32,
+    "context_occurrences": 16,
+    "direct_acl12_regression_tests": 39,
+    "direct_acl13_tests": 43,
+    "event_count": 9,
+    "excluded_identity_equivalent_shifts": 15,
+    "mql5_static_contract_files": 16,
+    "observations": 48,
+    "phase_delivery_docs": 60,
+    "policies": 26,
+    "python_modules": 32,
+    "reference_manifest_artifacts": 32,
+    "reference_output_files": 34,
+    "schemas": 29,
+    "setup_families": 3,
+    "uncertainty_gaps": 7
+  },
+  "delivery_validation": {
+    "missing": [],
+    "passed": true
+  },
+  "external_evidence_not_claimed": [
+    "real Context evidence",
+    "prospective validation",
+    "independent replication",
+    "execution-economics evidence",
+    "MetaEditor compilation",
+    "MT5 Strategy Tester parity",
+    "production security readiness",
+    "runtime activation",
+    "live-order safety",
+    "capital authorization"
+  ],
+  "json_parse_count": 87,
+  "json_parse_errors": [],
+  "passed": true,
+  "phase": "ACL-13",
+  "reference_result": {
+    "acl14_handoff_digest": "sha256:ef5f1f566e4b67d375abdd22626e7b090c6a0fdf890d20647884876bc89b84e7",
+    "ai_generation_used": false,
+    "alpha_claim_allowed": false,
+    "always_participate_mean": 0.10833333333333334,
+    "assessment_run_id": "TRIAGERUN_E1E8EDCC30AB0BAF2D0A72A3CBEB3291",
+    "budget_breached": false,
+    "capital_activation_allowed": false,
+    "conditioned_exceeds_random_p90": true,
+    "conditioned_mean": 0.3625,
+    "decision": "BOUNDED_TRIAGE_COMPLETE_PILOT_DESIGN_ELIGIBLE_NON_CAPITAL",
+    "declared_setup_family_count": 3,
+    "descriptive_value_signal_observed": true,
+    "dynamic_generation_used": false,
+    "first_real_context_pilot_design_allowed": true,
+    "first_real_context_pilot_execution_allowed": false,
+    "input_complete": true,
+    "live_order_submission_allowed": false,
+    "production_security_ready": false,
+    "random_mean": -0.01875,
+    "random_p90": 0.006249999999999999,
+    "report_id": "ONEHOUR_17E4C9AE717BFBFED911CC05417ECFBC",
+    "runtime_activation_allowed": false,
+    "security_hardening_run_id": "SECRUN_C91A61225508CFD51B96BE7AFF855A4E",
+    "state": "COMPLETED_BOUNDED_RESEARCH_TRIAGE",
+    "support_sufficient_for_triage": true,
+    "support_sufficient_for_validation": false,
+    "validation_claim_allowed": false
+  },
+  "schema_version": "1.0.0",
+  "static_validation": {
+    "errors": [],
+    "forbidden_mql5_hits": [],
+    "passed": true,
+    "policy_count": 26,
+    "schema_count": 29
+  },
+  "title": "One-Hour Assessment Product"
+}

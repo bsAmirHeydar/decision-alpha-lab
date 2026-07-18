@@ -1,0 +1,12 @@
+{
+  "acl14_handoff_digest": "sha256:ef5f1f566e4b67d375abdd22626e7b090c6a0fdf890d20647884876bc89b84e7",
+  "artifact_count": 32,
+  "assessment_result_digest": "sha256:232187672ca54d4922149921895467f10fa9c9b78d47f8c27ecc774f338fc355",
+  "assessment_run_digest": "sha256:9fa215149fb3f3a18fa7e2890ab6385c94428d7738ac9829c7583bca5a802c8a",
+  "assessment_run_id": "TRIAGERUN_E1E8EDCC30AB0BAF2D0A72A3CBEB3291",
+  "output_manifest_digest": "sha256:25b33c4170c4f446b93086bf9f45065e9c910ce03a87f13302473893ca939ff0",
+  "receipt_digest": "sha256:6701ea0810af5c3c75a61ddf1f09a8f9282e9b22e778f0bc8480f2a07fe077a1",
+  "reference_only": true,
+  "report_digest": "sha256:6e53b10e212b9d18b4cff71bdf6c5816a3a598d28a681b40064cbd725d374ff2",
+  "schema_version": "1.0.0"
+}
