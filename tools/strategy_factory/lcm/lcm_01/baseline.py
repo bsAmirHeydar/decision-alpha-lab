@@ -6,6 +6,7 @@ from pathlib import Path
 from .canonical import digest_object, sha256_file
 from .errors import IntegrityError
 from .io import read_json
+from .cross_platform_integrity import verify_repository_bytes_cross_platform
 
 
 @dataclass(frozen=True)
@@ -27,33 +28,9 @@ def locate_latest_baseline(repo_root: Path) -> Path:
     return roots[-1]
 
 
-def verify_repository_bytes(
-    repo_root: Path, baseline_root: Path | None = None
-) -> dict:
-    root = baseline_root or locate_latest_baseline(repo_root)
-    manifest = read_json(root / "baseline_manifest.json")
-    if manifest.get("manifest_digest") != digest_object(manifest, "manifest_digest"):
-        raise IntegrityError("baseline manifest digest mismatch")
-    mismatches: list[dict] = []
-    for record in manifest.get("records", []):
-        path = repo_root / record["path"]
-        if record["kind"] == "FILE":
-            if not path.is_file():
-                mismatches.append({"path": record["path"], "reason": "MISSING"})
-            elif sha256_file(path) != record["sha256"]:
-                mismatches.append({"path": record["path"], "reason": "HASH_MISMATCH"})
-        elif not path.is_symlink():
-            mismatches.append({"path": record["path"], "reason": "SYMLINK_MISSING"})
-    if mismatches:
-        raise IntegrityError(
-            f"baseline repository mismatch count={len(mismatches)} first={mismatches[:3]}"
-        )
-    return {
-        "passed": True,
-        "baseline_id": manifest["baseline_id"],
-        "record_count": len(manifest.get("records", [])),
-        "manifest_digest": manifest["manifest_digest"],
-    }
+def verify_repository_bytes(repo_root, root):
+    """LCM01_CROSS_PLATFORM_INTEGRITY_HOTFIX_V1: verify frozen bytes while accepting CRLF/LF checkout equivalence."""
+    return verify_repository_bytes_cross_platform(repo_root, root)
 
 
 def load_and_verify(

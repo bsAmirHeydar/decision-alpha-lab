@@ -1,0 +1,31 @@
+{
+  "claim_ceiling": "INSTALLATION_INTEGRITY_VERIFICATION_ONLY",
+  "file_index": "LCM_01_CROSS_PLATFORM_HOTFIX_FILE_INDEX.txt",
+  "hash_ledger": "LCM_01_CROSS_PLATFORM_HOTFIX_FILE_HASHES.sha256",
+  "manifest_digest": "sha256:a7410d86bcc1beda23afc7a9d0ff31355652cd2581833763923d8fba0c02f483",
+  "mutation_method": "AST_GUARDED_IDEMPOTENT_FUNCTION_REPLACEMENT",
+  "mutation_targets": [
+    "tools/strategy_factory/lcm/lcm_01/baseline.py"
+  ],
+  "patch_id": "LCM01_CROSS_PLATFORM_INTEGRITY_HOTFIX_V1",
+  "patch_type": "SURGICAL_CROSS_PLATFORM_INTEGRITY_HOTFIX",
+  "phase_id": "LCM-01",
+  "preserved_boundaries": [
+    "LCM00_FROZEN_BASELINE_UNCHANGED",
+    "LCM01_SURVEY_PACKAGE_UNCHANGED",
+    "LCM01_EVENT_LEDGER_UNCHANGED",
+    "LCM01_PROVENANCE_UNCHANGED",
+    "LCM01_TO_LCM02_HANDOFF_UNCHANGED",
+    "NO_CONTEXT_LOGIC_CHANGE",
+    "NO_SETUP_LOGIC_CHANGE",
+    "NO_RUNTIME_ORDER_OR_CAPITAL_AUTHORITY"
+  ],
+  "schema_version": "1.0.0",
+  "static_payload_file_count": 9,
+  "verification_rule": {
+    "binary_fallback_allowed": false,
+    "primary": "RAW_SHA256",
+    "semantic_normalization_allowed": false,
+    "text_fallback": "LF_CANONICAL_SHA256_MUST_EQUAL_FROZEN_RAW_SHA256"
+  }
+}

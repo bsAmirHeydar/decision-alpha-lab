@@ -1,0 +1,44 @@
+{
+  "checks": [
+    {
+      "check_id": "PYTHON_COMPILEALL_SYNTHETIC_OVERLAY",
+      "passed": true
+    },
+    {
+      "check_id": "HOTFIX_APPLICATION",
+      "passed": true
+    },
+    {
+      "check_id": "HOTFIX_IDEMPOTENCE",
+      "passed": true
+    },
+    {
+      "check_id": "LF_BASELINE_CRLF_WORKTREE",
+      "passed": true
+    },
+    {
+      "check_id": "REAL_TEXT_MUTATION_FAIL_CLOSED",
+      "passed": true
+    },
+    {
+      "check_id": "BINARY_MUTATION_FAIL_CLOSED",
+      "passed": true
+    },
+    {
+      "check_id": "PATH_ESCAPE_FAIL_CLOSED",
+      "passed": true
+    },
+    {
+      "check_id": "EOL_ONLY_CANONICALIZATION",
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "The exact private Windows working tree was not available in the build environment.",
+    "Final acceptance requires verify-installation and the full existing regression suites on the user repository."
+  ],
+  "passed": true,
+  "patch_id": "LCM01_CROSS_PLATFORM_INTEGRITY_HOTFIX_V1",
+  "pytest_result": "5 passed",
+  "schema_version": "1.0.0"
+}
