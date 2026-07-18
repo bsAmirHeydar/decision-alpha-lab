@@ -1,0 +1,41 @@
+{
+  "baseline_id": "BASELINE_E214DB424C25F427B988901324A38EE6",
+  "baseline_manifest_digest": "sha256:6c90efabe69899c449caf188d7785de20f10d7db6027eeb985dd488c79555b6c",
+  "capital_authority_created": false,
+  "live_order_authority_created": false,
+  "metrics": {
+    "capability_finding_count": 3136,
+    "dependency_edge_count": 3181,
+    "entry_point_count": 288,
+    "scanned_path_count": 2457
+  },
+  "output_artifacts": [
+    {
+      "path": "capabilities/mql5_capability_findings.csv",
+      "sha256": "sha256:a5de28d8627d7056a185b4617300ea46d95df5d42bd99deb2430fb70429fae7c",
+      "size_bytes": 550437
+    },
+    {
+      "path": "dependencies/mql5_entry_points.csv",
+      "sha256": "sha256:81f15d2876c052ff670dd98fc5f9b4ba4ac78a221ef1cafd9069d83d6c95b425",
+      "size_bytes": 32904
+    },
+    {
+      "path": "dependencies/mql5_include_edges.csv",
+      "sha256": "sha256:6a78c9e12f70d52a3913c52e8efe6724372d3e6e39cd11b3e328cac2bd618716",
+      "size_bytes": 1221477
+    }
+  ],
+  "passed": true,
+  "phase_id": "LCM-01",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "semantic_refactor_performed": false,
+  "source_delete_performed": false,
+  "source_handoff_digest": "sha256:8864d3dc54d5d28bdf3e5abe81f812f2b0ad85fb7f7326c131355cfb71dd616e",
+  "source_move_performed": false,
+  "source_mutation_allowed": false,
+  "stage": "mql5",
+  "stage_id": "mql5",
+  "stage_receipt_digest": "sha256:cedfa0d6d78a0f6729ef598244af70eff06329a2a39d942ff0256af19892083c"
+}

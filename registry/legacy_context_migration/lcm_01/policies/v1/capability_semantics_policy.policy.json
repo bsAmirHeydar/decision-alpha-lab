@@ -1,0 +1,7 @@
+{
+  "pattern_hit_is_live_authority": false,
+  "pattern_hit_is_risk_indicator_only": true,
+  "phase_id": "LCM-01",
+  "policy_id": "CAPABILITY_SEMANTICS_POLICY",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,20 @@
+{
+  "$id": "https://alpha-lab.local/lcm01/schemas/v1/survey_config.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "config_digest": {
+      "type": "string"
+    },
+    "scanner_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "scanner_version",
+    "config_digest"
+  ],
+  "title": "LCM01 Survey Config",
+  "type": "object"
+}

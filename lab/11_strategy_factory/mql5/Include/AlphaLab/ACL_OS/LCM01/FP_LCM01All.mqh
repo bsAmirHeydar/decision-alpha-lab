@@ -1,0 +1,9 @@
+#pragma once
+#include "FP_LCM01Constants.mqh"
+#include "FP_LCM01AuthorityGuard.mqh"
+#include "FP_LCM01ResolutionStatus.mqh"
+#include "FP_LCM01CapabilityFinding.mqh"
+#include "FP_LCM01ArtifactRecord.mqh"
+#include "FP_LCM01DependencyEdge.mqh"
+#include "FP_LCM01Handoff.mqh"
+#include "FP_LCM01Guards.mqh"

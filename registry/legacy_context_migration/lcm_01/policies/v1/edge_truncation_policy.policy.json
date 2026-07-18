@@ -1,0 +1,7 @@
+{
+  "phase_id": "LCM-01",
+  "policy_id": "EDGE_TRUNCATION_POLICY",
+  "schema_version": "1.0.0",
+  "truncated_scan_is_complete_claim": false,
+  "truncation_must_be_reported": true
+}

@@ -1,0 +1,39 @@
+{
+  "phase_id": "LCM-01",
+  "results_digest": "sha256:94c6441c66d63e93debb445007df6f7badefe8ee1a98f2aa58ca6bfaa3e52b54",
+  "schema_version": "1.0.0",
+  "source_mutation_performed": false,
+  "stages": [
+    {
+      "passed": true,
+      "receipt": "operations/stage_receipts/inventory.json",
+      "stage": "inventory"
+    },
+    {
+      "passed": true,
+      "receipt": "operations/stage_receipts/mql5.json",
+      "stage": "mql5"
+    },
+    {
+      "passed": true,
+      "receipt": "operations/stage_receipts/python.json",
+      "stage": "python"
+    },
+    {
+      "passed": true,
+      "receipt": "operations/stage_receipts/documentation.json",
+      "stage": "documentation"
+    },
+    {
+      "passed": true,
+      "receipt": "operations/stage_receipts/configuration.json",
+      "stage": "configuration"
+    },
+    {
+      "passed": true,
+      "receipt": "operations/stage_receipts/structural.json",
+      "stage": "structural"
+    }
+  ],
+  "survey_id": "SURVEY_D4EC5C533F886BC439DAEEBDE51FA080"
+}

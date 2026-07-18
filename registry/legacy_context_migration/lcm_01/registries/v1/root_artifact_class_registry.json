@@ -1,0 +1,16 @@
+{
+  "dynamic_registration_allowed": false,
+  "phase_id": "LCM-01",
+  "registry_id": "ROOT_ARTIFACT_CLASS_REGISTRY",
+  "schema_version": "1.0.0",
+  "values": [
+    "ROOT_CANONICAL",
+    "BINARY_PATCH_OR_ARCHIVE",
+    "COMMIT_RECORD",
+    "INSTALL_OR_VERIFY_SCRIPT",
+    "RELEASE_METADATA",
+    "PROGRAM_OR_RELEASE_MANIFEST",
+    "ROOT_README",
+    "ROOT_REVIEW_REQUIRED"
+  ]
+}

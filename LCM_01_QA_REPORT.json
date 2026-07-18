@@ -1,0 +1,142 @@
+{
+  "baseline_binding": {
+    "baseline_id": "BASELINE_E214DB424C25F427B988901324A38EE6",
+    "baseline_manifest_digest": "sha256:6c90efabe69899c449caf188d7785de20f10d7db6027eeb985dd488c79555b6c",
+    "baseline_record_count": 38595,
+    "mismatch_count": 0,
+    "repository_byte_reverification_passed": true
+  },
+  "claim_ceiling": "FORENSIC_SURVEY_REFERENCE_ONLY",
+  "clean_overlay_installation": {
+    "acl15_regression_tests_passed": 39,
+    "baseline_repository_byte_reverification_passed": true,
+    "installation_passed": true,
+    "lcm00_regression_tests_passed": 29,
+    "lcm01_tests_passed": 25,
+    "patch_index_missing_path_count": 0,
+    "survey_package_verification_passed": true
+  },
+  "delivery_contract_validation": {
+    "missing_count": 0,
+    "passed": true,
+    "required_count": 10
+  },
+  "deterministic_replay": {
+    "full_byte_hash_mismatch_count": 0,
+    "independent_rebuild_count": 2,
+    "passed": true,
+    "path_set_equal": true,
+    "reference_file_count": 54,
+    "replay_file_count": 54,
+    "survey_id_equal": true,
+    "survey_summary_digest_equal": true
+  },
+  "documentation": {
+    "atomic_concept_document_count": 69,
+    "phase_delivery_document_count": 56
+  },
+  "environment_limitations": [
+    "SOURCE_ARCHIVE_DID_NOT_INCLUDE_GIT_METADATA",
+    "DYNAMIC_RUNTIME_REACHABILITY_NOT_PROVEN_BY_STATIC_SURVEY",
+    "BINARY_CONTENT_SEMANTICS_NOT_PROVEN",
+    "HUMAN_OWNERSHIP_APPROVALS_REMAIN_PENDING",
+    "METAEDITOR_AND_MT5_RUNTIME_NOT_AVAILABLE_IN_REFERENCE_ENVIRONMENT"
+  ],
+  "implementation": {
+    "closed_registry_count": 9,
+    "json_schema_count": 17,
+    "machine_policy_count": 22,
+    "mql5_static_contract_file_count": 10,
+    "python_module_count": 30
+  },
+  "patch_preflight": {
+    "artifact_inventory_row_count": 282,
+    "hash_ledger_entry_count": 285,
+    "json_parse_count": 77,
+    "mql5_forbidden_api_hit_count": 0,
+    "passed": true,
+    "pycache_or_pyc_count": 0,
+    "root_relative_path_count": 287,
+    "schema_metaschema_count": 17
+  },
+  "phase_id": "LCM-01",
+  "python_compileall": {
+    "module_root": "tools/strategy_factory/lcm/lcm_01",
+    "passed": true
+  },
+  "reference_survey": {
+    "baseline_artifact_count": 38595,
+    "capability_finding_count": 4840,
+    "case_insensitive_collision_count": 0,
+    "dependency_edge_count": 128208,
+    "documentation_namespace_count": 121,
+    "entry_point_count": 1858,
+    "event_ledger_digest": "sha256:8fb35e6600e89ec9e0676ca871eeafcd2dc276fab3e679f4446e7354c31b15e8",
+    "exact_duplicate_tree_group_count": 4,
+    "exact_file_duplicate_group_count": 1251,
+    "lcm02_handoff_digest": "sha256:f0539f7dff28ac09eeb551c4e7f6a4ca08c95601a284b0ba4e8e8f487235c33d",
+    "network_api_indicator_path_count": 5,
+    "order_api_indicator_path_count": 38,
+    "provenance_graph_digest": "sha256:bc6f451d186d04518354f3eacfc94ac2aa162dd9ef06ad8c32c1b28ccdc994cf",
+    "python_parse_failure_count": 11,
+    "root_file_count": 1076,
+    "root_review_required_count": 21,
+    "stage_execution_digest": "sha256:399715b33a76d6d3bf43be2a9dc00157c7a2392ba0f0abee37a41d6367aaff67",
+    "stage_receipt_count": 6,
+    "survey_id": "SURVEY_D4EC5C533F886BC439DAEEBDE51FA080",
+    "survey_output_manifest_digest": "sha256:268868cc85b14567a40137ec992bdf01020aaab0a083d8eb469005dafe50e11d",
+    "survey_package_artifact_count_excluding_output_manifest": 53,
+    "survey_receipt_digest": "sha256:ccbd588db3f8910a269576bbee009d7529b06628fbdb13bb81413eb31eed4f72",
+    "survey_summary_digest": "sha256:276c743a95a386cba1fee5ef7f50a7755accd9358aaf9d9c8a341f7cf2e9a8c4",
+    "unresolved_or_ambiguous_dependency_edge_count": 15117,
+    "windows_long_path_count": 0
+  },
+  "result": "PASSED",
+  "schema_version": "1.0.0",
+  "security_boundary": {
+    "capital_authority_created": false,
+    "live_order_authority_created": false,
+    "network_accessed": false,
+    "production_key_accessed": false,
+    "runtime_authority_created": false,
+    "secret_accessed": false,
+    "source_delete_authority_created": false,
+    "source_move_authority_created": false
+  },
+  "source_changes": {
+    "added": 287,
+    "context_migrations": 0,
+    "deleted": 0,
+    "moved": 0,
+    "overwritten": 0,
+    "semantic_refactors": 0,
+    "setup_migrations": 0
+  },
+  "static_contract_validation": {
+    "machine_contract_count": 31,
+    "passed": true,
+    "schema_count": 17
+  },
+  "survey_package_verification": {
+    "artifact_count": 38595,
+    "package_artifact_count": 53,
+    "passed": true
+  },
+  "tests": {
+    "acl15_regression": {
+      "command": "python -m pytest -q lab/11_strategy_factory/acl_os/tests_acl_15",
+      "failed": 0,
+      "passed": 39
+    },
+    "lcm00_regression": {
+      "command": "python -m pytest -q lab/11_strategy_factory/migration/tests_lcm_00",
+      "failed": 0,
+      "passed": 29
+    },
+    "lcm01": {
+      "command": "python -m pytest -q lab/11_strategy_factory/migration/tests_lcm_01",
+      "failed": 0,
+      "passed": 25
+    }
+  }
+}

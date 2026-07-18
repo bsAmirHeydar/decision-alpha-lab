@@ -1,0 +1,6 @@
+{
+  "downstream_may_convert_unknown_to_pass": false,
+  "phase_id": "LCM-01",
+  "policy_id": "HANDOFF_POLICY",
+  "schema_version": "1.0.0"
+}

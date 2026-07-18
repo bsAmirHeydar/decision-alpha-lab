@@ -1,0 +1,7 @@
+{
+  "non_empty_destination_allowed": false,
+  "partial_publication_allowed": false,
+  "phase_id": "LCM-01",
+  "policy_id": "ATOMIC_PUBLICATION_POLICY",
+  "schema_version": "1.0.0"
+}

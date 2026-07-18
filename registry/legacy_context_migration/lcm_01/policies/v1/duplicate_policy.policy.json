@@ -1,0 +1,8 @@
+{
+  "auto_merge_allowed": false,
+  "hash_equality_is_byte_equality": true,
+  "hash_equality_is_semantic_equivalence": false,
+  "phase_id": "LCM-01",
+  "policy_id": "DUPLICATE_POLICY",
+  "schema_version": "1.0.0"
+}

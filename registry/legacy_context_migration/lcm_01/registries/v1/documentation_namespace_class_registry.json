@@ -1,0 +1,13 @@
+{
+  "dynamic_registration_allowed": false,
+  "phase_id": "LCM-01",
+  "registry_id": "DOCUMENTATION_NAMESPACE_CLASS_REGISTRY",
+  "schema_version": "1.0.0",
+  "values": [
+    "GENERATED_OR_DERIVED",
+    "ARCHIVE_OR_RELEASE_HISTORY",
+    "CANONICAL_ARCHITECTURE_CANDIDATE",
+    "DOMAIN_DOCUMENTATION_CANDIDATE",
+    "UNKNOWN"
+  ]
+}

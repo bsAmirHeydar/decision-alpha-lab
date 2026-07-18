@@ -1,0 +1,35 @@
+{
+  "baseline_id": "BASELINE_E214DB424C25F427B988901324A38EE6",
+  "baseline_manifest_digest": "sha256:6c90efabe69899c449caf188d7785de20f10d7db6027eeb985dd488c79555b6c",
+  "capital_authority_created": false,
+  "live_order_authority_created": false,
+  "metrics": {
+    "dependency_edge_count": 94234,
+    "scanned_path_count": 23848,
+    "truncation_file_count": 2
+  },
+  "output_artifacts": [
+    {
+      "path": "dependencies/documentation_edge_truncations.csv",
+      "sha256": "sha256:18828370ba4855d444e1d8988de0b184535a609dcff523154f98235a307f3096",
+      "size_bytes": 248
+    },
+    {
+      "path": "dependencies/documentation_link_edges.csv",
+      "sha256": "sha256:6d95e1854cda6f94f2bdb0aa13ca24c942f0eb3e0e297415df49e766151f3c45",
+      "size_bytes": 51375686
+    }
+  ],
+  "passed": true,
+  "phase_id": "LCM-01",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "semantic_refactor_performed": false,
+  "source_delete_performed": false,
+  "source_handoff_digest": "sha256:8864d3dc54d5d28bdf3e5abe81f812f2b0ad85fb7f7326c131355cfb71dd616e",
+  "source_move_performed": false,
+  "source_mutation_allowed": false,
+  "stage": "documentation",
+  "stage_id": "documentation",
+  "stage_receipt_digest": "sha256:536010bdf9e69aaa9b6d3203176466b4731f38097276e6474eefc2191e7868c9"
+}

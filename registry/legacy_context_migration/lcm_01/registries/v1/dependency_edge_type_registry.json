@@ -1,0 +1,14 @@
+{
+  "dynamic_registration_allowed": false,
+  "phase_id": "LCM-01",
+  "registry_id": "DEPENDENCY_EDGE_TYPE_REGISTRY",
+  "schema_version": "1.0.0",
+  "values": [
+    "MQL5_INCLUDE",
+    "PYTHON_IMPORT",
+    "PYTHON_FROM_IMPORT",
+    "MARKDOWN_LINK",
+    "OBSIDIAN_WIKILINK",
+    "CONFIG_PATH_REFERENCE"
+  ]
+}

@@ -1,0 +1,3 @@
+path,observed_edge_count,retained_edge_count,reason
+docs/obsidian/01_maps/all_document_relationships.md,11967,4000,PER_FILE_EDGE_SAFETY_LIMIT
+docs/obsidian_deep/04_relationships/source_document_relationships.md,7815,4000,PER_FILE_EDGE_SAFETY_LIMIT

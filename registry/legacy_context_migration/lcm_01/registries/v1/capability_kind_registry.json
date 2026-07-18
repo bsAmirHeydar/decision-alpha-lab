@@ -1,0 +1,31 @@
+{
+  "dynamic_registration_allowed": false,
+  "phase_id": "LCM-01",
+  "registry_id": "CAPABILITY_KIND_REGISTRY",
+  "schema_version": "1.0.0",
+  "values": [
+    "ORDER_API",
+    "DRAWING_API",
+    "FILE_IO",
+    "NETWORK_API",
+    "TIMER_API",
+    "GLOBAL_VARIABLE_API",
+    "TIMEFRAME_ACCESS",
+    "SESSION_OR_DST_TERMS",
+    "CHART_CALLBACK",
+    "MULTI_SYMBOL_ACCESS",
+    "INDICATOR_BUFFER",
+    "PERSISTENT_STATE",
+    "SUBPROCESS",
+    "DYNAMIC_EVAL",
+    "DYNAMIC_EXEC",
+    "DYNAMIC_COMPILE",
+    "DYNAMIC_IMPORT",
+    "UNSAFE_DESERIALIZATION_INDICATOR",
+    "NONDETERMINISM_INDICATOR",
+    "SECRET_GENERATION_INDICATOR",
+    "ENVIRONMENT_ACCESS",
+    "SHELL_EXECUTION",
+    "FILE_MUTATION"
+  ]
+}

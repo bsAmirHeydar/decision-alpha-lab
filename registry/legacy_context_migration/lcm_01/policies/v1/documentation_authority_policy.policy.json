@@ -1,0 +1,7 @@
+{
+  "exact_duplicate_tree_is_delete_authority": false,
+  "generated_volume_is_authority": false,
+  "phase_id": "LCM-01",
+  "policy_id": "DOCUMENTATION_AUTHORITY_POLICY",
+  "schema_version": "1.0.0"
+}

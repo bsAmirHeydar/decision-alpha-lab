@@ -1,0 +1,7 @@
+{
+  "claim_ceiling": "FORENSIC_SURVEY_REFERENCE_ONLY",
+  "phase_id": "LCM-01",
+  "policy_id": "CLAIM_CEILING_POLICY",
+  "schema_version": "1.0.0",
+  "semantic_truth_claimed": false
+}

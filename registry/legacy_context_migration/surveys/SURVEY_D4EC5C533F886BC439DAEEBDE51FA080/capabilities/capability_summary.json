@@ -1,0 +1,31 @@
+{
+  "capability_counts": {
+    "CHART_CALLBACK": 47,
+    "DRAWING_API": 746,
+    "DYNAMIC_COMPILE": 207,
+    "DYNAMIC_EVAL": 2,
+    "DYNAMIC_IMPORT": 23,
+    "ENVIRONMENT_ACCESS": 36,
+    "FILE_IO": 989,
+    "FILE_MUTATION": 1147,
+    "GLOBAL_VARIABLE_API": 57,
+    "INDICATOR_BUFFER": 45,
+    "MULTI_SYMBOL_ACCESS": 42,
+    "NETWORK_API": 22,
+    "NONDETERMINISM_INDICATOR": 15,
+    "ORDER_API": 114,
+    "PERSISTENT_STATE": 262,
+    "SECRET_GENERATION_INDICATOR": 2,
+    "SESSION_OR_DST_TERMS": 299,
+    "SUBPROCESS": 118,
+    "TIMEFRAME_ACCESS": 479,
+    "TIMER_API": 188
+  },
+  "finding_count": 4840,
+  "live_authority_inferred": false,
+  "network_api_path_count": 5,
+  "order_api_path_count": 38,
+  "risk_indicators_only": true,
+  "schema_version": "1.0.0",
+  "summary_digest": "sha256:c7b16d4fd5e6203a586c2a47234eae5551ba71ffe46b0ccc2a10dc3e1173514f"
+}

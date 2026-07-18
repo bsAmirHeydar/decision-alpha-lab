@@ -1,0 +1,12 @@
+{
+  "dynamic_registration_allowed": false,
+  "phase_id": "LCM-01",
+  "registry_id": "ARTIFACT_SCAN_STATUS_REGISTRY",
+  "schema_version": "1.0.0",
+  "values": [
+    "TEXT_SCAN_ELIGIBLE",
+    "METADATA_ONLY",
+    "PARSE_FAILED",
+    "EDGE_SCAN_TRUNCATED"
+  ]
+}

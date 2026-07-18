@@ -1,0 +1,7 @@
+{
+  "binary_semantics_status": "UNKNOWN",
+  "metadata_scan_allowed": true,
+  "phase_id": "LCM-01",
+  "policy_id": "BINARY_SCAN_POLICY",
+  "schema_version": "1.0.0"
+}

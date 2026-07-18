@@ -1,0 +1,276 @@
+{
+  "artifact_count": 53,
+  "artifacts": [
+    {
+      "path": "authority/authority_permit_snapshot.json",
+      "sha256": "sha256:a798db049c3bafb8dc8787fc4685603501914a24c1949ca440be3ef7dfd2c49f",
+      "size_bytes": 1287
+    },
+    {
+      "path": "capabilities/capability_findings.csv",
+      "sha256": "sha256:6bbf6483c81a11f1d1eec1583979e527558dd52bf4eb26ff5903934a3773dce0",
+      "size_bytes": 864535
+    },
+    {
+      "path": "capabilities/capability_summary.json",
+      "sha256": "sha256:8e7cb4dbeaec29887bfe04b09060f36a6a846db9cab1117810dc5114e1e89cca",
+      "size_bytes": 859
+    },
+    {
+      "path": "capabilities/mql5_capability_findings.csv",
+      "sha256": "sha256:a5de28d8627d7056a185b4617300ea46d95df5d42bd99deb2430fb70429fae7c",
+      "size_bytes": 550437
+    },
+    {
+      "path": "capabilities/python_capability_findings.csv",
+      "sha256": "sha256:8cc83f7c13ca2f17b5a6a276ab3ad42cbe030a085717fd1d703da824c9d1fbb5",
+      "size_bytes": 314210
+    },
+    {
+      "path": "config/survey_config_snapshot.json",
+      "sha256": "sha256:a216bbc2dfdf3278219bee2f7cebdaca6ebe27a5d724fdf370631f34140a8182",
+      "size_bytes": 604
+    },
+    {
+      "path": "dependencies/all_dependency_edges.csv",
+      "sha256": "sha256:17a0940541f7f7d4b1ae193740c8190674fbbfe337dde852e127d72681c758f6",
+      "size_bytes": 61208723
+    },
+    {
+      "path": "dependencies/configuration_edge_truncations.csv",
+      "sha256": "sha256:f2b271b628a8af0fd3afca62b1da96d523a4b7fecb54a6876432cb5122a991f8",
+      "size_bytes": 52
+    },
+    {
+      "path": "dependencies/configuration_reference_edges.csv",
+      "sha256": "sha256:9da0dcc48e98df6e3952475913b6168aedef475a3db0f492866240adb69337d8",
+      "size_bytes": 5225481
+    },
+    {
+      "path": "dependencies/documentation_edge_truncations.csv",
+      "sha256": "sha256:18828370ba4855d444e1d8988de0b184535a609dcff523154f98235a307f3096",
+      "size_bytes": 248
+    },
+    {
+      "path": "dependencies/documentation_link_edges.csv",
+      "sha256": "sha256:6d95e1854cda6f94f2bdb0aa13ca24c942f0eb3e0e297415df49e766151f3c45",
+      "size_bytes": 51375686
+    },
+    {
+      "path": "dependencies/edge_truncation_report.csv",
+      "sha256": "sha256:18828370ba4855d444e1d8988de0b184535a609dcff523154f98235a307f3096",
+      "size_bytes": 248
+    },
+    {
+      "path": "dependencies/entry_points.csv",
+      "sha256": "sha256:68b320a3ec8aa4758a269a9e528e3982062f48f487d13fb1a1f9cb85f27295da",
+      "size_bytes": 218437
+    },
+    {
+      "path": "dependencies/mql5_entry_points.csv",
+      "sha256": "sha256:81f15d2876c052ff670dd98fc5f9b4ba4ac78a221ef1cafd9069d83d6c95b425",
+      "size_bytes": 32904
+    },
+    {
+      "path": "dependencies/mql5_include_edges.csv",
+      "sha256": "sha256:6a78c9e12f70d52a3913c52e8efe6724372d3e6e39cd11b3e328cac2bd618716",
+      "size_bytes": 1221477
+    },
+    {
+      "path": "dependencies/python_entry_points.csv",
+      "sha256": "sha256:f8b15b88519bb803fbf1b35fdc41566a95f21ef3f21775209232ee6ea72c923a",
+      "size_bytes": 185583
+    },
+    {
+      "path": "dependencies/python_import_edges.csv",
+      "sha256": "sha256:7c3cd039734ad1e6292f1ecabf9cac045ed2af6f46d609f738d1c2517e22568e",
+      "size_bytes": 3386547
+    },
+    {
+      "path": "dependencies/python_parse_failures.csv",
+      "sha256": "sha256:57a8468b0eb38afc4f36bea84bab53968ee6b6188895af278565c5e04324b23b",
+      "size_bytes": 1886
+    },
+    {
+      "path": "dependencies/unresolved_dependency_edges.csv",
+      "sha256": "sha256:44bdd19a6c5b89bf75558822fb1c43eab3601c0419101b72ee018114e9da2bbf",
+      "size_bytes": 7489184
+    },
+    {
+      "path": "docs/LCM01_CAPABILITY_FINDINGS.md",
+      "sha256": "sha256:e31c5d8dbcd76bd5b73a70105d791835e18a66bd27b1983d89540b7a1a6371c6",
+      "size_bytes": 575
+    },
+    {
+      "path": "docs/LCM01_DEPENDENCY_FINDINGS.md",
+      "sha256": "sha256:be4c00fe08c004ffcae0795a81f85f0fb779be5d4f5e181a2a8542f90a199c18",
+      "size_bytes": 520
+    },
+    {
+      "path": "docs/LCM01_EXECUTIVE_BRIEF.md",
+      "sha256": "sha256:2f21edeb4d446f1e632c09c3ff6f62e8a1612a6af4e2a048929ebac4d51762eb",
+      "size_bytes": 558
+    },
+    {
+      "path": "docs/LCM01_ROOT_HYGIENE_FINDINGS.md",
+      "sha256": "sha256:a679a94ba777de15ba421f757d5e01faee9909857afeca8da9fa0aaf12a36551",
+      "size_bytes": 272
+    },
+    {
+      "path": "docs/LCM01_SURVEY_SCOPE_AND_METHOD.md",
+      "sha256": "sha256:d4e032cc7cb852dd371b68bb78f65da1fc8a3576dc2de2204b5a783e208d6ff6",
+      "size_bytes": 437
+    },
+    {
+      "path": "docs/LCM01_TO_LCM02_HANDOFF.md",
+      "sha256": "sha256:a936482e01bd84f151900287fd82876f737a5241a7596aa1ae1292d2e7240e32",
+      "size_bytes": 431
+    },
+    {
+      "path": "docs/LCM01_UNKNOWNS_AND_STATIC_LIMITS.md",
+      "sha256": "sha256:8478bd22fb68c433d2551e9f3dee9bf4e27a70ba392c52d5bf60e858727264b1",
+      "size_bytes": 636
+    },
+    {
+      "path": "documentation/documentation_namespace_inventory.csv",
+      "sha256": "sha256:14ae0cae1449c51b02f783438e0371103ab88fbefd42e9b190fd6668bdd32761",
+      "size_bytes": 21228
+    },
+    {
+      "path": "documentation/exact_duplicate_trees.json",
+      "sha256": "sha256:aaabc21f3674a0ee1b3d2b93562ede0095d794416a11562ad4e9de6703c7ce78",
+      "size_bytes": 3795
+    },
+    {
+      "path": "documentation/partial_superset_candidates.json",
+      "sha256": "sha256:04c417716710a90ea85272dfcef97ac370118dba1483a7713ac92d8d2e8b3676",
+      "size_bytes": 148
+    },
+    {
+      "path": "duplicates/exact_file_duplicate_groups.json",
+      "sha256": "sha256:a41f9430c35ac95d4a232dab463f74883df17aa2ca6020680cc2284fc128adb4",
+      "size_bytes": 679794
+    },
+    {
+      "path": "events/survey_event_ledger.json",
+      "sha256": "sha256:bcfb6f03b2535ecfe6449a7d9844b3888bcf81c0627251f73d2615f970f0f672",
+      "size_bytes": 7037
+    },
+    {
+      "path": "handoff/lcm01_to_lcm02_handoff.json",
+      "sha256": "sha256:5e58c199b9d92ed7d581cc42a2389279b6fb7f86289f2ad0974d9cc8a366cbd3",
+      "size_bytes": 1735
+    },
+    {
+      "path": "input/lcm00_binding.json",
+      "sha256": "sha256:13b9515a995d8553a1c55c24cd55519015e778f66441c6bd6f4ffa327fa1b116",
+      "size_bytes": 717
+    },
+    {
+      "path": "integrity/baseline_coverage_report.json",
+      "sha256": "sha256:1ad5b2a4bc600400b715adbdecb2bb3bcb66348a8c36d2b3f0f1857d70090cc0",
+      "size_bytes": 498
+    },
+    {
+      "path": "inventory/artifact_inventory.csv",
+      "sha256": "sha256:1fcd80b51d4b98b37c840b1c8fb2ded890cf8148716e939231f063df3fd79b23",
+      "size_bytes": 26753702
+    },
+    {
+      "path": "inventory/artifact_inventory.jsonl",
+      "sha256": "sha256:d879fcafc6eece6fad0b6dcbcea28d66427e031bcda3a64dde632e85b51ce49a",
+      "size_bytes": 44697602
+    },
+    {
+      "path": "operations/stage_execution_order.json",
+      "sha256": "sha256:a518c0e73d8a275dc128d610ffe78eced04185853617ca44961c27ac92a79f5b",
+      "size_bytes": 959
+    },
+    {
+      "path": "operations/stage_receipts/configuration.json",
+      "sha256": "sha256:e4a42aeb3cebec50ce9d5dc98784d5ec855e1a58804fca373f513231cae420d4",
+      "size_bytes": 1301
+    },
+    {
+      "path": "operations/stage_receipts/documentation.json",
+      "sha256": "sha256:f9cbe3699e2b1d0c789544c0c549e02c4ff5be7d98b67e89468f0d33f2831df9",
+      "size_bytes": 1299
+    },
+    {
+      "path": "operations/stage_receipts/inventory.json",
+      "sha256": "sha256:70aa6946b98aa7493dad081badbc9eb05260ecd437d4a2edb8c1df4dc6c92232",
+      "size_bytes": 4900
+    },
+    {
+      "path": "operations/stage_receipts/mql5.json",
+      "sha256": "sha256:e0bb810f6074c859cc855c6b1211677ff67acc39744d38fda90af23168085c8f",
+      "size_bytes": 1487
+    },
+    {
+      "path": "operations/stage_receipts/python.json",
+      "sha256": "sha256:799c0236b383ea39dc2f79584b5a45c16fe7ddc224adf4fb9e7b9c2d479abc0e",
+      "size_bytes": 1715
+    },
+    {
+      "path": "operations/stage_receipts/structural.json",
+      "sha256": "sha256:f00b975039f7b5ac69b99a9bd8c3e7c900d8605117c72adb62827f5049b8dedd",
+      "size_bytes": 2945
+    },
+    {
+      "path": "operations/stage_worker_results.json",
+      "sha256": "sha256:e6bfb42d19f59818b294aab6e9e4366cd7f945008f8442219af146843f384461",
+      "size_bytes": 1005
+    },
+    {
+      "path": "path_safety/case_insensitive_path_collisions.json",
+      "sha256": "sha256:ab8a82b23154d80d433955e78b599ddb34fb24e150c8d8a9f81a929f7a1a5d36",
+      "size_bytes": 76
+    },
+    {
+      "path": "path_safety/windows_path_risks.json",
+      "sha256": "sha256:e9f1c6fd28d0bcfde5c7e495c8fce64a9257c2deb615a8787fc65e74371acd69",
+      "size_bytes": 206
+    },
+    {
+      "path": "provenance/survey_provenance_graph.json",
+      "sha256": "sha256:8f9717ca2d1a11b4985d4ba74d22c5fd7bcd6bbc820b35db85d36e5375f9a463",
+      "size_bytes": 1747
+    },
+    {
+      "path": "reports/survey_summary.json",
+      "sha256": "sha256:00ad276b1273ac55cc8a88d0faa03a08cc0037e6b171fe846ef669810003591f",
+      "size_bytes": 4746
+    },
+    {
+      "path": "reproducibility/scanner_manifest.json",
+      "sha256": "sha256:84ee6c8233db459d6593b9f296e4afe863f4ce080f630487f86373dd3927b1a7",
+      "size_bytes": 977
+    },
+    {
+      "path": "root_hygiene/root_artifact_inventory.csv",
+      "sha256": "sha256:e6eb3e03512dfa0c49b17095b094ffba885cd05cfa79d5bff3237704e6843b99",
+      "size_bytes": 180233
+    },
+    {
+      "path": "root_hygiene/root_hygiene_summary.json",
+      "sha256": "sha256:f327d4fdf552450f318f7851ecb8181908a15b8696e1cef0e719cef0259b742a",
+      "size_bytes": 518
+    },
+    {
+      "path": "survey_receipt.json",
+      "sha256": "sha256:892cdf7669d7a220daacaf4bcc1d22f209cd59f0c08dc70594f9f11502385248",
+      "size_bytes": 1043
+    },
+    {
+      "path": "unknowns/unknown_registry.json",
+      "sha256": "sha256:62a8b006b59833ad5c9e6a1df302abc945e63bc2c390fa85ca97439c26c3eb67",
+      "size_bytes": 909
+    }
+  ],
+  "output_manifest_digest": "sha256:268868cc85b14567a40137ec992bdf01020aaab0a083d8eb469005dafe50e11d",
+  "phase_id": "LCM-01",
+  "schema_version": "1.0.0",
+  "source_delete_performed": false,
+  "source_move_performed": false,
+  "survey_id": "SURVEY_D4EC5C533F886BC439DAEEBDE51FA080"
+}

@@ -1,0 +1,35 @@
+{
+  "$id": "https://alpha-lab.local/lcm/01/stage_execution.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "execution_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "phase_id": {
+      "const": "LCM-01"
+    },
+    "source_mutation_allowed": {
+      "const": false
+    },
+    "stage_order": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "stage_receipt_digests": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "phase_id",
+    "stage_order",
+    "stage_receipt_digests",
+    "source_mutation_allowed",
+    "execution_digest"
+  ],
+  "title": "LCM01 Stage Execution",
+  "type": "object"
+}

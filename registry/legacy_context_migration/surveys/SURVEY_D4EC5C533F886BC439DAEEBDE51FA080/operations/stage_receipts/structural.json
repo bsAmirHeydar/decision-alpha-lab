@@ -1,0 +1,80 @@
+{
+  "baseline_id": "BASELINE_E214DB424C25F427B988901324A38EE6",
+  "baseline_manifest_digest": "sha256:6c90efabe69899c449caf188d7785de20f10d7db6027eeb985dd488c79555b6c",
+  "capital_authority_created": false,
+  "live_order_authority_created": false,
+  "metrics": {
+    "case_insensitive_collision_count": 0,
+    "documentation_namespace_count": 121,
+    "exact_duplicate_tree_group_count": 4,
+    "exact_file_duplicate_group_count": 1251,
+    "partial_superset_candidate_count": 0,
+    "root_classification_counts": {
+      "BINARY_PATCH_OR_ARCHIVE": 1,
+      "COMMIT_RECORD": 9,
+      "INSTALL_OR_VERIFY_SCRIPT": 270,
+      "PROGRAM_OR_RELEASE_MANIFEST": 48,
+      "RELEASE_METADATA": 590,
+      "ROOT_CANONICAL": 7,
+      "ROOT_README": 130,
+      "ROOT_REVIEW_REQUIRED": 21
+    },
+    "root_file_count": 1076,
+    "root_review_required_count": 21,
+    "windows_long_path_count": 0
+  },
+  "output_artifacts": [
+    {
+      "path": "documentation/documentation_namespace_inventory.csv",
+      "sha256": "sha256:14ae0cae1449c51b02f783438e0371103ab88fbefd42e9b190fd6668bdd32761",
+      "size_bytes": 21228
+    },
+    {
+      "path": "documentation/exact_duplicate_trees.json",
+      "sha256": "sha256:aaabc21f3674a0ee1b3d2b93562ede0095d794416a11562ad4e9de6703c7ce78",
+      "size_bytes": 3795
+    },
+    {
+      "path": "documentation/partial_superset_candidates.json",
+      "sha256": "sha256:04c417716710a90ea85272dfcef97ac370118dba1483a7713ac92d8d2e8b3676",
+      "size_bytes": 148
+    },
+    {
+      "path": "duplicates/exact_file_duplicate_groups.json",
+      "sha256": "sha256:a41f9430c35ac95d4a232dab463f74883df17aa2ca6020680cc2284fc128adb4",
+      "size_bytes": 679794
+    },
+    {
+      "path": "path_safety/case_insensitive_path_collisions.json",
+      "sha256": "sha256:ab8a82b23154d80d433955e78b599ddb34fb24e150c8d8a9f81a929f7a1a5d36",
+      "size_bytes": 76
+    },
+    {
+      "path": "path_safety/windows_path_risks.json",
+      "sha256": "sha256:e9f1c6fd28d0bcfde5c7e495c8fce64a9257c2deb615a8787fc65e74371acd69",
+      "size_bytes": 206
+    },
+    {
+      "path": "root_hygiene/root_artifact_inventory.csv",
+      "sha256": "sha256:e6eb3e03512dfa0c49b17095b094ffba885cd05cfa79d5bff3237704e6843b99",
+      "size_bytes": 180233
+    },
+    {
+      "path": "root_hygiene/root_hygiene_summary.json",
+      "sha256": "sha256:f327d4fdf552450f318f7851ecb8181908a15b8696e1cef0e719cef0259b742a",
+      "size_bytes": 518
+    }
+  ],
+  "passed": true,
+  "phase_id": "LCM-01",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "semantic_refactor_performed": false,
+  "source_delete_performed": false,
+  "source_handoff_digest": "sha256:8864d3dc54d5d28bdf3e5abe81f812f2b0ad85fb7f7326c131355cfb71dd616e",
+  "source_move_performed": false,
+  "source_mutation_allowed": false,
+  "stage": "structural",
+  "stage_id": "structural",
+  "stage_receipt_digest": "sha256:30528cdbf8e90603477229307dd07a523170d6db3d25baefe1a9504e0a0edd91"
+}

@@ -1,0 +1,11 @@
+{
+  "$id": "https://alpha-lab.local/lcm01/schemas/v1/path_safety_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {},
+  "required": [
+    "schema_version"
+  ],
+  "title": "LCM01 Path Safety Report",
+  "type": "object"
+}

@@ -1,0 +1,14 @@
+{
+  "all_baseline_paths_covered_exactly_once": true,
+  "baseline_hashes_reverified": true,
+  "baseline_id": "BASELINE_E214DB424C25F427B988901324A38EE6",
+  "coverage_digest": "sha256:398b28532d3ae166623dfcfe4b71411745e7d8de28237178c03bcc0bcce85aee",
+  "duplicate_paths": [],
+  "expected_record_count": 38595,
+  "inventory_record_count": 38595,
+  "missing_paths": [],
+  "schema_version": "1.0.0",
+  "source_file_deleted": false,
+  "source_file_moved": false,
+  "unique_inventory_path_count": 38595
+}

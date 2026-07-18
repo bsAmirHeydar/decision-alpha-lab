@@ -1,0 +1,18 @@
+{
+  "$id": "https://alpha-lab.local/lcm01/schemas/v1/coverage_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "all_baseline_paths_covered_exactly_once": {
+      "const": true
+    }
+  },
+  "required": [
+    "expected_record_count",
+    "inventory_record_count",
+    "all_baseline_paths_covered_exactly_once",
+    "coverage_digest"
+  ],
+  "title": "LCM01 Coverage Report",
+  "type": "object"
+}

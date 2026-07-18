@@ -1,0 +1,28 @@
+{
+  "dynamic_registration_allowed": false,
+  "phase_id": "LCM-01",
+  "registry_id": "LANGUAGE_REGISTRY",
+  "schema_version": "1.0.0",
+  "values": [
+    "PYTHON",
+    "MQL5_COMPILE_UNIT",
+    "MQL5_HEADER",
+    "MARKDOWN",
+    "JSON",
+    "JSONL",
+    "YAML",
+    "TOML",
+    "POWERSHELL",
+    "CSV",
+    "XML",
+    "HTML",
+    "JAVASCRIPT",
+    "CSS",
+    "OBSIDIAN_CANVAS",
+    "INI",
+    "MQL5_SET",
+    "HASH_LEDGER",
+    "TEXT",
+    "UNKNOWN"
+  ]
+}

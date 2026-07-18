@@ -1,0 +1,7 @@
+{
+  "destructive_authority": false,
+  "hash_linked": true,
+  "phase_id": "LCM-01",
+  "policy_id": "EVENT_LEDGER_POLICY",
+  "schema_version": "1.0.0"
+}

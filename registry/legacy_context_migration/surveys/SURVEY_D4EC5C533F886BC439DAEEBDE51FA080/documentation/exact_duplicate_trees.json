@@ -1,0 +1,94 @@
+{
+  "deletion_authority": false,
+  "group_count": 4,
+  "groups": [
+    {
+      "deletion_authority": false,
+      "exact_duplicate": true,
+      "member_count": 104,
+      "namespaces": [
+        "docs/alpha_lab_master_architecture/strategy_factory",
+        "docs/strategy_factory"
+      ],
+      "semantic_equivalence_claimed": false,
+      "tree_fingerprint": "sha256:4fc08035838e9753cffbfc14caa02a94ac802a453d2d7f15c8afd57c9809092c"
+    },
+    {
+      "deletion_authority": false,
+      "exact_duplicate": true,
+      "member_count": 0,
+      "namespaces": [
+        "docs/00_project_index.md",
+        "docs/Alpha_Lab_Master_Architecture.pdf",
+        "docs/Alpha_Lab_Zone_Centric_Antifragile_Strategy_Thesis.pdf",
+        "docs/CG_Strategy_Architect_Questionnaire_FA_v3_Minimal_BW.pdf",
+        "docs/EXP0015_cme_live_backtest_plan.md",
+        "docs/EXP0015_cme_live_provider_patch.md",
+        "docs/Flag_Project_Manifesto_Market_Anatomy_Optionality.pdf",
+        "docs/Flag_Project_Manifesto_Persian.pdf",
+        "docs/M0001_COMMON_FILES_SYNC_FIX.md",
+        "docs/M0001_EVENT_BRIDGE_ARCHITECTURE.md",
+        "docs/M0001_LIVE_PAST_ONLY_BRIDGE_FIX.md",
+        "docs/M0001_LIVE_PAST_ONLY_COMPILE_FIX.md",
+        "docs/M0001_MQL_INPUT_PARAMETER_BRIDGE.md",
+        "docs/M0001_NODE_ARROW_TIP_ANCHOR_FIX.md",
+        "docs/M0001_NODE_MARKER_PRECISION_AND_PERFORMANCE_FIX.md",
+        "docs/M0001_NODE_REVEAL_TIMING_FIX.md",
+        "docs/M0001_PARQUET_EVENT_BRIDGE.md",
+        "docs/M0001_PARQUET_TYPE_SAFETY_FIX.md",
+        "docs/M0001_REVERT_NODE_TIMING_FAST_SYNC.md",
+        "docs/M0001_SINGLE_SOURCE_LIVE_ARCHITECTURE.md",
+        "docs/M0001_VISUAL_TOGGLE_SYNC_FIX.md",
+        "docs/MQL_LIVE_ALL_IN_ONE_APPLY.md",
+        "docs/MQL_NATIVE_MIGRATION_DECISION.md",
+        "docs/PROJECT_LAYOUT.md",
+        "docs/alpha_lab_master_architecture/Alpha_Lab_Master_Architecture.canvas",
+        "docs/architecture.md",
+        "docs/astro_ml_training_quickstart.md",
+        "docs/atomic_live_research_contract.md",
+        "docs/execution/E0002_CLOSE_CONFIRMED_MARKET.md",
+        "docs/execution/E0003_CONTINUATION_CLOSE_HUNT.md",
+        "docs/execution/E0004_CONTINUATION_HEIKIN_ASHI_FLIP.md",
+        "docs/execution/E0005_CONTINUATION_CLOSE_BREAK_FIXED_R.md",
+        "docs/execution/H0005_R1_SIX_SLOT_TOUCH_LEDGER.md",
+        "docs/execution/README.md",
+        "docs/glossary.md",
+        "docs/laboratory_architecture.md",
+        "docs/manifesto.md",
+        "docs/mql_live_visual_lab.md",
+        "docs/mql_live_visual_lab_debug_packages.md",
+        "docs/mql_visual_lab.md",
+        "docs/obsidian_deep/00_master_command_center.md",
+        "docs/principles.md",
+        "docs/research-roadmap.md",
+        "docs/research_lessons_and_failure_modes.md"
+      ],
+      "semantic_equivalence_claimed": false,
+      "tree_fingerprint": "sha256:6375508cf89fca1184992a7df1925296aa53eca766c56d31f66bb87e3b778620"
+    },
+    {
+      "deletion_authority": false,
+      "exact_duplicate": true,
+      "member_count": 90,
+      "namespaces": [
+        "docs/alpha_lab_master_architecture/strategy_factory_v2",
+        "docs/strategy_factory_v2"
+      ],
+      "semantic_equivalence_claimed": false,
+      "tree_fingerprint": "sha256:77cefc5a9046757ce76be617cec3b6cbaffb52781d4d7478d0a67321bb8dec9b"
+    },
+    {
+      "deletion_authority": false,
+      "exact_duplicate": true,
+      "member_count": 261,
+      "namespaces": [
+        "docs/ai_algorithm_engineering_os",
+        "docs/alpha_lab_master_architecture/ai_algorithm_engineering_os"
+      ],
+      "semantic_equivalence_claimed": false,
+      "tree_fingerprint": "sha256:90999690cfecbe5cb2ef021165aaa4fe7b07cf88ad40d217e9b4cd77d59b5205"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "semantic_equivalence_claimed": false
+}

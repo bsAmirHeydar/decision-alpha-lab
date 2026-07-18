@@ -1,0 +1,24 @@
+{
+  "canonical_survey_digest": "sha256:276c743a95a386cba1fee5ef7f50a7755accd9358aaf9d9c8a341f7cf2e9a8c4",
+  "config_digest": "sha256:7be16f908751f2834b1aa2fd03b2e78d139c7647f553c08ec8d82f072627d3b4",
+  "excluded_nondeterministic_inputs": [
+    "FILE_MTIME",
+    "DIRECTORY_ENUMERATION_ORDER",
+    "RANDOM_UUID",
+    "HOST_ABSOLUTE_PATH"
+  ],
+  "input_baseline_manifest_digest": "sha256:6c90efabe69899c449caf188d7785de20f10d7db6027eeb985dd488c79555b6c",
+  "platform_independent_identity_inputs": [
+    "BASELINE_MANIFEST_DIGEST",
+    "SOURCE_HANDOFF_DIGEST",
+    "SCANNER_VERSION",
+    "SURVEY_CONFIG_DIGEST"
+  ],
+  "python_version": "3.13.5",
+  "repeat_run_status": "VERIFIED_BY_QA_REBUILD",
+  "reproducibility_digest": "sha256:7e9feff549f0aad79941e4f1b4470ea24ab75a82f9656baa4e3f348614c90d78",
+  "scanner_version": "1.0.0",
+  "schema_version": "1.0.0",
+  "stage_isolation": "PROCESS_ISOLATED_BOUNDED_MEMORY_WORKERS",
+  "survey_id": "SURVEY_D4EC5C533F886BC439DAEEBDE51FA080"
+}

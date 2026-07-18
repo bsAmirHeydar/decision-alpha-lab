@@ -1,0 +1,23 @@
+{
+  "config_digest": "sha256:7be16f908751f2834b1aa2fd03b2e78d139c7647f553c08ec8d82f072627d3b4",
+  "configuration_edge_limit_per_file": 2000,
+  "decode_limit_bytes": 8000000,
+  "documentation_edge_limit_per_file": 4000,
+  "duplicate_min_members": 2,
+  "ignored_runtime_parts": [
+    ".git",
+    ".pytest_cache",
+    "__pycache__"
+  ],
+  "include_roots": [
+    "mql5/Include",
+    "mql5",
+    "."
+  ],
+  "long_windows_path_threshold": 240,
+  "namespace_min_files": 1,
+  "partial_superset_min_files": 10,
+  "partial_superset_min_ratio_bps": 8000,
+  "scanner_version": "1.0.0",
+  "schema_version": "1.0.0"
+}

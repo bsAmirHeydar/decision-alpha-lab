@@ -1,0 +1,8 @@
+{
+  "classify_only": true,
+  "delete_allowed": false,
+  "move_allowed": false,
+  "phase_id": "LCM-01",
+  "policy_id": "ROOT_HYGIENE_POLICY",
+  "schema_version": "1.0.0"
+}

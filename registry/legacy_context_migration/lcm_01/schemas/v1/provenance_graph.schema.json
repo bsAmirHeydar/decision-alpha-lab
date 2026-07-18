@@ -1,0 +1,21 @@
+{
+  "$id": "https://alpha-lab.local/lcm01/schemas/v1/provenance_graph.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "edges": {
+      "type": "array"
+    },
+    "nodes": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "graph_id",
+    "nodes",
+    "edges",
+    "graph_digest"
+  ],
+  "title": "LCM01 Provenance Graph",
+  "type": "object"
+}

@@ -1,0 +1,21 @@
+{
+  "$id": "https://alpha-lab.local/lcm01/schemas/v1/root_hygiene_summary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "delete_performed": {
+      "const": false
+    },
+    "move_performed": {
+      "const": false
+    }
+  },
+  "required": [
+    "root_file_count",
+    "move_performed",
+    "delete_performed",
+    "summary_digest"
+  ],
+  "title": "LCM01 Root Hygiene Summary",
+  "type": "object"
+}

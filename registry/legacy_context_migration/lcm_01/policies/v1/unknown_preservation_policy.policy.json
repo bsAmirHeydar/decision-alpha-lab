@@ -1,0 +1,7 @@
+{
+  "phase_id": "LCM-01",
+  "policy_id": "UNKNOWN_PRESERVATION_POLICY",
+  "schema_version": "1.0.0",
+  "unknown_is_delete_authority": false,
+  "unknown_is_pass": false
+}

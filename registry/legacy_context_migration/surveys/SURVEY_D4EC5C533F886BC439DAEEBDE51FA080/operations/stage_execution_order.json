@@ -1,0 +1,23 @@
+{
+  "execution_digest": "sha256:399715b33a76d6d3bf43be2a9dc00157c7a2392ba0f0abee37a41d6367aaff67",
+  "phase_id": "LCM-01",
+  "schema_version": "1.0.0",
+  "source_mutation_allowed": false,
+  "stage_order": [
+    "inventory",
+    "mql5",
+    "python",
+    "documentation",
+    "configuration",
+    "structural"
+  ],
+  "stage_receipt_digests": {
+    "configuration": "sha256:6c76ee0cbdb0129d97341908833101c9c345e56b957c6dd2343fe7c75dded47b",
+    "documentation": "sha256:536010bdf9e69aaa9b6d3203176466b4731f38097276e6474eefc2191e7868c9",
+    "inventory": "sha256:5f84550dc32d5e5ddf18ab2844fcf8370c329e11b4bbd3e47cf3e4c428ceab56",
+    "mql5": "sha256:cedfa0d6d78a0f6729ef598244af70eff06329a2a39d942ff0256af19892083c",
+    "python": "sha256:3154c4e44289e7986edda25e1083fd348ff6ae78452c7b78392b8a54e28005b8",
+    "structural": "sha256:30528cdbf8e90603477229307dd07a523170d6db3d25baefe1a9504e0a0edd91"
+  },
+  "survey_id": "SURVEY_D4EC5C533F886BC439DAEEBDE51FA080"
+}

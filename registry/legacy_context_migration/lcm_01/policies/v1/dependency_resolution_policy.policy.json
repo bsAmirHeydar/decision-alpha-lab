@@ -1,0 +1,8 @@
+{
+  "ambiguous_is_resolved": false,
+  "phase_id": "LCM-01",
+  "policy_id": "DEPENDENCY_RESOLUTION_POLICY",
+  "preserve_unresolved": true,
+  "schema_version": "1.0.0",
+  "static_edge_is_reachability_proof": false
+}

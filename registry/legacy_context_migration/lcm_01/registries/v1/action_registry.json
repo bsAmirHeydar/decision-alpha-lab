@@ -1,0 +1,20 @@
+{
+  "allowed": [
+    "LCM01_RUN_FORENSIC_REPOSITORY_SURVEY"
+  ],
+  "dynamic_registration_allowed": false,
+  "forbidden": [
+    "MOVE_SOURCE_FILE",
+    "DELETE_SOURCE_FILE",
+    "SEMANTIC_REFACTOR",
+    "MERGE_LEGACY_IMPLEMENTATIONS",
+    "CUTOVER_CONSUMER",
+    "QUARANTINE_SOURCE",
+    "AUTHORIZE_RUNTIME",
+    "AUTHORIZE_LIVE_ORDER",
+    "ACTIVATE_CAPITAL"
+  ],
+  "phase_id": "LCM-01",
+  "registry_id": "ACTION_REGISTRY",
+  "schema_version": "1.0.0"
+}

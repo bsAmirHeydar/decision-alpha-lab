@@ -1,0 +1,6 @@
+{
+  "phase_id": "LCM-01",
+  "policy_id": "SOURCE_LAYER_POLICY",
+  "preserve_lcm00_source_layer_lineage": true,
+  "schema_version": "1.0.0"
+}

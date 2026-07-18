@@ -1,0 +1,18 @@
+{
+  "classification_counts": {
+    "BINARY_PATCH_OR_ARCHIVE": 1,
+    "COMMIT_RECORD": 9,
+    "INSTALL_OR_VERIFY_SCRIPT": 270,
+    "PROGRAM_OR_RELEASE_MANIFEST": 48,
+    "RELEASE_METADATA": 590,
+    "ROOT_CANONICAL": 7,
+    "ROOT_README": 130,
+    "ROOT_REVIEW_REQUIRED": 21
+  },
+  "delete_performed": false,
+  "move_performed": false,
+  "review_required_count": 21,
+  "root_file_count": 1076,
+  "schema_version": "1.0.0",
+  "summary_digest": "sha256:292dedd992dc4cd9e4fdadece87bb39e047ab726d3331212b8264c4f125d34a9"
+}

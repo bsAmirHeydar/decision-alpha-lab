@@ -1,0 +1,7 @@
+{
+  "phase_id": "LCM-01",
+  "policy_id": "BASELINE_COVERAGE_POLICY",
+  "rule": "EVERY_LCM00_BASELINE_PATH_EXACTLY_ONCE",
+  "schema_version": "1.0.0",
+  "unknown_action": "FAIL"
+}

@@ -1,0 +1,32 @@
+{
+  "$id": "https://alpha-lab.local/lcm/01/stage_receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "passed": {
+      "const": true
+    },
+    "phase_id": {
+      "const": "LCM-01"
+    },
+    "source_mutation_allowed": {
+      "const": false
+    },
+    "stage_id": {
+      "type": "string"
+    },
+    "stage_receipt_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "phase_id",
+    "stage_id",
+    "passed",
+    "source_mutation_allowed",
+    "stage_receipt_digest"
+  ],
+  "title": "LCM01 Stage Receipt",
+  "type": "object"
+}

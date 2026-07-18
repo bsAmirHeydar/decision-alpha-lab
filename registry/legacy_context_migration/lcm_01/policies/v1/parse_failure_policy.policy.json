@@ -1,0 +1,7 @@
+{
+  "parse_failure_is_silent": false,
+  "phase_id": "LCM-01",
+  "policy_id": "PARSE_FAILURE_POLICY",
+  "preserve_failure_record": true,
+  "schema_version": "1.0.0"
+}

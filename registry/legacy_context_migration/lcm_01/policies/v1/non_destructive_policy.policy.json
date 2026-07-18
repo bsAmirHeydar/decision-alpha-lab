@@ -1,0 +1,8 @@
+{
+  "delete_source_allowed": false,
+  "move_source_allowed": false,
+  "phase_id": "LCM-01",
+  "policy_id": "NON_DESTRUCTIVE_POLICY",
+  "schema_version": "1.0.0",
+  "semantic_refactor_allowed": false
+}

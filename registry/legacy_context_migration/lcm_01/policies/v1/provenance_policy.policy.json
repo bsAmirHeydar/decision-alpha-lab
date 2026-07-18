@@ -1,0 +1,6 @@
+{
+  "must_reach_lcm00_baseline": true,
+  "phase_id": "LCM-01",
+  "policy_id": "PROVENANCE_POLICY",
+  "schema_version": "1.0.0"
+}

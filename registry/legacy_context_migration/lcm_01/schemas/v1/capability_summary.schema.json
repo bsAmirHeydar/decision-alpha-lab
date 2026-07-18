@@ -1,0 +1,21 @@
+{
+  "$id": "https://alpha-lab.local/lcm01/schemas/v1/capability_summary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "live_authority_inferred": {
+      "const": false
+    },
+    "risk_indicators_only": {
+      "const": true
+    }
+  },
+  "required": [
+    "finding_count",
+    "risk_indicators_only",
+    "live_authority_inferred",
+    "summary_digest"
+  ],
+  "title": "LCM01 Capability Summary",
+  "type": "object"
+}

@@ -1,0 +1,14 @@
+{
+  "baseline_id": "BASELINE_E214DB424C25F427B988901324A38EE6",
+  "baseline_manifest_digest": "sha256:6c90efabe69899c449caf188d7785de20f10d7db6027eeb985dd488c79555b6c",
+  "baseline_record_count": 38595,
+  "binding_digest": "sha256:560f9a2cc5716d6862f500701e2f88956df9803e4df57d4c65b9dfa6bc808e76",
+  "inherited_blockers": [
+    "GIT_METADATA_UNKNOWN",
+    "HUMAN_ROLE_ASSIGNMENTS_INCOMPLETE",
+    "UNTRACKED_HOST_LOCAL_ASSETS_NOT_OBSERVABLE_FROM_SOURCE_ARCHIVE"
+  ],
+  "schema_version": "1.0.0",
+  "source_baseline_package": "registry/legacy_context_migration/baselines/BASELINE_E214DB424C25F427B988901324A38EE6",
+  "source_handoff_digest": "sha256:8864d3dc54d5d28bdf3e5abe81f812f2b0ad85fb7f7326c131355cfb71dd616e"
+}

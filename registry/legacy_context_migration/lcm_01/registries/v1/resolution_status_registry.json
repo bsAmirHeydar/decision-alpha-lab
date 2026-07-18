@@ -1,0 +1,16 @@
+{
+  "dynamic_registration_allowed": false,
+  "phase_id": "LCM-01",
+  "registry_id": "RESOLUTION_STATUS_REGISTRY",
+  "schema_version": "1.0.0",
+  "values": [
+    "RESOLVED_INTERNAL",
+    "AMBIGUOUS_INTERNAL",
+    "UNRESOLVED",
+    "EXTERNAL_PLATFORM_LIBRARY",
+    "EXTERNAL_OR_STDLIB",
+    "EXTERNAL_URI",
+    "ANCHOR_ONLY",
+    "PATH_ESCAPE"
+  ]
+}

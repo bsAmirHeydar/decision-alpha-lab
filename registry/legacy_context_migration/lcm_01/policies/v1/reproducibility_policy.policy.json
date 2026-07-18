@@ -1,0 +1,8 @@
+{
+  "absolute_host_path_in_identity": false,
+  "mtime_in_identity": false,
+  "phase_id": "LCM-01",
+  "policy_id": "REPRODUCIBILITY_POLICY",
+  "random_uuid_in_identity": false,
+  "schema_version": "1.0.0"
+}
