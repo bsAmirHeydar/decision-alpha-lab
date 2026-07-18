@@ -1,0 +1,27 @@
+{
+  "accepted_reference_forms": [
+    "<64-hex>",
+    "sha256:<64-hex>"
+  ],
+  "base_commit": "c891ff5a",
+  "binary_raw_byte_verification_preserved": true,
+  "claim_ceiling": "INSTALLATION_VERIFIER_COMPATIBILITY_ONLY",
+  "compileall_passed": true,
+  "content_integrity_weakened": false,
+  "failure_reproduced": "algorithm-qualified baseline SHA-256 reference rejected before byte comparison",
+  "focused_test_count": 13,
+  "focused_tests_passed": 13,
+  "full_repository_verification_required_after_install": true,
+  "hotfix_id": "LCM01_SHA256_REFERENCE_COMPATIBILITY_V2",
+  "passed": true,
+  "phase_id": "LCM-01",
+  "real_manifest_reference_example_passed": true,
+  "rejected_reference_forms": [
+    "wrong algorithm",
+    "nested prefix",
+    "wrong length",
+    "non-hex payload"
+  ],
+  "schema_version": "1.0.0",
+  "text_eol_only_normalization_preserved": true
+}

@@ -163,11 +163,30 @@ def _record_path(record: Mapping[str, Any]) -> str:
     return _record_value(record, _PATH_KEYS, "path")
 
 
-def _record_sha256(record: Mapping[str, Any]) -> str:
-    value = _record_value(record, _HASH_KEYS, "sha256").lower()
-    if len(value) != 64 or any(char not in "0123456789abcdef" for char in value):
+def _normalize_sha256_reference(value: str) -> str:
+    """Normalize supported SHA-256 reference forms to a bare lowercase digest.
+
+    LCM-00 baseline manifests use the URI-like form ``sha256:<64-hex>`` while
+    some focused fixtures use the bare ``<64-hex>`` form. Both representations
+    denote the same digest and are accepted. No other algorithm, nested prefix,
+    whitespace inside the digest, or non-hex payload is accepted.
+    """
+
+    normalized = value.strip().lower()
+    prefix = "sha256:"
+    if normalized.startswith(prefix):
+        normalized = normalized[len(prefix):]
+
+    if len(normalized) != 64 or any(
+        character not in "0123456789abcdef" for character in normalized
+    ):
         raise IntegrityError(f"baseline record has invalid sha256 value={value!r}")
-    return value
+    return normalized
+
+
+def _record_sha256(record: Mapping[str, Any]) -> str:
+    value = _record_value(record, _HASH_KEYS, "sha256")
+    return _normalize_sha256_reference(value)
 
 
 def _resolve_repo_path(repo_root: Path, relative_path: str) -> Path:

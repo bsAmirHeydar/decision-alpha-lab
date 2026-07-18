@@ -1,0 +1,71 @@
+{
+  "base_commit": "c891ff5a",
+  "claim_ceiling": "INSTALLATION_VERIFIER_COMPATIBILITY_ONLY",
+  "commit_subject": "fix(lcm): accept qualified SHA-256 baseline references",
+  "deleted_file_count": 0,
+  "file_count": 12,
+  "hotfix_version": "2.0.0",
+  "metadata_file_count": 5,
+  "patch_id": "ALPHA_LAB_LCM_01_SHA256_REFERENCE_COMPATIBILITY_HOTFIX",
+  "paths": [
+    "APPLY_ALPHA_LAB_LCM_01_SHA256_REFERENCE_HOTFIX.ps1",
+    "COMMIT_MESSAGE_LCM_01_SHA256_REFERENCE_HOTFIX.md",
+    "INSTALL_ALPHA_LAB_LCM_01_SHA256_REFERENCE_HOTFIX.md",
+    "LCM_01_SHA256_REFERENCE_HOTFIX_ARTIFACT_INVENTORY.csv",
+    "LCM_01_SHA256_REFERENCE_HOTFIX_FILE_HASHES.sha256",
+    "LCM_01_SHA256_REFERENCE_HOTFIX_FILE_INDEX.txt",
+    "LCM_01_SHA256_REFERENCE_HOTFIX_PATCH_MANIFEST.json",
+    "LCM_01_SHA256_REFERENCE_HOTFIX_QA_REPORT.json",
+    "README_ALPHA_LAB_LCM_01_SHA256_REFERENCE_HOTFIX.md",
+    "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_01/LCM01_SHA256_REFERENCE_COMPATIBILITY_HOTFIX.md",
+    "lab/11_strategy_factory/migration/tests_lcm_01/test_cross_platform_integrity_hotfix.py",
+    "tools/strategy_factory/lcm/lcm_01/cross_platform_integrity.py"
+  ],
+  "payload_artifacts": [
+    {
+      "path": "APPLY_ALPHA_LAB_LCM_01_SHA256_REFERENCE_HOTFIX.ps1",
+      "sha256": "0a1563e5b69e543ff8be6e39469329d779cf9e3e0072906a699d826534e600bb",
+      "size_bytes": 1023
+    },
+    {
+      "path": "COMMIT_MESSAGE_LCM_01_SHA256_REFERENCE_HOTFIX.md",
+      "sha256": "4be0da1a8f204835b5f879133a37f9ef647b114d5ea112f13337331388af2101",
+      "size_bytes": 314
+    },
+    {
+      "path": "INSTALL_ALPHA_LAB_LCM_01_SHA256_REFERENCE_HOTFIX.md",
+      "sha256": "9fe5d3f5ecf8f713f7c142f4758307801220fc582b4b79c606c9005dfce4690a",
+      "size_bytes": 532
+    },
+    {
+      "path": "README_ALPHA_LAB_LCM_01_SHA256_REFERENCE_HOTFIX.md",
+      "sha256": "991cefdc68a332a65f8ed52f1ba0a7e95f50728ec64c248986277e238affab26",
+      "size_bytes": 1265
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_01/LCM01_SHA256_REFERENCE_COMPATIBILITY_HOTFIX.md",
+      "sha256": "a8c2e74d442c1034657f290f239982c346d35c2ec5ee57175631a2a0c7dbd778",
+      "size_bytes": 1805
+    },
+    {
+      "path": "lab/11_strategy_factory/migration/tests_lcm_01/test_cross_platform_integrity_hotfix.py",
+      "sha256": "719d3b04ab38bf1b584e0112395832eb082d273a688f7eedff313131c1888191",
+      "size_bytes": 4205
+    },
+    {
+      "path": "tools/strategy_factory/lcm/lcm_01/cross_platform_integrity.py",
+      "sha256": "28025c23c3dc280b1227a287cb079c18089d4556115995f891cb062fbf014e38",
+      "size_bytes": 9555
+    }
+  ],
+  "payload_file_count": 7,
+  "phase_id": "LCM-01",
+  "schema_version": "1.0.0",
+  "verification": {
+    "bare_sha256_reference": true,
+    "compileall": true,
+    "fail_closed_invalid_reference": true,
+    "focused_tests": "13 passed",
+    "qualified_sha256_reference": true
+  }
+}

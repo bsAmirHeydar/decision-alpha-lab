@@ -75,3 +75,61 @@ def test_path_escape_is_denied(tmp_path: Path) -> None:
 
 def test_canonicalizer_changes_only_line_endings() -> None:
     assert canonicalize_text_eol(b" a \r\n\r\nb\r") == b" a \n\nb\n"
+
+
+def test_prefixed_sha256_reference_matches_crlf_working_tree(tmp_path: Path) -> None:
+    repo = tmp_path / "repo"
+    repo.mkdir()
+    expected = b"alpha\nbeta\n"
+    (repo / "sample.csv").write_bytes(b"alpha\r\nbeta\r\n")
+    package = _package(
+        tmp_path,
+        [{"path": "sample.csv", "sha256": f"sha256:{_sha256(expected)}"}],
+    )
+
+    result = verify_repository_bytes_cross_platform(repo, package)
+
+    assert result["passed"] is True
+    assert result["canonical_text_match_count"] == 1
+
+
+def test_prefixed_sha256_reference_matches_raw_binary(tmp_path: Path) -> None:
+    repo = tmp_path / "repo"
+    repo.mkdir()
+    expected = b"PK\x00binary\r\nbytes"
+    (repo / "sample.bin").write_bytes(expected)
+    package = _package(
+        tmp_path,
+        [{"path": "sample.bin", "sha256": f"sha256:{_sha256(expected)}"}],
+    )
+
+    result = verify_repository_bytes_cross_platform(repo, package)
+
+    assert result["passed"] is True
+    assert result["raw_match_count"] == 1
+
+
+@pytest.mark.parametrize(
+    "invalid_reference",
+    [
+        "sha256:",
+        "sha256:1234",
+        "sha256:sha256:" + "0" * 64,
+        "md5:" + "0" * 64,
+        "sha256:" + "g" * 64,
+        "sha256:" + "0" * 63 + " ",
+    ],
+)
+def test_invalid_sha256_reference_forms_fail_closed(
+    tmp_path: Path, invalid_reference: str
+) -> None:
+    repo = tmp_path / "repo"
+    repo.mkdir()
+    (repo / "sample.txt").write_text("x", encoding="utf-8")
+    package = _package(
+        tmp_path,
+        [{"path": "sample.txt", "sha256": invalid_reference}],
+    )
+
+    with pytest.raises(IntegrityError, match="invalid sha256"):
+        verify_repository_bytes_cross_platform(repo, package)
