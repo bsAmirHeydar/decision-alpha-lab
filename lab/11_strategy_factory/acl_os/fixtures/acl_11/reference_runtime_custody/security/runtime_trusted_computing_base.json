@@ -1,0 +1,21 @@
+{
+  "allowed_component_classes": [
+    "SIGNED_GENERATION_VERIFIER",
+    "COMPATIBILITY_CHECKER",
+    "REVOCATION_CHECKER",
+    "FAIL_CLOSED_RUNTIME_LOADER",
+    "AUDIT_EVENT_WRITER"
+  ],
+  "forbidden_component_classes": [
+    "TRAINING_ENGINE",
+    "ARBITRARY_PLUGIN_LOADER",
+    "DYNAMIC_CODE_EXECUTION",
+    "NETWORK_DOWNLOADER",
+    "SECRET_EXPORTER"
+  ],
+  "production_tcb_verified": false,
+  "reason_code": "NO_RUNTIME_GENERATION_AND_PRODUCTION_SECURITY_DEFERRED_TO_ACL12",
+  "schema_version": "1.0.0",
+  "tcb_digest": "sha256:cbd184e256717a4b812ffa5ada102d83548a09e45b2fcfc13986301a57526e6f",
+  "tcb_mode": "DECLARATION_ONLY"
+}

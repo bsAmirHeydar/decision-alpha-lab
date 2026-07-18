@@ -1,0 +1,13 @@
+{
+  "denied_capabilities": [
+    "NETWORK",
+    "SECRETS",
+    "RUNTIME_GENERATION",
+    "SIGNING_KEYS",
+    "RUNTIME_ACTIVATION",
+    "LIVE_ORDER",
+    "CAPITAL"
+  ],
+  "required_action": "ACL11_ASSESS_RUNTIME_CUSTODY",
+  "schema_version": "1.0.0"
+}

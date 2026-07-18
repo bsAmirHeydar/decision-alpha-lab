@@ -1,0 +1,16 @@
+{
+  "base_commit_message": "feat(acl-os): implement ACL-10 promotion state machine",
+  "claim_ceiling": "RUNTIME_CUSTODY_DECISION_REFERENCE_ONLY",
+  "commit_message": "feat(acl-os): implement ACL-11 runtime parity and handoff",
+  "deletion_count": 0,
+  "file_index": "ACL_OS_11_FILE_INDEX.txt",
+  "metadata_file_count": 5,
+  "patch_id": "ACL_OS_11_RUNTIME_PARITY_AND_HANDOFF_PATCH",
+  "payload_file_count": 329,
+  "phase": "ACL-11",
+  "qa_report": "ACL_OS_11_QA_REPORT.json",
+  "root_relative": true,
+  "schema_version": "1.0.0",
+  "self_reference_policy": "ZIP_DIGEST_EXCLUDED_FROM_INTERNAL_MANIFEST",
+  "total_file_count": 334
+}

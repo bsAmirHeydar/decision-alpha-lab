@@ -1,0 +1,30 @@
+{
+  "capital_activation_allowed": false,
+  "custody_decision": "NON_EXECUTABLE_NO_RUNTIME_CANDIDATES",
+  "custody_decision_digest": "sha256:4f79725dfea5841784507b818f439036aa82707861f1727fde7bd85c280ad8ac",
+  "event_ledger_digest": "sha256:16ddec16ac837fed977a290eb25fa793aa202813a942d0ff257febdd8dee7cf5",
+  "forbidden_acl12_actions": [
+    "INVENT_RUNTIME_CANDIDATE",
+    "BYPASS_PARITY_OR_SIGNING_GATES",
+    "ACCESS_PRODUCTION_KEYS_IN_REFERENCE_MODE",
+    "AUTHORIZE_LIVE_ORDER",
+    "ACTIVATE_CAPITAL"
+  ],
+  "handoff_digest": "sha256:7b18280b5acb2835c7350c26fb3a6b32216cecaee4f9f92cd5e5777471e39d37",
+  "handoff_type": "ACL11_TO_ACL12",
+  "live_order_submission_allowed": false,
+  "parity_assessment_digest": "sha256:a960e5694587bc3edec85085d5165cf0220b4a2d723c90c9e2a4161b269c860e",
+  "promotion_run_id": "PROMRUN_580667F2EE87B717DDCABC943E1DA894",
+  "provenance_graph_digest": "sha256:270ca8ba147cfd62c46d9c4fbbe92e0f8331a8231cc9a4dac6d1d2d3b54c9487",
+  "required_acl12_actions": [
+    "VERIFY_RUNTIME_CUSTODY_PACKAGE",
+    "HARDEN_SECURITY_BOUNDARIES",
+    "ISSUE_SECURITY_READINESS_DECISION"
+  ],
+  "runtime_activation_allowed": false,
+  "runtime_candidate_count": 0,
+  "runtime_custody_run_id": "RTRUN_7CAD59F31433BDB17692436DE314813D",
+  "runtime_generation_allowed": false,
+  "schema_version": "1.0.0",
+  "security_report_digest": "sha256:341e9733e95c242682653b4432b05621cb104074a9f11ebc673bebaa1d01e5b8"
+}

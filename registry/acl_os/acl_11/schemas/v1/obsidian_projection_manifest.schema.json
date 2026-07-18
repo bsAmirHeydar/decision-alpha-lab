@@ -1,0 +1,7 @@
+{
+  "$id": "https://alpha-lab.local/acl11/obsidian_projection_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "minProperties": 2,
+  "title": "obsidian_projection_manifest",
+  "type": "object"
+}

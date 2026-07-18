@@ -1,0 +1,74 @@
+{
+  "$id": "https://alpha-lab.local/acl11/RuntimeCustodyRun.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assessed_at": {
+      "type": "string"
+    },
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "custody_decision_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "live_order_submission_allowed": {
+      "type": "boolean"
+    },
+    "memory_run_id": {
+      "type": "string"
+    },
+    "parity_assessment_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "promotion_run_id": {
+      "type": "string"
+    },
+    "runtime_activation_allowed": {
+      "type": "boolean"
+    },
+    "runtime_candidate_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "runtime_custody_run_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "runtime_custody_run_id": {
+      "type": "string"
+    },
+    "runtime_generation_manifest_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "runtime_generation_materialized": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "service_version": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "runtime_custody_run_id",
+    "promotion_run_id",
+    "state",
+    "claim_ceiling",
+    "runtime_candidate_count",
+    "runtime_custody_run_digest"
+  ],
+  "title": "RuntimeCustodyRun",
+  "type": "object"
+}

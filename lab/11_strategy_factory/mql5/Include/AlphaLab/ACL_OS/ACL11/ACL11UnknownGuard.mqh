@@ -1,0 +1,4 @@
+#ifndef ALPHALAB_ACL11_UNKNOWN_GUARD_MQH
+#define ALPHALAB_ACL11_UNKNOWN_GUARD_MQH
+bool ACL11UnknownBlocksRuntime(const ENUM_ACL11_PARITY_STATUS status){ return status==ACL11_PARITY_UNKNOWN; }
+#endif

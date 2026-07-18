@@ -1,0 +1,8 @@
+{
+  "activation_separate_authority_required": true,
+  "policy_id": "ACL11_CUSTODY_V1",
+  "runtime_generation_requires_all_hard_parity": true,
+  "runtime_generation_requires_candidate": true,
+  "schema_version": "1.0.0",
+  "signature_requires_production_key_custody": true
+}

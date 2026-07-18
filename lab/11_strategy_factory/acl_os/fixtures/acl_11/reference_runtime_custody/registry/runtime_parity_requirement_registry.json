@@ -1,0 +1,168 @@
+{
+  "closed": true,
+  "dynamic_registration_allowed": false,
+  "registry_digest": "sha256:2a6e116f955c6b9938a503a488218edcc6de89c1821da8c651e194f80ff96c6f",
+  "requirements": [
+    {
+      "category": "PACKAGE",
+      "requirement_digest": "sha256:1073491e32289939c59ea96399fa742877370a9f2fc0b979e0f0d9a741e7f87a",
+      "requirement_id": "SOURCE_PROMOTION_PACKAGE_INTEGRITY",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true,
+      "version": "1.0.0"
+    },
+    {
+      "category": "ELIGIBILITY",
+      "requirement_digest": "sha256:6c0ca638481dbbaf78f270119bca9efdcd523c59689e525114b32a954b44cbfe",
+      "requirement_id": "RUNTIME_CANDIDATE_PRESENT",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true,
+      "version": "1.0.0"
+    },
+    {
+      "category": "GENERATION",
+      "requirement_digest": "sha256:cb0cc92fefa389a26b0c2560fdc07e038a8a54031bb4f03aafc85e03b895a2f0",
+      "requirement_id": "IMMUTABLE_GENERATION_INPUTS",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true,
+      "version": "1.0.0"
+    },
+    {
+      "category": "PARITY",
+      "requirement_digest": "sha256:38f8a8e2737c9b82027f23a0326d2f2de29fa1a50f9afd16bbe1a3fc66acc23f",
+      "requirement_id": "REFERENCE_EXECUTOR_VECTOR_SET",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true,
+      "version": "1.0.0"
+    },
+    {
+      "category": "PARITY",
+      "requirement_digest": "sha256:a17d12702e8df0f41848cddd92f2dd7d270c4d7aab814adcf5a46d585b0a90b4",
+      "requirement_id": "MQL5_COMPILE_EVIDENCE",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true,
+      "version": "1.0.0"
+    },
+    {
+      "category": "PARITY",
+      "requirement_digest": "sha256:2e4e3a42c6d0ce762d11f6e8f4a872e8afdf503759486ab60c8760d597770225",
+      "requirement_id": "STRATEGY_TESTER_GOLDEN_REPLAY",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true,
+      "version": "1.0.0"
+    },
+    {
+      "category": "PARITY",
+      "requirement_digest": "sha256:b8572c7a8e384f50ec205a114acc65b6b4dfc8f44a536cb37e612c88fbd0c1b1",
+      "requirement_id": "DECISION_PARITY",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true,
+      "version": "1.0.0"
+    },
+    {
+      "category": "PARITY",
+      "requirement_digest": "sha256:09e956b7f42c0127afc4b14c6fbaaf62f10fae850d5fa98bb7d6d0f885fa45c7",
+      "requirement_id": "STATE_TRANSITION_PARITY",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true,
+      "version": "1.0.0"
+    },
+    {
+      "category": "PARITY",
+      "requirement_digest": "sha256:a9dbbc5f257b06116f24ff55e23da127289801fb930dfd2cc4f1becc3dd6d4c6",
+      "requirement_id": "TREATMENT_PARITY",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true,
+      "version": "1.0.0"
+    },
+    {
+      "category": "ECONOMICS",
+      "requirement_digest": "sha256:dd397712ff2e705719143c26f4288fbc77eedc40ee6c363d48418726f2026c97",
+      "requirement_id": "EXECUTION_ECONOMICS_PARITY",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true,
+      "version": "1.0.0"
+    },
+    {
+      "category": "ENVIRONMENT",
+      "requirement_digest": "sha256:63a9f859bc5b3ca938abb975bfb29c6eeddd7ba544bb18f69d54ee0962d23533",
+      "requirement_id": "BROKER_SYMBOL_QUALIFICATION",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true,
+      "version": "1.0.0"
+    },
+    {
+      "category": "ENVIRONMENT",
+      "requirement_digest": "sha256:24b1407d4e760befe0226b6c45de712563f6594914eb737b8228e4617b52f898",
+      "requirement_id": "TIMEZONE_AND_SESSION_PARITY",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true,
+      "version": "1.0.0"
+    },
+    {
+      "category": "PARITY",
+      "requirement_digest": "sha256:58e1860d77a1d4b670492e557677f74ec59137baefe747c47ccd5d0c2a398445",
+      "requirement_id": "NUMERIC_TOLERANCE_POLICY",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true,
+      "version": "1.0.0"
+    },
+    {
+      "category": "CUSTODY",
+      "requirement_digest": "sha256:853602a2643c68670f8c7e25179f62a1f820aa9f8de74c569990976526fde5c1",
+      "requirement_id": "SIGNED_GENERATION_ENVELOPE",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true,
+      "version": "1.0.0"
+    },
+    {
+      "category": "CUSTODY",
+      "requirement_digest": "sha256:9913d1545203b92a083a5000183d91fd2726138534018802d8fbbacc212b932d",
+      "requirement_id": "SIGNING_KEY_CUSTODY",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true,
+      "version": "1.0.0"
+    },
+    {
+      "category": "CUSTODY",
+      "requirement_digest": "sha256:adb12a53ec5c3584b00150147bee3b0683565b849d81fbc4bba2678af5f5fff0",
+      "requirement_id": "REVOCATION_AND_ROLLBACK_PLAN",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true,
+      "version": "1.0.0"
+    },
+    {
+      "category": "SECURITY",
+      "requirement_digest": "sha256:1ef9b9f9f20dfc338ca9aad49ff7beb62d1b13115b4b39f8bb940d574ebfe1da",
+      "requirement_id": "TRUSTED_COMPUTING_BASE",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true,
+      "version": "1.0.0"
+    },
+    {
+      "category": "OPERATIONS",
+      "requirement_digest": "sha256:a9580a1c419e6a0bcaeef8692c88991100fd2bfcf6db2dd609e0632e9ba3af21",
+      "requirement_id": "RUNTIME_MONITORING_CONTRACT",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true,
+      "version": "1.0.0"
+    },
+    {
+      "category": "OPERATIONS",
+      "requirement_digest": "sha256:6ef8ea161f68d4d6754e5ab37b82b3821786d11793858f43c59b66a85e4b7b98",
+      "requirement_id": "FAIL_CLOSED_FALLBACK",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true,
+      "version": "1.0.0"
+    },
+    {
+      "category": "AUTHORITY",
+      "requirement_digest": "sha256:634659d27569f297d86de01fe7d4102da5bcd27aa3fba5fdcb35ed7c851adede",
+      "requirement_id": "ACTIVATION_AUTHORITY",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true,
+      "version": "1.0.0"
+    }
+  ],
+  "schema_version": "1.0.0"
+}

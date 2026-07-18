@@ -1,0 +1,77 @@
+{
+  "$id": "https://alpha-lab.local/acl11/RuntimeCustodyDecision.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assessment_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "conformance_matrix_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "custody_decision_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "custody_decision_id": {
+      "type": "string"
+    },
+    "custody_state": {
+      "type": "string"
+    },
+    "decided_at": {
+      "type": "string"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "generation_manifest_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "live_order_submission_allowed": {
+      "type": "boolean"
+    },
+    "promotion_run_id": {
+      "type": "string"
+    },
+    "reason_codes": {
+      "type": "array"
+    },
+    "runtime_activation_allowed": {
+      "type": "boolean"
+    },
+    "runtime_candidate_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "runtime_generation_allowed": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "signature_creation_allowed": {
+      "type": "boolean"
+    },
+    "signing_plan_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "custody_decision_id",
+    "decision",
+    "custody_state",
+    "runtime_candidate_count",
+    "custody_decision_digest"
+  ],
+  "title": "RuntimeCustodyDecision",
+  "type": "object"
+}

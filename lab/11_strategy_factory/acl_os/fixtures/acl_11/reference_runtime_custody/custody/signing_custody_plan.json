@@ -1,0 +1,11 @@
+{
+  "key_material_present": false,
+  "production_verifier_present": false,
+  "reason_code": "NO_GENERATION_TO_SIGN",
+  "revocation_check_required": true,
+  "schema_version": "1.0.0",
+  "signature_created": false,
+  "signing_key_access_allowed": false,
+  "signing_mode": "DETACHED_SIGNATURE_ENVELOPE",
+  "signing_plan_digest": "sha256:d4decf438bbf9fb20be7ab0b56e5769e734d1178aa1b3c151e9b83b7acb1c2a0"
+}

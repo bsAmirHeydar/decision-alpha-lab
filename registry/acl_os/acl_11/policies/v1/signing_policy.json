@@ -1,0 +1,8 @@
+{
+  "detached_signature_required": true,
+  "policy_id": "ACL11_SIGNING_V1",
+  "production_key_custody_deferred_to": "ACL-12",
+  "reference_key_material_allowed": false,
+  "revocation_check_required": true,
+  "schema_version": "1.0.0"
+}

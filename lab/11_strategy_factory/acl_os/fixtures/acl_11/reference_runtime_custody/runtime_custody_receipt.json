@@ -1,0 +1,11 @@
+{
+  "acl12_handoff_digest": "sha256:7b18280b5acb2835c7350c26fb3a6b32216cecaee4f9f92cd5e5777471e39d37",
+  "artifact_count": 20,
+  "custody_decision_digest": "sha256:4f79725dfea5841784507b818f439036aa82707861f1727fde7bd85c280ad8ac",
+  "output_manifest_digest": "sha256:cecd846c1fd66e3c7a77ecc0c5d260034e372c3a62fce3433d1470b48996adaa",
+  "receipt_digest": "sha256:3d6d5f433e5294bea0b6d5e440aea40b3b61b38a42eef2ed6aec4cfd4180dce2",
+  "reference_only": true,
+  "runtime_custody_run_digest": "sha256:48eb61ed435da60fe08909f8e71645c7b62e67502eae9d14db5f2ca91961ca38",
+  "runtime_custody_run_id": "RTRUN_7CAD59F31433BDB17692436DE314813D",
+  "schema_version": "1.0.0"
+}

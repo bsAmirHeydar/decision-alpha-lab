@@ -1,0 +1,7 @@
+{
+  "$id": "https://alpha-lab.local/acl11/parity_requirement_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "minProperties": 2,
+  "title": "parity_requirement_registry",
+  "type": "object"
+}

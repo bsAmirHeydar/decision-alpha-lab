@@ -1,0 +1,56 @@
+{
+  "capital_authority_created": false,
+  "edges": [
+    {
+      "from": "ACL10_HANDOFF",
+      "to": "ACL10_RUNTIME_MANIFEST"
+    },
+    {
+      "from": "ACL10_RUNTIME_MANIFEST",
+      "to": "ACL11_PARITY_ASSESSMENT"
+    },
+    {
+      "from": "ACL11_PARITY_ASSESSMENT",
+      "to": "ACL11_CUSTODY_DECISION"
+    },
+    {
+      "from": "ACL11_CUSTODY_DECISION",
+      "to": "ACL11_GENERATION_MANIFEST"
+    }
+  ],
+  "graph_digest": "sha256:270ca8ba147cfd62c46d9c4fbbe92e0f8331a8231cc9a4dac6d1d2d3b54c9487",
+  "live_order_authority_created": false,
+  "nodes": [
+    {
+      "artifact_digest": "sha256:ce5eeab55a6725956b11e01a11069e47f0764f6f2d0bad610a9cefb694989df6",
+      "artifact_type": "ACL10_TO_ACL11",
+      "node_id": "ACL10_HANDOFF"
+    },
+    {
+      "artifact_digest": "sha256:72c83c7a93cca61d4512de6e7179bee04716f09965410978393b415cbeda3bfd",
+      "artifact_type": "RUNTIME_CANDIDATE_MANIFEST",
+      "node_id": "ACL10_RUNTIME_MANIFEST"
+    },
+    {
+      "artifact_digest": "sha256:a960e5694587bc3edec85085d5165cf0220b4a2d723c90c9e2a4161b269c860e",
+      "artifact_type": "RUNTIME_PARITY_ASSESSMENT",
+      "node_id": "ACL11_PARITY_ASSESSMENT"
+    },
+    {
+      "artifact_digest": "sha256:4f79725dfea5841784507b818f439036aa82707861f1727fde7bd85c280ad8ac",
+      "artifact_type": "NON_EXECUTABLE_CUSTODY_DECISION",
+      "node_id": "ACL11_CUSTODY_DECISION"
+    },
+    {
+      "artifact_digest": "sha256:a907f44dc162860d3954088c4447e0c0daa8665c1f28b7c1f1089f0f7f25ee06",
+      "artifact_type": "EMPTY_RUNTIME_GENERATION_MANIFEST",
+      "node_id": "ACL11_GENERATION_MANIFEST"
+    }
+  ],
+  "promotion_decisions_mutated": false,
+  "reaches_acl10_promotion_state": true,
+  "runtime_candidate_invented": false,
+  "runtime_generation_materialized": false,
+  "schema_version": "1.0.0",
+  "signature_created": false
+}

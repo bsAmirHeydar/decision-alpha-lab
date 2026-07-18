@@ -1,0 +1,39 @@
+{
+  "closed": true,
+  "registry_digest": "sha256:3bceeb27316e4e9586e7885b9dfa68009fef6dfed6fd236dd6a3fa03772f22d7",
+  "schema_version": "1.0.0",
+  "states": [
+    {
+      "capital_allowed": false,
+      "live_order_allowed": false,
+      "runtime_executable": false,
+      "state_digest": "sha256:6cbcc0fff24035b2485686f60bfb950f8f668955e4b8187bf01391452efbc5d4",
+      "state_id": "NO_RUNTIME_CANDIDATES",
+      "version": "1.0.0"
+    },
+    {
+      "capital_allowed": false,
+      "live_order_allowed": false,
+      "runtime_executable": false,
+      "state_digest": "sha256:7a52dff495200a8ad8f2d4bca2e3d2406434fb5d008cf6d618535b2e468c46de",
+      "state_id": "PARITY_ASSESSMENT_BLOCKED",
+      "version": "1.0.0"
+    },
+    {
+      "capital_allowed": false,
+      "live_order_allowed": false,
+      "runtime_executable": false,
+      "state_digest": "sha256:5ec2d42f94a1a7c6a414bd9c18e48187922e5da83371750837043d1f6aafccae",
+      "state_id": "PARITY_INCOMPLETE",
+      "version": "1.0.0"
+    },
+    {
+      "capital_allowed": false,
+      "live_order_allowed": false,
+      "runtime_executable": false,
+      "state_digest": "sha256:e938139957f405fa09eb06f446aa5ad75dc4552deafdd5a6520f174116d89d66",
+      "state_id": "READY_FOR_SIGNED_BUILD_NOT_AUTHORIZED",
+      "version": "1.0.0"
+    }
+  ]
+}

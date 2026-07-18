@@ -1,0 +1,9 @@
+{
+  "documents": [
+    "docs/ACL11_RUNTIME_CUSTODY_SUMMARY.md",
+    "docs/ACL11_RUNTIME_PARITY_GAPS.md"
+  ],
+  "handoff_digest": "sha256:7b18280b5acb2835c7350c26fb3a6b32216cecaee4f9f92cd5e5777471e39d37",
+  "projection_manifest_digest": "sha256:3501b39fe1ff25f6da4831a3d71d7118d20d008558873d2d3a102ffbb2feb0f5",
+  "schema_version": "1.0.0"
+}

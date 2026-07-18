@@ -1,0 +1,17 @@
+{
+  "acl10_integrity_verified": true,
+  "capital_activation_allowed": false,
+  "custody_decision_digest": "sha256:4f79725dfea5841784507b818f439036aa82707861f1727fde7bd85c280ad8ac",
+  "forbidden_api_scan_required": true,
+  "key_material_present": false,
+  "live_order_submission_allowed": false,
+  "network_access_allowed": false,
+  "passed": true,
+  "runtime_activation_allowed": false,
+  "runtime_candidate_count": 0,
+  "runtime_generation_allowed": false,
+  "schema_version": "1.0.0",
+  "secret_access_allowed": false,
+  "security_report_digest": "sha256:341e9733e95c242682653b4432b05621cb104074a9f11ebc673bebaa1d01e5b8",
+  "tcb_digest": "sha256:cbd184e256717a4b812ffa5ada102d83548a09e45b2fcfc13986301a57526e6f"
+}

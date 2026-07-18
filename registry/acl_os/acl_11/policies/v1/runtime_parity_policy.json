@@ -1,0 +1,128 @@
+{
+  "closed": true,
+  "policy_id": "ACL11_RUNTIME_PARITY_V1",
+  "requirements": [
+    {
+      "category": "PACKAGE",
+      "requirement_id": "SOURCE_PROMOTION_PACKAGE_INTEGRITY",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "category": "ELIGIBILITY",
+      "requirement_id": "RUNTIME_CANDIDATE_PRESENT",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "category": "GENERATION",
+      "requirement_id": "IMMUTABLE_GENERATION_INPUTS",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "category": "PARITY",
+      "requirement_id": "REFERENCE_EXECUTOR_VECTOR_SET",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "category": "PARITY",
+      "requirement_id": "MQL5_COMPILE_EVIDENCE",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "category": "PARITY",
+      "requirement_id": "STRATEGY_TESTER_GOLDEN_REPLAY",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "category": "PARITY",
+      "requirement_id": "DECISION_PARITY",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "category": "PARITY",
+      "requirement_id": "STATE_TRANSITION_PARITY",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "category": "PARITY",
+      "requirement_id": "TREATMENT_PARITY",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "category": "ECONOMICS",
+      "requirement_id": "EXECUTION_ECONOMICS_PARITY",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "category": "ENVIRONMENT",
+      "requirement_id": "BROKER_SYMBOL_QUALIFICATION",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "category": "ENVIRONMENT",
+      "requirement_id": "TIMEZONE_AND_SESSION_PARITY",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "category": "PARITY",
+      "requirement_id": "NUMERIC_TOLERANCE_POLICY",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "category": "CUSTODY",
+      "requirement_id": "SIGNED_GENERATION_ENVELOPE",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "category": "CUSTODY",
+      "requirement_id": "SIGNING_KEY_CUSTODY",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "category": "CUSTODY",
+      "requirement_id": "REVOCATION_AND_ROLLBACK_PLAN",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "category": "SECURITY",
+      "requirement_id": "TRUSTED_COMPUTING_BASE",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "category": "OPERATIONS",
+      "requirement_id": "RUNTIME_MONITORING_CONTRACT",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "category": "OPERATIONS",
+      "requirement_id": "FAIL_CLOSED_FALLBACK",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "category": "AUTHORITY",
+      "requirement_id": "ACTIVATION_AUTHORITY",
+      "severity": "HARD",
+      "unknown_blocks_runtime": true
+    }
+  ],
+  "schema_version": "1.0.0",
+  "unknown_blocks_runtime": true
+}

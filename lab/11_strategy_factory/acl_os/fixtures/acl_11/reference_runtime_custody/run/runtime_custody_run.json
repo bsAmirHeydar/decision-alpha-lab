@@ -1,0 +1,19 @@
+{
+  "assessed_at": "2026-07-18T04:00:00Z",
+  "capital_activation_allowed": false,
+  "claim_ceiling": "RUNTIME_CUSTODY_DECISION_REFERENCE_ONLY",
+  "custody_decision_digest": "sha256:4f79725dfea5841784507b818f439036aa82707861f1727fde7bd85c280ad8ac",
+  "live_order_submission_allowed": false,
+  "memory_run_id": "MEMRUN_86C46AE40D92F8AE6DDD9796C670D534",
+  "parity_assessment_digest": "sha256:a960e5694587bc3edec85085d5165cf0220b4a2d723c90c9e2a4161b269c860e",
+  "promotion_run_id": "PROMRUN_580667F2EE87B717DDCABC943E1DA894",
+  "runtime_activation_allowed": false,
+  "runtime_candidate_count": 0,
+  "runtime_custody_run_digest": "sha256:48eb61ed435da60fe08909f8e71645c7b62e67502eae9d14db5f2ca91961ca38",
+  "runtime_custody_run_id": "RTRUN_7CAD59F31433BDB17692436DE314813D",
+  "runtime_generation_manifest_digest": "sha256:a907f44dc162860d3954088c4447e0c0daa8665c1f28b7c1f1089f0f7f25ee06",
+  "runtime_generation_materialized": false,
+  "schema_version": "1.0.0",
+  "service_version": "1.0.0",
+  "state": "COMPLETED_NO_RUNTIME_GENERATION"
+}

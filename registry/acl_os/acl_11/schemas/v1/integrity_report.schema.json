@@ -1,0 +1,7 @@
+{
+  "$id": "https://alpha-lab.local/acl11/integrity_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "minProperties": 2,
+  "title": "integrity_report",
+  "type": "object"
+}

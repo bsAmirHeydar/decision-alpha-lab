@@ -1,0 +1,7 @@
+{
+  "fail_closed": true,
+  "policy_id": "ACL11_MIGRATION_V1",
+  "reference_only": true,
+  "runtime_authority": false,
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,56 @@
+{
+  "$id": "https://alpha-lab.local/acl11/ConformanceMatrix.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assessment_id": {
+      "type": "string"
+    },
+    "cases": {
+      "type": "array"
+    },
+    "conformance_case_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "conformance_matrix_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "decision_parity_proven": {
+      "type": "boolean"
+    },
+    "economics_parity_proven": {
+      "type": "boolean"
+    },
+    "mql5_compile_evidence_present": {
+      "type": "boolean"
+    },
+    "reason_code": {
+      "type": "string"
+    },
+    "runtime_candidate_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "strategy_tester_evidence_present": {
+      "type": "boolean"
+    },
+    "vector_set_count": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_version",
+    "runtime_candidate_count",
+    "conformance_case_count",
+    "cases",
+    "conformance_matrix_digest"
+  ],
+  "title": "ConformanceMatrix",
+  "type": "object"
+}

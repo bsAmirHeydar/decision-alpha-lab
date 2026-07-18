@@ -1,1 +1,1 @@
-feat(acl-os): implement ACL-10 promotion state machine
+feat(acl-os): implement ACL-11 runtime parity and handoff

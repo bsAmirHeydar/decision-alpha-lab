@@ -1,0 +1,7 @@
+{
+  "$id": "https://alpha-lab.local/acl11/acl10_binding.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "minProperties": 2,
+  "title": "acl10_binding",
+  "type": "object"
+}

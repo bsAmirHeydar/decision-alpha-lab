@@ -1,0 +1,104 @@
+{
+  "claim_ceiling": "RUNTIME_CUSTODY_DECISION_REFERENCE_ONLY",
+  "clean_overlay_commands": [
+    {
+      "command": "/opt/pyvenv/bin/python -m compileall -q tools/strategy_factory/acl_os/acl_11",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "command": "/opt/pyvenv/bin/python -m pytest -q lab/11_strategy_factory/acl_os/tests_acl_11",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ".................................                                        [100%]\n33 passed in 1.70s\n"
+    },
+    {
+      "command": "/opt/pyvenv/bin/python -m tools.strategy_factory.acl_os.acl_11.cli verify --output lab/11_strategy_factory/acl_os/fixtures/acl_11/reference_runtime_custody",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"errors\": [],\n  \"passed\": true,\n  \"runtime_custody_run_id\": \"RTRUN_7CAD59F31433BDB17692436DE314813D\"\n}\n"
+    }
+  ],
+  "commands": [
+    {
+      "command": "/opt/pyvenv/bin/python -m compileall -q tools/strategy_factory/acl_os/acl_11",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "command": "/opt/pyvenv/bin/python -m pytest -q lab/11_strategy_factory/acl_os/tests_acl_11",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ".................................                                        [100%]\n33 passed in 1.76s\n"
+    },
+    {
+      "command": "/opt/pyvenv/bin/python -m pytest -q lab/11_strategy_factory/acl_os/tests_acl_10",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "..................................                                       [100%]\n34 passed in 1.87s\n"
+    },
+    {
+      "command": "/opt/pyvenv/bin/python -m tools.strategy_factory.acl_os.acl_11.cli verify --output lab/11_strategy_factory/acl_os/fixtures/acl_11/reference_runtime_custody",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"errors\": [],\n  \"passed\": true,\n  \"runtime_custody_run_id\": \"RTRUN_7CAD59F31433BDB17692436DE314813D\"\n}\n"
+    }
+  ],
+  "counts": {
+    "atomic_concept_docs": 115,
+    "canonical_obsidian_docs": 32,
+    "direct_acl10_regression_tests": 34,
+    "direct_acl11_tests": 33,
+    "mql5_static_contract_files": 16,
+    "phase_delivery_docs": 54,
+    "policies": 27,
+    "python_modules": 23,
+    "reference_output_files": 22,
+    "schemas": 21
+  },
+  "delivery_validation": {
+    "missing": [],
+    "passed": true
+  },
+  "external_evidence_not_claimed": [
+    "MetaEditor compilation",
+    "MT5 Strategy Tester parity",
+    "broker/symbol qualification",
+    "production signing-key custody",
+    "production TCB verification",
+    "live runtime activation",
+    "capital authorization"
+  ],
+  "json_parse_count": 68,
+  "json_parse_errors": [],
+  "passed": true,
+  "phase": "ACL-11",
+  "reference_result": {
+    "capital_activation_allowed": false,
+    "custody_decision": "NON_EXECUTABLE_NO_RUNTIME_CANDIDATES",
+    "live_order_submission_allowed": false,
+    "parity_requirement_count": 20,
+    "parity_status_counts": {
+      "NOT_APPLICABLE": 18,
+      "SATISFIED": 1,
+      "UNKNOWN": 0,
+      "UNSATISFIED": 1
+    },
+    "runtime_activation_allowed": false,
+    "runtime_candidate_count": 0,
+    "runtime_custody_run_id": "RTRUN_7CAD59F31433BDB17692436DE314813D",
+    "runtime_generation_count": 0,
+    "signature_created": false
+  },
+  "schema_version": "1.0.0",
+  "static_validation": {
+    "errors": [],
+    "forbidden_mql5_hits": [],
+    "passed": true,
+    "policy_count": 27,
+    "schema_count": 21
+  },
+  "title": "Runtime Parity and Handoff"
+}

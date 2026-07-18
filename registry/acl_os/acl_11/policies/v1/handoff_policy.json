@@ -1,0 +1,16 @@
+{
+  "forbidden_actions": [
+    "INVENT_RUNTIME_CANDIDATE",
+    "BYPASS_PARITY_OR_SIGNING_GATES",
+    "ACCESS_PRODUCTION_KEYS_IN_REFERENCE_MODE",
+    "AUTHORIZE_LIVE_ORDER",
+    "ACTIVATE_CAPITAL"
+  ],
+  "handoff_type": "ACL11_TO_ACL12",
+  "required_actions": [
+    "VERIFY_RUNTIME_CUSTODY_PACKAGE",
+    "HARDEN_SECURITY_BOUNDARIES",
+    "ISSUE_SECURITY_READINESS_DECISION"
+  ],
+  "schema_version": "1.0.0"
+}

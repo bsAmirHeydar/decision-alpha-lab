@@ -1,0 +1,49 @@
+{
+  "$id": "https://alpha-lab.local/acl11/RuntimeCustodyReceipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acl12_handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "artifact_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "custody_decision_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "output_manifest_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "receipt_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "reference_only": {
+      "type": "boolean"
+    },
+    "runtime_custody_run_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "runtime_custody_run_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "runtime_custody_run_id",
+    "output_manifest_digest",
+    "acl12_handoff_digest",
+    "receipt_digest"
+  ],
+  "title": "RuntimeCustodyReceipt",
+  "type": "object"
+}

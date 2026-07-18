@@ -1,0 +1,11 @@
+{
+  "claim_ceiling": "RUNTIME_CUSTODY_DECISION_REFERENCE_ONLY",
+  "claims_denied": [
+    "MQL5_PARITY_PROVEN",
+    "BROKER_PARITY_PROVEN",
+    "PRODUCTION_SECURITY_PROVEN",
+    "LIVE_READY",
+    "CAPITAL_AUTHORIZED"
+  ],
+  "schema_version": "1.0.0"
+}

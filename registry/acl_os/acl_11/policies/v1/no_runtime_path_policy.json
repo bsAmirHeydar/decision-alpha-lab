@@ -1,0 +1,7 @@
+{
+  "invent_candidate_forbidden": true,
+  "materialize_generation_forbidden": true,
+  "policy_id": "ACL11_NO_RUNTIME_PATH_V1",
+  "schema_version": "1.0.0",
+  "when_runtime_candidate_count_zero": "NON_EXECUTABLE_NO_RUNTIME_CANDIDATES"
+}

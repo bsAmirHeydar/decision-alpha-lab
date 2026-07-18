@@ -1,0 +1,9 @@
+{
+  "acl10_package_verified": true,
+  "integrity_report_digest": "sha256:db39fba52333d9000d29b9d31ba7290fa2701ddb5fba6cb3fd05533e65ef4889",
+  "passed": true,
+  "promotion_decisions_mutated": false,
+  "runtime_candidates_invented": false,
+  "runtime_generation_materialized": false,
+  "schema_version": "1.0.0"
+}

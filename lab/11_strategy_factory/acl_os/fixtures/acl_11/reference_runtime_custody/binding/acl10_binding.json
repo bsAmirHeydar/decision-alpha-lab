@@ -1,0 +1,15 @@
+{
+  "binding_digest": "sha256:b5cdc36b3d0d74129c4a7e64d121d094fac614913726963cf487c952e555ad90",
+  "decision_bundle_digest": "sha256:684cfa7c5018ced90bd12e858ae5ef5082bce9aec6c00f62b13beb936a002d40",
+  "event_ledger_digest": "sha256:a70a33960e5c3a455930942b7b12783ac21157bd9145b150a9cc4e6a8533e351",
+  "handoff_digest": "sha256:ce5eeab55a6725956b11e01a11069e47f0764f6f2d0bad610a9cefb694989df6",
+  "memory_run_id": "MEMRUN_86C46AE40D92F8AE6DDD9796C670D534",
+  "prerequisite_matrix_digest": "sha256:80241ac5ef572755610eef30f36cf85cb5654088bf16c98e5514c08730a579ab",
+  "promotion_review_eligible_count": 0,
+  "promotion_run_digest": "sha256:59275064880f5a501264a73c3e296d83693eda80f7cfb327dd3dc31369299671",
+  "promotion_run_id": "PROMRUN_580667F2EE87B717DDCABC943E1DA894",
+  "provenance_graph_digest": "sha256:345bbc843d236ec01c4b86cc6e900158ea3b4c90f041ab35ef4fcca4ddca3659",
+  "runtime_candidate_count": 0,
+  "runtime_candidate_manifest_digest": "sha256:72c83c7a93cca61d4512de6e7179bee04716f09965410978393b415cbeda3bfd",
+  "schema_version": "1.0.0"
+}

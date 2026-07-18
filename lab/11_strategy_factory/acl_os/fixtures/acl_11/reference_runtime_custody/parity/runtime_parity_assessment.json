@@ -1,0 +1,258 @@
+{
+  "all_hard_requirements_satisfied": false,
+  "assessed_at": "2026-07-18T04:00:00Z",
+  "assessment_digest": "sha256:a960e5694587bc3edec85085d5165cf0220b4a2d723c90c9e2a4161b269c860e",
+  "assessment_id": "PARITY_666AE80693B22434BBFA0D57",
+  "promotion_run_id": "PROMRUN_580667F2EE87B717DDCABC943E1DA894",
+  "results": [
+    {
+      "evidence_refs": [
+        "sha256:b5cdc36b3d0d74129c4a7e64d121d094fac614913726963cf487c952e555ad90",
+        "sha256:72c83c7a93cca61d4512de6e7179bee04716f09965410978393b415cbeda3bfd"
+      ],
+      "reason_code": "ACL10_PACKAGE_INTEGRITY_VERIFIED",
+      "requirement_id": "SOURCE_PROMOTION_PACKAGE_INTEGRITY",
+      "result_digest": "sha256:5731a381094028b3cc3cd051ad664eb544cf7da878f7d8257a99743314b7b3de",
+      "schema_version": "1.0.0",
+      "status": "SATISFIED",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "evidence_refs": [
+        "sha256:b5cdc36b3d0d74129c4a7e64d121d094fac614913726963cf487c952e555ad90",
+        "sha256:72c83c7a93cca61d4512de6e7179bee04716f09965410978393b415cbeda3bfd"
+      ],
+      "reason_code": "NO_RUNTIME_CANDIDATES",
+      "requirement_id": "RUNTIME_CANDIDATE_PRESENT",
+      "result_digest": "sha256:face6c7c3340a9ce56a0986bd0e6be8e787f7bc5e82275664b01c54c1a0c18b7",
+      "schema_version": "1.0.0",
+      "status": "UNSATISFIED",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "evidence_refs": [
+        "sha256:b5cdc36b3d0d74129c4a7e64d121d094fac614913726963cf487c952e555ad90",
+        "sha256:72c83c7a93cca61d4512de6e7179bee04716f09965410978393b415cbeda3bfd"
+      ],
+      "reason_code": "NO_RUNTIME_CANDIDATES_PARITY_NOT_RUN",
+      "requirement_id": "IMMUTABLE_GENERATION_INPUTS",
+      "result_digest": "sha256:e915d46311a2f5c1cac7ce8384246bf5890268a8c8c5a5a992029716d4444dca",
+      "schema_version": "1.0.0",
+      "status": "NOT_APPLICABLE",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "evidence_refs": [
+        "sha256:b5cdc36b3d0d74129c4a7e64d121d094fac614913726963cf487c952e555ad90",
+        "sha256:72c83c7a93cca61d4512de6e7179bee04716f09965410978393b415cbeda3bfd"
+      ],
+      "reason_code": "NO_RUNTIME_CANDIDATES_PARITY_NOT_RUN",
+      "requirement_id": "REFERENCE_EXECUTOR_VECTOR_SET",
+      "result_digest": "sha256:a512dfd50dbee73ef90e0e533e0b4e281ff118721241e6e9d0bb0be7700139f9",
+      "schema_version": "1.0.0",
+      "status": "NOT_APPLICABLE",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "evidence_refs": [
+        "sha256:b5cdc36b3d0d74129c4a7e64d121d094fac614913726963cf487c952e555ad90",
+        "sha256:72c83c7a93cca61d4512de6e7179bee04716f09965410978393b415cbeda3bfd"
+      ],
+      "reason_code": "NO_RUNTIME_CANDIDATES_PARITY_NOT_RUN",
+      "requirement_id": "MQL5_COMPILE_EVIDENCE",
+      "result_digest": "sha256:a5555405b7f0310921d18f682cbd877863ac1b22d0e473790a406924aaa2e07d",
+      "schema_version": "1.0.0",
+      "status": "NOT_APPLICABLE",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "evidence_refs": [
+        "sha256:b5cdc36b3d0d74129c4a7e64d121d094fac614913726963cf487c952e555ad90",
+        "sha256:72c83c7a93cca61d4512de6e7179bee04716f09965410978393b415cbeda3bfd"
+      ],
+      "reason_code": "NO_RUNTIME_CANDIDATES_PARITY_NOT_RUN",
+      "requirement_id": "STRATEGY_TESTER_GOLDEN_REPLAY",
+      "result_digest": "sha256:b1c67d7eebfe235dbb7d1d20505ceb61eb4ed64bda33701e7a9cccb510873a6f",
+      "schema_version": "1.0.0",
+      "status": "NOT_APPLICABLE",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "evidence_refs": [
+        "sha256:b5cdc36b3d0d74129c4a7e64d121d094fac614913726963cf487c952e555ad90",
+        "sha256:72c83c7a93cca61d4512de6e7179bee04716f09965410978393b415cbeda3bfd"
+      ],
+      "reason_code": "NO_RUNTIME_CANDIDATES_PARITY_NOT_RUN",
+      "requirement_id": "DECISION_PARITY",
+      "result_digest": "sha256:b497532b891bee9c1c152c861dfefa744651798d9e9248e4f939a919bc16dc19",
+      "schema_version": "1.0.0",
+      "status": "NOT_APPLICABLE",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "evidence_refs": [
+        "sha256:b5cdc36b3d0d74129c4a7e64d121d094fac614913726963cf487c952e555ad90",
+        "sha256:72c83c7a93cca61d4512de6e7179bee04716f09965410978393b415cbeda3bfd"
+      ],
+      "reason_code": "NO_RUNTIME_CANDIDATES_PARITY_NOT_RUN",
+      "requirement_id": "STATE_TRANSITION_PARITY",
+      "result_digest": "sha256:5ef6f3e061889f8ad88ea71e99ceae21adbf6ab442547cf404c6998f268c791a",
+      "schema_version": "1.0.0",
+      "status": "NOT_APPLICABLE",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "evidence_refs": [
+        "sha256:b5cdc36b3d0d74129c4a7e64d121d094fac614913726963cf487c952e555ad90",
+        "sha256:72c83c7a93cca61d4512de6e7179bee04716f09965410978393b415cbeda3bfd"
+      ],
+      "reason_code": "NO_RUNTIME_CANDIDATES_PARITY_NOT_RUN",
+      "requirement_id": "TREATMENT_PARITY",
+      "result_digest": "sha256:11ff1c1af46b052c3df36bc7ae3157080ba25ee08ef70a7f1fc06ba1105baf4c",
+      "schema_version": "1.0.0",
+      "status": "NOT_APPLICABLE",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "evidence_refs": [
+        "sha256:b5cdc36b3d0d74129c4a7e64d121d094fac614913726963cf487c952e555ad90",
+        "sha256:72c83c7a93cca61d4512de6e7179bee04716f09965410978393b415cbeda3bfd"
+      ],
+      "reason_code": "NO_RUNTIME_CANDIDATES_PARITY_NOT_RUN",
+      "requirement_id": "EXECUTION_ECONOMICS_PARITY",
+      "result_digest": "sha256:121758eae44c0ab598e80a2dc8704fb4257e9767b54619ace9ee9a10ad9e53b0",
+      "schema_version": "1.0.0",
+      "status": "NOT_APPLICABLE",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "evidence_refs": [
+        "sha256:b5cdc36b3d0d74129c4a7e64d121d094fac614913726963cf487c952e555ad90",
+        "sha256:72c83c7a93cca61d4512de6e7179bee04716f09965410978393b415cbeda3bfd"
+      ],
+      "reason_code": "NO_RUNTIME_CANDIDATES_PARITY_NOT_RUN",
+      "requirement_id": "BROKER_SYMBOL_QUALIFICATION",
+      "result_digest": "sha256:a686c9805b6a0f78e08dcea05fc349d998aefa59f2675038cb5bd65dd0462c29",
+      "schema_version": "1.0.0",
+      "status": "NOT_APPLICABLE",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "evidence_refs": [
+        "sha256:b5cdc36b3d0d74129c4a7e64d121d094fac614913726963cf487c952e555ad90",
+        "sha256:72c83c7a93cca61d4512de6e7179bee04716f09965410978393b415cbeda3bfd"
+      ],
+      "reason_code": "NO_RUNTIME_CANDIDATES_PARITY_NOT_RUN",
+      "requirement_id": "TIMEZONE_AND_SESSION_PARITY",
+      "result_digest": "sha256:595d8764a8240c1f4ee2413b21ddcace986deca94725d815ef1312f86140187d",
+      "schema_version": "1.0.0",
+      "status": "NOT_APPLICABLE",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "evidence_refs": [
+        "sha256:b5cdc36b3d0d74129c4a7e64d121d094fac614913726963cf487c952e555ad90",
+        "sha256:72c83c7a93cca61d4512de6e7179bee04716f09965410978393b415cbeda3bfd"
+      ],
+      "reason_code": "NO_RUNTIME_CANDIDATES_PARITY_NOT_RUN",
+      "requirement_id": "NUMERIC_TOLERANCE_POLICY",
+      "result_digest": "sha256:8afec0c8c7a9d8248218aa839d9fbf1aaad631d3704a380b3a4b03a38eee3485",
+      "schema_version": "1.0.0",
+      "status": "NOT_APPLICABLE",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "evidence_refs": [
+        "sha256:b5cdc36b3d0d74129c4a7e64d121d094fac614913726963cf487c952e555ad90",
+        "sha256:72c83c7a93cca61d4512de6e7179bee04716f09965410978393b415cbeda3bfd"
+      ],
+      "reason_code": "NO_RUNTIME_CANDIDATES_PARITY_NOT_RUN",
+      "requirement_id": "SIGNED_GENERATION_ENVELOPE",
+      "result_digest": "sha256:2ed0e948998ea1409d02f742155fbc63226fadbf523b0b3dc4c4989b8c6990bf",
+      "schema_version": "1.0.0",
+      "status": "NOT_APPLICABLE",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "evidence_refs": [
+        "sha256:b5cdc36b3d0d74129c4a7e64d121d094fac614913726963cf487c952e555ad90",
+        "sha256:72c83c7a93cca61d4512de6e7179bee04716f09965410978393b415cbeda3bfd"
+      ],
+      "reason_code": "NO_RUNTIME_CANDIDATES_PARITY_NOT_RUN",
+      "requirement_id": "SIGNING_KEY_CUSTODY",
+      "result_digest": "sha256:5e8aac7471d9c14da7bf935b9c1aa4e09ae23364b71e83ac92854b0ccdb0ed13",
+      "schema_version": "1.0.0",
+      "status": "NOT_APPLICABLE",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "evidence_refs": [
+        "sha256:b5cdc36b3d0d74129c4a7e64d121d094fac614913726963cf487c952e555ad90",
+        "sha256:72c83c7a93cca61d4512de6e7179bee04716f09965410978393b415cbeda3bfd"
+      ],
+      "reason_code": "NO_RUNTIME_CANDIDATES_PARITY_NOT_RUN",
+      "requirement_id": "REVOCATION_AND_ROLLBACK_PLAN",
+      "result_digest": "sha256:3d8dafedc28c0c52b73a6e5be6ef7609299ae7a1d520f62ceb872927e7e70775",
+      "schema_version": "1.0.0",
+      "status": "NOT_APPLICABLE",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "evidence_refs": [
+        "sha256:b5cdc36b3d0d74129c4a7e64d121d094fac614913726963cf487c952e555ad90",
+        "sha256:72c83c7a93cca61d4512de6e7179bee04716f09965410978393b415cbeda3bfd"
+      ],
+      "reason_code": "NO_RUNTIME_CANDIDATES_PARITY_NOT_RUN",
+      "requirement_id": "TRUSTED_COMPUTING_BASE",
+      "result_digest": "sha256:02118f7e6391444c42db92d0080bf6ec701ade4d90508170ce413435b46953a1",
+      "schema_version": "1.0.0",
+      "status": "NOT_APPLICABLE",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "evidence_refs": [
+        "sha256:b5cdc36b3d0d74129c4a7e64d121d094fac614913726963cf487c952e555ad90",
+        "sha256:72c83c7a93cca61d4512de6e7179bee04716f09965410978393b415cbeda3bfd"
+      ],
+      "reason_code": "NO_RUNTIME_CANDIDATES_PARITY_NOT_RUN",
+      "requirement_id": "RUNTIME_MONITORING_CONTRACT",
+      "result_digest": "sha256:1f00653261a992a7cce7ad388e13a47595fd88c81901d59f0fc9eb5952881c0f",
+      "schema_version": "1.0.0",
+      "status": "NOT_APPLICABLE",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "evidence_refs": [
+        "sha256:b5cdc36b3d0d74129c4a7e64d121d094fac614913726963cf487c952e555ad90",
+        "sha256:72c83c7a93cca61d4512de6e7179bee04716f09965410978393b415cbeda3bfd"
+      ],
+      "reason_code": "NO_RUNTIME_CANDIDATES_PARITY_NOT_RUN",
+      "requirement_id": "FAIL_CLOSED_FALLBACK",
+      "result_digest": "sha256:c4523ec09022ed1d040a01804872fff701bde1ecee07abcf1d3d7c28c01d05ec",
+      "schema_version": "1.0.0",
+      "status": "NOT_APPLICABLE",
+      "unknown_blocks_runtime": true
+    },
+    {
+      "evidence_refs": [
+        "sha256:b5cdc36b3d0d74129c4a7e64d121d094fac614913726963cf487c952e555ad90",
+        "sha256:72c83c7a93cca61d4512de6e7179bee04716f09965410978393b415cbeda3bfd"
+      ],
+      "reason_code": "NO_RUNTIME_CANDIDATES_PARITY_NOT_RUN",
+      "requirement_id": "ACTIVATION_AUTHORITY",
+      "result_digest": "sha256:f44608fa93f50defdec056e6673fc986b5d2943773c5ea2cea6148214738d96d",
+      "schema_version": "1.0.0",
+      "status": "NOT_APPLICABLE",
+      "unknown_blocks_runtime": true
+    }
+  ],
+  "runtime_candidate_count": 0,
+  "runtime_generation_allowed": false,
+  "schema_version": "1.0.0",
+  "status_counts": {
+    "NOT_APPLICABLE": 18,
+    "SATISFIED": 1,
+    "UNKNOWN": 0,
+    "UNSATISFIED": 1
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "$id": "https://alpha-lab.local/acl11/RuntimeParityAssessment.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_hard_requirements_satisfied": {
+      "type": "boolean"
+    },
+    "assessed_at": {
+      "type": "string"
+    },
+    "assessment_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "assessment_id": {
+      "type": "string"
+    },
+    "promotion_run_id": {
+      "type": "string"
+    },
+    "results": {
+      "type": "array"
+    },
+    "runtime_candidate_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "runtime_generation_allowed": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "status_counts": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "assessment_id",
+    "promotion_run_id",
+    "runtime_candidate_count",
+    "results",
+    "assessment_digest"
+  ],
+  "title": "RuntimeParityAssessment",
+  "type": "object"
+}

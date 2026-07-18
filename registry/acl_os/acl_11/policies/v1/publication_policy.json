@@ -1,0 +1,7 @@
+{
+  "atomic_publish": true,
+  "non_empty_destination_denied": true,
+  "partial_output_forbidden": true,
+  "policy_id": "ACL11_PUBLICATION_V1",
+  "schema_version": "1.0.0"
+}

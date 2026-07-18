@@ -1,0 +1,11 @@
+{
+  "generation_count": 0,
+  "generation_manifest_digest": "sha256:a907f44dc162860d3954088c4447e0c0daa8665c1f28b7c1f1089f0f7f25ee06",
+  "generation_materialized": false,
+  "generations": [],
+  "reason_code": "NO_RUNTIME_CANDIDATES",
+  "runtime_candidate_count": 0,
+  "runtime_generation_allowed": false,
+  "schema_version": "1.0.0",
+  "source_runtime_candidate_manifest_digest": "sha256:72c83c7a93cca61d4512de6e7179bee04716f09965410978393b415cbeda3bfd"
+}

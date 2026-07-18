@@ -1,0 +1,109 @@
+{
+  "artifact_count": 20,
+  "files": [
+    {
+      "digest": "sha256:8553737ec338d24d82e84cef413f7f9cd603eaa25f4dba7d747305672be2eb1e",
+      "path": ".acl11_generated_root",
+      "size_bytes": 32
+    },
+    {
+      "digest": "sha256:970607b2280f8258f687b7af70f4e8c5eac77682e849dc9e9a30d5dceba9b2b6",
+      "path": "authority/authority_report.json",
+      "size_bytes": 672
+    },
+    {
+      "digest": "sha256:ea80e4a673240a9f8764addafdb2ae154804cc31cc883f7ab9762fffc6c84045",
+      "path": "binding/acl10_binding.json",
+      "size_bytes": 1051
+    },
+    {
+      "digest": "sha256:2db66943fa38baa75728b343fbecf7b51e06405386d635f53e28c8c2a7640a36",
+      "path": "custody/runtime_custody_decision.json",
+      "size_bytes": 1197
+    },
+    {
+      "digest": "sha256:b3c321d6bc2906b567656b0bfd767c481bfda7bfa436d07a54853e754ba8f2b5",
+      "path": "custody/signing_custody_plan.json",
+      "size_bytes": 402
+    },
+    {
+      "digest": "sha256:f42cf8a6350f0e7c1f38469088339a73ed97b81fee07e855ba647cd22f76e841",
+      "path": "docs/ACL11_RUNTIME_CUSTODY_SUMMARY.md",
+      "size_bytes": 847
+    },
+    {
+      "digest": "sha256:6607c98510c7734e938d9681e3e7428db6b5d3a08db291423154c4a7f8aa0721",
+      "path": "docs/ACL11_RUNTIME_PARITY_GAPS.md",
+      "size_bytes": 2035
+    },
+    {
+      "digest": "sha256:20f105d63759d27d9d83f53ea8ed88d16e5b158607a83ae6ac583dba0dfb15f3",
+      "path": "docs/obsidian_projection_manifest.json",
+      "size_bytes": 341
+    },
+    {
+      "digest": "sha256:e9c11dc1f655babefa2c78404dd44fa335d27c9db5dfd7c8941c8d00be01721d",
+      "path": "events/runtime_custody_event_ledger.json",
+      "size_bytes": 5897
+    },
+    {
+      "digest": "sha256:f609d01e4f6c2e7a592b298c66b456367654c2599be7414fc7b2d7baf187b991",
+      "path": "handoff/acl12_handoff.json",
+      "size_bytes": 1420
+    },
+    {
+      "digest": "sha256:e61f838b0cf75d07ce61eb04999cd6e66c896bc51f6a06ead6cb29a9c8891c47",
+      "path": "lineage/runtime_custody_provenance_graph.json",
+      "size_bytes": 1822
+    },
+    {
+      "digest": "sha256:632732bfab5c01525eeb3a65da8af5bfc7bfe7e794c727abf44d1540acc73618",
+      "path": "parity/conformance_matrix.json",
+      "size_bytes": 495
+    },
+    {
+      "digest": "sha256:2070b092463d14247248cb79c3275deb7f5159ff40efe9a9facf6192f95c8db5",
+      "path": "parity/runtime_parity_assessment.json",
+      "size_bytes": 11054
+    },
+    {
+      "digest": "sha256:b420e455887fd4410c7129ba609779e6f56413be67bc9cf7c74b7047366bc13c",
+      "path": "registry/runtime_custody_state_registry.json",
+      "size_bytes": 1300
+    },
+    {
+      "digest": "sha256:5309ce466efda528e1d0fd17ccf258e7f0018ec090aaed63ebe06ff6fb866d0d",
+      "path": "registry/runtime_parity_requirement_registry.json",
+      "size_bytes": 5955
+    },
+    {
+      "digest": "sha256:0ca55eaf5011d8a55a34a9b4e2a48618ecab8d62f1439918956c214eb8007601",
+      "path": "reports/integrity_report.json",
+      "size_bytes": 312
+    },
+    {
+      "digest": "sha256:fbb81d978f43d19afc48b411e1c355e9c286a7e2682483b0e20741d48bc337b2",
+      "path": "run/runtime_custody_run.json",
+      "size_bytes": 1036
+    },
+    {
+      "digest": "sha256:c31d59fe6bb563b3a34f6ca4712eec0f1bd9a7be0b8967fc8c686f32e888a342",
+      "path": "runtime/runtime_generation_manifest.json",
+      "size_bytes": 455
+    },
+    {
+      "digest": "sha256:4f525006c9b08db945a8c97a3334b25b5b00eb0841266f070c9399c79207c941",
+      "path": "security/runtime_trusted_computing_base.json",
+      "size_bytes": 635
+    },
+    {
+      "digest": "sha256:8cc091a7f4f24f40582a02f79f3565a09394a43700354cede2f525fafe31fd3e",
+      "path": "security/security_boundary_report.json",
+      "size_bytes": 716
+    }
+  ],
+  "manifest_digest": "sha256:cecd846c1fd66e3c7a77ecc0c5d260034e372c3a62fce3433d1470b48996adaa",
+  "runtime_custody_run_id": "RTRUN_7CAD59F31433BDB17692436DE314813D",
+  "schema_version": "1.0.0",
+  "self_reference_policy": "MANIFEST_AND_RECEIPT_EXCLUDED_AND_MUTUALLY_BOUND"
+}

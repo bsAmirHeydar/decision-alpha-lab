@@ -1,0 +1,18 @@
+{
+  "acl10_handoff_digest": "sha256:ce5eeab55a6725956b11e01a11069e47f0764f6f2d0bad610a9cefb694989df6",
+  "action": "ACL11_ASSESS_RUNTIME_CUSTODY",
+  "authority_report_digest": "sha256:d5f17cfe3f99b4d76fb875eb49b01c4944e5bc2a03d0ef5c35c3085558dfc760",
+  "denied_capabilities": [
+    "network_access_allowed",
+    "secret_access_allowed",
+    "runtime_generation_allowed",
+    "signing_key_access_allowed",
+    "runtime_activation_allowed",
+    "live_order_submission_allowed",
+    "capital_activation_allowed"
+  ],
+  "permit_id": "ACL11_REFERENCE_PERMIT",
+  "promotion_run_id": "PROMRUN_580667F2EE87B717DDCABC943E1DA894",
+  "schema_version": "1.0.0",
+  "validated": true
+}

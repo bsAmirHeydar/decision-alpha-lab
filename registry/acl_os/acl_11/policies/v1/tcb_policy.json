@@ -1,0 +1,8 @@
+{
+  "dynamic_plugins_forbidden": true,
+  "fail_closed_loader_required": true,
+  "network_download_forbidden": true,
+  "policy_id": "ACL11_TCB_V1",
+  "schema_version": "1.0.0",
+  "training_in_runtime_forbidden": true
+}

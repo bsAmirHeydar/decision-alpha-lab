@@ -1,0 +1,44 @@
+{
+  "$id": "https://alpha-lab.local/acl11/SigningCustodyPlan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "key_material_present": {
+      "type": "boolean"
+    },
+    "production_verifier_present": {
+      "type": "boolean"
+    },
+    "reason_code": {
+      "type": "string"
+    },
+    "revocation_check_required": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "signature_created": {
+      "type": "boolean"
+    },
+    "signing_key_access_allowed": {
+      "type": "boolean"
+    },
+    "signing_mode": {
+      "type": "string"
+    },
+    "signing_plan_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "signing_mode",
+    "key_material_present",
+    "signature_created",
+    "signing_plan_digest"
+  ],
+  "title": "SigningCustodyPlan",
+  "type": "object"
+}

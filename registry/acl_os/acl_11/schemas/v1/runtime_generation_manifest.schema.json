@@ -1,0 +1,47 @@
+{
+  "$id": "https://alpha-lab.local/acl11/RuntimeGenerationManifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "generation_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "generation_manifest_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "generation_materialized": {
+      "type": "boolean"
+    },
+    "generations": {
+      "type": "array"
+    },
+    "reason_code": {
+      "type": "string"
+    },
+    "runtime_candidate_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "runtime_generation_allowed": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "source_runtime_candidate_manifest_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "runtime_candidate_count",
+    "generation_count",
+    "generations",
+    "generation_manifest_digest"
+  ],
+  "title": "RuntimeGenerationManifest",
+  "type": "object"
+}

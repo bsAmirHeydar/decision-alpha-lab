@@ -1,0 +1,25 @@
+{
+  "assessment_digest": "sha256:a960e5694587bc3edec85085d5165cf0220b4a2d723c90c9e2a4161b269c860e",
+  "capital_activation_allowed": false,
+  "conformance_matrix_digest": "sha256:d2a9a2b1dad75694633803765f2ae9420c31d69df2e1261f5c86fe13dc729189",
+  "custody_decision_digest": "sha256:4f79725dfea5841784507b818f439036aa82707861f1727fde7bd85c280ad8ac",
+  "custody_decision_id": "CUSTDEC_40BA7AA9A1F06DCBE9380BAE",
+  "custody_state": "NO_RUNTIME_CANDIDATES",
+  "decided_at": "2026-07-18T04:00:00Z",
+  "decision": "NON_EXECUTABLE_NO_RUNTIME_CANDIDATES",
+  "generation_manifest_digest": "sha256:a907f44dc162860d3954088c4447e0c0daa8665c1f28b7c1f1089f0f7f25ee06",
+  "live_order_submission_allowed": false,
+  "promotion_run_id": "PROMRUN_580667F2EE87B717DDCABC943E1DA894",
+  "reason_codes": [
+    "NO_RUNTIME_CANDIDATES",
+    "RUNTIME_GENERATION_PROHIBITED",
+    "SIGNING_NOT_APPLICABLE",
+    "ACTIVATION_AUTHORITY_DENIED"
+  ],
+  "runtime_activation_allowed": false,
+  "runtime_candidate_count": 0,
+  "runtime_generation_allowed": false,
+  "schema_version": "1.0.0",
+  "signature_creation_allowed": false,
+  "signing_plan_digest": "sha256:d4decf438bbf9fb20be7ab0b56e5769e734d1178aa1b3c151e9b83b7acb1c2a0"
+}

@@ -1,0 +1,14 @@
+{
+  "assessment_id": "PARITY_666AE80693B22434BBFA0D57",
+  "cases": [],
+  "conformance_case_count": 0,
+  "conformance_matrix_digest": "sha256:d2a9a2b1dad75694633803765f2ae9420c31d69df2e1261f5c86fe13dc729189",
+  "decision_parity_proven": false,
+  "economics_parity_proven": false,
+  "mql5_compile_evidence_present": false,
+  "reason_code": "NO_RUNTIME_CANDIDATES",
+  "runtime_candidate_count": 0,
+  "schema_version": "1.0.0",
+  "strategy_tester_evidence_present": false,
+  "vector_set_count": 0
+}

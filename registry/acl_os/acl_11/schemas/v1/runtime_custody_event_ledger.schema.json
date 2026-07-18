@@ -1,0 +1,7 @@
+{
+  "$id": "https://alpha-lab.local/acl11/runtime_custody_event_ledger.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "minProperties": 2,
+  "title": "runtime_custody_event_ledger",
+  "type": "object"
+}

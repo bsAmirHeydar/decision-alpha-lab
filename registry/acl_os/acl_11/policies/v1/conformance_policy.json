@@ -1,0 +1,8 @@
+{
+  "decision_parity_required": true,
+  "economics_parity_required": true,
+  "mql5_compile_required": true,
+  "policy_id": "ACL11_CONFORMANCE_V1",
+  "schema_version": "1.0.0",
+  "strategy_tester_replay_required": true
+}
