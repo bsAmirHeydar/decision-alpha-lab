@@ -1,0 +1,93 @@
+{
+  "active_planning_status": "NOT_RUN",
+  "capital_activation_allowed": false,
+  "diagnostic_records_selectable": false,
+  "experience_bundle_digest": "sha256:adfd0cb0548dd7fe3b3bfbe5fab7c0bcac6d6082e5c7aa76ef473791f81147b1",
+  "experience_counts": {
+    "BASELINE_REFERENCE": 4,
+    "DIAGNOSTIC_EXCLUSION": 1,
+    "INSUFFICIENT_EVIDENCE": 7
+  },
+  "live_order_submission_allowed": false,
+  "memory_ingestion_status": "NOT_INGESTED",
+  "negative_validation_records": 0,
+  "promotion_allowed": false,
+  "record_count": 12,
+  "records": [
+    {
+      "experience_class": "BASELINE_REFERENCE",
+      "experience_digest": "sha256:87183c81ec9756441695739b908346f39d005507ce36f5750407e68751ab0711",
+      "experience_id": "EXP08_A08D11F3D16ABC113808722A",
+      "setup_id": "SETUP_030571B7D3BF97CDE8EF"
+    },
+    {
+      "experience_class": "INSUFFICIENT_EVIDENCE",
+      "experience_digest": "sha256:e44c91fcb52288f7ceb890c47e10400a0287ea2603c5cdcdc50797409035b98a",
+      "experience_id": "EXP08_36398305C6598A04173C8513",
+      "setup_id": "SETUP_0A56F08F1AC14EFB10F5"
+    },
+    {
+      "experience_class": "DIAGNOSTIC_EXCLUSION",
+      "experience_digest": "sha256:8947ed12a31b38076075b8824892c5a1c12506ce410fb3249ec485d39802aa99",
+      "experience_id": "EXP08_D3BA349B7DFAFABCBC68733F",
+      "setup_id": "SETUP_0CBC9D269F0833852BAE"
+    },
+    {
+      "experience_class": "BASELINE_REFERENCE",
+      "experience_digest": "sha256:c870c831a8e6dc6d74533d254255e64c685219175fb95d953f928ee24b6a0411",
+      "experience_id": "EXP08_65B8EAAAB2ECDCB58439B46A",
+      "setup_id": "SETUP_0FA71C242B64C3FB7F83"
+    },
+    {
+      "experience_class": "INSUFFICIENT_EVIDENCE",
+      "experience_digest": "sha256:ce475690f5a8f643d17966383db5ed7addf2ddb23811dc35f84c804e6b767b9a",
+      "experience_id": "EXP08_793E3B34EA7EFD89165A1434",
+      "setup_id": "SETUP_5013929BAE3E6FDFEFC8"
+    },
+    {
+      "experience_class": "INSUFFICIENT_EVIDENCE",
+      "experience_digest": "sha256:59feb16355bfa8f7eed56d7f023c6abaf18bdea3849f05d601321ca83c023ddb",
+      "experience_id": "EXP08_854B67FAA886FE9757CB123D",
+      "setup_id": "SETUP_5F6EC931E571A2575FD9"
+    },
+    {
+      "experience_class": "INSUFFICIENT_EVIDENCE",
+      "experience_digest": "sha256:6ca773babf3780224974babb688183fafee2f9adce36845807f5259134d830db",
+      "experience_id": "EXP08_2F7BB840B72D496EE7523A18",
+      "setup_id": "SETUP_978582F1C2791E47056F"
+    },
+    {
+      "experience_class": "INSUFFICIENT_EVIDENCE",
+      "experience_digest": "sha256:c65de5253390f9cdd64bbd5af3cc6fe68b4432181523cb42ea46bd0692e3c716",
+      "experience_id": "EXP08_42E896C9F4F7E2645FBF33F7",
+      "setup_id": "SETUP_A553D83C10BF06E79C12"
+    },
+    {
+      "experience_class": "INSUFFICIENT_EVIDENCE",
+      "experience_digest": "sha256:477c17d779d9910461ee40cd908af0387d168e92c607c9d3b54255c1c1cff852",
+      "experience_id": "EXP08_B5D0EB7C5BB7B4CC90B233B2",
+      "setup_id": "SETUP_A9F7B7384FDE580E5660"
+    },
+    {
+      "experience_class": "BASELINE_REFERENCE",
+      "experience_digest": "sha256:2c4510b0d5842d72e1251059cccd5a5dbead3cd8765309df35ac850c47e812a5",
+      "experience_id": "EXP08_75860C4E28F543BA654EB266",
+      "setup_id": "SETUP_B2465EF6482D65D3F6D5"
+    },
+    {
+      "experience_class": "BASELINE_REFERENCE",
+      "experience_digest": "sha256:c0a0f0fab1e97a979a6145b563fb4404c996cce84d634c2d84f69c2118a0509c",
+      "experience_id": "EXP08_3FDDD5021A95C10885C43598",
+      "setup_id": "SETUP_CE82D176E29FCA349EE1"
+    },
+    {
+      "experience_class": "INSUFFICIENT_EVIDENCE",
+      "experience_digest": "sha256:11657786831df3938967ac70e72e1870ae83691605616542999a6b1beb822cf0",
+      "experience_id": "EXP08_79B236E2BCE57BC695056A63",
+      "setup_id": "SETUP_EE3007877556A11CDA6F"
+    }
+  ],
+  "records_with_unknown_evidence": 12,
+  "report_id": "REPORT_2FED2879ED0864D2A8EC4EFF7830B4AA",
+  "schema_version": "1.0.0"
+}

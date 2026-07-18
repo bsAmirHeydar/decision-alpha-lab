@@ -1,0 +1,13 @@
+{
+  "acl07_decision_bundle_digest": "sha256:6006139d47ed5c5c4bc44cc41c1e931d8ba9ac86ed928ecaf1ba8ae0d79f6e10",
+  "acl07_gate_matrix_digest": "sha256:a421ec17b8b6874eba0290237831636b2b8c8d89ccb0b771e253779234cf264a",
+  "acl07_handoff_digest": "sha256:a4d7cbbc0d9139e824a09bb8c05cb81c4f197efd239f6b4d72d76603bbd61542",
+  "acl07_input_bundle_digest": "sha256:8880b0e85a1e462e2b10d98d7448862aba49b63c47cf4d4b9b02cb108f1050c3",
+  "batch_id": "BATCH_81FF4FC3C8B796422B0EF6818FEB2D5E",
+  "binding_digest": "sha256:4ba868c7764d307b3fc2f42a947d63b31f2ad0d661cec5f009b444c1ed007195",
+  "report_id": "REPORT_2FED2879ED0864D2A8EC4EFF7830B4AA",
+  "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+  "schema_version": "1.0.0",
+  "validation_decisions_mutated": false,
+  "validation_id": "VALIDATION_3AC66AA2ED2AC1AEE9B8EDB7ABB9C13A"
+}

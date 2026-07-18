@@ -1,0 +1,231 @@
+{
+  "alpha_claim_allowed": false,
+  "candidate_id": "CAND_BFF919B9FE1BDFC298B5",
+  "candidate_report_digest": "sha256:634d6a3958f5cf6783dab9bab872972f10839d134649f1a86db92e1d4feb892b",
+  "capital_activation_allowed": false,
+  "decision_id": "VALDEC_538BC064402591542248EDCF",
+  "decision_status": "EVIDENCE_INSUFFICIENT",
+  "diagnostic_selectable": null,
+  "gate_summary": {
+    "failed": 5,
+    "not_applicable": 0,
+    "passed": 3,
+    "total": 15,
+    "unknown": 7
+  },
+  "gates": [
+    {
+      "gate_id": "INPUT_INTEGRITY",
+      "gate_result_digest": "sha256:004c532b8742b9d78e9c8c683adc88bc5d8995228b87198c8b6e5f6c51446043",
+      "metrics": {
+        "input_bundle_integrity": true
+      },
+      "reason_codes": [
+        "ACL06_BUNDLE_VERIFIED"
+      ],
+      "status": "PASS"
+    },
+    {
+      "gate_id": "DATA_QUALITY_AND_LEAKAGE",
+      "gate_result_digest": "sha256:40901e1e0e109f7d08e15748ad26ed7e2e25d91f43b8f2def7a347a1d8a626c2",
+      "metrics": {
+        "known_time_contract": true,
+        "purged_split_present": true
+      },
+      "reason_codes": [
+        "UPSTREAM_KNOWN_TIME_AND_SPLIT_EVIDENCE_VERIFIED"
+      ],
+      "status": "PASS"
+    },
+    {
+      "gate_id": "DIAGNOSTIC_ISOLATION",
+      "gate_result_digest": "sha256:b6bfe1665ca751131eb19a07db9499e589fac98f1635f84c31b5c82aaab8da03",
+      "metrics": {
+        "lane": "RESEARCH",
+        "selectable": true
+      },
+      "reason_codes": [
+        "RESEARCH_LANE_CONFIRMED"
+      ],
+      "status": "PASS"
+    },
+    {
+      "gate_id": "MINIMUM_SUPPORT",
+      "gate_result_digest": "sha256:efdadc2f9bec510a80489097a60ae5b771591f37cfa10330ef5896042c257332",
+      "metrics": {
+        "required_test": 8,
+        "required_total": 30,
+        "test_support": 1,
+        "total_support": 5
+      },
+      "reason_codes": [
+        "INSUFFICIENT_TOTAL_OR_TEST_SUPPORT"
+      ],
+      "status": "FAIL"
+    },
+    {
+      "gate_id": "EFFECT_SIZE",
+      "gate_result_digest": "sha256:2ce2b3091e352abb5e7c93638797743a251fe323f041d7024a484afd524b4c75",
+      "metrics": {
+        "accuracy": 0.0,
+        "effect_over_chance": -0.5,
+        "mean_signed_forward_delta": -4.0,
+        "minimum_accuracy": 0.55,
+        "minimum_effect_over_chance": 0.05
+      },
+      "reason_codes": [
+        "EFFECT_THRESHOLD_NOT_MET"
+      ],
+      "status": "FAIL"
+    },
+    {
+      "gate_id": "STATISTICAL_SIGNIFICANCE",
+      "gate_result_digest": "sha256:250a0aeddb647d540f11efc3ba831652220711e8c10aeb75d1397c7f1741969b",
+      "metrics": {
+        "maximum_nominal_p": 0.1,
+        "minimum_wilson_lower": 0.5,
+        "p_value_one_sided": 1.0,
+        "wilson_lower_95": 0.0
+      },
+      "reason_codes": [
+        "SIGNIFICANCE_OR_CONFIDENCE_BOUND_NOT_MET"
+      ],
+      "status": "FAIL"
+    },
+    {
+      "gate_id": "MULTIPLE_TESTING",
+      "gate_result_digest": "sha256:f4f5dacf66bdb756aa271f0f1be3f6aac6cc149db5f6f3aea149bae5c70e40e1",
+      "metrics": {
+        "maximum_fdr_q": 0.1,
+        "q_value": 1.0
+      },
+      "reason_codes": [
+        "FDR_THRESHOLD_NOT_MET"
+      ],
+      "status": "FAIL"
+    },
+    {
+      "gate_id": "BASELINE_DOMINANCE",
+      "gate_result_digest": "sha256:322a9e1653162710914eb70550bb315875c121979fca9096d3dfd7f4401ce186",
+      "metrics": {
+        "advantage": null,
+        "best_baseline_test_accuracy": 1,
+        "required_advantage": 0.05,
+        "test_accuracy": null
+      },
+      "reason_codes": [
+        "BASELINE_DOMINANCE_NOT_ESTABLISHED"
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "gate_id": "TEMPORAL_GENERALIZATION",
+      "gate_result_digest": "sha256:5b47363b0e0829f6887c088e8a02c465af13fa4f878b4bef4a95a230a94cf72b",
+      "metrics": {
+        "accuracy_spread": 0,
+        "segment_accuracies": {
+          "TEST": null,
+          "TRAIN": null,
+          "VALIDATION": 0
+        },
+        "train_test_gap": null
+      },
+      "reason_codes": [
+        "SEGMENT_GENERALIZATION_NOT_ESTABLISHED"
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "gate_id": "OVERFIT_CONTROL",
+      "gate_result_digest": "sha256:8996257b1791c99bfda055b71d52da8360f011ff3cc0878effb205a8bbfae192",
+      "metrics": {
+        "search_exposure_bound_upstream": true,
+        "segment_spread": 0,
+        "train_test_gap": null
+      },
+      "reason_codes": [
+        "OVERFIT_CONTROL_BATTERY_NOT_CLEARED"
+      ],
+      "status": "FAIL"
+    },
+    {
+      "gate_id": "DISTRIBUTIONAL_ROBUSTNESS",
+      "gate_result_digest": "sha256:23d352dddab7164adcdfd284d51225007822a6e1edfedef56e6a5970dca7c870",
+      "metrics": {
+        "max_drawdown_proxy": -4.0,
+        "observation_count": 1,
+        "population_std": 0.0,
+        "worst_observation": -4.0
+      },
+      "reason_codes": [
+        "TAIL_EVIDENCE_INSUFFICIENT_OR_ADVERSE"
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "gate_id": "EXECUTION_ECONOMICS",
+      "gate_result_digest": "sha256:aa3e967f3086c78a606d0b67c65c0b225f3ec46286a90d11eae3f12c62bfb1b0",
+      "metrics": {
+        "evidence_available": false,
+        "side_aware_cost_model_required": true
+      },
+      "reason_codes": [
+        "EXECUTION_ECONOMICS_EVIDENCE_MISSING"
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "gate_id": "OOD_AND_ABSTENTION",
+      "gate_result_digest": "sha256:bf94779517a198a9b0a0ae2bcfaefd8f1646f36d19956f51c4cb4cfa35e94c94",
+      "metrics": {
+        "coverage": 0.2,
+        "coverage_bounds": [
+          0.05,
+          0.95
+        ],
+        "ood_evidence_available": false
+      },
+      "reason_codes": [
+        "OOD_EVIDENCE_MISSING"
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "gate_id": "PROSPECTIVE_EVIDENCE",
+      "gate_result_digest": "sha256:4a15d38780942a39bcffb31549f0f34313cf90a1c874b612f1c8a982a446a016",
+      "metrics": {
+        "prospective_runs": 0,
+        "required": 1
+      },
+      "reason_codes": [
+        "PROSPECTIVE_EVIDENCE_MISSING"
+      ],
+      "status": "UNKNOWN"
+    },
+    {
+      "gate_id": "INDEPENDENT_REPLICATION",
+      "gate_result_digest": "sha256:86a223222657e3ab31451c6dd53b8d40cd6017974dcb576045183701350444de",
+      "metrics": {
+        "independent_replications": 0,
+        "required": 1
+      },
+      "reason_codes": [
+        "INDEPENDENT_REPLICATION_MISSING"
+      ],
+      "status": "UNKNOWN"
+    }
+  ],
+  "lane": "RESEARCH",
+  "live_order_submission_allowed": false,
+  "origin": "AI",
+  "promotion_allowed": false,
+  "reason_codes": [
+    "ONE_OR_MORE_REQUIRED_GATES_NOT_PASSED"
+  ],
+  "report_id": "REPORT_2FED2879ED0864D2A8EC4EFF7830B4AA",
+  "reporting_eligible": false,
+  "schema_version": "1.0.0",
+  "setup_id": "SETUP_A9F7B7384FDE580E5660",
+  "source_candidate_gate_digest": "sha256:f59810247e3b690362825d9d5b069ea64372dd51d025a28f210efc3b047bf0c3",
+  "source_decision_digest": "sha256:8888f3278e8c6a886242e6adface568db84e1d8cda795c3d5572b5b626d7b1ff"
+}

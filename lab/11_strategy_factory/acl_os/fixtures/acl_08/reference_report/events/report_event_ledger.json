@@ -1,0 +1,112 @@
+{
+  "event_count": 7,
+  "events": [
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:0d109167f9af1b1aef52b5c46ffced6db09954e51cce267812e979e44aca8a79",
+      "event_id": "REPEVT_5A2FD51A80CB391C275B5A6F",
+      "event_type": "ACL07_EVIDENCE_ACCEPTED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "binding_digest": "sha256:4ba868c7764d307b3fc2f42a947d63b31f2ad0d661cec5f009b444c1ed007195"
+      },
+      "previous_event_digest": "GENESIS",
+      "schema_version": "1.0.0",
+      "sequence": 1
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:db49f33fc9185fb0a62b2bcc9aea6c16eb4541733b21b20e38875557288c0f7c",
+      "event_id": "REPEVT_FB58CFC4676ACD1E9666BD83",
+      "event_type": "REPORT_POLICY_BOUND",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "policy_digest": "sha256:bd1dc0ccf5b368cc34634ef4e609461be068ba9defc57d5298b8f4aa7eb93d1a"
+      },
+      "previous_event_digest": "sha256:0d109167f9af1b1aef52b5c46ffced6db09954e51cce267812e979e44aca8a79",
+      "schema_version": "1.0.0",
+      "sequence": 2
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:43591d7726b9e79f0d1442c0aaccd404ac99fe08011d520075fa86f76d52d517",
+      "event_id": "REPEVT_3FED19058B25F6347C36E404",
+      "event_type": "BATCH_REPORT_BUILT",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "batch_report_digest": "sha256:9505b34734f74efe22c0142395f6143975c7d4cd3755563bde8fb14cff62af1d"
+      },
+      "previous_event_digest": "sha256:db49f33fc9185fb0a62b2bcc9aea6c16eb4541733b21b20e38875557288c0f7c",
+      "schema_version": "1.0.0",
+      "sequence": 3
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:0748a18fa3f5596193c3963070c955870d271424d5fe054eb2df114f515dde2b",
+      "event_id": "REPEVT_698A4B81BF1BB37B6AB4C1AF",
+      "event_type": "AUDIENCE_VIEWS_PROJECTED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "view_digests": {
+          "EXECUTIVE": "sha256:7f53e0e9db83f55a3c232ce6042c13aa579208168dd547af8dd564d9ae982faf",
+          "EXTERNAL_RESTRICTED": "sha256:841acedae938252b5f4663196ea41ef578dfe4e44c9e5229ddd8e49b88b742e6",
+          "INTERNAL_RESEARCH": "sha256:f982c8ca21ac43cc575640ace8d2af59ff8045675d1257fd1c025991a042034d"
+        }
+      },
+      "previous_event_digest": "sha256:43591d7726b9e79f0d1442c0aaccd404ac99fe08011d520075fa86f76d52d517",
+      "schema_version": "1.0.0",
+      "sequence": 4
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:46319335df92cbc6236b6b27256377ea2127c756e32faf9fe77f2ec961d6163c",
+      "event_id": "REPEVT_74B1D317308602AD8AF24770",
+      "event_type": "NON_PROMOTIONAL_EXPERIENCE_CAPTURED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "experience_bundle_digest": "sha256:adfd0cb0548dd7fe3b3bfbe5fab7c0bcac6d6082e5c7aa76ef473791f81147b1"
+      },
+      "previous_event_digest": "sha256:0748a18fa3f5596193c3963070c955870d271424d5fe054eb2df114f515dde2b",
+      "schema_version": "1.0.0",
+      "sequence": 5
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:48acff60cb9a418f4e319b8a377ae447d5d2293bbe73e7180c95909d63dc0ee2",
+      "event_id": "REPEVT_CA20628C75DE5CA76EB87742",
+      "event_type": "REPORT_SECURITY_VERIFIED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "redaction_report_digest": "sha256:6917fe7e630fe0966a07056bd63256fd43742fff14412786d1dd27d42a5d7f8b",
+        "security_report_digest": "sha256:619e3acd67ca55f017d69a9033bc98304f0dd816805c48b2c0b45b50fe7e6f45"
+      },
+      "previous_event_digest": "sha256:46319335df92cbc6236b6b27256377ea2127c756e32faf9fe77f2ec961d6163c",
+      "schema_version": "1.0.0",
+      "sequence": 6
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:1a42f58bd8c34582e319473c1bdd007df207b14d343995577d69c0b74547e269",
+      "event_id": "REPEVT_7B1169F5B7621CD6018FCB5C",
+      "event_type": "REPORT_PACKAGE_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "report_run_digest": "sha256:e00555476326b090046a6b8aab0c73806c3ad8a3a549c2022d18aa1554494fac"
+      },
+      "previous_event_digest": "sha256:48acff60cb9a418f4e319b8a377ae447d5d2293bbe73e7180c95909d63dc0ee2",
+      "schema_version": "1.0.0",
+      "sequence": 7
+    }
+  ],
+  "ledger_digest": "sha256:7f68407bb7f2405730345fb55a536c5b729b8d06128262e16a388f4eb3a9fac9",
+  "report_id": "REPORT_2FED2879ED0864D2A8EC4EFF7830B4AA",
+  "schema_version": "1.0.0",
+  "terminal_event_digest": "sha256:1a42f58bd8c34582e319473c1bdd007df207b14d343995577d69c0b74547e269"
+}

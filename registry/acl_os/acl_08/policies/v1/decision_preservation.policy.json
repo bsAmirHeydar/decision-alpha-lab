@@ -1,0 +1,7 @@
+{
+  "decision_status_mutation_allowed": false,
+  "gate_status_mutation_allowed": false,
+  "policy_id": "ACL08_DECISION_PRESERVATION_V1",
+  "reason_code_mutation_allowed": false,
+  "schema_version": "1.0.0"
+}

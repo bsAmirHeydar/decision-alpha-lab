@@ -1,0 +1,84 @@
+{
+  "diagnostic_lane_promoted": false,
+  "edges": [
+    {
+      "from": "ACL07_HANDOFF",
+      "relation": "BINDS",
+      "to": "ACL07_DECISIONS"
+    },
+    {
+      "from": "ACL07_HANDOFF",
+      "relation": "BINDS",
+      "to": "ACL07_GATES"
+    },
+    {
+      "from": "ACL07_DECISIONS",
+      "relation": "PROJECTED_WITHOUT_REINTERPRETATION",
+      "to": "ACL08_REPORT"
+    },
+    {
+      "from": "ACL07_GATES",
+      "relation": "PROJECTED_WITHOUT_REINTERPRETATION",
+      "to": "ACL08_REPORT"
+    },
+    {
+      "from": "ACL08_POLICY",
+      "relation": "GOVERNS",
+      "to": "ACL08_REPORT"
+    },
+    {
+      "from": "ACL08_REPORT",
+      "relation": "YIELDS_NON_PROMOTIONAL",
+      "to": "ACL08_EXPERIENCE"
+    },
+    {
+      "from": "ACL08_EXPERIENCE",
+      "relation": "RECORDED_IN",
+      "to": "ACL08_EVENTS"
+    }
+  ],
+  "execution_authority_granted": false,
+  "graph_digest": "sha256:a0522eb9e51128b5eea26f3a98078095cd2f6a4ed9abdd4dd0b06c330420fa28",
+  "graph_id": "REPPROV_7BE84D573D91B0DDFEB68ECC",
+  "nodes": [
+    {
+      "artifact_type": "ACL07_TO_ACL08",
+      "digest": "sha256:a4d7cbbc0d9139e824a09bb8c05cb81c4f197efd239f6b4d72d76603bbd61542",
+      "node_id": "ACL07_HANDOFF"
+    },
+    {
+      "artifact_type": "VALIDATION_DECISION_BUNDLE",
+      "digest": "sha256:6006139d47ed5c5c4bc44cc41c1e931d8ba9ac86ed928ecaf1ba8ae0d79f6e10",
+      "node_id": "ACL07_DECISIONS"
+    },
+    {
+      "artifact_type": "VALIDATION_GATE_MATRIX",
+      "digest": "sha256:a421ec17b8b6874eba0290237831636b2b8c8d89ccb0b771e253779234cf264a",
+      "node_id": "ACL07_GATES"
+    },
+    {
+      "artifact_type": "REPORT_POLICY",
+      "digest": "sha256:bd1dc0ccf5b368cc34634ef4e609461be068ba9defc57d5298b8f4aa7eb93d1a",
+      "node_id": "ACL08_POLICY"
+    },
+    {
+      "artifact_type": "BATCH_REPORT",
+      "digest": "sha256:9505b34734f74efe22c0142395f6143975c7d4cd3755563bde8fb14cff62af1d",
+      "node_id": "ACL08_REPORT"
+    },
+    {
+      "artifact_type": "EXPERIENCE_BUNDLE",
+      "digest": "sha256:adfd0cb0548dd7fe3b3bfbe5fab7c0bcac6d6082e5c7aa76ef473791f81147b1",
+      "node_id": "ACL08_EXPERIENCE"
+    },
+    {
+      "artifact_type": "REPORT_EVENT_LEDGER",
+      "digest": "sha256:7f68407bb7f2405730345fb55a536c5b729b8d06128262e16a388f4eb3a9fac9",
+      "node_id": "ACL08_EVENTS"
+    }
+  ],
+  "reaches_acl07_validation": true,
+  "report_id": "REPORT_2FED2879ED0864D2A8EC4EFF7830B4AA",
+  "schema_version": "1.0.0",
+  "validation_decisions_mutated": false
+}

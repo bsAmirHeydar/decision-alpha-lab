@@ -1,0 +1,72 @@
+{
+  "$id": "https://alpha-lab.local/acl08/authority_permit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "expires_at": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "issued_at": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "live_order_submission_allowed": {
+      "type": "boolean"
+    },
+    "network_access_allowed": {
+      "type": "boolean"
+    },
+    "permit_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "permit_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "phase": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "secret_access_allowed": {
+      "type": "boolean"
+    },
+    "upstream_handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "validation_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "permit_id",
+    "phase",
+    "action",
+    "validation_id",
+    "upstream_handoff_digest",
+    "issued_at",
+    "expires_at",
+    "network_access_allowed",
+    "secret_access_allowed",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "permit_digest"
+  ],
+  "title": "authority_permit",
+  "type": "object"
+}

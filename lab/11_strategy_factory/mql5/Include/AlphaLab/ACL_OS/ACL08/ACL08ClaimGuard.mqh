@@ -1,0 +1,4 @@
+#ifndef ALPHALAB_ACL08_CLAIM_GUARD_MQH
+#define ALPHALAB_ACL08_CLAIM_GUARD_MQH
+bool ACL08ClaimGuard() { return (ACL08_PROMOTION_ALLOWED==false); }
+#endif

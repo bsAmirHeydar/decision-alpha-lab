@@ -1,0 +1,16 @@
+{
+  "checks": {
+    "action": true,
+    "capital_denied": true,
+    "handoff_bound": true,
+    "network_denied": true,
+    "order_denied": true,
+    "phase": true,
+    "secret_denied": true,
+    "validation_bound": true
+  },
+  "passed": true,
+  "permit_id": "PERMIT_ACL08_REFERENCE_REPORT",
+  "report_digest": "sha256:aa355056bfdbb3676c85021a9a0492a57dbdc42c722bcb0c11ac2a292a3534f9",
+  "schema_version": "1.0.0"
+}

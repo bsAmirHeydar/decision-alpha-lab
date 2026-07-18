@@ -1,0 +1,7 @@
+{
+  "active_planning_in_acl08": false,
+  "memory_ingestion_in_acl08": false,
+  "policy_id": "ACL08_EXPERIENCE_V1",
+  "records_non_promotional": true,
+  "schema_version": "1.0.0"
+}

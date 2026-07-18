@@ -1,36 +1,36 @@
 ---
-title: 07 Reporting And Memory — Map of Content
-status: proposed-reference
+title: Reporting and Memory — Map of Content
+status: accepted-reference
 version: 1.0.0
-updated: 2026-07-17
-tags: [acl-os, moc]
+updated: 2026-07-18
+tags: [acl-os, acl-08, reporting]
 ---
-# 07 Reporting And Memory — Map of Content
+# Reporting and Memory — Map of Content
 
-Canonical notes in this domain.
+This layer separates three authorities that must not collapse into one another: evidence reporting in ACL-08, governed memory and active planning in ACL-09, and promotion state in ACL-10. ACL-08 is therefore a projection boundary, not a decision boundary.
 
-- [[ACTIVE_RESEARCH_PLANNER]]
-- [[ARTIFACT_STORAGE_AND_RETENTION]]
+## ACL-08 canonical notes
+
+- [[ACL08_REPORTING_AND_EXPERIENCE_RUNTIME]]
+- [[ACL08_INPUT_EVIDENCE_GATEWAY]]
+- [[ACL08_REPORT_POLICY_CONTRACT]]
+- [[ACL08_CLOSED_REPORT_BLOCK_REGISTRY]]
+- [[ACL08_DECISION_PRESERVATION]]
+- [[ACL08_AUDIENCE_AND_REDACTION_MODEL]]
+- [[ACL08_EXECUTIVE_SUMMARY_CONTRACT]]
+- [[ACL08_CANDIDATE_REPORT_CONTRACT]]
+- [[ACL08_EXPERIENCE_CAPTURE_CONTRACT]]
+- [[ACL08_NEGATIVE_KNOWLEDGE_AND_UNKNOWN]]
+- [[ACL08_REPORT_DIFF_AND_NOVELTY]]
+- [[ACL08_OBSIDIAN_PROJECTION]]
+- [[ACL08_EVENT_AND_PROVENANCE]]
+- [[ACL08_ACL09_HANDOFF]]
+
+## Foundational cross-phase notes
+
 - [[AUTOMATED_BATCH_REPORTING]]
-- [[AUTOMATED_EXECUTIVE_SUMMARY]]
-- [[BATCH_CHANGELOG_AND_DIFF]]
 - [[BATCH_REPORT_SCHEMA]]
-- [[CONTEXT_PORTFOLIO_KNOWLEDGE_GRAPH]]
-- [[DECISION_MEMORY]]
-- [[DOCTRINE_MEMORY]]
-- [[EXPERIENCE_AND_NEGATIVE_KNOWLEDGE]]
-- [[EXPERIENCE_EXTRACTION_PIPELINE]]
-- [[KNOWLEDGE_PROMOTION_AND_DOCTRINE_AMENDMENT]]
-- [[MEMORY_SECURITY_AND_POISONING_DEFENSE]]
-- [[NOVELTY_AND_MATERIAL_CHANGE_CLASSIFIER]]
-- [[OBSIDIAN_PROJECTION_STANDARD]]
-- [[REPORT_BLOCK_EXTENSION_STANDARD]]
 - [[REPORT_SECURITY_AND_REDACTION]]
+- [[EXPERIENCE_EXTRACTION_PIPELINE]]
 - [[RESEARCH_MEMORY]]
-- [[RESEARCH_MEMORY_AND_DUPLICATE_PREVENTION]]
-- [[RUN_MEMORY]]
-
-## Navigation
-
-- [[ACL_OS_HOME]]
-- [[IMPLEMENTATION_MASTER_PLAN]]
+- [[ACTIVE_RESEARCH_PLANNER]]

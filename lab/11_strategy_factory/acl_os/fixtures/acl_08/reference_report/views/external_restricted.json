@@ -1,0 +1,27 @@
+{
+  "audience": "EXTERNAL_RESTRICTED",
+  "authority": {
+    "alpha_claim_allowed": false,
+    "capital_activation_allowed": false,
+    "live_order_submission_allowed": false,
+    "promotion_allowed": false
+  },
+  "claim_ceiling": "REPORTING_AND_EXPERIENCE_REFERENCE_ONLY",
+  "decision_counts": {
+    "BASELINE_REFERENCE_ONLY": 4,
+    "DIAGNOSTIC_EXCLUDED": 1,
+    "EVIDENCE_INSUFFICIENT": 7
+  },
+  "limitations": [
+    "No candidate is validation-eligible for reporting in the reference evidence.",
+    "Required validation evidence remains unknown for one or more candidates.",
+    "Reference evidence is synthetic and does not establish market edge.",
+    "Execution economics, prospective evidence and independent replication are not established.",
+    "This report has no promotion, order or capital authority."
+  ],
+  "report_id": "REPORT_2FED2879ED0864D2A8EC4EFF7830B4AA",
+  "reported_at": "2026-07-18T01:00:00Z",
+  "reporting_eligible_count": 0,
+  "schema_version": "1.0.0",
+  "view_digest": "sha256:841acedae938252b5f4663196ea41ef578dfe4e44c9e5229ddd8e49b88b742e6"
+}

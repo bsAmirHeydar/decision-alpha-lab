@@ -1,0 +1,7 @@
+{
+  "capabilities_bounded": true,
+  "conformance_suite_required": true,
+  "extension_manifest_required": true,
+  "policy_id": "ACL08_EXTENSION_V1",
+  "schema_version": "1.0.0"
+}

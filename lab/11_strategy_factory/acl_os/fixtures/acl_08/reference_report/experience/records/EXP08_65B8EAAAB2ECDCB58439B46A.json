@@ -1,0 +1,51 @@
+{
+  "bounded_research_questions": [
+    "BUILD_OOD_AND_ABSTENTION_EVIDENCE",
+    "COLLECT_EXECUTION_COST_EVIDENCE",
+    "COLLECT_TAIL_PATH_EVIDENCE",
+    "RUN_PROSPECTIVE_SHADOW_EVALUATION",
+    "SCHEDULE_INDEPENDENT_REPLICATION"
+  ],
+  "candidate_id": "CAND_72D96D48835F3DAA1EFB",
+  "capital_activation_allowed": false,
+  "decision_status": "BASELINE_REFERENCE_ONLY",
+  "doctrine_amendment_allowed": false,
+  "duplicate_fingerprint": "sha256:55316836cf3148c08c3dec6634404e0c2557b4807c00792f5d167ee2dc8550c7",
+  "experience_class": "BASELINE_REFERENCE",
+  "experience_digest": "sha256:c870c831a8e6dc6d74533d254255e64c685219175fb95d953f928ee24b6a0411",
+  "experience_id": "EXP08_65B8EAAAB2ECDCB58439B46A",
+  "failed_gate_ids": [
+    "MINIMUM_SUPPORT",
+    "STATISTICAL_SIGNIFICANCE",
+    "MULTIPLE_TESTING",
+    "TEMPORAL_GENERALIZATION",
+    "OVERFIT_CONTROL"
+  ],
+  "knowledge_polarity": "NEUTRAL_REFERENCE",
+  "lane": "RESEARCH",
+  "live_order_submission_allowed": false,
+  "origin": "BASELINE",
+  "passed_gate_ids": [
+    "INPUT_INTEGRITY",
+    "DATA_QUALITY_AND_LEAKAGE",
+    "DIAGNOSTIC_ISOLATION",
+    "EFFECT_SIZE"
+  ],
+  "promotion_allowed": false,
+  "reason_codes": [
+    "BASELINE_NOT_PROMOTABLE"
+  ],
+  "report_id": "REPORT_2FED2879ED0864D2A8EC4EFF7830B4AA",
+  "schema_version": "1.0.0",
+  "semantic_interpretation_added": false,
+  "setup_id": "SETUP_0FA71C242B64C3FB7F83",
+  "source_candidate_report_digest": "sha256:ac1404701b97ddc0bcb4a74a57feccf458fc0d35c363535557507b37b3249721",
+  "source_decision_digest": "sha256:cb8686306b2b7b43f80ee2bc9d153da8418c8aacd49b95f9b6de2452cc53ca97",
+  "unknown_gate_ids": [
+    "DISTRIBUTIONAL_ROBUSTNESS",
+    "EXECUTION_ECONOMICS",
+    "OOD_AND_ABSTENTION",
+    "PROSPECTIVE_EVIDENCE",
+    "INDEPENDENT_REPLICATION"
+  ]
+}

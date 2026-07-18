@@ -1,0 +1,7 @@
+{
+  "acl08_outputs_immutable": true,
+  "content_addressed_future_memory": true,
+  "policy_id": "ACL08_STORAGE_RETENTION_V1",
+  "retention_decision_owner": "ACL09_OR_CONTROL_PLANE",
+  "schema_version": "1.0.0"
+}

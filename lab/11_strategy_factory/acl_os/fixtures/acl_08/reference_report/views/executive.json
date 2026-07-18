@@ -1,0 +1,33 @@
+{
+  "answer_first": "No candidate is validation-eligible for reporting in the reference evidence.",
+  "audience": "EXECUTIVE",
+  "authority": {
+    "alpha_claim_allowed": false,
+    "capital_activation_allowed": false,
+    "live_order_submission_allowed": false,
+    "promotion_allowed": false
+  },
+  "claim_ceiling": "REPORTING_AND_EXPERIENCE_REFERENCE_ONLY",
+  "decision_counts": {
+    "BASELINE_REFERENCE_ONLY": 4,
+    "DIAGNOSTIC_EXCLUDED": 1,
+    "EVIDENCE_INSUFFICIENT": 7
+  },
+  "key_findings": [
+    "No candidate is validation-eligible for reporting in the reference evidence.",
+    "Decision distribution: {'BASELINE_REFERENCE_ONLY': 4, 'EVIDENCE_INSUFFICIENT': 7, 'DIAGNOSTIC_EXCLUDED': 1}",
+    "Unknown validation evidence remains in 9 gate categories.",
+    "Diagnostic evidence remains non-selectable and baselines remain non-promotable.",
+    "No alpha, execution or capital claim is authorized."
+  ],
+  "limitations": [
+    "No candidate is validation-eligible for reporting in the reference evidence.",
+    "Required validation evidence remains unknown for one or more candidates.",
+    "Reference evidence is synthetic and does not establish market edge.",
+    "Execution economics, prospective evidence and independent replication are not established.",
+    "This report has no promotion, order or capital authority."
+  ],
+  "report_id": "REPORT_2FED2879ED0864D2A8EC4EFF7830B4AA",
+  "schema_version": "1.0.0",
+  "view_digest": "sha256:7f53e0e9db83f55a3c232ce6042c13aa579208168dd547af8dd564d9ae982faf"
+}

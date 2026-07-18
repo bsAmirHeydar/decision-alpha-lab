@@ -1,0 +1,7 @@
+{
+  "answer_first": true,
+  "candidate_ids_allowed": false,
+  "claim_ceiling_required": true,
+  "policy_id": "ACL08_EXECUTIVE_SUMMARY_V1",
+  "schema_version": "1.0.0"
+}

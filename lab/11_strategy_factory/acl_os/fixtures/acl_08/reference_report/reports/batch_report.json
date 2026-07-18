@@ -1,0 +1,91 @@
+{
+  "alpha_claim_allowed": false,
+  "baseline_count": 4,
+  "batch_id": "BATCH_81FF4FC3C8B796422B0EF6818FEB2D5E",
+  "batch_report_digest": "sha256:9505b34734f74efe22c0142395f6143975c7d4cd3755563bde8fb14cff62af1d",
+  "candidate_count": 12,
+  "candidate_report_digests": [
+    "sha256:87c98c589760b6eb04bc7ccf3efac27f4a4ffdb9013cb349261174df23780dd5",
+    "sha256:1a51abcc0ffee7cd0552ba1a300ff751b122fda66e4bde93509a7fc1c0140c70",
+    "sha256:7f1b0ad9b88324a4bceb4d6d1cbb58cce7c46b2edb2be3d99a8bc60d8370d4a6",
+    "sha256:ac1404701b97ddc0bcb4a74a57feccf458fc0d35c363535557507b37b3249721",
+    "sha256:3624b17554bf43079413236c669f2051fbdd53fc8acf705e1bcd71affc7e7d52",
+    "sha256:d4694a3f9e0d592ecd3cdab954d068eda078dc531c75120419c66604ae727dca",
+    "sha256:556812ae24e9e818faa1facea3cebf17f3e83e1dd4276393b62ddefcc5a63d59",
+    "sha256:2b5e0da3893086ee9de569767972a4393f88bb47335b79ddbebaed44de2ac01d",
+    "sha256:634d6a3958f5cf6783dab9bab872972f10839d134649f1a86db92e1d4feb892b",
+    "sha256:418d551bc9419a30face6bf9b4789699ef953b56ae10b2e5034ad388d03fe4b8",
+    "sha256:ae1bc5151b0c10a685c9d80260fa1c64b1f817c3cef0bf9825ca774cf563291c",
+    "sha256:5764566db9adbdb2df8f2880be3562067132be9c9330908237dc78ce753ed34d"
+  ],
+  "capital_activation_allowed": false,
+  "claim_ceiling": "REPORTING_AND_EXPERIENCE_REFERENCE_ONLY",
+  "decision_counts": {
+    "BASELINE_REFERENCE_ONLY": 4,
+    "DIAGNOSTIC_EXCLUDED": 1,
+    "EVIDENCE_INSUFFICIENT": 7
+  },
+  "decision_semantics_mutated": false,
+  "diagnostic_count": 1,
+  "diagnostic_evidence_segregated": true,
+  "gate_status_counts": {
+    "FAIL": 50,
+    "NOT_APPLICABLE": 6,
+    "PASS": 40,
+    "UNKNOWN": 84
+  },
+  "limitations": [
+    "No candidate is validation-eligible for reporting in the reference evidence.",
+    "Required validation evidence remains unknown for one or more candidates.",
+    "Reference evidence is synthetic and does not establish market edge.",
+    "Execution economics, prospective evidence and independent replication are not established.",
+    "This report has no promotion, order or capital authority."
+  ],
+  "live_order_submission_allowed": false,
+  "promotion_allowed": false,
+  "report_blocks": [
+    "IDENTITY",
+    "EXECUTIVE_FINDINGS",
+    "DECISION_DISTRIBUTION",
+    "CANDIDATE_EVIDENCE",
+    "GATE_EVIDENCE",
+    "BASELINE_CONTEXT",
+    "DIAGNOSTIC_ISOLATION",
+    "UNCERTAINTY_AND_UNKNOWN",
+    "NEGATIVE_KNOWLEDGE",
+    "LIMITATIONS",
+    "PROVENANCE",
+    "SECURITY_AND_AUTHORITY",
+    "NEXT_ALLOWED_ACTIONS"
+  ],
+  "report_id": "REPORT_2FED2879ED0864D2A8EC4EFF7830B4AA",
+  "report_type": "ACL08_BATCH_REPORT",
+  "reported_at": "2026-07-18T01:00:00Z",
+  "reporting_eligible_count": 0,
+  "required_next_evidence": [
+    "BASELINE_DOMINANCE",
+    "DISTRIBUTIONAL_ROBUSTNESS",
+    "EXECUTION_ECONOMICS",
+    "INDEPENDENT_REPLICATION",
+    "MULTIPLE_TESTING",
+    "OOD_AND_ABSTENTION",
+    "PROSPECTIVE_EVIDENCE",
+    "STATISTICAL_SIGNIFICANCE",
+    "TEMPORAL_GENERALIZATION"
+  ],
+  "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+  "schema_version": "1.0.0",
+  "source_claim_ceiling": "VALIDATION_DECISION_REFERENCE_ONLY",
+  "unknown_gate_frequency": {
+    "BASELINE_DOMINANCE": 7,
+    "DISTRIBUTIONAL_ROBUSTNESS": 12,
+    "EXECUTION_ECONOMICS": 12,
+    "INDEPENDENT_REPLICATION": 12,
+    "MULTIPLE_TESTING": 4,
+    "OOD_AND_ABSTENTION": 12,
+    "PROSPECTIVE_EVIDENCE": 12,
+    "STATISTICAL_SIGNIFICANCE": 4,
+    "TEMPORAL_GENERALIZATION": 9
+  },
+  "validation_id": "VALIDATION_3AC66AA2ED2AC1AEE9B8EDB7ABB9C13A"
+}

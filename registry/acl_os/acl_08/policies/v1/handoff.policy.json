@@ -1,0 +1,12 @@
+{
+  "execution_authority": false,
+  "policy_id": "ACL08_HANDOFF_V1",
+  "required_actions": [
+    "INGEST_REPORT_PACKAGE",
+    "INDEX_EXPERIENCE_RECORDS",
+    "DETECT_RESEARCH_DUPLICATES",
+    "PROPOSE_BOUNDED_RESEARCH_QUESTIONS"
+  ],
+  "schema_version": "1.0.0",
+  "target": "ACL09"
+}

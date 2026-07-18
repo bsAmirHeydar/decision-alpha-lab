@@ -1,0 +1,7 @@
+{
+  "external_identifiers_allowed": false,
+  "policy_id": "ACL08_REDACTION_V1",
+  "raw_logic_allowed": false,
+  "schema_version": "1.0.0",
+  "secret_material_allowed": false
+}

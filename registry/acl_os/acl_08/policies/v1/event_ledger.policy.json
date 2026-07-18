@@ -1,0 +1,7 @@
+{
+  "authority_denied_per_event": true,
+  "genesis_marker": "GENESIS",
+  "hash_chain": true,
+  "policy_id": "ACL08_EVENT_LEDGER_V1",
+  "schema_version": "1.0.0"
+}

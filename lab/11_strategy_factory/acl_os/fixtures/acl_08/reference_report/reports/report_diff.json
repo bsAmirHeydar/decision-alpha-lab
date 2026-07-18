@@ -1,0 +1,12 @@
+{
+  "changed_dimensions": [],
+  "comparison_status": "FIRST_REPORT",
+  "diff_digest": "sha256:0618b444fc8d7934c28840d97217b94ba764da5fd44826fc7b7e913998eb85fa",
+  "material_change": false,
+  "previous_report_id": null,
+  "reason_codes": [
+    "NO_PREVIOUS_REPORT"
+  ],
+  "report_id": "REPORT_2FED2879ED0864D2A8EC4EFF7830B4AA",
+  "schema_version": "1.0.0"
+}

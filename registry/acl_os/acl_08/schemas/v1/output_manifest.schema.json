@@ -1,0 +1,352 @@
+{
+  "$id": "https://alpha-lab.local/acl08/output_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "absence_of_negative_records_does_not_imply_alpha": {
+      "type": "boolean"
+    },
+    "acl09_handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "active_planning_status": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "answer_first": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "artifact_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "audience": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "authority": {
+      "type": "object"
+    },
+    "baseline_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "batch_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "batch_report_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "bounded_research_questions": {
+      "type": "array"
+    },
+    "candidate_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "candidate_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "candidate_report_digests": {
+      "type": "array"
+    },
+    "candidate_reports": {
+      "type": "array"
+    },
+    "changed_dimensions": {
+      "type": "array"
+    },
+    "checks": {
+      "type": "object"
+    },
+    "claim_ceiling": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "comparison_status": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decision_counts": {
+      "type": "object"
+    },
+    "decision_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "decision_semantics_changed": {
+      "type": "boolean"
+    },
+    "decision_semantics_mutated": {
+      "type": "boolean"
+    },
+    "decision_status": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "diagnostic_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "diagnostic_evidence_segregated": {
+      "type": "boolean"
+    },
+    "diagnostic_lane_promoted": {
+      "type": "boolean"
+    },
+    "diagnostic_records_selectable": {
+      "type": "boolean"
+    },
+    "diagnostic_selectable": {
+      "type": "boolean"
+    },
+    "doctrine_amendment_allowed": {
+      "type": "boolean"
+    },
+    "duplicate_fingerprint": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "execution_authority_granted": {
+      "type": "boolean"
+    },
+    "executive_summary_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "experience_bundle_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "experience_class": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "experience_counts": {
+      "type": "object"
+    },
+    "experience_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "experience_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "external_prohibited_tokens": {
+      "type": "array"
+    },
+    "external_restricted_view_redacted": {
+      "type": "boolean"
+    },
+    "failed_gate_ids": {
+      "type": "array"
+    },
+    "files": {
+      "type": "array"
+    },
+    "gate_status_counts": {
+      "type": "object"
+    },
+    "gate_summary": {
+      "type": "object"
+    },
+    "input_binding_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "knowledge_polarity": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "lane": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "manifest_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "material_change": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "memory_ingestion_status": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "negative_validation_records": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "network_access_allowed": {
+      "type": "boolean"
+    },
+    "origin": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "output_manifest_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "passed_gate_ids": {
+      "type": "array"
+    },
+    "permit_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "policy_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "previous_batch_report_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "previous_report_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "profiles_applied": {
+      "type": "array"
+    },
+    "promotion_authority_granted": {
+      "type": "boolean"
+    },
+    "reaches_acl07_validation": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reason_codes": {
+      "type": "array"
+    },
+    "receipt_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "records_with_unknown_evidence": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "report_blocks": {
+      "type": "array"
+    },
+    "report_diff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "report_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "report_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "report_registry_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "report_type": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reported_at": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reporter_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reporting_eligible": {
+      "type": "boolean"
+    },
+    "reporting_eligible_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "required_next_evidence": {
+      "type": "array"
+    },
+    "restricted_identifier_leaks": {
+      "type": "array"
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "secret_access_allowed": {
+      "type": "boolean"
+    },
+    "self_reference_policy": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "semantic_interpretation_added": {
+      "type": "boolean"
+    },
+    "setup_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_candidate_gate_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "source_candidate_report_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "source_claim_ceiling": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_decision_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "terminal_event_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "unknown_gate_frequency": {
+      "type": "object"
+    },
+    "unknown_gate_ids": {
+      "type": "array"
+    },
+    "unknown_is_not_pass": {
+      "type": "boolean"
+    },
+    "validation_decisions_mutated": {
+      "type": "boolean"
+    },
+    "validation_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "report_id",
+    "artifact_count",
+    "files",
+    "manifest_digest"
+  ],
+  "title": "output_manifest",
+  "type": "object"
+}

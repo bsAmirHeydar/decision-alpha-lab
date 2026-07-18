@@ -1,0 +1,8 @@
+{
+  "network_access": false,
+  "policy_id": "ACL08_SECURITY_V1",
+  "prompt_text_operational": false,
+  "report_text_authoritative": false,
+  "schema_version": "1.0.0",
+  "secret_access": false
+}

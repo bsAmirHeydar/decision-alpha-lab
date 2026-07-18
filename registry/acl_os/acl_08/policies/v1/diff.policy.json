@@ -1,0 +1,7 @@
+{
+  "digest_only_diff_is_sufficient": false,
+  "filename_diff_is_material": false,
+  "optional_previous_report": true,
+  "policy_id": "ACL08_DIFF_V1",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,7 @@
+{
+  "atomic": true,
+  "nonempty_destination_allowed": false,
+  "partial_publication_allowed": false,
+  "policy_id": "ACL08_PUBLICATION_V1",
+  "schema_version": "1.0.0"
+}

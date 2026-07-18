@@ -1,0 +1,12 @@
+{
+  "first_report_status": "FIRST_REPORT",
+  "policy_id": "ACL08_NOVELTY_V1",
+  "schema_version": "1.0.0",
+  "semantic_dimensions": [
+    "validation_id",
+    "decision_counts",
+    "gate_status_counts",
+    "unknown_gate_frequency",
+    "reporting_eligible_count"
+  ]
+}

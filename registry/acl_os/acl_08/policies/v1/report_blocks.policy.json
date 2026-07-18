@@ -1,0 +1,6 @@
+{
+  "closed_registry": "ACL08_REPORT_BLOCK_REGISTRY_V1",
+  "dynamic_blocks_allowed": false,
+  "policy_id": "ACL08_REPORT_BLOCKS_V1",
+  "schema_version": "1.0.0"
+}

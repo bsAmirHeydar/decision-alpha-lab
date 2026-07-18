@@ -1,0 +1,9 @@
+{
+  "policy_id": "ACL08_INPUT_INTEGRITY_V1",
+  "required_upstream": "ACL07_TO_ACL08",
+  "schema_version": "1.0.0",
+  "verify_candidate_decisions": true,
+  "verify_gate_evidence": true,
+  "verify_manifest": true,
+  "verify_receipt": true
+}

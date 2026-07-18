@@ -1,0 +1,59 @@
+{
+  "checks": {
+    "acl07_direct_regression": {
+      "command": "pytest -q lab/11_strategy_factory/acl_os/tests_acl_07",
+      "failed": 0,
+      "passed": 44
+    },
+    "acl08_direct_tests": {
+      "command": "pytest -q lab/11_strategy_factory/acl_os/tests_acl_08",
+      "failed": 0,
+      "passed": 39
+    },
+    "acl09_handoff_binding": true,
+    "decision_preservation": true,
+    "delivery_validation": true,
+    "diagnostic_isolation": true,
+    "event_chain": true,
+    "external_redaction": true,
+    "policy_count": 25,
+    "python_compileall": true,
+    "reference_artifact_count": 64,
+    "reference_json_parse_count": 46,
+    "reference_replay": true,
+    "schema_count": 23,
+    "static_registry_validation": true
+  },
+  "claim_ceiling": "REPORTING_AND_EXPERIENCE_REFERENCE_ONLY",
+  "not_claimed": [
+    "alpha",
+    "production readiness",
+    "execution economics",
+    "prospective performance",
+    "independent replication",
+    "MetaEditor compilation",
+    "MT5 runtime parity",
+    "live order safety",
+    "capital authorization"
+  ],
+  "phase": "ACL-08",
+  "reference_result": {
+    "decision_counts": {
+      "BASELINE_REFERENCE_ONLY": 4,
+      "DIAGNOSTIC_EXCLUDED": 1,
+      "EVIDENCE_INSUFFICIENT": 7
+    },
+    "event_count": 7,
+    "experience_counts": {
+      "BASELINE_REFERENCE": 4,
+      "DIAGNOSTIC_EXCLUSION": 1,
+      "INSUFFICIENT_EVIDENCE": 7
+    },
+    "experience_record_count": 12,
+    "generated_manifest_artifact_count": 62,
+    "report_id": "REPORT_2FED2879ED0864D2A8EC4EFF7830B4AA",
+    "reporting_eligible_count": 0
+  },
+  "schema_version": "1.0.0",
+  "status": "PASS"
+}

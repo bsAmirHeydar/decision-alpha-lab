@@ -1,0 +1,68 @@
+{
+  "$id": "https://alpha-lab.local/acl08/report_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alpha_claim_allowed": {
+      "type": "boolean"
+    },
+    "audiences": {
+      "type": "array"
+    },
+    "decision_semantics_mutable": {
+      "type": "boolean"
+    },
+    "diagnostic_selectable": {
+      "type": "boolean"
+    },
+    "include_candidate_pages": {
+      "type": "boolean"
+    },
+    "include_gate_metrics_internal": {
+      "type": "boolean"
+    },
+    "max_executive_findings": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "policy_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "policy_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "previous_report_optional": {
+      "type": "boolean"
+    },
+    "promotion_allowed": {
+      "type": "boolean"
+    },
+    "report_blocks": {
+      "type": "array"
+    },
+    "report_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "policy_id",
+    "report_version",
+    "audiences",
+    "report_blocks",
+    "decision_semantics_mutable",
+    "diagnostic_selectable",
+    "alpha_claim_allowed",
+    "promotion_allowed",
+    "policy_digest"
+  ],
+  "title": "report_policy",
+  "type": "object"
+}

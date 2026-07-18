@@ -1,0 +1,7 @@
+{
+  "diagnostic_promotable": false,
+  "diagnostic_rankable": false,
+  "diagnostic_selectable": false,
+  "policy_id": "ACL08_DIAGNOSTIC_ISOLATION_V1",
+  "schema_version": "1.0.0"
+}

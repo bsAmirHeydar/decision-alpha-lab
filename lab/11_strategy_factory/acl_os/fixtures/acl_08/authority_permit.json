@@ -1,0 +1,15 @@
+{
+  "action": "ACL08_BUILD_REPORT_AND_EXPERIENCE",
+  "capital_activation_allowed": false,
+  "expires_at": "2026-07-19T00:30:00Z",
+  "issued_at": "2026-07-18T00:30:00Z",
+  "live_order_submission_allowed": false,
+  "network_access_allowed": false,
+  "permit_digest": "sha256:ab9d4bbffd49d36622feb482e4d75f5938c2d83618b19036b8f6586f1b8b2188",
+  "permit_id": "PERMIT_ACL08_REFERENCE_REPORT",
+  "phase": "ACL-08",
+  "schema_version": "1.0.0",
+  "secret_access_allowed": false,
+  "upstream_handoff_digest": "sha256:a4d7cbbc0d9139e824a09bb8c05cb81c4f197efd239f6b4d72d76603bbd61542",
+  "validation_id": "VALIDATION_3AC66AA2ED2AC1AEE9B8EDB7ABB9C13A"
+}

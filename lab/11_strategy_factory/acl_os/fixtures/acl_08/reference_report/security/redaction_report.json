@@ -1,0 +1,23 @@
+{
+  "decision_semantics_changed": false,
+  "external_prohibited_tokens": [
+    "SETUP_",
+    "CAND_",
+    "VALDEC_",
+    "candidate_id",
+    "setup_id",
+    "decision_id",
+    "gate_result_digest",
+    "candidate_report_digest"
+  ],
+  "passed": true,
+  "profiles_applied": [
+    "EXECUTIVE",
+    "EXTERNAL_RESTRICTED",
+    "INTERNAL_RESEARCH"
+  ],
+  "report_digest": "sha256:6917fe7e630fe0966a07056bd63256fd43742fff14412786d1dd27d42a5d7f8b",
+  "report_id": "REPORT_2FED2879ED0864D2A8EC4EFF7830B4AA",
+  "restricted_identifier_leaks": [],
+  "schema_version": "1.0.0"
+}

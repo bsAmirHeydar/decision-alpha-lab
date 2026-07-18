@@ -1,0 +1,34 @@
+{
+  "alpha_claim_allowed": false,
+  "audiences": [
+    "EXECUTIVE",
+    "EXTERNAL_RESTRICTED",
+    "INTERNAL_RESEARCH"
+  ],
+  "decision_semantics_mutable": false,
+  "diagnostic_selectable": false,
+  "include_candidate_pages": true,
+  "include_gate_metrics_internal": true,
+  "max_executive_findings": 5,
+  "policy_digest": "sha256:bd1dc0ccf5b368cc34634ef4e609461be068ba9defc57d5298b8f4aa7eb93d1a",
+  "policy_id": "ACL08_REPORT_POLICY_V1",
+  "previous_report_optional": true,
+  "promotion_allowed": false,
+  "report_blocks": [
+    "IDENTITY",
+    "EXECUTIVE_FINDINGS",
+    "DECISION_DISTRIBUTION",
+    "CANDIDATE_EVIDENCE",
+    "GATE_EVIDENCE",
+    "BASELINE_CONTEXT",
+    "DIAGNOSTIC_ISOLATION",
+    "UNCERTAINTY_AND_UNKNOWN",
+    "NEGATIVE_KNOWLEDGE",
+    "LIMITATIONS",
+    "PROVENANCE",
+    "SECURITY_AND_AUTHORITY",
+    "NEXT_ALLOWED_ACTIONS"
+  ],
+  "report_version": "1.0.0",
+  "schema_version": "1.0.0"
+}

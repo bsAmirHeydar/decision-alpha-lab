@@ -1,0 +1,53 @@
+{
+  "bounded_research_questions": [
+    "ADD_TEMPORAL_HOLDOUT_EVIDENCE",
+    "BUILD_OOD_AND_ABSTENTION_EVIDENCE",
+    "COLLECT_EXECUTION_COST_EVIDENCE",
+    "COLLECT_TAIL_PATH_EVIDENCE",
+    "RUN_PROSPECTIVE_SHADOW_EVALUATION",
+    "SCHEDULE_INDEPENDENT_REPLICATION"
+  ],
+  "candidate_id": "CAND_EB2F08D98D3D75CEAA61",
+  "capital_activation_allowed": false,
+  "decision_status": "EVIDENCE_INSUFFICIENT",
+  "doctrine_amendment_allowed": false,
+  "duplicate_fingerprint": "sha256:93b8dfc09aad0d6bf707aea993f5aae3fd6a6184d90b021fac6ed8e7079a376e",
+  "experience_class": "INSUFFICIENT_EVIDENCE",
+  "experience_digest": "sha256:59feb16355bfa8f7eed56d7f023c6abaf18bdea3849f05d601321ca83c023ddb",
+  "experience_id": "EXP08_854B67FAA886FE9757CB123D",
+  "failed_gate_ids": [
+    "MINIMUM_SUPPORT",
+    "EFFECT_SIZE",
+    "STATISTICAL_SIGNIFICANCE",
+    "MULTIPLE_TESTING",
+    "OVERFIT_CONTROL"
+  ],
+  "knowledge_polarity": "UNKNOWN",
+  "lane": "RESEARCH",
+  "live_order_submission_allowed": false,
+  "origin": "AI",
+  "passed_gate_ids": [
+    "INPUT_INTEGRITY",
+    "DATA_QUALITY_AND_LEAKAGE",
+    "DIAGNOSTIC_ISOLATION"
+  ],
+  "promotion_allowed": false,
+  "reason_codes": [
+    "ONE_OR_MORE_REQUIRED_GATES_NOT_PASSED"
+  ],
+  "report_id": "REPORT_2FED2879ED0864D2A8EC4EFF7830B4AA",
+  "schema_version": "1.0.0",
+  "semantic_interpretation_added": false,
+  "setup_id": "SETUP_5F6EC931E571A2575FD9",
+  "source_candidate_report_digest": "sha256:d4694a3f9e0d592ecd3cdab954d068eda078dc531c75120419c66604ae727dca",
+  "source_decision_digest": "sha256:806a094f1b0d8bd84827025d67c6675d2fb126e85dcbd3f4f18c826e5ec9d8e6",
+  "unknown_gate_ids": [
+    "BASELINE_DOMINANCE",
+    "TEMPORAL_GENERALIZATION",
+    "DISTRIBUTIONAL_ROBUSTNESS",
+    "EXECUTION_ECONOMICS",
+    "OOD_AND_ABSTENTION",
+    "PROSPECTIVE_EVIDENCE",
+    "INDEPENDENT_REPLICATION"
+  ]
+}

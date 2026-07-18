@@ -1,0 +1,7 @@
+{
+  "absence_of_negative_is_alpha": false,
+  "insufficient_evidence_is_unknown": true,
+  "policy_id": "ACL08_NEGATIVE_KNOWLEDGE_V1",
+  "schema_version": "1.0.0",
+  "validation_failure_is_negative": true
+}

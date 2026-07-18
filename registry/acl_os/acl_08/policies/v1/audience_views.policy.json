@@ -1,0 +1,10 @@
+{
+  "policy_id": "ACL08_AUDIENCE_VIEWS_V1",
+  "profiles": [
+    "INTERNAL_RESEARCH",
+    "EXECUTIVE",
+    "EXTERNAL_RESTRICTED"
+  ],
+  "schema_version": "1.0.0",
+  "unknown_profile_fails_closed": true
+}

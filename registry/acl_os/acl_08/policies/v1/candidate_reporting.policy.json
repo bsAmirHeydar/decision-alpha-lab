@@ -1,0 +1,7 @@
+{
+  "gate_vector_required": true,
+  "policy_id": "ACL08_CANDIDATE_REPORTING_V1",
+  "promotion_language_forbidden": true,
+  "schema_version": "1.0.0",
+  "source_decision_digest_required": true
+}

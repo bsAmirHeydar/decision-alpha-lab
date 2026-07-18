@@ -1,0 +1,7 @@
+{
+  "alpha_claim_allowed": false,
+  "claim_ceiling": "REPORTING_AND_EXPERIENCE_REFERENCE_ONLY",
+  "policy_id": "ACL08_CLAIM_CEILING_V1",
+  "production_claim_allowed": false,
+  "schema_version": "1.0.0"
+}

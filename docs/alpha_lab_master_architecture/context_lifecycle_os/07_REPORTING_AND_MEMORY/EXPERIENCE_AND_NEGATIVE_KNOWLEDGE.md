@@ -1,66 +1,12 @@
 ---
 title: Experience and Negative Knowledge
-status: proposed-reference
+status: accepted-reference
 version: 1.0.0
-updated: 2026-07-17
-tags: [acl-os, context-lifecycle]
+updated: 2026-07-18
+tags: [acl-os, acl-08, reporting]
 ---
 # Experience and Negative Knowledge
 
-Captures reusable observations, failures, non-results, reopen conditions and evidence.
+Negative knowledge is reserved for an explicit validation failure. Insufficient evidence remains UNKNOWN and must not be mislabeled as negative. Likewise, the absence of a negative record does not imply alpha.
 
-## Responsibility boundary
-
-This component owns a narrow part of structured evidence, automatic reports, research memory and knowledge reuse. It communicates through versioned contracts and immutable references. It may not infer adjacent authority, reach into private implementation folders, or create an alternative identity, security or evidence system.
-
-## Required inputs
-
-- Exact artifact identities and versions.
-- Declared owner and authority scope.
-- Applicable policy, security classification and compatibility range.
-- Known-time-safe evidence or an explicit UNKNOWN state.
-
-## Produced artifacts
-
-- Closed-schema machine result with reason codes.
-- Lineage links to all source artifacts and transformations.
-- Human-readable Obsidian projection.
-- Security, test and migration evidence appropriate to the artifact class.
-
-## Non-negotiable invariants
-
-- Unknown fields and unresolved identities fail closed.
-- Generated content is never hand-edited.
-- Passing local tests does not prove alpha, live parity or capital authorization.
-- Every material mutation is authenticated, authorized, attributable and replayable.
-- Breaking semantics require a new version, migration and rollback.
-
-## Reference workflow
-
-1. Resolve exact inputs and owners.
-2. Validate schema, compatibility, security classification and authority.
-3. Execute deterministic domain logic in the declared environment.
-4. Validate outputs and append evidence events.
-5. Publish structured artifacts and projections atomically.
-6. Expose only policy-approved next actions.
-
-## Failure semantics
-
-The component stops with explicit reason codes for missing evidence, ambiguous semantics, incompatible versions, integrity mismatch, insufficient support, policy denial, security failure or unavailable dependency. It does not substitute a permissive default.
-
-## Extension and evolution
-
-New behavior enters through a registered extension manifest, bounded capabilities and conformance suite. Additive changes use compatible minor versions. Breaking changes require a major version, impact analysis, idempotent migration, dual-read or shadow period where needed, rollback and deprecation evidence.
-
-## Verification obligations
-
-Unit and property tests cover deterministic logic. Contract tests cover every adapter. Mutation tests prove guards are effective. Security-negative tests attempt bypass. Golden replay proves deterministic projection. Clean-checkout delivery validation proves the package has no hidden build dependency.
-
-## Claim ceiling
-
-This architecture note specifies required mechanics. Only environment-specific evidence can establish external data quality, statistical edge, broker behavior, MQL5 parity, operational security or production authorization.
-
-## Related
-
-- [[ACL_OS_HOME]]
-- [[IMPLEMENTATION_MASTER_PLAN]]
+Baseline and diagnostic records are retained because they explain comparison and isolation behavior, but neither class is selectable. Reportable evidence remains provisional and non-promotional until later lifecycle gates act.

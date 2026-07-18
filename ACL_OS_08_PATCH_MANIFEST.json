@@ -1,0 +1,1813 @@
+{
+  "claim_ceiling": "REPORTING_AND_EXPERIENCE_REFERENCE_ONLY",
+  "commit_message": "feat(acl-os): implement ACL-08 reporting and experience",
+  "patch_id": "ACL_OS_08_REPORTING_AND_EXPERIENCE_PATCH",
+  "patch_manifest_digest": "sha256:eeacb2f77ee6ceebe31119355988bd70a3f35d0a6307414d68ff5034c8d38261",
+  "payload_file_count": 360,
+  "payload_files": [
+    {
+      "path": "ACL_OS_08_QA_REPORT.json",
+      "sha256": "758d3873949d50e619ab4f70b11a487da532d8ce3d8ca896ff41ce5672908f37",
+      "size_bytes": 1621
+    },
+    {
+      "path": "COMMIT_MESSAGE.md",
+      "sha256": "04f99218aacec6c0ca187e035f2eac15f2f12a0a5f4348f6ee53adfff3589f13",
+      "size_bytes": 56
+    },
+    {
+      "path": "COMMIT_MESSAGE.txt",
+      "sha256": "04f99218aacec6c0ca187e035f2eac15f2f12a0a5f4348f6ee53adfff3589f13",
+      "size_bytes": 56
+    },
+    {
+      "path": "INSTALL_ALPHA_LAB_ACL_OS_08.md",
+      "sha256": "c0fd7373401627dc0902640118206955ae0ec6d715bfc697e68d82ec093f663d",
+      "size_bytes": 312
+    },
+    {
+      "path": "README_ALPHA_LAB_ACL_OS_08.md",
+      "sha256": "45447236649edab7eb10ab5ff0393e189a7605b04d0a5c7d099d4c60c0788720",
+      "size_bytes": 524
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/00_MOC.md",
+      "sha256": "10aef93a4a7c6b092d46ec8771e4f6277f9d377bfddd022f39984ac868ac77d0",
+      "size_bytes": 1215
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/ACL08_ACL09_HANDOFF.md",
+      "sha256": "2381922d98a80967b269d3c5707db4efba6a5096f3bd96fb40221e91f6e3aac4",
+      "size_bytes": 638
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/ACL08_ATOMIC_PUBLICATION.md",
+      "sha256": "877f59ef79fabe1ad963eec0f4f3edd3e7a7c9d4178e493703654799c42cf263",
+      "size_bytes": 665
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/ACL08_AUDIENCE_AND_REDACTION_MODEL.md",
+      "sha256": "39c268a3631a2f11564a8a23a9ad641c12ee43f527d67c76924d5a2d04adcb7e",
+      "size_bytes": 664
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/ACL08_AUTHORITY_MODEL.md",
+      "sha256": "2d8f82f65c45c6933cfe1cffa3d4b88578abfcef6d41a40300904e833cb9b706",
+      "size_bytes": 658
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/ACL08_BOUNDED_RESEARCH_QUESTIONS.md",
+      "sha256": "a07d93a9cd179b6453bf36b03e5e0d6f2b02ed4a967bd53e8b43898043d9be14",
+      "size_bytes": 643
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/ACL08_CANDIDATE_REPORT_CONTRACT.md",
+      "sha256": "042c6281bc19afdee0899b2af42ac6ef3359f4b8c2be9e7bf5e7a93f5926b33c",
+      "size_bytes": 670
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/ACL08_CLAIM_CEILING.md",
+      "sha256": "12382fc00b026437583f19564e9844a07c389036177825983feb36666b5782b7",
+      "size_bytes": 661
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/ACL08_CLOSED_REPORT_BLOCK_REGISTRY.md",
+      "sha256": "b9e33ce97219c5930e741b6074669ea4d20f31a342f09f459e14a71d661ae04f",
+      "size_bytes": 679
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/ACL08_DECISION_PRESERVATION.md",
+      "sha256": "725a4ad8ee8086b39b0b90415735bd32eddb93d869c5397873d95156723d06d5",
+      "size_bytes": 681
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/ACL08_DUPLICATE_FINGERPRINT.md",
+      "sha256": "18adb0105ba8f1e144e7534d2fe571c2060fb7baeed507e516f2be337e0497bd",
+      "size_bytes": 672
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/ACL08_EVENT_AND_PROVENANCE.md",
+      "sha256": "ea4655eb79b90ae9906ba825e92c585234b9ab9a140753676ce3012c75b1c2d5",
+      "size_bytes": 648
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/ACL08_EXECUTIVE_SUMMARY_CONTRACT.md",
+      "sha256": "9dd5182021ba9a9127b14235439070497845e8a35d0e4b8f4228389bef6bee7b",
+      "size_bytes": 670
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/ACL08_EXPERIENCE_CAPTURE_CONTRACT.md",
+      "sha256": "45b2144f61526b51361ccc2cfb0dafe9e18ba9d483a01ef53d2609cec75ce7c8",
+      "size_bytes": 677
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/ACL08_FAILURE_TAXONOMY.md",
+      "sha256": "2380388a72f97b365ed835815ef0990fcb8933bcc03b714684cc8b35667ee775",
+      "size_bytes": 679
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/ACL08_INPUT_EVIDENCE_GATEWAY.md",
+      "sha256": "aa11d5abafd7c4c3fad5a489271399f395653b6a8fe3168ae547e242e82f648a",
+      "size_bytes": 728
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/ACL08_MIGRATION_AND_ROLLBACK.md",
+      "sha256": "b489396f359dce389bcb9ddae51e84e9112906b728299b4a743e11a4edfa6e1a",
+      "size_bytes": 666
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/ACL08_NEGATIVE_KNOWLEDGE_AND_UNKNOWN.md",
+      "sha256": "7bedaee9895c089f1b7ebc6de6a4bb1077cdc3947fa47a6a77d7452cce358244",
+      "size_bytes": 664
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/ACL08_OBSIDIAN_PROJECTION.md",
+      "sha256": "14ae052dc183726c0551db85ba6feffd385e81fe9f08ae0f5cf9c423972d910f",
+      "size_bytes": 666
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/ACL08_REPORTING_AND_EXPERIENCE_RUNTIME.md",
+      "sha256": "6fd595e0bd9b95b6a3f91a61d0fe9632a0bbd68ddf74f9c82c7c57ee3a0ea0b1",
+      "size_bytes": 739
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/ACL08_REPORT_DIFF_AND_NOVELTY.md",
+      "sha256": "323c39dc320d54eac0848efce051847ca21405f10c919d279cddbe8949fe6285",
+      "size_bytes": 659
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/ACL08_REPORT_POLICY_CONTRACT.md",
+      "sha256": "e4bea6b10041cdfcf9547963053eab86d4dc44b279a71219a97b351fc9b51854",
+      "size_bytes": 664
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/ACL08_SECURITY_BOUNDARY.md",
+      "sha256": "efc7f982f2d98e07ce3d2cdf55f05c7ad19b9fe982aaa3d54166d7ad514e5ba0",
+      "size_bytes": 671
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/ACTIVE_RESEARCH_PLANNER.md",
+      "sha256": "8619aad3dbaa909b82370f9b03150f44558158cf4546219a2724fb8fc99baef6",
+      "size_bytes": 583
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/AUTOMATED_BATCH_REPORTING.md",
+      "sha256": "4458f2a783cef934798a8d1b5125c53a2f28a6f9363ee230f659ce62d3d220a5",
+      "size_bytes": 1007
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/AUTOMATED_EXECUTIVE_SUMMARY.md",
+      "sha256": "f3690dbd427a6e45903150b9a6bf718861b638dc53db8a6775bfe7429ae4e570",
+      "size_bytes": 698
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/BATCH_CHANGELOG_AND_DIFF.md",
+      "sha256": "f9ce1d603de36678ed7598fa183b497a8150bbccf73e6b55b59534f9fb99a441",
+      "size_bytes": 725
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/BATCH_REPORT_SCHEMA.md",
+      "sha256": "cb1ba36f7caa3f30931690b44428298d5696db0c1e2bbf9d3852a06c02489588",
+      "size_bytes": 663
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/EXPERIENCE_AND_NEGATIVE_KNOWLEDGE.md",
+      "sha256": "b510c769eaed8f13598e766a801d198864797ee69dceb9de9a2195b22e49b8e9",
+      "size_bytes": 620
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/EXPERIENCE_EXTRACTION_PIPELINE.md",
+      "sha256": "05894c06f021efecffe477783dfd941905fc74770c844f462b852e7d04c41782",
+      "size_bytes": 741
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/NOVELTY_AND_MATERIAL_CHANGE_CLASSIFIER.md",
+      "sha256": "fb9a222d836cfed7198bfaf75240d001b9e97aaf9838bafc6e46a2ea3c6f213f",
+      "size_bytes": 603
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/OBSIDIAN_PROJECTION_STANDARD.md",
+      "sha256": "9b37031558428da08996e3e20f1248ca08cca6dd384edbbba8ac4e41dfa1a8ba",
+      "size_bytes": 666
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/REPORT_SECURITY_AND_REDACTION.md",
+      "sha256": "08766663958018b04642dcf0899742930875ce8652f0310dc3ddfd85b01c9f1e",
+      "size_bytes": 709
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/07_REPORTING_AND_MEMORY/RESEARCH_MEMORY.md",
+      "sha256": "d53777181a16e78a42ba8c0b7a8649e6b404117c88fda14c1d290b59e334f641",
+      "size_bytes": 541
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/11_IMPLEMENTATION_PROGRAM/ACL_08_REPORTING_AND_EXPERIENCE.md",
+      "sha256": "c6988456078b5e192fde8c3f79132473df7e03d4ac44819ae7338c38de1254e9",
+      "size_bytes": 1486
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/11_IMPLEMENTATION_PROGRAM/ACL_09_MEMORY_AND_ACTIVE_PLANNER.md",
+      "sha256": "90fef987cc2a8c85244a47092cf72581bc0d5b65c0413afe9c59b1924dccdb57",
+      "size_bytes": 1140
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/00_MOC.md",
+      "sha256": "369396a6d732cfb3465a68b2fedb6e670d1f52e20c05a070ac33974d3b9bebb1",
+      "size_bytes": 772
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/01_INTENT_AND_SCOPE.md",
+      "sha256": "973b5a760a92400380ada7ccf21505f6bae612834f2701950cca2105556f11cb",
+      "size_bytes": 806
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/02_UPSTREAM_DOCUMENT_REVIEW.md",
+      "sha256": "11d83e70a5d0b64b9e0f3f4aa308be056a6895ab1be0aed45a9427ec4ab9d786",
+      "size_bytes": 820
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/03_CURRENT_BEHAVIOR.md",
+      "sha256": "af5cdcf7d576e953568ae8150f53f193ab0b39cb1cce7192fa7578b6b25cc277",
+      "size_bytes": 808
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/04_DESIRED_BEHAVIOR.md",
+      "sha256": "ea39e776bb6390aeaaca3925c8f5f1ab52fda54acdb22b910d4f0215ea906649",
+      "size_bytes": 806
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/05_AUTHORITY_BOUNDARY.md",
+      "sha256": "ac2b94615773f8cebdda691b5af3b8df212070613ecb40eb79e68cb22fc63f47",
+      "size_bytes": 807
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/06_INPUT_HANDOFF_CONTRACT.md",
+      "sha256": "c65618ba9c5ba30791a2ca8a8af900ecc4fe0b5d11a0de65d92f12a9675885b5",
+      "size_bytes": 809
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/07_INTEGRITY_GATEWAY.md",
+      "sha256": "bfcd066831ec521c991e69b575b1bb55cdde54cc5e1cef9eb4a770e4a3bdc702",
+      "size_bytes": 812
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/08_REPORT_IDENTITY.md",
+      "sha256": "bb12760866772523ec5f5c50d453feb1a52c64914a3d597b817ce25e87918fde",
+      "size_bytes": 795
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/09_REPORT_POLICY_FREEZE.md",
+      "sha256": "13928152da7d48e0d24e908355b4cabf80628aa5a1e3e31663595c8742b708b0",
+      "size_bytes": 794
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/10_REPORT_BLOCK_REGISTRY.md",
+      "sha256": "35a01dcc9093c0c9af975d92c06932b03886205271b49f10d801668b92ff588d",
+      "size_bytes": 804
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/11_DECISION_PRESERVATION.md",
+      "sha256": "5074671ea8f4820f645bf86f046efeb5047012fe93a97cb6c68622e3de4b0d3c",
+      "size_bytes": 811
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/12_BATCH_REPORT_MODEL.md",
+      "sha256": "e4e662d88ea673c8cea9993deca6b7ff1231baa5592347433d3f0e8eaeef67e1",
+      "size_bytes": 800
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/13_CANDIDATE_REPORT_MODEL.md",
+      "sha256": "cf855cd2407e8fbba131c7aee199534739d5c8036c8e6648319e913322d0c794",
+      "size_bytes": 808
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/14_EXECUTIVE_SUMMARY_MODEL.md",
+      "sha256": "975ed8c362167fb0ca7f8a380935fceaa53162ed916668a5d98153feda01148e",
+      "size_bytes": 810
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/15_AUDIENCE_PROFILES.md",
+      "sha256": "6caeb2af1207955eb68e4bce23711e827e4ede292e267bed937e22cd50406aca",
+      "size_bytes": 808
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/16_REDACTION_ENGINE.md",
+      "sha256": "b94a3c5cf278dbae7448eb17e79d350b9cc3c9011a9976452c6f338f2d34e2a1",
+      "size_bytes": 793
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/17_DIAGNOSTIC_ISOLATION.md",
+      "sha256": "cf1d87cf5c93662d7484c9050733749b93a1e9893a6cdebefa418042a313832e",
+      "size_bytes": 809
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/18_BASELINE_REPORTING.md",
+      "sha256": "a6735d23ae84f4bd65431e9db4db3d19bc7b910de6b2aaa47f303f9477560d4c",
+      "size_bytes": 792
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/19_UNKNOWN_EVIDENCE.md",
+      "sha256": "153e5321e57ffc37c114f8fe325fd320c5383412e06dec730526ee2d4f27c95a",
+      "size_bytes": 794
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/20_NEGATIVE_KNOWLEDGE.md",
+      "sha256": "53c85d1afafa2d78ee8951f11a985553b676a6af0f81320f5700f27c4ccd9d61",
+      "size_bytes": 804
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/21_EXPERIENCE_RECORD.md",
+      "sha256": "1da1c60a24ef8cbbef0fcd39cc7d519546826373b93520e548a4128ff92fb7b2",
+      "size_bytes": 800
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/22_DUPLICATE_FINGERPRINT.md",
+      "sha256": "003f8b6f9c1c7652bb72fe584723163ef3f2a730d8c0fac7fc9601893f909a04",
+      "size_bytes": 815
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/23_BOUNDED_QUESTIONS.md",
+      "sha256": "c7dbc7341fc54d725175760df9d3b02b4341873a3f7b953523c5204638de648c",
+      "size_bytes": 805
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/24_EXPERIENCE_BUNDLE.md",
+      "sha256": "c6569586b2a0f34cfba8fa2e4ce0f6b7f161db8ab6b000855c0a5d98a3e6cea1",
+      "size_bytes": 800
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/25_REPORT_DIFF.md",
+      "sha256": "79bcb59eaaaf0566ecc5c768c79100fb6492239a3f5a4e5077d4847d11203cc9",
+      "size_bytes": 780
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/26_NOVELTY_BOUNDARY.md",
+      "sha256": "ebf9587e614b351f9b8cf7c8866b95e5eec4bec3b7d9013350e8f517792cb5c6",
+      "size_bytes": 795
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/27_OBSIDIAN_PROJECTION.md",
+      "sha256": "7d2bbfa15fe7f58a76e20dbbe20427722294b1c69d831b03819cc23699097c42",
+      "size_bytes": 811
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/28_EVENT_LEDGER.md",
+      "sha256": "eaeff79c38d1e35128173e71e649bb84037a2d9585979ed2686f07f0fbddb419",
+      "size_bytes": 788
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/29_PROVENANCE_GRAPH.md",
+      "sha256": "094dceb43ef1f091a259264e10839537e7b95f087c21885bac3fe29bdf7fb6ae",
+      "size_bytes": 798
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/30_SECURITY_MODEL.md",
+      "sha256": "7d79df019dcd065c0da88abc0e3bd63aca11110864dd5b9f71bf558b9753ecb8",
+      "size_bytes": 793
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/31_ATOMIC_PUBLICATION.md",
+      "sha256": "c5d8035f1b24e73cb41d915bd1469f07a71da4abacffa7343312c2dad3741104",
+      "size_bytes": 800
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/32_OUTPUT_MANIFEST.md",
+      "sha256": "7351892c2e0b8963e9afee21f14b53f60b186c0a3160aa32c9db5f15ce43e893",
+      "size_bytes": 788
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/33_REPORT_RECEIPT.md",
+      "sha256": "f442109b0ced6cb1c46e67a4c50717bb5c733668dc8d7f24ed5be963c86b1045",
+      "size_bytes": 794
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/34_ACL09_HANDOFF.md",
+      "sha256": "433feb0b725037182717ba2058544792ca24aaa6d5257719332addd44cf71eb1",
+      "size_bytes": 788
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/35_SCHEMA_CATALOG.md",
+      "sha256": "81d7bf04e6e2b178cbda2e61878f5375dbc07109ab1d4d74e4201e278decad76",
+      "size_bytes": 788
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/36_POLICY_CATALOG.md",
+      "sha256": "a7d2e6fff9cd637c2d0add9a66f1e14ef45e78386c5f64e96ce4cc02bfa309fe",
+      "size_bytes": 788
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/37_REASON_CODES.md",
+      "sha256": "5e54e7e29bc95f2d4e3a304f3ba961345e59250a540ecdca271e0ea1063abf41",
+      "size_bytes": 789
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/38_MQL5_STATIC_MIRROR.md",
+      "sha256": "930d1dc94ce1114dd015eb06623fcb82dc5e33b737f98acfa47d597c9d0dbb8f",
+      "size_bytes": 800
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/39_UNIT_TEST_MATRIX.md",
+      "sha256": "00d7ea5d5a0c45892d627cc01e1450bfbef5a7052097e771fc8595852a199e04",
+      "size_bytes": 798
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/40_CONTRACT_TEST_MATRIX.md",
+      "sha256": "4d35c54f9598412b7ecc5de067855651f70abe1f20be780a9073f03957694c3b",
+      "size_bytes": 803
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/41_SECURITY_NEGATIVE_TESTS.md",
+      "sha256": "d0435f0f71dc3487c7b660f4472e46ddc4271252eb85449552975a5ac9074a62",
+      "size_bytes": 819
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/42_REGRESSION_PLAN.md",
+      "sha256": "df5e8af3c3570cd1737d4c6555fd7e79e3c66d0aeb6b2c5261c1a7176eb8ec6a",
+      "size_bytes": 785
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/43_GOLDEN_REPLAY.md",
+      "sha256": "04101ced64c952c0b53660f3d90bdb4dbe30cfd2fb1abec2f158bd24c877e362",
+      "size_bytes": 785
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/44_CLEAN_OVERLAY_VALIDATION.md",
+      "sha256": "5ee5d5f60c31fc5ceff193e40b754bc9b3c3cead606f0c2dc5fc8d06b3047127",
+      "size_bytes": 813
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/45_MIGRATION_POLICY.md",
+      "sha256": "f21c35d8ae6538cff7d13cffe7191c5b52c73ef3be3bb4c48f3bc2f2ca90c00c",
+      "size_bytes": 794
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/46_ROLLBACK_PLAN.md",
+      "sha256": "df216efd7bff8cff0290cb1a7357035c1e6715f6953264f37e8d1a9860ab78f4",
+      "size_bytes": 785
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/47_HOSTILE_REVIEW.md",
+      "sha256": "72687f109b77e108ab09b41fb73b35870deda69aa1ed81efdc12a93131aec2b8",
+      "size_bytes": 805
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/48_RESIDUAL_RISK.md",
+      "sha256": "e284549cb390c1e849a7177802458982f5904b1640a147c684d4ac2ff793d0c2",
+      "size_bytes": 786
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/49_DEFINITION_OF_DONE.md",
+      "sha256": "6c2eb1662ab89ef220e79c9f9ce721fc7ad9e1e7e2b685138d8314804dc34b51",
+      "size_bytes": 787
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/50_OPERATIONS_RUNBOOK.md",
+      "sha256": "48f01d031794c7ae6622f12b115db5026e55582067a67e5f0617fdcc7ea46a6e",
+      "size_bytes": 803
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/51_DECISION_LOG.md",
+      "sha256": "5c8e13765e44939ff1095aeb264fb0b944aa2843c82db9c63384eafbaaf6d314",
+      "size_bytes": 790
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/52_FILE_INVENTORY.md",
+      "sha256": "86673ac77b8d4f1d1b38896050f07fcfe1c29edd8bbd6bbf9c6898353090295f",
+      "size_bytes": 774
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/12_PHASE_DELIVERIES/ACL_08/53_FINAL_ACCEPTANCE.md",
+      "sha256": "7764a1526e4c52bafdbfb0350281c285d3e3a1353169b5045db06440ca44bca8",
+      "size_bytes": 790
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/000_MOC.md",
+      "sha256": "e762eae41853548ce5978e780ae9d9560d143900f14d3535f112480e610dd1d8",
+      "size_bytes": 2899
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/001_REPORT_ID.md",
+      "sha256": "eec0e15c2d229b667ddbf3dc36cd2495f14d480031a328fb8c6f0d0c4a913f88",
+      "size_bytes": 602
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/002_REPORT_PACKAGE.md",
+      "sha256": "5ec3861a1c410e4266dd442e67d02b72ed4314c99af44381ce6d108ded816421",
+      "size_bytes": 617
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/003_REPORT_POLICY.md",
+      "sha256": "9e04a97cf1e9ba38da652970bfc8b6177de4cffde87615b71cf028b26057cb4d",
+      "size_bytes": 614
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/004_REPORT_BLOCK.md",
+      "sha256": "07caa5ac10e8fa2cc6a103f9584f6a29e087796a637e8b2375911eed68bf2278",
+      "size_bytes": 611
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/005_BLOCK_REGISTRY.md",
+      "sha256": "01627ab9211bc054ae4537c71ff2eb88fcd805e85024cb407b4c1eaa505e9103",
+      "size_bytes": 617
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/006_BATCH_REPORT.md",
+      "sha256": "7aac1efa03b08d02c77d67e4368173a26e0d51ffa89216deb84855ce88b42dfd",
+      "size_bytes": 611
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/007_CANDIDATE_REPORT.md",
+      "sha256": "00272591318e24107fcee177f78e25eb62a36dfa343627fdc1900f8cce019dc2",
+      "size_bytes": 623
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/008_EXECUTIVE_SUMMARY.md",
+      "sha256": "0acacadac3503263952a26dbab84c3b782eb6d10e4a3df63bd35203fd72b3fa4",
+      "size_bytes": 626
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/009_AUDIENCE_PROFILE.md",
+      "sha256": "19f6bde9f9a003d2f3aecb135cecb9d71492121adeb6556b1487f1c3dc9679b7",
+      "size_bytes": 623
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/010_INTERNAL_RESEARCH_VIEW.md",
+      "sha256": "ff469b005ebafedc42fa365d233dd7244e42c1796df0c5e3b52a9bd4ac67f36e",
+      "size_bytes": 641
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/011_EXECUTIVE_VIEW.md",
+      "sha256": "b27ffce6b6e1d281aa0b8efd0ce1732e1cf17969aea992d1f7d846088b72547c",
+      "size_bytes": 617
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/012_EXTERNAL_RESTRICTED_VIEW.md",
+      "sha256": "f8a878d22690dc60d4fb3f64e13ab1a2ad4324cd497eefb6d6971dfec95d4131",
+      "size_bytes": 647
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/013_ALLOW_LIST_REDACTION.md",
+      "sha256": "41a0d65cba2c4deef592948a1226fee3ebabe9eb6bfe5fc745bb004628de61e2",
+      "size_bytes": 635
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/014_REDACTION_LEAK.md",
+      "sha256": "52c20c4bbd3f763a0efef184fa61264d395c8574bb65aae7233e37778d3d02fc",
+      "size_bytes": 617
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/015_DECISION_PRESERVATION.md",
+      "sha256": "229228a5caf258b5578012c3ed4e633f93b36b04d2c56e323f149d739a275ded",
+      "size_bytes": 638
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/016_DECISION_STATUS.md",
+      "sha256": "2ee754fa57f208c0b400fb7608d2cda2965492854da3fe1271d65d044e8c3f74",
+      "size_bytes": 620
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/017_REASON_CODE.md",
+      "sha256": "cc6de2905bbc531ab0d4123e08f21a4f9e49a214e437663f233d24d027676bfb",
+      "size_bytes": 608
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/018_GATE_VECTOR.md",
+      "sha256": "0a363a004168a196d8d24d033328e35a34f95491c212e6a4031729911601ac6a",
+      "size_bytes": 608
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/019_GATE_STATUS.md",
+      "sha256": "e384600b558de08e1e4d03891afcd93ee9e9e0e16ca3c0b98d91249c83df17c3",
+      "size_bytes": 608
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/020_UNKNOWN_GATE.md",
+      "sha256": "8722db675153b637c757ea1f725b6fa18e5c67b8dc94cdb5ea40ef90738f827b",
+      "size_bytes": 611
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/021_FAILED_GATE.md",
+      "sha256": "bd5d5584e89313ececdfe4a6f35528c1a157cebf69cebfbfc053fcb7a7a93c62",
+      "size_bytes": 608
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/022_PASSED_GATE.md",
+      "sha256": "2159694739ab1f1d497163c88d0c03ea07e8bce1289e8be272dc647da6f56cfa",
+      "size_bytes": 608
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/023_BASELINE_REFERENCE.md",
+      "sha256": "fdefa77bbd78daff6ffcfa60d4a6fecaa3a5b11e564bc4128421e244c4f547df",
+      "size_bytes": 629
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/024_DIAGNOSTIC_EXCLUSION.md",
+      "sha256": "bd23f21c271f9f510881a0abe8baad9f38a882011ae47ca91bbe09d1328797a4",
+      "size_bytes": 635
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/025_REPORTING_ELIGIBLE.md",
+      "sha256": "10731d1229a042fe66bf92248bcb5bd625de6177be407ce8d8d33af9d04310c4",
+      "size_bytes": 629
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/026_NON_PROMOTIONAL.md",
+      "sha256": "0ca97e66e0b2bd545067a57049d3f684194a1889d7008ec17cafe81fa3e1ba98",
+      "size_bytes": 620
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/027_CLAIM_CEILING.md",
+      "sha256": "794667da98ef105b498cfde2084aa645bd9e4f91fe578e3eb1f38166e2628463",
+      "size_bytes": 614
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/028_ALPHA_CLAIM_DENIAL.md",
+      "sha256": "d14d48fca503323829a5d4298222cf852eb9621fe8d50ef3b0e5c78b9e691e50",
+      "size_bytes": 629
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/029_PROMOTION_DENIAL.md",
+      "sha256": "6a38d5cd4e9d32bd4577a8df15708b141adae54486750100955593964e0950c1",
+      "size_bytes": 623
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/030_ORDER_AUTHORITY_DENIAL.md",
+      "sha256": "b974a1d33ebde2457fac8a2a53909271ab2ddc74e8b85879a858a7620616e152",
+      "size_bytes": 641
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/031_CAPITAL_AUTHORITY_DENIAL.md",
+      "sha256": "cb4d480582e6f8d59027bb300ec4076fb4e53d43406e367f4570e576faf7ef35",
+      "size_bytes": 647
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/032_EXPERIENCE_RECORD.md",
+      "sha256": "91dde73568d3b3ffc30774bc28bc0163da7a2f847a3f67cfca1de84252d0add1",
+      "size_bytes": 626
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/033_EXPERIENCE_CLASS.md",
+      "sha256": "50424b1927bc2bef615e2127e46d5a01359d2194eded81ebda643326b2db8efa",
+      "size_bytes": 623
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/034_KNOWLEDGE_POLARITY.md",
+      "sha256": "e917493035083d97da821985120fd1ca5dda3fb7e4dee411df8f0a8eaf12f066",
+      "size_bytes": 629
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/035_INSUFFICIENT_EVIDENCE.md",
+      "sha256": "a423445538599e53001c94535c501a7380639dc3f26e7ff9ab4328a9b79e3538",
+      "size_bytes": 638
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/036_NEGATIVE_VALIDATION.md",
+      "sha256": "4f573005fbdab045c4a9b8f3c27e8212049e149280c22ebb9d110c3ca5fd1422",
+      "size_bytes": 632
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/037_REPORTABLE_EVIDENCE.md",
+      "sha256": "f641e41a032e8d736e3e9aaa2416e38f6525348deaa2ee3df1de4fd608d47da8",
+      "size_bytes": 632
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/038_DUPLICATE_FINGERPRINT.md",
+      "sha256": "e73cb0b1bfc0c751153e7a7499ade214d520321178fcbb24536cd7238b7b02e3",
+      "size_bytes": 638
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/039_BOUNDED_RESEARCH_QUESTION.md",
+      "sha256": "b9db5ceaa7b22e489ac9227fd14081b284c0419200f2cf6ea794b74b0fbc598f",
+      "size_bytes": 650
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/040_MEMORY_NOT_INGESTED.md",
+      "sha256": "ad56c263f3a7c2102155f1266e4e96322c6a967b7031a8dc34385bcd0edc2777",
+      "size_bytes": 632
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/041_ACTIVE_PLANNING_NOT_RUN.md",
+      "sha256": "c08cfb0dd36e9e01d91367be8a285ab837d760573e67a36479523c2400f75d7d",
+      "size_bytes": 644
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/042_NEGATIVE_KNOWLEDGE_BUNDLE.md",
+      "sha256": "40349ae6c8d6ccdd50aa2017ec790fc1fd674b9d65f504aa6b28faad29f9c27d",
+      "size_bytes": 650
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/043_UNKNOWN_EVIDENCE_BUNDLE.md",
+      "sha256": "a35842b762909d3b71500ec442e74a6e857f3833780a5f40a4af09513a6269b4",
+      "size_bytes": 644
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/044_FIRST_REPORT.md",
+      "sha256": "4bee758b341fa41049cfdd249afebf26964ea61bfb26e6fcacef52f100af85e9",
+      "size_bytes": 611
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/045_NO_MATERIAL_CHANGE.md",
+      "sha256": "f69c428e599c9edc6db8632a3e3f8065bf86b69e95af9ba611951908ee5de09b",
+      "size_bytes": 629
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/046_MATERIAL_CHANGE.md",
+      "sha256": "27f3ab4d2cb37a2cd854fcd5d9f5da8e0b086cc15885c942a55c8585a5b376fc",
+      "size_bytes": 620
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/047_MATERIAL_DIMENSION.md",
+      "sha256": "78807231e2cc7da809fe052afef10312a1c4071dfb00b932bd155dede87087c0",
+      "size_bytes": 629
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/048_REPORT_DIFF.md",
+      "sha256": "81a4a69e97b688e1c763c6cf55b6005bdc0c0ba539843dcf23152552cf02cd3a",
+      "size_bytes": 608
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/049_GENERATED_MARKDOWN.md",
+      "sha256": "cba54e054cec438b9fa3423efb69d408c4077ef9e4bc3e0579eb58c5d55ac067",
+      "size_bytes": 629
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/050_OBSIDIAN_PROJECTION.md",
+      "sha256": "45dbb5389719150e5294adb749f06131ff0793b4347f93508a1729e2d7864d71",
+      "size_bytes": 632
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/051_MACHINE_SOURCE_OF_TRUTH.md",
+      "sha256": "69c32ba818ff950babdaaba32a252830bb9ce7569dd06abe57c238b4693a79eb",
+      "size_bytes": 644
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/052_HAND_EDIT_PROHIBITION.md",
+      "sha256": "ef035b785a4d8c62cce2d85a8514ee9c0f85aefe162d43cf45dc4fb6c6fc4f56",
+      "size_bytes": 638
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/053_SOURCE_DECISION_DIGEST.md",
+      "sha256": "1bcefd92a0dcac77456af7e35b036e6469a6ae676f1a31c7dd489f04b34c53a9",
+      "size_bytes": 641
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/054_SOURCE_GATE_DIGEST.md",
+      "sha256": "2baba6c4365d930b47745546a95bed68823dc61b25766e48bd6828f32344e3a9",
+      "size_bytes": 629
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/055_INPUT_BUNDLE_DIGEST.md",
+      "sha256": "c93e4b5d83e1b2f677f026067f4facb2295d24a4fb7e3e064a2c1d508169c3e4",
+      "size_bytes": 632
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/056_REPORT_RUN.md",
+      "sha256": "a85b5bdcc3d114f3cd7f171be83799444a69ac5745a24d074176812020b0ea8e",
+      "size_bytes": 605
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/057_REPORT_RUN_DIGEST.md",
+      "sha256": "58b1e60eaf59048b9d5763e8c5405244314f98b1550ba9759232785cbeafdb34",
+      "size_bytes": 626
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/058_REPORT_RECEIPT.md",
+      "sha256": "95c408e49d87138aae19ccffca0c89b72549b928b35f4ba9a20277d293bce37d",
+      "size_bytes": 617
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/059_OUTPUT_MANIFEST.md",
+      "sha256": "1d0dd196f0d61f30db2ca051446e913a82111e52a779c6a23be2c0c645e74ab5",
+      "size_bytes": 620
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/060_MANIFEST_DIGEST.md",
+      "sha256": "b3ec199679204315eb3c669cced22d86d22df27a6f0e692cb700959b67e39b89",
+      "size_bytes": 620
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/061_EVENT_LEDGER.md",
+      "sha256": "98263d92578e8970a829d87b455035fef7569015eb00edc6b27e70aa70ea86ac",
+      "size_bytes": 611
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/062_EVENT_DIGEST.md",
+      "sha256": "fda617fe7ff99e0732228618700be3c08e862cc513b3cf6bad0fd6d907a8be58",
+      "size_bytes": 611
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/063_GENESIS_EVENT.md",
+      "sha256": "d3eaa53c9a90f81a07a208ef50ce041fa4a770d83c114b2f2a452ceb64cda67a",
+      "size_bytes": 614
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/064_TERMINAL_EVENT_DIGEST.md",
+      "sha256": "73c5130942128b24f1eafca8683be43e035e1aeeab85f1935ccb337332005ccb",
+      "size_bytes": 638
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/065_PROVENANCE_GRAPH.md",
+      "sha256": "61594c58c91d7907838e3a5ab8910a102b4b813778ad55b6c5e737f6bf05c923",
+      "size_bytes": 623
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/066_PROVENANCE_NODE.md",
+      "sha256": "1182118a1a8c8b72e7e4a505c56a96a564cfb12ab14fdae4d9b18a5e9d6a87e2",
+      "size_bytes": 620
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/067_PROVENANCE_EDGE.md",
+      "sha256": "bd335df8b7e3674570b690769bbb1598535f31cf629fbed61d143408c757097a",
+      "size_bytes": 620
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/068_ACL07_BINDING.md",
+      "sha256": "be4b2ffac78603d23f0c76defea5dbef6c88a0f8f65e5f943122441d757a6ba4",
+      "size_bytes": 614
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/069_ACL08_TO_ACL09.md",
+      "sha256": "76cfa7d8646236c0d3eeeb2e0f105304b1753172529d035ffeeaa69f34ada10b",
+      "size_bytes": 617
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/070_MEMORY_ADMISSION.md",
+      "sha256": "33de6b1d53d391e0617ce38ee741fca9261989a0c27c205a8525c5755c4c81eb",
+      "size_bytes": 623
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/071_DUPLICATE_DETECTION.md",
+      "sha256": "26337151db83c56d36d8e9be7531e738fdabef95b29a2ad228067cc515d5fadc",
+      "size_bytes": 632
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/072_PLANNER_PROPOSAL.md",
+      "sha256": "a1a66dc06891f8738a977b3330f5fd8b3ea28cfe9d8c46ac3cd1a839094c4564",
+      "size_bytes": 623
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/073_DOCTRINE_AMENDMENT_DENIAL.md",
+      "sha256": "5a72c52a7d64319ccd4917d0c0cfd397cb44f128ae2e50fa129c887d9acd4c3a",
+      "size_bytes": 650
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/074_NETWORK_DENIAL.md",
+      "sha256": "6088e4ff1dc68c97f023152c9821f47c1979fcea6592bcd79d66cd17f3f6f8f5",
+      "size_bytes": 617
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/075_SECRET_DENIAL.md",
+      "sha256": "c1c7b1553720c14b23961a7d32f011d6629a38f3b49ad42c1951aac6f137c202",
+      "size_bytes": 614
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/076_TEXT_AS_DATA.md",
+      "sha256": "aae5ae3f8f775030a982cec5c09ac1079c6a5de00d4ed818ed9d1ee11c7c097b",
+      "size_bytes": 611
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/077_PROMPT_INJECTION_BOUNDARY.md",
+      "sha256": "5271e2d5a7ebefb89ade675b8f15b1e0a2d3d3ddacf2188e0503745cf8314fa1",
+      "size_bytes": 650
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/078_ATOMIC_PUBLICATION.md",
+      "sha256": "235377f45d1d38fdb820c6069d04be68231860d30265675cd9c2c1071b07f50a",
+      "size_bytes": 629
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/079_PRIVATE_STAGING.md",
+      "sha256": "0ce6b047ef1d39f750706925c35688a1bdf2601c51bcc5ace7e19957e4906d7b",
+      "size_bytes": 620
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/080_NONEMPTY_DESTINATION.md",
+      "sha256": "86f834fc63117d81d902e26922021f7c1af0774a5b76dcc48603f1dd616b8072",
+      "size_bytes": 635
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/081_PARTIAL_OUTPUT_DENIAL.md",
+      "sha256": "b9121b3ff7f2a0f5f4c9aa1e81b2dc680102ae7b955b532848fab95e9da955d0",
+      "size_bytes": 638
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/082_SCHEMA_CLOSED_WORLD.md",
+      "sha256": "851465aac10f6290908f139d0a2b83d0851d6da0796de821f5145adeea8dea27",
+      "size_bytes": 632
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/083_POLICY_CLOSED_WORLD.md",
+      "sha256": "f01a961e71851f024556c694558df14b4a684e02cfd7895bc82915f4573270f6",
+      "size_bytes": 632
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/084_EXTENSION_MANIFEST.md",
+      "sha256": "e3e761216115e89b2cbd3c0c985037c09019945d586fb0cdf99678cae805cd94",
+      "size_bytes": 629
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/085_CONFORMANCE_SUITE.md",
+      "sha256": "46989061568495403991795ca25cc0dd5a33c51b075b71a185d15654c9bb0234",
+      "size_bytes": 626
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/086_SEMANTIC_VERSION.md",
+      "sha256": "79a1f3e39a0dceaa0395134414a58e778a6e8b6a469d3be9418028dd3ac06ed8",
+      "size_bytes": 623
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/087_BREAKING_CHANGE.md",
+      "sha256": "e331e6e3c2eeb9c998666bda23dea8bd259e8ccab19680d6a9ce3b6f04221319",
+      "size_bytes": 620
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/088_IDEMPOTENT_MIGRATION.md",
+      "sha256": "c67409436c116ccca66b241f87e9d1e750a2c1e27a7ea6007b5daae5a820572b",
+      "size_bytes": 635
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/089_ROLLBACK_UNIT.md",
+      "sha256": "66265b49d6c1b0e92dac2078671c8e2266c45db7c75b47c322579ad613063042",
+      "size_bytes": 614
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/090_GOLDEN_REPLAY.md",
+      "sha256": "350d40af2f06b5a1bc3f87db1e749bdd6b6ab952d9d02dcbfb895fbf96fe2ef2",
+      "size_bytes": 614
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/091_CLEAN_OVERLAY.md",
+      "sha256": "226f76d091113bbfd9d80c35b465e0010220ab2cd5187c7f654571bba2a8a0c8",
+      "size_bytes": 614
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/092_STATIC_MQL5_MIRROR.md",
+      "sha256": "25d4e822e55e148c1f5cb65741d5da64a467353c85c2650648cb2429b90c662a",
+      "size_bytes": 629
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/093_METAEDITOR_NOT_CLAIMED.md",
+      "sha256": "6a64d42ad91a70f51e31ccd0573f92294aeb88c9f280b575d377ca8bc706f46c",
+      "size_bytes": 641
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/094_MT5_PARITY_NOT_CLAIMED.md",
+      "sha256": "8c8b0d12732f1202fdea79a8eb91babc1eda86983ba3c6ed8d2211f9a257b7e7",
+      "size_bytes": 641
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/095_SYNTHETIC_REFERENCE.md",
+      "sha256": "cd63de32f5920fc5a363fd19ea64104e0f19062d35590dc735dcb00a592bb928",
+      "size_bytes": 632
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/096_PRODUCTION_NOT_CLAIMED.md",
+      "sha256": "81ba471bf973f244dc2793db19c0a08b451b23a68a504aa815d079d0d583bf2f",
+      "size_bytes": 641
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/097_RESIDUAL_RISK.md",
+      "sha256": "5110198520a39243748b79f060025b0b030fa8dead818340dfcf17299c70cb1d",
+      "size_bytes": 614
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/13_ATOMIC_CONCEPTS/ACL_08/098_HOSTILE_REVIEW.md",
+      "sha256": "c67e39cd85bbaad9ee53fc528cfe5001eef696f0e9e73583999e1d1a9b773000",
+      "size_bytes": 617
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/README.md",
+      "sha256": "bffeca975acbf644dcbc29467470c8666a06d51af09d74884e5d8f1417cba0c1",
+      "size_bytes": 1879
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/README.md",
+      "sha256": "635ed3e2f8b0d8781dc455b87644a05e7421f79506692ccd12f436923d32a1e5",
+      "size_bytes": 291
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/authority_permit.json",
+      "sha256": "de8ad989ad6e0a1af591565a39bf24c3542074261dedec6da7d5f45f6aaa190f",
+      "size_bytes": 643
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/.acl08_generated_root",
+      "sha256": "13e2ebd4e1313d9ffc30c73b7a21e02424efc42e753ee4601e3247601c085769",
+      "size_bytes": 43
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/authority/authority_report.json",
+      "sha256": "b8a8985e2fe645d124bc251a6a7ae35dbedbf26e1697e8861e0b567c21c43a6a",
+      "size_bytes": 415
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/binding/acl07_binding.json",
+      "sha256": "425b259f67b126873782ccad8ae56a57db4ec386808f821f8cebe83fce19c95a",
+      "size_bytes": 821
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/docs/ACL08_REPORTING_SUMMARY.md",
+      "sha256": "16549ff73d6760bff36d530891ea66c95b61ed66c9bd09e1a22aad9dc1ee2635",
+      "size_bytes": 885
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/docs/CANDIDATE_REPORT_INDEX.md",
+      "sha256": "099b3bbbd83c72bfa298ff1f5a317d8f88dbcab019271e9d97b0f91cf3b9878a",
+      "size_bytes": 1631
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/docs/EXECUTIVE_SUMMARY.md",
+      "sha256": "cf05637841a4f09e20b606b542f505e83e7e333e254355a7fd187a3634145980",
+      "size_bytes": 650
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/docs/EXPERIENCE_LEDGER.md",
+      "sha256": "fac4912cb3d752f0de6b386251c71cfd1977cb4704163f4a8a349c9ecf8f7368",
+      "size_bytes": 1511
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/docs/LIMITATIONS_AND_UNKNOWN.md",
+      "sha256": "0b5832b9152446c1e14461812d1ee33f49e501bf70f0965f02082c30679ea7f4",
+      "size_bytes": 837
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/docs/candidates/SETUP_030571B7D3BF97CDE8EF.md",
+      "sha256": "935d007c9443dde17a6267366efbe683f289cdd08960ce2c54ddb9e19926d049",
+      "size_bytes": 885
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/docs/candidates/SETUP_0A56F08F1AC14EFB10F5.md",
+      "sha256": "3676e15ad88e1f8347bcd5f0c19bb68c35c5335a447b495f1bfa031e7131ca5d",
+      "size_bytes": 887
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/docs/candidates/SETUP_0CBC9D269F0833852BAE.md",
+      "sha256": "fdcda2ea6730e74e5efbbc39a07e2c04abf1c166337c42db8bb065319588874f",
+      "size_bytes": 900
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/docs/candidates/SETUP_0FA71C242B64C3FB7F83.md",
+      "sha256": "ca6309733439cc736531d72a444423800d555d3e41b2be575901918ec870677a",
+      "size_bytes": 885
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/docs/candidates/SETUP_5013929BAE3E6FDFEFC8.md",
+      "sha256": "208718c66e9fe32991e5a6c1cf6c850fe6e26bf4ab4db854a9b81189c959afdd",
+      "size_bytes": 893
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/docs/candidates/SETUP_5F6EC931E571A2575FD9.md",
+      "sha256": "9eeef1592fa58da3370af697496794ccbaee8f17f8a44f90a9da3247642c6c11",
+      "size_bytes": 887
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/docs/candidates/SETUP_978582F1C2791E47056F.md",
+      "sha256": "e9a9405b5197e750d765b60151042ec591eacdf32dfae9bea962cdada81214a4",
+      "size_bytes": 887
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/docs/candidates/SETUP_A553D83C10BF06E79C12.md",
+      "sha256": "55df45688cd8b1d5ee513d29370c84ea5d60d1fa8b576f5ddcba941fae781913",
+      "size_bytes": 893
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/docs/candidates/SETUP_A9F7B7384FDE580E5660.md",
+      "sha256": "eb5bcdd6cc8426bbe0ce2b793c5e29cdf5512c0beee511880295f497d4c7e0b2",
+      "size_bytes": 887
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/docs/candidates/SETUP_B2465EF6482D65D3F6D5.md",
+      "sha256": "0b1dabc23f31ace2ed7b05d0a54bac1a7c4724ba28705972887a3b3bdd1349f3",
+      "size_bytes": 894
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/docs/candidates/SETUP_CE82D176E29FCA349EE1.md",
+      "sha256": "910aa11183871cd0aa7179d2fb7986aca98b81511996a9e7be7e3d49dfbf5473",
+      "size_bytes": 894
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/docs/candidates/SETUP_EE3007877556A11CDA6F.md",
+      "sha256": "48e627bc39b7dba950a2444a4c8d6c75e76af3e61f9c7eb56a2a59136f5f57fe",
+      "size_bytes": 890
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/events/report_event_ledger.json",
+      "sha256": "c6511de51868be2645519627b1e97812ea18b129142cdf5aa5e0bd8271e83944",
+      "size_bytes": 5065
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/experience/experience_bundle.json",
+      "sha256": "7da7310b2b884b2a88167ed4d44dc9b8911a5d97af244897c8bc2c51f134efe3",
+      "size_bytes": 3896
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/experience/negative_knowledge.json",
+      "sha256": "53aa8b37bdc49d69a3bd6c6e493a17fe75483963e37e3e729321573ac1281537",
+      "size_bytes": 294
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/experience/records/EXP08_2F7BB840B72D496EE7523A18.json",
+      "sha256": "44cdd0c363b3c45696dd4ab711b1adf042573bb1e2296f6eb0bd9b22ce23c123",
+      "size_bytes": 1835
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/experience/records/EXP08_36398305C6598A04173C8513.json",
+      "sha256": "3bdf5c187ed447252f9b9d399d31e734c671c5b607c6bbce48e47f03e456dc17",
+      "size_bytes": 1835
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/experience/records/EXP08_3FDDD5021A95C10885C43598.json",
+      "sha256": "df4c89087c244a79f7ec0be481a425b23c51369fea8283ec3296fc35896c89f1",
+      "size_bytes": 1888
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/experience/records/EXP08_42E896C9F4F7E2645FBF33F7.json",
+      "sha256": "b79e9f04f9ca4acd73136fde9b69f2047734eb2242dcbdfb51202df8b3361660",
+      "size_bytes": 1913
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/experience/records/EXP08_65B8EAAAB2ECDCB58439B46A.json",
+      "sha256": "ba8266a7471c0d2f50beab412515259209a33ea8d27140e8aa582800e45a7d57",
+      "size_bytes": 1773
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/experience/records/EXP08_75860C4E28F543BA654EB266.json",
+      "sha256": "a2e4a71e90baff7de1bdb3823bfff4496d02b2c30d4459af90427ef4aa57f2b3",
+      "size_bytes": 1888
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/experience/records/EXP08_793E3B34EA7EFD89165A1434.json",
+      "sha256": "3c42e49cbe7bee8e3cd6bcbc99f0669ba21b6241b05326cce73bea90120eb2ae",
+      "size_bytes": 1913
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/experience/records/EXP08_79B236E2BCE57BC695056A63.json",
+      "sha256": "fb3c5bccba0bee10b85053dc9a01e78bb6010f2b63f155aa8fe0a3295a1235a1",
+      "size_bytes": 1838
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/experience/records/EXP08_854B67FAA886FE9757CB123D.json",
+      "sha256": "a662addfb3d60c30e5bc86ce44eb667782f2c5a14df9ea7da2ca7747b40260f2",
+      "size_bytes": 1835
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/experience/records/EXP08_A08D11F3D16ABC113808722A.json",
+      "sha256": "a5a01a418c179abc5c9d1d6e65928366e9855e4ea85d9f4ff05f71217b610090",
+      "size_bytes": 1773
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/experience/records/EXP08_B5D0EB7C5BB7B4CC90B233B2.json",
+      "sha256": "d253d04e857e8739d0578f9fbde22271673d6272013861459a4a78f34ae58d61",
+      "size_bytes": 1835
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/experience/records/EXP08_D3BA349B7DFAFABCBC68733F.json",
+      "sha256": "099da2796525880b613d66aea0a600e4d1b396650304a14ab6d3c2d393463696",
+      "size_bytes": 1764
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/experience/unknown_evidence.json",
+      "sha256": "e7c2767a9a2a2bb8b82ff430056fc787d331e6166874bc52a5e8d23c4963d28e",
+      "size_bytes": 8708
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/handoff/acl09_handoff.json",
+      "sha256": "92b01e83b7d47731f41d749450f510ac14647763db4ecc7e7069757c8a59244d",
+      "size_bytes": 1502
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/lineage/report_provenance_graph.json",
+      "sha256": "0471a8edbcd4059bc3c48ad8419bcee772dbfb43eccd7b8a9f75e8643a792e0c",
+      "size_bytes": 2468
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/output_manifest.json",
+      "sha256": "ec7000f175a845717338fcfe574b54e18fd92935d11eb4cd42d2b488260e0a39",
+      "size_bytes": 11945
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/policy/report_block_registry_snapshot.json",
+      "sha256": "a2b734ce70f2cbf63e8c9a431630b8562e74d4a43ecd8bd42a693b07a753f960",
+      "size_bytes": 1796
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/policy/report_policy_snapshot.json",
+      "sha256": "1e52f70d6ca45074d41f2e927b40c45021b27565acc3af66bc7b82c1ec95cc86",
+      "size_bytes": 911
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/report_receipt.json",
+      "sha256": "eaf287b29a62b43d276a8fc27b8d03dbf943dafa6db31f663b05877efbb621bd",
+      "size_bytes": 1140
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/reports/batch_report.json",
+      "sha256": "5309b5db0f3aa45589df2ef9ddca76e92ab1aff430ace43c9fe7fc1077340159",
+      "size_bytes": 3501
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/reports/candidates/SETUP_030571B7D3BF97CDE8EF.json",
+      "sha256": "67556ed26100501ba17699e3b00cc6721cb35b224bc126b9c60b3a4cf5a60750",
+      "size_bytes": 6809
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/reports/candidates/SETUP_0A56F08F1AC14EFB10F5.json",
+      "sha256": "424acdab9284d657e20795afc862567120549843553cfa72bdf4a0e01310ba5a",
+      "size_bytes": 6841
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/reports/candidates/SETUP_0CBC9D269F0833852BAE.json",
+      "sha256": "a7f8bfa904f6419f25ebe8f090890d095be0d5046712a8ae124d85998f2215e0",
+      "size_bytes": 6604
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/reports/candidates/SETUP_0FA71C242B64C3FB7F83.json",
+      "sha256": "cb22eab6b0acff0cc7a0b59843e47887299d28e19249e081d654a6feef5bcc58",
+      "size_bytes": 6764
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/reports/candidates/SETUP_5013929BAE3E6FDFEFC8.json",
+      "sha256": "5babd29722d41f9d24c502c9a99f43e1fa69311f17ef73ef1f89d01b6bcb66cd",
+      "size_bytes": 6861
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/reports/candidates/SETUP_5F6EC931E571A2575FD9.json",
+      "sha256": "922739688cd6cf613ee97ea224ffbe02e07055cee36c980ed4d8302d88c12389",
+      "size_bytes": 6838
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/reports/candidates/SETUP_978582F1C2791E47056F.json",
+      "sha256": "e76717ee71ca55274983d5fe0de96fcac4232164a504e91f1e94a527dd6e3776",
+      "size_bytes": 6838
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/reports/candidates/SETUP_A553D83C10BF06E79C12.json",
+      "sha256": "ec7e5f58bfd5e7937d2430fe1fca4f0a1b015e54325c0fcd53c4617b34764827",
+      "size_bytes": 6861
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/reports/candidates/SETUP_A9F7B7384FDE580E5660.json",
+      "sha256": "1cab87b09fe97435b112873b22566c51b6597b4da83501ac35ee5cf98077016c",
+      "size_bytes": 6841
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/reports/candidates/SETUP_B2465EF6482D65D3F6D5.json",
+      "sha256": "55cc55708e1e8d9b4b84f5f5b09ef73aaa5edd77ca316d0fecce697546b928c4",
+      "size_bytes": 6782
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/reports/candidates/SETUP_CE82D176E29FCA349EE1.json",
+      "sha256": "1aa9d0079d79c84ae4398fd035a4262a60d75ef31240aad3518c04bb983ee5b6",
+      "size_bytes": 6782
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/reports/candidates/SETUP_EE3007877556A11CDA6F.json",
+      "sha256": "c1a752ffb7d566f72e05cc3f29e5907df5ad613fb387589663fcd488610b1141",
+      "size_bytes": 6844
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/reports/executive_summary.json",
+      "sha256": "57e077914a011201bb9c0b3e8f6772ac97a78e7955ae5ea50a165f570ce57e41",
+      "size_bytes": 1521
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/reports/integrity_report.json",
+      "sha256": "8d9832ee188fbeef68bf3062920510398764195340b04958ec15e3795836fdd8",
+      "size_bytes": 355
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/reports/report_diff.json",
+      "sha256": "8b309647735cfad93020c545562af87eb4bb82ace3589494ce4891e1bc49b604",
+      "size_bytes": 357
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/run/report_run.json",
+      "sha256": "799b9aa70ca4dd53f44a24708694a307af4a72fd8053438b7d80b044133996c3",
+      "size_bytes": 1427
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/security/redaction_report.json",
+      "sha256": "2084c778afd0030eaf70566dd14a85831f627f122b2d140cb0fa5e6c31785256",
+      "size_bytes": 567
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/security/security_boundary_report.json",
+      "sha256": "d207be557801da59a5ed46d49c931f94fe659841e416acbc4289aac6b281c8b6",
+      "size_bytes": 437
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/views/executive.json",
+      "sha256": "9417e6533436f736a8cb2ac8d98406fa4d5057c1b63673170be84b4ef1d72ca1",
+      "size_bytes": 1523
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/views/external_restricted.json",
+      "sha256": "c7933fc3944118b73fef39b57c59ed9570ce380ece51f2d3de8ffaacc1f474d4",
+      "size_bytes": 1075
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/reference_report/views/internal_research.json",
+      "sha256": "3a3b54aafa4c6518c7b88c28d6fb5e29aa025137a2020d2f89db1d2e7564e021",
+      "size_bytes": 93755
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/fixtures/acl_08/report_policy.json",
+      "sha256": "1e52f70d6ca45074d41f2e927b40c45021b27565acc3af66bc7b82c1ec95cc86",
+      "size_bytes": 911
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/tests_acl_08/conftest.py",
+      "sha256": "04f6985b59381f30010f0e862e4f6de823fe34442e68aa2e0abcc56d3e0d28ef",
+      "size_bytes": 701
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/tests_acl_08/test_diff_and_policy.py",
+      "sha256": "bad6c64ccaa3c5833ecf7bd9a2518debeb23fc7c31af442949d033fdc7f8df4c",
+      "size_bytes": 1320
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/tests_acl_08/test_experience.py",
+      "sha256": "0325b48b29db70a2e500cac8c408818cb78146c24bdc5287e6c215b55b7f0c81",
+      "size_bytes": 2219
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/tests_acl_08/test_input_and_authority.py",
+      "sha256": "93104633e2ab2bbd2a1828759c3bd1034bf908bcbeffef1b918e645ddf7e9765",
+      "size_bytes": 1565
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/tests_acl_08/test_registry_delivery_mql.py",
+      "sha256": "0b900aadaef46acae0d1727278cefc8f68b2af18048b662655c14baee37c8887",
+      "size_bytes": 1067
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/tests_acl_08/test_reporting.py",
+      "sha256": "7ef161c9931407b75714395941b80bb18442fdfe387ec44c9c982ba012d62f16",
+      "size_bytes": 2211
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/tests_acl_08/test_security_negative.py",
+      "sha256": "b0a4829c8176000e33063fbb1b8f8f962f1ecbc94a4385336eb0e4c73178e3cb",
+      "size_bytes": 1368
+    },
+    {
+      "path": "lab/11_strategy_factory/acl_os/tests_acl_08/test_service_and_replay.py",
+      "sha256": "c537dd737fc18aa2017957d4dd1c2a2d31d7d521ded24109e11f63c725c85913",
+      "size_bytes": 1982
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/Include/AlphaLab/ACL_OS/ACL08/ACL08.mqh",
+      "sha256": "c3a0688b19baf830edbe5087d1250e4e40b9ab90f29e4c5f92424cc6544f44c2",
+      "size_bytes": 502
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/Include/AlphaLab/ACL_OS/ACL08/ACL08AuthorityContract.mqh",
+      "sha256": "1cd416bad374d06986a9a524ec601a4cbdea40ab5e2f9db0089e5054352acb62",
+      "size_bytes": 219
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/Include/AlphaLab/ACL_OS/ACL08/ACL08CandidateReportContract.mqh",
+      "sha256": "d62cd5b7f1c41c17812e2c1205fb51df3f08497683322774e097de3b16052b20",
+      "size_bytes": 257
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/Include/AlphaLab/ACL_OS/ACL08/ACL08CapitalGuard.mqh",
+      "sha256": "74dfd260e408e4e7f9d2bf0dd262a779330e0fbe8c85355a7e6ef7397b7da5c6",
+      "size_bytes": 138
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/Include/AlphaLab/ACL_OS/ACL08/ACL08ClaimGuard.mqh",
+      "sha256": "e4cc1c32daead2415196ebbafbde1278006b5761a80cd45bed608469ec140e0b",
+      "size_bytes": 153
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/Include/AlphaLab/ACL_OS/ACL08/ACL08Constants.mqh",
+      "sha256": "08582860445b4531f08ed3d60ce3640eed3efe9df12142955b7e6fa09388a9bb",
+      "size_bytes": 323
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/Include/AlphaLab/ACL_OS/ACL08/ACL08DiagnosticGuard.mqh",
+      "sha256": "a42d289e8f5d5c51407d0686641136a71929779af087a871a8cf0d3eb39b8495",
+      "size_bytes": 146
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/Include/AlphaLab/ACL_OS/ACL08/ACL08ExecutionGuard.mqh",
+      "sha256": "f9b88cdd091ca395386b6da6c935a66e9a42ca87a2bfb0637ca9f137a350948e",
+      "size_bytes": 138
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/Include/AlphaLab/ACL_OS/ACL08/ACL08ExperienceContract.mqh",
+      "sha256": "7977b033f75a9deb3078b36655a59a8a10b7b63f47000acd0e13e49b20bbf549",
+      "size_bytes": 243
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/Include/AlphaLab/ACL_OS/ACL08/ACL08HandoffContract.mqh",
+      "sha256": "3442d1b260d35fb466c80f3bb3774f616ae5fdc20bd53b46370a754ffe645d0d",
+      "size_bytes": 263
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/Include/AlphaLab/ACL_OS/ACL08/ACL08RedactionContract.mqh",
+      "sha256": "84064e6a30d8b7cdbae01d45019f5e5241bc644cfa248e601ddfb7cf21160de7",
+      "size_bytes": 198
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/Include/AlphaLab/ACL_OS/ACL08/ACL08ReportBlockIds.mqh",
+      "sha256": "bc2c1505045637540f060a508d5313d1a95adcc7b06b1b461c38586aa276a5c0",
+      "size_bytes": 416
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/Include/AlphaLab/ACL_OS/ACL08/ACL08ReportRunContract.mqh",
+      "sha256": "2cb3a242eea719ae191817139aab67d28215cb29bc4238c94aeafdd970dbe361",
+      "size_bytes": 215
+    },
+    {
+      "path": "lab/11_strategy_factory/mql5/Include/AlphaLab/ACL_OS/ACL08/README.md",
+      "sha256": "b136ff6c6d7dd26444b50a4d697e42ff1d7f464fb77cc344d2364ee56cb79aac",
+      "size_bytes": 321
+    },
+    {
+      "path": "registry/acl_os/acl_08/policies/v1/audience_views.policy.json",
+      "sha256": "afd96e83c9abea9d7836b7541c29f34e8f4a0d00aba89b08f590aa6d582bc678",
+      "size_bytes": 203
+    },
+    {
+      "path": "registry/acl_os/acl_08/policies/v1/authority_boundary.policy.json",
+      "sha256": "2e6b969d22ab3236ece52edf0c57ac2db0efe396c9dbab1df20698575f22d30f",
+      "size_bytes": 250
+    },
+    {
+      "path": "registry/acl_os/acl_08/policies/v1/candidate_reporting.policy.json",
+      "sha256": "7b4ef7c3125322ae6f6b6722be2ead22d9aef7d181f9b8cfd869bc3af00a6f68",
+      "size_bytes": 194
+    },
+    {
+      "path": "registry/acl_os/acl_08/policies/v1/claim_ceiling.policy.json",
+      "sha256": "c1c4fd65236a1929925e58801721f75843acc563b2a416d4d66be1f440b48eed",
+      "size_bytes": 204
+    },
+    {
+      "path": "registry/acl_os/acl_08/policies/v1/decision_preservation.policy.json",
+      "sha256": "b24d1603429f302781fb564f27468c85778cd18374537ff895ede7b28c8b2d53",
+      "size_bytes": 208
+    },
+    {
+      "path": "registry/acl_os/acl_08/policies/v1/diagnostic_isolation.policy.json",
+      "sha256": "fe6d84c29513efb5ecedcbc2c32e68f26666d43b8f2468b7742bfb50b48336b5",
+      "size_bytes": 180
+    },
+    {
+      "path": "registry/acl_os/acl_08/policies/v1/diff.policy.json",
+      "sha256": "e99cfcf0a6cf377a904ac1fc2a19a5331f2514cb2f1825ea5a3f53dcd209e852",
+      "size_bytes": 181
+    },
+    {
+      "path": "registry/acl_os/acl_08/policies/v1/event_ledger.policy.json",
+      "sha256": "437a52f8d853ca450007e5d78e74f9f1a69b06a190768ef10f8f3aead9b9a544",
+      "size_bytes": 163
+    },
+    {
+      "path": "registry/acl_os/acl_08/policies/v1/executive_summary.policy.json",
+      "sha256": "8772aa04f25fe4e5cf7c6836ed1a2298d8d8960a6d792a16c941b361a41ae8e1",
+      "size_bytes": 169
+    },
+    {
+      "path": "registry/acl_os/acl_08/policies/v1/experience.policy.json",
+      "sha256": "1f1678fdd34c58c11e6fcee5501e13368fdd8340446528daa3a253713fd6f48d",
+      "size_bytes": 180
+    },
+    {
+      "path": "registry/acl_os/acl_08/policies/v1/extension.policy.json",
+      "sha256": "747394687f03e01d7e78b851c648e5bca52b2941c886f87f00984d35c22375d4",
+      "size_bytes": 178
+    },
+    {
+      "path": "registry/acl_os/acl_08/policies/v1/handoff.policy.json",
+      "sha256": "e2106a4721333be6f8d8c2aada17154c34f0d7a32b47b276dd08df4545c4a930",
+      "size_bytes": 285
+    },
+    {
+      "path": "registry/acl_os/acl_08/policies/v1/input_integrity.policy.json",
+      "sha256": "da5040e4ab03f73b93c25a09feecf8133fba0e36a946b1862968997177c29c8e",
+      "size_bytes": 239
+    },
+    {
+      "path": "registry/acl_os/acl_08/policies/v1/migration.policy.json",
+      "sha256": "2f77274f68788e56ab91692d01f1f708dce374bf682a73d74f9a5f46564b78eb",
+      "size_bytes": 154
+    },
+    {
+      "path": "registry/acl_os/acl_08/policies/v1/negative_knowledge.policy.json",
+      "sha256": "323558abbf844a1064fe59d9464126ff02c09afaab0355e65b26b6208dbd2fdf",
+      "size_bytes": 205
+    },
+    {
+      "path": "registry/acl_os/acl_08/policies/v1/novelty.policy.json",
+      "sha256": "3d34661ae3e2e1036ab5c28abdf77efdf060aac9a5bd0832cd65e00bbd2f4a8f",
+      "size_bytes": 271
+    },
+    {
+      "path": "registry/acl_os/acl_08/policies/v1/obsidian_projection.policy.json",
+      "sha256": "b2119e71b2c1c840c82f2472baf67ebbc4684af22a6724bde965a370a9eb1c03",
+      "size_bytes": 194
+    },
+    {
+      "path": "registry/acl_os/acl_08/policies/v1/provenance.policy.json",
+      "sha256": "86d00a1bc8133a5b0614fe12d550008223463a38642c909449c0938be5c614b3",
+      "size_bytes": 147
+    },
+    {
+      "path": "registry/acl_os/acl_08/policies/v1/publication.policy.json",
+      "sha256": "97e4ad493bbd4de49e347029cbfef93754ba670883b1de4f3296737bd76b22bd",
+      "size_bytes": 170
+    },
+    {
+      "path": "registry/acl_os/acl_08/policies/v1/redaction.policy.json",
+      "sha256": "713277af00e01c499a245498b1e84d737c1c279b5649ee09f9d3c702bd0171b9",
+      "size_bytes": 176
+    },
+    {
+      "path": "registry/acl_os/acl_08/policies/v1/report_blocks.policy.json",
+      "sha256": "19460a773a7ae75df2804fb1819b8d5d0f80ffe2e1a61dd7c2fcf22788017bcb",
+      "size_bytes": 163
+    },
+    {
+      "path": "registry/acl_os/acl_08/policies/v1/rollback.policy.json",
+      "sha256": "1a0ef21b212537256cc476c7b691f9627ed45be9f2814d2c4246da4b074b7124",
+      "size_bytes": 148
+    },
+    {
+      "path": "registry/acl_os/acl_08/policies/v1/security.policy.json",
+      "sha256": "7f4bb472fd6b91381359bb3c5c80a9aa73664ed638e679dc076a58237a4c3ad1",
+      "size_bytes": 195
+    },
+    {
+      "path": "registry/acl_os/acl_08/policies/v1/storage_retention.policy.json",
+      "sha256": "5166068707c04f07fd15e356afdc3cb4408d4091b646e3b6a0ccc561557bf07c",
+      "size_bytes": 211
+    },
+    {
+      "path": "registry/acl_os/acl_08/policies/v1/uncertainty.policy.json",
+      "sha256": "51f35beb25a6a5624490a6e0f853d9d8f7938f8c2960b412554962bf36a15851",
+      "size_bytes": 185
+    },
+    {
+      "path": "registry/acl_os/acl_08/reason_code_registry.json",
+      "sha256": "cc7cb1a67a48a64532ad22e43ec74cb7fc84d04713f3ef24356e00df92be744b",
+      "size_bytes": 1905
+    },
+    {
+      "path": "registry/acl_os/acl_08/registry_manifest.json",
+      "sha256": "fdc5ba1e213f6fa98cfee173962a0ef0f70837fac5d0706a4ef25b290e3750b3",
+      "size_bytes": 234
+    },
+    {
+      "path": "registry/acl_os/acl_08/report_block_registry.json",
+      "sha256": "a2b734ce70f2cbf63e8c9a431630b8562e74d4a43ecd8bd42a693b07a753f960",
+      "size_bytes": 1796
+    },
+    {
+      "path": "registry/acl_os/acl_08/schemas/v1/acl07_handoff_input.schema.json",
+      "sha256": "6c7d60edde36bf8f20a1de0dace3912ffc155d8993333fbd733aa31620ca2500",
+      "size_bytes": 2072
+    },
+    {
+      "path": "registry/acl_os/acl_08/schemas/v1/acl09_handoff.schema.json",
+      "sha256": "903ea750e8c7d96720342ead68489b74b9feea19fd3d2a4e042a749311189c50",
+      "size_bytes": 8397
+    },
+    {
+      "path": "registry/acl_os/acl_08/schemas/v1/audience_view.schema.json",
+      "sha256": "522a2cec40255bd9e1cf94463c4663de432a2c66bd970b69f29e21575c13dc79",
+      "size_bytes": 7144
+    },
+    {
+      "path": "registry/acl_os/acl_08/schemas/v1/authority_permit.schema.json",
+      "sha256": "eb272b58e965976c6cac58230e89622c7c7f029e883b24051b33faabeafab8c8",
+      "size_bytes": 1527
+    },
+    {
+      "path": "registry/acl_os/acl_08/schemas/v1/batch_report.schema.json",
+      "sha256": "53ecbd7d812fb403d0bf993dfce692bc09e16c19d246110fb25d9b8d27417c3f",
+      "size_bytes": 7240
+    },
+    {
+      "path": "registry/acl_os/acl_08/schemas/v1/candidate_report.schema.json",
+      "sha256": "fb0643de879eaaf32484ae394a577377497b49bdb9d4d3ca58b61f62e41e1eaa",
+      "size_bytes": 7362
+    },
+    {
+      "path": "registry/acl_os/acl_08/schemas/v1/executive_summary.schema.json",
+      "sha256": "71dc99498daf3ff5b0c6df29f51936da008c2464181e859952a89fb5f5e5b035",
+      "size_bytes": 7235
+    },
+    {
+      "path": "registry/acl_os/acl_08/schemas/v1/experience_bundle.schema.json",
+      "sha256": "1652af2d652207e6ec6c91ab521b08c0961ddbe59d26a7aa16b3d1723458c165",
+      "size_bytes": 7298
+    },
+    {
+      "path": "registry/acl_os/acl_08/schemas/v1/experience_record.schema.json",
+      "sha256": "7298fc376753d80bf2721477acbd7e30bfefa18cd680f956f386f25018703971",
+      "size_bytes": 7182
+    },
+    {
+      "path": "registry/acl_os/acl_08/schemas/v1/integrity_report.schema.json",
+      "sha256": "b2bdb7c8f559cc4bff846e8f2e1d2dd12da6efc1eb77abf8378256fd174f6890",
+      "size_bytes": 7192
+    },
+    {
+      "path": "registry/acl_os/acl_08/schemas/v1/negative_knowledge.schema.json",
+      "sha256": "b47639d2640031192ba9b78509a3c74851cc694343ff68423af922368fe1899f",
+      "size_bytes": 7408
+    },
+    {
+      "path": "registry/acl_os/acl_08/schemas/v1/output_manifest.schema.json",
+      "sha256": "b101032e566db738212a9af419cbae3be6d90a14776c7b36f250545ed777ab5b",
+      "size_bytes": 7382
+    },
+    {
+      "path": "registry/acl_os/acl_08/schemas/v1/reason_code_registry.schema.json",
+      "sha256": "53b1af28d26d7da2baf543908796aec92cdf3bfcf966b7d69fb2927160bbfe4f",
+      "size_bytes": 7303
+    },
+    {
+      "path": "registry/acl_os/acl_08/schemas/v1/redaction_report.schema.json",
+      "sha256": "7c37ef7e39e9b2004b973e037edcb7fd0c7250de1803b6302428c97e1c073a6c",
+      "size_bytes": 7216
+    },
+    {
+      "path": "registry/acl_os/acl_08/schemas/v1/report_block_registry.schema.json",
+      "sha256": "f39da57266de4ea2e96e74a306372c6d91a1291005f0de4ae4943b657eef69d9",
+      "size_bytes": 7378
+    },
+    {
+      "path": "registry/acl_os/acl_08/schemas/v1/report_diff.schema.json",
+      "sha256": "5c8058ca3a6a8bdae347fcc0e971621a1e091e873a406136b41d75e878030d2c",
+      "size_bytes": 7239
+    },
+    {
+      "path": "registry/acl_os/acl_08/schemas/v1/report_event_ledger.schema.json",
+      "sha256": "4af6b4805637a1d0564ce6da158c2360fcb8f200ec01a4dda695f37a1492b71b",
+      "size_bytes": 7382
+    },
+    {
+      "path": "registry/acl_os/acl_08/schemas/v1/report_policy.schema.json",
+      "sha256": "3859752e5d2b9b7278b8254f05dabf532ac0b25c07ab5f410112ce2a79c9187f",
+      "size_bytes": 1437
+    },
+    {
+      "path": "registry/acl_os/acl_08/schemas/v1/report_provenance.schema.json",
+      "sha256": "9cb58426fb4e0530053bc1b438b1ecfed08f14af21ff94e2355446f38de5f90a",
+      "size_bytes": 7426
+    },
+    {
+      "path": "registry/acl_os/acl_08/schemas/v1/report_receipt.schema.json",
+      "sha256": "c8f2026901ead1bab5b7961c7a677e9f3fe274a2663e3103d249c5fdadd17a1e",
+      "size_bytes": 7548
+    },
+    {
+      "path": "registry/acl_os/acl_08/schemas/v1/report_run.schema.json",
+      "sha256": "b302df7c886c874551f3066647b7ba008bce453ca25da0650ac5ab2a572e604f",
+      "size_bytes": 7323
+    },
+    {
+      "path": "registry/acl_os/acl_08/schemas/v1/security_boundary_report.schema.json",
+      "sha256": "b3d71dad25a26bb946cfac7797e42cd286b8328c7573684fbba0202fe060ca82",
+      "size_bytes": 7208
+    },
+    {
+      "path": "registry/acl_os/acl_08/schemas/v1/unknown_evidence.schema.json",
+      "sha256": "e3b97825d332b9adf49bc10d097b408979fc5d199cb590fa198fa0a7606259d6",
+      "size_bytes": 7400
+    },
+    {
+      "path": "tools/strategy_factory/acl_os/acl_08/__init__.py",
+      "sha256": "c2f81c57d823be383c6b74dbcaa79163eafca3b1b399900bf58522f046e71a93",
+      "size_bytes": 163
+    },
+    {
+      "path": "tools/strategy_factory/acl_os/acl_08/artifact_manifest.py",
+      "sha256": "7a8232a96273822f1ff72668e596ab0dfaec0a72b5fdcfa7682c5abef447fde8",
+      "size_bytes": 1250
+    },
+    {
+      "path": "tools/strategy_factory/acl_os/acl_08/authority.py",
+      "sha256": "3f3bfd8bc66976ac8f38ff86847eee0dc9b5ea4ded2c921281c44294445f16b7",
+      "size_bytes": 1244
+    },
+    {
+      "path": "tools/strategy_factory/acl_os/acl_08/canonical.py",
+      "sha256": "9c20f2e345679fb49191bc6f2de6c90ce8a14cab3fd29ec8507876497aa16799",
+      "size_bytes": 1502
+    },
+    {
+      "path": "tools/strategy_factory/acl_os/acl_08/cli.py",
+      "sha256": "fcc76ede04a5f35003012e2aa865223a99b24be41eeabddc89a7ddc24c689058",
+      "size_bytes": 1284
+    },
+    {
+      "path": "tools/strategy_factory/acl_os/acl_08/delivery_validator.py",
+      "sha256": "71466e0c92dd8294ef944ad8c7140a18c6d38f41761e8c9c31e9435747e7f368",
+      "size_bytes": 885
+    },
+    {
+      "path": "tools/strategy_factory/acl_os/acl_08/diff_engine.py",
+      "sha256": "97b99f78121cde26718548f528355c9e7b4944ffcc2f2b848703983d0eeb3044",
+      "size_bytes": 1165
+    },
+    {
+      "path": "tools/strategy_factory/acl_os/acl_08/errors.py",
+      "sha256": "c403e909fe03e0ff6ee2bd4a5695637443eb3f7865375877ff11f136c9cd76be",
+      "size_bytes": 266
+    },
+    {
+      "path": "tools/strategy_factory/acl_os/acl_08/event_ledger.py",
+      "sha256": "fcbfd2789ebdf12ed9f3cd3cd83d8c92473ffe367b5abbb90a497753b7ca697a",
+      "size_bytes": 1523
+    },
+    {
+      "path": "tools/strategy_factory/acl_os/acl_08/experience_extractor.py",
+      "sha256": "171c796583b09438ec2ee6a4e42dd4d4386170b9638492763886e2a634975e9d",
+      "size_bytes": 3670
+    },
+    {
+      "path": "tools/strategy_factory/acl_os/acl_08/handoff_input.py",
+      "sha256": "e5cbfa9215e28a61dcdb84bcc7a868d647ca989823bec960c2d58951a83d0159",
+      "size_bytes": 6341
+    },
+    {
+      "path": "tools/strategy_factory/acl_os/acl_08/io.py",
+      "sha256": "71adf8eae1636ce1efb9f255e5b0fac74a77125e52b5750592b973b3db16fc82",
+      "size_bytes": 1560
+    },
+    {
+      "path": "tools/strategy_factory/acl_os/acl_08/obsidian_projection.py",
+      "sha256": "0e8e40e8edbd20760fba6c9c5e4d34cc46f90b866e939932cc31c4be66eb0d2f",
+      "size_bytes": 4207
+    },
+    {
+      "path": "tools/strategy_factory/acl_os/acl_08/policies.py",
+      "sha256": "92b5393280ef9fe681084e912966fde3bcb7db17f03b031d4fe35a6211fd1faf",
+      "size_bytes": 849
+    },
+    {
+      "path": "tools/strategy_factory/acl_os/acl_08/provenance.py",
+      "sha256": "2e3140b1af71d7bf51203258b773dd8e0d5c94788aedb785080e0b365b8e0610",
+      "size_bytes": 1906
+    },
+    {
+      "path": "tools/strategy_factory/acl_os/acl_08/qa.py",
+      "sha256": "1bad8c4c507a5bf7f086930878c1142c59167f24bb5d169f30f3e4ec920e4813",
+      "size_bytes": 1168
+    },
+    {
+      "path": "tools/strategy_factory/acl_os/acl_08/reason_codes.py",
+      "sha256": "fbec99183b2fe5f8b811ef11ca0922c6d5698c1121ee44d6bc038d9afd0a83e0",
+      "size_bytes": 1535
+    },
+    {
+      "path": "tools/strategy_factory/acl_os/acl_08/redaction.py",
+      "sha256": "69c5f48dce1a4ea46b22cc7f26bf1906f4df80d057ba4daffed02d44d89818cd",
+      "size_bytes": 2423
+    },
+    {
+      "path": "tools/strategy_factory/acl_os/acl_08/replay_validator.py",
+      "sha256": "11e9f7e11b8c9ca44f640aac6a18d796b6084b1b3121adbcd331476e00c4a609",
+      "size_bytes": 2209
+    },
+    {
+      "path": "tools/strategy_factory/acl_os/acl_08/report_builder.py",
+      "sha256": "97abea15c8df0cd8ab6e659daa440dafa571a77cfcd4a35fb0a43be779957442",
+      "size_bytes": 4530
+    },
+    {
+      "path": "tools/strategy_factory/acl_os/acl_08/report_policy.py",
+      "sha256": "fdd68a691429b9abdf15a814e173d5ff9427f2ffa950a4d94ad5231c91fa7f82",
+      "size_bytes": 1039
+    },
+    {
+      "path": "tools/strategy_factory/acl_os/acl_08/report_registry.py",
+      "sha256": "7d8b8b9a2058e1d0493858756869da87e836c07c4d450575f59a66671aa4c34e",
+      "size_bytes": 971
+    },
+    {
+      "path": "tools/strategy_factory/acl_os/acl_08/schema_validation.py",
+      "sha256": "0fe84823322c26224c11d57d88bbe5ff23c6a826bb5f19011041d5cab346b969",
+      "size_bytes": 843
+    },
+    {
+      "path": "tools/strategy_factory/acl_os/acl_08/service.py",
+      "sha256": "dfb7f04ff1b70b1073fbb8d443e49bdf8d2309b93a7931f48a402e4edbc7f170",
+      "size_bytes": 16947
+    },
+    {
+      "path": "tools/strategy_factory/acl_os/acl_08/static_validator.py",
+      "sha256": "89ae328385d39e4aeb6ffbef82f26cfca5cb9e7ed6d9e440c73ea49eeff75db6",
+      "size_bytes": 517
+    }
+  ],
+  "phase": "ACL-08",
+  "required_base_commit_message": "feat(acl-os): implement ACL-07 unified validation gate",
+  "schema_version": "1.0.0",
+  "self_reference_policy": "PATCH_MANIFEST_AND_INDEX_HASH_METADATA_EXCLUDED_FROM_PAYLOAD_DIGEST_SET"
+}

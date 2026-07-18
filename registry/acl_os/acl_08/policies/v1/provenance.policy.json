@@ -1,0 +1,6 @@
+{
+  "decision_mutation_allowed": false,
+  "must_reach_acl07_validation": true,
+  "policy_id": "ACL08_PROVENANCE_V1",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,12 @@
+{
+  "allowed_action": "ACL08_BUILD_REPORT_AND_EXPERIENCE",
+  "denied": [
+    "NETWORK",
+    "SECRETS",
+    "ORDER_SUBMISSION",
+    "CAPITAL_ACTIVATION",
+    "PROMOTION"
+  ],
+  "policy_id": "ACL08_AUTHORITY_BOUNDARY_V1",
+  "schema_version": "1.0.0"
+}

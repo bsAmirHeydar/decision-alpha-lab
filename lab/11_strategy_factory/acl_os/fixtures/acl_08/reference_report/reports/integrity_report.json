@@ -1,0 +1,10 @@
+{
+  "acl07_bundle_verified": true,
+  "candidate_decisions_verified": 12,
+  "candidate_gate_documents_verified": 12,
+  "decision_semantics_mutated": false,
+  "passed": true,
+  "report_digest": "sha256:7004d9b69468d8d5a30a6c197af861bdbc4d12bfbd136b15cd1e289d685a03d2",
+  "report_id": "REPORT_2FED2879ED0864D2A8EC4EFF7830B4AA",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,86 @@
+{
+  "closed_world": true,
+  "entries": [
+    {
+      "block_id": "IDENTITY",
+      "closed_world": true,
+      "order": 1,
+      "required": true
+    },
+    {
+      "block_id": "EXECUTIVE_FINDINGS",
+      "closed_world": true,
+      "order": 2,
+      "required": true
+    },
+    {
+      "block_id": "DECISION_DISTRIBUTION",
+      "closed_world": true,
+      "order": 3,
+      "required": true
+    },
+    {
+      "block_id": "CANDIDATE_EVIDENCE",
+      "closed_world": true,
+      "order": 4,
+      "required": true
+    },
+    {
+      "block_id": "GATE_EVIDENCE",
+      "closed_world": true,
+      "order": 5,
+      "required": true
+    },
+    {
+      "block_id": "BASELINE_CONTEXT",
+      "closed_world": true,
+      "order": 6,
+      "required": true
+    },
+    {
+      "block_id": "DIAGNOSTIC_ISOLATION",
+      "closed_world": true,
+      "order": 7,
+      "required": true
+    },
+    {
+      "block_id": "UNCERTAINTY_AND_UNKNOWN",
+      "closed_world": true,
+      "order": 8,
+      "required": true
+    },
+    {
+      "block_id": "NEGATIVE_KNOWLEDGE",
+      "closed_world": true,
+      "order": 9,
+      "required": true
+    },
+    {
+      "block_id": "LIMITATIONS",
+      "closed_world": true,
+      "order": 10,
+      "required": true
+    },
+    {
+      "block_id": "PROVENANCE",
+      "closed_world": true,
+      "order": 11,
+      "required": true
+    },
+    {
+      "block_id": "SECURITY_AND_AUTHORITY",
+      "closed_world": true,
+      "order": 12,
+      "required": true
+    },
+    {
+      "block_id": "NEXT_ALLOWED_ACTIONS",
+      "closed_world": true,
+      "order": 13,
+      "required": true
+    }
+  ],
+  "registry_digest": "sha256:a858cbc6ba6787ab6e6d3bde3c15446bdcb8686f95c3ed3247d6d31dfe893fdc",
+  "registry_id": "ACL08_REPORT_BLOCK_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}

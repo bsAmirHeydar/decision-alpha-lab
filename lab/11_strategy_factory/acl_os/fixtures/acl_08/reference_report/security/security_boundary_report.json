@@ -1,0 +1,12 @@
+{
+  "capital_activation_allowed": false,
+  "external_restricted_view_redacted": true,
+  "live_order_submission_allowed": false,
+  "network_access_allowed": false,
+  "passed": true,
+  "promotion_authority_granted": false,
+  "report_digest": "sha256:619e3acd67ca55f017d69a9033bc98304f0dd816805c48b2c0b45b50fe7e6f45",
+  "report_id": "REPORT_2FED2879ED0864D2A8EC4EFF7830B4AA",
+  "schema_version": "1.0.0",
+  "secret_access_allowed": false
+}

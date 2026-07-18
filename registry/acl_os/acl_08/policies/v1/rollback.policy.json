@@ -1,0 +1,6 @@
+{
+  "generated_output_regenerable": true,
+  "policy_id": "ACL08_ROLLBACK_V1",
+  "rollback_unit": "WHOLE_ACL08_PATCH",
+  "schema_version": "1.0.0"
+}

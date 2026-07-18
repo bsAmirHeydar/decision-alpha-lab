@@ -1,0 +1,63 @@
+{
+  "entries": [
+    {
+      "meaning": "ACL-07 package passed verification.",
+      "reason_code": "ACL07_BUNDLE_VERIFIED"
+    },
+    {
+      "meaning": "Closed redaction profile applied.",
+      "reason_code": "AUDIENCE_REDACTION_APPLIED"
+    },
+    {
+      "meaning": "Baseline remains non-promotable.",
+      "reason_code": "BASELINE_RECORDED_AS_REFERENCE"
+    },
+    {
+      "meaning": "No validation semantics were changed.",
+      "reason_code": "DECISIONS_PRESERVED_EXACTLY"
+    },
+    {
+      "meaning": "Diagnostic evidence remains non-selectable.",
+      "reason_code": "DIAGNOSTIC_RECORDED_NON_SELECTABLE"
+    },
+    {
+      "meaning": "Unknown evidence was captured without promotion.",
+      "reason_code": "EVIDENCE_INSUFFICIENT_RECORDED"
+    },
+    {
+      "meaning": "Material evidence changed.",
+      "reason_code": "MATERIAL_CHANGE_DETECTED"
+    },
+    {
+      "meaning": "No material semantic change detected.",
+      "reason_code": "NO_MATERIAL_CHANGE"
+    },
+    {
+      "meaning": "No previous report supplied.",
+      "reason_code": "NO_PREVIOUS_REPORT"
+    },
+    {
+      "meaning": "No candidate met reporting eligibility.",
+      "reason_code": "NO_REPORTING_ELIGIBLE_CANDIDATE"
+    },
+    {
+      "meaning": "Reporting eligibility does not imply promotion.",
+      "reason_code": "REPORTABLE_EVIDENCE_NON_PROMOTIONAL"
+    },
+    {
+      "meaning": "Report cannot authorize trading.",
+      "reason_code": "REPORTING_HAS_NO_EXECUTION_AUTHORITY"
+    },
+    {
+      "meaning": "Required gates remain unknown.",
+      "reason_code": "UNKNOWN_GATES_REQUIRE_MORE_EVIDENCE"
+    },
+    {
+      "meaning": "Validation failure became negative knowledge.",
+      "reason_code": "VALIDATION_FAILURE_CAPTURED"
+    }
+  ],
+  "registry_digest": "sha256:eb56ade72fc0e5243105f465649e16f447266262971c57b779db19151c182f26",
+  "registry_id": "ACL08_REASON_CODES_V1",
+  "schema_version": "1.0.0"
+}

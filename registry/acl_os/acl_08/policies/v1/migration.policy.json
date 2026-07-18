@@ -1,0 +1,6 @@
+{
+  "breaking_semantics_require_major": true,
+  "idempotent_migration_required": true,
+  "policy_id": "ACL08_MIGRATION_V1",
+  "schema_version": "1.0.0"
+}
