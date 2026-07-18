@@ -1,0 +1,522 @@
+{
+  "assignment_policy": "ROLE_BINDING_IS_NOT_HUMAN_APPROVAL; UNKNOWN_IS_BLOCKING; COMMIT_AUTHORSHIP_IS_NOT_OWNERSHIP",
+  "human_approval_claimed": false,
+  "registry_digest": "sha256:762b6e811513d21d1ce82ad03427503795a922dfa8c4ff2f80481c834125f1c5",
+  "registry_id": "LCM02_OWNER_ROLE_REGISTRY_V1",
+  "roles": [
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "human_approval_required": true,
+      "role_id": "PROGRAM_OWNER",
+      "role_type": "PROGRAM_OWNER"
+    },
+    {
+      "assignee_id": "ALPHA_LAB_REFERENCE_AUTOMATION",
+      "assignment_status": "REFERENCE_AUTOMATION_ASSIGNED",
+      "human_approval_required": false,
+      "role_id": "MIGRATION_ENGINEER",
+      "role_type": "MIGRATION_ENGINEER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "human_approval_required": true,
+      "role_id": "INDEPENDENT_PARITY_REVIEWER",
+      "role_type": "INDEPENDENT_REVIEWER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "human_approval_required": true,
+      "role_id": "SECURITY_REVIEWER",
+      "role_type": "SECURITY_REVIEWER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "human_approval_required": true,
+      "role_id": "KNOWLEDGE_CURATOR",
+      "role_type": "DOCUMENTATION_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "human_approval_required": true,
+      "role_id": "REPOSITORY_STEWARD",
+      "role_type": "CODE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "human_approval_required": true,
+      "role_id": "RELEASE_OPERATOR",
+      "role_type": "RELEASE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "ACL_OS_PLATFORM",
+      "human_approval_required": true,
+      "role_id": "DOMAIN_OWNER_ACL_OS_PLATFORM",
+      "role_type": "SEMANTIC_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "ACL_OS_PLATFORM",
+      "human_approval_required": true,
+      "role_id": "CODE_OWNER_ACL_OS_PLATFORM",
+      "role_type": "CODE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "ASTRO_RESEARCH_EXECUTION",
+      "human_approval_required": true,
+      "role_id": "DOMAIN_OWNER_ASTRO_RESEARCH_EXECUTION",
+      "role_type": "SEMANTIC_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "ASTRO_RESEARCH_EXECUTION",
+      "human_approval_required": true,
+      "role_id": "CODE_OWNER_ASTRO_RESEARCH_EXECUTION",
+      "role_type": "CODE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "DOCUMENTATION_OTHER",
+      "human_approval_required": true,
+      "role_id": "DOMAIN_OWNER_DOCUMENTATION_OTHER",
+      "role_type": "SEMANTIC_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "DOCUMENTATION_OTHER",
+      "human_approval_required": true,
+      "role_id": "CODE_OWNER_DOCUMENTATION_OTHER",
+      "role_type": "CODE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "EXECUTION_E_SERIES",
+      "human_approval_required": true,
+      "role_id": "DOMAIN_OWNER_EXECUTION_E_SERIES",
+      "role_type": "SEMANTIC_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "EXECUTION_E_SERIES",
+      "human_approval_required": true,
+      "role_id": "CODE_OWNER_EXECUTION_E_SERIES",
+      "role_type": "CODE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "EXP0015_INTERMARKET_TIME",
+      "human_approval_required": true,
+      "role_id": "DOMAIN_OWNER_EXP0015_INTERMARKET_TIME",
+      "role_type": "SEMANTIC_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "EXP0015_INTERMARKET_TIME",
+      "human_approval_required": true,
+      "role_id": "CODE_OWNER_EXP0015_INTERMARKET_TIME",
+      "role_type": "CODE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "EXP0016_INTERMARKET_EXECUTION",
+      "human_approval_required": true,
+      "role_id": "DOMAIN_OWNER_EXP0016_INTERMARKET_EXECUTION",
+      "role_type": "SEMANTIC_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "EXP0016_INTERMARKET_EXECUTION",
+      "human_approval_required": true,
+      "role_id": "CODE_OWNER_EXP0016_INTERMARKET_EXECUTION",
+      "role_type": "CODE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "EXP0017_CYCLE_GROUP",
+      "human_approval_required": true,
+      "role_id": "DOMAIN_OWNER_EXP0017_CYCLE_GROUP",
+      "role_type": "SEMANTIC_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "EXP0017_CYCLE_GROUP",
+      "human_approval_required": true,
+      "role_id": "CODE_OWNER_EXP0017_CYCLE_GROUP",
+      "role_type": "CODE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "EXP0018_DAYE_TRADER",
+      "human_approval_required": true,
+      "role_id": "DOMAIN_OWNER_EXP0018_DAYE_TRADER",
+      "role_type": "SEMANTIC_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "EXP0018_DAYE_TRADER",
+      "human_approval_required": true,
+      "role_id": "CODE_OWNER_EXP0018_DAYE_TRADER",
+      "role_type": "CODE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "EXP0019_FAERIE_PROTOCOL",
+      "human_approval_required": true,
+      "role_id": "DOMAIN_OWNER_EXP0019_FAERIE_PROTOCOL",
+      "role_type": "SEMANTIC_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "EXP0019_FAERIE_PROTOCOL",
+      "human_approval_required": true,
+      "role_id": "CODE_OWNER_EXP0019_FAERIE_PROTOCOL",
+      "role_type": "CODE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "FLAG_COUNTING_NDS_HOOK_ZONE",
+      "human_approval_required": true,
+      "role_id": "DOMAIN_OWNER_FLAG_COUNTING_NDS_HOOK_ZONE",
+      "role_type": "SEMANTIC_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "FLAG_COUNTING_NDS_HOOK_ZONE",
+      "human_approval_required": true,
+      "role_id": "CODE_OWNER_FLAG_COUNTING_NDS_HOOK_ZONE",
+      "role_type": "CODE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "ICT_STRUCTURAL_NODES",
+      "human_approval_required": true,
+      "role_id": "DOMAIN_OWNER_ICT_STRUCTURAL_NODES",
+      "role_type": "SEMANTIC_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "ICT_STRUCTURAL_NODES",
+      "human_approval_required": true,
+      "role_id": "CODE_OWNER_ICT_STRUCTURAL_NODES",
+      "role_type": "CODE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "LAB_OTHER",
+      "human_approval_required": true,
+      "role_id": "DOMAIN_OWNER_LAB_OTHER",
+      "role_type": "SEMANTIC_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "LAB_OTHER",
+      "human_approval_required": true,
+      "role_id": "CODE_OWNER_LAB_OTHER",
+      "role_type": "CODE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "LCM_CONTROL_PLANE",
+      "human_approval_required": true,
+      "role_id": "DOMAIN_OWNER_LCM_CONTROL_PLANE",
+      "role_type": "SEMANTIC_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "LCM_CONTROL_PLANE",
+      "human_approval_required": true,
+      "role_id": "CODE_OWNER_LCM_CONTROL_PLANE",
+      "role_type": "CODE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "MQL5_OTHER",
+      "human_approval_required": true,
+      "role_id": "DOMAIN_OWNER_MQL5_OTHER",
+      "role_type": "SEMANTIC_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "MQL5_OTHER",
+      "human_approval_required": true,
+      "role_id": "CODE_OWNER_MQL5_OTHER",
+      "role_type": "CODE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "M_SERIES_CONTEXTS",
+      "human_approval_required": true,
+      "role_id": "DOMAIN_OWNER_M_SERIES_CONTEXTS",
+      "role_type": "SEMANTIC_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "M_SERIES_CONTEXTS",
+      "human_approval_required": true,
+      "role_id": "CODE_OWNER_M_SERIES_CONTEXTS",
+      "role_type": "CODE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "OBSIDIAN_VAULT_CONFIGURATION",
+      "human_approval_required": true,
+      "role_id": "DOMAIN_OWNER_OBSIDIAN_VAULT_CONFIGURATION",
+      "role_type": "SEMANTIC_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "OBSIDIAN_VAULT_CONFIGURATION",
+      "human_approval_required": true,
+      "role_id": "CODE_OWNER_OBSIDIAN_VAULT_CONFIGURATION",
+      "role_type": "CODE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "OTHER_DATA",
+      "human_approval_required": true,
+      "role_id": "DOMAIN_OWNER_OTHER_DATA",
+      "role_type": "SEMANTIC_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "OTHER_DATA",
+      "human_approval_required": true,
+      "role_id": "CODE_OWNER_OTHER_DATA",
+      "role_type": "CODE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "OTHER_LICENSES",
+      "human_approval_required": true,
+      "role_id": "DOMAIN_OWNER_OTHER_LICENSES",
+      "role_type": "SEMANTIC_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "OTHER_LICENSES",
+      "human_approval_required": true,
+      "role_id": "CODE_OWNER_OTHER_LICENSES",
+      "role_type": "CODE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "OTHER_PAPERS",
+      "human_approval_required": true,
+      "role_id": "DOMAIN_OWNER_OTHER_PAPERS",
+      "role_type": "SEMANTIC_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "OTHER_PAPERS",
+      "human_approval_required": true,
+      "role_id": "CODE_OWNER_OTHER_PAPERS",
+      "role_type": "CODE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "PATCH_AND_RELEASE_ARCHIVE",
+      "human_approval_required": true,
+      "role_id": "DOMAIN_OWNER_PATCH_AND_RELEASE_ARCHIVE",
+      "role_type": "SEMANTIC_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "PATCH_AND_RELEASE_ARCHIVE",
+      "human_approval_required": true,
+      "role_id": "CODE_OWNER_PATCH_AND_RELEASE_ARCHIVE",
+      "role_type": "CODE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "PRODUCT_LAB",
+      "human_approval_required": true,
+      "role_id": "DOMAIN_OWNER_PRODUCT_LAB",
+      "role_type": "SEMANTIC_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "PRODUCT_LAB",
+      "human_approval_required": true,
+      "role_id": "CODE_OWNER_PRODUCT_LAB",
+      "role_type": "CODE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "REGISTRY_AND_MACHINE_CONTRACTS",
+      "human_approval_required": true,
+      "role_id": "DOMAIN_OWNER_REGISTRY_AND_MACHINE_CONTRACTS",
+      "role_type": "SEMANTIC_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "REGISTRY_AND_MACHINE_CONTRACTS",
+      "human_approval_required": true,
+      "role_id": "CODE_OWNER_REGISTRY_AND_MACHINE_CONTRACTS",
+      "role_type": "CODE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "REPOSITORY_GOVERNANCE",
+      "human_approval_required": true,
+      "role_id": "DOMAIN_OWNER_REPOSITORY_GOVERNANCE",
+      "role_type": "SEMANTIC_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "REPOSITORY_GOVERNANCE",
+      "human_approval_required": true,
+      "role_id": "CODE_OWNER_REPOSITORY_GOVERNANCE",
+      "role_type": "CODE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "REPOSITORY_ROOT_CONTROL",
+      "human_approval_required": true,
+      "role_id": "DOMAIN_OWNER_REPOSITORY_ROOT_CONTROL",
+      "role_type": "SEMANTIC_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "REPOSITORY_ROOT_CONTROL",
+      "human_approval_required": true,
+      "role_id": "CODE_OWNER_REPOSITORY_ROOT_CONTROL",
+      "role_type": "CODE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "RESEARCH_EXPERIMENTS",
+      "human_approval_required": true,
+      "role_id": "DOMAIN_OWNER_RESEARCH_EXPERIMENTS",
+      "role_type": "SEMANTIC_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "RESEARCH_EXPERIMENTS",
+      "human_approval_required": true,
+      "role_id": "CODE_OWNER_RESEARCH_EXPERIMENTS",
+      "role_type": "CODE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "ROOT_RELEASE_AND_INSTALLATION_HISTORY",
+      "human_approval_required": true,
+      "role_id": "DOMAIN_OWNER_ROOT_RELEASE_AND_INSTALLATION_HISTORY",
+      "role_type": "SEMANTIC_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "ROOT_RELEASE_AND_INSTALLATION_HISTORY",
+      "human_approval_required": true,
+      "role_id": "CODE_OWNER_ROOT_RELEASE_AND_INSTALLATION_HISTORY",
+      "role_type": "CODE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "ROOT_REVIEW_REQUIRED",
+      "human_approval_required": true,
+      "role_id": "DOMAIN_OWNER_ROOT_REVIEW_REQUIRED",
+      "role_type": "SEMANTIC_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "ROOT_REVIEW_REQUIRED",
+      "human_approval_required": true,
+      "role_id": "CODE_OWNER_ROOT_REVIEW_REQUIRED",
+      "role_type": "CODE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "STRATEGY_FACTORY_PLATFORM",
+      "human_approval_required": true,
+      "role_id": "DOMAIN_OWNER_STRATEGY_FACTORY_PLATFORM",
+      "role_type": "SEMANTIC_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "STRATEGY_FACTORY_PLATFORM",
+      "human_approval_required": true,
+      "role_id": "CODE_OWNER_STRATEGY_FACTORY_PLATFORM",
+      "role_type": "CODE_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "TOOLING_OTHER",
+      "human_approval_required": true,
+      "role_id": "DOMAIN_OWNER_TOOLING_OTHER",
+      "role_type": "SEMANTIC_OWNER"
+    },
+    {
+      "assignee_id": null,
+      "assignment_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+      "family": "TOOLING_OTHER",
+      "human_approval_required": true,
+      "role_id": "CODE_OWNER_TOOLING_OTHER",
+      "role_type": "CODE_OWNER"
+    }
+  ],
+  "schema_version": "1.0.0"
+}

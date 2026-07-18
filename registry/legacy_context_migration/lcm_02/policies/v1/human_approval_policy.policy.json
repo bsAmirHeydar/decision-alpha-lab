@@ -1,0 +1,8 @@
+{
+  "automation_may_self_approve_semantics": false,
+  "human_approval_claimed_in_reference_package": false,
+  "phase_id": "LCM-02",
+  "policy_digest": "sha256:9a49c97baab0679fc3e99c8f3d4ae03b7d6bb34bea3fd0ea82420245035f0b26",
+  "policy_id": "HUMAN_APPROVAL_POLICY",
+  "schema_version": "1.0.0"
+}

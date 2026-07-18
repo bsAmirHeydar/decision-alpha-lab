@@ -1,0 +1,19 @@
+{
+  "capability_hit_is_live_authority": false,
+  "closed": true,
+  "registry_digest": "sha256:8e36c06a0bb97ba56618ea54942534aca80344342e422ed2c8071d3a6ea57cdd",
+  "registry_id": "LCM02_AUTHORITY_SURFACE_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "surfaces": [
+    "ORDER_REQUEST",
+    "CAPITAL",
+    "BROKER_STATE",
+    "FILE_PERSISTENCE",
+    "NETWORK_EGRESS",
+    "EXTERNAL_MODEL",
+    "DYNAMIC_CODE",
+    "GLOBAL_STATE",
+    "CHART_STATE",
+    "TIME_SEMANTICS"
+  ]
+}

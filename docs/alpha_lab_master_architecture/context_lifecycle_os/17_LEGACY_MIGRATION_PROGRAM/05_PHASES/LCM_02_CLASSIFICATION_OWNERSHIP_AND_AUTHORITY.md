@@ -1,6 +1,6 @@
 ---
 title: "LCM-02 — Classification, Ownership and Authority"
-status: proposed-reference
+status: implemented-reference
 version: 1.1.0
 updated: 2026-07-18
 tags: [acl-os, lcm, legacy-migration, implementation-phase]
@@ -84,3 +84,7 @@ A failed check leaves the migration state unchanged. Partial output is discarded
 ## Handoff
 
 The handoff records source and output digests, completed gates, unresolved blockers, allowed next actions, forbidden actions, owner approvals and residual risk. No downstream phase may infer a missing approval or convert UNKNOWN to PASS.
+
+## Implementation record
+
+Reference implementation is delivered under `tools/strategy_factory/lcm/lcm_02`, machine registries under `registry/legacy_context_migration/lcm_02`, and immutable classification packages under `registry/legacy_context_migration/classifications`. See [[LCM02_DEFINITION_OF_DONE]] and [[LCM02_TO_LCM03_HANDOFF_CONTRACT]].

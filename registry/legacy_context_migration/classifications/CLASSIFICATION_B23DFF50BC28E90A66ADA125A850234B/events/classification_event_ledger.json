@@ -1,0 +1,145 @@
+{
+  "classification_id": "CLASSIFICATION_B23DFF50BC28E90A66ADA125A850234B",
+  "event_count": 7,
+  "events": [
+    {
+      "capital_authority": false,
+      "delete_authority": false,
+      "event_digest": "sha256:1f3818a6d5c7785f995c76501afe56abdcb92a92123a244b4931a0ddab542523",
+      "event_id": "LCM02EVT_9EB0194D92E00F193A53748746FE04E1",
+      "event_type": "LCM01_SURVEY_ACCEPTED",
+      "live_order_authority": false,
+      "move_authority": false,
+      "occurred_at": "2026-07-18T00:00:00Z",
+      "payload": {
+        "survey_id": "SURVEY_D4EC5C533F886BC439DAEEBDE51FA080"
+      },
+      "previous_event_digest": null,
+      "runtime_authority": false,
+      "schema_version": "1.0.0",
+      "semantic_refactor_authority": false,
+      "sequence": 1
+    },
+    {
+      "capital_authority": false,
+      "delete_authority": false,
+      "event_digest": "sha256:0ce3bbe858372a31db83b3d1531ea15b17051a1a03b83c51cbbf7e1d74fefca8",
+      "event_id": "LCM02EVT_EE92F8DEDFFC53F97CE31A01A9102434",
+      "event_type": "CLASSIFICATION_REGISTRIES_BOUND",
+      "live_order_authority": false,
+      "move_authority": false,
+      "occurred_at": "2026-07-18T00:00:00Z",
+      "payload": {
+        "activity_count": 10,
+        "disposition_count": 10,
+        "role_count": 20
+      },
+      "previous_event_digest": "sha256:1f3818a6d5c7785f995c76501afe56abdcb92a92123a244b4931a0ddab542523",
+      "runtime_authority": false,
+      "schema_version": "1.0.0",
+      "semantic_refactor_authority": false,
+      "sequence": 2
+    },
+    {
+      "capital_authority": false,
+      "delete_authority": false,
+      "event_digest": "sha256:2073674db14b7072d101ee833688d3bb3a0d82a9da4fc11a3f22baf958113d22",
+      "event_id": "LCM02EVT_A38DE24B8275E496FE2616947403767A",
+      "event_type": "ARTIFACTS_CLASSIFIED",
+      "live_order_authority": false,
+      "move_authority": false,
+      "occurred_at": "2026-07-18T00:00:00Z",
+      "payload": {
+        "artifact_count": 38595
+      },
+      "previous_event_digest": "sha256:0ce3bbe858372a31db83b3d1531ea15b17051a1a03b83c51cbbf7e1d74fefca8",
+      "runtime_authority": false,
+      "schema_version": "1.0.0",
+      "semantic_refactor_authority": false,
+      "sequence": 3
+    },
+    {
+      "capital_authority": false,
+      "delete_authority": false,
+      "event_digest": "sha256:4f9a18668ff78f372a3db3b47d2c755dea1af89dd1a7e718000884a83ced2784",
+      "event_id": "LCM02EVT_B026F39A8D00755D20B141AEF16A249F",
+      "event_type": "OWNER_ROLES_BOUND",
+      "live_order_authority": false,
+      "move_authority": false,
+      "occurred_at": "2026-07-18T00:00:00Z",
+      "payload": {
+        "family_count": 29,
+        "human_approval_complete": false
+      },
+      "previous_event_digest": "sha256:2073674db14b7072d101ee833688d3bb3a0d82a9da4fc11a3f22baf958113d22",
+      "runtime_authority": false,
+      "schema_version": "1.0.0",
+      "semantic_refactor_authority": false,
+      "sequence": 4
+    },
+    {
+      "capital_authority": false,
+      "delete_authority": false,
+      "event_digest": "sha256:ac4b6ea24a75700fef3819be2fc43b3a8f268362d4f1567f22846abf6d3f60d8",
+      "event_id": "LCM02EVT_97FE775066952251662B88B5D5A59739",
+      "event_type": "AUTHORITY_SURFACES_ISOLATED",
+      "live_order_authority": false,
+      "move_authority": false,
+      "occurred_at": "2026-07-18T00:00:00Z",
+      "payload": {
+        "security_sensitive_count": 279
+      },
+      "previous_event_digest": "sha256:4f9a18668ff78f372a3db3b47d2c755dea1af89dd1a7e718000884a83ced2784",
+      "runtime_authority": false,
+      "schema_version": "1.0.0",
+      "semantic_refactor_authority": false,
+      "sequence": 5
+    },
+    {
+      "capital_authority": false,
+      "delete_authority": false,
+      "event_digest": "sha256:c684b13a223f5361874bdea71a50bfbd261dfd619d1d5d51985c2689721d4b99",
+      "event_id": "LCM02EVT_59BD5686B960D946976D5114607AB58A",
+      "event_type": "UNRESOLVED_QUEUES_PUBLISHED",
+      "live_order_authority": false,
+      "move_authority": false,
+      "occurred_at": "2026-07-18T00:00:00Z",
+      "payload": {
+        "queue_counts": {
+          "activity": 1948,
+          "ambiguous_role": 2977,
+          "duplicate": 2715,
+          "generated_projection": 4679,
+          "owner": 38595,
+          "security": 279
+        }
+      },
+      "previous_event_digest": "sha256:ac4b6ea24a75700fef3819be2fc43b3a8f268362d4f1567f22846abf6d3f60d8",
+      "runtime_authority": false,
+      "schema_version": "1.0.0",
+      "semantic_refactor_authority": false,
+      "sequence": 6
+    },
+    {
+      "capital_authority": false,
+      "delete_authority": false,
+      "event_digest": "sha256:03339a59f29e40efea722e412cbb9537ea0bd7773814ba56e9866adbd2693cdb",
+      "event_id": "LCM02EVT_B88240A900A7F7C631362E5CABFF0B2E",
+      "event_type": "CLASSIFICATION_PACKAGE_COMPLETED",
+      "live_order_authority": false,
+      "move_authority": false,
+      "occurred_at": "2026-07-18T00:00:00Z",
+      "payload": {
+        "classification_id": "CLASSIFICATION_B23DFF50BC28E90A66ADA125A850234B"
+      },
+      "previous_event_digest": "sha256:c684b13a223f5361874bdea71a50bfbd261dfd619d1d5d51985c2689721d4b99",
+      "runtime_authority": false,
+      "schema_version": "1.0.0",
+      "semantic_refactor_authority": false,
+      "sequence": 7
+    }
+  ],
+  "ledger_digest": "sha256:4f85b07e13711ab729118e723156e20c1626f9bcc7808e95a0de7fac3707561a",
+  "schema_version": "1.0.0",
+  "terminal_event_digest": "sha256:03339a59f29e40efea722e412cbb9537ea0bd7773814ba56e9866adbd2693cdb"
+}

@@ -1,0 +1,8 @@
+{
+  "exact_bytes_equal_semantic_equivalence": false,
+  "merge_requires_later_equivalence_proof": true,
+  "phase_id": "LCM-02",
+  "policy_digest": "sha256:898ce876df0c92ef9297b38d75bebb1f3a898fa8cc55ad044fc45cfcb3aaaff8",
+  "policy_id": "DUPLICATE_EQUIVALENCE_POLICY",
+  "schema_version": "1.0.0"
+}

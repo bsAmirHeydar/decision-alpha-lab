@@ -1,0 +1,17 @@
+{
+  "$id": "https://alpha-lab.local/lcm02/schemas/v1/output_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "artifacts": {},
+    "classification_id": {},
+    "output_manifest_digest": {}
+  },
+  "required": [
+    "classification_id",
+    "artifacts",
+    "output_manifest_digest"
+  ],
+  "title": "LCM02 Output Manifest",
+  "type": "object"
+}

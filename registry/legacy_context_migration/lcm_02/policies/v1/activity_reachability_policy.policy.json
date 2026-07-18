@@ -1,0 +1,8 @@
+{
+  "phase_id": "LCM-02",
+  "policy_digest": "sha256:41fb12826574409c701c0b847cc9850709801fecdda723864464a78289c34786",
+  "policy_id": "ACTIVITY_REACHABILITY_POLICY",
+  "schema_version": "1.0.0",
+  "static_inbound_edge_is_production_reachability": false,
+  "unknown_activity_blocks_delete": true
+}

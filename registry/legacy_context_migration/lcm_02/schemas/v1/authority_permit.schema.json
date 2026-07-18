@@ -1,0 +1,19 @@
+{
+  "$id": "https://alpha-lab.local/lcm02/schemas/v1/authority_permit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "action": {},
+    "capabilities": {},
+    "permit_digest": {},
+    "phase_id": {}
+  },
+  "required": [
+    "phase_id",
+    "action",
+    "capabilities",
+    "permit_digest"
+  ],
+  "title": "LCM02 Authority Permit",
+  "type": "object"
+}

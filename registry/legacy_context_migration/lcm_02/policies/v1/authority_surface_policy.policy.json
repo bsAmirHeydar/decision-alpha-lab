@@ -1,0 +1,8 @@
+{
+  "capital_surface_is_capital_permission": false,
+  "order_surface_is_execution_permission": false,
+  "phase_id": "LCM-02",
+  "policy_digest": "sha256:496d9ad2d46e61611f857af00456e2eb0fecd917161265a595f5d211b04cddc5",
+  "policy_id": "AUTHORITY_SURFACE_POLICY",
+  "schema_version": "1.0.0"
+}

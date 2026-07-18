@@ -1,0 +1,48 @@
+{
+  "allowed_actions": [
+    "REGISTER_CANONICAL_IDENTITIES",
+    "REGISTER_LEGACY_ALIASES",
+    "PROPOSE_FAMILY_IDENTITY_MAP",
+    "RESOLVE_OWNER_ROLE_ASSIGNMENTS",
+    "RESOLVE_CLASSIFICATION_UNKNOWNS"
+  ],
+  "classification_id": "CLASSIFICATION_B23DFF50BC28E90A66ADA125A850234B",
+  "classification_summary_digest": "sha256:ff2d713c30874eaaf1ae6efb678754414759fcb7922b260fca39d82bcd0c24ee",
+  "completed_gates": [
+    "EVERY_ARTIFACT_HAS_ONE_PRIMARY_DISPOSITION",
+    "ACTIVE_CANDIDATES_ROLE_BOUND_OR_BLOCKED",
+    "SECURITY_SENSITIVE_PATHS_ISOLATED",
+    "GENERATED_PROJECTIONS_NON_CANONICAL",
+    "PROTECTED_PLATFORM_ASSETS_BLOCKED_FROM_DOMAIN_MIGRATION",
+    "UNKNOWN_PRESERVED_AS_BLOCKING"
+  ],
+  "forbidden_actions": [
+    "MOVE_SOURCE_FILE",
+    "DELETE_SOURCE_FILE",
+    "SEMANTIC_REFACTOR",
+    "MERGE_LEGACY_IMPLEMENTATIONS",
+    "CUTOVER_CONSUMER",
+    "QUARANTINE_SOURCE",
+    "AUTHORIZE_RUNTIME",
+    "AUTHORIZE_LIVE_ORDER",
+    "ACTIVATE_CAPITAL"
+  ],
+  "handoff_digest": "sha256:e85ebcc1816c1964c17d424848c349e57223637af9c7aa366cde3d3d64beb9c8",
+  "handoff_type": "LCM02_TO_LCM03",
+  "human_approval_claimed": false,
+  "owner_registry_digest": "sha256:762b6e811513d21d1ce82ad03427503795a922dfa8c4ff2f80481c834125f1c5",
+  "schema_version": "1.0.0",
+  "semantic_refactor_performed": false,
+  "source_delete_performed": false,
+  "source_handoff_digest": "sha256:f0539f7dff28ac09eeb551c4e7f6a4ca08c95601a284b0ba4e8e8f487235c33d",
+  "source_move_performed": false,
+  "survey_id": "SURVEY_D4EC5C533F886BC439DAEEBDE51FA080",
+  "unresolved_blockers": [
+    "HUMAN_OWNERSHIP_APPROVALS_PENDING",
+    "SECURITY_REVIEWS_PENDING",
+    "AMBIGUOUS_ROLE_QUEUE_NONEMPTY",
+    "UNKNOWN_ACTIVITY_QUEUE_NONEMPTY",
+    "DUPLICATE_EQUIVALENCE_REVIEW_PENDING"
+  ],
+  "unresolved_summary_digest": "sha256:031e16284efffd0e207d32bc5de847616ba2ab33676325c8cb2941dac2bc69d1"
+}

@@ -1,0 +1,9 @@
+{
+  "claim_ceiling": "CLASSIFICATION_AND_OWNERSHIP_REFERENCE_ONLY",
+  "domain_semantics_approved": false,
+  "phase_id": "LCM-02",
+  "policy_digest": "sha256:831d390b10df99acd2948fb24df90fe6c23045c6ea844f728fc50b357fb8534c",
+  "policy_id": "CLAIM_CEILING_POLICY",
+  "runtime_authority": false,
+  "schema_version": "1.0.0"
+}

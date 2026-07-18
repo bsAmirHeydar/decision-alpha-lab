@@ -1,0 +1,29 @@
+{
+  "closed": true,
+  "generated_projection_may_be_canonical_doctrine": false,
+  "registry_digest": "sha256:b6fb16e4b2ca3126c74a14e8184d784f9ca49e2f85bdc119cf9b1a80d71e9607",
+  "registry_id": "LCM02_ARTIFACT_ROLE_REGISTRY_V1",
+  "roles": [
+    "CONTEXT",
+    "SETUP",
+    "TREATMENT",
+    "VISUALIZER",
+    "PLATFORM_ADAPTER",
+    "EXECUTION_ADAPTER",
+    "SHARED_PRIMITIVE",
+    "RESEARCH",
+    "DIAGNOSTIC",
+    "PLATFORM_KERNEL",
+    "GENERATED_PROJECTION",
+    "SOURCE_EVIDENCE",
+    "RELEASE_METADATA",
+    "GOVERNANCE_CONTROL",
+    "CONFIGURATION_CONTRACT",
+    "TEST_FIXTURE",
+    "TEST_CODE",
+    "DOCUMENTATION",
+    "ARCHIVE",
+    "UNKNOWN_ROLE"
+  ],
+  "schema_version": "1.0.0"
+}

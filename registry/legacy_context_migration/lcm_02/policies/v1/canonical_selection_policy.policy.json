@@ -1,0 +1,8 @@
+{
+  "canonical_behavior_assignment_performed_in_lcm02": false,
+  "phase_id": "LCM-02",
+  "policy_digest": "sha256:59fc69faae61a352bb31a8ea23064ff14c0be77d277cfda1e0f68512dc306576",
+  "policy_id": "CANONICAL_SELECTION_POLICY",
+  "protected_platform_assets_preserved": true,
+  "schema_version": "1.0.0"
+}

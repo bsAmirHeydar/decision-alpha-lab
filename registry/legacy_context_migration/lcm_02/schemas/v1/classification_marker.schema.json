@@ -1,0 +1,19 @@
+{
+  "$id": "https://alpha-lab.local/lcm02/schemas/v1/classification_marker.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "claim_ceiling": {},
+    "classification_id": {},
+    "marker_digest": {},
+    "phase_id": {}
+  },
+  "required": [
+    "phase_id",
+    "classification_id",
+    "claim_ceiling",
+    "marker_digest"
+  ],
+  "title": "LCM02 Marker",
+  "type": "object"
+}

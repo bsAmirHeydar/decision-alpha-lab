@@ -1,0 +1,19 @@
+{
+  "$id": "https://alpha-lab.local/lcm02/schemas/v1/authority_boundary_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "artifact_path": {},
+    "authority_surfaces": {},
+    "record_digest": {},
+    "risk_indicator_only": {}
+  },
+  "required": [
+    "artifact_path",
+    "authority_surfaces",
+    "risk_indicator_only",
+    "record_digest"
+  ],
+  "title": "LCM02 Authority Boundary Record",
+  "type": "object"
+}

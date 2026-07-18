@@ -1,0 +1,7 @@
+{
+  "anatomy_or_diagnostic_artifact_is_production_host_by_default": false,
+  "phase_id": "LCM-02",
+  "policy_digest": "sha256:556787ad683ac34aa23054700bc4557a43b52932a3b7f1382bdb8325c7614968",
+  "policy_id": "ANATOMY_EXPERT_POLICY",
+  "schema_version": "1.0.0"
+}

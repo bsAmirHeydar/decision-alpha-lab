@@ -1,0 +1,9 @@
+{
+  "capital_activation_allowed": false,
+  "live_order_submission_allowed": false,
+  "phase_id": "LCM-02",
+  "policy_digest": "sha256:0cb4dff8505cdae395cc9819a860d33b7515ed920580f583b1634ee24da85e0d",
+  "policy_id": "RUNTIME_DENIAL_POLICY",
+  "runtime_generation_allowed": false,
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,109 @@
+{
+  "$id": "https://alpha-lab.local/lcm02/schemas/v1/classification_receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_classification_record_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "capital_authority_created": {
+      "const": false
+    },
+    "claim_ceiling": {
+      "const": "CLASSIFICATION_AND_OWNERSHIP_REFERENCE_ONLY"
+    },
+    "classification_id": {
+      "pattern": "^CLASSIFICATION_[A-F0-9]{32}$",
+      "type": "string"
+    },
+    "classification_summary_digest": {
+      "pattern": "^sha256:[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "cutover_performed": {
+      "const": false
+    },
+    "event_ledger_digest": {
+      "pattern": "^sha256:[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "handoff_digest": {
+      "pattern": "^sha256:[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "human_approval_claimed": {
+      "const": false
+    },
+    "live_order_authority_created": {
+      "const": false
+    },
+    "merge_performed": {
+      "const": false
+    },
+    "owner_registry_digest": {
+      "pattern": "^sha256:[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "phase_id": {
+      "const": "LCM-02"
+    },
+    "provenance_graph_digest": {
+      "pattern": "^sha256:[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "receipt_digest": {
+      "pattern": "^sha256:[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "runtime_authority_created": {
+      "const": false
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "semantic_refactor_performed": {
+      "const": false
+    },
+    "source_delete_performed": {
+      "const": false
+    },
+    "source_move_performed": {
+      "const": false
+    },
+    "survey_id": {
+      "pattern": "^SURVEY_[A-F0-9]{32}$",
+      "type": "string"
+    },
+    "unresolved_summary_digest": {
+      "pattern": "^sha256:[a-f0-9]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "classification_id",
+    "survey_id",
+    "claim_ceiling",
+    "classification_summary_digest",
+    "owner_registry_digest",
+    "unresolved_summary_digest",
+    "event_ledger_digest",
+    "provenance_graph_digest",
+    "handoff_digest",
+    "artifact_classification_record_count",
+    "source_move_performed",
+    "source_delete_performed",
+    "semantic_refactor_performed",
+    "merge_performed",
+    "cutover_performed",
+    "human_approval_claimed",
+    "runtime_authority_created",
+    "live_order_authority_created",
+    "capital_authority_created",
+    "receipt_digest"
+  ],
+  "title": "LCM02 Receipt",
+  "type": "object"
+}

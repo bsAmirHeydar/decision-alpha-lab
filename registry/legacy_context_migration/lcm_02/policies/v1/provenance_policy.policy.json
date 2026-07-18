@@ -1,0 +1,8 @@
+{
+  "phase_id": "LCM-02",
+  "policy_digest": "sha256:c6db05863a53543648747973f942652a12693dbe53e08a11dfe4f7fa2897a47c",
+  "policy_id": "PROVENANCE_POLICY",
+  "schema_version": "1.0.0",
+  "source_handoff_binding_required": true,
+  "source_semantics_mutation_allowed": false
+}

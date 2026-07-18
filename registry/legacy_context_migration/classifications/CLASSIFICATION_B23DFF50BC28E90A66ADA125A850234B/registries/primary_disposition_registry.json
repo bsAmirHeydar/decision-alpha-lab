@@ -1,0 +1,20 @@
+{
+  "closed": true,
+  "disposition_is_execution_authority": false,
+  "dispositions": [
+    "KEEP_CANONICAL",
+    "MOVE_WITHOUT_SEMANTIC_CHANGE",
+    "WRAP_LEGACY",
+    "REWRITE_WITH_PARITY",
+    "EXTRACT_SHARED_LOGIC",
+    "MERGE_AFTER_EQUIVALENCE_PROOF",
+    "ARCHIVE_REFERENCE_ONLY",
+    "QUARANTINE_UNCERTAIN",
+    "DELETE_AFTER_PROOF",
+    "SECURITY_RESTRICTED"
+  ],
+  "exactly_one_primary_required": true,
+  "registry_digest": "sha256:231068728e05a63d8ab9d5d46ad24da08349a80e7103a818bccbb579a9464e60",
+  "registry_id": "LCM02_PRIMARY_DISPOSITION_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}

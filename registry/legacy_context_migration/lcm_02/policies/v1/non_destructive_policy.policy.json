@@ -1,0 +1,10 @@
+{
+  "merge_allowed": false,
+  "phase_id": "LCM-02",
+  "policy_digest": "sha256:7612fadd67cf928c0ee412154ccf898d451bc1ce89fdbc87e487648a90fd8c29",
+  "policy_id": "NON_DESTRUCTIVE_POLICY",
+  "schema_version": "1.0.0",
+  "semantic_refactor_allowed": false,
+  "source_delete_allowed": false,
+  "source_move_allowed": false
+}

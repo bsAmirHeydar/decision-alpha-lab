@@ -1,0 +1,9 @@
+{
+  "all_protected": false,
+  "classification_id": "CLASSIFICATION_B23DFF50BC28E90A66ADA125A850234B",
+  "delete_authorized_count": 0,
+  "domain_migration_authorized_count": 0,
+  "protected_asset_count": 6026,
+  "report_digest": "sha256:d15390f5fa0668490074feffba1420db0f7e73adf07d8c6b081c8a754f9af12d",
+  "schema_version": "1.0.0"
+}

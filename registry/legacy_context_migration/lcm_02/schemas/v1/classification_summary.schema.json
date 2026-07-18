@@ -1,0 +1,21 @@
+{
+  "$id": "https://alpha-lab.local/lcm02/schemas/v1/classification_summary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "artifact_count": {},
+    "classification_id": {},
+    "disposition_counts": {},
+    "role_counts": {},
+    "summary_digest": {}
+  },
+  "required": [
+    "classification_id",
+    "artifact_count",
+    "role_counts",
+    "disposition_counts",
+    "summary_digest"
+  ],
+  "title": "LCM02 Classification Summary",
+  "type": "object"
+}

@@ -1,0 +1,9 @@
+{
+  "classification_id": "CLASSIFICATION_B23DFF50BC28E90A66ADA125A850234B",
+  "delete_authorized_count": 0,
+  "equivalence_review_required": true,
+  "exact_duplicate_member_count": 2715,
+  "merge_authorized_count": 0,
+  "report_digest": "sha256:fc997a032f674b74a394a3ecff23b165c463976a1f621baecc2880e1d07cfc26",
+  "schema_version": "1.0.0"
+}

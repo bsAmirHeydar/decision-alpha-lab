@@ -1,0 +1,8 @@
+{
+  "phase_id": "LCM-02",
+  "policy_digest": "sha256:0b9d17a7c332dfb9b80a8f6d9b49172bc58f45ebd3c7a676ecb95befc3f5c55e",
+  "policy_id": "SECURITY_RESTRICTION_POLICY",
+  "schema_version": "1.0.0",
+  "security_review_required": true,
+  "security_sensitive_downgrade_without_security_approval_allowed": false
+}

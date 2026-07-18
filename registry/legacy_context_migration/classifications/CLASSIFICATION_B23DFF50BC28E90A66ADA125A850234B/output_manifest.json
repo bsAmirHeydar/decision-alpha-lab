@@ -1,0 +1,192 @@
+{
+  "artifact_count": 36,
+  "artifacts": [
+    {
+      "path": "artifacts/artifact_classification_records.csv",
+      "sha256": "sha256:12da615b50e29ef5042be5416679da62700103e7a2ae1d9ad7b139d2cbccd80c",
+      "size_bytes": 36451297
+    },
+    {
+      "path": "artifacts/artifact_classification_records.jsonl",
+      "sha256": "sha256:d2b6d2a7514ce6a81c956ddbaf9dff5436a2fb5e4ce477c0c134266e4bae46c2",
+      "size_bytes": 78391335
+    },
+    {
+      "path": "authority/authority_boundary_records.csv",
+      "sha256": "sha256:acf6ca03573fa9064427ef5e04724541b6fd2f3ab3a70d28026f1ad2967e5221",
+      "size_bytes": 346134
+    },
+    {
+      "path": "authority/authority_boundary_records.jsonl",
+      "sha256": "sha256:5f5c0465c653733b39b43d701847f00265d54e977110c501c5d788913ae3553c",
+      "size_bytes": 669464
+    },
+    {
+      "path": "authority/authority_permit.json",
+      "sha256": "sha256:d99aa53df4f2e41a95b0295ddd13249d8035658036af0fe937dc0a166cf6ffe5",
+      "size_bytes": 1223
+    },
+    {
+      "path": "authority/security_sensitive_paths.csv",
+      "sha256": "sha256:1648d8109d612917350f6a0f68e284399d5ad7fee05436ff477fe138e36c9c03",
+      "size_bytes": 84693
+    },
+    {
+      "path": "classification_marker.json",
+      "sha256": "sha256:74ff2a9e14755ce88a4d1a94dbde2fb46c20ef6cf61d951ae835fed69251559c",
+      "size_bytes": 400
+    },
+    {
+      "path": "classification_receipt.json",
+      "sha256": "sha256:42aa3b4309af484a4cf33d7002ad80808a29a45471b72f8da45e5a75a21446be",
+      "size_bytes": 1335
+    },
+    {
+      "path": "docs/LCM02_AUTHORITY_BOUNDARY.md",
+      "sha256": "sha256:fe78098c78e5e5f68955397c4aaa51f4fd9af53300d7cf7c841e98a8160f11b8",
+      "size_bytes": 375
+    },
+    {
+      "path": "docs/LCM02_CLASSIFICATION_METHOD.md",
+      "sha256": "sha256:3ec0529d0e853a1d5774876fed1c12d2bd06acbb27e49f1fd0d86e3dcca79ba6",
+      "size_bytes": 749
+    },
+    {
+      "path": "docs/LCM02_EXECUTIVE_BRIEF.md",
+      "sha256": "sha256:a248321f2f0a08fd67c75b578be34d7da6a0bd540e08edaff600c151c8ecc5c2",
+      "size_bytes": 726
+    },
+    {
+      "path": "docs/LCM02_OWNERSHIP_BOUNDARY.md",
+      "sha256": "sha256:c84443534b80a5e8c13171d893271525d276f8a916a94d6d1ed9f01ff419dc0c",
+      "size_bytes": 596
+    },
+    {
+      "path": "docs/LCM02_TO_LCM03_HANDOFF.md",
+      "sha256": "sha256:bed924968f30a9eeda3ee162b0933fcb4fed79ae4d78b9fea7cfdbc2e1c8d989",
+      "size_bytes": 338
+    },
+    {
+      "path": "docs/LCM02_UNRESOLVED_QUEUES.md",
+      "sha256": "sha256:6ebd04762ae2ca6b5563e09fe5d654b628ddf2d4207c13cd781b9c6bfc71b17d",
+      "size_bytes": 401
+    },
+    {
+      "path": "duplicates/exact_duplicate_disposition_report.json",
+      "sha256": "sha256:1c5c998d663536e72b75c85d6bc5db67317c4462d41b0210dd4c0a2044fc0afc",
+      "size_bytes": 342
+    },
+    {
+      "path": "events/classification_event_ledger.json",
+      "sha256": "sha256:a22681e87e137e8b920729ea882deaaa5d7bb3eef893c9b3b95d310412d05fad",
+      "size_bytes": 5530
+    },
+    {
+      "path": "families/family_classification_summary.csv",
+      "sha256": "sha256:67416ee8b68158817199cc4fa31dba3903714818792144b8cb81428a99712a57",
+      "size_bytes": 11282
+    },
+    {
+      "path": "families/family_classification_summary.json",
+      "sha256": "sha256:e2c59aa5f0cd25fad44815e891d3f9b3f9e5fdc1da4fe67b1b1430f3163fed21",
+      "size_bytes": 22906
+    },
+    {
+      "path": "handoff/lcm02_to_lcm03_handoff.json",
+      "sha256": "sha256:cf5a8f6246ba4a236bd04fc7bb4c51aa17986197dc96b4e4d0a7c0472e1bc570",
+      "size_bytes": 1865
+    },
+    {
+      "path": "input/lcm01_binding.json",
+      "sha256": "sha256:891b6caf06c7ef15d5554af72489ce9f09e099187078122d29648f0a7c8332a4",
+      "size_bytes": 499
+    },
+    {
+      "path": "owners/owner_role_registry.json",
+      "sha256": "sha256:cf9ab3197fd1c85ce9191cf8eaa6c8e99c2e40e3db43d6cc678715a637770147",
+      "size_bytes": 17054
+    },
+    {
+      "path": "protection/protected_platform_assets.csv",
+      "sha256": "sha256:1cb97501e10487d471b766ba4b865979883e2bca94d5ba766e9e3da8ae952206",
+      "size_bytes": 1812570
+    },
+    {
+      "path": "protection/protected_platform_report.json",
+      "sha256": "sha256:0083a3ba923a596e8f156db542ffe97862632aa79d03a014ff2171816413a639",
+      "size_bytes": 333
+    },
+    {
+      "path": "provenance/classification_provenance_graph.json",
+      "sha256": "sha256:d7e5a13a22adef7aa9032e0f454fb6a96d38613323228a238f9d0e00b98cac13",
+      "size_bytes": 1546
+    },
+    {
+      "path": "registries/activity_status_registry.json",
+      "sha256": "sha256:a8fc0923390135b5e4c6ff11cd208cac79aefcacececcd1e8abc71815f7694a9",
+      "size_bytes": 482
+    },
+    {
+      "path": "registries/artifact_role_registry.json",
+      "sha256": "sha256:25d331299528c5718d915d9958d983a3003b6525f015c11eb61e1fe06eea7d59",
+      "size_bytes": 691
+    },
+    {
+      "path": "registries/authority_surface_registry.json",
+      "sha256": "sha256:137a8bb2df8a24ac99dcbcdce43660fbc87275a21b16993e8a095888be8e8009",
+      "size_bytes": 472
+    },
+    {
+      "path": "registries/primary_disposition_registry.json",
+      "sha256": "sha256:c8bef46dc02c266771c22d02d6b3640a379d48ce6fa74b9f146ea954d72d37ea",
+      "size_bytes": 595
+    },
+    {
+      "path": "reports/classification_summary.json",
+      "sha256": "sha256:4e7de69f6da7b1ebaf7ad0e8e41d1d0132ff6539578b95d0f54890ce8c18f233",
+      "size_bytes": 3183
+    },
+    {
+      "path": "unresolved/activity_queue.jsonl",
+      "sha256": "sha256:58008cf1fd36c815c0b9d8f5c178c655915ecdd97a9b6358afc04afb5f055cf2",
+      "size_bytes": 1100029
+    },
+    {
+      "path": "unresolved/ambiguous_role_queue.jsonl",
+      "sha256": "sha256:4609e43645b5e8089559062badf0ba6fabec322470caade3bdd784dee2ff74aa",
+      "size_bytes": 1649009
+    },
+    {
+      "path": "unresolved/duplicate_queue.jsonl",
+      "sha256": "sha256:e9af28b8bbaf870f39785953f420fa3e9f8289616f37a1daf3f6a68fca2332ca",
+      "size_bytes": 1763762
+    },
+    {
+      "path": "unresolved/generated_projection_queue.jsonl",
+      "sha256": "sha256:fb819b81514fa6d3a190e00270a5dc473c67c588327e757ccb799bb01b581605",
+      "size_bytes": 2990049
+    },
+    {
+      "path": "unresolved/owner_queue.jsonl",
+      "sha256": "sha256:f3deaf63514540f76c286a6c22154b93dbf2dcb9539b243edc7e457923bd9683",
+      "size_bytes": 22912641
+    },
+    {
+      "path": "unresolved/security_queue.jsonl",
+      "sha256": "sha256:baecf1d906372e0dfbf5da97a52a85c5e05e53b6ad304a843d7dd4872ac282ee",
+      "size_bytes": 192087
+    },
+    {
+      "path": "unresolved/unresolved_summary.json",
+      "sha256": "sha256:1c02c72aaadb49c4583886b8b40f64457be8cf45d7a7f403fcc96c5e010ab437",
+      "size_bytes": 484
+    }
+  ],
+  "classification_id": "CLASSIFICATION_B23DFF50BC28E90A66ADA125A850234B",
+  "output_manifest_digest": "sha256:409f36cdf53925ee90bce92e8953ff498eaf2a35bcfd5582408249fbca72d61b",
+  "phase_id": "LCM-02",
+  "schema_version": "1.0.0",
+  "semantic_refactor_performed": false,
+  "source_delete_performed": false,
+  "source_move_performed": false
+}

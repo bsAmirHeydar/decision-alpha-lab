@@ -1,0 +1,8 @@
+{
+  "extraction_requires_parity_later": true,
+  "folder_location_proves_shared_semantics": false,
+  "phase_id": "LCM-02",
+  "policy_digest": "sha256:bb2cb55c3a69d8d12bf8ac77fad80cdee18c645d84788345d043466b514cc74e",
+  "policy_id": "SHARED_UTILITY_POLICY",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,17 @@
+{
+  "$id": "https://alpha-lab.local/lcm02/schemas/v1/protected_platform_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "classification_id": {},
+    "protected_asset_count": {},
+    "report_digest": {}
+  },
+  "required": [
+    "classification_id",
+    "protected_asset_count",
+    "report_digest"
+  ],
+  "title": "LCM02 Protected Platform Report",
+  "type": "object"
+}

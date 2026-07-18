@@ -1,0 +1,8 @@
+{
+  "experiment_identifier_is_single_context_proof": false,
+  "family_candidate_is_domain_semantic_approval": false,
+  "phase_id": "LCM-02",
+  "policy_digest": "sha256:0804a99af8c61cb086d94383878997b9f9248e5f2963373274be0994684dd0ce",
+  "policy_id": "FAMILY_SEMANTICS_POLICY",
+  "schema_version": "1.0.0"
+}

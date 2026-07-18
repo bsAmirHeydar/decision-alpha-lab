@@ -1,0 +1,17 @@
+{
+  "$id": "https://alpha-lab.local/lcm02/schemas/v1/family_classification_summary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "classification_id": {},
+    "families": {},
+    "summary_digest": {}
+  },
+  "required": [
+    "classification_id",
+    "families",
+    "summary_digest"
+  ],
+  "title": "LCM02 Family Summary",
+  "type": "object"
+}

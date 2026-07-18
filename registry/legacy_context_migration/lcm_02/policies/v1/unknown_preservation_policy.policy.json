@@ -1,0 +1,9 @@
+{
+  "phase_id": "LCM-02",
+  "policy_digest": "sha256:bc32c51307363254909a54786e8b9a9844d07bcb392def489823ac3cd7e52c5d",
+  "policy_id": "UNKNOWN_PRESERVATION_POLICY",
+  "schema_version": "1.0.0",
+  "unknown_is_canonical_authority": false,
+  "unknown_is_delete_authority": false,
+  "unknown_is_pass": false
+}

@@ -1,0 +1,16 @@
+{
+  "classification_id": "CLASSIFICATION_B23DFF50BC28E90A66ADA125A850234B",
+  "human_resolution_required": true,
+  "queue_counts": {
+    "activity": 1948,
+    "ambiguous_role": 2977,
+    "duplicate": 2715,
+    "generated_projection": 4679,
+    "owner": 38595,
+    "security": 279
+  },
+  "schema_version": "1.0.0",
+  "summary_digest": "sha256:031e16284efffd0e207d32bc5de847616ba2ab33676325c8cb2941dac2bc69d1",
+  "unknown_is_not_delete_authority": true,
+  "unknown_is_not_pass": true
+}

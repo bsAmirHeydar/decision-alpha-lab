@@ -1,0 +1,8 @@
+{
+  "authority_flags_false": true,
+  "hash_linked_events_required": true,
+  "phase_id": "LCM-02",
+  "policy_digest": "sha256:2f1143c9a52e67fb834cb695213d7ed85fed0e91c936f98b37ce637a968192b9",
+  "policy_id": "EVENT_LEDGER_POLICY",
+  "schema_version": "1.0.0"
+}

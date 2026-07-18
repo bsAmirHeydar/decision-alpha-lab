@@ -1,0 +1,23 @@
+{
+  "$id": "https://alpha-lab.local/lcm02/schemas/v1/artifact_classification_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "activity_status": {},
+    "artifact_path": {},
+    "artifact_role": {},
+    "classification_digest": {},
+    "classification_id": {},
+    "primary_disposition": {}
+  },
+  "required": [
+    "classification_id",
+    "artifact_path",
+    "artifact_role",
+    "activity_status",
+    "primary_disposition",
+    "classification_digest"
+  ],
+  "title": "LCM02 Artifact Classification Record",
+  "type": "object"
+}

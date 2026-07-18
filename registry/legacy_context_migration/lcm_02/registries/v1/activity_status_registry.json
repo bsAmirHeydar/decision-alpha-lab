@@ -1,0 +1,19 @@
+{
+  "closed": true,
+  "registry_digest": "sha256:cf1133556973802a0e86773828933a357401662fa8a8904df7ec6cda2b514bac",
+  "registry_id": "LCM02_ACTIVITY_STATUS_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "statuses": [
+    "ACTIVE_PLATFORM",
+    "ACTIVE_RUNTIME_CANDIDATE",
+    "ACTIVE_RESEARCH",
+    "TEST_ONLY",
+    "DOCUMENTATION_ONLY",
+    "GENERATED",
+    "ARCHIVED",
+    "RELEASE_HISTORY",
+    "CONFIGURATION",
+    "UNKNOWN_ACTIVITY"
+  ],
+  "unknown_is_delete_authority": false
+}

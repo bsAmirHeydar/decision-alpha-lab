@@ -1,0 +1,8 @@
+{
+  "active_artifact_requires_owner_role_or_explicit_block": true,
+  "phase_id": "LCM-02",
+  "policy_digest": "sha256:307b3e5b614f610a0b70436036bdc49af226c7877f9cfacfcd25846b75687110",
+  "policy_id": "ACTIVE_ARTIFACT_OWNERSHIP_POLICY",
+  "schema_version": "1.0.0",
+  "unapproved_owner_blocks_cutover": true
+}

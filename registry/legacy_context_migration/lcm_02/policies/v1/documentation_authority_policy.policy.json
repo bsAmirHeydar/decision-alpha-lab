@@ -1,0 +1,8 @@
+{
+  "derived_docs_are_source_of_truth": false,
+  "master_architecture_precedence_preserved": true,
+  "phase_id": "LCM-02",
+  "policy_digest": "sha256:4f10764bf25551d4974ad18b46060148a5c5dd6f3ce943d3d8ae786d64dc3f5a",
+  "policy_id": "DOCUMENTATION_AUTHORITY_POLICY",
+  "schema_version": "1.0.0"
+}

@@ -42,3 +42,10 @@ LCM is not a new alpha-discovery phase and is not permission to rewrite old logi
 `LEGACY_MIGRATION_PROGRAM_DESIGN_ONLY`
 
 This package defines the migration operating system and inventories the current repository. It does not migrate a Context, prove MQL5 parity, authorize execution, remove a legacy file or activate capital.
+
+## Current implementation status
+
+- LCM-00 implemented reference baseline freeze.
+- LCM-01 implemented reference forensic survey.
+- **LCM-02 implemented reference classification, ownership-role binding and authority isolation.**
+- Next: [[LCM_03_CANONICAL_IDENTITY_ALIAS_AND_LOCATOR]].

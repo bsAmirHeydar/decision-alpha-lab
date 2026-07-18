@@ -1,0 +1,8 @@
+{
+  "exactly_one_primary_disposition_required": true,
+  "multiple_primary_dispositions_rejected": true,
+  "phase_id": "LCM-02",
+  "policy_digest": "sha256:bad6edb9a8040e568bdd2372ab944b0783455d35a16d60b0355d6f617b6ed45f",
+  "policy_id": "SINGLE_PRIMARY_DISPOSITION_POLICY",
+  "schema_version": "1.0.0"
+}

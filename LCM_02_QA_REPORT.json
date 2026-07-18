@@ -1,0 +1,158 @@
+{
+  "claim_ceiling": "CLASSIFICATION_AND_OWNERSHIP_REFERENCE_ONLY",
+  "clean_overlay_installation": {
+    "acl15_regression_tests_passed": 39,
+    "classification_package_verification_passed": true,
+    "installation_passed": true,
+    "lcm00_regression_tests_passed": 29,
+    "lcm01_regression_tests_passed": 25,
+    "lcm02_tests_passed": 31,
+    "patch_index_missing_path_count": 0,
+    "python_compileall_passed": true
+  },
+  "environment_limitations": [
+    "SOURCE_ARCHIVE_DID_NOT_INCLUDE_GIT_METADATA",
+    "STATIC_CLASSIFICATION_DOES_NOT_PROVE_RUNTIME_REACHABILITY",
+    "HUMAN_OWNER_ASSIGNMENTS_REMAIN_PENDING",
+    "METAEDITOR_AND_MT5_RUNTIME_NOT_AVAILABLE_IN_REFERENCE_ENVIRONMENT"
+  ],
+  "implementation": {
+    "atomic_concept_document_count": 99,
+    "closed_registry_count": 5,
+    "machine_policy_count": 25,
+    "phase_delivery_document_count": 69,
+    "python_module_count": 26,
+    "schema_count": 15
+  },
+  "patch_preflight": {
+    "json_parse_count": 65,
+    "passed": true,
+    "path_traversal_count": 0,
+    "payload_inventory_row_count": 291,
+    "pycache_or_pyc_count": 0,
+    "root_relative_path_count": 296,
+    "schema_metaschema_count": 15
+  },
+  "phase_id": "LCM-02",
+  "reference_classification": {
+    "active_candidate_count": 4832,
+    "active_unowned_blocked_count": 4832,
+    "activity_counts": {
+      "ACTIVE_PLATFORM": 3467,
+      "ACTIVE_RESEARCH": 1196,
+      "ACTIVE_RUNTIME_CANDIDATE": 169,
+      "ARCHIVED": 4,
+      "CONFIGURATION": 5820,
+      "DOCUMENTATION_ONLY": 17953,
+      "GENERATED": 4679,
+      "RELEASE_HISTORY": 1147,
+      "TEST_ONLY": 2212,
+      "UNKNOWN_ACTIVITY": 1948
+    },
+    "artifact_count": 38595,
+    "classification_id": "CLASSIFICATION_B23DFF50BC28E90A66ADA125A850234B",
+    "classification_summary_digest": "sha256:ff2d713c30874eaaf1ae6efb678754414759fcb7922b260fca39d82bcd0c24ee",
+    "disposition_counts": {
+      "ARCHIVE_REFERENCE_ONLY": 5830,
+      "EXTRACT_SHARED_LOGIC": 53,
+      "KEEP_CANONICAL": 3423,
+      "MERGE_AFTER_EQUIVALENCE_PROOF": 2494,
+      "MOVE_WITHOUT_SEMANTIC_CHANGE": 22557,
+      "QUARANTINE_UNCERTAIN": 3071,
+      "REWRITE_WITH_PARITY": 201,
+      "SECURITY_RESTRICTED": 279,
+      "WRAP_LEGACY": 687
+    },
+    "event_ledger_digest": "sha256:4f85b07e13711ab729118e723156e20c1626f9bcc7808e95a0de7fac3707561a",
+    "generated_projection_canonical_count": 0,
+    "generated_projection_count": 4679,
+    "lcm03_handoff_digest": "sha256:e85ebcc1816c1964c17d424848c349e57223637af9c7aa366cde3d3d64beb9c8",
+    "output_manifest_digest": "sha256:409f36cdf53925ee90bce92e8953ff498eaf2a35bcfd5582408249fbca72d61b",
+    "owner_registry_digest": "sha256:762b6e811513d21d1ce82ad03427503795a922dfa8c4ff2f80481c834125f1c5",
+    "protected_platform_count": 6026,
+    "provenance_graph_digest": "sha256:b5301ebd2f7745cec160a1127183226b80d6dc59e651cc72fdc4269251476ed1",
+    "receipt_digest": "sha256:e14a667a4ab4aea787db99439054ff975164f8adb2c31a49272f3284ce433b43",
+    "role_counts": {
+      "ARCHIVE": 4,
+      "CONFIGURATION_CONTRACT": 5812,
+      "CONTEXT": 403,
+      "DIAGNOSTIC": 159,
+      "DOCUMENTATION": 17134,
+      "EXECUTION_ADAPTER": 83,
+      "GENERATED_PROJECTION": 4679,
+      "GOVERNANCE_CONTROL": 8,
+      "PLATFORM_ADAPTER": 108,
+      "PLATFORM_KERNEL": 2506,
+      "RELEASE_METADATA": 1147,
+      "RESEARCH": 95,
+      "SETUP": 88,
+      "SHARED_PRIMITIVE": 68,
+      "SOURCE_EVIDENCE": 819,
+      "TEST_CODE": 1381,
+      "TEST_FIXTURE": 831,
+      "TREATMENT": 238,
+      "UNKNOWN_ROLE": 2977,
+      "VISUALIZER": 55
+    },
+    "security_sensitive_count": 279,
+    "unknown_activity_count": 1948,
+    "unknown_role_count": 2977,
+    "unresolved_queue_counts": {
+      "activity": 1948,
+      "ambiguous_role": 2977,
+      "duplicate": 2715,
+      "generated_projection": 4679,
+      "owner": 38595,
+      "security": 279
+    }
+  },
+  "reference_package_verification": {
+    "artifact_classification_record_count": 38595,
+    "package_artifact_count": 36,
+    "passed": true
+  },
+  "result": "PASSED",
+  "schema_version": "1.0.0",
+  "security_boundary": {
+    "capital_authority_created": false,
+    "cutover_authority_created": false,
+    "human_approval_claimed": false,
+    "live_order_authority_created": false,
+    "merge_authority_created": false,
+    "runtime_authority_created": false,
+    "semantic_refactor_authority_created": false,
+    "source_delete_authority_created": false,
+    "source_move_authority_created": false
+  },
+  "source_changes": {
+    "added_or_modified": 296,
+    "context_migrations": 0,
+    "deleted": 0,
+    "legacy_source_modified": 0,
+    "moved": 0,
+    "setup_migrations": 0
+  },
+  "tests": {
+    "acl15_regression": {
+      "failed": 0,
+      "passed": 39
+    },
+    "lcm00_regression": {
+      "failed": 0,
+      "passed": 29
+    },
+    "lcm01_regression": {
+      "failed": 0,
+      "passed": 25
+    },
+    "lcm02": {
+      "failed": 0,
+      "passed": 31
+    }
+  },
+  "upstream_binding": {
+    "lcm01_handoff_digest": "sha256:f0539f7dff28ac09eeb551c4e7f6a4ca08c95601a284b0ba4e8e8f487235c33d",
+    "survey_artifact_count": 38595,
+    "survey_id": "SURVEY_D4EC5C533F886BC439DAEEBDE51FA080"
+  }
+}

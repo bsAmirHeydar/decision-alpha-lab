@@ -1,0 +1,8 @@
+{
+  "phase_id": "LCM-02",
+  "policy_digest": "sha256:8cbd31ce708fc9a7dccd8e5f9eca0e120109d4aceb0faf6dffdbaf23c740488e",
+  "policy_id": "CAPABILITY_SEMANTICS_POLICY",
+  "reachability_claimed": false,
+  "schema_version": "1.0.0",
+  "static_capability_hit_is_live_authority": false
+}

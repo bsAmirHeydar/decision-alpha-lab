@@ -1,0 +1,10 @@
+{
+  "claim_ceiling": "CLASSIFICATION_AND_OWNERSHIP_REFERENCE_ONLY",
+  "classification_id": "CLASSIFICATION_B23DFF50BC28E90A66ADA125A850234B",
+  "marker_digest": "sha256:aded554575d92ed1ec4dbfa8b3b5947ed23f9154fb2ba112cd91621798f092c9",
+  "phase_id": "LCM-02",
+  "schema_version": "1.0.0",
+  "semantic_refactor_performed": false,
+  "source_delete_performed": false,
+  "source_move_performed": false
+}

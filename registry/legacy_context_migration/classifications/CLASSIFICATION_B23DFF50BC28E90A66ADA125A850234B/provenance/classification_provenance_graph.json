@@ -1,0 +1,52 @@
+{
+  "capital_authority_created": false,
+  "classification_id": "CLASSIFICATION_B23DFF50BC28E90A66ADA125A850234B",
+  "edges": [
+    {
+      "from": "LCM01_HANDOFF",
+      "to": "LCM02_CLASSIFICATION_SUMMARY"
+    },
+    {
+      "from": "LCM01_SURVEY_SUMMARY",
+      "to": "LCM02_CLASSIFICATION_SUMMARY"
+    },
+    {
+      "from": "LCM02_CLASSIFICATION_SUMMARY",
+      "to": "LCM02_OWNER_REGISTRY"
+    },
+    {
+      "from": "LCM02_OWNER_REGISTRY",
+      "to": "LCM02_EVENT_LEDGER"
+    }
+  ],
+  "generated_projection_promoted": false,
+  "graph_digest": "sha256:b5301ebd2f7745cec160a1127183226b80d6dc59e651cc72fdc4269251476ed1",
+  "live_order_authority_created": false,
+  "nodes": [
+    {
+      "digest": "sha256:f0539f7dff28ac09eeb551c4e7f6a4ca08c95601a284b0ba4e8e8f487235c33d",
+      "id": "LCM01_HANDOFF"
+    },
+    {
+      "digest": "sha256:276c743a95a386cba1fee5ef7f50a7755accd9358aaf9d9c8a341f7cf2e9a8c4",
+      "id": "LCM01_SURVEY_SUMMARY"
+    },
+    {
+      "digest": "sha256:ff2d713c30874eaaf1ae6efb678754414759fcb7922b260fca39d82bcd0c24ee",
+      "id": "LCM02_CLASSIFICATION_SUMMARY"
+    },
+    {
+      "digest": "sha256:762b6e811513d21d1ce82ad03427503795a922dfa8c4ff2f80481c834125f1c5",
+      "id": "LCM02_OWNER_REGISTRY"
+    },
+    {
+      "digest": "sha256:4f85b07e13711ab729118e723156e20c1626f9bcc7808e95a0de7fac3707561a",
+      "id": "LCM02_EVENT_LEDGER"
+    }
+  ],
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "source_files_deleted": false,
+  "source_files_moved": false,
+  "source_semantics_mutated": false
+}

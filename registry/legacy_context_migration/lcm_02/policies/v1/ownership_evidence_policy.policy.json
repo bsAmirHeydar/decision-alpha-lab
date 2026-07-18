@@ -1,0 +1,9 @@
+{
+  "commit_authorship_is_ownership": false,
+  "folder_name_is_ownership": false,
+  "phase_id": "LCM-02",
+  "policy_digest": "sha256:da43e5df57ae971a2142667b07dad376453c3f90a2890fa8f6089d338792a4d4",
+  "policy_id": "OWNERSHIP_EVIDENCE_POLICY",
+  "role_binding_requires_human_assignee_for_approval": true,
+  "schema_version": "1.0.0"
+}

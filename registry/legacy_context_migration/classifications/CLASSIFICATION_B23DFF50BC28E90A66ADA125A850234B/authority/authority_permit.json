@@ -1,0 +1,30 @@
+{
+  "action": "LCM02_CLASSIFY_OWNERSHIP_AND_AUTHORITY",
+  "capabilities": {
+    "capital_activation_allowed": false,
+    "classify_artifacts_allowed": true,
+    "cutover_allowed": false,
+    "delete_source_files_allowed": false,
+    "live_order_submission_allowed": false,
+    "merge_legacy_implementations_allowed": false,
+    "move_source_files_allowed": false,
+    "network_access_allowed": false,
+    "production_key_access_allowed": false,
+    "propose_owner_roles_allowed": true,
+    "register_authority_boundaries_allowed": true,
+    "runtime_generation_allowed": false,
+    "secret_access_allowed": false,
+    "semantic_refactor_allowed": false
+  },
+  "expires_at": "2099-12-31T23:59:59Z",
+  "human_approval_claimed": false,
+  "issued_at": "2026-07-18T00:00:00Z",
+  "issuer": "ALPHA_LAB_REFERENCE_ARCHITECTURE_AUTHORITY",
+  "permit_digest": "sha256:016f81f5acf700679e58abfefc0fb5d8cf962d98c70b97747778d40eaa7af347",
+  "permit_id": "PERMIT_LCM02_REFERENCE_CLASSIFICATION_V1",
+  "phase_id": "LCM-02",
+  "reference_only": true,
+  "schema_version": "1.0.0",
+  "source_handoff_digest": "sha256:f0539f7dff28ac09eeb551c4e7f6a4ca08c95601a284b0ba4e8e8f487235c33d",
+  "survey_id": "SURVEY_D4EC5C533F886BC439DAEEBDE51FA080"
+}

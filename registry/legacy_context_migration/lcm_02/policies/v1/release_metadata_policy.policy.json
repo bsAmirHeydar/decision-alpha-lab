@@ -1,0 +1,8 @@
+{
+  "archive_before_delete_required": true,
+  "phase_id": "LCM-02",
+  "policy_digest": "sha256:91bb14bb0c5368eee917a92b88e17670c76dac1fbf89691c6d40a615eede7f6b",
+  "policy_id": "RELEASE_METADATA_POLICY",
+  "release_history_is_domain_doctrine": false,
+  "schema_version": "1.0.0"
+}

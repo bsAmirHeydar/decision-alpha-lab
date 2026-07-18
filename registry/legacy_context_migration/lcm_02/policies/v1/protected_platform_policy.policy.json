@@ -1,0 +1,8 @@
+{
+  "phase_id": "LCM-02",
+  "platform_kernel_delete_allowed": false,
+  "platform_kernel_domain_migration_allowed": false,
+  "policy_digest": "sha256:3ea284bb3512ed3b80d50793abebe24844210fbc1758b7c475ccd83a56916761",
+  "policy_id": "PROTECTED_PLATFORM_POLICY",
+  "schema_version": "1.0.0"
+}
