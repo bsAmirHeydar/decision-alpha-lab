@@ -1,0 +1,31 @@
+{
+  "$id": "https://alpha-lab.local/acl-os/acl-15/fleet_provenance_graph.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "edges": {
+      "type": "array"
+    },
+    "graph_digest": {
+      "type": "string"
+    },
+    "graph_id": {
+      "type": "string"
+    },
+    "nodes": {
+      "type": "array"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "graph_id",
+    "nodes",
+    "edges",
+    "graph_digest"
+  ],
+  "title": "fleet_provenance_graph",
+  "type": "object"
+}

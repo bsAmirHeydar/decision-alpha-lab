@@ -1,0 +1,17 @@
+{
+  "acl14_package_verified": true,
+  "capital_authority_created": false,
+  "failures_preserved": true,
+  "integrity_report_digest": "sha256:0fd5dcd9d97e1406ea5b56d108e942d477ea77f796f96cb6c2c889aa147699b7",
+  "live_order_authority_created": false,
+  "passed": true,
+  "pilot_execution_state_preserved": true,
+  "pilot_outcomes_invented": false,
+  "pilot_readiness_preserved": true,
+  "promotion_bypassed": false,
+  "prospective_evidence_invented": false,
+  "runtime_generated": false,
+  "schema_version": "1.0.0",
+  "unknowns_preserved": true,
+  "validation_bypassed": false
+}

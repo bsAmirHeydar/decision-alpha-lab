@@ -1,0 +1,17 @@
+{
+  "allowed_next_action": "AUTHOR_NEW_REAL_CONTEXT_PILOT_PACKAGE",
+  "answer_first": "The ACL reference lifecycle is closed as a governed, non-capital, non-executed package. Reopening requires new authorized real evidence.",
+  "closure_state": "REFERENCE_LIFECYCLE_CLOSED_NON_CAPITAL",
+  "executive_brief_digest": "sha256:0b76f1c14bf4f8511746e319c434820c7d0551a8ea430e6c9cae7c81268aaec0",
+  "executive_brief_id": "EXECBRIEF_488E46E41FE62B494826D136BF554D30",
+  "fleet_closure_run_id": "FLEETRUN_5B7EBC1BD7165BBA3FE06ABDBA95BE02",
+  "key_facts": [
+    "ACL-14 package integrity verified",
+    "pilot design preserved",
+    "zero prospective outcomes",
+    "fleet ownership, retention and surveillance contracts registered",
+    "reference lifecycle closed without validation, runtime, orders or capital"
+  ],
+  "production_readiness_claimed": false,
+  "schema_version": "1.0.0"
+}

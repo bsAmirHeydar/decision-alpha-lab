@@ -1,0 +1,31 @@
+{
+  "$id": "https://alpha-lab.local/acl-os/acl-15/fleet_operations_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "fleet_id": {
+      "type": "string"
+    },
+    "fleet_operations_manifest_digest": {
+      "type": "string"
+    },
+    "fleet_operations_manifest_id": {
+      "type": "string"
+    },
+    "packages": {
+      "type": "array"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "fleet_operations_manifest_id",
+    "fleet_id",
+    "packages",
+    "fleet_operations_manifest_digest"
+  ],
+  "title": "fleet_operations_manifest",
+  "type": "object"
+}

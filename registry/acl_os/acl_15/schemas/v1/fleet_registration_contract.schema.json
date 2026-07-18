@@ -1,0 +1,39 @@
+{
+  "$id": "https://alpha-lab.local/acl-os/acl-15/fleet_registration_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "fleet_id": {
+      "type": "string"
+    },
+    "fleet_registration_digest": {
+      "type": "string"
+    },
+    "fleet_registration_id": {
+      "type": "string"
+    },
+    "fleet_status": {
+      "type": "string"
+    },
+    "pilot_contract_id": {
+      "type": "string"
+    },
+    "pilot_run_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "fleet_registration_id",
+    "fleet_id",
+    "pilot_run_id",
+    "pilot_contract_id",
+    "fleet_status",
+    "fleet_registration_digest"
+  ],
+  "title": "fleet_registration_contract",
+  "type": "object"
+}

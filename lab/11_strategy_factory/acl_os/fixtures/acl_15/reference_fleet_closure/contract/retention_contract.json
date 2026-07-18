@@ -1,0 +1,12 @@
+{
+  "archive_digest_required": true,
+  "deletion_allowed": false,
+  "fleet_id": "FLEET_5E9C4D18B97A729CB7A2588ABB3BA866",
+  "immutable_history_required": true,
+  "legal_hold_supported": true,
+  "minimum_days": 3650,
+  "retention_class": "IMMUTABLE_REFERENCE_RESEARCH_RECORD",
+  "retention_contract_digest": "sha256:6332da23952969a3c565a05562b98495b133b344b3b6b74cd6ff66d9b4496a9c",
+  "retention_contract_id": "RETENTION_0C39E1A49161CB9C1CAFD9FA0A65BB76",
+  "schema_version": "1.0.0"
+}

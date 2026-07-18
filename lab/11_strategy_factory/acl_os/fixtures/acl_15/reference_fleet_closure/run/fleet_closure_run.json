@@ -1,0 +1,19 @@
+{
+  "capital_activation_count": 0,
+  "claim_ceiling": "FLEET_OPERATIONS_AND_CLOSURE_REFERENCE_ONLY",
+  "closed_at": "2026-07-18T11:00:00Z",
+  "closure_state": "REFERENCE_LIFECYCLE_CLOSED_NON_CAPITAL",
+  "fleet_closure_run_digest": "sha256:d043a195fc4b134fddac7a967215e5286696ad7fcb78b4795d0326b97bce9ae4",
+  "fleet_closure_run_id": "FLEETRUN_5B7EBC1BD7165BBA3FE06ABDBA95BE02",
+  "fleet_id": "FLEET_5E9C4D18B97A729CB7A2588ABB3BA866",
+  "live_order_count": 0,
+  "package_count": 1,
+  "pilot_contract_id": "PILOT_8BDD42A1425EBEC115615A7E8D99DE94",
+  "pilot_execution_count": 0,
+  "pilot_run_id": "PILOTRUN_4D706242CEEF5700D2A4D71BDB2A17E2",
+  "prospective_observation_rows": 0,
+  "runtime_generation_count": 0,
+  "schema_version": "1.0.0",
+  "service_version": "1.0.0",
+  "state": "COMPLETED_REFERENCE_FLEET_CLOSURE_NON_CAPITAL"
+}

@@ -1,0 +1,20 @@
+{
+  "artifact_inventory_scope": "PAYLOAD_ONLY",
+  "claim_ceiling": "FLEET_OPERATIONS_AND_CLOSURE_REFERENCE_ONLY",
+  "commit_subject": "feat(acl-os): implement ACL-15 fleet operations and closure",
+  "deletion_count": 0,
+  "file_hash_ledger_scope": "PAYLOAD_ONLY",
+  "patch_id": "ACL_OS_15_FLEET_OPERATIONS_AND_CLOSURE_PATCH",
+  "payload_bytes": 340030,
+  "payload_file_count": 408,
+  "payload_manifest_sha256": "07c628dca72cd5ddac3733be09a5c5a6ce98f1dcf07820d6dfc657a978b12ed5",
+  "phase": "ACL-15",
+  "qa_passed": true,
+  "reference_fleet_id": "FLEET_5E9C4D18B97A729CB7A2588ABB3BA866",
+  "reference_handoff_digest": "sha256:7dc4fce60abb64cf9b86bc0f9c06da8830012353673f1ebcdb285cb1a31a2718",
+  "reference_result": "REFERENCE_LIFECYCLE_CLOSED_NON_CAPITAL_REOPEN_REQUIRES_NEW_EVIDENCE",
+  "reference_run_id": "FLEETRUN_5B7EBC1BD7165BBA3FE06ABDBA95BE02",
+  "root_relative": true,
+  "schema_version": "1.0.0",
+  "version": "1.0.0"
+}

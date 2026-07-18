@@ -1,0 +1,199 @@
+{
+  "artifact_count": 38,
+  "files": [
+    {
+      "digest": "sha256:f51f28bda293756799c4979f132215de8656f038212a064fac54515485630ce7",
+      "path": ".acl15_generated_root",
+      "size_bytes": 54
+    },
+    {
+      "digest": "sha256:9f2cc5b9dd41d501dccae8a0f1989e4c0358bbe2e5aab75db800608c20fcfc66",
+      "path": "authority/authority_report.json",
+      "size_bytes": 762
+    },
+    {
+      "digest": "sha256:75e82011e2f7fd88917af1a32aa51e2d4704ccc7147deca4ccf6017423adbe7a",
+      "path": "binding/acl14_binding.json",
+      "size_bytes": 1122
+    },
+    {
+      "digest": "sha256:ef21a88b7e65d1717497c4ce4a4ab7b9894cc2ced30533b4259e24defbb28d79",
+      "path": "contract/closure_policy.json",
+      "size_bytes": 635
+    },
+    {
+      "digest": "sha256:821495258371b1824fb30b4299160abaeda27ee72beb997696e78bab42fb80cc",
+      "path": "contract/fleet_registration_contract.json",
+      "size_bytes": 1531
+    },
+    {
+      "digest": "sha256:0e6d82c61051cc193391c6525350dc0728a1c196c1a9b190a8a8deff738a02cf",
+      "path": "contract/lifecycle_ownership_contract.json",
+      "size_bytes": 775
+    },
+    {
+      "digest": "sha256:982f66ee5fd4608f757d31427ab933c5d36b141b563ddaf933102a06008aafb6",
+      "path": "contract/migration_contract.json",
+      "size_bytes": 548
+    },
+    {
+      "digest": "sha256:25a375ddeb3f1c7c547d4a5dcbaea06f8e2a48d0802fdd710d0a0d16cf93d323",
+      "path": "contract/reopen_policy.json",
+      "size_bytes": 621
+    },
+    {
+      "digest": "sha256:014229dfe8d3184cc54f42ed03254ef8a7b0caa4827c4b51efcab921c10dbb95",
+      "path": "contract/retention_contract.json",
+      "size_bytes": 485
+    },
+    {
+      "digest": "sha256:66440e158247d84490a12e5ad551261d26b07f480257cb026e2d2aa193db4384",
+      "path": "contract/surveillance_contract.json",
+      "size_bytes": 731
+    },
+    {
+      "digest": "sha256:f16c250e61b9d9cdd65b97caf5c98c3e3b03c60e6c3eb330bc46d39262a035fc",
+      "path": "decision/non_capital_closure_decision.json",
+      "size_bytes": 1257
+    },
+    {
+      "digest": "sha256:a35026c283e3876a54665cbb772721e2fc5c3b2024fae3c6c20ade4a57776879",
+      "path": "docs/ACL15_CLOSURE_DECISION.md",
+      "size_bytes": 164
+    },
+    {
+      "digest": "sha256:23a9639bf4c4107aeb91bad3d32eebb9019965180382c8276bf8b108bbb35799",
+      "path": "docs/ACL15_EXECUTIVE_BRIEF.md",
+      "size_bytes": 162
+    },
+    {
+      "digest": "sha256:4cc4597ca15141a4b070239afa3bbe7273afa6064a28168ac5ec27391a8e32b9",
+      "path": "docs/ACL15_FLEET_REGISTRATION.md",
+      "size_bytes": 130
+    },
+    {
+      "digest": "sha256:fe097e9075a7b1da1c22e4015099d7ae7e3eef6c964259c053e9f1819c9f3c14",
+      "path": "docs/ACL15_PROGRAM_CLOSURE.md",
+      "size_bytes": 132
+    },
+    {
+      "digest": "sha256:cbf65d653b1aea6ba4d80c2e353b3fd54e69f08c756d48ee29f71433681b31c8",
+      "path": "docs/ACL15_REOPEN_AND_MIGRATION.md",
+      "size_bytes": 146
+    },
+    {
+      "digest": "sha256:929183be41268efbf9c5fe884c2695e332a41d226ec2b1139f2690dd7faf9be5",
+      "path": "docs/ACL15_RETENTION_AND_SURVEILLANCE.md",
+      "size_bytes": 130
+    },
+    {
+      "digest": "sha256:136934e88ddb45799f69781df204ae6a82432d72e933734546e64ea77bea25b0",
+      "path": "docs/obsidian_projection_manifest.json",
+      "size_bytes": 1174
+    },
+    {
+      "digest": "sha256:9b6c3bc8a89b8fd7dc33dcf2bc458f6230e8cef90b0df004f81f30900b373965",
+      "path": "events/fleet_event_ledger.json",
+      "size_bytes": 6956
+    },
+    {
+      "digest": "sha256:1cff5494e67eaf58d592da76de370c712d1e8537ff79c211f3b1352c4f3948e7",
+      "path": "evidence/pilot_evidence_inventory.json",
+      "size_bytes": 662
+    },
+    {
+      "digest": "sha256:3dd8598a0f3fa63f6128f8f99bbe9b110164f86592bfcd75e3f57fea5fb1bb0f",
+      "path": "execution/runtime_and_order_manifest.json",
+      "size_bytes": 618
+    },
+    {
+      "digest": "sha256:fbeecf9d43f548975f290858fa1032f038f7e51df96284e105f694c62c76b762",
+      "path": "handoff/lifecycle_closure_handoff.json",
+      "size_bytes": 1960
+    },
+    {
+      "digest": "sha256:1a30bec7c68b3c3f3373fb2ff934870831c4d429d9ddc62e2cb67f0391b57525",
+      "path": "lineage/fleet_provenance_graph.json",
+      "size_bytes": 2175
+    },
+    {
+      "digest": "sha256:2f2f24f85dddc34180b527d11bd08768b590b1cac54001b9d4549656df6b5e51",
+      "path": "operations/fleet_operations_manifest.json",
+      "size_bytes": 844
+    },
+    {
+      "digest": "sha256:34281bf0be5b5aec80f4987907ef77ded26f0ba0a5c6bde9ee8db2bb3b2a269c",
+      "path": "policy/fleet_closure_policy.json",
+      "size_bytes": 1439
+    },
+    {
+      "digest": "sha256:a9e45cb631d15a43031989b4a7592551632099ebf78d2f247320fe46b23b5349",
+      "path": "registry/action_registry.json",
+      "size_bytes": 667
+    },
+    {
+      "digest": "sha256:56f6c4056df41c28a2724e8bbd87718e26a8f84053cea14ce8387934c7a9cb19",
+      "path": "registry/closure_state_registry.json",
+      "size_bytes": 585
+    },
+    {
+      "digest": "sha256:35f316f94fab1fb8f8378cb74283e99471edc0c424c0578ff6d9ec630c207c3c",
+      "path": "registry/fleet_status_registry.json",
+      "size_bytes": 706
+    },
+    {
+      "digest": "sha256:8351f938d350019e81781f6f0424b70627e9262391ee3872a474ce6a22d3fcc9",
+      "path": "registry/report_section_registry.json",
+      "size_bytes": 1383
+    },
+    {
+      "digest": "sha256:4e429a323b879f79c6357a4cb22ee0c45489092e8a8d3eedbf505a27bb9193ac",
+      "path": "report/executive_brief.json",
+      "size_bytes": 880
+    },
+    {
+      "digest": "sha256:440ebb7f7d4b7b97ea295201c35d04c31fe62aa07dac4b7521a08ae61873ddcc",
+      "path": "report/fleet_closure_report.json",
+      "size_bytes": 3106
+    },
+    {
+      "digest": "sha256:066ba863a45604b0876b084facc347f5169ef7f805051aa9567dc472b8faf9bb",
+      "path": "report/residual_risk_report.json",
+      "size_bytes": 917
+    },
+    {
+      "digest": "sha256:0b3ae87f7d5e76b8985bfd20b4c8251937f6d4bc5e8e830706d0a78fed949a12",
+      "path": "reports/integrity_report.json",
+      "size_bytes": 578
+    },
+    {
+      "digest": "sha256:87308fc0f48b8cc0c6757a08dab0861b8597b6bfdce5305dc37e5c9a8c8fd072",
+      "path": "run/fleet_closure_run.json",
+      "size_bytes": 828
+    },
+    {
+      "digest": "sha256:b5c68e2672e349614287166a7753b71e596efcf31e48a1175eccc1862ff3b73b",
+      "path": "security/security_boundary_report.json",
+      "size_bytes": 755
+    },
+    {
+      "digest": "sha256:c98d20cf52f905e308406e2cc69a5bdde93684d7d20f95b94436f3aa927902e4",
+      "path": "status/fleet_package_status.json",
+      "size_bytes": 737
+    },
+    {
+      "digest": "sha256:0b44a3fd680341a830dd47ac05b28f4f5ea6f5334a94ee1856568178f4c7f875",
+      "path": "status/retention_status.json",
+      "size_bytes": 510
+    },
+    {
+      "digest": "sha256:b5163f227e19401efb52ffa30f3e2a29c77bd76fdc1099843521f8448fed4746",
+      "path": "status/surveillance_status.json",
+      "size_bytes": 566
+    }
+  ],
+  "fleet_closure_run_id": "FLEETRUN_5B7EBC1BD7165BBA3FE06ABDBA95BE02",
+  "manifest_digest": "sha256:ef99c7af57cbb55b53ad0df90977820169edae967ff190162db144fc0f234e71",
+  "schema_version": "1.0.0",
+  "self_reference_policy": "MANIFEST_AND_RECEIPT_EXCLUDED_AND_MUTUALLY_BOUND"
+}

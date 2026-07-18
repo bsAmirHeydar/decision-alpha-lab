@@ -1,0 +1,16 @@
+{
+  "evidence_inventory_digest": "sha256:67f631d0f74b40f06f2ee1bd24dcf055d5a02876fb81607736d222809c84976b",
+  "evidence_inventory_id": "EVID_0C39E1A49161CB9C1CAFD9FA0A65BB76",
+  "fleet_id": "FLEET_5E9C4D18B97A729CB7A2588ABB3BA866",
+  "pilot_contract_authored": true,
+  "pilot_design_present": true,
+  "pilot_outcomes_present": false,
+  "production_security_evidence_present": false,
+  "prospective_evidence_present": false,
+  "prospective_observation_rows": 0,
+  "real_context_evidence_present": false,
+  "reference_material_misclassified": false,
+  "runtime_parity_evidence_present": false,
+  "schema_version": "1.0.0",
+  "validation_evidence_present": false
+}

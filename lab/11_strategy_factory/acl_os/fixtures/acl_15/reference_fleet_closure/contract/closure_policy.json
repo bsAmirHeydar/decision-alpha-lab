@@ -1,0 +1,16 @@
+{
+  "capital_activation_allowed": false,
+  "close_reference_lifecycle": true,
+  "closure_policy_digest": "sha256:41486f01a12d4c0b388978e6686f09a501eb78757ac33036e0b2e1d4aea63317",
+  "closure_policy_id": "CLOSEPOL_0C39E1A49161CB9C1CAFD9FA0A65BB76",
+  "fleet_id": "FLEET_5E9C4D18B97A729CB7A2588ABB3BA866",
+  "live_order_submission_allowed": false,
+  "preserve_failures": true,
+  "preserve_unexecuted_state": true,
+  "preserve_unknowns": true,
+  "promotion_bypass_allowed": false,
+  "prospective_outcome_invention_allowed": false,
+  "runtime_generation_allowed": false,
+  "schema_version": "1.0.0",
+  "validation_bypass_allowed": false
+}

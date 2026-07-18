@@ -1,0 +1,31 @@
+{
+  "automatic_reopen_allowed": false,
+  "capital_activation_allowed": false,
+  "closed_at": "2026-07-18T11:00:00Z",
+  "closure_decision_digest": "sha256:867fbb7e46a6ff91eba12ba22ef19d618f6649a1e7c08bd9a99514968052c419",
+  "closure_decision_id": "CLOSUREDEC_D5C125084524C86A8E9C92D1FF47546C",
+  "decision": "REFERENCE_LIFECYCLE_CLOSED_NON_CAPITAL_REOPEN_REQUIRES_NEW_EVIDENCE",
+  "fleet_id": "FLEET_5E9C4D18B97A729CB7A2588ABB3BA866",
+  "live_order_submission_allowed": false,
+  "pilot_contract_id": "PILOT_8BDD42A1425EBEC115615A7E8D99DE94",
+  "pilot_design_preserved": true,
+  "pilot_outcomes_invented": false,
+  "pilot_run_id": "PILOTRUN_4D706242CEEF5700D2A4D71BDB2A17E2",
+  "promotion_allowed": false,
+  "prospective_evidence_present": false,
+  "reason_codes": [
+    "ACL14_PACKAGE_VERIFIED",
+    "PILOT_CONTRACT_AUTHORED",
+    "REAL_PROSPECTIVE_EVIDENCE_ABSENT",
+    "PILOT_NOT_EXECUTED",
+    "UNKNOWN_AND_UNSATISFIED_STATES_PRESERVED",
+    "FLEET_CONTRACTS_REGISTERED",
+    "REFERENCE_LIFECYCLE_CLOSED",
+    "REOPEN_REQUIRES_NEW_AUTHORIZED_EVIDENCE"
+  ],
+  "runtime_activation_allowed": false,
+  "runtime_generation_allowed": false,
+  "schema_version": "1.0.0",
+  "state": "REFERENCE_LIFECYCLE_CLOSED_NON_CAPITAL",
+  "validation_claim_allowed": false
+}

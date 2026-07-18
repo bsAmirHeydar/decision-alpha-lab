@@ -1,0 +1,31 @@
+{
+  "$id": "https://alpha-lab.local/acl-os/acl-15/acl14_binding.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "acl14_binding_digest": {
+      "type": "string"
+    },
+    "acl14_handoff_digest": {
+      "type": "string"
+    },
+    "pilot_contract_id": {
+      "type": "string"
+    },
+    "pilot_run_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "pilot_run_id",
+    "pilot_contract_id",
+    "acl14_handoff_digest",
+    "acl14_binding_digest"
+  ],
+  "title": "acl14_binding",
+  "type": "object"
+}

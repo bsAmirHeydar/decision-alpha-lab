@@ -1,0 +1,55 @@
+{
+  "$id": "https://alpha-lab.local/acl-os/acl-15/authority_permit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "acl14_handoff_digest": {
+      "type": "string"
+    },
+    "action": {
+      "type": "string"
+    },
+    "capabilities": {
+      "type": "object"
+    },
+    "expires_at": {
+      "type": "string"
+    },
+    "issued_at": {
+      "type": "string"
+    },
+    "issuer": {
+      "type": "string"
+    },
+    "permit_digest": {
+      "type": "string"
+    },
+    "permit_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "pilot_run_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "permit_id",
+    "phase",
+    "action",
+    "pilot_run_id",
+    "acl14_handoff_digest",
+    "issuer",
+    "issued_at",
+    "expires_at",
+    "capabilities",
+    "permit_digest"
+  ],
+  "title": "authority_permit",
+  "type": "object"
+}

@@ -1,0 +1,12 @@
+{
+  "artifact_count": 38,
+  "closure_decision_digest": "sha256:867fbb7e46a6ff91eba12ba22ef19d618f6649a1e7c08bd9a99514968052c419",
+  "fleet_closure_run_digest": "sha256:d043a195fc4b134fddac7a967215e5286696ad7fcb78b4795d0326b97bce9ae4",
+  "fleet_closure_run_id": "FLEETRUN_5B7EBC1BD7165BBA3FE06ABDBA95BE02",
+  "fleet_registration_digest": "sha256:732e06fd65101bf3da748d56015f3fb6480fa748d04a22b88195e5f5e777f01c",
+  "lifecycle_closure_handoff_digest": "sha256:7dc4fce60abb64cf9b86bc0f9c06da8830012353673f1ebcdb285cb1a31a2718",
+  "output_manifest_digest": "sha256:ef99c7af57cbb55b53ad0df90977820169edae967ff190162db144fc0f234e71",
+  "receipt_digest": "sha256:acd46f8c8431c52645536d5f025c30e2d5490828a1a5a6be009ba760c9bab6d6",
+  "reference_only": true,
+  "schema_version": "1.0.0"
+}

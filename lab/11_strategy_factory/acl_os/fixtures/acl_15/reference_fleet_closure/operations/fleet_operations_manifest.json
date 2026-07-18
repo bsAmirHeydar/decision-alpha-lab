@@ -1,0 +1,20 @@
+{
+  "capital_allocation_count": 0,
+  "fleet_id": "FLEET_5E9C4D18B97A729CB7A2588ABB3BA866",
+  "fleet_operations_manifest_digest": "sha256:559bdbc0f54c8490dd1d621462abe24d9109b7838f61033049cec28a59ff71c9",
+  "fleet_operations_manifest_id": "FLEETOPS_0C39E1A49161CB9C1CAFD9FA0A65BB76",
+  "fleet_operations_materialized": true,
+  "order_route_count": 0,
+  "package_count": 1,
+  "packages": [
+    {
+      "evidence_inventory_digest": "sha256:67f631d0f74b40f06f2ee1bd24dcf055d5a02876fb81607736d222809c84976b",
+      "package_status_digest": "sha256:b59f280358be2aea1917f612fabb2d19a88019879651d355c114cbb50692e6ec",
+      "pilot_contract_id": "PILOT_8BDD42A1425EBEC115615A7E8D99DE94",
+      "pilot_run_id": "PILOTRUN_4D706242CEEF5700D2A4D71BDB2A17E2"
+    }
+  ],
+  "production_fleet_active": false,
+  "runtime_count": 0,
+  "schema_version": "1.0.0"
+}

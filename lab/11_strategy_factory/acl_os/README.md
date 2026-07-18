@@ -44,3 +44,7 @@ ACL-13 consumes ACL-12 reference security readiness plus a known-time-safe bound
 ## ACL-14 First Real Context Pilot
 
 ACL-14 consumes ACL-13 research-triage evidence, authors immutable real-Context pilot contracts and evaluates closed non-capital readiness gates. The bundled reference fixture is not real market evidence, produces no pilot execution or prospective outcomes, and grants no runtime, order or capital authority.
+
+## ACL-15 — Fleet Operations and Closure
+
+Registers immutable reference packages into governed fleet custody and closes the reference lifecycle without execution or capital authority.

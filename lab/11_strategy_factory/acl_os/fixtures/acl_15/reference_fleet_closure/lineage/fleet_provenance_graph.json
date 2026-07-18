@@ -1,0 +1,64 @@
+{
+  "capital_authority_created": false,
+  "edges": [
+    {
+      "from": "ACL14_HANDOFF",
+      "relation": "DERIVED_WITHOUT_SEMANTIC_MUTATION",
+      "to": "ACL14_PILOT_CONTRACT"
+    },
+    {
+      "from": "ACL14_PILOT_CONTRACT",
+      "relation": "DERIVED_WITHOUT_SEMANTIC_MUTATION",
+      "to": "ACL15_FLEET_REGISTRATION"
+    },
+    {
+      "from": "ACL15_FLEET_REGISTRATION",
+      "relation": "DERIVED_WITHOUT_SEMANTIC_MUTATION",
+      "to": "ACL15_EVIDENCE_INVENTORY"
+    },
+    {
+      "from": "ACL15_EVIDENCE_INVENTORY",
+      "relation": "DERIVED_WITHOUT_SEMANTIC_MUTATION",
+      "to": "ACL15_CLOSURE_DECISION"
+    }
+  ],
+  "fleet_closure_run_id": "FLEETRUN_5B7EBC1BD7165BBA3FE06ABDBA95BE02",
+  "graph_digest": "sha256:fff83065d7fa06ec041724514197e93415ff439d6701d9a2b8ec4df119886d90",
+  "graph_id": "PROV_488E46E41FE62B494826D136BF554D30",
+  "live_order_authority_created": false,
+  "nodes": [
+    {
+      "artifact_type": "ACL14_TO_ACL15",
+      "digest": "sha256:dc41bd0bf95524d6e79e3ceefc67b22bb85f253a8990df1c6a7544a8343f8b6b",
+      "node_id": "ACL14_HANDOFF"
+    },
+    {
+      "artifact_type": "FIRST_REAL_CONTEXT_PILOT_CONTRACT",
+      "digest": "sha256:7f15d8ff228001cacd172745b9fe5e8d033ce4d45f797baf282cf14e27d464e7",
+      "node_id": "ACL14_PILOT_CONTRACT"
+    },
+    {
+      "artifact_type": "FLEET_REGISTRATION_CONTRACT",
+      "digest": "sha256:732e06fd65101bf3da748d56015f3fb6480fa748d04a22b88195e5f5e777f01c",
+      "node_id": "ACL15_FLEET_REGISTRATION"
+    },
+    {
+      "artifact_type": "PILOT_EVIDENCE_INVENTORY",
+      "digest": "sha256:67f631d0f74b40f06f2ee1bd24dcf055d5a02876fb81607736d222809c84976b",
+      "node_id": "ACL15_EVIDENCE_INVENTORY"
+    },
+    {
+      "artifact_type": "NON_CAPITAL_CLOSURE_DECISION",
+      "digest": "sha256:867fbb7e46a6ff91eba12ba22ef19d618f6649a1e7c08bd9a99514968052c419",
+      "node_id": "ACL15_CLOSURE_DECISION"
+    }
+  ],
+  "pilot_outcomes_invented": false,
+  "pilot_readiness_reinterpreted": false,
+  "promotion_bypassed": false,
+  "prospective_evidence_invented": false,
+  "reaches_acl14_pilot_package": true,
+  "runtime_generated": false,
+  "schema_version": "1.0.0",
+  "validation_bypassed": false
+}

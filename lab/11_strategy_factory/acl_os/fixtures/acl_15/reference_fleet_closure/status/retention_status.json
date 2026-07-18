@@ -1,0 +1,11 @@
+{
+  "archive_materialized": false,
+  "deletion_allowed": false,
+  "fleet_id": "FLEET_5E9C4D18B97A729CB7A2588ABB3BA866",
+  "next_review_at": "2027-07-18T11:00:00Z",
+  "retention_contract_digest": "sha256:6332da23952969a3c565a05562b98495b133b344b3b6b74cd6ff66d9b4496a9c",
+  "retention_status_digest": "sha256:d41f9737e19988b785d91fbafdb359358c060ea72a5389d20ae597adbbbd2874",
+  "schema_version": "1.0.0",
+  "status": "RETENTION_CONTRACT_REGISTERED",
+  "status_id": "RETSTATUS_0C39E1A49161CB9C1CAFD9FA0A65BB76"
+}

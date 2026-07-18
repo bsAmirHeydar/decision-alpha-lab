@@ -1,0 +1,34 @@
+{
+  "automatic_risk_acceptance_allowed": false,
+  "fleet_closure_run_id": "FLEETRUN_5B7EBC1BD7165BBA3FE06ABDBA95BE02",
+  "residual_risk_report_digest": "sha256:b42988c3fd3ac8ea26b57566278c95d3698f9ef760ebe00ac24f1a8fb8c43736",
+  "risk_report_id": "RISKS_488E46E41FE62B494826D136BF554D30",
+  "risks": [
+    {
+      "blocks": "PROSPECTIVE_EVIDENCE",
+      "risk_id": "REAL_PILOT_NOT_EXECUTED",
+      "status": "OPEN"
+    },
+    {
+      "blocks": "PROMOTION",
+      "risk_id": "VALIDATION_NOT_PERFORMED",
+      "status": "OPEN"
+    },
+    {
+      "blocks": "RUNTIME",
+      "risk_id": "RUNTIME_PARITY_NOT_PROVEN",
+      "status": "OPEN"
+    },
+    {
+      "blocks": "PRODUCTION",
+      "risk_id": "PRODUCTION_SECURITY_NOT_PROVEN",
+      "status": "OPEN"
+    },
+    {
+      "blocks": "LIVE_CAPITAL",
+      "risk_id": "BROKER_AND_CAPITAL_BOUNDARY_UNTESTED",
+      "status": "OPEN"
+    }
+  ],
+  "schema_version": "1.0.0"
+}

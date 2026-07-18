@@ -1,0 +1,12 @@
+{
+  "capital_activation_allowed": false,
+  "claim_ceiling": "FLEET_OPERATIONS_AND_CLOSURE_REFERENCE_ONLY",
+  "live_order_submission_allowed": false,
+  "mandatory": true,
+  "ordinal": 17,
+  "phase": "ACL-15",
+  "pilot_execution_allowed": false,
+  "policy_id": "ACL15_PROMOTION_BYPASS_DENIAL_POLICY_V1",
+  "runtime_generation_allowed": false,
+  "schema_version": "1.0.0"
+}

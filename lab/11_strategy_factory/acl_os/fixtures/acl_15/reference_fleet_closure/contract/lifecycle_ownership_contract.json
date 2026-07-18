@@ -1,0 +1,28 @@
+{
+  "fleet_id": "FLEET_5E9C4D18B97A729CB7A2588ABB3BA866",
+  "minimum_independent_roles": 3,
+  "owner_change_requires_event": true,
+  "ownership_contract_digest": "sha256:70e4f5a149be3180f4f8a7149247b831252ca4688e4308ea14b5e4af0c6f3e74",
+  "ownership_contract_id": "OWNER_0C39E1A49161CB9C1CAFD9FA0A65BB76",
+  "role_collapse_allowed": false,
+  "roles": [
+    {
+      "owner_id": "ROLE_FLEET_CUSTODIAN",
+      "role": "FLEET_CUSTODIAN"
+    },
+    {
+      "owner_id": "ROLE_RESEARCH_GOVERNOR",
+      "role": "RESEARCH_GOVERNOR"
+    },
+    {
+      "owner_id": "ROLE_SECURITY_REVIEWER",
+      "role": "SECURITY_REVIEWER"
+    },
+    {
+      "owner_id": "ROLE_AUDIT_REVIEWER",
+      "role": "AUDIT_REVIEWER"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "self_approval_allowed": false
+}

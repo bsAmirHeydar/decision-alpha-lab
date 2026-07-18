@@ -1,0 +1,27 @@
+{
+  "$id": "https://alpha-lab.local/acl-os/acl-15/closure_state_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "registry_digest": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "states": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "registry_id",
+    "states",
+    "registry_digest"
+  ],
+  "title": "closure_state_registry",
+  "type": "object"
+}

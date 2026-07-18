@@ -1,0 +1,43 @@
+{
+  "$id": "https://alpha-lab.local/acl-os/acl-15/runtime_and_order_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "capital_activation_count": {
+      "type": "integer"
+    },
+    "execution_manifest_digest": {
+      "type": "string"
+    },
+    "execution_manifest_id": {
+      "type": "string"
+    },
+    "fleet_id": {
+      "type": "string"
+    },
+    "live_order_count": {
+      "type": "integer"
+    },
+    "pilot_execution_count": {
+      "type": "integer"
+    },
+    "runtime_generation_count": {
+      "type": "integer"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "execution_manifest_id",
+    "fleet_id",
+    "pilot_execution_count",
+    "runtime_generation_count",
+    "live_order_count",
+    "capital_activation_count",
+    "execution_manifest_digest"
+  ],
+  "title": "runtime_and_order_manifest",
+  "type": "object"
+}

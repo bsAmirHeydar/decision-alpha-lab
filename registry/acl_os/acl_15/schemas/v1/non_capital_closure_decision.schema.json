@@ -1,0 +1,35 @@
+{
+  "$id": "https://alpha-lab.local/acl-os/acl-15/non_capital_closure_decision.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "closure_decision_digest": {
+      "type": "string"
+    },
+    "closure_decision_id": {
+      "type": "string"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "fleet_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "closure_decision_id",
+    "fleet_id",
+    "state",
+    "decision",
+    "closure_decision_digest"
+  ],
+  "title": "non_capital_closure_decision",
+  "type": "object"
+}

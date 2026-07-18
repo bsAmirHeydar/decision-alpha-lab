@@ -1,0 +1,15 @@
+{
+  "allowed_migrations": [
+    "SCHEMA_VERSION_MIGRATION",
+    "POLICY_VERSION_MIGRATION",
+    "STORAGE_LOCATION_MIGRATION"
+  ],
+  "evidence_reclassification_allowed": false,
+  "fleet_id": "FLEET_5E9C4D18B97A729CB7A2588ABB3BA866",
+  "human_review_required": true,
+  "migration_contract_digest": "sha256:952938970a2ebea2d2f5f331b854922ec9c7e50bc2ddab2f6b2a212ec9ca1060",
+  "migration_contract_id": "MIGRATE_0C39E1A49161CB9C1CAFD9FA0A65BB76",
+  "new_version_required": true,
+  "schema_version": "1.0.0",
+  "source_history_mutation_allowed": false
+}

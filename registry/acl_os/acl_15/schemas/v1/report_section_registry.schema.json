@@ -1,0 +1,27 @@
+{
+  "$id": "https://alpha-lab.local/acl-os/acl-15/report_section_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "registry_digest": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "sections": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema_version",
+    "registry_id",
+    "sections",
+    "registry_digest"
+  ],
+  "title": "report_section_registry",
+  "type": "object"
+}

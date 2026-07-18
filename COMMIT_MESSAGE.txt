@@ -1,11 +1,12 @@
-feat(acl-os): implement ACL-14 first real context pilot
+feat(acl-os): implement ACL-15 fleet operations and closure
 
-- verify the immutable ACL-13 assessment package and authority permit
-- author owner, data, availability, evaluation, search, support, stop and failure contracts
-- evaluate twenty-four closed pilot-readiness gates with UNKNOWN blocking semantics
-- deny synthetic/reference reuse as real evidence and prohibit post-outcome search expansion
-- publish an explicit zero-execution manifest and non-capital readiness decision
-- add deterministic event, provenance, reporting, Obsidian, schema, policy and MQL5 contracts
-- add direct ACL-14 tests, ACL-13 regression and clean-overlay delivery validation
+- verify the immutable ACL-14 pilot package and preserve its exact non-executed readiness state
+- register closed fleet-status, closure-state, reopen-action and reporting registries
+- bind lifecycle ownership, retention, surveillance, migration and immutable-history contracts
+- freeze an explicit zero-outcome evidence inventory and zero-runtime/order/capital manifest
+- issue a deterministic non-capital reference-lifecycle closure decision
+- expose only reviewed migration, audit restoration or new-real-evidence reopen actions
+- add event-chain, provenance, security, reporting, Obsidian, schema, policy and MQL5 contracts
+- add direct ACL-15 tests, ACL-14 regression and clean-overlay delivery verification
 
-Claim ceiling: FIRST_REAL_CONTEXT_PILOT_REFERENCE_ONLY
+Claim ceiling: FLEET_OPERATIONS_AND_CLOSURE_REFERENCE_ONLY

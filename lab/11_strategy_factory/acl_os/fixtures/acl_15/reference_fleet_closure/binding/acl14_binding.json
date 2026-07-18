@@ -1,0 +1,17 @@
+{
+  "acl14_binding_digest": "sha256:559706b6205782f51cf3713b7bcf66c0860c2e0910da49a2fae6d12bfcec0ad2",
+  "acl14_handoff_digest": "sha256:dc41bd0bf95524d6e79e3ceefc67b22bb85f253a8990df1c6a7544a8343f8b6b",
+  "acl14_manifest_digest": "sha256:1821e1158612d647f4fc65921d23020227117b3ae55af2f0f4eebfde1116d90f",
+  "pilot_contract_digest": "sha256:7f15d8ff228001cacd172745b9fe5e8d033ce4d45f797baf282cf14e27d464e7",
+  "pilot_contract_id": "PILOT_8BDD42A1425EBEC115615A7E8D99DE94",
+  "pilot_execution_manifest_digest": "sha256:2661659737913aed2931bdc7c6bdd8e06bd74edc15ec75cecd7d682b2f139ad1",
+  "pilot_execution_materialized": false,
+  "pilot_readiness_decision_digest": "sha256:65c915bffdf853936d34b862773cbc68c8c8d32487d6f7ce36fd3d60fb417617",
+  "pilot_readiness_state": "PILOT_CONTRACT_AUTHORED_REAL_EVIDENCE_REQUIRED",
+  "pilot_ready_non_capital": false,
+  "pilot_run_id": "PILOTRUN_4D706242CEEF5700D2A4D71BDB2A17E2",
+  "prospective_evidence_present": false,
+  "readiness_matrix_digest": "sha256:f997c4f508b88d8bc329e7bc409b8c6f3502f4b30d278e65e640e84bc50c0639",
+  "reference_design_only": true,
+  "schema_version": "1.0.0"
+}

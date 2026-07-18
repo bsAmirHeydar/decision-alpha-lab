@@ -1,0 +1,31 @@
+{
+  "$id": "https://alpha-lab.local/acl-os/acl-15/executive_brief.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "answer_first": {
+      "type": "string"
+    },
+    "closure_state": {
+      "type": "string"
+    },
+    "executive_brief_digest": {
+      "type": "string"
+    },
+    "executive_brief_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "executive_brief_id",
+    "answer_first",
+    "closure_state",
+    "executive_brief_digest"
+  ],
+  "title": "executive_brief",
+  "type": "object"
+}

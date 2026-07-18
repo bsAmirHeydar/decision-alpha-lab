@@ -1,0 +1,32 @@
+{
+  "document_count": 6,
+  "documents": [
+    {
+      "digest": "sha256:a35026c283e3876a54665cbb772721e2fc5c3b2024fae3c6c20ade4a57776879",
+      "path": "docs/ACL15_CLOSURE_DECISION.md"
+    },
+    {
+      "digest": "sha256:23a9639bf4c4107aeb91bad3d32eebb9019965180382c8276bf8b108bbb35799",
+      "path": "docs/ACL15_EXECUTIVE_BRIEF.md"
+    },
+    {
+      "digest": "sha256:4cc4597ca15141a4b070239afa3bbe7273afa6064a28168ac5ec27391a8e32b9",
+      "path": "docs/ACL15_FLEET_REGISTRATION.md"
+    },
+    {
+      "digest": "sha256:fe097e9075a7b1da1c22e4015099d7ae7e3eef6c964259c053e9f1819c9f3c14",
+      "path": "docs/ACL15_PROGRAM_CLOSURE.md"
+    },
+    {
+      "digest": "sha256:cbf65d653b1aea6ba4d80c2e353b3fd54e69f08c756d48ee29f71433681b31c8",
+      "path": "docs/ACL15_REOPEN_AND_MIGRATION.md"
+    },
+    {
+      "digest": "sha256:929183be41268efbf9c5fe884c2695e332a41d226ec2b1139f2690dd7faf9be5",
+      "path": "docs/ACL15_RETENTION_AND_SURVEILLANCE.md"
+    }
+  ],
+  "fleet_closure_run_id": "FLEETRUN_5B7EBC1BD7165BBA3FE06ABDBA95BE02",
+  "projection_manifest_digest": "sha256:edb302cb86e53b9fdfb4cf02a09ff37e54d0f69f54136686f85a9689fd5ce189",
+  "schema_version": "1.0.0"
+}

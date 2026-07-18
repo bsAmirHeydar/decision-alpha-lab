@@ -1,0 +1,40 @@
+{
+  "allowed_reopen_actions": [
+    "AUTHOR_NEW_REAL_CONTEXT_PILOT_PACKAGE",
+    "MIGRATE_CONTRACT_VERSION_WITH_REVIEW",
+    "RESTORE_ARCHIVED_PACKAGE_FOR_AUDIT"
+  ],
+  "capital_activation_allowed": false,
+  "closure_decision": "REFERENCE_LIFECYCLE_CLOSED_NON_CAPITAL_REOPEN_REQUIRES_NEW_EVIDENCE",
+  "closure_decision_digest": "sha256:867fbb7e46a6ff91eba12ba22ef19d618f6649a1e7c08bd9a99514968052c419",
+  "closure_state": "REFERENCE_LIFECYCLE_CLOSED_NON_CAPITAL",
+  "event_ledger_digest": "sha256:22e60d95cbebb83421fdb21bec26ddff2caa194a86ffc1cda4dcaabd6c4024c7",
+  "evidence_inventory_digest": "sha256:67f631d0f74b40f06f2ee1bd24dcf055d5a02876fb81607736d222809c84976b",
+  "fleet_closure_run_id": "FLEETRUN_5B7EBC1BD7165BBA3FE06ABDBA95BE02",
+  "fleet_id": "FLEET_5E9C4D18B97A729CB7A2588ABB3BA866",
+  "fleet_operations_manifest_digest": "sha256:559bdbc0f54c8490dd1d621462abe24d9109b7838f61033049cec28a59ff71c9",
+  "fleet_registration_digest": "sha256:732e06fd65101bf3da748d56015f3fb6480fa748d04a22b88195e5f5e777f01c",
+  "forbidden_actions": [
+    "INVENT_PROSPECTIVE_OUTCOMES",
+    "TREAT_REFERENCE_AS_REAL_EVIDENCE",
+    "BYPASS_UNIFIED_VALIDATION",
+    "BYPASS_PROMOTION_STATE_MACHINE",
+    "GENERATE_OR_ACTIVATE_RUNTIME",
+    "AUTHORIZE_LIVE_ORDER",
+    "ACTIVATE_CAPITAL",
+    "MUTATE_CLOSED_HISTORY"
+  ],
+  "handoff_digest": "sha256:7dc4fce60abb64cf9b86bc0f9c06da8830012353673f1ebcdb285cb1a31a2718",
+  "handoff_type": "ACL15_LIFECYCLE_CLOSURE",
+  "live_order_submission_allowed": false,
+  "pilot_execution_materialized": false,
+  "pilot_run_id": "PILOTRUN_4D706242CEEF5700D2A4D71BDB2A17E2",
+  "program_reference_lifecycle_closed": true,
+  "promotion_allowed": false,
+  "prospective_evidence_present": false,
+  "provenance_graph_digest": "sha256:fff83065d7fa06ec041724514197e93415ff439d6701d9a2b8ec4df119886d90",
+  "runtime_activation_allowed": false,
+  "runtime_generation_allowed": false,
+  "schema_version": "1.0.0",
+  "validation_claim_allowed": false
+}

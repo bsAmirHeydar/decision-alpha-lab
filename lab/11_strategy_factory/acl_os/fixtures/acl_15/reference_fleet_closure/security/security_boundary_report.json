@@ -1,0 +1,19 @@
+{
+  "acl14_package_verified": true,
+  "automatic_reopen_allowed": false,
+  "capital_activation_allowed": false,
+  "closed_history_immutable": true,
+  "fleet_closure_run_id": "FLEETRUN_5B7EBC1BD7165BBA3FE06ABDBA95BE02",
+  "live_order_submission_allowed": false,
+  "network_access_allowed": false,
+  "path_traversal_allowed": false,
+  "pilot_execution_allowed": false,
+  "production_security_ready": false,
+  "runtime_activation_allowed": false,
+  "runtime_generation_allowed": false,
+  "schema_version": "1.0.0",
+  "secret_access_allowed": false,
+  "security_report_digest": "sha256:2a1ad274a2be7a290d8175dd8a478346f181579d10d17888194e7c0678ee7f93",
+  "security_report_id": "SEC_488E46E41FE62B494826D136BF554D30",
+  "symlink_substitution_allowed": false
+}

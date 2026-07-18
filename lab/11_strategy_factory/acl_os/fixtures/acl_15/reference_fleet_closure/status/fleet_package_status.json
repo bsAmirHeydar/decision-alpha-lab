@@ -1,0 +1,18 @@
+{
+  "closed_history_mutation_allowed": false,
+  "fleet_id": "FLEET_5E9C4D18B97A729CB7A2588ABB3BA866",
+  "fleet_statuses": [
+    "REGISTERED_REFERENCE_NON_EXECUTED",
+    "SURVEILLANCE_CONTRACT_REGISTERED",
+    "RETENTION_CONTRACT_REGISTERED"
+  ],
+  "package_status_digest": "sha256:b59f280358be2aea1917f612fabb2d19a88019879651d355c114cbb50692e6ec",
+  "package_status_id": "PKGSTATUS_0C39E1A49161CB9C1CAFD9FA0A65BB76",
+  "pilot_execution_materialized": false,
+  "pilot_readiness_state": "PILOT_CONTRACT_AUTHORED_REAL_EVIDENCE_REQUIRED",
+  "pilot_run_id": "PILOTRUN_4D706242CEEF5700D2A4D71BDB2A17E2",
+  "prospective_evidence_present": false,
+  "schema_version": "1.0.0",
+  "unexecuted_state_preserved": true,
+  "unknowns_preserved": true
+}

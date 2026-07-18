@@ -1,0 +1,68 @@
+{
+  "acl14_regression": "43 passed",
+  "archive_preflight": {
+    "crc": true,
+    "json_parse_count": 101,
+    "path_traversal_count": 0,
+    "pycache_count": 0,
+    "unique_paths": true
+  },
+  "claim_ceiling": "FLEET_OPERATIONS_AND_CLOSURE_REFERENCE_ONLY",
+  "clean_overlay": {
+    "acl14_regression": "43 passed",
+    "acl15_tests": "39 passed",
+    "compileall": true,
+    "reference_output_verify": true
+  },
+  "commands": [
+    {
+      "command": "/opt/pyvenv/bin/python -m compileall -q /mnt/data/acl15_work/decision-alpha-lab-main/tools/strategy_factory/acl_os/acl_15",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "command": "/opt/pyvenv/bin/python -m pytest -q /mnt/data/acl15_work/decision-alpha-lab-main/lab/11_strategy_factory/acl_os/tests_acl_15",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ".......................................                                  [100%]\n39 passed in 4.20s\n"
+    },
+    {
+      "command": "/opt/pyvenv/bin/python -m pytest -q /mnt/data/acl15_work/decision-alpha-lab-main/lab/11_strategy_factory/acl_os/tests_acl_14",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "...........................................                              [100%]\n43 passed in 3.38s\n"
+    }
+  ],
+  "compileall": true,
+  "delivery_validation": {
+    "missing": [],
+    "passed": true,
+    "required_count": 8
+  },
+  "direct_tests": "39 passed",
+  "limitations": [
+    "No real prospective pilot was executed.",
+    "No validation, promotion, runtime parity, production security, broker, live-order or capital claim is made.",
+    "MQL5 files are static contract mirrors; MetaEditor compilation was not performed."
+  ],
+  "mql5_forbidden_hits": [],
+  "passed": true,
+  "phase": "ACL-15",
+  "policy_count": 30,
+  "reference_run": {
+    "capital_activation_count": 0,
+    "closure_state": "REFERENCE_LIFECYCLE_CLOSED_NON_CAPITAL",
+    "decision": "REFERENCE_LIFECYCLE_CLOSED_NON_CAPITAL_REOPEN_REQUIRES_NEW_EVIDENCE",
+    "fleet_closure_run_id": "FLEETRUN_5B7EBC1BD7165BBA3FE06ABDBA95BE02",
+    "fleet_id": "FLEET_5E9C4D18B97A729CB7A2588ABB3BA866",
+    "handoff_digest": "sha256:7dc4fce60abb64cf9b86bc0f9c06da8830012353673f1ebcdb285cb1a31a2718",
+    "live_order_count": 0,
+    "pilot_execution_count": 0,
+    "prospective_observation_rows": 0,
+    "runtime_generation_count": 0,
+    "state": "COMPLETED_REFERENCE_FLEET_CLOSURE_NON_CAPITAL"
+  },
+  "schema_count": 34,
+  "schema_version": "1.0.0"
+}

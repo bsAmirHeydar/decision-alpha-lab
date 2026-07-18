@@ -1,0 +1,24 @@
+{
+  "dynamic_registration_allowed": false,
+  "registry_digest": "sha256:a61c609eea1a1533cff6073aa6a0e10179c804792d5ed1a8c532fa9e0f256b47",
+  "registry_id": "ACL15_CLOSURE_STATE_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "states": [
+    {
+      "state_id": "REFERENCE_LIFECYCLE_CLOSED_NON_CAPITAL",
+      "version": "1.0.0"
+    },
+    {
+      "state_id": "MIGRATION_PENDING_REVIEW",
+      "version": "1.0.0"
+    },
+    {
+      "state_id": "REOPEN_PENDING_NEW_EVIDENCE",
+      "version": "1.0.0"
+    },
+    {
+      "state_id": "RETIRED_IMMUTABLE",
+      "version": "1.0.0"
+    }
+  ]
+}

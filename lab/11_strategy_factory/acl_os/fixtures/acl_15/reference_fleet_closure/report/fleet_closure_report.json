@@ -1,0 +1,109 @@
+{
+  "alpha_claimed": false,
+  "capital_claimed": false,
+  "claim_ceiling": "FLEET_OPERATIONS_AND_CLOSURE_REFERENCE_ONLY",
+  "closed_at": "2026-07-18T11:00:00Z",
+  "fleet_closure_report_digest": "sha256:d11f7dbf662d268e7c12ebee392598ecd185b957327736bc17a5054e7dd01808",
+  "fleet_closure_run_id": "FLEETRUN_5B7EBC1BD7165BBA3FE06ABDBA95BE02",
+  "pilot_outcome_claimed": false,
+  "prospective_evidence_claimed": false,
+  "report_id": "FLEETREPORT_488E46E41FE62B494826D136BF554D30",
+  "runtime_claimed": false,
+  "schema_version": "1.0.0",
+  "section_registry_digest": "sha256:adbb2c5fc3d1105d579fe4f4706ee3116f3796f2ece2c6b31bfaabbdac5a9a08",
+  "sections": [
+    {
+      "facts": {
+        "fleet_id": "FLEET_5E9C4D18B97A729CB7A2588ABB3BA866",
+        "pilot_run_id": "PILOTRUN_4D706242CEEF5700D2A4D71BDB2A17E2"
+      },
+      "section_id": "IDENTITY_AND_SCOPE"
+    },
+    {
+      "facts": {
+        "pilot_executed": false,
+        "pilot_readiness_state": "PILOT_CONTRACT_AUTHORED_REAL_EVIDENCE_REQUIRED",
+        "prospective_evidence_present": false
+      },
+      "section_id": "UPSTREAM_PILOT_STATUS"
+    },
+    {
+      "facts": {
+        "package_count": 1,
+        "status": "REGISTERED_REFERENCE_NON_EXECUTED"
+      },
+      "section_id": "FLEET_REGISTRATION"
+    },
+    {
+      "facts": {
+        "role_count": 4,
+        "self_approval_allowed": false
+      },
+      "section_id": "LIFECYCLE_OWNERSHIP"
+    },
+    {
+      "facts": {
+        "deletion_allowed": false,
+        "status": "RETENTION_CONTRACT_REGISTERED"
+      },
+      "section_id": "RETENTION"
+    },
+    {
+      "facts": {
+        "production_monitoring_active": false,
+        "status": "SURVEILLANCE_CONTRACT_REGISTERED"
+      },
+      "section_id": "SURVEILLANCE"
+    },
+    {
+      "facts": {
+        "pilot_design_present": true,
+        "pilot_outcomes_present": false,
+        "prospective_rows": 0
+      },
+      "section_id": "EVIDENCE_INVENTORY"
+    },
+    {
+      "facts": {
+        "decision": "REFERENCE_LIFECYCLE_CLOSED_NON_CAPITAL_REOPEN_REQUIRES_NEW_EVIDENCE",
+        "state": "REFERENCE_LIFECYCLE_CLOSED_NON_CAPITAL"
+      },
+      "section_id": "CLOSURE_DECISION"
+    },
+    {
+      "facts": {
+        "allowed_reopen_actions": [
+          "AUTHOR_NEW_REAL_CONTEXT_PILOT_PACKAGE",
+          "MIGRATE_CONTRACT_VERSION_WITH_REVIEW",
+          "RESTORE_ARCHIVED_PACKAGE_FOR_AUDIT"
+        ],
+        "automatic_reopen_allowed": false
+      },
+      "section_id": "REOPEN_AND_MIGRATION"
+    },
+    {
+      "facts": {
+        "capital_activation_allowed": false,
+        "live_order_submission_allowed": false,
+        "runtime_generation_allowed": false
+      },
+      "section_id": "SECURITY_AND_AUTHORITY"
+    },
+    {
+      "facts": {
+        "production_security_not_proven": true,
+        "real_pilot_not_run": true,
+        "validation_not_performed": true
+      },
+      "section_id": "RESIDUAL_RISK"
+    },
+    {
+      "facts": {
+        "production_program_closed": false,
+        "reference_program_closed": true
+      },
+      "section_id": "FINAL_PROGRAM_STATUS"
+    }
+  ],
+  "validation_claimed": false
+}

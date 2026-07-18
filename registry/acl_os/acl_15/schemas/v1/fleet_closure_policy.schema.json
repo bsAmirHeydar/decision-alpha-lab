@@ -1,0 +1,31 @@
+{
+  "$id": "https://alpha-lab.local/acl-os/acl-15/fleet_closure_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "fleet_namespace": {
+      "type": "string"
+    },
+    "lifecycle_owners": {
+      "type": "string"
+    },
+    "policy_digest": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "policy_id",
+    "fleet_namespace",
+    "lifecycle_owners",
+    "policy_digest"
+  ],
+  "title": "fleet_closure_policy",
+  "type": "object"
+}

@@ -1,0 +1,23 @@
+{
+  "acl14_handoff_digest": "sha256:dc41bd0bf95524d6e79e3ceefc67b22bb85f253a8990df1c6a7544a8343f8b6b",
+  "action": "ACL15_REGISTER_FLEET_AND_CLOSE_REFERENCE_LIFECYCLE",
+  "capabilities": {
+    "capital_activation_allowed": false,
+    "closed_history_mutation_allowed": false,
+    "live_order_submission_allowed": false,
+    "network_access_allowed": false,
+    "pilot_execution_allowed": false,
+    "prospective_outcome_creation_allowed": false,
+    "runtime_activation_allowed": false,
+    "runtime_generation_allowed": false,
+    "secret_access_allowed": false
+  },
+  "expires_at": "2026-07-19T10:30:00Z",
+  "issued_at": "2026-07-18T10:30:00Z",
+  "issuer": "ACL_OS_REFERENCE_AUTHORITY",
+  "permit_digest": "sha256:266f312f7520c0050be6b56ae1033eef71ec088ea60bcd484cf5c038a3c6ff19",
+  "permit_id": "PERMIT_ACL15_REFERENCE_CLOSURE_001",
+  "phase": "ACL-15",
+  "pilot_run_id": "PILOTRUN_4D706242CEEF5700D2A4D71BDB2A17E2",
+  "schema_version": "1.0.0"
+}

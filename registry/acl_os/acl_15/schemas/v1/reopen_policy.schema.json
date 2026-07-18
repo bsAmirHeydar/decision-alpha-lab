@@ -1,0 +1,31 @@
+{
+  "$id": "https://alpha-lab.local/acl-os/acl-15/reopen_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "allowed_actions": {
+      "type": "string"
+    },
+    "fleet_id": {
+      "type": "string"
+    },
+    "reopen_policy_digest": {
+      "type": "string"
+    },
+    "reopen_policy_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "reopen_policy_id",
+    "fleet_id",
+    "allowed_actions",
+    "reopen_policy_digest"
+  ],
+  "title": "reopen_policy",
+  "type": "object"
+}

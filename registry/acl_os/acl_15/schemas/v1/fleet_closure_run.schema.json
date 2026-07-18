@@ -1,0 +1,31 @@
+{
+  "$id": "https://alpha-lab.local/acl-os/acl-15/fleet_closure_run.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "fleet_closure_run_digest": {
+      "type": "string"
+    },
+    "fleet_closure_run_id": {
+      "type": "string"
+    },
+    "fleet_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "fleet_closure_run_id",
+    "fleet_id",
+    "state",
+    "fleet_closure_run_digest"
+  ],
+  "title": "fleet_closure_run",
+  "type": "object"
+}

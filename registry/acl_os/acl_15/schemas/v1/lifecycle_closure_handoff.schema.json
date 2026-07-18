@@ -1,0 +1,35 @@
+{
+  "$id": "https://alpha-lab.local/acl-os/acl-15/lifecycle_closure_handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "closure_state": {
+      "type": "string"
+    },
+    "fleet_closure_run_id": {
+      "type": "string"
+    },
+    "fleet_id": {
+      "type": "string"
+    },
+    "handoff_digest": {
+      "type": "string"
+    },
+    "handoff_type": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "handoff_type",
+    "fleet_closure_run_id",
+    "fleet_id",
+    "closure_state",
+    "handoff_digest"
+  ],
+  "title": "lifecycle_closure_handoff",
+  "type": "object"
+}

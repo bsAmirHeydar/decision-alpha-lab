@@ -1,0 +1,16 @@
+{
+  "capital_activation_allowed": false,
+  "capital_activation_count": 0,
+  "execution_manifest_digest": "sha256:d31f3edd9ca7ab4c5dee9d4c0ee417ac67c95b5e177a76374ef4d4fbc2c36410",
+  "execution_manifest_id": "NOEXEC_0C39E1A49161CB9C1CAFD9FA0A65BB76",
+  "fleet_id": "FLEET_5E9C4D18B97A729CB7A2588ABB3BA866",
+  "live_order_count": 0,
+  "live_order_submission_allowed": false,
+  "pilot_execution_count": 0,
+  "pilot_execution_materialized": false,
+  "runtime_activation_allowed": false,
+  "runtime_activation_count": 0,
+  "runtime_generation_allowed": false,
+  "runtime_generation_count": 0,
+  "schema_version": "1.0.0"
+}

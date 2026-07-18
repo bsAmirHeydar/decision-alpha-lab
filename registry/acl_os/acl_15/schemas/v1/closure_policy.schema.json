@@ -1,0 +1,27 @@
+{
+  "$id": "https://alpha-lab.local/acl-os/acl-15/closure_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "closure_policy_digest": {
+      "type": "string"
+    },
+    "closure_policy_id": {
+      "type": "string"
+    },
+    "fleet_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "closure_policy_id",
+    "fleet_id",
+    "closure_policy_digest"
+  ],
+  "title": "closure_policy",
+  "type": "object"
+}

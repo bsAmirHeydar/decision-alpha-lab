@@ -43,3 +43,7 @@ The program closes only when a new Context needs no kernel edit, the one-hour pr
 - [[ACL_13_ONE_HOUR_ASSESSMENT_PRODUCT]]
 - [[ACL_14_FIRST_REAL_CONTEXT_PILOT]]
 - [[ACL_15_FLEET_OPERATIONS_AND_CLOSURE]]
+
+## Implemented reference closure
+
+ACL-15 reference implementation closes the architecture lifecycle as a governed, non-capital, non-executed package. Production evidence and real pilot execution remain separate future programs.

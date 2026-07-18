@@ -1,0 +1,17 @@
+{
+  "acl14_handoff_digest": "sha256:dc41bd0bf95524d6e79e3ceefc67b22bb85f253a8990df1c6a7544a8343f8b6b",
+  "action": "ACL15_REGISTER_FLEET_AND_CLOSE_REFERENCE_LIFECYCLE",
+  "authority_report_digest": "sha256:bfd7ed3fdd1cb0016e65e1d82444839bdd6921a4a7c4a234868905c8ce7e6d36",
+  "capital_activation_allowed": false,
+  "live_order_submission_allowed": false,
+  "permit_id": "PERMIT_ACL15_REFERENCE_CLOSURE_001",
+  "permit_valid": true,
+  "pilot_execution_allowed": false,
+  "pilot_run_id": "PILOTRUN_4D706242CEEF5700D2A4D71BDB2A17E2",
+  "prospective_outcome_creation_allowed": false,
+  "reference_closure_only": true,
+  "runtime_activation_allowed": false,
+  "runtime_generation_allowed": false,
+  "schema_version": "1.0.0",
+  "verified_at": "2026-07-18T11:00:00Z"
+}

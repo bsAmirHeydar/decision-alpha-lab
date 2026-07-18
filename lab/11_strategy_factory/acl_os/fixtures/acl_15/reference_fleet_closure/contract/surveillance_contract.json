@@ -1,0 +1,20 @@
+{
+  "automatic_capital_action_allowed": false,
+  "automatic_order_action_allowed": false,
+  "automatic_runtime_action_allowed": false,
+  "cadence": "QUARTERLY_REFERENCE_INTEGRITY_REVIEW",
+  "checks": [
+    "MANIFEST_INTEGRITY",
+    "EVENT_CHAIN_INTEGRITY",
+    "PROVENANCE_REACHABILITY",
+    "AUTHORITY_NON_ESCALATION",
+    "RETENTION_STATUS",
+    "REOPEN_ATTEMPT_AUDIT"
+  ],
+  "fleet_id": "FLEET_5E9C4D18B97A729CB7A2588ABB3BA866",
+  "mode": "REFERENCE_PACKAGE_SURVEILLANCE",
+  "production_monitoring_claimed": false,
+  "schema_version": "1.0.0",
+  "surveillance_contract_digest": "sha256:e6de0dfe539e355be5a9f6d2550c78b412b27c1d17ed0e1cdc7761a3f90b757d",
+  "surveillance_contract_id": "SURVEIL_0C39E1A49161CB9C1CAFD9FA0A65BB76"
+}

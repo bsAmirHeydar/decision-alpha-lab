@@ -1,0 +1,16 @@
+{
+  "allowed_actions": [
+    "AUTHOR_NEW_REAL_CONTEXT_PILOT_PACKAGE",
+    "MIGRATE_CONTRACT_VERSION_WITH_REVIEW",
+    "RESTORE_ARCHIVED_PACKAGE_FOR_AUDIT"
+  ],
+  "automatic_reopen_allowed": false,
+  "closed_history_mutation_allowed": false,
+  "fleet_id": "FLEET_5E9C4D18B97A729CB7A2588ABB3BA866",
+  "new_authority_permit_required": true,
+  "new_frozen_package_required": true,
+  "new_real_evidence_required_for_pilot": true,
+  "reopen_policy_digest": "sha256:d81b2c7cf672148efe10470819afcd24d77d32314c7eb878a74c645894afbf5d",
+  "reopen_policy_id": "REOPEN_0C39E1A49161CB9C1CAFD9FA0A65BB76",
+  "schema_version": "1.0.0"
+}

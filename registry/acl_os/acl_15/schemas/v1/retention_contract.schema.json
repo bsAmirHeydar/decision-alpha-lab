@@ -1,0 +1,31 @@
+{
+  "$id": "https://alpha-lab.local/acl-os/acl-15/retention_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "fleet_id": {
+      "type": "string"
+    },
+    "retention_class": {
+      "type": "string"
+    },
+    "retention_contract_digest": {
+      "type": "string"
+    },
+    "retention_contract_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "retention_contract_id",
+    "fleet_id",
+    "retention_class",
+    "retention_contract_digest"
+  ],
+  "title": "retention_contract",
+  "type": "object"
+}

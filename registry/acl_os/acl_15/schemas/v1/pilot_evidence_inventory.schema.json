@@ -1,0 +1,35 @@
+{
+  "$id": "https://alpha-lab.local/acl-os/acl-15/pilot_evidence_inventory.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "evidence_inventory_digest": {
+      "type": "string"
+    },
+    "evidence_inventory_id": {
+      "type": "string"
+    },
+    "fleet_id": {
+      "type": "string"
+    },
+    "pilot_design_present": {
+      "type": "boolean"
+    },
+    "prospective_evidence_present": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "evidence_inventory_id",
+    "fleet_id",
+    "pilot_design_present",
+    "prospective_evidence_present",
+    "evidence_inventory_digest"
+  ],
+  "title": "pilot_evidence_inventory",
+  "type": "object"
+}

@@ -1,0 +1,31 @@
+{
+  "$id": "https://alpha-lab.local/acl-os/acl-15/surveillance_status.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "fleet_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "status_id": {
+      "type": "string"
+    },
+    "surveillance_status_digest": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "status_id",
+    "fleet_id",
+    "status",
+    "surveillance_status_digest"
+  ],
+  "title": "surveillance_status",
+  "type": "object"
+}

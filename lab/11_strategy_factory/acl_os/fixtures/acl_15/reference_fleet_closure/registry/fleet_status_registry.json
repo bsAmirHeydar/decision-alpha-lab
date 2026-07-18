@@ -1,0 +1,28 @@
+{
+  "dynamic_registration_allowed": false,
+  "registry_digest": "sha256:f1d9eddacecf697d3fb9bf64be3f2b399ffe14e917df06ba349ffe32cf5b1c5f",
+  "registry_id": "ACL15_FLEET_STATUS_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "statuses": [
+    {
+      "status_id": "REGISTERED_REFERENCE_NON_EXECUTED",
+      "version": "1.0.0"
+    },
+    {
+      "status_id": "SURVEILLANCE_CONTRACT_REGISTERED",
+      "version": "1.0.0"
+    },
+    {
+      "status_id": "RETENTION_CONTRACT_REGISTERED",
+      "version": "1.0.0"
+    },
+    {
+      "status_id": "CLOSED_NON_CAPITAL_REFERENCE",
+      "version": "1.0.0"
+    },
+    {
+      "status_id": "REOPEN_REQUIRES_NEW_AUTHORIZED_EVIDENCE",
+      "version": "1.0.0"
+    }
+  ]
+}

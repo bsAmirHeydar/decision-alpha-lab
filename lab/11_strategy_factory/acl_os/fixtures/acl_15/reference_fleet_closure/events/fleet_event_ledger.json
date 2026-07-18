@@ -1,0 +1,155 @@
+{
+  "event_count": 9,
+  "events": [
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:f7f1f0520fe4f70b144e73d9c764b4d8ac8bae30ea781331246351dd51b37c62",
+      "event_id": "ACLEVT_F3B6400D7BAF9878E817E1B1BF99956C",
+      "event_type": "ACL14_PACKAGE_ACCEPTED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-18T11:00:00Z",
+      "payload": {
+        "acl14_binding_digest": "sha256:559706b6205782f51cf3713b7bcf66c0860c2e0910da49a2fae6d12bfcec0ad2"
+      },
+      "pilot_execution_authority": false,
+      "previous_event_digest": "GENESIS",
+      "runtime_generation_authority": false,
+      "schema_version": "1.0.0",
+      "sequence": 1
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:23a58e5e3c2bf720dffc65a7fd278f2a38ce180ad36aaa88db6e68b37e2172f5",
+      "event_id": "ACLEVT_96D7485BA9567450251AE9AED2710D11",
+      "event_type": "AUTHORITY_PERMIT_BOUND",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-18T11:00:00Z",
+      "payload": {
+        "authority_report_digest": "sha256:bfd7ed3fdd1cb0016e65e1d82444839bdd6921a4a7c4a234868905c8ce7e6d36"
+      },
+      "pilot_execution_authority": false,
+      "previous_event_digest": "sha256:f7f1f0520fe4f70b144e73d9c764b4d8ac8bae30ea781331246351dd51b37c62",
+      "runtime_generation_authority": false,
+      "schema_version": "1.0.0",
+      "sequence": 2
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:188f23cd821294a220e9058b863d65713853899a31b957c3999a81c9bca9b611",
+      "event_id": "ACLEVT_0303538A901C33A333E97DA39C4A79C4",
+      "event_type": "FLEET_REGISTRIES_BOUND",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-18T11:00:00Z",
+      "payload": {
+        "closure_registry_digest": "sha256:a61c609eea1a1533cff6073aa6a0e10179c804792d5ed1a8c532fa9e0f256b47",
+        "fleet_registry_digest": "sha256:f1d9eddacecf697d3fb9bf64be3f2b399ffe14e917df06ba349ffe32cf5b1c5f"
+      },
+      "pilot_execution_authority": false,
+      "previous_event_digest": "sha256:23a58e5e3c2bf720dffc65a7fd278f2a38ce180ad36aaa88db6e68b37e2172f5",
+      "runtime_generation_authority": false,
+      "schema_version": "1.0.0",
+      "sequence": 3
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:65d097988d2a8b1be0e09a67cf5ab347ea48c96931987713bf911cdf8e7db7c8",
+      "event_id": "ACLEVT_A85F535C92BF4E0A6809652068DF9681",
+      "event_type": "FLEET_PACKAGE_REGISTERED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-18T11:00:00Z",
+      "payload": {
+        "fleet_registration_digest": "sha256:732e06fd65101bf3da748d56015f3fb6480fa748d04a22b88195e5f5e777f01c"
+      },
+      "pilot_execution_authority": false,
+      "previous_event_digest": "sha256:188f23cd821294a220e9058b863d65713853899a31b957c3999a81c9bca9b611",
+      "runtime_generation_authority": false,
+      "schema_version": "1.0.0",
+      "sequence": 4
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:5c577a505d00c173bba2d2c2ebb964685b231c68c635edc1fe8099a95ffd4617",
+      "event_id": "ACLEVT_AF787DD31222A3D783E38484F8E054BF",
+      "event_type": "RETENTION_AND_SURVEILLANCE_REGISTERED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-18T11:00:00Z",
+      "payload": {
+        "retention_contract_digest": "sha256:6332da23952969a3c565a05562b98495b133b344b3b6b74cd6ff66d9b4496a9c",
+        "surveillance_contract_digest": "sha256:e6de0dfe539e355be5a9f6d2550c78b412b27c1d17ed0e1cdc7761a3f90b757d"
+      },
+      "pilot_execution_authority": false,
+      "previous_event_digest": "sha256:65d097988d2a8b1be0e09a67cf5ab347ea48c96931987713bf911cdf8e7db7c8",
+      "runtime_generation_authority": false,
+      "schema_version": "1.0.0",
+      "sequence": 5
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:7964baac8ef8029eafa0428fcdaf2af52112194742f48c767b5188ecfeb32076",
+      "event_id": "ACLEVT_3909B5B73108A185C8A31CBBF38A52C0",
+      "event_type": "EVIDENCE_INVENTORY_FROZEN",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-18T11:00:00Z",
+      "payload": {
+        "evidence_inventory_digest": "sha256:67f631d0f74b40f06f2ee1bd24dcf055d5a02876fb81607736d222809c84976b"
+      },
+      "pilot_execution_authority": false,
+      "previous_event_digest": "sha256:5c577a505d00c173bba2d2c2ebb964685b231c68c635edc1fe8099a95ffd4617",
+      "runtime_generation_authority": false,
+      "schema_version": "1.0.0",
+      "sequence": 6
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:80fdbd4e7cf94f7fbf19fc27d58146ded64e61a9a711f9a54a27db161b876332",
+      "event_id": "ACLEVT_A96D43DA50E8152383F907CD884B62DA",
+      "event_type": "NON_CAPITAL_CLOSURE_DECISION_ISSUED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-18T11:00:00Z",
+      "payload": {
+        "closure_decision_digest": "sha256:867fbb7e46a6ff91eba12ba22ef19d618f6649a1e7c08bd9a99514968052c419"
+      },
+      "pilot_execution_authority": false,
+      "previous_event_digest": "sha256:7964baac8ef8029eafa0428fcdaf2af52112194742f48c767b5188ecfeb32076",
+      "runtime_generation_authority": false,
+      "schema_version": "1.0.0",
+      "sequence": 7
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:c6a329a389e5764a3f6a24d67be4e827fa3f3fc183e0349ef8f08788fe572b46",
+      "event_id": "ACLEVT_BC50A6A82CD7060F174B5C3A5A7A663E",
+      "event_type": "REOPEN_AND_MIGRATION_BOUNDARIES_REGISTERED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-18T11:00:00Z",
+      "payload": {
+        "migration_contract_digest": "sha256:952938970a2ebea2d2f5f331b854922ec9c7e50bc2ddab2f6b2a212ec9ca1060",
+        "reopen_policy_digest": "sha256:d81b2c7cf672148efe10470819afcd24d77d32314c7eb878a74c645894afbf5d"
+      },
+      "pilot_execution_authority": false,
+      "previous_event_digest": "sha256:80fdbd4e7cf94f7fbf19fc27d58146ded64e61a9a711f9a54a27db161b876332",
+      "runtime_generation_authority": false,
+      "schema_version": "1.0.0",
+      "sequence": 8
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:9e2fd715568d1d7c79854843c63a2d4a28ee79581fb03e0d56a9a2ff057bd523",
+      "event_id": "ACLEVT_A44919A14DA25B91144508570C695468",
+      "event_type": "REFERENCE_LIFECYCLE_CLOSED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-18T11:00:00Z",
+      "payload": {
+        "state": "REFERENCE_LIFECYCLE_CLOSED_NON_CAPITAL"
+      },
+      "pilot_execution_authority": false,
+      "previous_event_digest": "sha256:c6a329a389e5764a3f6a24d67be4e827fa3f3fc183e0349ef8f08788fe572b46",
+      "runtime_generation_authority": false,
+      "schema_version": "1.0.0",
+      "sequence": 9
+    }
+  ],
+  "fleet_closure_run_id": "FLEETRUN_5B7EBC1BD7165BBA3FE06ABDBA95BE02",
+  "ledger_digest": "sha256:22e60d95cbebb83421fdb21bec26ddff2caa194a86ffc1cda4dcaabd6c4024c7",
+  "schema_version": "1.0.0"
+}

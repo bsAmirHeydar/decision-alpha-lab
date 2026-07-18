@@ -1,0 +1,68 @@
+{
+  "dynamic_sections_allowed": false,
+  "registry_digest": "sha256:adbb2c5fc3d1105d579fe4f4706ee3116f3796f2ece2c6b31bfaabbdac5a9a08",
+  "registry_id": "ACL15_REPORT_SECTION_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "sections": [
+    {
+      "order": 1,
+      "required": true,
+      "section_id": "IDENTITY_AND_SCOPE"
+    },
+    {
+      "order": 2,
+      "required": true,
+      "section_id": "UPSTREAM_PILOT_STATUS"
+    },
+    {
+      "order": 3,
+      "required": true,
+      "section_id": "FLEET_REGISTRATION"
+    },
+    {
+      "order": 4,
+      "required": true,
+      "section_id": "LIFECYCLE_OWNERSHIP"
+    },
+    {
+      "order": 5,
+      "required": true,
+      "section_id": "RETENTION"
+    },
+    {
+      "order": 6,
+      "required": true,
+      "section_id": "SURVEILLANCE"
+    },
+    {
+      "order": 7,
+      "required": true,
+      "section_id": "EVIDENCE_INVENTORY"
+    },
+    {
+      "order": 8,
+      "required": true,
+      "section_id": "CLOSURE_DECISION"
+    },
+    {
+      "order": 9,
+      "required": true,
+      "section_id": "REOPEN_AND_MIGRATION"
+    },
+    {
+      "order": 10,
+      "required": true,
+      "section_id": "SECURITY_AND_AUTHORITY"
+    },
+    {
+      "order": 11,
+      "required": true,
+      "section_id": "RESIDUAL_RISK"
+    },
+    {
+      "order": 12,
+      "required": true,
+      "section_id": "FINAL_PROGRAM_STATUS"
+    }
+  ]
+}

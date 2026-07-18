@@ -1,0 +1,51 @@
+{
+  "allowed_migrations": [
+    "SCHEMA_VERSION_MIGRATION",
+    "POLICY_VERSION_MIGRATION",
+    "STORAGE_LOCATION_MIGRATION"
+  ],
+  "allowed_reopen_actions": [
+    "AUTHOR_NEW_REAL_CONTEXT_PILOT_PACKAGE",
+    "MIGRATE_CONTRACT_VERSION_WITH_REVIEW",
+    "RESTORE_ARCHIVED_PACKAGE_FOR_AUDIT"
+  ],
+  "automatic_reopen_allowed": false,
+  "closed_history_mutation_allowed": false,
+  "fleet_namespace": "ALPHA_LAB_REFERENCE_FLEET",
+  "lifecycle_owners": [
+    {
+      "owner_id": "ROLE_FLEET_CUSTODIAN",
+      "role": "FLEET_CUSTODIAN"
+    },
+    {
+      "owner_id": "ROLE_RESEARCH_GOVERNOR",
+      "role": "RESEARCH_GOVERNOR"
+    },
+    {
+      "owner_id": "ROLE_SECURITY_REVIEWER",
+      "role": "SECURITY_REVIEWER"
+    },
+    {
+      "owner_id": "ROLE_AUDIT_REVIEWER",
+      "role": "AUDIT_REVIEWER"
+    }
+  ],
+  "policy_digest": "sha256:f14b6ebf245cb17e7c963cd6ccdc1a71573cbc372b705eb5b34f139992334887",
+  "policy_id": "ACL15_FLEET_CLOSURE_POLICY_V1",
+  "production_fleet_claimed": false,
+  "retention": {
+    "minimum_days": 3650,
+    "next_review_at": "2027-07-18T11:00:00Z",
+    "retention_class": "IMMUTABLE_REFERENCE_RESEARCH_RECORD"
+  },
+  "schema_version": "1.0.0",
+  "surveillance_cadence": "QUARTERLY_REFERENCE_INTEGRITY_REVIEW",
+  "surveillance_checks": [
+    "MANIFEST_INTEGRITY",
+    "EVENT_CHAIN_INTEGRITY",
+    "PROVENANCE_REACHABILITY",
+    "AUTHORITY_NON_ESCALATION",
+    "RETENTION_STATUS",
+    "REOPEN_ATTEMPT_AUDIT"
+  ]
+}

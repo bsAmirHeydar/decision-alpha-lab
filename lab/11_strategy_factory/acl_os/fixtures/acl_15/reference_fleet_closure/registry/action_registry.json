@@ -1,0 +1,21 @@
+{
+  "allowed_reopen_actions": [
+    "AUTHOR_NEW_REAL_CONTEXT_PILOT_PACKAGE",
+    "MIGRATE_CONTRACT_VERSION_WITH_REVIEW",
+    "RESTORE_ARCHIVED_PACKAGE_FOR_AUDIT"
+  ],
+  "forbidden_actions": [
+    "INVENT_PROSPECTIVE_OUTCOMES",
+    "TREAT_REFERENCE_AS_REAL_EVIDENCE",
+    "BYPASS_UNIFIED_VALIDATION",
+    "BYPASS_PROMOTION_STATE_MACHINE",
+    "GENERATE_OR_ACTIVATE_RUNTIME",
+    "AUTHORIZE_LIVE_ORDER",
+    "ACTIVATE_CAPITAL",
+    "MUTATE_CLOSED_HISTORY"
+  ],
+  "implicit_actions_allowed": false,
+  "registry_digest": "sha256:1f1968d10bf9b72963b28f8609f40f736a310477df5a1d02d8b184c0ffebdcb4",
+  "registry_id": "ACL15_ACTION_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}
