@@ -32,3 +32,7 @@ Consumes ACL-08 reports and experience records, performs governed append-only me
 ## ACL-10 — Promotion State Machine
 
 Consumes ACL-09 memory and planner evidence, evaluates closed promotion prerequisites, preserves UNKNOWN, isolates baseline and diagnostic sources, and issues deterministic non-executing state decisions for ACL-11. The reference fixture contains zero runtime candidates and grants no runtime, order or capital authority.
+
+## ACL-12 Security Hardening
+
+ACL-12 consumes the ACL-11 non-executable runtime-custody package and produces a reference-only security hardening package and ACL-13 handoff.

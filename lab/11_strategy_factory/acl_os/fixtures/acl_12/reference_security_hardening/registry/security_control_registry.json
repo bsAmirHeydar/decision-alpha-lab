@@ -1,0 +1,273 @@
+{
+  "closed": true,
+  "control_count": 33,
+  "controls": [
+    {
+      "blocks_production": true,
+      "control_class": "PREVENTIVE",
+      "control_id": "INPUT_PACKAGE_INTEGRITY",
+      "domain": "INTEGRITY",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "PREVENTIVE",
+      "control_id": "IDENTITY_AND_LINEAGE_BINDING",
+      "domain": "IDENTITY",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "PREVENTIVE",
+      "control_id": "LEAST_PRIVILEGE_CAPABILITIES",
+      "domain": "AUTHORITY",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "PREVENTIVE",
+      "control_id": "NETWORK_EGRESS_DENY",
+      "domain": "NETWORK",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "PREVENTIVE",
+      "control_id": "SECRET_MATERIAL_ABSENCE",
+      "domain": "SECRETS",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "PREVENTIVE",
+      "control_id": "PRODUCTION_KEY_ACCESS_DENY",
+      "domain": "KEY_CUSTODY",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "PREVENTIVE",
+      "control_id": "SIGNING_CUSTODY_INTERFACE",
+      "domain": "KEY_CUSTODY",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "DETECTIVE",
+      "control_id": "SUPPLY_CHAIN_INVENTORY",
+      "domain": "SUPPLY_CHAIN",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "DETECTIVE",
+      "control_id": "REFERENCE_SBOM",
+      "domain": "SUPPLY_CHAIN",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "RESPONSIVE",
+      "control_id": "DEPENDENCY_RECALL_GRAPH",
+      "domain": "SUPPLY_CHAIN",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "DETECTIVE",
+      "control_id": "REPRODUCIBLE_BUILD_EVIDENCE",
+      "domain": "BUILD",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "DETECTIVE",
+      "control_id": "STATIC_CODE_SCAN",
+      "domain": "CODE_SECURITY",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "DETECTIVE",
+      "control_id": "SECRET_SCAN",
+      "domain": "SECRETS",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "DETECTIVE",
+      "control_id": "MQL5_FORBIDDEN_API_SCAN",
+      "domain": "RUNTIME",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "PREVENTIVE",
+      "control_id": "PATH_TRAVERSAL_DEFENSE",
+      "domain": "FILESYSTEM",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "PREVENTIVE",
+      "control_id": "SYMLINK_SUBSTITUTION_DEFENSE",
+      "domain": "FILESYSTEM",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "PREVENTIVE",
+      "control_id": "RUNTIME_TCB_MINIMIZATION",
+      "domain": "TCB",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "PREVENTIVE",
+      "control_id": "PLUGIN_CAPABILITY_SANDBOX",
+      "domain": "TCB",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "DETECTIVE",
+      "control_id": "AUDIT_HASH_CHAIN",
+      "domain": "AUDIT",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "DETECTIVE",
+      "control_id": "NON_REPUDIATION_INTERFACE",
+      "domain": "AUDIT",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "PREVENTIVE",
+      "control_id": "OPERATOR_SEPARATION",
+      "domain": "OPERATIONS",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "PREVENTIVE",
+      "control_id": "PRIVILEGED_WORKSTATION_ASSURANCE",
+      "domain": "OPERATIONS",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "RESPONSIVE",
+      "control_id": "INCIDENT_RESPONSE_PLAYBOOK",
+      "domain": "RESPONSE",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "RESPONSIVE",
+      "control_id": "INCIDENT_TABLETOP_EVIDENCE",
+      "domain": "RESPONSE",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "RESPONSIVE",
+      "control_id": "REVOCATION_AND_QUARANTINE",
+      "domain": "RESPONSE",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "RESPONSIVE",
+      "control_id": "BACKUP_RECOVERY_TEST",
+      "domain": "RESILIENCE",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "DETECTIVE",
+      "control_id": "SECURITY_MONITORING_INTEGRATION",
+      "domain": "MONITORING",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "DETECTIVE",
+      "control_id": "RED_TEAM_VALIDATION",
+      "domain": "ASSURANCE",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "PREVENTIVE",
+      "control_id": "DATA_CLASSIFICATION",
+      "domain": "DATA",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "PREVENTIVE",
+      "control_id": "ARTIFACT_ENCRYPTION_AND_KEY_ROTATION",
+      "domain": "DATA",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "PREVENTIVE",
+      "control_id": "CI_BRANCH_PROTECTION",
+      "domain": "CI_CD",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "PREVENTIVE",
+      "control_id": "BROKER_AND_CAPITAL_ISOLATION",
+      "domain": "CAPITAL",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    },
+    {
+      "blocks_production": true,
+      "control_class": "RESPONSIVE",
+      "control_id": "KILL_SWITCH_AND_SAFE_SHUTDOWN",
+      "domain": "CAPITAL",
+      "unknown_blocks_production": true,
+      "version": "1.0.0"
+    }
+  ],
+  "registry_digest": "sha256:1d32f94d5eab8d77d2bd9aca03ec2377fbd9c7aad6d711bd631ca015df65e64b",
+  "registry_id": "ACL12_SECURITY_CONTROL_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}

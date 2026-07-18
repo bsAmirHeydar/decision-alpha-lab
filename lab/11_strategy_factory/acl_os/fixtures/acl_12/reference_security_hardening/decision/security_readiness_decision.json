@@ -1,0 +1,28 @@
+{
+  "assessment_product_handoff_allowed": true,
+  "capital_activation_allowed": false,
+  "control_matrix_digest": "sha256:d77cdb080870f48c3990e0020acae2e333d9f2c6830a402d00e3f17409ea2937",
+  "decided_at": "2026-07-18T05:00:00Z",
+  "decision": "REFERENCE_SECURITY_HARDENED_PRODUCTION_NOT_READY",
+  "evidence_bundle_digest": "sha256:38cb4fc238bd477a8d2e70f21ff1321dcbbe34b303f94d3cc2c7d1fd9d944379",
+  "live_order_submission_allowed": false,
+  "production_key_access_allowed": false,
+  "production_security_ready": false,
+  "readiness_decision_digest": "sha256:b26f7c7217b1edc11d80dc869574074bcd7c3e8a75b9c0719a8595436a02d877",
+  "readiness_state": "NON_PRODUCTION_SECURITY_BASELINE",
+  "reason_codes": [
+    "REFERENCE_CONTROLS_HARDENED",
+    "PRODUCTION_EVIDENCE_INCOMPLETE",
+    "UNKNOWN_BLOCKS_PRODUCTION_READINESS",
+    "NO_RUNTIME_CANDIDATES",
+    "PRODUCTION_KEYS_UNAVAILABLE"
+  ],
+  "reference_hardening_passed": true,
+  "risk_register_digest": "sha256:ef319cb5e95fdcb8157e703be05a86eab6bcd7c5f77925b078dd83e410afe263",
+  "runtime_activation_allowed": false,
+  "runtime_custody_run_id": "RTRUN_7CAD59F31433BDB17692436DE314813D",
+  "runtime_generation_allowed": false,
+  "schema_version": "1.0.0",
+  "security_readiness_decision_id": "SECREADY_4CBB6C458991001E8695E414BD15",
+  "threat_assessment_digest": "sha256:60af8a50042e5c539080d26a1213e73166ec1da5902acf927a7f7777ef65c32c"
+}

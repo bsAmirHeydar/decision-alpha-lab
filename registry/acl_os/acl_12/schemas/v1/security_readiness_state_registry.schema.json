@@ -1,0 +1,61 @@
+{
+  "$id": "https://alpha-lab.local/acl12/security_readiness_state_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed ACL-12 reference contract.",
+  "properties": {
+    "closed": {
+      "type": "boolean"
+    },
+    "registry_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "state_count": {
+      "type": "integer"
+    },
+    "states": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "capital_authority": {
+            "type": "boolean"
+          },
+          "live_authority": {
+            "type": "boolean"
+          },
+          "state_id": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "capital_authority",
+          "live_authority",
+          "state_id",
+          "version"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "closed",
+    "registry_digest",
+    "registry_id",
+    "schema_version",
+    "state_count",
+    "states"
+  ],
+  "title": "security_readiness_state_registry",
+  "type": "object"
+}

@@ -1,0 +1,16 @@
+{
+  "closed": true,
+  "denied_capabilities": [
+    "PRODUCTION_KEY_ACCESS",
+    "RUNTIME_ACTIVATION",
+    "LIVE_ORDER_SUBMISSION",
+    "CAPITAL_ACTIVATION"
+  ],
+  "phase": "ACL-12",
+  "policy_id": "ACL12_PRIVILEGED_WORKSTATION_POLICY",
+  "production_authority": false,
+  "reference_only": true,
+  "rule": "PRIVILEGED WORKSTATION POLICY",
+  "schema_version": "1.0.0",
+  "version": "1.0.0"
+}

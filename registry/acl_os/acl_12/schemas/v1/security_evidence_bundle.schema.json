@@ -1,0 +1,53 @@
+{
+  "$id": "https://alpha-lab.local/acl12/security_evidence_bundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed ACL-12 reference contract.",
+  "properties": {
+    "evidence_bundle_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "evidence_bundle_id": {
+      "type": "string"
+    },
+    "evidence_count": {
+      "type": "integer"
+    },
+    "evidence_refs": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "external_scan_attestations_present": {
+      "type": "boolean"
+    },
+    "production_key_attestation_present": {
+      "type": "boolean"
+    },
+    "production_security_evidence_complete": {
+      "type": "boolean"
+    },
+    "reference_only": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "evidence_bundle_digest",
+    "evidence_bundle_id",
+    "evidence_count",
+    "evidence_refs",
+    "external_scan_attestations_present",
+    "production_key_attestation_present",
+    "production_security_evidence_complete",
+    "reference_only",
+    "schema_version"
+  ],
+  "title": "security_evidence_bundle",
+  "type": "object"
+}

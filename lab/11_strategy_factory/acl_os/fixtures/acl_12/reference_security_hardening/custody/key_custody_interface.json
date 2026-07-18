@@ -1,0 +1,20 @@
+{
+  "input_key_material_present": false,
+  "interface_digest": "sha256:a1debc216807c78166681b95283d558ec68de7ebefc236567b8a608bdd591658",
+  "interface_id": "ACL12_KEY_CUSTODY_INTERFACE_V1",
+  "key_export_allowed": false,
+  "production_key_access_allowed": false,
+  "production_key_material_present": false,
+  "provider_connected": false,
+  "reason_code": "REFERENCE_MODE_PRODUCTION_KEY_ACCESS_DENIED",
+  "required_provider_classes": [
+    "HSM_OR_MANAGED_KMS",
+    "DETACHED_SIGNER",
+    "REVOCATION_REGISTRY"
+  ],
+  "rotation_evidence_present": false,
+  "schema_version": "1.0.0",
+  "signature_creation_allowed": false,
+  "signing_mode": "DETACHED_SIGNATURE_ENVELOPE",
+  "zeroization_evidence_present": false
+}

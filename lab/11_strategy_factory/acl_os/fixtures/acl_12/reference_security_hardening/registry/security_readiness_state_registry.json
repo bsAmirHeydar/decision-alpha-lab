@@ -1,0 +1,27 @@
+{
+  "closed": true,
+  "registry_digest": "sha256:03c8c4ea3fb46cf592815f765c3305aa1d182e4685bd7b0a6d8b5f766316454f",
+  "registry_id": "ACL12_SECURITY_READINESS_STATE_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "state_count": 3,
+  "states": [
+    {
+      "capital_authority": false,
+      "live_authority": false,
+      "state_id": "SECURITY_HARDENING_FAILED",
+      "version": "1.0.0"
+    },
+    {
+      "capital_authority": false,
+      "live_authority": false,
+      "state_id": "NON_PRODUCTION_SECURITY_BASELINE",
+      "version": "1.0.0"
+    },
+    {
+      "capital_authority": false,
+      "live_authority": false,
+      "state_id": "PRODUCTION_SECURITY_REVIEW_ELIGIBLE_NOT_AUTHORIZED",
+      "version": "1.0.0"
+    }
+  ]
+}

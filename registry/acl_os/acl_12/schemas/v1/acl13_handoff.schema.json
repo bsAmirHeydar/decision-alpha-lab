@@ -1,0 +1,105 @@
+{
+  "$id": "https://alpha-lab.local/acl12/acl13_handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed ACL-12 reference contract.",
+  "properties": {
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "event_ledger_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "forbidden_acl13_actions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "handoff_type": {
+      "type": "string"
+    },
+    "live_order_submission_allowed": {
+      "type": "boolean"
+    },
+    "production_key_access_allowed": {
+      "type": "boolean"
+    },
+    "production_security_ready": {
+      "type": "boolean"
+    },
+    "provenance_graph_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "required_acl13_actions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "runtime_activation_allowed": {
+      "type": "boolean"
+    },
+    "runtime_custody_run_id": {
+      "type": "string"
+    },
+    "runtime_generation_allowed": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "security_control_matrix_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "security_evidence_bundle_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "security_hardening_run_id": {
+      "type": "string"
+    },
+    "security_readiness_decision": {
+      "type": "string"
+    },
+    "security_readiness_decision_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "security_risk_register_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "capital_activation_allowed",
+    "event_ledger_digest",
+    "forbidden_acl13_actions",
+    "handoff_digest",
+    "handoff_type",
+    "live_order_submission_allowed",
+    "production_key_access_allowed",
+    "production_security_ready",
+    "provenance_graph_digest",
+    "required_acl13_actions",
+    "runtime_activation_allowed",
+    "runtime_custody_run_id",
+    "runtime_generation_allowed",
+    "schema_version",
+    "security_control_matrix_digest",
+    "security_evidence_bundle_digest",
+    "security_hardening_run_id",
+    "security_readiness_decision",
+    "security_readiness_decision_digest",
+    "security_risk_register_digest"
+  ],
+  "title": "acl13_handoff",
+  "type": "object"
+}

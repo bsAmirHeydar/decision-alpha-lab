@@ -1,0 +1,72 @@
+{
+  "$id": "https://alpha-lab.local/acl12/operator_separation_matrix.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed ACL-12 reference contract.",
+  "properties": {
+    "conflicts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "role_a": {
+            "type": "string"
+          },
+          "role_b": {
+            "type": "string"
+          },
+          "same_principal_allowed": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "role_a",
+          "role_b",
+          "same_principal_allowed"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "matrix_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "matrix_id": {
+      "type": "string"
+    },
+    "minimum_independent_approvers": {
+      "type": "integer"
+    },
+    "production_identity_provider_verified": {
+      "type": "boolean"
+    },
+    "reference_policy_defined": {
+      "type": "boolean"
+    },
+    "roles": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "self_approval_allowed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "conflicts",
+    "matrix_digest",
+    "matrix_id",
+    "minimum_independent_approvers",
+    "production_identity_provider_verified",
+    "reference_policy_defined",
+    "roles",
+    "schema_version",
+    "self_approval_allowed"
+  ],
+  "title": "operator_separation_matrix",
+  "type": "object"
+}

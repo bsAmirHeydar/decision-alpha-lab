@@ -1,0 +1,89 @@
+{
+  "$id": "https://alpha-lab.local/acl12/dependency_recall_graph.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed ACL-12 reference contract.",
+  "properties": {
+    "edges": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "from": {
+            "type": "string"
+          },
+          "relation": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "from",
+          "relation",
+          "to"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "external_registry_lookup_performed": {
+      "type": "boolean"
+    },
+    "graph_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "graph_id": {
+      "type": "string"
+    },
+    "nodes": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact_digest": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "pattern": "^sha256:[0-9a-f]{64}$",
+                "type": "string"
+              }
+            ]
+          },
+          "component_type": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "artifact_digest",
+          "component_type",
+          "node_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "recall_supported": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "edges",
+    "external_registry_lookup_performed",
+    "graph_digest",
+    "graph_id",
+    "nodes",
+    "recall_supported",
+    "schema_version"
+  ],
+  "title": "dependency_recall_graph",
+  "type": "object"
+}

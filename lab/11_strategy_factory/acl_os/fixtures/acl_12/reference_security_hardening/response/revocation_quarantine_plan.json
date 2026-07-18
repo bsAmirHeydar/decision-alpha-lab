@@ -1,0 +1,23 @@
+{
+  "actions": [
+    "DENY_LOAD",
+    "QUARANTINE_ARTIFACT",
+    "REVOKE_GENERATION",
+    "PRESERVE_EVIDENCE",
+    "NOTIFY_INCIDENT_COMMANDER"
+  ],
+  "automatic_live_activation_allowed": false,
+  "plan_digest": "sha256:e485d66b66aa9f46e8800d46ffc93f7e7023dadcde2c8f8ef49883a7551432f8",
+  "plan_id": "ACL12_REVOCATION_QUARANTINE_PLAN_V1",
+  "production_drill_completed": false,
+  "quarantine_triggers": [
+    "DIGEST_MISMATCH",
+    "SIGNATURE_FAILURE",
+    "DEPENDENCY_RECALL",
+    "KEY_COMPROMISE",
+    "UNAUTHORIZED_AUTHORITY_ESCALATION",
+    "AUDIT_CHAIN_BREAK"
+  ],
+  "rollback_generation_required": true,
+  "schema_version": "1.0.0"
+}

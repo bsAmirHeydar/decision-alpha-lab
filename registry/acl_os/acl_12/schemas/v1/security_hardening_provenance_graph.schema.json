@@ -1,0 +1,94 @@
+{
+  "$id": "https://alpha-lab.local/acl12/security_hardening_provenance_graph.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed ACL-12 reference contract.",
+  "properties": {
+    "capital_authority_created": {
+      "type": "boolean"
+    },
+    "edges": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "from",
+          "to"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "graph_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "live_order_authority_created": {
+      "type": "boolean"
+    },
+    "nodes": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact_digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "artifact_type": {
+            "type": "string"
+          },
+          "node_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "artifact_digest",
+          "artifact_type",
+          "node_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "production_key_material_accessed": {
+      "type": "boolean"
+    },
+    "production_security_evidence_invented": {
+      "type": "boolean"
+    },
+    "reaches_acl11_runtime_custody": {
+      "type": "boolean"
+    },
+    "runtime_candidate_invented": {
+      "type": "boolean"
+    },
+    "runtime_generation_materialized": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "capital_authority_created",
+    "edges",
+    "graph_digest",
+    "live_order_authority_created",
+    "nodes",
+    "production_key_material_accessed",
+    "production_security_evidence_invented",
+    "reaches_acl11_runtime_custody",
+    "runtime_candidate_invented",
+    "runtime_generation_materialized",
+    "schema_version"
+  ],
+  "title": "security_hardening_provenance_graph",
+  "type": "object"
+}

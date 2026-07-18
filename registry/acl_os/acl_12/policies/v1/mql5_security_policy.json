@@ -1,0 +1,16 @@
+{
+  "closed": true,
+  "denied_capabilities": [
+    "PRODUCTION_KEY_ACCESS",
+    "RUNTIME_ACTIVATION",
+    "LIVE_ORDER_SUBMISSION",
+    "CAPITAL_ACTIVATION"
+  ],
+  "phase": "ACL-12",
+  "policy_id": "ACL12_MQL5_SECURITY_POLICY",
+  "production_authority": false,
+  "reference_only": true,
+  "rule": "MQL5 SECURITY POLICY",
+  "schema_version": "1.0.0",
+  "version": "1.0.0"
+}

@@ -1,0 +1,72 @@
+{
+  "$id": "https://alpha-lab.local/acl12/key_custody_interface.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed ACL-12 reference contract.",
+  "properties": {
+    "input_key_material_present": {
+      "type": "boolean"
+    },
+    "interface_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "interface_id": {
+      "type": "string"
+    },
+    "key_export_allowed": {
+      "type": "boolean"
+    },
+    "production_key_access_allowed": {
+      "type": "boolean"
+    },
+    "production_key_material_present": {
+      "type": "boolean"
+    },
+    "provider_connected": {
+      "type": "boolean"
+    },
+    "reason_code": {
+      "type": "string"
+    },
+    "required_provider_classes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "rotation_evidence_present": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "signature_creation_allowed": {
+      "type": "boolean"
+    },
+    "signing_mode": {
+      "type": "string"
+    },
+    "zeroization_evidence_present": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "input_key_material_present",
+    "interface_digest",
+    "interface_id",
+    "key_export_allowed",
+    "production_key_access_allowed",
+    "production_key_material_present",
+    "provider_connected",
+    "reason_code",
+    "required_provider_classes",
+    "rotation_evidence_present",
+    "schema_version",
+    "signature_creation_allowed",
+    "signing_mode",
+    "zeroization_evidence_present"
+  ],
+  "title": "key_custody_interface",
+  "type": "object"
+}

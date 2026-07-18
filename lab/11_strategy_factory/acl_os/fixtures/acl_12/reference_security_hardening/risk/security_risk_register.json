@@ -1,0 +1,221 @@
+{
+  "automatic_risk_acceptance_allowed": false,
+  "open_risk_count": 2,
+  "register_digest": "sha256:ef319cb5e95fdcb8157e703be05a86eab6bcd7c5f77925b078dd83e410afe263",
+  "register_id": "ACL12_SECURITY_RISK_REGISTER_V1",
+  "risk_count": 14,
+  "risks": [
+    {
+      "inherent_severity": "CRITICAL",
+      "mapped_controls": [
+        "INPUT_PACKAGE_INTEGRITY",
+        "AUDIT_HASH_CHAIN"
+      ],
+      "next_action": "PRESERVE_CONTROL_EVIDENCE",
+      "owner_role": "SECURITY_OWNER",
+      "residual_state": "CONTROLLED_REFERENCE_ONLY",
+      "risk_acceptance_allowed": false,
+      "risk_digest": "sha256:bd27a5d34e132fc976deccc0bb268532400b137413b708c69413067ba935fea5",
+      "risk_id": "SECRISK_9D292E96DD10C3B0ED848327",
+      "schema_version": "1.0.0",
+      "threat_id": "TAMPERED_UPSTREAM_PACKAGE"
+    },
+    {
+      "inherent_severity": "HIGH",
+      "mapped_controls": [
+        "INPUT_PACKAGE_INTEGRITY",
+        "NON_REPUDIATION_INTERFACE"
+      ],
+      "next_action": "PRESERVE_CONTROL_EVIDENCE",
+      "owner_role": "SECURITY_OWNER",
+      "residual_state": "CONTROLLED_REFERENCE_ONLY",
+      "risk_acceptance_allowed": false,
+      "risk_digest": "sha256:98147570536e1d2dc362537fbf55fa89cb51138b523242136370568fb82017df",
+      "risk_id": "SECRISK_96495F9AB0774803F62D563A",
+      "schema_version": "1.0.0",
+      "threat_id": "FORGED_MANIFEST_OR_RECEIPT"
+    },
+    {
+      "inherent_severity": "CRITICAL",
+      "mapped_controls": [
+        "IDENTITY_AND_LINEAGE_BINDING",
+        "LEAST_PRIVILEGE_CAPABILITIES"
+      ],
+      "next_action": "PRESERVE_CONTROL_EVIDENCE",
+      "owner_role": "SECURITY_OWNER",
+      "residual_state": "CONTROLLED_REFERENCE_ONLY",
+      "risk_acceptance_allowed": false,
+      "risk_digest": "sha256:422101c34b3fd85151b3e4c9bc8c95bdc3ddd03c9d036cff3d8b4afaf0e1bbb6",
+      "risk_id": "SECRISK_F098B6BB57D650343D447DB1",
+      "schema_version": "1.0.0",
+      "threat_id": "RUNTIME_CANDIDATE_INVENTION"
+    },
+    {
+      "inherent_severity": "CRITICAL",
+      "mapped_controls": [
+        "PRODUCTION_KEY_ACCESS_DENY",
+        "SIGNING_CUSTODY_INTERFACE"
+      ],
+      "next_action": "PRESERVE_CONTROL_EVIDENCE",
+      "owner_role": "SECURITY_OWNER",
+      "residual_state": "CONTROLLED_REFERENCE_ONLY",
+      "risk_acceptance_allowed": false,
+      "risk_digest": "sha256:51f71c19b3bbff372068e92ba4661ffd7fcb4a591aa4d57947809c69c604dd79",
+      "risk_id": "SECRISK_E04998BF4FBCFD22E399E942",
+      "schema_version": "1.0.0",
+      "threat_id": "PRODUCTION_KEY_EXFILTRATION"
+    },
+    {
+      "inherent_severity": "CRITICAL",
+      "mapped_controls": [
+        "SECRET_SCAN",
+        "SECRET_MATERIAL_ABSENCE"
+      ],
+      "next_action": "PRESERVE_CONTROL_EVIDENCE",
+      "owner_role": "SECURITY_OWNER",
+      "residual_state": "CONTROLLED_REFERENCE_ONLY",
+      "risk_acceptance_allowed": false,
+      "risk_digest": "sha256:096e755b02e429f72b2c8ab2efe3e495e76223c1bec851e7d59829b0534ab831",
+      "risk_id": "SECRISK_87B21CB6B3D2391BC13B8778",
+      "schema_version": "1.0.0",
+      "threat_id": "SECRET_INJECTION_IN_ARTIFACT"
+    },
+    {
+      "inherent_severity": "HIGH",
+      "mapped_controls": [
+        "PATH_TRAVERSAL_DEFENSE",
+        "SYMLINK_SUBSTITUTION_DEFENSE"
+      ],
+      "next_action": "PRESERVE_CONTROL_EVIDENCE",
+      "owner_role": "SECURITY_OWNER",
+      "residual_state": "CONTROLLED_REFERENCE_ONLY",
+      "risk_acceptance_allowed": false,
+      "risk_digest": "sha256:1a908db49c35c29068335ad20a8435ca280a973f9ba0829f68c895fd7666e9d8",
+      "risk_id": "SECRISK_A47E8D8D9CF5707F0AC64128",
+      "schema_version": "1.0.0",
+      "threat_id": "PATH_TRAVERSAL_OR_SYMLINK_SWAP"
+    },
+    {
+      "inherent_severity": "CRITICAL",
+      "mapped_controls": [
+        "REFERENCE_SBOM",
+        "DEPENDENCY_RECALL_GRAPH",
+        "SUPPLY_CHAIN_INVENTORY"
+      ],
+      "next_action": "PRESERVE_CONTROL_EVIDENCE",
+      "owner_role": "SECURITY_OWNER",
+      "residual_state": "CONTROLLED_REFERENCE_ONLY",
+      "risk_acceptance_allowed": false,
+      "risk_digest": "sha256:b23d1a47858fbb4e8f3b1fa96a47bb97a52ea50863419fec94b7a89a45ea472a",
+      "risk_id": "SECRISK_495ED64599A30890AFCD0F98",
+      "schema_version": "1.0.0",
+      "threat_id": "DEPENDENCY_SUPPLY_CHAIN_COMPROMISE"
+    },
+    {
+      "inherent_severity": "CRITICAL",
+      "mapped_controls": [
+        "PLUGIN_CAPABILITY_SANDBOX",
+        "RUNTIME_TCB_MINIMIZATION"
+      ],
+      "next_action": "PRESERVE_CONTROL_EVIDENCE",
+      "owner_role": "SECURITY_OWNER",
+      "residual_state": "CONTROLLED_REFERENCE_ONLY",
+      "risk_acceptance_allowed": false,
+      "risk_digest": "sha256:a807c19ddc35c17f62ca2af5089b28366503daede97764aaa4b315b816e97665",
+      "risk_id": "SECRISK_12185FD22B029529A992A6F4",
+      "schema_version": "1.0.0",
+      "threat_id": "ARBITRARY_PLUGIN_OR_CODE_EXECUTION"
+    },
+    {
+      "inherent_severity": "CRITICAL",
+      "mapped_controls": [
+        "NETWORK_EGRESS_DENY",
+        "LEAST_PRIVILEGE_CAPABILITIES"
+      ],
+      "next_action": "PRESERVE_CONTROL_EVIDENCE",
+      "owner_role": "SECURITY_OWNER",
+      "residual_state": "CONTROLLED_REFERENCE_ONLY",
+      "risk_acceptance_allowed": false,
+      "risk_digest": "sha256:1961912d1c50b7abf82ffeba075fa8c5ab013958d40d47c62e59eb5dfc4794bb",
+      "risk_id": "SECRISK_2220461655B0A6245241D2B9",
+      "schema_version": "1.0.0",
+      "threat_id": "NETWORK_EGRESS_EXFILTRATION"
+    },
+    {
+      "inherent_severity": "CRITICAL",
+      "mapped_controls": [
+        "OPERATOR_SEPARATION",
+        "NON_REPUDIATION_INTERFACE"
+      ],
+      "next_action": "PRESERVE_CONTROL_EVIDENCE",
+      "owner_role": "SECURITY_OWNER",
+      "residual_state": "CONTROLLED_REFERENCE_ONLY",
+      "risk_acceptance_allowed": false,
+      "risk_digest": "sha256:c25faf384d4abc44d27b5f292c223e0c04a6d4ea60d2c4b87ec72c0ca4c60b4b",
+      "risk_id": "SECRISK_2040DC8A3F83EFC693339C2F",
+      "schema_version": "1.0.0",
+      "threat_id": "OPERATOR_COLLUSION_OR_SELF_APPROVAL"
+    },
+    {
+      "inherent_severity": "HIGH",
+      "mapped_controls": [
+        "AUDIT_HASH_CHAIN",
+        "NON_REPUDIATION_INTERFACE"
+      ],
+      "next_action": "PRESERVE_CONTROL_EVIDENCE",
+      "owner_role": "SECURITY_OWNER",
+      "residual_state": "CONTROLLED_REFERENCE_ONLY",
+      "risk_acceptance_allowed": false,
+      "risk_digest": "sha256:193ec85f547706ad949d02f8d4e5517590811ab0efd449877d5bc2242502a952",
+      "risk_id": "SECRISK_6C23444EED6B2D3B435EC28B",
+      "schema_version": "1.0.0",
+      "threat_id": "AUDIT_LEDGER_TAMPERING"
+    },
+    {
+      "inherent_severity": "CRITICAL",
+      "mapped_controls": [
+        "CI_BRANCH_PROTECTION",
+        "REPRODUCIBLE_BUILD_EVIDENCE"
+      ],
+      "next_action": "COLLECT_PRODUCTION_EVIDENCE",
+      "owner_role": "SECURITY_OWNER",
+      "residual_state": "OPEN",
+      "risk_acceptance_allowed": false,
+      "risk_digest": "sha256:b8ef797c3fd5362865a81a260f8edf5540dc790bbb5d768b33ac377f229e1145",
+      "risk_id": "SECRISK_D74B768102331D9B14B776D7",
+      "schema_version": "1.0.0",
+      "threat_id": "CI_RUNNER_OR_BRANCH_COMPROMISE"
+    },
+    {
+      "inherent_severity": "HIGH",
+      "mapped_controls": [
+        "INCIDENT_RESPONSE_PLAYBOOK",
+        "INCIDENT_TABLETOP_EVIDENCE"
+      ],
+      "next_action": "COLLECT_PRODUCTION_EVIDENCE",
+      "owner_role": "SECURITY_OWNER",
+      "residual_state": "OPEN",
+      "risk_acceptance_allowed": false,
+      "risk_digest": "sha256:083a583a5cd802485e423f338db186ff730dbba807dba0f98cf3ca6d02bd857b",
+      "risk_id": "SECRISK_CBC51F99ABF320DB1215486A",
+      "schema_version": "1.0.0",
+      "threat_id": "INCIDENT_RESPONSE_FAILURE"
+    },
+    {
+      "inherent_severity": "CRITICAL",
+      "mapped_controls": [
+        "BROKER_AND_CAPITAL_ISOLATION",
+        "KILL_SWITCH_AND_SAFE_SHUTDOWN"
+      ],
+      "next_action": "PRESERVE_CONTROL_EVIDENCE",
+      "owner_role": "SECURITY_OWNER",
+      "residual_state": "CONTROLLED_REFERENCE_ONLY",
+      "risk_acceptance_allowed": false,
+      "risk_digest": "sha256:9b9fcf0f85aa44172b38999a6c5287562a9d6e71edc32bd2bced1fb370ff1c91",
+      "risk_id": "SECRISK_557B9838E21E1AB7592422DF",
+      "schema_version": "1.0.0",
+      "threat_id": "BROKER_OR_CAPITAL_BOUNDARY_BYPASS"
+    }
+  ],
+  "schema_version": "1.0.0"
+}

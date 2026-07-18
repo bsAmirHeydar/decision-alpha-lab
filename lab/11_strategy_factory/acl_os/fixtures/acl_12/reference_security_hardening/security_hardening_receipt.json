@@ -1,0 +1,11 @@
+{
+  "acl13_handoff_digest": "sha256:700b201ca6cf220e94be5e4c6cb32a6e35a0dd15b7212a001eb6da015b28dc6d",
+  "artifact_count": 31,
+  "output_manifest_digest": "sha256:bf7b227bf5963d1ebe199afe3de4e454082438f7c5196c6aba836a5d200476b6",
+  "receipt_digest": "sha256:d5833ba3558866965d2aabddc6e2d4450575340580eb6a1fb8efbbc9eefa146a",
+  "reference_only": true,
+  "schema_version": "1.0.0",
+  "security_hardening_run_digest": "sha256:f7d6a69e8e86a32e1bc6ed13f3509b4e7ce53b9f0afe4dc4f2b6e5a6291cb11c",
+  "security_hardening_run_id": "SECRUN_C91A61225508CFD51B96BE7AFF855A4E",
+  "security_readiness_decision_digest": "sha256:b26f7c7217b1edc11d80dc869574074bcd7c3e8a75b9c0719a8595436a02d877"
+}

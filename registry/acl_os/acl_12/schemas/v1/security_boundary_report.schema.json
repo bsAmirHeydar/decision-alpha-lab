@@ -1,0 +1,74 @@
+{
+  "$id": "https://alpha-lab.local/acl12/security_boundary_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed ACL-12 reference contract.",
+  "properties": {
+    "acl11_integrity_verified": {
+      "type": "boolean"
+    },
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "live_order_submission_allowed": {
+      "type": "boolean"
+    },
+    "network_access_allowed": {
+      "type": "boolean"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "production_key_material_present": {
+      "type": "boolean"
+    },
+    "readiness_decision_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "runtime_activation_allowed": {
+      "type": "boolean"
+    },
+    "runtime_candidate_count": {
+      "type": "integer"
+    },
+    "runtime_candidate_invented": {
+      "type": "boolean"
+    },
+    "runtime_generation_materialized": {
+      "type": "boolean"
+    },
+    "scan_passed": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "secret_material_present": {
+      "type": "boolean"
+    },
+    "security_report_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "acl11_integrity_verified",
+    "capital_activation_allowed",
+    "live_order_submission_allowed",
+    "network_access_allowed",
+    "passed",
+    "production_key_material_present",
+    "readiness_decision_digest",
+    "runtime_activation_allowed",
+    "runtime_candidate_count",
+    "runtime_candidate_invented",
+    "runtime_generation_materialized",
+    "scan_passed",
+    "schema_version",
+    "secret_material_present",
+    "security_report_digest"
+  ],
+  "title": "security_boundary_report",
+  "type": "object"
+}

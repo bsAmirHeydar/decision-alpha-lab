@@ -1,0 +1,51 @@
+{
+  "edges": [
+    {
+      "from": "acl11-runtime-custody-package",
+      "relation": "CONSUMED_BY",
+      "to": "acl12-security-hardening"
+    },
+    {
+      "from": "python-runtime",
+      "relation": "EXECUTES",
+      "to": "acl12-security-hardening"
+    },
+    {
+      "from": "jsonschema",
+      "relation": "VALIDATES_CONTRACTS",
+      "to": "acl12-security-hardening"
+    }
+  ],
+  "external_registry_lookup_performed": false,
+  "graph_digest": "sha256:6118e66d274143021604728825d049bcbe7cd411b22bed511906c53e6230b84c",
+  "graph_id": "ACL12_DEPENDENCY_RECALL_GRAPH_V1",
+  "nodes": [
+    {
+      "artifact_digest": null,
+      "component_type": "RUNTIME",
+      "node_id": "python-runtime"
+    },
+    {
+      "artifact_digest": null,
+      "component_type": "PYTHON_DEPENDENCY",
+      "node_id": "jsonschema"
+    },
+    {
+      "artifact_digest": null,
+      "component_type": "TEST_DEPENDENCY",
+      "node_id": "pytest"
+    },
+    {
+      "artifact_digest": "sha256:5a4acf231a45450ac19cd478dbdb786c70830b173bf5d4729a57888bd47b67a0",
+      "component_type": "UPSTREAM_ARTIFACT_SET",
+      "node_id": "acl11-runtime-custody-package"
+    },
+    {
+      "artifact_digest": "sha256:f5ef78025404e5132cb335ce97ea7d45794adf8abb19ef3aecbcf5fbfab0cd80",
+      "component_type": "SECURITY_CONTROL_PLANE",
+      "node_id": "acl12-security-hardening"
+    }
+  ],
+  "recall_supported": true,
+  "schema_version": "1.0.0"
+}

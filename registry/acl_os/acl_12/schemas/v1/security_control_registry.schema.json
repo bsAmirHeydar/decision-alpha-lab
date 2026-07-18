@@ -1,0 +1,69 @@
+{
+  "$id": "https://alpha-lab.local/acl12/security_control_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed ACL-12 reference contract.",
+  "properties": {
+    "closed": {
+      "type": "boolean"
+    },
+    "control_count": {
+      "type": "integer"
+    },
+    "controls": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "blocks_production": {
+            "type": "boolean"
+          },
+          "control_class": {
+            "type": "string"
+          },
+          "control_id": {
+            "type": "string"
+          },
+          "domain": {
+            "type": "string"
+          },
+          "unknown_blocks_production": {
+            "type": "boolean"
+          },
+          "version": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "blocks_production",
+          "control_class",
+          "control_id",
+          "domain",
+          "unknown_blocks_production",
+          "version"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "registry_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "closed",
+    "control_count",
+    "controls",
+    "registry_digest",
+    "registry_id",
+    "schema_version"
+  ],
+  "title": "security_control_registry",
+  "type": "object"
+}

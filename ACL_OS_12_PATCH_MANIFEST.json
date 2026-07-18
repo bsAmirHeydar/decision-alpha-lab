@@ -1,0 +1,16 @@
+{
+  "base_commit_message": "feat(acl-os): implement ACL-11 runtime parity and handoff",
+  "claim_ceiling": "SECURITY_HARDENING_REFERENCE_ONLY",
+  "commit_message": "feat(acl-os): implement ACL-12 security hardening",
+  "deletion_count": 0,
+  "file_index": "ACL_OS_12_FILE_INDEX.txt",
+  "metadata_file_count": 5,
+  "patch_id": "ACL_OS_12_SECURITY_HARDENING_PATCH",
+  "payload_file_count": 386,
+  "phase": "ACL-12",
+  "qa_report": "ACL_OS_12_QA_REPORT.json",
+  "root_relative": true,
+  "schema_version": "1.0.0",
+  "self_reference_policy": "ZIP_DIGEST_EXCLUDED_FROM_INTERNAL_MANIFEST",
+  "total_file_count": 391
+}

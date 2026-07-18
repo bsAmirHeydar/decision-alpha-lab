@@ -1,0 +1,9 @@
+{
+  "files_scanned": 0,
+  "finding_count": 0,
+  "findings": [],
+  "passed": true,
+  "scan_digest": "sha256:ee9520b6fe46d0a4e0f4ec855b013c92151e73e58c3659350d1f61e0c5b887b9",
+  "scan_type": "MQL5_FORBIDDEN_API_SCAN",
+  "schema_version": "1.0.0"
+}

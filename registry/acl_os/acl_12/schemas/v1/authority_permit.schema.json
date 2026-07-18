@@ -1,0 +1,82 @@
+{
+  "$id": "https://alpha-lab.local/acl12/authority_permit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed ACL-12 reference contract.",
+  "properties": {
+    "acl11_handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "action": {
+      "type": "string"
+    },
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "expires_at": {
+      "type": "string"
+    },
+    "issued_at": {
+      "type": "string"
+    },
+    "issuer": {
+      "type": "string"
+    },
+    "live_order_submission_allowed": {
+      "type": "boolean"
+    },
+    "network_access_allowed": {
+      "type": "boolean"
+    },
+    "permit_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "permit_id": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "production_key_access_allowed": {
+      "type": "boolean"
+    },
+    "runtime_activation_allowed": {
+      "type": "boolean"
+    },
+    "runtime_custody_run_id": {
+      "type": "string"
+    },
+    "runtime_generation_allowed": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "secret_access_allowed": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "acl11_handoff_digest",
+    "action",
+    "capital_activation_allowed",
+    "expires_at",
+    "issued_at",
+    "issuer",
+    "live_order_submission_allowed",
+    "network_access_allowed",
+    "permit_digest",
+    "permit_id",
+    "phase",
+    "production_key_access_allowed",
+    "runtime_activation_allowed",
+    "runtime_custody_run_id",
+    "runtime_generation_allowed",
+    "schema_version",
+    "secret_access_allowed"
+  ],
+  "title": "authority_permit",
+  "type": "object"
+}

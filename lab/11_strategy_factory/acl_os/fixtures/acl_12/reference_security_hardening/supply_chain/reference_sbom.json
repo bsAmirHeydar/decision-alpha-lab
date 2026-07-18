@@ -1,0 +1,38 @@
+{
+  "component_count": 4,
+  "components": [
+    {
+      "component_id": "python-runtime",
+      "component_type": "RUNTIME",
+      "name": "Python",
+      "source": "LOCAL_ENVIRONMENT_DECLARATION",
+      "version": "3.13.5"
+    },
+    {
+      "component_id": "jsonschema",
+      "component_type": "PYTHON_DEPENDENCY",
+      "name": "jsonschema",
+      "source": "INSTALLED_DISTRIBUTION",
+      "version": "4.26.0"
+    },
+    {
+      "component_id": "pytest",
+      "component_type": "TEST_DEPENDENCY",
+      "name": "pytest",
+      "source": "INSTALLED_DISTRIBUTION",
+      "version": "9.0.2"
+    },
+    {
+      "component_id": "acl11-runtime-custody-package",
+      "component_type": "UPSTREAM_ARTIFACT_SET",
+      "name": "ACL-11 Runtime Custody Package",
+      "source_digest": "sha256:5a4acf231a45450ac19cd478dbdb786c70830b173bf5d4729a57888bd47b67a0",
+      "version": "1.0.0"
+    }
+  ],
+  "format": "ALPHA_LAB_REFERENCE_SBOM",
+  "production_completeness_claimed": false,
+  "sbom_digest": "sha256:cd15ec197a26844cb1f1ac4e30735e254516dd20556037552253bd9792d1a52f",
+  "sbom_id": "ACL12_REFERENCE_SBOM_V1",
+  "schema_version": "1.0.0"
+}

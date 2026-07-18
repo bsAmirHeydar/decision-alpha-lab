@@ -1,0 +1,164 @@
+{
+  "artifact_count": 31,
+  "files": [
+    {
+      "digest": "sha256:be44431dfe09483eba3187d51f20e20341ff0fc7071fedf33636f408cd1a78a2",
+      "path": ".acl12_generated_root",
+      "size_bytes": 35
+    },
+    {
+      "digest": "sha256:b8907ba1c1217262f8cb82c29d2d9dbdb3ed052b0724778c9c2e17e5aa24117d",
+      "path": "assessment/security_control_matrix.json",
+      "size_bytes": 20487
+    },
+    {
+      "digest": "sha256:a1d3e7d60a9a285bae9ead035490a4aebe1be842c9b746b1805e98c314310b5e",
+      "path": "assessment/threat_assessment.json",
+      "size_bytes": 7117
+    },
+    {
+      "digest": "sha256:f10def514ad2deda148ec3dc915d46a868e50edd0bda0db51a7a508de0af413d",
+      "path": "authority/authority_report.json",
+      "size_bytes": 693
+    },
+    {
+      "digest": "sha256:1e9cc6c8c66e6ec0a871ec9ff3458a23daf4b299addf4a0d206f9793fd8336d6",
+      "path": "binding/acl11_binding.json",
+      "size_bytes": 1222
+    },
+    {
+      "digest": "sha256:4265b9a6845920c5c286d78575b620a71501df35b702de4afeffd51c7748f58f",
+      "path": "custody/key_custody_interface.json",
+      "size_bytes": 712
+    },
+    {
+      "digest": "sha256:1aa4c66c038cbf6ba2bffac32099b48168329951e44ade8ff8ab897d73f076a2",
+      "path": "decision/security_readiness_decision.json",
+      "size_bytes": 1386
+    },
+    {
+      "digest": "sha256:30127b62cc5e0108a8d6175098113f39c1f20eeb3e8c5f2e2cc12652e7cfb992",
+      "path": "docs/ACL12_OPEN_PRODUCTION_SECURITY_RISKS.md",
+      "size_bytes": 322
+    },
+    {
+      "digest": "sha256:0c3472aac358f074f9cf6e635fcb7dab2a5453f7ae33009856bfa3b46bee9b27",
+      "path": "docs/ACL12_SECURITY_CONTROL_MATRIX.md",
+      "size_bytes": 3347
+    },
+    {
+      "digest": "sha256:0444d281812171f12621d0dbb845c62724dffd4d2781aa2f41b95008452b9811",
+      "path": "docs/ACL12_SECURITY_HARDENING_SUMMARY.md",
+      "size_bytes": 992
+    },
+    {
+      "digest": "sha256:596977e6268cdefdbc08578516f2a4dc8383c6a8113d11d33353cb5d119b73a2",
+      "path": "docs/obsidian_projection_manifest.json",
+      "size_bytes": 400
+    },
+    {
+      "digest": "sha256:ae72cdc61a35ffc0dccce2db3bd47c9d7ea39a19bb442d9334bebe08b65e0f0c",
+      "path": "events/security_hardening_event_ledger.json",
+      "size_bytes": 7111
+    },
+    {
+      "digest": "sha256:00e7d775c6f6a396444c5beafacf2ffd2fb73132bb2f79a05a85edd3cabc8fce",
+      "path": "evidence/security_evidence_bundle.json",
+      "size_bytes": 1521
+    },
+    {
+      "digest": "sha256:dabd7a76497414bdea8bcb66a28329c1d9631f78e949077cceafeff6d0d13953",
+      "path": "handoff/acl13_handoff.json",
+      "size_bytes": 1638
+    },
+    {
+      "digest": "sha256:26affc162bf899b98d348872da22ce31e083d72c6a00e837a4fa320087d697b8",
+      "path": "identity/operator_separation_matrix.json",
+      "size_bytes": 998
+    },
+    {
+      "digest": "sha256:941c235acaa651d7dfd10ee9a7499863ec6717967797d3c9963d1f957152f6c4",
+      "path": "lineage/security_hardening_provenance_graph.json",
+      "size_bytes": 1816
+    },
+    {
+      "digest": "sha256:33081cfab169939d3c3c98f0c0045beb558dbbb5ac396eb9f62766b824339b2b",
+      "path": "registry/security_control_registry.json",
+      "size_bytes": 7647
+    },
+    {
+      "digest": "sha256:1016dd4ed8b27913513b2b250012473a60963c94ef668fbf2e400078af31e1f8",
+      "path": "registry/security_readiness_state_registry.json",
+      "size_bytes": 729
+    },
+    {
+      "digest": "sha256:71e2ee703501da54a222c9ea429c4e0440e31e2a46ed156efcfeeb1ceb1473f8",
+      "path": "registry/threat_registry.json",
+      "size_bytes": 2411
+    },
+    {
+      "digest": "sha256:fa89acd1d8b1c001b14ebbf281f641d5b52fc9c6bcb891726b4f8db2d56dbaff",
+      "path": "reports/integrity_report.json",
+      "size_bytes": 404
+    },
+    {
+      "digest": "sha256:9f7b2524dd7a1d6e567dbd2098fb2391017b92ec4086b7b1127d8cbcf49ca070",
+      "path": "response/incident_response_readiness.json",
+      "size_bytes": 735
+    },
+    {
+      "digest": "sha256:25b36918e55f4d080b5aac1aa2744a2f2e262364b68fc2fadc731b808163c59c",
+      "path": "response/revocation_quarantine_plan.json",
+      "size_bytes": 639
+    },
+    {
+      "digest": "sha256:c9015283cda96e3f3c49db1463ef5e06c8f44c582c0b2c80e5003f8274ef741e",
+      "path": "risk/security_risk_register.json",
+      "size_bytes": 8266
+    },
+    {
+      "digest": "sha256:0262c3f9dc41e0baccdf03bb2bc33eac177561ce336a2b78e043620fa92fc98a",
+      "path": "run/security_hardening_run.json",
+      "size_bytes": 960
+    },
+    {
+      "digest": "sha256:ed704e7531e1fcb5bfa2f9873ed1500bd7618b76be86fc52e27d2ee5c58280c5",
+      "path": "scans/mql5_forbidden_api_scan_report.json",
+      "size_bytes": 246
+    },
+    {
+      "digest": "sha256:c9a65b6de22104589cdeec6bcb7de9300d83443188c7de0a246aa255cd12a703",
+      "path": "scans/path_and_symlink_scan_report.json",
+      "size_bytes": 293
+    },
+    {
+      "digest": "sha256:b0fd7a2f74c5d0fec41a7f6c3f94b1eb0fa1db6b8c986e5fe411c92e09886b6d",
+      "path": "scans/secret_scan_report.json",
+      "size_bytes": 235
+    },
+    {
+      "digest": "sha256:4e375ff8766df043dfd309f5979bdb68e93fb36b0cc26211dce3a8cb346bed96",
+      "path": "scans/static_scan_report.json",
+      "size_bytes": 285
+    },
+    {
+      "digest": "sha256:916d8c2e5db5ed7bfd78fa3b39bbd22a06bc04f5c85e640df91a62e638b5870b",
+      "path": "security/security_boundary_report.json",
+      "size_bytes": 668
+    },
+    {
+      "digest": "sha256:89de6fee975a16ea0a65697ce54c72b110885e228de0a50ca30462dd9bf32948",
+      "path": "supply_chain/dependency_recall_graph.json",
+      "size_bytes": 1414
+    },
+    {
+      "digest": "sha256:fd57384dd5429ea82be33c5125feefedae786aa3912b8b7443346130fd272c20",
+      "path": "supply_chain/reference_sbom.json",
+      "size_bytes": 1138
+    }
+  ],
+  "manifest_digest": "sha256:bf7b227bf5963d1ebe199afe3de4e454082438f7c5196c6aba836a5d200476b6",
+  "schema_version": "1.0.0",
+  "security_hardening_run_id": "SECRUN_C91A61225508CFD51B96BE7AFF855A4E",
+  "self_reference_policy": "MANIFEST_AND_RECEIPT_EXCLUDED_AND_MUTUALLY_BOUND"
+}

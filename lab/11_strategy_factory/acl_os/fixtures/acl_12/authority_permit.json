@@ -1,0 +1,19 @@
+{
+  "acl11_handoff_digest": "sha256:7b18280b5acb2835c7350c26fb3a6b32216cecaee4f9f92cd5e5777471e39d37",
+  "action": "ACL12_HARDEN_SECURITY_BOUNDARIES",
+  "capital_activation_allowed": false,
+  "expires_at": "2026-07-18T06:00:00Z",
+  "issued_at": "2026-07-18T04:55:00Z",
+  "issuer": "ACL00_REFERENCE_AUTHORITY",
+  "live_order_submission_allowed": false,
+  "network_access_allowed": false,
+  "permit_digest": "sha256:b26e7948f3f58d8c14eea7237ff301f1a50e030c1b7fcfae6092336406df124f",
+  "permit_id": "PERMIT_ACL12_REFERENCE_HARDENING",
+  "phase": "ACL-12",
+  "production_key_access_allowed": false,
+  "runtime_activation_allowed": false,
+  "runtime_custody_run_id": "RTRUN_7CAD59F31433BDB17692436DE314813D",
+  "runtime_generation_allowed": false,
+  "schema_version": "1.0.0",
+  "secret_access_allowed": false
+}

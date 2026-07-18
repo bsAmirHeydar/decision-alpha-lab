@@ -1,0 +1,33 @@
+{
+  "$id": "https://alpha-lab.local/acl12/obsidian_projection_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed ACL-12 reference contract.",
+  "properties": {
+    "documents": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "projection_manifest_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "documents",
+    "handoff_digest",
+    "projection_manifest_digest",
+    "schema_version"
+  ],
+  "title": "obsidian_projection_manifest",
+  "type": "object"
+}

@@ -1,0 +1,18 @@
+{
+  "capital_activation_allowed": false,
+  "claim_ceiling": "SECURITY_HARDENING_REFERENCE_ONLY",
+  "hardened_at": "2026-07-18T05:00:00Z",
+  "live_order_submission_allowed": false,
+  "production_security_ready": false,
+  "promotion_run_id": "PROMRUN_580667F2EE87B717DDCABC943E1DA894",
+  "runtime_activation_allowed": false,
+  "runtime_candidate_count": 0,
+  "runtime_custody_run_id": "RTRUN_7CAD59F31433BDB17692436DE314813D",
+  "schema_version": "1.0.0",
+  "security_control_matrix_digest": "sha256:d77cdb080870f48c3990e0020acae2e333d9f2c6830a402d00e3f17409ea2937",
+  "security_hardening_run_digest": "sha256:f7d6a69e8e86a32e1bc6ed13f3509b4e7ce53b9f0afe4dc4f2b6e5a6291cb11c",
+  "security_hardening_run_id": "SECRUN_C91A61225508CFD51B96BE7AFF855A4E",
+  "security_readiness_decision_digest": "sha256:b26f7c7217b1edc11d80dc869574074bcd7c3e8a75b9c0719a8595436a02d877",
+  "service_version": "1.0.0",
+  "state": "COMPLETED_REFERENCE_HARDENING_PRODUCTION_NOT_READY"
+}

@@ -1,0 +1,117 @@
+{
+  "claim_ceiling": "SECURITY_HARDENING_REFERENCE_ONLY",
+  "clean_overlay_commands": [
+    {
+      "command": "/opt/pyvenv/bin/python -m compileall -q tools/strategy_factory/acl_os/acl_12",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "command": "/opt/pyvenv/bin/python -m pytest -q lab/11_strategy_factory/acl_os/tests_acl_12",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ".......................................                                  [100%]\n39 passed in 1.60s\n"
+    },
+    {
+      "command": "/opt/pyvenv/bin/python -m tools.strategy_factory.acl_os.acl_12.cli verify --output lab/11_strategy_factory/acl_os/fixtures/acl_12/reference_security_hardening",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"errors\": [],\n  \"passed\": true,\n  \"security_hardening_run_id\": \"SECRUN_C91A61225508CFD51B96BE7AFF855A4E\"\n}\n"
+    }
+  ],
+  "commands": [
+    {
+      "command": "/opt/pyvenv/bin/python -m compileall -q tools/strategy_factory/acl_os/acl_12",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "command": "/opt/pyvenv/bin/python -m pytest -q lab/11_strategy_factory/acl_os/tests_acl_12",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ".......................................                                  [100%]\n39 passed in 1.54s\n"
+    },
+    {
+      "command": "/opt/pyvenv/bin/python -m pytest -q lab/11_strategy_factory/acl_os/tests_acl_11",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ".................................                                        [100%]\n33 passed in 1.98s\n"
+    },
+    {
+      "command": "/opt/pyvenv/bin/python -m tools.strategy_factory.acl_os.acl_12.cli verify --output lab/11_strategy_factory/acl_os/fixtures/acl_12/reference_security_hardening",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"errors\": [],\n  \"passed\": true,\n  \"security_hardening_run_id\": \"SECRUN_C91A61225508CFD51B96BE7AFF855A4E\"\n}\n"
+    }
+  ],
+  "counts": {
+    "atomic_concept_docs": 118,
+    "canonical_obsidian_docs": 40,
+    "direct_acl11_regression_tests": 33,
+    "direct_acl12_tests": 39,
+    "mql5_static_contract_files": 18,
+    "open_risks": 2,
+    "phase_delivery_docs": 66,
+    "policies": 35,
+    "python_modules": 31,
+    "reference_output_files": 33,
+    "schemas": 27,
+    "security_controls": 33,
+    "threats": 14
+  },
+  "delivery_validation": {
+    "missing": [],
+    "passed": true
+  },
+  "external_evidence_not_claimed": [
+    "production HSM/KMS custody",
+    "independent red-team validation",
+    "privileged access workstation assurance",
+    "tested backup and disaster recovery",
+    "production security monitoring",
+    "CI branch-protection attestation",
+    "reproducible production build attestation",
+    "artifact encryption/key rotation evidence",
+    "runtime activation",
+    "live order safety",
+    "capital authorization"
+  ],
+  "json_parse_count": 92,
+  "json_parse_errors": [],
+  "passed": true,
+  "phase": "ACL-12",
+  "reference_result": {
+    "acl13_handoff_digest": "sha256:700b201ca6cf220e94be5e4c6cb32a6e35a0dd15b7212a001eb6da015b28dc6d",
+    "capital_activation_allowed": false,
+    "control_status_counts": {
+      "NOT_APPLICABLE": 0,
+      "SATISFIED_REFERENCE": 25,
+      "UNKNOWN": 8,
+      "UNSATISFIED": 0
+    },
+    "decision": "REFERENCE_SECURITY_HARDENED_PRODUCTION_NOT_READY",
+    "live_order_submission_allowed": false,
+    "open_risk_count": 2,
+    "open_threat_gap_count": 2,
+    "production_blocker_count": 8,
+    "production_key_access_allowed": false,
+    "production_security_ready": false,
+    "readiness_state": "NON_PRODUCTION_SECURITY_BASELINE",
+    "reference_hardening_passed": true,
+    "runtime_activation_allowed": false,
+    "runtime_candidate_count": 0,
+    "runtime_custody_run_id": "RTRUN_7CAD59F31433BDB17692436DE314813D",
+    "security_hardening_run_id": "SECRUN_C91A61225508CFD51B96BE7AFF855A4E"
+  },
+  "schema_version": "1.0.0",
+  "static_validation": {
+    "errors": [],
+    "forbidden_mql5_hits": [],
+    "passed": true,
+    "policy_count": 35,
+    "schema_count": 27
+  },
+  "title": "Security Hardening"
+}

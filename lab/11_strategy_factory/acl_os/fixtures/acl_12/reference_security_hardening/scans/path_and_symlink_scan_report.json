@@ -1,0 +1,11 @@
+{
+  "files_scanned": 22,
+  "passed": true,
+  "path_escape_count": 0,
+  "path_escapes": [],
+  "scan_digest": "sha256:276faa213c841f5fd8d1375215c6072258e5e3a9fe675a6587307e6e1aa8c0a5",
+  "scan_type": "PATH_AND_SYMLINK_SCAN",
+  "schema_version": "1.0.0",
+  "symlink_count": 0,
+  "symlinks": []
+}

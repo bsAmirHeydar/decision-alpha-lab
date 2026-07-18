@@ -1,26 +1,39 @@
 ---
 title: ACL-12 — Security Hardening
-status: dependency-contract
-version: 2.0.0
+status: accepted-reference
+version: 3.0.0
 updated: 2026-07-18
 tags: [acl-os, acl-12, security]
 ---
 # ACL-12 — Security Hardening
 
-ACL-12 consumes `ACL11_TO_ACL12` and hardens identity, signature verification, key custody interfaces, supply-chain controls, trusted-computing-base constraints, revocation, incident handling and operator separation.
+ACL-12 consumes the immutable `ACL11_TO_ACL12` custody package and produces a deterministic security-control assessment, threat assessment, reference SBOM, dependency recall graph, scan evidence, operator-separation matrix, key-custody interface, incident and revocation contracts, risk register, evidence bundle and non-production readiness decision.
+
+## Reference result
+
+The upstream package contains zero runtime candidates and no generated runtime. ACL-12 preserves that state. Reference controls are hardened, but production readiness remains false because external attestations and operational evidence are absent.
 
 ## Required actions
 
-- `VERIFY_RUNTIME_CUSTODY_PACKAGE`
-- `HARDEN_SECURITY_BOUNDARIES`
-- `ISSUE_SECURITY_READINESS_DECISION`
+- verify the complete ACL-11 package;
+- apply the closed ACL-12 control and threat registries;
+- preserve UNKNOWN as a production blocker;
+- produce the `ACL12_TO_ACL13` handoff atomically.
 
 ## Forbidden actions
 
-- invent a runtime candidate;
-- bypass runtime parity or signing gates;
-- access production key material in reference mode;
-- authorize live orders;
-- activate capital.
+- invent runtime or security evidence;
+- access or generate production key material;
+- authorize runtime activation, live orders or capital;
+- accept residual risk automatically;
+- treat local scanning as production attestation.
 
-The ACL-11 reference package is non-executable and contains zero runtime candidates. Security hardening must preserve that fact.
+## Claim ceiling
+
+`SECURITY_HARDENING_REFERENCE_ONLY`
+
+## Related
+
+- [[ACL12_SECURITY_HARDENING_RUNTIME]]
+- [[ACL12_SECURITY_EVIDENCE_BUNDLE]]
+- [[ACL12_ACL13_HANDOFF]]

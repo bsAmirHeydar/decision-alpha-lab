@@ -1,0 +1,11 @@
+{
+  "acl11_package_verified": true,
+  "all_reference_scans_passed": true,
+  "integrity_report_digest": "sha256:0d4592974b713236932fcd5eab79c3e67f47586b9d7445894b54e4e2c9b455be",
+  "passed": true,
+  "production_key_material_accessed": false,
+  "production_security_evidence_invented": false,
+  "runtime_candidate_invented": false,
+  "runtime_generation_materialized": false,
+  "schema_version": "1.0.0"
+}

@@ -1,1 +1,1 @@
-feat(acl-os): implement ACL-11 runtime parity and handoff
+feat(acl-os): implement ACL-12 security hardening

@@ -1,0 +1,49 @@
+{
+  "$id": "https://alpha-lab.local/acl12/integrity_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed ACL-12 reference contract.",
+  "properties": {
+    "acl11_package_verified": {
+      "type": "boolean"
+    },
+    "all_reference_scans_passed": {
+      "type": "boolean"
+    },
+    "integrity_report_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "production_key_material_accessed": {
+      "type": "boolean"
+    },
+    "production_security_evidence_invented": {
+      "type": "boolean"
+    },
+    "runtime_candidate_invented": {
+      "type": "boolean"
+    },
+    "runtime_generation_materialized": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "acl11_package_verified",
+    "all_reference_scans_passed",
+    "integrity_report_digest",
+    "passed",
+    "production_key_material_accessed",
+    "production_security_evidence_invented",
+    "runtime_candidate_invented",
+    "runtime_generation_materialized",
+    "schema_version"
+  ],
+  "title": "integrity_report",
+  "type": "object"
+}

@@ -1,0 +1,11 @@
+from __future__ import annotations
+from .canonical import with_digest
+MAP={
+'TAMPERED_UPSTREAM_PACKAGE':['INPUT_PACKAGE_INTEGRITY','AUDIT_HASH_CHAIN'],'FORGED_MANIFEST_OR_RECEIPT':['INPUT_PACKAGE_INTEGRITY','NON_REPUDIATION_INTERFACE'],'RUNTIME_CANDIDATE_INVENTION':['IDENTITY_AND_LINEAGE_BINDING','LEAST_PRIVILEGE_CAPABILITIES'],'PRODUCTION_KEY_EXFILTRATION':['PRODUCTION_KEY_ACCESS_DENY','SIGNING_CUSTODY_INTERFACE'],'SECRET_INJECTION_IN_ARTIFACT':['SECRET_SCAN','SECRET_MATERIAL_ABSENCE'],'PATH_TRAVERSAL_OR_SYMLINK_SWAP':['PATH_TRAVERSAL_DEFENSE','SYMLINK_SUBSTITUTION_DEFENSE'],'DEPENDENCY_SUPPLY_CHAIN_COMPROMISE':['REFERENCE_SBOM','DEPENDENCY_RECALL_GRAPH','SUPPLY_CHAIN_INVENTORY'],'ARBITRARY_PLUGIN_OR_CODE_EXECUTION':['PLUGIN_CAPABILITY_SANDBOX','RUNTIME_TCB_MINIMIZATION'],'NETWORK_EGRESS_EXFILTRATION':['NETWORK_EGRESS_DENY','LEAST_PRIVILEGE_CAPABILITIES'],'OPERATOR_COLLUSION_OR_SELF_APPROVAL':['OPERATOR_SEPARATION','NON_REPUDIATION_INTERFACE'],'AUDIT_LEDGER_TAMPERING':['AUDIT_HASH_CHAIN','NON_REPUDIATION_INTERFACE'],'CI_RUNNER_OR_BRANCH_COMPROMISE':['CI_BRANCH_PROTECTION','REPRODUCIBLE_BUILD_EVIDENCE'],'INCIDENT_RESPONSE_FAILURE':['INCIDENT_RESPONSE_PLAYBOOK','INCIDENT_TABLETOP_EVIDENCE'],'BROKER_OR_CAPITAL_BOUNDARY_BYPASS':['BROKER_AND_CAPITAL_ISOLATION','KILL_SWITCH_AND_SAFE_SHUTDOWN']}
+def assess_threats(registry:dict,matrix:dict)->dict:
+    status={r['control_id']:r['status'] for r in matrix['results']}; items=[]
+    for t in registry['threats']:
+        controls=MAP[t['threat_id']]; incomplete=[c for c in controls if status.get(c)!='SATISFIED_REFERENCE']
+        residual='CONTROLLED_REFERENCE_ONLY' if not incomplete else 'OPEN_PRODUCTION_EVIDENCE_GAP'
+        items.append(with_digest({'schema_version':'1.0.0','threat_id':t['threat_id'],'inherent_severity':t['inherent_severity'],'mapped_controls':controls,'incomplete_controls':incomplete,'residual_state':residual,'production_risk_accepted':False},'threat_result_digest'))
+    return with_digest({'schema_version':'1.0.0','threat_registry_digest':registry['registry_digest'],'threat_count':len(items),'results':items,'open_production_gap_count':sum(1 for x in items if x['residual_state']=='OPEN_PRODUCTION_EVIDENCE_GAP'),'production_risk_accepted':False},'assessment_digest')

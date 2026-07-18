@@ -1,0 +1,26 @@
+{
+  "evidence_bundle_digest": "sha256:38cb4fc238bd477a8d2e70f21ff1321dcbbe34b303f94d3cc2c7d1fd9d944379",
+  "evidence_bundle_id": "ACL12_SECURITY_EVIDENCE_BUNDLE_V1",
+  "evidence_count": 14,
+  "evidence_refs": [
+    "sha256:276faa213c841f5fd8d1375215c6072258e5e3a9fe675a6587307e6e1aa8c0a5",
+    "sha256:60af8a50042e5c539080d26a1213e73166ec1da5902acf927a7f7777ef65c32c",
+    "sha256:6118e66d274143021604728825d049bcbe7cd411b22bed511906c53e6230b84c",
+    "sha256:94909a2948b9b8830e97f5949baff39aafa6dbdbf18862964a75b7543a68f5de",
+    "sha256:a1debc216807c78166681b95283d558ec68de7ebefc236567b8a608bdd591658",
+    "sha256:abb09cfdcb0abfc5f2470eb4885e04fbf48c884562eafbee96937391b468fd08",
+    "sha256:bcef1f7f22d2dc038e89ecad01bd81bd7f7d441da91c419826a15e2b56a67226",
+    "sha256:c2374aedcaec3674c9d84bd0c26059c07000d6447313c6cdf18e4ca5b86ad77a",
+    "sha256:cd15ec197a26844cb1f1ac4e30735e254516dd20556037552253bd9792d1a52f",
+    "sha256:d77cdb080870f48c3990e0020acae2e333d9f2c6830a402d00e3f17409ea2937",
+    "sha256:e485d66b66aa9f46e8800d46ffc93f7e7023dadcde2c8f8ef49883a7551432f8",
+    "sha256:ee9520b6fe46d0a4e0f4ec855b013c92151e73e58c3659350d1f61e0c5b887b9",
+    "sha256:ef319cb5e95fdcb8157e703be05a86eab6bcd7c5f77925b078dd83e410afe263",
+    "sha256:f5ef78025404e5132cb335ce97ea7d45794adf8abb19ef3aecbcf5fbfab0cd80"
+  ],
+  "external_scan_attestations_present": false,
+  "production_key_attestation_present": false,
+  "production_security_evidence_complete": false,
+  "reference_only": true,
+  "schema_version": "1.0.0"
+}

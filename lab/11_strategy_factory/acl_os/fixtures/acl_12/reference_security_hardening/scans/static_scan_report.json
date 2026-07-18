@@ -1,0 +1,10 @@
+{
+  "claim": "PATTERN_SCAN_NOT_FULL_SAST",
+  "files_scanned": 0,
+  "finding_count": 0,
+  "findings": [],
+  "passed": true,
+  "scan_digest": "sha256:abb09cfdcb0abfc5f2470eb4885e04fbf48c884562eafbee96937391b468fd08",
+  "scan_type": "REFERENCE_STATIC_SCAN",
+  "schema_version": "1.0.0"
+}

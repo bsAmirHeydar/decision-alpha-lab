@@ -1,0 +1,93 @@
+{
+  "closed": true,
+  "registry_digest": "sha256:7c0532628f3b5067e6324db5501b206b8195781d06de23b9fabc818a109baa1e",
+  "registry_id": "ACL12_THREAT_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "threat_count": 14,
+  "threats": [
+    {
+      "domain": "INTEGRITY",
+      "inherent_severity": "CRITICAL",
+      "threat_id": "TAMPERED_UPSTREAM_PACKAGE",
+      "version": "1.0.0"
+    },
+    {
+      "domain": "INTEGRITY",
+      "inherent_severity": "HIGH",
+      "threat_id": "FORGED_MANIFEST_OR_RECEIPT",
+      "version": "1.0.0"
+    },
+    {
+      "domain": "AUTHORITY",
+      "inherent_severity": "CRITICAL",
+      "threat_id": "RUNTIME_CANDIDATE_INVENTION",
+      "version": "1.0.0"
+    },
+    {
+      "domain": "KEY_CUSTODY",
+      "inherent_severity": "CRITICAL",
+      "threat_id": "PRODUCTION_KEY_EXFILTRATION",
+      "version": "1.0.0"
+    },
+    {
+      "domain": "SECRETS",
+      "inherent_severity": "CRITICAL",
+      "threat_id": "SECRET_INJECTION_IN_ARTIFACT",
+      "version": "1.0.0"
+    },
+    {
+      "domain": "FILESYSTEM",
+      "inherent_severity": "HIGH",
+      "threat_id": "PATH_TRAVERSAL_OR_SYMLINK_SWAP",
+      "version": "1.0.0"
+    },
+    {
+      "domain": "SUPPLY_CHAIN",
+      "inherent_severity": "CRITICAL",
+      "threat_id": "DEPENDENCY_SUPPLY_CHAIN_COMPROMISE",
+      "version": "1.0.0"
+    },
+    {
+      "domain": "TCB",
+      "inherent_severity": "CRITICAL",
+      "threat_id": "ARBITRARY_PLUGIN_OR_CODE_EXECUTION",
+      "version": "1.0.0"
+    },
+    {
+      "domain": "NETWORK",
+      "inherent_severity": "CRITICAL",
+      "threat_id": "NETWORK_EGRESS_EXFILTRATION",
+      "version": "1.0.0"
+    },
+    {
+      "domain": "OPERATIONS",
+      "inherent_severity": "CRITICAL",
+      "threat_id": "OPERATOR_COLLUSION_OR_SELF_APPROVAL",
+      "version": "1.0.0"
+    },
+    {
+      "domain": "AUDIT",
+      "inherent_severity": "HIGH",
+      "threat_id": "AUDIT_LEDGER_TAMPERING",
+      "version": "1.0.0"
+    },
+    {
+      "domain": "CI_CD",
+      "inherent_severity": "CRITICAL",
+      "threat_id": "CI_RUNNER_OR_BRANCH_COMPROMISE",
+      "version": "1.0.0"
+    },
+    {
+      "domain": "RESPONSE",
+      "inherent_severity": "HIGH",
+      "threat_id": "INCIDENT_RESPONSE_FAILURE",
+      "version": "1.0.0"
+    },
+    {
+      "domain": "CAPITAL",
+      "inherent_severity": "CRITICAL",
+      "threat_id": "BROKER_OR_CAPITAL_BOUNDARY_BYPASS",
+      "version": "1.0.0"
+    }
+  ]
+}

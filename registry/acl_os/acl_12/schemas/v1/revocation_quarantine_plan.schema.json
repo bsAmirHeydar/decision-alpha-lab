@@ -1,0 +1,51 @@
+{
+  "$id": "https://alpha-lab.local/acl12/revocation_quarantine_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed ACL-12 reference contract.",
+  "properties": {
+    "actions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "automatic_live_activation_allowed": {
+      "type": "boolean"
+    },
+    "plan_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "plan_id": {
+      "type": "string"
+    },
+    "production_drill_completed": {
+      "type": "boolean"
+    },
+    "quarantine_triggers": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "rollback_generation_required": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "actions",
+    "automatic_live_activation_allowed",
+    "plan_digest",
+    "plan_id",
+    "production_drill_completed",
+    "quarantine_triggers",
+    "rollback_generation_required",
+    "schema_version"
+  ],
+  "title": "revocation_quarantine_plan",
+  "type": "object"
+}

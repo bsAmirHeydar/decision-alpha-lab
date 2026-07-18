@@ -1,0 +1,39 @@
+{
+  "conflicts": [
+    {
+      "role_a": "SECURITY_ASSESSOR",
+      "role_b": "RELEASE_SIGNER",
+      "same_principal_allowed": false
+    },
+    {
+      "role_a": "RELEASE_SIGNER",
+      "role_b": "RUNTIME_ACTIVATOR",
+      "same_principal_allowed": false
+    },
+    {
+      "role_a": "RUNTIME_ACTIVATOR",
+      "role_b": "CAPITAL_OWNER",
+      "same_principal_allowed": false
+    },
+    {
+      "role_a": "INCIDENT_COMMANDER",
+      "role_b": "AUDIT_REVIEWER",
+      "same_principal_allowed": false
+    }
+  ],
+  "matrix_digest": "sha256:bcef1f7f22d2dc038e89ecad01bd81bd7f7d441da91c419826a15e2b56a67226",
+  "matrix_id": "ACL12_OPERATOR_SEPARATION_V1",
+  "minimum_independent_approvers": 2,
+  "production_identity_provider_verified": false,
+  "reference_policy_defined": true,
+  "roles": [
+    "SECURITY_ASSESSOR",
+    "RELEASE_SIGNER",
+    "RUNTIME_ACTIVATOR",
+    "CAPITAL_OWNER",
+    "INCIDENT_COMMANDER",
+    "AUDIT_REVIEWER"
+  ],
+  "schema_version": "1.0.0",
+  "self_approval_allowed": false
+}

@@ -1,0 +1,135 @@
+{
+  "$id": "https://alpha-lab.local/acl12/security_control_matrix.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed ACL-12 reference contract.",
+  "properties": {
+    "all_production_controls_satisfied": {
+      "type": "boolean"
+    },
+    "assessed_at": {
+      "type": "string"
+    },
+    "assessment_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "assessment_id": {
+      "type": "string"
+    },
+    "control_count": {
+      "type": "integer"
+    },
+    "control_registry_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "production_blocker_count": {
+      "type": "integer"
+    },
+    "production_blockers": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "reference_hardening_passed": {
+      "type": "boolean"
+    },
+    "results": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "blocks_production": {
+            "type": "boolean"
+          },
+          "control_id": {
+            "type": "string"
+          },
+          "evidence_refs": {
+            "items": {
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "reason_code": {
+            "type": "string"
+          },
+          "result_digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "schema_version": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "unknown_blocks_production": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "blocks_production",
+          "control_id",
+          "evidence_refs",
+          "reason_code",
+          "result_digest",
+          "schema_version",
+          "status",
+          "unknown_blocks_production"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "runtime_custody_run_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "status_counts": {
+      "additionalProperties": false,
+      "properties": {
+        "NOT_APPLICABLE": {
+          "type": "integer"
+        },
+        "SATISFIED_REFERENCE": {
+          "type": "integer"
+        },
+        "UNKNOWN": {
+          "type": "integer"
+        },
+        "UNSATISFIED": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "NOT_APPLICABLE",
+        "SATISFIED_REFERENCE",
+        "UNKNOWN",
+        "UNSATISFIED"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "all_production_controls_satisfied",
+    "assessed_at",
+    "assessment_digest",
+    "assessment_id",
+    "control_count",
+    "control_registry_digest",
+    "production_blocker_count",
+    "production_blockers",
+    "reference_hardening_passed",
+    "results",
+    "runtime_custody_run_id",
+    "schema_version",
+    "status_counts"
+  ],
+  "title": "security_control_matrix",
+  "type": "object"
+}

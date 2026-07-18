@@ -1,0 +1,58 @@
+{
+  "$id": "https://alpha-lab.local/acl12/output_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed ACL-12 reference contract.",
+  "properties": {
+    "artifact_count": {
+      "type": "integer"
+    },
+    "files": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "size_bytes": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "digest",
+          "path",
+          "size_bytes"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "manifest_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "security_hardening_run_id": {
+      "type": "string"
+    },
+    "self_reference_policy": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_count",
+    "files",
+    "manifest_digest",
+    "schema_version",
+    "security_hardening_run_id",
+    "self_reference_policy"
+  ],
+  "title": "output_manifest",
+  "type": "object"
+}

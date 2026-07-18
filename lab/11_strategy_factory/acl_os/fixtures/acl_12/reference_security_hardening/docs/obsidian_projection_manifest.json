@@ -1,0 +1,10 @@
+{
+  "documents": [
+    "docs/ACL12_SECURITY_HARDENING_SUMMARY.md",
+    "docs/ACL12_SECURITY_CONTROL_MATRIX.md",
+    "docs/ACL12_OPEN_PRODUCTION_SECURITY_RISKS.md"
+  ],
+  "handoff_digest": "sha256:700b201ca6cf220e94be5e4c6cb32a6e35a0dd15b7212a001eb6da015b28dc6d",
+  "projection_manifest_digest": "sha256:997a4b994004b3b5626bf0a5ad9da6eeda004cba1a4136736acbc2cb433bfef9",
+  "schema_version": "1.0.0"
+}

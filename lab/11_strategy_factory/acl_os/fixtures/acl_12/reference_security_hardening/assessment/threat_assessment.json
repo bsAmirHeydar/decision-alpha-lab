@@ -1,0 +1,198 @@
+{
+  "assessment_digest": "sha256:60af8a50042e5c539080d26a1213e73166ec1da5902acf927a7f7777ef65c32c",
+  "open_production_gap_count": 2,
+  "production_risk_accepted": false,
+  "results": [
+    {
+      "incomplete_controls": [],
+      "inherent_severity": "CRITICAL",
+      "mapped_controls": [
+        "INPUT_PACKAGE_INTEGRITY",
+        "AUDIT_HASH_CHAIN"
+      ],
+      "production_risk_accepted": false,
+      "residual_state": "CONTROLLED_REFERENCE_ONLY",
+      "schema_version": "1.0.0",
+      "threat_id": "TAMPERED_UPSTREAM_PACKAGE",
+      "threat_result_digest": "sha256:8cebaf4fc48f7dcd88b956165349beccdd9edd00d0af8444ffca18aa5795430a"
+    },
+    {
+      "incomplete_controls": [],
+      "inherent_severity": "HIGH",
+      "mapped_controls": [
+        "INPUT_PACKAGE_INTEGRITY",
+        "NON_REPUDIATION_INTERFACE"
+      ],
+      "production_risk_accepted": false,
+      "residual_state": "CONTROLLED_REFERENCE_ONLY",
+      "schema_version": "1.0.0",
+      "threat_id": "FORGED_MANIFEST_OR_RECEIPT",
+      "threat_result_digest": "sha256:f506fd4ba2cd9f7c2e8b8c0654534d12f8f87e4ef590ec81a9828b5bafa0ba08"
+    },
+    {
+      "incomplete_controls": [],
+      "inherent_severity": "CRITICAL",
+      "mapped_controls": [
+        "IDENTITY_AND_LINEAGE_BINDING",
+        "LEAST_PRIVILEGE_CAPABILITIES"
+      ],
+      "production_risk_accepted": false,
+      "residual_state": "CONTROLLED_REFERENCE_ONLY",
+      "schema_version": "1.0.0",
+      "threat_id": "RUNTIME_CANDIDATE_INVENTION",
+      "threat_result_digest": "sha256:dd7d082a4f04bd0e7aeba79dc47cb18e893d5f6e9b8ecd11cde047fc0cc239db"
+    },
+    {
+      "incomplete_controls": [],
+      "inherent_severity": "CRITICAL",
+      "mapped_controls": [
+        "PRODUCTION_KEY_ACCESS_DENY",
+        "SIGNING_CUSTODY_INTERFACE"
+      ],
+      "production_risk_accepted": false,
+      "residual_state": "CONTROLLED_REFERENCE_ONLY",
+      "schema_version": "1.0.0",
+      "threat_id": "PRODUCTION_KEY_EXFILTRATION",
+      "threat_result_digest": "sha256:e86aa8eea366ca7bae3b87d2330a39b068676c4045973ee6e4332da204e8d35e"
+    },
+    {
+      "incomplete_controls": [],
+      "inherent_severity": "CRITICAL",
+      "mapped_controls": [
+        "SECRET_SCAN",
+        "SECRET_MATERIAL_ABSENCE"
+      ],
+      "production_risk_accepted": false,
+      "residual_state": "CONTROLLED_REFERENCE_ONLY",
+      "schema_version": "1.0.0",
+      "threat_id": "SECRET_INJECTION_IN_ARTIFACT",
+      "threat_result_digest": "sha256:9581709802fff9c1c05063113fb57c9085cac6982affc3341bd7429b534a0470"
+    },
+    {
+      "incomplete_controls": [],
+      "inherent_severity": "HIGH",
+      "mapped_controls": [
+        "PATH_TRAVERSAL_DEFENSE",
+        "SYMLINK_SUBSTITUTION_DEFENSE"
+      ],
+      "production_risk_accepted": false,
+      "residual_state": "CONTROLLED_REFERENCE_ONLY",
+      "schema_version": "1.0.0",
+      "threat_id": "PATH_TRAVERSAL_OR_SYMLINK_SWAP",
+      "threat_result_digest": "sha256:023e95056c0b8983987100f5a05e2f2238a851a0ba206088f8ca4aaa4a54c7eb"
+    },
+    {
+      "incomplete_controls": [],
+      "inherent_severity": "CRITICAL",
+      "mapped_controls": [
+        "REFERENCE_SBOM",
+        "DEPENDENCY_RECALL_GRAPH",
+        "SUPPLY_CHAIN_INVENTORY"
+      ],
+      "production_risk_accepted": false,
+      "residual_state": "CONTROLLED_REFERENCE_ONLY",
+      "schema_version": "1.0.0",
+      "threat_id": "DEPENDENCY_SUPPLY_CHAIN_COMPROMISE",
+      "threat_result_digest": "sha256:8fc98356c2b47d1c20eec6f7ca173e879daec1af45dc6e20ec1678fdd8ef2eab"
+    },
+    {
+      "incomplete_controls": [],
+      "inherent_severity": "CRITICAL",
+      "mapped_controls": [
+        "PLUGIN_CAPABILITY_SANDBOX",
+        "RUNTIME_TCB_MINIMIZATION"
+      ],
+      "production_risk_accepted": false,
+      "residual_state": "CONTROLLED_REFERENCE_ONLY",
+      "schema_version": "1.0.0",
+      "threat_id": "ARBITRARY_PLUGIN_OR_CODE_EXECUTION",
+      "threat_result_digest": "sha256:a1c7061b0db024c773a8fcbafd2505f32017cba0664c284a47525ccbc39d1068"
+    },
+    {
+      "incomplete_controls": [],
+      "inherent_severity": "CRITICAL",
+      "mapped_controls": [
+        "NETWORK_EGRESS_DENY",
+        "LEAST_PRIVILEGE_CAPABILITIES"
+      ],
+      "production_risk_accepted": false,
+      "residual_state": "CONTROLLED_REFERENCE_ONLY",
+      "schema_version": "1.0.0",
+      "threat_id": "NETWORK_EGRESS_EXFILTRATION",
+      "threat_result_digest": "sha256:f93ce6b030bd5a8b7a11ccd21869bdff57dce247469cfe5b01fc1a6faf16a24a"
+    },
+    {
+      "incomplete_controls": [],
+      "inherent_severity": "CRITICAL",
+      "mapped_controls": [
+        "OPERATOR_SEPARATION",
+        "NON_REPUDIATION_INTERFACE"
+      ],
+      "production_risk_accepted": false,
+      "residual_state": "CONTROLLED_REFERENCE_ONLY",
+      "schema_version": "1.0.0",
+      "threat_id": "OPERATOR_COLLUSION_OR_SELF_APPROVAL",
+      "threat_result_digest": "sha256:7571603d79f39a3ba6c1b2b065c6cfdbd434510f586011d6dca29068480a5622"
+    },
+    {
+      "incomplete_controls": [],
+      "inherent_severity": "HIGH",
+      "mapped_controls": [
+        "AUDIT_HASH_CHAIN",
+        "NON_REPUDIATION_INTERFACE"
+      ],
+      "production_risk_accepted": false,
+      "residual_state": "CONTROLLED_REFERENCE_ONLY",
+      "schema_version": "1.0.0",
+      "threat_id": "AUDIT_LEDGER_TAMPERING",
+      "threat_result_digest": "sha256:71215e8b457d172d90b32e4879cffab559c4119a2c4c9eb7e8b126d8ac2d749c"
+    },
+    {
+      "incomplete_controls": [
+        "CI_BRANCH_PROTECTION",
+        "REPRODUCIBLE_BUILD_EVIDENCE"
+      ],
+      "inherent_severity": "CRITICAL",
+      "mapped_controls": [
+        "CI_BRANCH_PROTECTION",
+        "REPRODUCIBLE_BUILD_EVIDENCE"
+      ],
+      "production_risk_accepted": false,
+      "residual_state": "OPEN_PRODUCTION_EVIDENCE_GAP",
+      "schema_version": "1.0.0",
+      "threat_id": "CI_RUNNER_OR_BRANCH_COMPROMISE",
+      "threat_result_digest": "sha256:8fb9fed8b7057c1366215ded9a4fd2d4bd679a1217995354b33e42536ce6a72a"
+    },
+    {
+      "incomplete_controls": [
+        "INCIDENT_TABLETOP_EVIDENCE"
+      ],
+      "inherent_severity": "HIGH",
+      "mapped_controls": [
+        "INCIDENT_RESPONSE_PLAYBOOK",
+        "INCIDENT_TABLETOP_EVIDENCE"
+      ],
+      "production_risk_accepted": false,
+      "residual_state": "OPEN_PRODUCTION_EVIDENCE_GAP",
+      "schema_version": "1.0.0",
+      "threat_id": "INCIDENT_RESPONSE_FAILURE",
+      "threat_result_digest": "sha256:6e3ac8ed0f9ab9d73b6f45119dfd18d717168cd06e482eca4a3112e0bd500fe8"
+    },
+    {
+      "incomplete_controls": [],
+      "inherent_severity": "CRITICAL",
+      "mapped_controls": [
+        "BROKER_AND_CAPITAL_ISOLATION",
+        "KILL_SWITCH_AND_SAFE_SHUTDOWN"
+      ],
+      "production_risk_accepted": false,
+      "residual_state": "CONTROLLED_REFERENCE_ONLY",
+      "schema_version": "1.0.0",
+      "threat_id": "BROKER_OR_CAPITAL_BOUNDARY_BYPASS",
+      "threat_result_digest": "sha256:c1868e9918abbc5a7c754f3e7ae613b65eea412ab611ec4ed4790c4804442ef7"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "threat_count": 14,
+  "threat_registry_digest": "sha256:7c0532628f3b5067e6324db5501b206b8195781d06de23b9fabc818a109baa1e"
+}

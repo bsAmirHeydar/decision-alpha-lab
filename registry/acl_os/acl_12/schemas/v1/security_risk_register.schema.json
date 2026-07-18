@@ -1,0 +1,93 @@
+{
+  "$id": "https://alpha-lab.local/acl12/security_risk_register.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed ACL-12 reference contract.",
+  "properties": {
+    "automatic_risk_acceptance_allowed": {
+      "type": "boolean"
+    },
+    "open_risk_count": {
+      "type": "integer"
+    },
+    "register_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "register_id": {
+      "type": "string"
+    },
+    "risk_count": {
+      "type": "integer"
+    },
+    "risks": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "inherent_severity": {
+            "type": "string"
+          },
+          "mapped_controls": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "next_action": {
+            "type": "string"
+          },
+          "owner_role": {
+            "type": "string"
+          },
+          "residual_state": {
+            "type": "string"
+          },
+          "risk_acceptance_allowed": {
+            "type": "boolean"
+          },
+          "risk_digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "risk_id": {
+            "type": "string"
+          },
+          "schema_version": {
+            "type": "string"
+          },
+          "threat_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "inherent_severity",
+          "mapped_controls",
+          "next_action",
+          "owner_role",
+          "residual_state",
+          "risk_acceptance_allowed",
+          "risk_digest",
+          "risk_id",
+          "schema_version",
+          "threat_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "automatic_risk_acceptance_allowed",
+    "open_risk_count",
+    "register_digest",
+    "register_id",
+    "risk_count",
+    "risks",
+    "schema_version"
+  ],
+  "title": "security_risk_register",
+  "type": "object"
+}

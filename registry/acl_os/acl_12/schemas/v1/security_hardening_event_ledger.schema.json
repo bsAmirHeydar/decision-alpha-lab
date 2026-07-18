@@ -1,0 +1,154 @@
+{
+  "$id": "https://alpha-lab.local/acl12/security_hardening_event_ledger.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Closed ACL-12 reference contract.",
+  "properties": {
+    "event_count": {
+      "type": "integer"
+    },
+    "events": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "capital_authority": {
+            "type": "boolean"
+          },
+          "event_digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "event_id": {
+            "type": "string"
+          },
+          "event_type": {
+            "type": "string"
+          },
+          "live_order_authority": {
+            "type": "boolean"
+          },
+          "occurred_at": {
+            "type": "string"
+          },
+          "payload": {
+            "additionalProperties": false,
+            "properties": {
+              "assessment_digest": {
+                "pattern": "^sha256:[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "authority_report_digest": {
+                "pattern": "^sha256:[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "binding_digest": {
+                "pattern": "^sha256:[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "control_registry_digest": {
+                "pattern": "^sha256:[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "mql5_scan_digest": {
+                "pattern": "^sha256:[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "production_security_ready": {
+                "type": "boolean"
+              },
+              "readiness_decision_digest": {
+                "pattern": "^sha256:[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "recall_graph_digest": {
+                "pattern": "^sha256:[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "risk_register_digest": {
+                "pattern": "^sha256:[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "sbom_digest": {
+                "pattern": "^sha256:[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "secret_scan_digest": {
+                "pattern": "^sha256:[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "static_scan_digest": {
+                "pattern": "^sha256:[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "threat_assessment_digest": {
+                "pattern": "^sha256:[0-9a-f]{64}$",
+                "type": "string"
+              },
+              "threat_registry_digest": {
+                "pattern": "^sha256:[0-9a-f]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [],
+            "type": "object"
+          },
+          "previous_event_digest": {
+            "type": "string"
+          },
+          "production_key_authority": {
+            "type": "boolean"
+          },
+          "runtime_activation_authority": {
+            "type": "boolean"
+          },
+          "schema_version": {
+            "type": "string"
+          },
+          "sequence": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "capital_authority",
+          "event_digest",
+          "event_id",
+          "event_type",
+          "live_order_authority",
+          "occurred_at",
+          "payload",
+          "previous_event_digest",
+          "production_key_authority",
+          "runtime_activation_authority",
+          "schema_version",
+          "sequence"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "ledger_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "security_hardening_run_id": {
+      "type": "string"
+    },
+    "terminal_event_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "event_count",
+    "events",
+    "ledger_digest",
+    "schema_version",
+    "security_hardening_run_id",
+    "terminal_event_digest"
+  ],
+  "title": "security_hardening_event_ledger",
+  "type": "object"
+}
