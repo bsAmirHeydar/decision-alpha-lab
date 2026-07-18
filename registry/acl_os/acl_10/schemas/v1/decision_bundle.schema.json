@@ -1,0 +1,35 @@
+{
+  "$id": "https://alpha-lab.local/acl10/decision_bundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capital_activation_allowed": {},
+    "decision_bundle_digest": {},
+    "decision_count": {},
+    "decisions": {},
+    "live_order_submission_allowed": {},
+    "promotion_executed_count": {},
+    "promotion_execution_allowed": {},
+    "promotion_review_eligible_count": {},
+    "runtime_generation_allowed": {},
+    "schema_version": {
+      "type": "string"
+    },
+    "state_counts": {}
+  },
+  "required": [
+    "schema_version",
+    "decision_count",
+    "state_counts",
+    "promotion_review_eligible_count",
+    "promotion_executed_count",
+    "decisions",
+    "promotion_execution_allowed",
+    "runtime_generation_allowed",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "decision_bundle_digest"
+  ],
+  "title": "decision_bundle",
+  "type": "object"
+}

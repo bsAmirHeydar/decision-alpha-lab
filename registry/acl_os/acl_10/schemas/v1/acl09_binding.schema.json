@@ -1,0 +1,51 @@
+{
+  "$id": "https://alpha-lab.local/acl10/acl09_binding.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "admission_bundle_digest": {},
+    "batch_id": {},
+    "binding_digest": {},
+    "event_ledger_digest": {},
+    "handoff_digest": {},
+    "memory_index_digest": {},
+    "memory_run_digest": {},
+    "memory_run_id": {},
+    "plan_portfolio_digest": {},
+    "provenance_graph_digest": {},
+    "report_id": {},
+    "reporting_eligible_candidate_count": {},
+    "run_id": {},
+    "schema_version": {
+      "type": "string"
+    },
+    "source_decision_count": {},
+    "source_memory_entry_count": {},
+    "source_proposal_count": {},
+    "source_quarantine_count": {},
+    "validation_id": {}
+  },
+  "required": [
+    "schema_version",
+    "memory_run_id",
+    "report_id",
+    "validation_id",
+    "run_id",
+    "batch_id",
+    "handoff_digest",
+    "memory_run_digest",
+    "memory_index_digest",
+    "admission_bundle_digest",
+    "plan_portfolio_digest",
+    "event_ledger_digest",
+    "provenance_graph_digest",
+    "reporting_eligible_candidate_count",
+    "source_decision_count",
+    "source_memory_entry_count",
+    "source_quarantine_count",
+    "source_proposal_count",
+    "binding_digest"
+  ],
+  "title": "acl09_binding",
+  "type": "object"
+}

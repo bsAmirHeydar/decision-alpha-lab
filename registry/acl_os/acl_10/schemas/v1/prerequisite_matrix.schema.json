@@ -1,0 +1,25 @@
+{
+  "$id": "https://alpha-lab.local/acl10/prerequisite_matrix.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "eligible_count": {},
+    "evaluation_count": {},
+    "evaluations": {},
+    "matrix_digest": {},
+    "memory_run_id": {},
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "memory_run_id",
+    "evaluation_count",
+    "eligible_count",
+    "evaluations",
+    "matrix_digest"
+  ],
+  "title": "prerequisite_matrix",
+  "type": "object"
+}

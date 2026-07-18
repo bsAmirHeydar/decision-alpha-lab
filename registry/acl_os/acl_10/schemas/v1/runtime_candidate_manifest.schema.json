@@ -1,0 +1,29 @@
+{
+  "$id": "https://alpha-lab.local/acl10/runtime_candidate_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "reason_code": {},
+    "runtime_candidate_count": {},
+    "runtime_candidate_manifest_digest": {},
+    "runtime_candidates": {},
+    "runtime_generation_allowed": {},
+    "runtime_handoff_allowed": {},
+    "schema_version": {
+      "type": "string"
+    },
+    "source_promotion_review_eligible_count": {}
+  },
+  "required": [
+    "schema_version",
+    "runtime_candidate_count",
+    "runtime_candidates",
+    "source_promotion_review_eligible_count",
+    "runtime_generation_allowed",
+    "runtime_handoff_allowed",
+    "reason_code",
+    "runtime_candidate_manifest_digest"
+  ],
+  "title": "runtime_candidate_manifest",
+  "type": "object"
+}

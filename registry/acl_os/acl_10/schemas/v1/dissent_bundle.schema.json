@@ -1,0 +1,23 @@
+{
+  "$id": "https://alpha-lab.local/acl10/dissent_bundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "dissent_bundle_digest": {},
+    "dissent_not_required_reason": {},
+    "dissent_record_count": {},
+    "dissent_records": {},
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "dissent_record_count",
+    "dissent_records",
+    "dissent_not_required_reason",
+    "dissent_bundle_digest"
+  ],
+  "title": "dissent_bundle",
+  "type": "object"
+}

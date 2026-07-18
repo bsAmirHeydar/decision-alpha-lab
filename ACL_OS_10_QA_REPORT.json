@@ -1,0 +1,66 @@
+{
+  "checks": {
+    "acl11_handoff_binding": true,
+    "clean_overlay_installation": true,
+    "direct_acl09_regression": {
+      "count": 32,
+      "passed": true
+    },
+    "direct_acl10_tests": {
+      "count": 34,
+      "passed": true
+    },
+    "event_chain": true,
+    "mql_forbidden_api_hits": 0,
+    "policy_parse": {
+      "count": 26,
+      "passed": true
+    },
+    "prerequisite_registry": {
+      "count": 21,
+      "passed": true
+    },
+    "promotion_executed_count": 0,
+    "promotion_review_eligible_count": 0,
+    "provenance_binding": true,
+    "python_compileall_acl10": true,
+    "reference_json_parse": {
+      "count": 133,
+      "passed": true
+    },
+    "reference_replay": true,
+    "reference_state_distribution": {
+      "BASELINE_REFERENCE_ONLY": 4,
+      "DIAGNOSTIC_QUARANTINED": 1,
+      "RESEARCH_HOLD": 7
+    },
+    "reference_subject_count": 12,
+    "runtime_candidate_count": 0,
+    "schema_validation": {
+      "count": 31,
+      "passed": true
+    },
+    "state_registry": {
+      "count": 11,
+      "passed": true
+    },
+    "transition_registry": {
+      "count": 7,
+      "passed": true
+    }
+  },
+  "claim_ceiling": "PROMOTION_STATE_DECISION_REFERENCE_ONLY",
+  "external_evidence_not_claimed": [
+    "MetaEditor compilation",
+    "MT5 runtime parity",
+    "broker qualification",
+    "prospective market evidence",
+    "human approval operations",
+    "live order safety",
+    "capital authorization"
+  ],
+  "passed": true,
+  "phase": "ACL-10",
+  "schema_version": "1.0.0",
+  "title": "Promotion State Machine"
+}

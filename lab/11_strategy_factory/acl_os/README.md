@@ -24,3 +24,11 @@ Consumes ACL-06 descriptive evidence, applies a closed fifteen-gate validation p
 ## ACL-08 — Reporting and Experience
 
 Consumes ACL-07 validation decisions and produces deterministic reports, redacted audience views and non-promotional experience candidates for ACL-09. No alpha, promotion, execution or capital authority is granted.
+
+## ACL-09 — Research Memory and Active Planner
+
+Consumes ACL-08 reports and experience records, performs governed append-only memory admission, duplicate analysis and bounded non-executing research planning. No automatic execution, promotion, order or capital authority is granted.
+
+## ACL-10 — Promotion State Machine
+
+Consumes ACL-09 memory and planner evidence, evaluates closed promotion prerequisites, preserves UNKNOWN, isolates baseline and diagnostic sources, and issues deterministic non-executing state decisions for ACL-11. The reference fixture contains zero runtime candidates and grants no runtime, order or capital authority.

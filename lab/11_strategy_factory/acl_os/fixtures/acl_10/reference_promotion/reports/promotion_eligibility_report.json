@@ -1,0 +1,10 @@
+{
+  "evaluated_subject_count": 12,
+  "passed": true,
+  "promotion_review_eligible_count": 0,
+  "promotion_run_id": "PROMRUN_580667F2EE87B717DDCABC943E1DA894",
+  "report_digest": "sha256:e47c4e8b211c1329ab0362b701d38ab08df88a030c08e0fac934bcd8bb874f27",
+  "runtime_candidate_count": 0,
+  "schema_version": "1.0.0",
+  "source_reporting_eligible_candidate_count": 0
+}

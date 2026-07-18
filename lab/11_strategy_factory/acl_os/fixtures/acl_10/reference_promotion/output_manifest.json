@@ -1,0 +1,384 @@
+{
+  "artifact_count": 75,
+  "files": [
+    {
+      "digest": "sha256:e9a0b2cec56935905fb30cf1bbca038d79399a14e70ac946d1094e6f068eb2f4",
+      "path": ".acl10_generated_root",
+      "size_bytes": 41
+    },
+    {
+      "digest": "sha256:03a9979f4aac28e01d7171f24b152cd9964aa82bd4eeb8356df23919a6afe09c",
+      "path": "approval/approval_request_bundle.json",
+      "size_bytes": 446
+    },
+    {
+      "digest": "sha256:704f882fb395434f93c6db58269a24e2bb364b46f7f48204d55431cbba269d28",
+      "path": "approval/dissent_bundle.json",
+      "size_bytes": 255
+    },
+    {
+      "digest": "sha256:00b8b2e1e3f6a793dd0f3c2423fe427b4f79cd4c54434d39fca5a1bcf00a2e13",
+      "path": "authority/authority_report.json",
+      "size_bytes": 593
+    },
+    {
+      "digest": "sha256:7e06717a35e2cd7ce8abcf131ae1f6662cc421aee51fcc1063465a01051bdee6",
+      "path": "binding/acl09_binding.json",
+      "size_bytes": 1294
+    },
+    {
+      "digest": "sha256:b2405ece5c1e7e95e37ee966df5fe6170aa881994e233698a5a6e48b3180caa9",
+      "path": "control/revocation_bundle.json",
+      "size_bytes": 263
+    },
+    {
+      "digest": "sha256:ded4f0be7a9bb30d55f5e52fa3d98c1f985e38b14682605dc21512b841daa8c4",
+      "path": "decisions/promotion_decision_bundle.json",
+      "size_bytes": 3901
+    },
+    {
+      "digest": "sha256:b5647b3455c0b0e4645c828ad0ba07124d543f8b1d593bfc33effe2f8c949541",
+      "path": "decisions/records/PROMDEC_0BB56F49AC923D1359E88FF3.json",
+      "size_bytes": 843
+    },
+    {
+      "digest": "sha256:f7310dd99ce72346e078eceb70548cd217c94e69f5ebae963acedd7a1f880e37",
+      "path": "decisions/records/PROMDEC_2D5726490DE2FEBE1E498063.json",
+      "size_bytes": 1042
+    },
+    {
+      "digest": "sha256:04c187ddefda67aa993baff2c87b06f2e19034d1cb40be19a4149cf3f7cbad4e",
+      "path": "decisions/records/PROMDEC_39B6FB6BFFBDA1F2279034FA.json",
+      "size_bytes": 1042
+    },
+    {
+      "digest": "sha256:23c19a46f6c7b5eb572353e12eea0eb3c4213152a965401688748d5e846e62d9",
+      "path": "decisions/records/PROMDEC_4ADDEACD92ECE5A5A214B7FD.json",
+      "size_bytes": 849
+    },
+    {
+      "digest": "sha256:b769f487155fc378feb60f513107f3f23c304bb766246dd2e9bd1691fcf54a4c",
+      "path": "decisions/records/PROMDEC_51A02E97E58096966363F9EE.json",
+      "size_bytes": 843
+    },
+    {
+      "digest": "sha256:df3136d6171ff3066584f465d7574f7aca2d2507a5df7abff1a97b972d56acb8",
+      "path": "decisions/records/PROMDEC_75C5D35CCE40154A4F386C7A.json",
+      "size_bytes": 1042
+    },
+    {
+      "digest": "sha256:7314ade3d1b1cd8f04afbe6e2d88277ab3e4362aaa0440003074099f77efb9fa",
+      "path": "decisions/records/PROMDEC_8133CDE32605F218ED3C81AB.json",
+      "size_bytes": 1042
+    },
+    {
+      "digest": "sha256:eefbedadb342688ad690e833a7d55dd87da3fb3c1ebf4192a6a1ccca15023be5",
+      "path": "decisions/records/PROMDEC_AAAAB42D8E1E1F3EB165A211.json",
+      "size_bytes": 843
+    },
+    {
+      "digest": "sha256:29d73656d554d998fe7257fcaf6f1dde2e2e8a2cd7635954ba1eaf8a40e6249e",
+      "path": "decisions/records/PROMDEC_C26B1DA30E141C6E65289B3F.json",
+      "size_bytes": 1042
+    },
+    {
+      "digest": "sha256:37d43d88506d346dabb8b6be7b1893bfffe2bbec9bbf5c8871d0e801b3795e52",
+      "path": "decisions/records/PROMDEC_C381EAD748661FC35E6286C6.json",
+      "size_bytes": 843
+    },
+    {
+      "digest": "sha256:7476881f252102b28f50ed528b6305e0255519a055f9293349c89163e73c67ee",
+      "path": "decisions/records/PROMDEC_DD1B01D2BD2C551A517D027A.json",
+      "size_bytes": 1042
+    },
+    {
+      "digest": "sha256:6b1b0ff2478e5c417720bdb52491e300211a3f49b44ee396ca074446672359cb",
+      "path": "decisions/records/PROMDEC_FC1C8341CE9D7541B6F252B6.json",
+      "size_bytes": 1042
+    },
+    {
+      "digest": "sha256:cf8f66a543ff17633dc764c897c772efe506ea781743184bea068fa080de78c6",
+      "path": "docs/ACL10_PROMOTION_STATE_SUMMARY.md",
+      "size_bytes": 547
+    },
+    {
+      "digest": "sha256:70a41aac4375833f48c403417263fc4b30e9cb472ae22e00f6f0bc4251e79ec9",
+      "path": "docs/PROMOTION_PREREQUISITE_GAPS.md",
+      "size_bytes": 122
+    },
+    {
+      "digest": "sha256:027681560cfefed1b9d30739240613d941818b84b8360b17dafa0297b339e633",
+      "path": "docs/PROMOTION_STATE_DISTRIBUTION.md",
+      "size_bytes": 116
+    },
+    {
+      "digest": "sha256:4fc12a1ba2e24a6ce9fa17553e2f923add2cc3188b1b3e1d845ecca592ec10c5",
+      "path": "docs/obsidian_projection_manifest.json",
+      "size_bytes": 654
+    },
+    {
+      "digest": "sha256:08a4f84f6e343b5c70188b6cf13a66e85ea9000a55a3ac0fbd3be98687b7390f",
+      "path": "evaluations/prerequisite_matrix.json",
+      "size_bytes": 61580
+    },
+    {
+      "digest": "sha256:d5bd5c26049e7ec1680e3455c89ba0346227bc1c32e9192b19e4af54e6bdd044",
+      "path": "evaluations/records/PREEVAL_019392DF3B6F3EDE5A23AB17.json",
+      "size_bytes": 4662
+    },
+    {
+      "digest": "sha256:796ebc123ce4ceeac669cccbad79508188831d06dbf5661dc4030d77f91fd888",
+      "path": "evaluations/records/PREEVAL_1DEFD4A559D12E7DE937222A.json",
+      "size_bytes": 4666
+    },
+    {
+      "digest": "sha256:bede98ae5416d3c41bfb2f113e15b2ad82b03ff540abb9dfdd657359f3ec6701",
+      "path": "evaluations/records/PREEVAL_1E318FF2DEFD7591CDC5DBD0.json",
+      "size_bytes": 4662
+    },
+    {
+      "digest": "sha256:bf7419d7c29a4463fb5afe38092115b52cba797624f1abea7b5e0ab792aa8403",
+      "path": "evaluations/records/PREEVAL_27E33BFC7FCB2AC051EB8450.json",
+      "size_bytes": 4662
+    },
+    {
+      "digest": "sha256:5b17e9c7e5e6825be459328519c593aca20e6f3d47b1254b08fe2e5a970645bf",
+      "path": "evaluations/records/PREEVAL_2D4AF4A2FA01AF92C68CDD37.json",
+      "size_bytes": 4666
+    },
+    {
+      "digest": "sha256:0a3eb7c29979bae5767db88f5cff27d4d720541f2b8b863a60d9fc22f3f8567c",
+      "path": "evaluations/records/PREEVAL_4E6AA61B2A702F08F68DB04C.json",
+      "size_bytes": 4662
+    },
+    {
+      "digest": "sha256:df6ffdfd39bbfbde534b425323094c41ce7cba1c1d54336aff495f6ba888b20e",
+      "path": "evaluations/records/PREEVAL_59EC3DBC1333DFA4A329D20B.json",
+      "size_bytes": 4666
+    },
+    {
+      "digest": "sha256:3c86aa3c5311b6d0dc8f98f0700cbe540cae129c1db91d8509e26754fdf2bf11",
+      "path": "evaluations/records/PREEVAL_7CF39E4F2BD7BAAE6FBD8358.json",
+      "size_bytes": 4662
+    },
+    {
+      "digest": "sha256:d195cd9afaee0827191ebfe38658da1f8fdc6ff76c26f4df5e157dff6cb8211c",
+      "path": "evaluations/records/PREEVAL_A5525DF494833ADC7C94898F.json",
+      "size_bytes": 4662
+    },
+    {
+      "digest": "sha256:0d670da6b3140428a16bf4526a854c66f9bfcd11e6b56e5c8e15f91bf20a1dd6",
+      "path": "evaluations/records/PREEVAL_B59B8F7AD0203D94F3FF2C3A.json",
+      "size_bytes": 4662
+    },
+    {
+      "digest": "sha256:1c26ec07f08e0a80f9f9b9d4154d54ff447067e42ee595218792cc600252fa8c",
+      "path": "evaluations/records/PREEVAL_CDD7352369AD55520248BCD1.json",
+      "size_bytes": 4682
+    },
+    {
+      "digest": "sha256:ce96c2be2c3fe5905d128ebe0a23ff84b2696a10bd55a5f8ef12dd456f6ac3b9",
+      "path": "evaluations/records/PREEVAL_E5918D21A031648975395E8A.json",
+      "size_bytes": 4666
+    },
+    {
+      "digest": "sha256:57e290bf93fafeea420c910495927d13b809ec1bb354fde2809e8df75a901b32",
+      "path": "events/promotion_event_ledger.json",
+      "size_bytes": 7031
+    },
+    {
+      "digest": "sha256:b4282f40208b1667e92cd6290f0376a59d7f369cb276151b1e47d670eb7527f6",
+      "path": "handoff/acl11_handoff.json",
+      "size_bytes": 1514
+    },
+    {
+      "digest": "sha256:7b966fcf13d11bce1ae511ca8131028f76b8931219f3956e4c15c4fd1f96d6c9",
+      "path": "lineage/promotion_provenance_graph.json",
+      "size_bytes": 3061
+    },
+    {
+      "digest": "sha256:fd861116163871a36f953f7a63912208e3d2bfaed9e027a547419821764d76ce",
+      "path": "policy/promotion_policy_snapshot.json",
+      "size_bytes": 864
+    },
+    {
+      "digest": "sha256:19887363340c1a7fd82f04fa876b026955da7de8c015a52e0a30356c5c5d854f",
+      "path": "registry/prerequisite_registry_snapshot.json",
+      "size_bytes": 3013
+    },
+    {
+      "digest": "sha256:20328da6a8bace6bd4b60e33231d59c9b1ded07b60a9e3b10a0cbf84ba3a1d2e",
+      "path": "registry/state_registry_snapshot.json",
+      "size_bytes": 1892
+    },
+    {
+      "digest": "sha256:19060d5add1480b985300420ab924c09cac2d35557a938b4b4e45ddaaa8a3ffd",
+      "path": "registry/transition_registry_snapshot.json",
+      "size_bytes": 2098
+    },
+    {
+      "digest": "sha256:d7b04f40d01ca51d68c407ab97f8cd956b08b22ad11ee7815d496bed57d00187",
+      "path": "reports/integrity_report.json",
+      "size_bytes": 347
+    },
+    {
+      "digest": "sha256:eb8396fcc6b45f8175eaf2a600dab29a303a86ac388cd5f5e97c293a5e7e4d84",
+      "path": "reports/promotion_eligibility_report.json",
+      "size_bytes": 365
+    },
+    {
+      "digest": "sha256:0bf0eb690abea1c226f9e2ea3fd143b3f7a59afabf7066e5ac1e3a57544eb863",
+      "path": "reports/state_distribution_report.json",
+      "size_bytes": 380
+    },
+    {
+      "digest": "sha256:2ade3836dfad8faaa8c311d6072101a53aeb705e06c777e1c8f7099bced0c020",
+      "path": "run/promotion_run.json",
+      "size_bytes": 1449
+    },
+    {
+      "digest": "sha256:3e68e35424ae7a39fc313b3606ce818f00afb55f92920355525ef9a8568f592c",
+      "path": "runtime/runtime_candidate_manifest.json",
+      "size_bytes": 388
+    },
+    {
+      "digest": "sha256:130b3be0739d656cd41f4ee2e055bf67e129f1d0b0c192dff0ac34c202727b13",
+      "path": "security/security_boundary_report.json",
+      "size_bytes": 521
+    },
+    {
+      "digest": "sha256:e38de90f931470860441a334e3c3bd3effc447425faff48b1bd1e108e9be639d",
+      "path": "subjects/records/PROMSUB_061261237E4D8689C557EEC8.json",
+      "size_bytes": 662
+    },
+    {
+      "digest": "sha256:d194854d6296688b856b00e817ec7974a8ce0e8a8acb58eab43646e66e9c83f1",
+      "path": "subjects/records/PROMSUB_15FAF4EDD172C15618D88DFF.json",
+      "size_bytes": 656
+    },
+    {
+      "digest": "sha256:2fe618d4ae6111b1418e49adb44f2724d87cd6e596f1371a8503f8e42ab852d6",
+      "path": "subjects/records/PROMSUB_2478A958AB5DCF980C8AA8A9.json",
+      "size_bytes": 646
+    },
+    {
+      "digest": "sha256:d6b46d179c55367b4b8948eb2515d702fb9eac30362f0f9a320477579141dbe2",
+      "path": "subjects/records/PROMSUB_3482B6453D17FA10935F86AC.json",
+      "size_bytes": 642
+    },
+    {
+      "digest": "sha256:ac9f491d68dd10e754f5b51157904a9eaf615a14f163e72e54c2864648c4d549",
+      "path": "subjects/records/PROMSUB_3D2A0D972F11AB032179973B.json",
+      "size_bytes": 652
+    },
+    {
+      "digest": "sha256:0724109a5291d0171c74b7a7164e245824783a124b4be4568be90bba14ce9ac0",
+      "path": "subjects/records/PROMSUB_3D90E8DD1850E72261308466.json",
+      "size_bytes": 656
+    },
+    {
+      "digest": "sha256:77b0b17c27c7884da55ab213b8528b78653511ab264414764015f4a2c41a702c",
+      "path": "subjects/records/PROMSUB_3E6BA3F8E57A3CEA408F8F5A.json",
+      "size_bytes": 646
+    },
+    {
+      "digest": "sha256:320da4f6c8f58785c72ec1c1c6f3d14106edce07cab15ad923a4ab159ea321d3",
+      "path": "subjects/records/PROMSUB_66F6A4A6DDAE0F065A283B07.json",
+      "size_bytes": 656
+    },
+    {
+      "digest": "sha256:8aaefdc7fa06da19a4d0be3a1ec332c4405e288f18f1d8e5f89c0dcc9f6241cc",
+      "path": "subjects/records/PROMSUB_89D3D00446FD1889E4531505.json",
+      "size_bytes": 656
+    },
+    {
+      "digest": "sha256:d44efe0652bd14dfaf6240820c29bbce21d733cd698ebe81305f7041c19ab8e9",
+      "path": "subjects/records/PROMSUB_DD73A67941D3B20993E9C03A.json",
+      "size_bytes": 642
+    },
+    {
+      "digest": "sha256:bf30ecf9daa533cc8df0b2f3225168044ddc154ba10b792fdabc8b6adb459bc7",
+      "path": "subjects/records/PROMSUB_E345925B34F174E6826656CC.json",
+      "size_bytes": 642
+    },
+    {
+      "digest": "sha256:d7f0f0477cb220734714b0461df29cbdcdd5a48749198c420ef8c4100e3eca30",
+      "path": "subjects/records/PROMSUB_EDB8A47CE72248B1DA31BEDE.json",
+      "size_bytes": 656
+    },
+    {
+      "digest": "sha256:3502a7ca033bf67e13e36ed6d49bbec65a4173e8acb390c9858d7e429a4dd487",
+      "path": "subjects/source_subject_bundle.json",
+      "size_bytes": 8783
+    },
+    {
+      "digest": "sha256:ee6f04a0027086c6403619f720eb1c4d4d1006ef20a3201024d1d04068903110",
+      "path": "transitions/attempts/TRANSATT_00E757C43DE1776EBE6D8C48.json",
+      "size_bytes": 730
+    },
+    {
+      "digest": "sha256:56c9fed0a240acfde5e3a2dddd0719c03cfcb246fbbb6a743fd6dd0337d13592",
+      "path": "transitions/attempts/TRANSATT_35FC635A397D68F75A1486B8.json",
+      "size_bytes": 730
+    },
+    {
+      "digest": "sha256:dcb54f10ff7d1b58fd002b1e077856cb343591f1111947e839ef2fcd5c1714c2",
+      "path": "transitions/attempts/TRANSATT_38D8ED1A09A4F900C3A43582.json",
+      "size_bytes": 529
+    },
+    {
+      "digest": "sha256:9610097d86576bd6f8e6936fd8ab0837f954c6bb16e8c49004d75e2cc32979ff",
+      "path": "transitions/attempts/TRANSATT_461051F8677C118901951C24.json",
+      "size_bytes": 529
+    },
+    {
+      "digest": "sha256:23f4a709734d494e2acb3a3546074f759c4200f8d48c93708f82dc5aaeb493db",
+      "path": "transitions/attempts/TRANSATT_69A335FCEA969E14736222BB.json",
+      "size_bytes": 730
+    },
+    {
+      "digest": "sha256:a658b3c694946d40ab1efaa16640220eb4deb7954021fe3526a6d773a9979f10",
+      "path": "transitions/attempts/TRANSATT_7A0F071C118C40EFEE466B7A.json",
+      "size_bytes": 730
+    },
+    {
+      "digest": "sha256:46ea13678233f5381bb6554947ae7b3b26696fbc8ff9f4766e0340dfea2e2b25",
+      "path": "transitions/attempts/TRANSATT_8D253940842C2C20C3E0EA67.json",
+      "size_bytes": 536
+    },
+    {
+      "digest": "sha256:bd3f5a0b000e5ce692df01e469a5f96dfaa402ea18c4eca4800a13b6a77065fa",
+      "path": "transitions/attempts/TRANSATT_8F4BA501060A3176D09DA194.json",
+      "size_bytes": 730
+    },
+    {
+      "digest": "sha256:9a51a5e38b2cb74936bf33293df7afcde77521e96c804b76613ee63c0e67ef2c",
+      "path": "transitions/attempts/TRANSATT_975908856E195C381DFABAEC.json",
+      "size_bytes": 529
+    },
+    {
+      "digest": "sha256:c6013da9c8812fdc9f9a520173177e6624c77d9badff4951cda0874f4b26e119",
+      "path": "transitions/attempts/TRANSATT_A3A78103AE1077F17929014C.json",
+      "size_bytes": 730
+    },
+    {
+      "digest": "sha256:f5559d2eccd58314f8a06724525f8aec2a730531be763b0bd3d550dcda5ea776",
+      "path": "transitions/attempts/TRANSATT_D6000B199C46835ACAAB7637.json",
+      "size_bytes": 529
+    },
+    {
+      "digest": "sha256:efa02ae8a649565968ae363fe5db5d0c51cf9fb2b0c08bfba8843e3513bc8c46",
+      "path": "transitions/attempts/TRANSATT_F4794B962182342B12611B7E.json",
+      "size_bytes": 730
+    },
+    {
+      "digest": "sha256:eb3b033af7b7e7b8ac22f17c6b1696157db481c0a898c5166d202ef91f0029d0",
+      "path": "transitions/transition_attempt_bundle.json",
+      "size_bytes": 3566
+    }
+  ],
+  "manifest_digest": "sha256:0db57509876f0a35a0b3414485e0f3efcdfbc17ff44373937c4e682008a25e35",
+  "promotion_run_id": "PROMRUN_580667F2EE87B717DDCABC943E1DA894",
+  "schema_version": "1.0.0",
+  "self_reference_policy": "MANIFEST_AND_RECEIPT_EXCLUDED_AND_MUTUALLY_BOUND"
+}

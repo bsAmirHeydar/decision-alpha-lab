@@ -1,0 +1,39 @@
+{
+  "$id": "https://alpha-lab.local/acl10/source_subject.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "admission_decision_id": {},
+    "admission_status": {},
+    "baseline": {},
+    "diagnostic": {},
+    "experience_class": {},
+    "experience_id": {},
+    "reporting_eligible": {},
+    "schema_version": {
+      "type": "string"
+    },
+    "source_digest": {},
+    "source_kind": {},
+    "subject_digest": {},
+    "subject_id": {},
+    "target_memory_identity": {}
+  },
+  "required": [
+    "schema_version",
+    "subject_id",
+    "experience_id",
+    "admission_decision_id",
+    "admission_status",
+    "target_memory_identity",
+    "source_kind",
+    "source_digest",
+    "experience_class",
+    "reporting_eligible",
+    "diagnostic",
+    "baseline",
+    "subject_digest"
+  ],
+  "title": "source_subject",
+  "type": "object"
+}

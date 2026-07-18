@@ -1,0 +1,74 @@
+{
+  "closed_registry": true,
+  "registry_digest": "sha256:b06c3fb66c03d5eea6bcb9a9e54684303e07b508864114dcaee07527edabb832",
+  "registry_id": "ACL10_STATE_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "states": [
+    {
+      "capital_eligible": false,
+      "category": "NON_PROMOTIONAL",
+      "runtime_eligible": false,
+      "state_id": "RESEARCH_HOLD"
+    },
+    {
+      "capital_eligible": false,
+      "category": "NON_PROMOTIONAL_TERMINAL",
+      "runtime_eligible": false,
+      "state_id": "VALIDATION_FAILED_ARCHIVED"
+    },
+    {
+      "capital_eligible": false,
+      "category": "REFERENCE_ONLY",
+      "runtime_eligible": false,
+      "state_id": "BASELINE_REFERENCE_ONLY"
+    },
+    {
+      "capital_eligible": false,
+      "category": "QUARANTINE",
+      "runtime_eligible": false,
+      "state_id": "DIAGNOSTIC_QUARANTINED"
+    },
+    {
+      "capital_eligible": false,
+      "category": "REVIEW_ONLY",
+      "runtime_eligible": false,
+      "state_id": "PROMOTION_REVIEW_ELIGIBLE"
+    },
+    {
+      "capital_eligible": false,
+      "category": "FUTURE_DECLARED",
+      "runtime_eligible": false,
+      "state_id": "PAPER_CANDIDATE"
+    },
+    {
+      "capital_eligible": false,
+      "category": "FUTURE_DECLARED",
+      "runtime_eligible": false,
+      "state_id": "SHADOW_CANDIDATE"
+    },
+    {
+      "capital_eligible": false,
+      "category": "FUTURE_DECLARED",
+      "runtime_eligible": false,
+      "state_id": "MICRO_LIVE_CANDIDATE"
+    },
+    {
+      "capital_eligible": false,
+      "category": "FUTURE_DECLARED",
+      "runtime_eligible": false,
+      "state_id": "CHAMPION"
+    },
+    {
+      "capital_eligible": false,
+      "category": "CONTROL",
+      "runtime_eligible": false,
+      "state_id": "SUSPENDED"
+    },
+    {
+      "capital_eligible": false,
+      "category": "TERMINAL",
+      "runtime_eligible": false,
+      "state_id": "RETIRED"
+    }
+  ]
+}

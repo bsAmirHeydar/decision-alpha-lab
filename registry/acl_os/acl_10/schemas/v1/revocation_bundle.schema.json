@@ -1,0 +1,25 @@
+{
+  "$id": "https://alpha-lab.local/acl10/revocation_bundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "retirement_triggered": {},
+    "revocation_bundle_digest": {},
+    "revocation_record_count": {},
+    "revocation_records": {},
+    "schema_version": {
+      "type": "string"
+    },
+    "suspension_triggered": {}
+  },
+  "required": [
+    "schema_version",
+    "revocation_record_count",
+    "revocation_records",
+    "suspension_triggered",
+    "retirement_triggered",
+    "revocation_bundle_digest"
+  ],
+  "title": "revocation_bundle",
+  "type": "object"
+}

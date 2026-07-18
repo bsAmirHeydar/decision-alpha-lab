@@ -1,0 +1,31 @@
+{
+  "capital_activation_allowed": false,
+  "decision_bundle_digest": "sha256:684cfa7c5018ced90bd12e858ae5ef5082bce9aec6c00f62b13beb936a002d40",
+  "event_ledger_digest": "sha256:a70a33960e5c3a455930942b7b12783ac21157bd9145b150a9cc4e6a8533e351",
+  "forbidden_acl11_actions": [
+    "GENERATE_RUNTIME_FOR_INELIGIBLE_SUBJECT",
+    "MUTATE_PROMOTION_DECISIONS",
+    "BYPASS_RUNTIME_PARITY_GATES",
+    "AUTHORIZE_LIVE_ORDER",
+    "ACTIVATE_CAPITAL"
+  ],
+  "handoff_digest": "sha256:ce5eeab55a6725956b11e01a11069e47f0764f6f2d0bad610a9cefb694989df6",
+  "handoff_type": "ACL10_TO_ACL11",
+  "live_order_submission_allowed": false,
+  "memory_run_digest": "sha256:e6eda83b750af3265f4d770f4ef03c78f231dd77dbe1bdd1c144847044d7d0c1",
+  "memory_run_id": "MEMRUN_86C46AE40D92F8AE6DDD9796C670D534",
+  "promotion_execution_allowed": false,
+  "promotion_review_eligible_count": 0,
+  "promotion_run_digest": "sha256:59275064880f5a501264a73c3e296d83693eda80f7cfb327dd3dc31369299671",
+  "promotion_run_id": "PROMRUN_580667F2EE87B717DDCABC943E1DA894",
+  "provenance_graph_digest": "sha256:345bbc843d236ec01c4b86cc6e900158ea3b4c90f041ab35ef4fcca4ddca3659",
+  "required_acl11_actions": [
+    "VERIFY_PROMOTION_STATE_PACKAGE",
+    "ASSESS_RUNTIME_PARITY_PREREQUISITES",
+    "ISSUE_NON_EXECUTABLE_RUNTIME_CUSTODY_DECISION"
+  ],
+  "runtime_candidate_count": 0,
+  "runtime_candidate_manifest_digest": "sha256:72c83c7a93cca61d4512de6e7179bee04716f09965410978393b415cbeda3bfd",
+  "runtime_generation_allowed": false,
+  "schema_version": "1.0.0"
+}

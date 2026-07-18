@@ -1,0 +1,11 @@
+{
+  "closed": true,
+  "policy_count": 26,
+  "prerequisite_registry": "ACL10_PREREQUISITE_REGISTRY_V1",
+  "registry_digest": "sha256:2705c85eb6f74d0c460d82d7df742f9bee1aa3fb87cec3eba7020242da0a9e91",
+  "registry_id": "ACL10_REGISTRY_V1",
+  "schema_count": 31,
+  "schema_version": "1.0.0",
+  "state_registry": "ACL10_STATE_REGISTRY_V1",
+  "transition_registry": "ACL10_TRANSITION_REGISTRY_V1"
+}

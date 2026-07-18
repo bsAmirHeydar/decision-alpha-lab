@@ -1,0 +1,41 @@
+{
+  "$id": "https://alpha-lab.local/acl10/provenance_graph.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capital_authority_granted": {},
+    "edges": {},
+    "graph_digest": {},
+    "graph_id": {},
+    "live_order_authority_granted": {},
+    "nodes": {},
+    "promotion_executed": {},
+    "promotion_run_id": {},
+    "reaches_acl07_validation": {},
+    "reaches_acl09_memory": {},
+    "runtime_generation_authority_granted": {},
+    "schema_version": {
+      "type": "string"
+    },
+    "source_decisions_mutated": {},
+    "source_memory_mutated": {}
+  },
+  "required": [
+    "schema_version",
+    "graph_id",
+    "promotion_run_id",
+    "nodes",
+    "edges",
+    "reaches_acl07_validation",
+    "reaches_acl09_memory",
+    "source_memory_mutated",
+    "source_decisions_mutated",
+    "promotion_executed",
+    "runtime_generation_authority_granted",
+    "live_order_authority_granted",
+    "capital_authority_granted",
+    "graph_digest"
+  ],
+  "title": "provenance_graph",
+  "type": "object"
+}

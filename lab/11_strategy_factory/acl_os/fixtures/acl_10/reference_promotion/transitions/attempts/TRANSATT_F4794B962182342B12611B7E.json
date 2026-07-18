@@ -1,0 +1,18 @@
+{
+  "reason_codes": [
+    "EXECUTION_ECONOMICS_MISSING",
+    "INDEPENDENT_REPLICATION_MISSING",
+    "OOD_AND_ABSTENTION_EVIDENCE_MISSING",
+    "PROSPECTIVE_EVIDENCE_MISSING",
+    "REPORTING_ELIGIBILITY_NOT_ESTABLISHED",
+    "VALIDATED_EVIDENCE_NOT_ESTABLISHED"
+  ],
+  "schema_version": "1.0.0",
+  "state_decision_digest": "sha256:2a5ae6b1de26840c0929142b7a4446a081085bdafd85cac771a6bc84e3ef5019",
+  "status": "DENIED",
+  "subject_id": "PROMSUB_3D90E8DD1850E72261308466",
+  "transition_attempt_digest": "sha256:3716b8d0335543fde18f1029e3a89a998c644441778e63496586c560383d710f",
+  "transition_attempt_id": "TRANSATT_F4794B962182342B12611B7E",
+  "transition_executed": false,
+  "transition_id": "RESEARCH_HOLD_TO_PROMOTION_REVIEW"
+}

@@ -1,0 +1,29 @@
+{
+  "$id": "https://alpha-lab.local/acl10/promotion_eligibility_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "evaluated_subject_count": {},
+    "passed": {},
+    "promotion_review_eligible_count": {},
+    "promotion_run_id": {},
+    "report_digest": {},
+    "runtime_candidate_count": {},
+    "schema_version": {
+      "type": "string"
+    },
+    "source_reporting_eligible_candidate_count": {}
+  },
+  "required": [
+    "schema_version",
+    "promotion_run_id",
+    "source_reporting_eligible_candidate_count",
+    "evaluated_subject_count",
+    "promotion_review_eligible_count",
+    "runtime_candidate_count",
+    "passed",
+    "report_digest"
+  ],
+  "title": "promotion_eligibility_report",
+  "type": "object"
+}

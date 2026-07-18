@@ -1,0 +1,5 @@
+{
+  "full_acl09_bundle_verification_required": true,
+  "policy_id": "ACL10_SOURCE_INTEGRITY_V1",
+  "schema_version": "1.0.0"
+}

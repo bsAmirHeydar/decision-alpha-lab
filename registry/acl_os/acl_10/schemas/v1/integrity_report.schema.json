@@ -1,0 +1,29 @@
+{
+  "$id": "https://alpha-lab.local/acl10/integrity_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acl09_bundle_verified": {},
+    "integrity_report_digest": {},
+    "passed": {},
+    "promotion_run_id": {},
+    "schema_version": {
+      "type": "string"
+    },
+    "source_decisions_mutated": {},
+    "source_memory_mutated": {},
+    "subject_count": {}
+  },
+  "required": [
+    "schema_version",
+    "promotion_run_id",
+    "acl09_bundle_verified",
+    "source_memory_mutated",
+    "source_decisions_mutated",
+    "subject_count",
+    "passed",
+    "integrity_report_digest"
+  ],
+  "title": "integrity_report",
+  "type": "object"
+}

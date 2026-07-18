@@ -1,0 +1,14 @@
+{
+  "capital_activation_allowed": false,
+  "live_order_submission_allowed": false,
+  "network_access_allowed": false,
+  "passed": true,
+  "promotion_execution_allowed": false,
+  "promotion_run_id": "PROMRUN_580667F2EE87B717DDCABC943E1DA894",
+  "research_execution_allowed": false,
+  "runtime_generation_allowed": false,
+  "schema_version": "1.0.0",
+  "secret_access_allowed": false,
+  "security_report_digest": "sha256:93c260a7c0ae523c41349fee9be7a48d6e85ce3f41390c4e81e0e76b3a953d6b",
+  "self_approval_allowed": false
+}

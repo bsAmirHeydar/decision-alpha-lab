@@ -1,0 +1,6 @@
+{
+  "network_access_allowed": false,
+  "policy_id": "ACL10_SECURITY_V1",
+  "schema_version": "1.0.0",
+  "secret_access_allowed": false
+}

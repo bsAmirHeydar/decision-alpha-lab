@@ -1,0 +1,5 @@
+{
+  "policy_id": "ACL10_RUNTIME_PARITY_HANDOFF_V1",
+  "runtime_candidates_required_for_generation": true,
+  "schema_version": "1.0.0"
+}

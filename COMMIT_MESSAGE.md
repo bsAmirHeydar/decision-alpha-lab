@@ -1,15 +1,9 @@
-feat(acl-os): implement ACL-09 memory and active planner
+feat(acl-os): implement ACL-10 promotion state machine
 
-- verify and bind the complete ACL-08 report package
-- implement governed append-only memory admission
-- preserve source decision and candidate-report digests
-- detect exact duplicates and bounded near equivalence
-- alias duplicate experience instead of duplicating memory truth
-- quarantine diagnostic evidence and retain baselines as references
-- implement poisoning defenses and authority-token rejection
-- support prior-memory idempotent re-ingestion
-- compile closed-registry bounded research proposals
-- enforce proposal-count and cost budgets
-- suppress prior duplicate research proposals
-- publish event ledger, provenance and Obsidian projections atomically
-- hand a non-promotional package to ACL-10
+- verify the complete ACL-09 memory and planner package
+- add closed state, transition and prerequisite registries
+- preserve UNKNOWN, baseline and diagnostic isolation
+- issue deterministic non-executing promotion-state decisions
+- enforce multi-party approval and self-approval denial boundaries
+- emit an empty runtime candidate manifest for the reference fixture
+- add ACL-11 handoff, event ledger, provenance, tests and Obsidian documentation

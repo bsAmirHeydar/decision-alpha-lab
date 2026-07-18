@@ -1,0 +1,6 @@
+{
+  "automatic_approval_allowed": false,
+  "human_approval_required": true,
+  "policy_id": "ACL10_HUMAN_APPROVAL_BOUNDARY_V1",
+  "schema_version": "1.0.0"
+}

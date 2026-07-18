@@ -1,0 +1,6 @@
+{
+  "live_order_submission_allowed": false,
+  "policy_id": "ACL10_EXECUTION_DENIAL_V1",
+  "promotion_execution_allowed": false,
+  "schema_version": "1.0.0"
+}

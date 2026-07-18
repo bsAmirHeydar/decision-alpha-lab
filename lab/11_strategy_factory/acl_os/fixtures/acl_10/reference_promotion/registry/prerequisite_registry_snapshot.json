@@ -1,0 +1,113 @@
+{
+  "closed_registry": true,
+  "prerequisites": [
+    {
+      "evidence_class": "UPSTREAM_INTEGRITY",
+      "prerequisite_id": "SOURCE_INTEGRITY",
+      "unknown_behavior": "BLOCK"
+    },
+    {
+      "evidence_class": "ACL07_DECISION",
+      "prerequisite_id": "REPORTING_ELIGIBILITY",
+      "unknown_behavior": "BLOCK"
+    },
+    {
+      "evidence_class": "ACL07_DECISION",
+      "prerequisite_id": "VALIDATED_EVIDENCE",
+      "unknown_behavior": "BLOCK"
+    },
+    {
+      "evidence_class": "LANE_CLASSIFICATION",
+      "prerequisite_id": "NON_DIAGNOSTIC",
+      "unknown_behavior": "BLOCK"
+    },
+    {
+      "evidence_class": "ORIGIN_CLASSIFICATION",
+      "prerequisite_id": "NON_BASELINE",
+      "unknown_behavior": "BLOCK"
+    },
+    {
+      "evidence_class": "PROSPECTIVE",
+      "prerequisite_id": "PROSPECTIVE_EVIDENCE",
+      "unknown_behavior": "BLOCK"
+    },
+    {
+      "evidence_class": "REPLICATION",
+      "prerequisite_id": "INDEPENDENT_REPLICATION",
+      "unknown_behavior": "BLOCK"
+    },
+    {
+      "evidence_class": "ECONOMICS",
+      "prerequisite_id": "EXECUTION_ECONOMICS",
+      "unknown_behavior": "BLOCK"
+    },
+    {
+      "evidence_class": "OOD",
+      "prerequisite_id": "OOD_AND_ABSTENTION",
+      "unknown_behavior": "BLOCK"
+    },
+    {
+      "evidence_class": "APPROVAL",
+      "prerequisite_id": "HUMAN_APPROVAL",
+      "unknown_behavior": "BLOCK"
+    },
+    {
+      "evidence_class": "SECURITY",
+      "prerequisite_id": "SECURITY_CLEARANCE",
+      "unknown_behavior": "BLOCK"
+    },
+    {
+      "evidence_class": "RUNTIME_PLAN",
+      "prerequisite_id": "RUNTIME_PARITY_PLAN",
+      "unknown_behavior": "BLOCK"
+    },
+    {
+      "evidence_class": "PAPER",
+      "prerequisite_id": "PAPER_EVIDENCE",
+      "unknown_behavior": "BLOCK"
+    },
+    {
+      "evidence_class": "SHADOW",
+      "prerequisite_id": "SHADOW_EVIDENCE",
+      "unknown_behavior": "BLOCK"
+    },
+    {
+      "evidence_class": "BROKER",
+      "prerequisite_id": "BROKER_QUALIFICATION",
+      "unknown_behavior": "BLOCK"
+    },
+    {
+      "evidence_class": "PARITY",
+      "prerequisite_id": "RUNTIME_PARITY",
+      "unknown_behavior": "BLOCK"
+    },
+    {
+      "evidence_class": "MICRO_LIVE",
+      "prerequisite_id": "MICRO_LIVE_EVIDENCE",
+      "unknown_behavior": "BLOCK"
+    },
+    {
+      "evidence_class": "CAPITAL_APPROVAL",
+      "prerequisite_id": "CAPITAL_COMMITTEE_APPROVAL",
+      "unknown_behavior": "BLOCK"
+    },
+    {
+      "evidence_class": "SURVEILLANCE",
+      "prerequisite_id": "SURVEILLANCE_READY",
+      "unknown_behavior": "BLOCK"
+    },
+    {
+      "evidence_class": "CONTROL",
+      "prerequisite_id": "REVOCATION_TRIGGER",
+      "unknown_behavior": "BLOCK"
+    },
+    {
+      "evidence_class": "CONTROL",
+      "prerequisite_id": "RETIREMENT_DECISION",
+      "unknown_behavior": "BLOCK"
+    }
+  ],
+  "registry_digest": "sha256:ec24d82bf1f09db0a9bd507f7fe60bf2487b4f49f9145f7005386861baa7dc9c",
+  "registry_id": "ACL10_PREREQUISITE_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}

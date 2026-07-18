@@ -1,0 +1,6 @@
+{
+  "all_required_must_pass": true,
+  "policy_id": "ACL10_PREREQUISITE_POLICY_V1",
+  "schema_version": "1.0.0",
+  "unknown_blocks_promotion": true
+}

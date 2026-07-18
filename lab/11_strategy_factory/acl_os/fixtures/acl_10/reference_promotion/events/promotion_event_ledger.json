@@ -1,0 +1,156 @@
+{
+  "event_count": 9,
+  "events": [
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:c4a2eb7b3c8a701bff0d4fb52924290f908a206a9de6e044fdd19dc2de0a1f58",
+      "event_id": "PROEVT_EB32E9F0997419FFD3EDFD93",
+      "event_type": "ACL09_PACKAGE_ACCEPTED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T03:00:00Z",
+      "payload": {
+        "binding_digest": "sha256:46d723ab15b9970302a92ba5dd8c8acdc17e876ea3599cea2af12e5204aaf848"
+      },
+      "previous_event_digest": "GENESIS",
+      "promotion_execution_allowed": false,
+      "runtime_generation_allowed": false,
+      "schema_version": "1.0.0",
+      "sequence": 1
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:2b4128594bcd73e579eb3aab11b56471d0d9be1f472de7347f830dee5a080f28",
+      "event_id": "PROEVT_4661664CA7A05A12F2A8AC5D",
+      "event_type": "PROMOTION_POLICY_BOUND",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T03:00:00Z",
+      "payload": {
+        "promotion_policy_digest": "sha256:8bbf6eb36d29dceeaf337c5da5b125a17ae646a8cb6c6e9be5247072c6be8c88"
+      },
+      "previous_event_digest": "sha256:c4a2eb7b3c8a701bff0d4fb52924290f908a206a9de6e044fdd19dc2de0a1f58",
+      "promotion_execution_allowed": false,
+      "runtime_generation_allowed": false,
+      "schema_version": "1.0.0",
+      "sequence": 2
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:46648d5539296c7f673db45c43759537422eaa028d1ae15d13af3fdedaf20541",
+      "event_id": "PROEVT_DD98DBAA32185909395E530B",
+      "event_type": "PROMOTION_REGISTRIES_BOUND",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T03:00:00Z",
+      "payload": {
+        "prerequisite_registry_digest": "sha256:ec24d82bf1f09db0a9bd507f7fe60bf2487b4f49f9145f7005386861baa7dc9c",
+        "state_registry_digest": "sha256:b06c3fb66c03d5eea6bcb9a9e54684303e07b508864114dcaee07527edabb832",
+        "transition_registry_digest": "sha256:8a39ad8e298c67c9a8ed14b1be5f7d4e35d83381e99b8b1c7c7e720806a2c66b"
+      },
+      "previous_event_digest": "sha256:2b4128594bcd73e579eb3aab11b56471d0d9be1f472de7347f830dee5a080f28",
+      "promotion_execution_allowed": false,
+      "runtime_generation_allowed": false,
+      "schema_version": "1.0.0",
+      "sequence": 3
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:9c743b76f3c5ab50336841a6a7a9f84b0b7a3559a896fdd2848a6f8e47af42d7",
+      "event_id": "PROEVT_280055B2A838C1BAE403B935",
+      "event_type": "PROMOTION_SUBJECTS_PROJECTED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T03:00:00Z",
+      "payload": {
+        "subject_bundle_digest": "sha256:2bc744ae4540b0db90138caba473a35bb0c08d3996af57888375171692a1fb26"
+      },
+      "previous_event_digest": "sha256:46648d5539296c7f673db45c43759537422eaa028d1ae15d13af3fdedaf20541",
+      "promotion_execution_allowed": false,
+      "runtime_generation_allowed": false,
+      "schema_version": "1.0.0",
+      "sequence": 4
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:550ff28650d45167da0369a87229fa609c3c9dd278caa49abb63e147f1c8f163",
+      "event_id": "PROEVT_1EEC8C57A602E5BF9499136E",
+      "event_type": "PROMOTION_PREREQUISITES_EVALUATED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T03:00:00Z",
+      "payload": {
+        "eligible_count": 0,
+        "prerequisite_matrix_digest": "sha256:80241ac5ef572755610eef30f36cf85cb5654088bf16c98e5514c08730a579ab"
+      },
+      "previous_event_digest": "sha256:9c743b76f3c5ab50336841a6a7a9f84b0b7a3559a896fdd2848a6f8e47af42d7",
+      "promotion_execution_allowed": false,
+      "runtime_generation_allowed": false,
+      "schema_version": "1.0.0",
+      "sequence": 5
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:950e92f4555a35cec989499e4df423bc23e3cccc19a438ecd876863a41ce55fe",
+      "event_id": "PROEVT_77F0700F7F4EC7DBB24086C2",
+      "event_type": "PROMOTION_STATE_DECISIONS_ISSUED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T03:00:00Z",
+      "payload": {
+        "decision_bundle_digest": "sha256:684cfa7c5018ced90bd12e858ae5ef5082bce9aec6c00f62b13beb936a002d40"
+      },
+      "previous_event_digest": "sha256:550ff28650d45167da0369a87229fa609c3c9dd278caa49abb63e147f1c8f163",
+      "promotion_execution_allowed": false,
+      "runtime_generation_allowed": false,
+      "schema_version": "1.0.0",
+      "sequence": 6
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:8c6c294b61881ef46b20cd1c0e22ec961dbc7fc9bbc7e1060f8707339923ff15",
+      "event_id": "PROEVT_47C4DA05EA85F914B0BC2B7C",
+      "event_type": "APPROVAL_BOUNDARY_ENFORCED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T03:00:00Z",
+      "payload": {
+        "approval_bundle_digest": "sha256:17daab63b321bd91bdba95ed58ec3cce571a9fd0fe03051f50b6258ac9cba8bc"
+      },
+      "previous_event_digest": "sha256:950e92f4555a35cec989499e4df423bc23e3cccc19a438ecd876863a41ce55fe",
+      "promotion_execution_allowed": false,
+      "runtime_generation_allowed": false,
+      "schema_version": "1.0.0",
+      "sequence": 7
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:44322f7f966620e03c4c6ac4be13cdf991683c6e9a38fdc178a1e3a224ea6034",
+      "event_id": "PROEVT_A2897DB005EECA8FC907DC21",
+      "event_type": "RUNTIME_CANDIDATE_MANIFEST_FROZEN",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T03:00:00Z",
+      "payload": {
+        "runtime_candidate_manifest_digest": "sha256:72c83c7a93cca61d4512de6e7179bee04716f09965410978393b415cbeda3bfd"
+      },
+      "previous_event_digest": "sha256:8c6c294b61881ef46b20cd1c0e22ec961dbc7fc9bbc7e1060f8707339923ff15",
+      "promotion_execution_allowed": false,
+      "runtime_generation_allowed": false,
+      "schema_version": "1.0.0",
+      "sequence": 8
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:6bddd9df48d474904208f029919071442a9481c0611955320e2b4ddf04e0a724",
+      "event_id": "PROEVT_1535EB92526EFA0C84E07688",
+      "event_type": "ACL11_HANDOFF_PREPARED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T03:00:00Z",
+      "payload": {
+        "runtime_candidate_count": 0
+      },
+      "previous_event_digest": "sha256:44322f7f966620e03c4c6ac4be13cdf991683c6e9a38fdc178a1e3a224ea6034",
+      "promotion_execution_allowed": false,
+      "runtime_generation_allowed": false,
+      "schema_version": "1.0.0",
+      "sequence": 9
+    }
+  ],
+  "ledger_digest": "sha256:a70a33960e5c3a455930942b7b12783ac21157bd9145b150a9cc4e6a8533e351",
+  "promotion_run_id": "PROMRUN_580667F2EE87B717DDCABC943E1DA894",
+  "schema_version": "1.0.0",
+  "terminal_event_digest": "sha256:6bddd9df48d474904208f029919071442a9481c0611955320e2b4ddf04e0a724"
+}

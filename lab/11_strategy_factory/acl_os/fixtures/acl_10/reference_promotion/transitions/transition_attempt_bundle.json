@@ -1,0 +1,82 @@
+{
+  "allowed_not_executed_count": 0,
+  "attempt_bundle_digest": "sha256:45e50c5518814671bc81dc1baba2507523bd491999ee75132f809c2964de25c0",
+  "attempt_count": 12,
+  "attempts": [
+    {
+      "status": "DENIED",
+      "subject_id": "PROMSUB_3E6BA3F8E57A3CEA408F8F5A",
+      "transition_attempt_digest": "sha256:0c7d327aab568806a57c17f72a3eb4723499f7d16f140721eff65aed923f262f",
+      "transition_attempt_id": "TRANSATT_8F4BA501060A3176D09DA194"
+    },
+    {
+      "status": "DENIED",
+      "subject_id": "PROMSUB_15FAF4EDD172C15618D88DFF",
+      "transition_attempt_digest": "sha256:c3fae93e1701ab3ecb43a0a82b18613088396551e40c3cc41acc0783401baaa8",
+      "transition_attempt_id": "TRANSATT_69A335FCEA969E14736222BB"
+    },
+    {
+      "status": "NOT_APPLICABLE",
+      "subject_id": "PROMSUB_DD73A67941D3B20993E9C03A",
+      "transition_attempt_digest": "sha256:aeea848a6375afea03b9d8e932bbfc67b5437878934760ab9f1e4948914cef31",
+      "transition_attempt_id": "TRANSATT_D6000B199C46835ACAAB7637"
+    },
+    {
+      "status": "DENIED",
+      "subject_id": "PROMSUB_2478A958AB5DCF980C8AA8A9",
+      "transition_attempt_digest": "sha256:6cb03d7f270bcba87a4ed6d04b9d89a5acff06ad0639a94e8f6386bb74bf29ed",
+      "transition_attempt_id": "TRANSATT_A3A78103AE1077F17929014C"
+    },
+    {
+      "status": "NOT_APPLICABLE",
+      "subject_id": "PROMSUB_3482B6453D17FA10935F86AC",
+      "transition_attempt_digest": "sha256:a4a7035ec65ec9affab4579b310a0a3032ab5060fc63221c76f21804e77a70f3",
+      "transition_attempt_id": "TRANSATT_461051F8677C118901951C24"
+    },
+    {
+      "status": "NOT_APPLICABLE",
+      "subject_id": "PROMSUB_3D2A0D972F11AB032179973B",
+      "transition_attempt_digest": "sha256:f31301ce8305265c540df3c14dad6a997b83ce659a4f1f9dcf7b5b2cb2fa2d39",
+      "transition_attempt_id": "TRANSATT_975908856E195C381DFABAEC"
+    },
+    {
+      "status": "DENIED",
+      "subject_id": "PROMSUB_3D90E8DD1850E72261308466",
+      "transition_attempt_digest": "sha256:3716b8d0335543fde18f1029e3a89a998c644441778e63496586c560383d710f",
+      "transition_attempt_id": "TRANSATT_F4794B962182342B12611B7E"
+    },
+    {
+      "status": "DENIED",
+      "subject_id": "PROMSUB_66F6A4A6DDAE0F065A283B07",
+      "transition_attempt_digest": "sha256:e6997cd062ac52157fcfc713fd25f9c86b2ef13aa894f0caa38ef64b806a90c1",
+      "transition_attempt_id": "TRANSATT_7A0F071C118C40EFEE466B7A"
+    },
+    {
+      "status": "DENIED",
+      "subject_id": "PROMSUB_89D3D00446FD1889E4531505",
+      "transition_attempt_digest": "sha256:1d7ba8a98c03219a21a6b8addee7a15c1dfb6989d24b2675d59a8e6a3850c57f",
+      "transition_attempt_id": "TRANSATT_35FC635A397D68F75A1486B8"
+    },
+    {
+      "status": "NOT_APPLICABLE",
+      "subject_id": "PROMSUB_E345925B34F174E6826656CC",
+      "transition_attempt_digest": "sha256:7c971fb200f57b365b8a51fb70b808e39cd8d5d9d7e602fb5a9b3dde507b4307",
+      "transition_attempt_id": "TRANSATT_38D8ED1A09A4F900C3A43582"
+    },
+    {
+      "status": "DENIED",
+      "subject_id": "PROMSUB_EDB8A47CE72248B1DA31BEDE",
+      "transition_attempt_digest": "sha256:44fa4d835bb26024bea89f5c449af095b6780aa7332b7efed9c66f39086964ff",
+      "transition_attempt_id": "TRANSATT_00E757C43DE1776EBE6D8C48"
+    },
+    {
+      "status": "NOT_APPLICABLE",
+      "subject_id": "PROMSUB_061261237E4D8689C557EEC8",
+      "transition_attempt_digest": "sha256:c7cf5dd14e2d7003863a1e474c0c6f6174f5f25a15e8ad39b31cf0f96cd5befd",
+      "transition_attempt_id": "TRANSATT_8D253940842C2C20C3E0EA67"
+    }
+  ],
+  "denied_count": 7,
+  "not_applicable_count": 5,
+  "schema_version": "1.0.0"
+}

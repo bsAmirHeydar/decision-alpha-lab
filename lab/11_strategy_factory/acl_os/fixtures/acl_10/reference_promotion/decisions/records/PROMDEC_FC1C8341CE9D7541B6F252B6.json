@@ -1,0 +1,24 @@
+{
+  "capital_activation_allowed": false,
+  "current_state": "RESEARCH_HOLD",
+  "evaluated_at": "2026-07-18T03:00:00Z",
+  "experience_id": "EXP08_793E3B34EA7EFD89165A1434",
+  "live_order_submission_allowed": false,
+  "prerequisite_evaluation_digest": "sha256:948be23c28f47b285f98facbd863dda56aa4c3ed132380795a74e2e7f6c17077",
+  "promotion_executed": false,
+  "promotion_review_eligible": false,
+  "reason_codes": [
+    "EXECUTION_ECONOMICS_MISSING",
+    "INDEPENDENT_REPLICATION_MISSING",
+    "OOD_AND_ABSTENTION_EVIDENCE_MISSING",
+    "PROSPECTIVE_EVIDENCE_MISSING",
+    "REPORTING_ELIGIBILITY_NOT_ESTABLISHED",
+    "VALIDATED_EVIDENCE_NOT_ESTABLISHED"
+  ],
+  "runtime_generation_allowed": false,
+  "schema_version": "1.0.0",
+  "source_subject_digest": "sha256:823244d083038f78f59f231c14b70ad1ecc9931287d9d441a1ce7f1d765656f7",
+  "state_decision_digest": "sha256:2a5ae6b1de26840c0929142b7a4446a081085bdafd85cac771a6bc84e3ef5019",
+  "state_decision_id": "PROMDEC_FC1C8341CE9D7541B6F252B6",
+  "subject_id": "PROMSUB_3D90E8DD1850E72261308466"
+}

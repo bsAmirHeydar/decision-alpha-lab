@@ -1,0 +1,15 @@
+{
+  "admission_decision_id": "MEMADM_703E8174A69756F3ED484E73",
+  "admission_status": "ADMITTED_NEW",
+  "baseline": false,
+  "diagnostic": false,
+  "experience_class": "INSUFFICIENT_EVIDENCE",
+  "experience_id": "EXP08_42E896C9F4F7E2645FBF33F7",
+  "reporting_eligible": false,
+  "schema_version": "1.0.0",
+  "source_digest": "sha256:755bead4bcd1ab5a27c884f71f3741d2f99cae9d8c79d8b3ffd11f3ee7bcdcc3",
+  "source_kind": "MEMORY_ENTRY",
+  "subject_digest": "sha256:6dbba12c2500445adcd22ea876a627a7eca72658e0a7b1c5e7efc00711ad64c4",
+  "subject_id": "PROMSUB_2478A958AB5DCF980C8AA8A9",
+  "target_memory_identity": "MEMENTRY_6E166ADDAB85BDB89EC77A34"
+}

@@ -1,0 +1,5 @@
+{
+  "implicit_promotion_allowed": false,
+  "policy_id": "ACL10_NON_PROMOTION_V1",
+  "schema_version": "1.0.0"
+}

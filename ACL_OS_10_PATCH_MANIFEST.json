@@ -1,0 +1,12 @@
+{
+  "baseline": "feat(acl-os): implement ACL-09 memory and active planner",
+  "claim_ceiling": "PROMOTION_STATE_DECISION_REFERENCE_ONLY",
+  "commit_subject": "feat(acl-os): implement ACL-10 promotion state machine",
+  "deletion_count": 0,
+  "patch_name": "ACL_OS_10_PROMOTION_STATE_MACHINE_PATCH.zip",
+  "path_count": 416,
+  "phase": "ACL-10",
+  "root_relative": true,
+  "schema_version": "1.0.0",
+  "staging_contract": "git add --pathspec-from-file=ACL_OS_10_FILE_INDEX.txt"
+}

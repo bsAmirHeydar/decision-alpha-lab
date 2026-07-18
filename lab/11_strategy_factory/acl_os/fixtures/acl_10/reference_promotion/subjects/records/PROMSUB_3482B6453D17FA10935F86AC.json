@@ -1,0 +1,15 @@
+{
+  "admission_decision_id": "MEMADM_6083BB5DE5BF742A6E0E61FC",
+  "admission_status": "ADMITTED_NEW",
+  "baseline": true,
+  "diagnostic": false,
+  "experience_class": "BASELINE_REFERENCE",
+  "experience_id": "EXP08_65B8EAAAB2ECDCB58439B46A",
+  "reporting_eligible": false,
+  "schema_version": "1.0.0",
+  "source_digest": "sha256:f5b6b0d2c3502f31fcd6272b2394e6b467b5b647126336a86e31c58a90170bc8",
+  "source_kind": "MEMORY_ENTRY",
+  "subject_digest": "sha256:d124f957879412cdb44e3bb2f6144b0a3fccaede69eaf1cc845f568640dacc77",
+  "subject_id": "PROMSUB_3482B6453D17FA10935F86AC",
+  "target_memory_identity": "MEMENTRY_AAAEF85C8C874CE9AAAE85C6"
+}

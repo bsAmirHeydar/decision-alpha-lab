@@ -1,0 +1,25 @@
+{
+  "$id": "https://alpha-lab.local/acl10/event_ledger.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "event_count": {},
+    "events": {},
+    "ledger_digest": {},
+    "promotion_run_id": {},
+    "schema_version": {
+      "type": "string"
+    },
+    "terminal_event_digest": {}
+  },
+  "required": [
+    "schema_version",
+    "promotion_run_id",
+    "event_count",
+    "events",
+    "terminal_event_digest",
+    "ledger_digest"
+  ],
+  "title": "event_ledger",
+  "type": "object"
+}

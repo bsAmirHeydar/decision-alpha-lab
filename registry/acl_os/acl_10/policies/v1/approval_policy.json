@@ -1,0 +1,7 @@
+{
+  "approval_expiry_seconds": 86400,
+  "policy_id": "ACL10_APPROVAL_POLICY_V1",
+  "required_distinct_approvers": 2,
+  "schema_version": "1.0.0",
+  "self_approval_allowed": false
+}

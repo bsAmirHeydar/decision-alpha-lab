@@ -1,0 +1,31 @@
+{
+  "$id": "https://alpha-lab.local/acl10/prerequisite_evaluation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_required_satisfied": {},
+    "evaluation_digest": {},
+    "evaluation_id": {},
+    "promotion_review_eligible": {},
+    "results": {},
+    "schema_version": {
+      "type": "string"
+    },
+    "subject_id": {},
+    "transition_id": {},
+    "unknown_blocks_promotion": {}
+  },
+  "required": [
+    "schema_version",
+    "evaluation_id",
+    "subject_id",
+    "transition_id",
+    "results",
+    "all_required_satisfied",
+    "unknown_blocks_promotion",
+    "promotion_review_eligible",
+    "evaluation_digest"
+  ],
+  "title": "prerequisite_evaluation",
+  "type": "object"
+}

@@ -1,0 +1,23 @@
+{
+  "approval_expiry_seconds": 86400,
+  "baseline_promotion_allowed": false,
+  "capital_activation_allowed": false,
+  "diagnostic_promotion_allowed": false,
+  "evaluation_mode": "EVALUATE_ONLY",
+  "live_order_submission_allowed": false,
+  "policy_digest": "sha256:8bbf6eb36d29dceeaf337c5da5b125a17ae646a8cb6c6e9be5247072c6be8c88",
+  "policy_id": "ACL10_PROMOTION_POLICY_V1",
+  "promotion_execution_allowed": false,
+  "required_distinct_approvers": 2,
+  "requires_execution_economics": true,
+  "requires_human_approval": true,
+  "requires_independent_replication": true,
+  "requires_ood_evidence": true,
+  "requires_prospective_evidence": true,
+  "requires_reporting_eligibility": true,
+  "requires_validated_evidence": true,
+  "runtime_generation_allowed": false,
+  "schema_version": "1.0.0",
+  "self_approval_allowed": false,
+  "unknown_blocks_promotion": true
+}

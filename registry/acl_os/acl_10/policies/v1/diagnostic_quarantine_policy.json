@@ -1,0 +1,5 @@
+{
+  "diagnostic_promotion_allowed": false,
+  "policy_id": "ACL10_DIAGNOSTIC_QUARANTINE_V1",
+  "schema_version": "1.0.0"
+}

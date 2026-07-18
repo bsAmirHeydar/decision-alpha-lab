@@ -1,0 +1,5 @@
+{
+  "policy_id": "ACL10_PROVENANCE_V1",
+  "schema_version": "1.0.0",
+  "source_lineage_required": true
+}

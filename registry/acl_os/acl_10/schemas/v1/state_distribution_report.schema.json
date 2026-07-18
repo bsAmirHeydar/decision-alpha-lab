@@ -1,0 +1,25 @@
+{
+  "$id": "https://alpha-lab.local/acl10/state_distribution_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "promotion_executed_count": {},
+    "promotion_review_eligible_count": {},
+    "promotion_run_id": {},
+    "report_digest": {},
+    "schema_version": {
+      "type": "string"
+    },
+    "state_counts": {}
+  },
+  "required": [
+    "schema_version",
+    "promotion_run_id",
+    "state_counts",
+    "promotion_review_eligible_count",
+    "promotion_executed_count",
+    "report_digest"
+  ],
+  "title": "state_distribution_report",
+  "type": "object"
+}

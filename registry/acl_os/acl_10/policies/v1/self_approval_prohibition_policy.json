@@ -1,0 +1,5 @@
+{
+  "policy_id": "ACL10_SELF_APPROVAL_PROHIBITION_V1",
+  "schema_version": "1.0.0",
+  "self_approval_allowed": false
+}

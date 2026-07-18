@@ -1,0 +1,5 @@
+{
+  "policy_id": "ACL10_REVOCATION_V1",
+  "schema_version": "1.0.0",
+  "suspension_and_retirement_registered": true
+}

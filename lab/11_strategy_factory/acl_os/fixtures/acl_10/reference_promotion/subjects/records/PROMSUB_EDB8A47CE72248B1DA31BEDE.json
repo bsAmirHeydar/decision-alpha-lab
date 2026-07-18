@@ -1,0 +1,15 @@
+{
+  "admission_decision_id": "MEMADM_0A35C214BC2673DD2D933D88",
+  "admission_status": "LINKED_BATCH_DUPLICATE",
+  "baseline": false,
+  "diagnostic": false,
+  "experience_class": "INSUFFICIENT_EVIDENCE",
+  "experience_id": "EXP08_B5D0EB7C5BB7B4CC90B233B2",
+  "reporting_eligible": false,
+  "schema_version": "1.0.0",
+  "source_digest": "sha256:f3814115f3ec2f333cf331a3fd080e8166d3ee66ed4d8472fac3d68353042aae",
+  "source_kind": "MEMORY_ENTRY",
+  "subject_digest": "sha256:15b3d786e7cc3c890e1d8274249c93a6839c8f4f9ba1bf0b29c8626abf2d10dc",
+  "subject_id": "PROMSUB_EDB8A47CE72248B1DA31BEDE",
+  "target_memory_identity": "MEMENTRY_76A1BF78CCE0151F0B10FBB2"
+}

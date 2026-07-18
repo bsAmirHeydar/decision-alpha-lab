@@ -1,0 +1,37 @@
+{
+  "$id": "https://alpha-lab.local/acl10/security_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capital_activation_allowed": {},
+    "live_order_submission_allowed": {},
+    "network_access_allowed": {},
+    "passed": {},
+    "promotion_execution_allowed": {},
+    "promotion_run_id": {},
+    "research_execution_allowed": {},
+    "runtime_generation_allowed": {},
+    "schema_version": {
+      "type": "string"
+    },
+    "secret_access_allowed": {},
+    "security_report_digest": {},
+    "self_approval_allowed": {}
+  },
+  "required": [
+    "schema_version",
+    "promotion_run_id",
+    "network_access_allowed",
+    "secret_access_allowed",
+    "research_execution_allowed",
+    "promotion_execution_allowed",
+    "runtime_generation_allowed",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "self_approval_allowed",
+    "passed",
+    "security_report_digest"
+  ],
+  "title": "security_report",
+  "type": "object"
+}

@@ -1,0 +1,31 @@
+{
+  "$id": "https://alpha-lab.local/acl10/transition_attempt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "reason_codes": {},
+    "schema_version": {
+      "type": "string"
+    },
+    "state_decision_digest": {},
+    "status": {},
+    "subject_id": {},
+    "transition_attempt_digest": {},
+    "transition_attempt_id": {},
+    "transition_executed": {},
+    "transition_id": {}
+  },
+  "required": [
+    "schema_version",
+    "transition_attempt_id",
+    "subject_id",
+    "transition_id",
+    "status",
+    "reason_codes",
+    "state_decision_digest",
+    "transition_executed",
+    "transition_attempt_digest"
+  ],
+  "title": "transition_attempt",
+  "type": "object"
+}

@@ -1,0 +1,25 @@
+{
+  "$id": "https://alpha-lab.local/acl10/prerequisite_result.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "evidence_refs": {},
+    "prerequisite_id": {},
+    "reason_code": {},
+    "result_digest": {},
+    "schema_version": {
+      "type": "string"
+    },
+    "status": {}
+  },
+  "required": [
+    "schema_version",
+    "prerequisite_id",
+    "status",
+    "reason_code",
+    "evidence_refs",
+    "result_digest"
+  ],
+  "title": "prerequisite_result",
+  "type": "object"
+}

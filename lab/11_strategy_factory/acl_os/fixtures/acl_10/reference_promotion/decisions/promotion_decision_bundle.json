@@ -1,0 +1,90 @@
+{
+  "capital_activation_allowed": false,
+  "decision_bundle_digest": "sha256:684cfa7c5018ced90bd12e858ae5ef5082bce9aec6c00f62b13beb936a002d40",
+  "decision_count": 12,
+  "decisions": [
+    {
+      "current_state": "RESEARCH_HOLD",
+      "state_decision_digest": "sha256:3a816a095bda41d92751baa8c349c39cbf87c8956bf002d9babde2fdd7f7b5c4",
+      "state_decision_id": "PROMDEC_DD1B01D2BD2C551A517D027A",
+      "subject_id": "PROMSUB_3E6BA3F8E57A3CEA408F8F5A"
+    },
+    {
+      "current_state": "RESEARCH_HOLD",
+      "state_decision_digest": "sha256:24a081c9cd617065a48f59803cbbc4f6a2ce537962b6cf9a9e189edf71b1148e",
+      "state_decision_id": "PROMDEC_2D5726490DE2FEBE1E498063",
+      "subject_id": "PROMSUB_15FAF4EDD172C15618D88DFF"
+    },
+    {
+      "current_state": "BASELINE_REFERENCE_ONLY",
+      "state_decision_digest": "sha256:0669fc449eca9c833dfa975443e759f1dac9a7fcbe3df76c28b6fbf41e65db48",
+      "state_decision_id": "PROMDEC_C381EAD748661FC35E6286C6",
+      "subject_id": "PROMSUB_DD73A67941D3B20993E9C03A"
+    },
+    {
+      "current_state": "RESEARCH_HOLD",
+      "state_decision_digest": "sha256:091fdb3b25bafb04ab67d8c1bbb231b34fa571381ed673d76c47e658ed3a314b",
+      "state_decision_id": "PROMDEC_39B6FB6BFFBDA1F2279034FA",
+      "subject_id": "PROMSUB_2478A958AB5DCF980C8AA8A9"
+    },
+    {
+      "current_state": "BASELINE_REFERENCE_ONLY",
+      "state_decision_digest": "sha256:891efb7c2acc6c046d50e96d47e71dda95c886f1451bd4a50ed162171ca5a929",
+      "state_decision_id": "PROMDEC_AAAAB42D8E1E1F3EB165A211",
+      "subject_id": "PROMSUB_3482B6453D17FA10935F86AC"
+    },
+    {
+      "current_state": "BASELINE_REFERENCE_ONLY",
+      "state_decision_digest": "sha256:c8970682bc98a382e7c5bd0d61103e645b235a9d380842aac1484b62421c6410",
+      "state_decision_id": "PROMDEC_0BB56F49AC923D1359E88FF3",
+      "subject_id": "PROMSUB_3D2A0D972F11AB032179973B"
+    },
+    {
+      "current_state": "RESEARCH_HOLD",
+      "state_decision_digest": "sha256:2a5ae6b1de26840c0929142b7a4446a081085bdafd85cac771a6bc84e3ef5019",
+      "state_decision_id": "PROMDEC_FC1C8341CE9D7541B6F252B6",
+      "subject_id": "PROMSUB_3D90E8DD1850E72261308466"
+    },
+    {
+      "current_state": "RESEARCH_HOLD",
+      "state_decision_digest": "sha256:d55feff6882f2b29a3986937c139005845dd5ed75bbb5b21319e30cc9e6f3262",
+      "state_decision_id": "PROMDEC_C26B1DA30E141C6E65289B3F",
+      "subject_id": "PROMSUB_66F6A4A6DDAE0F065A283B07"
+    },
+    {
+      "current_state": "RESEARCH_HOLD",
+      "state_decision_digest": "sha256:a2b779d51c2f14af1b8f61d8d9e64b6cad42d63841a2f284eedd5c69c5adaf48",
+      "state_decision_id": "PROMDEC_75C5D35CCE40154A4F386C7A",
+      "subject_id": "PROMSUB_89D3D00446FD1889E4531505"
+    },
+    {
+      "current_state": "BASELINE_REFERENCE_ONLY",
+      "state_decision_digest": "sha256:2a2c051cce2237e919e0655d0aa0332e0fca40483f07ca35e1a0589f1fa6ff9e",
+      "state_decision_id": "PROMDEC_51A02E97E58096966363F9EE",
+      "subject_id": "PROMSUB_E345925B34F174E6826656CC"
+    },
+    {
+      "current_state": "RESEARCH_HOLD",
+      "state_decision_digest": "sha256:23a25bb9839216c5b9ef3f8e5415f5e44ccaf261a3ec2b3ed6099cc563b71a57",
+      "state_decision_id": "PROMDEC_8133CDE32605F218ED3C81AB",
+      "subject_id": "PROMSUB_EDB8A47CE72248B1DA31BEDE"
+    },
+    {
+      "current_state": "DIAGNOSTIC_QUARANTINED",
+      "state_decision_digest": "sha256:c213eb419430b8550bcefe9ae684c93bb39b0c789f22cdd7bd95221f01dc9f63",
+      "state_decision_id": "PROMDEC_4ADDEACD92ECE5A5A214B7FD",
+      "subject_id": "PROMSUB_061261237E4D8689C557EEC8"
+    }
+  ],
+  "live_order_submission_allowed": false,
+  "promotion_executed_count": 0,
+  "promotion_execution_allowed": false,
+  "promotion_review_eligible_count": 0,
+  "runtime_generation_allowed": false,
+  "schema_version": "1.0.0",
+  "state_counts": {
+    "BASELINE_REFERENCE_ONLY": 4,
+    "DIAGNOSTIC_QUARANTINED": 1,
+    "RESEARCH_HOLD": 7
+  }
+}

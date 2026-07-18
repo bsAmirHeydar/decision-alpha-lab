@@ -1,0 +1,4 @@
+#ifndef ALPHALAB_ACL10_RUNTIME_CANDIDATE_CONTRACT_MQH
+#define ALPHALAB_ACL10_RUNTIME_CANDIDATE_CONTRACT_MQH
+struct ACL10RuntimeCandidateContract { string subject_id; bool runtime_generation_allowed; bool runtime_handoff_allowed; };
+#endif

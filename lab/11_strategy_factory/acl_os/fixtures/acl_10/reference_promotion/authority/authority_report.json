@@ -1,0 +1,21 @@
+{
+  "authority_report_digest": "sha256:701da735310c25fe26ab353ea85c6bbf6020aabc11363422f331aabcfcf13c44",
+  "checks": {
+    "action": true,
+    "capital_denied": true,
+    "digest": true,
+    "handoff_bound": true,
+    "memory_run_bound": true,
+    "network_denied": true,
+    "order_denied": true,
+    "phase": true,
+    "promotion_execution_denied": true,
+    "research_execution_denied": true,
+    "runtime_generation_denied": true,
+    "secret_denied": true,
+    "self_approval_denied": true
+  },
+  "passed": true,
+  "permit_id": "PERMIT_ACL10_REFERENCE_V1",
+  "schema_version": "1.0.0"
+}

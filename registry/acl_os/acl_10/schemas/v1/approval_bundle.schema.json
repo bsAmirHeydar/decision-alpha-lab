@@ -1,0 +1,33 @@
+{
+  "$id": "https://alpha-lab.local/acl10/approval_bundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "approval_bundle_digest": {},
+    "approval_expiry_seconds": {},
+    "approval_not_requested_reason": {},
+    "approval_request_count": {},
+    "approval_requests": {},
+    "eligible_subject_count": {},
+    "promotion_execution_allowed": {},
+    "required_distinct_approvers": {},
+    "schema_version": {
+      "type": "string"
+    },
+    "self_approval_allowed": {}
+  },
+  "required": [
+    "schema_version",
+    "eligible_subject_count",
+    "approval_request_count",
+    "approval_requests",
+    "required_distinct_approvers",
+    "self_approval_allowed",
+    "approval_expiry_seconds",
+    "approval_not_requested_reason",
+    "promotion_execution_allowed",
+    "approval_bundle_digest"
+  ],
+  "title": "approval_bundle",
+  "type": "object"
+}

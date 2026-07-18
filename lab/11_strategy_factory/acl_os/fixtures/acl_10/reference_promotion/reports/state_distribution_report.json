@@ -1,0 +1,12 @@
+{
+  "promotion_executed_count": 0,
+  "promotion_review_eligible_count": 0,
+  "promotion_run_id": "PROMRUN_580667F2EE87B717DDCABC943E1DA894",
+  "report_digest": "sha256:1591669b3d2c339205f7a4a042266058a92438998131344929dce9dc03be2773",
+  "schema_version": "1.0.0",
+  "state_counts": {
+    "BASELINE_REFERENCE_ONLY": 4,
+    "DIAGNOSTIC_QUARANTINED": 1,
+    "RESEARCH_HOLD": 7
+  }
+}

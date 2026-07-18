@@ -1,1 +1,1 @@
-feat(acl-os): implement ACL-09 memory and active planner
+feat(acl-os): implement ACL-10 promotion state machine

@@ -1,0 +1,103 @@
+{
+  "capital_authority_granted": false,
+  "edges": [
+    {
+      "from": "ACL09_HANDOFF",
+      "relation": "BINDS",
+      "to": "ACL09_MEMORY"
+    },
+    {
+      "from": "ACL09_HANDOFF",
+      "relation": "BINDS",
+      "to": "ACL09_PLAN"
+    },
+    {
+      "from": "ACL09_MEMORY",
+      "relation": "PROJECTED_AS",
+      "to": "ACL10_SUBJECTS"
+    },
+    {
+      "from": "ACL10_POLICY",
+      "relation": "GOVERNS",
+      "to": "ACL10_PREREQUISITES"
+    },
+    {
+      "from": "ACL10_SUBJECTS",
+      "relation": "EVALUATED_BY",
+      "to": "ACL10_PREREQUISITES"
+    },
+    {
+      "from": "ACL10_PREREQUISITES",
+      "relation": "DETERMINES",
+      "to": "ACL10_DECISIONS"
+    },
+    {
+      "from": "ACL10_DECISIONS",
+      "relation": "BOUNDS",
+      "to": "ACL10_RUNTIME"
+    },
+    {
+      "from": "ACL10_DECISIONS",
+      "relation": "RECORDED_IN",
+      "to": "ACL10_EVENTS"
+    }
+  ],
+  "graph_digest": "sha256:345bbc843d236ec01c4b86cc6e900158ea3b4c90f041ab35ef4fcca4ddca3659",
+  "graph_id": "PROMPROV_9C797C6D5E7FC51CF97BD15D",
+  "live_order_authority_granted": false,
+  "nodes": [
+    {
+      "artifact_type": "ACL09_TO_ACL10",
+      "digest": "sha256:13e63cfae2a79d62f6190202802db56708470e0f8b2924870a7261bf0d967a4f",
+      "node_id": "ACL09_HANDOFF"
+    },
+    {
+      "artifact_type": "MEMORY_INDEX",
+      "digest": "sha256:1fc6bb15b530fd1aef292d3f273d12cc3e192980986928292b4d8a2c515c1763",
+      "node_id": "ACL09_MEMORY"
+    },
+    {
+      "artifact_type": "PLAN_PORTFOLIO",
+      "digest": "sha256:1f8e43f77ddaa5c6c6033fe356d27af76e17b30c27fe96104d981b67791bada4",
+      "node_id": "ACL09_PLAN"
+    },
+    {
+      "artifact_type": "PROMOTION_POLICY",
+      "digest": "sha256:8bbf6eb36d29dceeaf337c5da5b125a17ae646a8cb6c6e9be5247072c6be8c88",
+      "node_id": "ACL10_POLICY"
+    },
+    {
+      "artifact_type": "SOURCE_SUBJECT_BUNDLE",
+      "digest": "sha256:2bc744ae4540b0db90138caba473a35bb0c08d3996af57888375171692a1fb26",
+      "node_id": "ACL10_SUBJECTS"
+    },
+    {
+      "artifact_type": "PREREQUISITE_MATRIX",
+      "digest": "sha256:80241ac5ef572755610eef30f36cf85cb5654088bf16c98e5514c08730a579ab",
+      "node_id": "ACL10_PREREQUISITES"
+    },
+    {
+      "artifact_type": "PROMOTION_DECISION_BUNDLE",
+      "digest": "sha256:684cfa7c5018ced90bd12e858ae5ef5082bce9aec6c00f62b13beb936a002d40",
+      "node_id": "ACL10_DECISIONS"
+    },
+    {
+      "artifact_type": "RUNTIME_CANDIDATE_MANIFEST",
+      "digest": "sha256:72c83c7a93cca61d4512de6e7179bee04716f09965410978393b415cbeda3bfd",
+      "node_id": "ACL10_RUNTIME"
+    },
+    {
+      "artifact_type": "PROMOTION_EVENT_LEDGER",
+      "digest": "sha256:a70a33960e5c3a455930942b7b12783ac21157bd9145b150a9cc4e6a8533e351",
+      "node_id": "ACL10_EVENTS"
+    }
+  ],
+  "promotion_executed": false,
+  "promotion_run_id": "PROMRUN_580667F2EE87B717DDCABC943E1DA894",
+  "reaches_acl07_validation": true,
+  "reaches_acl09_memory": true,
+  "runtime_generation_authority_granted": false,
+  "schema_version": "1.0.0",
+  "source_decisions_mutated": false,
+  "source_memory_mutated": false
+}

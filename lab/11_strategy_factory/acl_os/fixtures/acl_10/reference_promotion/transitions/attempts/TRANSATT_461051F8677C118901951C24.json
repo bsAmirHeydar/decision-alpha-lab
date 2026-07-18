@@ -1,0 +1,13 @@
+{
+  "reason_codes": [
+    "BASELINE_NOT_PROMOTABLE"
+  ],
+  "schema_version": "1.0.0",
+  "state_decision_digest": "sha256:891efb7c2acc6c046d50e96d47e71dda95c886f1451bd4a50ed162171ca5a929",
+  "status": "NOT_APPLICABLE",
+  "subject_id": "PROMSUB_3482B6453D17FA10935F86AC",
+  "transition_attempt_digest": "sha256:a4a7035ec65ec9affab4579b310a0a3032ab5060fc63221c76f21804e77a70f3",
+  "transition_attempt_id": "TRANSATT_461051F8677C118901951C24",
+  "transition_executed": false,
+  "transition_id": "RESEARCH_HOLD_TO_PROMOTION_REVIEW"
+}

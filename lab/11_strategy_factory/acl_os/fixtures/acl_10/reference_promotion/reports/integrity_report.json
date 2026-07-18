@@ -1,0 +1,10 @@
+{
+  "acl09_bundle_verified": true,
+  "integrity_report_digest": "sha256:f63b1773b174890c898e7a44293aafc40fbbd31ba0e3da719ba6d19f5b1dd5ae",
+  "passed": true,
+  "promotion_run_id": "PROMRUN_580667F2EE87B717DDCABC943E1DA894",
+  "schema_version": "1.0.0",
+  "source_decisions_mutated": false,
+  "source_memory_mutated": false,
+  "subject_count": 12
+}

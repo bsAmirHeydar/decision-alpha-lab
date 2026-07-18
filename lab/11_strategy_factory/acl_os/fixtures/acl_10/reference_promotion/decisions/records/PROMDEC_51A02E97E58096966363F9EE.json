@@ -1,0 +1,19 @@
+{
+  "capital_activation_allowed": false,
+  "current_state": "BASELINE_REFERENCE_ONLY",
+  "evaluated_at": "2026-07-18T03:00:00Z",
+  "experience_id": "EXP08_A08D11F3D16ABC113808722A",
+  "live_order_submission_allowed": false,
+  "prerequisite_evaluation_digest": "sha256:44bcdf1d0bf700cad0a7b56dfaa30ec1c644618ac83517c7a8f1d93c016b2b06",
+  "promotion_executed": false,
+  "promotion_review_eligible": false,
+  "reason_codes": [
+    "BASELINE_NOT_PROMOTABLE"
+  ],
+  "runtime_generation_allowed": false,
+  "schema_version": "1.0.0",
+  "source_subject_digest": "sha256:1a0d1dfc5fd1d103f4c5238d7baa398f757038e128055f60434b9dd8f13ccc6c",
+  "state_decision_digest": "sha256:2a2c051cce2237e919e0655d0aa0332e0fca40483f07ca35e1a0589f1fa6ff9e",
+  "state_decision_id": "PROMDEC_51A02E97E58096966363F9EE",
+  "subject_id": "PROMSUB_E345925B34F174E6826656CC"
+}

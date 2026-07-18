@@ -1,0 +1,15 @@
+{
+  "admission_decision_id": "MEMADM_E4517B4F0DBB96F25C6433EE",
+  "admission_status": "QUARANTINED_DIAGNOSTIC",
+  "baseline": false,
+  "diagnostic": true,
+  "experience_class": "DIAGNOSTIC_EXCLUSION",
+  "experience_id": "EXP08_D3BA349B7DFAFABCBC68733F",
+  "reporting_eligible": false,
+  "schema_version": "1.0.0",
+  "source_digest": "sha256:120655ffe1f19acfd3a584b574fe42b7e8b73f66bc22a50c24c11bdf88a56776",
+  "source_kind": "DIAGNOSTIC_QUARANTINE",
+  "subject_digest": "sha256:f7ae477c72dbf1f38b719a38124b20548f717b4557fe746fba6876188cf25bcd",
+  "subject_id": "PROMSUB_061261237E4D8689C557EEC8",
+  "target_memory_identity": "MEMQUAR_E4517B4F0DBB96F25C6433EE"
+}

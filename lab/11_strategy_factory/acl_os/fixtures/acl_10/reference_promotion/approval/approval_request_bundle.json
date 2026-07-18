@@ -1,0 +1,12 @@
+{
+  "approval_bundle_digest": "sha256:17daab63b321bd91bdba95ed58ec3cce571a9fd0fe03051f50b6258ac9cba8bc",
+  "approval_expiry_seconds": 86400,
+  "approval_not_requested_reason": "NO_PROMOTION_REVIEW_ELIGIBLE_SUBJECTS",
+  "approval_request_count": 0,
+  "approval_requests": [],
+  "eligible_subject_count": 0,
+  "promotion_execution_allowed": false,
+  "required_distinct_approvers": 2,
+  "schema_version": "1.0.0",
+  "self_approval_allowed": false
+}

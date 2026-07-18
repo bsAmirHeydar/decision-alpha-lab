@@ -1,0 +1,8 @@
+{
+  "retirement_triggered": false,
+  "revocation_bundle_digest": "sha256:d6ba92e5ae507856ac50b7c345c6287ea55a1f83f78b25b29d09058992d2c217",
+  "revocation_record_count": 0,
+  "revocation_records": [],
+  "schema_version": "1.0.0",
+  "suspension_triggered": false
+}

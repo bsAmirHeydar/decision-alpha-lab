@@ -1,0 +1,81 @@
+{
+  "closed_registry": true,
+  "registry_digest": "sha256:8a39ad8e298c67c9a8ed14b1be5f7d4e35d83381e99b8b1c7c7e720806a2c66b",
+  "registry_id": "ACL10_TRANSITION_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "transitions": [
+    {
+      "from_state": "RESEARCH_HOLD",
+      "prerequisites": [
+        "SOURCE_INTEGRITY",
+        "REPORTING_ELIGIBILITY",
+        "VALIDATED_EVIDENCE",
+        "NON_DIAGNOSTIC",
+        "NON_BASELINE",
+        "PROSPECTIVE_EVIDENCE",
+        "INDEPENDENT_REPLICATION",
+        "EXECUTION_ECONOMICS",
+        "OOD_AND_ABSTENTION"
+      ],
+      "to_state": "PROMOTION_REVIEW_ELIGIBLE",
+      "transition_id": "RESEARCH_HOLD_TO_PROMOTION_REVIEW"
+    },
+    {
+      "from_state": "PROMOTION_REVIEW_ELIGIBLE",
+      "prerequisites": [
+        "HUMAN_APPROVAL",
+        "SECURITY_CLEARANCE",
+        "RUNTIME_PARITY_PLAN"
+      ],
+      "to_state": "PAPER_CANDIDATE",
+      "transition_id": "PROMOTION_REVIEW_TO_PAPER"
+    },
+    {
+      "from_state": "PAPER_CANDIDATE",
+      "prerequisites": [
+        "PAPER_EVIDENCE",
+        "HUMAN_APPROVAL",
+        "SECURITY_CLEARANCE"
+      ],
+      "to_state": "SHADOW_CANDIDATE",
+      "transition_id": "PAPER_TO_SHADOW"
+    },
+    {
+      "from_state": "SHADOW_CANDIDATE",
+      "prerequisites": [
+        "SHADOW_EVIDENCE",
+        "BROKER_QUALIFICATION",
+        "RUNTIME_PARITY",
+        "HUMAN_APPROVAL"
+      ],
+      "to_state": "MICRO_LIVE_CANDIDATE",
+      "transition_id": "SHADOW_TO_MICRO_LIVE"
+    },
+    {
+      "from_state": "MICRO_LIVE_CANDIDATE",
+      "prerequisites": [
+        "MICRO_LIVE_EVIDENCE",
+        "CAPITAL_COMMITTEE_APPROVAL",
+        "SURVEILLANCE_READY"
+      ],
+      "to_state": "CHAMPION",
+      "transition_id": "MICRO_LIVE_TO_CHAMPION"
+    },
+    {
+      "from_state": "*",
+      "prerequisites": [
+        "REVOCATION_TRIGGER"
+      ],
+      "to_state": "SUSPENDED",
+      "transition_id": "ANY_TO_SUSPENDED"
+    },
+    {
+      "from_state": "*",
+      "prerequisites": [
+        "RETIREMENT_DECISION"
+      ],
+      "to_state": "RETIRED",
+      "transition_id": "ANY_TO_RETIRED"
+    }
+  ]
+}

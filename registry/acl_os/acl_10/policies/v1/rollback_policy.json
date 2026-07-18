@@ -1,0 +1,5 @@
+{
+  "policy_id": "ACL10_ROLLBACK_V1",
+  "rollback_must_preserve_history": true,
+  "schema_version": "1.0.0"
+}

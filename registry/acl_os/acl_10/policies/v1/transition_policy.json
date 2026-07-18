@@ -1,0 +1,5 @@
+{
+  "policy_id": "ACL10_TRANSITION_POLICY_V1",
+  "schema_version": "1.0.0",
+  "unregistered_transition_allowed": false
+}

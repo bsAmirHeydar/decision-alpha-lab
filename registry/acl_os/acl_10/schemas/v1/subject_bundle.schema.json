@@ -1,0 +1,23 @@
+{
+  "$id": "https://alpha-lab.local/acl10/subject_bundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "memory_run_id": {},
+    "schema_version": {
+      "type": "string"
+    },
+    "subject_bundle_digest": {},
+    "subject_count": {},
+    "subjects": {}
+  },
+  "required": [
+    "schema_version",
+    "memory_run_id",
+    "subject_count",
+    "subjects",
+    "subject_bundle_digest"
+  ],
+  "title": "subject_bundle",
+  "type": "object"
+}

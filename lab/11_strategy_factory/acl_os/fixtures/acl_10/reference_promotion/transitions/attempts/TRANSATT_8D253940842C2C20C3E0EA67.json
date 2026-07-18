@@ -1,0 +1,13 @@
+{
+  "reason_codes": [
+    "DIAGNOSTIC_LANE_NON_SELECTABLE"
+  ],
+  "schema_version": "1.0.0",
+  "state_decision_digest": "sha256:c213eb419430b8550bcefe9ae684c93bb39b0c789f22cdd7bd95221f01dc9f63",
+  "status": "NOT_APPLICABLE",
+  "subject_id": "PROMSUB_061261237E4D8689C557EEC8",
+  "transition_attempt_digest": "sha256:c7cf5dd14e2d7003863a1e474c0c6f6174f5f25a15e8ad39b31cf0f96cd5befd",
+  "transition_attempt_id": "TRANSATT_8D253940842C2C20C3E0EA67",
+  "transition_executed": false,
+  "transition_id": "RESEARCH_HOLD_TO_PROMOTION_REVIEW"
+}

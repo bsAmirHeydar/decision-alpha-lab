@@ -1,0 +1,5 @@
+{
+  "dissent_record_required_for_positive_decision": true,
+  "policy_id": "ACL10_DISSENT_POLICY_V1",
+  "schema_version": "1.0.0"
+}

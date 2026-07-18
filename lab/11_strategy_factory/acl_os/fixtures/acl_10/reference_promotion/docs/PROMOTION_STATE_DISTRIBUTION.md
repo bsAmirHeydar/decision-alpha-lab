@@ -1,0 +1,5 @@
+# State Distribution
+
+- `BASELINE_REFERENCE_ONLY`: **4**
+- `DIAGNOSTIC_QUARANTINED`: **1**
+- `RESEARCH_HOLD`: **7**

@@ -1,0 +1,19 @@
+{
+  "document_count": 3,
+  "documents": [
+    {
+      "digest": "sha256:cf8f66a543ff17633dc764c897c772efe506ea781743184bea068fa080de78c6",
+      "path": "docs/ACL10_PROMOTION_STATE_SUMMARY.md"
+    },
+    {
+      "digest": "sha256:70a41aac4375833f48c403417263fc4b30e9cb472ae22e00f6f0bc4251e79ec9",
+      "path": "docs/PROMOTION_PREREQUISITE_GAPS.md"
+    },
+    {
+      "digest": "sha256:027681560cfefed1b9d30739240613d941818b84b8360b17dafa0297b339e633",
+      "path": "docs/PROMOTION_STATE_DISTRIBUTION.md"
+    }
+  ],
+  "projection_manifest_digest": "sha256:7b1e15df12f7adad3074d2b8b19c519ccf762196162d03c4ea5f260236419cf7",
+  "schema_version": "1.0.0"
+}

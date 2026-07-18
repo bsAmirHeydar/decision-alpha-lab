@@ -1,0 +1,51 @@
+{
+  "$id": "https://alpha-lab.local/acl10/acl11_handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capital_activation_allowed": {},
+    "decision_bundle_digest": {},
+    "event_ledger_digest": {},
+    "forbidden_acl11_actions": {},
+    "handoff_digest": {},
+    "handoff_type": {},
+    "live_order_submission_allowed": {},
+    "memory_run_digest": {},
+    "memory_run_id": {},
+    "promotion_execution_allowed": {},
+    "promotion_review_eligible_count": {},
+    "promotion_run_digest": {},
+    "promotion_run_id": {},
+    "provenance_graph_digest": {},
+    "required_acl11_actions": {},
+    "runtime_candidate_count": {},
+    "runtime_candidate_manifest_digest": {},
+    "runtime_generation_allowed": {},
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "handoff_type",
+    "promotion_run_id",
+    "promotion_run_digest",
+    "memory_run_id",
+    "memory_run_digest",
+    "decision_bundle_digest",
+    "runtime_candidate_manifest_digest",
+    "event_ledger_digest",
+    "provenance_graph_digest",
+    "promotion_review_eligible_count",
+    "runtime_candidate_count",
+    "required_acl11_actions",
+    "forbidden_acl11_actions",
+    "promotion_execution_allowed",
+    "runtime_generation_allowed",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "handoff_digest"
+  ],
+  "title": "acl11_handoff",
+  "type": "object"
+}
