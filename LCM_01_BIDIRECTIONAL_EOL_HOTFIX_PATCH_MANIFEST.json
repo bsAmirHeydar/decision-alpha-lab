@@ -1,0 +1,75 @@
+{
+  "base_commit": "430346c9",
+  "claim_ceiling": "INSTALLATION_VERIFIER_EOL_EQUIVALENCE_ONLY",
+  "commit_subject": "fix(lcm): verify LF and CRLF baseline materializations symmetrically",
+  "deleted_file_count": 0,
+  "file_count": 12,
+  "hotfix_version": "3.0.0",
+  "metadata_file_count": 5,
+  "patch_id": "ALPHA_LAB_LCM_01_BIDIRECTIONAL_EOL_INTEGRITY_HOTFIX",
+  "paths": [
+    "APPLY_ALPHA_LAB_LCM_01_BIDIRECTIONAL_EOL_HOTFIX.ps1",
+    "COMMIT_MESSAGE_LCM_01_BIDIRECTIONAL_EOL_HOTFIX.md",
+    "INSTALL_ALPHA_LAB_LCM_01_BIDIRECTIONAL_EOL_HOTFIX.md",
+    "LCM_01_BIDIRECTIONAL_EOL_HOTFIX_ARTIFACT_INVENTORY.csv",
+    "LCM_01_BIDIRECTIONAL_EOL_HOTFIX_FILE_HASHES.sha256",
+    "LCM_01_BIDIRECTIONAL_EOL_HOTFIX_FILE_INDEX.txt",
+    "LCM_01_BIDIRECTIONAL_EOL_HOTFIX_PATCH_MANIFEST.json",
+    "LCM_01_BIDIRECTIONAL_EOL_HOTFIX_QA_REPORT.json",
+    "README_ALPHA_LAB_LCM_01_BIDIRECTIONAL_EOL_HOTFIX.md",
+    "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_01/LCM01_BIDIRECTIONAL_EOL_INTEGRITY_HOTFIX.md",
+    "lab/11_strategy_factory/migration/tests_lcm_01/test_cross_platform_integrity_hotfix.py",
+    "tools/strategy_factory/lcm/lcm_01/cross_platform_integrity.py"
+  ],
+  "payload_artifacts": [
+    {
+      "path": "APPLY_ALPHA_LAB_LCM_01_BIDIRECTIONAL_EOL_HOTFIX.ps1",
+      "sha256": "0824c8e83c36b013d7270725bff6192c8a2ce25c7783d73af0b2a84f66f9f203",
+      "size_bytes": 2880
+    },
+    {
+      "path": "COMMIT_MESSAGE_LCM_01_BIDIRECTIONAL_EOL_HOTFIX.md",
+      "sha256": "6760c411ffbec8ffc56db98f75e9faf15dc58b176c64e4b018c9eb6b3c21ae31",
+      "size_bytes": 392
+    },
+    {
+      "path": "INSTALL_ALPHA_LAB_LCM_01_BIDIRECTIONAL_EOL_HOTFIX.md",
+      "sha256": "3b6ad60af0708426e2ceae2592284a9846830bdfd1a9e95edec76be9db69c517",
+      "size_bytes": 298
+    },
+    {
+      "path": "README_ALPHA_LAB_LCM_01_BIDIRECTIONAL_EOL_HOTFIX.md",
+      "sha256": "af4e2a8192b61783ff60fa001c32289d217b87987a8e657b1762b2ee3a8aa4f9",
+      "size_bytes": 838
+    },
+    {
+      "path": "docs/alpha_lab_master_architecture/context_lifecycle_os/17_LEGACY_MIGRATION_PROGRAM/11_PHASE_DELIVERIES/LCM_01/LCM01_BIDIRECTIONAL_EOL_INTEGRITY_HOTFIX.md",
+      "sha256": "ec80288b14ccd6f7a96f982ac7f3c572a2ccd45835e7d875d990c3cc8a06aaae",
+      "size_bytes": 1136
+    },
+    {
+      "path": "lab/11_strategy_factory/migration/tests_lcm_01/test_cross_platform_integrity_hotfix.py",
+      "sha256": "357ac2ea8dbc3da269c0a4d1004e8d05d7cd9e3c5e8ac90a0bb5d070d2d8491e",
+      "size_bytes": 6785
+    },
+    {
+      "path": "tools/strategy_factory/lcm/lcm_01/cross_platform_integrity.py",
+      "sha256": "1ce0fe8d266f460baf7ce6d7258cd0f8b08903a4fe5515a658ecff2fd53befc8",
+      "size_bytes": 10955
+    }
+  ],
+  "payload_file_count": 7,
+  "phase_id": "LCM-01",
+  "schema_version": "1.0.0",
+  "verification": {
+    "binary_fail_closed": true,
+    "compileall": true,
+    "crlf_equivalent_records": 106,
+    "diagnostic_records": 38595,
+    "focused_tests": "18 passed",
+    "lf_equivalent_records": 768,
+    "native_process_fail_fast": true,
+    "semantic_change_fail_closed": true,
+    "unresolved_records": 0
+  }
+}

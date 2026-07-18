@@ -133,3 +133,72 @@ def test_invalid_sha256_reference_forms_fail_closed(
 
     with pytest.raises(IntegrityError, match="invalid sha256"):
         verify_repository_bytes_cross_platform(repo, package)
+
+
+def test_lf_working_tree_matches_crlf_baseline(tmp_path: Path) -> None:
+    repo = tmp_path / "repo"
+    repo.mkdir()
+    expected = b"alpha\r\nbeta\r\n"
+    (repo / "sample.csv").write_bytes(b"alpha\nbeta\n")
+    package = _package(
+        tmp_path,
+        [{"path": "sample.csv", "sha256": f"sha256:{_sha256(expected)}"}],
+    )
+
+    result = verify_repository_bytes_cross_platform(repo, package)
+
+    assert result["passed"] is True
+    assert result["raw_match_count"] == 0
+    assert result["canonical_lf_match_count"] == 0
+    assert result["canonical_crlf_match_count"] == 1
+    assert result["canonical_text_match_count"] == 1
+
+
+def test_mixed_working_tree_matches_lf_baseline(tmp_path: Path) -> None:
+    repo = tmp_path / "repo"
+    repo.mkdir()
+    expected = b"alpha\nbeta\ngamma\n"
+    (repo / "sample.md").write_bytes(b"alpha\r\nbeta\ngamma\r")
+    package = _package(tmp_path, [{"path": "sample.md", "sha256": _sha256(expected)}])
+
+    result = verify_repository_bytes_cross_platform(repo, package)
+
+    assert result["passed"] is True
+    assert result["canonical_lf_match_count"] == 1
+    assert result["canonical_crlf_match_count"] == 0
+
+
+def test_mixed_working_tree_matches_crlf_baseline(tmp_path: Path) -> None:
+    repo = tmp_path / "repo"
+    repo.mkdir()
+    expected = b"alpha\r\nbeta\r\ngamma\r\n"
+    (repo / "sample.ps1").write_bytes(b"alpha\r\nbeta\ngamma\r")
+    package = _package(tmp_path, [{"path": "sample.ps1", "sha256": _sha256(expected)}])
+
+    result = verify_repository_bytes_cross_platform(repo, package)
+
+    assert result["passed"] is True
+    assert result["canonical_lf_match_count"] == 0
+    assert result["canonical_crlf_match_count"] == 1
+
+
+def test_reverse_direction_real_text_change_fails_closed(tmp_path: Path) -> None:
+    repo = tmp_path / "repo"
+    repo.mkdir()
+    expected = b"alpha\r\nbeta\r\n"
+    (repo / "sample.csv").write_bytes(b"alpha\nCHANGED\n")
+    package = _package(tmp_path, [{"path": "sample.csv", "sha256": _sha256(expected)}])
+
+    with pytest.raises(IntegrityError, match="HASH_MISMATCH"):
+        verify_repository_bytes_cross_platform(repo, package)
+
+
+def test_reverse_direction_binary_payload_still_fails_closed(tmp_path: Path) -> None:
+    repo = tmp_path / "repo"
+    repo.mkdir()
+    expected = b"PK\x00alpha\r\nbeta\r\n"
+    (repo / "sample.bin").write_bytes(b"PK\x00alpha\nbeta\n")
+    package = _package(tmp_path, [{"path": "sample.bin", "sha256": _sha256(expected)}])
+
+    with pytest.raises(IntegrityError, match="HASH_MISMATCH"):
+        verify_repository_bytes_cross_platform(repo, package)

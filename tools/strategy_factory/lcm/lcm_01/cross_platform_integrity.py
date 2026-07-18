@@ -97,14 +97,22 @@ _RECORD_CONTAINER_KEYS = (
 class VerificationSummary:
     record_count: int
     raw_match_count: int
-    canonical_text_match_count: int
+    canonical_lf_match_count: int
+    canonical_crlf_match_count: int
     mismatch_count: int
+
+    @property
+    def canonical_text_match_count(self) -> int:
+        return self.canonical_lf_match_count + self.canonical_crlf_match_count
 
     def as_dict(self) -> dict[str, int | bool]:
         return {
             "record_count": self.record_count,
             "raw_match_count": self.raw_match_count,
+            "canonical_lf_match_count": self.canonical_lf_match_count,
+            "canonical_crlf_match_count": self.canonical_crlf_match_count,
             "canonical_text_match_count": self.canonical_text_match_count,
+            "text_eol_equivalent_match_count": self.canonical_text_match_count,
             "mismatch_count": self.mismatch_count,
             "passed": self.mismatch_count == 0,
         }
@@ -223,15 +231,20 @@ def _looks_like_text(path: Path, data: bytes) -> bool:
 
 
 def canonicalize_text_eol(data: bytes) -> bytes:
-    """Return a byte-stable LF representation without altering other text bytes.
-
-    Git's Windows checkout can materialize LF repository blobs as CRLF working-tree
-    files when core.autocrlf=true. Only line-ending bytes are normalized here. The
-    function does not trim whitespace, change encoding, normalize Unicode, or alter
-    a final newline.
-    """
+    """Return the LF-equivalent representation without changing other bytes."""
 
     return data.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+
+
+def materialize_text_crlf(data: bytes) -> bytes:
+    """Return the CRLF-equivalent representation without changing text content.
+
+    The input is first reduced to LF so mixed CRLF/LF worktrees are handled
+    deterministically. No whitespace, encoding, Unicode, or final-newline
+    normalization is performed.
+    """
+
+    return canonicalize_text_eol(data).replace(b"\n", b"\r\n")
 
 
 def verify_repository_bytes_cross_platform(
@@ -240,10 +253,12 @@ def verify_repository_bytes_cross_platform(
 ) -> dict[str, int | bool]:
     """Verify the LCM-00 baseline against a platform-specific working tree.
 
-    Raw SHA-256 remains authoritative. A text file is accepted after raw mismatch
-    only when LF canonicalization alone reproduces the frozen baseline SHA-256.
-    Binary files never receive canonicalization. Unknown, missing, symlinked, path-
-    escaping, or semantically modified files remain fail-closed.
+    Raw SHA-256 remains authoritative. After a raw mismatch, a UTF-8 text file is
+    accepted only when the frozen digest exactly matches one of the two closed EOL
+    materializations derived from the current bytes: all-LF or all-CRLF. This is
+    symmetric across Linux and Windows checkouts and does not weaken binary or
+    semantic-content verification. Unknown, missing, symlinked, path-escaping, or
+    semantically modified files remain fail-closed.
     """
 
     resolved_repo = Path(repo_root).resolve()
@@ -252,7 +267,8 @@ def verify_repository_bytes_cross_platform(
     records = _records(manifest)
 
     raw_match_count = 0
-    canonical_text_match_count = 0
+    canonical_lf_match_count = 0
+    canonical_crlf_match_count = 0
     mismatch_count = 0
     mismatch_examples: list[dict[str, str]] = []
 
@@ -296,19 +312,37 @@ def verify_repository_bytes_cross_platform(
             continue
 
         if _looks_like_text(target, current):
-            canonical = canonicalize_text_eol(current)
-            if canonical != current and _sha256(canonical) == expected_sha256:
-                canonical_text_match_count += 1
+            lf_variant = canonicalize_text_eol(current)
+            if _sha256(lf_variant) == expected_sha256:
+                canonical_lf_match_count += 1
+                continue
+
+            crlf_variant = materialize_text_crlf(current)
+            if _sha256(crlf_variant) == expected_sha256:
+                canonical_crlf_match_count += 1
                 continue
 
         mismatch_count += 1
         if len(mismatch_examples) < 20:
-            mismatch_examples.append({"path": relative_path, "reason": "HASH_MISMATCH"})
+            mismatch_examples.append(
+                {
+                    "path": relative_path,
+                    "reason": "HASH_MISMATCH",
+                    "raw_sha256": _sha256(current),
+                    "lf_sha256": _sha256(canonicalize_text_eol(current))
+                    if _looks_like_text(target, current)
+                    else "NOT_APPLICABLE",
+                    "crlf_sha256": _sha256(materialize_text_crlf(current))
+                    if _looks_like_text(target, current)
+                    else "NOT_APPLICABLE",
+                }
+            )
 
     summary = VerificationSummary(
         record_count=len(records),
         raw_match_count=raw_match_count,
-        canonical_text_match_count=canonical_text_match_count,
+        canonical_lf_match_count=canonical_lf_match_count,
+        canonical_crlf_match_count=canonical_crlf_match_count,
         mismatch_count=mismatch_count,
     )
     if mismatch_count:

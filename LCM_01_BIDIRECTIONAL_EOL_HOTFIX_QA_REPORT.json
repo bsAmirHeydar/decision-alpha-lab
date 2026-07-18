@@ -1,0 +1,22 @@
+{
+  "base_commit": "430346c9",
+  "binary_raw_byte_verification_preserved": true,
+  "claim_ceiling": "INSTALLATION_VERIFIER_EOL_EQUIVALENCE_ONLY",
+  "compileall_passed": true,
+  "diagnostic_crlf_match_count": 106,
+  "diagnostic_lf_match_count": 768,
+  "diagnostic_non_raw_match_count": 874,
+  "diagnostic_record_count": 38595,
+  "diagnostic_unresolved_count": 0,
+  "fail_fast_native_exit_code_guard_added": true,
+  "focused_test_count": 18,
+  "focused_tests_passed": 18,
+  "full_repository_verification_required_after_install": true,
+  "hotfix_id": "LCM01_BIDIRECTIONAL_EOL_INTEGRITY_V3",
+  "passed": true,
+  "phase_id": "LCM-01",
+  "raw_sha256_authority_preserved": true,
+  "schema_version": "1.0.0",
+  "semantic_content_normalization_allowed": false,
+  "utf8_text_only_eol_materialization": true
+}
