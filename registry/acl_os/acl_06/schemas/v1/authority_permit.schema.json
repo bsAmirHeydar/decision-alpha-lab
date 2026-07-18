@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "const": "ACL06_EXECUTE_BOUNDED_RESEARCH"
+    },
+    "batch_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "capital_activation_allowed": {
+      "const": false
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    },
+    "network_access_allowed": {
+      "const": false
+    },
+    "permit_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "permit_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "secret_access_allowed": {
+      "const": false
+    },
+    "subject": {
+      "const": "ACL-06"
+    },
+    "upstream_handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "permit_id",
+    "subject",
+    "action",
+    "batch_id",
+    "upstream_handoff_digest",
+    "network_access_allowed",
+    "secret_access_allowed",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "permit_digest"
+  ],
+  "type": "object"
+}

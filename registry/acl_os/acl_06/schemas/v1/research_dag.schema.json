@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "batch_id": {
+      "type": "string"
+    },
+    "batch_mutation_allowed": {
+      "type": "boolean"
+    },
+    "candidate_mutation_allowed": {
+      "type": "boolean"
+    },
+    "closed": {
+      "type": "boolean"
+    },
+    "dag_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "plan_id": {
+      "type": "string"
+    },
+    "planned_resources": {
+      "additionalProperties": true,
+      "type": "object"
+    },
+    "registry_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "request_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "task_count": {
+      "type": "integer"
+    },
+    "tasks": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "budget": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "cache_key": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "candidate_id": {
+            "type": [
+              "null",
+              "string",
+              "number",
+              "integer",
+              "boolean",
+              "object",
+              "array"
+            ]
+          },
+          "dependencies": {
+            "items": {},
+            "type": "array"
+          },
+          "deterministic": {
+            "type": "boolean"
+          },
+          "executor_id": {
+            "type": "string"
+          },
+          "idempotent": {
+            "type": "boolean"
+          },
+          "input_digests": {
+            "items": {
+              "pattern": "^sha256:[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "lane": {
+            "type": "string"
+          },
+          "max_attempts": {
+            "type": "integer"
+          },
+          "schema_version": {
+            "type": "string"
+          },
+          "segment": {
+            "type": [
+              "null",
+              "string",
+              "number",
+              "integer",
+              "boolean",
+              "object",
+              "array"
+            ]
+          },
+          "setup_id": {
+            "type": [
+              "null",
+              "string",
+              "number",
+              "integer",
+              "boolean",
+              "object",
+              "array"
+            ]
+          },
+          "task_contract_digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "task_id": {
+            "type": "string"
+          },
+          "task_type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "budget",
+          "cache_key",
+          "candidate_id",
+          "dependencies",
+          "deterministic",
+          "executor_id",
+          "idempotent",
+          "input_digests",
+          "lane",
+          "max_attempts",
+          "schema_version",
+          "segment",
+          "setup_id",
+          "task_contract_digest",
+          "task_id",
+          "task_type"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "batch_id",
+    "batch_mutation_allowed",
+    "candidate_mutation_allowed",
+    "closed",
+    "dag_digest",
+    "plan_id",
+    "planned_resources",
+    "registry_digest",
+    "request_digest",
+    "schema_version",
+    "task_count",
+    "tasks"
+  ],
+  "type": "object"
+}

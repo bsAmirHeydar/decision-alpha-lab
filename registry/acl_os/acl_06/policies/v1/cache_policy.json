@@ -1,0 +1,6 @@
+{
+  "cross_batch_aliasing_allowed": false,
+  "key_material": "TASK_CONTRACT_PLUS_EXECUTOR_VERSION",
+  "mutable_entries_allowed": false,
+  "policy_id": "ACL06_CACHE"
+}

@@ -1,0 +1,16 @@
+{
+  "checks": {
+    "action_exact": true,
+    "batch_exact": true,
+    "capital_denied": true,
+    "handoff_bound": true,
+    "network_denied": true,
+    "order_denied": true,
+    "secret_denied": true,
+    "subject_exact": true
+  },
+  "passed": true,
+  "permit_id": "PERMIT_ACL06_REFERENCE_V1",
+  "report_digest": "sha256:958f0155de33eae540d5d805d68f0bca92b43c7b71b0dc0ec360f68e6a527837",
+  "schema_version": "1.0.0"
+}

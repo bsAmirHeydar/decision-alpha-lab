@@ -1,0 +1,31 @@
+{
+  "batch_id": "BATCH_81FF4FC3C8B796422B0EF6818FEB2D5E",
+  "capital_activation_allowed": false,
+  "claim_ceiling": "BOUNDED_RESEARCH_EXECUTION_REFERENCE_ONLY",
+  "dag_digest": "sha256:84c8770df1caac7cc4c9e91cb69cb5a90b7a84ce2bcd802709d8066717f520c9",
+  "event_ledger_digest": "sha256:ef935758f4c0dfedd8a2d9ebf1769298fc3fbb48d0bc2cdc5baa2702f5174969",
+  "forbidden_acl07_actions": [
+    "MUTATE_RESEARCH_RESULTS",
+    "MUTATE_FROZEN_BATCH",
+    "PROMOTE_DIAGNOSTIC_LANE",
+    "INFER_ALPHA_WITHOUT_GATES",
+    "AUTHORIZE_EXECUTION",
+    "ACTIVATE_CAPITAL"
+  ],
+  "handoff_digest": "sha256:e232a3cfa75c6fd50d2d25ad324519489d630b60199f0e8ebe58ce3e6fe73d69",
+  "handoff_type": "ACL06_TO_ACL07",
+  "live_order_submission_allowed": false,
+  "object_index_digest": "sha256:c01d4a8707753622ed3b4d53cdafe971f0d578c076c02132418184433909fb90",
+  "provenance_graph_digest": "sha256:10b48d36b551616f83688744ee7644d1760cac4c9e561f5afa985076470e26e7",
+  "required_acl07_actions": [
+    "VERIFY_RESEARCH_EVIDENCE",
+    "APPLY_UNIFIED_VALIDATION_GATES",
+    "ISSUE_NON_PROMOTIONAL_VALIDATION_DECISION"
+  ],
+  "research_run_digest": "sha256:f554e1123a051710cb7de831265ffe2bcb28e2ae9c7d61d476d528c655a95bef",
+  "resource_accounting_digest": "sha256:104e79de7547f0fca6bac9fc46604b3df6a20ed00d72faf62386771e675bde03",
+  "result_bundle_digest": "sha256:d1e77c5bf5230e01e9df0141cbb1c0a5f1daafd549588d077575802c9f31fb28",
+  "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+  "schema_version": "1.0.0",
+  "task_receipt_set_digest": "sha256:a3efa5c66630f3e25da94fe174dbf252f10332eda8a02a9573dfa269b5970c70"
+}

@@ -1,0 +1,1568 @@
+{
+  "batch_id": "BATCH_81FF4FC3C8B796422B0EF6818FEB2D5E",
+  "batch_mutation_allowed": false,
+  "candidate_mutation_allowed": false,
+  "closed": true,
+  "dag_digest": "sha256:84c8770df1caac7cc4c9e91cb69cb5a90b7a84ce2bcd802709d8066717f520c9",
+  "plan_id": "DAG_AD0D9687B094CB1FF879BC2CC9165273",
+  "planned_resources": {
+    "cpu_seconds": 129,
+    "output_bytes": 387072,
+    "peak_memory_mb": 64,
+    "task_count": 54
+  },
+  "registry_digest": "sha256:a89d1f3ff29b55b3d65a43173823f1e27b357ddff87ad3b89c968e4c29e5e00b",
+  "request_digest": "sha256:507ac546dcf0ab1810e511e042426dd601a26f9994ccceae8053c5a5f37e753c",
+  "schema_version": "1.0.0",
+  "task_count": 54,
+  "tasks": [
+    {
+      "budget": {
+        "cpu_seconds": 1,
+        "memory_mb": 32,
+        "output_bytes": 2048
+      },
+      "cache_key": "sha256:e10f22bf0cd97c1271db2819f8bad67810214b5602904f791e2eddb3521d8bf7",
+      "candidate_id": null,
+      "dependencies": [],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:112a96238fb03b496969d694faac8cd7ba33b8ed5def621ebde68e70c224850c",
+        "sha256:f0085c59d52b397e2db7db181ac75e8d9fbcd800d15f53728ad0965b37feb31b"
+      ],
+      "lane": "SYSTEM",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": null,
+      "setup_id": null,
+      "task_contract_digest": "sha256:f19b60c780083c29526061575ad7c013cf08eb16de047c8ac8f6bfff8dd66594",
+      "task_id": "TASK_980B14840827670F9DB82A83",
+      "task_type": "VERIFY_FROZEN_BATCH"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 2,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:b82ff7a7bc41c69db2f5103d83f367c4056ac2a520e3ac49ec2f2be66690b655",
+      "candidate_id": null,
+      "dependencies": [
+        "TASK_980B14840827670F9DB82A83"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:d2e5f0a70865401a809a03ac5225e7e8e1601e04156adc796f9543cc5dff5dff"
+      ],
+      "lane": "SYSTEM",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": null,
+      "setup_id": null,
+      "task_contract_digest": "sha256:afa3a19a623c913b3abb447f1652a329941ef72c5f67add5e62b297a4ce2a47b",
+      "task_id": "TASK_FC94110ACD757DCB5712B293",
+      "task_type": "MATERIALIZE_DATASET"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 2,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:32ff464cb1697d178c468fb95c705c4ff4031f2922539c7116a3c407db6e77d8",
+      "candidate_id": null,
+      "dependencies": [
+        "TASK_FC94110ACD757DCB5712B293"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "SYSTEM",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": null,
+      "setup_id": null,
+      "task_contract_digest": "sha256:2db5a5798687a67c271acab1f5afc6ce10fe2abeeb392574ccff7ef83b7ee661",
+      "task_id": "TASK_BA9273CD4F641FEBB96BD46D",
+      "task_type": "COMPILE_MATURE_LABELS"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 1,
+        "memory_mb": 32,
+        "output_bytes": 4096
+      },
+      "cache_key": "sha256:3075f10cd679a661b965ea87d729728bb7245531a440454099ddf6d6268fefed",
+      "candidate_id": null,
+      "dependencies": [
+        "TASK_BA9273CD4F641FEBB96BD46D"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a"
+      ],
+      "lane": "SYSTEM",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": null,
+      "setup_id": null,
+      "task_contract_digest": "sha256:64a63b4712cd4ac0163f08cd44e2abf6d830a687bd7ac78b2d4a4bb8df4b614b",
+      "task_id": "TASK_CD57B1F9EFBF3376EB1388B3",
+      "task_type": "ASSIGN_PURGED_SPLITS"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:a1decd1fef0192060d178f6972737175c7a5c2f2d9942457765d499e252a98b5",
+      "candidate_id": "CAND_070AF7A3D72639E8CB2F",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:2d76860a7ef5db9ab03b247c3f2c507b1fef8df20a25ef5faa06d330cdf5c441",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "TRAIN",
+      "setup_id": "SETUP_030571B7D3BF97CDE8EF",
+      "task_contract_digest": "sha256:7bdd449b78827622b5ced80efe7d4f6a375e0d7496be788b3169c87609d5c666",
+      "task_id": "TASK_DEFE5B7368547FBE964E1B98",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:241cc37b88f755cb1cf976d4f4846512990852ecbc60cfa7b1257389d47faf94",
+      "candidate_id": "CAND_070AF7A3D72639E8CB2F",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:2d76860a7ef5db9ab03b247c3f2c507b1fef8df20a25ef5faa06d330cdf5c441",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "VALIDATION",
+      "setup_id": "SETUP_030571B7D3BF97CDE8EF",
+      "task_contract_digest": "sha256:2c57bcd1afb459b5a54ab0d08a61f3895efe799e886e32bee60b8cfb5015467e",
+      "task_id": "TASK_058E21F1106C18EA63ED6C5E",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:40052f4556cec3659ad4a9fa5e24e3cbdb9920590f5c7cdac335fbe08724f3ea",
+      "candidate_id": "CAND_070AF7A3D72639E8CB2F",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:2d76860a7ef5db9ab03b247c3f2c507b1fef8df20a25ef5faa06d330cdf5c441",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "TEST",
+      "setup_id": "SETUP_030571B7D3BF97CDE8EF",
+      "task_contract_digest": "sha256:8bab46d0401f48c5e277e52425da6d29016b76b24f7e7060a568145daab7e929",
+      "task_id": "TASK_F23C1768634A246159514F57",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 1,
+        "memory_mb": 32,
+        "output_bytes": 4096
+      },
+      "cache_key": "sha256:518cc6b94f93a8cabf41eccf998f30e39c3c1a79061d6d5476a85a31a1a798fd",
+      "candidate_id": "CAND_070AF7A3D72639E8CB2F",
+      "dependencies": [
+        "TASK_058E21F1106C18EA63ED6C5E",
+        "TASK_DEFE5B7368547FBE964E1B98",
+        "TASK_F23C1768634A246159514F57"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:2d76860a7ef5db9ab03b247c3f2c507b1fef8df20a25ef5faa06d330cdf5c441"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": null,
+      "setup_id": "SETUP_030571B7D3BF97CDE8EF",
+      "task_contract_digest": "sha256:6ef8ffb86c1243263c16860709767791df25e862bea6a5320df183d7fce3a1dd",
+      "task_id": "TASK_77260A5296DD9E2229DE7E1A",
+      "task_type": "AGGREGATE_CANDIDATE"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:43e83d102f88253fa2323e88e59ebcfcdc2605a7bcd55f24c19e939fd9406976",
+      "candidate_id": "CAND_8778D61FE527B62360E6",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:059347ea2d751f34c20ac82c86ce05878bd588d52aaea414206f1a489073c941",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "TRAIN",
+      "setup_id": "SETUP_0A56F08F1AC14EFB10F5",
+      "task_contract_digest": "sha256:b619acd185b1cc4e5f51eaabfe45752b05369af414ad9c0a7b0b26a1d0944f19",
+      "task_id": "TASK_F0CC3B23AEBE85900AA61EF5",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:f1408ecd1570d68a5b317023425fb93d7371802a860f795a3e57bad8ec6427a2",
+      "candidate_id": "CAND_8778D61FE527B62360E6",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:059347ea2d751f34c20ac82c86ce05878bd588d52aaea414206f1a489073c941",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "VALIDATION",
+      "setup_id": "SETUP_0A56F08F1AC14EFB10F5",
+      "task_contract_digest": "sha256:606a338b4669c7d555c08ac4489f7012f89b39814397c2e2d40242643717dde2",
+      "task_id": "TASK_BCE27C1D8DC94CFFC903557C",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:206796ca2cd836bebecff07216f49662995bc0091d19a2220d0d90859e88457d",
+      "candidate_id": "CAND_8778D61FE527B62360E6",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:059347ea2d751f34c20ac82c86ce05878bd588d52aaea414206f1a489073c941",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "TEST",
+      "setup_id": "SETUP_0A56F08F1AC14EFB10F5",
+      "task_contract_digest": "sha256:a30ccb87748e20350d6c265c55f7167737744c069d84d7190d653a669b18a0c9",
+      "task_id": "TASK_4F36A4E2D40320E048824FB0",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 1,
+        "memory_mb": 32,
+        "output_bytes": 4096
+      },
+      "cache_key": "sha256:e3b6a98f84b4193a442b80a24c6a30497b0bef0a37d7caac71a1fa8a2aaade4d",
+      "candidate_id": "CAND_8778D61FE527B62360E6",
+      "dependencies": [
+        "TASK_4F36A4E2D40320E048824FB0",
+        "TASK_BCE27C1D8DC94CFFC903557C",
+        "TASK_F0CC3B23AEBE85900AA61EF5"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:059347ea2d751f34c20ac82c86ce05878bd588d52aaea414206f1a489073c941"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": null,
+      "setup_id": "SETUP_0A56F08F1AC14EFB10F5",
+      "task_contract_digest": "sha256:8bf1048e2422ab20ca88f5690596f3e6e1324ee202770f6fbb0285c89f88999a",
+      "task_id": "TASK_F9CF20ACE96E194D7E526CEA",
+      "task_type": "AGGREGATE_CANDIDATE"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:79b3c63fb6b8d2a299621237e8b992175a834a65c6da341c16059daa7462eeda",
+      "candidate_id": "CAND_2FEB91284275BBB47978",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:4a80807c76b2ff11d25f3a5359335c3374212d3cb408a32502ccef9fb095bf6a",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "DIAGNOSTIC",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "TRAIN",
+      "setup_id": "SETUP_0CBC9D269F0833852BAE",
+      "task_contract_digest": "sha256:7fdad17d4255d68f1637a568f1e1416a8baf33bff03775bfb24a81fc4cb57ccd",
+      "task_id": "TASK_9C100E24C298B9C549C9B9E4",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:5a13335eca2c2de4678837e51419d3f7016be8df2d790a8b56ce275b9e3a71e6",
+      "candidate_id": "CAND_2FEB91284275BBB47978",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:4a80807c76b2ff11d25f3a5359335c3374212d3cb408a32502ccef9fb095bf6a",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "DIAGNOSTIC",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "VALIDATION",
+      "setup_id": "SETUP_0CBC9D269F0833852BAE",
+      "task_contract_digest": "sha256:0f701b4d546f3d232cb0adf095ae96eead7003bdeafa2c3f3d8513fa65d35838",
+      "task_id": "TASK_9CF57305A4F8DC618454808E",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:c780ae53758332530899d59037e555cb07a233ccfd2647dfe0791d9f63df7230",
+      "candidate_id": "CAND_2FEB91284275BBB47978",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:4a80807c76b2ff11d25f3a5359335c3374212d3cb408a32502ccef9fb095bf6a",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "DIAGNOSTIC",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "TEST",
+      "setup_id": "SETUP_0CBC9D269F0833852BAE",
+      "task_contract_digest": "sha256:143d20b6616faf41bdff9a0042e140cba2f82dae43902d3f907ba93e6e2ef611",
+      "task_id": "TASK_2F35FADDE22A24CE01BE01EF",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 1,
+        "memory_mb": 32,
+        "output_bytes": 4096
+      },
+      "cache_key": "sha256:a5f03b28fe0ce16c760463ab53c1a378d8fea65e4512c2783fba870d329042ee",
+      "candidate_id": "CAND_2FEB91284275BBB47978",
+      "dependencies": [
+        "TASK_2F35FADDE22A24CE01BE01EF",
+        "TASK_9C100E24C298B9C549C9B9E4",
+        "TASK_9CF57305A4F8DC618454808E"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:4a80807c76b2ff11d25f3a5359335c3374212d3cb408a32502ccef9fb095bf6a"
+      ],
+      "lane": "DIAGNOSTIC",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": null,
+      "setup_id": "SETUP_0CBC9D269F0833852BAE",
+      "task_contract_digest": "sha256:027631218adf8876d94069ec58d27b12719aec43e51bb53b430c228596314530",
+      "task_id": "TASK_BED0D754B605EAB47384CA54",
+      "task_type": "AGGREGATE_CANDIDATE"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:56c4eedfa0693fbb60fd3245afaadcdd4d09fa09721ae975b94f7aa41737dee2",
+      "candidate_id": "CAND_72D96D48835F3DAA1EFB",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f2eee7919fcfe711eb2c99eb68855fab3c116fc9909e1e73960a03b8dccc621e",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "TRAIN",
+      "setup_id": "SETUP_0FA71C242B64C3FB7F83",
+      "task_contract_digest": "sha256:01e07d6f8f6d7a2dda6bef613aa59d04498aa435d7a85c1eae2cf272bddbe082",
+      "task_id": "TASK_D30145B8661CEDC8C3C3A937",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:20a68cc3ae215e8a191cdf261575be2916208d1d7355638c87f05ba5f106eacf",
+      "candidate_id": "CAND_72D96D48835F3DAA1EFB",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f2eee7919fcfe711eb2c99eb68855fab3c116fc9909e1e73960a03b8dccc621e",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "VALIDATION",
+      "setup_id": "SETUP_0FA71C242B64C3FB7F83",
+      "task_contract_digest": "sha256:c4a40e7e478f7e1a19806b297fdf74b8d2a4ea90c7299826930ef0085ea9e04e",
+      "task_id": "TASK_7A1FCBE8152B8485E02DB3E6",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:0dbd0e1f93d305681f4787c5b98f4b6c0f6ff15a3e4380963935a00d03c83d2d",
+      "candidate_id": "CAND_72D96D48835F3DAA1EFB",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f2eee7919fcfe711eb2c99eb68855fab3c116fc9909e1e73960a03b8dccc621e",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "TEST",
+      "setup_id": "SETUP_0FA71C242B64C3FB7F83",
+      "task_contract_digest": "sha256:ec9b10ea2b9b206a3cd438f1583b99fd04125f405f2d33ff251eefde62f7dedf",
+      "task_id": "TASK_B76A06A68DD18D9C9EB563AB",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 1,
+        "memory_mb": 32,
+        "output_bytes": 4096
+      },
+      "cache_key": "sha256:21e3a57fb21486322136a013cf618a7024f0c58a1328a66436505f055634211d",
+      "candidate_id": "CAND_72D96D48835F3DAA1EFB",
+      "dependencies": [
+        "TASK_7A1FCBE8152B8485E02DB3E6",
+        "TASK_B76A06A68DD18D9C9EB563AB",
+        "TASK_D30145B8661CEDC8C3C3A937"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:f2eee7919fcfe711eb2c99eb68855fab3c116fc9909e1e73960a03b8dccc621e"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": null,
+      "setup_id": "SETUP_0FA71C242B64C3FB7F83",
+      "task_contract_digest": "sha256:2b346d005f46c591a64074159c98fc57e194d281c323032f15475ab303e077a5",
+      "task_id": "TASK_FB6CB39402F2A3042A218465",
+      "task_type": "AGGREGATE_CANDIDATE"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:3c6a9eaaf660993f5567eeb22373480962621b58456c3f10dc55bf8e2149a6ce",
+      "candidate_id": "CAND_EC8D44BBAD25430FABAE",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:2f3ee25ff5d0a8e36084a382c39b8e3a612d7df236078ad1e4373df920d8d54b",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "TRAIN",
+      "setup_id": "SETUP_5013929BAE3E6FDFEFC8",
+      "task_contract_digest": "sha256:3436cfd0c2caf93ba286140514f41d92d6216e1f8fa431acc68b2b95cb5a8a15",
+      "task_id": "TASK_501953036DBA9BCDF28A21D6",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:0a44a07f00e9a47cbbe515c58ea28b88647857a63fd28f0f5b4d327e1c6a06ad",
+      "candidate_id": "CAND_EC8D44BBAD25430FABAE",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:2f3ee25ff5d0a8e36084a382c39b8e3a612d7df236078ad1e4373df920d8d54b",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "VALIDATION",
+      "setup_id": "SETUP_5013929BAE3E6FDFEFC8",
+      "task_contract_digest": "sha256:1865a3dc7549b9c45ba25f47a66d9157ddbe8ed3b8a4af212d5e45774de1ee6f",
+      "task_id": "TASK_46611C1E5642B6D0ECE1FA31",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:bcabbec0147754b2a497f700e15728d37f1201bcc326ea5344bd90e317817f2d",
+      "candidate_id": "CAND_EC8D44BBAD25430FABAE",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:2f3ee25ff5d0a8e36084a382c39b8e3a612d7df236078ad1e4373df920d8d54b",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "TEST",
+      "setup_id": "SETUP_5013929BAE3E6FDFEFC8",
+      "task_contract_digest": "sha256:7053c39bb6c0cb6251b1774e900e34e0c39ad6b427de70684fd8b53ecfe20d2b",
+      "task_id": "TASK_C197A2DDF4891B5EECF06EDC",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 1,
+        "memory_mb": 32,
+        "output_bytes": 4096
+      },
+      "cache_key": "sha256:354a7e6d5da9de72930eb0419f4ff979d4c7cadb29df6e601faff6b84bb67bcf",
+      "candidate_id": "CAND_EC8D44BBAD25430FABAE",
+      "dependencies": [
+        "TASK_46611C1E5642B6D0ECE1FA31",
+        "TASK_501953036DBA9BCDF28A21D6",
+        "TASK_C197A2DDF4891B5EECF06EDC"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:2f3ee25ff5d0a8e36084a382c39b8e3a612d7df236078ad1e4373df920d8d54b"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": null,
+      "setup_id": "SETUP_5013929BAE3E6FDFEFC8",
+      "task_contract_digest": "sha256:f94af71d5b548fbfb251031204fb626e6ef29bc97ef069de714925b109a2f682",
+      "task_id": "TASK_20672F9B03E2530A6FF85FE3",
+      "task_type": "AGGREGATE_CANDIDATE"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:a6195364b068cde776fa81e9b92c4d5c12be2a1fa9c92484039895aa49b4f70b",
+      "candidate_id": "CAND_EB2F08D98D3D75CEAA61",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:158c146a649bb549896cdea6c774d788f35df4e671ab3c52c2b0bb7ec551fb29",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "TRAIN",
+      "setup_id": "SETUP_5F6EC931E571A2575FD9",
+      "task_contract_digest": "sha256:468cd98682305bcb0ec0cb875e3d7b8fa17a2ae0feb58410ce5b652eab267ac7",
+      "task_id": "TASK_4F9EB102B45593A9B6FBDFC1",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:e7dbfa941d04df5305eaaaa2394a4f8252b0fadb9a496d5453b5407c633d23d0",
+      "candidate_id": "CAND_EB2F08D98D3D75CEAA61",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:158c146a649bb549896cdea6c774d788f35df4e671ab3c52c2b0bb7ec551fb29",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "VALIDATION",
+      "setup_id": "SETUP_5F6EC931E571A2575FD9",
+      "task_contract_digest": "sha256:151417bee850fa826f63883e7ca2111f9da283a1d17203d3a1776e91ffe0d758",
+      "task_id": "TASK_463C5AFBE436A181A2796B14",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:551d60f28e5fa22a13ccc438c113d676363d47bbc23c8c42cc6edcd3438bbabf",
+      "candidate_id": "CAND_EB2F08D98D3D75CEAA61",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:158c146a649bb549896cdea6c774d788f35df4e671ab3c52c2b0bb7ec551fb29",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "TEST",
+      "setup_id": "SETUP_5F6EC931E571A2575FD9",
+      "task_contract_digest": "sha256:7bec66e1234cf39db7e5f067b7e9f3bcffa401dce1d2c6ee4935cbdc2a1fab8a",
+      "task_id": "TASK_DE1D8544F53F232CBBB850EF",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 1,
+        "memory_mb": 32,
+        "output_bytes": 4096
+      },
+      "cache_key": "sha256:f3bb6c08e441644968c657373b24a5daffab0d58b6a5e6f3cecc80c506ece1d3",
+      "candidate_id": "CAND_EB2F08D98D3D75CEAA61",
+      "dependencies": [
+        "TASK_463C5AFBE436A181A2796B14",
+        "TASK_4F9EB102B45593A9B6FBDFC1",
+        "TASK_DE1D8544F53F232CBBB850EF"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:158c146a649bb549896cdea6c774d788f35df4e671ab3c52c2b0bb7ec551fb29"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": null,
+      "setup_id": "SETUP_5F6EC931E571A2575FD9",
+      "task_contract_digest": "sha256:2d5f44425d064d2e105bcad3c0c48687b9669ee693794f27a708c492f3dc6e26",
+      "task_id": "TASK_319D1547D13C60254DD01222",
+      "task_type": "AGGREGATE_CANDIDATE"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:080992b25aa3d4a73ad9ec5e343cb2b47c600d0bca6ef771cac43246c739f46b",
+      "candidate_id": "CAND_9D4260503DE908B07D22",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:358aa54cc14cbbae92f8d4a63d00c562529aa7bfc975311cced5bf70c198049f",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "TRAIN",
+      "setup_id": "SETUP_978582F1C2791E47056F",
+      "task_contract_digest": "sha256:ab958fea831fd0e4fa5f8ea3c4bf5a20db263b2bbd9287c0dfe332db069ec54c",
+      "task_id": "TASK_4300F03DE7259DB3674D7814",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:274f41929f71ad9e3723e50e3b1b74028876d495823227cdfb60abb40e88390d",
+      "candidate_id": "CAND_9D4260503DE908B07D22",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:358aa54cc14cbbae92f8d4a63d00c562529aa7bfc975311cced5bf70c198049f",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "VALIDATION",
+      "setup_id": "SETUP_978582F1C2791E47056F",
+      "task_contract_digest": "sha256:e47088cf6ccd61b90c84ccb98ff291f338c15bbc415228dc34e61d27e3f8fe1a",
+      "task_id": "TASK_346DA478BBA9D14E75809AB5",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:95f81652ed356d19a944ce9d1ec072972af86081c9261777e5c2c1b457644b1c",
+      "candidate_id": "CAND_9D4260503DE908B07D22",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:358aa54cc14cbbae92f8d4a63d00c562529aa7bfc975311cced5bf70c198049f",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "TEST",
+      "setup_id": "SETUP_978582F1C2791E47056F",
+      "task_contract_digest": "sha256:9650c3d20710b3daedd234ef72a33bdd683f4af902ba33cfe8ab9bc66671dab5",
+      "task_id": "TASK_83E8AA7822D7C3912A40CA4C",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 1,
+        "memory_mb": 32,
+        "output_bytes": 4096
+      },
+      "cache_key": "sha256:968aee1bb6c8ce2c7713e2cb05505eeac50700139614b8a2086a2b51b1af4849",
+      "candidate_id": "CAND_9D4260503DE908B07D22",
+      "dependencies": [
+        "TASK_346DA478BBA9D14E75809AB5",
+        "TASK_4300F03DE7259DB3674D7814",
+        "TASK_83E8AA7822D7C3912A40CA4C"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:358aa54cc14cbbae92f8d4a63d00c562529aa7bfc975311cced5bf70c198049f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": null,
+      "setup_id": "SETUP_978582F1C2791E47056F",
+      "task_contract_digest": "sha256:22bc4157216d296f50d70b14b475145452068d79c2cff6b94b9813a2c630e885",
+      "task_id": "TASK_7330A878D9B0FEB012D63098",
+      "task_type": "AGGREGATE_CANDIDATE"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:5acef4c170528fe6229a3b1e9e405ec74d41918e2b1d517b1334c4a477675c01",
+      "candidate_id": "CAND_39963734BDE8A6BF83E1",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:56e7dccc9f277711cd83b348ed731ed6d76a7bb6c1f68e515f2e9ccc792a26df",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "TRAIN",
+      "setup_id": "SETUP_A553D83C10BF06E79C12",
+      "task_contract_digest": "sha256:5ff61825ee4a52f56dab0a4e877deb9dccdbad3bf308854dbe27a9fe70d6ccd0",
+      "task_id": "TASK_9DCDBF528A4BC8EEE7E30BB6",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:9058645bc1fff608c4c10363ed383355cce531988b6a66e81e1a8e45c1edd308",
+      "candidate_id": "CAND_39963734BDE8A6BF83E1",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:56e7dccc9f277711cd83b348ed731ed6d76a7bb6c1f68e515f2e9ccc792a26df",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "VALIDATION",
+      "setup_id": "SETUP_A553D83C10BF06E79C12",
+      "task_contract_digest": "sha256:03edf72717c6071cfd471e404d6f6e05bb3ab2ed7b5e8fa9a045163fc574701a",
+      "task_id": "TASK_861E1848AECE3F93A3A12C80",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:a9f2f98f2773c7de17f66b046f03da50028c99fa6046d6861fc30b68b51aa0fb",
+      "candidate_id": "CAND_39963734BDE8A6BF83E1",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:56e7dccc9f277711cd83b348ed731ed6d76a7bb6c1f68e515f2e9ccc792a26df",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "TEST",
+      "setup_id": "SETUP_A553D83C10BF06E79C12",
+      "task_contract_digest": "sha256:d09feed9e05420be6ba6a561afb90f77041c708dff1a746d55ce4483889bf361",
+      "task_id": "TASK_71434563E04D1F66D6C6A46D",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 1,
+        "memory_mb": 32,
+        "output_bytes": 4096
+      },
+      "cache_key": "sha256:5321901123a52ad88e5f6b02f11d17dc8fea62ba2e085a67d34eb3a7f6afc707",
+      "candidate_id": "CAND_39963734BDE8A6BF83E1",
+      "dependencies": [
+        "TASK_71434563E04D1F66D6C6A46D",
+        "TASK_861E1848AECE3F93A3A12C80",
+        "TASK_9DCDBF528A4BC8EEE7E30BB6"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:56e7dccc9f277711cd83b348ed731ed6d76a7bb6c1f68e515f2e9ccc792a26df"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": null,
+      "setup_id": "SETUP_A553D83C10BF06E79C12",
+      "task_contract_digest": "sha256:157848fe690af240496e2770e337add0dcb4ead6d3c57b4fb5e960b1148774de",
+      "task_id": "TASK_275DA33AB2BF72FD7847D829",
+      "task_type": "AGGREGATE_CANDIDATE"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:f76a0555766dd105f653c802e788a17703fd076027bb0ac30dd66e34047847b5",
+      "candidate_id": "CAND_BFF919B9FE1BDFC298B5",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:379db33456c15a55004dd77d99583a5cd819fd8a0b6166896c79668e2c8968ff",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "TRAIN",
+      "setup_id": "SETUP_A9F7B7384FDE580E5660",
+      "task_contract_digest": "sha256:b843f4987ae99e40459b7b67734472692a3adbcf3de64a12c458ff92e9dacf04",
+      "task_id": "TASK_EF0892B2CD73CCEE534EF8A7",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:4e97c91d0deef3f41dba4bc51098736121bca0da3922fe9d776db2bf92b41fc6",
+      "candidate_id": "CAND_BFF919B9FE1BDFC298B5",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:379db33456c15a55004dd77d99583a5cd819fd8a0b6166896c79668e2c8968ff",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "VALIDATION",
+      "setup_id": "SETUP_A9F7B7384FDE580E5660",
+      "task_contract_digest": "sha256:1733769ca6f37fdf17119e99446e699dda16aafc0e1a8845bdc4f3fd3c94e54b",
+      "task_id": "TASK_C280B2C6F480B384CD769E3F",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:19d0388d71fccdc61a4a2c0bf0420d7c907e7415516a4f0512fd5a94c7ca9cd7",
+      "candidate_id": "CAND_BFF919B9FE1BDFC298B5",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:379db33456c15a55004dd77d99583a5cd819fd8a0b6166896c79668e2c8968ff",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "TEST",
+      "setup_id": "SETUP_A9F7B7384FDE580E5660",
+      "task_contract_digest": "sha256:6ec05ae3fa75dc5b33eaaf9e5fa04c30c0bbc17d02a3b1741593866267d262c6",
+      "task_id": "TASK_559A02B04B768DD3418755D4",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 1,
+        "memory_mb": 32,
+        "output_bytes": 4096
+      },
+      "cache_key": "sha256:4240b10102644c1e7c2f49554b01d42cd788ec4313629aba2d448f10fba0e030",
+      "candidate_id": "CAND_BFF919B9FE1BDFC298B5",
+      "dependencies": [
+        "TASK_559A02B04B768DD3418755D4",
+        "TASK_C280B2C6F480B384CD769E3F",
+        "TASK_EF0892B2CD73CCEE534EF8A7"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:379db33456c15a55004dd77d99583a5cd819fd8a0b6166896c79668e2c8968ff"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": null,
+      "setup_id": "SETUP_A9F7B7384FDE580E5660",
+      "task_contract_digest": "sha256:d580b16fdcb4971aa0ec556ced90c19801eab513121c2cd0901ad319e9e0d309",
+      "task_id": "TASK_23CA8FD9475A2CFFC646A43F",
+      "task_type": "AGGREGATE_CANDIDATE"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:e40a0d0b0383765bbf071ed6105f1afd61f49cbd89aa5f5ef0000027989742d3",
+      "candidate_id": "CAND_BF0DDD4F6D9FEB94F60A",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:3192822a16852e028d9cde2cf1dc6763a59db19f33195745b92f9d36023a0ddc",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "TRAIN",
+      "setup_id": "SETUP_B2465EF6482D65D3F6D5",
+      "task_contract_digest": "sha256:1cf91f183ccf443ffe4e2660f012d857da169770dddde6069f44710c4351ab20",
+      "task_id": "TASK_65137BC8E91519A30653A8EF",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:676f30d1de611b5cacc5d6153fdebffbc02eb8522216f61b122105118d439e9a",
+      "candidate_id": "CAND_BF0DDD4F6D9FEB94F60A",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:3192822a16852e028d9cde2cf1dc6763a59db19f33195745b92f9d36023a0ddc",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "VALIDATION",
+      "setup_id": "SETUP_B2465EF6482D65D3F6D5",
+      "task_contract_digest": "sha256:0810cd227eea33a12a4eb9a143fe842d35f2c1fcf0cacb28c2cc32bba5ed6b58",
+      "task_id": "TASK_73F322E2685032675D853130",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:78c6d228348633435f779673ec6e1c5759de07b84fa158f782d9a5704f879786",
+      "candidate_id": "CAND_BF0DDD4F6D9FEB94F60A",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:3192822a16852e028d9cde2cf1dc6763a59db19f33195745b92f9d36023a0ddc",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "TEST",
+      "setup_id": "SETUP_B2465EF6482D65D3F6D5",
+      "task_contract_digest": "sha256:a50d80c18918cb33e255aa4bf177c41256f42e834a66fee539dc7b6dbaa25d13",
+      "task_id": "TASK_D41795C0ADBE797B214C2149",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 1,
+        "memory_mb": 32,
+        "output_bytes": 4096
+      },
+      "cache_key": "sha256:cabfc07c3c59a296b3874feafd27dbd4e5d70e9accde0c612e01f3935c788bd6",
+      "candidate_id": "CAND_BF0DDD4F6D9FEB94F60A",
+      "dependencies": [
+        "TASK_65137BC8E91519A30653A8EF",
+        "TASK_73F322E2685032675D853130",
+        "TASK_D41795C0ADBE797B214C2149"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:3192822a16852e028d9cde2cf1dc6763a59db19f33195745b92f9d36023a0ddc"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": null,
+      "setup_id": "SETUP_B2465EF6482D65D3F6D5",
+      "task_contract_digest": "sha256:744c827f9364e375dc51abaf3b722620fea2f901c1e2acf4f76750599e7d66b1",
+      "task_id": "TASK_6C31C4CB16489F9434922F7D",
+      "task_type": "AGGREGATE_CANDIDATE"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:9e4e17b99cc2306c385a32e17ca4891ca44e5c04785541cfa34667804e370677",
+      "candidate_id": "CAND_CF4A585DC367BA2EC830",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:b8b0036196b6060cf3907adab3739884377e63784180043f054fe2c7018e6543",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "TRAIN",
+      "setup_id": "SETUP_CE82D176E29FCA349EE1",
+      "task_contract_digest": "sha256:8b2f627381d7adac0f8e29b7ed3a4906d4f284af37fe84ee193bbc392c1f4c1b",
+      "task_id": "TASK_1A128A8993698689578EC724",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:151445ef9d87699bc94373bfcfe3e85c7aa7160907b04121d6e822dd28a8d716",
+      "candidate_id": "CAND_CF4A585DC367BA2EC830",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:b8b0036196b6060cf3907adab3739884377e63784180043f054fe2c7018e6543",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "VALIDATION",
+      "setup_id": "SETUP_CE82D176E29FCA349EE1",
+      "task_contract_digest": "sha256:c01d5e44b95580c94f7291f52ffd0f581e2f70f17395d09eded6e44428cb5723",
+      "task_id": "TASK_1BF9211B962CAE8D9776758A",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:a8e90f4882d68725c093b89fd2041ed681d3dfba47d6bfbc2d8c9d2e9da506d6",
+      "candidate_id": "CAND_CF4A585DC367BA2EC830",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:b8b0036196b6060cf3907adab3739884377e63784180043f054fe2c7018e6543",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "TEST",
+      "setup_id": "SETUP_CE82D176E29FCA349EE1",
+      "task_contract_digest": "sha256:373b8361581bb2558a051e9e427f9ea56ddfb78303d18d58d84ca1255509b369",
+      "task_id": "TASK_200C71C0300C2EFF89E2DD90",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 1,
+        "memory_mb": 32,
+        "output_bytes": 4096
+      },
+      "cache_key": "sha256:ade3881282b092a16cdc739194c5c643b8ac725f5d0958a43679b75a4723c0f2",
+      "candidate_id": "CAND_CF4A585DC367BA2EC830",
+      "dependencies": [
+        "TASK_1A128A8993698689578EC724",
+        "TASK_1BF9211B962CAE8D9776758A",
+        "TASK_200C71C0300C2EFF89E2DD90"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:b8b0036196b6060cf3907adab3739884377e63784180043f054fe2c7018e6543"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": null,
+      "setup_id": "SETUP_CE82D176E29FCA349EE1",
+      "task_contract_digest": "sha256:2449f25ee5e98664d09f6a588a1b216ff4f9fdc3b4830c984a604d8012463bc2",
+      "task_id": "TASK_01E8CFACE9E1833E423D2B0D",
+      "task_type": "AGGREGATE_CANDIDATE"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:c184ce029e2b99be54921051b9c042c17dc2ed71830d957eba78f2f4805e0b69",
+      "candidate_id": "CAND_429D18211A651E3CEF34",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:6a09046a3d5add32d9564aaf032af483b96983c5c30078becdf1775ceec78a41",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "TRAIN",
+      "setup_id": "SETUP_EE3007877556A11CDA6F",
+      "task_contract_digest": "sha256:b3c3a18a462980db271cf005cf97ef16cf819e4f524556bf5eb2c74584913d3a",
+      "task_id": "TASK_C9C83E973F4502358CCEB30D",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:d88fe3516af219ad75c12f3be39b1b7cdc378a5d9b5dc4bfb235a5a5349a50da",
+      "candidate_id": "CAND_429D18211A651E3CEF34",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:6a09046a3d5add32d9564aaf032af483b96983c5c30078becdf1775ceec78a41",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "VALIDATION",
+      "setup_id": "SETUP_EE3007877556A11CDA6F",
+      "task_contract_digest": "sha256:754409079355c7819abb1af47ed2f6855df423ab6768a54b7b4061d7694613c8",
+      "task_id": "TASK_72A095372354855D6E6B42F4",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 3,
+        "memory_mb": 64,
+        "output_bytes": 8192
+      },
+      "cache_key": "sha256:35c6ffbf48eeaa066605f647bcb2b725278c9b8f038c06a50a12122781376619",
+      "candidate_id": "CAND_429D18211A651E3CEF34",
+      "dependencies": [
+        "TASK_CD57B1F9EFBF3376EB1388B3"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:6a09046a3d5add32d9564aaf032af483b96983c5c30078becdf1775ceec78a41",
+        "sha256:98b94c37aa7f612db035f79cbe1a26bbaf4586801c59816bf22783275310e71a",
+        "sha256:ca82ad6085392c00ad02dd74735aaa4b84a33b216bd42b9bedca8eab91e1448a",
+        "sha256:f6689e1437a18a713f81ac77ec3fb81f65b8447584e116d8a77202b48d7d3b2f"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": "TEST",
+      "setup_id": "SETUP_EE3007877556A11CDA6F",
+      "task_contract_digest": "sha256:1f2f6d7699f942156d3db43acf04595b2d4998ea5a9f309526cfa76da6f9411b",
+      "task_id": "TASK_594B6AE23FBDC42DED5AFB79",
+      "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 1,
+        "memory_mb": 32,
+        "output_bytes": 4096
+      },
+      "cache_key": "sha256:75a0b4a8b68134f571d9a317b622bceaccbdc0063000d6c2bf1f4cf90c901d13",
+      "candidate_id": "CAND_429D18211A651E3CEF34",
+      "dependencies": [
+        "TASK_594B6AE23FBDC42DED5AFB79",
+        "TASK_72A095372354855D6E6B42F4",
+        "TASK_C9C83E973F4502358CCEB30D"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:6a09046a3d5add32d9564aaf032af483b96983c5c30078becdf1775ceec78a41"
+      ],
+      "lane": "RESEARCH",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": null,
+      "setup_id": "SETUP_EE3007877556A11CDA6F",
+      "task_contract_digest": "sha256:e4888563e806c74f7b4b6f7ab3a8498df37219ec03fa7895361410b81fd793cf",
+      "task_id": "TASK_F5A9BB22B120B827551F4009",
+      "task_type": "AGGREGATE_CANDIDATE"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 2,
+        "memory_mb": 64,
+        "output_bytes": 16384
+      },
+      "cache_key": "sha256:a945515fe3f6ae2ce488d2b060489eaf7510fc5731e58cc149c26536fc3b44dc",
+      "candidate_id": null,
+      "dependencies": [
+        "TASK_01E8CFACE9E1833E423D2B0D",
+        "TASK_20672F9B03E2530A6FF85FE3",
+        "TASK_23CA8FD9475A2CFFC646A43F",
+        "TASK_275DA33AB2BF72FD7847D829",
+        "TASK_319D1547D13C60254DD01222",
+        "TASK_6C31C4CB16489F9434922F7D",
+        "TASK_7330A878D9B0FEB012D63098",
+        "TASK_77260A5296DD9E2229DE7E1A",
+        "TASK_BED0D754B605EAB47384CA54",
+        "TASK_F5A9BB22B120B827551F4009",
+        "TASK_F9CF20ACE96E194D7E526CEA",
+        "TASK_FB6CB39402F2A3042A218465"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:3b2b4b00cd67eab11dba288b84c2e413b86d5da42d73acedc16641ed4ff22f79",
+        "sha256:70306aa8809a9e0e501f9f1c771512a7f3309127c48348e691df03ae0fbd508d"
+      ],
+      "lane": "SYSTEM",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": null,
+      "setup_id": null,
+      "task_contract_digest": "sha256:bdab1797834f34bc2e76a23bc1612ec6f18fd2838a71d3c1e78d2d2c5e9a53af",
+      "task_id": "TASK_761AE809553DAFC3A7798BF1",
+      "task_type": "PACKAGE_RESEARCH_RESULTS"
+    },
+    {
+      "budget": {
+        "cpu_seconds": 1,
+        "memory_mb": 32,
+        "output_bytes": 4096
+      },
+      "cache_key": "sha256:b60c10aaa3618a68d8cba3cea2df4edc8966f7213c6661af1c53f56f27ddd7da",
+      "candidate_id": null,
+      "dependencies": [
+        "TASK_761AE809553DAFC3A7798BF1"
+      ],
+      "deterministic": true,
+      "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+      "idempotent": true,
+      "input_digests": [
+        "sha256:f0085c59d52b397e2db7db181ac75e8d9fbcd800d15f53728ad0965b37feb31b"
+      ],
+      "lane": "SYSTEM",
+      "max_attempts": 2,
+      "schema_version": "1.0.0",
+      "segment": null,
+      "setup_id": null,
+      "task_contract_digest": "sha256:9575e0b57c5f4620d22893da3ede2d81924c8c062dc131a41e7e561083afb48c",
+      "task_id": "TASK_CCD4995BB768E7E031CD9338",
+      "task_type": "BUILD_ACL07_HANDOFF"
+    }
+  ]
+}

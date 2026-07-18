@@ -1,0 +1,6 @@
+{
+  "event_after_availability_allowed": false,
+  "policy_id": "ACL06_KNOWN_TIME",
+  "primary_future_path_allowed": false,
+  "transform_fit_scope": "TRAIN_ONLY"
+}

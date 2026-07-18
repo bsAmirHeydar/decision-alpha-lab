@@ -1,0 +1,7 @@
+{
+  "authorizes_capital": false,
+  "ceiling": "BOUNDED_RESEARCH_EXECUTION_REFERENCE_ONLY",
+  "policy_id": "ACL06_CLAIM",
+  "proves_alpha": false,
+  "proves_live_parity": false
+}

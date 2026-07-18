@@ -1,0 +1,6 @@
+{
+  "algorithm": "SHA-256",
+  "content_addressed": true,
+  "overwrite_allowed": false,
+  "policy_id": "ACL06_RUN_STORE"
+}

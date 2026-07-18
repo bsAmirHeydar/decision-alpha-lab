@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accounting_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "budget_expansion_allowed": {
+      "type": "boolean"
+    },
+    "budget_id": {
+      "type": "string"
+    },
+    "cpu_seconds_charged": {
+      "type": "integer"
+    },
+    "object_count_charged": {
+      "type": "integer"
+    },
+    "output_bytes_charged": {
+      "type": "integer"
+    },
+    "peak_memory_mb_charged": {
+      "type": "integer"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "task_count_charged": {
+      "type": "integer"
+    },
+    "within_budget": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "accounting_digest",
+    "budget_expansion_allowed",
+    "budget_id",
+    "cpu_seconds_charged",
+    "object_count_charged",
+    "output_bytes_charged",
+    "peak_memory_mb_charged",
+    "schema_version",
+    "task_count_charged",
+    "within_budget"
+  ],
+  "type": "object"
+}

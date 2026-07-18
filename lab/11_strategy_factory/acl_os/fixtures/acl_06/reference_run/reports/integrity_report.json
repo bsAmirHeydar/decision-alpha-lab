@@ -1,0 +1,14 @@
+{
+  "acl05_bundle_verified": true,
+  "all_tasks_successful": true,
+  "candidate_behavior_unchanged": true,
+  "dag_acyclic": true,
+  "diagnostic_lane_segregated": true,
+  "event_chain_verified": true,
+  "frozen_batch_unchanged": true,
+  "passed": true,
+  "report_digest": "sha256:6f90ab0f350666a13ca0a78692380f2094590a63b6a162adae2116997a921f14",
+  "resource_budget_respected": true,
+  "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+  "schema_version": "1.0.0"
+}

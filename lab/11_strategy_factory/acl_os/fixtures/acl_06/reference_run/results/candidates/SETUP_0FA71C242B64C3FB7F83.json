@@ -1,0 +1,27 @@
+{
+  "accuracy": 0.6,
+  "alpha_claim_allowed": false,
+  "behavior_digest": "sha256:7b9862134b486d3718b2b6364e9d06eb65d2c474845299f78df5507224630b14",
+  "candidate_digest": "sha256:f2eee7919fcfe711eb2c99eb68855fab3c116fc9909e1e73960a03b8dccc621e",
+  "candidate_id": "CAND_72D96D48835F3DAA1EFB",
+  "candidate_result_digest": "sha256:14ec84590260a4d604964ed1f0104d444aa5d93b151440a9a0c7f55092724df4",
+  "correct": 3,
+  "coverage": 1.0,
+  "descriptive_only": true,
+  "diagnostic_selectable": null,
+  "incorrect": 2,
+  "lane": "RESEARCH",
+  "mean_signed_forward_delta": 0.6,
+  "origin": "BASELINE",
+  "promotion_allowed": false,
+  "schema_version": "1.0.0",
+  "segment_result_digests": [
+    "sha256:92aa16862de96678fea8ce41ff7a82d501da54f1d96f7eef4b10db897184c8be",
+    "sha256:056b0e9f178a479c4c614e2f922b75f96d4097fe40bc1bcb728dee6f2491c22e",
+    "sha256:5599cf139adfce74fe5464a5169e3152821dd965ddb9b3bdd848999b533f7cab"
+  ],
+  "setup_id": "SETUP_0FA71C242B64C3FB7F83",
+  "signals": 5,
+  "support": 5,
+  "validation_status": "NOT_VALIDATED"
+}

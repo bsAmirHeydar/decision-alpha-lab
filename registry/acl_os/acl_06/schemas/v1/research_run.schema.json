@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alpha_claim_allowed": {
+      "type": "boolean"
+    },
+    "batch_definition_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "batch_id": {
+      "type": "string"
+    },
+    "batch_mutation_allowed": {
+      "type": "boolean"
+    },
+    "candidate_mutation_allowed": {
+      "type": "boolean"
+    },
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "claim_ceiling": {
+      "type": "string"
+    },
+    "dag_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "live_order_submission_allowed": {
+      "type": "boolean"
+    },
+    "orchestrator_version": {
+      "type": "string"
+    },
+    "research_run_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "started_at": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "task_registry_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "upstream_handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "alpha_claim_allowed",
+    "batch_definition_digest",
+    "batch_id",
+    "batch_mutation_allowed",
+    "candidate_mutation_allowed",
+    "capital_activation_allowed",
+    "claim_ceiling",
+    "dag_digest",
+    "live_order_submission_allowed",
+    "orchestrator_version",
+    "research_run_digest",
+    "run_id",
+    "schema_version",
+    "started_at",
+    "state",
+    "task_registry_digest",
+    "upstream_handoff_digest"
+  ],
+  "type": "object"
+}

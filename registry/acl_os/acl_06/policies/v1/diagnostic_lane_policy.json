@@ -1,0 +1,6 @@
+{
+  "future_outcome_atoms_allowed_only_here": true,
+  "policy_id": "ACL06_DIAGNOSTIC_LANE",
+  "promotion_allowed": false,
+  "selection_allowed": false
+}

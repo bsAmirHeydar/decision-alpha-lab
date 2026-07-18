@@ -1,0 +1,7 @@
+{
+  "execution_authority": false,
+  "next_phase": "ACL-07",
+  "policy_id": "ACL06_HANDOFF",
+  "type": "ACL06_TO_ACL07",
+  "validation_required": true
+}

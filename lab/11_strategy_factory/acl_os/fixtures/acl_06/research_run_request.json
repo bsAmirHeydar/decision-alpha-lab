@@ -1,0 +1,14 @@
+{
+  "batch_id": "BATCH_81FF4FC3C8B796422B0EF6818FEB2D5E",
+  "capital_activation_allowed": false,
+  "live_order_submission_allowed": false,
+  "network_access_allowed": false,
+  "owner": "ALPHA_LAB_RESEARCH_GOVERNANCE",
+  "purpose": "Execute the frozen ACL-05 reference Batch through the deterministic ACL-06 research DAG.",
+  "request_digest": "sha256:507ac546dcf0ab1810e511e042426dd601a26f9994ccceae8053c5a5f37e753c",
+  "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+  "schema_version": "1.0.0",
+  "secret_access_allowed": false,
+  "started_at": "2026-07-18T01:00:00Z",
+  "upstream_handoff_digest": "sha256:f0085c59d52b397e2db7db181ac75e8d9fbcd800d15f53728ad0965b37feb31b"
+}

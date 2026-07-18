@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "blocked_task_count": {
+      "type": "integer"
+    },
+    "failed_task_count": {
+      "type": "integer"
+    },
+    "failures": {
+      "items": {},
+      "type": "array"
+    },
+    "report_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "run_failed": {
+      "type": "boolean"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "blocked_task_count",
+    "failed_task_count",
+    "failures",
+    "report_digest",
+    "run_failed",
+    "run_id",
+    "schema_version"
+  ],
+  "type": "object"
+}

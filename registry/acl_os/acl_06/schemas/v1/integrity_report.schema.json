@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acl05_bundle_verified": {
+      "type": "boolean"
+    },
+    "all_tasks_successful": {
+      "type": "boolean"
+    },
+    "candidate_behavior_unchanged": {
+      "type": "boolean"
+    },
+    "dag_acyclic": {
+      "type": "boolean"
+    },
+    "diagnostic_lane_segregated": {
+      "type": "boolean"
+    },
+    "event_chain_verified": {
+      "type": "boolean"
+    },
+    "frozen_batch_unchanged": {
+      "type": "boolean"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "report_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "resource_budget_respected": {
+      "type": "boolean"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "acl05_bundle_verified",
+    "all_tasks_successful",
+    "candidate_behavior_unchanged",
+    "dag_acyclic",
+    "diagnostic_lane_segregated",
+    "event_chain_verified",
+    "frozen_batch_unchanged",
+    "passed",
+    "report_digest",
+    "resource_budget_respected",
+    "run_id",
+    "schema_version"
+  ],
+  "type": "object"
+}

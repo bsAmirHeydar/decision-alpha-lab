@@ -1,0 +1,10 @@
+{
+  "accepted_method": "PURGED_WALK_FORWARD",
+  "policy_id": "ACL06_SPLIT",
+  "random_split_allowed": false,
+  "segments": [
+    "TRAIN",
+    "VALIDATION",
+    "TEST"
+  ]
+}

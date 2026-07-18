@@ -1,0 +1,6 @@
+{
+  "downstream_on_failed_dependency": "BLOCKED",
+  "first_failure_cancels_run": true,
+  "partial_publication_allowed": false,
+  "policy_id": "ACL06_FAILURE_PROPAGATION"
+}

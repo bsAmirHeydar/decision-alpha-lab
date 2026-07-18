@@ -1,0 +1,19 @@
+{
+  "alpha_claim_allowed": false,
+  "batch_definition_digest": "sha256:3b2b4b00cd67eab11dba288b84c2e413b86d5da42d73acedc16641ed4ff22f79",
+  "batch_id": "BATCH_81FF4FC3C8B796422B0EF6818FEB2D5E",
+  "batch_mutation_allowed": false,
+  "candidate_mutation_allowed": false,
+  "capital_activation_allowed": false,
+  "claim_ceiling": "BOUNDED_RESEARCH_EXECUTION_REFERENCE_ONLY",
+  "dag_digest": "sha256:84c8770df1caac7cc4c9e91cb69cb5a90b7a84ce2bcd802709d8066717f520c9",
+  "live_order_submission_allowed": false,
+  "orchestrator_version": "1.0.0",
+  "research_run_digest": "sha256:f554e1123a051710cb7de831265ffe2bcb28e2ae9c7d61d476d528c655a95bef",
+  "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+  "schema_version": "1.0.0",
+  "started_at": "2026-07-18T01:00:00Z",
+  "state": "COMPLETED",
+  "task_registry_digest": "sha256:a89d1f3ff29b55b3d65a43173823f1e27b357ddff87ad3b89c968e4c29e5e00b",
+  "upstream_handoff_digest": "sha256:f0085c59d52b397e2db7db181ac75e8d9fbcd800d15f53728ad0965b37feb31b"
+}

@@ -1,0 +1,6 @@
+{
+  "closed_world": true,
+  "executor_id": "ACL06_REFERENCE_EXECUTOR_V1",
+  "policy_id": "ACL06_TASK_REGISTRY",
+  "registry_id": "ACL06_TASK_REGISTRY_V1"
+}

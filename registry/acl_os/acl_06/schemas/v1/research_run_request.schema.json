@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "batch_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "capital_activation_allowed": {
+      "const": false
+    },
+    "live_order_submission_allowed": {
+      "const": false
+    },
+    "network_access_allowed": {
+      "const": false
+    },
+    "owner": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "purpose": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "request_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "secret_access_allowed": {
+      "const": false
+    },
+    "started_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "upstream_handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "run_id",
+    "batch_id",
+    "upstream_handoff_digest",
+    "started_at",
+    "purpose",
+    "owner",
+    "network_access_allowed",
+    "secret_access_allowed",
+    "live_order_submission_allowed",
+    "capital_activation_allowed",
+    "request_digest"
+  ],
+  "type": "object"
+}

@@ -1,50 +1,51 @@
 ---
 title: ACL-06 — Research DAG Orchestration
-status: proposed-reference
+status: accepted-reference
 version: 1.0.0
 updated: 2026-07-18
-tags: [acl-os, context-lifecycle, acl-06]
+tags: [acl-os, acl-06]
 ---
-
 # ACL-06 — Research DAG Orchestration
 
-## Accepted ACL-05 dependency contract
+## Status
 
-ACL-06 starts only from a validated `ACL05_TO_ACL06` handoff. It must resolve the exact frozen Batch definition, semantic Batch manifest, freeze receipt, candidate/search freeze digests, dataset/label sets, split, environment, budget, content-addressed object index, event ledger and provenance graph. Every referenced digest must resolve within the received generated ACL-05 root.
+Accepted reference implementation. Claim ceiling: `BOUNDED_RESEARCH_EXECUTION_REFERENCE_ONLY`.
 
-The handoff grants exactly these next actions:
+## Upstream dependency
 
-- `PLAN_RESEARCH_DAG`
-- `REGISTER_TASK_CONTRACTS`
-- `EXECUTE_BOUNDED_RESEARCH`
+ACL-06 consumes only a byte-valid `ACL05_TO_ACL06` handoff and the exact immutable generated root it identifies. The frozen Batch, setup behavior, search space, dataset cuts, labels, split, environment and budget cannot be repaired or expanded in place.
 
-It forbids Batch mutation, setup-behavior mutation, diagnostic candidate promotion, alpha inference from the freeze itself, execution authorization and capital activation. ACL-06 cannot regenerate ACL-04 candidates, alter data cuts, change labels, refit split boundaries or expand budgets. Material changes return to ACL-05 and create a new Batch.
+## Implemented responsibility
 
-## Responsibility boundary
+- closed-world task registry;
+- deterministic DAG planning and acyclicity proof;
+- stable task and cache identities;
+- bounded idempotent execution;
+- known-time-safe synthetic reference adapter;
+- per-segment and per-candidate descriptive evidence;
+- explicit research/diagnostic lane separation;
+- deterministic resource accounting;
+- immutable run artifact store;
+- task receipts, event chain and provenance;
+- atomic publication and replay verification;
+- non-promotional `ACL06_TO_ACL07` handoff.
 
-ACL-06 owns deterministic task planning, task registry contracts, dependency ordering, bounded execution, idempotent retries, task-level evidence, failure propagation and research-result packaging. It does not own Batch identity, validation promotion, trading permission or capital decisions.
+## Non-ownership
 
-## Minimum intake checks
+ACL-06 does not own inferential validation, multiple-testing control, robustness promotion, runtime trading, broker parity or capital authorization. ACL-07 must independently validate all evidence.
 
-- `handoff_type == ACL05_TO_ACL06`;
-- Batch state is `FROZEN` and mutation is false;
-- output manifest and Batch receipt are byte-valid;
-- CAS objects resolve by exact SHA-256 bytes;
-- diagnostic and research lanes are distinct;
-- environment and budget capabilities are enforced;
-- event/provenance chains are complete;
-- no order, capital, secret or network authority is present.
+## Reference DAG
 
-## Required ACL-06 outputs
+The reference run contains 54 tasks: four shared preparation tasks, 36 candidate-segment evaluations, 12 candidate aggregations, one result packaging task and one ACL-07 handoff task. All 12 frozen candidates are evaluated; the single diagnostic candidate remains non-selectable.
 
-ACL-06 must produce a closed research DAG, registered task contracts, deterministic cache keys, execution receipts, bounded resource accounting, failure evidence, result artifacts, lineage to the frozen Batch and a non-promotional handoff to ACL-07 Unified Validation Gate.
+## Failure semantics
 
-## Claim ceiling
+Unknown task types, digest mismatches, cycles, budget breaches, future leakage outside the diagnostic lane, missing receipts or publication conflicts fail closed. Partial results are never presented as a completed run.
 
-Planning or executing a research DAG does not prove alpha, production readiness, live parity or capital authorization.
+## Claim boundary
+
+Passing ACL-06 proves deterministic bounded orchestration against synthetic reference data only. It does not prove alpha, external data quality, statistical validity, MQL5 parity, live execution correctness or deployability.
 
 ## Related
 
-- [[ACL_05_IMMUTABLE_BATCH_AND_STORE]]
-- [[BATCH_DAG_ORCHESTRATOR]]
-- [[TASK_REGISTRY_AND_CONTRACT]]
+[[ACL_05_IMMUTABLE_BATCH_AND_STORE]], [[ACL_07_UNIFIED_VALIDATION_GATE]], [[ACL06_RESEARCH_DAG_RUNTIME]], [[ACL06_ACL07_HANDOFF]]

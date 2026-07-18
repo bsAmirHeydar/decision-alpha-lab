@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_count": {
+      "type": "integer"
+    },
+    "files": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "manifest_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "self_reference_policy": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "artifact_count",
+    "files",
+    "manifest_digest",
+    "run_id",
+    "schema_version",
+    "self_reference_policy"
+  ],
+  "type": "object"
+}

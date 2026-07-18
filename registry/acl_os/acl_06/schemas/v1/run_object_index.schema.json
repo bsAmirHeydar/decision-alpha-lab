@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "content_addressed": {
+      "type": "boolean"
+    },
+    "mutable": {
+      "type": "boolean"
+    },
+    "object_count": {
+      "type": "integer"
+    },
+    "object_index_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "objects": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "total_bytes": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "content_addressed",
+    "mutable",
+    "object_count",
+    "object_index_digest",
+    "objects",
+    "schema_version",
+    "total_bytes"
+  ],
+  "type": "object"
+}

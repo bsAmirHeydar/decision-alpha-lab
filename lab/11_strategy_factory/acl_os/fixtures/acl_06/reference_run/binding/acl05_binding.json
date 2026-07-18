@@ -1,0 +1,10 @@
+{
+  "acl05_bundle_digest": "sha256:112a96238fb03b496969d694faac8cd7ba33b8ed5def621ebde68e70c224850c",
+  "acl05_handoff_digest": "sha256:f0085c59d52b397e2db7db181ac75e8d9fbcd800d15f53728ad0965b37feb31b",
+  "batch_definition_digest": "sha256:3b2b4b00cd67eab11dba288b84c2e413b86d5da42d73acedc16641ed4ff22f79",
+  "batch_id": "BATCH_81FF4FC3C8B796422B0EF6818FEB2D5E",
+  "binding_digest": "sha256:1a81d83dbeb68c5b68d26f314eed540f8034b37e246feeeb1994898ec63b13e9",
+  "immutable": true,
+  "object_index_digest": "sha256:d2e5f0a70865401a809a03ac5225e7e8e1601e04156adc796f9543cc5dff5dff",
+  "schema_version": "1.0.0"
+}

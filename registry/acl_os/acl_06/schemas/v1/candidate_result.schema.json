@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "accuracy": {
+      "type": "number"
+    },
+    "alpha_claim_allowed": {
+      "type": "boolean"
+    },
+    "behavior_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "candidate_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "candidate_id": {
+      "type": "string"
+    },
+    "candidate_result_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "correct": {
+      "type": "integer"
+    },
+    "coverage": {
+      "type": "number"
+    },
+    "descriptive_only": {
+      "type": "boolean"
+    },
+    "diagnostic_selectable": {
+      "type": [
+        "null",
+        "string",
+        "number",
+        "integer",
+        "boolean",
+        "object",
+        "array"
+      ]
+    },
+    "incorrect": {
+      "type": "integer"
+    },
+    "lane": {
+      "type": "string"
+    },
+    "mean_signed_forward_delta": {
+      "type": "number"
+    },
+    "origin": {
+      "type": "string"
+    },
+    "promotion_allowed": {
+      "type": "boolean"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "segment_result_digests": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "setup_id": {
+      "type": "string"
+    },
+    "signals": {
+      "type": "integer"
+    },
+    "support": {
+      "type": "integer"
+    },
+    "validation_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "accuracy",
+    "alpha_claim_allowed",
+    "behavior_digest",
+    "candidate_digest",
+    "candidate_id",
+    "candidate_result_digest",
+    "correct",
+    "coverage",
+    "descriptive_only",
+    "diagnostic_selectable",
+    "incorrect",
+    "lane",
+    "mean_signed_forward_delta",
+    "origin",
+    "promotion_allowed",
+    "schema_version",
+    "segment_result_digests",
+    "setup_id",
+    "signals",
+    "support",
+    "validation_status"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,8 @@
+{
+  "capital_allowed": false,
+  "network_allowed": false,
+  "orders_allowed": false,
+  "policy_id": "ACL06_AUTHORITY",
+  "required_action": "ACL06_EXECUTE_BOUNDED_RESEARCH",
+  "secrets_allowed": false
+}

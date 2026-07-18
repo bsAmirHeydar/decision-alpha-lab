@@ -1,0 +1,12 @@
+{
+  "accounting_digest": "sha256:104e79de7547f0fca6bac9fc46604b3df6a20ed00d72faf62386771e675bde03",
+  "budget_expansion_allowed": false,
+  "budget_id": "BUDGET_ACL05_REFERENCE_V1",
+  "cpu_seconds_charged": 129,
+  "object_count_charged": 54,
+  "output_bytes_charged": 59504,
+  "peak_memory_mb_charged": 64,
+  "schema_version": "1.0.0",
+  "task_count_charged": 54,
+  "within_budget": true
+}

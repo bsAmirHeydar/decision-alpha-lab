@@ -1,0 +1,69 @@
+{
+  "candidate_count": 12,
+  "candidate_results": [
+    {
+      "candidate_result_digest": "sha256:74303205183b4d3fdf53cd34fe212514cff17eda72b670d89a8a634e55b1a3d7",
+      "lane": "RESEARCH",
+      "setup_id": "SETUP_030571B7D3BF97CDE8EF"
+    },
+    {
+      "candidate_result_digest": "sha256:bffe07001e006fb3e8d782a8c8fd9a494ac86e98087a35091997a423417cb3c2",
+      "lane": "RESEARCH",
+      "setup_id": "SETUP_0A56F08F1AC14EFB10F5"
+    },
+    {
+      "candidate_result_digest": "sha256:f2c5d221c6e128c0e6afc291e975e0ec20e11ad0a027904dc7bc4027621c39cb",
+      "lane": "DIAGNOSTIC",
+      "setup_id": "SETUP_0CBC9D269F0833852BAE"
+    },
+    {
+      "candidate_result_digest": "sha256:14ec84590260a4d604964ed1f0104d444aa5d93b151440a9a0c7f55092724df4",
+      "lane": "RESEARCH",
+      "setup_id": "SETUP_0FA71C242B64C3FB7F83"
+    },
+    {
+      "candidate_result_digest": "sha256:5fd3534fe57a2ac7d5acc0d2a2c5ed46f2308d0c90379d3461e9d6aeb6f8037a",
+      "lane": "RESEARCH",
+      "setup_id": "SETUP_5013929BAE3E6FDFEFC8"
+    },
+    {
+      "candidate_result_digest": "sha256:685899be9a8f994695c57d43e5e6f6f50d94f3e38dd1862062a0c4ebf58d5bf5",
+      "lane": "RESEARCH",
+      "setup_id": "SETUP_5F6EC931E571A2575FD9"
+    },
+    {
+      "candidate_result_digest": "sha256:74e8cad6ea1ab1745adee8320fb8ac9acb2654f8a529df32b8db212764d15c94",
+      "lane": "RESEARCH",
+      "setup_id": "SETUP_978582F1C2791E47056F"
+    },
+    {
+      "candidate_result_digest": "sha256:a62b296aa2b54e2ae4c33638cc04b8b1c035da11bfb55da307d86194389ec172",
+      "lane": "RESEARCH",
+      "setup_id": "SETUP_A553D83C10BF06E79C12"
+    },
+    {
+      "candidate_result_digest": "sha256:ce8b6b01aed2ba8db2dc7757cb2d20fc594caea8a1f92342fdbadd19bc547e4a",
+      "lane": "RESEARCH",
+      "setup_id": "SETUP_A9F7B7384FDE580E5660"
+    },
+    {
+      "candidate_result_digest": "sha256:2fea7111cca776dd74a527ca834dbffde15064880cb4e6fdc921eee701f61601",
+      "lane": "RESEARCH",
+      "setup_id": "SETUP_B2465EF6482D65D3F6D5"
+    },
+    {
+      "candidate_result_digest": "sha256:b786e0b1e4954fe8f9871c570edafe66b70ad8372542b392cca877d39b258f69",
+      "lane": "RESEARCH",
+      "setup_id": "SETUP_CE82D176E29FCA349EE1"
+    },
+    {
+      "candidate_result_digest": "sha256:c6a81760566a63e0b95a657311db8f60243b68320cf0a05cc74c22662fc8f106",
+      "lane": "RESEARCH",
+      "setup_id": "SETUP_EE3007877556A11CDA6F"
+    }
+  ],
+  "diagnostic_candidates_selectable": false,
+  "index_digest": "sha256:8d505eb46ffcbb1191752725d66c1c2886396db1a5956dbd8ddb43c5414b8e46",
+  "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+  "schema_version": "1.0.0"
+}

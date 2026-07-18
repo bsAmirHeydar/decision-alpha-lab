@@ -3,43 +3,27 @@ title: Batch DAG Orchestrator Boundary
 status: accepted-reference
 version: 1.0.0
 updated: 2026-07-18
-tags: [acl-os, acl-05, research-batch]
+tags: [acl-os, acl-06]
 ---
 # Batch DAG Orchestrator Boundary
 
-## Purpose
+## Accepted implementation
 
-Describes the next-phase execution boundary while preserving ACL-05 ownership.
+ACL-06 now implements this boundary through a 54-task deterministic reference DAG, stable task contracts, acyclicity validation and atomic result publication.
 
-## Contract model
+## Invariants
 
-ACL-06 consumes `ACL05_TO_ACL06`, registers task contracts and executes bounded research against content-addressed inputs. It returns evidence, not trading permission.
+- The Batch cannot be mutated.
+- The task graph is closed and acyclic.
+- Retries are bounded and idempotent.
+- Budget expansion is forbidden.
+- Diagnostic evidence is non-selectable.
+- Output remains non-executing and non-promotional.
 
-## Failure semantics
+## Verification
 
-ACL-05 does not schedule tasks; ACL-06 does not rewrite Batch identity.
-
-## Authority boundary
-
-This note describes ACL-05 reference mechanics. It does not establish external data quality, statistical edge, live-market parity, broker correctness, execution authority or capital authorization. Canonical JSON and policy artifacts outrank generated prose.
-
-## Non-negotiable invariants
-
-- Unknown fields, unresolved IDs and digest mismatches fail closed.
-- Known-time semantics are inherited and may not be weakened.
-- Candidate behavior remains byte- and digest-bound to ACL-04.
-- Diagnostic artifacts remain segregated from selection.
-- Material changes produce a new Batch identity; no in-place repair exists.
-- Publication is all-or-nothing and leaves an attributable event/receipt trail.
-
-## Verification obligations
-
-Verification includes closed-schema validation, byte-digest checks, negative authority tests, known-time mutation tests, deterministic replay, content-addressed store resolution, event-chain validation and clean-checkout delivery checks. Passing these tests proves only the declared reference mechanics.
-
-## Evolution and rollback
-
-Additive compatible changes require a new minor contract version. Breaking semantics require a new major version, migration note and new Batch identity. Before publication, rollback deletes staging. After publication, rollback restores the prior repository commit; frozen artifacts are never rewritten.
+The phase includes unit, contract, negative-authority, deterministic replay, schema, registry and delivery tests. MetaEditor and live-market parity remain outside this phase.
 
 ## Related
 
-[[TASK_REGISTRY_AND_CONTRACT]], [[ACL_06_RESEARCH_DAG_ORCHESTRATION]], [[IMMUTABLE_RESEARCH_BATCH]]
+[[ACL_06_RESEARCH_DAG_ORCHESTRATION]], [[ACL06_RESEARCH_DAG_RUNTIME]], [[ACL06_TASK_CONTRACT_STANDARD]]

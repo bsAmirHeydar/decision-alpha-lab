@@ -1,0 +1,11 @@
+{
+  "inferential_statistics_run": false,
+  "metrics": [
+    "support",
+    "signals",
+    "coverage",
+    "accuracy",
+    "mean_signed_forward_delta"
+  ],
+  "policy_id": "ACL06_METRICS"
+}

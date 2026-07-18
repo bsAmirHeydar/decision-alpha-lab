@@ -1,0 +1,989 @@
+{
+  "event_count": 58,
+  "events": [
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:93c664114b62310ba1213fa2f90f3ff0d3cf04b4c60db570bb3bee776b94ff05",
+      "event_id": "ACLEVT_A93EACCB6C4C43DDBADC2887",
+      "event_type": "ACL05_HANDOFF_ACCEPTED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "batch_id": "BATCH_81FF4FC3C8B796422B0EF6818FEB2D5E",
+        "handoff_digest": "sha256:f0085c59d52b397e2db7db181ac75e8d9fbcd800d15f53728ad0965b37feb31b"
+      },
+      "previous_event_digest": null,
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 1
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:9068287c667c295c928c3065867ed8b73bb106aaa7ff929c2d37e7587059c3f8",
+      "event_id": "ACLEVT_826AA92F9CB94907A8C293DC",
+      "event_type": "RESEARCH_DAG_PLANNED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "dag_digest": "sha256:84c8770df1caac7cc4c9e91cb69cb5a90b7a84ce2bcd802709d8066717f520c9",
+        "task_count": 54
+      },
+      "previous_event_digest": "sha256:93c664114b62310ba1213fa2f90f3ff0d3cf04b4c60db570bb3bee776b94ff05",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 2
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:3af295bb96eb0333bf5a0681f60326911fb27642ed3f49e963a1c116869f3739",
+      "event_id": "ACLEVT_9DBB29E09D4F752F92BF3FD3",
+      "event_type": "RESEARCH_EXECUTION_STARTED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "dag_digest": "sha256:84c8770df1caac7cc4c9e91cb69cb5a90b7a84ce2bcd802709d8066717f520c9"
+      },
+      "previous_event_digest": "sha256:9068287c667c295c928c3065867ed8b73bb106aaa7ff929c2d37e7587059c3f8",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 3
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:30e305caeff2179d2189b6c75aaa05a3cba9d7bcf2eea108c6fbd5ed47c3577a",
+      "event_id": "ACLEVT_CF832767A5B815A3A90172F0",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_980B14840827670F9DB82A83",
+        "task_receipt_digest": "sha256:5e84583653169cc692f9a9e1b90acbebda6978929527fd218092afa1c3cb2d5d",
+        "task_type": "VERIFY_FROZEN_BATCH"
+      },
+      "previous_event_digest": "sha256:3af295bb96eb0333bf5a0681f60326911fb27642ed3f49e963a1c116869f3739",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 4
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:4b809d042d407e823b04781a926f5e028e759c24b1474e65137ab872b22fa7f6",
+      "event_id": "ACLEVT_5D75D9C975E627D2CBC3A8E0",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_FC94110ACD757DCB5712B293",
+        "task_receipt_digest": "sha256:95a5cb322aebed17ab5421be4c65a61cd38d3352891edd0e9938f38638259fca",
+        "task_type": "MATERIALIZE_DATASET"
+      },
+      "previous_event_digest": "sha256:30e305caeff2179d2189b6c75aaa05a3cba9d7bcf2eea108c6fbd5ed47c3577a",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 5
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:9bd366b20774f260cdf01fe2c6c7095307eeafd4c112ba643557acb8774f565b",
+      "event_id": "ACLEVT_DEEE088BCDFD8583100D6127",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_BA9273CD4F641FEBB96BD46D",
+        "task_receipt_digest": "sha256:e77176d9d5e545ee89f873adfcb7298cffd94e120f5a1ebb36614a8f046cd76e",
+        "task_type": "COMPILE_MATURE_LABELS"
+      },
+      "previous_event_digest": "sha256:4b809d042d407e823b04781a926f5e028e759c24b1474e65137ab872b22fa7f6",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 6
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:524210862b0c8f672f1efbdfcb31db067a4b267609d9787b89dd2bc28a9b1c0a",
+      "event_id": "ACLEVT_14F309B1DC235F1B9CD20C7D",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_CD57B1F9EFBF3376EB1388B3",
+        "task_receipt_digest": "sha256:1331d0ec8697f549bc5c8025a3252a4471c5b9bc7e8bf47a1177cee9bc829c70",
+        "task_type": "ASSIGN_PURGED_SPLITS"
+      },
+      "previous_event_digest": "sha256:9bd366b20774f260cdf01fe2c6c7095307eeafd4c112ba643557acb8774f565b",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 7
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:df14690eeaa889c219ddfcf104730d48b861d6132404ffda8ac2b4917da4c30e",
+      "event_id": "ACLEVT_A8368771C76E66E8252AD2A6",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_058E21F1106C18EA63ED6C5E",
+        "task_receipt_digest": "sha256:f04ebd93849386093a295c5effdd3c7a52f47b29ff5dc627f87b721d91516491",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:524210862b0c8f672f1efbdfcb31db067a4b267609d9787b89dd2bc28a9b1c0a",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 8
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:a42a71d8c58ddbb5db591a26d251ff28c155863d2083d945934a6252ff51b488",
+      "event_id": "ACLEVT_479AF065F4566F5405F0A927",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_1A128A8993698689578EC724",
+        "task_receipt_digest": "sha256:d41c032e86d5ea2265a8929c55743e02886b583bc2069c7cae71fc4f88f1b315",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:df14690eeaa889c219ddfcf104730d48b861d6132404ffda8ac2b4917da4c30e",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 9
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:b27e6e38d2c45c87ffe06afc4658bbc32319fde3e9445aeb0d01eb1749ff7e76",
+      "event_id": "ACLEVT_DD43B841E019897CC01956D7",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_1BF9211B962CAE8D9776758A",
+        "task_receipt_digest": "sha256:8213f036cd5fec23d89a26ec4f211a48972f9321ac07a285b8ebe0f9a2087734",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:a42a71d8c58ddbb5db591a26d251ff28c155863d2083d945934a6252ff51b488",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 10
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:3ab5776168549b361d3f6cc19fa6e78e52dd0d0df1175b2058e0df4dc2a1d898",
+      "event_id": "ACLEVT_A40960708984049FFC8677EF",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_200C71C0300C2EFF89E2DD90",
+        "task_receipt_digest": "sha256:f48e60f33d5fe2c6e2a58d0aedcc8c44825a94d66d093d72046e16b34d225ffc",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:b27e6e38d2c45c87ffe06afc4658bbc32319fde3e9445aeb0d01eb1749ff7e76",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 11
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:32d42b1075c21aef3d4d952366487ba8d6cb422264c3c9b4efd8009549bd6d42",
+      "event_id": "ACLEVT_B38621F81B3A9D3A847B79E0",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_2F35FADDE22A24CE01BE01EF",
+        "task_receipt_digest": "sha256:dc3616b91c31b3e6bba7ac1f757603159f948b77059af944ea23440dfd4f4190",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:3ab5776168549b361d3f6cc19fa6e78e52dd0d0df1175b2058e0df4dc2a1d898",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 12
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:99cd01f6008cf1e17eded811d231f0da0ed5a3460e13ac52ca894937044347eb",
+      "event_id": "ACLEVT_0236A8F89D501B93874786FC",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_346DA478BBA9D14E75809AB5",
+        "task_receipt_digest": "sha256:4d48a4be9d5b443f678aac69488018ac281c6c4bb07537ba229f7122aaf4fde2",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:32d42b1075c21aef3d4d952366487ba8d6cb422264c3c9b4efd8009549bd6d42",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 13
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:9746f5f0cefbd545b80771c3b15dafea57d2c88ee8ea40defd1d4109313c6054",
+      "event_id": "ACLEVT_0BEBAA200C5FD107C8B825A2",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_4300F03DE7259DB3674D7814",
+        "task_receipt_digest": "sha256:370ff1dd85ba77a17234cd190fb6009477553b264848190c0b8c3cb831b83831",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:99cd01f6008cf1e17eded811d231f0da0ed5a3460e13ac52ca894937044347eb",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 14
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:150c1aba1a8d7c84464c266e158735705533fc517dffb548816e06dfeea2fe7f",
+      "event_id": "ACLEVT_7BDB87390C2F1AB84CECD74F",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_463C5AFBE436A181A2796B14",
+        "task_receipt_digest": "sha256:89bbada7df1ab08205b325388c71ea73ad44a38d31c56c32203cc29b0b2f4c9b",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:9746f5f0cefbd545b80771c3b15dafea57d2c88ee8ea40defd1d4109313c6054",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 15
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:b437a708ae06c8890d1ba4f72afe6a19781205062328f302bb4a43840c8c6b58",
+      "event_id": "ACLEVT_091D58DDCEFAD54F47932396",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_46611C1E5642B6D0ECE1FA31",
+        "task_receipt_digest": "sha256:e61fa36fba980738a48485c7293cff479f0e4e469bae1f83fd4ed11eddc94305",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:150c1aba1a8d7c84464c266e158735705533fc517dffb548816e06dfeea2fe7f",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 16
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:f8704ba03f6c11d1132fb8db6ff2074c98f5147fcda5eae637f09dca71edf47a",
+      "event_id": "ACLEVT_4896F6013696390A0E3328F4",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_4F36A4E2D40320E048824FB0",
+        "task_receipt_digest": "sha256:76ef05d89f50b0f72f8996790d76bbc4575ac0f91abb19c382b522326a7caedf",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:b437a708ae06c8890d1ba4f72afe6a19781205062328f302bb4a43840c8c6b58",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 17
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:93606aaefe43c710e97b057bf3e99d59d2b731b437071b1645ed82d0eae4608c",
+      "event_id": "ACLEVT_501EAC1AA0EC98F76E57C33A",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_4F9EB102B45593A9B6FBDFC1",
+        "task_receipt_digest": "sha256:05f0ec7518afeaec617147282d7a4a767a079abe5e4a8a3e40aec29f1e328ff0",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:f8704ba03f6c11d1132fb8db6ff2074c98f5147fcda5eae637f09dca71edf47a",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 18
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:6183234faf7b3af9764f7c2415bd5e7178cdd8cd9295a1044f3901c44c9282d2",
+      "event_id": "ACLEVT_A9CF7CD650AF48ADF509D470",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_501953036DBA9BCDF28A21D6",
+        "task_receipt_digest": "sha256:68508984b120b4f0e33a3cdc7fdedc0ea79e885a8673a27d7661bb5244a1fa71",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:93606aaefe43c710e97b057bf3e99d59d2b731b437071b1645ed82d0eae4608c",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 19
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:fcc85f96cdd02596fd1d77def689af090fac58e42d532111a2952b6a7eecbb46",
+      "event_id": "ACLEVT_4E475F121D05EA09666A5C07",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_559A02B04B768DD3418755D4",
+        "task_receipt_digest": "sha256:ac23e460af5b6829e79ce784f71bd453abfb1879ef4bff8712d834b374a0ef81",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:6183234faf7b3af9764f7c2415bd5e7178cdd8cd9295a1044f3901c44c9282d2",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 20
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:06362d1c1c6e4c21639f3a24c9944bea01ec9508626e78129b3e4ae662d54440",
+      "event_id": "ACLEVT_A54D89684A78B11231DBD53C",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_594B6AE23FBDC42DED5AFB79",
+        "task_receipt_digest": "sha256:2793c8635f7a9647e29238e94d9f8c5d80943fc537abcb9eadd539848a2a6054",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:fcc85f96cdd02596fd1d77def689af090fac58e42d532111a2952b6a7eecbb46",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 21
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:2ddf1de0d07aed039009fb2cf8e78b91d39b0350699a13803207342c72891464",
+      "event_id": "ACLEVT_72C21AAD7996A84628AE2DAC",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_65137BC8E91519A30653A8EF",
+        "task_receipt_digest": "sha256:5e4c62f6c19cebc8f629f3061cd20539be9f99a7ad6f7ecaa5b3dcff7156a196",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:06362d1c1c6e4c21639f3a24c9944bea01ec9508626e78129b3e4ae662d54440",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 22
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:10cdfa32dc0be3b2bc324fb6aaa4a402d8a8b2cdd46eea89b3dbde5eb3af93dd",
+      "event_id": "ACLEVT_38C422773EFFF84100A822EA",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_71434563E04D1F66D6C6A46D",
+        "task_receipt_digest": "sha256:0fbf2aa9626585cad2606787eba1345c7f77fd7d21a15791f7989cfabeb3c5d3",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:2ddf1de0d07aed039009fb2cf8e78b91d39b0350699a13803207342c72891464",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 23
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:923f8444318383a3108d80bd06ff7e7302d93176f5683b96c49b4fdf74b27c3a",
+      "event_id": "ACLEVT_E1BA0EF43446C23389CB6E0B",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_72A095372354855D6E6B42F4",
+        "task_receipt_digest": "sha256:91ca68c7160f499a7aca6e81fd256424a5832957b8509063de51bdc5f9165aa2",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:10cdfa32dc0be3b2bc324fb6aaa4a402d8a8b2cdd46eea89b3dbde5eb3af93dd",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 24
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:ca2210cc93a2f747f070e424e52b4da55d957543dc2aef25f50c710d65159bc6",
+      "event_id": "ACLEVT_65DEDA6553C78DBA952192AC",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_73F322E2685032675D853130",
+        "task_receipt_digest": "sha256:141de7d933153e5491f6be8c2ea396a8130b872c7839fefc5c8486a996e5ec02",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:923f8444318383a3108d80bd06ff7e7302d93176f5683b96c49b4fdf74b27c3a",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 25
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:52dcb0572a568c3e4f49b4ac0a4376e1ef7c4830a516a81c0df157fc22424d8c",
+      "event_id": "ACLEVT_AF2B18FF84936304ACF28AAC",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_7A1FCBE8152B8485E02DB3E6",
+        "task_receipt_digest": "sha256:b410ae4c6724381b83129f671425ae3eae188a3d7fbc26b17de57eea3e0b01e4",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:ca2210cc93a2f747f070e424e52b4da55d957543dc2aef25f50c710d65159bc6",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 26
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:2913b792844b834ef1e12ff820f7d3b39fec595dc0a8f9bf8091aee071de65da",
+      "event_id": "ACLEVT_E69B41FDB1E5FF8BB4891098",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_83E8AA7822D7C3912A40CA4C",
+        "task_receipt_digest": "sha256:05fa0432d677fdcb389b596c8aba5e6543ca419b3ca05ceaea7700dfe9287c9c",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:52dcb0572a568c3e4f49b4ac0a4376e1ef7c4830a516a81c0df157fc22424d8c",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 27
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:de4a1eeabf4316c47dae10ecb573c2ab52ce31110993d919ca3624bd44bd874a",
+      "event_id": "ACLEVT_FB7AC39E9DAF2D8C81056CCD",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_861E1848AECE3F93A3A12C80",
+        "task_receipt_digest": "sha256:03b6d828cd4fb7fe7ee08d4962eb07a56e29edce250e49d45b449085f548ba39",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:2913b792844b834ef1e12ff820f7d3b39fec595dc0a8f9bf8091aee071de65da",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 28
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:d5b984490a41e508470e64da1252e02e9a1fd174573334a50465e0292d736b09",
+      "event_id": "ACLEVT_A6757EE7234129E37CD18805",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_9C100E24C298B9C549C9B9E4",
+        "task_receipt_digest": "sha256:99a5a2d26910367ff00254ddfcc1c1bd0438dc33fb59cb182f5b7aa49590420e",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:de4a1eeabf4316c47dae10ecb573c2ab52ce31110993d919ca3624bd44bd874a",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 29
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:f47c26d8112f20ca3a12e804cf35d6513734c341625831c7ec97a08a75e17157",
+      "event_id": "ACLEVT_21CD6FD0A720F7D33E15D70C",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_9CF57305A4F8DC618454808E",
+        "task_receipt_digest": "sha256:ee3f8cf7d00a630088a8c058c9c1de5a5a5665002033d74c3c7e66bb17d7c1c0",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:d5b984490a41e508470e64da1252e02e9a1fd174573334a50465e0292d736b09",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 30
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:e4f35a407131e736bd5054a740a75a3041658e4f3a5c4af5782eddc54f7f975e",
+      "event_id": "ACLEVT_99A8095216619FD9F4E86ED4",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_9DCDBF528A4BC8EEE7E30BB6",
+        "task_receipt_digest": "sha256:b4365cc501fceac43e3efb6b0e76bfc3873aa33153e16561a01ddadd8ee447a4",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:f47c26d8112f20ca3a12e804cf35d6513734c341625831c7ec97a08a75e17157",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 31
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:dca4fc1691f9e672036e663dce3c18f30d45644efa722f69aeb6219cc89d203b",
+      "event_id": "ACLEVT_F60241BD2589CE6AEC9BD0E5",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_B76A06A68DD18D9C9EB563AB",
+        "task_receipt_digest": "sha256:a903896fd5b705f55d6076d35f7dbafa40accecf4fd325cece7e8f73303f7f96",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:e4f35a407131e736bd5054a740a75a3041658e4f3a5c4af5782eddc54f7f975e",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 32
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:b3527deb0ac60fc0b3f7d1441639dc248e6db1a371bd9e5aa00bb1c4492a8b49",
+      "event_id": "ACLEVT_6DA00EDD1F6828696AB8309A",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_BCE27C1D8DC94CFFC903557C",
+        "task_receipt_digest": "sha256:a934ce60b895b68955c932286da39226643308afd6b65e2252fc2675d898601d",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:dca4fc1691f9e672036e663dce3c18f30d45644efa722f69aeb6219cc89d203b",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 33
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:2de4a3e8c1df73dac87a656c8b1b8f25205543e79c38e433fe6d7f481646023e",
+      "event_id": "ACLEVT_24EF25A3B0A52E05D1AA2B9A",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_C197A2DDF4891B5EECF06EDC",
+        "task_receipt_digest": "sha256:2d4ff9b1bf439408e0344ba63a6d60f29503aabeb53803bfb783dea08cc1d795",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:b3527deb0ac60fc0b3f7d1441639dc248e6db1a371bd9e5aa00bb1c4492a8b49",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 34
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:4f26a7c1d54916aebd6a36553fcb0033634f697e31a99fbf01aaf0e4d1c54739",
+      "event_id": "ACLEVT_1BB7E38AC21E9A401E955B5E",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_C280B2C6F480B384CD769E3F",
+        "task_receipt_digest": "sha256:66bd8a6c0333ebd826cf0cc630acf1dc62d7131ad1a1e5d48f7d61ca4c5a05ae",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:2de4a3e8c1df73dac87a656c8b1b8f25205543e79c38e433fe6d7f481646023e",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 35
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:8fded249216adcfc581b6e43ff887f26a9036f0b2c699ef741b4b1df8f3caad6",
+      "event_id": "ACLEVT_0D8152B4DBD759F722E12ABC",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_C9C83E973F4502358CCEB30D",
+        "task_receipt_digest": "sha256:e75fd45a89a79510c4d0e4a5275eebe2b1acff47c81bf872c6997f5926fff204",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:4f26a7c1d54916aebd6a36553fcb0033634f697e31a99fbf01aaf0e4d1c54739",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 36
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:a00c689e8b2245556a040304e080a46dc2a436a3091d3a8b905926a094cd3317",
+      "event_id": "ACLEVT_BBE07F09E43739C041F7E3BC",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_D30145B8661CEDC8C3C3A937",
+        "task_receipt_digest": "sha256:4b16f68bf4dff3301f3f7212d34dad0c70501f3388afd0e70f335249eaec467d",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:8fded249216adcfc581b6e43ff887f26a9036f0b2c699ef741b4b1df8f3caad6",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 37
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:71649db714c6a5ed4cd987234ceef635ada53f5003402d883db0d5cf789080c3",
+      "event_id": "ACLEVT_46FD3349F4D75CA73CDFDD91",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_D41795C0ADBE797B214C2149",
+        "task_receipt_digest": "sha256:8a4bf076bcdb35e381200058978f0a4a2d33dd23754a0d13c8595c3135148c05",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:a00c689e8b2245556a040304e080a46dc2a436a3091d3a8b905926a094cd3317",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 38
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:029db6f0befef5532cf7b8834068024d1fd80bd3527af1b5eea407e79f3e5d73",
+      "event_id": "ACLEVT_343C4FDE28DF87AB5EC43DC0",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_DE1D8544F53F232CBBB850EF",
+        "task_receipt_digest": "sha256:1dfeba3a5fdcfb551bcc5d221c1450f13286541214afe4b4170a9352c409baea",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:71649db714c6a5ed4cd987234ceef635ada53f5003402d883db0d5cf789080c3",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 39
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:8d023ad5d0956038afd822e2b647a61e677c31f74fcb2084f7058ca1e4522d65",
+      "event_id": "ACLEVT_612AB4AFA9B59F1505765EF1",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_DEFE5B7368547FBE964E1B98",
+        "task_receipt_digest": "sha256:acaaeb6fc43a8911a55f37c98a144a68799390b05803338e8f5ee23dc73e8a41",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:029db6f0befef5532cf7b8834068024d1fd80bd3527af1b5eea407e79f3e5d73",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 40
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:7e6985516f91e0da79122fd899725dcf456d7d1531bdebe0680a36b40f7fb6ef",
+      "event_id": "ACLEVT_5F9112B1D2E0EF1BD756F0F6",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_EF0892B2CD73CCEE534EF8A7",
+        "task_receipt_digest": "sha256:e4d888f12dc38ceb09a17aea60b8cf8d8746cbe85d29ea81dfbc6be4c5743cf4",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:8d023ad5d0956038afd822e2b647a61e677c31f74fcb2084f7058ca1e4522d65",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 41
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:2f443541b579b4b407d1a8b061d17376ac2bf087e1d69faa02094e2fedf89f2e",
+      "event_id": "ACLEVT_ADAB7B36E3FC68B62D29AC24",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_F0CC3B23AEBE85900AA61EF5",
+        "task_receipt_digest": "sha256:7c77d30756e036ac606f1b7df8a40afb4a5ccd199bbfb113e54c1561e4013707",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:7e6985516f91e0da79122fd899725dcf456d7d1531bdebe0680a36b40f7fb6ef",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 42
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:c1dd9da3e0ced12bba316a000cd4316abfaf51f83c808aa9f819507dcf4a2999",
+      "event_id": "ACLEVT_7D9C25928C4CF3ECDC3160DC",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_F23C1768634A246159514F57",
+        "task_receipt_digest": "sha256:e1754039452b8274d8d5a010815c2e7b117d1bb20240c78c55bf5742ed8d51f6",
+        "task_type": "EVALUATE_CANDIDATE_SEGMENT"
+      },
+      "previous_event_digest": "sha256:2f443541b579b4b407d1a8b061d17376ac2bf087e1d69faa02094e2fedf89f2e",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 43
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:9e862d77e2bbff7ac29cdcef3d4bf0c79a9ab2cbeac7e8d158561dc344648689",
+      "event_id": "ACLEVT_5D398FEE2EFD900A544B1AF9",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_01E8CFACE9E1833E423D2B0D",
+        "task_receipt_digest": "sha256:76e1624f0c95a41009b345757cb6c1dc4d4283a7c5637806d5c9928b25911a7e",
+        "task_type": "AGGREGATE_CANDIDATE"
+      },
+      "previous_event_digest": "sha256:c1dd9da3e0ced12bba316a000cd4316abfaf51f83c808aa9f819507dcf4a2999",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 44
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:68604fe399bbe75e92785f140756933c6a77dc453be05531e05020842fd77680",
+      "event_id": "ACLEVT_2EC560E5EBDB988B10AE88E6",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_7330A878D9B0FEB012D63098",
+        "task_receipt_digest": "sha256:0db6152c86cdd0a0e5e7bb0e39f137e565ad2563cbc997a9257984de12aabf83",
+        "task_type": "AGGREGATE_CANDIDATE"
+      },
+      "previous_event_digest": "sha256:9e862d77e2bbff7ac29cdcef3d4bf0c79a9ab2cbeac7e8d158561dc344648689",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 45
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:5c7e482bd5ce22c388020c4bde44bcd6a4b156f52637d28f6f8e39bedf3593bf",
+      "event_id": "ACLEVT_12481DAABF37D5AA78665815",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_BED0D754B605EAB47384CA54",
+        "task_receipt_digest": "sha256:dc6df9b4e0a7d34807817539a193e6640a142e84dd773f223c01c5228b66eb67",
+        "task_type": "AGGREGATE_CANDIDATE"
+      },
+      "previous_event_digest": "sha256:68604fe399bbe75e92785f140756933c6a77dc453be05531e05020842fd77680",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 46
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:771c16f48b67d575e3ac12086fadcb52692ee377b1698cce4e7e076733915101",
+      "event_id": "ACLEVT_F7AC8DD52E78A81FAF175378",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_275DA33AB2BF72FD7847D829",
+        "task_receipt_digest": "sha256:5debc32991dc68d3a5b05c471f8288f8998f38c6920fc7faba6905e65c524f00",
+        "task_type": "AGGREGATE_CANDIDATE"
+      },
+      "previous_event_digest": "sha256:5c7e482bd5ce22c388020c4bde44bcd6a4b156f52637d28f6f8e39bedf3593bf",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 47
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:1f69135c2730d458b0c370a800db50562c9745e26132394cf44facec7cff3cac",
+      "event_id": "ACLEVT_1C9F3EF6C3EBAA4D0C635412",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_20672F9B03E2530A6FF85FE3",
+        "task_receipt_digest": "sha256:5cd49d04050f7acd71d7b59b07c17f0e7f4cb99ad16cac4b88614f8e481d13cc",
+        "task_type": "AGGREGATE_CANDIDATE"
+      },
+      "previous_event_digest": "sha256:771c16f48b67d575e3ac12086fadcb52692ee377b1698cce4e7e076733915101",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 48
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:d28decb1168ea918c89891fe5e8ccbbbd17278839ab6c10b6fed0ce027af25ec",
+      "event_id": "ACLEVT_6353EA3A5B72F001758CCAB9",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_F5A9BB22B120B827551F4009",
+        "task_receipt_digest": "sha256:5009f3542d5148a12b7d06ebab8b40dc7dd009261cf38c544dd43311268bd3ef",
+        "task_type": "AGGREGATE_CANDIDATE"
+      },
+      "previous_event_digest": "sha256:1f69135c2730d458b0c370a800db50562c9745e26132394cf44facec7cff3cac",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 49
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:f558938bd29b7a1861be923e64a27852bf98f0d9a95ff72c15e1dae32a807dcb",
+      "event_id": "ACLEVT_96005D37741B2A66FC9D2851",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_FB6CB39402F2A3042A218465",
+        "task_receipt_digest": "sha256:82e66ed5355d6ebfb1a3520b62ad76c3ba1944b30ba388caa182ee052dfa30f3",
+        "task_type": "AGGREGATE_CANDIDATE"
+      },
+      "previous_event_digest": "sha256:d28decb1168ea918c89891fe5e8ccbbbd17278839ab6c10b6fed0ce027af25ec",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 50
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:255dfb2fe7f3e7cdf3390ca422d2af956e7786571c3a382d788ba7b937f725ad",
+      "event_id": "ACLEVT_7A539F8CDE77B306A01556AC",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_6C31C4CB16489F9434922F7D",
+        "task_receipt_digest": "sha256:a1ee276699af0a606977ee76319784cb8bbed0f8c9dcff6c82bddcedbd933773",
+        "task_type": "AGGREGATE_CANDIDATE"
+      },
+      "previous_event_digest": "sha256:f558938bd29b7a1861be923e64a27852bf98f0d9a95ff72c15e1dae32a807dcb",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 51
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:8af1ea81d440628cb9b4a6f68aaf6c64235cb019bb910f6d95d3e69e27230e57",
+      "event_id": "ACLEVT_D899C1F5A3090C9C15E2E171",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_319D1547D13C60254DD01222",
+        "task_receipt_digest": "sha256:5ed4e7ee2a3f89ec99f7744aa37235bdd73032783810ab4d8ee2b4f498810fd5",
+        "task_type": "AGGREGATE_CANDIDATE"
+      },
+      "previous_event_digest": "sha256:255dfb2fe7f3e7cdf3390ca422d2af956e7786571c3a382d788ba7b937f725ad",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 52
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:4678a5b220946743c001408f1071a42c8ea1f73314d1ad1cc7e7d67e0ca275da",
+      "event_id": "ACLEVT_FE72FF94BD3F023D4CE54D2B",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_23CA8FD9475A2CFFC646A43F",
+        "task_receipt_digest": "sha256:621b4d04ffec11b0308a7e2e23ce4f66e37b3938512e8d190bad829dde6368ab",
+        "task_type": "AGGREGATE_CANDIDATE"
+      },
+      "previous_event_digest": "sha256:8af1ea81d440628cb9b4a6f68aaf6c64235cb019bb910f6d95d3e69e27230e57",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 53
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:2abc8fffaac51d2489959b3d1d449e3bef622f722da465d6f8d7e530c2e466e7",
+      "event_id": "ACLEVT_3A99260F399E62E6E69B0BCC",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_F9CF20ACE96E194D7E526CEA",
+        "task_receipt_digest": "sha256:7487e002f06c64acca3b65d344b9d3e0039e3ca1e2d69a13292b0b7631acd728",
+        "task_type": "AGGREGATE_CANDIDATE"
+      },
+      "previous_event_digest": "sha256:4678a5b220946743c001408f1071a42c8ea1f73314d1ad1cc7e7d67e0ca275da",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 54
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:ecb0436ee9a88fd5a8b6c3f2702f06532dea87676d1c0b6f3db4b6ba707d3091",
+      "event_id": "ACLEVT_D91B02EA67FF3CE6AC5BFFF5",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_77260A5296DD9E2229DE7E1A",
+        "task_receipt_digest": "sha256:370a8d0711b21378334ae4a8031049c64fef241c74f864a6b107f23f5ec7dd41",
+        "task_type": "AGGREGATE_CANDIDATE"
+      },
+      "previous_event_digest": "sha256:2abc8fffaac51d2489959b3d1d449e3bef622f722da465d6f8d7e530c2e466e7",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 55
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:761b6a503782145653029b1d22e2d06875c85835043e479f7d0b84177ae37c4c",
+      "event_id": "ACLEVT_3F5221DB4D6EDE9DD25C1909",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_761AE809553DAFC3A7798BF1",
+        "task_receipt_digest": "sha256:8e41ec3d1648d2793dd2c92f59aa0e9117253830f9eca559a25469c36aa9b9cd",
+        "task_type": "PACKAGE_RESEARCH_RESULTS"
+      },
+      "previous_event_digest": "sha256:ecb0436ee9a88fd5a8b6c3f2702f06532dea87676d1c0b6f3db4b6ba707d3091",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 56
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:b3fde9b27d68bd0fe8c36aded49efa4edc073ba041ef2f5585b64656a9b2ab60",
+      "event_id": "ACLEVT_CF8B2131D78A2D8AFFA36CC0",
+      "event_type": "TASK_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "task_id": "TASK_CCD4995BB768E7E031CD9338",
+        "task_receipt_digest": "sha256:8c74c223f433a84a6ec61891cd6d5639955f0428f138abcca4856f0ff96d4bfd",
+        "task_type": "BUILD_ACL07_HANDOFF"
+      },
+      "previous_event_digest": "sha256:761b6a503782145653029b1d22e2d06875c85835043e479f7d0b84177ae37c4c",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 57
+    },
+    {
+      "capital_activation_allowed": false,
+      "event_digest": "sha256:421a2710a090c54f2405370f2a01519fb02d6c49946a873853a00cfc17fee15d",
+      "event_id": "ACLEVT_5CB63F985EAD6FCA21AED223",
+      "event_type": "RESEARCH_EXECUTION_COMPLETED",
+      "live_order_submission_allowed": false,
+      "occurred_at": "2026-07-18T01:00:00Z",
+      "payload": {
+        "result_bundle_digest": "sha256:d1e77c5bf5230e01e9df0141cbb1c0a5f1daafd549588d077575802c9f31fb28",
+        "task_receipt_set_digest": "sha256:a3efa5c66630f3e25da94fe174dbf252f10332eda8a02a9573dfa269b5970c70"
+      },
+      "previous_event_digest": "sha256:b3fde9b27d68bd0fe8c36aded49efa4edc073ba041ef2f5585b64656a9b2ab60",
+      "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+      "schema_version": "1.0.0",
+      "sequence": 58
+    }
+  ],
+  "ledger_digest": "sha256:ef935758f4c0dfedd8a2d9ebf1769298fc3fbb48d0bc2cdc5baa2702f5174969",
+  "run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+  "schema_version": "1.0.0"
+}

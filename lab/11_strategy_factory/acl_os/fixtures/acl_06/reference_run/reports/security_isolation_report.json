@@ -1,0 +1,17 @@
+{
+  "capital_activation_allowed": false,
+  "checks": {
+    "acl05_network_denied": true,
+    "acl05_secret_denied": true,
+    "authority_capital_denied": true,
+    "authority_order_denied": true,
+    "dag_batch_mutation_denied": true,
+    "dag_candidate_mutation_denied": true,
+    "diagnostic_lane_segregated": true,
+    "registry_closed_world": true
+  },
+  "live_order_submission_allowed": false,
+  "passed": true,
+  "report_digest": "sha256:a1e12a7f78fc24aaa78dba1c8f676bf4bac4ef1f6b703d73581218b41858be2a",
+  "schema_version": "1.0.0"
+}

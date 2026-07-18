@@ -1,0 +1,8 @@
+{
+  "acyclic_required": true,
+  "closed_world": true,
+  "deterministic_required": true,
+  "dynamic_task_types_allowed": false,
+  "idempotent_required": true,
+  "policy_id": "ACL06_DAG_EXECUTION"
+}

@@ -1,0 +1,6 @@
+{
+  "max_attempts": 2,
+  "mode": "BOUNDED_IDEMPOTENT_RETRY",
+  "non_idempotent_retry_allowed": false,
+  "policy_id": "ACL06_RETRY"
+}

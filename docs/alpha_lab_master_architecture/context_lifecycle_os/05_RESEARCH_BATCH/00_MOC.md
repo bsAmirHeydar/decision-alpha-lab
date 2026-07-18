@@ -1,45 +1,52 @@
 ---
-title: ACL-05 Research Batch — Map of Content
+title: Research Batch — Map of Content
 status: accepted-reference
 version: 1.0.0
 updated: 2026-07-18
-tags: [acl-os, acl-05, research-batch]
+tags: [acl-os, acl-06]
 ---
-# ACL-05 Research Batch — Map of Content
+# Research Batch — Map of Content
 
-## Purpose
+## ACL-05 freeze
 
-Navigation and authority map for immutable research batches.
+- [[BATCH_DAG_ORCHESTRATOR]]
+- [[BATCH_EVENT_MODEL]]
+- [[BATCH_FREEZE_PROTOCOL]]
+- [[BATCH_MANIFEST_STANDARD]]
+- [[BATCH_REPRODUCTION_BUNDLE]]
+- [[BATCH_SECURITY_AND_ISOLATION]]
+- [[CACHE_IDEMPOTENCY_AND_REPLAY]]
+- [[COMPLETE_SEARCH_EXPOSURE]]
+- [[COMPUTE_BUDGET_AND_CANCELLATION]]
+- [[CONTENT_ADDRESSED_ARTIFACT_STORE]]
+- [[DATASET_SNAPSHOT_AND_CUT]]
+- [[IMMUTABLE_RESEARCH_BATCH]]
+- [[LABEL_AND_DATASET_COMPILER]]
+- [[OUTCOME_CUBE_AND_LABEL_MATURITY]]
+- [[REPRODUCIBLE_ENVIRONMENT]]
+- [[RESEARCH_FAILURE_TAXONOMY]]
+- [[SEARCH_SPACE_FREEZE]]
+- [[SPLIT_AND_CLUSTER_STANDARD]]
+- [[TASK_REGISTRY_AND_CONTRACT]]
 
-## Contract model
+## ACL-06 orchestration
 
-The machine artifacts, policies, implementation notes and atomic concepts are linked from one canonical entry point.
-
-## Failure semantics
-
-Fragmented navigation, stale links and competing definitions create hidden semantic forks.
-
-## Authority boundary
-
-This note describes ACL-05 reference mechanics. It does not establish external data quality, statistical edge, live-market parity, broker correctness, execution authority or capital authorization. Canonical JSON and policy artifacts outrank generated prose.
-
-## Non-negotiable invariants
-
-- Unknown fields, unresolved IDs and digest mismatches fail closed.
-- Known-time semantics are inherited and may not be weakened.
-- Candidate behavior remains byte- and digest-bound to ACL-04.
-- Diagnostic artifacts remain segregated from selection.
-- Material changes produce a new Batch identity; no in-place repair exists.
-- Publication is all-or-nothing and leaves an attributable event/receipt trail.
-
-## Verification obligations
-
-Verification includes closed-schema validation, byte-digest checks, negative authority tests, known-time mutation tests, deterministic replay, content-addressed store resolution, event-chain validation and clean-checkout delivery checks. Passing these tests proves only the declared reference mechanics.
-
-## Evolution and rollback
-
-Additive compatible changes require a new minor contract version. Breaking semantics require a new major version, migration note and new Batch identity. Before publication, rollback deletes staging. After publication, rollback restores the prior repository commit; frozen artifacts are never rewritten.
-
-## Related
-
-[[ACL_05_IMMUTABLE_BATCH_AND_STORE]], [[IMMUTABLE_RESEARCH_BATCH]], [[CONTENT_ADDRESSED_ARTIFACT_STORE]], [[BATCH_FREEZE_PROTOCOL]]
+- [[ACL06_RESEARCH_DAG_RUNTIME]]
+- [[ACL06_TASK_CONTRACT_STANDARD]]
+- [[ACL06_DETERMINISTIC_PLANNER]]
+- [[ACL06_BOUNDED_EXECUTOR]]
+- [[ACL06_CACHE_AND_IDEMPOTENCY]]
+- [[ACL06_FAILURE_PROPAGATION]]
+- [[ACL06_RESOURCE_ACCOUNTING]]
+- [[ACL06_RESEARCH_RESULT_BUNDLE]]
+- [[ACL06_DIAGNOSTIC_LANE_ISOLATION]]
+- [[ACL06_TASK_RECEIPT_AND_EVIDENCE]]
+- [[ACL06_RUN_ARTIFACT_STORE]]
+- [[ACL06_EVENT_AND_PROVENANCE]]
+- [[ACL06_KNOWN_TIME_EXECUTION]]
+- [[ACL06_PURGED_SPLIT_EXECUTION]]
+- [[ACL06_POLICY_IR_REFERENCE_EXECUTOR]]
+- [[ACL06_RETRY_AND_CANCELLATION]]
+- [[ACL06_ATOMIC_PUBLICATION]]
+- [[ACL06_ACL07_HANDOFF]]
+- [[ACL06_CLAIM_CEILING]]

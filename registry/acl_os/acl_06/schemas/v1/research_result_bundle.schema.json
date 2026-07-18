@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alpha_claim_allowed": {
+      "type": "boolean"
+    },
+    "batch_id": {
+      "type": "string"
+    },
+    "candidate_count": {
+      "type": "integer"
+    },
+    "candidate_results": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "dag_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "descriptive_only": {
+      "type": "boolean"
+    },
+    "diagnostic_candidate_count": {
+      "type": "integer"
+    },
+    "diagnostic_candidates_selectable": {
+      "type": "boolean"
+    },
+    "live_order_submission_allowed": {
+      "type": "boolean"
+    },
+    "research_candidate_count": {
+      "type": "integer"
+    },
+    "result_bundle_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "result_bundle_id": {
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "validation_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "alpha_claim_allowed",
+    "batch_id",
+    "candidate_count",
+    "candidate_results",
+    "capital_activation_allowed",
+    "dag_digest",
+    "descriptive_only",
+    "diagnostic_candidate_count",
+    "diagnostic_candidates_selectable",
+    "live_order_submission_allowed",
+    "research_candidate_count",
+    "result_bundle_digest",
+    "result_bundle_id",
+    "run_id",
+    "schema_version",
+    "validation_status"
+  ],
+  "type": "object"
+}

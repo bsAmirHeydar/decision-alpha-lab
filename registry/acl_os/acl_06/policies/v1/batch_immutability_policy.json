@@ -1,0 +1,9 @@
+{
+  "batch_mutation_allowed": false,
+  "budget_expansion_allowed": false,
+  "candidate_mutation_allowed": false,
+  "dataset_mutation_allowed": false,
+  "label_mutation_allowed": false,
+  "policy_id": "ACL06_BATCH_IMMUTABILITY",
+  "split_mutation_allowed": false
+}

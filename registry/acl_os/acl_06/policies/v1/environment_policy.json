@@ -1,0 +1,6 @@
+{
+  "inherit_acl05_lock": true,
+  "network_allowed": false,
+  "policy_id": "ACL06_ENVIRONMENT",
+  "secret_access_allowed": false
+}

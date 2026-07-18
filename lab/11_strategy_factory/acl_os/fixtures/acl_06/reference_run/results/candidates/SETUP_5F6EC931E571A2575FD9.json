@@ -1,0 +1,27 @@
+{
+  "accuracy": 0.0,
+  "alpha_claim_allowed": false,
+  "behavior_digest": "sha256:fec10026a22ad701a279e96c6dba1bc294e5ba5488ec8a970556810c5cca5a8b",
+  "candidate_digest": "sha256:158c146a649bb549896cdea6c774d788f35df4e671ab3c52c2b0bb7ec551fb29",
+  "candidate_id": "CAND_EB2F08D98D3D75CEAA61",
+  "candidate_result_digest": "sha256:685899be9a8f994695c57d43e5e6f6f50d94f3e38dd1862062a0c4ebf58d5bf5",
+  "correct": 0,
+  "coverage": 0.4,
+  "descriptive_only": true,
+  "diagnostic_selectable": null,
+  "incorrect": 2,
+  "lane": "RESEARCH",
+  "mean_signed_forward_delta": -3.0,
+  "origin": "AI",
+  "promotion_allowed": false,
+  "schema_version": "1.0.0",
+  "segment_result_digests": [
+    "sha256:070da109d01fea16cb9d734232e8a4fa99a9a9f5e8304517449815e4d6adfb62",
+    "sha256:936f6563211e6e92bc3a5776abd4f2f0e7bd27d9dfff1e3763423052a0b85b48",
+    "sha256:e2da441bd9e5df55f034589c28dc4f4fad8227b81cad81197d89f93ea09da656"
+  ],
+  "setup_id": "SETUP_5F6EC931E571A2575FD9",
+  "signals": 2,
+  "support": 5,
+  "validation_status": "NOT_VALIDATED"
+}

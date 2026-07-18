@@ -1,0 +1,13 @@
+{
+  "action": "ACL06_EXECUTE_BOUNDED_RESEARCH",
+  "batch_id": "BATCH_81FF4FC3C8B796422B0EF6818FEB2D5E",
+  "capital_activation_allowed": false,
+  "live_order_submission_allowed": false,
+  "network_access_allowed": false,
+  "permit_digest": "sha256:4d9f5359093f1489ef93b0a67ac258fcad73d117f62a8ccd0baef28e2fa8e460",
+  "permit_id": "PERMIT_ACL06_REFERENCE_V1",
+  "schema_version": "1.0.0",
+  "secret_access_allowed": false,
+  "subject": "ACL-06",
+  "upstream_handoff_digest": "sha256:f0085c59d52b397e2db7db181ac75e8d9fbcd800d15f53728ad0965b37feb31b"
+}

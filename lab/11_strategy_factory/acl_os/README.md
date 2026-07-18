@@ -12,3 +12,7 @@ This package contains architecture-level conformance tests, fixtures and bounded
 - ACL-05 — Immutable Batch and Artifact Store: exact ACL-04 intake, candidate/search freeze, dataset and label contracts, purged walk-forward split, environment and budget locks, content-addressed storage, deterministic Batch identity, event/provenance evidence and ACL-06 handoff.
 
 Each phase has an explicit claim ceiling. A reference implementation must not be interpreted as production readiness, live parity, statistical edge or capital authorization.
+
+## ACL-06 — Research DAG Orchestration
+
+Consumes the immutable ACL-05 Batch, plans a closed deterministic DAG, executes bounded descriptive research, writes task receipts and hands evidence to ACL-07. No execution or capital authority is granted.

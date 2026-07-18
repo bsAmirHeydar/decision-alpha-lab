@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "capital_activation_allowed": {
+      "type": "boolean"
+    },
+    "checks": {
+      "additionalProperties": true,
+      "type": "object"
+    },
+    "live_order_submission_allowed": {
+      "type": "boolean"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "report_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "capital_activation_allowed",
+    "checks",
+    "live_order_submission_allowed",
+    "passed",
+    "report_digest",
+    "schema_version"
+  ],
+  "type": "object"
+}

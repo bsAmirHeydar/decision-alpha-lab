@@ -1,0 +1,89 @@
+---
+title: ACL-06 Atomic Concepts — Map of Content
+status: accepted-reference
+version: 1.0.0
+updated: 2026-07-18
+tags: [acl-os, acl-06]
+---
+# ACL-06 Atomic Concepts — Map of Content
+
+- [[001_RUN_ID]] — Deterministic run identity
+- [[002_DAG_DIGEST]] — Semantic digest of the closed research graph
+- [[003_TASK_ID]] — Stable task identity
+- [[004_TASK_TYPE]] — Closed registry task class
+- [[005_TASK_CONTRACT_DIGEST]] — Digest of one task contract
+- [[006_CACHE_KEY]] — Task material plus executor version
+- [[007_DEPENDENCY_EDGE]] — Directed prerequisite relation
+- [[008_TOPOLOGICAL_ORDER]] — Deterministic executable order
+- [[009_ACYCLIC_DAG]] — Graph with no dependency cycle
+- [[010_TASK_REGISTRY]] — Closed task-definition catalog
+- [[011_EXECUTOR_ID]] — Versioned deterministic implementation identity
+- [[012_MAX_ATTEMPTS]] — Bounded retry ceiling
+- [[013_IDEMPOTENT_TASK]] — Task safe to repeat with identical material
+- [[014_DETERMINISTIC_TASK]] — Task with stable semantic output
+- [[015_RESOURCE_PLAN]] — Pre-execution aggregate cost declaration
+- [[016_CPU_CHARGE]] — Deterministic CPU budget unit
+- [[017_MEMORY_CHARGE]] — Peak memory budget unit
+- [[018_OUTPUT_BYTE_CHARGE]] — Output storage budget unit
+- [[019_OBJECT_CHARGE]] — Artifact object budget unit
+- [[020_BUDGET_BREACH]] — Hard-cap violation
+- [[021_FAIL_CLOSED_CANCELLATION]] — Cancellation on first breach
+- [[022_BLOCKED_DESCENDANT]] — Task blocked by failed dependency
+- [[023_TASK_RECEIPT]] — Evidence of one task execution
+- [[024_RECEIPT_SET_DIGEST]] — Digest of all task receipts
+- [[025_RUN_OBJECT]] — Immutable task output blob
+- [[026_RUN_OBJECT_INDEX]] — Index of all output blobs
+- [[027_CONTENT_ADDRESS]] — SHA-256 byte identity
+- [[028_MATERIALIZED_DATASET]] — Exact decoded ACL-05 dataset
+- [[029_KNOWN_TIME_ORDER]] — Event <= availability <= cut
+- [[030_MATURE_LABEL]] — Label whose horizon is available
+- [[031_PRIMARY_LABEL]] — Selection-eligible outcome definition
+- [[032_DIAGNOSTIC_LABEL]] — Error-analysis-only outcome
+- [[033_PURGED_SPLIT]] — Frozen temporal partition with purge
+- [[034_EMBARGO]] — Post-window separation interval
+- [[035_TRAIN_SEGMENT]] — Training-time evidence partition
+- [[036_VALIDATION_SEGMENT]] — Validation-time evidence partition
+- [[037_TEST_SEGMENT]] — Held-out evidence partition
+- [[038_POLICY_IR_ATOM]] — Closed setup predicate
+- [[039_POLICY_IR_EXPRESSION]] — Composed predicate tree
+- [[040_REFERENCE_ADAPTER]] — Synthetic conformance field mapping
+- [[041_ENTRY_DECISION]] — Long or short policy action
+- [[042_ABSTENTION_DECISION]] — Explicit no-trade action
+- [[043_NO_SIGNAL]] — No clause fired
+- [[044_CANCEL_DECISION]] — Invalidation action
+- [[045_SUPPORT]] — Mature evaluated observations
+- [[046_SIGNAL_COUNT]] — Observations with directional decision
+- [[047_COVERAGE]] — Signals divided by support
+- [[048_ACCURACY]] — Correct directional signals divided by signals
+- [[049_SIGNED_FORWARD_DELTA]] — Direction-adjusted synthetic forward change
+- [[050_SEGMENT_RESULT]] — One candidate in one split segment
+- [[051_CANDIDATE_RESULT]] — Aggregate of three segment results
+- [[052_RESULT_BUNDLE]] — All candidate results for one run
+- [[053_DESCRIPTIVE_ONLY]] — No inferential validation applied
+- [[054_NOT_VALIDATED]] — Explicit pre-ACL07 status
+- [[055_DIAGNOSTIC_LANE]] — Non-selectable future-aware analysis lane
+- [[056_RESEARCH_LANE]] — Normal candidate evidence lane
+- [[057_DIAGNOSTIC_NON_SELECTABILITY]] — Hard denial of diagnostic promotion
+- [[058_EVENT_DIGEST]] — Hash of one run event
+- [[059_EVENT_CHAIN]] — Ordered hash-linked event ledger
+- [[060_PROVENANCE_NODE]] — Lineage artifact identity
+- [[061_PROVENANCE_EDGE]] — Lineage transformation relation
+- [[062_FROZEN_BATCH_REACHABILITY]] — Proof that results trace to ACL-05
+- [[063_ATOMIC_STAGING_ROOT]] — Private output assembly directory
+- [[064_OUTPUT_MANIFEST]] — Byte manifest of published run
+- [[065_RESEARCH_RECEIPT]] — Top-level run binding receipt
+- [[066_ACL06_TO_ACL07]] — Non-promotional validation handoff
+- [[067_CLAIM_CEILING]] — Maximum valid interpretation of ACL-06
+- [[068_ORDER_AUTHORITY_FALSE]] — No order capability
+- [[069_CAPITAL_AUTHORITY_FALSE]] — No capital capability
+- [[070_NETWORK_AUTHORITY_FALSE]] — No network capability
+- [[071_SECRET_AUTHORITY_FALSE]] — No secret capability
+- [[072_BATCH_MUTATION_FALSE]] — No ACL-05 mutation
+- [[073_CANDIDATE_MUTATION_FALSE]] — No setup behavior mutation
+- [[074_BUDGET_EXPANSION_FALSE]] — No runtime cap increase
+- [[075_PARTIAL_PUBLICATION_FALSE]] — No incomplete success output
+- [[076_REPLAY_REPORT]] — Deterministic verification result
+- [[077_SECURITY_REPORT]] — Capability-boundary evidence
+- [[078_FAILURE_REPORT]] — Explicit task failure evidence
+- [[079_STATIC_MQL5_MIRROR]] — Non-executing cross-runtime contract mirror
+- [[080_REFERENCE_RUN]] — Golden deterministic ACL-06 fixture

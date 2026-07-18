@@ -1,0 +1,27 @@
+{
+  "accuracy": 0.0,
+  "alpha_claim_allowed": false,
+  "behavior_digest": "sha256:706c3c6920aa7121488cd115f7a020706cca872999f6763d7c483d6511f05a4b",
+  "candidate_digest": "sha256:379db33456c15a55004dd77d99583a5cd819fd8a0b6166896c79668e2c8968ff",
+  "candidate_id": "CAND_BFF919B9FE1BDFC298B5",
+  "candidate_result_digest": "sha256:ce8b6b01aed2ba8db2dc7757cb2d20fc594caea8a1f92342fdbadd19bc547e4a",
+  "correct": 0,
+  "coverage": 0.2,
+  "descriptive_only": true,
+  "diagnostic_selectable": null,
+  "incorrect": 1,
+  "lane": "RESEARCH",
+  "mean_signed_forward_delta": -4.0,
+  "origin": "AI",
+  "promotion_allowed": false,
+  "schema_version": "1.0.0",
+  "segment_result_digests": [
+    "sha256:b2b6c1e00c57e1b0c7b82cdd5696cf8a4f242c318e0f3ea112f26f5f39c64613",
+    "sha256:91f0d673b8f79232a7e72f3dcc2d42b1443c025c3d559e4837fdf7458076d8b5",
+    "sha256:ccdc11186885ddfa513b2af0127b479f57893f9e113b66df2d3ba93821f0adf8"
+  ],
+  "setup_id": "SETUP_A9F7B7384FDE580E5660",
+  "signals": 1,
+  "support": 5,
+  "validation_status": "NOT_VALIDATED"
+}

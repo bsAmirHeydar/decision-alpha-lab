@@ -1,0 +1,6 @@
+{
+  "breach_action": "FAIL_CLOSED_CANCEL",
+  "hidden_retries_allowed": false,
+  "policy_id": "ACL06_BUDGET",
+  "source": "ACL05_FROZEN_BUDGET"
+}

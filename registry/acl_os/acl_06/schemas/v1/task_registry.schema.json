@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "closed_world": {
+      "type": "boolean"
+    },
+    "entries": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "capital_activation_allowed": {
+            "type": "boolean"
+          },
+          "cpu_seconds_budget": {
+            "type": "integer"
+          },
+          "deterministic": {
+            "type": "boolean"
+          },
+          "executor_id": {
+            "type": "string"
+          },
+          "idempotent": {
+            "type": "boolean"
+          },
+          "live_order_submission_allowed": {
+            "type": "boolean"
+          },
+          "max_attempts": {
+            "type": "integer"
+          },
+          "memory_mb_budget": {
+            "type": "integer"
+          },
+          "network_access_allowed": {
+            "type": "boolean"
+          },
+          "output_bytes_budget": {
+            "type": "integer"
+          },
+          "secret_access_allowed": {
+            "type": "boolean"
+          },
+          "task_type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "capital_activation_allowed",
+          "cpu_seconds_budget",
+          "deterministic",
+          "executor_id",
+          "idempotent",
+          "live_order_submission_allowed",
+          "max_attempts",
+          "memory_mb_budget",
+          "network_access_allowed",
+          "output_bytes_budget",
+          "secret_access_allowed",
+          "task_type"
+        ],
+        "type": "object"
+      },
+      "minItems": 8,
+      "type": "array"
+    },
+    "registry_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "closed_world",
+    "entries",
+    "registry_digest",
+    "registry_id",
+    "schema_version"
+  ],
+  "type": "object"
+}

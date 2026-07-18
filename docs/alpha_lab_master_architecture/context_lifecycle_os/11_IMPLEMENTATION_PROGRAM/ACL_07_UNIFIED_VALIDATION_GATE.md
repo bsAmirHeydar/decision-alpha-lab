@@ -2,65 +2,36 @@
 title: ACL-07 — Unified Validation Gate
 status: proposed-reference
 version: 1.0.0
-updated: 2026-07-17
-tags: [acl-os, context-lifecycle]
+updated: 2026-07-18
+tags: [acl-os, acl-06]
 ---
 # ACL-07 — Unified Validation Gate
 
-Implements Unified Validation Gate as an independently testable lifecycle increment, binding upstream ACL-06 — Research DAG Orchestration and handing explicit contracts to ACL-08 — Reporting and Experience.
+## Accepted ACL-06 dependency contract
 
-## Responsibility boundary
+ACL-07 starts only from a byte-valid `ACL06_TO_ACL07` handoff. It must resolve the exact research run, DAG, result bundle, task receipt set, resource accounting, run object index, event ledger and provenance graph. Every candidate result remains descriptive and `NOT_VALIDATED` until ACL-07 applies the full validation battery.
 
-This component owns a narrow part of implementation sequencing, acceptance evidence, migrations and handoff. It communicates through versioned contracts and immutable references. It may not infer adjacent authority, reach into private implementation folders, or create an alternative identity, security or evidence system.
+ACL-07 may verify research evidence, apply unified validation gates and issue a non-promotional validation decision. It may not mutate the frozen Batch, rewrite research results, promote the diagnostic lane, infer alpha without gates, authorize execution or activate capital.
 
-## Required inputs
+## Minimum intake checks
 
-- Exact artifact identities and versions.
-- Declared owner and authority scope.
-- Applicable policy, security classification and compatibility range.
-- Known-time-safe evidence or an explicit UNKNOWN state.
+- exact ACL-06 output manifest and receipt;
+- complete successful task receipt set;
+- resource usage within the ACL-05 frozen budget;
+- candidate and segment lineage to the frozen Batch;
+- diagnostic-lane non-selectability;
+- known-time and split evidence;
+- event-chain and provenance completeness;
+- no order or capital authority.
 
-## Produced artifacts
+## Required ACL-07 outputs
 
-- Closed-schema machine result with reason codes.
-- Lineage links to all source artifacts and transformations.
-- Human-readable Obsidian projection.
-- Security, test and migration evidence appropriate to the artifact class.
-
-## Non-negotiable invariants
-
-- Unknown fields and unresolved identities fail closed.
-- Generated content is never hand-edited.
-- Passing local tests does not prove alpha, live parity or capital authorization.
-- Every material mutation is authenticated, authorized, attributable and replayable.
-- Breaking semantics require a new version, migration and rollback.
-
-## Reference workflow
-
-1. Resolve exact inputs and owners.
-2. Validate schema, compatibility, security classification and authority.
-3. Execute deterministic domain logic in the declared environment.
-4. Validate outputs and append evidence events.
-5. Publish structured artifacts and projections atomically.
-6. Expose only policy-approved next actions.
-
-## Failure semantics
-
-The component stops with explicit reason codes for missing evidence, ambiguous semantics, incompatible versions, integrity mismatch, insufficient support, policy denial, security failure or unavailable dependency. It does not substitute a permissive default.
-
-## Extension and evolution
-
-New behavior enters through a registered extension manifest, bounded capabilities and conformance suite. Additive changes use compatible minor versions. Breaking changes require a major version, impact analysis, idempotent migration, dual-read or shadow period where needed, rollback and deprecation evidence.
-
-## Verification obligations
-
-Unit and property tests cover deterministic logic. Contract tests cover every adapter. Mutation tests prove guards are effective. Security-negative tests attempt bypass. Golden replay proves deterministic projection. Clean-checkout delivery validation proves the package has no hidden build dependency.
+ACL-07 must produce gate-level reason codes, support/effect evidence, leakage and data-quality results, overfit controls, distributional and temporal robustness evidence, multiple-testing controls and a decision that remains separate from execution authority.
 
 ## Claim ceiling
 
-This architecture note specifies required mechanics. Only environment-specific evidence can establish external data quality, statistical edge, broker behavior, MQL5 parity, operational security or production authorization.
+Receiving a completed research run does not establish alpha or promotion eligibility.
 
 ## Related
 
-- [[ACL_OS_HOME]]
-- [[IMPLEMENTATION_MASTER_PLAN]]
+[[ACL_06_RESEARCH_DAG_ORCHESTRATION]], [[UNIFIED_STATISTICAL_GATE]], [[PROMOTION_DECISION_POLICY]]

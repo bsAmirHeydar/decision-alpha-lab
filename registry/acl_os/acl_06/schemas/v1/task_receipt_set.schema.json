@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "all_success": {
+      "type": "boolean"
+    },
+    "receipt_count": {
+      "type": "integer"
+    },
+    "receipt_set_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "receipts": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "all_success",
+    "receipt_count",
+    "receipt_set_digest",
+    "receipts",
+    "run_id",
+    "schema_version"
+  ],
+  "type": "object"
+}

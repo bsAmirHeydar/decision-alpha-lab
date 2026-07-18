@@ -1,0 +1,6 @@
+{
+  "event_chain_required": true,
+  "frozen_batch_reachability_required": true,
+  "policy_id": "ACL06_LINEAGE",
+  "task_receipt_required": true
+}

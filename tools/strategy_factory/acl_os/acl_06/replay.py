@@ -1,0 +1,10 @@
+from pathlib import Path
+from .artifact_manifest import verify_output_manifest
+from .canonical import digest_object,with_digest
+from .event_ledger import verify_event_ledger
+from .io import load_json
+
+def verify_research_run(root:Path)->dict:
+    run=load_json(root/'execution/research_run.json'); dag=load_json(root/'plan/research_dag.json'); results=load_json(root/'results/research_result_bundle.json'); receipts=load_json(root/'execution/task_receipt_set.json'); accounting=load_json(root/'execution/resource_accounting.json'); events=load_json(root/'events/research_event_ledger.json'); handoff=load_json(root/'handoff/acl07_handoff.json'); manifest=load_json(root/'output_manifest.json'); receipt=load_json(root/'research_receipt.json')
+    checks={'root_marker':(root/'.acl06_generated_root').is_file(),'run_digest':run['research_run_digest']==digest_object({k:v for k,v in run.items() if k!='research_run_digest'}),'dag_digest':dag['dag_digest']==digest_object({k:v for k,v in dag.items() if k!='dag_digest'}),'result_digest':results['result_bundle_digest']==digest_object({k:v for k,v in results.items() if k!='result_bundle_digest'}),'receipt_set_digest':receipts['receipt_set_digest']==digest_object({k:v for k,v in receipts.items() if k!='receipt_set_digest'}),'accounting_digest':accounting['accounting_digest']==digest_object({k:v for k,v in accounting.items() if k!='accounting_digest'}),'event_chain':verify_event_ledger(events),'output_manifest':verify_output_manifest(root,manifest),'receipt_digest':receipt['receipt_digest']==digest_object({k:v for k,v in receipt.items() if k!='receipt_digest'}),'receipt_binds_manifest':receipt['output_manifest_digest']==manifest['manifest_digest'],'handoff_binds_results':handoff['result_bundle_digest']==results['result_bundle_digest'],'order_denied':receipt['live_order_submission_allowed'] is False,'capital_denied':receipt['capital_activation_allowed'] is False}
+    return with_digest({'schema_version':'1.0.0','run_id':run['run_id'],'checks':checks,'passed':all(checks.values())},'report_digest')

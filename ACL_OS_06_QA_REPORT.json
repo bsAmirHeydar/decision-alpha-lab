@@ -1,0 +1,83 @@
+{
+  "all_declared_checks_passed": true,
+  "atomic_concept_document_count": 81,
+  "base_commit_message": "feat(acl-os): implement ACL-05 immutable batch and artifact store",
+  "candidate_count": 12,
+  "checks": [
+    {
+      "evidence": "25 passed",
+      "name": "ACL-06 pytest suite",
+      "result": "PASS"
+    },
+    {
+      "evidence": "62 passed",
+      "name": "ACL-05 regression suite",
+      "result": "PASS"
+    },
+    {
+      "name": "Python compileall ACL-06",
+      "result": "PASS"
+    },
+    {
+      "name": "Reference replay verification",
+      "result": "PASS"
+    },
+    {
+      "name": "Delivery required-file validation",
+      "result": "PASS"
+    },
+    {
+      "evidence": "130 JSON files",
+      "name": "JSON parse validation",
+      "result": "PASS"
+    },
+    {
+      "evidence": "54 tasks; 8 closed task types",
+      "name": "DAG acyclicity and closed registry",
+      "result": "PASS"
+    },
+    {
+      "name": "Budget enforcement",
+      "result": "PASS"
+    },
+    {
+      "name": "Diagnostic lane segregation",
+      "result": "PASS"
+    },
+    {
+      "name": "Output manifest and receipt binding",
+      "result": "PASS"
+    }
+  ],
+  "claim_ceiling": "BOUNDED_RESEARCH_EXECUTION_REFERENCE_ONLY",
+  "commit_message": "feat(acl-os): implement ACL-06 research DAG orchestration",
+  "dag_task_count": 54,
+  "diagnostic_candidate_count": 1,
+  "event_count": 58,
+  "generated_at": "2026-07-18T01:00:00Z",
+  "json_parse_count": 130,
+  "limitations": {
+    "acl04_full_regression_rerun_in_this_delivery": false,
+    "alpha_validated": false,
+    "capital_authorized": false,
+    "execution_authorized": false,
+    "inferential_validation_performed": false,
+    "live_market_tested": false,
+    "metaeditor_compilation_performed": false,
+    "mt5_runtime_parity_proven": false,
+    "synthetic_reference_data_only": true
+  },
+  "mql5_static_contract_file_count": 13,
+  "phase": "ACL-06",
+  "phase_delivery_document_count": 51,
+  "policy_count": 19,
+  "python_module_count": 28,
+  "reference_batch_id": "BATCH_81FF4FC3C8B796422B0EF6818FEB2D5E",
+  "reference_run_id": "RUN_350FC971E4C5179C3AB4720C69825063",
+  "research_candidate_count": 11,
+  "run_object_bytes": 59504,
+  "run_object_count": 54,
+  "schema_count": 21,
+  "schema_version": "1.0.0",
+  "status": "accepted_reference_implementation"
+}
