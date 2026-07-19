@@ -1,0 +1,13 @@
+{
+  "bar_statuses": [
+    "CURRENT_OPEN",
+    "CLOSED",
+    "MISSING",
+    "NOT_APPLICABLE"
+  ],
+  "closed": true,
+  "phase_id": "LCM-04",
+  "registry_digest": "sha256:75c85847c3772a7ce9d6d1ea9acab9bb0e7853491beb5efaf20af026138f60ce",
+  "registry_id": "LCM04_BAR_STATUS_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}

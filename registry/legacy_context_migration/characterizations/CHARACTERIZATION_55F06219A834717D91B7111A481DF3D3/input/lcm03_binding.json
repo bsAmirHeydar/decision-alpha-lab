@@ -1,0 +1,9 @@
+{
+  "binding_digest": "sha256:e656bdfa9d6e881edd0981a6171930e5060ee993a92a3d13370a3ddd2f505a1e",
+  "classification_id": "CLASSIFICATION_B23DFF50BC28E90A66ADA125A850234B",
+  "identity_run_id": "IDENTITY_A3F7E93C3F5154CB2616F01F5235F748",
+  "schema_version": "1.0.0",
+  "source_handoff_digest": "sha256:016f2d0a3df58ef20942b577d6c8032062a918063a96f43c614ba7a01a32bfd8",
+  "source_identity_summary_digest": "sha256:f07e71ed7eaf8ae4321ff83c1d37b3e722132ed5457fdede977b1c5a53e0a34c",
+  "source_output_manifest_digest": "sha256:010d472c49a5751d2755362124f0d6e677d786e0f15f9049ff0ddca3b651e2e4"
+}

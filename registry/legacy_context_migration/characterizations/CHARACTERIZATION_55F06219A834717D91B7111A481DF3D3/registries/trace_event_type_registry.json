@@ -1,0 +1,24 @@
+{
+  "closed": true,
+  "event_types": [
+    "CASE_STARTED",
+    "INPUT_ACCEPTED",
+    "DATA_AVAILABLE",
+    "BAR_OBSERVED",
+    "STATE_EVALUATED",
+    "CONTEXT_EMITTED",
+    "SETUP_EMITTED",
+    "NO_TRADE_EMITTED",
+    "INVALIDATION_EMITTED",
+    "EXPIRY_EMITTED",
+    "DRAWING_INTENT_EMITTED",
+    "DRY_REQUEST_EMITTED",
+    "ERROR_RECORDED",
+    "CASE_COMPLETED"
+  ],
+  "phase_id": "LCM-04",
+  "registry_digest": "sha256:6b310e33e15134d74ed7d42c09c95ab8527de04fa930556dcabe8ba4382b2804",
+  "registry_id": "LCM04_TRACE_EVENT_TYPE_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "undeclared_event_type_allowed": false
+}

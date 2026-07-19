@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "characterization_run_id": {},
+    "claim_ceiling": {},
+    "marker_digest": {},
+    "phase_id": {}
+  },
+  "required": [
+    "phase_id",
+    "characterization_run_id",
+    "claim_ceiling",
+    "marker_digest"
+  ],
+  "title": "LCM-04 Characterization Marker",
+  "type": "object"
+}

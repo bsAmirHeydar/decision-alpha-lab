@@ -1,0 +1,146 @@
+{
+  "characterization_run_id": "CHARACTERIZATION_55F06219A834717D91B7111A481DF3D3",
+  "event_count": 8,
+  "events": [
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:e19e9539bd8afcb58d6c7f7ab9c9b7e377d421ff2176503c024eb7996a8592bd",
+      "event_id": "LCM04EVENT_55D2F5E84BA4F59480BAF787073774D0",
+      "event_type": "LCM03_PACKAGE_ACCEPTED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-19T00:00:00Z",
+      "payload": {
+        "source_handoff_digest": "sha256:016f2d0a3df58ef20942b577d6c8032062a918063a96f43c614ba7a01a32bfd8"
+      },
+      "previous_event_digest": null,
+      "runtime_authority": false,
+      "semantic_refactor_authority": false,
+      "sequence": 1,
+      "source_delete_authority": false,
+      "source_move_authority": false
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:5f3fb222e796fc44f77bcb8aabd1027d901ff0e6056c57450a9266897dee2823",
+      "event_id": "LCM04EVENT_1A51E7DF9C7D85B7CE564FDC9C5B7E33",
+      "event_type": "AUTHORITY_PERMIT_BOUND",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-19T00:00:00Z",
+      "payload": {
+        "permit_digest": "sha256:a0d9c78f2118eeb6865e84120dca4f33c882a9fd714a869e7fac5f1a5e605b9c"
+      },
+      "previous_event_digest": "sha256:e19e9539bd8afcb58d6c7f7ab9c9b7e377d421ff2176503c024eb7996a8592bd",
+      "runtime_authority": false,
+      "semantic_refactor_authority": false,
+      "sequence": 2,
+      "source_delete_authority": false,
+      "source_move_authority": false
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:4a9580563daafb61c7fd69df2efe2f7fa08e727117564ae56394bed3762499e4",
+      "event_id": "LCM04EVENT_DED9F052F6A7BF967CB378E638649496",
+      "event_type": "CHARACTERIZATION_PACKETS_REGISTERED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-19T00:00:00Z",
+      "payload": {
+        "ambiguity_count": 2040,
+        "packet_count": 2792
+      },
+      "previous_event_digest": "sha256:5f3fb222e796fc44f77bcb8aabd1027d901ff0e6056c57450a9266897dee2823",
+      "runtime_authority": false,
+      "semantic_refactor_authority": false,
+      "sequence": 3,
+      "source_delete_authority": false,
+      "source_move_authority": false
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:184cd56e391e4077209c1e4408bd78f3c40d6a143f0673b7ee8ea5db4179ddd4",
+      "event_id": "LCM04EVENT_0876A71AF7F7FAFE10734F2B416E4A3F",
+      "event_type": "GOLDEN_CASE_CATALOG_BOUND",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-19T00:00:00Z",
+      "payload": {
+        "catalog_digest": "sha256:e271e6e6e8412ce37b8b2d909a0bf88a1302df91c0c3cf354253db315237b894"
+      },
+      "previous_event_digest": "sha256:4a9580563daafb61c7fd69df2efe2f7fa08e727117564ae56394bed3762499e4",
+      "runtime_authority": false,
+      "semantic_refactor_authority": false,
+      "sequence": 4,
+      "source_delete_authority": false,
+      "source_move_authority": false
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:ec0c1e88f5b8b053f691eb380ff4a7406d58c215e786d033d3875d6a0559e623",
+      "event_id": "LCM04EVENT_9FFCE8A6A5AAF727F16D3759B061C9A6",
+      "event_type": "REFERENCE_HARNESS_EXECUTED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-19T00:00:00Z",
+      "payload": {
+        "trace_bundle_digest": "sha256:ebe80cf5b83db65fa4ceb470b73d6a13857ab700569fb4c29ba24d98fe327819"
+      },
+      "previous_event_digest": "sha256:184cd56e391e4077209c1e4408bd78f3c40d6a143f0673b7ee8ea5db4179ddd4",
+      "runtime_authority": false,
+      "semantic_refactor_authority": false,
+      "sequence": 5,
+      "source_delete_authority": false,
+      "source_move_authority": false
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:0d571904b320559b6ab748fac30e015e38c4c52e4d05876404ece25adcd68d92",
+      "event_id": "LCM04EVENT_336A3B9C90817A7D9F2D4180F5F8EE0E",
+      "event_type": "KNOWN_TIME_AUDIT_COMPLETED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-19T00:00:00Z",
+      "payload": {
+        "audit_digest": "sha256:abc21285481b7443b6a6b257fb1f4bb8ad17ca447927f2a26f3dd3c9a27bd1d1"
+      },
+      "previous_event_digest": "sha256:ec0c1e88f5b8b053f691eb380ff4a7406d58c215e786d033d3875d6a0559e623",
+      "runtime_authority": false,
+      "semantic_refactor_authority": false,
+      "sequence": 6,
+      "source_delete_authority": false,
+      "source_move_authority": false
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:2dcd8667c931a7e2f7f50ad0cdd73719ef26b1df8a004404dfad8adb4a817c20",
+      "event_id": "LCM04EVENT_6B6E3030A076DB294F9E2662274502A6",
+      "event_type": "LEGACY_EXECUTION_BLOCKERS_RECORDED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-19T00:00:00Z",
+      "payload": {
+        "blocker_count": 4
+      },
+      "previous_event_digest": "sha256:0d571904b320559b6ab748fac30e015e38c4c52e4d05876404ece25adcd68d92",
+      "runtime_authority": false,
+      "semantic_refactor_authority": false,
+      "sequence": 7,
+      "source_delete_authority": false,
+      "source_move_authority": false
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:d982929f9651e965d767b638e209cb386eddcedcaa626fe549c1f79e5d07e773",
+      "event_id": "LCM04EVENT_E95FEC5AEC23F0DF5D9A7D75666DECDA",
+      "event_type": "LCM05_HANDOFF_PREPARED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-19T00:00:00Z",
+      "payload": {
+        "handoff_digest": "sha256:3b2499ab501cd9d80173c044292ba1a114ce61ef55bf7dbcaf217a5907ad689c"
+      },
+      "previous_event_digest": "sha256:2dcd8667c931a7e2f7f50ad0cdd73719ef26b1df8a004404dfad8adb4a817c20",
+      "runtime_authority": false,
+      "semantic_refactor_authority": false,
+      "sequence": 8,
+      "source_delete_authority": false,
+      "source_move_authority": false
+    }
+  ],
+  "ledger_digest": "sha256:37a8b7f3c59905a7cd8a268937259fab01c4083e5d1ea6cf34767c9f3d158164",
+  "phase_id": "LCM-04",
+  "schema_version": "1.0.0"
+}

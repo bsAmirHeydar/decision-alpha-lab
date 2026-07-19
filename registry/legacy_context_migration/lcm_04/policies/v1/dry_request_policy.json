@@ -1,0 +1,9 @@
+{
+  "broker_submission_allowed": false,
+  "phase_id": "LCM-04",
+  "policy_digest": "sha256:e59b3f16e11db572a70cb57ad45eb8e12bf52d7ea25915af40504ec165f2c11c",
+  "policy_id": "LCM04_DRY_REQUEST_POLICY_V1",
+  "request_intent_capture_allowed": true,
+  "schema_version": "1.0.0",
+  "zero_volume_reference_only": true
+}

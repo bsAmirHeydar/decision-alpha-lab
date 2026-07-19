@@ -1,0 +1,123 @@
+{
+  "claim_ceiling": "LEGACY_BEHAVIOR_CHARACTERIZATION_ONLY",
+  "environment_limitations": [
+    "HUMAN_SEMANTIC_OWNER_APPROVALS_PENDING",
+    "SECURITY_REVIEWS_PENDING",
+    "IDENTITY_AMBIGUITIES_PENDING",
+    "METAEDITOR_AND_MT5_RUNTIME_NOT_AVAILABLE_IN_REFERENCE_ENVIRONMENT",
+    "REFERENCE_FIXTURE_IS_NOT_LEGACY_BEHAVIOR_EVIDENCE"
+  ],
+  "implementation": {
+    "atomic_concept_document_count": 81,
+    "machine_policy_count": 16,
+    "mql5_static_contract_file_count": 5,
+    "phase_delivery_document_count": 49,
+    "python_module_count": 21,
+    "schema_count": 23
+  },
+  "phase_id": "LCM-04",
+  "reference_characterization": {
+    "acceptance_gate_blockers": [
+      "HUMAN_OWNER_APPROVALS_PENDING",
+      "SECURITY_REVIEWS_PENDING",
+      "IDENTITY_AMBIGUITIES_PENDING",
+      "MQL5_METATRADER_RUNTIME_NOT_AVAILABLE_IN_REFERENCE_ENVIRONMENT"
+    ],
+    "acceptance_gate_passed": false,
+    "active_candidate_count": 4832,
+    "capability_counts": {
+      "closed_bar": 61,
+      "current_bar": 147,
+      "drawing_api": 48,
+      "dynamic_exec": 25,
+      "file_io": 267,
+      "global_state": 309,
+      "network_api": 28,
+      "order_api": 68,
+      "randomness": 5,
+      "session_api": 151,
+      "timeframe_api": 242,
+      "timer_api": 62,
+      "wall_clock": 142
+    },
+    "characterization_run_id": "CHARACTERIZATION_55F06219A834717D91B7111A481DF3D3",
+    "golden_case_type_count": 18,
+    "identity_ambiguity_packet_count": 2040,
+    "identity_kind_counts": {
+      "ADAPTER": 156,
+      "CONTEXT": 321,
+      "ENGINE": 1836,
+      "SETUP": 60,
+      "SUPPORT_ARTIFACT": 202,
+      "TREATMENT": 164,
+      "VISUALIZER": 53
+    },
+    "identity_packet_count": 2792,
+    "identity_run_id": "IDENTITY_A3F7E93C3F5154CB2616F01F5235F748",
+    "lcm05_handoff_digest": "sha256:3b2499ab501cd9d80173c044292ba1a114ce61ef55bf7dbcaf217a5907ad689c",
+    "legacy_observed_trace_count": 0,
+    "legacy_trace_execution_count": 0,
+    "output_manifest_digest": "sha256:ffdabae60c9269edbfa19f807966506798d87d8f41ba8e20cd914bab7b102dda",
+    "packet_status_counts": {
+      "BLOCKED_OWNER_APPROVAL": 949,
+      "BLOCKED_SECURITY_REVIEW": 68,
+      "EXCLUDED_PROTECTED_PLATFORM": 1775
+    },
+    "reference_fixture_case_count": 18,
+    "reference_fixture_event_count": 108,
+    "reference_known_time_status": "PASS",
+    "reference_replay_deterministic": true
+  },
+  "result": "PASSED",
+  "schema_version": "1.0.0",
+  "security_boundary": {
+    "capital_authority_created": false,
+    "cutover_authority_created": false,
+    "live_order_authority_created": false,
+    "merge_authority_created": false,
+    "runtime_authority_created": false,
+    "semantic_refactor_authority_created": false,
+    "source_delete_authority_created": false,
+    "source_instrumentation_mutation_authority_created": false,
+    "source_move_authority_created": false
+  },
+  "tests": {
+    "acl15_regression": {
+      "failed": 0,
+      "passed": 39
+    },
+    "lcm00_regression": {
+      "failed": 0,
+      "passed": 29
+    },
+    "lcm01_regression": {
+      "failed": 0,
+      "passed": 25
+    },
+    "lcm02_regression": {
+      "failed": 0,
+      "passed": 31
+    },
+    "lcm03_regression": {
+      "failed": 0,
+      "passed": 37
+    },
+    "lcm04": {
+      "failed": 0,
+      "passed": 18
+    }
+  },
+  "verification": {
+    "cutover_count": 0,
+    "identity_and_ambiguity_coverage_complete": true,
+    "known_time_audit_passed": true,
+    "merge_count": 0,
+    "python_compileall_passed": true,
+    "reference_package_verification_passed": true,
+    "reference_replay_passed": true,
+    "semantic_refactor_count": 0,
+    "source_delete_count": 0,
+    "source_move_count": 0,
+    "source_mutation_count": 0
+  }
+}

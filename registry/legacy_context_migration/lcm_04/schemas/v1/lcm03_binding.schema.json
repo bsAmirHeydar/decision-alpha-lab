@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "binding_digest": {},
+    "identity_run_id": {},
+    "source_handoff_digest": {}
+  },
+  "required": [
+    "identity_run_id",
+    "source_handoff_digest",
+    "binding_digest"
+  ],
+  "title": "LCM-04 LCM-03 Binding",
+  "type": "object"
+}

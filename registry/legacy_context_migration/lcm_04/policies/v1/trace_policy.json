@@ -1,0 +1,10 @@
+{
+  "content_derived_trace_ids": true,
+  "event_order_required": true,
+  "phase_id": "LCM-04",
+  "policy_digest": "sha256:37c89c5fd50b29ba1dfe0bf3f47890f630e4a55243640f202bf804dcfa0b164f",
+  "policy_id": "LCM04_TRACE_POLICY_V1",
+  "raw_and_normalized_evidence_required_for_legacy": true,
+  "reference_fixture_is_legacy_evidence": false,
+  "schema_version": "1.0.0"
+}

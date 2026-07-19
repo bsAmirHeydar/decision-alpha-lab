@@ -1,0 +1,10 @@
+{
+  "delete_allowed": false,
+  "move_allowed": false,
+  "phase_id": "LCM-04",
+  "policy_digest": "sha256:5f3e0815a66ebee5da4d743075efeac2a5c26809907ba95a01929c98f277dbb2",
+  "policy_id": "LCM04_SOURCE_MUTATION_POLICY_V1",
+  "refactor_allowed": false,
+  "schema_version": "1.0.0",
+  "source_instrumentation_patch_materialization_allowed": false
+}

@@ -1,0 +1,10 @@
+{
+  "legacy_trace_execution_requires_human_approval": true,
+  "phase_id": "LCM-04",
+  "policy_digest": "sha256:9dacb904470cd1f495f3a106fb6c617b717d1d8563cd541f7848492487553b3f",
+  "policy_id": "LCM04_AUTHORITY_POLICY_V1",
+  "reference_harness_execution_allowed": true,
+  "runtime_authority": false,
+  "schema_version": "1.0.0",
+  "source_mutation_allowed": false
+}

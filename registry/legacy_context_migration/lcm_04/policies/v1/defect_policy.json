@@ -1,0 +1,9 @@
+{
+  "approved_correction_requires_new_semantic_version": true,
+  "observed_and_intended_separate": true,
+  "phase_id": "LCM-04",
+  "policy_digest": "sha256:efa809d6cd65f45e8b25a4aa5c18cf8e0668b2f7fe3e636edeca73bf4e6e0929",
+  "policy_id": "LCM04_DEFECT_POLICY_V1",
+  "schema_version": "1.0.0",
+  "silent_bug_fix_allowed": false
+}

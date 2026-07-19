@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "characterization_run_id": {},
+    "handoff_digest": {},
+    "handoff_type": {},
+    "legacy_characterization_complete": {}
+  },
+  "required": [
+    "handoff_type",
+    "characterization_run_id",
+    "legacy_characterization_complete",
+    "handoff_digest"
+  ],
+  "title": "LCM-04 Handoff",
+  "type": "object"
+}

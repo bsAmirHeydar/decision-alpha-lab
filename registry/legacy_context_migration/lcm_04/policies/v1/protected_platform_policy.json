@@ -1,0 +1,8 @@
+{
+  "phase_id": "LCM-04",
+  "platform_regression_required": true,
+  "policy_digest": "sha256:3a74a2cd6786afc1ad15713fc5d13f9454d40b849fb450e1f827398566adb1f6",
+  "policy_id": "LCM04_PROTECTED_PLATFORM_POLICY_V1",
+  "protected_platform_excluded_from_legacy_characterization": true,
+  "schema_version": "1.0.0"
+}

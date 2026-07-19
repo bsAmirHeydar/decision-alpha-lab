@@ -1,0 +1,9 @@
+{
+  "closed_case_catalog": true,
+  "dynamic_case_types_allowed": false,
+  "phase_id": "LCM-04",
+  "policy_digest": "sha256:657c2b62eb2b4761ff12124c9e56c44619ae48d36e8e4fa4cc230805ec611d11",
+  "policy_id": "LCM04_GOLDEN_CASE_POLICY_V1",
+  "positive_only_catalog_allowed": false,
+  "schema_version": "1.0.0"
+}

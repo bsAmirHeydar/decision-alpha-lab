@@ -1,0 +1,35 @@
+{
+  "blocker_bundle_digest": "sha256:6a1a4fd5df9da0a681b8fd1d254366fd4dde2fbbcfff33dc3c71134e61cb1358",
+  "blocker_count": 4,
+  "blockers": [
+    {
+      "affected_count": 2792,
+      "blocker_digest": "sha256:c4999f46454ca78da702adca7cda4ddf44d344b786987022aac1b84841a2c247",
+      "blocker_id": "LCM04_BLOCKER_OWNER_APPROVALS",
+      "blocks_legacy_execution": true,
+      "reason_code": "HUMAN_OWNER_APPROVALS_PENDING"
+    },
+    {
+      "affected_count": 68,
+      "blocker_digest": "sha256:df52a348f17175b92ff9b88a37d140cf96d0661ff003f9507c27a21b6a94dcac",
+      "blocker_id": "LCM04_BLOCKER_SECURITY_REVIEWS",
+      "blocks_legacy_execution": true,
+      "reason_code": "SECURITY_REVIEWS_PENDING"
+    },
+    {
+      "affected_count": 2040,
+      "blocker_digest": "sha256:1c2cb9189c4ab7c444064eff4e2085a74db2d29df68478d88d04fd9a7caf6805",
+      "blocker_id": "LCM04_BLOCKER_IDENTITY_AMBIGUITIES",
+      "blocks_legacy_execution": true,
+      "reason_code": "IDENTITY_AMBIGUITIES_PENDING"
+    },
+    {
+      "affected_count": 1967,
+      "blocker_digest": "sha256:939d34299966f05db1afb6d8d51f0673724cbdb706e77abab9635d564aafb697",
+      "blocker_id": "LCM04_BLOCKER_EXTERNAL_RUNTIME",
+      "blocks_legacy_execution": true,
+      "reason_code": "MQL5_METATRADER_RUNTIME_NOT_AVAILABLE_IN_REFERENCE_ENVIRONMENT"
+    }
+  ],
+  "schema_version": "1.0.0"
+}

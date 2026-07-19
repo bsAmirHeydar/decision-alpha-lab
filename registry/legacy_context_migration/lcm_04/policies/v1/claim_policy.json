@@ -1,0 +1,9 @@
+{
+  "claim_ceiling": "LEGACY_BEHAVIOR_CHARACTERIZATION_ONLY",
+  "legacy_completion_requires_observed_traces": true,
+  "phase_id": "LCM-04",
+  "policy_digest": "sha256:61cef300a35232cc07d69b6534f23d42743e77187cdccf55ac94c39f76a2ec12",
+  "policy_id": "LCM04_CLAIM_POLICY_V1",
+  "reference_fixture_may_not_satisfy_acceptance_gate": true,
+  "schema_version": "1.0.0"
+}

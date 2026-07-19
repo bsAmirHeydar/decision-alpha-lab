@@ -1,0 +1,14 @@
+{
+  "closed": true,
+  "evidence_statuses": [
+    "REFERENCE_FIXTURE_ONLY",
+    "LEGACY_OBSERVED",
+    "OWNER_REVIEWED",
+    "UNKNOWN"
+  ],
+  "phase_id": "LCM-04",
+  "reference_fixture_is_legacy_evidence": false,
+  "registry_digest": "sha256:c14c0fe5f4eaadd78b40d1b9963f85b22c14a2a93cc46f9e38c1d2e7c5765280",
+  "registry_id": "LCM04_TRACE_EVIDENCE_STATUS_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}

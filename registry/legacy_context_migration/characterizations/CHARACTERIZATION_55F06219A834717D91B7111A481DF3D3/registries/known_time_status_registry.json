@@ -1,0 +1,14 @@
+{
+  "closed": true,
+  "known_time_statuses": [
+    "PASS",
+    "FAIL",
+    "UNKNOWN",
+    "NOT_APPLICABLE"
+  ],
+  "phase_id": "LCM-04",
+  "registry_digest": "sha256:3ebb00496c560f1d11b30c34e500b251b22a4eae298a18aba081980f81278970",
+  "registry_id": "LCM04_KNOWN_TIME_STATUS_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "unknown_is_pass": false
+}

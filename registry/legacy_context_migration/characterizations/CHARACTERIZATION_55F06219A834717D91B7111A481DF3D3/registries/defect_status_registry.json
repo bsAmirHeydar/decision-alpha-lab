@@ -1,0 +1,14 @@
+{
+  "closed": true,
+  "defect_statuses": [
+    "OBSERVED_NOT_ADJUDICATED",
+    "INTENDED_CORRECTION_APPROVED",
+    "REJECTED_AS_NON_DEFECT",
+    "UNKNOWN"
+  ],
+  "observed_is_approved_correction": false,
+  "phase_id": "LCM-04",
+  "registry_digest": "sha256:709e16d80e906d9144ad937f7c7d504c0e8302eb7ceedabc3245cfedd8a75c4d",
+  "registry_id": "LCM04_DEFECT_STATUS_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}

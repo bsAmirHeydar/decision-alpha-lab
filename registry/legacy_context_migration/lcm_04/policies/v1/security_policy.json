@@ -1,0 +1,9 @@
+{
+  "network_access_allowed": false,
+  "phase_id": "LCM-04",
+  "policy_digest": "sha256:79770c077425e8af21bd0dd8b4b156123d476f4e9cf2e0b914963d2d40595c15",
+  "policy_id": "LCM04_SECURITY_POLICY_V1",
+  "schema_version": "1.0.0",
+  "secret_access_allowed": false,
+  "security_review_required_for_sensitive_artifacts": true
+}

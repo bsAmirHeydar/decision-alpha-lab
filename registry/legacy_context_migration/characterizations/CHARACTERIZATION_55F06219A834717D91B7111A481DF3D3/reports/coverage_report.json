@@ -1,0 +1,14 @@
+{
+  "active_candidate_count": 4832,
+  "ambiguity_packet_count": 2040,
+  "characterization_run_id": "CHARACTERIZATION_55F06219A834717D91B7111A481DF3D3",
+  "coverage_digest": "sha256:0e8fd49464349666ec45ac8f739aba5a53c2c4087f8fb795428281fe682d710b",
+  "identity_and_ambiguity_coverage_complete": true,
+  "identity_packet_count": 2792,
+  "identity_run_id": "IDENTITY_A3F7E93C3F5154CB2616F01F5235F748",
+  "instrumentation_plan_count": 2792,
+  "legacy_observed_trace_coverage_complete": false,
+  "required_case_mapping_count": 2792,
+  "schema_version": "1.0.0",
+  "static_profile_count": 2792
+}

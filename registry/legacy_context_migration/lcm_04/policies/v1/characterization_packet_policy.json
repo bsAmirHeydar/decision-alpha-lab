@@ -1,0 +1,9 @@
+{
+  "ambiguity_requires_blocked_packet": true,
+  "every_identity_requires_packet": true,
+  "packet_is_semantic_approval": false,
+  "phase_id": "LCM-04",
+  "policy_digest": "sha256:df2702a23f366c03533487267c6945d3fdaa3fc774e2495a85b52592246d12a4",
+  "policy_id": "LCM04_CHARACTERIZATION_PACKET_POLICY_V1",
+  "schema_version": "1.0.0"
+}

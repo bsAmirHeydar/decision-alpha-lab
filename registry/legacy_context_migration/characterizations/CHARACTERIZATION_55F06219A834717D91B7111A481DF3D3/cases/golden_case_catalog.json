@@ -1,0 +1,245 @@
+{
+  "case_count": 18,
+  "cases": [
+    {
+      "broker_submission_allowed": false,
+      "case_contract_digest": "sha256:2d3bd2f8445c559f13d5d785c454051793b0d32d4ceecf698df55f6c1c4f0305",
+      "case_type": "POSITIVE",
+      "description": "Legacy conditions produce the expected positive event path.",
+      "ordinal": 1,
+      "required_input_classes": [
+        "TIME",
+        "STATE",
+        "DATA_AVAILABILITY"
+      ],
+      "semantic_correction_allowed": false
+    },
+    {
+      "broker_submission_allowed": false,
+      "case_contract_digest": "sha256:dbd4b0e4fad9223178b2264f242cd4e8109decd3d2e3c3d37f0b5cc6b6af8d55",
+      "case_type": "NEGATIVE",
+      "description": "Inputs remain ineligible and no positive event is emitted.",
+      "ordinal": 2,
+      "required_input_classes": [
+        "TIME",
+        "STATE",
+        "DATA_AVAILABILITY"
+      ],
+      "semantic_correction_allowed": false
+    },
+    {
+      "broker_submission_allowed": false,
+      "case_contract_digest": "sha256:4193d07cec3fd03bbe8461c2df1c07f66a44140f538f2cc633cce1a00cec8800",
+      "case_type": "NO_TRADE",
+      "description": "The system explicitly abstains with a stable reason.",
+      "ordinal": 3,
+      "required_input_classes": [
+        "TIME",
+        "STATE",
+        "DATA_AVAILABILITY"
+      ],
+      "semantic_correction_allowed": false
+    },
+    {
+      "broker_submission_allowed": false,
+      "case_contract_digest": "sha256:3f823b9b2558272bd7a1fb5877362e6611059d852e1fa272f5408d69ea05acff",
+      "case_type": "INVALIDATION",
+      "description": "An active reference or setup is invalidated at the declared boundary.",
+      "ordinal": 4,
+      "required_input_classes": [
+        "TIME",
+        "STATE",
+        "DATA_AVAILABILITY"
+      ],
+      "semantic_correction_allowed": false
+    },
+    {
+      "broker_submission_allowed": false,
+      "case_contract_digest": "sha256:dfd0ea959c309810788776c410ddca89d6a2058596fe4f4b76aae6bb8b5eb2b6",
+      "case_type": "EXPIRY",
+      "description": "A pending state expires without hidden carry-over.",
+      "ordinal": 5,
+      "required_input_classes": [
+        "TIME",
+        "STATE",
+        "DATA_AVAILABILITY"
+      ],
+      "semantic_correction_allowed": false
+    },
+    {
+      "broker_submission_allowed": false,
+      "case_contract_digest": "sha256:ce9d16688d09e2c31b4e2c9036943bbc2ff063977922250bf4b04032057253ce",
+      "case_type": "RESTART",
+      "description": "State after process/chart restart follows the declared persistence policy.",
+      "ordinal": 6,
+      "required_input_classes": [
+        "TIME",
+        "STATE",
+        "DATA_AVAILABILITY"
+      ],
+      "semantic_correction_allowed": false
+    },
+    {
+      "broker_submission_allowed": false,
+      "case_contract_digest": "sha256:e8691c920fe851c4b3b51c5c8b6f62c489201c7384e8ab464e43a3c49dc5c59a",
+      "case_type": "HISTORY_EXPANSION",
+      "description": "Additional historical bars do not rewrite known-time decisions.",
+      "ordinal": 7,
+      "required_input_classes": [
+        "TIME",
+        "STATE",
+        "DATA_AVAILABILITY"
+      ],
+      "semantic_correction_allowed": false
+    },
+    {
+      "broker_submission_allowed": false,
+      "case_contract_digest": "sha256:40294c3e5f11a38d72b95230cdd839aa1b59665aacb2e787384066b50b092ee0",
+      "case_type": "MISSING_BAR",
+      "description": "Incomplete data produces explicit failure or abstention.",
+      "ordinal": 8,
+      "required_input_classes": [
+        "TIME",
+        "STATE",
+        "DATA_AVAILABILITY"
+      ],
+      "semantic_correction_allowed": false
+    },
+    {
+      "broker_submission_allowed": false,
+      "case_contract_digest": "sha256:3053f9a5a16e9f95348b714980bb6ccfc38e551aafb971c65036c2e71cd943c5",
+      "case_type": "DST_TRANSITION",
+      "description": "Timezone and daylight-saving transition semantics remain stable.",
+      "ordinal": 9,
+      "required_input_classes": [
+        "TIME",
+        "STATE",
+        "DATA_AVAILABILITY"
+      ],
+      "semantic_correction_allowed": false
+    },
+    {
+      "broker_submission_allowed": false,
+      "case_contract_digest": "sha256:51fe970d749cb9c1b5dcc72823f5e711c0f0ce879a5db33bac06981f948fce3a",
+      "case_type": "SESSION_BOUNDARY",
+      "description": "Session open/close boundaries are deterministic.",
+      "ordinal": 10,
+      "required_input_classes": [
+        "TIME",
+        "STATE",
+        "DATA_AVAILABILITY"
+      ],
+      "semantic_correction_allowed": false
+    },
+    {
+      "broker_submission_allowed": false,
+      "case_contract_digest": "sha256:58d0f2b652646cd6e8fddaab67889a84c890ae13e02f9c2662a0105d307a0ad7",
+      "case_type": "TIMEFRAME_CHANGE",
+      "description": "Chart or requested timeframe change follows the declared policy.",
+      "ordinal": 11,
+      "required_input_classes": [
+        "TIME",
+        "STATE",
+        "DATA_AVAILABILITY"
+      ],
+      "semantic_correction_allowed": false
+    },
+    {
+      "broker_submission_allowed": false,
+      "case_contract_digest": "sha256:9299859182bc9db48948d1a0283fad6f687c33496d3f00090e77119433df23e3",
+      "case_type": "SYMBOL_CHANGE",
+      "description": "Symbol change does not leak stale cross-symbol state.",
+      "ordinal": 12,
+      "required_input_classes": [
+        "TIME",
+        "STATE",
+        "DATA_AVAILABILITY"
+      ],
+      "semantic_correction_allowed": false
+    },
+    {
+      "broker_submission_allowed": false,
+      "case_contract_digest": "sha256:0d84482416d87e64f61028085b1eeddd118c0766c535eddf9b67dd5258698fe1",
+      "case_type": "MULTI_INSTANCE",
+      "description": "Multiple instances do not collide in state or object names.",
+      "ordinal": 13,
+      "required_input_classes": [
+        "TIME",
+        "STATE",
+        "DATA_AVAILABILITY"
+      ],
+      "semantic_correction_allowed": false
+    },
+    {
+      "broker_submission_allowed": false,
+      "case_contract_digest": "sha256:7645637b7cd95e5bcc59f13f597c3bc6b0a698fd5ba587930c654f5635025be1",
+      "case_type": "DUPLICATE_TICK",
+      "description": "Repeated delivery of the same tick/event is idempotent.",
+      "ordinal": 14,
+      "required_input_classes": [
+        "TIME",
+        "STATE",
+        "DATA_AVAILABILITY"
+      ],
+      "semantic_correction_allowed": false
+    },
+    {
+      "broker_submission_allowed": false,
+      "case_contract_digest": "sha256:869fac7bd0b176383d367a3615125bd51debb24efa4f52325c39e51dd52ec469",
+      "case_type": "CURRENT_BAR_INTRABAR",
+      "description": "Intrabar behavior is captured rather than inferred from drawings.",
+      "ordinal": 15,
+      "required_input_classes": [
+        "TIME",
+        "STATE",
+        "DATA_AVAILABILITY"
+      ],
+      "semantic_correction_allowed": false
+    },
+    {
+      "broker_submission_allowed": false,
+      "case_contract_digest": "sha256:bb94e5866c6a0ee9ac38f3f8dfe1cc44c7567befd75fb8fe48b05c9e9d8336ef",
+      "case_type": "CLOSED_BAR_CONFIRMATION",
+      "description": "Closed-bar authority is captured explicitly.",
+      "ordinal": 16,
+      "required_input_classes": [
+        "TIME",
+        "STATE",
+        "DATA_AVAILABILITY"
+      ],
+      "semantic_correction_allowed": false
+    },
+    {
+      "broker_submission_allowed": false,
+      "case_contract_digest": "sha256:17630405f6270e400df7c72097df9c5a678fddca0e6757ac2c75fdb444ed7fd8",
+      "case_type": "DRAWING_LIFECYCLE",
+      "description": "Anchors, object IDs, updates and deletion ownership are captured.",
+      "ordinal": 17,
+      "required_input_classes": [
+        "TIME",
+        "STATE",
+        "DATA_AVAILABILITY"
+      ],
+      "semantic_correction_allowed": false
+    },
+    {
+      "broker_submission_allowed": false,
+      "case_contract_digest": "sha256:65e3ef6cd74bbdd274db5c6e0fbcae68fff1001c3a530cf911017d912d77973a",
+      "case_type": "DRY_EXECUTION_REQUEST",
+      "description": "Normalized request intent is captured with broker submission disabled.",
+      "ordinal": 18,
+      "required_input_classes": [
+        "TIME",
+        "STATE",
+        "DATA_AVAILABILITY"
+      ],
+      "semantic_correction_allowed": false
+    }
+  ],
+  "catalog_digest": "sha256:e271e6e6e8412ce37b8b2d909a0bf88a1302df91c0c3cf354253db315237b894",
+  "catalog_id": "LCM04_GOLDEN_CASE_CATALOG_V1",
+  "closed": true,
+  "dynamic_case_type_allowed": false,
+  "phase_id": "LCM-04",
+  "schema_version": "1.0.0"
+}

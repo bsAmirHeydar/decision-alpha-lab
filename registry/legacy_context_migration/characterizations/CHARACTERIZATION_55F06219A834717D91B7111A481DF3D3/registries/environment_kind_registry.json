@@ -1,0 +1,15 @@
+{
+  "closed": true,
+  "environment_kinds": [
+    "REFERENCE_SYNTHETIC",
+    "PYTHON_LEGACY",
+    "MQL5_TESTER",
+    "MQL5_CHART",
+    "UNKNOWN"
+  ],
+  "phase_id": "LCM-04",
+  "registry_digest": "sha256:37557435d358efd5362edd550d857791ae2a388defc81b4b9c15b40a947cb510",
+  "registry_id": "LCM04_ENVIRONMENT_KIND_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "unknown_environment_is_parity_evidence": false
+}

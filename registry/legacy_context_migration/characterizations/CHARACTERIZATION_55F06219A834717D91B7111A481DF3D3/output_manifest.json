@@ -1,0 +1,199 @@
+{
+  "artifact_count": 38,
+  "artifacts": [
+    {
+      "path": "audit/reference_known_time_audit.json",
+      "sha256": "sha256:5f9844cf525a5990361a54624c7f21f87a220b7b6664e618a1e76376f2f628bb",
+      "size_bytes": 264
+    },
+    {
+      "path": "authority/authority_permit.json",
+      "sha256": "sha256:32c3ad7a60105b08d8fd0e2042eb48479957bb4e652d50126646061c4b0cb9fc",
+      "size_bytes": 1001
+    },
+    {
+      "path": "blockers/characterization_blockers.json",
+      "sha256": "sha256:e49ac1acdb71a411affc54b5e9d3e267df9ce86ea9c9ab8de8f5c4ea2dc4322d",
+      "size_bytes": 1356
+    },
+    {
+      "path": "cases/golden_case_catalog.json",
+      "sha256": "sha256:988ff3921a69ddbef8fe24e9b2da9b21917545428e5c5c7cc29dfca37ef7ee28",
+      "size_bytes": 8364
+    },
+    {
+      "path": "characterization_marker.json",
+      "sha256": "sha256:03ccc3885513e0924a3be87f5892d5eb36471b290f822d1421bc76bf02e1a2dd",
+      "size_bytes": 599
+    },
+    {
+      "path": "characterization_receipt.json",
+      "sha256": "sha256:a40c78d634290c38f5234cd9d34042bd6db584efb8a7ee9845ea183a838bbc54",
+      "size_bytes": 1371
+    },
+    {
+      "path": "defects/intended_correction_register.json",
+      "sha256": "sha256:ec4438fad02c35a683e80cd58b7411a67548c668c3434acdf39ab09b1076dabf",
+      "size_bytes": 327
+    },
+    {
+      "path": "defects/observed_defect_register.json",
+      "sha256": "sha256:6b788ceb7bf6e7b54de4255b67bcd88cb53ea7ab0c1c7cfd8828ae684b7be905",
+      "size_bytes": 282
+    },
+    {
+      "path": "docs/LCM04_EXECUTIVE_BRIEF.md",
+      "sha256": "sha256:f7a7a3d4ee27985491cf20effa08f00aff12136b39715bd5f19b47bf6e8eeeeb",
+      "size_bytes": 386
+    },
+    {
+      "path": "docs/LCM04_TO_LCM05_HANDOFF.md",
+      "sha256": "sha256:e7cf66aed65fc9e2ac5b44e7aea0e2df7d6982c69d96199181cd5273d63b4e64",
+      "size_bytes": 166
+    },
+    {
+      "path": "docs/LCM04_TRACE_CONTRACT.md",
+      "sha256": "sha256:c3a93581d78bddfd273b7605740f2d78a5b2da8e76b486190ffc96a20d50ae63",
+      "size_bytes": 156
+    },
+    {
+      "path": "events/characterization_event_ledger.json",
+      "sha256": "sha256:5c1227a8215ee2f7346f9f123810e3add8889742e3e25296ef926d11b07bf822",
+      "size_bytes": 6111
+    },
+    {
+      "path": "handoff/lcm04_to_lcm05_handoff.json",
+      "sha256": "sha256:85017a67c44f3107b85fe0ad6b9512e7de711a4c57db7b33c5031eea27214d94",
+      "size_bytes": 1931
+    },
+    {
+      "path": "input/lcm03_binding.json",
+      "sha256": "sha256:3b85a423f3df2977bcc1b077f28c73b4fd9872d6adecd5f625b12a1af3a9d8cc",
+      "size_bytes": 590
+    },
+    {
+      "path": "instrumentation/instrumentation_plans.jsonl",
+      "sha256": "sha256:4e785bbbd2a29c08f546cd284a99ae9275845e319ee8ad79c15ffc7a5c66989f",
+      "size_bytes": 1687160
+    },
+    {
+      "path": "packets/characterization_packet_index.csv",
+      "sha256": "sha256:7bd5b289fb0f9fc0ad0a5ac0095f896b16e0c0c820db59a00c07faa82b81567d",
+      "size_bytes": 2172319
+    },
+    {
+      "path": "packets/characterization_packet_index.jsonl",
+      "sha256": "sha256:d4a6e6159d413bd3478e7da3dcd6f391e1bf4751513ee3ecf4af5e5cc86957f6",
+      "size_bytes": 3567423
+    },
+    {
+      "path": "packets/identity_ambiguity_characterization_queue.jsonl",
+      "sha256": "sha256:b75c94dbd58bab0b1d91f6afb2ac6f8aa8080410d703bfae10d1028dddf54a9a",
+      "size_bytes": 1053300
+    },
+    {
+      "path": "priorities/characterization_priority_queue.csv",
+      "sha256": "sha256:c8617ad15f0be0f787354dc91a5edb79a6d3a82be8680892253d8262e6ab8271",
+      "size_bytes": 706706
+    },
+    {
+      "path": "priorities/characterization_priority_queue.jsonl",
+      "sha256": "sha256:83e1f7b0ac543b6881d612ce1853becea53ae025425aec3ac2585413ab0b5dee",
+      "size_bytes": 1326342
+    },
+    {
+      "path": "profiles/source_static_profiles.csv",
+      "sha256": "sha256:57096d8399e3dec3fbcc3387a6a3d2ff7c5677c4660980fca81a0b3ba1c0e128",
+      "size_bytes": 1642466
+    },
+    {
+      "path": "profiles/source_static_profiles.jsonl",
+      "sha256": "sha256:32c05f5d251942f8df63292f8503d3a4f79a5e6201e5a54601e03560d6b2038f",
+      "size_bytes": 2465038
+    },
+    {
+      "path": "provenance/characterization_provenance_graph.json",
+      "sha256": "sha256:732760352a79b0d66366d9d36314fc8fdec38fecf14bf7294748402fd9374c74",
+      "size_bytes": 1015
+    },
+    {
+      "path": "registries/bar_status_registry.json",
+      "sha256": "sha256:637ed6312f8d700e040898f7a14249dc34b023a37e21838873c2dae2749d4c6e",
+      "size_bytes": 314
+    },
+    {
+      "path": "registries/defect_status_registry.json",
+      "sha256": "sha256:30061d93ec447522578669f848f033e0391c90ab513da946c706a51bd5d171cb",
+      "size_bytes": 406
+    },
+    {
+      "path": "registries/environment_kind_registry.json",
+      "sha256": "sha256:fbd640ca78f3db150e21089846498a2bc11ebbd641548afa63b7faa02e9f0dcd",
+      "size_bytes": 405
+    },
+    {
+      "path": "registries/golden_case_type_registry.json",
+      "sha256": "sha256:73735a5e349f4be0c574c4e7d53f251dcf58c4380675b402a09f513bb63ee620",
+      "size_bytes": 674
+    },
+    {
+      "path": "registries/known_time_status_registry.json",
+      "sha256": "sha256:322ae05d83670fab600f21c1c4b0ada154cd3990d5fc3f39f8a4fafdbde121c3",
+      "size_bytes": 346
+    },
+    {
+      "path": "registries/packet_status_registry.json",
+      "sha256": "sha256:fc7a6721e92584e8607a00cfae98060b70798447b00cf84827b31ddab935eb59",
+      "size_bytes": 491
+    },
+    {
+      "path": "registries/trace_event_type_registry.json",
+      "sha256": "sha256:5f5edef0daa9c05357addecfa206e8043cf101fd15c7ba221c07990912914d5f",
+      "size_bytes": 616
+    },
+    {
+      "path": "registries/trace_evidence_status_registry.json",
+      "sha256": "sha256:47369dc9ef553142637dc0c59ea1ce2aa606dd57ab5c6c3fbbf9ea8049bee390",
+      "size_bytes": 398
+    },
+    {
+      "path": "reports/characterization_summary.json",
+      "sha256": "sha256:5eabb0aff9e7f6bc0d10cb26fd26c8629f685aa46021a7e66a97c4bce2a0821f",
+      "size_bytes": 2112
+    },
+    {
+      "path": "reports/coverage_report.json",
+      "sha256": "sha256:bb1b26509103b6f4d096ba1cf9ba38fe74dced752c51d04ea73580cf1ab1399a",
+      "size_bytes": 590
+    },
+    {
+      "path": "reports/hostile_review.json",
+      "sha256": "sha256:719a1d2e566f1d2ef1b16c8c1337e7b29b97a42245cd2dc758527fae36d95995",
+      "size_bytes": 1061
+    },
+    {
+      "path": "traces/reference_fixture_inputs.jsonl",
+      "sha256": "sha256:2506fecd86e671b0dd365488ea70060a59b105e907686caa874188fe30417fdd",
+      "size_bytes": 9544
+    },
+    {
+      "path": "traces/reference_normalized_events.jsonl",
+      "sha256": "sha256:71b3494af47cb0b5409d7966f2b1ec334311c56ba7e651e00b3341c639316802",
+      "size_bytes": 97215
+    },
+    {
+      "path": "traces/reference_replay_stability.json",
+      "sha256": "sha256:b28f830e92e56e044c423030497f09d3ecd4f2eaccd7df94ff5bdffea5d2335c",
+      "size_bytes": 386
+    },
+    {
+      "path": "traces/reference_trace_bundle.json",
+      "sha256": "sha256:cbba29bf34a7517060094d6aa78275524752f69cec7f52c33d45c573a138b42b",
+      "size_bytes": 14770
+    }
+  ],
+  "characterization_run_id": "CHARACTERIZATION_55F06219A834717D91B7111A481DF3D3",
+  "output_manifest_digest": "sha256:ffdabae60c9269edbfa19f807966506798d87d8f41ba8e20cd914bab7b102dda",
+  "phase_id": "LCM-04",
+  "schema_version": "1.0.0"
+}

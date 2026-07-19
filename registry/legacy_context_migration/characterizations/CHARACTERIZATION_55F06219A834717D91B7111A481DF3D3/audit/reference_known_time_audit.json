@@ -1,0 +1,10 @@
+{
+  "audit_digest": "sha256:abc21285481b7443b6a6b257fb1f4bb8ad17ca447927f2a26f3dd3c9a27bd1d1",
+  "event_count": 108,
+  "finding_count": 0,
+  "findings": [],
+  "future_data_detected": false,
+  "phase_id": "LCM-04",
+  "schema_version": "1.0.0",
+  "status": "PASS"
+}

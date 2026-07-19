@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "bundle_digest": {},
+    "event_count": {},
+    "trace_count": {},
+    "traces": {}
+  },
+  "required": [
+    "trace_count",
+    "event_count",
+    "traces",
+    "bundle_digest"
+  ],
+  "title": "LCM-04 Trace Bundle",
+  "type": "object"
+}

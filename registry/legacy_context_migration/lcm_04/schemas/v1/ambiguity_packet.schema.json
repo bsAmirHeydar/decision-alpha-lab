@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "ambiguity_id": {},
+    "packet_digest": {},
+    "packet_status": {}
+  },
+  "required": [
+    "ambiguity_id",
+    "packet_status",
+    "packet_digest"
+  ],
+  "title": "LCM-04 Ambiguity Packet",
+  "type": "object"
+}

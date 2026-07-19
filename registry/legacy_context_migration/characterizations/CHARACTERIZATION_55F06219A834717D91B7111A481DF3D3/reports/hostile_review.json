@@ -1,0 +1,38 @@
+{
+  "checks": [
+    {
+      "check": "INSTRUMENTATION_TIMING_MUTATION",
+      "evidence": "NO_SOURCE_INSTRUMENTATION_MATERIALIZED",
+      "status": "PASS"
+    },
+    {
+      "check": "REFERENCE_FIXTURE_MISREPRESENTED_AS_LEGACY",
+      "evidence": "EVIDENCE_STATUS_REFERENCE_FIXTURE_ONLY",
+      "status": "PASS"
+    },
+    {
+      "check": "UNKNOWN_CONVERTED_TO_PASS",
+      "evidence": "LEGACY_EXECUTION_BLOCKED",
+      "status": "PASS"
+    },
+    {
+      "check": "CURRENT_BAR_HIDDEN_BY_DRAWING",
+      "evidence": "CURRENT_BAR_CASE_REQUIRED_WHEN_STATIC_CAPABILITY_DETECTED",
+      "status": "PASS"
+    },
+    {
+      "check": "UNSTABLE_RANDOM_IDS",
+      "evidence": "CONTENT_DERIVED_IDS",
+      "status": "PASS"
+    },
+    {
+      "check": "ORDER_AUTHORITY_ESCALATION",
+      "evidence": "BROKER_SUBMISSION_DISABLED",
+      "status": "PASS"
+    }
+  ],
+  "hostile_review_passed": true,
+  "production_or_legacy_parity_claimed": false,
+  "review_digest": "sha256:682d3d7d646733e4bddc83305e6883bd6a9cb2fb07105298f270cf35feaab04e",
+  "schema_version": "1.0.0"
+}

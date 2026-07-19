@@ -1,0 +1,9 @@
+{
+  "anchor_capture_required": true,
+  "drawing_is_projection_not_authority": true,
+  "owned_object_prefix_required": true,
+  "phase_id": "LCM-04",
+  "policy_digest": "sha256:6073c90b4498c24a1f16f680d3517d670cedef0db749ab30362e17f8c416cd49",
+  "policy_id": "LCM04_DRAWING_POLICY_V1",
+  "schema_version": "1.0.0"
+}

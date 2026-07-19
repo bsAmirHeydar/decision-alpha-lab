@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "characterization_run_id": {},
+    "legacy_trace_execution_count": {},
+    "phase_completion_state": {},
+    "summary_digest": {}
+  },
+  "required": [
+    "characterization_run_id",
+    "phase_completion_state",
+    "legacy_trace_execution_count",
+    "summary_digest"
+  ],
+  "title": "LCM-04 Characterization Summary",
+  "type": "object"
+}

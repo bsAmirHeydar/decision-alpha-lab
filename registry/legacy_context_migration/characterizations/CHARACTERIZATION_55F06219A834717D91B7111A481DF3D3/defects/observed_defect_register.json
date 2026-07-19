@@ -1,0 +1,9 @@
+{
+  "absence_of_record_is_absence_of_defect_claim": false,
+  "phase_id": "LCM-04",
+  "record_count": 0,
+  "records": [],
+  "register_digest": "sha256:df9ef1d8827ac51288dcdc1d29771d2f27d14c1ecb00d54496ee8c2777bbf891",
+  "schema_version": "1.0.0",
+  "silent_bug_fix_allowed": false
+}

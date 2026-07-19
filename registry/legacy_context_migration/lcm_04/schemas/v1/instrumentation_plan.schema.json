@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "identity_id": {},
+    "mode": {},
+    "plan_digest": {},
+    "plan_id": {}
+  },
+  "required": [
+    "plan_id",
+    "identity_id",
+    "mode",
+    "plan_digest"
+  ],
+  "title": "LCM-04 Instrumentation Plan",
+  "type": "object"
+}

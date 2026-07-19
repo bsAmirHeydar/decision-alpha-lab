@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "characterization_run_id": {},
+    "edges": {},
+    "nodes": {},
+    "provenance_digest": {}
+  },
+  "required": [
+    "characterization_run_id",
+    "nodes",
+    "edges",
+    "provenance_digest"
+  ],
+  "title": "LCM-04 Provenance Graph",
+  "type": "object"
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "identity_id": {},
+    "priority_digest": {},
+    "queue_priority_score": {}
+  },
+  "required": [
+    "identity_id",
+    "queue_priority_score",
+    "priority_digest"
+  ],
+  "title": "LCM-04 Priority Record",
+  "type": "object"
+}

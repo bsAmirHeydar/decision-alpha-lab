@@ -1,0 +1,17 @@
+{
+  "closed": true,
+  "packet_statuses": [
+    "EXCLUDED_PROTECTED_PLATFORM",
+    "BLOCKED_SECURITY_REVIEW",
+    "BLOCKED_OWNER_APPROVAL",
+    "BLOCKED_IDENTITY_AMBIGUITY",
+    "READY_FOR_INSTRUMENTATION",
+    "LEGACY_TRACE_CAPTURED",
+    "REPLAY_STABLE"
+  ],
+  "phase_id": "LCM-04",
+  "registry_digest": "sha256:0483dad09841782382634c547e4fccc3b6247a717639cf241ca7e0c8a45981aa",
+  "registry_id": "LCM04_PACKET_STATUS_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "unknown_is_ready": false
+}

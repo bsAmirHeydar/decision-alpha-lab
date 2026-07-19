@@ -1,0 +1,43 @@
+{
+  "capital_authority_created": false,
+  "characterization_run_id": "CHARACTERIZATION_55F06219A834717D91B7111A481DF3D3",
+  "edges": [
+    [
+      "LCM03_HANDOFF",
+      "LCM04_PACKET_INDEX"
+    ],
+    [
+      "LCM04_PACKET_INDEX",
+      "LCM04_CASE_CATALOG"
+    ],
+    [
+      "LCM04_CASE_CATALOG",
+      "LCM04_REFERENCE_TRACE_BUNDLE"
+    ],
+    [
+      "LCM04_REFERENCE_TRACE_BUNDLE",
+      "LCM04_SUMMARY"
+    ],
+    [
+      "LCM04_SUMMARY",
+      "LCM04_HANDOFF"
+    ]
+  ],
+  "legacy_behavior_invented": false,
+  "live_order_authority_created": false,
+  "nodes": [
+    "LCM03_HANDOFF",
+    "LCM04_PACKET_INDEX",
+    "LCM04_CASE_CATALOG",
+    "LCM04_REFERENCE_TRACE_BUNDLE",
+    "LCM04_SUMMARY",
+    "LCM04_HANDOFF"
+  ],
+  "phase_id": "LCM-04",
+  "provenance_digest": "sha256:ffc0a1325f1bf901dbd9aec0dc9a0a6572789340930715f7ff17447a2cb88d8b",
+  "reaches_lcm03_identity": true,
+  "reference_fixture_disclosed": true,
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "source_mutated": false
+}

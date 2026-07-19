@@ -1,0 +1,9 @@
+{
+  "current_bar_must_be_explicit": true,
+  "event_time_lte_available_at_lte_observed_at": true,
+  "phase_id": "LCM-04",
+  "policy_digest": "sha256:6d8f0a37617081112df82a52882b90ec4213585b77475850ad4245bb542fc6a2",
+  "policy_id": "LCM04_KNOWN_TIME_POLICY_V1",
+  "schema_version": "1.0.0",
+  "unknown_is_pass": false
+}

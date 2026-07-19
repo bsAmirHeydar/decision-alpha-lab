@@ -1,0 +1,8 @@
+{
+  "deterministic": true,
+  "first_bundle_digest": "sha256:ebe80cf5b83db65fa4ceb470b73d6a13857ab700569fb4c29ba24d98fe327819",
+  "legacy_replay_claimed": false,
+  "replay_digest": "sha256:0fe5c06a04efc360a7aa7e4b8027e6fc7b33952a0cb3603ab3448435355d6423",
+  "schema_version": "1.0.0",
+  "second_bundle_digest": "sha256:ebe80cf5b83db65fa4ceb470b73d6a13857ab700569fb4c29ba24d98fe327819"
+}

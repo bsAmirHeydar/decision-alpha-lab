@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "action": {},
+    "permit_digest": {},
+    "permit_id": {},
+    "phase_id": {}
+  },
+  "required": [
+    "phase_id",
+    "action",
+    "permit_id",
+    "permit_digest"
+  ],
+  "title": "LCM-04 Authority Permit",
+  "type": "object"
+}

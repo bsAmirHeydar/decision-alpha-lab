@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "available_at": {},
+    "case_id": {},
+    "case_type": {},
+    "event_time": {},
+    "input_digest": {},
+    "observed_at": {}
+  },
+  "required": [
+    "case_id",
+    "case_type",
+    "event_time",
+    "available_at",
+    "observed_at",
+    "input_digest"
+  ],
+  "title": "LCM-04 Reference Input",
+  "type": "object"
+}

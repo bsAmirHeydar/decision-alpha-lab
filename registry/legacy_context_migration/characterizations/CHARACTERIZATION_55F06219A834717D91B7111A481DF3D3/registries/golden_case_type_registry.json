@@ -1,0 +1,28 @@
+{
+  "case_types": [
+    "POSITIVE",
+    "NEGATIVE",
+    "NO_TRADE",
+    "INVALIDATION",
+    "EXPIRY",
+    "RESTART",
+    "HISTORY_EXPANSION",
+    "MISSING_BAR",
+    "DST_TRANSITION",
+    "SESSION_BOUNDARY",
+    "TIMEFRAME_CHANGE",
+    "SYMBOL_CHANGE",
+    "MULTI_INSTANCE",
+    "DUPLICATE_TICK",
+    "CURRENT_BAR_INTRABAR",
+    "CLOSED_BAR_CONFIRMATION",
+    "DRAWING_LIFECYCLE",
+    "DRY_EXECUTION_REQUEST"
+  ],
+  "closed": true,
+  "dynamic_case_type_allowed": false,
+  "phase_id": "LCM-04",
+  "registry_digest": "sha256:68f5ce9dc4e9ab441c9affb55b14d6fdbc838a8a912d7de39146046b79288866",
+  "registry_id": "LCM04_GOLDEN_CASE_TYPE_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "audit_digest": {},
+    "event_count": {},
+    "finding_count": {},
+    "status": {}
+  },
+  "required": [
+    "status",
+    "event_count",
+    "finding_count",
+    "audit_digest"
+  ],
+  "title": "LCM-04 Known-Time Audit",
+  "type": "object"
+}

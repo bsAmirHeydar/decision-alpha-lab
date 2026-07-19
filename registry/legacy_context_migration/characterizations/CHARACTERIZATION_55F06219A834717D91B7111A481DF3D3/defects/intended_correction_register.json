@@ -1,0 +1,10 @@
+{
+  "migration_may_approve_correction": false,
+  "observed_and_intended_must_be_separate": true,
+  "phase_id": "LCM-04",
+  "record_count": 0,
+  "records": [],
+  "register_digest": "sha256:304c77cbdb8e4c91cb8b6fb71eaa47e4f05bb3f7f51148f55b341d3fc4f86a96",
+  "schema_version": "1.0.0",
+  "semantic_version_bump_required": true
+}

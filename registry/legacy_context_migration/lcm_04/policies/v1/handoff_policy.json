@@ -1,0 +1,9 @@
+{
+  "phase_id": "LCM-04",
+  "policy_digest": "sha256:4485fc42b375560f8af1e648eb60590893f39812ad02d37ccc54e4de20dc3d19",
+  "policy_id": "LCM04_HANDOFF_POLICY_V1",
+  "schema_version": "1.0.0",
+  "source_move_allowed": false,
+  "target_path_materialization_allowed": false,
+  "unknown_to_pass_allowed": false
+}

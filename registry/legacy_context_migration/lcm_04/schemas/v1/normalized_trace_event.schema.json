@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "case_id": {},
+    "event_digest": {},
+    "event_type": {},
+    "sequence": {},
+    "trace_id": {}
+  },
+  "required": [
+    "trace_id",
+    "case_id",
+    "sequence",
+    "event_type",
+    "event_digest"
+  ],
+  "title": "LCM-04 Normalized Trace Event",
+  "type": "object"
+}

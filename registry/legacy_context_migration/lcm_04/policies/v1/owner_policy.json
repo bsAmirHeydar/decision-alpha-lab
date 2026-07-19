@@ -1,0 +1,8 @@
+{
+  "human_semantic_owner_approval_required_for_legacy_execution": true,
+  "phase_id": "LCM-04",
+  "policy_digest": "sha256:494572a5be9903222a73077e51d6007fd50baf52baedd19876640f4aad8318e9",
+  "policy_id": "LCM04_OWNER_POLICY_V1",
+  "role_binding_is_human_approval": false,
+  "schema_version": "1.0.0"
+}

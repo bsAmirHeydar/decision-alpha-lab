@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "capabilities": {},
+    "identity_id": {},
+    "profile_digest": {},
+    "source_artifact_path": {}
+  },
+  "required": [
+    "identity_id",
+    "source_artifact_path",
+    "capabilities",
+    "profile_digest"
+  ],
+  "title": "LCM-04 Static Profile",
+  "type": "object"
+}

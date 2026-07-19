@@ -1,0 +1,14 @@
+{
+  "characterization_run_id": "CHARACTERIZATION_55F06219A834717D91B7111A481DF3D3",
+  "claim_ceiling": "LEGACY_BEHAVIOR_CHARACTERIZATION_ONLY",
+  "cutover_performed": false,
+  "legacy_trace_execution_count": 0,
+  "marker_digest": "sha256:28dc4d6fa934167de389f10245d78713a78692516b1f7f6c06021768f5aa3d0b",
+  "phase_completion_state": "FOUNDATION_COMPLETE_LEGACY_EXECUTION_BLOCKED",
+  "phase_id": "LCM-04",
+  "schema_version": "1.0.0",
+  "semantic_refactor_performed": false,
+  "source_delete_performed": false,
+  "source_instrumentation_mutation_performed": false,
+  "source_move_performed": false
+}

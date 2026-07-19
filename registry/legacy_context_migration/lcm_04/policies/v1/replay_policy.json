@@ -1,0 +1,9 @@
+{
+  "nondeterminism_is_blocker": true,
+  "phase_id": "LCM-04",
+  "policy_digest": "sha256:44c29e729cc88b3748d4a9bedc6c04acf8cdc17c7627bc6eb8e650eadfd257e1",
+  "policy_id": "LCM04_REPLAY_POLICY_V1",
+  "reference_replay_is_legacy_parity": false,
+  "same_input_same_normalized_trace": true,
+  "schema_version": "1.0.0"
+}
