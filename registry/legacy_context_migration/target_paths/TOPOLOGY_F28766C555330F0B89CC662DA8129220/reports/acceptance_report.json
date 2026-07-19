@@ -1,0 +1,16 @@
+{
+  "acceptance_digest": "sha256:3944e45ab0c403a86b7040bfd84baec801cdc8f18c802230b27d013f0d303d79",
+  "acceptance_gate_passed": true,
+  "acceptance_state": "REFERENCE_TOPOLOGY_ACCEPTED_MATERIALIZATION_BLOCKED",
+  "all_classified_artifacts_have_one_target_outcome": true,
+  "all_identities_have_one_package_root": true,
+  "broad_file_movement_performed": false,
+  "documentation_successor_map_complete": true,
+  "generated_paths_noncanonical": true,
+  "package_root_registry_has_single_home": true,
+  "root_relocation_plan_complete": true,
+  "schema_version": "1.0.0",
+  "target_layer_graph_acyclic": true,
+  "target_path_casefold_collision_free": true,
+  "target_paths_windows_safe": true
+}

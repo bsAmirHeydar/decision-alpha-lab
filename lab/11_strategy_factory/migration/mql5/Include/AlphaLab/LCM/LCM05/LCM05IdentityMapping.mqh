@@ -1,0 +1,4 @@
+#ifndef ALPHALAB_LCM05_IDENTITY_MAPPING_MQH
+#define ALPHALAB_LCM05_IDENTITY_MAPPING_MQH
+struct LCM05IdentityMapping{string identity_id;string identity_kind;string target_package_root;bool canonical_path_materialized;};
+#endif

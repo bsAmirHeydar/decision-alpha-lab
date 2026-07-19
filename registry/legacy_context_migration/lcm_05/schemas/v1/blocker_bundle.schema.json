@@ -1,0 +1,21 @@
+{
+  "$id": "https://alpha-lab.local/lcm05/blocker_bundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "blocker_bundle_digest": {},
+    "blocker_count": {},
+    "blockers": {},
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "blocker_count",
+    "blockers",
+    "blocker_bundle_digest"
+  ],
+  "title": "LCM-05 blocker_bundle",
+  "type": "object"
+}

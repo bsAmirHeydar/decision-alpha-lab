@@ -1,0 +1,170 @@
+{
+  "no_artifact_class_has_two_canonical_homes": true,
+  "record_count": 23,
+  "records": [
+    {
+      "artifact_role_or_identity_kind": "ADAPTER",
+      "canonical_home": "lab/11_strategy_factory/adapters",
+      "materialization_allowed": false,
+      "record_digest": "sha256:2d52eb3c9f6fe6e90d34d1de76022a3aa10938078e163f9e4784d6d789856446",
+      "single_home": true
+    },
+    {
+      "artifact_role_or_identity_kind": "ARCHIVE",
+      "canonical_home": "registry/archives",
+      "materialization_allowed": false,
+      "record_digest": "sha256:ce5685b1d341ffd82cc4f9ed17ae8e07a0f13797ee4f91da0e6ea5863fbf9a02",
+      "single_home": true
+    },
+    {
+      "artifact_role_or_identity_kind": "CONFIGURATION_CONTRACT",
+      "canonical_home": "registry/configuration_contracts",
+      "materialization_allowed": false,
+      "record_digest": "sha256:c20f63e7ab3f69282a9e54650b7524121298028332b2e94a8134ebdd3364303c",
+      "single_home": true
+    },
+    {
+      "artifact_role_or_identity_kind": "CONTEXT",
+      "canonical_home": "lab/11_strategy_factory/contexts",
+      "materialization_allowed": false,
+      "record_digest": "sha256:559f599ba9cef4214924e2c52fbd8310af89110401781e8a90c3189d5fd2b06d",
+      "single_home": true
+    },
+    {
+      "artifact_role_or_identity_kind": "DIAGNOSTIC",
+      "canonical_home": "lab/11_strategy_factory/diagnostics",
+      "materialization_allowed": false,
+      "record_digest": "sha256:41dba55ad5e81e9d5904f116eeb2fc6b66aed5ed8e0d27dd63da92f0028aa8fa",
+      "single_home": true
+    },
+    {
+      "artifact_role_or_identity_kind": "DOCUMENTATION",
+      "canonical_home": "docs/alpha_lab_master_architecture",
+      "materialization_allowed": false,
+      "record_digest": "sha256:32cef7d61124b845782039e5fd9004ba84192b501533da987ec433a6423fcdef",
+      "single_home": true
+    },
+    {
+      "artifact_role_or_identity_kind": "ENGINE",
+      "canonical_home": "lab/11_strategy_factory/shared_engines",
+      "materialization_allowed": false,
+      "record_digest": "sha256:985c39cc61036878a481f4d5ad14d770932243db3cc0b765126317c2a57c3401",
+      "single_home": true
+    },
+    {
+      "artifact_role_or_identity_kind": "EXECUTION_ADAPTER",
+      "canonical_home": "lab/11_strategy_factory/adapters/mql5/execution",
+      "materialization_allowed": false,
+      "record_digest": "sha256:0cd28c67a89af6da8f434de160fe558c455c8a3adb34fe4355f142be585a02ff",
+      "single_home": true
+    },
+    {
+      "artifact_role_or_identity_kind": "GENERATED_PROJECTION",
+      "canonical_home": "registry/generated_projections",
+      "materialization_allowed": false,
+      "record_digest": "sha256:2fac704ab849d0e85e764a896efda1921db809fc5322095c1a9b5c2065448ee4",
+      "single_home": true
+    },
+    {
+      "artifact_role_or_identity_kind": "GOVERNANCE_CONTROL",
+      "canonical_home": "registry/governance",
+      "materialization_allowed": false,
+      "record_digest": "sha256:b19405d5f6e3289e33a94cb3ba3661d5a572da8ac4c4c62bc8ff070231b9a4be",
+      "single_home": true
+    },
+    {
+      "artifact_role_or_identity_kind": "PLATFORM_ADAPTER",
+      "canonical_home": "lab/11_strategy_factory/adapters",
+      "materialization_allowed": false,
+      "record_digest": "sha256:3f9c1df67aa0caa375359307769dce03c8879a98eb20f49f4606521317216495",
+      "single_home": true
+    },
+    {
+      "artifact_role_or_identity_kind": "PLATFORM_KERNEL",
+      "canonical_home": "__RETAIN_CURRENT__",
+      "materialization_allowed": false,
+      "record_digest": "sha256:c9eb11cc7d00f77e555a5431902e8da0b8299a75a9ebff481724b4afb7e2c26a",
+      "single_home": true
+    },
+    {
+      "artifact_role_or_identity_kind": "RELEASE_METADATA",
+      "canonical_home": "registry/releases",
+      "materialization_allowed": false,
+      "record_digest": "sha256:28ea434d62cf83d48f6ad951dc4e01708f62f7f68e3b57de5050cb3742de0984",
+      "single_home": true
+    },
+    {
+      "artifact_role_or_identity_kind": "RESEARCH",
+      "canonical_home": "lab/11_strategy_factory/research",
+      "materialization_allowed": false,
+      "record_digest": "sha256:d85ce34871d81ca0f53a74dc9a55dce36911abfb89c737344783a21629c192d3",
+      "single_home": true
+    },
+    {
+      "artifact_role_or_identity_kind": "SETUP",
+      "canonical_home": "lab/11_strategy_factory/setups",
+      "materialization_allowed": false,
+      "record_digest": "sha256:1fcf6b3d57bc7677df5c778295f08e42cce6521c51666592c297681b23f12253",
+      "single_home": true
+    },
+    {
+      "artifact_role_or_identity_kind": "SHARED_PRIMITIVE",
+      "canonical_home": "lab/11_strategy_factory/shared_engines",
+      "materialization_allowed": false,
+      "record_digest": "sha256:e833b30391583804e88e94faf71a094403880902063ee60b05dad140de8a67b6",
+      "single_home": true
+    },
+    {
+      "artifact_role_or_identity_kind": "SOURCE_EVIDENCE",
+      "canonical_home": "registry/source_evidence",
+      "materialization_allowed": false,
+      "record_digest": "sha256:9d5a5d3c5325fb1f011955fd22c4ee0aaa5fd274fe383ed2231a831d85d4b0ad",
+      "single_home": true
+    },
+    {
+      "artifact_role_or_identity_kind": "SUPPORT_ARTIFACT",
+      "canonical_home": "registry/legacy_context_migration/support_artifacts",
+      "materialization_allowed": false,
+      "record_digest": "sha256:0c13561a1de932099f94b2cbcc4cfe64bcc4146b63512015a30012a3f3584766",
+      "single_home": true
+    },
+    {
+      "artifact_role_or_identity_kind": "TEST_CODE",
+      "canonical_home": "lab/11_strategy_factory/migration/tests",
+      "materialization_allowed": false,
+      "record_digest": "sha256:3cf4d318278abc301821df1bf2c3ec65435b415e979e77a856701f49241d16d8",
+      "single_home": true
+    },
+    {
+      "artifact_role_or_identity_kind": "TEST_FIXTURE",
+      "canonical_home": "lab/11_strategy_factory/migration/fixtures",
+      "materialization_allowed": false,
+      "record_digest": "sha256:371ceef670adae7cebdb8931d9cb50fb664f995e93cafb7ce278e406fbc6b40c",
+      "single_home": true
+    },
+    {
+      "artifact_role_or_identity_kind": "TREATMENT",
+      "canonical_home": "lab/11_strategy_factory/treatments",
+      "materialization_allowed": false,
+      "record_digest": "sha256:be5d2d801649596fc811f8c84a6e3c279586c70a01514a0f8b8442f75bfe2d18",
+      "single_home": true
+    },
+    {
+      "artifact_role_or_identity_kind": "UNKNOWN_ROLE",
+      "canonical_home": "lab/11_strategy_factory/migration/quarantine/unknown_role",
+      "materialization_allowed": false,
+      "record_digest": "sha256:cd9bc90539a102ee5d98445ee24d658c9b42107c0a3e6834b16e46123cc3336f",
+      "single_home": true
+    },
+    {
+      "artifact_role_or_identity_kind": "VISUALIZER",
+      "canonical_home": "lab/11_strategy_factory/visualizers",
+      "materialization_allowed": false,
+      "record_digest": "sha256:dab522cc90d6398268ee46cb61ffde2c0b75c5a397990ed7feee0a0f67e06696",
+      "single_home": true
+    }
+  ],
+  "registry_digest": "sha256:e1a567afb5e05e466058239056f79bfa252ff4755305c0b1264bb0b4fedbb6da",
+  "registry_id": "LCM05_PACKAGE_ROOT_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}

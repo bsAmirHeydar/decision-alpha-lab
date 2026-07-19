@@ -1,0 +1,4 @@
+#ifndef ALPHALAB_LCM05_COMPATIBILITY_CONTRACT_MQH
+#define ALPHALAB_LCM05_COMPATIBILITY_CONTRACT_MQH
+struct LCM05CompatibilityContract{string legacy_path;string canonical_identity;string planned_wrapper_path;bool wrapper_materialized;bool authority_expansion_allowed;};
+#endif

@@ -1,0 +1,40 @@
+{
+  "boundary_digest": "sha256:7678213f9cd5ebf6a3f284c0409acc1730e553cc1cbdffc289852c3182eba073",
+  "boundary_id": "LCM05_AUTHORED_GENERATED_BOUNDARY_V1",
+  "classes": [
+    {
+      "canonical_authority_allowed": true,
+      "class_id": "AUTHORED_CANONICAL",
+      "hand_edit_allowed": true,
+      "rebuild_required": false
+    },
+    {
+      "canonical_authority_allowed": false,
+      "class_id": "GENERATED_PROJECTION",
+      "hand_edit_allowed": false,
+      "rebuild_required": true
+    },
+    {
+      "canonical_authority_allowed": false,
+      "class_id": "SOURCE_EVIDENCE",
+      "hand_edit_allowed": false,
+      "rebuild_required": false
+    },
+    {
+      "canonical_authority_allowed": false,
+      "class_id": "RELEASE_ARTIFACT",
+      "hand_edit_allowed": false,
+      "rebuild_required": true
+    },
+    {
+      "canonical_authority_allowed": false,
+      "class_id": "MIGRATION_REGISTRY",
+      "hand_edit_allowed": false,
+      "rebuild_required": true
+    }
+  ],
+  "generated_can_be_domain_authority": false,
+  "generated_can_override_authored": false,
+  "generated_rebuild_command": "python -m tools.strategy_factory.lcm.lcm_05.cli build --repo-root . --destination registry/legacy_context_migration/target_paths",
+  "schema_version": "1.0.0"
+}

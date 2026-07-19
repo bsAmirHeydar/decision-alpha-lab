@@ -1,0 +1,21 @@
+{
+  "$id": "https://alpha-lab.local/lcm05/path_safety_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "evaluated_target_count": {},
+    "safety_digest": {},
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "unsafe_target_count": {}
+  },
+  "required": [
+    "schema_version",
+    "evaluated_target_count",
+    "unsafe_target_count",
+    "safety_digest"
+  ],
+  "title": "LCM-05 path_safety_report",
+  "type": "object"
+}

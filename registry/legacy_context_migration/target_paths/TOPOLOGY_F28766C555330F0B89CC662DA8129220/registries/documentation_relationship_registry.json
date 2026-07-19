@@ -1,0 +1,13 @@
+{
+  "policy": {
+    "byte_duplicate_is_semantic_equivalence": false
+  },
+  "registry_digest": "sha256:4d5ec612f49ec27b88bd92709245486cd0c896d482d425705f2ebbe3e782aaf9",
+  "registry_id": "LCM05_DOCUMENTATION_RELATIONSHIP_REGISTRY_V1",
+  "relationships": [
+    "SELF",
+    "EXACT_BYTE_DUPLICATE_TREE",
+    "RETAIN_PENDING_SEMANTIC_RECONCILIATION"
+  ],
+  "schema_version": "1.0.0"
+}

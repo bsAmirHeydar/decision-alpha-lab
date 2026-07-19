@@ -1,0 +1,250 @@
+{
+  "allowed_dependency_edges": [
+    {
+      "source_layer": "SHARED_ENGINE",
+      "target_layer": "EVIDENCE"
+    },
+    {
+      "source_layer": "CONTEXT",
+      "target_layer": "EVIDENCE"
+    },
+    {
+      "source_layer": "CONTEXT",
+      "target_layer": "SHARED_ENGINE"
+    },
+    {
+      "source_layer": "SETUP",
+      "target_layer": "CONTEXT"
+    },
+    {
+      "source_layer": "SETUP",
+      "target_layer": "EVIDENCE"
+    },
+    {
+      "source_layer": "SETUP",
+      "target_layer": "SHARED_ENGINE"
+    },
+    {
+      "source_layer": "TREATMENT",
+      "target_layer": "CONTEXT"
+    },
+    {
+      "source_layer": "TREATMENT",
+      "target_layer": "EVIDENCE"
+    },
+    {
+      "source_layer": "TREATMENT",
+      "target_layer": "SETUP"
+    },
+    {
+      "source_layer": "TREATMENT",
+      "target_layer": "SHARED_ENGINE"
+    },
+    {
+      "source_layer": "VISUALIZER",
+      "target_layer": "CONTEXT"
+    },
+    {
+      "source_layer": "VISUALIZER",
+      "target_layer": "EVIDENCE"
+    },
+    {
+      "source_layer": "VISUALIZER",
+      "target_layer": "SETUP"
+    },
+    {
+      "source_layer": "VISUALIZER",
+      "target_layer": "SHARED_ENGINE"
+    },
+    {
+      "source_layer": "VISUALIZER",
+      "target_layer": "TREATMENT"
+    },
+    {
+      "source_layer": "PLATFORM_ADAPTER",
+      "target_layer": "CONTEXT"
+    },
+    {
+      "source_layer": "PLATFORM_ADAPTER",
+      "target_layer": "EVIDENCE"
+    },
+    {
+      "source_layer": "PLATFORM_ADAPTER",
+      "target_layer": "SETUP"
+    },
+    {
+      "source_layer": "PLATFORM_ADAPTER",
+      "target_layer": "SHARED_ENGINE"
+    },
+    {
+      "source_layer": "PLATFORM_ADAPTER",
+      "target_layer": "TREATMENT"
+    },
+    {
+      "source_layer": "EXECUTION_ADAPTER",
+      "target_layer": "CONTEXT"
+    },
+    {
+      "source_layer": "EXECUTION_ADAPTER",
+      "target_layer": "EVIDENCE"
+    },
+    {
+      "source_layer": "EXECUTION_ADAPTER",
+      "target_layer": "PLATFORM_ADAPTER"
+    },
+    {
+      "source_layer": "EXECUTION_ADAPTER",
+      "target_layer": "SETUP"
+    },
+    {
+      "source_layer": "EXECUTION_ADAPTER",
+      "target_layer": "SHARED_ENGINE"
+    },
+    {
+      "source_layer": "EXECUTION_ADAPTER",
+      "target_layer": "TREATMENT"
+    },
+    {
+      "source_layer": "APPLICATION",
+      "target_layer": "CONTEXT"
+    },
+    {
+      "source_layer": "APPLICATION",
+      "target_layer": "EVIDENCE"
+    },
+    {
+      "source_layer": "APPLICATION",
+      "target_layer": "EXECUTION_ADAPTER"
+    },
+    {
+      "source_layer": "APPLICATION",
+      "target_layer": "PLATFORM_ADAPTER"
+    },
+    {
+      "source_layer": "APPLICATION",
+      "target_layer": "SETUP"
+    },
+    {
+      "source_layer": "APPLICATION",
+      "target_layer": "SHARED_ENGINE"
+    },
+    {
+      "source_layer": "APPLICATION",
+      "target_layer": "TREATMENT"
+    },
+    {
+      "source_layer": "APPLICATION",
+      "target_layer": "VISUALIZER"
+    },
+    {
+      "source_layer": "GENERATED",
+      "target_layer": "APPLICATION"
+    },
+    {
+      "source_layer": "GENERATED",
+      "target_layer": "CONTEXT"
+    },
+    {
+      "source_layer": "GENERATED",
+      "target_layer": "EVIDENCE"
+    },
+    {
+      "source_layer": "GENERATED",
+      "target_layer": "EXECUTION_ADAPTER"
+    },
+    {
+      "source_layer": "GENERATED",
+      "target_layer": "PLATFORM_ADAPTER"
+    },
+    {
+      "source_layer": "GENERATED",
+      "target_layer": "SETUP"
+    },
+    {
+      "source_layer": "GENERATED",
+      "target_layer": "SHARED_ENGINE"
+    },
+    {
+      "source_layer": "GENERATED",
+      "target_layer": "TREATMENT"
+    },
+    {
+      "source_layer": "GENERATED",
+      "target_layer": "VISUALIZER"
+    },
+    {
+      "source_layer": "MIGRATION_CONTROL",
+      "target_layer": "APPLICATION"
+    },
+    {
+      "source_layer": "MIGRATION_CONTROL",
+      "target_layer": "CONTEXT"
+    },
+    {
+      "source_layer": "MIGRATION_CONTROL",
+      "target_layer": "EVIDENCE"
+    },
+    {
+      "source_layer": "MIGRATION_CONTROL",
+      "target_layer": "EXECUTION_ADAPTER"
+    },
+    {
+      "source_layer": "MIGRATION_CONTROL",
+      "target_layer": "GENERATED"
+    },
+    {
+      "source_layer": "MIGRATION_CONTROL",
+      "target_layer": "PLATFORM_ADAPTER"
+    },
+    {
+      "source_layer": "MIGRATION_CONTROL",
+      "target_layer": "RELEASE"
+    },
+    {
+      "source_layer": "MIGRATION_CONTROL",
+      "target_layer": "SETUP"
+    },
+    {
+      "source_layer": "MIGRATION_CONTROL",
+      "target_layer": "SHARED_ENGINE"
+    },
+    {
+      "source_layer": "MIGRATION_CONTROL",
+      "target_layer": "TREATMENT"
+    },
+    {
+      "source_layer": "MIGRATION_CONTROL",
+      "target_layer": "VISUALIZER"
+    },
+    {
+      "source_layer": "RELEASE",
+      "target_layer": "EVIDENCE"
+    },
+    {
+      "source_layer": "RELEASE",
+      "target_layer": "GENERATED"
+    }
+  ],
+  "context_may_depend_on_execution_adapter": false,
+  "cross_layer_cycles_allowed": false,
+  "generated_may_be_canonical_authority": false,
+  "graph_acyclic": true,
+  "layers": [
+    "APPLICATION",
+    "CONTEXT",
+    "EVIDENCE",
+    "EXECUTION_ADAPTER",
+    "GENERATED",
+    "MIGRATION_CONTROL",
+    "PLATFORM_ADAPTER",
+    "RELEASE",
+    "SETUP",
+    "SHARED_ENGINE",
+    "TREATMENT",
+    "VISUALIZER"
+  ],
+  "policy_digest": "sha256:15f4623f3ca58988f5cd48b14a6e898af3a1840b759d80d703925a2f7e1fdb16",
+  "policy_id": "LCM05_DEPENDENCY_DIRECTION_POLICY_V1",
+  "schema_version": "1.0.0",
+  "visualizer_may_mutate_domain": false
+}

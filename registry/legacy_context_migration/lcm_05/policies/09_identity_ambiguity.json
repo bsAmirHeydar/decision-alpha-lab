@@ -1,0 +1,10 @@
+{
+  "phase_id": "LCM-05",
+  "policy_digest": "REFERENCE_STATIC_POLICY",
+  "policy_id": "LCM05_IDENTITY_AMBIGUITY_POLICY_V1",
+  "rules": {
+    "quarantine_proposal_required": true,
+    "unknown_identity_may_receive_canonical_package": false
+  },
+  "schema_version": "1.0.0"
+}

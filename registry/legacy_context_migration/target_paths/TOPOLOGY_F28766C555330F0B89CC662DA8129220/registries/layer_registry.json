@@ -1,0 +1,22 @@
+{
+  "layers": [
+    "EVIDENCE",
+    "SHARED_ENGINE",
+    "CONTEXT",
+    "SETUP",
+    "TREATMENT",
+    "VISUALIZER",
+    "PLATFORM_ADAPTER",
+    "EXECUTION_ADAPTER",
+    "APPLICATION",
+    "GENERATED",
+    "MIGRATION_CONTROL",
+    "RELEASE"
+  ],
+  "policy": {
+    "dynamic_layer_allowed": false
+  },
+  "registry_digest": "sha256:3e426f718b10dd5ede126949c55c2b15832edf65e2188d8ccb640d1f93b6ffb2",
+  "registry_id": "LCM05_LAYER_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}

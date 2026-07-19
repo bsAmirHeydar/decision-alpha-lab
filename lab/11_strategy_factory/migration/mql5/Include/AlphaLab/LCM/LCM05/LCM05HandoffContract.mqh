@@ -1,0 +1,4 @@
+#ifndef ALPHALAB_LCM05_HANDOFF_CONTRACT_MQH
+#define ALPHALAB_LCM05_HANDOFF_CONTRACT_MQH
+struct LCM05HandoffContract{string topology_run_id;string handoff_digest;bool target_materialization_allowed;bool source_move_allowed;bool source_delete_allowed;};
+#endif

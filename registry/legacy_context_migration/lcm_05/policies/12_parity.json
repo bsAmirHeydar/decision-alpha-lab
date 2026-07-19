@@ -1,0 +1,10 @@
+{
+  "phase_id": "LCM-05",
+  "policy_digest": "REFERENCE_STATIC_POLICY",
+  "policy_id": "LCM05_PARITY_POLICY_V1",
+  "rules": {
+    "parity_required_before_rewrite": true,
+    "reference_fixture_satisfies_legacy_parity": false
+  },
+  "schema_version": "1.0.0"
+}

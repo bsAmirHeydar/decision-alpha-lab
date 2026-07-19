@@ -1,0 +1,12 @@
+{
+  "phase_id": "LCM-05",
+  "policy_digest": "REFERENCE_STATIC_POLICY",
+  "policy_id": "LCM05_PATH_SAFETY_POLICY_V1",
+  "rules": {
+    "path_traversal_allowed": false,
+    "root_relative_required": true,
+    "symlink_materialization_allowed": false,
+    "windows_safe_required": true
+  },
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,11 @@
+{
+  "phase_id": "LCM-05",
+  "policy_digest": "REFERENCE_STATIC_POLICY",
+  "policy_id": "LCM05_DEPENDENCY_DIRECTION_POLICY_V1",
+  "rules": {
+    "context_to_execution_allowed": false,
+    "cross_layer_cycle_allowed": false,
+    "visualizer_domain_mutation_allowed": false
+  },
+  "schema_version": "1.0.0"
+}

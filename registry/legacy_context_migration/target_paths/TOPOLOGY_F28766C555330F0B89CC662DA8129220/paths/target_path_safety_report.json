@@ -1,0 +1,10 @@
+{
+  "evaluated_target_count": 44503,
+  "max_target_path_length": 219,
+  "root_relative": true,
+  "safety_digest": "sha256:f2583d44750c7f8225aa4b3cc316853af4eb60f3df2f573804f9a09814b72ab3",
+  "schema_version": "1.0.0",
+  "unsafe_target_count": 0,
+  "unsafe_targets": [],
+  "windows_safe": true
+}

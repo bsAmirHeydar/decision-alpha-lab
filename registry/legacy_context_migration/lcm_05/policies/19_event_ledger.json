@@ -1,0 +1,10 @@
+{
+  "phase_id": "LCM-05",
+  "policy_digest": "REFERENCE_STATIC_POLICY",
+  "policy_id": "LCM05_EVENT_LEDGER_POLICY_V1",
+  "rules": {
+    "hash_chain_required": true,
+    "random_persistent_ids_allowed": false
+  },
+  "schema_version": "1.0.0"
+}

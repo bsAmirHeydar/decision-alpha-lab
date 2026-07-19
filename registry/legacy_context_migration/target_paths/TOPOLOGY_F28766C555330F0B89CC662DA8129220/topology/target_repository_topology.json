@@ -1,0 +1,14 @@
+{
+  "authored_generated_boundary_digest": "sha256:7678213f9cd5ebf6a3f284c0409acc1730e553cc1cbdffc289852c3182eba073",
+  "canonical_truth_location": "PACKAGE_AND_ACCEPTED_MASTER_ARCHITECTURE",
+  "dependency_policy_digest": "sha256:15f4623f3ca58988f5cd48b14a6e898af3a1840b759d80d703925a2f7e1fdb16",
+  "generated_role": "NON_CANONICAL_PROJECTION",
+  "legacy_role": "ACTIVE_DURING_DUAL_RUN_OR_QUARANTINED_AFTER_CUTOVER",
+  "mql5_role": "PLATFORM_IMPLEMENTATION_OR_ADAPTER",
+  "package_root_registry_digest": "sha256:e1a567afb5e05e466058239056f79bfa252ff4755305c0b1264bb0b4fedbb6da",
+  "release_role": "REGISTRY_ARTIFACT",
+  "schema_version": "1.0.0",
+  "target_materialization_allowed": false,
+  "topology_digest": "sha256:b1ca25c852780e27e0bfb3aa10a6f4cdde7c360ea0c5f0fcfccadc44d4efb882",
+  "topology_run_id": "TOPOLOGY_F28766C555330F0B89CC662DA8129220"
+}

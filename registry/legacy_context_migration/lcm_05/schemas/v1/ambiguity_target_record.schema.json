@@ -1,0 +1,21 @@
+{
+  "$id": "https://alpha-lab.local/lcm05/ambiguity_target_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "ambiguity_id": {},
+    "queue_digest": {},
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "target_path": {}
+  },
+  "required": [
+    "schema_version",
+    "ambiguity_id",
+    "target_path",
+    "queue_digest"
+  ],
+  "title": "LCM-05 ambiguity_target_record",
+  "type": "object"
+}

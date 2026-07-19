@@ -1,0 +1,22 @@
+{
+  "artifact_mapping_count": 38595,
+  "capital_authority_created": false,
+  "claim_ceiling": "TARGET_TOPOLOGY_REFERENCE_ONLY",
+  "cutover_performed": false,
+  "identity_ambiguity_mapping_count": 2040,
+  "identity_mapping_count": 2792,
+  "live_order_authority_created": false,
+  "marker_digest": "sha256:15721311a4b61641c03ab873d86049a96d9b90fc1066f0cc7e6c3af007f0c10d",
+  "merge_performed": false,
+  "phase_completion_state": "REFERENCE_TOPOLOGY_COMPLETE_MATERIALIZATION_BLOCKED",
+  "phase_id": "LCM-05",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "semantic_refactor_performed": false,
+  "source_characterization_run_id": "CHARACTERIZATION_55F06219A834717D91B7111A481DF3D3",
+  "source_delete_performed": false,
+  "source_handoff_digest": "sha256:3b2499ab501cd9d80173c044292ba1a114ce61ef55bf7dbcaf217a5907ad689c",
+  "source_move_performed": false,
+  "target_path_materialization_performed": false,
+  "topology_run_id": "TOPOLOGY_F28766C555330F0B89CC662DA8129220"
+}

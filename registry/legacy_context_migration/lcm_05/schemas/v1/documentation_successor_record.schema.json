@@ -1,0 +1,23 @@
+{
+  "$id": "https://alpha-lab.local/lcm05/documentation_successor_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "canonical_successor": {},
+    "record_digest": {},
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "source_namespace": {},
+    "successor_record_id": {}
+  },
+  "required": [
+    "schema_version",
+    "successor_record_id",
+    "source_namespace",
+    "canonical_successor",
+    "record_digest"
+  ],
+  "title": "LCM-05 documentation_successor_record",
+  "type": "object"
+}

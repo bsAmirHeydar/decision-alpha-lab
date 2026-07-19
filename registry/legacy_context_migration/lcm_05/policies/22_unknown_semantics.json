@@ -1,0 +1,10 @@
+{
+  "phase_id": "LCM-05",
+  "policy_digest": "REFERENCE_STATIC_POLICY",
+  "policy_id": "LCM05_UNKNOWN_SEMANTICS_POLICY_V1",
+  "rules": {
+    "unknown_is_materialized": false,
+    "unknown_is_pass": false
+  },
+  "schema_version": "1.0.0"
+}

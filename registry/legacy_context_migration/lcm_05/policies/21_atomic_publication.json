@@ -1,0 +1,10 @@
+{
+  "phase_id": "LCM-05",
+  "policy_digest": "REFERENCE_STATIC_POLICY",
+  "policy_id": "LCM05_ATOMIC_PUBLICATION_POLICY_V1",
+  "rules": {
+    "nonempty_destination_overwrite_allowed": false,
+    "partial_publish_allowed": false
+  },
+  "schema_version": "1.0.0"
+}

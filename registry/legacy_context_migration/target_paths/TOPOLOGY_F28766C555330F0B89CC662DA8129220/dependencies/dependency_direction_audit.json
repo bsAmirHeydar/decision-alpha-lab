@@ -1,0 +1,10 @@
+{
+  "allowed_edge_count": 99263,
+  "audit_digest": "sha256:4349697ea02c3cd08dc93defe740740989b9e779e5c040728bfe57eaf984d564",
+  "current_legacy_violations_are_target_topology_approval": false,
+  "evaluated_edge_count": 101389,
+  "prohibited_edge_count": 2126,
+  "schema_version": "1.0.0",
+  "unresolved_or_unclassified_edge_count": 26819,
+  "violation_count": 2126
+}

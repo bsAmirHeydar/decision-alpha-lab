@@ -1,0 +1,10 @@
+{
+  "phase_id": "LCM-05",
+  "policy_digest": "REFERENCE_STATIC_POLICY",
+  "policy_id": "LCM05_ROOT_RELOCATION_POLICY_V1",
+  "rules": {
+    "historical_locator_required": true,
+    "move_performed_in_lcm05": false
+  },
+  "schema_version": "1.0.0"
+}

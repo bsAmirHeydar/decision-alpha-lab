@@ -1,0 +1,21 @@
+{
+  "$id": "https://alpha-lab.local/lcm05/handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "handoff_digest": {},
+    "handoff_type": {},
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "topology_run_id": {}
+  },
+  "required": [
+    "schema_version",
+    "handoff_type",
+    "topology_run_id",
+    "handoff_digest"
+  ],
+  "title": "LCM-05 handoff",
+  "type": "object"
+}

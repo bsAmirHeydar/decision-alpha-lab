@@ -1,0 +1,50 @@
+{
+  "blocker_bundle_digest": "sha256:34076a307712950dc674e3e21a51076e92d334247997acef4bc24104631ac6e4",
+  "blocker_count": 6,
+  "blockers": [
+    {
+      "affected_count": 32344,
+      "blocker_digest": "sha256:298c54cd268654fe755cce0c95996e716b210d98e63008abd121a06a12a48045",
+      "blocker_id": "LCM05_OWNER_APPROVALS",
+      "blocks_materialization": true,
+      "reason_code": "HUMAN_OWNER_APPROVALS_PENDING"
+    },
+    {
+      "affected_count": 225,
+      "blocker_digest": "sha256:fc98a46e51bd40c4e1e703b90754d1129bd46e7814e3c4da76e7ed01e6e46fce",
+      "blocker_id": "LCM05_SECURITY_REVIEWS",
+      "blocks_materialization": true,
+      "reason_code": "SECURITY_REVIEWS_PENDING"
+    },
+    {
+      "affected_count": 2040,
+      "blocker_digest": "sha256:055f2bdd58557e38b99734f11d9f35dff52c06b5d9bed7c0fbad0d99199320f2",
+      "blocker_id": "LCM05_IDENTITY_AMBIGUITIES",
+      "blocks_materialization": true,
+      "reason_code": "IDENTITY_AMBIGUITIES_PENDING"
+    },
+    {
+      "affected_count": 941,
+      "blocker_digest": "sha256:933c748231a92152558b3631f3cf191e8cb7085a56e25c9f7eea9b1e94d4f277",
+      "blocker_id": "LCM05_LEGACY_PARITY",
+      "blocks_materialization": true,
+      "reason_code": "LEGACY_RUNTIME_PARITY_PENDING"
+    },
+    {
+      "affected_count": 2494,
+      "blocker_digest": "sha256:92243bc11b17d28cf81309743a8fa20b68a6fcbda23107fdca99a42ddb97a675",
+      "blocker_id": "LCM05_EQUIVALENCE",
+      "blocks_materialization": true,
+      "reason_code": "DUPLICATE_EQUIVALENCE_REVIEW_PENDING"
+    },
+    {
+      "affected_count": 2457,
+      "blocker_digest": "sha256:27f631e6bf86e3a64798e2e75c440913534ab5d21edf8059f79af2389440d58f",
+      "blocker_id": "LCM05_EXTERNAL_MQL_RUNTIME",
+      "blocks_materialization": true,
+      "reason_code": "MQL5_METATRADER_RUNTIME_NOT_AVAILABLE_IN_REFERENCE_ENVIRONMENT"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "target_materialization_allowed": false
+}

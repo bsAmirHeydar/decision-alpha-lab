@@ -1,0 +1,10 @@
+{
+  "phase_id": "LCM-05",
+  "policy_digest": "REFERENCE_STATIC_POLICY",
+  "policy_id": "LCM05_DELETION_POLICY_V1",
+  "rules": {
+    "delete_allowed": false,
+    "quarantine_required_before_delete": true
+  },
+  "schema_version": "1.0.0"
+}

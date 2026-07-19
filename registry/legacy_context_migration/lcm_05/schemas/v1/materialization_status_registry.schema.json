@@ -1,0 +1,21 @@
+{
+  "$id": "https://alpha-lab.local/lcm05/materialization_status_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "materialization_statuses": {},
+    "registry_digest": {},
+    "registry_id": {},
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "registry_id",
+    "materialization_statuses",
+    "registry_digest"
+  ],
+  "title": "LCM-05 materialization_status_registry",
+  "type": "object"
+}

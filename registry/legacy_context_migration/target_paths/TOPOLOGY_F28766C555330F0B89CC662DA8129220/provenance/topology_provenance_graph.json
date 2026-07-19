@@ -1,0 +1,45 @@
+{
+  "capital_authority_created": false,
+  "edges": [
+    {
+      "from": "LCM04_HANDOFF",
+      "to": "LCM05_PACKAGE_ROOTS"
+    },
+    {
+      "from": "LCM05_PACKAGE_ROOTS",
+      "to": "LCM05_ARTIFACT_TARGET_MAP"
+    },
+    {
+      "from": "LCM05_ARTIFACT_TARGET_MAP",
+      "to": "LCM05_TOPOLOGY_SUMMARY"
+    }
+  ],
+  "legacy_semantics_mutated": false,
+  "live_order_authority_created": false,
+  "nodes": [
+    {
+      "digest": "sha256:3b2499ab501cd9d80173c044292ba1a114ce61ef55bf7dbcaf217a5907ad689c",
+      "node_id": "LCM04_HANDOFF"
+    },
+    {
+      "digest": "sha256:e1a567afb5e05e466058239056f79bfa252ff4755305c0b1264bb0b4fedbb6da",
+      "node_id": "LCM05_PACKAGE_ROOTS"
+    },
+    {
+      "digest": "sha256:601cb68c5624309839e7e988692ae53fbcf402a0b9d7b469cc3faeda0c35c692",
+      "node_id": "LCM05_ARTIFACT_TARGET_MAP"
+    },
+    {
+      "digest": "sha256:66c76ba2a407613f076c220f09b56e380cea0a2c7f080933a07d3ab431b77dd4",
+      "node_id": "LCM05_TOPOLOGY_SUMMARY"
+    }
+  ],
+  "provenance_digest": "sha256:61d2438ae7a06afce5417670e81cf766b00c6aa39f570f92ff333dcd91352c60",
+  "reaches_lcm04_characterization": true,
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "source_deleted": false,
+  "source_moved": false,
+  "target_paths_materialized": false,
+  "topology_run_id": "TOPOLOGY_F28766C555330F0B89CC662DA8129220"
+}

@@ -1,0 +1,9 @@
+{
+  "phase_id": "LCM-05",
+  "policy_digest": "REFERENCE_STATIC_POLICY",
+  "policy_id": "LCM05_MQL5_PUBLIC_PATH_POLICY_V1",
+  "rules": {
+    "breaking_include_without_redirect_allowed": false
+  },
+  "schema_version": "1.0.0"
+}

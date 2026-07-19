@@ -1,0 +1,21 @@
+{
+  "$id": "https://alpha-lab.local/lcm05/hostile_review.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "checks": {},
+    "hostile_review_passed": {},
+    "review_digest": {},
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "checks",
+    "hostile_review_passed",
+    "review_digest"
+  ],
+  "title": "LCM-05 hostile_review",
+  "type": "object"
+}

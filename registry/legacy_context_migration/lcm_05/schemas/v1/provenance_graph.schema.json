@@ -1,0 +1,23 @@
+{
+  "$id": "https://alpha-lab.local/lcm05/provenance_graph.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "edges": {},
+    "nodes": {},
+    "provenance_digest": {},
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "topology_run_id": {}
+  },
+  "required": [
+    "schema_version",
+    "topology_run_id",
+    "nodes",
+    "edges",
+    "provenance_digest"
+  ],
+  "title": "LCM-05 provenance_graph",
+  "type": "object"
+}

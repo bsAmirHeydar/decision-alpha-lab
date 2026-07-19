@@ -1,0 +1,21 @@
+{
+  "$id": "https://alpha-lab.local/lcm05/dependency_audit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "audit_digest": {},
+    "evaluated_edge_count": {},
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "violation_count": {}
+  },
+  "required": [
+    "schema_version",
+    "evaluated_edge_count",
+    "violation_count",
+    "audit_digest"
+  ],
+  "title": "LCM-05 dependency_audit",
+  "type": "object"
+}

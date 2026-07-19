@@ -1,0 +1,10 @@
+{
+  "phase_id": "LCM-05",
+  "policy_digest": "REFERENCE_STATIC_POLICY",
+  "policy_id": "LCM05_PROTECTED_PLATFORM_POLICY_V1",
+  "rules": {
+    "domain_migration_allowed": false,
+    "retain_current_required": true
+  },
+  "schema_version": "1.0.0"
+}

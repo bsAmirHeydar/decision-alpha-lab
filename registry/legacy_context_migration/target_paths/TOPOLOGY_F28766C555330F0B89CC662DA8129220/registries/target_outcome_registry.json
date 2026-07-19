@@ -1,0 +1,18 @@
+{
+  "policy": {
+    "dynamic_outcome_allowed": false
+  },
+  "registry_digest": "sha256:3b7f677410db1ab46694006bec0eb3a82588d2a03ee2c7039140c79156e375ed",
+  "registry_id": "LCM05_TARGET_OUTCOME_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "target_outcomes": [
+    "RETAIN_CURRENT",
+    "PROPOSE_CANONICAL_PACKAGE",
+    "PROPOSE_COMPATIBILITY_WRAPPER",
+    "PROPOSE_ARCHIVE",
+    "PROPOSE_QUARANTINE",
+    "PROPOSE_SECURITY_RESTRICTED",
+    "PROPOSE_GENERATED_PROJECTION",
+    "BLOCKED_EQUIVALENCE_REVIEW"
+  ]
+}

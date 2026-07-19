@@ -1,0 +1,21 @@
+{
+  "$id": "https://alpha-lab.local/lcm05/identity_target_mapping.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "identity_id": {},
+    "mapping_digest": {},
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "target_package_root": {}
+  },
+  "required": [
+    "schema_version",
+    "identity_id",
+    "target_package_root",
+    "mapping_digest"
+  ],
+  "title": "LCM-05 identity_target_mapping",
+  "type": "object"
+}

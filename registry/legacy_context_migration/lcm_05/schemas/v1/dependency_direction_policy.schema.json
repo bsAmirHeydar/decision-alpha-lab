@@ -1,0 +1,23 @@
+{
+  "$id": "https://alpha-lab.local/lcm05/dependency_direction_policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "allowed_dependency_edges": {},
+    "layers": {},
+    "policy_digest": {},
+    "policy_id": {},
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "policy_id",
+    "layers",
+    "allowed_dependency_edges",
+    "policy_digest"
+  ],
+  "title": "LCM-05 dependency_direction_policy",
+  "type": "object"
+}

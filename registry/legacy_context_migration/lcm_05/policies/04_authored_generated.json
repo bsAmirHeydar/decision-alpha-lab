@@ -1,0 +1,11 @@
+{
+  "phase_id": "LCM-05",
+  "policy_digest": "REFERENCE_STATIC_POLICY",
+  "policy_id": "LCM05_AUTHORED_GENERATED_POLICY_V1",
+  "rules": {
+    "generated_canonical_authority": false,
+    "generated_hand_edit_allowed": false,
+    "rebuild_contract_required": true
+  },
+  "schema_version": "1.0.0"
+}

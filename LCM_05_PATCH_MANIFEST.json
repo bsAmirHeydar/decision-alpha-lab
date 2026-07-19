@@ -1,0 +1,22 @@
+{
+  "capital_authority_created": false,
+  "claim_ceiling": "TARGET_TOPOLOGY_REFERENCE_ONLY",
+  "cutover_performed": false,
+  "deleted_file_count": 0,
+  "file_index_sha256": "sha256:1b1ef4152e72fc820d2f2fb23d243bbe588c4d9ae490168a567a3d36b6086ee3",
+  "hash_list_sha256": "sha256:0e3a2c479a18c434747caff1b01d92a2ba1fd7dfc8634f4af8719d4b94e253e9",
+  "indexed_file_count": 327,
+  "inventory_sha256": "sha256:1a1d613ba6629ded8bbed8c8c0977ba618c51449417c7a0ff1b2611eb66e0799",
+  "live_order_authority_created": false,
+  "metadata_file_count": 4,
+  "patch_manifest_digest": "sha256:0cd77984d772ae4db269b567e2c92ba00dfd5c44368e5d6fccecc84f283b9b20",
+  "patch_name": "ALPHA_LAB_LCM_05_TARGET_TOPOLOGY_AND_REPOSITORY_LOCATOR_PATCH.zip",
+  "payload_file_count": 323,
+  "phase_id": "LCM-05",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "semantic_refactor_performed": false,
+  "source_delete_performed": false,
+  "source_move_performed": false,
+  "topology_run_id": "TOPOLOGY_F28766C555330F0B89CC662DA8129220"
+}

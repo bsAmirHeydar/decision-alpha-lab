@@ -1,0 +1,48 @@
+{
+  "checks": [
+    {
+      "check": "SECOND_COMPETING_ARCHITECTURE",
+      "evidence": "ACL_OS_RETAINED_AS_PROTECTED_KERNEL",
+      "status": "PASS"
+    },
+    {
+      "check": "DOMAIN_TO_PLATFORM_INVERSION",
+      "evidence": "CLOSED_LAYER_POLICY_AND_LEGACY_VIOLATION_REPORT",
+      "status": "PASS"
+    },
+    {
+      "check": "VISUALIZER_MUTATES_DOMAIN",
+      "evidence": "POLICY_FALSE",
+      "status": "PASS"
+    },
+    {
+      "check": "CONTEXT_TO_EXECUTION_COUPLING",
+      "evidence": "POLICY_FALSE",
+      "status": "PASS"
+    },
+    {
+      "check": "GENERATED_BECOMES_CANONICAL",
+      "evidence": "AUTHORED_GENERATED_BOUNDARY",
+      "status": "PASS"
+    },
+    {
+      "check": "MQL_PUBLIC_PATH_BREAKAGE",
+      "evidence": "COMPATIBILITY_WRAPPER_PROPOSALS_NO_MATERIALIZATION",
+      "status": "PASS"
+    },
+    {
+      "check": "UNKNOWN_TO_APPROVED_TARGET",
+      "evidence": "AMBIGUITY_QUARANTINE_QUEUE",
+      "status": "PASS"
+    },
+    {
+      "check": "SOURCE_MOVE_OR_DELETE",
+      "evidence": "NO_FILE_MOVEMENT",
+      "status": "PASS"
+    }
+  ],
+  "hostile_review_passed": true,
+  "production_or_migration_completion_claimed": false,
+  "review_digest": "sha256:c85bfe0fcf7872b32c0f86d078bf93d8a41608130b165bac2fc0b5d336458a9e",
+  "schema_version": "1.0.0"
+}

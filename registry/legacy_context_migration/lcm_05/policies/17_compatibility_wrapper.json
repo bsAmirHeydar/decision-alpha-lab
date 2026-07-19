@@ -1,0 +1,10 @@
+{
+  "phase_id": "LCM-05",
+  "policy_digest": "REFERENCE_STATIC_POLICY",
+  "policy_id": "LCM05_COMPATIBILITY_WRAPPER_POLICY_V1",
+  "rules": {
+    "authority_expansion_allowed": false,
+    "wrapper_materialized_in_lcm05": false
+  },
+  "schema_version": "1.0.0"
+}

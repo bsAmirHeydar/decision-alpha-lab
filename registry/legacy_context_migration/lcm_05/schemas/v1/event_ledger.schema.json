@@ -1,0 +1,21 @@
+{
+  "$id": "https://alpha-lab.local/lcm05/event_ledger.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "events": {},
+    "ledger_digest": {},
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "topology_run_id": {}
+  },
+  "required": [
+    "schema_version",
+    "topology_run_id",
+    "events",
+    "ledger_digest"
+  ],
+  "title": "LCM-05 event_ledger",
+  "type": "object"
+}

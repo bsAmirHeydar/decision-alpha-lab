@@ -1,0 +1,23 @@
+{
+  "$id": "https://alpha-lab.local/lcm05/root_relocation_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "plan_digest": {},
+    "root_plan_id": {},
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "source_path": {},
+    "target_path": {}
+  },
+  "required": [
+    "schema_version",
+    "root_plan_id",
+    "source_path",
+    "target_path",
+    "plan_digest"
+  ],
+  "title": "LCM-05 root_relocation_record",
+  "type": "object"
+}

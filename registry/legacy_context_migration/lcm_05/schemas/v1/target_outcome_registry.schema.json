@@ -1,0 +1,21 @@
+{
+  "$id": "https://alpha-lab.local/lcm05/target_outcome_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "registry_digest": {},
+    "registry_id": {},
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "target_outcomes": {}
+  },
+  "required": [
+    "schema_version",
+    "registry_id",
+    "target_outcomes",
+    "registry_digest"
+  ],
+  "title": "LCM-05 target_outcome_registry",
+  "type": "object"
+}

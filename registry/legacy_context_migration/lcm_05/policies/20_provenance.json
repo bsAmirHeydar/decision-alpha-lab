@@ -1,0 +1,10 @@
+{
+  "phase_id": "LCM-05",
+  "policy_digest": "REFERENCE_STATIC_POLICY",
+  "policy_id": "LCM05_PROVENANCE_POLICY_V1",
+  "rules": {
+    "invented_approval_allowed": false,
+    "upstream_reachability_required": true
+  },
+  "schema_version": "1.0.0"
+}

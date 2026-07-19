@@ -1,0 +1,11 @@
+{
+  "phase_id": "LCM-05",
+  "policy_digest": "REFERENCE_STATIC_POLICY",
+  "policy_id": "LCM05_DOCUMENTATION_SUCCESSOR_POLICY_V1",
+  "rules": {
+    "deletion_allowed": false,
+    "exact_bytes_are_semantic_equivalence": false,
+    "redirect_materialized_in_lcm05": false
+  },
+  "schema_version": "1.0.0"
+}

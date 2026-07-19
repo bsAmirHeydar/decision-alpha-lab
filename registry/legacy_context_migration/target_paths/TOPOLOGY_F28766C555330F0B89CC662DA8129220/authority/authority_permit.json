@@ -1,0 +1,20 @@
+{
+  "action": "LCM05_DEFINE_TARGET_TOPOLOGY",
+  "capital_authority": false,
+  "characterization_run_id": "CHARACTERIZATION_55F06219A834717D91B7111A481DF3D3",
+  "expires_at": "2026-07-26T00:00:00Z",
+  "issued_at": "2026-07-19T00:00:00Z",
+  "issuer": "ALPHA_LAB_MIGRATION_CONTROL_PLANE",
+  "live_order_authority": false,
+  "merge_allowed": false,
+  "permit_digest": "sha256:d83c5846cbeb3e4b83a5f275e14d57af0cb43dc76996c7b0918eac9f5d7b8211",
+  "permit_id": "PERMIT_BE125B67A1733C4F3D32824B5537106E",
+  "phase_id": "LCM-05",
+  "runtime_authority": false,
+  "schema_version": "1.0.0",
+  "semantic_refactor_allowed": false,
+  "source_delete_allowed": false,
+  "source_handoff_digest": "sha256:3b2499ab501cd9d80173c044292ba1a114ce61ef55bf7dbcaf217a5907ad689c",
+  "source_move_allowed": false,
+  "target_materialization_allowed": false
+}

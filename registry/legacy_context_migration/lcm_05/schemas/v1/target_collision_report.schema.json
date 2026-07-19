@@ -1,0 +1,21 @@
+{
+  "$id": "https://alpha-lab.local/lcm05/target_collision_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "casefold_collision_count": {},
+    "collision_digest": {},
+    "collisions": {},
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "casefold_collision_count",
+    "collisions",
+    "collision_digest"
+  ],
+  "title": "LCM-05 target_collision_report",
+  "type": "object"
+}

@@ -1,0 +1,14 @@
+{
+  "phase_id": "LCM-05",
+  "policy_digest": "REFERENCE_STATIC_POLICY",
+  "policy_id": "LCM05_AUTHORITY_BOUNDARY_POLICY_V1",
+  "rules": {
+    "capital_authority": false,
+    "live_order_authority": false,
+    "runtime_authority": false,
+    "source_delete_allowed": false,
+    "source_move_allowed": false,
+    "target_materialization_allowed": false
+  },
+  "schema_version": "1.0.0"
+}

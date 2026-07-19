@@ -1,0 +1,19 @@
+{
+  "$id": "https://alpha-lab.local/lcm05/target_repository_topology.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "topology_digest": {},
+    "topology_run_id": {}
+  },
+  "required": [
+    "schema_version",
+    "topology_run_id",
+    "topology_digest"
+  ],
+  "title": "LCM-05 target_repository_topology",
+  "type": "object"
+}

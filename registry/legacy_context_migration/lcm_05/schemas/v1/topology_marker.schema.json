@@ -1,0 +1,21 @@
+{
+  "$id": "https://alpha-lab.local/lcm05/topology_marker.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "marker_digest": {},
+    "phase_id": {},
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "topology_run_id": {}
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "topology_run_id",
+    "marker_digest"
+  ],
+  "title": "LCM-05 topology_marker",
+  "type": "object"
+}

@@ -1,0 +1,182 @@
+{
+  "artifact_count": 35,
+  "artifacts": [
+    {
+      "path": "authority/authority_permit.json",
+      "sha256": "sha256:8a2ccefb7410bcff73524d02f30622a4fe39ab75052f3b1fab5efb99585c7a78",
+      "size_bytes": 830
+    },
+    {
+      "path": "blockers/materialization_blockers.json",
+      "sha256": "sha256:df6717ac9db2d9f4a8f56cef1b83099169eae4d334cc6b2352cf4b42feecc84e",
+      "size_bytes": 1925
+    },
+    {
+      "path": "collisions/target_path_collision_report.json",
+      "sha256": "sha256:054a7ee0e9f01d44ee2a8c39682e87e4d4b55e6ffe9c949b3daa20c828aa4b32",
+      "size_bytes": 2809
+    },
+    {
+      "path": "dependencies/dependency_direction_audit.json",
+      "sha256": "sha256:6a91cc0870a79309983cd3c5f748bc67dd7dba15565315e19eb6b3fc1d9d3778",
+      "size_bytes": 367
+    },
+    {
+      "path": "dependencies/dependency_direction_violations.jsonl",
+      "sha256": "sha256:e3ce51a36890db7f893f51953424053cf6fb0ed7c189fef64f665cf82287f4b3",
+      "size_bytes": 1129809
+    },
+    {
+      "path": "docs/LCM05_EXECUTIVE_BRIEF.md",
+      "sha256": "sha256:d5fb6351a2192516ebca2fa1b4ef13bca3c668b38ed04b00845ea73cb494e68d",
+      "size_bytes": 572
+    },
+    {
+      "path": "docs/LCM05_TARGET_TOPOLOGY_CONTRACT.md",
+      "sha256": "sha256:8d4ce19f7909e281b6ddb2a59ce49b8ac6e13f14d08a27e27408ccf9b1f6f7bd",
+      "size_bytes": 393
+    },
+    {
+      "path": "docs/LCM05_TO_LCM06_HANDOFF.md",
+      "sha256": "sha256:fd66552f10f7ee3ff919d3125002aa957b0ddcc89dc4dd9d079f1d11d26be0e4",
+      "size_bytes": 392
+    },
+    {
+      "path": "documentation/documentation_successor_map.csv",
+      "sha256": "sha256:32fbbe5eeb03b12f8688e0aa59b0bdc83a2ca81628d137f093a66764069ffea4",
+      "size_bytes": 42062
+    },
+    {
+      "path": "documentation/documentation_successor_map.jsonl",
+      "sha256": "sha256:8066e70326a003f47a1e40685afd191a2e60cc1dbb2ed158bcc33d275430dcc0",
+      "size_bytes": 70798
+    },
+    {
+      "path": "events/topology_event_ledger.json",
+      "sha256": "sha256:fa3d215001be056b4a007467179a423fe343448997deab5d45605757e02c919d",
+      "size_bytes": 7099
+    },
+    {
+      "path": "handoff/lcm05_to_lcm06_handoff.json",
+      "sha256": "sha256:50cb7e067d7c59f82e0d1831145bb6a90e450346b6b5ce157f7248e0cdf7b195",
+      "size_bytes": 2305
+    },
+    {
+      "path": "input/lcm04_binding.json",
+      "sha256": "sha256:c4e25877cd67cb18abe4c3c07645fc887cffa84487d35a00c7516d2d08a421b2",
+      "size_bytes": 606
+    },
+    {
+      "path": "mappings/artifact_target_map.csv",
+      "sha256": "sha256:0359573c1400e1ed91fb8250254054ba4efd86660cf01d1256f3b1799b6c8c0b",
+      "size_bytes": 23947828
+    },
+    {
+      "path": "mappings/artifact_target_map.jsonl",
+      "sha256": "sha256:6b2b0671a97b1546519292e4490a8b081dfbc36d76b854d9eea2bf1b0a97e724",
+      "size_bytes": 42351638
+    },
+    {
+      "path": "mappings/identity_ambiguity_target_queue.jsonl",
+      "sha256": "sha256:792e348b70794e906e114de587a735fe6ad12067648108022b885f73a8ebd73e",
+      "size_bytes": 1372043
+    },
+    {
+      "path": "mappings/identity_target_map.csv",
+      "sha256": "sha256:7e2c66a0a17c32c2af7936b5c7fcd92acf407e6d948fcb30b3fea96d4a91a385",
+      "size_bytes": 1329484
+    },
+    {
+      "path": "mappings/identity_target_map.jsonl",
+      "sha256": "sha256:0f9dce0de2ae82ccc3b2195f5b28427b2ffde4eb996c9e22db9d4bd9d8b792cd",
+      "size_bytes": 2236627
+    },
+    {
+      "path": "paths/target_path_safety_report.json",
+      "sha256": "sha256:87a96b120c63abfc21c06e5e1e097864c0df2f8395d8aa27fa43d80ef66899a4",
+      "size_bytes": 295
+    },
+    {
+      "path": "provenance/topology_provenance_graph.json",
+      "sha256": "sha256:4a8619cc65fa88873b56a0ad71daccbf957eb310abba23eaa03a89e9dd7169e9",
+      "size_bytes": 1352
+    },
+    {
+      "path": "registries/documentation_relationship_registry.json",
+      "sha256": "sha256:4050f8736c176bd553448d346741668b5273d4ad9c7d79900c234f8f9741479c",
+      "size_bytes": 380
+    },
+    {
+      "path": "registries/layer_registry.json",
+      "sha256": "sha256:71cc2e357aeda24417570a2ff71b7d844e9f0667e73fabdcdb056390fd0f8762",
+      "size_bytes": 469
+    },
+    {
+      "path": "registries/materialization_status_registry.json",
+      "sha256": "sha256:2dbca3a81f28301afa0e770d2282e414aa0acabdf8cfe8e1120c536c580814fa",
+      "size_bytes": 481
+    },
+    {
+      "path": "registries/package_root_registry.json",
+      "sha256": "sha256:2add8633230f6553c7afbfa8ffffedbdbc17c40b599f5829c24e0e0c353ab1e0",
+      "size_bytes": 7051
+    },
+    {
+      "path": "registries/target_outcome_registry.json",
+      "sha256": "sha256:eb2270ea2eace3453eeaa76ed7542b8d10b828265c9e928162015edca6d54253",
+      "size_bytes": 510
+    },
+    {
+      "path": "reports/acceptance_report.json",
+      "sha256": "sha256:3999566d7922059b30e4e73d6262a95f5e450426f788f973ecb60a40b92e111e",
+      "size_bytes": 691
+    },
+    {
+      "path": "reports/hostile_review.json",
+      "sha256": "sha256:f46327de503f69346c9b3387ca8ce6dab58ef9d9f8ca2808ba2da829fc512625",
+      "size_bytes": 1282
+    },
+    {
+      "path": "reports/topology_summary.json",
+      "sha256": "sha256:b6c01fb32475066441dc459339790c9b183374731c62336a98c863673d81db98",
+      "size_bytes": 2505
+    },
+    {
+      "path": "root_relocation/root_relocation_plan.csv",
+      "sha256": "sha256:28d0aaf5bb56b33ff0225cf71ef501db5a6712005d86aa35dabf3ac8f02f6eb3",
+      "size_bytes": 396061
+    },
+    {
+      "path": "root_relocation/root_relocation_plan.jsonl",
+      "sha256": "sha256:1f273ab5be09dd3c6eb41edc4a6b26eba62be8509e5854f9635d641a2fdb28d4",
+      "size_bytes": 619717
+    },
+    {
+      "path": "topology/authored_generated_boundary.json",
+      "sha256": "sha256:6b1d9fd42c3cadc592f066fd74a0ae884c6e27918090e7eadb1d98194ad35c4b",
+      "size_bytes": 1264
+    },
+    {
+      "path": "topology/dependency_direction_policy.json",
+      "sha256": "sha256:69f027ced18957385dd9f1fda272a4dd645c0befd33bd7046971ea4a195b1212",
+      "size_bytes": 5472
+    },
+    {
+      "path": "topology/target_repository_topology.json",
+      "sha256": "sha256:1807a89b01796929fc1f8e2eae86d4ced8c9326c5da041d76380b6960a59c857",
+      "size_bytes": 852
+    },
+    {
+      "path": "topology_marker.json",
+      "sha256": "sha256:edf7cd8665655a855cc0172d60181d90514af0ae29444680ecb770095c5fe45c",
+      "size_bytes": 991
+    },
+    {
+      "path": "topology_receipt.json",
+      "sha256": "sha256:24bd3b1d8ed382b354aa7c1f2f106bc38cf7a05b63facdee854a8698e8e5fc92",
+      "size_bytes": 1249
+    }
+  ],
+  "output_manifest_digest": "sha256:0a4fa1f01d4488bbf1e0c65173b63801a88f031a94cd63cb249e02a6f13356a8",
+  "schema_version": "1.0.0"
+}

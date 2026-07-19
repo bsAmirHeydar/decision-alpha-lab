@@ -1,0 +1,17 @@
+{
+  "materialization_statuses": [
+    "NOT_MATERIALIZED",
+    "RETAINED_IN_PLACE",
+    "BLOCKED_OWNER_APPROVAL",
+    "BLOCKED_SECURITY_REVIEW",
+    "BLOCKED_IDENTITY_AMBIGUITY",
+    "BLOCKED_PARITY",
+    "BLOCKED_EQUIVALENCE_REVIEW"
+  ],
+  "policy": {
+    "unknown_is_materialized": false
+  },
+  "registry_digest": "sha256:1e1ec5f7a4c7fb9ba109086ea1602ef8b19705a9caca7b90d60eafe718809692",
+  "registry_id": "LCM05_MATERIALIZATION_STATUS_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}

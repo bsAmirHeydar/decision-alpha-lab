@@ -1,0 +1,21 @@
+{
+  "$id": "https://alpha-lab.local/lcm05/lcm04_binding.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "binding_digest": {},
+    "characterization_run_id": {},
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "source_handoff_digest": {}
+  },
+  "required": [
+    "schema_version",
+    "characterization_run_id",
+    "source_handoff_digest",
+    "binding_digest"
+  ],
+  "title": "LCM-05 lcm04_binding",
+  "type": "object"
+}

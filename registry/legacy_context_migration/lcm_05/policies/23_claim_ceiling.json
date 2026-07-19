@@ -1,0 +1,10 @@
+{
+  "phase_id": "LCM-05",
+  "policy_digest": "REFERENCE_STATIC_POLICY",
+  "policy_id": "LCM05_CLAIM_CEILING_POLICY_V1",
+  "rules": {
+    "claim_ceiling": "TARGET_TOPOLOGY_REFERENCE_ONLY",
+    "migration_completion_claimed": false
+  },
+  "schema_version": "1.0.0"
+}

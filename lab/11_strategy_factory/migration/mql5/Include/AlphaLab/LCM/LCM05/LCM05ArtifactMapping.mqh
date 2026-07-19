@@ -1,0 +1,4 @@
+#ifndef ALPHALAB_LCM05_ARTIFACT_MAPPING_MQH
+#define ALPHALAB_LCM05_ARTIFACT_MAPPING_MQH
+struct LCM05ArtifactMapping{string artifact_path;string artifact_digest;string identity_id;string target_path;int target_outcome;int materialization_status;};
+#endif

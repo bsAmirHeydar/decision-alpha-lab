@@ -1,0 +1,21 @@
+{
+  "$id": "https://alpha-lab.local/lcm05/authored_generated_boundary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "boundary_digest": {},
+    "boundary_id": {},
+    "classes": {},
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "boundary_id",
+    "classes",
+    "boundary_digest"
+  ],
+  "title": "LCM-05 authored_generated_boundary",
+  "type": "object"
+}

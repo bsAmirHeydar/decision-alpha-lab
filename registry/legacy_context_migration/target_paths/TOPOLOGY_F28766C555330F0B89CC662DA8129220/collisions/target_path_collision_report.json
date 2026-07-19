@@ -1,0 +1,125 @@
+{
+  "casefold_collision_count": 0,
+  "collision_digest": "sha256:0886b414ffd3d385f26e6bb551b1942568fa9987681b358c8fc66ff5601b17d9",
+  "collision_free": true,
+  "collisions": [],
+  "duplicate_declaration_count": 7,
+  "duplicate_declarations": [
+    {
+      "casefold_target": ".editorconfig",
+      "member_count": 2,
+      "members": [
+        {
+          "kind": "ARTIFACT",
+          "source": ".editorconfig",
+          "target": ".editorconfig"
+        },
+        {
+          "kind": "ROOT",
+          "source": ".editorconfig",
+          "target": ".editorconfig"
+        }
+      ]
+    },
+    {
+      "casefold_target": ".gitattributes",
+      "member_count": 2,
+      "members": [
+        {
+          "kind": "ARTIFACT",
+          "source": ".gitattributes",
+          "target": ".gitattributes"
+        },
+        {
+          "kind": "ROOT",
+          "source": ".gitattributes",
+          "target": ".gitattributes"
+        }
+      ]
+    },
+    {
+      "casefold_target": ".gitignore",
+      "member_count": 2,
+      "members": [
+        {
+          "kind": "ARTIFACT",
+          "source": ".gitignore",
+          "target": ".gitignore"
+        },
+        {
+          "kind": "ROOT",
+          "source": ".gitignore",
+          "target": ".gitignore"
+        }
+      ]
+    },
+    {
+      "casefold_target": "agents.md",
+      "member_count": 2,
+      "members": [
+        {
+          "kind": "ARTIFACT",
+          "source": "AGENTS.md",
+          "target": "AGENTS.md"
+        },
+        {
+          "kind": "ROOT",
+          "source": "AGENTS.md",
+          "target": "AGENTS.md"
+        }
+      ]
+    },
+    {
+      "casefold_target": "code_of_conduct.md",
+      "member_count": 2,
+      "members": [
+        {
+          "kind": "ARTIFACT",
+          "source": "CODE_OF_CONDUCT.md",
+          "target": "CODE_OF_CONDUCT.md"
+        },
+        {
+          "kind": "ROOT",
+          "source": "CODE_OF_CONDUCT.md",
+          "target": "CODE_OF_CONDUCT.md"
+        }
+      ]
+    },
+    {
+      "casefold_target": "contributing.md",
+      "member_count": 2,
+      "members": [
+        {
+          "kind": "ARTIFACT",
+          "source": "CONTRIBUTING.md",
+          "target": "CONTRIBUTING.md"
+        },
+        {
+          "kind": "ROOT",
+          "source": "CONTRIBUTING.md",
+          "target": "CONTRIBUTING.md"
+        }
+      ]
+    },
+    {
+      "casefold_target": "license",
+      "member_count": 2,
+      "members": [
+        {
+          "kind": "ARTIFACT",
+          "source": "LICENSE",
+          "target": "LICENSE"
+        },
+        {
+          "kind": "ROOT",
+          "source": "LICENSE",
+          "target": "LICENSE"
+        }
+      ]
+    }
+  ],
+  "file_target_collision_count": 0,
+  "package_root_collision_count": 0,
+  "package_root_collisions": [],
+  "schema_version": "1.0.0"
+}
