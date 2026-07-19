@@ -1,0 +1,44 @@
+{
+  "checks": [
+    {
+      "check_id": "PROTECTED_PLATFORM_EXCLUDED",
+      "passed": true
+    },
+    {
+      "check_id": "NO_PREMATURE_ABSTRACTION",
+      "passed": true
+    },
+    {
+      "check_id": "NO_FLAG_EXPLOSION",
+      "passed": true
+    },
+    {
+      "check_id": "CURRENT_BAR_NOT_SILENTLY_NORMALIZED",
+      "passed": true
+    },
+    {
+      "check_id": "SIDE_EFFECTS_NOT_SILENTLY_EXTRACTED",
+      "passed": true
+    },
+    {
+      "check_id": "NO_DOMAIN_RULE_IN_SHARED_ENGINE",
+      "passed": true
+    },
+    {
+      "check_id": "NO_EXECUTION_AUTHORITY",
+      "passed": true
+    },
+    {
+      "check_id": "NO_SOURCE_MUTATION",
+      "passed": true
+    },
+    {
+      "check_id": "NO_TARGET_MATERIALIZATION",
+      "passed": true
+    }
+  ],
+  "hostile_review_digest": "sha256:a36544ca7a1ecfc1fc1baf0b96b34a75fc54c9cc447cbb390ec2fb4777a0893c",
+  "hostile_review_passed": true,
+  "schema_version": "1.0.0",
+  "shared_engine_run_id": "SHAREDENG_F1EFFB190FA1F0AE0D31369EEDB82A3A"
+}

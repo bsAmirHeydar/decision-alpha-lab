@@ -1,0 +1,15 @@
+{
+  "acceptance_digest": "sha256:bad7bed70baa58da55bee66a08a03ed474eca285f169dbebc90f733ba3ec8357",
+  "acceptance_gate_passed": true,
+  "acceptance_state": "REFERENCE_DISCOVERY_ACCEPTED_EXTRACTION_BLOCKED_PENDING_RUNTIME_AND_OWNER_APPROVAL",
+  "candidate_discovery_complete": true,
+  "consumer_adapter_contracts_reference_only": true,
+  "equivalence_fixture_catalog_complete": true,
+  "governance_records_complete": true,
+  "materialized_engine_count": 0,
+  "parameterized_designs_reference_only": true,
+  "schema_version": "1.0.0",
+  "shared_engine_extraction_authorized": false,
+  "shared_engine_run_id": "SHAREDENG_F1EFFB190FA1F0AE0D31369EEDB82A3A",
+  "variance_catalog_complete": true
+}

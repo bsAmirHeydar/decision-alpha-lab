@@ -1,0 +1,27 @@
+{
+  "closed": true,
+  "registry_digest": "sha256:ea5b17618ef75dd93fa1f7ddd72b7176ca612112c9d4378dd5ca70623165a9e5",
+  "registry_id": "LCM07_VARIANCE_DIMENSION_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "values": [
+    "FUNCTION_NAME",
+    "RETURN_TYPE",
+    "PARAMETER_ARITY",
+    "PARAMETER_TYPES",
+    "PARAMETER_NAMES",
+    "PATH_FAMILY",
+    "SYMBOL_SCOPE",
+    "TIMEFRAME_SCOPE",
+    "CURRENT_BAR_ACCESS",
+    "CLOSED_BAR_SEMANTICS",
+    "SESSION_BOUNDARY",
+    "DST_POLICY",
+    "MISSING_DATA_POLICY",
+    "ARRAY_INDEXING",
+    "OBJECT_PREFIX",
+    "SIDE_EFFECT_SURFACE",
+    "EXECUTION_AUTHORITY",
+    "CONSUMPTION_POLICY",
+    "RESTART_BEHAVIOR"
+  ]
+}

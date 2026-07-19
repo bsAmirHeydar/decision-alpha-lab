@@ -1,0 +1,14 @@
+{
+  "authority_expansion_allowed": false,
+  "contract_digest": "sha256:846791202aa03dd641b024586c4811293263bc3bfec72019f78f39643cfd8f17",
+  "contract_id": "LCM07_CANDIDATE_CLUSTER_CONTRACT_V1",
+  "purpose": "Bind exact normalized function bodies to all observed consumers.",
+  "required_fields": [
+    "candidate_id",
+    "normalized_body_sha256",
+    "members"
+  ],
+  "schema_version": "1.0.0",
+  "source_mutation_allowed": false,
+  "target_materialization_allowed": false
+}

@@ -1,0 +1,58 @@
+{
+  "records": [
+    {
+      "artifact_path": "mql5/A.mqh",
+      "artifact_sha256": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+      "body_length": 20,
+      "flags": {
+        "current_bar_access": false,
+        "file_read_api": false,
+        "file_write_api": false,
+        "global_variable_api": false,
+        "network_api": false,
+        "object_mutation_api": false,
+        "order_api": false,
+        "session_or_dst": false,
+        "timeframe_api": false
+      },
+      "function_name": "A",
+      "line_end": 3,
+      "line_start": 1,
+      "normalized_body_sha256": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "normalized_length": 12,
+      "parameter_arity": 1,
+      "parameter_text": "int x",
+      "parameter_types": [
+        "int"
+      ],
+      "return_type": "bool"
+    },
+    {
+      "artifact_path": "mql5/B.mqh",
+      "artifact_sha256": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+      "body_length": 20,
+      "flags": {
+        "current_bar_access": false,
+        "file_read_api": false,
+        "file_write_api": false,
+        "global_variable_api": false,
+        "network_api": false,
+        "object_mutation_api": false,
+        "order_api": false,
+        "session_or_dst": false,
+        "timeframe_api": false
+      },
+      "function_name": "B",
+      "line_end": 3,
+      "line_start": 1,
+      "normalized_body_sha256": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "normalized_length": 12,
+      "parameter_arity": 1,
+      "parameter_text": "int x",
+      "parameter_types": [
+        "int"
+      ],
+      "return_type": "bool"
+    }
+  ]
+}

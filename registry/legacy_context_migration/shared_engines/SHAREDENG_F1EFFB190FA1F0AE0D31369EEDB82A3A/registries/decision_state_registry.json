@@ -1,0 +1,12 @@
+{
+  "closed": true,
+  "registry_digest": "sha256:97ad6660a5f90f3dbe1657399c032009428e1c05610a7b82efdec622a8564ecf",
+  "registry_id": "LCM07_DECISION_STATE_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "values": [
+    "REFERENCE_DESIGN_ACCEPTED_EXTRACTION_BLOCKED",
+    "CANDIDATE_HELD",
+    "CANDIDATE_REJECTED",
+    "KEEP_LOCAL"
+  ]
+}

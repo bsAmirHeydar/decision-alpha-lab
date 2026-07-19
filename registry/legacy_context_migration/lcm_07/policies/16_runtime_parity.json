@@ -1,0 +1,7 @@
+{
+  "closed": true,
+  "phase_id": "LCM-07",
+  "policy_id": "LCM07_16_RUNTIME_PARITY",
+  "schema_version": "1.0.0",
+  "statement": "Runtime and restart parity are required before consumer cutover."
+}

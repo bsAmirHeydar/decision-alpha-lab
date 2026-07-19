@@ -1,0 +1,7 @@
+{
+  "closed": true,
+  "phase_id": "LCM-07",
+  "policy_id": "LCM07_03_EXACT_BODY_CLUSTER",
+  "schema_version": "1.0.0",
+  "statement": "Candidate clustering uses deterministic normalized function body hashes."
+}

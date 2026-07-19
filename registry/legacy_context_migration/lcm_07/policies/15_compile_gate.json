@@ -1,0 +1,7 @@
+{
+  "closed": true,
+  "phase_id": "LCM-07",
+  "policy_id": "LCM07_15_COMPILE_GATE",
+  "schema_version": "1.0.0",
+  "statement": "MetaEditor compile evidence is required before MQL shared-engine extraction."
+}

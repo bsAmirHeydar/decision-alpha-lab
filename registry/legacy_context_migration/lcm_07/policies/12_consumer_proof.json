@@ -1,0 +1,7 @@
+{
+  "closed": true,
+  "phase_id": "LCM-07",
+  "policy_id": "LCM07_12_CONSUMER_PROOF",
+  "schema_version": "1.0.0",
+  "statement": "Every design requires at least two source consumers bound by source hashes."
+}

@@ -1,0 +1,14 @@
+{
+  "authority_expansion_allowed": false,
+  "contract_digest": "sha256:3d4f6468c2c27b2577e2bb2cf24b054a76267a366defca7118783197b6d1bf63",
+  "contract_id": "LCM07_CONSUMER_ADAPTER_CONTRACT_V1",
+  "purpose": "Preserve consumer names and rollback without source mutation.",
+  "required_fields": [
+    "adapter_id",
+    "engine_id",
+    "consumer_artifact_path"
+  ],
+  "schema_version": "1.0.0",
+  "source_mutation_allowed": false,
+  "target_materialization_allowed": false
+}

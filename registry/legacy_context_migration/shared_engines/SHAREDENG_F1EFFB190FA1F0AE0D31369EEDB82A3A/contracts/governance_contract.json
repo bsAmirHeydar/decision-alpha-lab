@@ -1,0 +1,14 @@
+{
+  "authority_expansion_allowed": false,
+  "contract_digest": "sha256:ab9a3d8b522fee3dc3891dfbe461d6e7f8af5c4ab4ec8755e78d52045a69ad95",
+  "contract_id": "LCM07_SHARED_ENGINE_GOVERNANCE_CONTRACT_V1",
+  "purpose": "Require owner, reviewer, version and compatibility boundaries.",
+  "required_fields": [
+    "governance_id",
+    "engine_id",
+    "owner_role"
+  ],
+  "schema_version": "1.0.0",
+  "source_mutation_allowed": false,
+  "target_materialization_allowed": false
+}

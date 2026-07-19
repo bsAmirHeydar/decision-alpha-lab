@@ -1,0 +1,12 @@
+{
+  "acceptance_report_digest": "sha256:c3f635a8e26f8d72b85de5cd000e800b21da7b2a0a9b63e928074cc78f0686d8",
+  "binding_digest": "sha256:da1498c520f4253bf20bfa223ad334bb11487a94904f4f13cdfc6698d30eb50e",
+  "framework_run_id": "FRAMEWORK_066C5FA5795AA4C283B17271E4478751",
+  "framework_summary_digest": "sha256:f2a8bbfe049d7e9efcf7a9f8b484e84ad8ddb9ee7544e05576d584cfe25060e0",
+  "schema_version": "1.0.0",
+  "shared_engine_extraction_authorized": false,
+  "source_delete_allowed": false,
+  "source_handoff_digest": "sha256:85900d49c723eeb4f07f1ef61334328b4f65daa7904c793658c1e3cb893c5b03",
+  "source_move_allowed": false,
+  "target_materialization_allowed": false
+}

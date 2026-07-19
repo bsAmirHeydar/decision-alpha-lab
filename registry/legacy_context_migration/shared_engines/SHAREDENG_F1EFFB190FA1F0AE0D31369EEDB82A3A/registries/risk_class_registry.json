@@ -1,0 +1,12 @@
+{
+  "closed": true,
+  "registry_digest": "sha256:09cf9c36c224547560322903fb7a06cb12158ef57841cc2c41a589080a5f70bd",
+  "registry_id": "LCM07_RISK_CLASS_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "values": [
+    "LOW_PURE",
+    "MEDIUM_STATEFUL",
+    "HIGH_SIDE_EFFECT",
+    "CRITICAL_EXECUTION"
+  ]
+}

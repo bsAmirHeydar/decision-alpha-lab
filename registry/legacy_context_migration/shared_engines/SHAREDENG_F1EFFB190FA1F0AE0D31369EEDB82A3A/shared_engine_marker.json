@@ -1,0 +1,16 @@
+{
+  "candidate_cluster_count": 205,
+  "claim_ceiling": "SHARED_ENGINE_EXTRACTION_REFERENCE_ONLY",
+  "framework_run_id": "FRAMEWORK_066C5FA5795AA4C283B17271E4478751",
+  "function_record_count": 4924,
+  "marker_digest": "sha256:3d1f04519491ee40dba3e0d65d40c681daad84d08083517db120e08d1034fe58",
+  "merge_performed": false,
+  "phase_id": "LCM-07",
+  "schema_version": "1.0.0",
+  "selected_candidate_count": 14,
+  "shared_engine_materialized": false,
+  "shared_engine_run_id": "SHAREDENG_F1EFFB190FA1F0AE0D31369EEDB82A3A",
+  "source_delete_performed": false,
+  "source_handoff_digest": "sha256:85900d49c723eeb4f07f1ef61334328b4f65daa7904c793658c1e3cb893c5b03",
+  "source_move_performed": false
+}

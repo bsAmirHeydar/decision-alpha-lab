@@ -1,0 +1,7 @@
+{
+  "closed": true,
+  "phase_id": "LCM-07",
+  "policy_id": "LCM07_10_DOMAIN_RULE_DENIAL",
+  "schema_version": "1.0.0",
+  "statement": "Domain-specific strategy rules cannot be hidden in a shared engine."
+}

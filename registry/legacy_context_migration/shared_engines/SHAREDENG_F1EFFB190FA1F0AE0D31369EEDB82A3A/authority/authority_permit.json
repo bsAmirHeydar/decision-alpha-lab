@@ -1,0 +1,43 @@
+{
+  "action": "DISCOVER_AND_DESIGN_SHARED_ENGINES",
+  "allowed_actions": [
+    "DISCOVER_SHARED_ENGINE_CANDIDATES",
+    "BUILD_VARIANCE_CATALOG",
+    "BUILD_EQUIVALENCE_FIXTURES",
+    "DESIGN_PARAMETERIZED_SHARED_ENGINE",
+    "BUILD_CONSUMER_ADAPTERS",
+    "REGISTER_SHARED_ENGINE_GOVERNANCE"
+  ],
+  "capital_authority": false,
+  "cutover_allowed": false,
+  "expires_at": "2026-07-26T00:00:00Z",
+  "forbidden_actions": [
+    "MATERIALIZE_SHARED_ENGINE",
+    "MOVE_SOURCE_FILE",
+    "DELETE_SOURCE_FILE",
+    "MERGE_WITHOUT_EQUIVALENCE",
+    "WAIVE_HARD_MISMATCH",
+    "INFER_OWNER_APPROVAL",
+    "INFER_RUNTIME_PARITY",
+    "ENABLE_EXECUTION",
+    "AUTHORIZE_RUNTIME",
+    "AUTHORIZE_LIVE_ORDER",
+    "ACTIVATE_CAPITAL"
+  ],
+  "framework_run_id": "FRAMEWORK_066C5FA5795AA4C283B17271E4478751",
+  "issued_at": "2026-07-19T00:00:00Z",
+  "issuer": "ALPHA_LAB_MIGRATION_CONTROL_PLANE",
+  "live_order_authority": false,
+  "merge_allowed": false,
+  "permit_digest": "sha256:6629891bcd6f135d87e84d63d6e16e2b5c7d993b4d1d851dbcd170747099d9ab",
+  "permit_id": "PERMIT_272832C65F94C29373B846CE07E634B5",
+  "phase_id": "LCM-07",
+  "runtime_authority": false,
+  "schema_version": "1.0.0",
+  "semantic_refactor_allowed": false,
+  "shared_engine_extraction_authorized": false,
+  "source_delete_allowed": false,
+  "source_handoff_digest": "sha256:85900d49c723eeb4f07f1ef61334328b4f65daa7904c793658c1e3cb893c5b03",
+  "source_move_allowed": false,
+  "target_materialization_allowed": false
+}

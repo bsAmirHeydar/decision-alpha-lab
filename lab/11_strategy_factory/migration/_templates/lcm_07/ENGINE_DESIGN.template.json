@@ -1,0 +1,6 @@
+{
+  "design_state": "REFERENCE_DESIGN_ONLY",
+  "engine_id": "ENG_*",
+  "materialized": false,
+  "schema_version": "1.0.0"
+}

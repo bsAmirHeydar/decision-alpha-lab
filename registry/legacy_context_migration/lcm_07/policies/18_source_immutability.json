@@ -1,0 +1,7 @@
+{
+  "closed": true,
+  "phase_id": "LCM-07",
+  "policy_id": "LCM07_18_SOURCE_IMMUTABILITY",
+  "schema_version": "1.0.0",
+  "statement": "LCM-07 performs no source move, delete, merge or semantic refactor."
+}

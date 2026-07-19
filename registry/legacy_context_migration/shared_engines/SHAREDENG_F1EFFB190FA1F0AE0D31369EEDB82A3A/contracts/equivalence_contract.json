@@ -1,0 +1,14 @@
+{
+  "authority_expansion_allowed": false,
+  "contract_digest": "sha256:e646d55991c85a9eecd752119fb2505264eee4a16bf6ddfeb92f3a60664acc87",
+  "contract_id": "LCM07_EQUIVALENCE_CONTRACT_V1",
+  "purpose": "Require non-compensatory static, owner, compile and runtime evidence.",
+  "required_fields": [
+    "equivalence_id",
+    "candidate_id",
+    "non_compensatory_gates"
+  ],
+  "schema_version": "1.0.0",
+  "source_mutation_allowed": false,
+  "target_materialization_allowed": false
+}

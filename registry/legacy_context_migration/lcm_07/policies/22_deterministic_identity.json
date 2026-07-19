@@ -1,0 +1,7 @@
+{
+  "closed": true,
+  "phase_id": "LCM-07",
+  "policy_id": "LCM07_22_DETERMINISTIC_IDENTITY",
+  "schema_version": "1.0.0",
+  "statement": "All persistent candidate, engine, adapter and decision IDs are content-derived."
+}

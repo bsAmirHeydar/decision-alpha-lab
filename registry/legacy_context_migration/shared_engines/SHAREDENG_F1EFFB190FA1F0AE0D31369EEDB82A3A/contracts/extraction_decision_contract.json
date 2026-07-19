@@ -1,0 +1,14 @@
+{
+  "authority_expansion_allowed": false,
+  "contract_digest": "sha256:21b11024872a1b073f53d73a625e6d054e0926f43aac3dd7b96d9dbb7b796c01",
+  "contract_id": "LCM07_EXTRACTION_DECISION_CONTRACT_V1",
+  "purpose": "Deny extraction unless every gate passes.",
+  "required_fields": [
+    "decision_id",
+    "candidate_id",
+    "decision_state"
+  ],
+  "schema_version": "1.0.0",
+  "source_mutation_allowed": false,
+  "target_materialization_allowed": false
+}

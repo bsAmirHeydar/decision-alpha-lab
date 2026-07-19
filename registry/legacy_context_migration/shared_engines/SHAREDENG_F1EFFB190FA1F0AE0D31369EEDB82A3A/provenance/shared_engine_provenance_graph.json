@@ -1,0 +1,30 @@
+{
+  "capital_authority_created": false,
+  "edges": [
+    {
+      "from": "LCM06_HANDOFF",
+      "to": "LCM07_SHARED_ENGINE_STUDY"
+    }
+  ],
+  "live_order_authority_created": false,
+  "merge_performed": false,
+  "nodes": [
+    {
+      "digest": "sha256:85900d49c723eeb4f07f1ef61334328b4f65daa7904c793658c1e3cb893c5b03",
+      "node_id": "LCM06_HANDOFF"
+    },
+    {
+      "digest": "sha256:e8a909c7875fcc7a596572cf960766492cceeec74a5573039c833cfdced8bd48",
+      "node_id": "LCM07_SHARED_ENGINE_STUDY"
+    }
+  ],
+  "provenance_digest": "sha256:9bb968d9c0f67c43b4c0d28a97fd7fe05352cd2a56de895620a23135c71ce803",
+  "reaches_lcm06_framework": true,
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "shared_engine_materialized": false,
+  "shared_engine_run_id": "SHAREDENG_F1EFFB190FA1F0AE0D31369EEDB82A3A",
+  "source_deleted": false,
+  "source_moved": false,
+  "source_semantics_mutated": false
+}

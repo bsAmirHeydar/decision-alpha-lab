@@ -1,0 +1,12 @@
+{
+  "closed": true,
+  "registry_digest": "sha256:8afb7da4c113adce7da52019e91d0968411e14abcd24e7e3488ec9147774ebdf",
+  "registry_id": "LCM07_ADAPTER_TYPE_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "values": [
+    "MQL_INCLUDE_WRAPPER_PROPOSAL",
+    "CONSUMER_NAME_WRAPPER_PROPOSAL",
+    "SIGNATURE_NORMALIZER_PROPOSAL",
+    "NO_ADAPTER_BLOCKED"
+  ]
+}

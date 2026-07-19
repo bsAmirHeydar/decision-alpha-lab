@@ -1,0 +1,7 @@
+{
+  "closed": true,
+  "phase_id": "LCM-07",
+  "policy_id": "LCM07_05_VARIANCE_CATALOG",
+  "schema_version": "1.0.0",
+  "statement": "Every selected candidate records signature, time, session, missingness, indexing and side-effect variance."
+}

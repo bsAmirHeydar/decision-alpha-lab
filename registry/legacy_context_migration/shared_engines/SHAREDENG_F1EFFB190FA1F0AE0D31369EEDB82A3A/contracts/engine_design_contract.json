@@ -1,0 +1,14 @@
+{
+  "authority_expansion_allowed": false,
+  "contract_digest": "sha256:7d848bfd6900f7c9640aaeefd0de195567825c0aedd3a529d95c6f7a34e38ff7",
+  "contract_id": "LCM07_ENGINE_DESIGN_CONTRACT_V1",
+  "purpose": "Design bounded engines without materialization or flag explosion.",
+  "required_fields": [
+    "engine_id",
+    "candidate_id",
+    "target_mql5_path"
+  ],
+  "schema_version": "1.0.0",
+  "source_mutation_allowed": false,
+  "target_materialization_allowed": false
+}

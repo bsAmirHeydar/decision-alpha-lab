@@ -1,0 +1,209 @@
+{
+  "event_count": 10,
+  "events": [
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:3b0f151a45232f4b0998d7dcf57df1148aecc3c1f97c27fa6f6bdcdeeb3c8731",
+      "event_id": "LCM07EV_90748098681ED2199DEE32CFA17724A0",
+      "event_type": "LCM06_HANDOFF_ACCEPTED",
+      "live_order_authority": false,
+      "merge_authority": false,
+      "occurred_at": "2026-07-19T00:00:00Z",
+      "payload": {
+        "source_handoff_digest": "sha256:85900d49c723eeb4f07f1ef61334328b4f65daa7904c793658c1e3cb893c5b03"
+      },
+      "previous_event_digest": null,
+      "runtime_authority": false,
+      "schema_version": "1.0.0",
+      "semantic_refactor_authority": false,
+      "sequence": 1,
+      "source_delete_authority": false,
+      "source_move_authority": false,
+      "target_materialization_authority": false
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:182f5ce1d998587dc74d2bba72c4c82e9602bbe5887aaf9ae6cca02f62f67f19",
+      "event_id": "LCM07EV_F7C7EBDFEC69FF3856A2CD8ECE96C961",
+      "event_type": "AUTHORITY_PERMIT_BOUND",
+      "live_order_authority": false,
+      "merge_authority": false,
+      "occurred_at": "2026-07-19T00:00:00Z",
+      "payload": {
+        "permit_digest": "sha256:6629891bcd6f135d87e84d63d6e16e2b5c7d993b4d1d851dbcd170747099d9ab"
+      },
+      "previous_event_digest": "sha256:3b0f151a45232f4b0998d7dcf57df1148aecc3c1f97c27fa6f6bdcdeeb3c8731",
+      "runtime_authority": false,
+      "schema_version": "1.0.0",
+      "semantic_refactor_authority": false,
+      "sequence": 2,
+      "source_delete_authority": false,
+      "source_move_authority": false,
+      "target_materialization_authority": false
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:6226a5acf39b3b67e572b4847ce483a6fa1913105db7aa6c27914def2817eeaf",
+      "event_id": "LCM07EV_03EF0EC277F91DB057B50C8814BC18D6",
+      "event_type": "MQL_FUNCTION_SURFACE_SCANNED",
+      "live_order_authority": false,
+      "merge_authority": false,
+      "occurred_at": "2026-07-19T00:00:00Z",
+      "payload": {
+        "function_count": 4924
+      },
+      "previous_event_digest": "sha256:182f5ce1d998587dc74d2bba72c4c82e9602bbe5887aaf9ae6cca02f62f67f19",
+      "runtime_authority": false,
+      "schema_version": "1.0.0",
+      "semantic_refactor_authority": false,
+      "sequence": 3,
+      "source_delete_authority": false,
+      "source_move_authority": false,
+      "target_materialization_authority": false
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:be23257e09e8200ae2292499087e4bf2fe316df24de75998301eb07615918e9d",
+      "event_id": "LCM07EV_425773DFC1BC3374F935F4B470861FDB",
+      "event_type": "SHARED_ENGINE_CANDIDATES_CLUSTERED",
+      "live_order_authority": false,
+      "merge_authority": false,
+      "occurred_at": "2026-07-19T00:00:00Z",
+      "payload": {
+        "candidate_count": 205
+      },
+      "previous_event_digest": "sha256:6226a5acf39b3b67e572b4847ce483a6fa1913105db7aa6c27914def2817eeaf",
+      "runtime_authority": false,
+      "schema_version": "1.0.0",
+      "semantic_refactor_authority": false,
+      "sequence": 4,
+      "source_delete_authority": false,
+      "source_move_authority": false,
+      "target_materialization_authority": false
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:fe860ffdf74813483349fa32f96482652f19a143d9258beab0ebacd7dcdd4868",
+      "event_id": "LCM07EV_CB7684052B654209D67F16283832AF27",
+      "event_type": "VARIANCE_CATALOG_BUILT",
+      "live_order_authority": false,
+      "merge_authority": false,
+      "occurred_at": "2026-07-19T00:00:00Z",
+      "payload": {
+        "selected_count": 14
+      },
+      "previous_event_digest": "sha256:be23257e09e8200ae2292499087e4bf2fe316df24de75998301eb07615918e9d",
+      "runtime_authority": false,
+      "schema_version": "1.0.0",
+      "semantic_refactor_authority": false,
+      "sequence": 5,
+      "source_delete_authority": false,
+      "source_move_authority": false,
+      "target_materialization_authority": false
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:a64e93596c57f981f4972ca6915d60c6337c2a5c1579c4bb830334471ad11375",
+      "event_id": "LCM07EV_3FCCF0ABF91D33121D5F4446754A93D1",
+      "event_type": "STATIC_EQUIVALENCE_EVIDENCE_BUILT",
+      "live_order_authority": false,
+      "merge_authority": false,
+      "occurred_at": "2026-07-19T00:00:00Z",
+      "payload": {
+        "equivalence_count": 14
+      },
+      "previous_event_digest": "sha256:fe860ffdf74813483349fa32f96482652f19a143d9258beab0ebacd7dcdd4868",
+      "runtime_authority": false,
+      "schema_version": "1.0.0",
+      "semantic_refactor_authority": false,
+      "sequence": 6,
+      "source_delete_authority": false,
+      "source_move_authority": false,
+      "target_materialization_authority": false
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:5e7fc13f956565087118ed56b7a10e134d5cd41f6548fd22d224752896416ffc",
+      "event_id": "LCM07EV_ADBD5E7AFBF458E630715EB0FF489831",
+      "event_type": "PARAMETERIZED_DESIGNS_PROPOSED",
+      "live_order_authority": false,
+      "merge_authority": false,
+      "occurred_at": "2026-07-19T00:00:00Z",
+      "payload": {
+        "design_count": 14
+      },
+      "previous_event_digest": "sha256:a64e93596c57f981f4972ca6915d60c6337c2a5c1579c4bb830334471ad11375",
+      "runtime_authority": false,
+      "schema_version": "1.0.0",
+      "semantic_refactor_authority": false,
+      "sequence": 7,
+      "source_delete_authority": false,
+      "source_move_authority": false,
+      "target_materialization_authority": false
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:7660fe26917fd1de3695e705442be840decdc6a07e43ca55d6cfb826a9d72594",
+      "event_id": "LCM07EV_3F0C1DDA5002B881D1AAF7DB0ED9E603",
+      "event_type": "CONSUMER_ADAPTERS_AND_GOVERNANCE_REGISTERED",
+      "live_order_authority": false,
+      "merge_authority": false,
+      "occurred_at": "2026-07-19T00:00:00Z",
+      "payload": {
+        "adapter_count": 109
+      },
+      "previous_event_digest": "sha256:5e7fc13f956565087118ed56b7a10e134d5cd41f6548fd22d224752896416ffc",
+      "runtime_authority": false,
+      "schema_version": "1.0.0",
+      "semantic_refactor_authority": false,
+      "sequence": 8,
+      "source_delete_authority": false,
+      "source_move_authority": false,
+      "target_materialization_authority": false
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:f12e452e3aa13f6398487fb2eae6cab17da1bfa36641900672eac72137e08333",
+      "event_id": "LCM07EV_FA304FC4E517F0F01D8A5217256947BB",
+      "event_type": "EXTRACTION_DENIAL_DECISIONS_ISSUED",
+      "live_order_authority": false,
+      "merge_authority": false,
+      "occurred_at": "2026-07-19T00:00:00Z",
+      "payload": {
+        "decision_count": 14
+      },
+      "previous_event_digest": "sha256:7660fe26917fd1de3695e705442be840decdc6a07e43ca55d6cfb826a9d72594",
+      "runtime_authority": false,
+      "schema_version": "1.0.0",
+      "semantic_refactor_authority": false,
+      "sequence": 9,
+      "source_delete_authority": false,
+      "source_move_authority": false,
+      "target_materialization_authority": false
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:f410c7c4932f20e064e73662cf5e58a205a0b98fc2f645dac33bea844f77c43c",
+      "event_id": "LCM07EV_0E628599710E3F888B76131308F7E045",
+      "event_type": "LCM08_HANDOFF_PREPARED",
+      "live_order_authority": false,
+      "merge_authority": false,
+      "occurred_at": "2026-07-19T00:00:00Z",
+      "payload": {
+        "shared_engine_materialized": false
+      },
+      "previous_event_digest": "sha256:f12e452e3aa13f6398487fb2eae6cab17da1bfa36641900672eac72137e08333",
+      "runtime_authority": false,
+      "schema_version": "1.0.0",
+      "semantic_refactor_authority": false,
+      "sequence": 10,
+      "source_delete_authority": false,
+      "source_move_authority": false,
+      "target_materialization_authority": false
+    }
+  ],
+  "final_event_digest": "sha256:f410c7c4932f20e064e73662cf5e58a205a0b98fc2f645dac33bea844f77c43c",
+  "ledger_digest": "sha256:d35fe69d978d21feaaa85ea3db5467445d125dea4dcf087c4bb81097e029755e",
+  "schema_version": "1.0.0",
+  "shared_engine_run_id": "SHAREDENG_F1EFFB190FA1F0AE0D31369EEDB82A3A"
+}

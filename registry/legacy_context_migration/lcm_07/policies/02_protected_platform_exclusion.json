@@ -1,0 +1,7 @@
+{
+  "closed": true,
+  "phase_id": "LCM-07",
+  "policy_id": "LCM07_02_PROTECTED_PLATFORM_EXCLUSION",
+  "schema_version": "1.0.0",
+  "statement": "Protected ACL-OS, Strategy Factory and SAED assets are excluded from legacy extraction candidates."
+}

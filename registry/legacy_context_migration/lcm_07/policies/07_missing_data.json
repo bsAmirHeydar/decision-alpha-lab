@@ -1,0 +1,7 @@
+{
+  "closed": true,
+  "phase_id": "LCM-07",
+  "policy_id": "LCM07_07_MISSING_DATA",
+  "schema_version": "1.0.0",
+  "statement": "Missing-data behavior must be fail-closed before extraction."
+}

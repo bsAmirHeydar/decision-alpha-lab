@@ -1,0 +1,15 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm07/lcm06_binding.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version"
+  ],
+  "title": "Lcm06 Binding",
+  "type": "object"
+}

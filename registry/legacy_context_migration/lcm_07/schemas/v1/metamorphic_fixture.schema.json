@@ -1,0 +1,15 @@
+{
+  "$id": "https://alpha-lab.local/schemas/lcm07/metamorphic_fixture.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version"
+  ],
+  "title": "Metamorphic Fixture",
+  "type": "object"
+}

@@ -1,0 +1,14 @@
+{
+  "authority_expansion_allowed": false,
+  "contract_digest": "sha256:93a893569f1b5533f03b9f66f3a5736cfdcf4c1877ecfa7e0a4e6a9157243e4e",
+  "contract_id": "LCM07_VARIANCE_CATALOG_CONTRACT_V1",
+  "purpose": "Record all approved and unresolved semantic variance.",
+  "required_fields": [
+    "variance_id",
+    "candidate_id",
+    "dimensions"
+  ],
+  "schema_version": "1.0.0",
+  "source_mutation_allowed": false,
+  "target_materialization_allowed": false
+}

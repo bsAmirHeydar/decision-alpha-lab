@@ -1,0 +1,19 @@
+{
+  "closed": true,
+  "registry_digest": "sha256:d1dd2523da1d04535acc4200dc1ec2bba499ede8edc62a2fcb2f6b84e306f9dd",
+  "registry_id": "LCM07_ENGINE_CATEGORY_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "values": [
+    "CLOSED_BAR_CLOCK",
+    "TIME_SESSION_CONFIGURATION",
+    "DETERMINISTIC_FORMATTING",
+    "IDENTITY_HASH",
+    "OBJECT_LIFECYCLE",
+    "CONFIGURATION_GATE",
+    "STATE_STREAM",
+    "REFERENCE_LIFECYCLE",
+    "DOMAIN_LOGIC",
+    "EXECUTION_SENSITIVE",
+    "GENERIC_UTILITY"
+  ]
+}

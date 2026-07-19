@@ -1,0 +1,7 @@
+{
+  "closed": true,
+  "phase_id": "LCM-07",
+  "policy_id": "LCM07_21_UNKNOWN_BLOCKING",
+  "schema_version": "1.0.0",
+  "statement": "UNKNOWN never converts to PASS."
+}

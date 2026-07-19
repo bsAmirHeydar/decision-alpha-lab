@@ -1,0 +1,22 @@
+{
+  "closed": true,
+  "registry_digest": "sha256:fce573f98b341113c6901dc04e922a2759fcd57e0ef0227b6fea4e7bb41a64d9",
+  "registry_id": "LCM07_EXTRACTION_GATE_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "values": [
+    "EXACT_NORMALIZED_BODY",
+    "SOURCE_HASH_BOUND",
+    "SIGNATURE_REVIEW",
+    "KNOWN_TIME_REVIEW",
+    "MISSING_DATA_FAIL_CLOSED",
+    "SIDE_EFFECT_REVIEW",
+    "NO_DOMAIN_RULE",
+    "OWNER_APPROVAL",
+    "INDEPENDENT_REVIEW",
+    "MQL5_COMPILE",
+    "RUNTIME_PARITY",
+    "CONSUMER_REGRESSION",
+    "RESTART_PARITY",
+    "ROLLBACK_PLAN"
+  ]
+}

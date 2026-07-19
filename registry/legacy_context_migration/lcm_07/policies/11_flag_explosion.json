@@ -1,0 +1,7 @@
+{
+  "closed": true,
+  "phase_id": "LCM-07",
+  "policy_id": "LCM07_11_FLAG_EXPLOSION",
+  "schema_version": "1.0.0",
+  "statement": "Unrelated strategy variants may not be encoded as a giant flag engine."
+}
