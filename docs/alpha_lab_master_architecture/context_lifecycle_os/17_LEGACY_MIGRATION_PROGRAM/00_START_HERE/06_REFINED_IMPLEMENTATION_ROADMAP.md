@@ -86,3 +86,7 @@ The selected EXP0015 Python pilot is canonicalized and parity-verified under `PI
 ## LCM-08B accepted reference
 
 The selected EXP0015 Python pilot is canonicalized and parity-verified under `PILOTMIG_344455420C8CA68E865FD54135E891D7`. LCM-08 remains open until LCM-08C closes the Context wave portfolio.
+
+## LCM-08C accepted reference closure
+
+The Context portfolio is fully accounted under `CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3`: one parity-proven canonical package and 320 explicit blockers. LCM-09A may begin Setup inventory work without treating blocked Contexts as canonical.

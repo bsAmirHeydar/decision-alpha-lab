@@ -1,0 +1,29 @@
+{
+  "closure_id": "CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3",
+  "member_count": 3,
+  "members": [
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_ASTRO_RESEARCH_EXECUTION_DAL_ASTRODOCTRINECONTEXT_8749C1D8_V1",
+      "packet_id": "CTXMIGPACKET_529DB1CB403664FA1CEED333519B5F9D"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_ASTRO_RESEARCH_EXECUTION_DAL_ASTROEXECUTIONSTATEMACHINE_AD983AAD_V1",
+      "packet_id": "CTXMIGPACKET_11F6A2FFA1A31275F1B1F9156A7BB749"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_M_SERIES_CONTEXTS_DAL_M0001AUDITSTATE_466E915C_V1",
+      "packet_id": "CTXMIGPACKET_947A4E83FD0857C2EDA24E611B2A6BC9"
+    }
+  ],
+  "phase_id": "LCM-08C",
+  "receipt_digest": "sha256:fb207e866462dae7ebe5df76b6e486813ded2f23b9333572e77e5fdc4a0b80d2",
+  "schema_version": "1.0.0",
+  "wave_digest": "sha256:2f584f389cd470eb55619a89e8cd8cc00ca3e2d0bbcf724f28c0fdb503903ed5",
+  "wave_id": "WAVE_01_LOW_RISK_PILOT"
+}

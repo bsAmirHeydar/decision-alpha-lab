@@ -1,0 +1,49 @@
+{
+  "all_migrated_packages_cutover_ready": true,
+  "all_portfolio_records_accounted": true,
+  "blocked_count": 320,
+  "blocked_identity_count_matches_registry": true,
+  "blocker_reason_counts": {
+    "CANONICAL_CONTEXT_BOUNDARY_NOT_PROVEN": 320,
+    "CANONICAL_PACKAGE_NOT_MATERIALIZED": 320,
+    "CHARACTERIZATION_PACKET_NOT_ACCEPTED": 320,
+    "CRITICAL_RISK_DIMENSION_REQUIRES_ADJUDICATION": 39,
+    "HUMAN_SEMANTIC_OWNER_APPROVAL_MISSING": 320,
+    "OBSERVED_BEHAVIOR_NOT_CAPTURED": 320,
+    "RISK_CLASS_UNKNOWN": 3,
+    "SECURITY_REVIEW_REQUIRED": 6
+  },
+  "capital_authority_created": false,
+  "claim_ceiling": "LCM_08C_REFERENCE_ONLY",
+  "closure_id": "CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3",
+  "closure_report_digest": "sha256:3755ae16188c27171dc791d1169384a2740560368f446c173a4c584996e4a020",
+  "closure_state": "CONTEXT_PORTFOLIO_CLOSED_REFERENCE_ONLY_WITH_EXPLICIT_BLOCKERS",
+  "consumer_cutover_performed": false,
+  "disposition_counts": {
+    "BLOCKED": 320,
+    "MIGRATED_CUTOVER_READY": 1
+  },
+  "live_order_authority_created": false,
+  "locator_collision_count": 0,
+  "migrated_cutover_ready_count": 1,
+  "migrated_hard_parity_failure_count": 0,
+  "phase_id": "LCM-08C",
+  "portfolio_id": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+  "portfolio_record_count": 321,
+  "quarantine_performed": false,
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "source_delete_performed": false,
+  "source_lock_count": 321,
+  "source_lock_failures": 0,
+  "source_move_performed": false,
+  "wave_counts": {
+    "BLOCKED_UNRESOLVED": 12,
+    "WAVE_01_LOW_RISK_PILOT": 3,
+    "WAVE_03_EXP0015_EXP0016_EXP0017": 87,
+    "WAVE_04_EXP0018_DAYE_TRADER": 27,
+    "WAVE_05_EXP0019_FAERIE_PROTOCOL": 6,
+    "WAVE_09_HIGH_RISK_COMPOSITE": 186
+  },
+  "wave_receipt_count": 6
+}

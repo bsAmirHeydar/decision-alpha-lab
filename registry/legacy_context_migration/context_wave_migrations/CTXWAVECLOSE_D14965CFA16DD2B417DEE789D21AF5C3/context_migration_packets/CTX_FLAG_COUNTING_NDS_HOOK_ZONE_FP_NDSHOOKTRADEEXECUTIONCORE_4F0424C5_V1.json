@@ -1,0 +1,77 @@
+{
+  "admission_state": "ADMITTED_WITH_EXPLICIT_BLOCKERS",
+  "aggregate_risk_score": 54,
+  "allowed_next_actions": [
+    "RESOLVE_LISTED_BLOCKERS",
+    "RECHARACTERIZE_WITH_OWNER_APPROVAL",
+    "REENTER_CONTEXT_MIGRATION"
+  ],
+  "blocker_reasons": [
+    "CANONICAL_CONTEXT_BOUNDARY_NOT_PROVEN",
+    "CANONICAL_PACKAGE_NOT_MATERIALIZED",
+    "CHARACTERIZATION_PACKET_NOT_ACCEPTED",
+    "HUMAN_SEMANTIC_OWNER_APPROVAL_MISSING",
+    "OBSERVED_BEHAVIOR_NOT_CAPTURED"
+  ],
+  "canonical_package_root": null,
+  "capital_authority_created": false,
+  "characterization_state": {
+    "observed_behavior_captured": false,
+    "packet_id": "CHARPACKET_C6A077EC1B251051ED37BC8091BFD4D7",
+    "packet_status": "BLOCKED_OWNER_APPROVAL",
+    "required_case_types": [
+      "DUPLICATE_TICK",
+      "NEGATIVE",
+      "NO_TRADE",
+      "POSITIVE",
+      "RESTART"
+    ]
+  },
+  "claim_ceiling": "LCM_08C_REFERENCE_ONLY",
+  "closure_id": "CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3",
+  "consumer_cutover_performed": false,
+  "critical_dimensions": [],
+  "family_candidate": "FLAG_COUNTING_NDS_HOOK_ZONE",
+  "final_disposition": "BLOCKED",
+  "forbidden_actions": [
+    "CONSUMER_CUTOVER",
+    "SOURCE_MOVE",
+    "SOURCE_DELETE",
+    "LEGACY_QUARANTINE",
+    "RUNTIME_AUTHORIZATION",
+    "LIVE_ORDER_AUTHORIZATION",
+    "CAPITAL_ACTIVATION",
+    "TREAT_BLOCKED_CONTEXT_AS_MIGRATED"
+  ],
+  "granularity_class": "EMBEDDED_CONTEXT_FRAGMENT",
+  "hard_parity_state": "NOT_EXECUTED_BLOCKED",
+  "identity_digest": "sha256:2552c1e079ff7a87ffece293ff9fdac9ae8b69b836fbdc0fddf9ac6c1933cd6e",
+  "identity_id": "CTX_FLAG_COUNTING_NDS_HOOK_ZONE_FP_NDSHOOKTRADEEXECUTIONCORE_4F0424C5_V1",
+  "identity_status": "PROVISIONAL_UNMERGED_IDENTITY_CANDIDATE",
+  "live_order_authority_created": false,
+  "owner_state": {
+    "architect_pilot_scope_approval": false,
+    "code_owner_role": "CODE_OWNER_FLAG_COUNTING_NDS_HOOK_ZONE",
+    "human_assignee_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+    "role_binding_exists": true,
+    "semantic_owner_role": "DOMAIN_OWNER_FLAG_COUNTING_NDS_HOOK_ZONE"
+  },
+  "packet_digest": "sha256:3642e5e973e0f856cf04bf9593ec72758b30f255adff9642f366fc72497a8eb8",
+  "packet_id": "CTXMIGPACKET_8635AA331290E571EE1C5EB4E66853FD",
+  "parity_digest": null,
+  "phase_id": "LCM-08C",
+  "risk_class": "MODERATE",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "semantic_refactor_performed": false,
+  "shared_engine_candidate_ids": [],
+  "source_artifact_path": "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeExecutionCore.mqh",
+  "source_artifact_sha256": "sha256:56ad5f3bc10274a0dcc88dec7a05f3621c49880ab5621725ab89a7aa5b3c0e68",
+  "source_delete_performed": false,
+  "source_digest_verified_at_build": true,
+  "source_language": "MQL5",
+  "source_move_performed": false,
+  "target_path_proposal": "lab/11_strategy_factory/contexts/CTX_FLAG_COUNTING_NDS_HOOK_ZONE_FP_NDSHOOKTRADEEXECUTIONCORE_4F0424C5_V1",
+  "variance_state": "NOT_EVALUATED_BLOCKED",
+  "wave_assignment": "WAVE_09_HIGH_RISK_COMPOSITE"
+}

@@ -1,0 +1,10 @@
+{
+  "capital_authority": false,
+  "claim_ceiling": "LCM_08C_REFERENCE_ONLY",
+  "live_order_authority": false,
+  "phase_id": "LCM-08C",
+  "policy_digest": "sha256:f1a9817f5abf5a8ec23a800860862b8f86576c684911a27135cab49a992650c7",
+  "policy_id": "LCM08C_CLAIM_CEILING",
+  "runtime_authority": false,
+  "schema_version": "1.0.0"
+}

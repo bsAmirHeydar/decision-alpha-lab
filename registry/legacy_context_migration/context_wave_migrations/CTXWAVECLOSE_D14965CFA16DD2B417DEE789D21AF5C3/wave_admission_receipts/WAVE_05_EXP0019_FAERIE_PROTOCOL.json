@@ -1,0 +1,22 @@
+{
+  "all_members_accounted": true,
+  "blocked_count": 6,
+  "closure_id": "CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3",
+  "consumer_cutover_performed": false,
+  "member_count": 6,
+  "member_packet_digests": [
+    "sha256:7d633d2c073a773492c6664aba5f98fbe474a56762c1e49f924a6474fb46be9f",
+    "sha256:37cb25f65f9b61ce27489212f759c37f11f7dbbd7a1aeff6ae1c5c0006c61bfb",
+    "sha256:d2e9ce2b82a78eebdc6b010330ec3c6adfc64f624a69d3e51349b46e9b4f35ba",
+    "sha256:3fd94e36dc07ee9c423438e39bd244628a818a41fc7132d0a2cdf2921e6d19b0",
+    "sha256:c3f5f687e100eade465a1033bb2861373011d6dac201e65481b03d158e55eae4",
+    "sha256:45419a1f11ca80f7061be6b7a5482e4f4b476ae7f6be8f7af5a64a5d08b8e07a"
+  ],
+  "migrated_cutover_ready_count": 0,
+  "non_compensatory_gate_passed": true,
+  "phase_id": "LCM-08C",
+  "receipt_digest": "sha256:a0757dc8ae1b9260ecf2f2f65e9bc7be2499c43375d778ee45f0dbdd7b4d9e2b",
+  "schema_version": "1.0.0",
+  "wave_closure_state": "CLOSED_WITH_EXPLICIT_BLOCKERS",
+  "wave_id": "WAVE_05_EXP0019_FAERIE_PROTOCOL"
+}

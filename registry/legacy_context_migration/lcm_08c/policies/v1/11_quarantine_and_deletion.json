@@ -1,0 +1,8 @@
+{
+  "deletion_allowed": false,
+  "phase_id": "LCM-08C",
+  "policy_digest": "sha256:113db93c5bade4c65e767984887b55b2433be627c4f13dfe042579b048cd545e",
+  "policy_id": "LCM08C_LIFECYCLE_BOUNDARY",
+  "quarantine_allowed": false,
+  "schema_version": "1.0.0"
+}

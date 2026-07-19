@@ -1,0 +1,77 @@
+{
+  "admission_state": "ADMITTED_WITH_EXPLICIT_BLOCKERS",
+  "aggregate_risk_score": 36,
+  "allowed_next_actions": [
+    "RESOLVE_LISTED_BLOCKERS",
+    "RECHARACTERIZE_WITH_OWNER_APPROVAL",
+    "REENTER_CONTEXT_MIGRATION"
+  ],
+  "blocker_reasons": [
+    "CANONICAL_CONTEXT_BOUNDARY_NOT_PROVEN",
+    "CANONICAL_PACKAGE_NOT_MATERIALIZED",
+    "CHARACTERIZATION_PACKET_NOT_ACCEPTED",
+    "HUMAN_SEMANTIC_OWNER_APPROVAL_MISSING",
+    "OBSERVED_BEHAVIOR_NOT_CAPTURED"
+  ],
+  "canonical_package_root": null,
+  "capital_authority_created": false,
+  "characterization_state": {
+    "observed_behavior_captured": false,
+    "packet_id": "CHARPACKET_9F251BEF897AE953CB86061B8C97F60B",
+    "packet_status": "BLOCKED_OWNER_APPROVAL",
+    "required_case_types": [
+      "DUPLICATE_TICK",
+      "NEGATIVE",
+      "NO_TRADE",
+      "POSITIVE",
+      "RESTART"
+    ]
+  },
+  "claim_ceiling": "LCM_08C_REFERENCE_ONLY",
+  "closure_id": "CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3",
+  "consumer_cutover_performed": false,
+  "critical_dimensions": [],
+  "family_candidate": "ASTRO_RESEARCH_EXECUTION",
+  "final_disposition": "BLOCKED",
+  "forbidden_actions": [
+    "CONSUMER_CUTOVER",
+    "SOURCE_MOVE",
+    "SOURCE_DELETE",
+    "LEGACY_QUARANTINE",
+    "RUNTIME_AUTHORIZATION",
+    "LIVE_ORDER_AUTHORIZATION",
+    "CAPITAL_ACTIVATION",
+    "TREAT_BLOCKED_CONTEXT_AS_MIGRATED"
+  ],
+  "granularity_class": "EMBEDDED_CONTEXT_FRAGMENT",
+  "hard_parity_state": "NOT_EXECUTED_BLOCKED",
+  "identity_digest": "sha256:7f21373dda860548806692e52891c8c5fb0ab49b3e737d974c49824ecbe488aa",
+  "identity_id": "CTX_ASTRO_RESEARCH_EXECUTION_DAL_ASTRODOCTRINECONTEXT_8749C1D8_V1",
+  "identity_status": "PROVISIONAL_UNMERGED_IDENTITY_CANDIDATE",
+  "live_order_authority_created": false,
+  "owner_state": {
+    "architect_pilot_scope_approval": false,
+    "code_owner_role": "CODE_OWNER_ASTRO_RESEARCH_EXECUTION",
+    "human_assignee_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+    "role_binding_exists": true,
+    "semantic_owner_role": "DOMAIN_OWNER_ASTRO_RESEARCH_EXECUTION"
+  },
+  "packet_digest": "sha256:0354e031e6647204a784dd33f654ce2384ac7d42de114c130997a3af1f858a88",
+  "packet_id": "CTXMIGPACKET_529DB1CB403664FA1CEED333519B5F9D",
+  "parity_digest": null,
+  "phase_id": "LCM-08C",
+  "risk_class": "MODERATE",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "semantic_refactor_performed": false,
+  "shared_engine_candidate_ids": [],
+  "source_artifact_path": "mql5/Include/Research/DAL_AstroDoctrineContext.mqh",
+  "source_artifact_sha256": "sha256:88006191049cd80b1fc060798fbdc2f324c745028c890d252c06cc97a60127bd",
+  "source_delete_performed": false,
+  "source_digest_verified_at_build": true,
+  "source_language": "MQL5",
+  "source_move_performed": false,
+  "target_path_proposal": "lab/11_strategy_factory/contexts/CTX_ASTRO_RESEARCH_EXECUTION_DAL_ASTRODOCTRINECONTEXT_8749C1D8_V1",
+  "variance_state": "NOT_EVALUATED_BLOCKED",
+  "wave_assignment": "WAVE_01_LOW_RISK_PILOT"
+}

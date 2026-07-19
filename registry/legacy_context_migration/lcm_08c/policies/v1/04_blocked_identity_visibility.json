@@ -1,0 +1,8 @@
+{
+  "blocked_identity_omission_allowed": false,
+  "explicit_reason_required": true,
+  "phase_id": "LCM-08C",
+  "policy_digest": "sha256:8cb00f844582b768ea309358dc79c82934674b78c6f1efd6ccba21f6f32b2e3b",
+  "policy_id": "LCM08C_BLOCKED_VISIBILITY",
+  "schema_version": "1.0.0"
+}

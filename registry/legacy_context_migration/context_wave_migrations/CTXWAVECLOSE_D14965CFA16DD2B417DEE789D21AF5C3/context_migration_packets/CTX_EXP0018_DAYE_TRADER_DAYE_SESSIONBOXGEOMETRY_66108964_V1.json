@@ -1,0 +1,77 @@
+{
+  "admission_state": "ADMITTED_WITH_EXPLICIT_BLOCKERS",
+  "aggregate_risk_score": 52,
+  "allowed_next_actions": [
+    "RESOLVE_LISTED_BLOCKERS",
+    "RECHARACTERIZE_WITH_OWNER_APPROVAL",
+    "REENTER_CONTEXT_MIGRATION"
+  ],
+  "blocker_reasons": [
+    "CANONICAL_CONTEXT_BOUNDARY_NOT_PROVEN",
+    "CANONICAL_PACKAGE_NOT_MATERIALIZED",
+    "CHARACTERIZATION_PACKET_NOT_ACCEPTED",
+    "HUMAN_SEMANTIC_OWNER_APPROVAL_MISSING",
+    "OBSERVED_BEHAVIOR_NOT_CAPTURED"
+  ],
+  "canonical_package_root": null,
+  "capital_authority_created": false,
+  "characterization_state": {
+    "observed_behavior_captured": false,
+    "packet_id": "CHARPACKET_115919E2075DC624F0FC77ABC52ECE9E",
+    "packet_status": "BLOCKED_OWNER_APPROVAL",
+    "required_case_types": [
+      "DUPLICATE_TICK",
+      "NEGATIVE",
+      "NO_TRADE",
+      "POSITIVE",
+      "RESTART"
+    ]
+  },
+  "claim_ceiling": "LCM_08C_REFERENCE_ONLY",
+  "closure_id": "CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3",
+  "consumer_cutover_performed": false,
+  "critical_dimensions": [],
+  "family_candidate": "EXP0018_DAYE_TRADER",
+  "final_disposition": "BLOCKED",
+  "forbidden_actions": [
+    "CONSUMER_CUTOVER",
+    "SOURCE_MOVE",
+    "SOURCE_DELETE",
+    "LEGACY_QUARANTINE",
+    "RUNTIME_AUTHORIZATION",
+    "LIVE_ORDER_AUTHORIZATION",
+    "CAPITAL_ACTIVATION",
+    "TREAT_BLOCKED_CONTEXT_AS_MIGRATED"
+  ],
+  "granularity_class": "EMBEDDED_CONTEXT_FRAGMENT",
+  "hard_parity_state": "NOT_EXECUTED_BLOCKED",
+  "identity_digest": "sha256:b3900e256e8422c40285a392e6c12650877841322b3264dc8bad2a74e2f0754d",
+  "identity_id": "CTX_EXP0018_DAYE_TRADER_DAYE_SESSIONBOXGEOMETRY_66108964_V1",
+  "identity_status": "PROVISIONAL_UNMERGED_IDENTITY_CANDIDATE",
+  "live_order_authority_created": false,
+  "owner_state": {
+    "architect_pilot_scope_approval": false,
+    "code_owner_role": "CODE_OWNER_EXP0018_DAYE_TRADER",
+    "human_assignee_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+    "role_binding_exists": true,
+    "semantic_owner_role": "DOMAIN_OWNER_EXP0018_DAYE_TRADER"
+  },
+  "packet_digest": "sha256:16a905ea4f668a2674f9dda335828f803172ab46b7b3a8515f0a57986ca12ee4",
+  "packet_id": "CTXMIGPACKET_DF3910DC3F2CA2DB7CD034F032995E90",
+  "parity_digest": null,
+  "phase_id": "LCM-08C",
+  "risk_class": "MODERATE",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "semantic_refactor_performed": false,
+  "shared_engine_candidate_ids": [],
+  "source_artifact_path": "mql5/Include/DayeTrader/EXP0018/DAYE_SessionBoxGeometry.mqh",
+  "source_artifact_sha256": "sha256:9e113c269ed7bd25bc4b8b4f6cd85ab8826aac98c1f78d290cf9b9348ca39ae7",
+  "source_delete_performed": false,
+  "source_digest_verified_at_build": true,
+  "source_language": "MQL5",
+  "source_move_performed": false,
+  "target_path_proposal": "lab/11_strategy_factory/contexts/CTX_EXP0018_DAYE_TRADER_DAYE_SESSIONBOXGEOMETRY_66108964_V1",
+  "variance_state": "NOT_EVALUATED_BLOCKED",
+  "wave_assignment": "WAVE_04_EXP0018_DAYE_TRADER"
+}

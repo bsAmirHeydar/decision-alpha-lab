@@ -1,0 +1,8 @@
+{
+  "aggregate_compensation_allowed": false,
+  "hard_parity_required_for_cutover_ready": true,
+  "phase_id": "LCM-08C",
+  "policy_digest": "sha256:42110dc97ac12170e70ea01a99bbcb0dab891fab1f0f90789477a4a40492fff0",
+  "policy_id": "LCM08C_NON_COMPENSATORY_PARITY",
+  "schema_version": "1.0.0"
+}

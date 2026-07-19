@@ -1,0 +1,79 @@
+{
+  "admission_state": "ADMITTED_WITH_EXPLICIT_BLOCKERS",
+  "aggregate_risk_score": 63,
+  "allowed_next_actions": [
+    "RESOLVE_LISTED_BLOCKERS",
+    "RECHARACTERIZE_WITH_OWNER_APPROVAL",
+    "REENTER_CONTEXT_MIGRATION"
+  ],
+  "blocker_reasons": [
+    "CANONICAL_CONTEXT_BOUNDARY_NOT_PROVEN",
+    "CANONICAL_PACKAGE_NOT_MATERIALIZED",
+    "CHARACTERIZATION_PACKET_NOT_ACCEPTED",
+    "HUMAN_SEMANTIC_OWNER_APPROVAL_MISSING",
+    "OBSERVED_BEHAVIOR_NOT_CAPTURED"
+  ],
+  "canonical_package_root": null,
+  "capital_authority_created": false,
+  "characterization_state": {
+    "observed_behavior_captured": false,
+    "packet_id": "CHARPACKET_F91B72D7CB33D542F195599A75230554",
+    "packet_status": "BLOCKED_OWNER_APPROVAL",
+    "required_case_types": [
+      "DST_TRANSITION",
+      "DUPLICATE_TICK",
+      "NEGATIVE",
+      "NO_TRADE",
+      "POSITIVE",
+      "RESTART",
+      "SESSION_BOUNDARY"
+    ]
+  },
+  "claim_ceiling": "LCM_08C_REFERENCE_ONLY",
+  "closure_id": "CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3",
+  "consumer_cutover_performed": false,
+  "critical_dimensions": [],
+  "family_candidate": "EXP0017_CYCLE_GROUP",
+  "final_disposition": "BLOCKED",
+  "forbidden_actions": [
+    "CONSUMER_CUTOVER",
+    "SOURCE_MOVE",
+    "SOURCE_DELETE",
+    "LEGACY_QUARANTINE",
+    "RUNTIME_AUTHORIZATION",
+    "LIVE_ORDER_AUTHORIZATION",
+    "CAPITAL_ACTIVATION",
+    "TREAT_BLOCKED_CONTEXT_AS_MIGRATED"
+  ],
+  "granularity_class": "EMBEDDED_CONTEXT_FRAGMENT",
+  "hard_parity_state": "NOT_EXECUTED_BLOCKED",
+  "identity_digest": "sha256:a3a5a7f4e2f19029030b0a62e9b9f5fe6f23b650d68c779d8a24b2dec3f528ac",
+  "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGC_DISPLAY_13FC5853_V1",
+  "identity_status": "PROVISIONAL_UNMERGED_IDENTITY_CANDIDATE",
+  "live_order_authority_created": false,
+  "owner_state": {
+    "architect_pilot_scope_approval": false,
+    "code_owner_role": "CODE_OWNER_EXP0017_CYCLE_GROUP",
+    "human_assignee_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+    "role_binding_exists": true,
+    "semantic_owner_role": "DOMAIN_OWNER_EXP0017_CYCLE_GROUP"
+  },
+  "packet_digest": "sha256:e246247ebac8fa703834c94e4865ef3622ef0189739ba8df7b1f169b458e5bff",
+  "packet_id": "CTXMIGPACKET_BA376C7CF4F213A7955158CF6BBC67AB",
+  "parity_digest": null,
+  "phase_id": "LCM-08C",
+  "risk_class": "HIGH",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "semantic_refactor_performed": false,
+  "shared_engine_candidate_ids": [],
+  "source_artifact_path": "mql5/Include/IntermarketDivergenceExecution/CG/CGC_Display.mqh",
+  "source_artifact_sha256": "sha256:39505fd0cff941dd436362885fd1dcd36b8511118880a17e65a80e8272f82c06",
+  "source_delete_performed": false,
+  "source_digest_verified_at_build": true,
+  "source_language": "MQL5",
+  "source_move_performed": false,
+  "target_path_proposal": "lab/11_strategy_factory/contexts/CTX_EXP0017_CYCLE_GROUP_CGC_DISPLAY_13FC5853_V1",
+  "variance_state": "NOT_EVALUATED_BLOCKED",
+  "wave_assignment": "WAVE_03_EXP0015_EXP0016_EXP0017"
+}

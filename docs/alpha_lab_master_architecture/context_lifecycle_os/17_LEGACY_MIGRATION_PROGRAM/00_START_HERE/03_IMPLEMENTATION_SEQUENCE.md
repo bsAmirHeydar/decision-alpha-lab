@@ -30,7 +30,7 @@ The authoritative lifecycle remains `LCM-00` through `LCM-16`. To prevent monoli
 |---|---|---|
 | LCM-08A | Context Portfolio Freeze, Risk Classification and Pilot Selection | No |
 | LCM-08B | Pilot Context Migration, Compatibility Adapter and Behavioral Parity | Accepted reference; no cutover |
-| LCM-08C | Context Wave Migration and Context Portfolio Closure | No |
+| LCM-08C | Context Wave Migration and Context Portfolio Closure | Accepted reference; portfolio accounted with explicit blockers |
 | LCM-09A | Setup Inventory, Family Registry and Canonical Contract Freeze | No |
 | LCM-09B | Setup Migration, Setup Factory Binding and Behavioral Parity | No |
 | LCM-10A | Treatment and Execution Capability Inventory | No |
@@ -77,3 +77,7 @@ These categories may not be combined merely to reduce patch count.
 ## Next implementation unit
 
 [[LCM_08A_CONTEXT_PORTFOLIO_FREEZE_RISK_CLASSIFICATION_AND_PILOT_SELECTION|LCM-08A — Context Portfolio Freeze, Risk Classification and Pilot Selection]].
+
+## LCM-08 reference closure
+
+LCM-08C closure `CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3` completes reference accounting for the frozen Context portfolio and issues the bounded LCM-09A handoff `sha256:060f6785ffdbb8266e7d000b17237c5c1cc8c162fcd96c2fb86202ac811faac3`.

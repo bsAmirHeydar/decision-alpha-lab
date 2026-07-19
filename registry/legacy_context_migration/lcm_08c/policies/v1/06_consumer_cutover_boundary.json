@@ -1,0 +1,8 @@
+{
+  "consumer_cutover_allowed": false,
+  "cutover_phase": "LCM-13",
+  "phase_id": "LCM-08C",
+  "policy_digest": "sha256:f548e71b3108d8ea95be43d33eda336e62ae726e8ec291d20b6eafdc70457879",
+  "policy_id": "LCM08C_CONSUMER_BOUNDARY",
+  "schema_version": "1.0.0"
+}

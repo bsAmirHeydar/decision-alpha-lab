@@ -1,0 +1,9 @@
+{
+  "human_owner_required": true,
+  "observed_behavior_required": true,
+  "phase_id": "LCM-08C",
+  "policy_digest": "sha256:d058227986867fa2f3a9d96a3ee844dc74a299cccfcdff6a887d7530828cdcfe",
+  "policy_id": "LCM08C_OWNER_CHARACTERIZATION",
+  "schema_version": "1.0.0",
+  "unknown_is_blocking": true
+}

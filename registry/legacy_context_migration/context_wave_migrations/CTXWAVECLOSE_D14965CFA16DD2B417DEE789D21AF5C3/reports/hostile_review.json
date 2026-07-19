@@ -1,0 +1,51 @@
+{
+  "checks": [
+    {
+      "check_id": "PORTFOLIO_OMISSION",
+      "passed": true
+    },
+    {
+      "check_id": "SOURCE_DIGEST_DRIFT",
+      "passed": true
+    },
+    {
+      "check_id": "LOCATOR_COLLISION",
+      "passed": true
+    },
+    {
+      "check_id": "MIGRATED_PARITY_FAILURE",
+      "passed": true
+    },
+    {
+      "check_id": "BLOCKED_IDENTITY_OMISSION",
+      "passed": true
+    },
+    {
+      "check_id": "CONSUMER_CUTOVER_LEAKAGE",
+      "passed": true
+    },
+    {
+      "check_id": "SOURCE_LIFECYCLE_LEAKAGE",
+      "passed": true
+    },
+    {
+      "check_id": "AUTHORITY_EXPANSION",
+      "passed": true
+    },
+    {
+      "check_id": "PILOT_SEMANTIC_GENERALIZATION",
+      "passed": true
+    },
+    {
+      "check_id": "AGGREGATE_COMPENSATION",
+      "passed": true
+    }
+  ],
+  "closure_id": "CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3",
+  "failed_check_count": 0,
+  "hostile_review_passed": true,
+  "phase_id": "LCM-08C",
+  "review_digest": "sha256:3ca1ecf0eae27856482bcf506c2f0edd93e3ec9ae223298c290c1c9eb15da782",
+  "review_statement": "Aggregate success cannot compensate for one failed migrated-context gate. Blocked identities remain blocking and visible.",
+  "schema_version": "1.0.0"
+}

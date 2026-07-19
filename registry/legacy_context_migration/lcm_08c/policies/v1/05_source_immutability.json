@@ -1,0 +1,9 @@
+{
+  "digest_verification_required": true,
+  "phase_id": "LCM-08C",
+  "policy_digest": "sha256:5f0b8ed8dab209a2e29e6891da2d2c789ed514cdde243c256f439f0a59a5bc23",
+  "policy_id": "LCM08C_SOURCE_IMMUTABILITY",
+  "schema_version": "1.0.0",
+  "source_delete_allowed": false,
+  "source_move_allowed": false
+}

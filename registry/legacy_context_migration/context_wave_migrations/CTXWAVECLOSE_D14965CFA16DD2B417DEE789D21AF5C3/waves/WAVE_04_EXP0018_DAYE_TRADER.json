@@ -1,0 +1,173 @@
+{
+  "closure_id": "CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3",
+  "member_count": 27,
+  "members": [
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_DAYE_HUNTAUDIT_00D0DAED_V1",
+      "packet_id": "CTXMIGPACKET_9A5071A821530811F0632B5A5B626F7B"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_DAYE_HUNTCLASSIFIER_4791609A_V1",
+      "packet_id": "CTXMIGPACKET_1E46671F24AD756DB835E9C284B1C0A6"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_DAYE_HUNTENGINE_53905708_V1",
+      "packet_id": "CTXMIGPACKET_350BDD225DDBB794058FB6D094D33E4D"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_DAYE_HUNTEVENTS_192457CD_V1",
+      "packet_id": "CTXMIGPACKET_E660170228D3212DB9E6D05180A2F96D"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_DAYE_HUNTSELFTEST_795D1565_V1",
+      "packet_id": "CTXMIGPACKET_1F723835FDFBFE13FB4B74B5C6BC7CF9"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_DAYE_HUNTSTORE_5C0C8B13_V1",
+      "packet_id": "CTXMIGPACKET_12BD45EE33CEE24EC67563D59DFD924D"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_DAYE_HUNTTYPES_708B8D2E_V1",
+      "packet_id": "CTXMIGPACKET_FB8A30E5F62283ACB22D8C0B974292B4"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_DAYE_LIFECYCLEAUDIT_04833489_V1",
+      "packet_id": "CTXMIGPACKET_086F88481E88EA30AE2380E6DC8EC9CF"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_DAYE_LIFECYCLECHECKPOINT_1EFBF0A3_V1",
+      "packet_id": "CTXMIGPACKET_BE906C994C6BCB4BB8796AB4204E7222"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_DAYE_LIFECYCLEENGINE_E4B9BF3B_V1",
+      "packet_id": "CTXMIGPACKET_1B24FB080F38637AEF8548AB6E4557D9"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_DAYE_LIFECYCLEEVENTS_4507544F_V1",
+      "packet_id": "CTXMIGPACKET_90A00AA990DF958724928E045AF8BEFF"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_DAYE_LIFECYCLEIDENTITY_202F1916_V1",
+      "packet_id": "CTXMIGPACKET_BE72FE75619B1173750CF7AB039015C9"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_DAYE_LIFECYCLESELFTEST_1E164D40_V1",
+      "packet_id": "CTXMIGPACKET_B20E15D59A1D93C3039FBB450A6E4CA2"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_DAYE_LIFECYCLESTATEMACHINE_F38273B5_V1",
+      "packet_id": "CTXMIGPACKET_C19FA143014537509D9A732CB2D0B9EA"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_DAYE_LIFECYCLESTORE_6925733B_V1",
+      "packet_id": "CTXMIGPACKET_C969CE2A447159C5E911D9AEBBC51EFA"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_DAYE_LIFECYCLETYPES_6B4154FF_V1",
+      "packet_id": "CTXMIGPACKET_CCFC0033F9424EADE59AD2CC9ACBE3DA"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_DAYE_SESSIONBOXAUDIT_C0F8E160_V1",
+      "packet_id": "CTXMIGPACKET_01F06C46046771CD82D02C0FAD1B48E4"
+    },
+    {
+      "blocker_count": 6,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_DAYE_SESSIONBOXCHARTRESOLVER_1DD90E47_V1",
+      "packet_id": "CTXMIGPACKET_8D15C68000876E9B1C72C8ABE439DEF2"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_DAYE_SESSIONBOXENGINE_0348DEDA_V1",
+      "packet_id": "CTXMIGPACKET_3E7D31E5CC7B97B6258FD00D5350AC26"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_DAYE_SESSIONBOXEVENTS_CC0BDAE1_V1",
+      "packet_id": "CTXMIGPACKET_E2EB10C2E360455E1F8D669A70E3C92D"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_DAYE_SESSIONBOXGEOMETRY_66108964_V1",
+      "packet_id": "CTXMIGPACKET_DF3910DC3F2CA2DB7CD034F032995E90"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_DAYE_SESSIONBOXIDENTITY_FB0EA611_V1",
+      "packet_id": "CTXMIGPACKET_4114B6F71527203E0F5A28A63EF1C49D"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_DAYE_SESSIONBOXOBJECTMANAGER_FE491CC0_V1",
+      "packet_id": "CTXMIGPACKET_E55D3A56492C615C5964B1F4242F7A02"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_DAYE_SESSIONBOXPOLICY_8AF29486_V1",
+      "packet_id": "CTXMIGPACKET_332A7412540FEE5DFE942BA9D51B1796"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_DAYE_SESSIONBOXSELFTEST_14B01487_V1",
+      "packet_id": "CTXMIGPACKET_E22A91EB88169D5A856E7A7AAEEA6BD3"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_DAYE_SESSIONBOXSTORE_F5089EBF_V1",
+      "packet_id": "CTXMIGPACKET_5FE979E2FCA68CE95549B40433F6FAAF"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_DAYE_SESSIONBOXTYPES_C5C9CA40_V1",
+      "packet_id": "CTXMIGPACKET_802873AE17F971C178FC4D29A585077B"
+    }
+  ],
+  "phase_id": "LCM-08C",
+  "receipt_digest": "sha256:906ea876466a8546779efdbaa3231c176b89809d8730e0bf83351dda1329f032",
+  "schema_version": "1.0.0",
+  "wave_digest": "sha256:c7720d4ebbe7524d990c5ec3ed17e8b25e7e163050536471929c44b6934c4a38",
+  "wave_id": "WAVE_04_EXP0018_DAYE_TRADER"
+}

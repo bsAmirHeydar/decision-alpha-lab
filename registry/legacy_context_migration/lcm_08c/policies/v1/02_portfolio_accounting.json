@@ -1,0 +1,8 @@
+{
+  "omission_allowed": false,
+  "phase_id": "LCM-08C",
+  "policy_digest": "sha256:b9f45ea521fb921587a827f5a996a2e070e0670267aa17e209e80f840d1204fd",
+  "policy_id": "LCM08C_PORTFOLIO_ACCOUNTING",
+  "required_record_count": 321,
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,8 @@
+{
+  "clean_overlay_verification_required": true,
+  "partial_publication_allowed": false,
+  "phase_id": "LCM-08C",
+  "policy_digest": "sha256:2fd1e778c6900e4046f0b35649bf89e109dc187721a33bbf3dda199cc981743c",
+  "policy_id": "LCM08C_ATOMIC_PUBLICATION",
+  "schema_version": "1.0.0"
+}

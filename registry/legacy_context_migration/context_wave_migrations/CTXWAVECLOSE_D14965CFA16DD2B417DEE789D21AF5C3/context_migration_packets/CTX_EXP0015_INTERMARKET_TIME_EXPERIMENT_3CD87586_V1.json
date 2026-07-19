@@ -1,0 +1,73 @@
+{
+  "admission_state": "ACCEPTED_MIGRATED_REFERENCE_ONLY",
+  "aggregate_risk_score": 58,
+  "allowed_next_actions": [
+    "PRESERVE_CANONICAL_PACKAGE",
+    "PREPARE_SETUP_INVENTORY_BINDING",
+    "KEEP_CONSUMERS_UNSWITCHED"
+  ],
+  "blocker_reasons": [],
+  "canonical_package_root": "lab/11_strategy_factory/contexts/CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1",
+  "capital_authority_created": false,
+  "characterization_state": {
+    "observed_behavior_captured": false,
+    "packet_id": "CHARPACKET_FB52FAB9D883E8530515CACEC9647E64",
+    "packet_status": "BLOCKED_OWNER_APPROVAL",
+    "required_case_types": [
+      "DST_TRANSITION",
+      "DUPLICATE_TICK",
+      "NEGATIVE",
+      "NO_TRADE",
+      "POSITIVE",
+      "RESTART",
+      "SESSION_BOUNDARY"
+    ]
+  },
+  "claim_ceiling": "LCM_08C_REFERENCE_ONLY",
+  "closure_id": "CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3",
+  "consumer_cutover_performed": false,
+  "critical_dimensions": [],
+  "family_candidate": "EXP0015_INTERMARKET_TIME",
+  "final_disposition": "MIGRATED_CUTOVER_READY",
+  "forbidden_actions": [
+    "CONSUMER_CUTOVER",
+    "SOURCE_MOVE",
+    "SOURCE_DELETE",
+    "LEGACY_QUARANTINE",
+    "RUNTIME_AUTHORIZATION",
+    "LIVE_ORDER_AUTHORIZATION",
+    "CAPITAL_ACTIVATION",
+    "TREAT_BLOCKED_CONTEXT_AS_MIGRATED"
+  ],
+  "granularity_class": "PACKAGE_CONTEXT",
+  "hard_parity_state": "PASS",
+  "identity_digest": "sha256:890d7aad28c86d85ba7d49c474a6bbb949c44b4264179d337cae6c14151f5e53",
+  "identity_id": "CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1",
+  "identity_status": "PROVISIONAL_UNMERGED_IDENTITY_CANDIDATE",
+  "live_order_authority_created": false,
+  "owner_state": {
+    "architect_pilot_scope_approval": true,
+    "code_owner_role": "CODE_OWNER_EXP0015_INTERMARKET_TIME",
+    "human_assignee_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+    "role_binding_exists": true,
+    "semantic_owner_role": "DOMAIN_OWNER_EXP0015_INTERMARKET_TIME"
+  },
+  "packet_digest": "sha256:30dd6280e2582c09a3bd4148a5346de7dafb434b67da620a53b5e23110ef2e00",
+  "packet_id": "CTXMIGPACKET_A520E88255DE7C275BFA94CE325F7A5C",
+  "parity_digest": "sha256:9d1abce531b406aee34f418c45762af77b5285bb5934d27f0e9db32c151a2507",
+  "phase_id": "LCM-08C",
+  "risk_class": "HIGH",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "semantic_refactor_performed": false,
+  "shared_engine_candidate_ids": [],
+  "source_artifact_path": "lab/03_experiments/EXP0015_intermarket_time_divergence/experiment.py",
+  "source_artifact_sha256": "sha256:99e5e03a4bf30a2ab94949e2ddc6cdc1d067f0441d25dbe0dc8a138026a9bd2f",
+  "source_delete_performed": false,
+  "source_digest_verified_at_build": true,
+  "source_language": "PYTHON",
+  "source_move_performed": false,
+  "target_path_proposal": "lab/11_strategy_factory/contexts/CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1",
+  "variance_state": "NO_VARIANCE",
+  "wave_assignment": "WAVE_03_EXP0015_EXP0016_EXP0017"
+}

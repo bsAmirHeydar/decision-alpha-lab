@@ -1,0 +1,533 @@
+{
+  "closure_id": "CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3",
+  "member_count": 87,
+  "members": [
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0015_INTERMARKET_TIME_DAL_IMDENGINE_EE4C4557_V1",
+      "packet_id": "CTXMIGPACKET_ADB951F823F2449145BE3A14151CFDBF"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0015_INTERMARKET_TIME_DAL_IMDJOURNAL_264AAC22_V1",
+      "packet_id": "CTXMIGPACKET_BA4A43ACEA5771789B58F5C01CD52AD8"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0015_INTERMARKET_TIME_DAL_IMDLEVELS_6623D305_V1",
+      "packet_id": "CTXMIGPACKET_1CDE7D18909E250949D57BC409A76DA7"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0015_INTERMARKET_TIME_DAL_IMDSERIES_37742F2E_V1",
+      "packet_id": "CTXMIGPACKET_1DAEE00561AC5DF84838FFE6C57EA432"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0015_INTERMARKET_TIME_DAL_IMDTYPES_AB975835_V1",
+      "packet_id": "CTXMIGPACKET_44B08A85B703550C8F1E954BBE6CE053"
+    },
+    {
+      "blocker_count": 0,
+      "final_disposition": "MIGRATED_CUTOVER_READY",
+      "identity_id": "CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1",
+      "packet_id": "CTXMIGPACKET_A520E88255DE7C275BFA94CE325F7A5C"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0015_INTERMARKET_TIME_IMD001_CANDLESESSIONDIVERGENCE_1A976C20_V1",
+      "packet_id": "CTXMIGPACKET_958C31523D9986BD2D4B9F2D6E9D64C3"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0015_INTERMARKET_TIME_IMD001_SPX_NDX_TIMEDIVERGENCE_CB31FEAE_V1",
+      "packet_id": "CTXMIGPACKET_E3B3D5EF1DBE6549AD2561E9470ACD26"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGC_DISPLAY_13FC5853_V1",
+      "packet_id": "CTXMIGPACKET_BA376C7CF4F213A7955158CF6BBC67AB"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGC_TYPES_FBB19C0E_V1",
+      "packet_id": "CTXMIGPACKET_6F5A584B660B334E22B4C180538D1022"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGD_DISPLAY_98872046_V1",
+      "packet_id": "CTXMIGPACKET_155D06F6399B48F2F5E9489F3655DF34"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGD_DIVERGENCEFIELD_D716A54C_V1",
+      "packet_id": "CTXMIGPACKET_9708091C9A3954337933C7D505C2B362"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGD_ENGINE_281006BE_V1",
+      "packet_id": "CTXMIGPACKET_92F44F96BC6499F934CCF374F70F790B"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGD_TYPES_843D8CF4_V1",
+      "packet_id": "CTXMIGPACKET_021CD18ECF6281D17F91518B390B8DAD"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGH_DISPLAY_1C918126_V1",
+      "packet_id": "CTXMIGPACKET_CE040312DCFA2C9ABAD63FE564F89542"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGH_ENGINE_5C19C24B_V1",
+      "packet_id": "CTXMIGPACKET_9D1BCC51494F5956D1C4E22E8304EC64"
+    },
+    {
+      "blocker_count": 6,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGH_HUNTFIELD_D8A7DD22_V1",
+      "packet_id": "CTXMIGPACKET_2DB94F3CA46149DEE3E73C5C0DA2C054"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGH_TYPES_A46AD56C_V1",
+      "packet_id": "CTXMIGPACKET_D93B334F83CEECE0F5403443FF656E85"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGM_CSVREADER_4BE18322_V1",
+      "packet_id": "CTXMIGPACKET_A2D0651E73F1484B25D43A8AD023B4B7"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGM_DISPLAY_438ADA17_V1",
+      "packet_id": "CTXMIGPACKET_26F0B6B2DC093D642E1D65E0B9C15CD8"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGM_ENGINE_D6738B94_V1",
+      "packet_id": "CTXMIGPACKET_5ED4E3C914F6A3414B15DDCE00846952"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGM_FEATUREBUILDER_28571F32_V1",
+      "packet_id": "CTXMIGPACKET_E97DF3D0E69F3BBC36A31E8B48807533"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGM_LEDGER_46D6FE5E_V1",
+      "packet_id": "CTXMIGPACKET_40781C61CB2A1FBC0E814EDC3E3E834E"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGM_TYPES_F4CD0268_V1",
+      "packet_id": "CTXMIGPACKET_528328BCB25BB1ADD9FECF5573B5413D"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGO_DISPLAY_038F1EB0_V1",
+      "packet_id": "CTXMIGPACKET_51687CFEAA4725C3AC814D03484CA4B1"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGO_ENGINE_992F91C2_V1",
+      "packet_id": "CTXMIGPACKET_2428CC8633B63DFE9283F4DF555BA6D9"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGO_LEDGER_B8F75E3C_V1",
+      "packet_id": "CTXMIGPACKET_B57A1806542017D9416A2CD03A1BF775"
+    },
+    {
+      "blocker_count": 6,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGO_OUTCOMEFIELD_90DCB505_V1",
+      "packet_id": "CTXMIGPACKET_78BEA9E183CEDB884AAB0B874CAE9A85"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGO_TYPES_953F33DE_V1",
+      "packet_id": "CTXMIGPACKET_BA3D9B8AD0A120C52DACF6D57829D6DB"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGP12_DISPLAY_D6FDF27C_V1",
+      "packet_id": "CTXMIGPACKET_5B70711B6D1F91854B4E60236F5F3C82"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGP12_ENGINE_355DD689_V1",
+      "packet_id": "CTXMIGPACKET_C1E761785FEADC8E102AFDFE9649EC20"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGP12_FILEINVENTORY_922C29A0_V1",
+      "packet_id": "CTXMIGPACKET_8BCEEBC5A422C78CFE672B77C2207E20"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGP12_TYPES_282DED12_V1",
+      "packet_id": "CTXMIGPACKET_9928286B80179BD37DF4BDE4EB62787C"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGP12_WRITERS_D6A6EAC9_V1",
+      "packet_id": "CTXMIGPACKET_71FE6A4F2CE059E1DC76264DF0DFC8B8"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGP13_DISPLAY_047AFF8F_V1",
+      "packet_id": "CTXMIGPACKET_3D6140B1B44DC1E66BC2825ABE15A882"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGP13_ENGINE_436446F3_V1",
+      "packet_id": "CTXMIGPACKET_24902520FAB3B7285D36A9B3499F4308"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGP13_FILEINVENTORY_1478C696_V1",
+      "packet_id": "CTXMIGPACKET_75E578F87BA21E218F75C7A866801504"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGP13_TYPES_A9483F04_V1",
+      "packet_id": "CTXMIGPACKET_A7E55A3BF30FDA791A1B32DA8F5E6F9A"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGP13_WRITERS_67EFAF93_V1",
+      "packet_id": "CTXMIGPACKET_435470BCB1C5FDB3F5A14BB46D45DC99"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGPI_CONTRACTS_07477B03_V1",
+      "packet_id": "CTXMIGPACKET_D070D5E754D8A762DC4A426986AC1149"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGPI_CSVINSPECTOR_08E098F4_V1",
+      "packet_id": "CTXMIGPACKET_DD084AB2F325CBBB2FBD8E2C50BC9238"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGPI_DISPLAY_121D57B3_V1",
+      "packet_id": "CTXMIGPACKET_F3125CC35D8418AC94CC212078751A6B"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGPI_ENGINE_BD14E170_V1",
+      "packet_id": "CTXMIGPACKET_6E1378A5931CEA15B3D14C164843A879"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGPI_LEDGER_A7E30CCA_V1",
+      "packet_id": "CTXMIGPACKET_978465F2E549949930D0E47AEC2C69FC"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGPI_RECONCILER_8B5FD478_V1",
+      "packet_id": "CTXMIGPACKET_2ADDB32D3A013FCFE3798C59B29E1EEE"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGPI_TYPES_F2AD107A_V1",
+      "packet_id": "CTXMIGPACKET_944A58A9BB6AC44508AB404B89B8133F"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGRK_CSVREADER_019893E9_V1",
+      "packet_id": "CTXMIGPACKET_0C609436D2E2E86519913A6809689E6F"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGRK_DISPLAY_6D47F571_V1",
+      "packet_id": "CTXMIGPACKET_7555E5950BB4C321EDE8F9D4D114AC49"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGRK_ENGINE_866F4D3B_V1",
+      "packet_id": "CTXMIGPACKET_46AC145A886FB2DAB1F8CFFE36BCB3A8"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGRK_LEDGER_09D02516_V1",
+      "packet_id": "CTXMIGPACKET_54812CF6AAE2CDFB2FAD7E0D2F229DE1"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGRK_RANKER_A971EA69_V1",
+      "packet_id": "CTXMIGPACKET_34F128B6B01ABF04224CFABB2C17DBF4"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGRK_TYPES_12D6D596_V1",
+      "packet_id": "CTXMIGPACKET_0868FD744ADA480A52C5437305190238"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGR_DISPLAY_D0E19C54_V1",
+      "packet_id": "CTXMIGPACKET_E71A92332BDBC15CECEE0675A41BD8E1"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGR_ENGINE_DB8B0440_V1",
+      "packet_id": "CTXMIGPACKET_608FCB24669E15296B45579AD5277A32"
+    },
+    {
+      "blocker_count": 6,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGR_REFERENCEFIELD_C72586A2_V1",
+      "packet_id": "CTXMIGPACKET_FEC31C899F579E5276FF115CE863C4D7"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGR_TYPES_E3DB16F0_V1",
+      "packet_id": "CTXMIGPACKET_E183ABE7B6DCE79203417DFA41AEB9A3"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGS_AGGREGATOR_2F6F57D4_V1",
+      "packet_id": "CTXMIGPACKET_7DE137349FAC333F5C3ACFDEBF934E96"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGS_CSVREADER_E78DECDF_V1",
+      "packet_id": "CTXMIGPACKET_DC9C6CB9ED361CF4FBCFCB784B61C4A3"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGS_DISPLAY_AE5C6BD6_V1",
+      "packet_id": "CTXMIGPACKET_BD452436CDE788F6F33B0335F766589A"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGS_ENGINE_E147FE42_V1",
+      "packet_id": "CTXMIGPACKET_11395646F43760DF1CE4354F98306DDC"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGS_LEDGER_49FE7F86_V1",
+      "packet_id": "CTXMIGPACKET_F39D7B634083697352BC0F6CBB9AA75F"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGS_TYPES_3CA0243A_V1",
+      "packet_id": "CTXMIGPACKET_D03A895459E721A674D716F4E0CF4AEF"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGT_DISPLAY_C6A3D0A6_V1",
+      "packet_id": "CTXMIGPACKET_DFBED45FA7BF50BEF6C62D91A4673759"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGT_ENGINE_612B3A80_V1",
+      "packet_id": "CTXMIGPACKET_AFB7AD5A5D9ACFCE41942687A38E3067"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGT_TIME_2ADAB0C1_V1",
+      "packet_id": "CTXMIGPACKET_14AE531DA506676B27771D7E480E29BA"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGT_TYPES_C69A0553_V1",
+      "packet_id": "CTXMIGPACKET_748BBE45F26FE668A8111468322792CE"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGV_DISPLAY_EBD004F0_V1",
+      "packet_id": "CTXMIGPACKET_5797142D5F5E438F3EEA9E0DD8F5D2A0"
+    },
+    {
+      "blocker_count": 6,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGV_ENGINE_4B0166EE_V1",
+      "packet_id": "CTXMIGPACKET_A6F384090DB95A68BA922DAC55597728"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGV_LEDGER_877FF49B_V1",
+      "packet_id": "CTXMIGPACKET_6C9A09D8B839B680ED16AE49E054BB5D"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGV_TYPES_39427486_V1",
+      "packet_id": "CTXMIGPACKET_E9CC1CE4BCA1C7EF292261199605EA17"
+    },
+    {
+      "blocker_count": 6,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGWF_BASELINEMODEL_3D972C0D_V1",
+      "packet_id": "CTXMIGPACKET_E9047380A88309BA52A2B631D67490B7"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGWF_CSVREADER_C05B3040_V1",
+      "packet_id": "CTXMIGPACKET_A5DD53AEAECA4B149C30936BADF4379B"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGWF_DISPLAY_BFE568B2_V1",
+      "packet_id": "CTXMIGPACKET_5A2908FCFBC90F3B82745326E8FC38CB"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGWF_ENGINE_34DD1D48_V1",
+      "packet_id": "CTXMIGPACKET_87D3ECD100A6532E59CF6F3C3D0EC23A"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGWF_LEDGER_138B1A66_V1",
+      "packet_id": "CTXMIGPACKET_A688F23912703BBDAC3851B164BB25B6"
+    },
+    {
+      "blocker_count": 6,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGWF_SPLITTER_B43F4394_V1",
+      "packet_id": "CTXMIGPACKET_66DC2CDAC215EC3D341163014C8788C6"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGWF_TYPES_19A7B8A1_V1",
+      "packet_id": "CTXMIGPACKET_E5ADE909F92AB9D328A9DC5B7F73CC63"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGX_AUDIT_9012DA94_V1",
+      "packet_id": "CTXMIGPACKET_FADFE34D47FCAC16DC46BF3F885E3095"
+    },
+    {
+      "blocker_count": 6,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGX_CLOSEDCANDLE_4444B0CD_V1",
+      "packet_id": "CTXMIGPACKET_B06226C38102402E0760F4B86F7E153D"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGX_ENGINE_30868A24_V1",
+      "packet_id": "CTXMIGPACKET_BDFE67A918627956861C975419B0ABBA"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGX_TRADEENTITLEMENT_CB42CB08_V1",
+      "packet_id": "CTXMIGPACKET_AF1D65F84C1474AF700924705A3F61B8"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGX_TRADEPLANNER_80530882_V1",
+      "packet_id": "CTXMIGPACKET_3648F573C6F06C67A7DE4393ABBD9893"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGX_TYPES_192B5BA2_V1",
+      "packet_id": "CTXMIGPACKET_4C4B27A9262FAB7FD6C4FA2ECC73C191"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGX_UTILITIES_18C07BBD_V1",
+      "packet_id": "CTXMIGPACKET_C013CADA33A305FAB2DD1D48B855F288"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_CGX_VOLUMEMODEL_5C7644C4_V1",
+      "packet_id": "CTXMIGPACKET_96C45E2BC16AC83D772F27FCA312F64F"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_EXP0017_CG_CONTROLLED_MODEL_COMPARISON_B_7F483D6F_V1",
+      "packet_id": "CTXMIGPACKET_22475CE54970FD6CC0D362C1D7550DCD"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0017_CYCLE_GROUP_EXP0017_CG_RAW_EXECUTION_BACKTEST_7A592D5A_V1",
+      "packet_id": "CTXMIGPACKET_4383500D331D6E0C6D9DE3BDA9C0178A"
+    }
+  ],
+  "phase_id": "LCM-08C",
+  "receipt_digest": "sha256:ecdd6fcb43263bc07db0ee605b792098a137191fd2c8839c574bb4bd93fa3b5f",
+  "schema_version": "1.0.0",
+  "wave_digest": "sha256:8f195fd16df3386e655a8f4fbee08af5ec4df53c2a82fbb9cedf5cf7ff422484",
+  "wave_id": "WAVE_03_EXP0015_EXP0016_EXP0017"
+}

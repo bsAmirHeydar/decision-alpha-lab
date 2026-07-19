@@ -1,0 +1,13 @@
+---
+title: "009 Canonical Context Boundary"
+status: accepted-reference
+version: 1.0.0
+updated: 2026-07-19
+tags: [acl-os, lcm, lcm-08c, atomic-concept]
+phase_id: LCM-08C
+---
+# 009 Canonical Context Boundary
+
+The proven boundary separating Context semantics from setup, treatment, visualization and execution.
+
+This concept is governed by the LCM-08C claim ceiling and cannot create consumer, runtime, live-order or capital authority.

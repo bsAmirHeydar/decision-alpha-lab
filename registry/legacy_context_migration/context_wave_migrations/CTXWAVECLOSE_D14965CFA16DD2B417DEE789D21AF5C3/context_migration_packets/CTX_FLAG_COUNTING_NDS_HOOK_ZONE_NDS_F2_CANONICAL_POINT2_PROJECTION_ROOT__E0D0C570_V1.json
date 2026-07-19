@@ -1,0 +1,81 @@
+{
+  "admission_state": "ADMITTED_WITH_EXPLICIT_BLOCKERS",
+  "aggregate_risk_score": 64,
+  "allowed_next_actions": [
+    "RESOLVE_LISTED_BLOCKERS",
+    "RECHARACTERIZE_WITH_OWNER_APPROVAL",
+    "REENTER_CONTEXT_MIGRATION"
+  ],
+  "blocker_reasons": [
+    "CANONICAL_CONTEXT_BOUNDARY_NOT_PROVEN",
+    "CANONICAL_PACKAGE_NOT_MATERIALIZED",
+    "CHARACTERIZATION_PACKET_NOT_ACCEPTED",
+    "HUMAN_SEMANTIC_OWNER_APPROVAL_MISSING",
+    "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+    "RISK_CLASS_UNKNOWN"
+  ],
+  "canonical_package_root": null,
+  "capital_authority_created": false,
+  "characterization_state": {
+    "observed_behavior_captured": false,
+    "packet_id": "CHARPACKET_42EC3A85A20134AF4187030FF5518C73",
+    "packet_status": "BLOCKED_OWNER_APPROVAL",
+    "required_case_types": [
+      "DRAWING_LIFECYCLE",
+      "DUPLICATE_TICK",
+      "MULTI_INSTANCE",
+      "NEGATIVE",
+      "NO_TRADE",
+      "POSITIVE",
+      "RESTART",
+      "SYMBOL_CHANGE"
+    ]
+  },
+  "claim_ceiling": "LCM_08C_REFERENCE_ONLY",
+  "closure_id": "CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3",
+  "consumer_cutover_performed": false,
+  "critical_dimensions": [],
+  "family_candidate": "FLAG_COUNTING_NDS_HOOK_ZONE",
+  "final_disposition": "BLOCKED",
+  "forbidden_actions": [
+    "CONSUMER_CUTOVER",
+    "SOURCE_MOVE",
+    "SOURCE_DELETE",
+    "LEGACY_QUARANTINE",
+    "RUNTIME_AUTHORIZATION",
+    "LIVE_ORDER_AUTHORIZATION",
+    "CAPITAL_ACTIVATION",
+    "TREAT_BLOCKED_CONTEXT_AS_MIGRATED"
+  ],
+  "granularity_class": "AMBIGUOUS_CONTEXT_LIKE",
+  "hard_parity_state": "NOT_EXECUTED_BLOCKED",
+  "identity_digest": "sha256:32eaac7709fcc5f146efe396e748dd4ff0609ef2b73e00978f3a82d08af24b05",
+  "identity_id": "CTX_FLAG_COUNTING_NDS_HOOK_ZONE_NDS_F2_CANONICAL_POINT2_PROJECTION_ROOT__E0D0C570_V1",
+  "identity_status": "PROVISIONAL_UNMERGED_IDENTITY_CANDIDATE",
+  "live_order_authority_created": false,
+  "owner_state": {
+    "architect_pilot_scope_approval": false,
+    "code_owner_role": "CODE_OWNER_FLAG_COUNTING_NDS_HOOK_ZONE",
+    "human_assignee_status": "UNRESOLVED_HUMAN_ASSIGNEE",
+    "role_binding_exists": true,
+    "semantic_owner_role": "DOMAIN_OWNER_FLAG_COUNTING_NDS_HOOK_ZONE"
+  },
+  "packet_digest": "sha256:2bd1691461ddd83618bef0156a84285de2b7a84fa4cc6a7ef5b698ab6eb1bd8a",
+  "packet_id": "CTXMIGPACKET_288C98DD7B1B677304FF5ABA56C1DF7F",
+  "parity_digest": null,
+  "phase_id": "LCM-08C",
+  "risk_class": "UNKNOWN",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "semantic_refactor_performed": false,
+  "shared_engine_candidate_ids": [],
+  "source_artifact_path": "tools/flag_counting/nds_f2_canonical_point2_projection_root_fix_qa.py",
+  "source_artifact_sha256": "sha256:22312c256ac42c4c86e1d9b753ce211d69e9ed7192713a886e60a2548d192a81",
+  "source_delete_performed": false,
+  "source_digest_verified_at_build": true,
+  "source_language": "PYTHON",
+  "source_move_performed": false,
+  "target_path_proposal": "lab/11_strategy_factory/contexts/CTX_FLAG_COUNTING_NDS_HOOK_ZONE_NDS_F2_CANONICAL_POINT2___32EAAC7709FC",
+  "variance_state": "NOT_EVALUATED_BLOCKED",
+  "wave_assignment": "BLOCKED_UNRESOLVED"
+}

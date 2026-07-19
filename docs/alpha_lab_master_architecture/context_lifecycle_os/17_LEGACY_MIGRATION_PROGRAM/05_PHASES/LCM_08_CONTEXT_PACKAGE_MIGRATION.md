@@ -1,6 +1,6 @@
 ---
 title: "LCM-08 — Context Package Migration"
-status: proposed-reference
+status: accepted-reference
 version: 2.0.0
 updated: 2026-07-19
 tags: [acl-os, lcm, legacy-migration, refined-roadmap]
@@ -66,3 +66,7 @@ A subphase failure does not authorize skipping to the next partition. The last a
 - [[PHASE_PARTITION_AND_PATCH_GRANULARITY_STANDARD]]
 - [[SUBPHASE_HANDOFF_AND_CHECKPOINT_STANDARD]]
 - [[BALANCED_PHASE_PARTITION_DECISION]]
+
+## Master-phase closure amendment — 2026-07-19
+
+LCM-08 is closed at reference-portfolio level by `CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3`. One Context package is migrated and parity-proven; 320 identities remain explicitly blocked and eligible for controlled re-entry. Closure does not authorize consumer cutover or production runtime.

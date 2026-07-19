@@ -1,0 +1,8 @@
+{
+  "next_phase": "LCM-09A",
+  "phase_id": "LCM-08C",
+  "policy_digest": "sha256:10fd2c64e8c0cd161311d439c0ad8db95a08ec4dc5f74cdf987c9e6212dfaaba",
+  "policy_id": "LCM08C_SETUP_BOUNDARY",
+  "schema_version": "1.0.0",
+  "setup_migration_allowed": false
+}

@@ -1,0 +1,47 @@
+{
+  "closure_id": "CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3",
+  "member_count": 6,
+  "members": [
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0019_FAERIE_PROTOCOL_FP_I02_STATEMACHINES_7CA36E93_V1",
+      "packet_id": "CTXMIGPACKET_79FDE676DF3A302F26A7F880F3E6B378"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0019_FAERIE_PROTOCOL_FP_I03_SESSIONCALENDAR_08F0FC63_V1",
+      "packet_id": "CTXMIGPACKET_C5A6639D7ACA4E0FE04F6B20AB78677F"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0019_FAERIE_PROTOCOL_FP_I03_SESSIONREGISTRY_20087248_V1",
+      "packet_id": "CTXMIGPACKET_5B1FAB28B8DA87293FE147D146FAF827"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0019_FAERIE_PROTOCOL_FP_I06_HUNTADAPTER_55745888_V1",
+      "packet_id": "CTXMIGPACKET_6CC241279F5C01B1DDBCF241CEFF1F16"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0019_FAERIE_PROTOCOL_FP_I07_LIFECYCLEENGINE_EC57EC9E_V1",
+      "packet_id": "CTXMIGPACKET_159287E50BEF96EA95407A30B2AE2B1A"
+    },
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0019_FAERIE_PROTOCOL_FP_I15_ORDERLIFECYCLE_5CCF9B27_V1",
+      "packet_id": "CTXMIGPACKET_7C02F2D82D29F3479F74AFE3BF1AB83A"
+    }
+  ],
+  "phase_id": "LCM-08C",
+  "receipt_digest": "sha256:a0757dc8ae1b9260ecf2f2f65e9bc7be2499c43375d778ee45f0dbdd7b4d9e2b",
+  "schema_version": "1.0.0",
+  "wave_digest": "sha256:4ad72dfcaedc25c4090028ad5f6f2b843079c194ff3321db562d554b2243f706",
+  "wave_id": "WAVE_05_EXP0019_FAERIE_PROTOCOL"
+}

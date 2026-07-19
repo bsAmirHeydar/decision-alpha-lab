@@ -1,0 +1,22 @@
+{
+  "blocked_count": 320,
+  "capital_authority_created": false,
+  "claim_ceiling": "LCM_08C_REFERENCE_ONLY",
+  "closure_id": "CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3",
+  "closure_registry_root": "registry/legacy_context_migration/context_wave_migrations/CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3",
+  "consumer_cutover_performed": false,
+  "direct_test_count": 15,
+  "live_order_authority_created": false,
+  "migrated_cutover_ready_count": 1,
+  "patch_manifest_digest": "sha256:0a34bba27c4b1d68c3ddc7540d6a94152e65dab06ec5d47d883b54b0f0b637cf",
+  "patch_name": "ALPHA_LAB_LCM_08C_CONTEXT_WAVE_MIGRATION_AND_CONTEXT_PORTFOLIO_CLOSURE_PATCH.zip",
+  "payload_file_count": 492,
+  "phase_id": "LCM-08C",
+  "portfolio_id": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+  "portfolio_record_count": 321,
+  "regression_test_count": 71,
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "source_delete_performed": false,
+  "source_move_performed": false
+}

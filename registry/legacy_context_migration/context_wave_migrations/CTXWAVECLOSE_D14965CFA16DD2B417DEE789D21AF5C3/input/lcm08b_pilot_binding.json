@@ -1,0 +1,9 @@
+{
+  "acceptance_digest": "sha256:b843107505a4526ebf99cfd04e54223c3c1deedff5d7f1ab794b838fcc62ede0",
+  "canonical_package_digest": "sha256:546082c5fa35a43eae4976f245e580f682da003a82b20d654b91abe980c99da4",
+  "context_id": "CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1",
+  "handoff_digest": "sha256:c5695d5a671b09723851df4989a8a617242b5a2a7518885040cfb0b986451381",
+  "parity_digest": "sha256:9d1abce531b406aee34f418c45762af77b5285bb5934d27f0e9db32c151a2507",
+  "pilot_migration_id": "PILOTMIG_344455420C8CA68E865FD54135E891D7",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,12 @@
+{
+  "claim_ceiling": "LCM_08C_REFERENCE_ONLY",
+  "closure_id": "CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3",
+  "consumer_cutover_performed": false,
+  "generated_at": "2026-07-19T00:00:00Z",
+  "phase_id": "LCM-08C",
+  "pilot_migration_id": "PILOTMIG_344455420C8CA68E865FD54135E891D7",
+  "portfolio_id": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+  "reference_only": true,
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,7 @@
+{
+  "casefold_collision_allowed": false,
+  "phase_id": "LCM-08C",
+  "policy_digest": "sha256:547022b2f48566c3a41f25f80f81e64219e0ee56cb79dbb3bf770f9be68d009e",
+  "policy_id": "LCM08C_LOCATOR_COLLISION",
+  "schema_version": "1.0.0"
+}

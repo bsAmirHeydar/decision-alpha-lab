@@ -33,3 +33,7 @@ Wave order is based on dependency and risk, not business importance or age. Ever
 ## Non-compensatory wave rule
 
 A wave cannot be declared ready because most identities pass. Every active identity must be migrated, explicitly blocked, archived by approved disposition or excluded with authority. Aggregate parity percentages cannot compensate for one failed known-time, state, execution-authority or deletion gate.
+
+## LCM-08C closure snapshot
+
+Closure `CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3` published deterministic wave receipts for 6 frozen waves. The EXP0015 pilot is the only migrated Context; all other members remain visible as blocked. No consumer cutover occurred.

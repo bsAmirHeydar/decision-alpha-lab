@@ -1,0 +1,28 @@
+{
+  "all_members_accounted": true,
+  "blocked_count": 12,
+  "closure_id": "CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3",
+  "consumer_cutover_performed": false,
+  "member_count": 12,
+  "member_packet_digests": [
+    "sha256:496b86469bcda0150c6f7c29c9e9c1b495d6e10e7e66794a15253a5b569d6dc9",
+    "sha256:0eed5f6a35370a2c62daab667239e45a0479c8f594dcfce0e257668dcdc8a8dd",
+    "sha256:ddc10113f4b2685816aa30ba0f3d2cc35810b55d2a108b541c19229c9fe46466",
+    "sha256:a570d13c613e04ac3f310546cf3b861fa25a1dfb9ea03616b400b412a0cff6f8",
+    "sha256:a3c49795fe5e3c5fdd9301216801dfb2a761091f64a73b6d6c7acb3489777d9c",
+    "sha256:a9df2ab0b878bb79e1dd33b19b87b228ad4129a529635f37f3e7917e6a6c4a4e",
+    "sha256:56334e56e737d44ac0e5dabd12630a8355ee7cd328db96c159a12f56f3c9adc8",
+    "sha256:7df758ed6be70523866879729cf2f503b8f740a813106f80f7ce846254c2421d",
+    "sha256:2bd1691461ddd83618bef0156a84285de2b7a84fa4cc6a7ef5b698ab6eb1bd8a",
+    "sha256:561d9e31aab03a0343c9e84411492cdbed8b4b6ee1a421b855ce4dec5c2b7053",
+    "sha256:57931801fc9ab41323772859512abafe652c30c52519b61a5a14661fceaa222d",
+    "sha256:5b4c1bf1d0b76cf5a38b4980e83757d87364e02740cd5cd6c31a2b3bd4b0220b"
+  ],
+  "migrated_cutover_ready_count": 0,
+  "non_compensatory_gate_passed": true,
+  "phase_id": "LCM-08C",
+  "receipt_digest": "sha256:8e569ef7637a48d94499f3c97c0c813b5c985a1bb9805c86cd9bd0c29d9a1ff5",
+  "schema_version": "1.0.0",
+  "wave_closure_state": "CLOSED_WITH_EXPLICIT_BLOCKERS",
+  "wave_id": "BLOCKED_UNRESOLVED"
+}

@@ -1,0 +1,83 @@
+{
+  "closure_id": "CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3",
+  "member_count": 12,
+  "members": [
+    {
+      "blocker_count": 5,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_VALIDATE_EXP0018_PHASE05_HUNT_OBSERVATIO_F70B4D51_V1",
+      "packet_id": "CTXMIGPACKET_E0F3B1311A89EFA4F2E6CB590BB67711"
+    },
+    {
+      "blocker_count": 6,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_VALIDATE_EXP0018_PHASE07_REFERENCE_LIFEC_8AAFFDEC_V1",
+      "packet_id": "CTXMIGPACKET_05C55BDBC0AB5A17615472266E02F045"
+    },
+    {
+      "blocker_count": 6,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_VALIDATE_EXP0018_PHASE08_DIVERGENCE_DRAW_CD61590F_V1",
+      "packet_id": "CTXMIGPACKET_4E09CDCCECA3BA301A9252FDC89D1298"
+    },
+    {
+      "blocker_count": 6,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0018_DAYE_TRADER_VALIDATE_EXP0018_PHASE09_SESSION_BOXES_V_6C399DC1_V1",
+      "packet_id": "CTXMIGPACKET_82FA75938458952EB34BF46FBCE97E9E"
+    },
+    {
+      "blocker_count": 6,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0019_FAERIE_PROTOCOL_HUNT_CFFF67EC_V1",
+      "packet_id": "CTXMIGPACKET_80857A3F3D8D5F837D8DA948711B299B"
+    },
+    {
+      "blocker_count": 6,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_EXP0019_FAERIE_PROTOCOL_LIFECYCLE_E9F7DFCF_V1",
+      "packet_id": "CTXMIGPACKET_4C86DEC0588B3A4262C57CDDCD305CB4"
+    },
+    {
+      "blocker_count": 7,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_FLAG_COUNTING_NDS_HOOK_ZONE_ANALYZE_NDS_HOOK_864_TESTER_LOG_2BF6681F_V1",
+      "packet_id": "CTXMIGPACKET_2FA6725C20022DF04D07C10C2E90363E"
+    },
+    {
+      "blocker_count": 7,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_FLAG_COUNTING_NDS_HOOK_ZONE_COMPARE_NDS_HOOK_864_ACCELERATION_LOGS_3B08C531_V1",
+      "packet_id": "CTXMIGPACKET_0E2FC8FF9D2727C07B372D8D728CDA66"
+    },
+    {
+      "blocker_count": 6,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_FLAG_COUNTING_NDS_HOOK_ZONE_NDS_F2_CANONICAL_POINT2_PROJECTION_ROOT__E0D0C570_V1",
+      "packet_id": "CTXMIGPACKET_288C98DD7B1B677304FF5ABA56C1DF7F"
+    },
+    {
+      "blocker_count": 7,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_FLAG_COUNTING_NDS_HOOK_ZONE_OFFLINE_LICENSE_KEYGEN_A5BAA6BA_V1",
+      "packet_id": "CTXMIGPACKET_BC80B449C42569AAFA1E51B782AF4B8F"
+    },
+    {
+      "blocker_count": 7,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_FLAG_COUNTING_NDS_HOOK_ZONE_RUN_NDS_HOOK_864_CYCLE_R1_TESTS_49CABCBF_V1",
+      "packet_id": "CTXMIGPACKET_0A5054759CE6B302932A7718F820A4CE"
+    },
+    {
+      "blocker_count": 7,
+      "final_disposition": "BLOCKED",
+      "identity_id": "CTX_FLAG_COUNTING_NDS_HOOK_ZONE_STATIC_QA_AAF8BE24_V1",
+      "packet_id": "CTXMIGPACKET_956955655CFF6BA5CD8233B1A2B0A087"
+    }
+  ],
+  "phase_id": "LCM-08C",
+  "receipt_digest": "sha256:8e569ef7637a48d94499f3c97c0c813b5c985a1bb9805c86cd9bd0c29d9a1ff5",
+  "schema_version": "1.0.0",
+  "wave_digest": "sha256:90c9f2872691940221287cc52f94f7a44ca0ca2f7bfc65fea347db8cdc953607",
+  "wave_id": "BLOCKED_UNRESOLVED"
+}

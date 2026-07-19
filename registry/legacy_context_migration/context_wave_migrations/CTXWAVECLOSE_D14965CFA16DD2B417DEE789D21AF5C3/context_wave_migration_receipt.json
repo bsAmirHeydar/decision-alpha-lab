@@ -1,0 +1,9 @@
+{
+  "acceptance_state": "ACCEPTED_REFERENCE_PORTFOLIO_CLOSURE_WITH_EXPLICIT_BLOCKERS",
+  "closure_id": "CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3",
+  "handoff_digest": "sha256:060f6785ffdbb8266e7d000b17237c5c1cc8c162fcd96c2fb86202ac811faac3",
+  "output_manifest_digest": "sha256:38e71c7d8346b33e19cc2a9755667aae833561106ac1d610f3b6e91b2f75ca16",
+  "phase_id": "LCM-08C",
+  "receipt_digest": "sha256:02eaf7e23fed118b1ef045e3b6812f2c150280f262b759a9850d94c7d71e808d",
+  "schema_version": "1.0.0"
+}

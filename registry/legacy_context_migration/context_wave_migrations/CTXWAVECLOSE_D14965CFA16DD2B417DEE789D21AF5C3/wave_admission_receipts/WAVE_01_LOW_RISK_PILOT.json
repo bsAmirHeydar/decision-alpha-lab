@@ -1,0 +1,19 @@
+{
+  "all_members_accounted": true,
+  "blocked_count": 3,
+  "closure_id": "CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3",
+  "consumer_cutover_performed": false,
+  "member_count": 3,
+  "member_packet_digests": [
+    "sha256:0354e031e6647204a784dd33f654ce2384ac7d42de114c130997a3af1f858a88",
+    "sha256:343521dd60f9687ffa02bb670f1a52fd9ad18076d838eb2ebc5a14a2ec7a1519",
+    "sha256:55c7c6f6da0f44209b79c7ae615a747d68131e8b381efd69871881e34cfb0ca9"
+  ],
+  "migrated_cutover_ready_count": 0,
+  "non_compensatory_gate_passed": true,
+  "phase_id": "LCM-08C",
+  "receipt_digest": "sha256:fb207e866462dae7ebe5df76b6e486813ded2f23b9333572e77e5fdc4a0b80d2",
+  "schema_version": "1.0.0",
+  "wave_closure_state": "CLOSED_WITH_EXPLICIT_BLOCKERS",
+  "wave_id": "WAVE_01_LOW_RISK_PILOT"
+}

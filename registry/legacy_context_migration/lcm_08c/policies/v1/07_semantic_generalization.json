@@ -1,0 +1,8 @@
+{
+  "migration_process_reusable": true,
+  "phase_id": "LCM-08C",
+  "pilot_semantics_reusable": false,
+  "policy_digest": "sha256:2a175331da9b64d8c610786b335c6530bd3d8a004e0ddabfe94f06b0252491d5",
+  "policy_id": "LCM08C_NO_PILOT_GENERALIZATION",
+  "schema_version": "1.0.0"
+}

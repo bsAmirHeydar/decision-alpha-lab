@@ -1,6 +1,6 @@
 ---
 title: "LCM-08C — Context Wave Migration and Context Portfolio Closure"
-status: proposed-reference
+status: accepted-reference
 version: 1.0.0
 updated: 2026-07-19
 tags: [acl-os, lcm, legacy-migration, refined-roadmap]
@@ -141,3 +141,7 @@ The hostile review must attempt to disprove readiness. Aggregate success cannot 
 - Allowed next action limited to Setup inventory and migration against canonical Context contracts.
 
 The handoff must include source digest, output digest, completed gates, failed/blocked/unknown dimensions, owner approvals, residual risks, allowed next actions and forbidden actions.
+
+## Accepted reference implementation — 2026-07-19
+
+Closure `CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3` accounts for all 321 frozen Context identities. The LCM-08B pilot `CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1` is the sole `MIGRATED_CUTOVER_READY` package with preserved hard parity. The remaining 320 identities are explicitly `BLOCKED` with per-identity evidence packets and blocker records. All source hashes are preserved, canonical locator collisions are zero, consumer cutover is zero, and no runtime, live-order or capital authority is created. LCM-09A handoff: `sha256:060f6785ffdbb8266e7d000b17237c5c1cc8c162fcd96c2fb86202ac811faac3`.
