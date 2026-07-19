@@ -1,0 +1,12 @@
+{
+  "alias_collision_count": 5559,
+  "human_resolution_required": true,
+  "identity_ambiguity_count": 2040,
+  "identity_run_id": "IDENTITY_A3F7E93C3F5154CB2616F01F5235F748",
+  "owner_assignment_pending_identity_count": 2792,
+  "schema_version": "1.0.0",
+  "security_review_blocked_identity_count": 117,
+  "unknown_is_not_merge_authority": true,
+  "unknown_is_not_pass": true,
+  "unresolved_digest": "sha256:f0f05be6b2ffe98c11ddbe6c9a6a74d36bf10ddd521c9f5837aab5633823f76a"
+}

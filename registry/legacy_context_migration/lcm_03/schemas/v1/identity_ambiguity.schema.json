@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "ambiguity_digest": {},
+    "ambiguity_id": {},
+    "artifact_path": {},
+    "reason_codes": {},
+    "resolution_status": {}
+  },
+  "required": [
+    "ambiguity_id",
+    "artifact_path",
+    "reason_codes",
+    "resolution_status",
+    "ambiguity_digest"
+  ],
+  "title": "LCM-03 Identity Ambiguity",
+  "type": "object"
+}

@@ -1,0 +1,10 @@
+{
+  "claim_ceiling": "IDENTITY_AND_LOCATOR_REFERENCE_ONLY",
+  "identity_run_id": "IDENTITY_A3F7E93C3F5154CB2616F01F5235F748",
+  "marker_digest": "sha256:bdd732a9f0f384c5c1b64dff0ff403865f633df594ed425713f6a42f0f52dd80",
+  "phase_id": "LCM-03",
+  "schema_version": "1.0.0",
+  "semantic_refactor_performed": false,
+  "source_delete_performed": false,
+  "source_move_performed": false
+}

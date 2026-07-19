@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "binding_digest": {},
+    "classification_id": {},
+    "source_handoff_digest": {},
+    "survey_id": {}
+  },
+  "required": [
+    "classification_id",
+    "survey_id",
+    "source_handoff_digest",
+    "binding_digest"
+  ],
+  "title": "LCM-03 Lcm02 Binding",
+  "type": "object"
+}

@@ -1,0 +1,8 @@
+{
+  "automation_is_owner": false,
+  "human_semantic_approval_required": true,
+  "phase_id": "LCM-03",
+  "policy_digest": "sha256:3c9ed7ac4ce6ce7066a0b5f4233331b61915f638b64932b1024ed6b603b797bc",
+  "policy_id": "LCM03_OWNER_POLICY_V1",
+  "schema_version": "1.0.0"
+}

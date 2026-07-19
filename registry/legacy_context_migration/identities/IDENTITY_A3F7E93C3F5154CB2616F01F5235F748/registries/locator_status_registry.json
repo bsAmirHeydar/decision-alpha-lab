@@ -1,0 +1,13 @@
+{
+  "closed": true,
+  "locator_statuses": [
+    "CURRENT_ARTIFACT_BOUND",
+    "PROPOSED_NOT_MATERIALIZED",
+    "AMBIGUOUS_BLOCKED",
+    "RETIRED"
+  ],
+  "path_scan_fallback_allowed": false,
+  "registry_digest": "sha256:62669d8cef6b426f702887f15bd62c317d3286657ba573dbea5bcd7795490ab9",
+  "registry_id": "LCM03_LOCATOR_STATUS_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}

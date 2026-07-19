@@ -1,0 +1,8 @@
+{
+  "phase_id": "LCM-03",
+  "policy_digest": "sha256:d7346090abb6ffb976ac48af621a6e58580756fdbab9a608de99d271c9600a0b",
+  "policy_id": "LCM03_ROLLBACK_POLICY_V1",
+  "prose_reconstruction_allowed": false,
+  "rollback_restores_exact_input": true,
+  "schema_version": "1.0.0"
+}

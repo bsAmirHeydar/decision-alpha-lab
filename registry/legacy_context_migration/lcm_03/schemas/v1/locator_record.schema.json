@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "current_artifact_path": {},
+    "identity_id": {},
+    "locator_digest": {},
+    "locator_status": {},
+    "logical_uri": {}
+  },
+  "required": [
+    "identity_id",
+    "logical_uri",
+    "current_artifact_path",
+    "locator_status",
+    "locator_digest"
+  ],
+  "title": "LCM-03 Locator Record",
+  "type": "object"
+}

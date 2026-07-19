@@ -1,0 +1,8 @@
+{
+  "content_derived_run_id": true,
+  "phase_id": "LCM-03",
+  "policy_digest": "sha256:8a7e1d39bff7dc9ae47e122c7574187bdf151c5c2fbe4c49a7a5180b2a71da71",
+  "policy_id": "LCM03_DETERMINISM_POLICY_V1",
+  "random_persistent_ids_allowed": false,
+  "schema_version": "1.0.0"
+}

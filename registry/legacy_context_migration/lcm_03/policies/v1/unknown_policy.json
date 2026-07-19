@@ -1,0 +1,9 @@
+{
+  "phase_id": "LCM-03",
+  "policy_digest": "sha256:0dc0c7a09184652ce77fe7502b6c4f5dba5c64e1cf48dcdb38999ca9251cafb2",
+  "policy_id": "LCM03_UNKNOWN_POLICY_V1",
+  "schema_version": "1.0.0",
+  "unknown_is_delete_authority": false,
+  "unknown_is_merge_authority": false,
+  "unknown_is_pass": false
+}

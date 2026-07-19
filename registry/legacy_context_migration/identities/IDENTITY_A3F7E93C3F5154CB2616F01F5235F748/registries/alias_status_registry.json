@@ -1,0 +1,15 @@
+{
+  "alias_statuses": [
+    "ACTIVE_REFERENCE",
+    "REDIRECT_PROPOSED",
+    "DEPRECATED",
+    "QUARANTINED",
+    "RETIRED",
+    "AMBIGUOUS_BLOCKED"
+  ],
+  "ambiguous_alias_resolution_allowed": false,
+  "closed": true,
+  "registry_digest": "sha256:544fd98c4414a75937b90e306a1d8325de2cb6a5a6c145c7e5db2a099fedbc6f",
+  "registry_id": "LCM03_ALIAS_STATUS_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}

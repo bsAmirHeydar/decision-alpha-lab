@@ -1,0 +1,8 @@
+{
+  "identity_registration_is_runtime_authority": false,
+  "phase_id": "LCM-03",
+  "policy_digest": "sha256:4fbc38c46e418a0b2cc5c7796c185c91e847464632bfab858549c2096416bc26",
+  "policy_id": "LCM03_SECURITY_POLICY_V1",
+  "schema_version": "1.0.0",
+  "security_sensitive_identity_requires_review": true
+}

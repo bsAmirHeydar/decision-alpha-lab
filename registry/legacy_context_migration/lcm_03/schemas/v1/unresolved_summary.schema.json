@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "alias_collision_count": {},
+    "identity_ambiguity_count": {},
+    "identity_run_id": {},
+    "unresolved_digest": {}
+  },
+  "required": [
+    "identity_run_id",
+    "identity_ambiguity_count",
+    "alias_collision_count",
+    "unresolved_digest"
+  ],
+  "title": "LCM-03 Unresolved Summary",
+  "type": "object"
+}

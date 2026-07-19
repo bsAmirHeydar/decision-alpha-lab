@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "allowed_actions": {},
+    "completed_gates": {},
+    "forbidden_actions": {},
+    "handoff_digest": {},
+    "handoff_type": {},
+    "identity_run_id": {}
+  },
+  "required": [
+    "handoff_type",
+    "identity_run_id",
+    "completed_gates",
+    "allowed_actions",
+    "forbidden_actions",
+    "handoff_digest"
+  ],
+  "title": "LCM-03 Handoff",
+  "type": "object"
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "identity_digest": {},
+    "identity_id": {},
+    "identity_kind": {},
+    "identity_status": {},
+    "semantic_version": {},
+    "source_artifact_path": {}
+  },
+  "required": [
+    "identity_id",
+    "identity_kind",
+    "semantic_version",
+    "identity_status",
+    "source_artifact_path",
+    "identity_digest"
+  ],
+  "title": "LCM-03 Identity Candidate",
+  "type": "object"
+}

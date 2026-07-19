@@ -1,0 +1,8 @@
+{
+  "cutover_allowed": false,
+  "phase_id": "LCM-03",
+  "policy_digest": "sha256:3dcad636488587d2b3d4100e8ff36807be2a68acee11dce8c78848abee515961",
+  "policy_id": "LCM03_CUTOVER_POLICY_V1",
+  "redirect_materialization_allowed": false,
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,9 @@
+{
+  "ambiguous_change_blocks": true,
+  "path_move_changes_identity": false,
+  "phase_id": "LCM-03",
+  "policy_digest": "sha256:e7777326047e1f3028fd42b05904ba25d13584fd3ac65378aaa68d4c8e2c3c20",
+  "policy_id": "LCM03_VERSION_POLICY_V1",
+  "schema_version": "1.0.0",
+  "semantic_break_creates_major_identity": true
+}

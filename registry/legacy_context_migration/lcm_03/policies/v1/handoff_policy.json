@@ -1,0 +1,8 @@
+{
+  "characterization_only_next": true,
+  "downstream_may_infer_missing_approval": false,
+  "phase_id": "LCM-03",
+  "policy_digest": "sha256:d9dc2f0834ba579023a863986dccac6cf23d096b73d7892bccfda3573878d411",
+  "policy_id": "LCM03_HANDOFF_POLICY_V1",
+  "schema_version": "1.0.0"
+}

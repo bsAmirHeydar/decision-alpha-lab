@@ -1,0 +1,14 @@
+{
+  "closed": true,
+  "registry_digest": "sha256:2e84de7070bcbc2eba044480834d48862b154f68a038ba5a133a53280bd848f1",
+  "registry_id": "LCM03_RESOLUTION_STATUS_REGISTRY_V1",
+  "resolution_statuses": [
+    "RESOLVABLE",
+    "AMBIGUOUS_BLOCKED",
+    "UNKNOWN_IDENTITY_BLOCKED",
+    "UNKNOWN_VERSION_BLOCKED",
+    "MISSING_TARGET_BLOCKED"
+  ],
+  "schema_version": "1.0.0",
+  "unknown_is_pass": false
+}

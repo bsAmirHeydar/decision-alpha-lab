@@ -1,0 +1,9 @@
+{
+  "automatic_collision_resolution_allowed": false,
+  "casefold_analysis_required": true,
+  "object_prefix_analysis_required": true,
+  "phase_id": "LCM-03",
+  "policy_digest": "sha256:56a784ad41bc11c70d12a4983940181753319be2b9314bce13440fc615ca02f1",
+  "policy_id": "LCM03_COLLISION_POLICY_V1",
+  "schema_version": "1.0.0"
+}

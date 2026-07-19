@@ -1,0 +1,8 @@
+{
+  "phase_id": "LCM-03",
+  "platform_identity_is_domain_migration_authority": false,
+  "policy_digest": "sha256:e08cced0d5afb841e72ee7af3c8604425b37282aee973012c8e0a7f8ac651bad",
+  "policy_id": "LCM03_PROTECTED_PLATFORM_POLICY_V1",
+  "schema_version": "1.0.0",
+  "source_move_allowed": false
+}

@@ -1,0 +1,8 @@
+{
+  "automatic_merge_allowed": false,
+  "behavioral_equivalence_required": true,
+  "phase_id": "LCM-03",
+  "policy_digest": "sha256:33aa32bb386922051a34c44af41684bc0ac56546e62c39a8f893a8e327970e62",
+  "policy_id": "LCM03_MERGE_POLICY_V1",
+  "schema_version": "1.0.0"
+}

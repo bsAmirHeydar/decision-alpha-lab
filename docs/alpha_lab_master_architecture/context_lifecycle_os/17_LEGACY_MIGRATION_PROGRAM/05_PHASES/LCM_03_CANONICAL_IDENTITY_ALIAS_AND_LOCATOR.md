@@ -1,86 +1,36 @@
 ---
 title: "LCM-03 — Canonical Identity, Alias and Locator"
-status: proposed-reference
-version: 1.1.0
+status: implemented-reference
+version: 2.0.0
 updated: 2026-07-18
 tags: [acl-os, lcm, legacy-migration, implementation-phase]
 phase_id: LCM-03
+claim_ceiling: IDENTITY_AND_LOCATOR_REFERENCE_ONLY
 ---
 # LCM-03 — Canonical Identity, Alias and Locator
 
-Create stable domain identities independent of current paths and register every legacy name, include, function, object prefix and document slug as an alias.
+LCM-03 registers path-independent provisional identities, legacy aliases, deterministic logical locators, collision blocks and a complete static consumer census over the LCM-02 active migration candidates.
+
+## Implemented boundary
+
+- every active candidate becomes one provisional identity candidate or one explicit ambiguity record;
+- every active legacy path is registered as an alias;
+- resolved include, import, documentation and configuration edges are projected into scoped alias evidence and consumer records;
+- source-local functions, MQL5 inputs, experiment codes and statically recoverable chart-object prefixes are registered conservatively;
+- collisions block resolution;
+- physical canonical paths are not materialized;
+- no source file is moved, deleted, merged, refactored, quarantined or cut over.
 
 ## Claim ceiling
 
 `IDENTITY_AND_LOCATOR_REFERENCE_ONLY`
 
-## Phase entry contract
-
-- exact prior-phase handoff and digest;
-- current baseline plus all approved amendments;
-- phase authority permit and named reviewers;
-- closed registries and schemas;
-- explicit UNKNOWN for missing evidence.
-
-## Work packages
-
-### WP-03.1 Canonical identity design
-
-Assign versioned IDs for Contexts, Setups, Treatments, visualizers, engines and adapters. Split identities when materially different variants exist.
-
-### WP-03.2 Legacy alias registry
-
-Map experiment codes, old paths, public includes, function names, input names, object prefixes and documentation pages.
-
-### WP-03.3 Artifact locator
-
-Create identity-to-artifact resolution with version, compatibility range, authority class and canonical/legacy status.
-
-### WP-03.4 Collision analysis
-
-Detect aliases that resolve to multiple behaviors, case-only path conflicts, reused object prefixes and duplicate IDs.
-
-### WP-03.5 Version policy
-
-Record which differences require a major semantic version, compatible minor version or adapter-only patch.
-
-### WP-03.6 Consumer census
-
-List every known consumer of each legacy alias before redirect work begins.
-
-## Repository-specific target paths
-
-- `registry/legacy_context_migration/identities/`
-- `registry/legacy_context_migration/aliases/`
-- `registry/legacy_context_migration/locators/`
-
-## Mandatory verification
-
-- identity resolution is deterministic
-- unknown version fails closed
-- alias collision blocks resolution
-- old include paths resolve only through declared compatibility rules
-- object-prefix collisions are reported
-
-## Hostile-review focus
-
-- merging variants such as fixed-15m and host-chart close
-- using filename as permanent identity
-- losing old report links
-- object name collisions across chart instances
-
-## Commit and patch boundaries
-
-The phase is delivered as the smallest safe vertical patch. Inventory, move-only, semantic refactor, cutover, quarantine and deletion operations remain separate commits. The patch includes root-relative file index, hashes, inventory, manifest, QA, documentation and rollback. Staging uses `git add --pathspec-from-file`; broad staging is forbidden.
-
 ## Acceptance gate
 
-Every migration candidate resolves to one canonical identity candidate or an explicit ambiguity record; all active legacy consumers are enumerated.
-
-## Failure and rollback
-
-A failed check leaves the migration state unchanged. Partial output is discarded or quarantined. Rollback restores the exact phase input and verifies its manifest; it may not reconstruct lost behavior from prose.
+All active candidates are covered by identity or explicit ambiguity; IDs are unique; aliases are deterministic or blocked; unknown versions fail closed; consumers are enumerated; object-prefix and casefold collisions are reported; source mutation is zero.
 
 ## Handoff
 
-The handoff records source and output digests, completed gates, unresolved blockers, allowed next actions, forbidden actions, owner approvals and residual risk. No downstream phase may infer a missing approval or convert UNKNOWN to PASS.
+LCM-04 may build behavioral characterization packets and instrumentation only. It may not interpret a provisional identity as semantic approval or rewrite legacy behavior.
+
+[[LCM03_TO_LCM04_HANDOFF_CONTRACT]]

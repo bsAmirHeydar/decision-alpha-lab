@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "action": {},
+    "capabilities": {},
+    "classification_id": {},
+    "permit_digest": {},
+    "phase_id": {},
+    "source_handoff_digest": {}
+  },
+  "required": [
+    "phase_id",
+    "action",
+    "classification_id",
+    "source_handoff_digest",
+    "capabilities",
+    "permit_digest"
+  ],
+  "title": "LCM-03 Authority Permit",
+  "type": "object"
+}

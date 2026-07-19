@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "active_candidate_count": {},
+    "identity_ambiguity_count": {},
+    "identity_candidate_count": {},
+    "identity_run_id": {},
+    "summary_digest": {}
+  },
+  "required": [
+    "identity_run_id",
+    "active_candidate_count",
+    "identity_candidate_count",
+    "identity_ambiguity_count",
+    "summary_digest"
+  ],
+  "title": "LCM-03 Identity Summary",
+  "type": "object"
+}

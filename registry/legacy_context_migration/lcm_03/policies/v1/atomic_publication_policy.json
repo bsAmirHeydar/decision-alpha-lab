@@ -1,0 +1,8 @@
+{
+  "nonempty_destination_rejected": true,
+  "phase_id": "LCM-03",
+  "policy_digest": "sha256:a75f7fe70983125a95f6e033c7151d2e4af59b133c576c3fb24edca5b31b0c6c",
+  "policy_id": "LCM03_ATOMIC_PUBLICATION_POLICY_V1",
+  "private_staging_required": true,
+  "schema_version": "1.0.0"
+}

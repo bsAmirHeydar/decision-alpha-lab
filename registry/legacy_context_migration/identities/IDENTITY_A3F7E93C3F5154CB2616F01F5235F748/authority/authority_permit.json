@@ -1,0 +1,33 @@
+{
+  "action": "LCM03_REGISTER_IDENTITY_ALIAS_LOCATOR",
+  "capabilities": {
+    "build_logical_locators_allowed": true,
+    "capital_activation_allowed": false,
+    "cutover_allowed": false,
+    "delete_source_files_allowed": false,
+    "enumerate_consumers_allowed": true,
+    "live_order_submission_allowed": false,
+    "merge_legacy_implementations_allowed": false,
+    "move_source_files_allowed": false,
+    "network_access_allowed": false,
+    "production_key_access_allowed": false,
+    "quarantine_source_allowed": false,
+    "register_identity_candidates_allowed": true,
+    "register_legacy_aliases_allowed": true,
+    "report_collisions_allowed": true,
+    "runtime_generation_allowed": false,
+    "secret_access_allowed": false,
+    "semantic_refactor_allowed": false
+  },
+  "classification_id": "CLASSIFICATION_B23DFF50BC28E90A66ADA125A850234B",
+  "expires_at": "2099-12-31T23:59:59Z",
+  "human_approval_claimed": false,
+  "issued_at": "2026-07-18T00:00:00Z",
+  "issuer": "ALPHA_LAB_REFERENCE_ARCHITECTURE_AUTHORITY",
+  "permit_digest": "sha256:44759c80e73b94c04e0ecafd01ec6d2eab89a9b5f02fd58277bc9485e5401254",
+  "permit_id": "PERMIT_LCM03_REFERENCE_IDENTITY_V1",
+  "phase_id": "LCM-03",
+  "reference_only": true,
+  "schema_version": "1.0.0",
+  "source_handoff_digest": "sha256:e85ebcc1816c1964c17d424848c349e57223637af9c7aa366cde3d3d64beb9c8"
+}

@@ -1,0 +1,61 @@
+{
+  "capital_authority_created": false,
+  "edges": [
+    {
+      "from": "LCM02_CLASSIFICATION",
+      "to": "LCM03_IDENTITIES"
+    },
+    {
+      "from": "LCM03_IDENTITIES",
+      "to": "LCM03_ALIASES"
+    },
+    {
+      "from": "LCM03_ALIASES",
+      "to": "LCM03_COLLISIONS"
+    },
+    {
+      "from": "LCM03_IDENTITIES",
+      "to": "LCM03_LOCATORS"
+    },
+    {
+      "from": "LCM03_LOCATORS",
+      "to": "LCM03_EVENTS"
+    }
+  ],
+  "graph_digest": "sha256:a7875354df7405f267460d417c00795f42abf72a8139f381ee33a7613b1eeabd",
+  "identity_run_id": "IDENTITY_A3F7E93C3F5154CB2616F01F5235F748",
+  "live_order_authority_created": false,
+  "nodes": [
+    {
+      "digest": "sha256:ff2d713c30874eaaf1ae6efb678754414759fcb7922b260fca39d82bcd0c24ee",
+      "node_id": "LCM02_CLASSIFICATION"
+    },
+    {
+      "digest": "sha256:f07e71ed7eaf8ae4321ff83c1d37b3e722132ed5457fdede977b1c5a53e0a34c",
+      "node_id": "LCM03_IDENTITIES"
+    },
+    {
+      "digest": "sha256:656d7521db8aecf4d4b46f6369132086492eae4a7040a6f76c800081222eaa26",
+      "node_id": "LCM03_ALIASES"
+    },
+    {
+      "digest": "sha256:8af98f134131e34263bf520f1bbce5082b53754cf05d2290bdd2a3a13e3073a3",
+      "node_id": "LCM03_COLLISIONS"
+    },
+    {
+      "digest": "sha256:3c8051d57ca1bab620efdffe68300e626b5e4b6150d2422bbf5f131e042a1678",
+      "node_id": "LCM03_LOCATORS"
+    },
+    {
+      "digest": "sha256:6c03a970ddade600b83eede9f38dd1f4a5cb89d772994043be9a01d6ddad13bf",
+      "node_id": "LCM03_EVENTS"
+    }
+  ],
+  "phase_id": "LCM-03",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "semantic_behavior_changed": false,
+  "source_classification_id": "CLASSIFICATION_B23DFF50BC28E90A66ADA125A850234B",
+  "source_paths_deleted": false,
+  "source_paths_moved": false
+}

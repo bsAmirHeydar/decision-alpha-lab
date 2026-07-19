@@ -1,0 +1,9 @@
+{
+  "closed_alias_types": true,
+  "collision_blocks_resolution": true,
+  "path_scan_fallback_allowed": false,
+  "phase_id": "LCM-03",
+  "policy_digest": "sha256:72d33c75be4b5d5fb1321127cce3247adb7d3db3755c159bfe60bf287c24e639",
+  "policy_id": "LCM03_ALIAS_RESOLUTION_POLICY_V1",
+  "schema_version": "1.0.0"
+}

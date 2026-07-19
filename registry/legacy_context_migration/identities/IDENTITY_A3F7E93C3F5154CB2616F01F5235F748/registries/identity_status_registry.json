@@ -1,0 +1,13 @@
+{
+  "closed": true,
+  "identity_statuses": [
+    "PROVISIONAL_UNMERGED_IDENTITY_CANDIDATE",
+    "PROTECTED_PLATFORM_TECHNICAL_IDENTITY",
+    "SECURITY_REVIEW_BLOCKED",
+    "AMBIGUOUS_ROLE_BLOCKED"
+  ],
+  "provisional_is_human_approval": false,
+  "registry_digest": "sha256:667302de4e11d5179340038dfd3edcec00988646f4ff15e32d506e66964ae61f",
+  "registry_id": "LCM03_IDENTITY_STATUS_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}

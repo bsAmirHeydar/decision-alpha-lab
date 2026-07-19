@@ -1,0 +1,44 @@
+{
+  "closed": true,
+  "identity_kinds": [
+    {
+      "identity_kind": "CONTEXT",
+      "logical_namespace": "context",
+      "prefix": "CTX"
+    },
+    {
+      "identity_kind": "SETUP",
+      "logical_namespace": "setup",
+      "prefix": "STP"
+    },
+    {
+      "identity_kind": "TREATMENT",
+      "logical_namespace": "treatment",
+      "prefix": "TRT"
+    },
+    {
+      "identity_kind": "VISUALIZER",
+      "logical_namespace": "visualizer",
+      "prefix": "VIS"
+    },
+    {
+      "identity_kind": "ENGINE",
+      "logical_namespace": "engine",
+      "prefix": "ENG"
+    },
+    {
+      "identity_kind": "ADAPTER",
+      "logical_namespace": "adapter",
+      "prefix": "ADP"
+    },
+    {
+      "identity_kind": "SUPPORT_ARTIFACT",
+      "logical_namespace": "artifact",
+      "prefix": "ART"
+    }
+  ],
+  "registry_digest": "sha256:c223e2caf06d83dbbaee270950db69b8538cb9566e95a5bf6f3357e823099c61",
+  "registry_id": "LCM03_IDENTITY_KIND_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "support_artifact_is_domain_semantic_identity": false
+}

@@ -1,0 +1,6 @@
+from __future__ import annotations
+from .canonical import digest_object
+
+def registry():
+    obj={'schema_version':'1.0.0','registry_id':'LCM03_VERSION_POLICY_REGISTRY_V1','closed':True,'rules':[{'change_class':'SEMANTIC_BREAK','version_action':'NEW_MAJOR_IDENTITY','examples':['known-time change','trigger semantics change','state transition change','treatment authority change']},{'change_class':'COMPATIBLE_EXTENSION','version_action':'MINOR_VERSION','examples':['optional non-decision metadata','new backward-compatible alias']},{'change_class':'NON_SEMANTIC_PATCH','version_action':'PATCH_VERSION','examples':['documentation correction','formatting','compatible adapter defect fix with parity']},{'change_class':'PATH_MOVE_ONLY','version_action':'NO_DOMAIN_IDENTITY_CHANGE','examples':['git move','repository topology change']},{'change_class':'AMBIGUOUS','version_action':'BLOCK_AND_REQUIRE_OWNER_REVIEW','examples':['unknown behavior difference','unresolved variant equivalence']}],'unknown_version_fails_closed':True,'major_identity_reuse_allowed':False,'path_move_creates_new_identity':False,'registry_digest':None}
+    obj['registry_digest']=digest_object(obj,'registry_digest'); return obj

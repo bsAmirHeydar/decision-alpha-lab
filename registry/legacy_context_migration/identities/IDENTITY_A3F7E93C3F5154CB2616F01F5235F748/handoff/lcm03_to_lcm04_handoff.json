@@ -1,0 +1,52 @@
+{
+  "alias_resolution_index_digest": "sha256:656d7521db8aecf4d4b46f6369132086492eae4a7040a6f76c800081222eaa26",
+  "allowed_actions": [
+    "BUILD_CHARACTERIZATION_PACKETS",
+    "REGISTER_GOLDEN_CASES",
+    "INSTRUMENT_LEGACY_TRACES",
+    "RESOLVE_IDENTITY_AMBIGUITIES",
+    "RESOLVE_ALIAS_COLLISIONS",
+    "ASSIGN_HUMAN_OWNERS"
+  ],
+  "characterization_execution_allowed": false,
+  "classification_id": "CLASSIFICATION_B23DFF50BC28E90A66ADA125A850234B",
+  "completed_gates": [
+    "ALL_ACTIVE_CANDIDATES_IDENTITY_OR_EXPLICIT_AMBIGUITY",
+    "IDENTITY_IDS_UNIQUE",
+    "ALIASES_DETERMINISTIC_OR_BLOCKED",
+    "UNKNOWN_VERSION_FAILS_CLOSED",
+    "CONSUMER_CENSUS_RECORDED",
+    "OBJECT_PREFIX_COLLISIONS_REPORTED",
+    "NO_SOURCE_MOVE_OR_DELETE"
+  ],
+  "forbidden_actions": [
+    "MOVE_SOURCE_FILE",
+    "DELETE_SOURCE_FILE",
+    "SEMANTIC_REFACTOR",
+    "MERGE_LEGACY_IMPLEMENTATIONS",
+    "CUTOVER_CONSUMER",
+    "QUARANTINE_SOURCE",
+    "TREAT_PROVISIONAL_IDENTITY_AS_SEMANTIC_APPROVAL",
+    "AUTHORIZE_RUNTIME",
+    "AUTHORIZE_LIVE_ORDER",
+    "ACTIVATE_CAPITAL"
+  ],
+  "handoff_digest": "sha256:016f2d0a3df58ef20942b577d6c8032062a918063a96f43c614ba7a01a32bfd8",
+  "handoff_type": "LCM03_TO_LCM04",
+  "human_semantic_approval_claimed": false,
+  "identity_run_id": "IDENTITY_A3F7E93C3F5154CB2616F01F5235F748",
+  "identity_summary_digest": "sha256:f07e71ed7eaf8ae4321ff83c1d37b3e722132ed5457fdede977b1c5a53e0a34c",
+  "locator_index_digest": "sha256:3c8051d57ca1bab620efdffe68300e626b5e4b6150d2422bbf5f131e042a1678",
+  "schema_version": "1.0.0",
+  "semantic_refactor_performed": false,
+  "source_delete_performed": false,
+  "source_handoff_digest": "sha256:e85ebcc1816c1964c17d424848c349e57223637af9c7aa366cde3d3d64beb9c8",
+  "source_move_performed": false,
+  "unresolved_blockers": [
+    "IDENTITY_AMBIGUITIES_PENDING",
+    "ALIAS_COLLISIONS_PENDING",
+    "HUMAN_OWNER_APPROVALS_PENDING",
+    "SECURITY_REVIEWS_PENDING"
+  ],
+  "unresolved_digest": "sha256:f0f05be6b2ffe98c11ddbe6c9a6a74d36bf10ddd521c9f5837aab5633823f76a"
+}

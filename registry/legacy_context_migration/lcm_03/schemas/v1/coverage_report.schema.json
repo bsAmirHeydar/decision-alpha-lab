@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "active_candidate_count": {},
+    "coverage_complete": {},
+    "coverage_digest": {},
+    "identity_run_id": {}
+  },
+  "required": [
+    "identity_run_id",
+    "active_candidate_count",
+    "coverage_complete",
+    "coverage_digest"
+  ],
+  "title": "LCM-03 Coverage Report",
+  "type": "object"
+}

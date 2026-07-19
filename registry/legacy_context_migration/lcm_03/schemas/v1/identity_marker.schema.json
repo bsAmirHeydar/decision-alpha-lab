@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "claim_ceiling": {},
+    "identity_run_id": {},
+    "marker_digest": {},
+    "phase_id": {}
+  },
+  "required": [
+    "phase_id",
+    "identity_run_id",
+    "claim_ceiling",
+    "marker_digest"
+  ],
+  "title": "LCM-03 Identity Marker",
+  "type": "object"
+}

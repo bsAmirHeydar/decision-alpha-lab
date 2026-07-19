@@ -1,0 +1,7 @@
+{
+  "generated_projection_is_canonical_doctrine": false,
+  "phase_id": "LCM-03",
+  "policy_digest": "sha256:3f8e480b92068e60401ac1ff2816b4bad495ee2c64e33acc86b329ede79b4f32",
+  "policy_id": "LCM03_GENERATED_PROJECTION_POLICY_V1",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,43 @@
+{
+  "active_candidate_count": 4832,
+  "alias_collision_count": 5559,
+  "alias_record_count": 28471,
+  "all_active_candidates_identity_or_ambiguity": true,
+  "ambiguous_alias_record_count": 7303,
+  "canonical_path_materialized_count": 0,
+  "capital_authority_created": false,
+  "claim_ceiling": "IDENTITY_AND_LOCATOR_REFERENCE_ONLY",
+  "classification_id": "CLASSIFICATION_B23DFF50BC28E90A66ADA125A850234B",
+  "consumer_record_count": 10952,
+  "cutover_performed": false,
+  "human_semantic_approval_claimed": false,
+  "identity_ambiguity_count": 2040,
+  "identity_candidate_count": 2792,
+  "identity_ids_unique": true,
+  "identity_kind_counts": {
+    "ADAPTER": 156,
+    "CONTEXT": 321,
+    "ENGINE": 1836,
+    "SETUP": 60,
+    "SUPPORT_ARTIFACT": 202,
+    "TREATMENT": 164,
+    "VISUALIZER": 53
+  },
+  "identity_run_id": "IDENTITY_A3F7E93C3F5154CB2616F01F5235F748",
+  "identity_status_counts": {
+    "PROTECTED_PLATFORM_TECHNICAL_IDENTITY": 1726,
+    "PROVISIONAL_UNMERGED_IDENTITY_CANDIDATE": 949,
+    "SECURITY_REVIEW_BLOCKED": 117
+  },
+  "live_order_authority_created": false,
+  "locator_record_count": 2792,
+  "merge_performed": false,
+  "phase_id": "LCM-03",
+  "resolvable_alias_count": 21168,
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "semantic_refactor_performed": false,
+  "source_delete_performed": false,
+  "source_move_performed": false,
+  "summary_digest": "sha256:f07e71ed7eaf8ae4321ff83c1d37b3e722132ed5457fdede977b1c5a53e0a34c"
+}

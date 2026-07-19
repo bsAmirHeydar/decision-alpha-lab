@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "artifact_count": {},
+    "artifacts": {},
+    "identity_run_id": {},
+    "output_manifest_digest": {},
+    "phase_id": {}
+  },
+  "required": [
+    "phase_id",
+    "identity_run_id",
+    "artifact_count",
+    "artifacts",
+    "output_manifest_digest"
+  ],
+  "title": "LCM-03 Output Manifest",
+  "type": "object"
+}

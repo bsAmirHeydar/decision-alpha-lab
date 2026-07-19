@@ -1,0 +1,9 @@
+{
+  "major_version_required_for_semantic_break": true,
+  "path_is_identity": false,
+  "phase_id": "LCM-03",
+  "policy_digest": "sha256:341efe70c41fdc708dfef189939b885af1c0a58a9400bdfd3c7434c8baa9c4fd",
+  "policy_id": "LCM03_IDENTITY_NAMING_POLICY_V1",
+  "provisional_is_semantic_approval": false,
+  "schema_version": "1.0.0"
+}

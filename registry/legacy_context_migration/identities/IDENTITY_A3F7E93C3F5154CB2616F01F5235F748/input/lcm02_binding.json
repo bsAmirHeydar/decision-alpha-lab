@@ -1,0 +1,9 @@
+{
+  "binding_digest": "sha256:46f838aa5f9bbafd0630e8fa4797f4a4d72a06dfadcaa23a6de0ac9c2bef80cd",
+  "classification_id": "CLASSIFICATION_B23DFF50BC28E90A66ADA125A850234B",
+  "schema_version": "1.0.0",
+  "source_handoff_digest": "sha256:e85ebcc1816c1964c17d424848c349e57223637af9c7aa366cde3d3d64beb9c8",
+  "source_output_manifest_digest": "sha256:409f36cdf53925ee90bce92e8953ff498eaf2a35bcfd5582408249fbca72d61b",
+  "source_summary_digest": "sha256:ff2d713c30874eaaf1ae6efb678754414759fcb7922b260fca39d82bcd0c24ee",
+  "survey_id": "SURVEY_D4EC5C533F886BC439DAEEBDE51FA080"
+}

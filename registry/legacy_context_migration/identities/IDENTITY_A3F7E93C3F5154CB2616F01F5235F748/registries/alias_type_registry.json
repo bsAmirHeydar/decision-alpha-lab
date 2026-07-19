@@ -1,0 +1,20 @@
+{
+  "alias_types": [
+    "LEGACY_PATH",
+    "FILE_BASENAME",
+    "MQL5_INCLUDE",
+    "PYTHON_IMPORT",
+    "OBSIDIAN_WIKILINK",
+    "CONFIG_REFERENCE",
+    "FUNCTION_NAME",
+    "INPUT_NAME",
+    "OBJECT_PREFIX",
+    "EXPERIMENT_CODE",
+    "DOCUMENT_SLUG"
+  ],
+  "closed": true,
+  "registry_digest": "sha256:942bfbaca6432b87c211e830abb76494831bab5d7e44bb2f35346b1239d1efe8",
+  "registry_id": "LCM03_ALIAS_TYPE_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "undeclared_alias_type_allowed": false
+}

@@ -1,0 +1,16 @@
+{
+  "aliases": [
+    {
+      "alias_scope": "GLOBAL",
+      "alias_type": "FILE_BASENAME",
+      "alias_value": "same.mqh",
+      "identity_id": "CTX_A_V1"
+    },
+    {
+      "alias_scope": "GLOBAL",
+      "alias_type": "FILE_BASENAME",
+      "alias_value": "same.mqh",
+      "identity_id": "CTX_B_V1"
+    }
+  ]
+}

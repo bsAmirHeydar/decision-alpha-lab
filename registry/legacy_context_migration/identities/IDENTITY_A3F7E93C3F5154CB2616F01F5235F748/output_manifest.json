@@ -1,0 +1,204 @@
+{
+  "artifact_count": 39,
+  "artifacts": [
+    {
+      "path": "aliases/alias_resolution_index.json",
+      "sha256": "sha256:d37290b3f03412b117a310b5f064f1b096e719832db83048e4637e98419056a1",
+      "size_bytes": 3324439
+    },
+    {
+      "path": "aliases/ambiguous_alias_queue.jsonl",
+      "sha256": "sha256:315f2cd433e54b8208438863ae1588779fd9fa9872132525119f2e2f73dd9ce4",
+      "size_bytes": 2839426
+    },
+    {
+      "path": "aliases/legacy_alias_records.csv",
+      "sha256": "sha256:4842e0f96119d2cb41594b06194e3b59187d294906416a24863a96e8b0582ef2",
+      "size_bytes": 11854462
+    },
+    {
+      "path": "aliases/legacy_alias_records.jsonl",
+      "sha256": "sha256:f9e78fabd27c018637cf040b8d076804f02f848b6e497a02778b150b2ad2e8d1",
+      "size_bytes": 19782260
+    },
+    {
+      "path": "authority/authority_permit.json",
+      "sha256": "sha256:ecff0cb7f0fac86fe9c2a3ae701e9c463cd9e0e00c0845a52413f0f333c4ef1b",
+      "size_bytes": 1359
+    },
+    {
+      "path": "collisions/alias_collision_report.json",
+      "sha256": "sha256:03d0422fa03af4745b3c05c3dd0c309c048a893ce0edfff6d4bd021f273e0714",
+      "size_bytes": 4026494
+    },
+    {
+      "path": "collisions/casefold_path_collision_report.json",
+      "sha256": "sha256:bc6cff772e5fa08cc54bd9d3a80c07562f30bc586c48706a55131762eeb2e508",
+      "size_bytes": 402
+    },
+    {
+      "path": "collisions/object_prefix_collision_report.json",
+      "sha256": "sha256:abf296505fbfeab88632c039e44817f50d495476f40f9a39e6360330bc56211e",
+      "size_bytes": 9806
+    },
+    {
+      "path": "consumers/consumer_census.csv",
+      "sha256": "sha256:15278d5c91a597bcbc8ca74178287e8aa3283b5e26928027685c8e18ae2bd253",
+      "size_bytes": 3744378
+    },
+    {
+      "path": "consumers/consumer_census.jsonl",
+      "sha256": "sha256:57e0c27bbe530c2abf2c8fda9bbaf265c47a2b7ad38a1b94a2c86da4ad458bd4",
+      "size_bytes": 6131849
+    },
+    {
+      "path": "docs/LCM03_ALIAS_POLICY.md",
+      "sha256": "sha256:96d28fb26a697e4086a80e032ea370621542c95511e95f7bc620bc9e12ebbb31",
+      "size_bytes": 189
+    },
+    {
+      "path": "docs/LCM03_EXECUTIVE_BRIEF.md",
+      "sha256": "sha256:cd0d54c497c84dbee5d3842af52fef510c80111b5681bbbc0434c67e2f96dc9a",
+      "size_bytes": 385
+    },
+    {
+      "path": "docs/LCM03_IDENTITY_POLICY.md",
+      "sha256": "sha256:d57cccfe8fa937b1421b5fc56ca9be36f6c529b284ed13af037e0b6e33788cc2",
+      "size_bytes": 256
+    },
+    {
+      "path": "docs/LCM03_LOCATOR_POLICY.md",
+      "sha256": "sha256:f536dbfdc75c0c86f267a7627a1de46ae1246515f52beb80fe1f8249d3230919",
+      "size_bytes": 165
+    },
+    {
+      "path": "docs/LCM03_TO_LCM04_HANDOFF.md",
+      "sha256": "sha256:e4dcee1939e58c611d17b9c2e5ec092eead4ba7127533a637c1fdf8c61880c8d",
+      "size_bytes": 184
+    },
+    {
+      "path": "events/identity_event_ledger.json",
+      "sha256": "sha256:2dec5a8100d2ea38568a4ecec07eed993cd9310168a2c7194d82ec3b08332e2d",
+      "size_bytes": 5684
+    },
+    {
+      "path": "handoff/lcm03_to_lcm04_handoff.json",
+      "sha256": "sha256:eec80281a5aae659967ec909fcf0898a5a415612e745c841197ad6653f67b472",
+      "size_bytes": 2024
+    },
+    {
+      "path": "identities/canonical_identity_candidates.csv",
+      "sha256": "sha256:cf88f65f8c2aa4188df98a4db0eefc2e02b54a4ecee55645d2a5cebad00d759c",
+      "size_bytes": 1590087
+    },
+    {
+      "path": "identities/canonical_identity_candidates.jsonl",
+      "sha256": "sha256:56d990e9081220e53434184d0a465aa32068e753ed742523ed2dec78537fc1e3",
+      "size_bytes": 3024739
+    },
+    {
+      "path": "identities/family_identity_map.csv",
+      "sha256": "sha256:7496dc0ab9dfd6b6801f04c6ff888976378aecfd79581269c1d601494295f6c2",
+      "size_bytes": 7847
+    },
+    {
+      "path": "identities/family_identity_map.json",
+      "sha256": "sha256:fd0aef3b64451a15c28adbef8e8d98b9d4f9590436cc65646bbde2b87d6050a7",
+      "size_bytes": 25678
+    },
+    {
+      "path": "identity_marker.json",
+      "sha256": "sha256:427a759541c1cb56b254bbe2b633960366c13504d6a837ee15dcfde47437027d",
+      "size_bytes": 384
+    },
+    {
+      "path": "identity_receipt.json",
+      "sha256": "sha256:b653eb921dafd7fdb15bc1334111c588cc3964b865738310ffaedbb03d41d1bf",
+      "size_bytes": 1597
+    },
+    {
+      "path": "input/lcm02_binding.json",
+      "sha256": "sha256:fcfa2215fe293793d88ffff81f677dee0f668530e429c50e8e34d7e16af6f6b2",
+      "size_bytes": 573
+    },
+    {
+      "path": "locators/artifact_locator_records.csv",
+      "sha256": "sha256:7cb998372515bab94846109846d30aeb3029a9679f63ac48281cd4e5f006098f",
+      "size_bytes": 1224053
+    },
+    {
+      "path": "locators/artifact_locator_records.jsonl",
+      "sha256": "sha256:8e17e212ff62dd4e249c8387d16eb7e04ce1c4e36fb65dcf93a72805ccb61eb0",
+      "size_bytes": 2156301
+    },
+    {
+      "path": "locators/logical_locator_index.json",
+      "sha256": "sha256:35dbc356b19354ad15b8d5d5ac3ec4b3d8119c36832c299a98f83360a7db4dd5",
+      "size_bytes": 394846
+    },
+    {
+      "path": "provenance/identity_provenance_graph.json",
+      "sha256": "sha256:5e186883db9fe38b5925702f27e99ba8b8facb26489a3ecd62ef630651e294d2",
+      "size_bytes": 1764
+    },
+    {
+      "path": "registries/alias_status_registry.json",
+      "sha256": "sha256:2079e9ce49e545f896c49698b4ac2f7a7bb96bc552b43fe89ea5cdcadfd780b4",
+      "size_bytes": 396
+    },
+    {
+      "path": "registries/alias_type_registry.json",
+      "sha256": "sha256:7ddedb6bd446086c40d0ccaff007185289ef75c9d6aed7cc0cbda2ad92c21dbd",
+      "size_bytes": 494
+    },
+    {
+      "path": "registries/identity_kind_registry.json",
+      "sha256": "sha256:5aaa649569f9b3cb3d762d1c141b366245187d4a51436d00ba7f7679f6ca7261",
+      "size_bytes": 1044
+    },
+    {
+      "path": "registries/identity_status_registry.json",
+      "sha256": "sha256:f9d1a6731327ea8e5000557e87f493b157cea1b4957bb7e931f51e462303e3f8",
+      "size_bytes": 424
+    },
+    {
+      "path": "registries/locator_status_registry.json",
+      "sha256": "sha256:e6385ffe534343e605d0c3736d1b5fb671228fd3f4017b6a954450745a6fe758",
+      "size_bytes": 369
+    },
+    {
+      "path": "registries/resolution_status_registry.json",
+      "sha256": "sha256:97800960be75d9589a7efdd427b27b02706cd7abc665407c415e8a6b680f5301",
+      "size_bytes": 397
+    },
+    {
+      "path": "registries/version_policy_registry.json",
+      "sha256": "sha256:7e119fd7326f3b57652f70b25a2928457b4d0cb53ce7134ae76724c1be9923d2",
+      "size_bytes": 1455
+    },
+    {
+      "path": "reports/coverage_report.json",
+      "sha256": "sha256:10cdfb254ec3ef74f2901a7216ec57f2ccbc13a5d334bced5ac4c4664ff5bb24",
+      "size_bytes": 451
+    },
+    {
+      "path": "reports/identity_summary.json",
+      "sha256": "sha256:a7e085a5e92a3b40a029c4f38967c1b896ec2952c05a6e9db81ce62f92bed486",
+      "size_bytes": 1472
+    },
+    {
+      "path": "unresolved/identity_ambiguity_queue.jsonl",
+      "sha256": "sha256:584fdbb77c653553a3d42665b6027f8e665bcd417c3925b8adc1342ffb366cbd",
+      "size_bytes": 1310763
+    },
+    {
+      "path": "unresolved/unresolved_summary.json",
+      "sha256": "sha256:fc3577067623a287916286f5521db2efd0ac7e6d06c2046d10902f3d35fe77c1",
+      "size_bytes": 475
+    }
+  ],
+  "identity_run_id": "IDENTITY_A3F7E93C3F5154CB2616F01F5235F748",
+  "output_manifest_digest": "sha256:010d472c49a5751d2755362124f0d6e677d786e0f15f9049ff0ddca3b651e2e4",
+  "phase_id": "LCM-03",
+  "schema_version": "1.0.0"
+}

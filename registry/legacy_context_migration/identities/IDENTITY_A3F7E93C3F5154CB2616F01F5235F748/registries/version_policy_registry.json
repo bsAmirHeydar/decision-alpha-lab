@@ -1,0 +1,54 @@
+{
+  "closed": true,
+  "major_identity_reuse_allowed": false,
+  "path_move_creates_new_identity": false,
+  "registry_digest": "sha256:9dfc15eab41124b49362ac0523068a5438a3eaa37bac90a955c69f07cd861f65",
+  "registry_id": "LCM03_VERSION_POLICY_REGISTRY_V1",
+  "rules": [
+    {
+      "change_class": "SEMANTIC_BREAK",
+      "examples": [
+        "known-time change",
+        "trigger semantics change",
+        "state transition change",
+        "treatment authority change"
+      ],
+      "version_action": "NEW_MAJOR_IDENTITY"
+    },
+    {
+      "change_class": "COMPATIBLE_EXTENSION",
+      "examples": [
+        "optional non-decision metadata",
+        "new backward-compatible alias"
+      ],
+      "version_action": "MINOR_VERSION"
+    },
+    {
+      "change_class": "NON_SEMANTIC_PATCH",
+      "examples": [
+        "documentation correction",
+        "formatting",
+        "compatible adapter defect fix with parity"
+      ],
+      "version_action": "PATCH_VERSION"
+    },
+    {
+      "change_class": "PATH_MOVE_ONLY",
+      "examples": [
+        "git move",
+        "repository topology change"
+      ],
+      "version_action": "NO_DOMAIN_IDENTITY_CHANGE"
+    },
+    {
+      "change_class": "AMBIGUOUS",
+      "examples": [
+        "unknown behavior difference",
+        "unresolved variant equivalence"
+      ],
+      "version_action": "BLOCK_AND_REQUIRE_OWNER_REVIEW"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "unknown_version_fails_closed": true
+}

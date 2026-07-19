@@ -1,0 +1,227 @@
+{
+  "collisions": [
+    {
+      "alias_scope": "GLOBAL",
+      "alias_type": "OBJECT_PREFIX",
+      "automatic_resolution_allowed": false,
+      "collision_digest": "sha256:ef9fe51ad0888e3da545b426a1adf08831bd1dd148b3ebbd19066fab6ba6fd4d",
+      "collision_id": "ALCOLL_0B46E74A0A395F5424B89EB6",
+      "contains_unknown_identity": false,
+      "identity_ids": [
+        "ADP_FLAG_COUNTING_NDS_HOOK_ZONE_FLAGCOUNTINGPHOENIXEXPERIMENT_0280CAAE_V1",
+        "CTX_FLAG_COUNTING_NDS_HOOK_ZONE_FP_HOOKPHASE07TYPES_C6A8041C_V1"
+      ],
+      "normalized_alias_value": "DAL_HOOK_",
+      "reason_codes": [
+        "ALIAS_RESOLVES_TO_MULTIPLE_IDENTITIES"
+      ],
+      "resolution_status": "AMBIGUOUS_BLOCKED",
+      "source_artifact_paths": [
+        "mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5",
+        "mql5/Include/FlagCountingPhoenix/FP_HookPhase07Types.mqh"
+      ]
+    },
+    {
+      "alias_scope": "GLOBAL",
+      "alias_type": "OBJECT_PREFIX",
+      "automatic_resolution_allowed": false,
+      "collision_digest": "sha256:bf65b9026074946e287cdb0aad8ce790545434f4dac7d3774b50b3f2508c52cb",
+      "collision_id": "ALCOLL_95390DCCA9F7425773122C10",
+      "contains_unknown_identity": false,
+      "identity_ids": [
+        "ADP_FLAG_COUNTING_NDS_HOOK_ZONE_FLAGCOUNTINGPHOENIXEXPERIMENT_0280CAAE_V1",
+        "CTX_FLAG_COUNTING_NDS_HOOK_ZONE_FP_HOOKPHASE07TYPES_C6A8041C_V1"
+      ],
+      "normalized_alias_value": "DAL_HOOK_P08_",
+      "reason_codes": [
+        "ALIAS_RESOLVES_TO_MULTIPLE_IDENTITIES"
+      ],
+      "resolution_status": "AMBIGUOUS_BLOCKED",
+      "source_artifact_paths": [
+        "mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5",
+        "mql5/Include/FlagCountingPhoenix/FP_HookPhase07Types.mqh"
+      ]
+    },
+    {
+      "alias_scope": "GLOBAL",
+      "alias_type": "OBJECT_PREFIX",
+      "automatic_resolution_allowed": false,
+      "collision_digest": "sha256:2dd61318c4a20f65af35eecd50ee3999faac7219a2fc65504959d221416bb517",
+      "collision_id": "ALCOLL_707DD7DFD09FF4C6FF5950D0",
+      "contains_unknown_identity": false,
+      "identity_ids": [
+        "ADP_FLAG_COUNTING_NDS_HOOK_ZONE_FLAGCOUNTINGPHOENIXEXPERIMENT_0280CAAE_V1",
+        "CTX_FLAG_COUNTING_NDS_HOOK_ZONE_FP_HOOKPHASE07TYPES_C6A8041C_V1"
+      ],
+      "normalized_alias_value": "DAL_HOOK_P09_",
+      "reason_codes": [
+        "ALIAS_RESOLVES_TO_MULTIPLE_IDENTITIES"
+      ],
+      "resolution_status": "AMBIGUOUS_BLOCKED",
+      "source_artifact_paths": [
+        "mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5",
+        "mql5/Include/FlagCountingPhoenix/FP_HookPhase07Types.mqh"
+      ]
+    },
+    {
+      "alias_scope": "GLOBAL",
+      "alias_type": "OBJECT_PREFIX",
+      "automatic_resolution_allowed": false,
+      "collision_digest": "sha256:e1452638167449d7e6e6aa5c26991d162836418aac20624539c6f815cc3e9876",
+      "collision_id": "ALCOLL_5BDDBB18290C55510ACB41F7",
+      "contains_unknown_identity": false,
+      "identity_ids": [
+        "ADP_FLAG_COUNTING_NDS_HOOK_ZONE_FLAGCOUNTINGPHOENIXEXPERIMENT_0280CAAE_V1",
+        "CTX_FLAG_COUNTING_NDS_HOOK_ZONE_FP_HOOKPHASE07TYPES_C6A8041C_V1"
+      ],
+      "normalized_alias_value": "DAL_HOOK_P10_",
+      "reason_codes": [
+        "ALIAS_RESOLVES_TO_MULTIPLE_IDENTITIES"
+      ],
+      "resolution_status": "AMBIGUOUS_BLOCKED",
+      "source_artifact_paths": [
+        "mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5",
+        "mql5/Include/FlagCountingPhoenix/FP_HookPhase07Types.mqh"
+      ]
+    },
+    {
+      "alias_scope": "GLOBAL",
+      "alias_type": "OBJECT_PREFIX",
+      "automatic_resolution_allowed": false,
+      "collision_digest": "sha256:e27e1600e662e3a8f5b21a7e60ea582bb845d36776e277482e2617bfad6839f8",
+      "collision_id": "ALCOLL_6135410165B996BA089D964C",
+      "contains_unknown_identity": false,
+      "identity_ids": [
+        "ADP_EXP0016_INTERMARKET_EXECUTION_DAL_STC_TYPES_B00EDEEB_V1",
+        "ADP_EXP0016_INTERMARKET_EXECUTION_DAL_STC_UTILS_022B80F8_V1",
+        "ADP_EXP0016_INTERMARKET_EXECUTION_IMDEXEC001_STC_SMT_CYCLES_E0778BA3_V1"
+      ],
+      "normalized_alias_value": "DAL_STC_EXEC001",
+      "reason_codes": [
+        "ALIAS_RESOLVES_TO_MULTIPLE_IDENTITIES"
+      ],
+      "resolution_status": "AMBIGUOUS_BLOCKED",
+      "source_artifact_paths": [
+        "mql5/Experts/IntermarketDivergenceExecution/IMDEXEC001_STC_SMT_Cycles.mq5",
+        "mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_Types.mqh",
+        "mql5/Include/IntermarketDivergenceExecution/STC/DAL_STC_Utils.mqh"
+      ]
+    },
+    {
+      "alias_scope": "GLOBAL",
+      "alias_type": "OBJECT_PREFIX",
+      "automatic_resolution_allowed": false,
+      "collision_digest": "sha256:483be95e8248a5f9c77407c2fc1f725d46531db6f473a7f8068e9d165329f5a2",
+      "collision_id": "ALCOLL_6FF8AC8B38FB82FF21A4F6C4",
+      "contains_unknown_identity": false,
+      "identity_ids": [
+        "ART_EXP0018_DAYE_TRADER_EXP0018_DAYE_CLOSE_CONFIRMATION_ANATOMY_345ADE39_V1",
+        "ART_EXP0018_DAYE_TRADER_EXP0018_DAYE_DIVERGENCE_DRAWING_ANATOMY_8262372C_V1",
+        "ART_EXP0018_DAYE_TRADER_EXP0018_DAYE_REFERENCE_LIFECYCLE_ANATOMY_460874A7_V1",
+        "ART_EXP0018_DAYE_TRADER_EXP0018_DAYE_VISUAL_ANATOMY_621F071B_V1"
+      ],
+      "normalized_alias_value": "EXP0018_P06_Confirmation_State_v2",
+      "reason_codes": [
+        "ALIAS_RESOLVES_TO_MULTIPLE_IDENTITIES"
+      ],
+      "resolution_status": "AMBIGUOUS_BLOCKED",
+      "source_artifact_paths": [
+        "mql5/Experts/DayeTrader/EXP0018_Daye_Close_Confirmation_Anatomy.mq5",
+        "mql5/Experts/DayeTrader/EXP0018_Daye_Divergence_Drawing_Anatomy.mq5",
+        "mql5/Experts/DayeTrader/EXP0018_Daye_Reference_Lifecycle_Anatomy.mq5",
+        "mql5/Experts/DayeTrader/EXP0018_Daye_Visual_Anatomy.mq5"
+      ]
+    },
+    {
+      "alias_scope": "GLOBAL",
+      "alias_type": "OBJECT_PREFIX",
+      "automatic_resolution_allowed": false,
+      "collision_digest": "sha256:daf352a61f98f88c1114d828f01a85a9d6c739967972d5dd00fed7d99d1fed6b",
+      "collision_id": "ALCOLL_D8F1C1F53A0E8BE8A9AD964C",
+      "contains_unknown_identity": false,
+      "identity_ids": [
+        "ART_EXP0018_DAYE_TRADER_EXP0018_DAYE_DIVERGENCE_DRAWING_ANATOMY_8262372C_V1",
+        "ART_EXP0018_DAYE_TRADER_EXP0018_DAYE_REFERENCE_LIFECYCLE_ANATOMY_460874A7_V1",
+        "ART_EXP0018_DAYE_TRADER_EXP0018_DAYE_VISUAL_ANATOMY_621F071B_V1"
+      ],
+      "normalized_alias_value": "EXP0018_P07_Lifecycle_State_v2",
+      "reason_codes": [
+        "ALIAS_RESOLVES_TO_MULTIPLE_IDENTITIES"
+      ],
+      "resolution_status": "AMBIGUOUS_BLOCKED",
+      "source_artifact_paths": [
+        "mql5/Experts/DayeTrader/EXP0018_Daye_Divergence_Drawing_Anatomy.mq5",
+        "mql5/Experts/DayeTrader/EXP0018_Daye_Reference_Lifecycle_Anatomy.mq5",
+        "mql5/Experts/DayeTrader/EXP0018_Daye_Visual_Anatomy.mq5"
+      ]
+    },
+    {
+      "alias_scope": "GLOBAL",
+      "alias_type": "OBJECT_PREFIX",
+      "automatic_resolution_allowed": false,
+      "collision_digest": "sha256:e76a51926408837b1df2bc13ee739dd2e91bf8a883a26892a0554861fd62b6b0",
+      "collision_id": "ALCOLL_E79EABFD6E5188DD1A6D4D2F",
+      "contains_unknown_identity": false,
+      "identity_ids": [
+        "CTX_FLAG_COUNTING_NDS_HOOK_ZONE_FP_NDSF2WAISTTRADETYPES_7E9F3796_V1",
+        "CTX_FLAG_COUNTING_NDS_HOOK_ZONE_NDSF2WAISTLIMITBACKTEST_6A1AF0EE_V1"
+      ],
+      "normalized_alias_value": "NDSF2WB",
+      "reason_codes": [
+        "ALIAS_RESOLVES_TO_MULTIPLE_IDENTITIES"
+      ],
+      "resolution_status": "AMBIGUOUS_BLOCKED",
+      "source_artifact_paths": [
+        "mql5/Experts/FlagCounting/NDSF2WaistLimitBacktest.mq5",
+        "mql5/Include/FlagCountingPhoenix/FP_NDSF2WaistTradeTypes.mqh"
+      ]
+    },
+    {
+      "alias_scope": "GLOBAL",
+      "alias_type": "OBJECT_PREFIX",
+      "automatic_resolution_allowed": false,
+      "collision_digest": "sha256:77939f9f5707004f96c01ecaa58d0a0ce382ce23144343e9d5bbe8fb52c7f59c",
+      "collision_id": "ALCOLL_FBA2987B2C976464C9F77DC3",
+      "contains_unknown_identity": false,
+      "identity_ids": [
+        "ADP_FLAG_COUNTING_NDS_HOOK_ZONE_FLAGCOUNTINGPHOENIXEXPERIMENT_0280CAAE_V1",
+        "CTX_FLAG_COUNTING_NDS_HOOK_ZONE_FP_NDSHOOKTRADETYPES_B524589F_V1"
+      ],
+      "normalized_alias_value": "NDSH",
+      "reason_codes": [
+        "ALIAS_RESOLVES_TO_MULTIPLE_IDENTITIES"
+      ],
+      "resolution_status": "AMBIGUOUS_BLOCKED",
+      "source_artifact_paths": [
+        "mql5/Experts/FlagCounting/FlagCountingPhoenixExperiment.mq5",
+        "mql5/Include/FlagCountingPhoenix/FP_NDSHookTradeTypes.mqh"
+      ]
+    },
+    {
+      "alias_scope": "GLOBAL",
+      "alias_type": "OBJECT_PREFIX",
+      "automatic_resolution_allowed": false,
+      "collision_digest": "sha256:fb2771e0c2e42843f472d11258f500af4d885ebcb53fec3f5ee8d08668d09b7e",
+      "collision_id": "ALCOLL_6E16B65F2DE01E0EF23D381F",
+      "contains_unknown_identity": false,
+      "identity_ids": [
+        "CTX_FLAG_COUNTING_NDS_HOOK_ZONE_NDS_F2_HTF_F1_TO_F2_WINDOW_CONTRACT_QA_B248989F_V1",
+        "CTX_FLAG_COUNTING_NDS_HOOK_ZONE_NDS_F2_HTF_F_PHASE_FILTER_CONTRACT_QA_BCC88952_V1"
+      ],
+      "normalized_alias_value": "renderer",
+      "reason_codes": [
+        "ALIAS_RESOLVES_TO_MULTIPLE_IDENTITIES"
+      ],
+      "resolution_status": "AMBIGUOUS_BLOCKED",
+      "source_artifact_paths": [
+        "tools/flag_counting/nds_f2_htf_f1_to_f2_window_contract_qa.py",
+        "tools/flag_counting/nds_f2_htf_f_phase_filter_contract_qa.py"
+      ]
+    }
+  ],
+  "cross_chart_collision_risk_requires_runtime_characterization": true,
+  "identity_run_id": "IDENTITY_A3F7E93C3F5154CB2616F01F5235F748",
+  "object_prefix_collision_count": 10,
+  "report_digest": "sha256:96b4972d003d2616f3bde7bb4a50f3b1198aadb21ef3791b34efc0ce17c9d37a",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,9 @@
+{
+  "logical_uri_required": true,
+  "phase_id": "LCM-03",
+  "physical_move_allowed": false,
+  "policy_digest": "sha256:80f9b1794db0287c7e538b188ee48bf54da821dde329a667cd92c4cd2510528a",
+  "policy_id": "LCM03_LOCATOR_POLICY_V1",
+  "schema_version": "1.0.0",
+  "unknown_version_fails_closed": true
+}

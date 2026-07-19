@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "alias_digest": {},
+    "alias_id": {},
+    "alias_scope": {},
+    "alias_type": {},
+    "alias_value": {},
+    "resolution_status": {}
+  },
+  "required": [
+    "alias_id",
+    "alias_type",
+    "alias_value",
+    "alias_scope",
+    "resolution_status",
+    "alias_digest"
+  ],
+  "title": "LCM-03 Alias Record",
+  "type": "object"
+}

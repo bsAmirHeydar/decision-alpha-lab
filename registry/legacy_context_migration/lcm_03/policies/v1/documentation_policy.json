@@ -1,0 +1,8 @@
+{
+  "identity_links_required": true,
+  "obsidian_projection_is_source_of_truth": false,
+  "phase_id": "LCM-03",
+  "policy_digest": "sha256:8ed765a902b3386431a99dfe77a78071ac47f0e68619e7688eec718f2c1f925d",
+  "policy_id": "LCM03_DOCUMENTATION_POLICY_V1",
+  "schema_version": "1.0.0"
+}

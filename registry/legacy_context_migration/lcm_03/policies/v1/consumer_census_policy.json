@@ -1,0 +1,8 @@
+{
+  "phase_id": "LCM-03",
+  "policy_digest": "sha256:da714e99574bec7a363679b59c0e26052b932f02a7dba1376cef232cbcd5479d",
+  "policy_id": "LCM03_CONSUMER_CENSUS_POLICY_V1",
+  "resolved_dependency_edges_required": true,
+  "schema_version": "1.0.0",
+  "semantic_reachability_claimed": false
+}

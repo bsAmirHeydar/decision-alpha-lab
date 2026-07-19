@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "consumer_artifact_path": {},
+    "consumer_digest": {},
+    "consumer_record_id": {},
+    "edge_type": {},
+    "target_artifact_path": {}
+  },
+  "required": [
+    "consumer_record_id",
+    "target_artifact_path",
+    "consumer_artifact_path",
+    "edge_type",
+    "consumer_digest"
+  ],
+  "title": "LCM-03 Consumer Record",
+  "type": "object"
+}

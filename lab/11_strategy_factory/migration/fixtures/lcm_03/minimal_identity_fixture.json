@@ -1,0 +1,13 @@
+{
+  "activity_status": "ACTIVE_RESEARCH",
+  "artifact_path": "mql5/Experts/ExampleContext.mq5",
+  "artifact_role": "CONTEXT",
+  "artifact_sha256": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "classification_id": "ARTCLS_1234567890ABCDEF",
+  "code_owner_role": "CODE_OWNER_EXAMPLE",
+  "family_candidate": "EXAMPLE",
+  "owner_resolution_status": "ROLE_BOUND_HUMAN_ASSIGNEE_PENDING",
+  "protected_platform_asset": false,
+  "security_sensitive": false,
+  "semantic_owner_role": "DOMAIN_OWNER_EXAMPLE"
+}

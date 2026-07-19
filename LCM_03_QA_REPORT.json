@@ -1,0 +1,126 @@
+{
+  "claim_ceiling": "IDENTITY_AND_LOCATOR_REFERENCE_ONLY",
+  "clean_overlay_installation": {
+    "acl15_regression_tests_passed": 39,
+    "identity_package_verification_passed": true,
+    "installation_passed": true,
+    "lcm00_regression_tests_passed": 29,
+    "lcm01_regression_tests_passed": 25,
+    "lcm02_regression_tests_passed": 31,
+    "lcm03_tests_passed": 37,
+    "patch_index_missing_path_count": 0,
+    "python_compileall_passed": true
+  },
+  "environment_limitations": [
+    "SOURCE_ARCHIVE_DID_NOT_INCLUDE_GIT_METADATA",
+    "PROVISIONAL_IDENTITY_IS_NOT_HUMAN_SEMANTIC_APPROVAL",
+    "STATIC_CONSUMER_CENSUS_DOES_NOT_PROVE_RUNTIME_REACHABILITY",
+    "ALIAS_COLLISIONS_REQUIRE_OWNER_REVIEW_OR_LCM04_CHARACTERIZATION",
+    "METAEDITOR_AND_MT5_RUNTIME_NOT_AVAILABLE_IN_REFERENCE_ENVIRONMENT"
+  ],
+  "implementation": {
+    "atomic_concept_document_count": 42,
+    "machine_policy_count": 20,
+    "mql5_static_contract_file_count": 12,
+    "phase_delivery_document_count": 54,
+    "python_module_count": 24,
+    "schema_count": 20
+  },
+  "patch_preflight": {
+    "csv_parse_count": 5,
+    "json_parse_count": 66,
+    "jsonl_record_parse_count": 52606,
+    "obsidian_frontmatter_document_count": 97,
+    "passed": true,
+    "path_traversal_count": 0,
+    "payload_inventory_row_count": 226,
+    "pycache_or_pyc_count": 0,
+    "root_relative_path_count": 231,
+    "schema_metaschema_count": 20
+  },
+  "phase_id": "LCM-03",
+  "reference_identity": {
+    "active_candidate_count": 4832,
+    "alias_collision_count": 5559,
+    "alias_record_count": 28471,
+    "ambiguous_alias_record_count": 7303,
+    "canonical_path_materialized_count": 0,
+    "casefold_path_collision_count": 0,
+    "consumer_record_count": 10952,
+    "identity_ambiguity_count": 2040,
+    "identity_candidate_count": 2792,
+    "identity_kind_counts": {
+      "ADAPTER": 156,
+      "CONTEXT": 321,
+      "ENGINE": 1836,
+      "SETUP": 60,
+      "SUPPORT_ARTIFACT": 202,
+      "TREATMENT": 164,
+      "VISUALIZER": 53
+    },
+    "identity_run_id": "IDENTITY_A3F7E93C3F5154CB2616F01F5235F748",
+    "identity_status_counts": {
+      "PROTECTED_PLATFORM_TECHNICAL_IDENTITY": 1726,
+      "PROVISIONAL_UNMERGED_IDENTITY_CANDIDATE": 949,
+      "SECURITY_REVIEW_BLOCKED": 117
+    },
+    "identity_summary_digest": "sha256:f07e71ed7eaf8ae4321ff83c1d37b3e722132ed5457fdede977b1c5a53e0a34c",
+    "lcm04_handoff_digest": "sha256:016f2d0a3df58ef20942b577d6c8032062a918063a96f43c614ba7a01a32bfd8",
+    "locator_record_count": 2792,
+    "object_prefix_collision_count": 10,
+    "output_manifest_digest": "sha256:010d472c49a5751d2755362124f0d6e677d786e0f15f9049ff0ddca3b651e2e4",
+    "package_artifact_count": 39,
+    "resolvable_alias_count": 21168
+  },
+  "result": "PASSED",
+  "schema_version": "1.0.0",
+  "security_boundary": {
+    "capital_authority_created": false,
+    "cutover_authority_created": false,
+    "human_semantic_approval_claimed": false,
+    "live_order_authority_created": false,
+    "merge_authority_created": false,
+    "runtime_authority_created": false,
+    "semantic_refactor_authority_created": false,
+    "source_delete_authority_created": false,
+    "source_move_authority_created": false
+  },
+  "source_changes": {
+    "added_or_modified": 231,
+    "context_migrations": 0,
+    "cutovers": 0,
+    "deleted": 0,
+    "legacy_source_modified": 0,
+    "merges": 0,
+    "moved": 0,
+    "semantic_refactors": 0,
+    "setup_migrations": 0
+  },
+  "tests": {
+    "acl15_regression": {
+      "failed": 0,
+      "passed": 39
+    },
+    "lcm00_regression": {
+      "failed": 0,
+      "passed": 29
+    },
+    "lcm01_regression": {
+      "failed": 0,
+      "passed": 25
+    },
+    "lcm02_regression": {
+      "failed": 0,
+      "passed": 31
+    },
+    "lcm03": {
+      "failed": 0,
+      "passed": 37
+    }
+  },
+  "upstream_binding": {
+    "active_candidate_count": 4832,
+    "classification_id": "CLASSIFICATION_B23DFF50BC28E90A66ADA125A850234B",
+    "lcm02_handoff_digest": "sha256:e85ebcc1816c1964c17d424848c349e57223637af9c7aa366cde3d3d64beb9c8"
+  }
+}
