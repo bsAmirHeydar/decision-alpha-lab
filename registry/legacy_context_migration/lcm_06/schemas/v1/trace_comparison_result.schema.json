@@ -1,0 +1,27 @@
+{
+  "$id": "https://alpha-lab.local/lcm06/trace_comparison_result.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "canonical_trace_id": {},
+    "comparison_digest": {},
+    "comparison_status": {},
+    "hard_mismatch_count": {},
+    "hard_mismatch_waived": {},
+    "legacy_trace_id": {},
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "legacy_trace_id",
+    "canonical_trace_id",
+    "comparison_status",
+    "hard_mismatch_count",
+    "hard_mismatch_waived",
+    "comparison_digest"
+  ],
+  "title": "LCM-06 trace_comparison_result",
+  "type": "object"
+}

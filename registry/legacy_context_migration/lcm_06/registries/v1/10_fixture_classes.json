@@ -1,0 +1,13 @@
+{
+  "closed": true,
+  "registry_digest": "REFERENCE_STATIC_REGISTRY",
+  "registry_id": "LCM06_10_FIXTURE_CLASSES_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "values": [
+    "SIMPLE",
+    "AMBIGUOUS",
+    "MISSING_OWNER",
+    "FUTURE_AWARE",
+    "SECURITY_SENSITIVE"
+  ]
+}

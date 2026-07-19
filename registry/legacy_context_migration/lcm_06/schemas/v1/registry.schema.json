@@ -1,0 +1,23 @@
+{
+  "$id": "https://alpha-lab.local/lcm06/registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "closed": {},
+    "registry_digest": {},
+    "registry_id": {},
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "values": {}
+  },
+  "required": [
+    "schema_version",
+    "registry_id",
+    "values",
+    "closed",
+    "registry_digest"
+  ],
+  "title": "LCM-06 registry",
+  "type": "object"
+}

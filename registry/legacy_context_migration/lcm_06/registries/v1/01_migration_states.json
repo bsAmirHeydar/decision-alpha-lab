@@ -1,0 +1,21 @@
+{
+  "closed": true,
+  "registry_digest": "REFERENCE_STATIC_REGISTRY",
+  "registry_id": "LCM06_01_MIGRATION_STATES_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "values": [
+    "DISCOVERED",
+    "INVENTORIED",
+    "OWNED",
+    "CHARACTERIZED",
+    "CANONICAL_SPECIFIED",
+    "ADAPTED",
+    "PARITY_VERIFIED",
+    "DUAL_RUN",
+    "CUTOVER_APPROVED",
+    "CUTOVER",
+    "QUARANTINED",
+    "DELETE_ELIGIBLE",
+    "RETIRED"
+  ]
+}

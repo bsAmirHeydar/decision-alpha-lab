@@ -1,0 +1,27 @@
+{
+  "$id": "https://alpha-lab.local/lcm06/redirect_preview.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "legacy_path": {},
+    "preview_only": {},
+    "redirect_digest": {},
+    "redirect_id": {},
+    "redirect_type": {},
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "target_path": {}
+  },
+  "required": [
+    "schema_version",
+    "redirect_id",
+    "redirect_type",
+    "legacy_path",
+    "target_path",
+    "preview_only",
+    "redirect_digest"
+  ],
+  "title": "LCM-06 redirect_preview",
+  "type": "object"
+}

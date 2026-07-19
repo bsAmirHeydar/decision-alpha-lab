@@ -1,0 +1,27 @@
+{
+  "$id": "https://alpha-lab.local/lcm06/framework_summary.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "claim_ceiling": {},
+    "contract_count": {},
+    "framework_run_id": {},
+    "packet_fixture_count": {},
+    "registry_count": {},
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "summary_digest": {}
+  },
+  "required": [
+    "schema_version",
+    "framework_run_id",
+    "claim_ceiling",
+    "packet_fixture_count",
+    "registry_count",
+    "contract_count",
+    "summary_digest"
+  ],
+  "title": "LCM-06 framework_summary",
+  "type": "object"
+}

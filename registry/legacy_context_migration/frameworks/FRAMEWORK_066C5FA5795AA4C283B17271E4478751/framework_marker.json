@@ -1,0 +1,15 @@
+{
+  "adapter_contract_count": 4,
+  "claim_ceiling": "MIGRATION_FRAMEWORK_REFERENCE_ONLY",
+  "framework_run_id": "FRAMEWORK_066C5FA5795AA4C283B17271E4478751",
+  "marker_digest": "sha256:4f6f057b4c343a0b802174146dd4b9faa45aa1a00b4353c06609d158a724cfd8",
+  "packet_fixture_count": 5,
+  "phase_id": "LCM-06",
+  "reference_fixture_only": true,
+  "schema_version": "1.0.0",
+  "source_delete_performed": false,
+  "source_handoff_digest": "sha256:a461143855986a96b6402a6bca361ef0c85f1c4f2a806bed821b464c9166a39e",
+  "source_move_performed": false,
+  "target_paths_materialized": false,
+  "topology_run_id": "TOPOLOGY_F28766C555330F0B89CC662DA8129220"
+}

@@ -1,0 +1,14 @@
+{
+  "claim_ceiling": "MIGRATION_FRAMEWORK_REFERENCE_ONLY",
+  "closed": true,
+  "phase_id": "LCM-06",
+  "policy_digest": "sha256:40ee3dbde5c3e94c5bdc09801fc429afc96dd985e2bde367789a7cfbfcb7e8af",
+  "policy_id": "LCM06_04_ALIAS_RESOLUTION_POLICY_V1",
+  "rules": {
+    "ambiguous_alias_blocks": true,
+    "casefold_lookup": true,
+    "guessing_allowed": false,
+    "not_found_blocks": true
+  },
+  "schema_version": "1.0.0"
+}

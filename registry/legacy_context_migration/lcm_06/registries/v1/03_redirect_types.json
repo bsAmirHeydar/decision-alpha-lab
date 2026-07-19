@@ -1,0 +1,11 @@
+{
+  "closed": true,
+  "registry_digest": "REFERENCE_STATIC_REGISTRY",
+  "registry_id": "LCM06_03_REDIRECT_TYPES_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "values": [
+    "MQL_INCLUDE_WRAPPER",
+    "OBSIDIAN_REDIRECT_STUB",
+    "PYTHON_IMPORT_SHIM"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "claim_ceiling": "MIGRATION_FRAMEWORK_REFERENCE_ONLY",
+  "closed": true,
+  "phase_id": "LCM-06",
+  "policy_digest": "sha256:105deba4c69c59e22405594ee327b9f88ece2b378d4714acb1e855515a48e812",
+  "policy_id": "LCM06_09_REDIRECT_POLICY_V1",
+  "rules": {
+    "legacy_source_write_allowed": false,
+    "preview_only": true,
+    "redirect_may_change_domain_semantics": false
+  },
+  "schema_version": "1.0.0"
+}

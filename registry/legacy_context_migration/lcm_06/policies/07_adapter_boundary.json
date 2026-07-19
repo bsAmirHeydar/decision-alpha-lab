@@ -1,0 +1,13 @@
+{
+  "claim_ceiling": "MIGRATION_FRAMEWORK_REFERENCE_ONLY",
+  "closed": true,
+  "phase_id": "LCM-06",
+  "policy_digest": "sha256:d4d0a6f3ded2a52dc4c37dd60ab972169dd5449439ba5522d733aafa7e213f79",
+  "policy_id": "LCM06_07_ADAPTER_BOUNDARY_POLICY_V1",
+  "rules": {
+    "execution_authority_allowed": false,
+    "semantic_expansion_allowed": false,
+    "source_mutation_allowed": false
+  },
+  "schema_version": "1.0.0"
+}

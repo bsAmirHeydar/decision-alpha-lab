@@ -1,0 +1,38 @@
+{
+  "adapter_contract_count": 4,
+  "alias_resolution_count": 3,
+  "capital_authority_created": false,
+  "claim_ceiling": "MIGRATION_FRAMEWORK_REFERENCE_ONLY",
+  "contract_count": 7,
+  "cutover_performed": false,
+  "deletion_validation_count": 2,
+  "framework_run_id": "FRAMEWORK_066C5FA5795AA4C283B17271E4478751",
+  "live_order_authority_created": false,
+  "merge_performed": false,
+  "move_plan_preview_count": 1,
+  "packet_fixture_count": 5,
+  "packet_status_counts": {
+    "BLOCKED_AMBIGUITY": 1,
+    "BLOCKED_SECURITY_REVIEW": 1,
+    "BLOCKED_UNKNOWN": 2,
+    "VALID_REFERENCE": 1
+  },
+  "phase_id": "LCM-06",
+  "quarantine_validation_count": 2,
+  "redirect_preview_count": 3,
+  "registry_count": 9,
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "semantic_refactor_performed": false,
+  "source_delete_performed": false,
+  "source_move_performed": false,
+  "summary_digest": "sha256:f2a8bbfe049d7e9efcf7a9f8b484e84ad8ddb9ee7544e05576d584cfe25060e0",
+  "target_materialization_performed": false,
+  "topology_run_id": "TOPOLOGY_F28766C555330F0B89CC662DA8129220",
+  "trace_comparison_count": 3,
+  "trace_comparison_status_counts": {
+    "HARD_MISMATCH": 1,
+    "PASS": 1,
+    "SOFT_MISMATCH": 1
+  }
+}

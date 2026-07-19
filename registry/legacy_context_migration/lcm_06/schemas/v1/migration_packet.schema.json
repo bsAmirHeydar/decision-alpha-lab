@@ -1,0 +1,31 @@
+{
+  "$id": "https://alpha-lab.local/lcm06/migration_packet.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "current_state": {},
+    "identity_id": {},
+    "packet_digest": {},
+    "packet_id": {},
+    "proposed_state": {},
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "source_artifact_path": {},
+    "source_artifact_sha256": {},
+    "target_path": {}
+  },
+  "required": [
+    "schema_version",
+    "packet_id",
+    "identity_id",
+    "source_artifact_path",
+    "source_artifact_sha256",
+    "current_state",
+    "proposed_state",
+    "target_path",
+    "packet_digest"
+  ],
+  "title": "LCM-06 migration_packet",
+  "type": "object"
+}

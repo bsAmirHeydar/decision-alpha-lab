@@ -1,0 +1,13 @@
+{
+  "claim_ceiling": "MIGRATION_FRAMEWORK_REFERENCE_ONLY",
+  "closed": true,
+  "phase_id": "LCM-06",
+  "policy_digest": "sha256:a3be185b9b1bb38bebd35ba9835739a4bec0d4c12362ca87c1977bb2c4d4beff",
+  "policy_id": "LCM06_18_HANDOFF_POLICY_V1",
+  "rules": {
+    "forbidden_action_override_allowed": false,
+    "missing_approval_inference_allowed": false,
+    "unknown_to_pass_allowed": false
+  },
+  "schema_version": "1.0.0"
+}

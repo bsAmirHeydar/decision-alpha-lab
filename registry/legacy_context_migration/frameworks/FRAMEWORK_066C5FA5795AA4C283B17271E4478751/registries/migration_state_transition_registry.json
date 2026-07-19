@@ -1,0 +1,84 @@
+{
+  "closed": true,
+  "registry_digest": "sha256:5bf5a80d9aa965759c360c061b6b008daf3771ab1af75ea2a57372121fdb70cc",
+  "registry_id": "LCM06_MIGRATION_STATE_TRANSITION_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "values": [
+    {
+      "from": "DISCOVERED",
+      "to": [
+        "INVENTORIED"
+      ]
+    },
+    {
+      "from": "INVENTORIED",
+      "to": [
+        "OWNED"
+      ]
+    },
+    {
+      "from": "OWNED",
+      "to": [
+        "CHARACTERIZED"
+      ]
+    },
+    {
+      "from": "CHARACTERIZED",
+      "to": [
+        "CANONICAL_SPECIFIED"
+      ]
+    },
+    {
+      "from": "CANONICAL_SPECIFIED",
+      "to": [
+        "ADAPTED"
+      ]
+    },
+    {
+      "from": "ADAPTED",
+      "to": [
+        "PARITY_VERIFIED"
+      ]
+    },
+    {
+      "from": "PARITY_VERIFIED",
+      "to": [
+        "DUAL_RUN"
+      ]
+    },
+    {
+      "from": "DUAL_RUN",
+      "to": [
+        "CUTOVER_APPROVED"
+      ]
+    },
+    {
+      "from": "CUTOVER_APPROVED",
+      "to": [
+        "CUTOVER"
+      ]
+    },
+    {
+      "from": "CUTOVER",
+      "to": [
+        "QUARANTINED"
+      ]
+    },
+    {
+      "from": "QUARANTINED",
+      "to": [
+        "DELETE_ELIGIBLE"
+      ]
+    },
+    {
+      "from": "DELETE_ELIGIBLE",
+      "to": [
+        "RETIRED"
+      ]
+    },
+    {
+      "from": "RETIRED",
+      "to": []
+    }
+  ]
+}

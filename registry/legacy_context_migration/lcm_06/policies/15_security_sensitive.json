@@ -1,0 +1,12 @@
+{
+  "claim_ceiling": "MIGRATION_FRAMEWORK_REFERENCE_ONLY",
+  "closed": true,
+  "phase_id": "LCM-06",
+  "policy_digest": "sha256:5a61b409eec303e8038202c6ab3521476c25351ddab7ecf4e60ac87e1943d9fd",
+  "policy_id": "LCM06_15_SECURITY_SENSITIVE_POLICY_V1",
+  "rules": {
+    "reference_fixture_may_grant_approval": false,
+    "security_review_required": true
+  },
+  "schema_version": "1.0.0"
+}

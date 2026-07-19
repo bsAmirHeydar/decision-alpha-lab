@@ -1,0 +1,11 @@
+{
+  "authority_expansion_allowed": false,
+  "contract_digest": "sha256:6fcadac84369127dbcc4e2957dc2b1b51a8baa51d2cdbdf89cc2346d342199f0",
+  "contract_id": "LCM06_QUARANTINE_VALIDATION_CONTRACT_V1",
+  "purpose": "Require preserved source, manifest, hash, replacement mapping, parity, rollback and zero active consumers.",
+  "required_fields": [
+    "quarantine_record_id"
+  ],
+  "schema_version": "1.0.0",
+  "source_mutation_allowed": false
+}

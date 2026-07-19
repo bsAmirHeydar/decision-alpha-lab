@@ -1,0 +1,12 @@
+{
+  "closed": true,
+  "registry_digest": "sha256:182790d7ed75674493a745364dcbe733fc20ac23bde2276ee69cce3a6f62c23c",
+  "registry_id": "LCM06_COMPARISON_STATUS_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "values": [
+    "PASS",
+    "HARD_MISMATCH",
+    "SOFT_MISMATCH",
+    "UNKNOWN_EVIDENCE"
+  ]
+}

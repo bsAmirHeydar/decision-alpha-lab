@@ -1,0 +1,14 @@
+{
+  "claim_ceiling": "MIGRATION_FRAMEWORK_REFERENCE_ONLY",
+  "closed": true,
+  "phase_id": "LCM-06",
+  "policy_digest": "sha256:b5a83dd2c3298929f4fb9d1ef28d26a2721eae81597df627eb3ad824e39483bb",
+  "policy_id": "LCM06_12_PATH_SAFETY_POLICY_V1",
+  "rules": {
+    "path_traversal_allowed": false,
+    "root_relative_required": true,
+    "symlink_allowed": false,
+    "windows_safe_required": true
+  },
+  "schema_version": "1.0.0"
+}

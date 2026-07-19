@@ -1,0 +1,23 @@
+{
+  "$id": "https://alpha-lab.local/lcm06/contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "contract_digest": {},
+    "contract_id": {},
+    "purpose": {},
+    "required_fields": {},
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "contract_id",
+    "purpose",
+    "required_fields",
+    "contract_digest"
+  ],
+  "title": "LCM-06 contract",
+  "type": "object"
+}

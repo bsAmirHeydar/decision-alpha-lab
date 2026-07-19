@@ -1,0 +1,25 @@
+{
+  "$id": "https://alpha-lab.local/lcm06/handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "allowed_actions": {},
+    "forbidden_actions": {},
+    "framework_run_id": {},
+    "handoff_digest": {},
+    "handoff_type": {},
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "handoff_type",
+    "framework_run_id",
+    "allowed_actions",
+    "forbidden_actions",
+    "handoff_digest"
+  ],
+  "title": "LCM-06 handoff",
+  "type": "object"
+}

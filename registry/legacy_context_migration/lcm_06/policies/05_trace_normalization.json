@@ -1,0 +1,13 @@
+{
+  "claim_ceiling": "MIGRATION_FRAMEWORK_REFERENCE_ONLY",
+  "closed": true,
+  "phase_id": "LCM-06",
+  "policy_digest": "sha256:08391d4d214a2e13d02542ca9ee076bbc8fd9f2aeff5bb10b3f56ac363458b89",
+  "policy_id": "LCM06_05_TRACE_NORMALIZATION_POLICY_V1",
+  "rules": {
+    "hard_dimension_drop_allowed": false,
+    "reason_code_sorting_required": true,
+    "utc_normalization_required": true
+  },
+  "schema_version": "1.0.0"
+}

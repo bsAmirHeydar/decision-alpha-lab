@@ -1,0 +1,12 @@
+{
+  "closed": true,
+  "registry_digest": "sha256:5fa8b82420a2839b29de51be527ca11c98f9b742f0a293d2054b87e87753a617",
+  "registry_id": "LCM06_ADAPTER_TYPE_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "values": [
+    "CONTEXT",
+    "SETUP",
+    "TREATMENT",
+    "VISUALIZER"
+  ]
+}

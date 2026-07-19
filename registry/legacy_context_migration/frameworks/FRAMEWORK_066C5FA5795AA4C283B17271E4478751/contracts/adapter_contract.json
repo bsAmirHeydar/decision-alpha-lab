@@ -1,0 +1,14 @@
+{
+  "authority_expansion_allowed": false,
+  "contract_digest": "sha256:bf00106ccc648b024a091b09a4046f5485b75d176fb0fbaa4c525dd569857ddd",
+  "contract_id": "LCM06_COMPATIBILITY_ADAPTER_CONTRACT_V1",
+  "purpose": "Translate legacy observations to canonical contracts without semantic or authority expansion.",
+  "required_fields": [
+    "adapter_id",
+    "adapter_type",
+    "source_identity_id",
+    "target_identity_id"
+  ],
+  "schema_version": "1.0.0",
+  "source_mutation_allowed": false
+}

@@ -1,0 +1,39 @@
+{
+  "records": [
+    {
+      "deletion_record_id": "D_COMPLETE_REFERENCE_ONLY",
+      "gates": {
+        "CANONICAL_SUCCESSOR_OR_ARCHIVE_DECISION": true,
+        "CLEAN_CLONE_VERIFIED": true,
+        "DOCUMENTATION_UPDATED": true,
+        "DOMAIN_OWNER_APPROVED": true,
+        "INDEPENDENT_REVIEWER_APPROVED": true,
+        "LEGACY_MAPPING_COMPLETE": true,
+        "PARITY_VERIFIED": true,
+        "POST_DELETE_MANIFEST_PLANNED": true,
+        "QUARANTINE_PERIOD_COMPLETE": true,
+        "ROLLBACK_TAG_PRESENT": true,
+        "SOURCE_EVIDENCE_PRESERVED": true,
+        "ZERO_ACTIVE_REFERENCES": true
+      }
+    },
+    {
+      "deletion_record_id": "D_BLOCKED",
+      "gates": {
+        "CANONICAL_SUCCESSOR_OR_ARCHIVE_DECISION": true,
+        "CLEAN_CLONE_VERIFIED": false,
+        "DOCUMENTATION_UPDATED": false,
+        "DOMAIN_OWNER_APPROVED": false,
+        "INDEPENDENT_REVIEWER_APPROVED": false,
+        "LEGACY_MAPPING_COMPLETE": true,
+        "PARITY_VERIFIED": true,
+        "POST_DELETE_MANIFEST_PLANNED": false,
+        "QUARANTINE_PERIOD_COMPLETE": false,
+        "ROLLBACK_TAG_PRESENT": false,
+        "SOURCE_EVIDENCE_PRESERVED": false,
+        "ZERO_ACTIVE_REFERENCES": true
+      }
+    }
+  ],
+  "schema_version": "1.0.0"
+}

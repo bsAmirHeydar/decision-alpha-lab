@@ -1,0 +1,12 @@
+{
+  "closed": true,
+  "registry_digest": "REFERENCE_STATIC_REGISTRY",
+  "registry_id": "LCM06_02_ADAPTER_TYPES_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "values": [
+    "CONTEXT",
+    "SETUP",
+    "TREATMENT",
+    "VISUALIZER"
+  ]
+}

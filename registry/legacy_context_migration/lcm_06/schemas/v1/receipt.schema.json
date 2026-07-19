@@ -1,0 +1,25 @@
+{
+  "$id": "https://alpha-lab.local/lcm06/receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "claim_ceiling": {},
+    "framework_run_id": {},
+    "handoff_digest": {},
+    "phase_id": {},
+    "receipt_digest": {},
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "framework_run_id",
+    "claim_ceiling",
+    "handoff_digest",
+    "receipt_digest"
+  ],
+  "title": "LCM-06 receipt",
+  "type": "object"
+}

@@ -1,0 +1,14 @@
+{
+  "claim_ceiling": "MIGRATION_FRAMEWORK_REFERENCE_ONLY",
+  "closed": true,
+  "phase_id": "LCM-06",
+  "policy_digest": "sha256:5c8763b19a6f564a94254d79b049b4819cb9f0f0d877fa9b66206c9deb85f5ef",
+  "policy_id": "LCM06_10_QUARANTINE_POLICY_V1",
+  "rules": {
+    "parity_required": true,
+    "rollback_required": true,
+    "source_preservation_required": true,
+    "zero_active_consumers_required": true
+  },
+  "schema_version": "1.0.0"
+}

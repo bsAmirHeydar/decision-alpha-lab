@@ -1,0 +1,199 @@
+{
+  "event_count": 10,
+  "events": [
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:58b1865d67dd91bcc08d8883411a872561cdb4727a78c9c728d985f708493f37",
+      "event_id": "LCM06EV_5A5C62F0ED9D5CF8375682D5E4BC40F0",
+      "event_type": "LCM05_TOPOLOGY_ACCEPTED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-19T00:00:00Z",
+      "payload": {
+        "source_handoff_digest": "sha256:a461143855986a96b6402a6bca361ef0c85f1c4f2a806bed821b464c9166a39e"
+      },
+      "previous_event_digest": null,
+      "runtime_authority": false,
+      "schema_version": "1.0.0",
+      "semantic_refactor_authority": false,
+      "sequence": 1,
+      "source_delete_authority": false,
+      "source_move_authority": false,
+      "target_materialization_authority": false
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:0e203d1d0d464e2b1fa371a10d7ea0440825be4a6eaded57b0401e342eb4dec6",
+      "event_id": "LCM06EV_0BBF38C4AD78481F55703FADE17DAA39",
+      "event_type": "AUTHORITY_PERMIT_BOUND",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-19T00:00:00Z",
+      "payload": {
+        "permit_digest": "sha256:984f8a98968073809455c1c24ac92731a2981f5939b7ddced3a16a5d1e4e728d"
+      },
+      "previous_event_digest": "sha256:58b1865d67dd91bcc08d8883411a872561cdb4727a78c9c728d985f708493f37",
+      "runtime_authority": false,
+      "schema_version": "1.0.0",
+      "semantic_refactor_authority": false,
+      "sequence": 2,
+      "source_delete_authority": false,
+      "source_move_authority": false,
+      "target_materialization_authority": false
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:ee052044121ab246ca684af84368f6ecd68b1d42e8ee3d81dd6638f9251badd0",
+      "event_id": "LCM06EV_0A945902FAA357E134B42EAE6088561B",
+      "event_type": "CLOSED_FRAMEWORK_REGISTRIES_BOUND",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-19T00:00:00Z",
+      "payload": {
+        "registry_count": 9
+      },
+      "previous_event_digest": "sha256:0e203d1d0d464e2b1fa371a10d7ea0440825be4a6eaded57b0401e342eb4dec6",
+      "runtime_authority": false,
+      "schema_version": "1.0.0",
+      "semantic_refactor_authority": false,
+      "sequence": 3,
+      "source_delete_authority": false,
+      "source_move_authority": false,
+      "target_materialization_authority": false
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:e22f672f11022b84a08230a4668bb429254f6873a1a127c6d2e227a90dcc28cb",
+      "event_id": "LCM06EV_952722AD84C7FD401647AC4E6BAD82D2",
+      "event_type": "MIGRATION_PACKET_VALIDATOR_EXERCISED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-19T00:00:00Z",
+      "payload": {
+        "packet_count": 5
+      },
+      "previous_event_digest": "sha256:ee052044121ab246ca684af84368f6ecd68b1d42e8ee3d81dd6638f9251badd0",
+      "runtime_authority": false,
+      "schema_version": "1.0.0",
+      "semantic_refactor_authority": false,
+      "sequence": 4,
+      "source_delete_authority": false,
+      "source_move_authority": false,
+      "target_materialization_authority": false
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:41ea9bfb49fa8f702de63927309fc4ba1e08353d7a594f4fb122d50fd0e141e1",
+      "event_id": "LCM06EV_ECAD23579176B73FAA1D2F7A8D505106",
+      "event_type": "ALIAS_AND_LOCATOR_RESOLVER_EXERCISED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-19T00:00:00Z",
+      "payload": {
+        "resolution_count": 3
+      },
+      "previous_event_digest": "sha256:e22f672f11022b84a08230a4668bb429254f6873a1a127c6d2e227a90dcc28cb",
+      "runtime_authority": false,
+      "schema_version": "1.0.0",
+      "semantic_refactor_authority": false,
+      "sequence": 5,
+      "source_delete_authority": false,
+      "source_move_authority": false,
+      "target_materialization_authority": false
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:5ca293c0f0ae56e79dcd0038451694971cf02b40521a2132299c72f6eb7432bf",
+      "event_id": "LCM06EV_50C207A8F14F84403E4F03E6E490DF78",
+      "event_type": "TRACE_COMPARATOR_EXERCISED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-19T00:00:00Z",
+      "payload": {
+        "comparison_count": 3
+      },
+      "previous_event_digest": "sha256:41ea9bfb49fa8f702de63927309fc4ba1e08353d7a594f4fb122d50fd0e141e1",
+      "runtime_authority": false,
+      "schema_version": "1.0.0",
+      "semantic_refactor_authority": false,
+      "sequence": 6,
+      "source_delete_authority": false,
+      "source_move_authority": false,
+      "target_materialization_authority": false
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:1b0e45a23a835b406440ae58556179ad3be7b3d0fabd3cdcf8ff28e4fdaa6bb8",
+      "event_id": "LCM06EV_373F6935BA2B2BF62F369C243FFA5C12",
+      "event_type": "COMPATIBILITY_ADAPTER_BOUNDARIES_VERIFIED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-19T00:00:00Z",
+      "payload": {
+        "adapter_count": 4
+      },
+      "previous_event_digest": "sha256:5ca293c0f0ae56e79dcd0038451694971cf02b40521a2132299c72f6eb7432bf",
+      "runtime_authority": false,
+      "schema_version": "1.0.0",
+      "semantic_refactor_authority": false,
+      "sequence": 7,
+      "source_delete_authority": false,
+      "source_move_authority": false,
+      "target_materialization_authority": false
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:8a0a90551136e3400c385074733a93ba4d57ef80ac877263065edd3eb71514c4",
+      "event_id": "LCM06EV_6F523BD85F71DB2EBCA360EBEF74B777",
+      "event_type": "MOVE_REDIRECT_QUARANTINE_DELETE_TOOLING_VERIFIED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-19T00:00:00Z",
+      "payload": {
+        "move_preview_count": 1
+      },
+      "previous_event_digest": "sha256:1b0e45a23a835b406440ae58556179ad3be7b3d0fabd3cdcf8ff28e4fdaa6bb8",
+      "runtime_authority": false,
+      "schema_version": "1.0.0",
+      "semantic_refactor_authority": false,
+      "sequence": 8,
+      "source_delete_authority": false,
+      "source_move_authority": false,
+      "target_materialization_authority": false
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:7505b2ae80582aad3ee7e29be67eff41d359e4401350fcfba7d9e81cd341bd9c",
+      "event_id": "LCM06EV_DEFB392567A731A5D722353215D1192E",
+      "event_type": "REFERENCE_FRAMEWORK_DECISION_ISSUED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-19T00:00:00Z",
+      "payload": {
+        "acceptance_state": "REFERENCE_FRAMEWORK_ACCEPTED_NO_MIGRATION_EXECUTED"
+      },
+      "previous_event_digest": "sha256:8a0a90551136e3400c385074733a93ba4d57ef80ac877263065edd3eb71514c4",
+      "runtime_authority": false,
+      "schema_version": "1.0.0",
+      "semantic_refactor_authority": false,
+      "sequence": 9,
+      "source_delete_authority": false,
+      "source_move_authority": false,
+      "target_materialization_authority": false
+    },
+    {
+      "capital_authority": false,
+      "event_digest": "sha256:c7a9ea748844e8e72c4a5a806947e9e08dc5e4e24fbc6a6cc7bd8779821365e8",
+      "event_id": "LCM06EV_BB4A5B5097258D3057000C928654AA3E",
+      "event_type": "LCM07_HANDOFF_PREPARED",
+      "live_order_authority": false,
+      "occurred_at": "2026-07-19T00:00:00Z",
+      "payload": {
+        "shared_engine_extraction_authority": false
+      },
+      "previous_event_digest": "sha256:7505b2ae80582aad3ee7e29be67eff41d359e4401350fcfba7d9e81cd341bd9c",
+      "runtime_authority": false,
+      "schema_version": "1.0.0",
+      "semantic_refactor_authority": false,
+      "sequence": 10,
+      "source_delete_authority": false,
+      "source_move_authority": false,
+      "target_materialization_authority": false
+    }
+  ],
+  "final_event_digest": "sha256:c7a9ea748844e8e72c4a5a806947e9e08dc5e4e24fbc6a6cc7bd8779821365e8",
+  "framework_run_id": "FRAMEWORK_066C5FA5795AA4C283B17271E4478751",
+  "ledger_digest": "sha256:e1613a81d8179183dcdc211cf9d5ac541af0980dba0b6eacd67940546bfca389",
+  "schema_version": "1.0.0"
+}

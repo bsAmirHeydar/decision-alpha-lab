@@ -1,0 +1,14 @@
+{
+  "execute_allowed": false,
+  "move_plan_digest": "sha256:eaaf59817ca28416811d309a83de1e9cd4f5c72a52a0802db5bf959f553afa4c",
+  "move_plan_id": "MOVEPLAN_9885C4DF364B23076844D254C5C6031F",
+  "operation": "GIT_MV_PREVIEW",
+  "reason_code": "MOVE_PLAN_REFERENCE_ONLY",
+  "schema_version": "1.0.0",
+  "semantic_edit_allowed": false,
+  "source_delete_allowed": false,
+  "source_path": "lab/legacy/reference.mqh",
+  "source_sha256": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+  "target_materialization_allowed": false,
+  "target_path": "lab/11_strategy_factory/shared_engines/ENG_REFERENCE_V1/reference.mqh"
+}

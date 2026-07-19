@@ -1,0 +1,12 @@
+{
+  "closed": true,
+  "registry_digest": "sha256:840b5d61d18ac0a5ff3e8d9a44d24c0e461e5a7f5984d72e95b3e5892a0baa68",
+  "registry_id": "LCM06_SOFT_PARITY_DIMENSION_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "values": [
+    "visual_color",
+    "visual_width",
+    "latency_us",
+    "memory_bytes"
+  ]
+}

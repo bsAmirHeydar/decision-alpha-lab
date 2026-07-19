@@ -1,0 +1,11 @@
+{
+  "closed": true,
+  "registry_digest": "REFERENCE_STATIC_REGISTRY",
+  "registry_id": "LCM06_07_OPERATION_MODES_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "values": [
+    "VALIDATE_ONLY",
+    "PREVIEW_ONLY",
+    "REFERENCE_FIXTURE_ONLY"
+  ]
+}

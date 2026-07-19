@@ -1,0 +1,25 @@
+{
+  "$id": "https://alpha-lab.local/lcm06/move_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "execute_allowed": {},
+    "move_plan_digest": {},
+    "move_plan_id": {},
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "source_path": {},
+    "target_path": {}
+  },
+  "required": [
+    "schema_version",
+    "move_plan_id",
+    "source_path",
+    "target_path",
+    "execute_allowed",
+    "move_plan_digest"
+  ],
+  "title": "LCM-06 move_plan",
+  "type": "object"
+}

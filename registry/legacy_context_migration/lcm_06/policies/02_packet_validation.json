@@ -1,0 +1,14 @@
+{
+  "claim_ceiling": "MIGRATION_FRAMEWORK_REFERENCE_ONLY",
+  "closed": true,
+  "phase_id": "LCM-06",
+  "policy_digest": "sha256:95104c1f8bb19658ceb682ea0340bd46d27bad7fefcda52b973ad0a115ac213a",
+  "policy_id": "LCM06_02_PACKET_VALIDATION_POLICY_V1",
+  "rules": {
+    "invalid_transition_blocks": true,
+    "missing_owner_blocks": true,
+    "source_hash_mismatch_blocks": true,
+    "unknown_identity_blocks": true
+  },
+  "schema_version": "1.0.0"
+}

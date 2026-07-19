@@ -1,0 +1,13 @@
+{
+  "authority_expansion_allowed": false,
+  "contract_digest": "sha256:86579bc0dc280ab9b00bbaffabad370d4cc88609f1d3469d175bec56f53aae69",
+  "contract_id": "LCM06_REDIRECT_PREVIEW_CONTRACT_V1",
+  "purpose": "Create MQL, Obsidian and Python compatibility redirect previews without writing source files.",
+  "required_fields": [
+    "redirect_type",
+    "legacy_path",
+    "target_path"
+  ],
+  "schema_version": "1.0.0",
+  "source_mutation_allowed": false
+}

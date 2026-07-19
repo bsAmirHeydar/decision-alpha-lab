@@ -1,0 +1,21 @@
+{
+  "$id": "https://alpha-lab.local/lcm06/lcm05_binding.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "binding_digest": {},
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "source_handoff_digest": {},
+    "topology_run_id": {}
+  },
+  "required": [
+    "schema_version",
+    "topology_run_id",
+    "source_handoff_digest",
+    "binding_digest"
+  ],
+  "title": "LCM-06 lcm05_binding",
+  "type": "object"
+}

@@ -1,0 +1,13 @@
+{
+  "closed": true,
+  "registry_digest": "REFERENCE_STATIC_REGISTRY",
+  "registry_id": "LCM06_04_PACKET_STATUSES_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "values": [
+    "VALID_REFERENCE",
+    "INVALID",
+    "BLOCKED_UNKNOWN",
+    "BLOCKED_AMBIGUITY",
+    "BLOCKED_SECURITY_REVIEW"
+  ]
+}

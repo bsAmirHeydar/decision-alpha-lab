@@ -1,0 +1,13 @@
+{
+  "claim_ceiling": "MIGRATION_FRAMEWORK_REFERENCE_ONLY",
+  "closed": true,
+  "phase_id": "LCM-06",
+  "policy_digest": "sha256:c0d1c663a392842f8d51320face1b2ff2c7014a5a139f833ec785fb264836955",
+  "policy_id": "LCM06_03_STATE_TRANSITION_POLICY_V1",
+  "rules": {
+    "closed_registry_required": true,
+    "skip_transition_allowed": false,
+    "unknown_state_allowed": false
+  },
+  "schema_version": "1.0.0"
+}

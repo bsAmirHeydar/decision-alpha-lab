@@ -1,0 +1,29 @@
+{
+  "events": [
+    {
+      "available_at": "2026-07-19T12:00:01Z",
+      "bar_index": 100,
+      "decision": "OBSERVE",
+      "direction": "LONG",
+      "drawing_anchor_price": 100.25,
+      "drawing_anchor_time": "2026-07-19T12:00:00Z",
+      "event_time": "2026-07-19T12:00:00Z",
+      "event_type": "BAR_CLOSED",
+      "expiry": "2026-07-19T12:15:00Z",
+      "invalidation": "LOW_BREAK",
+      "latency_us": 5000,
+      "memory_bytes": 1024,
+      "no_trade": false,
+      "reason_codes": [
+        "REFERENCE_FIXTURE"
+      ],
+      "state_after": "ELIGIBLE",
+      "state_before": "IDLE",
+      "treatment_request": null,
+      "visual_color": "cyan",
+      "visual_width": 1
+    }
+  ],
+  "schema_version": "1.0.0",
+  "trace_id": "TRACE_CANONICAL_SOFT"
+}

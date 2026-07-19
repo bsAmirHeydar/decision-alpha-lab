@@ -1,0 +1,12 @@
+{
+  "closed": true,
+  "registry_digest": "REFERENCE_STATIC_REGISTRY",
+  "registry_id": "LCM06_05_COMPARISON_STATUSES_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "values": [
+    "PASS",
+    "HARD_MISMATCH",
+    "SOFT_MISMATCH",
+    "UNKNOWN_EVIDENCE"
+  ]
+}

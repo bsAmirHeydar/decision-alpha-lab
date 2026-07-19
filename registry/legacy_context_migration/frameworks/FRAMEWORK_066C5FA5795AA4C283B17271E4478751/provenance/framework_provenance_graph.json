@@ -1,0 +1,29 @@
+{
+  "capital_authority_created": false,
+  "edges": [
+    {
+      "from": "LCM05_HANDOFF",
+      "to": "LCM06_FRAMEWORK"
+    }
+  ],
+  "framework_run_id": "FRAMEWORK_066C5FA5795AA4C283B17271E4478751",
+  "live_order_authority_created": false,
+  "nodes": [
+    {
+      "digest": "sha256:a461143855986a96b6402a6bca361ef0c85f1c4f2a806bed821b464c9166a39e",
+      "node_id": "LCM05_HANDOFF"
+    },
+    {
+      "digest": "sha256:f2a8bbfe049d7e9efcf7a9f8b484e84ad8ddb9ee7544e05576d584cfe25060e0",
+      "node_id": "LCM06_FRAMEWORK"
+    }
+  ],
+  "provenance_digest": "sha256:a727d522f1582e2f3c237baf60f03edbba27c13868900c54265b4d5a5fd1f29d",
+  "reaches_lcm05_topology": true,
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "source_deleted": false,
+  "source_moved": false,
+  "source_semantics_mutated": false,
+  "target_paths_materialized": false
+}

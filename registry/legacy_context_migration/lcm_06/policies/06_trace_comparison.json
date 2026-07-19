@@ -1,0 +1,13 @@
+{
+  "claim_ceiling": "MIGRATION_FRAMEWORK_REFERENCE_ONLY",
+  "closed": true,
+  "phase_id": "LCM-06",
+  "policy_digest": "sha256:271055f530381815470709f3d676e83747ec0d0e7e121b98db9f82369e79bb6f",
+  "policy_id": "LCM06_06_TRACE_COMPARISON_POLICY_V1",
+  "rules": {
+    "hard_mismatch_waiver_allowed": false,
+    "soft_mismatch_may_be_reported": true,
+    "unknown_as_pass_allowed": false
+  },
+  "schema_version": "1.0.0"
+}

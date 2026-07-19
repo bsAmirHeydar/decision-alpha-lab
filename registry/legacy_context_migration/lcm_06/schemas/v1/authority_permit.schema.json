@@ -1,0 +1,25 @@
+{
+  "$id": "https://alpha-lab.local/lcm06/authority_permit.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "action": {},
+    "permit_digest": {},
+    "permit_id": {},
+    "phase_id": {},
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "source_handoff_digest": {}
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "action",
+    "permit_id",
+    "source_handoff_digest",
+    "permit_digest"
+  ],
+  "title": "LCM-06 authority_permit",
+  "type": "object"
+}

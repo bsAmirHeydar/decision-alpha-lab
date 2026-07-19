@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "trace_id": "TRACE_<CONTENT_DIGEST>",
+  "events": [
+    {
+      "event_type": "BAR_CLOSED",
+      "event_time": "<UTC_TIMESTAMP>",
+      "available_at": "<UTC_TIMESTAMP>",
+      "bar_index": 0,
+      "state_before": "<STATE>",
+      "state_after": "<STATE>",
+      "decision": "<DECISION>",
+      "direction": "<DIRECTION>",
+      "invalidation": null,
+      "expiry": null,
+      "reason_codes": [],
+      "no_trade": false,
+      "treatment_request": null,
+      "drawing_anchor_time": null,
+      "drawing_anchor_price": null,
+      "visual_color": null,
+      "visual_width": null,
+      "latency_us": null,
+      "memory_bytes": null
+    }
+  ]
+}

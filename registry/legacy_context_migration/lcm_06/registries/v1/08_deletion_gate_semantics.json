@@ -1,0 +1,10 @@
+{
+  "closed": true,
+  "registry_digest": "REFERENCE_STATIC_REGISTRY",
+  "registry_id": "LCM06_08_DELETION_GATE_SEMANTICS_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "values": [
+    "NON_COMPENSATORY",
+    "HUMAN_EXECUTION_REQUIRED"
+  ]
+}

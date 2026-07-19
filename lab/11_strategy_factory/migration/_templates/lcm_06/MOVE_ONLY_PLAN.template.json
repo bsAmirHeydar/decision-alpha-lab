@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "move_plan_id": "MOVEPLAN_<CONTENT_DIGEST>",
+  "source_path": "root/relative/source",
+  "target_path": "root/relative/target",
+  "source_sha256": "sha256:<64-hex>",
+  "operation": "GIT_MV_PREVIEW",
+  "semantic_edit_allowed": false,
+  "execute_allowed": false,
+  "source_delete_allowed": false,
+  "target_materialization_allowed": false,
+  "move_plan_digest": null
+}

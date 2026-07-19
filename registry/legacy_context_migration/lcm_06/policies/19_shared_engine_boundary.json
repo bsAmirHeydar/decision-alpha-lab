@@ -1,0 +1,12 @@
+{
+  "claim_ceiling": "MIGRATION_FRAMEWORK_REFERENCE_ONLY",
+  "closed": true,
+  "phase_id": "LCM-06",
+  "policy_digest": "sha256:9e8be01c92c49fb7e02f7384937179326f661187851ef204b508e68303e054d5",
+  "policy_id": "LCM06_19_SHARED_ENGINE_BOUNDARY_POLICY_V1",
+  "rules": {
+    "equivalence_required_before_extraction": true,
+    "shared_engine_extraction_authorized": false
+  },
+  "schema_version": "1.0.0"
+}

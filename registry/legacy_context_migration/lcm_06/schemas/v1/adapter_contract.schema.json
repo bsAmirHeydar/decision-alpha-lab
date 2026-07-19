@@ -1,0 +1,25 @@
+{
+  "$id": "https://alpha-lab.local/lcm06/adapter_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "adapter_digest": {},
+    "adapter_id": {},
+    "adapter_type": {},
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "source_identity_id": {},
+    "target_identity_id": {}
+  },
+  "required": [
+    "schema_version",
+    "adapter_id",
+    "adapter_type",
+    "source_identity_id",
+    "target_identity_id",
+    "adapter_digest"
+  ],
+  "title": "LCM-06 adapter_contract",
+  "type": "object"
+}

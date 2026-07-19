@@ -1,0 +1,12 @@
+{
+  "claim_ceiling": "MIGRATION_FRAMEWORK_REFERENCE_ONLY",
+  "closed": true,
+  "phase_id": "LCM-06",
+  "policy_digest": "sha256:759bb1eab938dc5f5d18c84ad4c7dd64f3e43012b7035e843409f69569ab38f4",
+  "policy_id": "LCM06_13_GENERATED_BOUNDARY_POLICY_V1",
+  "rules": {
+    "generated_projection_canonical_authority": false,
+    "source_evidence_mutation_allowed": false
+  },
+  "schema_version": "1.0.0"
+}

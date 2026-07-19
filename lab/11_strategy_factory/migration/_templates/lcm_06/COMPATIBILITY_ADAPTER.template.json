@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "adapter_id": "ADP_<PLATFORM>_<NAME>_V1",
+  "adapter_type": "CONTEXT",
+  "source_identity_id": "LEGACY_<ID>",
+  "target_identity_id": "CTX_<ID>_V1",
+  "input_contract": "LEGACY_OBSERVATION",
+  "output_contract": "CANONICAL_OBSERVATION",
+  "known_time_preserved": true,
+  "reason_codes_preserved": true,
+  "state_order_preserved": true,
+  "source_mutation_allowed": false,
+  "semantic_expansion_allowed": false,
+  "execution_authority": false,
+  "runtime_authority": false,
+  "live_order_authority": false,
+  "capital_authority": false,
+  "adapter_digest": null
+}

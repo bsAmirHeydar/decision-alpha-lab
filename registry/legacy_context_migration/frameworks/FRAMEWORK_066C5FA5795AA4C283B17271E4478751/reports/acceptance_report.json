@@ -1,0 +1,15 @@
+{
+  "acceptance_digest": "sha256:c3f635a8e26f8d72b85de5cd000e800b21da7b2a0a9b63e928074cc78f0686d8",
+  "acceptance_gate_passed": true,
+  "acceptance_state": "REFERENCE_FRAMEWORK_ACCEPTED_NO_MIGRATION_EXECUTED",
+  "alias_locator_resolver_available": true,
+  "compatibility_adapter_contracts_available": true,
+  "framework_run_id": "FRAMEWORK_066C5FA5795AA4C283B17271E4478751",
+  "hard_mismatch_waiver_allowed": false,
+  "move_and_redirect_preview_tooling_available": true,
+  "packet_validator_available": true,
+  "quarantine_and_deletion_validators_available": true,
+  "schema_version": "1.0.0",
+  "target_materialization_allowed": false,
+  "trace_normalizer_and_comparator_available": true
+}

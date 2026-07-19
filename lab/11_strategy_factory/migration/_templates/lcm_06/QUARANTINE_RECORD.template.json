@@ -1,0 +1,10 @@
+{
+  "quarantine_record_id": "QUAR_<CONTENT_DIGEST>",
+  "source_preserved": false,
+  "source_manifest_present": false,
+  "source_hash_present": false,
+  "replacement_mapping_present": false,
+  "parity_report_present": false,
+  "rollback_present": false,
+  "active_consumer_count_zero": false
+}

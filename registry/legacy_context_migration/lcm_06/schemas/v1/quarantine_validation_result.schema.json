@@ -1,0 +1,23 @@
+{
+  "$id": "https://alpha-lab.local/lcm06/quarantine_validation_result.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "eligible": {},
+    "missing_requirements": {},
+    "quarantine_record_id": {},
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "validation_digest": {}
+  },
+  "required": [
+    "schema_version",
+    "quarantine_record_id",
+    "eligible",
+    "missing_requirements",
+    "validation_digest"
+  ],
+  "title": "LCM-06 quarantine_validation_result",
+  "type": "object"
+}

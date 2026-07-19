@@ -1,0 +1,23 @@
+{
+  "closed": true,
+  "registry_digest": "sha256:69bcc96ccd154b7ff8a1b6f70285ccd6a2bdb5a45881f7683b5b3e473fe955b4",
+  "registry_id": "LCM06_HARD_PARITY_DIMENSION_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "values": [
+    "event_type",
+    "event_time",
+    "available_at",
+    "bar_index",
+    "state_before",
+    "state_after",
+    "decision",
+    "direction",
+    "invalidation",
+    "expiry",
+    "reason_codes",
+    "no_trade",
+    "treatment_request",
+    "drawing_anchor_time",
+    "drawing_anchor_price"
+  ]
+}

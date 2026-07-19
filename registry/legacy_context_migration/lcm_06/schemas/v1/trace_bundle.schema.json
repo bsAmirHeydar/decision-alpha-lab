@@ -1,0 +1,19 @@
+{
+  "$id": "https://alpha-lab.local/lcm06/trace_bundle.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "events": {},
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "trace_id": {}
+  },
+  "required": [
+    "schema_version",
+    "trace_id",
+    "events"
+  ],
+  "title": "LCM-06 trace_bundle",
+  "type": "object"
+}

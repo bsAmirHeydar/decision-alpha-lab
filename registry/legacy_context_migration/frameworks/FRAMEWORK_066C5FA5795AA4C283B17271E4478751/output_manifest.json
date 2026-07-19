@@ -1,0 +1,192 @@
+{
+  "artifact_count": 37,
+  "artifacts": [
+    {
+      "path": "adapters/reference_adapter_contracts.jsonl",
+      "sha256": "sha256:9b186fd104c5f9d5534e86afc85064f18c97cd2a2161197e865122ed40af7c31",
+      "size_bytes": 2734
+    },
+    {
+      "path": "authority/authority_permit.json",
+      "sha256": "sha256:04bc972da1a4d41e45b426ea9ab1da6c78eeb586c2df0073f3768fb2b24f8198",
+      "size_bytes": 845
+    },
+    {
+      "path": "contracts/adapter_contract.json",
+      "sha256": "sha256:a9fd8ff4162292878febd4dbef61e9a3f4900425726601fe3287cbcacedb49a8",
+      "size_bytes": 491
+    },
+    {
+      "path": "contracts/deletion_contract.json",
+      "sha256": "sha256:a31cd0fc556835368754bc9baea62d7f2949c908f0d065c5a7eebbd68a37e1af",
+      "size_bytes": 431
+    },
+    {
+      "path": "contracts/migration_packet_contract.json",
+      "sha256": "sha256:5fbb23dbafebd92251acb4199d80fd4715f8ae32bd63ee12637435c31ed2ff83",
+      "size_bytes": 563
+    },
+    {
+      "path": "contracts/move_plan_contract.json",
+      "sha256": "sha256:17476494f289750642d7d63dc5b41920d1e438c832eb915df16927e304dab844",
+      "size_bytes": 431
+    },
+    {
+      "path": "contracts/quarantine_contract.json",
+      "sha256": "sha256:a473598cae7e420ce637b47009619ec09c2c41ae441759ac6c358bc8180ee6d6",
+      "size_bytes": 442
+    },
+    {
+      "path": "contracts/redirect_contract.json",
+      "sha256": "sha256:054b0c71d1446978874a30af32bcd9fec7c69a69800ec2671e7bf336db21050b",
+      "size_bytes": 455
+    },
+    {
+      "path": "contracts/trace_contract.json",
+      "sha256": "sha256:48e43c5db4947cfde4f613f2dae9068e2026a45b0704ee950935606e5824b174",
+      "size_bytes": 412
+    },
+    {
+      "path": "deletion/deletion_validation_results.jsonl",
+      "sha256": "sha256:8a2e8846f5f56fd39c9d8ec442f0042b18ada84de67fdf3e9bbbde8cd70954d1",
+      "size_bytes": 926
+    },
+    {
+      "path": "docs/LCM06_EXECUTIVE_BRIEF.md",
+      "sha256": "sha256:89e2149ace35e711f35f157fe601121bbdc6850688f853d34bfd9572a93bae66",
+      "size_bytes": 447
+    },
+    {
+      "path": "docs/LCM06_FRAMEWORK_CONTRACT.md",
+      "sha256": "sha256:131bd37ab9d8aa64d436fb925d845603da962c3d4c59bb6283559bd01c066ea6",
+      "size_bytes": 300
+    },
+    {
+      "path": "docs/LCM06_TO_LCM07_HANDOFF.md",
+      "sha256": "sha256:0e12131aae9d99e6252b044a306dd193c599b9008cd618d03a3e1ce807b224aa",
+      "size_bytes": 298
+    },
+    {
+      "path": "events/framework_event_ledger.json",
+      "sha256": "sha256:c07cf36f29a72455be268fa1de0353d33c576425f4a007d3367e82c85e6bc5c0",
+      "size_bytes": 8138
+    },
+    {
+      "path": "framework_marker.json",
+      "sha256": "sha256:b11fff20fbcc14682fe7a5fd9cef1e1b3fd02c86db73f6840c4cf78bfad77266",
+      "size_bytes": 645
+    },
+    {
+      "path": "framework_receipt.json",
+      "sha256": "sha256:7abf3fe00030fdb4c6d354f9315a25d3aaa8780c72aabf4f4a8d26532998e933",
+      "size_bytes": 1109
+    },
+    {
+      "path": "handoff/lcm06_to_lcm07_handoff.json",
+      "sha256": "sha256:4628825d76c77ff70bbd3a84f806c9c1dcf78157ba329c248a8deac09d0cc32a",
+      "size_bytes": 1929
+    },
+    {
+      "path": "input/lcm05_binding.json",
+      "sha256": "sha256:9e893d3ee9709071ecf8db185f98e3c357b7a7bfc4a2c503eeb93dbdab3a0178",
+      "size_bytes": 547
+    },
+    {
+      "path": "movement/reference_move_plan.json",
+      "sha256": "sha256:5e5f3e5ecda95bedaac022f0e8bc6905eab64ea9962cdd8bbb03799c31bf99bd",
+      "size_bytes": 638
+    },
+    {
+      "path": "parity/trace_comparison_results.jsonl",
+      "sha256": "sha256:acc1d12c8788b7bed5ff827375bddf17ff85cdca3252d42a4d350986c3d21146",
+      "size_bytes": 1715
+    },
+    {
+      "path": "provenance/framework_provenance_graph.json",
+      "sha256": "sha256:fb0c21d1d0e2298c13e7bddbec5e425657a62d492e4711ece0b7b568aafaa76d",
+      "size_bytes": 860
+    },
+    {
+      "path": "quarantine/quarantine_validation_results.jsonl",
+      "sha256": "sha256:89feab4d297bbd3894235fdd590012dbb305150ddd6395411f65e79294f98cd0",
+      "size_bytes": 780
+    },
+    {
+      "path": "redirects/reference_redirect_previews.jsonl",
+      "sha256": "sha256:5a8432a0eb9238af3ce0275e97977420f27d964d6c36fc3d98d0b79e6eb8f085",
+      "size_bytes": 1896
+    },
+    {
+      "path": "registries/adapter_type_registry.json",
+      "sha256": "sha256:394296df52c4cf1b72dd051abff9bbcc656ddfc204e1d3fe631f72a3b18b297e",
+      "size_bytes": 278
+    },
+    {
+      "path": "registries/comparison_status_registry.json",
+      "sha256": "sha256:eefb67fcd8afed11fa9bbb54c910779a0b8abf261948031ecefa254f39e7df8c",
+      "size_bytes": 298
+    },
+    {
+      "path": "registries/deletion_gate_registry.json",
+      "sha256": "sha256:08c0f3570023b92ed24a727d29dc1e6d3b281cfaae6c02250a354fb8f032e83b",
+      "size_bytes": 601
+    },
+    {
+      "path": "registries/hard_parity_dimension_registry.json",
+      "sha256": "sha256:18549d7a32bc5aea46e2d74e01655b544fbe48dc935688272e09bee7a38a00e3",
+      "size_bytes": 519
+    },
+    {
+      "path": "registries/migration_state_transition_registry.json",
+      "sha256": "sha256:d921002dd435c1288c475c1c2dd75110d684eb5cf8822077987482fd46020ce0",
+      "size_bytes": 1321
+    },
+    {
+      "path": "registries/packet_status_registry.json",
+      "sha256": "sha256:4666ffe95f30108233c02aaa77f729c47bdeb3098895acb66525b5b1a0fa9060",
+      "size_bytes": 333
+    },
+    {
+      "path": "registries/reason_code_registry.json",
+      "sha256": "sha256:f38651a45c9942a33aa970e377995a9bd173e6815c1d3bfb16cfb0bb4d90ad9c",
+      "size_bytes": 1266
+    },
+    {
+      "path": "registries/redirect_type_registry.json",
+      "sha256": "sha256:0fea2b847e4340c92dcc1e106e2100a61eb1ac0283d4385990099fd6830ac120",
+      "size_bytes": 299
+    },
+    {
+      "path": "registries/soft_parity_dimension_registry.json",
+      "sha256": "sha256:95da242d83615deda027a858807b72e091aa7635bd3f918213d28463bdc23313",
+      "size_bytes": 302
+    },
+    {
+      "path": "reports/acceptance_report.json",
+      "sha256": "sha256:4e733a30a95d904b2b0dd34637707a73ce1da3c675c7292ad7c4873ed547435e",
+      "size_bytes": 691
+    },
+    {
+      "path": "reports/framework_summary.json",
+      "sha256": "sha256:cfb37c87cddecba7b793ffe90e9beb03d566a99813fcecbb6d776767fd6b0965",
+      "size_bytes": 1224
+    },
+    {
+      "path": "reports/hostile_review.json",
+      "sha256": "sha256:8c39a3016f7547b681be4f265df59321b03e74edcfccf7ab1822bd18baea8adc",
+      "size_bytes": 748
+    },
+    {
+      "path": "resolution/alias_resolution_results.jsonl",
+      "sha256": "sha256:94be66a0d1971184e4f5f9fed7ba338d75554cb398c1c03cc985ee8a81a337b5",
+      "size_bytes": 880
+    },
+    {
+      "path": "validation/migration_packet_validation_results.jsonl",
+      "sha256": "sha256:f2d10d45621eebf31035dbbdcc5c7e958bf9fe9cd3a13739e63f1ce10cee0f9d",
+      "size_bytes": 1640
+    }
+  ],
+  "output_manifest_digest": "sha256:cb0f9afc45c77979de245c1143f53ea5eba2396f8c1aad30d976dea640f391a2",
+  "schema_version": "1.0.0"
+}

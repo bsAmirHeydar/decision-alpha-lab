@@ -1,0 +1,12 @@
+{
+  "authority_expansion_allowed": false,
+  "contract_digest": "sha256:cc362c878e749ff49a62bcd78904b5463c8fa26596ed6ecef1c332cce539da9f",
+  "contract_id": "LCM06_DELETION_VALIDATION_CONTRACT_V1",
+  "purpose": "Require all non-compensatory deletion gates while retaining human execution authority.",
+  "required_fields": [
+    "deletion_record_id",
+    "gates"
+  ],
+  "schema_version": "1.0.0",
+  "source_mutation_allowed": false
+}

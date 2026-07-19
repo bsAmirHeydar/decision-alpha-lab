@@ -1,0 +1,19 @@
+{
+  "claim_ceiling": "MIGRATION_FRAMEWORK_REFERENCE_ONLY",
+  "closed": true,
+  "phase_id": "LCM-06",
+  "policy_digest": "sha256:d983691d5759010becad0500568491296e02fc37ca88a95fd8ea6bab47d5135c",
+  "policy_id": "LCM06_01_AUTHORITY_BOUNDARY_POLICY_V1",
+  "rules": {
+    "capital_authority": false,
+    "cutover_allowed": false,
+    "live_order_authority": false,
+    "merge_allowed": false,
+    "runtime_authority": false,
+    "semantic_refactor_allowed": false,
+    "source_delete_allowed": false,
+    "source_move_allowed": false,
+    "target_materialization_allowed": false
+  },
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,12 @@
+{
+  "authority_expansion_allowed": false,
+  "contract_digest": "sha256:58cea060d937cee2fb4cdc98a51059512cfa8729f66fa52d2f22f157ae839720",
+  "contract_id": "LCM06_TRACE_CONTRACT_V1",
+  "purpose": "Normalize and compare hard and soft behavioral dimensions without waiving hard mismatches.",
+  "required_fields": [
+    "trace_id",
+    "events"
+  ],
+  "schema_version": "1.0.0",
+  "source_mutation_allowed": false
+}

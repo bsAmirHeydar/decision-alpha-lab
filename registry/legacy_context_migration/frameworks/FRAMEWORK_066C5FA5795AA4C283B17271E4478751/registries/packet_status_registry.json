@@ -1,0 +1,13 @@
+{
+  "closed": true,
+  "registry_digest": "sha256:9024702e91c64b8d0d0e1da847e4926b9ed15f6bbd5cd2b6d47d84e7629b1ab4",
+  "registry_id": "LCM06_PACKET_STATUS_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "values": [
+    "VALID_REFERENCE",
+    "INVALID",
+    "BLOCKED_UNKNOWN",
+    "BLOCKED_AMBIGUITY",
+    "BLOCKED_SECURITY_REVIEW"
+  ]
+}

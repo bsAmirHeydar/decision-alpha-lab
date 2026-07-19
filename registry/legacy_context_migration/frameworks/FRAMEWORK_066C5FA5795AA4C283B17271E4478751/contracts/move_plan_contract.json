@@ -1,0 +1,13 @@
+{
+  "authority_expansion_allowed": false,
+  "contract_digest": "sha256:f643e99d95bb967a5e8220da2520a19ac7068c254ba80aa56a729aae96ba9b9c",
+  "contract_id": "LCM06_MOVE_ONLY_PLAN_CONTRACT_V1",
+  "purpose": "Create reviewable git-move previews without materializing target paths.",
+  "required_fields": [
+    "source_path",
+    "target_path",
+    "source_sha256"
+  ],
+  "schema_version": "1.0.0",
+  "source_mutation_allowed": false
+}

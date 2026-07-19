@@ -1,0 +1,9 @@
+{
+  "acceptance_report_digest": "sha256:3944e45ab0c403a86b7040bfd84baec801cdc8f18c802230b27d013f0d303d79",
+  "binding_digest": "sha256:794baedd43b29d51c4640f89aa1dd47ba6b2544a51f77967dbebf9b2f599711b",
+  "schema_version": "1.0.0",
+  "source_handoff_digest": "sha256:a461143855986a96b6402a6bca361ef0c85f1c4f2a806bed821b464c9166a39e",
+  "target_materialization_allowed": false,
+  "topology_run_id": "TOPOLOGY_F28766C555330F0B89CC662DA8129220",
+  "topology_summary_digest": "sha256:66c76ba2a407613f076c220f09b56e380cea0a2c7f080933a07d3ab431b77dd4"
+}

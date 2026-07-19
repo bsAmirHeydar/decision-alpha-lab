@@ -1,0 +1,12 @@
+{
+  "claim_ceiling": "MIGRATION_FRAMEWORK_REFERENCE_ONLY",
+  "closed": true,
+  "phase_id": "LCM-06",
+  "policy_digest": "sha256:5b3eaa725b9e203156e0ad1e4307af62cd613900cbd3cb503a05b167be833ca5",
+  "policy_id": "LCM06_17_DETERMINISM_POLICY_V1",
+  "rules": {
+    "content_derived_ids_required": true,
+    "unstable_random_ids_allowed": false
+  },
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,13 @@
+{
+  "claim_ceiling": "MIGRATION_FRAMEWORK_REFERENCE_ONLY",
+  "closed": true,
+  "phase_id": "LCM-06",
+  "policy_digest": "sha256:8d23e62717f9cb69ff522c1f0e9b2edeb84c3bfef060e4a8bbb578b3367b9972",
+  "policy_id": "LCM06_11_DELETION_POLICY_V1",
+  "rules": {
+    "all_gates_required": true,
+    "automatic_delete_allowed": false,
+    "compensatory_scoring_allowed": false
+  },
+  "schema_version": "1.0.0"
+}

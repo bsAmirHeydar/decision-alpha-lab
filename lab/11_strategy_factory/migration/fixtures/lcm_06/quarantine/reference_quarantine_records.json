@@ -1,0 +1,25 @@
+{
+  "records": [
+    {
+      "active_consumer_count_zero": true,
+      "parity_report_present": true,
+      "quarantine_record_id": "Q_READY",
+      "replacement_mapping_present": true,
+      "rollback_present": true,
+      "source_hash_present": true,
+      "source_manifest_present": true,
+      "source_preserved": true
+    },
+    {
+      "active_consumer_count_zero": false,
+      "parity_report_present": false,
+      "quarantine_record_id": "Q_BLOCKED",
+      "replacement_mapping_present": false,
+      "rollback_present": true,
+      "source_hash_present": true,
+      "source_manifest_present": true,
+      "source_preserved": true
+    }
+  ],
+  "schema_version": "1.0.0"
+}

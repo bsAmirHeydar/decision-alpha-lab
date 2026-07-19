@@ -1,0 +1,12 @@
+{
+  "claim_ceiling": "MIGRATION_FRAMEWORK_REFERENCE_ONLY",
+  "closed": true,
+  "phase_id": "LCM-06",
+  "policy_digest": "sha256:7eaffce45ba12da743c9f00e14a89e917c9c5c9492969a8e3458e4e6f6e5bbe5",
+  "policy_id": "LCM06_16_ATOMIC_PUBLICATION_POLICY_V1",
+  "rules": {
+    "nonempty_destination_overwrite_allowed": false,
+    "partial_publication_allowed": false
+  },
+  "schema_version": "1.0.0"
+}

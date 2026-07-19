@@ -1,0 +1,32 @@
+{
+  "checks": [
+    {
+      "check_id": "NO_SECOND_ACL_OS",
+      "passed": true
+    },
+    {
+      "check_id": "NO_PERMISSIVE_DEFAULTS",
+      "passed": true
+    },
+    {
+      "check_id": "HARD_MISMATCH_NOT_WAIVABLE",
+      "passed": true
+    },
+    {
+      "check_id": "ADAPTER_NO_AUTHORITY_EXPANSION",
+      "passed": true
+    },
+    {
+      "check_id": "NO_SOURCE_OR_GENERATED_EVIDENCE_MUTATION",
+      "passed": true
+    },
+    {
+      "check_id": "NO_TARGET_MATERIALIZATION",
+      "passed": true
+    }
+  ],
+  "framework_run_id": "FRAMEWORK_066C5FA5795AA4C283B17271E4478751",
+  "hostile_review_digest": "sha256:656f09c25db09dec6314e99c8b382a3c1290e871370119241e7d395ffe5a8238",
+  "hostile_review_passed": true,
+  "schema_version": "1.0.0"
+}

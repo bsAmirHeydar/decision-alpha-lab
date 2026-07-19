@@ -1,0 +1,13 @@
+{
+  "claim_ceiling": "MIGRATION_FRAMEWORK_REFERENCE_ONLY",
+  "closed": true,
+  "phase_id": "LCM-06",
+  "policy_digest": "sha256:51fae1a301122e7511f9b33748f4f04f1b38e586d088c1394e96180f5ab26235",
+  "policy_id": "LCM06_08_MOVE_ONLY_POLICY_V1",
+  "rules": {
+    "git_mv_execution_allowed": false,
+    "preview_only": true,
+    "semantic_edit_allowed": false
+  },
+  "schema_version": "1.0.0"
+}

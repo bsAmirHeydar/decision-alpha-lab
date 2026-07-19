@@ -1,0 +1,21 @@
+{
+  "action": "LCM06_BUILD_MIGRATION_FRAMEWORK",
+  "capital_authority": false,
+  "cutover_allowed": false,
+  "expires_at": "2026-07-26T00:00:00Z",
+  "issued_at": "2026-07-19T00:00:00Z",
+  "issuer": "ALPHA_LAB_MIGRATION_CONTROL_PLANE",
+  "live_order_authority": false,
+  "merge_allowed": false,
+  "permit_digest": "sha256:984f8a98968073809455c1c24ac92731a2981f5939b7ddced3a16a5d1e4e728d",
+  "permit_id": "PERMIT_7238618423FAED90E8B52932EEE9A7AA",
+  "phase_id": "LCM-06",
+  "runtime_authority": false,
+  "schema_version": "1.0.0",
+  "semantic_refactor_allowed": false,
+  "source_delete_allowed": false,
+  "source_handoff_digest": "sha256:a461143855986a96b6402a6bca361ef0c85f1c4f2a806bed821b464c9166a39e",
+  "source_move_allowed": false,
+  "target_materialization_allowed": false,
+  "topology_run_id": "TOPOLOGY_F28766C555330F0B89CC662DA8129220"
+}

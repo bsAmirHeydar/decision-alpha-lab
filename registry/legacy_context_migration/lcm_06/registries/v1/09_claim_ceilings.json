@@ -1,0 +1,9 @@
+{
+  "closed": true,
+  "registry_digest": "REFERENCE_STATIC_REGISTRY",
+  "registry_id": "LCM06_09_CLAIM_CEILINGS_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "values": [
+    "MIGRATION_FRAMEWORK_REFERENCE_ONLY"
+  ]
+}
