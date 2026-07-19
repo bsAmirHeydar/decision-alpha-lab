@@ -1,0 +1,25 @@
+schema_version: 1.0.0
+required_columns:
+- time
+- open
+- high
+- low
+- close
+optional_columns:
+  volume: 0
+accepted_time_aliases:
+- time
+- time_utc
+- datetime
+- date
+numeric_coercion:
+- open
+- high
+- low
+- close
+- volume
+null_policy: DROP_ROWS_WITH_NULL_TIME_OR_OHLC
+ordering: SORT_ASCENDING_BY_TIME
+duplicate_timestamp_policy: KEEP_LAST
+alignment_policy: INNER_JOIN_EXACT_TIME
+partial_data_behavior: NO_OCCURRENCE_WHERE_REFERENCE_OR_ALIGNED_BAR_UNAVAILABLE

@@ -1,0 +1,9 @@
+schema_version: 1.0.0
+classification: RESEARCH_REFERENCE
+forbidden_capabilities:
+- ORDER_PLACEMENT
+- POSITION_MUTATION
+- CHART_OBJECT_MUTATION
+- NETWORK_CREDENTIAL_USE
+- CAPITAL_ACTIVATION
+source_integrity_required: true

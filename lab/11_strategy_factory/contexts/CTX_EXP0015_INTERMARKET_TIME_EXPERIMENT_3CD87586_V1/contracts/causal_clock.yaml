@@ -1,0 +1,11 @@
+schema_version: 1.0.0
+timestamp_model: LEGACY_NAIVE_PANDAS_TIMESTAMP
+alignment: INNER_JOIN_EXACT_TIMESTAMP
+evaluation_bar: bar i as supplied by normalized batch
+reference_availability: indices strictly less than i
+destination_lag_evaluation: inclusive i through i+destination_lag_bars
+valid_from: i+destination_lag_bars clamped to final aligned bar
+valid_until: valid_from+max(1,signal_valid_bars) clamped
+closed_bar_claim: NOT_INFERRED_FROM_SOURCE
+dst_conversion: NONE
+timezone_claim: UNKNOWN_BLOCKING_FOR_PRODUCTION_NOT_BLOCKING_FOR_LEGACY_PARITY

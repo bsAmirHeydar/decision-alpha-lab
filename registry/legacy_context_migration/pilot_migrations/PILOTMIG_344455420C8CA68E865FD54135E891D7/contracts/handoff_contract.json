@@ -1,0 +1,18 @@
+{
+  "allowed_next_actions": [
+    "USE_ACCEPTED_PILOT_PATTERN_FOR_CONTEXT_WAVES",
+    "MIGRATE_ONLY_LCM08A_ASSIGNED_CONTEXTS",
+    "PRESERVE_PILOT_LEGACY_SOURCE"
+  ],
+  "contract_digest": "sha256:2b4bdf786056a028422a6a444121f7e1fd5b714cacdb48f1e331643c3a79f2d2",
+  "contract_id": "LCM08B_TO_LCM08C_HANDOFF_CONTRACT_V1",
+  "forbidden_actions": [
+    "CONSUMER_CUTOVER",
+    "SOURCE_MOVE_OR_DELETE",
+    "LEGACY_QUARANTINE",
+    "RUNTIME_AUTHORIZATION",
+    "LIVE_ORDER_AUTHORIZATION",
+    "CAPITAL_ACTIVATION"
+  ],
+  "schema_version": "1.0.0"
+}

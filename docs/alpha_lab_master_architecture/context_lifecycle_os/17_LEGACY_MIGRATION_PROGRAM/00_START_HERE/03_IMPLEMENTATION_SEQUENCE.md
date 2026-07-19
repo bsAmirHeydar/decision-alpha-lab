@@ -29,7 +29,7 @@ The authoritative lifecycle remains `LCM-00` through `LCM-16`. To prevent monoli
 | Subphase | Primary result | Destructive action allowed |
 |---|---|---|
 | LCM-08A | Context Portfolio Freeze, Risk Classification and Pilot Selection | No |
-| LCM-08B | Pilot Context Migration, Compatibility Adapter and Behavioral Parity | No |
+| LCM-08B | Pilot Context Migration, Compatibility Adapter and Behavioral Parity | Accepted reference; no cutover |
 | LCM-08C | Context Wave Migration and Context Portfolio Closure | No |
 | LCM-09A | Setup Inventory, Family Registry and Canonical Contract Freeze | No |
 | LCM-09B | Setup Migration, Setup Factory Binding and Behavioral Parity | No |

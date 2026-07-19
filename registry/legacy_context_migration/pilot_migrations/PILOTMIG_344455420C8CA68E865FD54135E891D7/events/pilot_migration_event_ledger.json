@@ -1,0 +1,71 @@
+{
+  "events": [
+    {
+      "event_digest": "sha256:6605f0d453e202e3ede8fca3080ce0e22764c21e028e94de6db2766f23562f5b",
+      "event_type": "LCM08A_HANDOFF_BOUND",
+      "issued_at": "2026-07-19T00:00:00Z",
+      "pilot_migration_id": "PILOTMIG_344455420C8CA68E865FD54135E891D7",
+      "previous_event_digest": "GENESIS",
+      "sequence": 1
+    },
+    {
+      "event_digest": "sha256:424de8b10b5c6fe8641537a067dc28444833caf9224c45e1b3f88aa135b288e8",
+      "event_type": "SOURCE_EVIDENCE_FROZEN",
+      "issued_at": "2026-07-19T00:00:00Z",
+      "pilot_migration_id": "PILOTMIG_344455420C8CA68E865FD54135E891D7",
+      "previous_event_digest": "sha256:6605f0d453e202e3ede8fca3080ce0e22764c21e028e94de6db2766f23562f5b",
+      "sequence": 2
+    },
+    {
+      "event_digest": "sha256:88e37a4f365baed7c44e64adfc4ea21ff59d4bfda4564653d66c4340273b7bdc",
+      "event_type": "CANONICAL_PACKAGE_AUTHORED",
+      "issued_at": "2026-07-19T00:00:00Z",
+      "pilot_migration_id": "PILOTMIG_344455420C8CA68E865FD54135E891D7",
+      "previous_event_digest": "sha256:424de8b10b5c6fe8641537a067dc28444833caf9224c45e1b3f88aa135b288e8",
+      "sequence": 3
+    },
+    {
+      "event_digest": "sha256:e1fffa3d64f1ead3f7185ac2b9941cf266e55228db586c134a64372960d686b7",
+      "event_type": "COMPATIBILITY_ADAPTER_AUTHORED",
+      "issued_at": "2026-07-19T00:00:00Z",
+      "pilot_migration_id": "PILOTMIG_344455420C8CA68E865FD54135E891D7",
+      "previous_event_digest": "sha256:88e37a4f365baed7c44e64adfc4ea21ff59d4bfda4564653d66c4340273b7bdc",
+      "sequence": 4
+    },
+    {
+      "event_digest": "sha256:52635bc6c8dcfb99331f666a5ea81ec87b773efafe5097acceaadbac5f0348c1",
+      "event_type": "GOLDEN_CORPUS_FROZEN",
+      "issued_at": "2026-07-19T00:00:00Z",
+      "pilot_migration_id": "PILOTMIG_344455420C8CA68E865FD54135E891D7",
+      "previous_event_digest": "sha256:e1fffa3d64f1ead3f7185ac2b9941cf266e55228db586c134a64372960d686b7",
+      "sequence": 5
+    },
+    {
+      "event_digest": "sha256:eae6460d378cd32b5c84fbba4de7d5a08a852a217bc0896ead4db38473f5e83e",
+      "event_type": "HARD_PARITY_PASSED",
+      "issued_at": "2026-07-19T00:00:00Z",
+      "pilot_migration_id": "PILOTMIG_344455420C8CA68E865FD54135E891D7",
+      "previous_event_digest": "sha256:52635bc6c8dcfb99331f666a5ea81ec87b773efafe5097acceaadbac5f0348c1",
+      "sequence": 6
+    },
+    {
+      "event_digest": "sha256:0182bd4dbe05a95a53782b795c58c0c304f03f96c84d17334650643af305c0bd",
+      "event_type": "HOSTILE_REVIEW_PASSED",
+      "issued_at": "2026-07-19T00:00:00Z",
+      "pilot_migration_id": "PILOTMIG_344455420C8CA68E865FD54135E891D7",
+      "previous_event_digest": "sha256:eae6460d378cd32b5c84fbba4de7d5a08a852a217bc0896ead4db38473f5e83e",
+      "sequence": 7
+    },
+    {
+      "event_digest": "sha256:283066401adc8388b1ec912dbfcd6db8823cbd8291ce80c4bc2c564cc006d45b",
+      "event_type": "PILOT_ACCEPTED_NO_CUTOVER",
+      "issued_at": "2026-07-19T00:00:00Z",
+      "pilot_migration_id": "PILOTMIG_344455420C8CA68E865FD54135E891D7",
+      "previous_event_digest": "sha256:0182bd4dbe05a95a53782b795c58c0c304f03f96c84d17334650643af305c0bd",
+      "sequence": 8
+    }
+  ],
+  "head_digest": "sha256:283066401adc8388b1ec912dbfcd6db8823cbd8291ce80c4bc2c564cc006d45b",
+  "pilot_migration_id": "PILOTMIG_344455420C8CA68E865FD54135E891D7",
+  "schema_version": "1.0.0"
+}

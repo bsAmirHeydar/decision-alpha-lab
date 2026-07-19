@@ -1,0 +1,8 @@
+schema_version: 1.0.0
+context_id: CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1
+eligible: false
+reason_codes:
+- CONSUMER_NOT_CUT_OVER
+- QUARANTINE_NOT_PERFORMED
+- LCM15_NOT_REACHED
+source_delete_authorized: false

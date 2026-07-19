@@ -1,0 +1,17 @@
+schema_version: 1.0.0
+state_model: STATELESS_BATCH_REFERENCE
+states:
+- INPUT_UNAVAILABLE
+- REFERENCE_UNAVAILABLE
+- ORIGIN_NOT_TRIGGERED
+- DESTINATION_CONFIRMED_WITHIN_LAG
+- DIVERGENCE_OCCURRENCE
+- LATE_DESTINATION_CONFIRMED
+- VALIDITY_EXPIRED
+persistent_state: false
+restart_semantics: FULL_REPLAY_FROM_INPUT_BYTES
+invariants:
+- reference index < evaluation index
+- event order follows scan direction then bar index then HIGH before LOW
+- no occurrence when destination confirms within lag
+- no hidden cross-run state

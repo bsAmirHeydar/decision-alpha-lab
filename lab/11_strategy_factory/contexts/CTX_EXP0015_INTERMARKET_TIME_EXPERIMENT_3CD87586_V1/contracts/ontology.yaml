@@ -1,0 +1,25 @@
+schema_version: 1.0.0
+entities:
+- BAR_SERIES
+- ALIGNED_BAR_PAIR
+- REFERENCE_LEVEL
+- TRIGGER_EVALUATION
+- CONTEXT_OCCURRENCE
+relations:
+- ORIGIN_EVALUATED_AT_TIME
+- DESTINATION_ALIGNED_AT_TIME
+- REFERENCE_PRECEDES_EVALUATION
+- OCCURRENCE_BOUNDED_BY_VALIDITY_WINDOW
+closed_enums:
+  side:
+  - HIGH
+  - LOW
+  level_family:
+  - previous_candle
+  - rolling
+  - current_session
+  - previous_session
+  trigger_mode:
+  - wick_touch
+  - close_break
+  - hunt_reject_close

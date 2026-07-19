@@ -1,0 +1,8 @@
+{
+  "acceptance_state": "PILOT_CONTEXT_CANONICAL_PACKAGE_AND_HARD_PARITY_ACCEPTED_NO_CUTOVER",
+  "handoff_digest": "sha256:c5695d5a671b09723851df4989a8a617242b5a2a7518885040cfb0b986451381",
+  "output_manifest_digest": "sha256:45fd84305a4f72cf2f8c8e1fe161856a883eddbdfa8ed49dfa971bfddcbb3d67",
+  "pilot_migration_id": "PILOTMIG_344455420C8CA68E865FD54135E891D7",
+  "receipt_digest": "sha256:b055d78cfe97969afc9cc2162a178b4b87f1d78752b52fe733be3e181e77ddf0",
+  "schema_version": "1.0.0"
+}

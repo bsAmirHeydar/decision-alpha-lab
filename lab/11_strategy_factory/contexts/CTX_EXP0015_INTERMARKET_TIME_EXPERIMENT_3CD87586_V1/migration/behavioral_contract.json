@@ -1,0 +1,24 @@
+{
+  "context_id": "CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1",
+  "contract_digest": "sha256:ab301443c7ecd5c6916e924d0e93b731a4b91db656d17dc63be31d74000472be",
+  "hard_dimensions": [
+    "input normalization",
+    "timestamp alignment",
+    "reference selection",
+    "trigger predicate",
+    "destination lag",
+    "event ordering",
+    "validity window",
+    "late confirmation",
+    "legacy outcome projection",
+    "serialization"
+  ],
+  "known_semantic_unknowns": [
+    "timezone identity",
+    "closed-bar provenance",
+    "market-calendar correctness"
+  ],
+  "mandatory_unknowns_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_correction_allowed": false
+}

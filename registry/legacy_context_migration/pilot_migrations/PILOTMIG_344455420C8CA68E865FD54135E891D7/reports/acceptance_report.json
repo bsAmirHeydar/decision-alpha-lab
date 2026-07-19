@@ -1,0 +1,19 @@
+{
+  "acceptance_digest": "sha256:b843107505a4526ebf99cfd04e54223c3c1deedff5d7f1ab794b838fcc62ede0",
+  "acceptance_gate_passed": true,
+  "acceptance_state": "PILOT_CONTEXT_CANONICAL_PACKAGE_AND_HARD_PARITY_ACCEPTED_NO_CUTOVER",
+  "canonical_package_complete": true,
+  "capital_authority_created": false,
+  "consumer_cutover_performed": false,
+  "context_id": "CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1",
+  "hard_parity_passed": true,
+  "legacy_source_preserved": true,
+  "live_order_authority_created": false,
+  "mandatory_unknown_count": 0,
+  "phase_id": "LCM-08B",
+  "pilot_migration_id": "PILOTMIG_344455420C8CA68E865FD54135E891D7",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "source_delete_performed": false,
+  "source_move_performed": false
+}

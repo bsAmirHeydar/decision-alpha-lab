@@ -78,3 +78,11 @@ Changing subphase order, merging partitions, adding a fourth planned partition, 
 ## Immediate next action
 
 Implement LCM-08A only. It freezes the Context portfolio and pilot decision; it does not migrate a Context.
+
+## LCM-08B accepted reference
+
+The selected EXP0015 Python pilot is canonicalized and parity-verified under `PILOTMIG_344455420C8CA68E865FD54135E891D7`. LCM-08 remains open until LCM-08C closes the Context wave portfolio.
+
+## LCM-08B accepted reference
+
+The selected EXP0015 Python pilot is canonicalized and parity-verified under `PILOTMIG_344455420C8CA68E865FD54135E891D7`. LCM-08 remains open until LCM-08C closes the Context wave portfolio.

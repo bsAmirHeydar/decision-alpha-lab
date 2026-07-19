@@ -1,6 +1,6 @@
 ---
 title: "LCM-08B — Pilot Context Migration, Compatibility Adapter and Behavioral Parity"
-status: proposed-reference
+status: accepted-reference
 version: 1.0.0
 updated: 2026-07-19
 tags: [acl-os, lcm, legacy-migration, refined-roadmap]
@@ -158,3 +158,11 @@ The hostile review must attempt to disprove readiness. Aggregate success cannot 
 - Allowed next action is wave package migration only.
 
 The handoff must include source digest, output digest, completed gates, failed/blocked/unknown dimensions, owner approvals, residual risks, allowed next actions and forbidden actions.
+
+## Accepted reference implementation — 2026-07-19
+
+Pilot `CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1` was migrated into `lab/11_strategy_factory/contexts/CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1`. The immutable source digest is `sha256:99e5e03a4bf30a2ab94949e2ddc6cdc1d067f0441d25dbe0dc8a138026a9bd2f`. Ten golden cases passed exact field-level parity. No consumer cutover, source move, deletion, quarantine, runtime, live-order, or capital authority occurred. Handoff: `sha256:c5695d5a671b09723851df4989a8a617242b5a2a7518885040cfb0b986451381`.
+
+## Accepted reference implementation — 2026-07-19
+
+Pilot `CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1` was migrated into `lab/11_strategy_factory/contexts/CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1`. The immutable source digest is `sha256:99e5e03a4bf30a2ab94949e2ddc6cdc1d067f0441d25dbe0dc8a138026a9bd2f`. Ten golden cases passed exact field-level parity. No consumer cutover, source move, deletion, quarantine, runtime, live-order, or capital authority occurred. Handoff: `sha256:c5695d5a671b09723851df4989a8a617242b5a2a7518885040cfb0b986451381`.

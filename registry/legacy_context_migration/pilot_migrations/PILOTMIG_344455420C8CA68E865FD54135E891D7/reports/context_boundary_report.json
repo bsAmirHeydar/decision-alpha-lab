@@ -1,0 +1,26 @@
+{
+  "adapter_only_contains": [
+    "sequential legacy event_id",
+    "pair_label projection",
+    "legacy outcome statistics",
+    "legacy note string"
+  ],
+  "boundary_passed": true,
+  "context_core_contains": [
+    "normalization",
+    "alignment",
+    "reference resolution",
+    "trigger evaluation",
+    "occurrence generation"
+  ],
+  "excluded": [
+    "drawing",
+    "orders",
+    "position management",
+    "capital",
+    "live runtime"
+  ],
+  "pilot_migration_id": "PILOTMIG_344455420C8CA68E865FD54135E891D7",
+  "report_digest": "sha256:0339c8dee43e51c4d1f74d7e9e8643a473fec58b3972877c789d0a0b9a124f2f",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,8 @@
+schema_version: 1.0.0
+semantic_change_requires:
+- approved ADR
+- new major context version
+- new characterization and parity baseline
+legacy_bug_correction_policy: Never hidden inside migration
+consumer_cutover_phase: LCM-13 or explicit later authority
+deletion_phase: LCM-15 only

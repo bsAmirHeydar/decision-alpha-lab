@@ -1,0 +1,9 @@
+schema_version: 1.0.0
+previous_candle: bar i-1 high and low
+rolling: extrema over [max(0,i-lookback), i)
+current_session: same calendar date and in_session bars strictly before i
+previous_session: most recent prior calendar date containing in_session bars
+session_wrap: start>end means overnight predicate
+start_equals_end: all minutes are in session
+equal_extrema_tie: pandas idxmax/idxmin first index
+reference_consumption: NONE_IN_LEGACY_BATCH

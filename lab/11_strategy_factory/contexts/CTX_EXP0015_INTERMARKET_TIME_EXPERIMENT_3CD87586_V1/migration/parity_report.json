@@ -1,0 +1,111 @@
+{
+  "case_count": 10,
+  "context_id": "CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1",
+  "failed_case_count": 0,
+  "hard_parity_passed": true,
+  "passed_case_count": 10,
+  "report_digest": "sha256:484806dd0eff9df38f84b397240cb3c18cea6e5e6832aac46ee151a85b2de116",
+  "results": [
+    {
+      "canonical_digest": "sha256:849d75880e62909bccac6e825899e8a34f290c0a829351150e5b827e16731b3c",
+      "canonical_event_count": 1,
+      "case_id": "POSITIVE_HIGH",
+      "case_type": "POSITIVE",
+      "legacy_digest": "sha256:849d75880e62909bccac6e825899e8a34f290c0a829351150e5b827e16731b3c",
+      "legacy_event_count": 1,
+      "mismatches": [],
+      "status": "PASS"
+    },
+    {
+      "canonical_digest": "sha256:770edc2180c6916cf05a7993d99b3a985e6e5fa5ad73e5d77a18f6456f5fbb30",
+      "canonical_event_count": 2,
+      "case_id": "POSITIVE_LOW",
+      "case_type": "POSITIVE",
+      "legacy_digest": "sha256:770edc2180c6916cf05a7993d99b3a985e6e5fa5ad73e5d77a18f6456f5fbb30",
+      "legacy_event_count": 2,
+      "mismatches": [],
+      "status": "PASS"
+    },
+    {
+      "canonical_digest": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "canonical_event_count": 0,
+      "case_id": "NEGATIVE_BOTH_HIT",
+      "case_type": "NEGATIVE",
+      "legacy_digest": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "legacy_event_count": 0,
+      "mismatches": [],
+      "status": "PASS"
+    },
+    {
+      "canonical_digest": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "canonical_event_count": 0,
+      "case_id": "NO_TRADE_ORIGIN_NOT_HIT",
+      "case_type": "NO_TRADE",
+      "legacy_digest": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "legacy_event_count": 0,
+      "mismatches": [],
+      "status": "PASS"
+    },
+    {
+      "canonical_digest": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "canonical_event_count": 0,
+      "case_id": "DUPLICATE_TICK_KEEP_LAST",
+      "case_type": "DUPLICATE_TICK",
+      "legacy_digest": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "legacy_event_count": 0,
+      "mismatches": [],
+      "status": "PASS"
+    },
+    {
+      "canonical_digest": "sha256:acb0460fe19030453c674d7ceb702ede3799a4dc5bb475b8b5a7a7471d1a8158",
+      "canonical_event_count": 1,
+      "case_id": "SESSION_BOUNDARY_CURRENT_SESSION",
+      "case_type": "SESSION_BOUNDARY",
+      "legacy_digest": "sha256:acb0460fe19030453c674d7ceb702ede3799a4dc5bb475b8b5a7a7471d1a8158",
+      "legacy_event_count": 1,
+      "mismatches": [],
+      "status": "PASS"
+    },
+    {
+      "canonical_digest": "sha256:5d02ab53925cdd0e2cd2d5d94c4eb8672ef82c02e569bb1710e3b20ec4ee072c",
+      "canonical_event_count": 1,
+      "case_id": "DST_TRANSITION_NAIVE_CLOCK",
+      "case_type": "DST_TRANSITION",
+      "legacy_digest": "sha256:5d02ab53925cdd0e2cd2d5d94c4eb8672ef82c02e569bb1710e3b20ec4ee072c",
+      "legacy_event_count": 1,
+      "mismatches": [],
+      "status": "PASS"
+    },
+    {
+      "canonical_digest": "sha256:849d75880e62909bccac6e825899e8a34f290c0a829351150e5b827e16731b3c",
+      "canonical_event_count": 1,
+      "case_id": "RESTART_REPLAY",
+      "case_type": "RESTART",
+      "legacy_digest": "sha256:849d75880e62909bccac6e825899e8a34f290c0a829351150e5b827e16731b3c",
+      "legacy_event_count": 1,
+      "mismatches": [],
+      "status": "PASS"
+    },
+    {
+      "canonical_digest": "sha256:dc5585404982d7c7c793da94c4491614d5bdb4427f74f21383cd8d4e713aaddc",
+      "canonical_event_count": 1,
+      "case_id": "ROLLING_CLOSE_BREAK",
+      "case_type": "POSITIVE",
+      "legacy_digest": "sha256:dc5585404982d7c7c793da94c4491614d5bdb4427f74f21383cd8d4e713aaddc",
+      "legacy_event_count": 1,
+      "mismatches": [],
+      "status": "PASS"
+    },
+    {
+      "canonical_digest": "sha256:5f7e9aef3a5b368d22d91a8c1f0ff871dd8b1dcaa73f61d698998ec8c897e42e",
+      "canonical_event_count": 1,
+      "case_id": "PREVIOUS_SESSION_HUNT_REJECT",
+      "case_type": "POSITIVE",
+      "legacy_digest": "sha256:5f7e9aef3a5b368d22d91a8c1f0ff871dd8b1dcaa73f61d698998ec8c897e42e",
+      "legacy_event_count": 1,
+      "mismatches": [],
+      "status": "PASS"
+    }
+  ],
+  "schema_version": "1.0.0"
+}

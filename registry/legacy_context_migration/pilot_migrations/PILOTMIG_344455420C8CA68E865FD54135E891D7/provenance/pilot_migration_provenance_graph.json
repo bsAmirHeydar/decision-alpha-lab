@@ -1,0 +1,55 @@
+{
+  "edges": [
+    {
+      "from": "LCM08A_HANDOFF",
+      "relation": "SELECTS",
+      "to": "LEGACY_SOURCE"
+    },
+    {
+      "from": "LEGACY_SOURCE",
+      "relation": "CHARACTERIZED_AND_MIGRATED_WITHOUT_SOURCE_MUTATION",
+      "to": "CANONICAL_PACKAGE"
+    },
+    {
+      "from": "CANONICAL_PACKAGE",
+      "relation": "VALIDATED_BY",
+      "to": "PARITY_REPORT"
+    },
+    {
+      "from": "PARITY_REPORT",
+      "relation": "SUPPORTS",
+      "to": "ACCEPTANCE"
+    }
+  ],
+  "nodes": [
+    {
+      "digest": "sha256:0f58cdb31334e35a7c74b68000d03c043c1de8296b9e468c676c23ac6e4e164e",
+      "id": "LCM08A_HANDOFF",
+      "type": "INPUT"
+    },
+    {
+      "digest": "sha256:99e5e03a4bf30a2ab94949e2ddc6cdc1d067f0441d25dbe0dc8a138026a9bd2f",
+      "id": "LEGACY_SOURCE",
+      "type": "SOURCE"
+    },
+    {
+      "digest": "sha256:546082c5fa35a43eae4976f245e580f682da003a82b20d654b91abe980c99da4",
+      "id": "CANONICAL_PACKAGE",
+      "type": "CONTEXT_PACKAGE"
+    },
+    {
+      "digest": "sha256:9d1abce531b406aee34f418c45762af77b5285bb5934d27f0e9db32c151a2507",
+      "id": "PARITY_REPORT",
+      "type": "EVIDENCE"
+    },
+    {
+      "digest": "sha256:b843107505a4526ebf99cfd04e54223c3c1deedff5d7f1ab794b838fcc62ede0",
+      "id": "ACCEPTANCE",
+      "type": "DECISION"
+    }
+  ],
+  "pilot_migration_id": "PILOTMIG_344455420C8CA68E865FD54135E891D7",
+  "provenance_digest": "sha256:74d19f92a74793a0683db04ebb438e56e0a75b153b752f55edde75e6d630e6cf",
+  "schema_version": "1.0.0",
+  "semantic_reinterpretation_claimed": false
+}

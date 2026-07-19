@@ -1,0 +1,14 @@
+schema_version: 1.0.0
+gates:
+- id: SOURCE_IMMUTABLE
+  non_compensatory: true
+- id: CANONICAL_PACKAGE_COMPLETE
+  non_compensatory: true
+- id: GOLDEN_HARD_PARITY
+  non_compensatory: true
+- id: DETERMINISTIC_REPLAY
+  non_compensatory: true
+- id: NO_CONSUMER_CUTOVER
+  non_compensatory: true
+- id: NO_EXECUTION_DRAWING_OR_CAPITAL_AUTHORITY
+  non_compensatory: true

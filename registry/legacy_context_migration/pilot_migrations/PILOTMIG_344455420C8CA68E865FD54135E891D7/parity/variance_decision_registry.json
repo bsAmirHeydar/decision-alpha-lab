@@ -1,0 +1,11 @@
+{
+  "approved_semantic_amendment_count": 0,
+  "decisions": [],
+  "fixture_defect_count": 0,
+  "implementation_defect_count": 0,
+  "legacy_defect_count": 0,
+  "pilot_migration_id": "PILOTMIG_344455420C8CA68E865FD54135E891D7",
+  "registry_digest": "sha256:79d3adcea18a2997753f0bc3487155e3d536bdc99adf5b41faa0fa9500f6ff5c",
+  "schema_version": "1.0.0",
+  "unknown_count": 0
+}

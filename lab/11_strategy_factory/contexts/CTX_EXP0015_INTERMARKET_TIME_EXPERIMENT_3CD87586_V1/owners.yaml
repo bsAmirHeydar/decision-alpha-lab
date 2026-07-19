@@ -1,0 +1,13 @@
+schema_version: 1.0.0
+context_id: CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1
+roles:
+  context_domain_owner:
+    assignee_status: HUMAN_ASSIGNEE_PENDING
+    required_for_semantic_change: true
+  migration_owner:
+    assignee_status: PROGRAM_ROLE_BOUND
+    required_for_packet_publication: true
+  independent_reviewer:
+    assignee_status: PROGRAM_ROLE_BOUND
+    self_approval_allowed: false
+authority_note: No role in this package has runtime, order, or capital authority.

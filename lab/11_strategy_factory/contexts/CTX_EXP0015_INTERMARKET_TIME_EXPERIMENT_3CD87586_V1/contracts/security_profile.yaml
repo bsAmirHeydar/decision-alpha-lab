@@ -1,0 +1,9 @@
+schema_version: 1.0.0
+network_access: false
+file_write_in_core: false
+order_api: false
+drawing_api: false
+secrets: false
+runtime_authority: false
+live_order_authority: false
+capital_authority: false

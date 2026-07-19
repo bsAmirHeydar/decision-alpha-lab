@@ -1,0 +1,19 @@
+{
+  "aggregate_success_cannot_waive_mismatch": true,
+  "contract_digest": "sha256:086755600b5798d65be5bc2aef657dfe6b90b89edecd907b63643b0fe1f19298",
+  "contract_id": "LCM08B_GOLDEN_PARITY_CONTRACT_V1",
+  "hard_fields": [
+    "all legacy DivergenceEvent fields"
+  ],
+  "required_case_types": [
+    "POSITIVE",
+    "NEGATIVE",
+    "NO_TRADE",
+    "DUPLICATE_TICK",
+    "SESSION_BOUNDARY",
+    "DST_TRANSITION",
+    "RESTART"
+  ],
+  "schema_version": "1.0.0",
+  "unknown_mandatory_dimension_allowed": false
+}

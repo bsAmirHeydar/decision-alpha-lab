@@ -1,0 +1,9 @@
+schema_version: 1.0.0
+missing_reference: NO_OCCURRENCE
+missing_aligned_timestamp: REMOVED_BY_INNER_JOIN
+timezone: UNKNOWN
+closed_bar_status: UNKNOWN
+market_calendar: NOT_MODELED
+dst_semantics: PRESERVE_INPUT_TIMESTAMP_WITHOUT_CONVERSION
+production_readiness: BLOCKED
+unknown_is_not_pass: true

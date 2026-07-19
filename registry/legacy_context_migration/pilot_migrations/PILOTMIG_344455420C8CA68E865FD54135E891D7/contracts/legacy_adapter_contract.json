@@ -1,0 +1,14 @@
+{
+  "adapter_id": "ADAPTER_F69CB38CE3A36F77E3A85B14564CC20D",
+  "adapter_type": "LEGACY_TO_CANONICAL_AND_LEGACY_OUTPUT_PROJECTION",
+  "consumer_cutover_allowed": false,
+  "contract_digest": "sha256:3c0bf8d6424ca91cafe10ffe6d6ff88b9bd0dcd52cf3c007161ff5f903750006",
+  "contract_id": "LCM08B_LEGACY_ADAPTER_CONTRACT_V1",
+  "drawing_api_allowed": false,
+  "order_api_allowed": false,
+  "schema_version": "1.0.0",
+  "semantic_rule_addition_allowed": false,
+  "source_identity_id": "CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1",
+  "source_mutation_allowed": false,
+  "target_identity_id": "CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1"
+}

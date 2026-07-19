@@ -1,0 +1,19 @@
+schema_version: 1.0.0
+context_id: CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1
+in_scope:
+- two-series inner timestamp alignment
+- legacy reference-level selection
+- legacy trigger predicates
+- bounded destination-lag divergence occurrence
+- late destination confirmation annotation
+- deterministic batch ordering
+out_of_scope:
+- market validity claim
+- setup eligibility
+- entry/stop/target
+- chart drawing
+- broker execution
+- position sizing
+- capital allocation
+- timezone conversion not present in legacy source
+claim_ceiling: LCM_08B_REFERENCE_ONLY

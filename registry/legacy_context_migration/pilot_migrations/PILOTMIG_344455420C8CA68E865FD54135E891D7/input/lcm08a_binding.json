@@ -1,0 +1,17 @@
+{
+  "allowed_actions": [
+    "BUILD_PILOT_MIGRATION_PACKET",
+    "AUTHOR_CANONICAL_CONTEXT_PACKAGE",
+    "BUILD_COMPATIBILITY_ADAPTER",
+    "EXECUTE_GOLDEN_PARITY",
+    "PRESERVE_LEGACY_SOURCE_IMMUTABLY"
+  ],
+  "binding_digest": "sha256:8f0879bfe5f3e72ed1c5c06e6719e2da2c043efa98be3815c65409fbfbe4ffcd",
+  "handoff_type": "LCM08A_TO_LCM08B",
+  "portfolio_id": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+  "schema_version": "1.0.0",
+  "selected_pilot_identity_id": "CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1",
+  "selected_pilot_source_digest": "sha256:99e5e03a4bf30a2ab94949e2ddc6cdc1d067f0441d25dbe0dc8a138026a9bd2f",
+  "selected_pilot_source_path": "lab/03_experiments/EXP0015_intermarket_time_divergence/experiment.py",
+  "source_handoff_digest": "sha256:0f58cdb31334e35a7c74b68000d03c043c1de8296b9e468c676c23ac6e4e164e"
+}

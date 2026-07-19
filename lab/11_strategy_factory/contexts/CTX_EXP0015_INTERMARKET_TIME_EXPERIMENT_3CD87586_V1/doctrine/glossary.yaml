@@ -1,0 +1,11 @@
+schema_version: 1.0.0
+terms:
+  origin_symbol: The series that satisfies the selected trigger at the evaluation
+    bar.
+  destination_symbol: The aligned peer series evaluated for the same side and reference
+    family.
+  reference_family: previous_candle, rolling, current_session, or previous_session.
+  destination_lag_window: Inclusive bars from evaluation through evaluation plus destination_lag_bars.
+  context_occurrence: Observed reference asymmetry; not an order, setup, or treatment.
+  late_destination_confirmation: Destination trigger after valid_from and through
+    valid_until.

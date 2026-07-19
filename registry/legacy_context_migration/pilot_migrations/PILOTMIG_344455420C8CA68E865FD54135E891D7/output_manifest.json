@@ -1,0 +1,123 @@
+{
+  "file_count": 23,
+  "files": [
+    {
+      "path": "contracts/canonical_context_contract.json",
+      "sha256": "sha256:173af4711f8b1edab1f138b67a3bb76e7e73640abf7a922d3dde7a7c8a55325a",
+      "size_bytes": 764
+    },
+    {
+      "path": "contracts/handoff_contract.json",
+      "sha256": "sha256:a2ceadc0bc7e362907d533bd7691eddff73e167e5e470ccbe424d1f2288ec048",
+      "size_bytes": 544
+    },
+    {
+      "path": "contracts/legacy_adapter_contract.json",
+      "sha256": "sha256:823df7ba104bb52d9c8537c98e3feb23cfece0a84a1bc5b4356053927636fe11",
+      "size_bytes": 648
+    },
+    {
+      "path": "contracts/parity_contract.json",
+      "sha256": "sha256:18d074deb11f9f75a50075fac1f9f0f512adc8e614d3923d31100be95e7efe07",
+      "size_bytes": 506
+    },
+    {
+      "path": "docs/PILOT_CONTEXT_MODEL_CARD.md",
+      "sha256": "sha256:9837a6eb41f92cd37bdd22ce78a11859dea21105c4ef5ebc2fb45aef95a5d2e2",
+      "size_bytes": 654
+    },
+    {
+      "path": "docs/PILOT_MIGRATION_RUNBOOK.md",
+      "sha256": "sha256:5c9c660868dd17699d70d82dbdda675d57d4dc6044a13394819b167d520dbda1",
+      "size_bytes": 669
+    },
+    {
+      "path": "docs/RESIDUAL_RISK.md",
+      "sha256": "sha256:9c5ac4c363fb4965d544f964d03ac5ea968effa6efc4dced53e95cbe54e91a1d",
+      "size_bytes": 347
+    },
+    {
+      "path": "docs/ROLLBACK.md",
+      "sha256": "sha256:1793877c5a17c45687ff72d1fa6ff0b8e9fb66062e6c427c00b99647e025c97b",
+      "size_bytes": 355
+    },
+    {
+      "path": "events/pilot_migration_event_ledger.json",
+      "sha256": "sha256:6a44fb381c1f8b504ce5634d356ea110d1d3ddaaa89fb49608c1ee43b76ed099",
+      "size_bytes": 3337
+    },
+    {
+      "path": "evidence/source_artifact.sha256",
+      "sha256": "sha256:5aa7820a73ec05cd4d298e94fb12e27d7840813771421684f17f128d7b8977b4",
+      "size_bytes": 135
+    },
+    {
+      "path": "evidence/source_evidence_manifest.json",
+      "sha256": "sha256:a0161447f9406086768409c4713cdd6186ac924c0879ea94112eacec19a7a4e3",
+      "size_bytes": 922
+    },
+    {
+      "path": "fixtures/golden_case_catalog.json",
+      "sha256": "sha256:f76dc90c7d1a98d1decd1461d0797908d8de208501f6c28b14b6abc78306fc9b",
+      "size_bytes": 8131
+    },
+    {
+      "path": "handoff/lcm08b_to_lcm08c_handoff.json",
+      "sha256": "sha256:4cdd8d0c540e8d7325a70a9ce4e4fbaf7a788221c62776c536707c7e99c16956",
+      "size_bytes": 2089
+    },
+    {
+      "path": "input/lcm08a_binding.json",
+      "sha256": "sha256:a6b73d0dc647553c057c285f613580780b9153e6519b09b88fd982af0296e5a0",
+      "size_bytes": 836
+    },
+    {
+      "path": "parity/golden_event_traces.jsonl",
+      "sha256": "sha256:387f240b09b0931e65844ad4f756b0daf46167a8f3d1b54b0b8a2c1e2d596f18",
+      "size_bytes": 3397
+    },
+    {
+      "path": "parity/parity_report.json",
+      "sha256": "sha256:8822edac58d5ab1ffc4517d632af7a5c0c916db2b1d963a905c3c92bbf5f2ce8",
+      "size_bytes": 1341
+    },
+    {
+      "path": "parity/variance_decision_registry.json",
+      "sha256": "sha256:27e1a238427558eb29b56032e1bd6654c4e2f75bf67b0d9166aa30e91fdde9a9",
+      "size_bytes": 373
+    },
+    {
+      "path": "pilot_migration_marker.json",
+      "sha256": "sha256:5911baf9bb48d8e653370f1747ebe2cd6e6c579cc59548b101c22831b1ef3133",
+      "size_bytes": 966
+    },
+    {
+      "path": "pilot_migration_receipt.json",
+      "sha256": "sha256:5b3804a8f470feb022d3526754c11e21158c6c46ebda57ba1994198a482bca96",
+      "size_bytes": 487
+    },
+    {
+      "path": "provenance/pilot_migration_provenance_graph.json",
+      "sha256": "sha256:498c895e00737f3a752a11e31247c813cc89aa5fdb3f8f92e1e815e0eebbe545",
+      "size_bytes": 1532
+    },
+    {
+      "path": "reports/acceptance_report.json",
+      "sha256": "sha256:c6bb5980aa75441f1ccae04ebdab72e2b0a067aa3688ee80d46730d9729fa036",
+      "size_bytes": 783
+    },
+    {
+      "path": "reports/context_boundary_report.json",
+      "sha256": "sha256:0f115526cc0fe139ce7c54f641783963370331b1ebc4f61e77565ddd69bc08a6",
+      "size_bytes": 642
+    },
+    {
+      "path": "reports/hostile_review.json",
+      "sha256": "sha256:1b36ed6af5b49701640ee69f20ee0d3ad00130fe53c63d29dac2d238177bf6be",
+      "size_bytes": 1122
+    }
+  ],
+  "manifest_digest": "sha256:8c99a525d01884027c2920856cbf7952f3b09442578c6fed2f28331b43033828",
+  "pilot_migration_id": "PILOTMIG_344455420C8CA68E865FD54135E891D7",
+  "schema_version": "1.0.0"
+}

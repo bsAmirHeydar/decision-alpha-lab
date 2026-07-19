@@ -1,0 +1,23 @@
+{
+  "context_id": "CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1",
+  "contract_digest": "sha256:dbbde7fae983ae2f4962f69082eb75847f43f5d5f1f16c28c96c46795b3e9e2e",
+  "contract_id": "LCM08B_CANONICAL_CONTEXT_CONTRACT_V1",
+  "drawing_fields_allowed": false,
+  "execution_fields_allowed": false,
+  "required_contracts": [
+    "scope",
+    "ontology",
+    "causal_clock",
+    "data_contract",
+    "state_machine",
+    "occurrence_contract",
+    "reference_contract",
+    "missingness_and_unknown",
+    "security_profile",
+    "acceptance_gates"
+  ],
+  "schema_version": "1.0.0",
+  "setup_fields_allowed": false,
+  "target_package_root": "lab/11_strategy_factory/contexts/CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1",
+  "treatment_fields_allowed": false
+}

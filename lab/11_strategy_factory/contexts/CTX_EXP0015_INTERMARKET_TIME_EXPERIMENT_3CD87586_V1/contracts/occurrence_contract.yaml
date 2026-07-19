@@ -1,0 +1,20 @@
+schema_version: 1.0.0
+occurrence_fields:
+- origin_symbol
+- destination_symbol
+- bar_index
+- evaluation_time
+- valid_from_time
+- valid_until_time
+- side
+- suggested_bias
+- level_family
+- trigger_mode
+- reference fields
+- break fields
+- late confirmation fields
+- reason_code
+reason_code: ORIGIN_TOOK_REFERENCE_DESTINATION_FAILED_WITHIN_LAG
+suggested_bias_semantics: LEGACY_RESEARCH_ANNOTATION_ONLY
+no_occurrence_semantics: EMPTY_RESULT_NOT_ERROR
+event_identity: adapter-assigned sequential event_id for exact legacy projection

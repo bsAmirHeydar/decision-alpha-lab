@@ -1,0 +1,26 @@
+{
+  "case_count": 10,
+  "consumer_cutover_performed": false,
+  "context_id": "CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1",
+  "failed_case_count": 0,
+  "hard_parity_passed": true,
+  "parity_digest": "sha256:9d1abce531b406aee34f418c45762af77b5285bb5934d27f0e9db32c151a2507",
+  "passed_case_count": 10,
+  "pilot_migration_id": "PILOTMIG_344455420C8CA68E865FD54135E891D7",
+  "restart_replay_deterministic": true,
+  "result_digests": [
+    "sha256:849d75880e62909bccac6e825899e8a34f290c0a829351150e5b827e16731b3c",
+    "sha256:770edc2180c6916cf05a7993d99b3a985e6e5fa5ad73e5d77a18f6456f5fbb30",
+    "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "sha256:acb0460fe19030453c674d7ceb702ede3799a4dc5bb475b8b5a7a7471d1a8158",
+    "sha256:5d02ab53925cdd0e2cd2d5d94c4eb8672ef82c02e569bb1710e3b20ec4ee072c",
+    "sha256:849d75880e62909bccac6e825899e8a34f290c0a829351150e5b827e16731b3c",
+    "sha256:dc5585404982d7c7c793da94c4491614d5bdb4427f74f21383cd8d4e713aaddc",
+    "sha256:5f7e9aef3a5b368d22d91a8c1f0ff871dd8b1dcaa73f61d698998ec8c897e42e"
+  ],
+  "schema_version": "1.0.0",
+  "source_digest_preserved": true,
+  "unknown_mandatory_dimension_count": 0
+}

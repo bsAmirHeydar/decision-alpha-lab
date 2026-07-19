@@ -1,0 +1,48 @@
+{
+  "checks": [
+    {
+      "check_id": "SOURCE_DIGEST_EXACT",
+      "passed": true
+    },
+    {
+      "check_id": "REFERENCE_INDICES_PRECEDE_EVALUATION",
+      "passed": true
+    },
+    {
+      "check_id": "DUPLICATE_TIMESTAMP_KEEP_LAST_PRESERVED",
+      "passed": true
+    },
+    {
+      "check_id": "NO_TIMEZONE_OR_CLOSED_BAR_CLAIM_INVENTED",
+      "passed": true
+    },
+    {
+      "check_id": "NO_HARD_PARITY_MISMATCH",
+      "passed": true
+    },
+    {
+      "check_id": "NO_MANDATORY_UNKNOWN",
+      "passed": true
+    },
+    {
+      "check_id": "ADAPTER_HAS_NO_ORDER_OR_DRAWING_API",
+      "passed": true
+    },
+    {
+      "check_id": "NO_CONSUMER_CUTOVER",
+      "passed": true
+    },
+    {
+      "check_id": "NO_SOURCE_MOVE_DELETE_OR_QUARANTINE",
+      "passed": true
+    },
+    {
+      "check_id": "NO_RUNTIME_LIVE_ORDER_OR_CAPITAL_AUTHORITY",
+      "passed": true
+    }
+  ],
+  "hostile_review_digest": "sha256:b3c8b4fd8e4a98a4405a3e3b9622d932a3d770a37479c4b52e561a22c81ad808",
+  "hostile_review_passed": true,
+  "pilot_migration_id": "PILOTMIG_344455420C8CA68E865FD54135E891D7",
+  "schema_version": "1.0.0"
+}
