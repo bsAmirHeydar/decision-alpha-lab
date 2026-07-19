@@ -1,6 +1,6 @@
 ---
 title: "LCM-09A — Setup Inventory, Family Registry and Canonical Contract Freeze"
-status: proposed-reference
+status: accepted-reference
 version: 1.0.0
 updated: 2026-07-19
 tags: [acl-os, lcm, legacy-migration, refined-roadmap]
@@ -134,3 +134,12 @@ The hostile review must attempt to disprove readiness. Aggregate success cannot 
 - Allowed actions: implementation, adapter, factory registration in reference mode, parity.
 
 The handoff must include source digest, output digest, completed gates, failed/blocked/unknown dimensions, owner approvals, residual risks, allowed next actions and forbidden actions.
+
+
+## Implemented reference result — 2026-07-19
+
+LCM-09A completed under freeze `SETUPFREEZE_8638449DF9A774634FE9B8F9E17EF891` and handoff `sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb`. The frozen LCM-03 portfolio contains 60 Setup identities across 6 non-equivalent family groupings. All 60 source digests were reverified. Sixty versioned Setup contract shells were frozen as `FROZEN_BLOCKED_REFERENCE`; none received implementation, factory, consumer-cutover, runtime, live-order or capital authority.
+
+The deterministic embedded-Setup census identified 117 unresolved candidates outside the LCM-03 Setup identity set. These findings are evidence queues, not promoted identities. Every canonical Context binding field is restricted to LCM-08C cutover-ready Context identities. No Setup family matched the sole cutover-ready pilot Context; therefore all implementation paths remain blocked.
+
+Acceptance state: `SETUP_PORTFOLIO_CONTRACT_FROZEN_REFERENCE_ONLY_ALL_IMPLEMENTATIONS_BLOCKED`.

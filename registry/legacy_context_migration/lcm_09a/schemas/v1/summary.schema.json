@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "acceptance_state": {
+      "type": "string"
+    },
+    "contract_count": {
+      "type": "integer"
+    },
+    "freeze_id": {
+      "type": "string"
+    },
+    "setup_identity_count": {
+      "type": "integer"
+    },
+    "summary_digest": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "freeze_id",
+    "setup_identity_count",
+    "contract_count",
+    "acceptance_state",
+    "summary_digest"
+  ],
+  "type": "object"
+}

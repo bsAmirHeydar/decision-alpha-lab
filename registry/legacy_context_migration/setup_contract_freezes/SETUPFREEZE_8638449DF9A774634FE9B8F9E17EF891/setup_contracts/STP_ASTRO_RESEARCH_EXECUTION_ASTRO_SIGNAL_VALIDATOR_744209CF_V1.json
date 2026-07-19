@@ -1,0 +1,151 @@
+{
+  "abstention_contract": {
+    "no_trade_is_first_class": true,
+    "output_required": true,
+    "state": "REQUIRED_UNCHARACTERIZED"
+  },
+  "authority_boundary": {
+    "broker_or_order_surface_detected": false,
+    "broker_state_in_canonical_contract": false,
+    "capital_authority": false,
+    "closed_bar_surface_detected": false,
+    "current_bar_surface_detected": false,
+    "drawing_state_in_canonical_contract": false,
+    "drawing_surface_detected": false,
+    "execution_quota_in_canonical_contract": false,
+    "file_io_detected": true,
+    "live_order_authority": false,
+    "network_surface_detected": false,
+    "runtime_authority": false
+  },
+  "blocking_reasons": [
+    "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+    "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+    "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+    "NAMED_HUMAN_OWNER_PENDING",
+    "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+    "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+  ],
+  "cancellation_contract": {
+    "state": "UNKNOWN",
+    "unknown_is_blocking": true
+  },
+  "claim_ceiling": "LCM_09A_REFERENCE_ONLY",
+  "consumer_cutover_authorized": false,
+  "context_binding": {
+    "canonical_context_identity_id": null,
+    "legacy_candidate_count": 2,
+    "state": "BLOCKED"
+  },
+  "contract_digest": "sha256:af975b67432f6751ef0795e43754608ecbdc0621cadfd8f132f0b3763a24e3af",
+  "contract_id": "SETUPCONTRACT_2763597D47A08E7EE3E2358C4E14F361",
+  "contract_status": "FROZEN_BLOCKED_REFERENCE",
+  "contract_version": "1.0.0",
+  "decision_semantics": {
+    "abstention": {
+      "evidence_state": "UNKNOWN",
+      "evidence_token_count": 0,
+      "normalized_rule": "UNKNOWN_UNTIL_OBSERVED_CHARACTERIZATION_AND_OWNER_APPROVAL",
+      "required_by_contract": true,
+      "unknown_is_blocking": true
+    },
+    "confirmation": {
+      "evidence_state": "UNKNOWN",
+      "evidence_token_count": 0,
+      "normalized_rule": "UNKNOWN_UNTIL_OBSERVED_CHARACTERIZATION_AND_OWNER_APPROVAL",
+      "required_by_contract": false,
+      "unknown_is_blocking": true
+    },
+    "eligibility": {
+      "evidence_state": "UNKNOWN",
+      "evidence_token_count": 0,
+      "normalized_rule": "UNKNOWN_UNTIL_OBSERVED_CHARACTERIZATION_AND_OWNER_APPROVAL",
+      "required_by_contract": true,
+      "unknown_is_blocking": true
+    },
+    "entitlement": {
+      "evidence_state": "UNKNOWN",
+      "evidence_token_count": 0,
+      "normalized_rule": "UNKNOWN_UNTIL_OBSERVED_CHARACTERIZATION_AND_OWNER_APPROVAL",
+      "required_by_contract": false,
+      "unknown_is_blocking": true
+    },
+    "invalidation": {
+      "evidence_state": "UNKNOWN",
+      "evidence_token_count": 0,
+      "normalized_rule": "UNKNOWN_UNTIL_OBSERVED_CHARACTERIZATION_AND_OWNER_APPROVAL",
+      "required_by_contract": true,
+      "unknown_is_blocking": true
+    },
+    "trigger": {
+      "evidence_state": "UNKNOWN",
+      "evidence_token_count": 0,
+      "normalized_rule": "UNKNOWN_UNTIL_OBSERVED_CHARACTERIZATION_AND_OWNER_APPROVAL",
+      "required_by_contract": true,
+      "unknown_is_blocking": true
+    }
+  },
+  "entitlement_contract": {
+    "quota_state_must_not_be_inferred": true,
+    "setup_entitlement_may_be_declared_only_by_owner_approval": true,
+    "state": "UNKNOWN"
+  },
+  "expiry_contract": {
+    "state": "UNKNOWN",
+    "unknown_is_blocking": true
+  },
+  "factory_registration_authorized": false,
+  "family_candidate": "ASTRO_RESEARCH_EXECUTION",
+  "freeze_id": "SETUPFREEZE_8638449DF9A774634FE9B8F9E17EF891",
+  "implementation_authorized": false,
+  "known_time_policy": {
+    "closed_bar_semantics_must_be_explicit": true,
+    "current_bar_semantics_must_be_explicit": true,
+    "future_data_forbidden": true,
+    "observed_policy_state": "UNKNOWN_BLOCKING"
+  },
+  "owner_binding": {
+    "approval_state": "PENDING",
+    "code_owner_role": "CODE_OWNER_ASTRO_RESEARCH_EXECUTION",
+    "named_human_owner": null,
+    "semantic_owner_role": "DOMAIN_OWNER_ASTRO_RESEARCH_EXECUTION"
+  },
+  "phase_id": "LCM-09A",
+  "schema_version": "1.0.0",
+  "setup_id": "STP_ASTRO_RESEARCH_EXECUTION_ASTRO_SIGNAL_VALIDATOR_744209CF_V1",
+  "source_binding": {
+    "characterization_packet_digest": "sha256:e0692eb34a9dfcdd9e76b2482e8fc14af82c6164a010148c50d7994f4a1e035a",
+    "identity_digest": "sha256:58b6dc85c34a20a23f7bc4d2cf0733e7aeb77953b68524b48e19c416b1c097a6",
+    "path": "tools/astro_validation/astro_signal_validator.py",
+    "sha256": "sha256:efb98b2173c42436622262d157c04368c6cb54f856feb0265c6a373a565d1ee9",
+    "static_profile_digest": "sha256:7e19fff1b58e10f3c9157e1d9ab15862d8b825dc0778c164d0962e53ff4098fb"
+  },
+  "treatment_binding": {
+    "canonical_treatment_identity_id": null,
+    "state": "PENDING_LCM10"
+  },
+  "unknown_policy": {
+    "aggregate_score_cannot_override_hard_unknown": true,
+    "mandatory_unknowns_block_implementation": true,
+    "prose_reconstruction_forbidden": true
+  },
+  "variant_contract": {
+    "direction": [
+      "UNKNOWN"
+    ],
+    "equivalence_claimed": false,
+    "mode": [
+      "UNKNOWN"
+    ],
+    "sessions": [
+      "UNKNOWN"
+    ],
+    "symbols": [
+      "UNKNOWN"
+    ],
+    "timeframes": [
+      "UNKNOWN"
+    ],
+    "variant_id": "STPVAR_661761637869822233276507F70B53DF"
+  }
+}

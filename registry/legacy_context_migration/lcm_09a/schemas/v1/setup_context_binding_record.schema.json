@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "binding_digest": {
+      "type": "string"
+    },
+    "canonical_context_binding_state": {
+      "type": "string"
+    },
+    "legacy_context_candidate_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "setup_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "setup_id",
+    "canonical_context_binding_state",
+    "legacy_context_candidate_ids",
+    "binding_digest"
+  ],
+  "type": "object"
+}

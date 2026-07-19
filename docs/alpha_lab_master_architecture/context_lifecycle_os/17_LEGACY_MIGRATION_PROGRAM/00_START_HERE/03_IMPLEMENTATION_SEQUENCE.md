@@ -81,3 +81,6 @@ These categories may not be combined merely to reduce patch count.
 ## LCM-08 reference closure
 
 LCM-08C closure `CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3` completes reference accounting for the frozen Context portfolio and issues the bounded LCM-09A handoff `sha256:060f6785ffdbb8266e7d000b17237c5c1cc8c162fcd96c2fb86202ac811faac3`.
+
+
+LCM-09A freeze `SETUPFREEZE_8638449DF9A774634FE9B8F9E17EF891` accounts for all 60 LCM-03 Setup identities, records 117 unresolved embedded candidates, freezes 60 blocked reference contracts, and issues bounded LCM-09B handoff `sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb`.

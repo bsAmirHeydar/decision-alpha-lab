@@ -1,0 +1,9 @@
+{
+  "existing_implementation_modification": false,
+  "phase_id": "LCM-09A",
+  "policy_digest": "sha256:a6ecf86a6c566b4c5d1d9d3f79c9dd8862bcfaba20a3b4874908996287fcec05",
+  "schema_version": "1.0.0",
+  "semantic_refactor": false,
+  "source_delete": false,
+  "source_move": false
+}

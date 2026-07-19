@@ -1,0 +1,8 @@
+{
+  "embedded_candidate_auto_promotion": false,
+  "merge_by_name_forbidden": true,
+  "phase_id": "LCM-09A",
+  "policy_digest": "sha256:601281611519a9918f1d289353efd31c170ee3d0b8646c08d262bd9dd1762ef8",
+  "provisional_identity_is_semantic_approval": false,
+  "schema_version": "1.0.0"
+}

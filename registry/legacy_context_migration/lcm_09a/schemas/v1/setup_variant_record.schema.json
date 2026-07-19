@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "semantic_equivalence_claimed": {
+      "type": "boolean"
+    },
+    "setup_id": {
+      "type": "string"
+    },
+    "variant_digest": {
+      "type": "string"
+    },
+    "variant_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "setup_id",
+    "variant_id",
+    "semantic_equivalence_claimed",
+    "variant_digest"
+  ],
+  "type": "object"
+}

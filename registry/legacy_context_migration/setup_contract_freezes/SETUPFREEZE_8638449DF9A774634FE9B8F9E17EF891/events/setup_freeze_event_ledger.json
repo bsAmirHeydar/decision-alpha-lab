@@ -1,0 +1,46 @@
+{
+  "events": [
+    {
+      "digest": "sha256:060f6785ffdbb8266e7d000b17237c5c1cc8c162fcd96c2fb86202ac811faac3",
+      "event_type": "UPSTREAM_HANDOFF_BOUND",
+      "sequence": 1
+    },
+    {
+      "count": 60,
+      "digest": "sha256:c3211db01d80e9e3a3a1ee808315fee864a4be72f769f5765d1832c347a2f28a",
+      "event_type": "SETUP_IDENTITY_PORTFOLIO_FROZEN",
+      "sequence": 2
+    },
+    {
+      "count": 117,
+      "digest": "sha256:f61cef7ec0709a025883f0a62c9e49177599d93b8481634cdd8a8eaf4c36fd7e",
+      "event_type": "EMBEDDED_SETUP_CENSUS_COMPLETED",
+      "sequence": 3
+    },
+    {
+      "event_type": "FAMILY_AND_VARIANT_REGISTRIES_FROZEN",
+      "family_count": 6,
+      "sequence": 4,
+      "variant_count": 60
+    },
+    {
+      "count": 60,
+      "event_type": "CANONICAL_CONTRACT_SHELLS_FROZEN_BLOCKED",
+      "sequence": 5
+    },
+    {
+      "digest": "sha256:98d4ee8255d4376d37ad4eec1930b2a145587883b47dc11e4512bb8fc3a49358",
+      "event_type": "HOSTILE_REVIEW_PASSED",
+      "sequence": 6
+    },
+    {
+      "digest": "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+      "event_type": "LCM09B_HANDOFF_ISSUED",
+      "sequence": 7
+    }
+  ],
+  "freeze_id": "SETUPFREEZE_8638449DF9A774634FE9B8F9E17EF891",
+  "ledger_digest": "sha256:a38181fd21bec593f7e8a5090a863c3c5ca89cd65f45433ca72814b93ed2de0f",
+  "phase_id": "LCM-09A",
+  "schema_version": "1.0.0"
+}

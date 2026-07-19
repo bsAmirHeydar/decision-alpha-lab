@@ -1,0 +1,151 @@
+{
+  "abstention_contract": {
+    "no_trade_is_first_class": true,
+    "output_required": true,
+    "state": "REQUIRED_UNCHARACTERIZED"
+  },
+  "authority_boundary": {
+    "broker_or_order_surface_detected": false,
+    "broker_state_in_canonical_contract": false,
+    "capital_authority": false,
+    "closed_bar_surface_detected": false,
+    "current_bar_surface_detected": false,
+    "drawing_state_in_canonical_contract": false,
+    "drawing_surface_detected": false,
+    "execution_quota_in_canonical_contract": false,
+    "file_io_detected": true,
+    "live_order_authority": false,
+    "network_surface_detected": false,
+    "runtime_authority": false
+  },
+  "blocking_reasons": [
+    "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+    "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+    "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+    "NAMED_HUMAN_OWNER_PENDING",
+    "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+    "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+  ],
+  "cancellation_contract": {
+    "state": "UNKNOWN",
+    "unknown_is_blocking": true
+  },
+  "claim_ceiling": "LCM_09A_REFERENCE_ONLY",
+  "consumer_cutover_authorized": false,
+  "context_binding": {
+    "canonical_context_identity_id": null,
+    "legacy_candidate_count": 31,
+    "state": "BLOCKED"
+  },
+  "contract_digest": "sha256:d6d59167c9b4259f391ebd21fc9642bbbb8158007c24c814871c291664ffd874",
+  "contract_id": "SETUPCONTRACT_98A96231B94706AA61705082DC638943",
+  "contract_status": "FROZEN_BLOCKED_REFERENCE",
+  "contract_version": "1.0.0",
+  "decision_semantics": {
+    "abstention": {
+      "evidence_state": "UNKNOWN",
+      "evidence_token_count": 0,
+      "normalized_rule": "UNKNOWN_UNTIL_OBSERVED_CHARACTERIZATION_AND_OWNER_APPROVAL",
+      "required_by_contract": true,
+      "unknown_is_blocking": true
+    },
+    "confirmation": {
+      "evidence_state": "STATIC_LEXICAL_EVIDENCE_ONLY",
+      "evidence_token_count": 3,
+      "normalized_rule": "UNKNOWN_UNTIL_OBSERVED_CHARACTERIZATION_AND_OWNER_APPROVAL",
+      "required_by_contract": false,
+      "unknown_is_blocking": true
+    },
+    "eligibility": {
+      "evidence_state": "UNKNOWN",
+      "evidence_token_count": 0,
+      "normalized_rule": "UNKNOWN_UNTIL_OBSERVED_CHARACTERIZATION_AND_OWNER_APPROVAL",
+      "required_by_contract": true,
+      "unknown_is_blocking": true
+    },
+    "entitlement": {
+      "evidence_state": "UNKNOWN",
+      "evidence_token_count": 0,
+      "normalized_rule": "UNKNOWN_UNTIL_OBSERVED_CHARACTERIZATION_AND_OWNER_APPROVAL",
+      "required_by_contract": false,
+      "unknown_is_blocking": true
+    },
+    "invalidation": {
+      "evidence_state": "STATIC_LEXICAL_EVIDENCE_ONLY",
+      "evidence_token_count": 2,
+      "normalized_rule": "UNKNOWN_UNTIL_OBSERVED_CHARACTERIZATION_AND_OWNER_APPROVAL",
+      "required_by_contract": true,
+      "unknown_is_blocking": true
+    },
+    "trigger": {
+      "evidence_state": "UNKNOWN",
+      "evidence_token_count": 0,
+      "normalized_rule": "UNKNOWN_UNTIL_OBSERVED_CHARACTERIZATION_AND_OWNER_APPROVAL",
+      "required_by_contract": true,
+      "unknown_is_blocking": true
+    }
+  },
+  "entitlement_contract": {
+    "quota_state_must_not_be_inferred": true,
+    "setup_entitlement_may_be_declared_only_by_owner_approval": true,
+    "state": "UNKNOWN"
+  },
+  "expiry_contract": {
+    "state": "UNKNOWN",
+    "unknown_is_blocking": true
+  },
+  "factory_registration_authorized": false,
+  "family_candidate": "EXP0018_DAYE_TRADER",
+  "freeze_id": "SETUPFREEZE_8638449DF9A774634FE9B8F9E17EF891",
+  "implementation_authorized": false,
+  "known_time_policy": {
+    "closed_bar_semantics_must_be_explicit": true,
+    "current_bar_semantics_must_be_explicit": true,
+    "future_data_forbidden": true,
+    "observed_policy_state": "UNKNOWN_BLOCKING"
+  },
+  "owner_binding": {
+    "approval_state": "PENDING",
+    "code_owner_role": "CODE_OWNER_EXP0018_DAYE_TRADER",
+    "named_human_owner": null,
+    "semantic_owner_role": "DOMAIN_OWNER_EXP0018_DAYE_TRADER"
+  },
+  "phase_id": "LCM-09A",
+  "schema_version": "1.0.0",
+  "setup_id": "STP_EXP0018_DAYE_TRADER_DAYE_CONFIRMATIONENGINE_22F70BAA_V1",
+  "source_binding": {
+    "characterization_packet_digest": "sha256:5cf35a892cd45ece65d58db5aeab50ecfa7877b1d90ecec520378f7b6725f4e8",
+    "identity_digest": "sha256:41d25df4f024403493afc085d6dd511e5dd7ab3e877726889de01f1422739d25",
+    "path": "mql5/Include/DayeTrader/EXP0018/DAYE_ConfirmationEngine.mqh",
+    "sha256": "sha256:be3efe2b49adb8ae85dbb87d35363f49e57ca51edeef78d2988e414538a5408f",
+    "static_profile_digest": "sha256:81e2e7482d1a426317688e639c513893e5442597d521a6c7248e2ab4e429e750"
+  },
+  "treatment_binding": {
+    "canonical_treatment_identity_id": null,
+    "state": "PENDING_LCM10"
+  },
+  "unknown_policy": {
+    "aggregate_score_cannot_override_hard_unknown": true,
+    "mandatory_unknowns_block_implementation": true,
+    "prose_reconstruction_forbidden": true
+  },
+  "variant_contract": {
+    "direction": [
+      "LONG"
+    ],
+    "equivalence_claimed": false,
+    "mode": [
+      "UNKNOWN"
+    ],
+    "sessions": [
+      "UNKNOWN"
+    ],
+    "symbols": [
+      "UNKNOWN"
+    ],
+    "timeframes": [
+      "UNKNOWN"
+    ],
+    "variant_id": "STPVAR_DE3E7FD6711BE8E6CB60D757CC48457B"
+  }
+}

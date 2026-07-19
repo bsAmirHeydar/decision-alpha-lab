@@ -1,0 +1,8 @@
+{
+  "claim_ceiling": "LCM_09A_REFERENCE_ONLY",
+  "freeze_id": "SETUPFREEZE_8638449DF9A774634FE9B8F9E17EF891",
+  "issued_at_known_time": "2026-07-19T00:00:00Z",
+  "phase_id": "LCM-09A",
+  "schema_version": "1.0.0",
+  "upstream_handoff_digest": "sha256:060f6785ffdbb8266e7d000b17237c5c1cc8c162fcd96c2fb86202ac811faac3"
+}

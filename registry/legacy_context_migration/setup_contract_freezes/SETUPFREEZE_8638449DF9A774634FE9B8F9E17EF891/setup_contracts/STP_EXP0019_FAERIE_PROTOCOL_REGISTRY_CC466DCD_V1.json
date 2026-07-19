@@ -1,0 +1,151 @@
+{
+  "abstention_contract": {
+    "no_trade_is_first_class": true,
+    "output_required": true,
+    "state": "REQUIRED_UNCHARACTERIZED"
+  },
+  "authority_boundary": {
+    "broker_or_order_surface_detected": false,
+    "broker_state_in_canonical_contract": false,
+    "capital_authority": false,
+    "closed_bar_surface_detected": false,
+    "current_bar_surface_detected": false,
+    "drawing_state_in_canonical_contract": false,
+    "drawing_surface_detected": false,
+    "execution_quota_in_canonical_contract": false,
+    "file_io_detected": false,
+    "live_order_authority": false,
+    "network_surface_detected": false,
+    "runtime_authority": false
+  },
+  "blocking_reasons": [
+    "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+    "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+    "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+    "NAMED_HUMAN_OWNER_PENDING",
+    "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+    "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+  ],
+  "cancellation_contract": {
+    "state": "UNKNOWN",
+    "unknown_is_blocking": true
+  },
+  "claim_ceiling": "LCM_09A_REFERENCE_ONLY",
+  "consumer_cutover_authorized": false,
+  "context_binding": {
+    "canonical_context_identity_id": null,
+    "legacy_candidate_count": 8,
+    "state": "BLOCKED"
+  },
+  "contract_digest": "sha256:1fa2d57a56b53f191a23132169e3b3798c7b5e444fe3ee4ecc8069238e16e811",
+  "contract_id": "SETUPCONTRACT_43804947DF18BA7D55C10E81C7FDA431",
+  "contract_status": "FROZEN_BLOCKED_REFERENCE",
+  "contract_version": "1.0.0",
+  "decision_semantics": {
+    "abstention": {
+      "evidence_state": "UNKNOWN",
+      "evidence_token_count": 0,
+      "normalized_rule": "UNKNOWN_UNTIL_OBSERVED_CHARACTERIZATION_AND_OWNER_APPROVAL",
+      "required_by_contract": true,
+      "unknown_is_blocking": true
+    },
+    "confirmation": {
+      "evidence_state": "STATIC_LEXICAL_EVIDENCE_ONLY",
+      "evidence_token_count": 6,
+      "normalized_rule": "UNKNOWN_UNTIL_OBSERVED_CHARACTERIZATION_AND_OWNER_APPROVAL",
+      "required_by_contract": false,
+      "unknown_is_blocking": true
+    },
+    "eligibility": {
+      "evidence_state": "STATIC_LEXICAL_EVIDENCE_ONLY",
+      "evidence_token_count": 1,
+      "normalized_rule": "UNKNOWN_UNTIL_OBSERVED_CHARACTERIZATION_AND_OWNER_APPROVAL",
+      "required_by_contract": true,
+      "unknown_is_blocking": true
+    },
+    "entitlement": {
+      "evidence_state": "UNKNOWN",
+      "evidence_token_count": 0,
+      "normalized_rule": "UNKNOWN_UNTIL_OBSERVED_CHARACTERIZATION_AND_OWNER_APPROVAL",
+      "required_by_contract": false,
+      "unknown_is_blocking": true
+    },
+    "invalidation": {
+      "evidence_state": "UNKNOWN",
+      "evidence_token_count": 0,
+      "normalized_rule": "UNKNOWN_UNTIL_OBSERVED_CHARACTERIZATION_AND_OWNER_APPROVAL",
+      "required_by_contract": true,
+      "unknown_is_blocking": true
+    },
+    "trigger": {
+      "evidence_state": "UNKNOWN",
+      "evidence_token_count": 0,
+      "normalized_rule": "UNKNOWN_UNTIL_OBSERVED_CHARACTERIZATION_AND_OWNER_APPROVAL",
+      "required_by_contract": true,
+      "unknown_is_blocking": true
+    }
+  },
+  "entitlement_contract": {
+    "quota_state_must_not_be_inferred": true,
+    "setup_entitlement_may_be_declared_only_by_owner_approval": true,
+    "state": "UNKNOWN"
+  },
+  "expiry_contract": {
+    "state": "UNKNOWN",
+    "unknown_is_blocking": true
+  },
+  "factory_registration_authorized": false,
+  "family_candidate": "EXP0019_FAERIE_PROTOCOL",
+  "freeze_id": "SETUPFREEZE_8638449DF9A774634FE9B8F9E17EF891",
+  "implementation_authorized": false,
+  "known_time_policy": {
+    "closed_bar_semantics_must_be_explicit": true,
+    "current_bar_semantics_must_be_explicit": true,
+    "future_data_forbidden": true,
+    "observed_policy_state": "UNKNOWN_BLOCKING"
+  },
+  "owner_binding": {
+    "approval_state": "PENDING",
+    "code_owner_role": "CODE_OWNER_EXP0019_FAERIE_PROTOCOL",
+    "named_human_owner": null,
+    "semantic_owner_role": "DOMAIN_OWNER_EXP0019_FAERIE_PROTOCOL"
+  },
+  "phase_id": "LCM-09A",
+  "schema_version": "1.0.0",
+  "setup_id": "STP_EXP0019_FAERIE_PROTOCOL_REGISTRY_CC466DCD_V1",
+  "source_binding": {
+    "characterization_packet_digest": "sha256:da9768107c79282d0402359139fd9fdcdde8f0a8bedcbb009aa972e7bbb42e7e",
+    "identity_digest": "sha256:a0e2ba97af3ae695bc530564e094b6fe5483b3c146b3c8137f0afcdb8a44c9d6",
+    "path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i07/python/fp_i07_confirmation/registry.py",
+    "sha256": "sha256:f79b2e0cedce9b4f9fdc8cba56bf9342f67154552a2ac36d3f095551216a5384",
+    "static_profile_digest": "sha256:52f4abc4540057e31e6a357c9c873a54313863222401dfe4e3fcff606b1a690c"
+  },
+  "treatment_binding": {
+    "canonical_treatment_identity_id": null,
+    "state": "PENDING_LCM10"
+  },
+  "unknown_policy": {
+    "aggregate_score_cannot_override_hard_unknown": true,
+    "mandatory_unknowns_block_implementation": true,
+    "prose_reconstruction_forbidden": true
+  },
+  "variant_contract": {
+    "direction": [
+      "UNKNOWN"
+    ],
+    "equivalence_claimed": false,
+    "mode": [
+      "UNKNOWN"
+    ],
+    "sessions": [
+      "UNKNOWN"
+    ],
+    "symbols": [
+      "UNKNOWN"
+    ],
+    "timeframes": [
+      "UNKNOWN"
+    ],
+    "variant_id": "STPVAR_E9038732D57B4931AEAD675CADA5F486"
+  }
+}

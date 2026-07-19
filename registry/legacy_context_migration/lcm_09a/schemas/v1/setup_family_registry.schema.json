@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "families": {
+      "type": "array"
+    },
+    "family_count": {
+      "type": "integer"
+    },
+    "freeze_id": {
+      "type": "string"
+    },
+    "registry_digest": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "freeze_id",
+    "family_count",
+    "families",
+    "registry_digest"
+  ],
+  "type": "object"
+}

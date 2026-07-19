@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "blocked": {
+      "type": "boolean"
+    },
+    "contract_id": {
+      "type": "string"
+    },
+    "contract_status": {
+      "type": "string"
+    },
+    "inventory_record_digest": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "setup_id": {
+      "type": "string"
+    },
+    "source_artifact_path": {
+      "type": "string"
+    },
+    "source_artifact_sha256": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "setup_id",
+    "source_artifact_path",
+    "source_artifact_sha256",
+    "contract_id",
+    "contract_status",
+    "blocked",
+    "inventory_record_digest"
+  ],
+  "type": "object"
+}

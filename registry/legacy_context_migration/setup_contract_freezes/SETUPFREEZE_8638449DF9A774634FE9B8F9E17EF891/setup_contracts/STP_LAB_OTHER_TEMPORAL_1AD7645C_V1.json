@@ -1,0 +1,151 @@
+{
+  "abstention_contract": {
+    "no_trade_is_first_class": true,
+    "output_required": true,
+    "state": "REQUIRED_UNCHARACTERIZED"
+  },
+  "authority_boundary": {
+    "broker_or_order_surface_detected": false,
+    "broker_state_in_canonical_contract": false,
+    "capital_authority": false,
+    "closed_bar_surface_detected": false,
+    "current_bar_surface_detected": true,
+    "drawing_state_in_canonical_contract": false,
+    "drawing_surface_detected": false,
+    "execution_quota_in_canonical_contract": false,
+    "file_io_detected": false,
+    "live_order_authority": false,
+    "network_surface_detected": false,
+    "runtime_authority": false
+  },
+  "blocking_reasons": [
+    "CANONICAL_CONTEXT_BINDING_UNAVAILABLE",
+    "CANONICAL_TREATMENT_BINDING_PENDING_LCM10",
+    "HUMAN_SEMANTIC_OWNER_APPROVAL_PENDING",
+    "NAMED_HUMAN_OWNER_PENDING",
+    "OBSERVED_BEHAVIOR_NOT_CAPTURED",
+    "SETUP_IDENTITY_REMAINS_PROVISIONAL"
+  ],
+  "cancellation_contract": {
+    "state": "UNKNOWN",
+    "unknown_is_blocking": true
+  },
+  "claim_ceiling": "LCM_09A_REFERENCE_ONLY",
+  "consumer_cutover_authorized": false,
+  "context_binding": {
+    "canonical_context_identity_id": null,
+    "legacy_candidate_count": 0,
+    "state": "BLOCKED"
+  },
+  "contract_digest": "sha256:c68b9043e22b566be1988bf74b0fe7b242db25b83e37b14495ae375d69f7f27a",
+  "contract_id": "SETUPCONTRACT_25DB3E25779F00DEC316DF96352B40B3",
+  "contract_status": "FROZEN_BLOCKED_REFERENCE",
+  "contract_version": "1.0.0",
+  "decision_semantics": {
+    "abstention": {
+      "evidence_state": "UNKNOWN",
+      "evidence_token_count": 0,
+      "normalized_rule": "UNKNOWN_UNTIL_OBSERVED_CHARACTERIZATION_AND_OWNER_APPROVAL",
+      "required_by_contract": true,
+      "unknown_is_blocking": true
+    },
+    "confirmation": {
+      "evidence_state": "UNKNOWN",
+      "evidence_token_count": 0,
+      "normalized_rule": "UNKNOWN_UNTIL_OBSERVED_CHARACTERIZATION_AND_OWNER_APPROVAL",
+      "required_by_contract": false,
+      "unknown_is_blocking": true
+    },
+    "eligibility": {
+      "evidence_state": "UNKNOWN",
+      "evidence_token_count": 0,
+      "normalized_rule": "UNKNOWN_UNTIL_OBSERVED_CHARACTERIZATION_AND_OWNER_APPROVAL",
+      "required_by_contract": true,
+      "unknown_is_blocking": true
+    },
+    "entitlement": {
+      "evidence_state": "UNKNOWN",
+      "evidence_token_count": 0,
+      "normalized_rule": "UNKNOWN_UNTIL_OBSERVED_CHARACTERIZATION_AND_OWNER_APPROVAL",
+      "required_by_contract": false,
+      "unknown_is_blocking": true
+    },
+    "invalidation": {
+      "evidence_state": "UNKNOWN",
+      "evidence_token_count": 0,
+      "normalized_rule": "UNKNOWN_UNTIL_OBSERVED_CHARACTERIZATION_AND_OWNER_APPROVAL",
+      "required_by_contract": true,
+      "unknown_is_blocking": true
+    },
+    "trigger": {
+      "evidence_state": "UNKNOWN",
+      "evidence_token_count": 0,
+      "normalized_rule": "UNKNOWN_UNTIL_OBSERVED_CHARACTERIZATION_AND_OWNER_APPROVAL",
+      "required_by_contract": true,
+      "unknown_is_blocking": true
+    }
+  },
+  "entitlement_contract": {
+    "quota_state_must_not_be_inferred": true,
+    "setup_entitlement_may_be_declared_only_by_owner_approval": true,
+    "state": "UNKNOWN"
+  },
+  "expiry_contract": {
+    "state": "UNKNOWN",
+    "unknown_is_blocking": true
+  },
+  "factory_registration_authorized": false,
+  "family_candidate": "LAB_OTHER",
+  "freeze_id": "SETUPFREEZE_8638449DF9A774634FE9B8F9E17EF891",
+  "implementation_authorized": false,
+  "known_time_policy": {
+    "closed_bar_semantics_must_be_explicit": true,
+    "current_bar_semantics_must_be_explicit": true,
+    "future_data_forbidden": true,
+    "observed_policy_state": "UNKNOWN_BLOCKING"
+  },
+  "owner_binding": {
+    "approval_state": "PENDING",
+    "code_owner_role": "CODE_OWNER_LAB_OTHER",
+    "named_human_owner": null,
+    "semantic_owner_role": "DOMAIN_OWNER_LAB_OTHER"
+  },
+  "phase_id": "LCM-09A",
+  "schema_version": "1.0.0",
+  "setup_id": "STP_LAB_OTHER_TEMPORAL_1AD7645C_V1",
+  "source_binding": {
+    "characterization_packet_digest": "sha256:bc2069e92f7ac51ff24798aa4b7c2bb6badee88ef8a0f80c4420a808604483d9",
+    "identity_digest": "sha256:f376d00be4558322f05e27dd0002d91770cb47e6225c5d9423d33633dec6c8ec",
+    "path": "lab/11_strategy_factory/python/saed_v4_neurosymbolic_setup_reasoning/temporal.py",
+    "sha256": "sha256:540128e38d1c7fb924bf32240124b15ef61700994abaf2cdd5c12ef6443d9335",
+    "static_profile_digest": "sha256:a38c64f16bf05a3d91947926de5b58004a57b8ce7e171a016a9e89b3ae96c9ae"
+  },
+  "treatment_binding": {
+    "canonical_treatment_identity_id": null,
+    "state": "PENDING_LCM10"
+  },
+  "unknown_policy": {
+    "aggregate_score_cannot_override_hard_unknown": true,
+    "mandatory_unknowns_block_implementation": true,
+    "prose_reconstruction_forbidden": true
+  },
+  "variant_contract": {
+    "direction": [
+      "UNKNOWN"
+    ],
+    "equivalence_claimed": false,
+    "mode": [
+      "UNKNOWN"
+    ],
+    "sessions": [
+      "UNKNOWN"
+    ],
+    "symbols": [
+      "UNKNOWN"
+    ],
+    "timeframes": [
+      "UNKNOWN"
+    ],
+    "variant_id": "STPVAR_C3F354F40FFEB1FC718F5E80762A6D7C"
+  }
+}

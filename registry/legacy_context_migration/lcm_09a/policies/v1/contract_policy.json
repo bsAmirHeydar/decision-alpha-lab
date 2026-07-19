@@ -1,0 +1,8 @@
+{
+  "no_trade_first_class": true,
+  "phase_id": "LCM-09A",
+  "policy_digest": "sha256:9d2bb4eb8c19a9ae3dcc1e627955b90bb66f248d9702e02bd3d364f646703bbf",
+  "prose_reconstruction_forbidden": true,
+  "schema_version": "1.0.0",
+  "unknown_mandatory_dimensions_block": true
+}

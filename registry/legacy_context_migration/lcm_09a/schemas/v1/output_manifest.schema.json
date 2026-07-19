@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "file_count": {
+      "type": "integer"
+    },
+    "files": {
+      "type": "array"
+    },
+    "freeze_id": {
+      "type": "string"
+    },
+    "manifest_digest": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "freeze_id",
+    "file_count",
+    "files",
+    "manifest_digest"
+  ],
+  "type": "object"
+}

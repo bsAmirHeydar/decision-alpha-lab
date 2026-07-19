@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "cases": {
+      "type": "array"
+    },
+    "freeze_id": {
+      "type": "string"
+    },
+    "hostile_review_passed": {
+      "type": "boolean"
+    },
+    "review_digest": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "freeze_id",
+    "cases",
+    "hostile_review_passed",
+    "review_digest"
+  ],
+  "type": "object"
+}

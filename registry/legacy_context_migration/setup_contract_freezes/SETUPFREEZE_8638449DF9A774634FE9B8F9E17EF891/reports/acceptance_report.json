@@ -1,0 +1,20 @@
+{
+  "acceptance_digest": "sha256:afa86405966587c39854b4692c2fa8f988689ecbc022b41130fb85a539570237",
+  "acceptance_gate_passed": true,
+  "acceptance_state": "SETUP_PORTFOLIO_CONTRACT_FROZEN_REFERENCE_ONLY_ALL_IMPLEMENTATIONS_BLOCKED",
+  "claim_ceiling": "LCM_09A_REFERENCE_ONLY",
+  "freeze_id": "SETUPFREEZE_8638449DF9A774634FE9B8F9E17EF891",
+  "gates": {
+    "all_lcm03_setup_identities_accounted": true,
+    "all_source_digests_verified": true,
+    "broker_drawing_quota_not_embedded_as_semantics": true,
+    "canonical_context_references_only": true,
+    "every_setup_has_owner_identity_family_context_binding_and_contract": true,
+    "hostile_review_passed": true,
+    "no_consumer_cutover": true,
+    "no_setup_implementation_authority_created": true,
+    "variant_dimensions_explicit": true
+  },
+  "phase_id": "LCM-09A",
+  "schema_version": "1.0.0"
+}

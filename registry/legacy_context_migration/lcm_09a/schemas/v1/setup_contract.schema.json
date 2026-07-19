@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "contract_digest": {
+      "type": "string"
+    },
+    "contract_id": {
+      "type": "string"
+    },
+    "contract_status": {
+      "type": "string"
+    },
+    "contract_version": {
+      "type": "string"
+    },
+    "decision_semantics": {
+      "type": "object"
+    },
+    "implementation_authorized": {
+      "type": "boolean"
+    },
+    "setup_id": {
+      "type": "string"
+    },
+    "unknown_policy": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "contract_id",
+    "contract_version",
+    "setup_id",
+    "contract_status",
+    "decision_semantics",
+    "unknown_policy",
+    "implementation_authorized",
+    "contract_digest"
+  ],
+  "type": "object"
+}

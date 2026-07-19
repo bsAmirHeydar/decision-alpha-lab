@@ -1,0 +1,8 @@
+{
+  "closed_bar_must_be_explicit": true,
+  "current_bar_must_be_explicit": true,
+  "future_data_forbidden": true,
+  "phase_id": "LCM-09A",
+  "policy_digest": "sha256:8092f430b7ce58e973f09298de92ab71088a127097105de8da188740d21e6727",
+  "schema_version": "1.0.0"
+}

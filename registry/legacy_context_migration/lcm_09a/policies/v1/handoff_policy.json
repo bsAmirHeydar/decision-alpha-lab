@@ -1,0 +1,8 @@
+{
+  "consumer_cutover": false,
+  "factory_registration_reference_mode_only": true,
+  "implementation_requires_identity_level_gate": true,
+  "phase_id": "LCM-09A",
+  "policy_digest": "sha256:426026e0d925939826b46866dd3fbde2fd2e38d8e25a46aa213e17ca62442c54",
+  "schema_version": "1.0.0"
+}

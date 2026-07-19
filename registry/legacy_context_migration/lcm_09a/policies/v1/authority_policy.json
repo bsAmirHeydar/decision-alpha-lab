@@ -1,0 +1,10 @@
+{
+  "capital": false,
+  "claim_ceiling": "LCM_09A_REFERENCE_ONLY",
+  "consumer_cutover": false,
+  "live_order": false,
+  "phase_id": "LCM-09A",
+  "policy_digest": "sha256:39e83a3a8fc211ad1a7e55e657381a91840d1da5d0b7b3c8d6fdd797e0b1ae7b",
+  "runtime": false,
+  "schema_version": "1.0.0"
+}

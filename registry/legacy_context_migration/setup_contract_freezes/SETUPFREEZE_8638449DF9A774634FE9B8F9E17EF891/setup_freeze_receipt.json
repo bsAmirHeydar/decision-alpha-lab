@@ -1,0 +1,9 @@
+{
+  "acceptance_state": "SETUP_PORTFOLIO_CONTRACT_FROZEN_REFERENCE_ONLY_ALL_IMPLEMENTATIONS_BLOCKED",
+  "freeze_id": "SETUPFREEZE_8638449DF9A774634FE9B8F9E17EF891",
+  "handoff_digest": "sha256:9010023f1b182049cc9f7e0601689827c062f2dbb15e21a98d652744c625d2fb",
+  "output_manifest_digest": "sha256:7d5fce0f6e98a82dca244613a7fdd845ad4f380435a0ed728f4e7ab61e86b312",
+  "phase_id": "LCM-09A",
+  "receipt_digest": "sha256:34cb6d658da736d6996ae93126c52b53b0dcd7d08367e6f1a3163937bef23d12",
+  "schema_version": "1.0.0"
+}

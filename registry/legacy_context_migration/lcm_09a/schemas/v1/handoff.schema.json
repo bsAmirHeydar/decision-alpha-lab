@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "allowed_next_actions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "forbidden_actions": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "freeze_id": {
+      "type": "string"
+    },
+    "handoff_digest": {
+      "type": "string"
+    },
+    "handoff_type": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "handoff_type",
+    "freeze_id",
+    "allowed_next_actions",
+    "forbidden_actions",
+    "handoff_digest"
+  ],
+  "type": "object"
+}

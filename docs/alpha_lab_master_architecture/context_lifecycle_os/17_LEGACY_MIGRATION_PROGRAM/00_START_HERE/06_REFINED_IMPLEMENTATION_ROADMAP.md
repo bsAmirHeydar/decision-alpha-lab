@@ -90,3 +90,6 @@ The selected EXP0015 Python pilot is canonicalized and parity-verified under `PI
 ## LCM-08C accepted reference closure
 
 The Context portfolio is fully accounted under `CTXWAVECLOSE_D14965CFA16DD2B417DEE789D21AF5C3`: one parity-proven canonical package and 320 explicit blockers. LCM-09A may begin Setup inventory work without treating blocked Contexts as canonical.
+
+
+LCM-09A is complete as an evidence and contract-freeze gate. The Setup portfolio is fully accounted but no Setup is implementation-eligible because owner approval, observed characterization, canonical Context binding and LCM-10 Treatment binding remain unresolved. LCM-09B must preserve these blockers non-compensatorily.

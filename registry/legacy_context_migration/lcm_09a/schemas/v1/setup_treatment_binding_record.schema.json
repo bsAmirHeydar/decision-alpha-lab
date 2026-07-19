@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "binding_digest": {
+      "type": "string"
+    },
+    "binding_state": {
+      "type": "string"
+    },
+    "execution_authority_created": {
+      "type": "boolean"
+    },
+    "setup_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "setup_id",
+    "binding_state",
+    "execution_authority_created",
+    "binding_digest"
+  ],
+  "type": "object"
+}

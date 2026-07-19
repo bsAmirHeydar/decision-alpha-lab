@@ -65,3 +65,8 @@ A subphase failure does not authorize skipping to the next partition. The last a
 - [[PHASE_PARTITION_AND_PATCH_GRANULARITY_STANDARD]]
 - [[SUBPHASE_HANDOFF_AND_CHECKPOINT_STANDARD]]
 - [[BALANCED_PHASE_PARTITION_DECISION]]
+
+
+## Current implementation state
+
+LCM-09A completed as accepted reference under `SETUPFREEZE_8638449DF9A774634FE9B8F9E17EF891`. LCM-09 remains open pending LCM-09B. No Setup implementation or consumer cutover is authorized by the LCM-09A result.

@@ -1,0 +1,8 @@
+{
+  "broker_state_in_setup_core": false,
+  "drawing_state_in_setup_core": false,
+  "execution_quota_inferred_as_entitlement": false,
+  "phase_id": "LCM-09A",
+  "policy_digest": "sha256:72d0babff5586f3ad1d6b4f1d0e79ae3fce332b1e554ed1178068f85d23853cb",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,8 @@
+{
+  "blocked_context_reference_as_canonical_forbidden": true,
+  "canonical_reference_requires_cutover_ready_context": true,
+  "phase_id": "LCM-09A",
+  "policy_digest": "sha256:a87d93dfc2560f6b8d707a5214c77c3d56c11b964cf8de61e19c06c3f226c46a",
+  "schema_version": "1.0.0",
+  "unknown_is_blocking": true
+}

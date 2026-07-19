@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "candidate_digest": {
+      "type": "string"
+    },
+    "candidate_id": {
+      "type": "string"
+    },
+    "candidate_status": {
+      "type": "string"
+    },
+    "evidence_categories": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "source_artifact_path": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "candidate_id",
+    "source_artifact_path",
+    "evidence_categories",
+    "candidate_status",
+    "candidate_digest"
+  ],
+  "type": "object"
+}

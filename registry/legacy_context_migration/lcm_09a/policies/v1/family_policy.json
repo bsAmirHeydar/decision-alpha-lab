@@ -1,0 +1,8 @@
+{
+  "continuation_reversal_auto_merge": false,
+  "family_grouping_implies_equivalence": false,
+  "phase_id": "LCM-09A",
+  "policy_digest": "sha256:333d0d384d2b0fcb15b4f465ea71e69b67985bd0e414f463898b632c637eaf8a",
+  "schema_version": "1.0.0",
+  "variant_dimensions_required": true
+}

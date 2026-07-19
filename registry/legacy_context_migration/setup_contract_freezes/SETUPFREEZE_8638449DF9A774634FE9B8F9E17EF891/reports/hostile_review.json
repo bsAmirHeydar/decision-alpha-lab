@@ -1,0 +1,50 @@
+{
+  "cases": [
+    {
+      "case": "VISUAL_SUPPRESSION_MISTAKEN_FOR_SETUP_INVALIDATION",
+      "evidence": "Drawing surfaces are recorded as boundary findings and excluded from canonical decision rules.",
+      "passed": true
+    },
+    {
+      "case": "EXECUTION_QUOTA_MISTAKEN_FOR_SETUP_ENTITLEMENT",
+      "evidence": "Quota tokens remain static evidence; entitlement semantics are UNKNOWN and blocking.",
+      "passed": true
+    },
+    {
+      "case": "CONFIRMATION_CANDLE_DRIFT",
+      "evidence": "Closed/current bar policy is not inferred; known-time state is UNKNOWN_BLOCKING.",
+      "passed": true
+    },
+    {
+      "case": "LEGACY_DEFAULT_INPUTS_OMITTED",
+      "evidence": "No default is reconstructed. Source digest and lexical evidence are preserved.",
+      "passed": true
+    },
+    {
+      "case": "CONTINUATION_AND_REVERSAL_MERGED",
+      "evidence": "Family grouping explicitly denies semantic equivalence and merge authority.",
+      "passed": true
+    },
+    {
+      "case": "BLOCKED_CONTEXT_TREATED_AS_CANONICAL",
+      "evidence": "Canonical context binding fields contain only cutover-ready context identities; none matched setup families.",
+      "passed": true
+    },
+    {
+      "case": "STATIC_DISCOVERY_PROMOTED_TO_SETUP",
+      "evidence": "All embedded findings remain unresolved candidates without Setup identity.",
+      "passed": true
+    },
+    {
+      "case": "ORDER_OR_DRAWING_API_EMBEDDED_IN_CONTRACT",
+      "evidence": "Capabilities are findings only and all authority values remain false.",
+      "passed": true
+    }
+  ],
+  "failed_case_count": 0,
+  "freeze_id": "SETUPFREEZE_8638449DF9A774634FE9B8F9E17EF891",
+  "hostile_review_passed": true,
+  "phase_id": "LCM-09A",
+  "review_digest": "sha256:98d4ee8255d4376d37ad4eec1930b2a145587883b47dc11e4512bb8fc3a49358",
+  "schema_version": "1.0.0"
+}

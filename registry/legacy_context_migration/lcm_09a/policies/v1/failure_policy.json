@@ -1,0 +1,9 @@
+{
+  "BLOCKED": "PRESERVE_UNCHANGED",
+  "FAILED": "NO_HANDOFF",
+  "PARTIAL": "DO_NOT_PUBLISH",
+  "UNKNOWN": "BLOCK_WHEN_MANDATORY",
+  "phase_id": "LCM-09A",
+  "policy_digest": "sha256:f75fdbe1cb9f31296bc8d783745e33b45bd05c4e4a3acc5c70ea0604114342a4",
+  "schema_version": "1.0.0"
+}
