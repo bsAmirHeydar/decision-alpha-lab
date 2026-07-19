@@ -1,87 +1,67 @@
 ---
 title: "LCM-11 — Visualization and Object Lifecycle"
 status: proposed-reference
-version: 1.1.0
-updated: 2026-07-18
-tags: [acl-os, lcm, legacy-migration, implementation-phase]
+version: 2.0.0
+updated: 2026-07-19
+tags: [acl-os, lcm, legacy-migration, refined-roadmap]
 phase_id: LCM-11
+roadmap_id: LCM_ROADMAP_R1_BALANCED_PARTITION
+partition_model: balanced-two-or-three-part
 ---
 # LCM-11 — Visualization and Object Lifecycle
 
-Make all drawings deterministic projections of domain events and remove hidden signal/state authority from chart-object code.
+## Master-phase purpose
 
-## Claim ceiling
+Convert drawing and reporting behavior into deterministic projections of canonical events with explicit ownership and multi-instance isolation.
 
-`VISUALIZATION_MIGRATION_REFERENCE_ONLY`
+## Approved balanced partition
 
-## Phase entry contract
+This master phase remains one non-compensatory lifecycle gate, but implementation is divided into two or three bounded patches because a single monolithic delivery would combine too many evidence, implementation, parity, cutover or destructive responsibilities. The partition is intentionally moderate: it reduces interruption and rollback risk without creating dozens of administrative micro-phases.
 
-- exact prior-phase handoff and digest;
-- current baseline plus all approved amendments;
-- phase authority permit and named reviewers;
-- closed registries and schemas;
-- explicit UNKNOWN for missing evidence.
+1. [[LCM_11A_VISUAL_OBJECT_INVENTORY_NAMESPACE_AND_LIFECYCLE_CONTRACTS|LCM-11A — Visual Object Inventory, Namespace and Lifecycle Contracts]]
+2. [[LCM_11B_MULTI_CHART_ISOLATION_VISUAL_PARITY_AND_VISUALIZER_CUTOVER|LCM-11B — Multi-Chart Isolation, Visual Parity and Visualizer Cutover]]
 
-## Work packages
+Required order: `LCM-11A → LCM-11B`.
 
-### WP-11.1 Visual event contract
+A completed subphase does not mean the master phase has passed. The master phase closes only after the final subphase handoff and the master acceptance gate are accepted.
 
-Define source identity, event, anchor bar/time/price, direction, style, ownership and lifecycle.
+## Partition invariants
 
-### WP-11.2 Object identity registry
+- Subphase boundaries may reduce patch size but may not weaken evidence, ownership, known-time, parity, security, rollback or documentation requirements.
+- An upstream UNKNOWN remains UNKNOWN downstream unless new evidence resolves it.
+- No subphase may infer authority omitted from its handoff.
+- Move, semantic refactor, consumer cutover, quarantine and deletion are separated according to the refined roadmap.
+- Registries remain append-only or version-superseded; historical decisions are not overwritten.
+- A failed subphase leaves the master phase open and downstream subphases blocked.
 
-Create deterministic instance-safe names and ownership prefixes. Resolve collisions among old prefixes.
+## Master entry contract
 
-### WP-11.3 Drawing extraction
+- Exact accepted handoff from the preceding master phase.
+- Current baseline and all approved amendments.
+- Closed identity/ownership/locator registries required by scope.
+- Named domain owner, migration owner and independent reviewer.
+- Explicit scope, non-goals, claim ceiling, allowed actions and forbidden actions.
+- Clean or recorded working-tree state and rollback point.
 
-Move line, zone, label, session box, dashboard and debug rendering out of detectors and treatments.
+## Master artifacts
 
-### WP-11.4 Lifecycle parity
+- Master phase manifest linking all subphase manifests and digests.
+- Consolidated acceptance-gate report.
+- Consolidated blocker, UNKNOWN, variance and residual-risk registers.
+- Final registry snapshots created by the phase.
+- Master handoff that permits only the next master phase.
 
-Characterize create/update/delete, chart restart, timeframe change, history reload and indicator removal.
+## Master acceptance gate
 
-### WP-11.5 Variant preservation
+Active visual consumers render canonical records with anchor/lifecycle parity and multi-chart isolation; renderers do not own domain state.
 
-Keep fixed-timeframe-close and host-chart-close drawing endpoints as explicit variants where approved.
+## Master failure and rollback
 
-### WP-11.6 Visual evidence
+A subphase failure does not authorize skipping to the next partition. The last accepted subphase output remains the recovery point. Rollback restores the exact prior handoff, including source files, locators, configuration, generated registries and relevant persistent state. The master phase may be re-entered only through a new versioned subphase attempt or approved ADR.
 
-Produce anchor-level parity records and bounded screenshot review artifacts.
+## Related controls
 
-## Repository-specific target paths
-
-- `lab/11_strategy_factory/visualizers/<visualizer_id>/`
-- `mql5/Include/AlphaLab/ContextOS/Visualizers/<visualizer_id>/`
-
-## Mandatory verification
-
-- object name collision
-- anchor time/price exactness
-- restart and history expansion
-- owned-prefix cleanup only
-- multi-chart/multi-instance
-- drawing disabled leaves domain outputs unchanged
-
-## Hostile-review focus
-
-- drawing function creating signals
-- wrong symbol price drawn
-- endpoint semantics changing
-- deleting objects owned by another module
-- performance collapse from full redraw
-
-## Commit and patch boundaries
-
-The phase is delivered as the smallest safe vertical patch. Inventory, move-only, semantic refactor, cutover, quarantine and deletion operations remain separate commits. The patch includes root-relative file index, hashes, inventory, manifest, QA, documentation and rollback. Staging uses `git add --pathspec-from-file`; broad staging is forbidden.
-
-## Acceptance gate
-
-Disabling visualization cannot change domain behavior; anchor and lifecycle parity pass; object ownership is deterministic.
-
-## Failure and rollback
-
-A failed check leaves the migration state unchanged. Partial output is discarded or quarantined. Rollback restores the exact phase input and verifies its manifest; it may not reconstruct lost behavior from prose.
-
-## Handoff
-
-The handoff records source and output digests, completed gates, unresolved blockers, allowed next actions, forbidden actions, owner approvals and residual risk. No downstream phase may infer a missing approval or convert UNKNOWN to PASS.
+- [[06_REFINED_IMPLEMENTATION_ROADMAP]]
+- [[PHASE_PARTITION_AND_PATCH_GRANULARITY_STANDARD]]
+- [[SUBPHASE_HANDOFF_AND_CHECKPOINT_STANDARD]]
+- [[BALANCED_PHASE_PARTITION_DECISION]]

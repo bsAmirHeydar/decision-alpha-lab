@@ -1,8 +1,8 @@
 ---
 title: "LCM Templates MOC"
 status: proposed-reference
-version: 1.0.0
-updated: 2026-07-18
+version: 2.0.0
+updated: 2026-07-19
 tags: [acl-os, lcm, legacy-migration]
 ---
 # LCM Templates MOC
@@ -13,3 +13,5 @@ tags: [acl-os, lcm, legacy-migration]
 - [[TEMPLATE_CUTOVER_PLAN]]
 - [[TEMPLATE_DELETION_ELIGIBILITY]]
 - [[TEMPLATE_MIGRATION_ADR]]
+- [[TEMPLATE_SUBPHASE_CONTRACT]]
+- [[TEMPLATE_SUBPHASE_HANDOFF_RECEIPT]]

@@ -1,8 +1,8 @@
 ---
 title: "Legacy Context Migration Program — Home"
 status: proposed-reference
-version: 1.0.0
-updated: 2026-07-18
+version: 2.0.0
+updated: 2026-07-19
 tags: [acl-os, lcm, legacy-migration]
 ---
 # Legacy Context Migration Program — Home
@@ -22,30 +22,35 @@ LCM is not a new alpha-discovery phase and is not permission to rewrite old logi
 3. [[03_IMPLEMENTATION_SEQUENCE]]
 4. [[04_CURRENT_PROJECT_SURVEY]]
 5. [[05_EXECUTIVE_GUIDE_FA]]
+6. [[06_REFINED_IMPLEMENTATION_ROADMAP]]
 
-## Core maps
+## Core maps and controls
 
 - [[MIGRATION_CONSTITUTION]]
 - [[TARGET_REPOSITORY_TOPOLOGY]]
 - [[MIGRATION_STATE_MACHINE]]
 - [[BEHAVIORAL_PARITY_STANDARD]]
 - [[MIGRATION_WAVE_PORTFOLIO]]
+- [[PHASE_PARTITION_AND_PATCH_GRANULARITY_STANDARD]]
+- [[SUBPHASE_HANDOFF_AND_CHECKPOINT_STANDARD]]
 - [[CONTROLLED_DELETION_STANDARD]]
 - [[LCM_DEFINITION_OF_DONE]]
 
-## Phase sequence
+## Phase model
 
-`LCM-00` through `LCM-16` are implementation phases, not documentation chapters. Each phase has an input contract, owned scope, produced artifacts, prohibited changes, acceptance gates, rollback and handoff.
+`LCM-00` through `LCM-16` remain the authoritative master phases. `LCM-00` through `LCM-07` are already delivered as bounded reference phases. The heavy implementation phases `LCM-08` through `LCM-16` are now executed through a balanced partition of two or three subphases each. The partition changes delivery granularity, not lifecycle meaning or gate strength.
+
+The next approved implementation unit is [[LCM_08A_CONTEXT_PORTFOLIO_FREEZE_RISK_CLASSIFICATION_AND_PILOT_SELECTION|LCM-08A — Context Portfolio Freeze, Risk Classification and Pilot Selection]].
 
 ## Claim ceiling
 
-`LEGACY_MIGRATION_PROGRAM_DESIGN_ONLY`
+`LEGACY_MIGRATION_PROGRAM_REFERENCE_ONLY`
 
-This package defines the migration operating system and inventories the current repository. It does not migrate a Context, prove MQL5 parity, authorize execution, remove a legacy file or activate capital.
+The program may create migration evidence, canonical packages, compatibility adapters, parity reports, bounded cutovers, quarantine and approved deletion records. It does not prove alpha, authorize production, create live-order authority or activate capital.
 
 ## Current implementation status
 
-- LCM-00 implemented reference baseline freeze.
-- LCM-01 implemented reference forensic survey.
-- **LCM-02 implemented reference classification, ownership-role binding and authority isolation.**
-- Next: [[LCM_03_CANONICAL_IDENTITY_ALIAS_AND_LOCATOR]].
+- LCM-00 through LCM-07: implemented reference foundations.
+- Balanced roadmap amendment: documented and machine-registered.
+- LCM-08 through LCM-16: not implemented; governed by the refined roadmap.
+- Next: LCM-08A.

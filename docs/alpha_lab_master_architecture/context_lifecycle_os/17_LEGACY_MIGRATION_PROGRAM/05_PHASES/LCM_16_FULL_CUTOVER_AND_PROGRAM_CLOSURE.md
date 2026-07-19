@@ -1,87 +1,67 @@
 ---
 title: "LCM-16 — Full Cutover and Program Closure"
 status: proposed-reference
-version: 1.1.0
-updated: 2026-07-18
-tags: [acl-os, lcm, legacy-migration, implementation-phase]
+version: 2.0.0
+updated: 2026-07-19
+tags: [acl-os, lcm, legacy-migration, refined-roadmap]
 phase_id: LCM-16
+roadmap_id: LCM_ROADMAP_R1_BALANCED_PARTITION
+partition_model: balanced-two-or-three-part
 ---
 # LCM-16 — Full Cutover and Program Closure
 
-Prove that active domain logic now enters ACL-OS through canonical packages and that the repository can be understood, built, tested, restored and evolved without the original migration conversation.
+## Master-phase purpose
 
-## Claim ceiling
+Run full closure evidence, recovery drills and final ledger publication, then issue an honest evidence-bounded program decision.
 
-`LEGACY_MIGRATION_CLOSURE_REFERENCE_ONLY`
+## Approved balanced partition
 
-## Phase entry contract
+This master phase remains one non-compensatory lifecycle gate, but implementation is divided into two or three bounded patches because a single monolithic delivery would combine too many evidence, implementation, parity, cutover or destructive responsibilities. The partition is intentionally moderate: it reduces interruption and rollback risk without creating dozens of administrative micro-phases.
 
-- exact prior-phase handoff and digest;
-- current baseline plus all approved amendments;
-- phase authority permit and named reviewers;
-- closed registries and schemas;
-- explicit UNKNOWN for missing evidence.
+1. [[LCM_16A_FULL_REGRESSION_MQL5_MATRIX_PARITY_AND_SECURITY_AUDIT|LCM-16A — Full Regression, MQL5 Matrix, Parity and Security Audit]]
+2. [[LCM_16B_RECOVERY_DRILL_FINAL_LEDGER_AND_PROGRAM_CLOSURE|LCM-16B — Recovery Drill, Final Ledger and Program Closure]]
 
-## Work packages
+Required order: `LCM-16A → LCM-16B`.
 
-### WP-16.1 Canonical registry closure
+A completed subphase does not mean the master phase has passed. The master phase closes only after the final subphase handoff and the master acceptance gate are accepted.
 
-Publish final Context, Setup, Treatment, visualizer, engine, adapter, alias, deprecation, quarantine and deletion registries.
+## Partition invariants
 
-### WP-16.2 Full-system verification
+- Subphase boundaries may reduce patch size but may not weaken evidence, ownership, known-time, parity, security, rollback or documentation requirements.
+- An upstream UNKNOWN remains UNKNOWN downstream unless new evidence resolves it.
+- No subphase may infer authority omitted from its handoff.
+- Move, semantic refactor, consumer cutover, quarantine and deletion are separated according to the refined roadmap.
+- Registries remain append-only or version-superseded; historical decisions are not overwritten.
+- A failed subphase leaves the master phase open and downstream subphases blocked.
 
-Run clean clone, Python compile/tests, schema validation, MQL5 compile/tester where available, golden replay, docs links, duplicate scan, forbidden API scan and manifest verification.
+## Master entry contract
 
-### WP-16.3 Architecture conformance
+- Exact accepted handoff from the preceding master phase.
+- Current baseline and all approved amendments.
+- Closed identity/ownership/locator registries required by scope.
+- Named domain owner, migration owner and independent reviewer.
+- Explicit scope, non-goals, claim ceiling, allowed actions and forbidden actions.
+- Clean or recorded working-tree state and rollback point.
 
-Verify dependency directions, package boundaries, generated/authored status and hidden-authority absence.
+## Master artifacts
 
-### WP-16.4 Rollback and recovery drill
+- Master phase manifest linking all subphase manifests and digests.
+- Consolidated acceptance-gate report.
+- Consolidated blocker, UNKNOWN, variance and residual-risk registers.
+- Final registry snapshots created by the phase.
+- Master handoff that permits only the next master phase.
 
-Restore selected quarantined and deleted artifacts from approved archives and validate locator rollback.
+## Master acceptance gate
 
-### WP-16.5 Residual risk
+The final evidence set supports CLOSED, CLOSED_WITH_RESIDUAL_RISK or REOPEN_REQUIRED without implying alpha, production or capital readiness.
 
-Record unresolved external consumers, unavailable MT5 evidence, intentionally archived variants and accepted compatibility debt.
+## Master failure and rollback
 
-### WP-16.6 Closure decision
+A subphase failure does not authorize skipping to the next partition. The last accepted subphase output remains the recovery point. Rollback restores the exact prior handoff, including source files, locators, configuration, generated registries and relevant persistent state. The master phase may be re-entered only through a new versioned subphase attempt or approved ADR.
 
-Issue CLOSED, CLOSED_WITH_RESIDUAL_RISK or REOPEN_REQUIRED. Closure never implies alpha or capital readiness.
+## Related controls
 
-## Repository-specific target paths
-
-- `registry/legacy_context_migration/closure/`
-- `reports/lcm/closure/`
-- `docs/.../17_LEGACY_MIGRATION_PROGRAM/`
-
-## Mandatory verification
-
-- canonical locator completeness
-- zero active unresolved legacy source
-- full clean-checkout QA
-- event/provenance verification
-- rollback drill
-- documentation self-sufficiency
-
-## Hostile-review focus
-
-- declaring closure from file movement
-- unavailable MetaEditor/MT5 proof
-- compatibility wrappers becoming permanent
-- residual unknown external consumers
-
-## Commit and patch boundaries
-
-The phase is delivered as the smallest safe vertical patch. Inventory, move-only, semantic refactor, cutover, quarantine and deletion operations remain separate commits. The patch includes root-relative file index, hashes, inventory, manifest, QA, documentation and rollback. Staging uses `git add --pathspec-from-file`; broad staging is forbidden.
-
-## Acceptance gate
-
-All active identities resolve through canonical ACL-OS packages; legacy residues are explicit archive/quarantine/compatibility assets; no hidden execution authority remains; closure limitations are honest.
-
-## Failure and rollback
-
-A failed check leaves the migration state unchanged. Partial output is discarded or quarantined. Rollback restores the exact phase input and verifies its manifest; it may not reconstruct lost behavior from prose.
-
-## Handoff
-
-The handoff records source and output digests, completed gates, unresolved blockers, allowed next actions, forbidden actions, owner approvals and residual risk. No downstream phase may infer a missing approval or convert UNKNOWN to PASS.
+- [[06_REFINED_IMPLEMENTATION_ROADMAP]]
+- [[PHASE_PARTITION_AND_PATCH_GRANULARITY_STANDARD]]
+- [[SUBPHASE_HANDOFF_AND_CHECKPOINT_STANDARD]]
+- [[BALANCED_PHASE_PARTITION_DECISION]]

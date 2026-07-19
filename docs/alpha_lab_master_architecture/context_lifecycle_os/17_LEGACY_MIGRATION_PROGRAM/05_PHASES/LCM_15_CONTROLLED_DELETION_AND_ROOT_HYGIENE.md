@@ -1,90 +1,68 @@
 ---
 title: "LCM-15 — Controlled Deletion and Root Hygiene"
 status: proposed-reference
-version: 1.1.0
-updated: 2026-07-18
-tags: [acl-os, lcm, legacy-migration, implementation-phase]
+version: 2.0.0
+updated: 2026-07-19
+tags: [acl-os, lcm, legacy-migration, refined-roadmap]
 phase_id: LCM-15
+roadmap_id: LCM_ROADMAP_R1_BALANCED_PARTITION
+partition_model: balanced-two-or-three-part
 ---
 # LCM-15 — Controlled Deletion and Root Hygiene
 
-Perform the only intentionally destructive phase: remove artifacts that have passed every non-compensatory gate and relocate root clutter through approved locators.
+## Master-phase purpose
 
-## Claim ceiling
+Perform non-destructive structural reorganization and then the only approved destructive operation: exact, evidence-gated deletion.
 
-`CONTROLLED_DELETION_REFERENCE_ONLY`
+## Approved balanced partition
 
-## Phase entry contract
+This master phase remains one non-compensatory lifecycle gate, but implementation is divided into two or three bounded patches because a single monolithic delivery would combine too many evidence, implementation, parity, cutover or destructive responsibilities. The partition is intentionally moderate: it reduces interruption and rollback risk without creating dozens of administrative micro-phases.
 
-- exact prior-phase handoff and digest;
-- current baseline plus all approved amendments;
-- phase authority permit and named reviewers;
-- closed registries and schemas;
-- explicit UNKNOWN for missing evidence.
+1. [[LCM_15A_DELETION_CANDIDATE_INVENTORY_AND_REFERENCE_PROOF|LCM-15A — Deletion Candidate Inventory and Reference Proof]]
+2. [[LCM_15B_ROOT_RELEASE_AND_DOCUMENTATION_REORGANIZATION|LCM-15B — Root, Release and Documentation Reorganization]]
+3. [[LCM_15C_CONTROLLED_DELETION_AND_CLEAN_CLONE_VERIFICATION|LCM-15C — Controlled Deletion and Clean-Clone Verification]]
 
-## Work packages
+Required order: `LCM-15A → LCM-15B → LCM-15C`.
 
-### WP-15.1 Deletion eligibility evaluation
+A completed subphase does not mean the master phase has passed. The master phase closes only after the final subphase handoff and the master acceptance gate are accepted.
 
-Verify successor/archive, mapping, zero references, parity, approvals, quarantine, rollback, retained evidence and clean-clone status.
+## Partition invariants
 
-### WP-15.2 Root release migration
+- Subphase boundaries may reduce patch size but may not weaken evidence, ownership, known-time, parity, security, rollback or documentation requirements.
+- An upstream UNKNOWN remains UNKNOWN downstream unless new evidence resolves it.
+- No subphase may infer authority omitted from its handoff.
+- Move, semantic refactor, consumer cutover, quarantine and deletion are separated according to the refined roadmap.
+- Registries remain append-only or version-superseded; historical decisions are not overwritten.
+- A failed subphase leaves the master phase open and downstream subphases blocked.
 
-Move phase inventories, hashes, manifests and QA records to registry releases; installers to tools; release notes to docs; large patches to approved storage.
+## Master entry contract
 
-### WP-15.3 Duplicate documentation removal
+- Exact accepted handoff from the preceding master phase.
+- Current baseline and all approved amendments.
+- Closed identity/ownership/locator registries required by scope.
+- Named domain owner, migration owner and independent reviewer.
+- Explicit scope, non-goals, claim ceiling, allowed actions and forbidden actions.
+- Clean or recorded working-tree state and rollback point.
 
-Delete only exact duplicate trees whose canonical copy, redirects and external-link analysis are complete.
+## Master artifacts
 
-### WP-15.4 Dead code deletion
+- Master phase manifest linking all subphase manifests and digests.
+- Consolidated acceptance-gate report.
+- Consolidated blocker, UNKNOWN, variance and residual-risk registers.
+- Final registry snapshots created by the phase.
+- Master handoff that permits only the next master phase.
 
-Remove quarantined files approved by ledger using explicit pathspecs.
+## Master acceptance gate
 
-### WP-15.5 Post-delete verification
+Only exact ledger-approved paths are deleted after reorganization and clean-clone verification; archive recovery remains possible.
 
-Re-run references, compile/test/replay, Obsidian links, manifests, package installation and restoration from archive.
+## Master failure and rollback
 
-### WP-15.6 Deletion ledger publication
+A subphase failure does not authorize skipping to the next partition. The last accepted subphase output remains the recovery point. Rollback restores the exact prior handoff, including source files, locators, configuration, generated registries and relevant persistent state. The master phase may be re-entered only through a new versioned subphase attempt or approved ADR.
 
-Record every deleted path/hash, reason, successor/archive, approvals and recovery location.
+## Related controls
 
-## Repository-specific target paths
-
-- `registry/legacy_context_migration/deletions/`
-- `registry/releases/`
-- `tools/release/powershell/`
-- `docs/releases/`
-
-## Mandatory verification
-
-- all deletion gates true
-- exact path list review
-- no `git add .` or broad wildcard delete
-- clean clone
-- full reference scan
-- archive restore sample
-- post-delete manifest
-
-## Hostile-review focus
-
-- irreversible loss
-- external links unknown
-- historical installer breakage
-- case-sensitive/insensitive mismatch
-- deleting source evidence mistaken for duplicate
-
-## Commit and patch boundaries
-
-The phase is delivered as the smallest safe vertical patch. Inventory, move-only, semantic refactor, cutover, quarantine and deletion operations remain separate commits. The patch includes root-relative file index, hashes, inventory, manifest, QA, documentation and rollback. Staging uses `git add --pathspec-from-file`; broad staging is forbidden.
-
-## Acceptance gate
-
-Only ledger-approved paths were removed; root contains only approved controls; all active builds/docs resolve; archive and rollback evidence remain intact.
-
-## Failure and rollback
-
-A failed check leaves the migration state unchanged. Partial output is discarded or quarantined. Rollback restores the exact phase input and verifies its manifest; it may not reconstruct lost behavior from prose.
-
-## Handoff
-
-The handoff records source and output digests, completed gates, unresolved blockers, allowed next actions, forbidden actions, owner approvals and residual risk. No downstream phase may infer a missing approval or convert UNKNOWN to PASS.
+- [[06_REFINED_IMPLEMENTATION_ROADMAP]]
+- [[PHASE_PARTITION_AND_PATCH_GRANULARITY_STANDARD]]
+- [[SUBPHASE_HANDOFF_AND_CHECKPOINT_STANDARD]]
+- [[BALANCED_PHASE_PARTITION_DECISION]]

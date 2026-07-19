@@ -1,11 +1,13 @@
 ---
 title: "Program Architecture and Critical Path"
 status: proposed-reference
-version: 1.0.0
-updated: 2026-07-18
+version: 2.0.0
+updated: 2026-07-19
 tags: [acl-os, lcm, legacy-migration]
 ---
 # Program Architecture and Critical Path
+
+## Master-phase architecture
 
 ```mermaid
 flowchart TD
@@ -27,32 +29,64 @@ flowchart TD
     Z --> K[LCM-16 Full cutover and closure]
 ```
 
+## Refined implementation train
+
+```mermaid
+flowchart LR
+    L7[LCM-07] --> A8[08A Portfolio]
+    A8 --> B8[08B Pilot]
+    B8 --> C8[08C Context waves]
+    C8 --> A9[09A Setup contracts]
+    A9 --> B9[09B Setup migration]
+    B9 --> A10[10A Capability inventory]
+    A10 --> B10[10B Boundary construction]
+    B10 --> C10[10C Dry parity and safety]
+    C10 --> A11[11A Visual contracts]
+    A11 --> B11[11B Visual parity/cutover]
+    B11 --> A12[12A Doc authority]
+    A12 --> B12[12B Obsidian reconciliation]
+    B12 --> A13[13A Dual run]
+    A13 --> B13[13B Consumer cutover]
+    B13 --> C13[13C Rollback closure]
+    C13 --> A14[14A Deprecation]
+    A14 --> B14[14B Quarantine]
+    B14 --> A15[15A Deletion proof]
+    A15 --> B15[15B Reorganization]
+    B15 --> C15[15C Deletion]
+    C15 --> A16[16A Full audit]
+    A16 --> B16[16B Closure]
+```
+
 ## Critical path
 
-The critical path is not code movement. It is:
+The critical path is not file movement. It is:
 
-`owner resolution → behavioral capture → canonical specification → parity proof → cutover approval`.
+`owner resolution → evidence capture → canonical contract → deterministic implementation → parity proof → reversible cutover → quarantine maturity → deletion proof → closure evidence`.
 
-Folder changes can proceed only after a file or domain family has crossed the required state boundary. The first irreversible action is deletion, therefore deletion is deliberately near the end of the program.
+The balanced partition protects this path by separating concerns that have different failure and rollback semantics. Context portfolio selection is separated from pilot implementation; Treatment extraction is separated from execution safety proof; dual-run evidence is separated from consumer switching; deletion proof is separated from repository reorganization and destructive deletion.
 
-## Parallelizable work
+## Serialization rules
 
-The following can run in parallel after LCM-02:
+The following transitions are strictly serialized:
 
-- source characterization for independent domain families;
-- documentation authority classification;
-- root release-metadata cataloging;
-- compatibility-adapter scaffolding;
-- shared-engine candidate analysis.
+- identity before package creation;
+- characterization before semantic refactor;
+- Context packages before Setup packages;
+- Setup packages before Treatment extraction;
+- disabled execution boundary before dry parity;
+- visual contracts before visual cutover;
+- documentation authority before relocation;
+- dual-run evidence before consumer switch;
+- cutover rollback proof before deprecation;
+- deprecation before quarantine;
+- quarantine maturity before deletion eligibility;
+- deletion proof before reorganization and revalidation;
+- full audit before closure decision.
 
-The following must remain serialized:
+## Parallel work allowed inside a subphase
 
-- canonical identity assignment before package creation;
-- behavior characterization before semantic refactor;
-- parity before cutover;
-- cutover before quarantine;
-- quarantine before deletion.
+Independent domain families may be analyzed in parallel only when they use separate packet identities, source digests, owners and acceptance records. A parallel task cannot publish directly to the next subphase; its outputs must be consolidated through the current subphase gate.
 
-## Program release model
+## Release model
 
-Every phase is delivered as a root-relative patch. Move-only, characterization, refactor, cutover, quarantine and deletion changes are never combined in one commit.
+Every subphase is a root-relative atomic patch. The master phase closes only after all of its subphase patches are accepted. See [[PHASE_PARTITION_AND_PATCH_GRANULARITY_STANDARD]] and [[SUBPHASE_HANDOFF_AND_CHECKPOINT_STANDARD]].

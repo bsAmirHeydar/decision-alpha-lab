@@ -1,86 +1,68 @@
 ---
 title: "LCM-08 — Context Package Migration"
 status: proposed-reference
-version: 1.1.0
-updated: 2026-07-18
-tags: [acl-os, lcm, legacy-migration, implementation-phase]
+version: 2.0.0
+updated: 2026-07-19
+tags: [acl-os, lcm, legacy-migration, refined-roadmap]
 phase_id: LCM-08
+roadmap_id: LCM_ROADMAP_R1_BALANCED_PARTITION
+partition_model: balanced-two-or-three-part
 ---
 # LCM-08 — Context Package Migration
 
-Move domain state and occurrence semantics into canonical ACL-02-compatible Context packages while preserving observed and approved behavior.
+## Master-phase purpose
 
-## Claim ceiling
+Produce canonical, evidence-bound Context packages for the entire active portfolio without silently changing causal-time, state, occurrence or reference semantics.
 
-`CONTEXT_PACKAGE_MIGRATION_REFERENCE_ONLY`
+## Approved balanced partition
 
-## Phase entry contract
+This master phase remains one non-compensatory lifecycle gate, but implementation is divided into two or three bounded patches because a single monolithic delivery would combine too many evidence, implementation, parity, cutover or destructive responsibilities. The partition is intentionally moderate: it reduces interruption and rollback risk without creating dozens of administrative micro-phases.
 
-- exact prior-phase handoff and digest;
-- current baseline plus all approved amendments;
-- phase authority permit and named reviewers;
-- closed registries and schemas;
-- explicit UNKNOWN for missing evidence.
+1. [[LCM_08A_CONTEXT_PORTFOLIO_FREEZE_RISK_CLASSIFICATION_AND_PILOT_SELECTION|LCM-08A — Context Portfolio Freeze, Risk Classification and Pilot Selection]]
+2. [[LCM_08B_PILOT_CONTEXT_MIGRATION_COMPATIBILITY_ADAPTER_AND_BEHAVIORAL_PARITY|LCM-08B — Pilot Context Migration, Compatibility Adapter and Behavioral Parity]]
+3. [[LCM_08C_CONTEXT_WAVE_MIGRATION_AND_CONTEXT_PORTFOLIO_CLOSURE|LCM-08C — Context Wave Migration and Context Portfolio Closure]]
 
-## Work packages
+Required order: `LCM-08A → LCM-08B → LCM-08C`.
 
-### WP-08.1 Context boundary extraction
+A completed subphase does not mean the master phase has passed. The master phase closes only after the final subphase handoff and the master acceptance gate are accepted.
 
-Identify what belongs to market Context versus Setup, Treatment, visualization and execution.
+## Partition invariants
 
-### WP-08.2 Package authoring
+- Subphase boundaries may reduce patch size but may not weaken evidence, ownership, known-time, parity, security, rollback or documentation requirements.
+- An upstream UNKNOWN remains UNKNOWN downstream unless new evidence resolves it.
+- No subphase may infer authority omitted from its handoff.
+- Move, semantic refactor, consumer cutover, quarantine and deletion are separated according to the refined roadmap.
+- Registries remain append-only or version-superseded; historical decisions are not overwritten.
+- A failed subphase leaves the master phase open and downstream subphases blocked.
 
-Create manifest, owners, doctrine, glossary, scope, ontology, causal clock, data, state, occurrence, reference, feature, treatment envelope, gates and security profile.
+## Master entry contract
 
-### WP-08.3 Legacy adapter
+- Exact accepted handoff from the preceding master phase.
+- Current baseline and all approved amendments.
+- Closed identity/ownership/locator registries required by scope.
+- Named domain owner, migration owner and independent reviewer.
+- Explicit scope, non-goals, claim ceiling, allowed actions and forbidden actions.
+- Clean or recorded working-tree state and rollback point.
 
-Translate old input/state representations into canonical ContextObservation records.
+## Master artifacts
 
-### WP-08.4 Context parity
+- Master phase manifest linking all subphase manifests and digests.
+- Consolidated acceptance-gate report.
+- Consolidated blocker, UNKNOWN, variance and residual-risk registers.
+- Final registry snapshots created by the phase.
+- Master handoff that permits only the next master phase.
 
-Compare occurrences, state transitions, references, missingness, known-time and reason codes.
+## Master acceptance gate
 
-### WP-08.5 Context amendment records
+Every active Context identity has a canonical package with accepted parity or an explicit blocking/archive disposition; no active consumer cutover is implied.
 
-Resolve approved corrections as versioned changes; retain the legacy-observed package when audit requires it.
+## Master failure and rollback
 
-### WP-08.6 ACL-OS onboarding
+A subphase failure does not authorize skipping to the next partition. The last accepted subphase output remains the recovery point. Rollback restores the exact prior handoff, including source files, locators, configuration, generated registries and relevant persistent state. The master phase may be re-entered only through a new versioned subphase attempt or approved ADR.
 
-Run compiler/onboarding gates and publish generated artifacts without enabling Setup or execution authority.
+## Related controls
 
-## Repository-specific target paths
-
-- `lab/11_strategy_factory/contexts/<context_id>/`
-- `mql5/Include/AlphaLab/ContextOS/Contexts/<context_id>/`
-
-## Mandatory verification
-
-- ACL context completeness
-- known-time and state-machine tests
-- golden occurrence/reference replay
-- missingness and invalid transition
-- legacy adapter contract
-- no order/drawing APIs in Context core
-
-## Hostile-review focus
-
-- Context boundary absorbing trigger logic
-- duplicated session clocks
-- future-aware diagnostic contamination
-- source doctrine conflicts
-
-## Commit and patch boundaries
-
-The phase is delivered as the smallest safe vertical patch. Inventory, move-only, semantic refactor, cutover, quarantine and deletion operations remain separate commits. The patch includes root-relative file index, hashes, inventory, manifest, QA, documentation and rollback. Staging uses `git add --pathspec-from-file`; broad staging is forbidden.
-
-## Acceptance gate
-
-Context package compiles through ACL onboarding and matches approved legacy traces with no hidden Setup, drawing or execution authority.
-
-## Failure and rollback
-
-A failed check leaves the migration state unchanged. Partial output is discarded or quarantined. Rollback restores the exact phase input and verifies its manifest; it may not reconstruct lost behavior from prose.
-
-## Handoff
-
-The handoff records source and output digests, completed gates, unresolved blockers, allowed next actions, forbidden actions, owner approvals and residual risk. No downstream phase may infer a missing approval or convert UNKNOWN to PASS.
+- [[06_REFINED_IMPLEMENTATION_ROADMAP]]
+- [[PHASE_PARTITION_AND_PATCH_GRANULARITY_STANDARD]]
+- [[SUBPHASE_HANDOFF_AND_CHECKPOINT_STANDARD]]
+- [[BALANCED_PHASE_PARTITION_DECISION]]

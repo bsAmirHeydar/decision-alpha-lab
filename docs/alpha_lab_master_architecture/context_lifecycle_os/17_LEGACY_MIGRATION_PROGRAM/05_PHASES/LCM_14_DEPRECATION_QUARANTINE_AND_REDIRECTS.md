@@ -1,88 +1,67 @@
 ---
 title: "LCM-14 — Deprecation, Quarantine and Redirects"
 status: proposed-reference
-version: 1.1.0
-updated: 2026-07-18
-tags: [acl-os, lcm, legacy-migration, implementation-phase]
+version: 2.0.0
+updated: 2026-07-19
+tags: [acl-os, lcm, legacy-migration, refined-roadmap]
 phase_id: LCM-14
+roadmap_id: LCM_ROADMAP_R1_BALANCED_PARTITION
+partition_model: balanced-two-or-three-part
 ---
 # LCM-14 — Deprecation, Quarantine and Redirects
 
-Remove legacy artifacts from active runtime and documentation paths while preserving reversibility, provenance and temporary compatibility.
+## Master-phase purpose
 
-## Claim ceiling
+Deactivate legacy paths through explicit deprecation, redirects and immutable quarantine while preserving restoration and observation.
 
-`DEPRECATION_AND_QUARANTINE_REFERENCE_ONLY`
+## Approved balanced partition
 
-## Phase entry contract
+This master phase remains one non-compensatory lifecycle gate, but implementation is divided into two or three bounded patches because a single monolithic delivery would combine too many evidence, implementation, parity, cutover or destructive responsibilities. The partition is intentionally moderate: it reduces interruption and rollback risk without creating dozens of administrative micro-phases.
 
-- exact prior-phase handoff and digest;
-- current baseline plus all approved amendments;
-- phase authority permit and named reviewers;
-- closed registries and schemas;
-- explicit UNKNOWN for missing evidence.
+1. [[LCM_14A_DEPRECATION_REGISTRY_AND_COMPATIBILITY_REDIRECTS|LCM-14A — Deprecation Registry and Compatibility Redirects]]
+2. [[LCM_14B_QUARANTINE_OBSERVATION_AND_RETIREMENT_ELIGIBILITY|LCM-14B — Quarantine, Observation and Retirement Eligibility]]
 
-## Work packages
+Required order: `LCM-14A → LCM-14B`.
 
-### WP-14.1 Deprecation registry
+A completed subphase does not mean the master phase has passed. The master phase closes only after the final subphase handoff and the master acceptance gate are accepted.
 
-Record successor, warning, deprecation start, minimum compatibility window and removal gate.
+## Partition invariants
 
-### WP-14.2 Compatibility wrappers
+- Subphase boundaries may reduce patch size but may not weaken evidence, ownership, known-time, parity, security, rollback or documentation requirements.
+- An upstream UNKNOWN remains UNKNOWN downstream unless new evidence resolves it.
+- No subphase may infer authority omitted from its handoff.
+- Move, semantic refactor, consumer cutover, quarantine and deletion are separated according to the refined roadmap.
+- Registries remain append-only or version-superseded; historical decisions are not overwritten.
+- A failed subphase leaves the master phase open and downstream subphases blocked.
 
-Install minimal forwarding includes/imports and documentation stubs where active external consumers require them.
+## Master entry contract
 
-### WP-14.3 Quarantine bundle
+- Exact accepted handoff from the preceding master phase.
+- Current baseline and all approved amendments.
+- Closed identity/ownership/locator registries required by scope.
+- Named domain owner, migration owner and independent reviewer.
+- Explicit scope, non-goals, claim ceiling, allowed actions and forbidden actions.
+- Clean or recorded working-tree state and rollback point.
 
-Copy original bytes, hashes, mapping, parity, rollback and reference evidence outside active compile paths.
+## Master artifacts
 
-### WP-14.4 Active-reference verification
+- Master phase manifest linking all subphase manifests and digests.
+- Consolidated acceptance-gate report.
+- Consolidated blocker, UNKNOWN, variance and residual-risk registers.
+- Final registry snapshots created by the phase.
+- Master handoff that permits only the next master phase.
 
-Scan code, configs, presets, docs, tests and generated assets for remaining consumers.
+## Master acceptance gate
 
-### WP-14.5 Restoration drill
+Legacy originals are inactive and recoverable in quarantine, compatibility is bounded, and retirement eligibility is evidence-based; no deletion occurs.
 
-Restore quarantined source and verify legacy compile/replay where tooling exists.
+## Master failure and rollback
 
-### WP-14.6 Quarantine aging
+A subphase failure does not authorize skipping to the next partition. The last accepted subphase output remains the recovery point. Rollback restores the exact prior handoff, including source files, locators, configuration, generated registries and relevant persistent state. The master phase may be re-entered only through a new versioned subphase attempt or approved ADR.
 
-Start the non-destructive observation period and record new reference discoveries.
+## Related controls
 
-## Repository-specific target paths
-
-- `lab/11_strategy_factory/migration/quarantine/<family>/<snapshot_id>/`
-- `mql5/Include/AlphaLab/ContextOS/Compatibility/`
-- `registry/legacy_context_migration/deprecations/`
-
-## Mandatory verification
-
-- quarantine manifest/hash
-- no active include/import to original
-- wrapper forwards exact identity/version
-- restore drill
-- quarantine path excluded from runtime build
-- warning and successor link
-
-## Hostile-review focus
-
-- hidden external consumer
-- wrapper accumulating new logic
-- quarantine accidentally compiled
-- lost binary/source evidence
-- insufficient observation period
-
-## Commit and patch boundaries
-
-The phase is delivered as the smallest safe vertical patch. Inventory, move-only, semantic refactor, cutover, quarantine and deletion operations remain separate commits. The patch includes root-relative file index, hashes, inventory, manifest, QA, documentation and rollback. Staging uses `git add --pathspec-from-file`; broad staging is forbidden.
-
-## Acceptance gate
-
-Legacy originals are inactive and recoverable; compatibility is explicit; no deletion has occurred; active-reference scans are clean or blockers are listed.
-
-## Failure and rollback
-
-A failed check leaves the migration state unchanged. Partial output is discarded or quarantined. Rollback restores the exact phase input and verifies its manifest; it may not reconstruct lost behavior from prose.
-
-## Handoff
-
-The handoff records source and output digests, completed gates, unresolved blockers, allowed next actions, forbidden actions, owner approvals and residual risk. No downstream phase may infer a missing approval or convert UNKNOWN to PASS.
+- [[06_REFINED_IMPLEMENTATION_ROADMAP]]
+- [[PHASE_PARTITION_AND_PATCH_GRANULARITY_STANDARD]]
+- [[SUBPHASE_HANDOFF_AND_CHECKPOINT_STANDARD]]
+- [[BALANCED_PHASE_PARTITION_DECISION]]

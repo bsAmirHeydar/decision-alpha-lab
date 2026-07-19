@@ -1,0 +1,91 @@
+{
+  "masters": {
+    "LCM-08": {
+      "acceptance_gate": "Every active Context identity has a canonical package with accepted parity or an explicit blocking/archive disposition; no active consumer cutover is implied.",
+      "completion_rule": "FINAL_SUBPHASE_PLUS_MASTER_GATE",
+      "parts": [
+        "LCM-08A",
+        "LCM-08B",
+        "LCM-08C"
+      ],
+      "title": "Context Package Migration"
+    },
+    "LCM-09": {
+      "acceptance_gate": "Every active Setup decision path is canonical or blocked, variants are preserved, and Setup Factory registration carries no promotion or execution authority.",
+      "completion_rule": "FINAL_SUBPHASE_PLUS_MASTER_GATE",
+      "parts": [
+        "LCM-09A",
+        "LCM-09B"
+      ],
+      "title": "Setup Package Migration"
+    },
+    "LCM-10": {
+      "acceptance_gate": "Treatments and execution intent are canonical, broker APIs are isolated, dry parity and safety controls pass, and live/order/capital authority remain false.",
+      "completion_rule": "FINAL_SUBPHASE_PLUS_MASTER_GATE",
+      "parts": [
+        "LCM-10A",
+        "LCM-10B",
+        "LCM-10C"
+      ],
+      "title": "Treatment and Execution Separation"
+    },
+    "LCM-11": {
+      "acceptance_gate": "Active visual consumers render canonical records with anchor/lifecycle parity and multi-chart isolation; renderers do not own domain state.",
+      "completion_rule": "FINAL_SUBPHASE_PLUS_MASTER_GATE",
+      "parts": [
+        "LCM-11A",
+        "LCM-11B"
+      ],
+      "title": "Visualization and Object Lifecycle"
+    },
+    "LCM-12": {
+      "acceptance_gate": "Canonical documents, redirects and generated boundaries are coherent, link-validated and version-bound; no deletion occurs in this phase.",
+      "completion_rule": "FINAL_SUBPHASE_PLUS_MASTER_GATE",
+      "parts": [
+        "LCM-12A",
+        "LCM-12B"
+      ],
+      "title": "Documentation and Obsidian Reconciliation"
+    },
+    "LCM-13": {
+      "acceptance_gate": "Eligible consumers resolve to canonical packages, every switch is reversible, and blocked consumers remain explicit on legacy paths.",
+      "completion_rule": "FINAL_SUBPHASE_PLUS_MASTER_GATE",
+      "parts": [
+        "LCM-13A",
+        "LCM-13B",
+        "LCM-13C"
+      ],
+      "title": "Wave Cutover, Dual Run and Consumer Switch"
+    },
+    "LCM-14": {
+      "acceptance_gate": "Legacy originals are inactive and recoverable in quarantine, compatibility is bounded, and retirement eligibility is evidence-based; no deletion occurs.",
+      "completion_rule": "FINAL_SUBPHASE_PLUS_MASTER_GATE",
+      "parts": [
+        "LCM-14A",
+        "LCM-14B"
+      ],
+      "title": "Deprecation, Quarantine and Redirects"
+    },
+    "LCM-15": {
+      "acceptance_gate": "Only exact ledger-approved paths are deleted after reorganization and clean-clone verification; archive recovery remains possible.",
+      "completion_rule": "FINAL_SUBPHASE_PLUS_MASTER_GATE",
+      "parts": [
+        "LCM-15A",
+        "LCM-15B",
+        "LCM-15C"
+      ],
+      "title": "Controlled Deletion and Root Hygiene"
+    },
+    "LCM-16": {
+      "acceptance_gate": "The final evidence set supports CLOSED, CLOSED_WITH_RESIDUAL_RISK or REOPEN_REQUIRED without implying alpha, production or capital readiness.",
+      "completion_rule": "FINAL_SUBPHASE_PLUS_MASTER_GATE",
+      "parts": [
+        "LCM-16A",
+        "LCM-16B"
+      ],
+      "title": "Full Cutover and Program Closure"
+    }
+  },
+  "roadmap_id": "LCM_ROADMAP_R1_BALANCED_PARTITION",
+  "schema_version": "1.0.0"
+}

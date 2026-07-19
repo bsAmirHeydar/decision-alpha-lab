@@ -1,87 +1,68 @@
 ---
 title: "LCM-13 — Wave Cutover, Dual Run and Consumer Switch"
 status: proposed-reference
-version: 1.1.0
-updated: 2026-07-18
-tags: [acl-os, lcm, legacy-migration, implementation-phase]
+version: 2.0.0
+updated: 2026-07-19
+tags: [acl-os, lcm, legacy-migration, refined-roadmap]
 phase_id: LCM-13
+roadmap_id: LCM_ROADMAP_R1_BALANCED_PARTITION
+partition_model: balanced-two-or-three-part
 ---
 # LCM-13 — Wave Cutover, Dual Run and Consumer Switch
 
-Migrate consumers family by family under dual-run parity, without big-bang changes or mixed ownership of external side effects.
+## Master-phase purpose
 
-## Claim ceiling
+Prove canonical and legacy behavior under dual run, switch consumers in bounded waves, and verify reversible cutover.
 
-`CONTROLLED_CUTOVER_REFERENCE_ONLY`
+## Approved balanced partition
 
-## Phase entry contract
+This master phase remains one non-compensatory lifecycle gate, but implementation is divided into two or three bounded patches because a single monolithic delivery would combine too many evidence, implementation, parity, cutover or destructive responsibilities. The partition is intentionally moderate: it reduces interruption and rollback risk without creating dozens of administrative micro-phases.
 
-- exact prior-phase handoff and digest;
-- current baseline plus all approved amendments;
-- phase authority permit and named reviewers;
-- closed registries and schemas;
-- explicit UNKNOWN for missing evidence.
+1. [[LCM_13A_DUAL_RUN_HARNESS_AND_MISMATCH_REGISTRY|LCM-13A — Dual-Run Harness and Mismatch Registry]]
+2. [[LCM_13B_CONTROLLED_CONSUMER_WAVE_CUTOVER|LCM-13B — Controlled Consumer Wave Cutover]]
+3. [[LCM_13C_ROLLBACK_DRILL_AND_CUTOVER_CLOSURE|LCM-13C — Rollback Drill and Cutover Closure]]
 
-## Work packages
+Required order: `LCM-13A → LCM-13B → LCM-13C`.
 
-### WP-13.1 Wave readiness
+A completed subphase does not mean the master phase has passed. The master phase closes only after the final subphase handoff and the master acceptance gate are accepted.
 
-Verify all identities in the wave have owners, packages, traces, parity, performance, documentation and rollback.
+## Partition invariants
 
-### WP-13.2 Dual-run deployment
+- Subphase boundaries may reduce patch size but may not weaken evidence, ownership, known-time, parity, security, rollback or documentation requirements.
+- An upstream UNKNOWN remains UNKNOWN downstream unless new evidence resolves it.
+- No subphase may infer authority omitted from its handoff.
+- Move, semantic refactor, consumer cutover, quarantine and deletion are separated according to the refined roadmap.
+- Registries remain append-only or version-superseded; historical decisions are not overwritten.
+- A failed subphase leaves the master phase open and downstream subphases blocked.
 
-Run old and new implementations on identical events with separate namespaces. One declared path owns side effects.
+## Master entry contract
 
-### WP-13.3 Mismatch triage
+- Exact accepted handoff from the preceding master phase.
+- Current baseline and all approved amendments.
+- Closed identity/ownership/locator registries required by scope.
+- Named domain owner, migration owner and independent reviewer.
+- Explicit scope, non-goals, claim ceiling, allowed actions and forbidden actions.
+- Clean or recorded working-tree state and rollback point.
 
-Classify hard semantic, environment, data, instrumentation, visual-only and accepted-version differences.
+## Master artifacts
 
-### WP-13.4 Consumer switch plan
+- Master phase manifest linking all subphase manifests and digests.
+- Consolidated acceptance-gate report.
+- Consolidated blocker, UNKNOWN, variance and residual-risk registers.
+- Final registry snapshots created by the phase.
+- Master handoff that permits only the next master phase.
 
-Switch includes/imports, expert hosts, reports and docs in bounded commits.
+## Master acceptance gate
 
-### WP-13.5 Observation window
+Eligible consumers resolve to canonical packages, every switch is reversible, and blocked consumers remain explicit on legacy paths.
 
-Monitor restart, session transitions, data gaps, performance, object lifecycle and request intent after switch.
+## Master failure and rollback
 
-### WP-13.6 Cutover decision
+A subphase failure does not authorize skipping to the next partition. The last accepted subphase output remains the recovery point. Rollback restores the exact prior handoff, including source files, locators, configuration, generated registries and relevant persistent state. The master phase may be re-entered only through a new versioned subphase attempt or approved ADR.
 
-Issue APPROVE, HOLD, ROLLBACK or SPLIT_WAVE with reason codes.
+## Related controls
 
-## Repository-specific target paths
-
-- `lab/11_strategy_factory/migration/waves/<wave_id>/`
-- `reports/lcm/cutover/<wave_id>/`
-
-## Mandatory verification
-
-- legacy/canonical trace comparison
-- consumer reference scan
-- clean clone compile/test
-- rollback rehearsal
-- side-effect single-owner assertion
-- post-cutover event and performance monitoring
-
-## Hostile-review focus
-
-- mixed old/new state
-- one consumer left on legacy path
-- dual execution
-- environment differences misclassified as semantic
-- too-large wave
-
-## Commit and patch boundaries
-
-The phase is delivered as the smallest safe vertical patch. Inventory, move-only, semantic refactor, cutover, quarantine and deletion operations remain separate commits. The patch includes root-relative file index, hashes, inventory, manifest, QA, documentation and rollback. Staging uses `git add --pathspec-from-file`; broad staging is forbidden.
-
-## Acceptance gate
-
-The wave has zero unresolved hard mismatch, all consumers are accounted for, rollback is tested and cutover approval is independent.
-
-## Failure and rollback
-
-A failed check leaves the migration state unchanged. Partial output is discarded or quarantined. Rollback restores the exact phase input and verifies its manifest; it may not reconstruct lost behavior from prose.
-
-## Handoff
-
-The handoff records source and output digests, completed gates, unresolved blockers, allowed next actions, forbidden actions, owner approvals and residual risk. No downstream phase may infer a missing approval or convert UNKNOWN to PASS.
+- [[06_REFINED_IMPLEMENTATION_ROADMAP]]
+- [[PHASE_PARTITION_AND_PATCH_GRANULARITY_STANDARD]]
+- [[SUBPHASE_HANDOFF_AND_CHECKPOINT_STANDARD]]
+- [[BALANCED_PHASE_PARTITION_DECISION]]

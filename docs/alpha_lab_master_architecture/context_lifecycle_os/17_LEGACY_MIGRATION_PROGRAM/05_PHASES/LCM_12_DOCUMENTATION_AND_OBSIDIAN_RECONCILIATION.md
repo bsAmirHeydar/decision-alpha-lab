@@ -1,88 +1,67 @@
 ---
 title: "LCM-12 — Documentation and Obsidian Reconciliation"
 status: proposed-reference
-version: 1.1.0
-updated: 2026-07-18
-tags: [acl-os, lcm, legacy-migration, implementation-phase]
+version: 2.0.0
+updated: 2026-07-19
+tags: [acl-os, lcm, legacy-migration, refined-roadmap]
 phase_id: LCM-12
+roadmap_id: LCM_ROADMAP_R1_BALANCED_PARTITION
+partition_model: balanced-two-or-three-part
 ---
 # LCM-12 — Documentation and Obsidian Reconciliation
 
-Create one authoritative knowledge path per identity while preserving source doctrine, owner decisions, historical evidence and generated navigation.
+## Master-phase purpose
 
-## Claim ceiling
+Reconcile the documentation estate into an authority-aware, version-bound Obsidian knowledge graph without losing release history or source evidence.
 
-`KNOWLEDGE_RECONCILIATION_REFERENCE_ONLY`
+## Approved balanced partition
 
-## Phase entry contract
+This master phase remains one non-compensatory lifecycle gate, but implementation is divided into two or three bounded patches because a single monolithic delivery would combine too many evidence, implementation, parity, cutover or destructive responsibilities. The partition is intentionally moderate: it reduces interruption and rollback risk without creating dozens of administrative micro-phases.
 
-- exact prior-phase handoff and digest;
-- current baseline plus all approved amendments;
-- phase authority permit and named reviewers;
-- closed registries and schemas;
-- explicit UNKNOWN for missing evidence.
+1. [[LCM_12A_DOCUMENTATION_AUTHORITY_DUPLICATE_ANALYSIS_AND_CANONICAL_MAPPING|LCM-12A — Documentation Authority, Duplicate Analysis and Canonical Mapping]]
+2. [[LCM_12B_OBSIDIAN_RECONCILIATION_RELOCATION_AND_DOCUMENTATION_CLOSURE|LCM-12B — Obsidian Reconciliation, Relocation and Documentation Closure]]
 
-## Work packages
+Required order: `LCM-12A → LCM-12B`.
 
-### WP-12.1 Documentation authority map
+A completed subphase does not mean the master phase has passed. The master phase closes only after the final subphase handoff and the master acceptance gate are accepted.
 
-Classify every page as canonical, source evidence, implementation evidence, generated projection, superseded, duplicate, archive or unknown.
+## Partition invariants
 
-### WP-12.2 Exact duplicate consolidation
+- Subphase boundaries may reduce patch size but may not weaken evidence, ownership, known-time, parity, security, rollback or documentation requirements.
+- An upstream UNKNOWN remains UNKNOWN downstream unless new evidence resolves it.
+- No subphase may infer authority omitted from its handoff.
+- Move, semantic refactor, consumer cutover, quarantine and deletion are separated according to the refined roadmap.
+- Registries remain append-only or version-superseded; historical decisions are not overwritten.
+- A failed subphase leaves the master phase open and downstream subphases blocked.
 
-Reconcile byte-identical namespaces only after link and locator analysis. Keep redirects for externally referenced paths.
+## Master entry contract
 
-### WP-12.3 Superset reconciliation
+- Exact accepted handoff from the preceding master phase.
+- Current baseline and all approved amendments.
+- Closed identity/ownership/locator registries required by scope.
+- Named domain owner, migration owner and independent reviewer.
+- Explicit scope, non-goals, claim ceiling, allowed actions and forbidden actions.
+- Clean or recorded working-tree state and rollback point.
 
-Compare the UCEE master copy and larger standalone namespace; promote missing canonical material rather than deleting the superset.
+## Master artifacts
 
-### WP-12.4 Domain package links
+- Master phase manifest linking all subphase manifests and digests.
+- Consolidated acceptance-gate report.
+- Consolidated blocker, UNKNOWN, variance and residual-risk registers.
+- Final registry snapshots created by the phase.
+- Master handoff that permits only the next master phase.
 
-Bind each Context, Setup, Treatment and visualizer to doctrine, decisions, tests and migration packet.
+## Master acceptance gate
 
-### WP-12.5 Generated knowledge policy
+Canonical documents, redirects and generated boundaries are coherent, link-validated and version-bound; no deletion occurs in this phase.
 
-Mark source cards, atomic concepts, indexes and canvases as generated with rebuild source/digest.
+## Master failure and rollback
 
-### WP-12.6 Obsidian integrity
+A subphase failure does not authorize skipping to the next partition. The last accepted subphase output remains the recovery point. Rollback restores the exact prior handoff, including source files, locators, configuration, generated registries and relevant persistent state. The master phase may be re-entered only through a new versioned subphase attempt or approved ADR.
 
-Repair links, aliases, frontmatter IDs, orphan pages and conflicting titles.
+## Related controls
 
-## Repository-specific target paths
-
-- `docs/alpha_lab_master_architecture/`
-- `docs/contexts/<context_id>/`
-- `docs/generated/`
-- `docs/archive/legacy_contexts/`
-
-## Mandatory verification
-
-- wiki link and alias scan
-- duplicate basename/canonical ID scan
-- generated marker validation
-- canonical successor resolution
-- open decisions retained
-- no source authority deleted
-
-## Hostile-review focus
-
-- deleting unique content inside a near-duplicate tree
-- generated page overriding doctrine
-- broken external links
-- two canonical pages with same identity
-
-## Commit and patch boundaries
-
-The phase is delivered as the smallest safe vertical patch. Inventory, move-only, semantic refactor, cutover, quarantine and deletion operations remain separate commits. The patch includes root-relative file index, hashes, inventory, manifest, QA, documentation and rollback. Staging uses `git add --pathspec-from-file`; broad staging is forbidden.
-
-## Acceptance gate
-
-Each active identity has one canonical documentation entry; all other pages have explicit source/generated/superseded/archive status and resolvable successor.
-
-## Failure and rollback
-
-A failed check leaves the migration state unchanged. Partial output is discarded or quarantined. Rollback restores the exact phase input and verifies its manifest; it may not reconstruct lost behavior from prose.
-
-## Handoff
-
-The handoff records source and output digests, completed gates, unresolved blockers, allowed next actions, forbidden actions, owner approvals and residual risk. No downstream phase may infer a missing approval or convert UNKNOWN to PASS.
+- [[06_REFINED_IMPLEMENTATION_ROADMAP]]
+- [[PHASE_PARTITION_AND_PATCH_GRANULARITY_STANDARD]]
+- [[SUBPHASE_HANDOFF_AND_CHECKPOINT_STANDARD]]
+- [[BALANCED_PHASE_PARTITION_DECISION]]

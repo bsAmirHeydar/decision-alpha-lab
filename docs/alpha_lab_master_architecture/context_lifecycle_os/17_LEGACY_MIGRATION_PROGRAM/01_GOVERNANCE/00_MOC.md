@@ -1,8 +1,8 @@
 ---
 title: "LCM Governance MOC"
 status: proposed-reference
-version: 1.0.0
-updated: 2026-07-18
+version: 2.0.0
+updated: 2026-07-19
 tags: [acl-os, lcm, legacy-migration]
 ---
 # LCM Governance MOC
@@ -14,3 +14,7 @@ tags: [acl-os, lcm, legacy-migration]
 - [[DECISION_ADR_AND_WAIVER_GOVERNANCE]]
 - [[MIGRATION_STATE_MACHINE]]
 - [[ARTIFACT_CLASSIFICATION_STANDARD]]
+## Roadmap governance
+
+- [[PHASE_PARTITION_AND_PATCH_GRANULARITY_STANDARD]]
+- [[BALANCED_PHASE_PARTITION_DECISION]]

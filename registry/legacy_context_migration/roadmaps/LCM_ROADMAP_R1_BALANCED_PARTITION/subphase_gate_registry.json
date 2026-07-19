@@ -1,0 +1,415 @@
+{
+  "roadmap_id": "LCM_ROADMAP_R1_BALANCED_PARTITION",
+  "schema_version": "1.0.0",
+  "subphases": {
+    "LCM-08A": {
+      "acceptance_gates": [
+        "Portfolio is closed for the phase input snapshot.",
+        "Every candidate has owner state, identity state, risk state, dependency state and wave state.",
+        "Exactly one pilot is selected or the phase exits BLOCKED with documented reasons.",
+        "No migration or cutover authority has been created."
+      ],
+      "forbidden_authority": {
+        "capital": true,
+        "live_order": true,
+        "runtime": true
+      },
+      "verification": [
+        "Every Context candidate resolves to one portfolio record or explicit unresolved record.",
+        "Risk scoring is deterministic under stable inputs.",
+        "Critical capabilities cannot be averaged away.",
+        "Pilot has no direct order authority and no unresolved identity collision.",
+        "No repository source path is moved or deleted.",
+        "Registry digests bind to LCM-07 inputs."
+      ]
+    },
+    "LCM-08B": {
+      "acceptance_gates": [
+        "Pilot package is complete and canonical.",
+        "Hard parity dimensions pass or have approved versioned variance decisions.",
+        "Any UNKNOWN remains blocking for affected behavior.",
+        "No active consumer cutover occurred.",
+        "Reusable Context migration runbook is accepted."
+      ],
+      "forbidden_authority": {
+        "capital": true,
+        "live_order": true,
+        "runtime": true
+      },
+      "verification": [
+        "Canonical package schema and ACL onboarding validation.",
+        "Known-time and closed-bar tests.",
+        "State-transition invariant tests.",
+        "Golden replay determinism.",
+        "Adapter does not call order or drawing APIs.",
+        "No active consumer path changed.",
+        "Rollback restores exact pre-pilot state."
+      ]
+    },
+    "LCM-08C": {
+      "acceptance_gates": [
+        "Context portfolio registry is complete.",
+        "All migrated packages are cutover-ready but not yet switched.",
+        "Blocked and archived identities remain traceable.",
+        "LCM-09 receives canonical Context interfaces and exact dependency bindings."
+      ],
+      "forbidden_authority": {
+        "capital": true,
+        "live_order": true,
+        "runtime": true
+      },
+      "verification": [
+        "Every active Context identity has a canonical package or explicit blocking disposition.",
+        "No hard parity dimension is failed or unknown for a CUTOVER_READY Context.",
+        "Canonical locator is collision-free.",
+        "Context core contains no order or visual-object authority.",
+        "Wave regression is non-compensatory."
+      ]
+    },
+    "LCM-09A": {
+      "acceptance_gates": [
+        "Setup portfolio is contract-complete or explicitly blocked.",
+        "Each Setup has owner, identity, family, Context binding and contract version.",
+        "Implementation authority is handed to LCM-09B without consumer cutover authority."
+      ],
+      "forbidden_authority": {
+        "capital": true,
+        "live_order": true,
+        "runtime": true
+      },
+      "verification": [
+        "Every active Setup decision path is inventoried.",
+        "Variant dimensions are explicit.",
+        "Contract references only canonical Context identities.",
+        "No broker, drawing or quota state is embedded in canonical Setup contract unless approved as Setup entitlement.",
+        "No implementation source changed."
+      ]
+    },
+    "LCM-09B": {
+      "acceptance_gates": [
+        "All active Setup identities are canonical or explicitly blocked.",
+        "Setup Factory can expose reference candidates without promotion authority.",
+        "Treatment references are explicit and ready for LCM-10."
+      ],
+      "forbidden_authority": {
+        "capital": true,
+        "live_order": true,
+        "runtime": true
+      },
+      "verification": [
+        "Deterministic setup decisions under replay.",
+        "No independent Context clock.",
+        "No order API or visual-object mutation in Setup core.",
+        "Factory registration has zero promotion/execution authority.",
+        "All hard mismatch resolved or blocking."
+      ]
+    },
+    "LCM-10A": {
+      "acceptance_gates": [
+        "Treatment and execution inventory is closed for the baseline.",
+        "Every capability has an owner and authority class.",
+        "Extraction plan is approved without granting submission authority."
+      ],
+      "forbidden_authority": {
+        "capital": true,
+        "live_order": true,
+        "runtime": true
+      },
+      "verification": [
+        "All order-capable paths are reachable from registry or explicit UNKNOWN.",
+        "Treatment atoms have source hashes and Setup bindings.",
+        "Live/paper/tester distinctions are explicit.",
+        "No source behavior changed."
+      ]
+    },
+    "LCM-10B": {
+      "acceptance_gates": [
+        "All active Treatment identities have canonical package or blocker.",
+        "Execution intent boundary is versioned.",
+        "Broker adapters are present only in disabled/reference form."
+      ],
+      "forbidden_authority": {
+        "capital": true,
+        "live_order": true,
+        "runtime": true
+      },
+      "verification": [
+        "Forbidden broker APIs absent outside approved adapter paths.",
+        "Treatment outputs deterministic.",
+        "Side-aware price and stop semantics preserved.",
+        "Submission capability defaults false.",
+        "Untranslatable legacy behavior blocks affected path."
+      ]
+    },
+    "LCM-10C": {
+      "acceptance_gates": [
+        "Treatment portfolio and execution boundary are canonical.",
+        "Submission remains disabled.",
+        "Residual broker/platform unknowns are explicit.",
+        "Visualizer work can consume canonical records without accessing broker state."
+      ],
+      "forbidden_authority": {
+        "capital": true,
+        "live_order": true,
+        "runtime": true
+      },
+      "verification": [
+        "Dry request parity passes for supported paths.",
+        "All safety controls fail closed.",
+        "Live order count and capital activation count remain zero.",
+        "Unavailable broker evidence is UNKNOWN, not PASS."
+      ]
+    },
+    "LCM-11A": {
+      "acceptance_gates": [
+        "Visual inventory and contracts are frozen.",
+        "All visualizers map to canonical events or blockers.",
+        "Implementation work is authorized without semantic redesign."
+      ],
+      "forbidden_authority": {
+        "capital": true,
+        "live_order": true,
+        "runtime": true
+      },
+      "verification": [
+        "Every active visual object has owner and source event.",
+        "Object IDs deterministic and collision-resistant.",
+        "Drawing is not source truth.",
+        "Delete policy owns only its namespace.",
+        "Unknown anchor semantics block migration."
+      ]
+    },
+    "LCM-11B": {
+      "acceptance_gates": [
+        "Active visual consumers use canonical event projections or are explicitly blocked.",
+        "Legacy visual paths remain recoverable for LCM-14."
+      ],
+      "forbidden_authority": {
+        "capital": true,
+        "live_order": true,
+        "runtime": true
+      },
+      "verification": [
+        "Anchor parity passes.",
+        "No collision across tested chart scenarios.",
+        "History reload and restart are deterministic.",
+        "Canonical visualizer cannot mutate domain state.",
+        "Cutover path list exact and reversible."
+      ]
+    },
+    "LCM-12A": {
+      "acceptance_gates": [
+        "Documentation authority and successor map are complete enough for controlled relocation.",
+        "Unknowns block only affected paths and remain visible."
+      ],
+      "forbidden_authority": {
+        "capital": true,
+        "live_order": true,
+        "runtime": true
+      },
+      "verification": [
+        "Every active document classified or explicitly unknown.",
+        "Exact duplicate claims have hash proof.",
+        "Superset claims list unique content.",
+        "Canonical map references valid entity identities.",
+        "No document moved or deleted."
+      ]
+    },
+    "LCM-12B": {
+      "acceptance_gates": [
+        "Canonical knowledge graph is navigable and version-bound.",
+        "Legacy docs are either redirected, active compatibility, archive candidates or blockers."
+      ],
+      "forbidden_authority": {
+        "capital": true,
+        "live_order": true,
+        "runtime": true
+      },
+      "verification": [
+        "All moved paths resolve through canonical locator.",
+        "Changed-doc link validation passes.",
+        "No canonical basename collision.",
+        "Generated documents identify source and producer.",
+        "No deletion occurred."
+      ]
+    },
+    "LCM-13A": {
+      "acceptance_gates": [
+        "Dual-run evidence is sufficient to identify cutover-eligible consumers.",
+        "Every mismatch is resolved, accepted by ADR, or blocking."
+      ],
+      "forbidden_authority": {
+        "capital": true,
+        "live_order": true,
+        "runtime": true
+      },
+      "verification": [
+        "Harness input equality and deterministic replay.",
+        "All hard mismatch dimensions compared.",
+        "No unresolved HIGH/CRITICAL mismatch for cutover candidates.",
+        "Submission remains disabled."
+      ]
+    },
+    "LCM-13B": {
+      "acceptance_gates": [
+        "Approved consumers resolve to canonical packages.",
+        "Blocked consumers remain on legacy path with explicit status.",
+        "No legacy source is removed."
+      ],
+      "forbidden_authority": {
+        "capital": true,
+        "live_order": true,
+        "runtime": true
+      },
+      "verification": [
+        "Exact consumer list only.",
+        "No unresolved critical mismatch.",
+        "Health checks pass within defined window.",
+        "Rollback package verified before switch.",
+        "Live authority remains false."
+      ]
+    },
+    "LCM-13C": {
+      "acceptance_gates": [
+        "All closed waves have verified reversible cutover.",
+        "Remaining legacy consumers are explicit blockers."
+      ],
+      "forbidden_authority": {
+        "capital": true,
+        "live_order": true,
+        "runtime": true
+      },
+      "verification": [
+        "Rollback restores exact path and expected behavior.",
+        "Forward reapplication is deterministic.",
+        "Persistent state ownership verified.",
+        "Any failed wave is reopened."
+      ]
+    },
+    "LCM-14A": {
+      "acceptance_gates": [
+        "Deprecated identities and redirects are explicit and tested.",
+        "Quarantine candidates have no required direct runtime use."
+      ],
+      "forbidden_authority": {
+        "capital": true,
+        "live_order": true,
+        "runtime": true
+      },
+      "verification": [
+        "Only parity-approved successors can deprecate legacy paths.",
+        "Redirects contain no domain logic.",
+        "Version resolution exact.",
+        "Original bytes remain present."
+      ]
+    },
+    "LCM-14B": {
+      "acceptance_gates": [
+        "Eligible identities may enter deletion proof.",
+        "Ineligible identities remain quarantined or compatibility-active.",
+        "No deletion has occurred."
+      ],
+      "forbidden_authority": {
+        "capital": true,
+        "live_order": true,
+        "runtime": true
+      },
+      "verification": [
+        "Quarantined bytes match source hashes.",
+        "Quarantine excluded from active paths.",
+        "Reference scans clean for required window or blockers explicit.",
+        "Restoration succeeds for sampled/high-risk packages."
+      ]
+    },
+    "LCM-15A": {
+      "acceptance_gates": [
+        "Deletion-approved and deletion-blocked sets are closed and immutable for the snapshot.",
+        "Reorganization may proceed only for non-destructive relocation candidates."
+      ],
+      "forbidden_authority": {
+        "capital": true,
+        "live_order": true,
+        "runtime": true
+      },
+      "verification": [
+        "Every candidate exact path/hash.",
+        "All non-compensatory gates individually true.",
+        "UNKNOWN cannot be approved.",
+        "No file changed except documentation/registry artifacts."
+      ]
+    },
+    "LCM-15B": {
+      "acceptance_gates": [
+        "Repository structure is organized enough for exact destructive review.",
+        "All deletion paths are revalidated against post-move topology."
+      ],
+      "forbidden_authority": {
+        "capital": true,
+        "live_order": true,
+        "runtime": true
+      },
+      "verification": [
+        "Every move has exact source/destination/hash.",
+        "Historical release lookup preserved.",
+        "Redirects resolve.",
+        "No approved deletion executed.",
+        "Root allowlist violations explicit."
+      ]
+    },
+    "LCM-15C": {
+      "acceptance_gates": [
+        "Only approved dead artifacts are gone.",
+        "Root and documentation topology conform or residual violations are explicit.",
+        "Closure verification can begin."
+      ],
+      "forbidden_authority": {
+        "capital": true,
+        "live_order": true,
+        "runtime": true
+      },
+      "verification": [
+        "Deleted set exactly equals approved pathspec.",
+        "All post-delete checks pass or deletion is rolled back.",
+        "Archive restore sample passes.",
+        "No broad Git staging or delete command."
+      ]
+    },
+    "LCM-16A": {
+      "acceptance_gates": [
+        "Closure evidence set is complete enough for decision.",
+        "Failures and UNKNOWNs are mapped to closure impact.",
+        "No automatic closure."
+      ],
+      "forbidden_authority": {
+        "capital": true,
+        "live_order": true,
+        "runtime": true
+      },
+      "verification": [
+        "All available required tests pass.",
+        "Unavailable evidence explicitly UNKNOWN with impact.",
+        "Zero active unresolved legacy source unless accepted residual.",
+        "No hidden runtime/order/capital authority.",
+        "Closure evidence reproducible from clean checkout."
+      ]
+    },
+    "LCM-16B": {
+      "acceptance_gates": [
+        "One explicit closure decision is issued.",
+        "Repository and knowledge system are self-sufficient within documented limitations.",
+        "Runtime, order and capital authority remain governed by separate ACL processes."
+      ],
+      "forbidden_authority": {
+        "capital": true,
+        "live_order": true,
+        "runtime": true
+      },
+      "verification": [
+        "Recovery drills pass for selected scope.",
+        "Final ledger is complete and digest-bound.",
+        "All residual risks have owner and disposition.",
+        "Closure language respects claim ceiling."
+      ]
+    }
+  }
+}

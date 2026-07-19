@@ -1,8 +1,8 @@
 ---
 title: "LCM Operations MOC"
 status: proposed-reference
-version: 1.0.0
-updated: 2026-07-18
+version: 2.0.0
+updated: 2026-07-19
 tags: [acl-os, lcm, legacy-migration]
 ---
 # LCM Operations MOC
@@ -14,3 +14,6 @@ tags: [acl-os, lcm, legacy-migration]
 - [[ROOT_RELEASE_ARTIFACT_RELOCATION]]
 - [[MIGRATION_DASHBOARD_AND_STATUS_REPORTING]]
 - [[ROOT_CLEANUP_RELEASE_TRAIN]]
+## Refined-roadmap operations
+
+- [[SUBPHASE_HANDOFF_AND_CHECKPOINT_STANDARD]]

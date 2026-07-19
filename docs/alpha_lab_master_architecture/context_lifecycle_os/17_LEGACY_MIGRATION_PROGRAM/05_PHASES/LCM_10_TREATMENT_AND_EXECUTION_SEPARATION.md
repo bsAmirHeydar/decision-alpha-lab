@@ -1,89 +1,68 @@
 ---
 title: "LCM-10 — Treatment and Execution Separation"
 status: proposed-reference
-version: 1.1.0
-updated: 2026-07-18
-tags: [acl-os, lcm, legacy-migration, implementation-phase]
+version: 2.0.0
+updated: 2026-07-19
+tags: [acl-os, lcm, legacy-migration, refined-roadmap]
 phase_id: LCM-10
+roadmap_id: LCM_ROADMAP_R1_BALANCED_PARTITION
+partition_model: balanced-two-or-three-part
 ---
 # LCM-10 — Treatment and Execution Separation
 
-Extract payoff and management semantics from Setup logic and place broker capability behind explicit adapters.
+## Master-phase purpose
 
-## Claim ceiling
+Separate payoff and management semantics from Setup logic and place every broker-capable operation behind explicit, disabled-by-default authority boundaries.
 
-`TREATMENT_AND_EXECUTION_SEPARATION_REFERENCE_ONLY`
+## Approved balanced partition
 
-## Phase entry contract
+This master phase remains one non-compensatory lifecycle gate, but implementation is divided into two or three bounded patches because a single monolithic delivery would combine too many evidence, implementation, parity, cutover or destructive responsibilities. The partition is intentionally moderate: it reduces interruption and rollback risk without creating dozens of administrative micro-phases.
 
-- exact prior-phase handoff and digest;
-- current baseline plus all approved amendments;
-- phase authority permit and named reviewers;
-- closed registries and schemas;
-- explicit UNKNOWN for missing evidence.
+1. [[LCM_10A_TREATMENT_AND_EXECUTION_CAPABILITY_INVENTORY|LCM-10A — Treatment and Execution Capability Inventory]]
+2. [[LCM_10B_TREATMENT_PACKAGE_EXTRACTION_AND_EXECUTION_BOUNDARY_CONSTRUCTION|LCM-10B — Treatment Package Extraction and Execution Boundary Construction]]
+3. [[LCM_10C_DRY_RUN_PARITY_SAFETY_CONTROLS_AND_AUTHORITY_NEGATIVE_CLOSURE|LCM-10C — Dry-Run Parity, Safety Controls and Authority-Negative Closure]]
 
-## Work packages
+Required order: `LCM-10A → LCM-10B → LCM-10C`.
 
-### WP-10.1 Treatment atom inventory
+A completed subphase does not mean the master phase has passed. The master phase closes only after the final subphase handoff and the master acceptance gate are accepted.
 
-Catalog entry, limit/market choice, stop, target, cancellation, expiry, partial, breakeven, trailing and risk-sizing semantics.
+## Partition invariants
 
-### WP-10.2 Treatment packages
+- Subphase boundaries may reduce patch size but may not weaken evidence, ownership, known-time, parity, security, rollback or documentation requirements.
+- An upstream UNKNOWN remains UNKNOWN downstream unless new evidence resolves it.
+- No subphase may infer authority omitted from its handoff.
+- Move, semantic refactor, consumer cutover, quarantine and deletion are separated according to the refined roadmap.
+- Registries remain append-only or version-superseded; historical decisions are not overwritten.
+- A failed subphase leaves the master phase open and downstream subphases blocked.
 
-Create versioned treatment contracts and bind them to eligible Setup variants.
+## Master entry contract
 
-### WP-10.3 Normalized request intent
+- Exact accepted handoff from the preceding master phase.
+- Current baseline and all approved amendments.
+- Closed identity/ownership/locator registries required by scope.
+- Named domain owner, migration owner and independent reviewer.
+- Explicit scope, non-goals, claim ceiling, allowed actions and forbidden actions.
+- Clean or recorded working-tree state and rollback point.
 
-Define side-aware entry/stop/target/volume/spread/expiry/rejection records independent of broker API.
+## Master artifacts
 
-### WP-10.4 Execution adapter isolation
+- Master phase manifest linking all subphase manifests and digests.
+- Consolidated acceptance-gate report.
+- Consolidated blocker, UNKNOWN, variance and residual-risk registers.
+- Final registry snapshots created by the phase.
+- Master handoff that permits only the next master phase.
 
-Move direct OrderSend/CTrade/position operations behind capability guards. Context and Setup code may not include these APIs.
+## Master acceptance gate
 
-### WP-10.5 Dry/paper parity
+Treatments and execution intent are canonical, broker APIs are isolated, dry parity and safety controls pass, and live/order/capital authority remain false.
 
-Compare request intent and lifecycle with submission disabled.
+## Master failure and rollback
 
-### WP-10.6 Safety controls
+A subphase failure does not authorize skipping to the next partition. The last accepted subphase output remains the recovery point. Rollback restores the exact prior handoff, including source files, locators, configuration, generated registries and relevant persistent state. The master phase may be re-entered only through a new versioned subphase attempt or approved ADR.
 
-Verify duplicate-decision guard, exposure caps, reconciliation, kill switch, stale quote, invalid volume and stop-distance rejection.
+## Related controls
 
-## Repository-specific target paths
-
-- `lab/11_strategy_factory/treatments/<treatment_id>/`
-- `lab/11_strategy_factory/adapters/mql5/<adapter_id>/`
-- `mql5/Include/AlphaLab/ContextOS/Treatments/`
-- `mql5/Include/AlphaLab/ContextOS/Adapters/`
-
-## Mandatory verification
-
-- forbidden API scan outside adapters
-- dry request golden parity
-- long/short symmetry where intended
-- spread and tick alignment
-- duplicate request denial
-- live authority false
-
-## Hostile-review focus
-
-- order router re-evaluating Context
-- legacy volume assumptions
-- side-dependent stop errors
-- paper adapter accidentally calling broker
-- capital boundary bypass
-
-## Commit and patch boundaries
-
-The phase is delivered as the smallest safe vertical patch. Inventory, move-only, semantic refactor, cutover, quarantine and deletion operations remain separate commits. The patch includes root-relative file index, hashes, inventory, manifest, QA, documentation and rollback. Staging uses `git add --pathspec-from-file`; broad staging is forbidden.
-
-## Acceptance gate
-
-Treatment semantics are versioned and broker-neutral; all order-capable paths are isolated, dry by default and security-reviewed.
-
-## Failure and rollback
-
-A failed check leaves the migration state unchanged. Partial output is discarded or quarantined. Rollback restores the exact phase input and verifies its manifest; it may not reconstruct lost behavior from prose.
-
-## Handoff
-
-The handoff records source and output digests, completed gates, unresolved blockers, allowed next actions, forbidden actions, owner approvals and residual risk. No downstream phase may infer a missing approval or convert UNKNOWN to PASS.
+- [[06_REFINED_IMPLEMENTATION_ROADMAP]]
+- [[PHASE_PARTITION_AND_PATCH_GRANULARITY_STANDARD]]
+- [[SUBPHASE_HANDOFF_AND_CHECKPOINT_STANDARD]]
+- [[BALANCED_PHASE_PARTITION_DECISION]]
