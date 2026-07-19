@@ -1,0 +1,16 @@
+{
+  "consumer_cutover_allowed": false,
+  "contract_digest": "sha256:c8ef3c27132c8f006831c2231dd9b062ac0f05e3fefb73586a74562e24019219",
+  "contract_id": "LCM08A_CONTEXT_PORTFOLIO_CONTRACT_V1",
+  "purpose": "One record per Context identity candidate or explicit unresolved record.",
+  "required_fields": [
+    "identity_id",
+    "source_artifact_path",
+    "risk_class",
+    "wave_assignment"
+  ],
+  "schema_version": "1.0.0",
+  "semantic_refactor_allowed": false,
+  "source_delete_allowed": false,
+  "source_move_allowed": false
+}

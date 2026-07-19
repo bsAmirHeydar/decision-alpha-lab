@@ -1,0 +1,8 @@
+{
+  "guessing_forbidden": true,
+  "policy_digest": "sha256:6dba8e4ae328336d3e3ce57c7f3e3be60cfa418eb2d0d8be42319242f5d45dd1",
+  "policy_id": "LCM08A_UNKNOWN_POLICY_V1",
+  "schema_version": "1.0.0",
+  "unknown_is_blocking": true,
+  "unknown_is_not_failure": true
+}

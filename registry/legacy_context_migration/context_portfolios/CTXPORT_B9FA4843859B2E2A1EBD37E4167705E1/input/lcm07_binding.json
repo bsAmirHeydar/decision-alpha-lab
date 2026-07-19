@@ -1,0 +1,40 @@
+{
+  "binding_digest": "sha256:57e6c825f24c80ea6fca893c1e21ff2dcd899d4c45efe66e6edb1b6ce782ff99",
+  "framework_run_id": "FRAMEWORK_066C5FA5795AA4C283B17271E4478751",
+  "handoff_type": "LCM07_TO_LCM08",
+  "input_digests": {
+    "alias_collisions": "sha256:03d0422fa03af4745b3c05c3dd0c309c048a893ce0edfff6d4bd021f273e0714",
+    "artifact_target_map": "sha256:6b2b0671a97b1546519292e4490a8b081dfbc36d76b854d9eea2bf1b0a97e724",
+    "capability_findings": "sha256:6bbf6483c81a11f1d1eec1583979e527558dd52bf4eb26ff5903934a3773dce0",
+    "characterization_packets": "sha256:d4a6e6159d413bd3478e7da3dcd6f391e1bf4751513ee3ecf4af5e5cc86957f6",
+    "characterization_summary": "sha256:5eabb0aff9e7f6bc0d10cb26fd26c8629f685aa46021a7e66a97c4bce2a0821f",
+    "classification_records": "sha256:d2b6d2a7514ce6a81c956ddbaf9dff5436a2fb5e4ce477c0c134266e4bae46c2",
+    "dependency_edges": "sha256:17a0940541f7f7d4b1ae193740c8190674fbbfe337dde852e127d72681c758f6",
+    "framework_handoff": "sha256:4628825d76c77ff70bbd3a84f806c9c1dcf78157ba329c248a8deac09d0cc32a",
+    "identity_ambiguities": "sha256:584fdbb77c653553a3d42665b6027f8e665bcd417c3925b8adc1342ffb366cbd",
+    "identity_candidates": "sha256:56d990e9081220e53434184d0a465aa32068e753ed742523ed2dec78537fc1e3",
+    "identity_summary": "sha256:a7e085a5e92a3b40a029c4f38967c1b896ec2952c05a6e9db81ce62f92bed486",
+    "identity_target_map": "sha256:0f9dce0de2ae82ccc3b2195f5b28427b2ffde4eb996c9e22db9d4bd9d8b792cd",
+    "owner_registry": "sha256:cf9ab3197fd1c85ce9191cf8eaa6c8e99c2e40e3db43d6cc678715a637770147",
+    "roadmap_manifest": "sha256:c559f0cd0c92b1ff4f2f100e710a6ab77d5e359d782898cc6bca1d967bed711f",
+    "shared_candidates": "sha256:f5c03c546bc9fcfde5bfe8193cacac9ec3340625ce1d5875b6e4ae35e1790494",
+    "shared_decisions": "sha256:ffba7604a3c3b8cde92f2658f57cb0c0f71def0ea43d6b5b64a198a55ba668b6",
+    "static_profiles": "sha256:32c05f5d251942f8df63292f8503d3a4f79a5e6201e5a54601e03560d6b2038f"
+  },
+  "schema_version": "1.0.0",
+  "shared_engine_run_id": "SHAREDENG_F1EFFB190FA1F0AE0D31369EEDB82A3A",
+  "source_handoff_digest": "sha256:4dcd0fd46c639cb4c1a0f1efc605dfdbff89b14d952ae8933990a38a4f750b43",
+  "unresolved_blockers": [
+    "CONSUMER_RESTART_PARITY_PENDING",
+    "DUPLICATE_EQUIVALENCE_REVIEW_PENDING",
+    "HUMAN_OWNER_APPROVALS_PENDING",
+    "IDENTITY_AMBIGUITIES_PENDING",
+    "INDEPENDENT_ENGINE_REVIEW_PENDING",
+    "LEGACY_RUNTIME_PARITY_PENDING",
+    "MQL5_ENGINE_COMPILATION_PENDING",
+    "MQL5_METATRADER_RUNTIME_NOT_AVAILABLE_IN_REFERENCE_ENVIRONMENT",
+    "NAMED_SHARED_ENGINE_OWNERS_PENDING",
+    "RUNTIME_EQUIVALENCE_PENDING",
+    "SECURITY_REVIEWS_PENDING"
+  ]
+}

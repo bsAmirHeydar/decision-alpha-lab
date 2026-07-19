@@ -1,0 +1,11 @@
+{
+  "closed_values": [
+    "FAILED",
+    "BLOCKED",
+    "UNKNOWN",
+    "PARTIAL"
+  ],
+  "registry_digest": "sha256:3e5afaa6f5c6237d1f61be464b2dea8ec049de3573d095a902d19c576c36de3e",
+  "registry_id": "FAILURE_STATE_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,44 @@
+{
+  "adapter_published": false,
+  "capital_authority_created": false,
+  "claim_ceiling": "LCM_08A_REFERENCE_ONLY",
+  "consumer_cutover_performed": false,
+  "context_candidate_count": 321,
+  "exactly_one_pilot_selected": true,
+  "family_count": 7,
+  "granularity_class_counts": {
+    "AMBIGUOUS_CONTEXT_LIKE": 8,
+    "COMPOSITE_CONTEXT_SHELL": 8,
+    "CONTEXT_TEST_OR_VALIDATOR": 4,
+    "EMBEDDED_CONTEXT_FRAGMENT": 300,
+    "PACKAGE_CONTEXT": 1
+  },
+  "live_order_authority_created": false,
+  "phase_id": "LCM-08A",
+  "portfolio_closed_for_input_snapshot": true,
+  "portfolio_id": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+  "risk_class_counts": {
+    "CRITICAL": 39,
+    "HIGH": 105,
+    "MODERATE": 174,
+    "UNKNOWN": 3
+  },
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "selected_pilot_identity_id": "CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1",
+  "selected_pilot_risk_class": "HIGH",
+  "selected_pilot_source_path": "lab/03_experiments/EXP0015_intermarket_time_divergence/experiment.py",
+  "semantic_refactor_performed": false,
+  "source_delete_performed": false,
+  "source_move_performed": false,
+  "summary_digest": "sha256:22c69351a79fd039f6bef48d8273c007ae25fac00731d5f7cc2ada9ef11154f1",
+  "unresolved_record_count": 12,
+  "wave_counts": {
+    "BLOCKED_UNRESOLVED": 12,
+    "WAVE_01_LOW_RISK_PILOT": 3,
+    "WAVE_03_EXP0015_EXP0016_EXP0017": 87,
+    "WAVE_04_EXP0018_DAYE_TRADER": 27,
+    "WAVE_05_EXP0019_FAERIE_PROTOCOL": 6,
+    "WAVE_09_HIGH_RISK_COMPOSITE": 186
+  }
+}

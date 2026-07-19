@@ -1,7 +1,7 @@
 ---
 title: "LCM-08A — Context Portfolio Freeze, Risk Classification and Pilot Selection"
-status: proposed-reference
-version: 1.0.0
+status: implemented-reference
+version: 1.1.0
 updated: 2026-07-19
 tags: [acl-os, lcm, legacy-migration, refined-roadmap]
 phase_id: LCM-08A
@@ -146,3 +146,19 @@ The hostile review must attempt to disprove readiness. Aggregate success cannot 
 - Forbidden actions include wave-wide migration, consumer cutover, quarantine, deletion and execution activation.
 
 The handoff must include source digest, output digest, completed gates, failed/blocked/unknown dimensions, owner approvals, residual risks, allowed next actions and forbidden actions.
+
+## Implementation acceptance amendment
+
+LCM-08A is implemented through the deterministic portfolio service under `tools/strategy_factory/lcm/lcm_08a`. The accepted implementation accounts for every LCM-03 Context identity candidate, preserves unresolved records, applies critical non-compensatory risk dimensions, assigns dependency- and risk-ordered waves, and selects the EXP0015 Python research context as the sole reference pilot. No source path is moved, deleted or semantically modified.
+
+## Implementation acceptance amendment
+
+LCM-08A is implemented through the deterministic portfolio service under `tools/strategy_factory/lcm/lcm_08a`. The accepted implementation accounts for every LCM-03 Context identity candidate, preserves unresolved records, applies critical non-compensatory risk dimensions, assigns dependency- and risk-ordered waves, and selects the EXP0015 Python research context as the sole reference pilot. No source path is moved, deleted or semantically modified.
+
+## Implementation acceptance amendment
+
+LCM-08A is implemented through the deterministic portfolio service under `tools/strategy_factory/lcm/lcm_08a`. The accepted implementation accounts for every LCM-03 Context identity candidate, preserves unresolved records, applies critical non-compensatory risk dimensions, assigns dependency- and risk-ordered waves, and selects the EXP0015 Python research context as the sole reference pilot. No source path is moved, deleted or semantically modified.
+
+## Implementation acceptance amendment
+
+LCM-08A is implemented through the deterministic portfolio service under `tools/strategy_factory/lcm/lcm_08a`. The accepted implementation accounts for every LCM-03 Context identity candidate, preserves unresolved records, applies critical non-compensatory risk dimensions, assigns dependency- and risk-ordered waves, and selects the EXP0015 Python research context as the sole reference pilot. No source path is moved, deleted or semantically modified.

@@ -1,0 +1,98 @@
+{
+  "events": [
+    {
+      "event_digest": "sha256:95929160b415265768039607b62600227f7b890a2a82f6618511b4be8e289f15",
+      "event_id": "LCM08AEVT_C5BA95A15DBF76C0C2D5E648AF31435A",
+      "event_type": "UPSTREAM_BOUND",
+      "issued_at": "2026-07-19T00:00:00Z",
+      "portfolio_id": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+      "previous_event_digest": null,
+      "sequence": 1,
+      "source_handoff_digest": "sha256:4dcd0fd46c639cb4c1a0f1efc605dfdbff89b14d952ae8933990a38a4f750b43"
+    },
+    {
+      "event_digest": "sha256:61400d2fcd0806a2f0b8f9535ffbbebc0515daf6cb0a6762b32377dc6e8103e2",
+      "event_id": "LCM08AEVT_1C9E5FE975FEB62B9BD659F7A4ADAF97",
+      "event_type": "PORTFOLIO_RECONSTRUCTED",
+      "issued_at": "2026-07-19T00:00:00Z",
+      "portfolio_id": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+      "previous_event_digest": "sha256:95929160b415265768039607b62600227f7b890a2a82f6618511b4be8e289f15",
+      "sequence": 2,
+      "source_handoff_digest": "sha256:4dcd0fd46c639cb4c1a0f1efc605dfdbff89b14d952ae8933990a38a4f750b43"
+    },
+    {
+      "event_digest": "sha256:d9cbab491d24c6367e3ff914d3d6f8af786cbb5fd14ecac47cb72a19fc0e5eaa",
+      "event_id": "LCM08AEVT_2AE803AE2358F6E08EB5107736E5219C",
+      "event_type": "RISK_ASSESSED",
+      "issued_at": "2026-07-19T00:00:00Z",
+      "portfolio_id": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+      "previous_event_digest": "sha256:61400d2fcd0806a2f0b8f9535ffbbebc0515daf6cb0a6762b32377dc6e8103e2",
+      "sequence": 3,
+      "source_handoff_digest": "sha256:4dcd0fd46c639cb4c1a0f1efc605dfdbff89b14d952ae8933990a38a4f750b43"
+    },
+    {
+      "event_digest": "sha256:4d2a3bdb7b7cfcccbc9b511780900b13929752c2d85444dfb962525bf68faa55",
+      "event_id": "LCM08AEVT_9A7B8FB3E4B469F8D7F1C1E262984C2E",
+      "event_type": "DEPENDENCIES_BOUND",
+      "issued_at": "2026-07-19T00:00:00Z",
+      "portfolio_id": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+      "previous_event_digest": "sha256:d9cbab491d24c6367e3ff914d3d6f8af786cbb5fd14ecac47cb72a19fc0e5eaa",
+      "sequence": 4,
+      "source_handoff_digest": "sha256:4dcd0fd46c639cb4c1a0f1efc605dfdbff89b14d952ae8933990a38a4f750b43"
+    },
+    {
+      "event_digest": "sha256:72505832eb4cbb5ec3f00173bbd1b73cd965cd310fa1877928914301c5243308",
+      "event_id": "LCM08AEVT_F7E96C7D73E3BA2C7E5FA97A943E16B0",
+      "event_type": "WAVES_ASSIGNED",
+      "issued_at": "2026-07-19T00:00:00Z",
+      "portfolio_id": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+      "previous_event_digest": "sha256:4d2a3bdb7b7cfcccbc9b511780900b13929752c2d85444dfb962525bf68faa55",
+      "sequence": 5,
+      "source_handoff_digest": "sha256:4dcd0fd46c639cb4c1a0f1efc605dfdbff89b14d952ae8933990a38a4f750b43"
+    },
+    {
+      "event_digest": "sha256:ea6583a83354e68f1e04f61c68049aecc465abfb9bb047b731654ca6c224888b",
+      "event_id": "LCM08AEVT_B87BBB95C4CC39F7F7FFC4AEA62A77C1",
+      "event_type": "PILOT_EVALUATED",
+      "issued_at": "2026-07-19T00:00:00Z",
+      "portfolio_id": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+      "previous_event_digest": "sha256:72505832eb4cbb5ec3f00173bbd1b73cd965cd310fa1877928914301c5243308",
+      "sequence": 6,
+      "source_handoff_digest": "sha256:4dcd0fd46c639cb4c1a0f1efc605dfdbff89b14d952ae8933990a38a4f750b43"
+    },
+    {
+      "event_digest": "sha256:651590166b76ddb8392a013485ab4d33adacbce6369162906499db5e50cbae9b",
+      "event_id": "LCM08AEVT_E1F6934FECB272088F819EEED8906644",
+      "event_type": "PILOT_SELECTED",
+      "issued_at": "2026-07-19T00:00:00Z",
+      "portfolio_id": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+      "previous_event_digest": "sha256:ea6583a83354e68f1e04f61c68049aecc465abfb9bb047b731654ca6c224888b",
+      "sequence": 7,
+      "source_handoff_digest": "sha256:4dcd0fd46c639cb4c1a0f1efc605dfdbff89b14d952ae8933990a38a4f750b43"
+    },
+    {
+      "event_digest": "sha256:2b6b50cbca11c8720c6d5838b76ef3579f1c483bce6dc3afa3d5b3129c6762ed",
+      "event_id": "LCM08AEVT_9B7C3A81C03D6307E98F603B8E71C306",
+      "event_type": "HOSTILE_REVIEW_COMPLETED",
+      "issued_at": "2026-07-19T00:00:00Z",
+      "portfolio_id": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+      "previous_event_digest": "sha256:651590166b76ddb8392a013485ab4d33adacbce6369162906499db5e50cbae9b",
+      "sequence": 8,
+      "source_handoff_digest": "sha256:4dcd0fd46c639cb4c1a0f1efc605dfdbff89b14d952ae8933990a38a4f750b43"
+    },
+    {
+      "event_digest": "sha256:cb8fea35373547e0bfa7e24dae1d329ca4801f85fb49b8b6917f8f593b462580",
+      "event_id": "LCM08AEVT_348F4610ED3FBF7658E0F9D55DFD8499",
+      "event_type": "HANDOFF_ISSUED",
+      "issued_at": "2026-07-19T00:00:00Z",
+      "portfolio_id": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+      "previous_event_digest": "sha256:2b6b50cbca11c8720c6d5838b76ef3579f1c483bce6dc3afa3d5b3129c6762ed",
+      "sequence": 9,
+      "source_handoff_digest": "sha256:4dcd0fd46c639cb4c1a0f1efc605dfdbff89b14d952ae8933990a38a4f750b43"
+    }
+  ],
+  "head_digest": "sha256:cb8fea35373547e0bfa7e24dae1d329ca4801f85fb49b8b6917f8f593b462580",
+  "ledger_digest": "sha256:704655338a28888b767442927c35e13621f0c3ad4e28ae153be88a95247a8f3d",
+  "ledger_id": "LCM08ALEDGER_B8A51FFEAB454263988FB673BCC112A1",
+  "schema_version": "1.0.0"
+}

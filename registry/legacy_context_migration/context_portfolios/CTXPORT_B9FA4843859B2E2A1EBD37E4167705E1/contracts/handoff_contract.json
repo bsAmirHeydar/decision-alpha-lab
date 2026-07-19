@@ -1,0 +1,15 @@
+{
+  "consumer_cutover_allowed": false,
+  "contract_digest": "sha256:5c748725869b21c3a09410688afc10cacd52f39af458aeb56281805599b67aee",
+  "contract_id": "LCM08A_TO_LCM08B_HANDOFF_CONTRACT_V1",
+  "purpose": "Authorize only pilot packet, canonical authoring, adapter and parity.",
+  "required_fields": [
+    "selected_pilot_identity_id",
+    "allowed_actions",
+    "forbidden_actions"
+  ],
+  "schema_version": "1.0.0",
+  "semantic_refactor_allowed": false,
+  "source_delete_allowed": false,
+  "source_move_allowed": false
+}

@@ -1,0 +1,20 @@
+{
+  "approval_id": "ARCHITECT_APPROVAL_20260719_LCM08A_DETERMINISTIC_PILOT_POLICY",
+  "authority_source": "EXPLICIT_USER_ARCHITECT_DIRECTION_TO_PROCEED_AFTER_LCM07",
+  "does_not_authorize": [
+    "SEMANTIC_CORRECTION",
+    "SOURCE_MOVE",
+    "SOURCE_DELETE",
+    "CONSUMER_CUTOVER",
+    "EXECUTION",
+    "RUNTIME",
+    "LIVE_ORDER",
+    "CAPITAL"
+  ],
+  "policy_digest": "sha256:a437f24a281336ca455fc476a49d55255f71376b67abad4d3ad6c910324cbfdb",
+  "schema_version": "1.0.0",
+  "scope": [
+    "IMPLEMENT_LCM08A",
+    "APPLY_DETERMINISTIC_PILOT_SELECTION_POLICY"
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "checks": [
+    {
+      "check_id": "EVERY_CONTEXT_IDENTITY_ACCOUNTED",
+      "passed": true
+    },
+    {
+      "check_id": "EXACTLY_ONE_PILOT_SELECTED",
+      "passed": true
+    },
+    {
+      "check_id": "PILOT_HAS_NO_ORDER_AUTHORITY",
+      "passed": true
+    },
+    {
+      "check_id": "PILOT_HAS_NO_IDENTITY_COLLISION",
+      "passed": true
+    },
+    {
+      "check_id": "PILOT_IS_PACKAGE_CONTEXT",
+      "passed": true
+    },
+    {
+      "check_id": "CRITICAL_DIMENSIONS_NOT_AVERAGED_AWAY",
+      "passed": true
+    },
+    {
+      "check_id": "EMBEDDED_FRAGMENTS_NOT_PILOT_ELIGIBLE",
+      "passed": true
+    },
+    {
+      "check_id": "FUTURE_AWARE_CANDIDATES_NOT_PILOT_ELIGIBLE",
+      "passed": true
+    },
+    {
+      "check_id": "PROTECTED_PLATFORM_NOT_SELECTED",
+      "passed": true
+    },
+    {
+      "check_id": "NO_SOURCE_MOVE_OR_DELETE",
+      "passed": true
+    },
+    {
+      "check_id": "NO_ADAPTER_OR_CUTOVER",
+      "passed": true
+    },
+    {
+      "check_id": "NO_EXECUTION_OR_CAPITAL_AUTHORITY",
+      "passed": true
+    }
+  ],
+  "hostile_review_digest": "sha256:1807b4f1288509b2c4ad224c0e82827a22153819a62fbf1523b26dd44c9a0eed",
+  "hostile_review_passed": true,
+  "portfolio_id": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,183 @@
+{
+  "file_count": 35,
+  "files": [
+    {
+      "path": "authority/authority_permit.json",
+      "sha256": "sha256:5d99a00f83cff48fa8dc6d363496bbd15ba749a5b60e6299f11284148118209e",
+      "size_bytes": 1074
+    },
+    {
+      "path": "context_portfolio_marker.json",
+      "sha256": "sha256:9f5a81fd6fc624e611698053f414145e896769b299d942c898978fd708d580f1",
+      "size_bytes": 858
+    },
+    {
+      "path": "context_portfolio_receipt.json",
+      "sha256": "sha256:30f89606545eb2315af00a4161ac564af5be306b318bd829aef067526d587869",
+      "size_bytes": 462
+    },
+    {
+      "path": "contracts/context_portfolio_contract.json",
+      "sha256": "sha256:99314f0374a8cb8db86520a4b8ff93ae286476b894b3d2414e10cb01f89c171a",
+      "size_bytes": 530
+    },
+    {
+      "path": "contracts/dependency_graph_contract.json",
+      "sha256": "sha256:4ea7f72ac943b318207b769e0f84be1a4e71ad95ea8f70693df1a1b61551aa8f",
+      "size_bytes": 496
+    },
+    {
+      "path": "contracts/handoff_contract.json",
+      "sha256": "sha256:670e3dd91f9e9acb7d05bb8a57812449e7893204e022f8d51218a863804549e5",
+      "size_bytes": 521
+    },
+    {
+      "path": "contracts/pilot_selection_contract.json",
+      "sha256": "sha256:6c9c0ebdbbb3d445ef18de5040264b20bfd6b9b3dffb13dde55d39a6b09ea80d",
+      "size_bytes": 491
+    },
+    {
+      "path": "contracts/risk_assessment_contract.json",
+      "sha256": "sha256:7997a33073fcf89ce5f64047753ea7f52bce899b8a127c80b30747fedcf354c5",
+      "size_bytes": 524
+    },
+    {
+      "path": "contracts/wave_assignment_contract.json",
+      "sha256": "sha256:d76e710a378fc22b0c39e56e8edfb82bc1a545e809e93ab577c3dd652a7e746c",
+      "size_bytes": 494
+    },
+    {
+      "path": "dependencies/context_dependency_graph.json",
+      "sha256": "sha256:4450d899f83f3f1332096d70a321ed046f2df69821901a5a14c7f87c6ea88565",
+      "size_bytes": 576508
+    },
+    {
+      "path": "docs/LCM08A_EXECUTIVE_BRIEF.md",
+      "sha256": "sha256:3c8fd9cc31a115d38371e1528cf8082e357eaf4fef471c907321c3f36fed8ea3",
+      "size_bytes": 426
+    },
+    {
+      "path": "docs/LCM08A_PILOT_DECISION.md",
+      "sha256": "sha256:583cec4d75e3f39f08d4a49b2faab10548c5c490663250c603f358a72ae03876",
+      "size_bytes": 312
+    },
+    {
+      "path": "docs/LCM08A_RISK_MODEL.md",
+      "sha256": "sha256:f1cd870883e528b7c5f518997209aeca9f62fb295b5e1f1725465148158014d5",
+      "size_bytes": 333
+    },
+    {
+      "path": "docs/LCM08A_TO_LCM08B_HANDOFF.md",
+      "sha256": "sha256:1c67e4c1b3607ad8cece54b35aac846d775b4bd8e8ea7d12caf0975716b156eb",
+      "size_bytes": 418
+    },
+    {
+      "path": "events/context_portfolio_event_ledger.json",
+      "sha256": "sha256:1aa4d45765bbea35d2bd2d1112cce76c3684edec3f04660d786d9da9538da65e",
+      "size_bytes": 5231
+    },
+    {
+      "path": "handoff/lcm08a_to_lcm08b_handoff.json",
+      "sha256": "sha256:131309ff16498b61d9e5a653ee35ca99e4305be1b4b58773db87bca109a96419",
+      "size_bytes": 1849
+    },
+    {
+      "path": "input/lcm07_binding.json",
+      "sha256": "sha256:afdb6c17cfdd721b6d37ff753d20aec55035ad392b3ff64ff272e78579fab5d1",
+      "size_bytes": 2633
+    },
+    {
+      "path": "pilot/pilot_candidate_evaluations.jsonl",
+      "sha256": "sha256:4ba90e230505beef74d2d63eb494690ed7a40929b3d05b9754b533546c27af93",
+      "size_bytes": 818208
+    },
+    {
+      "path": "pilot/pilot_selection_decision.json",
+      "sha256": "sha256:b08f1d85d7111d42f726d36abc925c3d46680e94c3bdf944ceb2f36b87af7bd0",
+      "size_bytes": 897
+    },
+    {
+      "path": "portfolio/context_portfolio_registry.csv",
+      "sha256": "sha256:823d9aecf2723b290af04990e26fff27a0c53462d3c23e0f31b10a1971e0ca3a",
+      "size_bytes": 119683
+    },
+    {
+      "path": "portfolio/context_portfolio_registry.jsonl",
+      "sha256": "sha256:0a36861bd1609d5d5d505d8b7ccd4ea458d2205eba61a01172c94471130e00f7",
+      "size_bytes": 1165589
+    },
+    {
+      "path": "provenance/context_portfolio_provenance_graph.json",
+      "sha256": "sha256:0523d73e87bc8b1d28e7c5a112e213ca2d7267e5481b7c96e80d6134dcaeb4e7",
+      "size_bytes": 10098
+    },
+    {
+      "path": "registries/context_risk_dimension_registry.json",
+      "sha256": "sha256:618a532deab4e86443c5a60e635a4451da1105dd68dd1dfe7953ff3b77cb1527",
+      "size_bytes": 2800
+    },
+    {
+      "path": "registries/granularity_class_registry.json",
+      "sha256": "sha256:f8e13a0c991dfc5b2eb0aa9eb05c3581148d783aecd5a9f3b84e470d613a703e",
+      "size_bytes": 497
+    },
+    {
+      "path": "registries/pilot_gate_registry.json",
+      "sha256": "sha256:6f3a37d92835c30eb76825ec1677f9071f7a0dd6eaafa72ff6392b8f43f1c9c2",
+      "size_bytes": 758
+    },
+    {
+      "path": "registries/reason_code_registry.json",
+      "sha256": "sha256:1ed1c4c2b7a139d8e4b012d6ff53a8d675e690e4e573e5284c2e33f035f1c020",
+      "size_bytes": 844
+    },
+    {
+      "path": "registries/risk_class_registry.json",
+      "sha256": "sha256:1b5f38bb0327b09fba1447ecee1441f551797989b7ec91f527e913c378dfb3c0",
+      "size_bytes": 328
+    },
+    {
+      "path": "registries/wave_registry.json",
+      "sha256": "sha256:4d6a87d01faf93be54ed1414f42a046f549bac9df9bf0bf413889a2109255a3a",
+      "size_bytes": 562
+    },
+    {
+      "path": "reports/acceptance_report.json",
+      "sha256": "sha256:2190f68e5be6d6f013085e138633e315d729e8cf0bf13c4ab3c375abf2a6f14d",
+      "size_bytes": 812
+    },
+    {
+      "path": "reports/context_portfolio_summary.json",
+      "sha256": "sha256:c08d8ad8da147f464e214c5871711133f38a04a21bd7308b55dbe06a4f446f56",
+      "size_bytes": 1516
+    },
+    {
+      "path": "reports/hostile_review.json",
+      "sha256": "sha256:7207396f88c99862708d752aee75af56f3d0fc1584e2718676b58eefe00a9178",
+      "size_bytes": 1285
+    },
+    {
+      "path": "risk/context_risk_assessment.csv",
+      "sha256": "sha256:e02ad137c240d4074c5361e5fae3b00bbf3df4d29c61e3ed5dd76ce48e495f68",
+      "size_bytes": 61810
+    },
+    {
+      "path": "risk/context_risk_assessment.jsonl",
+      "sha256": "sha256:8b472277cf5508d12cd45006dad689996749c1e656fb2b1232c723b059d3e8fd",
+      "size_bytes": 538764
+    },
+    {
+      "path": "unresolved/unresolved_context_queue.jsonl",
+      "sha256": "sha256:0b846ebd83cfdc287b0af5b28d4613aaac7db4fb68cb17b689eacd62b481afc4",
+      "size_bytes": 5077
+    },
+    {
+      "path": "waves/context_wave_assignment.json",
+      "sha256": "sha256:b915447af0ac704da135a4635217bd483dd6537610f6e8901fcec58d713195eb",
+      "size_bytes": 84726
+    }
+  ],
+  "manifest_digest": "sha256:b75005722388623180eb085487d59c19dc58cd89794769f68627b674b55a13c6",
+  "manifest_type": "LCM08A_CONTEXT_PORTFOLIO_PACKAGE",
+  "schema_version": "1.0.0"
+}

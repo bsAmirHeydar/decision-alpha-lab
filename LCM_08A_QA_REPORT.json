@@ -1,0 +1,97 @@
+{
+  "acl15_regression_status": "PASS",
+  "adapter_publication_count": 0,
+  "clean_overlay_commands": [
+    {
+      "command": "/opt/pyvenv/bin/python -m tools.strategy_factory.lcm.lcm_08a.cli verify-installation --repo-root /mnt/data/lcm08a_verify/repo --portfolio-root /mnt/data/lcm08a_verify/repo/registry/legacy_context_migration/context_portfolios/CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1 --patch-index /mnt/data/lcm08a_verify/repo/LCM_08A_FILE_INDEX.txt",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"context_candidate_count\": 321,\n  \"installation_passed\": true,\n  \"manifest_file_count\": 35,\n  \"passed\": true,\n  \"patch_index_count\": 186,\n  \"portfolio_id\": \"CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1\",\n  \"selected_pilot_identity_id\": \"CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1\"\n}\n"
+    },
+    {
+      "command": "/opt/pyvenv/bin/python -m tools.strategy_factory.lcm.lcm_08a.cli verify-package --portfolio-root /mnt/data/lcm08a_verify/repo/registry/legacy_context_migration/context_portfolios/CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"context_candidate_count\": 321,\n  \"manifest_file_count\": 35,\n  \"passed\": true,\n  \"portfolio_id\": \"CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1\",\n  \"selected_pilot_identity_id\": \"CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1\"\n}\n"
+    },
+    {
+      "command": "/opt/pyvenv/bin/python -m pytest -q /mnt/data/lcm08a_verify/repo/lab/11_strategy_factory/migration/tests_lcm_08a",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "........                                                                 [100%]\n8 passed in 24.30s\n"
+    },
+    {
+      "command": "/opt/pyvenv/bin/python -m pytest -q /mnt/data/lcm08a_verify/repo/lab/11_strategy_factory/migration/tests_lcm_07",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "................                                                         [100%]\n16 passed in 1.43s\n"
+    },
+    {
+      "command": "/opt/pyvenv/bin/python -m pytest -q /mnt/data/lcm08a_verify/repo/lab/11_strategy_factory/acl_os/tests_acl_15",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ".......................................                                  [100%]\n39 passed in 1.67s\n"
+    }
+  ],
+  "clean_overlay_status": "PASS",
+  "consumer_cutover_count": 0,
+  "direct_test_status": "PASS",
+  "json_schema_status": "PASS",
+  "lcm07_regression_status": "PASS",
+  "mql5_metaeditor_compile_status": "NOT_AVAILABLE_IN_REFERENCE_ENVIRONMENT",
+  "mql5_runtime_parity_status": "NOT_CLAIMED",
+  "packaging_validation": "PRE_FINAL_ARCHIVE_CRC_PASS_AND_FINAL_ARCHIVE_REVERIFIED_AFTER_WRITE",
+  "phase_id": "LCM-08A",
+  "portfolio_id": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+  "python_compile_status": "PASS",
+  "qa_digest": "sha256:3b48877eb68060ddfa2f1e08e2982397e15edd214c139424169aac1400c2c274",
+  "schema_version": "1.0.0",
+  "semantic_refactor_count": 0,
+  "source_delete_count": 0,
+  "source_move_count": 0,
+  "test_commands": [
+    {
+      "command": "/opt/pyvenv/bin/python -m tools.strategy_factory.lcm.lcm_08a.cli verify-package --portfolio-root /mnt/data/lcm08a_work/repo/registry/legacy_context_migration/context_portfolios/CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"context_candidate_count\": 321,\n  \"manifest_file_count\": 35,\n  \"passed\": true,\n  \"portfolio_id\": \"CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1\",\n  \"selected_pilot_identity_id\": \"CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1\"\n}\n"
+    },
+    {
+      "command": "/opt/pyvenv/bin/python -m tools.strategy_factory.lcm.lcm_08a.cli qa --repo-root /mnt/data/lcm08a_work/repo --portfolio-root /mnt/data/lcm08a_work/repo/registry/legacy_context_migration/context_portfolios/CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"checks\": {\n    \"candidate_count_321\": true,\n    \"critical_dimensions_non_compensatory\": true,\n    \"no_source_move\": true,\n    \"pilot_no_collision\": true,\n    \"pilot_no_order_api\": true,\n    \"pilot_package_context\": true,\n    \"source_digest_preserved\": true,\n    \"source_exists\": true\n  },\n  \"context_candidate_count\": 321,\n  \"manifest_file_count\": 35,\n  \"passed\": true,\n  \"portfolio_id\": \"CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1\",\n  \"qa_passed\": true,\n  \"selected_pilot_identity_id\": \"CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1\"\n}\n"
+    },
+    {
+      "command": "/opt/pyvenv/bin/python -m tools.strategy_factory.lcm.lcm_08a.cli validate-schemas --schema-root /mnt/data/lcm08a_work/repo/registry/legacy_context_migration/lcm_08a/schemas/v1",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"passed\": true,\n  \"schema_count\": 13\n}\n"
+    },
+    {
+      "command": "/opt/pyvenv/bin/python -m compileall -q -f /mnt/data/lcm08a_work/repo/tools/strategy_factory/lcm/lcm_08a",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "command": "/opt/pyvenv/bin/python -m pytest -q /mnt/data/lcm08a_work/repo/lab/11_strategy_factory/migration/tests_lcm_08a",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "........                                                                 [100%]\n8 passed in 21.28s\n"
+    },
+    {
+      "command": "/opt/pyvenv/bin/python -m pytest -q /mnt/data/lcm08a_work/repo/lab/11_strategy_factory/migration/tests_lcm_07",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "................                                                         [100%]\n16 passed in 1.68s\n"
+    },
+    {
+      "command": "/opt/pyvenv/bin/python -m pytest -q /mnt/data/lcm08a_work/repo/lab/11_strategy_factory/acl_os/tests_acl_15",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ".......................................                                  [100%]\n39 passed in 1.92s\n"
+    }
+  ],
+  "zip_crc_status": "PASS"
+}

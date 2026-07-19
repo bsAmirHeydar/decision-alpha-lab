@@ -1,0 +1,13 @@
+{
+  "closed_values": [
+    "PLANNED",
+    "IN_PROGRESS",
+    "BLOCKED",
+    "FAILED",
+    "ACCEPTED",
+    "SUPERSEDED"
+  ],
+  "registry_digest": "sha256:f1248ff6f0a97f943cafdffbe6be6022f921666908976f4097a6e739ff0493cf",
+  "registry_id": "PHASE_STATE_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}

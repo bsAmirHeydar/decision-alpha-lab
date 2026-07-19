@@ -1,0 +1,12 @@
+{
+  "policy_digest": "sha256:2d427b4df840613f4d2cf62bf8989cab42051542c3b0d6c52f79e6fdceb1d45d",
+  "policy_id": "LCM08A_PILOT_SELECTION_POLICY_V1",
+  "required_identity_id": "CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1",
+  "schema_version": "1.0.0",
+  "selection_order": [
+    "NON_COMPENSATORY_GATES",
+    "LOWEST_RISK",
+    "LEXICOGRAPHIC_IDENTITY_ID"
+  ],
+  "semantic_change_authorized": false
+}

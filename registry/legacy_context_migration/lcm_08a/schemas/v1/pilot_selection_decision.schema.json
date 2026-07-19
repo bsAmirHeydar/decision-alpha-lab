@@ -1,0 +1,12 @@
+{
+  "$id": "urn:alpha-lab:lcm08a:pilot-selection:1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "required": [
+    "portfolio_id",
+    "selected_pilot_identity_id",
+    "selected_source_digest",
+    "selection_digest"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,34 @@
+{
+  "$id": "urn:alpha-lab:lcm08a:context-portfolio-record:1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "identity_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "risk_class": {
+      "enum": [
+        "LOW",
+        "MODERATE",
+        "HIGH",
+        "CRITICAL",
+        "UNKNOWN"
+      ]
+    },
+    "wave_assignment": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "portfolio_record_id",
+    "identity_id",
+    "source_artifact_path",
+    "risk_class",
+    "wave_assignment",
+    "record_digest"
+  ],
+  "type": "object"
+}

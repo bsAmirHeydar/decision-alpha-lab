@@ -1,0 +1,18 @@
+{
+  "closed_values": [
+    "WAVE_01_LOW_RISK_PILOT",
+    "WAVE_02_M_SERIES",
+    "WAVE_03_EXP0015_EXP0016_EXP0017",
+    "WAVE_04_EXP0018_DAYE_TRADER",
+    "WAVE_05_EXP0019_FAERIE_PROTOCOL",
+    "WAVE_06_FLAG_F2_ZONE",
+    "WAVE_07_HOOK",
+    "WAVE_08_NDS",
+    "WAVE_09_HIGH_RISK_COMPOSITE",
+    "BLOCKED_UNRESOLVED"
+  ],
+  "purpose": "Dependency- and risk-ordered Context migration waves.",
+  "registry_digest": "sha256:602f5f26bb376c265cd2b71d71b04c5dfbe5536ffec240b0b5d02b465539e46c",
+  "registry_id": "LCM08A_WAVE_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,15 @@
+{
+  "closed_values": [
+    "PACKAGE_CONTEXT",
+    "COMPOSITE_CONTEXT_SHELL",
+    "EMBEDDED_CONTEXT_FRAGMENT",
+    "CANONICAL_CONTEXT_REFERENCE",
+    "CONTEXT_DOCUMENTATION_PROJECTION",
+    "CONTEXT_TEST_OR_VALIDATOR",
+    "AMBIGUOUS_CONTEXT_LIKE"
+  ],
+  "purpose": "Closed Context candidate granularity classes.",
+  "registry_digest": "sha256:b184a46a5face9ee1ffabc2033bf8ba37ee0a1c8cb9e28b4759d1bba6fdeed88",
+  "registry_id": "LCM08A_GRANULARITY_CLASS_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}

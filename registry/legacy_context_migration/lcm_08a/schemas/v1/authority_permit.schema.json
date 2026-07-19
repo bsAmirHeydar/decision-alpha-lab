@@ -1,0 +1,13 @@
+{
+  "$id": "urn:alpha-lab:lcm08a:authority:1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "required": [
+    "phase_id",
+    "claim_ceiling",
+    "allowed_actions",
+    "forbidden_actions",
+    "permit_digest"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,13 @@
+{
+  "closed_values": [
+    "LOW",
+    "MODERATE",
+    "HIGH",
+    "CRITICAL",
+    "UNKNOWN"
+  ],
+  "purpose": "Closed Context migration risk classes.",
+  "registry_digest": "sha256:3aa48293511cca8e77e36884b44e6b66a24b73ab7aaa8ada564366c4955b2e91",
+  "registry_id": "LCM08A_RISK_CLASS_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}

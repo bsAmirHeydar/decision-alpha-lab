@@ -1,0 +1,14 @@
+{
+  "$id": "urn:alpha-lab:lcm08a:pilot-evaluation:1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "required": [
+    "evaluation_id",
+    "identity_id",
+    "gates",
+    "eligible",
+    "selected",
+    "evaluation_digest"
+  ],
+  "type": "object"
+}

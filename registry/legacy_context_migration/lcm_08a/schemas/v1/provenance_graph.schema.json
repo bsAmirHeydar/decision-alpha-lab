@@ -1,0 +1,12 @@
+{
+  "$id": "urn:alpha-lab:lcm08a:provenance:1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "required": [
+    "graph_id",
+    "nodes",
+    "edges",
+    "graph_digest"
+  ],
+  "type": "object"
+}

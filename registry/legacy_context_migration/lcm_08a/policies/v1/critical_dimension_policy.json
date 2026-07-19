@@ -1,0 +1,14 @@
+{
+  "aggregate_score_cannot_override": true,
+  "critical_dimensions": [
+    "EXECUTION_COUPLING",
+    "BROKER_OR_NETWORK_COUPLING",
+    "CURRENT_BAR_OR_FUTURE_AWARENESS",
+    "NONDETERMINISM",
+    "SECURITY_SENSITIVITY",
+    "IDENTITY_AMBIGUITY"
+  ],
+  "policy_digest": "sha256:ea4ad7feeab6acf869a9beeae3aaf0b02915e119dd3165032915a7ac7abd98fc",
+  "policy_id": "LCM08A_CRITICAL_DIMENSION_POLICY_V1",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,12 @@
+{
+  "$id": "urn:alpha-lab:lcm08a:manifest:1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "required": [
+    "manifest_type",
+    "file_count",
+    "files",
+    "manifest_digest"
+  ],
+  "type": "object"
+}

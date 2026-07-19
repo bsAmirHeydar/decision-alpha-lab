@@ -1,0 +1,34 @@
+{
+  "allowed_actions": [
+    "RECONSTRUCT_CONTEXT_PORTFOLIO",
+    "ASSESS_CONTEXT_RISK",
+    "ASSIGN_MIGRATION_WAVES",
+    "SELECT_ONE_REFERENCE_PILOT",
+    "ISSUE_LCM08A_TO_LCM08B_HANDOFF"
+  ],
+  "capital_authority_created": false,
+  "claim_ceiling": "LCM_08A_REFERENCE_ONLY",
+  "consumer_cutover_allowed": false,
+  "forbidden_actions": [
+    "MOVE_SOURCE",
+    "DELETE_SOURCE",
+    "REWRITE_CONTEXT",
+    "PUBLISH_COMPATIBILITY_ADAPTER",
+    "SWITCH_CONSUMER",
+    "MATERIALIZE_SHARED_ENGINE",
+    "ENABLE_EXECUTION",
+    "AUTHORIZE_RUNTIME",
+    "AUTHORIZE_LIVE_ORDER",
+    "ACTIVATE_CAPITAL"
+  ],
+  "issued_at": "2026-07-19T00:00:00Z",
+  "live_order_authority_created": false,
+  "permit_digest": "sha256:7c54fb18e73d27b672999c1290be6bc25ff8278224a0c1999f71bbc76feec177",
+  "phase_id": "LCM-08A",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "semantic_refactor_allowed": false,
+  "source_delete_allowed": false,
+  "source_handoff_digest": "sha256:4dcd0fd46c639cb4c1a0f1efc605dfdbff89b14d952ae8933990a38a4f750b43",
+  "source_move_allowed": false
+}

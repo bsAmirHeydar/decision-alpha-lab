@@ -1,0 +1,13 @@
+{
+  "closed_values": [
+    "REFERENCE_ONLY",
+    "NO_MIGRATION_AUTHORITY",
+    "NO_CUTOVER_AUTHORITY",
+    "NO_RUNTIME_AUTHORITY",
+    "NO_LIVE_ORDER_AUTHORITY",
+    "NO_CAPITAL_AUTHORITY"
+  ],
+  "registry_digest": "sha256:493ded26ad33f008029c3a22e5de71d3ad90f529180e43a3db8a7504f7b4dfa5",
+  "registry_id": "AUTHORITY_STATE_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,275 @@
+{
+  "edges": [
+    {
+      "from_node": "PROVNODE_BDD6DA5A36E5A58D6905C9DA6A0169E2",
+      "relation": "CONSUMED_BY",
+      "to_node": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1"
+    },
+    {
+      "from_node": "PROVNODE_7A5BDE63D9767FAF1DD9F807EBE88C53",
+      "relation": "CONSUMED_BY",
+      "to_node": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1"
+    },
+    {
+      "from_node": "PROVNODE_D6A937FC9632F5CEDD0B00160256CE49",
+      "relation": "CONSUMED_BY",
+      "to_node": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1"
+    },
+    {
+      "from_node": "PROVNODE_F10268BD41958231143240D5DC515280",
+      "relation": "CONSUMED_BY",
+      "to_node": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1"
+    },
+    {
+      "from_node": "PROVNODE_B2206F1B2A85CF7EDEB7CF948C9BBA47",
+      "relation": "CONSUMED_BY",
+      "to_node": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1"
+    },
+    {
+      "from_node": "PROVNODE_8FC66520BDEE6846E26A410ED4BA9477",
+      "relation": "CONSUMED_BY",
+      "to_node": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1"
+    },
+    {
+      "from_node": "PROVNODE_2234CF13843BFC3692EB5FB5748F518F",
+      "relation": "CONSUMED_BY",
+      "to_node": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1"
+    },
+    {
+      "from_node": "PROVNODE_7880C720373D908AB64200E955AA6877",
+      "relation": "CONSUMED_BY",
+      "to_node": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1"
+    },
+    {
+      "from_node": "PROVNODE_FAC5E6D2C2567A664B3E7DB82B3443BE",
+      "relation": "CONSUMED_BY",
+      "to_node": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1"
+    },
+    {
+      "from_node": "PROVNODE_E252349010ECC5105CAD19FAD5D51401",
+      "relation": "CONSUMED_BY",
+      "to_node": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1"
+    },
+    {
+      "from_node": "PROVNODE_42BBCF2E10F286E64ABDDFA7139AE629",
+      "relation": "CONSUMED_BY",
+      "to_node": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1"
+    },
+    {
+      "from_node": "PROVNODE_97A177BFC8455425B00B40CC9F542900",
+      "relation": "CONSUMED_BY",
+      "to_node": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1"
+    },
+    {
+      "from_node": "PROVNODE_FBF5D24E83D7328A9BEC9482761A7097",
+      "relation": "CONSUMED_BY",
+      "to_node": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1"
+    },
+    {
+      "from_node": "PROVNODE_09A37C18EFDDAC702CC5183BE6CEE5CC",
+      "relation": "CONSUMED_BY",
+      "to_node": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1"
+    },
+    {
+      "from_node": "PROVNODE_7B60E701C6C226D7AB1A513E82773BFF",
+      "relation": "CONSUMED_BY",
+      "to_node": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1"
+    },
+    {
+      "from_node": "PROVNODE_23DC1DD57C7F8838D0B1C661BA29659E",
+      "relation": "CONSUMED_BY",
+      "to_node": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1"
+    },
+    {
+      "from_node": "PROVNODE_1299A5EC5C36E3B905A0494B0C3657A2",
+      "relation": "CONSUMED_BY",
+      "to_node": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1"
+    },
+    {
+      "from_node": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+      "relation": "PRODUCED",
+      "to_node": "PROVNODE_18D4FDF539EBBB8DD61A40EF7598543C"
+    },
+    {
+      "from_node": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+      "relation": "PRODUCED",
+      "to_node": "PROVNODE_46A044DC82E29F38E5BDB6031BD2D8A7"
+    },
+    {
+      "from_node": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+      "relation": "PRODUCED",
+      "to_node": "PROVNODE_CD9AB9E295F4658542DF0F68E9DF2309"
+    },
+    {
+      "from_node": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+      "relation": "PRODUCED",
+      "to_node": "PROVNODE_4D5B8996746027EF542E4BAF67E6CD25"
+    },
+    {
+      "from_node": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+      "relation": "PRODUCED",
+      "to_node": "PROVNODE_69491FB77F493773078EBB7CCBCB47E3"
+    },
+    {
+      "from_node": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+      "relation": "PRODUCED",
+      "to_node": "PROVNODE_1BF9CAE50BB4481DE0339DA58214972E"
+    },
+    {
+      "from_node": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+      "relation": "PRODUCED",
+      "to_node": "PROVNODE_5581C4AED74C24AA48349775AFB6E44B"
+    }
+  ],
+  "graph_digest": "sha256:3958a625e6d0e474e520a4a278a060e880b833201a66355f478125ab56feb07c",
+  "graph_id": "LCM08APROV_B8A51FFEAB454263988FB673BCC112A1",
+  "nodes": [
+    {
+      "digest": "sha256:03d0422fa03af4745b3c05c3dd0c309c048a893ce0edfff6d4bd021f273e0714",
+      "name": "alias_collisions",
+      "node_id": "PROVNODE_BDD6DA5A36E5A58D6905C9DA6A0169E2",
+      "node_type": "INPUT_ARTIFACT"
+    },
+    {
+      "digest": "sha256:6b2b0671a97b1546519292e4490a8b081dfbc36d76b854d9eea2bf1b0a97e724",
+      "name": "artifact_target_map",
+      "node_id": "PROVNODE_7A5BDE63D9767FAF1DD9F807EBE88C53",
+      "node_type": "INPUT_ARTIFACT"
+    },
+    {
+      "digest": "sha256:6bbf6483c81a11f1d1eec1583979e527558dd52bf4eb26ff5903934a3773dce0",
+      "name": "capability_findings",
+      "node_id": "PROVNODE_D6A937FC9632F5CEDD0B00160256CE49",
+      "node_type": "INPUT_ARTIFACT"
+    },
+    {
+      "digest": "sha256:d4a6e6159d413bd3478e7da3dcd6f391e1bf4751513ee3ecf4af5e5cc86957f6",
+      "name": "characterization_packets",
+      "node_id": "PROVNODE_F10268BD41958231143240D5DC515280",
+      "node_type": "INPUT_ARTIFACT"
+    },
+    {
+      "digest": "sha256:5eabb0aff9e7f6bc0d10cb26fd26c8629f685aa46021a7e66a97c4bce2a0821f",
+      "name": "characterization_summary",
+      "node_id": "PROVNODE_B2206F1B2A85CF7EDEB7CF948C9BBA47",
+      "node_type": "INPUT_ARTIFACT"
+    },
+    {
+      "digest": "sha256:d2b6d2a7514ce6a81c956ddbaf9dff5436a2fb5e4ce477c0c134266e4bae46c2",
+      "name": "classification_records",
+      "node_id": "PROVNODE_8FC66520BDEE6846E26A410ED4BA9477",
+      "node_type": "INPUT_ARTIFACT"
+    },
+    {
+      "digest": "sha256:17a0940541f7f7d4b1ae193740c8190674fbbfe337dde852e127d72681c758f6",
+      "name": "dependency_edges",
+      "node_id": "PROVNODE_2234CF13843BFC3692EB5FB5748F518F",
+      "node_type": "INPUT_ARTIFACT"
+    },
+    {
+      "digest": "sha256:4628825d76c77ff70bbd3a84f806c9c1dcf78157ba329c248a8deac09d0cc32a",
+      "name": "framework_handoff",
+      "node_id": "PROVNODE_7880C720373D908AB64200E955AA6877",
+      "node_type": "INPUT_ARTIFACT"
+    },
+    {
+      "digest": "sha256:584fdbb77c653553a3d42665b6027f8e665bcd417c3925b8adc1342ffb366cbd",
+      "name": "identity_ambiguities",
+      "node_id": "PROVNODE_FAC5E6D2C2567A664B3E7DB82B3443BE",
+      "node_type": "INPUT_ARTIFACT"
+    },
+    {
+      "digest": "sha256:56d990e9081220e53434184d0a465aa32068e753ed742523ed2dec78537fc1e3",
+      "name": "identity_candidates",
+      "node_id": "PROVNODE_E252349010ECC5105CAD19FAD5D51401",
+      "node_type": "INPUT_ARTIFACT"
+    },
+    {
+      "digest": "sha256:a7e085a5e92a3b40a029c4f38967c1b896ec2952c05a6e9db81ce62f92bed486",
+      "name": "identity_summary",
+      "node_id": "PROVNODE_42BBCF2E10F286E64ABDDFA7139AE629",
+      "node_type": "INPUT_ARTIFACT"
+    },
+    {
+      "digest": "sha256:0f9dce0de2ae82ccc3b2195f5b28427b2ffde4eb996c9e22db9d4bd9d8b792cd",
+      "name": "identity_target_map",
+      "node_id": "PROVNODE_97A177BFC8455425B00B40CC9F542900",
+      "node_type": "INPUT_ARTIFACT"
+    },
+    {
+      "digest": "sha256:cf9ab3197fd1c85ce9191cf8eaa6c8e99c2e40e3db43d6cc678715a637770147",
+      "name": "owner_registry",
+      "node_id": "PROVNODE_FBF5D24E83D7328A9BEC9482761A7097",
+      "node_type": "INPUT_ARTIFACT"
+    },
+    {
+      "digest": "sha256:c559f0cd0c92b1ff4f2f100e710a6ab77d5e359d782898cc6bca1d967bed711f",
+      "name": "roadmap_manifest",
+      "node_id": "PROVNODE_09A37C18EFDDAC702CC5183BE6CEE5CC",
+      "node_type": "INPUT_ARTIFACT"
+    },
+    {
+      "digest": "sha256:f5c03c546bc9fcfde5bfe8193cacac9ec3340625ce1d5875b6e4ae35e1790494",
+      "name": "shared_candidates",
+      "node_id": "PROVNODE_7B60E701C6C226D7AB1A513E82773BFF",
+      "node_type": "INPUT_ARTIFACT"
+    },
+    {
+      "digest": "sha256:ffba7604a3c3b8cde92f2658f57cb0c0f71def0ea43d6b5b64a198a55ba668b6",
+      "name": "shared_decisions",
+      "node_id": "PROVNODE_23DC1DD57C7F8838D0B1C661BA29659E",
+      "node_type": "INPUT_ARTIFACT"
+    },
+    {
+      "digest": "sha256:32c05f5d251942f8df63292f8503d3a4f79a5e6201e5a54601e03560d6b2038f",
+      "name": "static_profiles",
+      "node_id": "PROVNODE_1299A5EC5C36E3B905A0494B0C3657A2",
+      "node_type": "INPUT_ARTIFACT"
+    },
+    {
+      "digest": "sha256:2190f68e5be6d6f013085e138633e315d729e8cf0bf13c4ab3c375abf2a6f14d",
+      "name": "acceptance_report",
+      "node_id": "PROVNODE_18D4FDF539EBBB8DD61A40EF7598543C",
+      "node_type": "OUTPUT_ARTIFACT"
+    },
+    {
+      "digest": "sha256:4450d899f83f3f1332096d70a321ed046f2df69821901a5a14c7f87c6ea88565",
+      "name": "dependency_graph",
+      "node_id": "PROVNODE_46A044DC82E29F38E5BDB6031BD2D8A7",
+      "node_type": "OUTPUT_ARTIFACT"
+    },
+    {
+      "digest": "sha256:4ba90e230505beef74d2d63eb494690ed7a40929b3d05b9754b533546c27af93",
+      "name": "pilot_evaluations",
+      "node_id": "PROVNODE_CD9AB9E295F4658542DF0F68E9DF2309",
+      "node_type": "OUTPUT_ARTIFACT"
+    },
+    {
+      "digest": "sha256:b08f1d85d7111d42f726d36abc925c3d46680e94c3bdf944ceb2f36b87af7bd0",
+      "name": "pilot_selection",
+      "node_id": "PROVNODE_4D5B8996746027EF542E4BAF67E6CD25",
+      "node_type": "OUTPUT_ARTIFACT"
+    },
+    {
+      "digest": "sha256:0a36861bd1609d5d5d505d8b7ccd4ea458d2205eba61a01172c94471130e00f7",
+      "name": "portfolio_registry",
+      "node_id": "PROVNODE_69491FB77F493773078EBB7CCBCB47E3",
+      "node_type": "OUTPUT_ARTIFACT"
+    },
+    {
+      "digest": "sha256:8b472277cf5508d12cd45006dad689996749c1e656fb2b1232c723b059d3e8fd",
+      "name": "risk_assessment",
+      "node_id": "PROVNODE_1BF9CAE50BB4481DE0339DA58214972E",
+      "node_type": "OUTPUT_ARTIFACT"
+    },
+    {
+      "digest": "sha256:b915447af0ac704da135a4635217bd483dd6537610f6e8901fcec58d713195eb",
+      "name": "wave_assignment",
+      "node_id": "PROVNODE_5581C4AED74C24AA48349775AFB6E44B",
+      "node_type": "OUTPUT_ARTIFACT"
+    }
+  ],
+  "portfolio_id": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+  "schema_version": "1.0.0",
+  "semantic_reinterpretation_performed": false
+}

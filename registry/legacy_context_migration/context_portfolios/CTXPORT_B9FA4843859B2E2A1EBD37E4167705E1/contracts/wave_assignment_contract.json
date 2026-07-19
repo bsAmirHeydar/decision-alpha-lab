@@ -1,0 +1,15 @@
+{
+  "consumer_cutover_allowed": false,
+  "contract_digest": "sha256:0edf6ad57306ad67781ef5fe9698c0d56df556edc5fdbec081285c0a1142c945",
+  "contract_id": "LCM08A_WAVE_ASSIGNMENT_CONTRACT_V1",
+  "purpose": "Assign by dependency, risk and family without migration authority.",
+  "required_fields": [
+    "identity_id",
+    "wave_assignment",
+    "risk_class"
+  ],
+  "schema_version": "1.0.0",
+  "semantic_refactor_allowed": false,
+  "source_delete_allowed": false,
+  "source_move_allowed": false
+}

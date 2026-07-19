@@ -1,0 +1,13 @@
+{
+  "closed_values": [
+    "ACCOUNTED",
+    "UNRESOLVED",
+    "PILOT_ELIGIBLE",
+    "PILOT_REJECTED",
+    "PILOT_SELECTED",
+    "WAVE_ASSIGNED"
+  ],
+  "registry_digest": "sha256:f64699db601fc9aa54313d19532328ed920c8ba58e8ba0a6214dce52d39815c4",
+  "registry_id": "CANDIDATE_STATUS_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}

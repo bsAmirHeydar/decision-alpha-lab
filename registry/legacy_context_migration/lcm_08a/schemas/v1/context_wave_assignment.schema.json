@@ -1,0 +1,12 @@
+{
+  "$id": "urn:alpha-lab:lcm08a:wave-assignment:1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "required": [
+    "portfolio_id",
+    "assignments",
+    "wave_counts",
+    "assignment_digest"
+  ],
+  "type": "object"
+}

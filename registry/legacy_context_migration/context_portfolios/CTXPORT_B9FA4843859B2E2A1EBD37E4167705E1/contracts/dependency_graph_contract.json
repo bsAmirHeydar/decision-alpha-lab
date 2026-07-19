@@ -1,0 +1,15 @@
+{
+  "consumer_cutover_allowed": false,
+  "contract_digest": "sha256:4be6bf746f20454ec4bfb96df77d9975b71bd85d78d66adcca1f4e6ba5a5377d",
+  "contract_id": "LCM08A_DEPENDENCY_GRAPH_CONTRACT_V1",
+  "purpose": "Bind static dependencies without claiming semantic reachability.",
+  "required_fields": [
+    "nodes",
+    "edges",
+    "semantic_reachability_claimed"
+  ],
+  "schema_version": "1.0.0",
+  "semantic_refactor_allowed": false,
+  "source_delete_allowed": false,
+  "source_move_allowed": false
+}

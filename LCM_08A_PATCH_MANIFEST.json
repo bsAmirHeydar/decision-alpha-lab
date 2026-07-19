@@ -1,0 +1,19 @@
+{
+  "adapter_published": false,
+  "capital_authority_created": false,
+  "claim_ceiling": "LCM_08A_REFERENCE_ONLY",
+  "consumer_cutover_performed": false,
+  "live_order_authority_created": false,
+  "master_phase": "LCM-08",
+  "patch_file_count": 186,
+  "patch_manifest_digest": "sha256:a6fe077ae2421bffde2ea11c1fc9e368bf748ef23ecddc10cbb3b0e9d871bdf2",
+  "phase_id": "LCM-08A",
+  "portfolio_id": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+  "roadmap_id": "LCM_ROADMAP_R1_BALANCED_PARTITION",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "selected_pilot_identity_id": "CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1",
+  "semantic_refactor_performed": false,
+  "source_delete_performed": false,
+  "source_move_performed": false
+}

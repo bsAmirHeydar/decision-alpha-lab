@@ -1,0 +1,13 @@
+{
+  "$id": "urn:alpha-lab:lcm08a:risk-assessment:1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "required": [
+    "identity_id",
+    "risk_dimensions",
+    "critical_dimensions",
+    "aggregate_risk_score",
+    "risk_class"
+  ],
+  "type": "object"
+}

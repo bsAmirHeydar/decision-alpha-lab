@@ -1,0 +1,14 @@
+{
+  "$id": "urn:alpha-lab:lcm08a:handoff:1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "required": [
+    "handoff_type",
+    "portfolio_id",
+    "selected_pilot_identity_id",
+    "allowed_actions",
+    "forbidden_actions",
+    "handoff_digest"
+  ],
+  "type": "object"
+}

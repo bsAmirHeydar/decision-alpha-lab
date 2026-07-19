@@ -1,0 +1,16 @@
+{
+  "consumer_cutover_allowed": false,
+  "contract_digest": "sha256:3b83a3311325411acf38a026fefd57cc771a09134ae5d0a0ac6b2eb74dba6c48",
+  "contract_id": "LCM08A_PILOT_SELECTION_CONTRACT_V1",
+  "purpose": "Select exactly one bounded pilot by non-compensatory gates.",
+  "required_fields": [
+    "identity_id",
+    "gates",
+    "eligible",
+    "selected"
+  ],
+  "schema_version": "1.0.0",
+  "semantic_refactor_allowed": false,
+  "source_delete_allowed": false,
+  "source_move_allowed": false
+}

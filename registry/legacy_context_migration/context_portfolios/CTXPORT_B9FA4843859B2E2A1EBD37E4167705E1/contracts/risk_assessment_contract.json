@@ -1,0 +1,16 @@
+{
+  "consumer_cutover_allowed": false,
+  "contract_digest": "sha256:5b374d214aceafa11b4a7fe1623c46526b5411f7cd5b597e0017b4d245338025",
+  "contract_id": "LCM08A_RISK_ASSESSMENT_CONTRACT_V1",
+  "purpose": "Preserve raw dimensions; critical dimensions cannot be averaged away.",
+  "required_fields": [
+    "identity_id",
+    "risk_dimensions",
+    "critical_dimensions",
+    "risk_class"
+  ],
+  "schema_version": "1.0.0",
+  "semantic_refactor_allowed": false,
+  "source_delete_allowed": false,
+  "source_move_allowed": false
+}

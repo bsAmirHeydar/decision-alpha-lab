@@ -1,0 +1,98 @@
+{
+  "closed_values": [
+    {
+      "critical": false,
+      "dimension_id": "STATEFULNESS",
+      "evidence": "global state, mutable lifecycle stores and restart state",
+      "weight": 12
+    },
+    {
+      "critical": false,
+      "dimension_id": "MULTI_TIMEFRAME_ALIGNMENT",
+      "evidence": "timeframe API or explicit period projection",
+      "weight": 12
+    },
+    {
+      "critical": false,
+      "dimension_id": "SESSION_DST_DEPENDENCE",
+      "evidence": "session API, wall-clock or timezone rules",
+      "weight": 12
+    },
+    {
+      "critical": false,
+      "dimension_id": "PERSISTENCE_FILE_IO",
+      "evidence": "file read/write or persistent ledger",
+      "weight": 10
+    },
+    {
+      "critical": false,
+      "dimension_id": "DRAWING_OBJECT_LIFECYCLE",
+      "evidence": "chart-object mutation and lifecycle",
+      "weight": 8
+    },
+    {
+      "critical": false,
+      "dimension_id": "MULTI_CHART_BEHAVIOR",
+      "evidence": "chart enumeration or cross-chart state",
+      "weight": 10
+    },
+    {
+      "critical": true,
+      "dimension_id": "EXECUTION_COUPLING",
+      "evidence": "order/trade API surface",
+      "weight": 100
+    },
+    {
+      "critical": true,
+      "dimension_id": "BROKER_OR_NETWORK_COUPLING",
+      "evidence": "network, broker or external service API",
+      "weight": 100
+    },
+    {
+      "critical": true,
+      "dimension_id": "CURRENT_BAR_OR_FUTURE_AWARENESS",
+      "evidence": "current-bar, future-derived or dynamic execution surface",
+      "weight": 80
+    },
+    {
+      "critical": true,
+      "dimension_id": "NONDETERMINISM",
+      "evidence": "unstable randomness or wall-clock identity",
+      "weight": 80
+    },
+    {
+      "critical": true,
+      "dimension_id": "SECURITY_SENSITIVITY",
+      "evidence": "security-sensitive classification",
+      "weight": 100
+    },
+    {
+      "critical": true,
+      "dimension_id": "IDENTITY_AMBIGUITY",
+      "evidence": "unresolved collision or ambiguous identity",
+      "weight": 100
+    },
+    {
+      "critical": false,
+      "dimension_id": "OWNER_APPROVAL",
+      "evidence": "role binding and architect-approved pilot scope",
+      "weight": 20
+    },
+    {
+      "critical": false,
+      "dimension_id": "CHARACTERIZATION_GAP",
+      "evidence": "missing observed traces and golden cases",
+      "weight": 15
+    },
+    {
+      "critical": false,
+      "dimension_id": "PACKAGE_SURFACE_COMPLEXITY",
+      "evidence": "source size, dependency count and package file count",
+      "weight": 10
+    }
+  ],
+  "purpose": "Non-compensatory and weighted Context migration risk dimensions.",
+  "registry_digest": "sha256:a689448d280c09a2be5b13b61ef41c9870b132661e7c7cc63f89c62883b75b39",
+  "registry_id": "LCM08A_CONTEXT_RISK_DIMENSION_REGISTRY_V1",
+  "schema_version": "1.0.0"
+}

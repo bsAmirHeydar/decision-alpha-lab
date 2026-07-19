@@ -1,0 +1,11 @@
+{
+  "policy_digest": "sha256:4ee954fc35ae881e7d22af1d58e8877338de67eed76cbe7fca626f56e170a9aa",
+  "policy_id": "LCM08A_WAVE_ASSIGNMENT_POLICY_V1",
+  "principles": [
+    "DEPENDENCY_BEFORE_AGE",
+    "RISK_BEFORE_PROFITABILITY",
+    "AMBIGUITY_BLOCKS_WAVE",
+    "EXECUTION_SENSITIVE_LAST"
+  ],
+  "schema_version": "1.0.0"
+}

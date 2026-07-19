@@ -1,0 +1,19 @@
+{
+  "acceptance_digest": "sha256:f80ce0be39f70930a5f5ad7d922035b8f642241d1620451246f1ec414863ddd3",
+  "acceptance_gate_passed": true,
+  "acceptance_state": "CONTEXT_PORTFOLIO_FROZEN_REFERENCE_PILOT_SELECTED",
+  "capital_authority_created": false,
+  "critical_dimensions_non_compensatory": true,
+  "cutover_authority_created": false,
+  "dependency_graph_static_only": true,
+  "live_order_authority_created": false,
+  "migration_authority_created": false,
+  "pilot_identity_id": "CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1",
+  "pilot_selected": true,
+  "portfolio_closed_for_input_snapshot": true,
+  "portfolio_id": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+  "risk_assessment_deterministic": true,
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "wave_assignment_complete": true
+}

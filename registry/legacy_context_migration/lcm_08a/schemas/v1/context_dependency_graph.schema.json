@@ -1,0 +1,12 @@
+{
+  "$id": "urn:alpha-lab:lcm08a:dependency-graph:1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "required": [
+    "nodes",
+    "edges",
+    "semantic_reachability_claimed",
+    "graph_digest"
+  ],
+  "type": "object"
+}

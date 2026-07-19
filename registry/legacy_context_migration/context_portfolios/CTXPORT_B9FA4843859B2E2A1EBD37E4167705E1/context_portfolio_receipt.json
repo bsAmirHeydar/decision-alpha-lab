@@ -1,0 +1,8 @@
+{
+  "acceptance_state": "CONTEXT_PORTFOLIO_FROZEN_REFERENCE_PILOT_SELECTED",
+  "handoff_digest": "sha256:0f58cdb31334e35a7c74b68000d03c043c1de8296b9e468c676c23ac6e4e164e",
+  "output_manifest_digest": "sha256:46a23ac336b7b6619915198cc37fb40bd101fa2b02c8dfc1762d587477414a98",
+  "portfolio_id": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+  "receipt_digest": "sha256:eb5142efa9c85b76c029b81a579af932dbc3ce0793fd48a1291e076a2afa33f9",
+  "schema_version": "1.0.0"
+}

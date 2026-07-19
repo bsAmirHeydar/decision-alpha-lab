@@ -1,0 +1,16 @@
+{
+  "architect_policy_approval": "EXPLICIT_USER_ARCHITECT_DIRECTION_TO_PROCEED_AFTER_LCM07",
+  "consumer_cutover_authorized": false,
+  "domain_semantic_change_authorized": false,
+  "portfolio_id": "CTXPORT_B9FA4843859B2E2A1EBD37E4167705E1",
+  "schema_version": "1.0.0",
+  "selected_pilot_identity_id": "CTX_EXP0015_INTERMARKET_TIME_EXPERIMENT_3CD87586_V1",
+  "selected_risk_class": "HIGH",
+  "selected_source_artifact_path": "lab/03_experiments/EXP0015_intermarket_time_divergence/experiment.py",
+  "selected_source_digest": "sha256:99e5e03a4bf30a2ab94949e2ddc6cdc1d067f0441d25dbe0dc8a138026a9bd2f",
+  "selected_wave": "WAVE_01_LOW_RISK_PILOT",
+  "selection_digest": "sha256:1ebd6d69f84de26848f23b84d2bff37acf8c1d07b7bbbe04b8798976af76fac4",
+  "selection_policy": "NON_COMPENSATORY_GATES_THEN_LOWEST_RISK_THEN_IDENTITY_ID",
+  "source_delete_authorized": false,
+  "source_move_authorized": false
+}
