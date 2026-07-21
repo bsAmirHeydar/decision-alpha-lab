@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "counts": {
+      "type": "object"
+    },
+    "inventory_id": {
+      "pattern": "^VISINV_[A-F0-9]{32}$",
+      "type": "string"
+    },
+    "objects": {
+      "type": "array"
+    },
+    "phase_id": {
+      "const": "LCM-11A"
+    }
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "inventory_id",
+    "counts",
+    "objects",
+    "inventory_digest"
+  ],
+  "title": "LCM-11A Visual Object Inventory",
+  "type": "object"
+}

@@ -1,0 +1,36 @@
+{
+  "active_status": "ACTIVE_OR_REFERENCED",
+  "blocker_ids": [],
+  "chart_scope_expression": "INDICATOR_WINDOW",
+  "claim_ceiling": "LCM_11A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "function_name": "OnInit",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "line": 304,
+  "master_phase": "LCM-11",
+  "object_type": "INDICATOR_BUFFER",
+  "observed_name_expression": "BUFFER_INDEX_1",
+  "owner": "EXP0013_RESEARCH_OWNER",
+  "phase_id": "LCM-11A",
+  "producer": "tools.strategy_factory.lcm.lcm_11a.service:LCM11AInventoryService",
+  "raw_arguments": [
+    "1",
+    "g_b1",
+    "INDICATOR_DATA"
+  ],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digest": "sha256:4161809ed7484c57774844c8514cc48c0aa608698a971bd068b9bbd8558beda6",
+  "source_digests": [
+    "sha256:e57326314f090c4fd66910c93f6894a9d96b5d7776747ebbd67707a709f88f74"
+  ],
+  "source_event_binding_status": "BOUND_BY_BUFFER_CONTRACT",
+  "source_event_evidence": "SetIndexBuffer exposes a derived series projection.",
+  "source_event_type": "DERIVED_SERIES_EVENT",
+  "source_path": "mql5/Indicators/Research/EXP0013_AstroFractalOscillator.mq5",
+  "subsystem": "EXP0013_ASTRO_RESEARCH",
+  "surface_kind": "INDICATOR_BUFFER",
+  "validation_status": "PASS",
+  "visual_object_id": "VISOBJ_D8BB8F75B2A83BE7D332E7CC484BB4BA"
+}

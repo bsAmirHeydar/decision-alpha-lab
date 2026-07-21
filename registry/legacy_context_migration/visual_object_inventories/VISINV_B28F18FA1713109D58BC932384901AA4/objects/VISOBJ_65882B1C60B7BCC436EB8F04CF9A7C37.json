@@ -1,0 +1,39 @@
+{
+  "active_status": "ACTIVE_OR_REFERENCED",
+  "blocker_ids": [],
+  "chart_scope_expression": "chart_id",
+  "claim_ceiling": "LCM_11A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "function_name": "DrawMarker",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "line": 367,
+  "master_phase": "LCM-11",
+  "object_type": "OBJ_ARROW",
+  "observed_name_expression": "name",
+  "owner": "EXP0017_CG_OWNER",
+  "phase_id": "LCM-11A",
+  "producer": "tools.strategy_factory.lcm.lcm_11a.service:LCM11AInventoryService",
+  "raw_arguments": [
+    "chart_id",
+    "name",
+    "OBJ_ARROW",
+    "0",
+    "t",
+    "p"
+  ],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digest": "sha256:0a1594d75db96ebab134a28088dce56e67435bbd621811e950c77beb3f6ba2dd",
+  "source_digests": [
+    "sha256:e57326314f090c4fd66910c93f6894a9d96b5d7776747ebbd67707a709f88f74"
+  ],
+  "source_event_binding_status": "INFERRED_FROM_SETUP_LEDGER",
+  "source_event_evidence": "Intermarket divergence visuals project Setup evidence.",
+  "source_event_type": "SETUP_EVENT_RECORD",
+  "source_path": "mql5/Include/IntermarketDivergenceExecution/CG/CGV_Drawing.mqh",
+  "subsystem": "EXP0017_CG",
+  "surface_kind": "CHART_OBJECT",
+  "validation_status": "PASS",
+  "visual_object_id": "VISOBJ_65882B1C60B7BCC436EB8F04CF9A7C37"
+}

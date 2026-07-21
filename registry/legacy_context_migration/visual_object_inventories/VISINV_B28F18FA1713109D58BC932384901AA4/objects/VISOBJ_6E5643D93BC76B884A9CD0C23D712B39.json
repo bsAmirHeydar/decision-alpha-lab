@@ -1,0 +1,39 @@
+{
+  "active_status": "ACTIVE_OR_REFERENCED",
+  "blocker_ids": [],
+  "chart_scope_expression": "m_chart",
+  "claim_ceiling": "LCM_11A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "function_name": "Button",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "line": 12,
+  "master_phase": "LCM-11",
+  "object_type": "OBJ_BUTTON",
+  "observed_name_expression": "n",
+  "owner": "EXP0019_FAERIE_PROTOCOL_OWNER",
+  "phase_id": "LCM-11A",
+  "producer": "tools.strategy_factory.lcm.lcm_11a.service:LCM11AInventoryService",
+  "raw_arguments": [
+    "m_chart",
+    "n",
+    "OBJ_BUTTON",
+    "0",
+    "0",
+    "0"
+  ],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digest": "sha256:6b0704aae01585455d95d233681a73049052c904e074846b741da047dec80c20",
+  "source_digests": [
+    "sha256:e57326314f090c4fd66910c93f6894a9d96b5d7776747ebbd67707a709f88f74"
+  ],
+  "source_event_binding_status": "INFERRED_FROM_CANONICAL_CONTEXT_PACKAGE",
+  "source_event_evidence": "EXP0019 visual projection is context-event based.",
+  "source_event_type": "CONTEXT_EVENT_RECORD",
+  "source_path": "mql5/Include/AlphaLab/EXP0019/FaerieProtocol/I12/FP_IndicatorPanel.mqh",
+  "subsystem": "EXP0019_FAERIE_PROTOCOL",
+  "surface_kind": "CHART_OBJECT",
+  "validation_status": "PASS",
+  "visual_object_id": "VISOBJ_6E5643D93BC76B884A9CD0C23D712B39"
+}

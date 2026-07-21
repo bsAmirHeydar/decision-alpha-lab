@@ -1,0 +1,56 @@
+{
+  "acceptance": {
+    "capital_authority_created": false,
+    "consumer_cutover_created": false,
+    "live_order_authority_created": false,
+    "passed": true,
+    "runtime_authority_created": false,
+    "validation_status": "PASS"
+  },
+  "artifact_inventory": "LCM_11A_ARTIFACT_INVENTORY.csv",
+  "category_counts": {
+    "ACL_REFERENCE": 1,
+    "DOCUMENTATION": 17,
+    "GENERATED_VISUAL_EVIDENCE": 598,
+    "MQL5_REFERENCE_IMPLEMENTATION": 5,
+    "OPERATOR_DOCUMENT": 4,
+    "POLICY": 5,
+    "PYTHON_IMPLEMENTATION": 23,
+    "REGISTRY_CONTRACT": 4,
+    "SCHEMA": 9,
+    "TEST": 17
+  },
+  "change_counts": {
+    "ADDED": 681,
+    "MODIFIED": 2
+  },
+  "claim_ceiling": "LCM_11A_REFERENCE_ONLY",
+  "commit_message": "COMMIT_MESSAGE_LCM_11A.md",
+  "control_file_count": 6,
+  "exact_stage_index": "LCM_11A_FILE_INDEX.txt",
+  "final_indexed_file_count": 689,
+  "generated_inventory": {
+    "active_visual_object_count": 124,
+    "anchor_contract_count": 128,
+    "blocker_count": 68,
+    "canonical_collision_count": 0,
+    "file_count": 598,
+    "handoff_digest": "sha256:954eec9f1cfc7358a1fa28880132567d1a83f9c59abb1419a21e4ee853ffbcda",
+    "lifecycle_contract_count": 128,
+    "namespace_contract_count": 128,
+    "path": "registry/legacy_context_migration/visual_object_inventories/VISINV_B28F18FA1713109D58BC932384901AA4",
+    "visual_object_count": 128
+  },
+  "inventory_id": "VISINV_B28F18FA1713109D58BC932384901AA4",
+  "master_phase": "LCM-11",
+  "patch_manifest_digest": "sha256:82a7cc353e173284442ed8920ec409e494350de8154948dbf2a89839b3a11560",
+  "patch_name": "ALPHA_LAB_LCM_11A_VISUAL_OBJECT_INVENTORY_NAMESPACE_LIFECYCLE_CONTRACTS_PATCH.zip",
+  "payload_file_count": 683,
+  "payload_size_bytes": 1612824,
+  "phase_id": "LCM-11A",
+  "qa_report": "LCM_11A_QA_REPORT.json",
+  "repository_root_overlay": true,
+  "schema_version": "1.0.0",
+  "sha256_ledger": "LCM_11A_FILE_HASHES.sha256",
+  "status": "MERGE_READY_REFERENCE_PATCH"
+}

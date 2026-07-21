@@ -1,0 +1,39 @@
+{
+  "active_status": "ACTIVE_OR_REFERENCED",
+  "blocker_ids": [],
+  "chart_scope_expression": "chart_id",
+  "claim_ceiling": "LCM_11A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "function_name": "DAYE_VisualUpsertText",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "line": 109,
+  "master_phase": "LCM-11",
+  "object_type": "OBJ_TEXT",
+  "observed_name_expression": "name",
+  "owner": "EXP0018_DAYE_TRADER_OWNER",
+  "phase_id": "LCM-11A",
+  "producer": "tools.strategy_factory.lcm.lcm_11a.service:LCM11AInventoryService",
+  "raw_arguments": [
+    "chart_id",
+    "name",
+    "OBJ_TEXT",
+    "0",
+    "time_value",
+    "price"
+  ],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digest": "sha256:ff170364e5f4da26e0827a0f01c515045609d33f9b0689309d7d9d50a6d8592d",
+  "source_digests": [
+    "sha256:e57326314f090c4fd66910c93f6894a9d96b5d7776747ebbd67707a709f88f74"
+  ],
+  "source_event_binding_status": "INFERRED_FROM_CONTEXT_VISUAL_MANAGER",
+  "source_event_evidence": "EXP0018 visual managers project Context state.",
+  "source_event_type": "CONTEXT_EVENT_RECORD",
+  "source_path": "mql5/Include/DayeTrader/EXP0018/DAYE_VisualObjectManager.mqh",
+  "subsystem": "EXP0018_DAYE_TRADER",
+  "surface_kind": "CHART_OBJECT",
+  "validation_status": "PASS",
+  "visual_object_id": "VISOBJ_1ABDE24CB2D9201B60E87C0BFAD60DAC"
+}

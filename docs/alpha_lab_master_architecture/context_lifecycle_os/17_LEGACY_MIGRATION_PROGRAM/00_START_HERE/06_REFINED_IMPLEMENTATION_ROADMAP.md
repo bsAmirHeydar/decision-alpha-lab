@@ -112,3 +112,7 @@ LCM-10B is complete under `TREATMIG_DCC2F1F7B74985D72A783020843C6B51`. It create
 ## LCM-10C implementation closure
 
 LCM-10C is complete under `TREATCLOSE_3EBD9196597715D81966936D37F1DF91`. Deterministic dry-run request parity, fail-closed safety controls and authority-negative adapter proofs close LCM-10 with zero submission, live-order and capital authority. Residual broker/platform evidence remains UNKNOWN. The next implementation unit is LCM-11A.
+
+## LCM-11A implementation closure
+
+LCM-11A is complete under `VISINV_B28F18FA1713109D58BC932384901AA4`. The repository now contains a deterministic inventory of 128 visual surfaces across chart objects, indicator buffers and report projections; every active surface has an owner and a canonical source-event binding or an explicit blocker. ALV1 namespace contracts, anchor contracts, lifecycle contracts, multi-instance collision simulation, observed collision evidence and the LCM-11B handoff are frozen. No visual consumer cutover, runtime authority, order authority or capital authority is created. The next implementation unit is LCM-11B.

@@ -1,0 +1,26 @@
+{
+  "blocker_id": "VISBLOCK_79C784F4C7A196FC07AA4F173F78656E",
+  "blocking": true,
+  "claim_ceiling": "LCM_11A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "dimension": "OBSERVED_NAMESPACE_COLLISION_RISK",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-11",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-11A",
+  "producer": "tools.strategy_factory.lcm.lcm_11a.service:LCM11AInventoryService",
+  "reason": "BLOCK_LCM11B_CUTOVER_UNTIL_CANONICAL_NAMESPACE_APPLIED",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:e57326314f090c4fd66910c93f6894a9d96b5d7776747ebbd67707a709f88f74"
+  ],
+  "validation_status": "PASS",
+  "visual_object_ids": [
+    "VISOBJ_AC6DF4C3C6DF97681A882D6D47A3E018",
+    "VISOBJ_A0DF350FAA35CC7F2F38BCF762F0A55B",
+    "VISOBJ_9F68F34653117798DAE5BFD55B54ED29",
+    "VISOBJ_DAC0B7AAAC8C1DF6E58F79191ECCF82A"
+  ]
+}

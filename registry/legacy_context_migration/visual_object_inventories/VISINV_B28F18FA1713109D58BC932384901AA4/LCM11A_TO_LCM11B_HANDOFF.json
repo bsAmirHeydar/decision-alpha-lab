@@ -1,0 +1,75 @@
+{
+  "allowed_next_actions": [
+    "IMPLEMENT_CANONICAL_VISUALIZERS",
+    "APPLY_INSTANCE_AND_CHART_ISOLATION",
+    "BUILD_GOLDEN_VISUAL_FIXTURES",
+    "RUN_VISUAL_PARITY",
+    "PREPARE_BOUNDED_VISUAL_CONSUMER_CUTOVER"
+  ],
+  "blocked_dimensions": [
+    "LEGACY_COLLISION_REMEDIATION",
+    "MISSING_OWNED_CLEANUP_REMEDIATION",
+    "CURRENT_BAR_ANCHOR_REMEDIATION"
+  ],
+  "capital_authority_created": false,
+  "claim_ceiling": "LCM_11A_REFERENCE_ONLY",
+  "completed_gates": [
+    "VISUAL_OBJECT_INVENTORY",
+    "DETERMINISTIC_NAMESPACE_CONTRACTS",
+    "ANCHOR_CONTRACTS_OR_BLOCKERS",
+    "LIFECYCLE_CONTRACTS_OR_BLOCKERS",
+    "MULTI_INSTANCE_COLLISION_SIMULATION",
+    "SOURCE_EVENT_BINDINGS_OR_BLOCKERS",
+    "AUTHORITY_NEGATIVE_BOUNDARY"
+  ],
+  "consumer_cutover_allowed": false,
+  "counts": {
+    "active_visual_object_count": 124,
+    "anchor_contract_count": 128,
+    "blocker_count": 68,
+    "broad_delete_site_count": 0,
+    "canonical_collision_count": 0,
+    "chart_object_count": 84,
+    "indicator_buffer_count": 36,
+    "lifecycle_contract_count": 128,
+    "namespace_contract_count": 128,
+    "observed_collision_group_count": 25,
+    "report_projection_count": 8,
+    "source_file_count": 105,
+    "visual_object_count": 128
+  },
+  "deterministic_identity": true,
+  "failed_dimensions": [],
+  "forbidden_actions": [
+    "DOMAIN_STATE_MUTATION_FROM_VISUALIZER",
+    "ORDER_SUBMISSION",
+    "CAPITAL_ACTIVATION",
+    "BROAD_SOURCE_DELETE",
+    "LEGACY_SOURCE_DELETE",
+    "UNSCOPED_OBJECT_CLEANUP",
+    "UNKNOWN_WAIVER"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "handoff_digest": "sha256:954eec9f1cfc7358a1fa28880132567d1a83f9c59abb1419a21e4ee853ffbcda",
+  "handoff_id": "LCM11AHANDOFF_DA2F95C987FAAF1849994F5F5F29133D",
+  "handoff_type": "LCM11A_TO_LCM11B",
+  "live_order_authority_created": false,
+  "master_phase": "LCM-11",
+  "output_manifest_digest": "sha256:03f1eaca65b5ee4a65cece9bb65877fa519c8f68561784f93ca974bc728191ee",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-11A",
+  "producer": "tools.strategy_factory.lcm.lcm_11a.service:LCM11AInventoryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:e57326314f090c4fd66910c93f6894a9d96b5d7776747ebbd67707a709f88f74"
+  ],
+  "unknown_dimensions": [
+    "HUMAN_OWNER_APPROVAL",
+    "METAEDITOR_RUNTIME_MATRIX",
+    "LIVE_CHART_RESTART_EVIDENCE"
+  ],
+  "validation_status": "PASS"
+}

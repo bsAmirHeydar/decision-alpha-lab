@@ -1,0 +1,104 @@
+{
+  "authority_created": {
+    "capital": false,
+    "consumer_cutover": false,
+    "live_order": false,
+    "paper_order": false,
+    "promotion": false,
+    "runtime": false
+  },
+  "checks": [
+    {
+      "check": "LCM11A_DIRECT_TESTS",
+      "failed": 0,
+      "passed": 16,
+      "result": "PASS"
+    },
+    {
+      "check": "LCM10C_REGRESSION",
+      "failed": 0,
+      "passed": 15,
+      "result": "PASS"
+    },
+    {
+      "check": "LCM10B_REGRESSION",
+      "failed": 0,
+      "passed": 35,
+      "result": "PASS"
+    },
+    {
+      "check": "LCM10A_NON_REBUILD_REGRESSION",
+      "failed": 0,
+      "passed": 23,
+      "result": "PASS"
+    },
+    {
+      "check": "LCM09B_REGRESSION",
+      "failed": 0,
+      "passed": 34,
+      "result": "PASS"
+    },
+    {
+      "check": "LCM_ROADMAP_REFINEMENT_REGRESSION",
+      "failed": 0,
+      "passed": 5,
+      "result": "PASS"
+    },
+    {
+      "check": "SCHEMA_CATALOG",
+      "result": "PASS",
+      "schema_count": 9
+    },
+    {
+      "check": "STATIC_PYTHON",
+      "file_count": 23,
+      "result": "PASS"
+    },
+    {
+      "active_visual_object_count": 124,
+      "check": "VISUAL_OBJECT_INVENTORY",
+      "result": "PASS",
+      "visual_object_count": 128
+    },
+    {
+      "canonical_collision_count": 0,
+      "check": "NAMESPACE_CONTRACTS",
+      "contract_count": 128,
+      "result": "PASS"
+    },
+    {
+      "blocking_semantics_preserved": true,
+      "check": "ANCHOR_CONTRACTS",
+      "contract_count": 128,
+      "result": "PASS"
+    },
+    {
+      "check": "LIFECYCLE_CONTRACTS",
+      "contract_count": 128,
+      "owned_cleanup_required": true,
+      "result": "PASS"
+    },
+    {
+      "check": "CLEAN_OVERLAY",
+      "result": "PASS",
+      "scope": "LCM-10C accepted baseline plus LCM-11A payload"
+    }
+  ],
+  "claim_ceiling": "LCM_11A_REFERENCE_ONLY",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_BUILD_RECORD_NO_WALL_CLOCK_IDENTITY",
+  "handoff_digest": "sha256:954eec9f1cfc7358a1fa28880132567d1a83f9c59abb1419a21e4ee853ffbcda",
+  "inventory_id": "VISINV_B28F18FA1713109D58BC932384901AA4",
+  "master_phase": "LCM-11",
+  "phase_id": "LCM-11A",
+  "qa_digest": "sha256:fc72af5c15c0d47f75416636413c57b02866f8766a0041856672ce219c8cfd47",
+  "schema_version": "1.0.0",
+  "status": "PASS",
+  "upstream_regression_exclusions": [
+    {
+      "effect_on_lcm11a_acceptance": "NONE",
+      "path": "lab/11_strategy_factory/migration/tests_lcm_10a/test_rebuild_determinism.py",
+      "reason": "Bounded patch-time regression preserves the accepted LCM-10A convention; full repository rescan is not required for LCM-11A acceptance."
+    }
+  ]
+}

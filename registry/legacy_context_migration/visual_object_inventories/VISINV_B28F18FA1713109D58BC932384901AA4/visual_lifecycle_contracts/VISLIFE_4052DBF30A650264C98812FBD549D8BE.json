@@ -1,0 +1,36 @@
+{
+  "backfill_policy": "UNKNOWN_REQUIRES_LCM11B_FIXTURE",
+  "blocker_ids": [],
+  "canonical_states": [
+    "INITIALIZE",
+    "HISTORICAL_BACKFILL",
+    "INCREMENTAL_UPDATE",
+    "RESTART_RECONCILE",
+    "CHART_CHANGE_RECONCILE",
+    "OWNED_CLEANUP"
+  ],
+  "claim_ceiling": "LCM_11A_REFERENCE_ONLY",
+  "cleanup_scope": "CANONICAL_INSTANCE_PREFIX_ONLY",
+  "deinitialization_policy": "DELETE_ONLY_CANONICAL_INSTANCE_NAMESPACE",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "incremental_update_policy": "ON_TICK_TIMER_CALCULATE_OR_RENDER_CALL",
+  "initialization_policy": "ON_INIT_OR_FIRST_ENSURE",
+  "lifecycle_contract_id": "VISLIFE_4052DBF30A650264C98812FBD549D8BE",
+  "master_phase": "LCM-11",
+  "observed_delete_policy": "INDIVIDUAL_OBJECT_DELETE",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-11A",
+  "producer": "tools.strategy_factory.lcm.lcm_11a.service:LCM11AInventoryService",
+  "restart_policy": "IDEMPOTENT_ENSURE_BY_CANONICAL_ID",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:e57326314f090c4fd66910c93f6894a9d96b5d7776747ebbd67707a709f88f74"
+  ],
+  "symbol_change_policy": "RECONCILE_ON_CHART_CHANGE_WITH_CANONICAL_SCOPE",
+  "timeframe_change_policy": "RECONCILE_ON_CHART_CHANGE_WITH_CANONICAL_SCOPE",
+  "validation_status": "PASS",
+  "visual_object_id": "VISOBJ_AC6DF4C3C6DF97681A882D6D47A3E018"
+}

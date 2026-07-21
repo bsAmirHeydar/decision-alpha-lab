@@ -1,0 +1,34 @@
+{
+  "active_status": "TEST_OR_FIXTURE",
+  "blocker_ids": [],
+  "chart_scope_expression": "REPORT_OUTPUT",
+  "claim_ceiling": "LCM_11A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "function_name": "test_dashboard_rows",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "line": 6,
+  "master_phase": "LCM-11",
+  "object_type": "DASHBOARD_ROWS",
+  "observed_name_expression": "report=compare_products(tuple(runs.values()));h=build_health(tuple((p.value,'READY') for p in ProductKind),0);rows=dashboard_rows(report,h);assert ('overall_status','PASS') in rows",
+  "owner": "EXP0019_FAERIE_PROTOCOL_OWNER",
+  "phase_id": "LCM-11A",
+  "producer": "tools.strategy_factory.lcm.lcm_11a.service:LCM11AInventoryService",
+  "raw_arguments": [
+    "report=compare_products(tuple(runs.values()));h=build_health(tuple((p.value,'READY') for p in ProductKind),0);rows=dashboard_rows(report,h);assert ('overall_status','PASS') in rows"
+  ],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digest": "sha256:91c946688f7480b0295833934e7b75dd8effa3b49c9e61494d361848bcac0f8e",
+  "source_digests": [
+    "sha256:e57326314f090c4fd66910c93f6894a9d96b5d7776747ebbd67707a709f88f74"
+  ],
+  "source_event_binding_status": "BOUND_BY_REPORT_PRODUCER",
+  "source_event_evidence": "Report writer projects a deterministic report record.",
+  "source_event_type": "REPORT_EVENT_RECORD",
+  "source_path": "lab/10_infrastructure/EXP0019_faerie_protocol/phase_i14/tests/test_health_dashboard.py",
+  "subsystem": "EXP0019_FAERIE_PROTOCOL",
+  "surface_kind": "REPORT_PROJECTION",
+  "validation_status": "PASS",
+  "visual_object_id": "VISOBJ_0716E0783F8D2816BCAB03C2BB7747BA"
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "blockers": {
+      "type": "array"
+    },
+    "blocking_count": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "blockers",
+    "blocking_count",
+    "queue_digest"
+  ],
+  "title": "LCM-11A Unknown Queue",
+  "type": "object"
+}

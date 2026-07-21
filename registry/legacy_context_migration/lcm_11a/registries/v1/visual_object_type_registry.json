@@ -1,0 +1,25 @@
+{
+  "chart_objects": [
+    "OBJ_ARROW",
+    "OBJ_BUTTON",
+    "OBJ_HLINE",
+    "OBJ_LABEL",
+    "OBJ_RECTANGLE",
+    "OBJ_RECTANGLE_LABEL",
+    "OBJ_TEXT",
+    "OBJ_TREND",
+    "OBJ_VLINE"
+  ],
+  "registry_id": "LCM11A_VISUAL_OBJECT_TYPES_V1",
+  "report_objects": [
+    "SAVEFIG",
+    "WRITE_HTML",
+    "WRITE_TEXT",
+    "TO_HTML",
+    "DASHBOARD_ROWS"
+  ],
+  "schema_version": "1.0.0",
+  "series_objects": [
+    "INDICATOR_BUFFER"
+  ]
+}

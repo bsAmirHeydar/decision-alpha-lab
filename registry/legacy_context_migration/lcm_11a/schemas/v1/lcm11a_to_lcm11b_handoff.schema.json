@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "capital_authority_created": {
+      "const": false
+    },
+    "handoff_type": {
+      "const": "LCM11A_TO_LCM11B"
+    },
+    "live_order_authority_created": {
+      "const": false
+    },
+    "runtime_authority_created": {
+      "const": false
+    },
+    "validation_status": {
+      "const": "PASS"
+    }
+  },
+  "required": [
+    "handoff_type",
+    "handoff_id",
+    "completed_gates",
+    "allowed_next_actions",
+    "forbidden_actions",
+    "validation_status",
+    "handoff_digest"
+  ],
+  "title": "LCM-11A to LCM-11B Handoff",
+  "type": "object"
+}

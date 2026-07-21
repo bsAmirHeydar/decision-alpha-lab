@@ -1,0 +1,46 @@
+{
+  "aggregate_success_cannot_override_blocker": true,
+  "claim_ceiling": "LCM_11A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "inventory_id": "VISINV_B28F18FA1713109D58BC932384901AA4",
+  "master_phase": "LCM-11",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-11A",
+  "producer": "tools.strategy_factory.lcm.lcm_11a.service:LCM11AInventoryService",
+  "report_digest": "sha256:b827d7711f47430553a9a2cdf09211d2f78daa6c8401540fd6795a3c683a1bc6",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:e57326314f090c4fd66910c93f6894a9d96b5d7776747ebbd67707a709f88f74"
+  ],
+  "tests": [
+    {
+      "finding_count": 25,
+      "name": "OBJECT_NAME_COLLISION",
+      "result": "PASS_WITH_BLOCKERS"
+    },
+    {
+      "finding_count": 0,
+      "name": "DELETION_BY_BROAD_PREFIX_OR_CHART",
+      "result": "PASS"
+    },
+    {
+      "finding_count": 5,
+      "name": "NON_HOST_SYMBOL_ON_WRONG_CHART",
+      "result": "UNKNOWN_BLOCKING"
+    },
+    {
+      "finding_count": 0,
+      "name": "CURRENT_BAR_AS_CLOSED_CONFIRMATION",
+      "result": "PASS"
+    },
+    {
+      "finding_count": 74,
+      "name": "BACKFILL_LIVE_DIVERGENCE",
+      "result": "UNKNOWN_BLOCKING"
+    }
+  ],
+  "validation_status": "PASS"
+}

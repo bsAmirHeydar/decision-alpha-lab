@@ -1,0 +1,43 @@
+{
+  "claim_ceiling": "LCM_11A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "edges": [
+    {
+      "from": "sha256:e57326314f090c4fd66910c93f6894a9d96b5d7776747ebbd67707a709f88f74",
+      "relation": "SCANNED_INTO",
+      "to": "VISINV_B28F18FA1713109D58BC932384901AA4"
+    },
+    {
+      "from": "VISINV_B28F18FA1713109D58BC932384901AA4",
+      "relation": "AUTHORIZES_BOUNDED_NEXT_PHASE",
+      "to": "LCM11AHANDOFF_DA2F95C987FAAF1849994F5F5F29133D"
+    }
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "inventory_id": "VISINV_B28F18FA1713109D58BC932384901AA4",
+  "master_phase": "LCM-11",
+  "nodes": [
+    {
+      "id": "sha256:e57326314f090c4fd66910c93f6894a9d96b5d7776747ebbd67707a709f88f74",
+      "kind": "UPSTREAM_HANDOFF"
+    },
+    {
+      "id": "VISINV_B28F18FA1713109D58BC932384901AA4",
+      "kind": "VISUAL_INVENTORY"
+    },
+    {
+      "id": "LCM11AHANDOFF_DA2F95C987FAAF1849994F5F5F29133D",
+      "kind": "HANDOFF"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-11A",
+  "producer": "tools.strategy_factory.lcm.lcm_11a.service:LCM11AInventoryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:e57326314f090c4fd66910c93f6894a9d96b5d7776747ebbd67707a709f88f74"
+  ],
+  "validation_status": "PASS"
+}

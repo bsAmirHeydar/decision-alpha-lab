@@ -1,0 +1,36 @@
+{
+  "active_status": "ACTIVE_OR_REFERENCED",
+  "blocker_ids": [],
+  "chart_scope_expression": "INDICATOR_WINDOW",
+  "claim_ceiling": "LCM_11A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "function_name": "OnInit",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "line": 89,
+  "master_phase": "LCM-11",
+  "object_type": "INDICATOR_BUFFER",
+  "observed_name_expression": "BUFFER_INDEX_2",
+  "owner": "EXP0019_FAERIE_PROTOCOL_OWNER",
+  "phase_id": "LCM-11A",
+  "producer": "tools.strategy_factory.lcm.lcm_11a.service:LCM11AInventoryService",
+  "raw_arguments": [
+    "2",
+    "B2",
+    "INDICATOR_DATA"
+  ],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digest": "sha256:f919bca6b89813623cdd14415a8e14f884a68d0f1f38cb6b08cb4a630147fe42",
+  "source_digests": [
+    "sha256:e57326314f090c4fd66910c93f6894a9d96b5d7776747ebbd67707a709f88f74"
+  ],
+  "source_event_binding_status": "BOUND_BY_BUFFER_CONTRACT",
+  "source_event_evidence": "SetIndexBuffer exposes a derived series projection.",
+  "source_event_type": "DERIVED_SERIES_EVENT",
+  "source_path": "mql5/Indicators/EXP0019/FaerieProtocol/EXP0019_FaerieProtocol_Context.mq5",
+  "subsystem": "EXP0019_FAERIE_PROTOCOL",
+  "surface_kind": "INDICATOR_BUFFER",
+  "validation_status": "PASS",
+  "visual_object_id": "VISOBJ_BD19F1D0A2952781D489AF70617DD497"
+}

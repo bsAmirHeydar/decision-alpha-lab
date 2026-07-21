@@ -1,0 +1,34 @@
+{
+  "active_status": "ACTIVE_OR_REFERENCED",
+  "blocker_ids": [],
+  "chart_scope_expression": "REPORT_OUTPUT",
+  "claim_ceiling": "LCM_11A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "function_name": "scan",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "line": 53,
+  "master_phase": "LCM-11",
+  "object_type": "WRITE_TEXT_REPORT",
+  "observed_name_expression": "if \"write_text\" in line_text and any(marker in lowered for marker in (\".html\", \"report\", \"dashboard\", \"projection\")):",
+  "owner": "SOURCE_SCANNER_OWNER",
+  "phase_id": "LCM-11A",
+  "producer": "tools.strategy_factory.lcm.lcm_11a.service:LCM11AInventoryService",
+  "raw_arguments": [
+    "if \"write_text\" in line_text and any(marker in lowered for marker in (\".html\", \"report\", \"dashboard\", \"projection\")):"
+  ],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digest": "sha256:1590b15e2176aac9e7e374c733c89321087ed6e327a9546545d5016d60ed6cf8",
+  "source_digests": [
+    "sha256:e57326314f090c4fd66910c93f6894a9d96b5d7776747ebbd67707a709f88f74"
+  ],
+  "source_event_binding_status": "BOUND_BY_REPORT_PRODUCER",
+  "source_event_evidence": "Report writer projects a deterministic report record.",
+  "source_event_type": "REPORT_EVENT_RECORD",
+  "source_path": "tools/strategy_factory/lcm/lcm_11a/source_scanner.py",
+  "subsystem": "SOURCE_SCANNER",
+  "surface_kind": "REPORT_PROJECTION",
+  "validation_status": "PASS",
+  "visual_object_id": "VISOBJ_AA69A54816EF65A07947B47366F8B165"
+}

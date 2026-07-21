@@ -1,0 +1,29 @@
+{
+  "anchor_contract_id": "VISANCH_C507F23BD83CB11A67CE7A24B0E71957",
+  "anchor_kind": "TIME_PRICE",
+  "availability_time_semantics": "CALLER_BOUND_AVAILABILITY_TIME",
+  "blocker_ids": [],
+  "chart_projection_scope": "HOST_OR_EXPLICIT_CHART",
+  "claim_ceiling": "LCM_11A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "extension_behavior": "NONE",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "host_chart_dependency": "STYLE_MUST_NOT_CHANGE_SOURCE_EVENT_SEMANTICS",
+  "master_phase": "LCM-11",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-11A",
+  "price_anchor_1": "price",
+  "price_anchor_2": null,
+  "producer": "tools.strategy_factory.lcm.lcm_11a.service:LCM11AInventoryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_candle_semantics": "EVENT_BOUND",
+  "source_digests": [
+    "sha256:e57326314f090c4fd66910c93f6894a9d96b5d7776747ebbd67707a709f88f74"
+  ],
+  "time_anchor_1": "t",
+  "time_anchor_2": null,
+  "validation_status": "PASS",
+  "visual_object_id": "VISOBJ_191D094E6D763DA62CAD4053B8457F06"
+}

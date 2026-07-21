@@ -1,0 +1,48 @@
+{
+  "claim_ceiling": "LCM_11A_REFERENCE_ONLY",
+  "counts": {
+    "active_visual_object_count": 124,
+    "anchor_contract_count": 128,
+    "blocker_count": 68,
+    "broad_delete_site_count": 0,
+    "canonical_collision_count": 0,
+    "chart_object_count": 84,
+    "indicator_buffer_count": 36,
+    "lifecycle_contract_count": 128,
+    "namespace_contract_count": 128,
+    "observed_collision_group_count": 25,
+    "report_projection_count": 8,
+    "source_file_count": 105,
+    "visual_object_count": 128
+  },
+  "deterministic_identity": true,
+  "gates": {
+    "CANONICAL_IDS_COLLISION_FREE": true,
+    "DELETE_POLICY_CANONICAL_SCOPE_OWNED": true,
+    "DRAWING_IS_NOT_SOURCE_TRUTH": true,
+    "EVERY_ACTIVE_OBJECT_HAS_OWNER": true,
+    "EVERY_ACTIVE_OBJECT_HAS_SOURCE_EVENT_OR_BLOCKER": true,
+    "EVERY_OBJECT_HAS_ANCHOR_CONTRACT": true,
+    "EVERY_OBJECT_HAS_LIFECYCLE_CONTRACT": true,
+    "EVERY_OBJECT_HAS_NAMESPACE_CONTRACT": true,
+    "UNKNOWN_ANCHORS_BLOCK_MIGRATION": true,
+    "ZERO_CAPITAL_AUTHORITY": true,
+    "ZERO_ORDER_AUTHORITY": true,
+    "ZERO_RUNTIME_AUTHORITY": true
+  },
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "inventory_id": "VISINV_B28F18FA1713109D58BC932384901AA4",
+  "master_phase": "LCM-11",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "passed": true,
+  "phase_id": "LCM-11A",
+  "producer": "tools.strategy_factory.lcm.lcm_11a.service:LCM11AInventoryService",
+  "report_digest": "sha256:e7b6189cf4ecdcbe045098af2872bf9e76e1a29f66efce6d99b05bc5b37512a2",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:e57326314f090c4fd66910c93f6894a9d96b5d7776747ebbd67707a709f88f74"
+  ],
+  "validation_status": "PASS"
+}

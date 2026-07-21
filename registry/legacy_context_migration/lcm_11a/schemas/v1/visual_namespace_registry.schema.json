@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "canonical_namespace_version": {
+      "const": "ALV1"
+    },
+    "contracts": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "inventory_id",
+    "canonical_namespace_version",
+    "contracts",
+    "registry_digest"
+  ],
+  "title": "LCM-11A Visual Namespace Registry",
+  "type": "object"
+}

@@ -1,0 +1,41 @@
+{
+  "active_status": "TEST_OR_FIXTURE",
+  "blocker_ids": [
+    "VISBLOCK_9DFB4A46D0549936DA6F3584635CF98E"
+  ],
+  "chart_scope_expression": "0",
+  "claim_ceiling": "LCM_11A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "function_name": "OnTick",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "line": 3,
+  "master_phase": "LCM-11",
+  "object_type": "OBJ_HLINE",
+  "observed_name_expression": "\"x\"",
+  "owner": "DANGEROUS_PATTERNS_OWNER",
+  "phase_id": "LCM-11A",
+  "producer": "tools.strategy_factory.lcm.lcm_11a.service:LCM11AInventoryService",
+  "raw_arguments": [
+    "0",
+    "\"x\"",
+    "OBJ_HLINE",
+    "0",
+    "0",
+    "0"
+  ],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digest": "sha256:529f550c718a7458f8112b326e3944c3e3614bab3e37ccce77abca1ccd5fa10a",
+  "source_digests": [
+    "sha256:e57326314f090c4fd66910c93f6894a9d96b5d7776747ebbd67707a709f88f74"
+  ],
+  "source_event_binding_status": "BLOCKED",
+  "source_event_evidence": "No deterministic source-event mapping rule matched the source path.",
+  "source_event_type": "UNKNOWN_CANONICAL_EVENT",
+  "source_path": "lab/11_strategy_factory/migration/fixtures/lcm_01/dangerous_patterns.mq5",
+  "subsystem": "DANGEROUS_PATTERNS",
+  "surface_kind": "CHART_OBJECT",
+  "validation_status": "PASS",
+  "visual_object_id": "VISOBJ_9D4F83328F98489D3618C7BEFF3DC535"
+}

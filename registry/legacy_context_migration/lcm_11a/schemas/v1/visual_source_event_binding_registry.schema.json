@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "bindings": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "bindings",
+    "registry_digest"
+  ],
+  "title": "LCM-11A Source Event Binding Registry",
+  "type": "object"
+}

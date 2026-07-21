@@ -1,0 +1,39 @@
+{
+  "active_status": "ACTIVE_OR_REFERENCED",
+  "blocker_ids": [],
+  "chart_scope_expression": "0",
+  "claim_ceiling": "LCM_11A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "function_name": "DAL_DrawArrowMarker",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "line": 93,
+  "master_phase": "LCM-11",
+  "object_type": "OBJ_ARROW",
+  "observed_name_expression": "name",
+  "owner": "COMMON_VISUAL_PRIMITIVE_OWNER",
+  "phase_id": "LCM-11A",
+  "producer": "tools.strategy_factory.lcm.lcm_11a.service:LCM11AInventoryService",
+  "raw_arguments": [
+    "0",
+    "name",
+    "OBJ_ARROW",
+    "0",
+    "t",
+    "price"
+  ],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digest": "sha256:4b9386561f4d913921fa7fc83381fa7463b1dd320533d80fa7d1e1ea27f2ad26",
+  "source_digests": [
+    "sha256:e57326314f090c4fd66910c93f6894a9d96b5d7776747ebbd67707a709f88f74"
+  ],
+  "source_event_binding_status": "CONTRACTUAL_CALLER_BINDING_REQUIRED",
+  "source_event_evidence": "Shared primitive must be bound by the caller to a canonical event.",
+  "source_event_type": "CALLER_BOUND_CANONICAL_EVENT",
+  "source_path": "mql5/Include/Common/DAL_ChartObjects.mqh",
+  "subsystem": "COMMON_VISUAL_PRIMITIVES",
+  "surface_kind": "CHART_OBJECT",
+  "validation_status": "PASS",
+  "visual_object_id": "VISOBJ_191D094E6D763DA62CAD4053B8457F06"
+}

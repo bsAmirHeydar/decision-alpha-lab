@@ -1,0 +1,12 @@
+{
+  "kinds": [
+    "TIME_PRICE",
+    "TIME_ONLY",
+    "PRICE_ONLY",
+    "PIXEL_CORNER",
+    "SERIES_INDEX",
+    "REPORT_OUTPUT"
+  ],
+  "registry_id": "LCM11A_VISUAL_ANCHOR_KINDS_V1",
+  "schema_version": "1.0.0"
+}

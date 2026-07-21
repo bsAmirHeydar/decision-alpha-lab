@@ -1,8 +1,8 @@
 ---
 title: "LCM-11A — Visual Object Inventory, Namespace and Lifecycle Contracts"
-status: proposed-reference
-version: 1.0.0
-updated: 2026-07-19
+status: implemented-reference
+version: 1.1.0
+updated: 2026-07-21
 tags: [acl-os, lcm, legacy-migration, refined-roadmap]
 phase_id: LCM-11A
 master_phase: LCM-11
@@ -128,3 +128,10 @@ The hostile review must attempt to disprove readiness. Aggregate success cannot 
 - Allowed next action: implement isolation and parity.
 
 The handoff must include source digest, output digest, completed gates, failed/blocked/unknown dimensions, owner approvals, residual risks, allowed next actions and forbidden actions.
+
+
+## Implementation receipt — 2026-07-21
+
+LCM-11A is implemented under `VISINV_B28F18FA1713109D58BC932384901AA4`. The frozen inventory contains 128 visual surfaces, including 84 chart-object creation sites, 36 indicator-buffer bindings and 8 report projections. It emits 128 deterministic namespace contracts, 128 anchor contracts and 128 lifecycle contracts. Canonical namespace simulation reports zero collisions across same-chart multi-instance, cross-chart, cross-timeframe and cross-event scenarios. Legacy collision risks, missing cleanup evidence and current-bar or runtime anchor uncertainty remain explicit blockers for LCM-11B; they are not waived.
+
+The implementation is reference-only. Drawing remains a projection of canonical events, never source truth. No visualizer cutover, source move, source deletion, order path, paper path, runtime authority, promotion authority or capital authority is created.

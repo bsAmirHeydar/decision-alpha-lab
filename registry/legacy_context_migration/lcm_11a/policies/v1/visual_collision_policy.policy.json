@@ -1,0 +1,14 @@
+{
+  "canonical_collision_tolerance": 0,
+  "claim_ceiling": "LCM_11A_REFERENCE_ONLY",
+  "legacy_collision_disposition": "BLOCK_LCM11B_CUTOVER_UNTIL_REMEDIATED",
+  "phase_id": "LCM-11A",
+  "policy_id": "LCM11A_VISUAL_COLLISION_POLICY_V1",
+  "required_scenarios": [
+    "SAME_CHART_DIFFERENT_INSTANCE",
+    "DIFFERENT_CHART_SAME_INSTANCE",
+    "SAME_SYMBOL_DIFFERENT_TIMEFRAME",
+    "SAME_SCOPE_DIFFERENT_EVENT"
+  ],
+  "schema_version": "1.0.0"
+}

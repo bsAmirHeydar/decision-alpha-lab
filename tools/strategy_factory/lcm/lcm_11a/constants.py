@@ -1,0 +1,33 @@
+from __future__ import annotations
+
+PHASE_ID = "LCM-11A"
+MASTER_PHASE = "LCM-11"
+CLAIM_CEILING = "LCM_11A_REFERENCE_ONLY"
+SCHEMA_VERSION = "1.0.0"
+PRODUCER = "tools.strategy_factory.lcm.lcm_11a.service:LCM11AInventoryService"
+OWNER = "ALPHA_LAB_MIGRATION_OWNER"
+REVIEWER = "INDEPENDENT_MIGRATION_REVIEWER"
+GENERATED_TIME_SEMANTICS = "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY"
+CANONICAL_NAMESPACE_VERSION = "ALV1"
+
+VISUAL_SOURCE_SUFFIXES = {".mq5", ".mqh", ".py"}
+EXCLUDED_PARTS = {".git", "__pycache__", ".pytest_cache", ".mypy_cache", ".ruff_cache", "node_modules"}
+TEST_PARTS = {"tests", "test", "fixtures", "selftest", "faerieprotocoltests"}
+
+OBJECT_TYPES_SCREEN = {"OBJ_LABEL", "OBJ_BUTTON", "OBJ_RECTANGLE_LABEL", "OBJ_EDIT", "OBJ_BITMAP_LABEL"}
+OBJECT_TYPES_TIME_ONLY = {"OBJ_VLINE"}
+OBJECT_TYPES_PRICE_ONLY = {"OBJ_HLINE"}
+OBJECT_TYPES_TWO_POINT = {"OBJ_TREND", "OBJ_RECTANGLE", "OBJ_CHANNEL", "OBJ_STDDEVCHANNEL", "OBJ_REGRESSION"}
+
+FORBIDDEN_AUTHORITY_TOKENS = (
+    "Order" + "Send(",
+    "Order" + "SendAsync(",
+    "C" + "Trade",
+    "trade." + "Buy(",
+    "trade." + "Sell(",
+)
+
+CANONICAL_LIFECYCLE = (
+    "INITIALIZE", "HISTORICAL_BACKFILL", "INCREMENTAL_UPDATE",
+    "RESTART_RECONCILE", "CHART_CHANGE_RECONCILE", "OWNED_CLEANUP",
+)

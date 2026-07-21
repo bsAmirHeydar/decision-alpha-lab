@@ -1,0 +1,26 @@
+{
+  "canonical_cleanup_prefix_template": "ALV1::DAL_ASTROPATHCLEANLINESSMETR::DAL_ASTROPATHCLEANLINESSMETR::{INSTANCE_ID}::{CHART_ID}::",
+  "canonical_object_id_template": "ALV1::DAL_ASTROPATHCLEANLINESSMETR::DAL_ASTROPATHCLEANLINESSMETR::{INSTANCE_ID}::{CHART_ID}::{SYMBOL}::{TIMEFRAME}::{EVENT_ID}::OBJ_LABEL::E66EF5986D91",
+  "claim_ceiling": "LCM_11A_REFERENCE_ONLY",
+  "collision_resistant": true,
+  "collision_risk": "MEDIUM",
+  "deterministic": true,
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-11",
+  "namespace_id": "VISNS_4E4CE0C3BD6BACB51B9D5512821D4958",
+  "observed_name_expression": "name",
+  "observed_scope_status": "PARTIALLY_SCOPED",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-11A",
+  "producer": "tools.strategy_factory.lcm.lcm_11a.service:LCM11AInventoryService",
+  "randomness_forbidden": true,
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:e57326314f090c4fd66910c93f6894a9d96b5d7776747ebbd67707a709f88f74"
+  ],
+  "validation_status": "PASS",
+  "visual_object_id": "VISOBJ_E66EF5986D913F09E21EFE189A061024"
+}

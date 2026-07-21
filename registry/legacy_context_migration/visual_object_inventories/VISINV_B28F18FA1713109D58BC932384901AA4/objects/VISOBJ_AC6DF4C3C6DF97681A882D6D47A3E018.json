@@ -1,0 +1,39 @@
+{
+  "active_status": "ACTIVE_OR_REFERENCED",
+  "blocker_ids": [],
+  "chart_scope_expression": "0",
+  "claim_ceiling": "LCM_11A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "function_name": "DrawVLine",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "line": 525,
+  "master_phase": "LCM-11",
+  "object_type": "OBJ_VLINE",
+  "observed_name_expression": "name",
+  "owner": "M0001_RESEARCH_OWNER",
+  "phase_id": "LCM-11A",
+  "producer": "tools.strategy_factory.lcm.lcm_11a.service:LCM11AInventoryService",
+  "raw_arguments": [
+    "0",
+    "name",
+    "OBJ_VLINE",
+    "0",
+    "t",
+    "0"
+  ],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digest": "sha256:e9fb42824b0b59f3fa18d0560f8b0a064640b2cee3e4bac7b541060162414108",
+  "source_digests": [
+    "sha256:e57326314f090c4fd66910c93f6894a9d96b5d7776747ebbd67707a709f88f74"
+  ],
+  "source_event_binding_status": "INFERRED_FROM_RESEARCH_SURFACE",
+  "source_event_evidence": "Research visual surface projects an observation event.",
+  "source_event_type": "RESEARCH_OBSERVATION_EVENT",
+  "source_path": "mql5/Experts/M0001_LiveVisualLab.mq5",
+  "subsystem": "M0001",
+  "surface_kind": "CHART_OBJECT",
+  "validation_status": "PASS",
+  "visual_object_id": "VISOBJ_AC6DF4C3C6DF97681A882D6D47A3E018"
+}

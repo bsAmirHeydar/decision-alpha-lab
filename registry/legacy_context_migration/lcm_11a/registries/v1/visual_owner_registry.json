@@ -1,0 +1,6 @@
+{
+  "owner_resolution": "DETERMINISTIC_PATH_RULE_WITH_EXPLICIT_FALLBACK_OWNER",
+  "registry_id": "LCM11A_VISUAL_OWNER_REGISTRY_V1",
+  "schema_version": "1.0.0",
+  "unknown_owner_forbidden": true
+}

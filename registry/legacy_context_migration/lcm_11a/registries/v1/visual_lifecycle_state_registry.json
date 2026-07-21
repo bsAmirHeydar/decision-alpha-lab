@@ -1,0 +1,12 @@
+{
+  "registry_id": "LCM11A_VISUAL_LIFECYCLE_STATES_V1",
+  "schema_version": "1.0.0",
+  "states": [
+    "INITIALIZE",
+    "HISTORICAL_BACKFILL",
+    "INCREMENTAL_UPDATE",
+    "RESTART_RECONCILE",
+    "CHART_CHANGE_RECONCILE",
+    "OWNED_CLEANUP"
+  ]
+}

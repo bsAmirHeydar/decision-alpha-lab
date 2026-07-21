@@ -1,0 +1,13 @@
+from __future__ import annotations
+from pathlib import Path
+from .canonical import file_digest
+
+def verify_hash_ledger(repo_root:Path,ledger:Path)->dict:
+    errors=[];count=0
+    for line in ledger.read_text(encoding='utf-8').splitlines():
+        if not line.strip():continue
+        expected,rel=line.split('  ',1);path=repo_root/rel
+        if not path.is_file():errors.append({"path":rel,"error":"MISSING"})
+        elif file_digest(path)!=expected:errors.append({"path":rel,"error":"DIGEST_MISMATCH"})
+        count+=1
+    return {"result":"PASS" if not errors else "FAIL","checked":count,"errors":errors}

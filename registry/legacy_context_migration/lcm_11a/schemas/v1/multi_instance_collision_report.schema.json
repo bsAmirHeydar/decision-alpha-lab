@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "canonical_collision_count": {
+      "const": 0
+    },
+    "validation_status": {
+      "const": "PASS"
+    }
+  },
+  "required": [
+    "observed_collision_group_count",
+    "canonical_collision_count",
+    "canonical_simulation",
+    "validation_status"
+  ],
+  "title": "LCM-11A Collision Report",
+  "type": "object"
+}

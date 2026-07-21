@@ -1,0 +1,39 @@
+{
+  "claim_ceiling": "LCM_11A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "events": [
+    {
+      "event_id": "VISEVENT_6757B6B2412164FBBA04D241150665A9",
+      "event_type": "LCM11A_BUILD_STARTED",
+      "sequence": 1
+    },
+    {
+      "event_id": "VISEVENT_1655AF87B76C548F9D0D76240B576EE1",
+      "event_type": "VISUAL_INVENTORY_FROZEN",
+      "sequence": 2
+    },
+    {
+      "event_id": "VISEVENT_7BDEE57145F66B0CF05ABE721EAB69B2",
+      "event_type": "VISUAL_CONTRACTS_FROZEN",
+      "sequence": 3
+    },
+    {
+      "event_id": "VISEVENT_27486B6912CC512A8E9FB8B222C483A1",
+      "event_type": "LCM11A_HANDOFF_ISSUED",
+      "sequence": 4
+    }
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "inventory_id": "VISINV_B28F18FA1713109D58BC932384901AA4",
+  "master_phase": "LCM-11",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-11A",
+  "producer": "tools.strategy_factory.lcm.lcm_11a.service:LCM11AInventoryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:e57326314f090c4fd66910c93f6894a9d96b5d7776747ebbd67707a709f88f74"
+  ],
+  "validation_status": "PASS"
+}

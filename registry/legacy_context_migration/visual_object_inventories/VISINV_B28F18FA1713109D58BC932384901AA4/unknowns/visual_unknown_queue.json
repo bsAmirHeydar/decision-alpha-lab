@@ -1,0 +1,629 @@
+{
+  "blockers": [
+    {
+      "blocker_id": "VISBLOCK_011DC2EACC8FD8919E6A7D9285B521C8",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_CE0E6A158F484B2C0406A7FD2682801C"
+    },
+    {
+      "blocker_id": "VISBLOCK_02D59C829259390D1605BA1089DFC535",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_9731AAA9585F4A4BE1688E5977406F65"
+    },
+    {
+      "blocker_id": "VISBLOCK_049AFA9D4EA91360D91DB48F9345547A",
+      "blocking": true,
+      "dimension": "OBSERVED_NAMESPACE_COLLISION_RISK",
+      "reason": "BLOCK_LCM11B_CUTOVER_UNTIL_CANONICAL_NAMESPACE_APPLIED",
+      "visual_object_ids": [
+        "VISOBJ_3CA6D4F162089A02DCB05A684984C769",
+        "VISOBJ_1ABDE24CB2D9201B60E87C0BFAD60DAC",
+        "VISOBJ_021FBCAB486201500DE0E8290E01763F"
+      ]
+    },
+    {
+      "blocker_id": "VISBLOCK_05CDCBB65EF65D1CD7A34B652F08DA5E",
+      "blocking": true,
+      "dimension": "OBSERVED_NAMESPACE_COLLISION_RISK",
+      "reason": "BLOCK_LCM11B_CUTOVER_UNTIL_CANONICAL_NAMESPACE_APPLIED",
+      "visual_object_ids": [
+        "VISOBJ_0220A0D397699EA2209E753C4CD9CDF4",
+        "VISOBJ_B32707835FBD6748134B2257C2162D95",
+        "VISOBJ_DB174835E7D51B8C917A8E0CA1B80B60",
+        "VISOBJ_14BB7F1507609E3F1DBAFF4CFBBF901B"
+      ]
+    },
+    {
+      "blocker_id": "VISBLOCK_0860EE0F50C5D91CA2F4478EF0ADE0A0",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_4E76C6E33BC78E6CB35C9179326A90B4"
+    },
+    {
+      "blocker_id": "VISBLOCK_0AA32544513B420F1A4FC6FE0C0CDB2A",
+      "blocking": true,
+      "dimension": "SOURCE_EVENT_BINDING",
+      "reason": "No deterministic source-event mapping rule matched the source path.",
+      "visual_object_id": "VISOBJ_9731AAA9585F4A4BE1688E5977406F65"
+    },
+    {
+      "blocker_id": "VISBLOCK_1CBE2E82719BA126FE584EA706C49204",
+      "blocking": true,
+      "dimension": "OBSERVED_NAMESPACE_COLLISION_RISK",
+      "reason": "BLOCK_LCM11B_CUTOVER_UNTIL_CANONICAL_NAMESPACE_APPLIED",
+      "visual_object_ids": [
+        "VISOBJ_2E3097377D069BC589C17761A4C617F3",
+        "VISOBJ_4E76C6E33BC78E6CB35C9179326A90B4",
+        "VISOBJ_D8BB8F75B2A83BE7D332E7CC484BB4BA",
+        "VISOBJ_C6C3C31F46EFCF707FA96711209E7666"
+      ]
+    },
+    {
+      "blocker_id": "VISBLOCK_1DF20314AF416BAF076CE3A2F0F41050",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_DB174835E7D51B8C917A8E0CA1B80B60"
+    },
+    {
+      "blocker_id": "VISBLOCK_26C5815DA60282F54CEF17ACCEAF5C34",
+      "blocking": true,
+      "dimension": "OBSERVED_NAMESPACE_COLLISION_RISK",
+      "reason": "BLOCK_LCM11B_CUTOVER_UNTIL_CANONICAL_NAMESPACE_APPLIED",
+      "visual_object_ids": [
+        "VISOBJ_B1A4C121F9C7FCB5AF28CA5B4FD8E89B",
+        "VISOBJ_D678600FBF483449C371CA23A498CBBA",
+        "VISOBJ_31337E2F84E7CAA0E9F1893550F5D562",
+        "VISOBJ_691B0CF616D7740C02B01BCABEB2EE12"
+      ]
+    },
+    {
+      "blocker_id": "VISBLOCK_2A05185F6D12A7DA18ED9D32B4922106",
+      "blocking": true,
+      "dimension": "OBSERVED_NAMESPACE_COLLISION_RISK",
+      "reason": "BLOCK_LCM11B_CUTOVER_UNTIL_CANONICAL_NAMESPACE_APPLIED",
+      "visual_object_ids": [
+        "VISOBJ_3C543ECFC58811A774DA753FEB6053E4",
+        "VISOBJ_53D1D145C33A1C50F25044AD51B993F8",
+        "VISOBJ_1B58B2E34B43423FEB9510555B9DB4AC"
+      ]
+    },
+    {
+      "blocker_id": "VISBLOCK_2F23E5515977E7A752EEC823D0FB0CB1",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_B32707835FBD6748134B2257C2162D95"
+    },
+    {
+      "blocker_id": "VISBLOCK_385F2D5A606279614C86DAE5372C3DF8",
+      "blocking": true,
+      "dimension": "OBSERVED_NAMESPACE_COLLISION_RISK",
+      "reason": "BLOCK_LCM11B_CUTOVER_UNTIL_CANONICAL_NAMESPACE_APPLIED",
+      "visual_object_ids": [
+        "VISOBJ_479045A38B3DAFBD0384BBDDBF305645",
+        "VISOBJ_FAA178B3AE4585BEC71ED32DA7E6F858",
+        "VISOBJ_AF9463B02B2FB608D8175DEC9628EF2C",
+        "VISOBJ_0520954F490D2C0C6F265211FEED3A47"
+      ]
+    },
+    {
+      "blocker_id": "VISBLOCK_3AC73C617675ED289A60F5EAF2D4BDC2",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_9D4F83328F98489D3618C7BEFF3DC535"
+    },
+    {
+      "blocker_id": "VISBLOCK_3D9022433AF77CB881241341BA71FB27",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_AF9463B02B2FB608D8175DEC9628EF2C"
+    },
+    {
+      "blocker_id": "VISBLOCK_4221F58EA49FFF3C91BBDD747C691E88",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_BC1012A1EC721718D54C8D35804295D2"
+    },
+    {
+      "blocker_id": "VISBLOCK_432FD33AE9B7F2858DA71B3188DB75D5",
+      "blocking": true,
+      "dimension": "OBSERVED_NAMESPACE_COLLISION_RISK",
+      "reason": "BLOCK_LCM11B_CUTOVER_UNTIL_CANONICAL_NAMESPACE_APPLIED",
+      "visual_object_ids": [
+        "VISOBJ_245C79DEA1803552239C04860D7369FA"
+      ]
+    },
+    {
+      "blocker_id": "VISBLOCK_43AA3B79FAC54B84DE50A81CAD2A6C5D",
+      "blocking": true,
+      "dimension": "OBSERVED_NAMESPACE_COLLISION_RISK",
+      "reason": "BLOCK_LCM11B_CUTOVER_UNTIL_CANONICAL_NAMESPACE_APPLIED",
+      "visual_object_ids": [
+        "VISOBJ_2B98B368EECC1A3C4932C116B136F504",
+        "VISOBJ_CC8A59D8A054C536651E307F9AC471DD",
+        "VISOBJ_98113789E9351DE776A071AF9D3A3154",
+        "VISOBJ_885FB5F8C50B518D15443B4A3685BC72",
+        "VISOBJ_191D094E6D763DA62CAD4053B8457F06",
+        "VISOBJ_77EAFA53F00D36A597C28D596CE8ED3F",
+        "VISOBJ_F2081B64B41D7379856C375D1B9D345E",
+        "VISOBJ_DAC2E3B08F7C50D4ABD34C71F3E773EE",
+        "VISOBJ_0B7F2CF33A09C61F331CEAD06932A691",
+        "VISOBJ_D0AF8076D595BB4E524F4C6C51060092",
+        "VISOBJ_5C1AF4C90532B44F9103C3CFD0B5C1B9"
+      ]
+    },
+    {
+      "blocker_id": "VISBLOCK_4CAA34B3B665274B0A4FC0572409A627",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_3C543ECFC58811A774DA753FEB6053E4"
+    },
+    {
+      "blocker_id": "VISBLOCK_4CFDA47052B590119399C1A57CADB74D",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_0520954F490D2C0C6F265211FEED3A47"
+    },
+    {
+      "blocker_id": "VISBLOCK_4F7017D06CDD44A50D8079174D027E78",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_B659A19CF4A7B7C75B8AE5F30A93A0AB"
+    },
+    {
+      "blocker_id": "VISBLOCK_503BF63E1E178B0A762A7BCB3E113C2D",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_749E7F7BBC10B262009AED2CE374860F"
+    },
+    {
+      "blocker_id": "VISBLOCK_58752F181E2CFD202BB131155D2ABB57",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_E9005D1459123620310F810DBD1BDA6E"
+    },
+    {
+      "blocker_id": "VISBLOCK_58811B0815352FA49C592F750B83081F",
+      "blocking": true,
+      "dimension": "OBSERVED_NAMESPACE_COLLISION_RISK",
+      "reason": "BLOCK_LCM11B_CUTOVER_UNTIL_CANONICAL_NAMESPACE_APPLIED",
+      "visual_object_ids": [
+        "VISOBJ_3E81407FB0848100CBA79E824EC5DD75"
+      ]
+    },
+    {
+      "blocker_id": "VISBLOCK_5C43B3058150005DE2B36A0385C664AD",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_D678600FBF483449C371CA23A498CBBA"
+    },
+    {
+      "blocker_id": "VISBLOCK_6D6E2B569B0B98FD87249D8D1E5949EC",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_581AD76D0DA0DFB26669BBF023AC9AF8"
+    },
+    {
+      "blocker_id": "VISBLOCK_6EF23FB381A3C6B0E86B6501EAE2F907",
+      "blocking": true,
+      "dimension": "OBSERVED_NAMESPACE_COLLISION_RISK",
+      "reason": "BLOCK_LCM11B_CUTOVER_UNTIL_CANONICAL_NAMESPACE_APPLIED",
+      "visual_object_ids": [
+        "VISOBJ_BB3C66D082894A939B427A978B3578D4",
+        "VISOBJ_557C7A567A608A2273A3497140F94DE2"
+      ]
+    },
+    {
+      "blocker_id": "VISBLOCK_70D6464110A6EF170912E0401F7766E5",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_B1A4C121F9C7FCB5AF28CA5B4FD8E89B"
+    },
+    {
+      "blocker_id": "VISBLOCK_74A9BA5AAE8432E584E7EA487D83CF2D",
+      "blocking": true,
+      "dimension": "OBSERVED_NAMESPACE_COLLISION_RISK",
+      "reason": "BLOCK_LCM11B_CUTOVER_UNTIL_CANONICAL_NAMESPACE_APPLIED",
+      "visual_object_ids": [
+        "VISOBJ_C6667FB25C93C68822F02EC53ED9BF93",
+        "VISOBJ_F61C8C06B63B2F024B580E415ACD96C7",
+        "VISOBJ_1438542E76B0C9D152198BDD251C0130",
+        "VISOBJ_883606F21F31674A9F7D70303BB2F91F",
+        "VISOBJ_448EC7D239BE5AD53F8898AD42B9D44E",
+        "VISOBJ_D19910CFC75104BEF26B32688425E92B",
+        "VISOBJ_7164136F3BD65FEFA52CEFF2253A8D91",
+        "VISOBJ_64165DF44766C960C02340DA65F3B54C",
+        "VISOBJ_C977DC374622A940147376F37BBC2A47",
+        "VISOBJ_91B12A8B6648DC22B2E15A61D0652E31"
+      ]
+    },
+    {
+      "blocker_id": "VISBLOCK_79C784F4C7A196FC07AA4F173F78656E",
+      "blocking": true,
+      "dimension": "OBSERVED_NAMESPACE_COLLISION_RISK",
+      "reason": "BLOCK_LCM11B_CUTOVER_UNTIL_CANONICAL_NAMESPACE_APPLIED",
+      "visual_object_ids": [
+        "VISOBJ_AC6DF4C3C6DF97681A882D6D47A3E018",
+        "VISOBJ_A0DF350FAA35CC7F2F38BCF762F0A55B",
+        "VISOBJ_9F68F34653117798DAE5BFD55B54ED29",
+        "VISOBJ_DAC0B7AAAC8C1DF6E58F79191ECCF82A"
+      ]
+    },
+    {
+      "blocker_id": "VISBLOCK_7A1530A8F20D543CB88D544AF7B20B15",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_926B28FAE81A9CB7BDCD9CE10FD8B8BC"
+    },
+    {
+      "blocker_id": "VISBLOCK_8075C393D663EAFC1209FF6742E2D96E",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_1B58B2E34B43423FEB9510555B9DB4AC"
+    },
+    {
+      "blocker_id": "VISBLOCK_8130DD60A953E499C416F588B13D7B53",
+      "blocking": true,
+      "dimension": "OBSERVED_NAMESPACE_COLLISION_RISK",
+      "reason": "BLOCK_LCM11B_CUTOVER_UNTIL_CANONICAL_NAMESPACE_APPLIED",
+      "visual_object_ids": [
+        "VISOBJ_0CDB9B931B43A09266304C750810BA3F",
+        "VISOBJ_6BB66335E13F550EBE71EE2EEB59C6F1",
+        "VISOBJ_90C062E8C5CBD98060FEAF9138299C2E",
+        "VISOBJ_2742EA31BBC464608FF0BEACF990628A",
+        "VISOBJ_BC1012A1EC721718D54C8D35804295D2",
+        "VISOBJ_E66EF5986D913F09E21EFE189A061024"
+      ]
+    },
+    {
+      "blocker_id": "VISBLOCK_814DDC86CE89FD68EBAE13CF8DE61C02",
+      "blocking": true,
+      "dimension": "OBSERVED_NAMESPACE_COLLISION_RISK",
+      "reason": "BLOCK_LCM11B_CUTOVER_UNTIL_CANONICAL_NAMESPACE_APPLIED",
+      "visual_object_ids": [
+        "VISOBJ_637D5BD8CD2F2CF6A49ABB157B2899D6"
+      ]
+    },
+    {
+      "blocker_id": "VISBLOCK_889EF7F51836A4D49F76D18992B51A6B",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_FF4BF9DFAA77873FDA3D53CAC6A3614B"
+    },
+    {
+      "blocker_id": "VISBLOCK_8E9EB3EA0923A35E09811CCE4C7D5835",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_2E3097377D069BC589C17761A4C617F3"
+    },
+    {
+      "blocker_id": "VISBLOCK_90E72DFE936AA96550C158DD5F8CDDA7",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_D8BB8F75B2A83BE7D332E7CC484BB4BA"
+    },
+    {
+      "blocker_id": "VISBLOCK_932C62BAC26C5B1B188F8FBA87F52591",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_05A6695C87E61CED5EB9245E9208793F"
+    },
+    {
+      "blocker_id": "VISBLOCK_9371FE98EB05D6E8FD42AA45E597BAE4",
+      "blocking": true,
+      "dimension": "OBSERVED_NAMESPACE_COLLISION_RISK",
+      "reason": "BLOCK_LCM11B_CUTOVER_UNTIL_CANONICAL_NAMESPACE_APPLIED",
+      "visual_object_ids": [
+        "VISOBJ_65346D4C554939B99AD9639939364C8A"
+      ]
+    },
+    {
+      "blocker_id": "VISBLOCK_9473FCF97D0230ABF47285C252040D6D",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_FAA178B3AE4585BEC71ED32DA7E6F858"
+    },
+    {
+      "blocker_id": "VISBLOCK_97B9393270BDD1720766D7E2ABC25BDF",
+      "blocking": true,
+      "dimension": "OBSERVED_NAMESPACE_COLLISION_RISK",
+      "reason": "BLOCK_LCM11B_CUTOVER_UNTIL_CANONICAL_NAMESPACE_APPLIED",
+      "visual_object_ids": [
+        "VISOBJ_88D9BCED446023F039B154F2BF8BAB34",
+        "VISOBJ_BD19F1D0A2952781D489AF70617DD497",
+        "VISOBJ_7E52F91150409D685515F587C02A6C5B",
+        "VISOBJ_581AD76D0DA0DFB26669BBF023AC9AF8"
+      ]
+    },
+    {
+      "blocker_id": "VISBLOCK_9A06950346A7F213BDFDA709FA6781AA",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_0220A0D397699EA2209E753C4CD9CDF4"
+    },
+    {
+      "blocker_id": "VISBLOCK_9AEE157153D769EA163DE999C5178304",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_479045A38B3DAFBD0384BBDDBF305645"
+    },
+    {
+      "blocker_id": "VISBLOCK_9DFB4A46D0549936DA6F3584635CF98E",
+      "blocking": true,
+      "dimension": "SOURCE_EVENT_BINDING",
+      "reason": "No deterministic source-event mapping rule matched the source path.",
+      "visual_object_id": "VISOBJ_9D4F83328F98489D3618C7BEFF3DC535"
+    },
+    {
+      "blocker_id": "VISBLOCK_9F9C50550F9064147572CC9ED3C7943F",
+      "blocking": true,
+      "dimension": "OBSERVED_NAMESPACE_COLLISION_RISK",
+      "reason": "BLOCK_LCM11B_CUTOVER_UNTIL_CANONICAL_NAMESPACE_APPLIED",
+      "visual_object_ids": [
+        "VISOBJ_DFE8E981E04B0F2FB0DEE1C2FE36585F",
+        "VISOBJ_C4B6598FE8373F601A493F2A7AA9EA7F",
+        "VISOBJ_7D91E6D06396791F2B69E5AAF673DE2D",
+        "VISOBJ_E8680E8690A18CE6F7CC1984791251BE",
+        "VISOBJ_B659A19CF4A7B7C75B8AE5F30A93A0AB",
+        "VISOBJ_BC78E7B7052A7CD7CB174AFDB09047D6"
+      ]
+    },
+    {
+      "blocker_id": "VISBLOCK_B33180BEC44698C994977F10BE5552D6",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_56873D03E6E50B38F3A0911034182CAB"
+    },
+    {
+      "blocker_id": "VISBLOCK_B51519BE2BC61A1A086B8F80932DB23A",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_C6C3C31F46EFCF707FA96711209E7666"
+    },
+    {
+      "blocker_id": "VISBLOCK_B5A27638586C4D9175CF9A3D2E224ABB",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_2540A9597917AEC39E15FD11337FB550"
+    },
+    {
+      "blocker_id": "VISBLOCK_BEFC88F362556116B189E1D7BC6C191E",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_BDD0E117BBC040F17B4F26F46FEBD0F5"
+    },
+    {
+      "blocker_id": "VISBLOCK_C023A7843ABB17FC15CA7CF9AB2CB45F",
+      "blocking": true,
+      "dimension": "OBSERVED_NAMESPACE_COLLISION_RISK",
+      "reason": "BLOCK_LCM11B_CUTOVER_UNTIL_CANONICAL_NAMESPACE_APPLIED",
+      "visual_object_ids": [
+        "VISOBJ_01C0BA7B46E03571508B422283EA4EE7",
+        "VISOBJ_0BB843D1EEC809411C4B8FA0BAFBDF38"
+      ]
+    },
+    {
+      "blocker_id": "VISBLOCK_C7451F1ADA180B11DEC8F9213B9A5122",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_2742EA31BBC464608FF0BEACF990628A"
+    },
+    {
+      "blocker_id": "VISBLOCK_CC813D132A05C9FF524A6B57BAC331B1",
+      "blocking": true,
+      "dimension": "OBSERVED_NAMESPACE_COLLISION_RISK",
+      "reason": "BLOCK_LCM11B_CUTOVER_UNTIL_CANONICAL_NAMESPACE_APPLIED",
+      "visual_object_ids": [
+        "VISOBJ_E9005D1459123620310F810DBD1BDA6E",
+        "VISOBJ_FF4BF9DFAA77873FDA3D53CAC6A3614B",
+        "VISOBJ_BA1A8E56BA442DD2898936FE314DC284",
+        "VISOBJ_CFA68D9EACFC44246C70C61BD57100A0"
+      ]
+    },
+    {
+      "blocker_id": "VISBLOCK_CD8F238CC665B3808EDF900ACE56A6B9",
+      "blocking": true,
+      "dimension": "OBSERVED_NAMESPACE_COLLISION_RISK",
+      "reason": "BLOCK_LCM11B_CUTOVER_UNTIL_CANONICAL_NAMESPACE_APPLIED",
+      "visual_object_ids": [
+        "VISOBJ_784585D1C59527A0E6992C119C29076A",
+        "VISOBJ_0709999AB4D6E0F883EF7B130A941FB9",
+        "VISOBJ_E827103A70572BCBF28B2B618AD5D035",
+        "VISOBJ_6DAE9C8553F33E2E389622E85D97994F",
+        "VISOBJ_904A1E93EB60912DB43D449609F71E45",
+        "VISOBJ_984A06BDFEEF13EF31E1EF05807890FE",
+        "VISOBJ_7142030C1E7F598028EA5AEFE02C950C",
+        "VISOBJ_F96BB552146C522D0EA101E15E3A1AB3"
+      ]
+    },
+    {
+      "blocker_id": "VISBLOCK_D405AFA91CF3E9759B45443C624693B9",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_88D9BCED446023F039B154F2BF8BAB34"
+    },
+    {
+      "blocker_id": "VISBLOCK_D94AEB2B2001F10D989D57C6B09C11C8",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_BA1A8E56BA442DD2898936FE314DC284"
+    },
+    {
+      "blocker_id": "VISBLOCK_D9EDBEFBC6DD19E94F14A557C9FE4A3F",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_53D1D145C33A1C50F25044AD51B993F8"
+    },
+    {
+      "blocker_id": "VISBLOCK_DA6E1303EA2899D1D7E5C9DA3D7715DA",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_FB945055A93D298C1F3D335447587751"
+    },
+    {
+      "blocker_id": "VISBLOCK_EC20E40D5A8CDAA9259D615F37216BD4",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_31337E2F84E7CAA0E9F1893550F5D562"
+    },
+    {
+      "blocker_id": "VISBLOCK_ED93EEF0C6C532E3E67C10E4574EBEB3",
+      "blocking": true,
+      "dimension": "OBSERVED_NAMESPACE_COLLISION_RISK",
+      "reason": "BLOCK_LCM11B_CUTOVER_UNTIL_CANONICAL_NAMESPACE_APPLIED",
+      "visual_object_ids": [
+        "VISOBJ_C6F871FAAB7BFC543B97FE29F5C83437",
+        "VISOBJ_2E0B2B07B1937363754E39019B0E355A",
+        "VISOBJ_0CDBD7E2A68E70B50D6FDEBE67E0F463"
+      ]
+    },
+    {
+      "blocker_id": "VISBLOCK_F1C0DC9440004ABCE785A9D343F19021",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_7E52F91150409D685515F587C02A6C5B"
+    },
+    {
+      "blocker_id": "VISBLOCK_F225CEFDB2A207909F06B669E44F54CA",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_CFA68D9EACFC44246C70C61BD57100A0"
+    },
+    {
+      "blocker_id": "VISBLOCK_F2A4D9DE636A0544442475946F80CD08",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_BD19F1D0A2952781D489AF70617DD497"
+    },
+    {
+      "blocker_id": "VISBLOCK_F2B04745D0AE07D071D025CFDFB062D6",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_14BB7F1507609E3F1DBAFF4CFBBF901B"
+    },
+    {
+      "blocker_id": "VISBLOCK_F3ECB56CD77660672C6B686BFE8903C9",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_691B0CF616D7740C02B01BCABEB2EE12"
+    },
+    {
+      "blocker_id": "VISBLOCK_F5958D8C206C4FEDCA7C8407C82B0AFE",
+      "blocking": true,
+      "dimension": "OBSERVED_NAMESPACE_COLLISION_RISK",
+      "reason": "BLOCK_LCM11B_CUTOVER_UNTIL_CANONICAL_NAMESPACE_APPLIED",
+      "visual_object_ids": [
+        "VISOBJ_4CCF38831B72810E03DAB7435B09CD70",
+        "VISOBJ_1902E75FD913BBA783980920705E1CDF",
+        "VISOBJ_9EEED44B689462B066E4F52991C9BDAD",
+        "VISOBJ_168DD7B26E9887BE9E76F5274A9ACC9D",
+        "VISOBJ_D95D4D691B9EB387970579B30A3ED95C",
+        "VISOBJ_CC2BB5F60E0F925D21EFC12BE586EAC1",
+        "VISOBJ_F50D5A5EE2C266D561505AC4B765FFC5",
+        "VISOBJ_F3A8DE0D8EB0ADC14496426BC98725A5",
+        "VISOBJ_B01DC7A84091B7FA3998BEE01D5C61D4",
+        "VISOBJ_213A3FE1E56B46E2BC1D67AB1770D6CA",
+        "VISOBJ_337A0DF8BB6030283973B03D79BCA794",
+        "VISOBJ_14C53B55C875A0753AD961ADECB136E4",
+        "VISOBJ_0F0C596B23716D6D0070DED5B4BD2C2C"
+      ]
+    },
+    {
+      "blocker_id": "VISBLOCK_F7988536F2FFE7BC1251D2354B5497D8",
+      "blocking": true,
+      "dimension": "OBSERVED_NAMESPACE_COLLISION_RISK",
+      "reason": "BLOCK_LCM11B_CUTOVER_UNTIL_CANONICAL_NAMESPACE_APPLIED",
+      "visual_object_ids": [
+        "VISOBJ_D886BD9FD47746584D2026F30EBD710C",
+        "VISOBJ_3D3107E8DCF5D741B0538BFDC4075857",
+        "VISOBJ_30608DF6911A64D2674B29A260180A7C"
+      ]
+    },
+    {
+      "blocker_id": "VISBLOCK_FA738921B330F3DA8A002D21CB32DF1C",
+      "blocking": true,
+      "dimension": "OBSERVED_NAMESPACE_COLLISION_RISK",
+      "reason": "BLOCK_LCM11B_CUTOVER_UNTIL_CANONICAL_NAMESPACE_APPLIED",
+      "visual_object_ids": [
+        "VISOBJ_6E5643D93BC76B884A9CD0C23D712B39"
+      ]
+    },
+    {
+      "blocker_id": "VISBLOCK_FE584A1EDD5DE9F4471E490EF43AF2D1",
+      "blocking": true,
+      "dimension": "LIFECYCLE_OR_CLEANUP",
+      "reason": "NO_DELETE_EVIDENCE",
+      "visual_object_id": "VISOBJ_264886DC90B7B30A4260E433F0643156"
+    },
+    {
+      "blocker_id": "VISBLOCK_FF6687F4C8DE1D07AF66FB1534E43221",
+      "blocking": true,
+      "dimension": "OBSERVED_NAMESPACE_COLLISION_RISK",
+      "reason": "BLOCK_LCM11B_CUTOVER_UNTIL_CANONICAL_NAMESPACE_APPLIED",
+      "visual_object_ids": [
+        "VISOBJ_2540A9597917AEC39E15FD11337FB550",
+        "VISOBJ_56873D03E6E50B38F3A0911034182CAB",
+        "VISOBJ_926B28FAE81A9CB7BDCD9CE10FD8B8BC",
+        "VISOBJ_05A6695C87E61CED5EB9245E9208793F"
+      ]
+    }
+  ],
+  "blocking_count": 68,
+  "claim_ceiling": "LCM_11A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "inventory_id": "VISINV_B28F18FA1713109D58BC932384901AA4",
+  "master_phase": "LCM-11",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-11A",
+  "producer": "tools.strategy_factory.lcm.lcm_11a.service:LCM11AInventoryService",
+  "queue_digest": "sha256:2952206a0efc872ce4e0383862531891b925907773dcd3b3a6d0bc2c427d3530",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:e57326314f090c4fd66910c93f6894a9d96b5d7776747ebbd67707a709f88f74"
+  ],
+  "validation_status": "PASS"
+}
