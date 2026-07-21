@@ -1,0 +1,55 @@
+{
+  "$id": "https://alpha-lab.local/lcm11b/visual_parity_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "migration_id": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "report_digest": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "results": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "semantic_mismatch_count": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "migration_id",
+    "results",
+    "semantic_mismatch_count",
+    "report_digest"
+  ],
+  "title": "visual_parity_report.schema.json",
+  "type": "object"
+}

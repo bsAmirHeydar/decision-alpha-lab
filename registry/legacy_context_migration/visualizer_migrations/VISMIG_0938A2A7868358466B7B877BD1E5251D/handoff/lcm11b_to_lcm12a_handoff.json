@@ -1,0 +1,75 @@
+{
+  "allowed_next_actions": [
+    "MAP_CANONICAL_DOCUMENTATION_AUTHORITY",
+    "ANALYZE_DOCUMENT_DUPLICATES",
+    "REFERENCE_CANONICAL_VISUALIZER_REGISTRY_IN_DOCUMENTATION"
+  ],
+  "blocked_dimensions": [
+    "BLOCKED_VISUAL_CONSUMERS_RETAINED",
+    "PLATFORM_RUNTIME_EVIDENCE_PENDING"
+  ],
+  "capital_authority_created": false,
+  "claim_ceiling": "LCM_11B_REFERENCE_ONLY",
+  "completed_gates": [
+    "CANONICAL_VISUALIZER_REGISTRY",
+    "EVENT_STYLE_SEPARATION",
+    "REFERENCE_MULTI_CHART_ISOLATION",
+    "REFERENCE_RESTART_BACKFILL",
+    "CONTRACT_VISUAL_PARITY",
+    "EXACT_REVERSIBLE_CUTOVER_MANIFEST",
+    "AUTHORITY_NEGATIVE_BOUNDARY"
+  ],
+  "consumer_cutover_mode": "REFERENCE_HARNESS_ONLY",
+  "counts": {
+    "adapter_count": 128,
+    "blocked_count": 74,
+    "golden_fixture_count": 128,
+    "isolation_scenario_count": 512,
+    "lifecycle_scenario_count": 768,
+    "open_blocker_count": 78,
+    "reference_cutover_count": 54,
+    "resolved_blocker_count": 0,
+    "semantic_parity_blocked_count": 74,
+    "semantic_parity_pass_count": 54,
+    "style_profile_count": 128,
+    "visual_object_count": 128,
+    "visualizer_count": 128
+  },
+  "deterministic_identity": true,
+  "failed_dimensions": [],
+  "forbidden_actions": [
+    "DELETE_LEGACY_VISUAL_SOURCE",
+    "ENABLE_LIVE_RUNTIME_CUTOVER",
+    "DOMAIN_STATE_MUTATION_FROM_VISUALIZER",
+    "ORDER_SUBMISSION",
+    "CAPITAL_ACTIVATION",
+    "UNKNOWN_WAIVER"
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "handoff_digest": "sha256:740190a1b8275602a4906f5a3c57c1131d50e35ef371aa6ebf5ea3ea5f4f71dc",
+  "handoff_id": "LCM11BHANDOFF_3DF5DCBCE25509A1F86DF216C38BF3CB",
+  "handoff_type": "LCM11B_TO_LCM12A",
+  "live_order_authority_created": false,
+  "master_phase": "LCM-11",
+  "output_manifest_digest": "sha256:fb060c4b833ca434f6f1c198e32586327ed04b56a42005a4e870eb04bd3a386d",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-11B",
+  "producer": "tools.strategy_factory.lcm.lcm_11b.service:LCM11BVisualizerService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "runtime_authority_created": false,
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:954eec9f1cfc7358a1fa28880132567d1a83f9c59abb1419a21e4ee853ffbcda",
+    "sha256:000aecdb0a35be57306b4508e7908d7b672c223076d1f69781ace809d5282e62",
+    "sha256:ec8e6ea71d372db524d5163a85cd63f5e7a762ad0fa5ca36760498ff02cf6e7c",
+    "sha256:f316d76a29dae64f90a204ccb05a3670056112dd16ca07cce0ba9c44897c3a37"
+  ],
+  "unknown_dimensions": [
+    "METAEDITOR_RUNTIME_MATRIX",
+    "LIVE_CHART_RESTART_EVIDENCE",
+    "SCREENSHOT_PIXEL_PARITY",
+    "HUMAN_OWNER_PRODUCTION_CUTOVER_APPROVAL"
+  ],
+  "validation_status": "PASS"
+}

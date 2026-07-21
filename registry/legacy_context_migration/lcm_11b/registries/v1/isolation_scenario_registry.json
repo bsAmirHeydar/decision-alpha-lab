@@ -1,0 +1,11 @@
+{
+  "claim_ceiling": "LCM_11B_REFERENCE_ONLY",
+  "phase_id": "LCM-11B",
+  "schema_version": "1.0.0",
+  "values": [
+    "SAME_CHART_DIFFERENT_INSTANCE",
+    "SAME_SYMBOL_DIFFERENT_TIMEFRAME",
+    "DIFFERENT_CHART_SAME_INSTANCE",
+    "DIFFERENT_SYMBOL_EXPLICIT_CHART"
+  ]
+}

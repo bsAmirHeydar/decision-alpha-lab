@@ -1,0 +1,10 @@
+{
+  "claim_ceiling": "LCM_11B_REFERENCE_ONLY",
+  "phase_id": "LCM-11B",
+  "policy_id": "LCM11B_MULTI_CHART_ISOLATION",
+  "rules": [
+    "INSTANCE_CHART_SYMBOL_TIMEFRAME_EVENT_SCOPED_ID",
+    "OWNED_PREFIX_CLEANUP_ONLY"
+  ],
+  "schema_version": "1.0.0"
+}

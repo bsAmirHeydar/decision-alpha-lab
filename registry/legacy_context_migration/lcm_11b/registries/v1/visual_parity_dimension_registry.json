@@ -1,0 +1,17 @@
+{
+  "claim_ceiling": "LCM_11B_REFERENCE_ONLY",
+  "phase_id": "LCM-11B",
+  "schema_version": "1.0.0",
+  "values": [
+    "object_existence",
+    "object_type",
+    "anchor_time",
+    "anchor_price",
+    "line_end_or_region_extent",
+    "label_meaning",
+    "update_semantics",
+    "owned_deletion",
+    "source_event_binding",
+    "style_separation"
+  ]
+}

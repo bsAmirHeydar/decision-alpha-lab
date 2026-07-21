@@ -1,0 +1,66 @@
+{
+  "$id": "https://alpha-lab.local/lcm11b/canonical_visualizer_contract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "domain_mutation_allowed": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "projection_purity": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "visual_object_id": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "visualizer_id": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "visualizer_kind": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "visualizer_id",
+    "visual_object_id",
+    "visualizer_kind",
+    "projection_purity",
+    "domain_mutation_allowed"
+  ],
+  "title": "canonical_visualizer_contract.schema.json",
+  "type": "object"
+}

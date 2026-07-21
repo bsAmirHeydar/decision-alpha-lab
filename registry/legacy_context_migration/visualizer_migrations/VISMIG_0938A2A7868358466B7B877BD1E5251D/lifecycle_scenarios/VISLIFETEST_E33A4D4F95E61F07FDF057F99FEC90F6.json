@@ -1,0 +1,29 @@
+{
+  "backfill_policy": "UNKNOWN_REQUIRES_LCM11B_FIXTURE",
+  "claim_ceiling": "LCM_11B_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "domain_state_mutation_count": 0,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-11",
+  "owned_scope_only": true,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-11B",
+  "producer": "tools.strategy_factory.lcm.lcm_11b.service:LCM11BVisualizerService",
+  "result": "BLOCKED",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "scenario": "INCREMENTAL_UPDATE",
+  "scenario_digest": "sha256:948457d6a9857d2719b8732ee4e773f42119ceafef84b0117e204f125adeaf7b",
+  "scenario_id": "VISLIFETEST_E33A4D4F95E61F07FDF057F99FEC90F6",
+  "schema_version": "1.0.0",
+  "sequence": 2,
+  "source_digests": [
+    "sha256:954eec9f1cfc7358a1fa28880132567d1a83f9c59abb1419a21e4ee853ffbcda",
+    "sha256:000aecdb0a35be57306b4508e7908d7b672c223076d1f69781ace809d5282e62",
+    "sha256:ec8e6ea71d372db524d5163a85cd63f5e7a762ad0fa5ca36760498ff02cf6e7c",
+    "sha256:f316d76a29dae64f90a204ccb05a3670056112dd16ca07cce0ba9c44897c3a37"
+  ],
+  "state_count": 1,
+  "validation_status": "PASS",
+  "visual_object_id": "VISOBJ_7D91E6D06396791F2B69E5AAF673DE2D"
+}

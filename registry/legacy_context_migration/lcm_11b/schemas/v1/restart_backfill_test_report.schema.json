@@ -1,0 +1,55 @@
+{
+  "$id": "https://alpha-lab.local/lcm11b/restart_backfill_test_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "domain_state_mutation_count": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "migration_id": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "report_digest": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "scenario_count": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "migration_id",
+    "scenario_count",
+    "domain_state_mutation_count",
+    "report_digest"
+  ],
+  "title": "restart_backfill_test_report.schema.json",
+  "type": "object"
+}

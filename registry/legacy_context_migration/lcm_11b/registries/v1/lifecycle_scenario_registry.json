@@ -1,0 +1,13 @@
+{
+  "claim_ceiling": "LCM_11B_REFERENCE_ONLY",
+  "phase_id": "LCM-11B",
+  "schema_version": "1.0.0",
+  "values": [
+    "COLD_START_BACKFILL",
+    "INCREMENTAL_UPDATE",
+    "PROCESS_RESTART_REHYDRATE",
+    "CHART_CHANGE_RECONCILE",
+    "OWNED_CLEANUP",
+    "SECOND_RESTART_IDEMPOTENCY"
+  ]
+}

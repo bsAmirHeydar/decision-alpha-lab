@@ -1,0 +1,11 @@
+{
+  "claim_ceiling": "LCM_11B_REFERENCE_ONLY",
+  "phase_id": "LCM-11B",
+  "policy_id": "LCM11B_RESTART_BACKFILL",
+  "rules": [
+    "IDEMPOTENT_ENSURE",
+    "HISTORY_AND_INCREMENTAL_SAME_EVENT_SEMANTICS",
+    "UNKNOWN_BLOCKS_CUTOVER"
+  ],
+  "schema_version": "1.0.0"
+}

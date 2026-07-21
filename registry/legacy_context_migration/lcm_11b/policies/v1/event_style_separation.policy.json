@@ -1,0 +1,11 @@
+{
+  "claim_ceiling": "LCM_11B_REFERENCE_ONLY",
+  "phase_id": "LCM-11B",
+  "policy_id": "LCM11B_EVENT_STYLE_SEPARATION",
+  "rules": [
+    "STYLE_CANNOT_CHANGE_ANCHOR",
+    "STYLE_CANNOT_CHANGE_AVAILABILITY_TIME",
+    "STYLE_CANNOT_CHANGE_LABEL_MEANING"
+  ],
+  "schema_version": "1.0.0"
+}

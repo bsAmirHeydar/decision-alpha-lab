@@ -1,0 +1,9 @@
+{
+  "claim_ceiling": "LCM_11B_REFERENCE_ONLY",
+  "phase_id": "LCM-11B",
+  "schema_version": "1.0.0",
+  "values": [
+    "REFERENCE_HARNESS_CUTOVER_ACTIVE",
+    "BLOCKED_EXPLICIT"
+  ]
+}

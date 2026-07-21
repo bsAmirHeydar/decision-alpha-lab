@@ -1,0 +1,10 @@
+{
+  "claim_ceiling": "LCM_11B_REFERENCE_ONLY",
+  "phase_id": "LCM-11B",
+  "schema_version": "1.0.0",
+  "values": [
+    "RESOLVED_BY_LCM11B_CANONICAL_VISUALIZER",
+    "CARRIED_BLOCKING",
+    "OPEN_BLOCKING"
+  ]
+}

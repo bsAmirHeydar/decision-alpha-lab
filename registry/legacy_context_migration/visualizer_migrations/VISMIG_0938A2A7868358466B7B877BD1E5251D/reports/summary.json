@@ -1,0 +1,40 @@
+{
+  "by_surface": {
+    "CHART_OBJECT": 84,
+    "INDICATOR_BUFFER": 36,
+    "REPORT_PROJECTION": 8
+  },
+  "claim_ceiling": "LCM_11B_REFERENCE_ONLY",
+  "counts": {
+    "adapter_count": 128,
+    "blocked_count": 74,
+    "golden_fixture_count": 128,
+    "isolation_scenario_count": 512,
+    "lifecycle_scenario_count": 768,
+    "open_blocker_count": 78,
+    "reference_cutover_count": 54,
+    "resolved_blocker_count": 0,
+    "semantic_parity_blocked_count": 74,
+    "semantic_parity_pass_count": 54,
+    "style_profile_count": 128,
+    "visual_object_count": 128,
+    "visualizer_count": 128
+  },
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-11",
+  "migration_id": "VISMIG_0938A2A7868358466B7B877BD1E5251D",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-11B",
+  "producer": "tools.strategy_factory.lcm.lcm_11b.service:LCM11BVisualizerService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:954eec9f1cfc7358a1fa28880132567d1a83f9c59abb1419a21e4ee853ffbcda",
+    "sha256:000aecdb0a35be57306b4508e7908d7b672c223076d1f69781ace809d5282e62",
+    "sha256:ec8e6ea71d372db524d5163a85cd63f5e7a762ad0fa5ca36760498ff02cf6e7c",
+    "sha256:f316d76a29dae64f90a204ccb05a3670056112dd16ca07cce0ba9c44897c3a37"
+  ],
+  "validation_status": "PASS"
+}

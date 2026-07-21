@@ -1,0 +1,11 @@
+{
+  "claim_ceiling": "LCM_11B_REFERENCE_ONLY",
+  "phase_id": "LCM-11B",
+  "policy_id": "LCM11B_VISUALIZER_PURITY",
+  "rules": [
+    "EVENT_RECORDS_ONLY",
+    "NO_DOMAIN_STATE_MUTATION",
+    "NO_EVENT_DISPATCH_FROM_RENDERER"
+  ],
+  "schema_version": "1.0.0"
+}

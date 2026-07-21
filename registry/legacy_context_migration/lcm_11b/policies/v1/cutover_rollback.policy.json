@@ -1,0 +1,12 @@
+{
+  "claim_ceiling": "LCM_11B_REFERENCE_ONLY",
+  "phase_id": "LCM-11B",
+  "policy_id": "LCM11B_CUTOVER_ROLLBACK",
+  "rules": [
+    "REFERENCE_HARNESS_ONLY",
+    "EXACT_PATH_LIST",
+    "LEGACY_SOURCE_RETAINED",
+    "REVERSIBLE"
+  ],
+  "schema_version": "1.0.0"
+}

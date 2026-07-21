@@ -1,0 +1,37 @@
+{
+  "anchor_contract_id": "VISANCH_65352E99DCC80F6288EAF2EA55A69D2C",
+  "blocker_ids": [
+    "BACKFILL_PARITY_UNKNOWN"
+  ],
+  "capital_authority": false,
+  "claim_ceiling": "LCM_11B_REFERENCE_ONLY",
+  "cleanup_prefix_template": "ALV1::M0001_RESEARCH_OWNER::M0001::{INSTANCE_ID}::{CHART_ID}::",
+  "deterministic_identity": true,
+  "domain_mutation_allowed": false,
+  "eligibility_status": "BLOCKED_EXPLICIT",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "lifecycle_contract_id": "VISLIFE_A9BDDB894F9AA61E0E3B76FF2220A0B7",
+  "master_phase": "LCM-11",
+  "namespace_template": "ALV1::M0001_RESEARCH_OWNER::M0001::{INSTANCE_ID}::{CHART_ID}::{SYMBOL}::{TIMEFRAME}::{EVENT_ID}::OBJ_ARROW::98113789E935",
+  "order_authority": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-11B",
+  "producer": "tools.strategy_factory.lcm.lcm_11b.service:LCM11BVisualizerService",
+  "projection_purity": "EVENT_TO_PROJECTION_PURE_FUNCTION",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "runtime_authority": false,
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:954eec9f1cfc7358a1fa28880132567d1a83f9c59abb1419a21e4ee853ffbcda",
+    "sha256:000aecdb0a35be57306b4508e7908d7b672c223076d1f69781ace809d5282e62",
+    "sha256:ec8e6ea71d372db524d5163a85cd63f5e7a762ad0fa5ca36760498ff02cf6e7c",
+    "sha256:f316d76a29dae64f90a204ccb05a3670056112dd16ca07cce0ba9c44897c3a37"
+  ],
+  "source_event_type": "RESEARCH_OBSERVATION_EVENT",
+  "style_profile_id": "VISSTYLE_BF11F92A7082229A344F461389BA32D7",
+  "validation_status": "PASS",
+  "visual_object_id": "VISOBJ_98113789E9351DE776A071AF9D3A3154",
+  "visualizer_id": "VISUALIZER_54590CD84989689469C5D5FEF5ECEE8C",
+  "visualizer_kind": "MQL5_CANONICAL_CHART_OBJECT_VISUALIZER"
+}

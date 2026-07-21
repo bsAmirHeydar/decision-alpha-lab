@@ -1,0 +1,27 @@
+{
+  "baseline_object_id": "ALV1::EXP0019_FAERIE_PROTOCOL_OWNE::EXP0019_FAERIE_PROTOCOL::INSTANCE_A::CHART_1001::EURUSD::M5::VISEVT_4A360AF4F67883562965D5DC99881A0B::TYPE::C6F871FAAB7B",
+  "claim_ceiling": "LCM_11B_REFERENCE_ONLY",
+  "collision": false,
+  "comparison_object_id": "ALV1::EXP0019_FAERIE_PROTOCOL_OWNE::EXP0019_FAERIE_PROTOCOL::INSTANCE_A::CHART_3003::XAUUSD::M5::VISEVT_4A360AF4F67883562965D5DC99881A0B::TYPE::C6F871FAAB7B",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-11",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-11B",
+  "producer": "tools.strategy_factory.lcm.lcm_11b.service:LCM11BVisualizerService",
+  "result": "BLOCKED",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "scenario": "DIFFERENT_SYMBOL_EXPLICIT_CHART",
+  "scenario_digest": "sha256:339658a94290acd4f0d7aa402dacfb7598eb3b7fd77c407ac76a94f4b24ed6db",
+  "scenario_id": "VISISO_7F268E58D0E45514A396F01B620E43C9",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:954eec9f1cfc7358a1fa28880132567d1a83f9c59abb1419a21e4ee853ffbcda",
+    "sha256:000aecdb0a35be57306b4508e7908d7b672c223076d1f69781ace809d5282e62",
+    "sha256:ec8e6ea71d372db524d5163a85cd63f5e7a762ad0fa5ca36760498ff02cf6e7c",
+    "sha256:f316d76a29dae64f90a204ccb05a3670056112dd16ca07cce0ba9c44897c3a37"
+  ],
+  "validation_status": "PASS",
+  "visual_object_id": "VISOBJ_C6F871FAAB7BFC543B97FE29F5C83437"
+}

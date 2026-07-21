@@ -1,0 +1,82 @@
+{
+  "blocking_reasons": [
+    "BACKFILL_PARITY_UNKNOWN"
+  ],
+  "claim_ceiling": "LCM_11B_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "event": {
+    "anchors": {
+      "anchor_kind": "TIME_PRICE",
+      "availability_time": 1700427988,
+      "price_1": 1.7688,
+      "price_2": 1.9669,
+      "time_1": 1700427688,
+      "time_2": 1700427988
+    },
+    "availability_time": 1700427988,
+    "chart_id": "CHART_1001",
+    "event_id": "VISEVT_AE841E28F559514BD6D1335E59EF93F8",
+    "event_type": "RESEARCH_OBSERVATION_EVENT",
+    "instance_id": "INSTANCE_A",
+    "lifecycle_action": "ENSURE",
+    "payload": {
+      "function_name": "DrawNode",
+      "label": "LCM11B_GOLDEN",
+      "source_path": "mql5/Experts/M0001_LiveVisualLab.mq5",
+      "value": 688
+    },
+    "source_digest": "sha256:9c3493de3f196a83fcdffcc257620939aa86028d52fd88f02433536e6a2ac247",
+    "symbol": "EURUSD",
+    "timeframe": "M5",
+    "visual_object_id": "VISOBJ_2B98B368EECC1A3C4932C116B136F504"
+  },
+  "expected_projection": {
+    "anchors": {
+      "anchor_kind": "TIME_PRICE",
+      "availability_time": 1700427988,
+      "price_1": 1.7688,
+      "price_2": 1.9669,
+      "time_1": 1700427688,
+      "time_2": 1700427988
+    },
+    "canonical_object_id": "ALV1::M0001_RESEARCH_OWNER::M0001::INSTANCE_A::CHART_1001::EURUSD::M5::VISEVT_AE841E28F559514BD6D1335E59EF93F8::OBJ_ARROW::2B98B368EECC",
+    "chart_id": "CHART_1001",
+    "event_id": "VISEVT_AE841E28F559514BD6D1335E59EF93F8",
+    "lifecycle_action": "ENSURE",
+    "object_type": "OBJ_ARROW",
+    "projection_id": "VISPROJ_F6772C88F7F060CF81FE780C6616880F",
+    "semantic_payload": {
+      "function_name": "DrawNode",
+      "label": "LCM11B_GOLDEN",
+      "source_path": "mql5/Experts/M0001_LiveVisualLab.mq5",
+      "value": 688
+    },
+    "style_profile_id": "VISSTYLE_A5C1E1BA09428A6199C8DE1B6348E483",
+    "surface_kind": "CHART_OBJECT",
+    "symbol": "EURUSD",
+    "timeframe": "M5",
+    "visualizer_id": "VISUALIZER_A473E81F225B97789337C760973C8E3A"
+  },
+  "fixture_digest": "sha256:c22e5449357fdb4398e2f17c23306f232cc7ccefd6c39c070cfd35a2b44d54ae",
+  "fixture_id": "VISFIX_BA8B349E5A1C3BFE69654123B2167118",
+  "fixture_kind": "CONTRACT_GOLDEN_VISUAL_FIXTURE",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_comparison_status": "BLOCKED",
+  "master_phase": "LCM-11",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-11B",
+  "producer": "tools.strategy_factory.lcm.lcm_11b.service:LCM11BVisualizerService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "screenshot_claimed": false,
+  "semantic_fixture": true,
+  "source_digests": [
+    "sha256:954eec9f1cfc7358a1fa28880132567d1a83f9c59abb1419a21e4ee853ffbcda",
+    "sha256:000aecdb0a35be57306b4508e7908d7b672c223076d1f69781ace809d5282e62",
+    "sha256:ec8e6ea71d372db524d5163a85cd63f5e7a762ad0fa5ca36760498ff02cf6e7c",
+    "sha256:f316d76a29dae64f90a204ccb05a3670056112dd16ca07cce0ba9c44897c3a37"
+  ],
+  "validation_status": "PASS",
+  "visual_object_id": "VISOBJ_2B98B368EECC1A3C4932C116B136F504"
+}

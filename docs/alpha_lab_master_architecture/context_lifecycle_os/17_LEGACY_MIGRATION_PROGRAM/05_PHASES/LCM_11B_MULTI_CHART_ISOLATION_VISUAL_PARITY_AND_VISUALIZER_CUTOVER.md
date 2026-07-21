@@ -1,8 +1,8 @@
 ---
 title: "LCM-11B — Multi-Chart Isolation, Visual Parity and Visualizer Cutover"
-status: proposed-reference
-version: 1.0.0
-updated: 2026-07-19
+status: implemented-reference
+version: 1.1.0
+updated: 2026-07-21
 tags: [acl-os, lcm, legacy-migration, refined-roadmap]
 phase_id: LCM-11B
 master_phase: LCM-11
@@ -128,3 +128,10 @@ The hostile review must attempt to disprove readiness. Aggregate success cannot 
 - Documentation receives canonical visual references.
 
 The handoff must include source digest, output digest, completed gates, failed/blocked/unknown dimensions, owner approvals, residual risks, allowed next actions and forbidden actions.
+
+
+## Implementation receipt — 2026-07-21
+
+LCM-11B is implemented under `VISMIG_0938A2A7868358466B7B877BD1E5251D`. The phase creates 128 canonical visualizer contracts, 128 style profiles, 128 contract-golden fixtures, 128 compatibility adapter records, 512 multi-chart isolation scenarios and 768 lifecycle/restart scenarios. Fifty-four surfaces are eligible for reference-harness cutover and seventy-four remain explicitly blocked because legacy backfill or source-event semantics are not evidenced. Canonical isolation reports zero collisions and semantic parity reports zero mismatches for the eligible set.
+
+The cutover is deliberately reference-harness-only. No production visual source is modified or deleted, no domain state may be mutated by a renderer, and no runtime, order or capital authority is created. Residual MetaEditor, live-chart restart and screenshot evidence remains UNKNOWN and is handed forward without waiver.

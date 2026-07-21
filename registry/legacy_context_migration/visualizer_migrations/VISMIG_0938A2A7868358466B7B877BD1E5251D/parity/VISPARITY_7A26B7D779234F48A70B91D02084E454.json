@@ -1,0 +1,41 @@
+{
+  "blocking_reasons": [],
+  "claim_ceiling": "LCM_11B_REFERENCE_ONLY",
+  "contract_parity_claimed": true,
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-11",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "parity_digest": "sha256:f8a1e3936b8464f2331478af951411003e29c585c0310e572abf3c7c16f101ae",
+  "parity_result_id": "VISPARITY_7A26B7D779234F48A70B91D02084E454",
+  "phase_id": "LCM-11B",
+  "producer": "tools.strategy_factory.lcm.lcm_11b.service:LCM11BVisualizerService",
+  "projection_digest": "sha256:bbba5ec1df9b4a16cbe2f6c5dc1f55c51271830426583de96abab86a6ec6ea27",
+  "result": "PASS",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "screenshot_parity_claimed": false,
+  "semantic_dimensions": {
+    "anchor_price": "PASS",
+    "anchor_time": "PASS",
+    "label_meaning": "PASS",
+    "line_end_or_region_extent": "PASS",
+    "object_existence": "PASS",
+    "object_type": "PASS",
+    "owned_deletion": "PASS",
+    "source_event_binding": "PASS",
+    "style_separation": "PASS",
+    "update_semantics": "PASS"
+  },
+  "semantic_mismatch_count": 0,
+  "source_digests": [
+    "sha256:954eec9f1cfc7358a1fa28880132567d1a83f9c59abb1419a21e4ee853ffbcda",
+    "sha256:000aecdb0a35be57306b4508e7908d7b672c223076d1f69781ace809d5282e62",
+    "sha256:ec8e6ea71d372db524d5163a85cd63f5e7a762ad0fa5ca36760498ff02cf6e7c",
+    "sha256:f316d76a29dae64f90a204ccb05a3670056112dd16ca07cce0ba9c44897c3a37"
+  ],
+  "style_only_difference_state": "RUNTIME_SCREENSHOT_UNKNOWN_NON_BLOCKING",
+  "validation_status": "PASS",
+  "visual_object_id": "VISOBJ_FAA178B3AE4585BEC71ED32DA7E6F858"
+}

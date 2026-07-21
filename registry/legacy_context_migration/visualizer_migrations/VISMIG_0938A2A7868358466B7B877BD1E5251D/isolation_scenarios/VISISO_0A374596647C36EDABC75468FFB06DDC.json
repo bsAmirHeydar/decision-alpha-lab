@@ -1,0 +1,27 @@
+{
+  "baseline_object_id": "ALV1::GARTAL_NEWS_OWNER::GARTAL_NEWS::INSTANCE_A::CHART_1001::EURUSD::M5::VISEVT_20BC9673BA47BA4E84159AEF17CAB90C::OBJ_TEXT::0F0C596B2371",
+  "claim_ceiling": "LCM_11B_REFERENCE_ONLY",
+  "collision": false,
+  "comparison_object_id": "ALV1::GARTAL_NEWS_OWNER::GARTAL_NEWS::INSTANCE_A::CHART_2002::EURUSD::M5::VISEVT_20BC9673BA47BA4E84159AEF17CAB90C::OBJ_TEXT::0F0C596B2371",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-11",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-11B",
+  "producer": "tools.strategy_factory.lcm.lcm_11b.service:LCM11BVisualizerService",
+  "result": "BLOCKED",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "scenario": "DIFFERENT_CHART_SAME_INSTANCE",
+  "scenario_digest": "sha256:ba534315d5214f856c30e0ef01155261b257cd4820da9b9dc913abacc3ff40d8",
+  "scenario_id": "VISISO_0A374596647C36EDABC75468FFB06DDC",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:954eec9f1cfc7358a1fa28880132567d1a83f9c59abb1419a21e4ee853ffbcda",
+    "sha256:000aecdb0a35be57306b4508e7908d7b672c223076d1f69781ace809d5282e62",
+    "sha256:ec8e6ea71d372db524d5163a85cd63f5e7a762ad0fa5ca36760498ff02cf6e7c",
+    "sha256:f316d76a29dae64f90a204ccb05a3670056112dd16ca07cce0ba9c44897c3a37"
+  ],
+  "validation_status": "PASS",
+  "visual_object_id": "VISOBJ_0F0C596B23716D6D0070DED5B4BD2C2C"
+}

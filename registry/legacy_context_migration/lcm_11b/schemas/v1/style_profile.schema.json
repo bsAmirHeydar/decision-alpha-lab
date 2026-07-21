@@ -1,0 +1,44 @@
+{
+  "$id": "https://alpha-lab.local/lcm11b/style_profile.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "style_affects_semantics": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "style_profile_id": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "visual_object_id": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "style_profile_id",
+    "visual_object_id",
+    "style_affects_semantics"
+  ],
+  "title": "style_profile.schema.json",
+  "type": "object"
+}

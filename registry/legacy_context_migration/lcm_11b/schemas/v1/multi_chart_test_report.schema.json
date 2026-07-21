@@ -1,0 +1,55 @@
+{
+  "$id": "https://alpha-lab.local/lcm11b/multi_chart_test_report.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "canonical_collision_count": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "migration_id": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "report_digest": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "scenario_count": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "migration_id",
+    "scenario_count",
+    "canonical_collision_count",
+    "report_digest"
+  ],
+  "title": "multi_chart_test_report.schema.json",
+  "type": "object"
+}

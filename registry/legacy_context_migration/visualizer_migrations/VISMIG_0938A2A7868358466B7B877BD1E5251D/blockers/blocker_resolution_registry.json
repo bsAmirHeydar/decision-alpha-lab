@@ -1,0 +1,570 @@
+{
+  "claim_ceiling": "LCM_11B_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-11",
+  "migration_id": "VISMIG_0938A2A7868358466B7B877BD1E5251D",
+  "open": [
+    {
+      "blocker_id": "VIS11BBLOCK_08DE53E03CBF78AAFDB72206CF900180",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_191D094E6D763DA62CAD4053B8457F06"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_0AC6F28D72C069E6C7587527C2D19B5F",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_245C79DEA1803552239C04860D7369FA"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_0C34331E80FDC6AACAB1184D288A4DCE",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_6DAE9C8553F33E2E389622E85D97994F"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_17DBF91CBAA1C105FAA87BE00CB44B81",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_2E0B2B07B1937363754E39019B0E355A"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_18319ED1A788932C91C82C1B3262E5EC",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_F2081B64B41D7379856C375D1B9D345E"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_1AEAC9D31AD32730109FCA384ABA23D1",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_7164136F3BD65FEFA52CEFF2253A8D91"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_1F339B435B450EA07BA11F526AFE72B4",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_65346D4C554939B99AD9639939364C8A"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_222D06D1C34BB82C9FB47A119ABCF8A2",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_A0DF350FAA35CC7F2F38BCF762F0A55B"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_23DE9A02635AF3CEBF5D902985207D14",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_CC2BB5F60E0F925D21EFC12BE586EAC1"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_244EF289753E2F2674E7F3B96E7DF6D3",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_9EBD57E01615699AE58EE40234E64D89"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_259C606F96F03C8995D0B3EDF0410D10",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_DAC0B7AAAC8C1DF6E58F79191ECCF82A"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_264F1AC322154E5CBF77726E214D0711",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_BB3C66D082894A939B427A978B3578D4"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_2785062B2FC8989823A66AC65EA84DA9",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_1902E75FD913BBA783980920705E1CDF"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_279128F26DE64E7A1F107CDD8666D4D4",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_DFE8E981E04B0F2FB0DEE1C2FE36585F"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_283D9C88E7851A59576D58C5BD9C3FDC",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_6E5643D93BC76B884A9CD0C23D712B39"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_2D7B36D5F1D5D4AABAA7F69ACEB0DE59",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_D19910CFC75104BEF26B32688425E92B"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_3453896B709FFD97E3B1B933CA0F01A5",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_F50D5A5EE2C266D561505AC4B765FFC5"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_39928F66187DAB37E8D2D170FE2F2E6D",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_C6667FB25C93C68822F02EC53ED9BF93"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_3B6062E39F5ECCDC3E1F83CBF048B77D",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_03A3FD8B6FAE73E34A3CA7AC88F15FDC"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_3C23600E71C8DBDA7BEAD9752EA31FA5",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_637D5BD8CD2F2CF6A49ABB157B2899D6"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_3FAFAF8E74AD37A63D6038952E98B121",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_3E81407FB0848100CBA79E824EC5DD75"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_490BB83928F80E43450ED7AC5229BE8F",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_F3A8DE0D8EB0ADC14496426BC98725A5"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_529499A18B695F9746B43232D3F30026",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_C6F871FAAB7BFC543B97FE29F5C83437"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_531E5BF487D742BF7E80ED47920BB8E5",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_883606F21F31674A9F7D70303BB2F91F"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_587B6C495ACD17A7574B4C06BC86BC85",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_0CDB9B931B43A09266304C750810BA3F"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_5B37FA5CAC585E11C3EAE5D99BF2C8D6",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_784585D1C59527A0E6992C119C29076A"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_5C94B8E19CFBA88A46EE914606CE1E8F",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_01C0BA7B46E03571508B422283EA4EE7"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_5DED44BEF25A331B476FC335D9A5C9CC",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_885FB5F8C50B518D15443B4A3685BC72"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_6608965FC91E56C6CB32252D0E648CE8",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_E66EF5986D913F09E21EFE189A061024"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_68637B18149163A63D54A6B8B906B160",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_1438542E76B0C9D152198BDD251C0130"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_6C708BC1833C366EE02FEAD7439977B1",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_F61C8C06B63B2F024B580E415ACD96C7"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_6E0B0B56EA9F4B912EB1A6CCD19B5403",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_14C53B55C875A0753AD961ADECB136E4"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_72D5205BB5E530596BA75CFEED7F0808",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_BC78E7B7052A7CD7CB174AFDB09047D6"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_77DF1BAC55E1CADD41817B7BFAC0485B",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_0BB843D1EEC809411C4B8FA0BAFBDF38"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_781F6937B9F95D62E3FAF236ED139BF0",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_90C062E8C5CBD98060FEAF9138299C2E"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_79F859DD566AA4002ED697FE711580D0",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_1ABDE24CB2D9201B60E87C0BFAD60DAC"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_7AED3CC093C068EB61AEFE4E37A47BF4",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_C977DC374622A940147376F37BBC2A47"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_7D0B20F22F929AFBAFDEE3EC707753A1",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_0CDBD7E2A68E70B50D6FDEBE67E0F463"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_7E1965A06835F5CAF9BFEF0C59ACC991",
+      "original_dimension": "SOURCE_EVENT_BINDING_BLOCKED",
+      "reason": "SOURCE_EVENT_BINDING_BLOCKED",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_9D4F83328F98489D3618C7BEFF3DC535"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_7E8EEF4F41D335F77E4EC9B1BC6F2A16",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_9EEED44B689462B066E4F52991C9BDAD"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_7EF9557939B7B8EDBA5A69CF4AEB8204",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_AC6DF4C3C6DF97681A882D6D47A3E018"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_7FE9AD6623AA91D4C8E7C21C88E33B41",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_213A3FE1E56B46E2BC1D67AB1770D6CA"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_8252AE6592F819008BC31765C5102CF0",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_D0AF8076D595BB4E524F4C6C51060092"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_865E0D3B71439F70CF7E06C8DDB8092F",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_CC8A59D8A054C536651E307F9AC471DD"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_87E8D9585891A6E8B841D088FD5DB9E5",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_F96BB552146C522D0EA101E15E3A1AB3"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_8BE2EAD1EAB45FB8FF8AC522400385C4",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_448EC7D239BE5AD53F8898AD42B9D44E"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_8E60569A0C7209AEF14D9D991059BEAB",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_0F0C596B23716D6D0070DED5B4BD2C2C"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_99A390C01122B1FFCB58AAED59111555",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_984A06BDFEEF13EF31E1EF05807890FE"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_9BD2A6E9AE723296D156FC4269650E85",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_E827103A70572BCBF28B2B618AD5D035"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_9CC8E8B962047E605FC4B32D11B379B4",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_BC1012A1EC721718D54C8D35804295D2"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_B4F759EBE2EC624CA4F2D17036DDC3A0",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_98113789E9351DE776A071AF9D3A3154"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_B7F36549E603983B8D102EB3BFF36750",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_6BB66335E13F550EBE71EE2EEB59C6F1"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_B9D61580A0781FD4BCCB9338E18150E6",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_B01DC7A84091B7FA3998BEE01D5C61D4"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_BABE77D34ADE8E2FD9B852F1201BE766",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_168DD7B26E9887BE9E76F5274A9ACC9D"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_BC4DBD3D30D33B91C83A4B4B9DF3EE84",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_2742EA31BBC464608FF0BEACF990628A"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_BE3B32206E72775ED2E34AA5C1AADF45",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_9D4F83328F98489D3618C7BEFF3DC535"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_BE808EDD0620E9A5EA6F1DF4313949D9",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_A1D7A1F928C1499E583542F9436D981A"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_C45592392A05803E552664EA327F5790",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_7D91E6D06396791F2B69E5AAF673DE2D"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_C81C378F5ABCF107A2E7A7C75989943C",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_D9F6A037E824674AE64BF914AB2E4E68"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_CA413B69D9F70089A72F757734256AA3",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_D95D4D691B9EB387970579B30A3ED95C"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_CAD8C90C5BDA6133D6BC00163B66EBC1",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_EDD5FC3D563F07797D70AE9D9F8B83DC"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_CEE6CEC33B5404295FC95CB46E121802",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_C4B6598FE8373F601A493F2A7AA9EA7F"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_D260A518D8654791634BB785E4B65F63",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_91B12A8B6648DC22B2E15A61D0652E31"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_D2E42F9F36416BA30AF232F6959E0F19",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_4CCF38831B72810E03DAB7435B09CD70"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_DBC173D64E33DBFB645841F5A0A590B1",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_2B98B368EECC1A3C4932C116B136F504"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_DD2AF6D67EA233F29D1A2489963CC068",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_30608DF6911A64D2674B29A260180A7C"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_E6109C4151618B2E1DCA7FF042018A53",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_3CA6D4F162089A02DCB05A684984C769"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_ED316503E6DCF87163C226B206B0DD70",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_5C1AF4C90532B44F9103C3CFD0B5C1B9"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_EE1233E60C80803A308956F2F15AA2FE",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_77EAFA53F00D36A597C28D596CE8ED3F"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_EEB360A81C7289628A8E72D42F95C1D6",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_7142030C1E7F598028EA5AEFE02C950C"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_F092960E19BAB4D2F4C06036719AD93C",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_0709999AB4D6E0F883EF7B130A941FB9"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_F386873CF1091CD27925945BD0871825",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_9731AAA9585F4A4BE1688E5977406F65"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_F62B97215B8C1B267D2788743434560F",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_D886BD9FD47746584D2026F30EBD710C"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_F65739AC067116E8F0FD8DE583C9ACC3",
+      "original_dimension": "SOURCE_EVENT_BINDING_BLOCKED",
+      "reason": "SOURCE_EVENT_BINDING_BLOCKED",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_9731AAA9585F4A4BE1688E5977406F65"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_F7AE4360A1B6B0278BC5948A8F7CF268",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_DAC2E3B08F7C50D4ABD34C71F3E773EE"
+    },
+    {
+      "blocker_id": "VIS11BBLOCK_FBF7767440E045C199CA15D6273A946F",
+      "original_dimension": "BACKFILL_PARITY_UNKNOWN",
+      "reason": "BACKFILL_PARITY_UNKNOWN",
+      "state": "OPEN_BLOCKING",
+      "visual_object_id": "VISOBJ_0B7F2CF33A09C61F331CEAD06932A691"
+    },
+    {
+      "blocker_id": "VISBLOCK_0AA32544513B420F1A4FC6FE0C0CDB2A",
+      "original_dimension": "SOURCE_EVENT_BINDING",
+      "reason": "No deterministic source-event mapping rule matched the source path.",
+      "state": "CARRIED_BLOCKING",
+      "visual_object_id": "VISOBJ_9731AAA9585F4A4BE1688E5977406F65"
+    },
+    {
+      "blocker_id": "VISBLOCK_9DFB4A46D0549936DA6F3584635CF98E",
+      "original_dimension": "SOURCE_EVENT_BINDING",
+      "reason": "No deterministic source-event mapping rule matched the source path.",
+      "state": "CARRIED_BLOCKING",
+      "visual_object_id": "VISOBJ_9D4F83328F98489D3618C7BEFF3DC535"
+    }
+  ],
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-11B",
+  "producer": "tools.strategy_factory.lcm.lcm_11b.service:LCM11BVisualizerService",
+  "registry_digest": "sha256:86f880a54922db6cdebe0a8ba9b7e0265ee4845ef32e81ccca168b82ce455533",
+  "resolved": [],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:954eec9f1cfc7358a1fa28880132567d1a83f9c59abb1419a21e4ee853ffbcda",
+    "sha256:000aecdb0a35be57306b4508e7908d7b672c223076d1f69781ace809d5282e62",
+    "sha256:ec8e6ea71d372db524d5163a85cd63f5e7a762ad0fa5ca36760498ff02cf6e7c",
+    "sha256:f316d76a29dae64f90a204ccb05a3670056112dd16ca07cce0ba9c44897c3a37"
+  ],
+  "validation_status": "PASS"
+}

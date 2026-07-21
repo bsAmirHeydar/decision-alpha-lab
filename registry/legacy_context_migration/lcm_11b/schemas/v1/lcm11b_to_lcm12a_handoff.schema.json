@@ -1,0 +1,77 @@
+{
+  "$id": "https://alpha-lab.local/lcm11b/lcm11b_to_lcm12a_handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "allowed_next_actions": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "forbidden_actions": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "handoff_digest": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "handoff_id": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "handoff_type": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "output_manifest_digest": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "handoff_id",
+    "handoff_type",
+    "output_manifest_digest",
+    "allowed_next_actions",
+    "forbidden_actions",
+    "handoff_digest"
+  ],
+  "title": "lcm11b_to_lcm12a_handoff.schema.json",
+  "type": "object"
+}

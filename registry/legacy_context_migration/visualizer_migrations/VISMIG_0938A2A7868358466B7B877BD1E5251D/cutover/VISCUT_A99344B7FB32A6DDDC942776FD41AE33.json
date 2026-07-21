@@ -1,0 +1,37 @@
+{
+  "blocking_reasons": [
+    "BACKFILL_PARITY_UNKNOWN"
+  ],
+  "capital_authority": false,
+  "claim_ceiling": "LCM_11B_REFERENCE_ONLY",
+  "consumer_adapter_state": "DISABLED_BLOCKED",
+  "cutover_digest": "sha256:fa186df6b83af5eee6592e4d8b8c12dad7cdc4d370c3c3a4f6045e27bde0500e",
+  "cutover_record_id": "VISCUT_A99344B7FB32A6DDDC942776FD41AE33",
+  "cutover_state": "BLOCKED_EXPLICIT",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_function_name": "FP_HookP01DrawOneNode",
+  "legacy_source_deleted": false,
+  "legacy_source_path": "mql5/Include/FlagCountingPhoenix/FP_HookPhase01Visual.mqh",
+  "master_phase": "LCM-11",
+  "order_authority": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-11B",
+  "producer": "tools.strategy_factory.lcm.lcm_11b.service:LCM11BVisualizerService",
+  "production_source_mutation_performed": false,
+  "reversible": true,
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "rollback_path": "DISABLE_LCM11B_REFERENCE_ADAPTER_AND_RETAIN_LEGACY_SOURCE",
+  "runtime_authority": false,
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:954eec9f1cfc7358a1fa28880132567d1a83f9c59abb1419a21e4ee853ffbcda",
+    "sha256:000aecdb0a35be57306b4508e7908d7b672c223076d1f69781ace809d5282e62",
+    "sha256:ec8e6ea71d372db524d5163a85cd63f5e7a762ad0fa5ca36760498ff02cf6e7c",
+    "sha256:f316d76a29dae64f90a204ccb05a3670056112dd16ca07cce0ba9c44897c3a37"
+  ],
+  "validation_status": "PASS",
+  "visual_object_id": "VISOBJ_637D5BD8CD2F2CF6A49ABB157B2899D6",
+  "visualizer_id": "VISUALIZER_C5BCF0FFFC96F3B375C3B5E352951988"
+}

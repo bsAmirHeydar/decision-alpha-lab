@@ -1,0 +1,38 @@
+{
+  "blocking_reasons": [
+    "SOURCE_EVENT_BINDING_BLOCKED",
+    "BACKFILL_PARITY_UNKNOWN"
+  ],
+  "capital_authority": false,
+  "claim_ceiling": "LCM_11B_REFERENCE_ONLY",
+  "consumer_adapter_state": "DISABLED_BLOCKED",
+  "cutover_digest": "sha256:b7429984ef36db43cdd68d644b0cf2c553a8cd09922fb8054f4c8a5e5c59db2f",
+  "cutover_record_id": "VISCUT_8033ED1C8A8AB212A6B6E1E6438EFC45",
+  "cutover_state": "BLOCKED_EXPLICIT",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "legacy_function_name": "OnTick",
+  "legacy_source_deleted": false,
+  "legacy_source_path": "lab/11_strategy_factory/migration/fixtures/lcm_01/dangerous_patterns.mq5",
+  "master_phase": "LCM-11",
+  "order_authority": false,
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-11B",
+  "producer": "tools.strategy_factory.lcm.lcm_11b.service:LCM11BVisualizerService",
+  "production_source_mutation_performed": false,
+  "reversible": true,
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "rollback_path": "DISABLE_LCM11B_REFERENCE_ADAPTER_AND_RETAIN_LEGACY_SOURCE",
+  "runtime_authority": false,
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:954eec9f1cfc7358a1fa28880132567d1a83f9c59abb1419a21e4ee853ffbcda",
+    "sha256:000aecdb0a35be57306b4508e7908d7b672c223076d1f69781ace809d5282e62",
+    "sha256:ec8e6ea71d372db524d5163a85cd63f5e7a762ad0fa5ca36760498ff02cf6e7c",
+    "sha256:f316d76a29dae64f90a204ccb05a3670056112dd16ca07cce0ba9c44897c3a37"
+  ],
+  "validation_status": "PASS",
+  "visual_object_id": "VISOBJ_9D4F83328F98489D3618C7BEFF3DC535",
+  "visualizer_id": "VISUALIZER_6A7F18DAC56A3CA7638235D7A5A60B2A"
+}

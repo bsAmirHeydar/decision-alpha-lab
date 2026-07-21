@@ -1,0 +1,10 @@
+{
+  "claim_ceiling": "LCM_11B_REFERENCE_ONLY",
+  "phase_id": "LCM-11B",
+  "schema_version": "1.0.0",
+  "values": [
+    "MQL5_CANONICAL_CHART_OBJECT_VISUALIZER",
+    "MQL5_CANONICAL_BUFFER_PROJECTION",
+    "PYTHON_CANONICAL_REPORT_PROJECTION"
+  ]
+}

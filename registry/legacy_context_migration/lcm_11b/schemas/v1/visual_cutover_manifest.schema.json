@@ -1,0 +1,55 @@
+{
+  "$id": "https://alpha-lab.local/lcm11b/visual_cutover_manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "cutover_mode": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "manifest_digest": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "migration_id": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "records": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "array",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "migration_id",
+    "cutover_mode",
+    "records",
+    "manifest_digest"
+  ],
+  "title": "visual_cutover_manifest.schema.json",
+  "type": "object"
+}

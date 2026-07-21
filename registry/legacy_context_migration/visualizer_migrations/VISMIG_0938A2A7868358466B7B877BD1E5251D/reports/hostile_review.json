@@ -1,0 +1,49 @@
+{
+  "aggregate_success_cannot_override_blocker": true,
+  "claim_ceiling": "LCM_11B_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-11",
+  "migration_id": "VISMIG_0938A2A7868358466B7B877BD1E5251D",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-11B",
+  "producer": "tools.strategy_factory.lcm.lcm_11b.service:LCM11BVisualizerService",
+  "report_digest": "sha256:d21b322589d3fb086a3aa9c3f980f21a7e300bd37a9b99f30c73b64376074bc2",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:954eec9f1cfc7358a1fa28880132567d1a83f9c59abb1419a21e4ee853ffbcda",
+    "sha256:000aecdb0a35be57306b4508e7908d7b672c223076d1f69781ace809d5282e62",
+    "sha256:ec8e6ea71d372db524d5163a85cd63f5e7a762ad0fa5ca36760498ff02cf6e7c",
+    "sha256:f316d76a29dae64f90a204ccb05a3670056112dd16ca07cce0ba9c44897c3a37"
+  ],
+  "tests": [
+    {
+      "evidence": "CONTRACT_DIMENSION_PARITY_USED",
+      "name": "SCREENSHOT_ONLY_PARITY",
+      "result": "PASS"
+    },
+    {
+      "evidence": "STATIC_PURITY_AND_EVENT_ONLY_INPUT",
+      "name": "HIDDEN_DOMAIN_CALCULATION_IN_RENDERER",
+      "result": "PASS"
+    },
+    {
+      "evidence": "REFERENCE_RENDERERS_HAVE_NO_EVENT_DISPATCH",
+      "name": "CHART_EVENT_RECURSION",
+      "result": "PASS"
+    },
+    {
+      "evidence": "INSTANCE_PREFIX_ONLY",
+      "name": "CROSS_INSTANCE_CLEANUP",
+      "result": "PASS"
+    },
+    {
+      "evidence": "BLOCKED_OBJECTS_REMAIN_BLOCKED",
+      "name": "UNKNOWN_BACKFILL_WAIVER",
+      "result": "PASS"
+    }
+  ],
+  "validation_status": "PASS"
+}

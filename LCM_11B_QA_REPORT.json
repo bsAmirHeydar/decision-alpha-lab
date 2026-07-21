@@ -1,0 +1,33 @@
+{
+  "blocked_count": 74,
+  "canonical_collision_count": 0,
+  "capital_authority_count": 0,
+  "clean_overlay_required": true,
+  "direct_test_count": 24,
+  "golden_fixture_count": 128,
+  "isolation_scenario_count": 512,
+  "legacy_source_delete_count": 0,
+  "lifecycle_scenario_count": 768,
+  "migration_id": "VISMIG_0938A2A7868358466B7B877BD1E5251D",
+  "order_authority_count": 0,
+  "phase_id": "LCM-11B",
+  "production_source_mutation_count": 0,
+  "python_module_count": 24,
+  "qa_report_digest": "sha256:77c49c0d86598f1a3e6acdcf247dbe032aea26050257721025ab51bc12c7612f",
+  "reference_cutover_count": 54,
+  "regression_suites": {
+    "LCM-09B": 34,
+    "LCM-10A": 23,
+    "LCM-10B": 35,
+    "LCM-10C": 15,
+    "LCM-11A": 16,
+    "LCM-ROADMAP": 5
+  },
+  "result": "PASS",
+  "runtime_authority_count": 0,
+  "schema_count": 10,
+  "schema_version": "1.0.0",
+  "semantic_mismatch_count": 0,
+  "validation_status": "PASS",
+  "visualizer_count": 128
+}
