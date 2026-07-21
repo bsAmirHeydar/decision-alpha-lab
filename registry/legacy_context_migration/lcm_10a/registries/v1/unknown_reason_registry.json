@@ -1,0 +1,34 @@
+{
+  "phase_id": "LCM-10A",
+  "schema_version": "1.0.0",
+  "values": [
+    {
+      "blocking": true,
+      "code": "SOURCE_PARSE_FAILURE"
+    },
+    {
+      "blocking": true,
+      "code": "BROKER_REACHABILITY_NOT_PROVEN"
+    },
+    {
+      "blocking": true,
+      "code": "HUMAN_AUTHORITY_OWNER_NOT_APPROVED"
+    },
+    {
+      "blocking": true,
+      "code": "WRAPPER_HIDES_ORDER_CAPABILITY"
+    },
+    {
+      "blocking": true,
+      "code": "MODE_SWITCH_NOT_EXPLICIT"
+    },
+    {
+      "blocking": "ORDER_OR_NETWORK_ONLY",
+      "code": "LCM01_CAPABILITY_SURFACE_NOT_DEEP_MATCHED"
+    },
+    {
+      "blocking": true,
+      "code": "SETUP_TREATMENT_EVIDENCE_NOT_OBSERVED_ON_SOURCE"
+    }
+  ]
+}

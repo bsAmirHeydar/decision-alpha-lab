@@ -1,8 +1,8 @@
 ---
 title: "LCM-10A — Treatment and Execution Capability Inventory"
-status: proposed-reference
-version: 1.0.0
-updated: 2026-07-19
+status: accepted-reference
+version: 1.1.0
+updated: 2026-07-20
 tags: [acl-os, lcm, legacy-migration, refined-roadmap]
 phase_id: LCM-10A
 master_phase: LCM-10
@@ -129,3 +129,9 @@ The hostile review must attempt to disprove readiness. Aggregate success cannot 
 - Allowed next action: construct packages and disabled adapters only.
 
 The handoff must include source digest, output digest, completed gates, failed/blocked/unknown dimensions, owner approvals, residual risks, allowed next actions and forbidden actions.
+
+## Accepted implementation closure
+
+LCM-10A is accepted under `TREATINV_98D30D63F6B6CA7BEA4ABAC517956B02`. The deterministic inventory freezes 7,382 code/config source files, identifies 1,109 Treatment atoms, 1,334 execution capabilities, 1,408 broker reachability observations, 1,190 authority boundaries, 488 risk assumptions, 818 security-restricted execution records and 4,302 preserved UNKNOWN records. All 60 LCM-09B Setup dependencies are accounted. No legacy source was moved, deleted, imported or semantically changed. No adapter was constructed or activated. Runtime, live-order and capital authority remain false.
+
+The bounded downstream handoff is `sha256:6f513e66cc269c963e7380429b82ea78e0fba7812a3ec50fde1070e3c9c5c14b`. It permits LCM-10B to extract Treatment packages and construct disabled, fail-closed execution adapters only. It forbids live submission, capital activation, broad consumer cutover, source move/delete and normalization of unresolved semantics.

@@ -1,0 +1,46 @@
+{
+  "artifacts": {
+    "LCM10A_TO_LCM10B_HANDOFF.json": {
+      "digest": "sha256:6f513e66cc269c963e7380429b82ea78e0fba7812a3ec50fde1070e3c9c5c14b",
+      "path": "LCM10A_TO_LCM10B_HANDOFF.json"
+    },
+    "authority_boundary_map.json": {
+      "digest": "sha256:cd5fd2d71cea3302af37195743b2e3660cc98b3deb0aef0598d963cad52cbfbf",
+      "path": "authority/authority_boundary_map.json"
+    },
+    "broker_api_reachability.json": {
+      "digest": "sha256:79bc316f8c07d94d4111d2dc88e92d3ddab0ff001d443219e4c79ef083bb86ba",
+      "path": "reachability/broker_api_reachability.json"
+    },
+    "execution_capability_registry.json": {
+      "digest": "sha256:fa04c3425826b8d66a650808a553189d7db06cc7f500b42793cd5137efb42232",
+      "path": "execution/execution_capability_registry.json"
+    },
+    "execution_unknown_queue.json": {
+      "digest": "sha256:1948298e03bc4614f530e5a2396c99dc3cd27cc5260aa6b2fca43c8105952010",
+      "path": "unknowns/execution_unknown_queue.json"
+    },
+    "risk_assumption_registry.json": {
+      "digest": "sha256:4fde157a07eeb588a00abf4129cd4711af17d451f0a8b66fb4078f11582c2ec3",
+      "path": "risk/risk_assumption_registry.json"
+    },
+    "treatment_atom_registry.json": {
+      "digest": "sha256:b95250a7a8ce14f15928bceeb3d8602f54cf76028be3c02301ff8307e5ec1d7e",
+      "path": "inventory/treatment_atom_registry.json"
+    }
+  },
+  "claim_ceiling": "LCM_10A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "inventory_id": "TREATINV_98D30D63F6B6CA7BEA4ABAC517956B02",
+  "locator_digest": "sha256:fd31b19d5301d0cc269496c3277f09e51ea99cd93c6dded0b407a1487e1a99bc",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "producer": "tools.strategy_factory.lcm.lcm_10a.service:LCM10ATreatmentExecutionInventoryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:d66cf6f0eb1ff332199d2a1a7d81aa8a8222d305a98aab1bdd82f798fa8a4541"
+  ],
+  "validation_status": "PASS"
+}

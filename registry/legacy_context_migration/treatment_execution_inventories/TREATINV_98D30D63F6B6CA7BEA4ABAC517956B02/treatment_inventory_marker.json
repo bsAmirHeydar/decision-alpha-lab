@@ -1,0 +1,34 @@
+{
+  "claim_ceiling": "LCM_10A_REFERENCE_ONLY",
+  "counts": {
+    "authority_boundary_count": 1190,
+    "blocking_unknown_count": 2829,
+    "boundary_violation_count": 1190,
+    "broker_reachability_record_count": 1408,
+    "execution_capability_count": 1334,
+    "extraction_item_count": 483,
+    "risk_assumption_count": 488,
+    "scanned_source_file_count": 7382,
+    "security_restricted_path_record_count": 818,
+    "setup_binding_count": 60,
+    "treatment_atom_count": 1109,
+    "unknown_count": 4302
+  },
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "inventory_id": "TREATINV_98D30D63F6B6CA7BEA4ABAC517956B02",
+  "marker_digest": "sha256:a6a0446f8ac66265452069eebe325f09c3a306db764e8068c312437c2c85b086",
+  "master_phase": "LCM-10",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "phase_id": "LCM-10A",
+  "producer": "tools.strategy_factory.lcm.lcm_10a.service:LCM10ATreatmentExecutionInventoryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_behavior_changed": false,
+  "source_digests": [
+    "sha256:d66cf6f0eb1ff332199d2a1a7d81aa8a8222d305a98aab1bdd82f798fa8a4541"
+  ],
+  "status": "ACCEPTED_REFERENCE",
+  "validation_status": "PASS"
+}

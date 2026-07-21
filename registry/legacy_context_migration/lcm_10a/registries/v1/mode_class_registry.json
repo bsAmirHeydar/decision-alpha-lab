@@ -1,0 +1,14 @@
+{
+  "phase_id": "LCM-10A",
+  "schema_version": "1.0.0",
+  "values": [
+    "TESTER",
+    "DRY_RUN",
+    "PAPER",
+    "SHADOW",
+    "LIVE",
+    "LIVE_CAPABLE_SURFACE",
+    "MODE_NOT_EXPLICIT",
+    "MODE_NOT_EVALUATED_NO_RELEVANT_TOKEN"
+  ]
+}

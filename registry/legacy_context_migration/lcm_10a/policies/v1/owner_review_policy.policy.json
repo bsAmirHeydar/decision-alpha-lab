@@ -1,0 +1,9 @@
+{
+  "authority_created": false,
+  "claim_ceiling": "LCM_10A_REFERENCE_ONLY",
+  "non_compensatory": true,
+  "phase_id": "LCM-10A",
+  "policy_id": "LCM10A_OWNER_REVIEW",
+  "schema_version": "1.0.0",
+  "statement": "Role inference is not human approval; order-capable surfaces require explicit domain and security review."
+}

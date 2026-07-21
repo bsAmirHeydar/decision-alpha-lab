@@ -89,3 +89,7 @@ LCM-09A freeze `SETUPFREEZE_8638449DF9A774634FE9B8F9E17EF891` accounts for all 6
 ## LCM-09B accepted reference checkpoint
 
 LCM-09B migration `SETUPMIGRATION_8F5CED333AA143A8F2A798BA01D550D9` materializes all 60 frozen identities as canonical fail-closed reference packages, registers all 60 through the read-only ACL-04 legacy reference port, records 60 blocked parity dispositions with zero hard mismatch waiver, and issues the bounded LCM-10A handoff `sha256:104e4567686811724302be71f49f08f382196bed235c1fd969ebec1e58cd67ac`.
+
+## LCM-10A accepted reference checkpoint
+
+LCM-10A inventory `TREATINV_98D30D63F6B6CA7BEA4ABAC517956B02` closes the baseline Treatment and execution capability accounting without changing source behavior. It issues the bounded LCM-10B handoff `sha256:6f513e66cc269c963e7380429b82ea78e0fba7812a3ec50fde1070e3c9c5c14b`. The next implementation unit is LCM-10B.

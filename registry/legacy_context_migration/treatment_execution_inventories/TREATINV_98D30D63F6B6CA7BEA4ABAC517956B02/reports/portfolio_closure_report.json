@@ -1,0 +1,36 @@
+{
+  "all_non_reachable_broker_hits_explicit_unknown": true,
+  "all_order_capable_hits_registered": true,
+  "all_scanned_sources_disposed": true,
+  "all_setup_dependencies_accounted": true,
+  "claim_ceiling": "LCM_10A_REFERENCE_ONLY",
+  "closure_status": "CLOSED_REFERENCE_INVENTORY",
+  "counts": {
+    "authority_boundary_count": 1190,
+    "blocking_unknown_count": 2829,
+    "boundary_violation_count": 1190,
+    "broker_reachability_record_count": 1408,
+    "execution_capability_count": 1334,
+    "extraction_item_count": 483,
+    "risk_assumption_count": 488,
+    "scanned_source_file_count": 7382,
+    "security_restricted_path_record_count": 818,
+    "setup_binding_count": 60,
+    "treatment_atom_count": 1109,
+    "unknown_count": 4302
+  },
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "inventory_id": "TREATINV_98D30D63F6B6CA7BEA4ABAC517956B02",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "producer": "tools.strategy_factory.lcm.lcm_10a.service:LCM10ATreatmentExecutionInventoryService",
+  "report_digest": "sha256:692dad84e59a7ff86c7178f4c120ab0dabf1a6ba50ccfb1a6cbea558ac842057",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_behavior_changed": false,
+  "source_digests": [
+    "sha256:d66cf6f0eb1ff332199d2a1a7d81aa8a8222d305a98aab1bdd82f798fa8a4541"
+  ],
+  "validation_status": "PASS"
+}

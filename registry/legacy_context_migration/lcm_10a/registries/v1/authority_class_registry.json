@@ -1,0 +1,71 @@
+{
+  "phase_id": "LCM-10A",
+  "schema_version": "1.0.0",
+  "values": [
+    {
+      "code": "CANCEL_ORDER",
+      "inventory_authority": false,
+      "requires_lcm10b_boundary": true
+    },
+    {
+      "code": "CLOSE_POSITION",
+      "inventory_authority": false,
+      "requires_lcm10b_boundary": true
+    },
+    {
+      "code": "CREATE_REQUEST_INTENT",
+      "inventory_authority": false,
+      "requires_lcm10b_boundary": true
+    },
+    {
+      "code": "MODIFY_ORDER",
+      "inventory_authority": false,
+      "requires_lcm10b_boundary": true
+    },
+    {
+      "code": "MODIFY_POSITION",
+      "inventory_authority": false,
+      "requires_lcm10b_boundary": true
+    },
+    {
+      "code": "MUTATE_FILE_LEDGER",
+      "inventory_authority": false,
+      "requires_lcm10b_boundary": true
+    },
+    {
+      "code": "NATIVE_OR_PROCESS_EXTERNAL",
+      "inventory_authority": false,
+      "requires_lcm10b_boundary": true
+    },
+    {
+      "code": "NETWORK_EXTERNAL",
+      "inventory_authority": false,
+      "requires_lcm10b_boundary": true
+    },
+    {
+      "code": "READ_ACCOUNT_STATE",
+      "inventory_authority": false,
+      "requires_lcm10b_boundary": true
+    },
+    {
+      "code": "READ_BROKER_CONSTRAINTS",
+      "inventory_authority": false,
+      "requires_lcm10b_boundary": true
+    },
+    {
+      "code": "READ_FILE_LEDGER",
+      "inventory_authority": false,
+      "requires_lcm10b_boundary": true
+    },
+    {
+      "code": "RECONCILE_BROKER_STATE",
+      "inventory_authority": false,
+      "requires_lcm10b_boundary": true
+    },
+    {
+      "code": "SUBMIT_ORDER",
+      "inventory_authority": false,
+      "requires_lcm10b_boundary": true
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "$id": "https://alpha-lab.local/lcm10a/receipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "adapter_activated": {
+      "const": false
+    },
+    "adapter_constructed": {
+      "const": false
+    },
+    "claim_ceiling": {
+      "const": "LCM_10A_REFERENCE_ONLY",
+      "type": "string"
+    },
+    "consumer_cutover_performed": {
+      "const": false
+    },
+    "counts": {
+      "type": "object"
+    },
+    "deterministic_identity": {
+      "const": true,
+      "type": "boolean"
+    },
+    "generated_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "generated_time_semantics": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "inventory_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "output_manifest_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "owner": {},
+    "producer": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "receipt_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "reviewer": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "semantic_refactor_performed": {
+      "const": false
+    },
+    "source_delete_performed": {
+      "const": false
+    },
+    "source_digests": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "source_move_performed": {
+      "const": false
+    },
+    "upstream_handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "validation_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "producer",
+    "source_digests",
+    "generated_at",
+    "generated_time_semantics",
+    "deterministic_identity",
+    "owner",
+    "reviewer",
+    "claim_ceiling",
+    "validation_status",
+    "inventory_id",
+    "upstream_handoff_digest",
+    "output_manifest_digest",
+    "handoff_digest",
+    "counts",
+    "source_move_performed",
+    "source_delete_performed",
+    "semantic_refactor_performed",
+    "consumer_cutover_performed",
+    "adapter_constructed",
+    "adapter_activated",
+    "receipt_digest"
+  ],
+  "title": "receipt",
+  "type": "object"
+}

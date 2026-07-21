@@ -1,0 +1,92 @@
+{
+  "$id": "https://alpha-lab.local/lcm10a/marker.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "claim_ceiling": {
+      "const": "LCM_10A_REFERENCE_ONLY",
+      "type": "string"
+    },
+    "counts": {
+      "type": "object"
+    },
+    "deterministic_identity": {
+      "const": true,
+      "type": "boolean"
+    },
+    "generated_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "generated_time_semantics": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "inventory_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "marker_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "master_phase": {
+      "const": "LCM-10"
+    },
+    "owner": {},
+    "phase_id": {
+      "const": "LCM-10A"
+    },
+    "producer": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reviewer": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "source_behavior_changed": {
+      "const": false
+    },
+    "source_digests": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "status": {
+      "const": "ACCEPTED_REFERENCE"
+    },
+    "validation_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "producer",
+    "source_digests",
+    "generated_at",
+    "generated_time_semantics",
+    "deterministic_identity",
+    "owner",
+    "reviewer",
+    "claim_ceiling",
+    "validation_status",
+    "inventory_id",
+    "phase_id",
+    "master_phase",
+    "status",
+    "counts",
+    "source_behavior_changed",
+    "marker_digest"
+  ],
+  "title": "marker",
+  "type": "object"
+}

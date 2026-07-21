@@ -1,0 +1,58 @@
+{
+  "phase_id": "LCM-10A",
+  "schema_version": "1.0.0",
+  "values": [
+    {
+      "code": "POINT_CONVERSION",
+      "description": "Observed risk/broker assumption surface; value remains unevaluated."
+    },
+    {
+      "code": "TICK_SIZE",
+      "description": "Observed risk/broker assumption surface; value remains unevaluated."
+    },
+    {
+      "code": "TICK_VALUE",
+      "description": "Observed risk/broker assumption surface; value remains unevaluated."
+    },
+    {
+      "code": "VOLUME_MIN",
+      "description": "Observed risk/broker assumption surface; value remains unevaluated."
+    },
+    {
+      "code": "VOLUME_MAX",
+      "description": "Observed risk/broker assumption surface; value remains unevaluated."
+    },
+    {
+      "code": "VOLUME_STEP",
+      "description": "Observed risk/broker assumption surface; value remains unevaluated."
+    },
+    {
+      "code": "STOP_LEVEL",
+      "description": "Observed risk/broker assumption surface; value remains unevaluated."
+    },
+    {
+      "code": "FREEZE_LEVEL",
+      "description": "Observed risk/broker assumption surface; value remains unevaluated."
+    },
+    {
+      "code": "SPREAD_ASSUMPTION",
+      "description": "Observed risk/broker assumption surface; value remains unevaluated."
+    },
+    {
+      "code": "SLIPPAGE_DEVIATION",
+      "description": "Observed risk/broker assumption surface; value remains unevaluated."
+    },
+    {
+      "code": "DUPLICATE_DECISION",
+      "description": "Observed risk/broker assumption surface; value remains unevaluated."
+    },
+    {
+      "code": "SESSION_ASSUMPTION",
+      "description": "Observed risk/broker assumption surface; value remains unevaluated."
+    },
+    {
+      "code": "LONG_SHORT_ASYMMETRY",
+      "description": "Observed risk/broker assumption surface; value remains unevaluated."
+    }
+  ]
+}

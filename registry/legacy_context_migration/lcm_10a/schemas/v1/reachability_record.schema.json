@@ -1,0 +1,134 @@
+{
+  "$id": "https://alpha-lab.local/lcm10a/reachability_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "authority_class": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "capability_code": {
+      "type": "string"
+    },
+    "claim_ceiling": {
+      "const": "LCM_10A_REFERENCE_ONLY",
+      "type": "string"
+    },
+    "deterministic_identity": {
+      "const": true,
+      "type": "boolean"
+    },
+    "entry_roots": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "generated_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "generated_time_semantics": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "line_number": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "mode_classes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "owner": {},
+    "producer": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reachability_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "reachability_state": {
+      "type": "string"
+    },
+    "reviewer": {
+      "type": "string"
+    },
+    "runtime_observed": {
+      "const": false
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "source_digests": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "source_path": {
+      "minLength": 1,
+      "not": {
+        "pattern": "(^|/)\\.\\.(/|$)"
+      },
+      "type": "string"
+    },
+    "source_sha256": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "static_only": {
+      "const": true
+    },
+    "symbol_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "symbol_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "validation_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "producer",
+    "source_digests",
+    "generated_at",
+    "generated_time_semantics",
+    "deterministic_identity",
+    "owner",
+    "reviewer",
+    "claim_ceiling",
+    "validation_status",
+    "reachability_id",
+    "capability_code",
+    "authority_class",
+    "source_path",
+    "source_sha256",
+    "line_number",
+    "reachability_state",
+    "entry_roots",
+    "mode_classes",
+    "static_only",
+    "runtime_observed"
+  ],
+  "title": "reachability_record",
+  "type": "object"
+}

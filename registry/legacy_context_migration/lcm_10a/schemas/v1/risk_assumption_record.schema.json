@@ -1,0 +1,198 @@
+{
+  "$id": "https://alpha-lab.local/lcm10a/risk_assumption_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "assumption_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "assumption_type": {
+      "type": "string"
+    },
+    "assumption_value": {
+      "type": "string"
+    },
+    "behavior_change_performed": {
+      "const": false
+    },
+    "claim_ceiling": {
+      "const": "LCM_10A_REFERENCE_ONLY",
+      "type": "string"
+    },
+    "deterministic_identity": {
+      "const": true,
+      "type": "boolean"
+    },
+    "evidence_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "evidence_locations": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "excerpt": {
+            "type": "string"
+          },
+          "line_digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "line_number": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "line_number",
+          "line_digest",
+          "excerpt"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "generated_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "generated_time_semantics": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "mode_classes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "normalization_status": {
+      "const": "NOT_NORMALIZED"
+    },
+    "owner": {
+      "additionalProperties": false,
+      "properties": {
+        "code_owner_role": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "owner_resolution_status": {
+          "type": "string"
+        },
+        "ownership_is_human_approved": {
+          "type": "boolean"
+        },
+        "security_reviewer_role": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "security_sensitive": {
+          "type": "boolean"
+        },
+        "semantic_owner_role": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "code_owner_role",
+        "semantic_owner_role",
+        "owner_resolution_status",
+        "ownership_is_human_approved",
+        "security_sensitive"
+      ],
+      "type": "object"
+    },
+    "producer": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reviewer": {
+      "type": "string"
+    },
+    "risk_assumption_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "source_digests": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "source_path": {
+      "minLength": 1,
+      "not": {
+        "pattern": "(^|/)\\.\\.(/|$)"
+      },
+      "type": "string"
+    },
+    "source_sha256": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "symbol_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "symbol_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "symbol_specificity": {
+      "type": "string"
+    },
+    "validation_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "producer",
+    "source_digests",
+    "generated_at",
+    "generated_time_semantics",
+    "deterministic_identity",
+    "owner",
+    "reviewer",
+    "claim_ceiling",
+    "validation_status",
+    "risk_assumption_id",
+    "assumption_type",
+    "source_path",
+    "source_sha256",
+    "language",
+    "mode_classes",
+    "evidence_locations",
+    "evidence_count",
+    "assumption_value",
+    "symbol_specificity",
+    "normalization_status",
+    "behavior_change_performed",
+    "assumption_digest"
+  ],
+  "title": "risk_assumption_record",
+  "type": "object"
+}

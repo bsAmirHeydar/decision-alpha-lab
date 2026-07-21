@@ -98,3 +98,7 @@ LCM-09A is complete as an evidence and contract-freeze gate. The Setup portfolio
 ## LCM-09B implementation closure
 
 LCM-09B is complete under `SETUPMIGRATION_8F5CED333AA143A8F2A798BA01D550D9`. Because LCM-09A authorized zero identity-level implementations, LCM-09B correctly avoids inventing Setup semantics. It materializes blocked canonical reference packages, binds them to a read-only Setup Factory reference port with all authority false, preserves no-trade and UNKNOWN evidence, closes portfolio accounting, and seeds LCM-10A Treatment dependencies. The next implementation unit is LCM-10A.
+
+## LCM-10A implementation closure
+
+LCM-10A is complete under `TREATINV_98D30D63F6B6CA7BEA4ABAC517956B02`. The source portfolio, Treatment atoms, execution capabilities, broker reachability, authority boundaries, risk assumptions, Setup dependencies, security restrictions and explicit UNKNOWNs are deterministically accounted. No source behavior or authority changed. The next implementation unit is LCM-10B.

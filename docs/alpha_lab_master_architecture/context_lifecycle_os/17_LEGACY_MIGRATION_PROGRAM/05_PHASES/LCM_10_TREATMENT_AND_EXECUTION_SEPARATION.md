@@ -1,8 +1,8 @@
 ---
 title: "LCM-10 — Treatment and Execution Separation"
-status: proposed-reference
-version: 2.0.0
-updated: 2026-07-19
+status: in-progress-reference
+version: 2.1.0
+updated: 2026-07-20
 tags: [acl-os, lcm, legacy-migration, refined-roadmap]
 phase_id: LCM-10
 roadmap_id: LCM_ROADMAP_R1_BALANCED_PARTITION
@@ -66,3 +66,7 @@ A subphase failure does not authorize skipping to the next partition. The last a
 - [[PHASE_PARTITION_AND_PATCH_GRANULARITY_STANDARD]]
 - [[SUBPHASE_HANDOFF_AND_CHECKPOINT_STANDARD]]
 - [[BALANCED_PHASE_PARTITION_DECISION]]
+
+## Current master-phase state
+
+LCM-10A is accepted. LCM-10 remains open because package extraction, disabled execution boundary construction and dry-run parity are reserved for LCM-10B and LCM-10C. The next authorized implementation unit is LCM-10B.

@@ -1,0 +1,9 @@
+{
+  "authority_created": false,
+  "claim_ceiling": "LCM_10A_REFERENCE_ONLY",
+  "non_compensatory": true,
+  "phase_id": "LCM-10A",
+  "policy_id": "LCM10A_BROKER_REACHABILITY",
+  "schema_version": "1.0.0",
+  "statement": "Every broker-capable hit is registered and either statically reachable or explicit UNKNOWN."
+}

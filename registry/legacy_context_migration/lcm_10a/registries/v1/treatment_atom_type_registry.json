@@ -1,0 +1,74 @@
+{
+  "phase_id": "LCM-10A",
+  "schema_version": "1.0.0",
+  "values": [
+    {
+      "code": "ENTRY_MARKET",
+      "description": "Static source evidence category; not normalized Treatment semantics."
+    },
+    {
+      "code": "ENTRY_LIMIT",
+      "description": "Static source evidence category; not normalized Treatment semantics."
+    },
+    {
+      "code": "ENTRY_STOP",
+      "description": "Static source evidence category; not normalized Treatment semantics."
+    },
+    {
+      "code": "ENTRY_PRICE",
+      "description": "Static source evidence category; not normalized Treatment semantics."
+    },
+    {
+      "code": "STOP_LOSS",
+      "description": "Static source evidence category; not normalized Treatment semantics."
+    },
+    {
+      "code": "TAKE_PROFIT",
+      "description": "Static source evidence category; not normalized Treatment semantics."
+    },
+    {
+      "code": "CANCELLATION",
+      "description": "Static source evidence category; not normalized Treatment semantics."
+    },
+    {
+      "code": "EXPIRY",
+      "description": "Static source evidence category; not normalized Treatment semantics."
+    },
+    {
+      "code": "VOLUME_SIZING",
+      "description": "Static source evidence category; not normalized Treatment semantics."
+    },
+    {
+      "code": "PARTIAL_EXIT",
+      "description": "Static source evidence category; not normalized Treatment semantics."
+    },
+    {
+      "code": "BREAKEVEN",
+      "description": "Static source evidence category; not normalized Treatment semantics."
+    },
+    {
+      "code": "TRAILING",
+      "description": "Static source evidence category; not normalized Treatment semantics."
+    },
+    {
+      "code": "TIME_EXIT",
+      "description": "Static source evidence category; not normalized Treatment semantics."
+    },
+    {
+      "code": "RECONCILIATION",
+      "description": "Static source evidence category; not normalized Treatment semantics."
+    },
+    {
+      "code": "DUPLICATE_GUARD",
+      "description": "Static source evidence category; not normalized Treatment semantics."
+    },
+    {
+      "code": "SPREAD_PRICING",
+      "description": "Static source evidence category; not normalized Treatment semantics."
+    },
+    {
+      "code": "SESSION_GATE",
+      "description": "Static source evidence category; not normalized Treatment semantics."
+    }
+  ]
+}

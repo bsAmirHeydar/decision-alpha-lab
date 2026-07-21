@@ -1,0 +1,25 @@
+{
+  "binding_digest": "sha256:d66cf6f0eb1ff332199d2a1a7d81aa8a8222d305a98aab1bdd82f798fa8a4541",
+  "claim_ceiling": "LCM_10A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "lcm01_capability_finding_count": 4840,
+  "lcm01_entry_point_count": 1858,
+  "lcm01_survey_manifest_digest": "sha256:268868cc85b14567a40137ec992bdf01020aaab0a083d8eb469005dafe50e11d",
+  "lcm02_classification_count": 38595,
+  "lcm02_classification_manifest_digest": "sha256:409f36cdf53925ee90bce92e8953ff498eaf2a35bcfd5582408249fbca72d61b",
+  "lcm02_security_sensitive_path_count": 279,
+  "lcm07_shared_engine_manifest_digest": "sha256:737496da80a4073c0e583f31a86147ccb2dc52b5efd2928da78c72b984d81006",
+  "lcm09b_handoff_digest": "sha256:104e4567686811724302be71f49f08f382196bed235c1fd969ebec1e58cd67ac",
+  "lcm09b_treatment_dependency_seed_digest": "sha256:de7621afc6f6a7fc88070c1d110a3b4ec2497a93748bcae1cca54dee0d0960d9",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "producer": "tools.strategy_factory.lcm.lcm_10a.service:LCM10ATreatmentExecutionInventoryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "setup_dependency_seed_count": 60,
+  "source_digests": [
+    "sha256:d66cf6f0eb1ff332199d2a1a7d81aa8a8222d305a98aab1bdd82f798fa8a4541"
+  ],
+  "validation_status": "PASS"
+}

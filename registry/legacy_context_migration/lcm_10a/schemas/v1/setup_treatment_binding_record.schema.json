@@ -1,0 +1,140 @@
+{
+  "$id": "https://alpha-lab.local/lcm10a/setup_treatment_binding_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "binding_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "binding_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "binding_state": {
+      "type": "string"
+    },
+    "blocker_codes": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "canonical_treatment_identity_id": {
+      "type": "null"
+    },
+    "claim_ceiling": {
+      "const": "LCM_10A_REFERENCE_ONLY",
+      "type": "string"
+    },
+    "deterministic_identity": {
+      "const": true,
+      "type": "boolean"
+    },
+    "execution_authorized": {
+      "const": false
+    },
+    "execution_capability_ids": {
+      "items": {
+        "minLength": 3,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "extraction_authorized": {
+      "const": false
+    },
+    "generated_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "generated_time_semantics": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "owner": {},
+    "producer": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reviewer": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "setup_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "setup_package_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "source_digests": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "source_path": {
+      "minLength": 1,
+      "not": {
+        "pattern": "(^|/)\\.\\.(/|$)"
+      },
+      "type": "string"
+    },
+    "source_sha256": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "treatment_atom_ids": {
+      "items": {
+        "minLength": 3,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "upstream_dependency_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "validation_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "producer",
+    "source_digests",
+    "generated_at",
+    "generated_time_semantics",
+    "deterministic_identity",
+    "owner",
+    "reviewer",
+    "claim_ceiling",
+    "validation_status",
+    "binding_id",
+    "setup_id",
+    "setup_package_id",
+    "source_path",
+    "source_sha256",
+    "upstream_dependency_id",
+    "treatment_atom_ids",
+    "execution_capability_ids",
+    "binding_state",
+    "canonical_treatment_identity_id",
+    "extraction_authorized",
+    "execution_authorized",
+    "blocker_codes",
+    "binding_digest"
+  ],
+  "title": "setup_treatment_binding_record",
+  "type": "object"
+}

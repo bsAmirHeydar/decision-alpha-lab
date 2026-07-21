@@ -1,0 +1,229 @@
+{
+  "$id": "https://alpha-lab.local/lcm10a/execution_capability_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "authority_class": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "authority_status": {
+      "const": "OBSERVED_NOT_AUTHORIZED"
+    },
+    "capability_code": {
+      "type": "string"
+    },
+    "capability_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "capability_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "capital_authorized": {
+      "const": false
+    },
+    "claim_ceiling": {
+      "const": "LCM_10A_REFERENCE_ONLY",
+      "type": "string"
+    },
+    "deterministic_identity": {
+      "const": true,
+      "type": "boolean"
+    },
+    "evidence_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "evidence_locations": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "excerpt": {
+            "type": "string"
+          },
+          "line_digest": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "line_number": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "line_number",
+          "line_digest",
+          "excerpt"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "generated_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "generated_time_semantics": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "hidden_authority_indicator": {
+      "type": "boolean"
+    },
+    "language": {
+      "type": "string"
+    },
+    "live_order_authorized": {
+      "const": false
+    },
+    "mode_classes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "owner": {
+      "additionalProperties": false,
+      "properties": {
+        "code_owner_role": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "owner_resolution_status": {
+          "type": "string"
+        },
+        "ownership_is_human_approved": {
+          "type": "boolean"
+        },
+        "security_reviewer_role": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "security_sensitive": {
+          "type": "boolean"
+        },
+        "semantic_owner_role": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "code_owner_role",
+        "semantic_owner_role",
+        "owner_resolution_status",
+        "ownership_is_human_approved",
+        "security_sensitive"
+      ],
+      "type": "object"
+    },
+    "producer": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reachability_states": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "reviewer": {
+      "type": "string"
+    },
+    "runtime_authorized": {
+      "const": false
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "severity": {
+      "type": "string"
+    },
+    "source_delete_performed": {
+      "const": false
+    },
+    "source_digests": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "source_move_performed": {
+      "const": false
+    },
+    "source_path": {
+      "minLength": 1,
+      "not": {
+        "pattern": "(^|/)\\.\\.(/|$)"
+      },
+      "type": "string"
+    },
+    "source_sha256": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "symbol_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "symbol_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "validation_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "producer",
+    "source_digests",
+    "generated_at",
+    "generated_time_semantics",
+    "deterministic_identity",
+    "owner",
+    "reviewer",
+    "claim_ceiling",
+    "validation_status",
+    "capability_id",
+    "capability_code",
+    "authority_class",
+    "severity",
+    "source_path",
+    "source_sha256",
+    "language",
+    "mode_classes",
+    "evidence_locations",
+    "evidence_count",
+    "reachability_states",
+    "hidden_authority_indicator",
+    "authority_status",
+    "live_order_authorized",
+    "runtime_authorized",
+    "capital_authorized",
+    "source_move_performed",
+    "source_delete_performed",
+    "capability_digest"
+  ],
+  "title": "execution_capability_record",
+  "type": "object"
+}

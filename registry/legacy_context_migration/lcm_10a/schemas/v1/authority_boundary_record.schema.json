@@ -1,0 +1,206 @@
+{
+  "$id": "https://alpha-lab.local/lcm10a/authority_boundary_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "authority_boundary_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "authority_class": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "blocker_codes": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "boundary_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "boundary_status": {
+      "type": "string"
+    },
+    "cancel_authority": {
+      "const": false
+    },
+    "capability_codes": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "capability_ids": {
+      "items": {
+        "minLength": 3,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "capital_authority": {
+      "const": false
+    },
+    "claim_ceiling": {
+      "const": "LCM_10A_REFERENCE_ONLY",
+      "type": "string"
+    },
+    "close_authority": {
+      "const": false
+    },
+    "deterministic_identity": {
+      "const": true,
+      "type": "boolean"
+    },
+    "generated_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "generated_time_semantics": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "hidden_authority_indicator": {
+      "type": "boolean"
+    },
+    "live_order_authority": {
+      "const": false
+    },
+    "modify_authority": {
+      "const": false
+    },
+    "owner": {
+      "additionalProperties": false,
+      "properties": {
+        "code_owner_role": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "owner_resolution_status": {
+          "type": "string"
+        },
+        "ownership_is_human_approved": {
+          "type": "boolean"
+        },
+        "security_reviewer_role": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "security_sensitive": {
+          "type": "boolean"
+        },
+        "semantic_owner_role": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "code_owner_role",
+        "semantic_owner_role",
+        "owner_resolution_status",
+        "ownership_is_human_approved",
+        "security_sensitive"
+      ],
+      "type": "object"
+    },
+    "producer": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reconcile_authority": {
+      "const": false
+    },
+    "request_intent_authority": {
+      "const": false
+    },
+    "reviewer": {
+      "type": "string"
+    },
+    "runtime_authority": {
+      "const": false
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "source_digests": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "source_path": {
+      "minLength": 1,
+      "not": {
+        "pattern": "(^|/)\\.\\.(/|$)"
+      },
+      "type": "string"
+    },
+    "submission_authority": {
+      "const": false
+    },
+    "symbol_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "symbol_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "validation_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "producer",
+    "source_digests",
+    "generated_at",
+    "generated_time_semantics",
+    "deterministic_identity",
+    "owner",
+    "reviewer",
+    "claim_ceiling",
+    "validation_status",
+    "authority_boundary_id",
+    "source_path",
+    "authority_class",
+    "capability_ids",
+    "capability_codes",
+    "hidden_authority_indicator",
+    "blocker_codes",
+    "boundary_status",
+    "request_intent_authority",
+    "submission_authority",
+    "modify_authority",
+    "cancel_authority",
+    "reconcile_authority",
+    "close_authority",
+    "runtime_authority",
+    "live_order_authority",
+    "capital_authority",
+    "boundary_digest"
+  ],
+  "title": "authority_boundary_record",
+  "type": "object"
+}

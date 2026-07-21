@@ -1,0 +1,9 @@
+{
+  "authority_created": false,
+  "claim_ceiling": "LCM_10A_REFERENCE_ONLY",
+  "non_compensatory": true,
+  "phase_id": "LCM-10A",
+  "policy_id": "LCM10A_AUTHORITY_NEGATIVE",
+  "schema_version": "1.0.0",
+  "statement": "All request, submission, modification, cancellation, close, runtime and capital authority fields remain false."
+}

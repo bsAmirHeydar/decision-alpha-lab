@@ -1,0 +1,91 @@
+{
+  "phase_id": "LCM-10A",
+  "schema_version": "1.0.0",
+  "values": [
+    {
+      "authority_class": "CREATE_REQUEST_INTENT",
+      "code": "BROKER_REQUEST_BUILD",
+      "severity": "HIGH"
+    },
+    {
+      "authority_class": "SUBMIT_ORDER",
+      "code": "BROKER_SUBMIT_RAW",
+      "severity": "CRITICAL"
+    },
+    {
+      "authority_class": "SUBMIT_ORDER",
+      "code": "BROKER_SUBMIT_CTRADE",
+      "severity": "CRITICAL"
+    },
+    {
+      "authority_class": "SUBMIT_ORDER",
+      "code": "BROKER_POSITION_OPEN",
+      "severity": "CRITICAL"
+    },
+    {
+      "authority_class": "MODIFY_POSITION",
+      "code": "BROKER_POSITION_MODIFY",
+      "severity": "CRITICAL"
+    },
+    {
+      "authority_class": "MODIFY_ORDER",
+      "code": "BROKER_ORDER_MODIFY",
+      "severity": "CRITICAL"
+    },
+    {
+      "authority_class": "CANCEL_ORDER",
+      "code": "BROKER_ORDER_CANCEL",
+      "severity": "CRITICAL"
+    },
+    {
+      "authority_class": "CLOSE_POSITION",
+      "code": "BROKER_POSITION_CLOSE",
+      "severity": "CRITICAL"
+    },
+    {
+      "authority_class": "RECONCILE_BROKER_STATE",
+      "code": "BROKER_STATE_POSITION",
+      "severity": "HIGH"
+    },
+    {
+      "authority_class": "RECONCILE_BROKER_STATE",
+      "code": "BROKER_STATE_ORDER",
+      "severity": "HIGH"
+    },
+    {
+      "authority_class": "RECONCILE_BROKER_STATE",
+      "code": "BROKER_STATE_HISTORY",
+      "severity": "HIGH"
+    },
+    {
+      "authority_class": "READ_BROKER_CONSTRAINTS",
+      "code": "BROKER_SYMBOL_STATE",
+      "severity": "MEDIUM"
+    },
+    {
+      "authority_class": "READ_ACCOUNT_STATE",
+      "code": "BROKER_ACCOUNT_STATE",
+      "severity": "HIGH"
+    },
+    {
+      "authority_class": "READ_FILE_LEDGER",
+      "code": "FILE_LEDGER_READ",
+      "severity": "MEDIUM"
+    },
+    {
+      "authority_class": "MUTATE_FILE_LEDGER",
+      "code": "FILE_LEDGER_WRITE",
+      "severity": "HIGH"
+    },
+    {
+      "authority_class": "NETWORK_EXTERNAL",
+      "code": "NETWORK_EXTERNAL",
+      "severity": "CRITICAL"
+    },
+    {
+      "authority_class": "NATIVE_OR_PROCESS_EXTERNAL",
+      "code": "DYNAMIC_LIBRARY",
+      "severity": "CRITICAL"
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "$id": "https://alpha-lab.local/lcm10a/handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "allowed_next_actions": {
+      "type": "array"
+    },
+    "blocked_dimensions": {
+      "type": "array"
+    },
+    "capital_authority_created": {
+      "const": false
+    },
+    "claim_ceiling": {
+      "const": "LCM_10A_REFERENCE_ONLY",
+      "type": "string"
+    },
+    "completed_gates": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "consumer_cutover_allowed": {
+      "const": false
+    },
+    "counts": {
+      "type": "object"
+    },
+    "deterministic_identity": {
+      "const": true,
+      "type": "boolean"
+    },
+    "failed_dimensions": {
+      "type": "array"
+    },
+    "forbidden_actions": {
+      "type": "array"
+    },
+    "generated_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "generated_time_semantics": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "handoff_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "handoff_type": {
+      "const": "LCM10A_TO_LCM10B"
+    },
+    "inventory_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "live_order_authority_created": {
+      "const": false
+    },
+    "master_phase": {
+      "const": "LCM-10"
+    },
+    "owner": {},
+    "phase_id": {
+      "const": "LCM-10A"
+    },
+    "producer": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "promotion_authority_created": {
+      "const": false
+    },
+    "reviewer": {
+      "type": "string"
+    },
+    "runtime_authority_created": {
+      "const": false
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "source_delete_allowed": {
+      "const": false
+    },
+    "source_digests": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "source_move_allowed": {
+      "const": false
+    },
+    "unknown_dimensions": {
+      "type": "array"
+    },
+    "upstream_handoff_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "validation_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "producer",
+    "source_digests",
+    "generated_at",
+    "generated_time_semantics",
+    "deterministic_identity",
+    "owner",
+    "reviewer",
+    "claim_ceiling",
+    "validation_status",
+    "handoff_type",
+    "handoff_id",
+    "phase_id",
+    "master_phase",
+    "inventory_id",
+    "upstream_handoff_digest",
+    "counts",
+    "completed_gates",
+    "failed_dimensions",
+    "blocked_dimensions",
+    "unknown_dimensions",
+    "allowed_next_actions",
+    "forbidden_actions",
+    "consumer_cutover_allowed",
+    "source_move_allowed",
+    "source_delete_allowed",
+    "promotion_authority_created",
+    "runtime_authority_created",
+    "live_order_authority_created",
+    "capital_authority_created",
+    "handoff_digest"
+  ],
+  "title": "handoff",
+  "type": "object"
+}

@@ -1,0 +1,65 @@
+{
+  "attacks": [
+    {
+      "attack": "WRAPPER_HIDING_BROKER_SUBMISSION",
+      "evidence_count": 66,
+      "noncompensatory": true,
+      "result": "PASS_WITH_BLOCKERS"
+    },
+    {
+      "attack": "FILE_LEDGER_AS_ENTITLEMENT_AUTHORITY",
+      "evidence_count": 623,
+      "noncompensatory": true,
+      "result": "PASS_WITH_UNKNOWNS"
+    },
+    {
+      "attack": "VOLUME_DEFAULT_DIFFERS_BY_SYMBOL",
+      "evidence_count": 113,
+      "noncompensatory": true,
+      "result": "PASS_WITH_UNKNOWNS"
+    },
+    {
+      "attack": "LONG_SHORT_ASYMMETRY",
+      "evidence_count": 0,
+      "noncompensatory": true,
+      "result": "PASS_WITH_UNKNOWNS"
+    },
+    {
+      "attack": "TESTER_MODE_BYPASSES_SAFETY",
+      "evidence_count": 86,
+      "noncompensatory": true,
+      "result": "PASS_WITH_UNKNOWNS"
+    },
+    {
+      "attack": "UNREGISTERED_ORDER_SURFACE",
+      "evidence": "Every deep-scan broker mutation hit is in execution_capability_registry and reachability registry.",
+      "result": "PASS"
+    },
+    {
+      "attack": "AUTHORITY_GRANTED_BY_INVENTORY",
+      "evidence": "All authority fields are false; no adapter or source behavior is changed.",
+      "result": "PASS"
+    }
+  ],
+  "claim_ceiling": "LCM_10A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "hostile_review_passed": true,
+  "inventory_id": "TREATINV_98D30D63F6B6CA7BEA4ABAC517956B02",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "producer": "tools.strategy_factory.lcm.lcm_10a.service:LCM10ATreatmentExecutionInventoryService",
+  "report_digest": "sha256:dd20a6b9710a7bcd9c466611f0ae9da71c96f7ed45f96dcc71a36b7fdfca68f5",
+  "residual_risks": [
+    "Static reachability cannot prove runtime branch activation.",
+    "Human owners and security reviewers remain role-bound but not approved.",
+    "Broker-specific stop, freeze, volume and session values are not evaluated.",
+    "File-ledger entitlement semantics require LCM-10B boundary review."
+  ],
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:d66cf6f0eb1ff332199d2a1a7d81aa8a8222d305a98aab1bdd82f798fa8a4541"
+  ],
+  "validation_status": "PASS"
+}

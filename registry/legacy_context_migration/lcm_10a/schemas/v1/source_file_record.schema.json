@@ -1,0 +1,157 @@
+{
+  "$id": "https://alpha-lab.local/lcm10a/source_file_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "capability_hit_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "claim_ceiling": {
+      "const": "LCM_10A_REFERENCE_ONLY",
+      "type": "string"
+    },
+    "deterministic_identity": {
+      "const": true,
+      "type": "boolean"
+    },
+    "function_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "generated_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "generated_time_semantics": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "language": {
+      "enum": [
+        "MQL5",
+        "PYTHON",
+        "CONFIG"
+      ]
+    },
+    "line_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "mode_classes": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "owner": {},
+    "parse_error": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "parse_status": {
+      "type": "string"
+    },
+    "path": {
+      "minLength": 1,
+      "not": {
+        "pattern": "(^|/)\\.\\.(/|$)"
+      },
+      "type": "string"
+    },
+    "producer": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "relevance_disposition": {
+      "type": "string"
+    },
+    "reviewer": {
+      "type": "string"
+    },
+    "risk_hit_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "semantic_refactor_performed": {
+      "const": false
+    },
+    "sha256": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "size_bytes": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "source_delete_performed": {
+      "const": false
+    },
+    "source_digests": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "source_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "source_move_performed": {
+      "const": false
+    },
+    "source_record_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "treatment_hit_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "validation_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "producer",
+    "source_digests",
+    "generated_at",
+    "generated_time_semantics",
+    "deterministic_identity",
+    "owner",
+    "reviewer",
+    "claim_ceiling",
+    "validation_status",
+    "source_id",
+    "path",
+    "language",
+    "sha256",
+    "size_bytes",
+    "line_count",
+    "mode_classes",
+    "parse_status",
+    "function_count",
+    "treatment_hit_count",
+    "capability_hit_count",
+    "risk_hit_count",
+    "relevance_disposition",
+    "source_move_performed",
+    "source_delete_performed",
+    "semantic_refactor_performed",
+    "source_record_digest"
+  ],
+  "title": "source_file_record",
+  "type": "object"
+}

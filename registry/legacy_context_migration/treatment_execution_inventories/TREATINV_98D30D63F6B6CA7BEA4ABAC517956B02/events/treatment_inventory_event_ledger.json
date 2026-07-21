@@ -1,0 +1,187 @@
+{
+  "claim_ceiling": "LCM_10A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "event_count": 8,
+  "events": [
+    {
+      "authority_created": false,
+      "claim_ceiling": "LCM_10A_REFERENCE_ONLY",
+      "deterministic_identity": true,
+      "event_digest": "sha256:c019d07470de27820ab257e1aa44b44473a112ed8a4e9cae8150e28e4e444318",
+      "event_id": "TREATINVEVENT_C4D516284F1A2CC3048298BFC614C73B",
+      "event_type": "SOURCE_FREEZE_CLOSED",
+      "generated_at": null,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_10a.service:LCM10ATreatmentExecutionInventoryService",
+      "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+      "schema_version": "1.0.0",
+      "sequence": 1,
+      "source_digests": [
+        "sha256:d66cf6f0eb1ff332199d2a1a7d81aa8a8222d305a98aab1bdd82f798fa8a4541",
+        "sha256:d968bd21f7047dbf78eb4e2d5e2f9f90f7ad23eb7fdde9073add4c47e3468dec"
+      ],
+      "subject_digest": "sha256:d968bd21f7047dbf78eb4e2d5e2f9f90f7ad23eb7fdde9073add4c47e3468dec",
+      "validation_status": "PASS"
+    },
+    {
+      "authority_created": false,
+      "claim_ceiling": "LCM_10A_REFERENCE_ONLY",
+      "deterministic_identity": true,
+      "event_digest": "sha256:5db9a40a6208df4ad94c400b01cd02fda4f89b18259075a9080142f1d5b4b2fd",
+      "event_id": "TREATINVEVENT_3C58993C00F3626F9648BDD9C8889821",
+      "event_type": "TREATMENT_ATOM_REGISTRY_CLOSED",
+      "generated_at": null,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_10a.service:LCM10ATreatmentExecutionInventoryService",
+      "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+      "schema_version": "1.0.0",
+      "sequence": 2,
+      "source_digests": [
+        "sha256:b95250a7a8ce14f15928bceeb3d8602f54cf76028be3c02301ff8307e5ec1d7e",
+        "sha256:d66cf6f0eb1ff332199d2a1a7d81aa8a8222d305a98aab1bdd82f798fa8a4541"
+      ],
+      "subject_digest": "sha256:b95250a7a8ce14f15928bceeb3d8602f54cf76028be3c02301ff8307e5ec1d7e",
+      "validation_status": "PASS"
+    },
+    {
+      "authority_created": false,
+      "claim_ceiling": "LCM_10A_REFERENCE_ONLY",
+      "deterministic_identity": true,
+      "event_digest": "sha256:1599980a4db59e89247a81a5ea0bf17017f3ca2bf19ab41b593a7ed94dec001d",
+      "event_id": "TREATINVEVENT_E75BDF2EA4F92AD8717E541EF9C6F3A2",
+      "event_type": "EXECUTION_CAPABILITY_REGISTRY_CLOSED",
+      "generated_at": null,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_10a.service:LCM10ATreatmentExecutionInventoryService",
+      "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+      "schema_version": "1.0.0",
+      "sequence": 3,
+      "source_digests": [
+        "sha256:d66cf6f0eb1ff332199d2a1a7d81aa8a8222d305a98aab1bdd82f798fa8a4541",
+        "sha256:fa04c3425826b8d66a650808a553189d7db06cc7f500b42793cd5137efb42232"
+      ],
+      "subject_digest": "sha256:fa04c3425826b8d66a650808a553189d7db06cc7f500b42793cd5137efb42232",
+      "validation_status": "PASS"
+    },
+    {
+      "authority_created": false,
+      "claim_ceiling": "LCM_10A_REFERENCE_ONLY",
+      "deterministic_identity": true,
+      "event_digest": "sha256:fea64bfc962582ff876439de5d7cfbc271f3a02182edec83908e3e7547abb547",
+      "event_id": "TREATINVEVENT_66522EF218C997E3FDB00F4A1140F478",
+      "event_type": "BROKER_REACHABILITY_ACCOUNTED",
+      "generated_at": null,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_10a.service:LCM10ATreatmentExecutionInventoryService",
+      "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+      "schema_version": "1.0.0",
+      "sequence": 4,
+      "source_digests": [
+        "sha256:79bc316f8c07d94d4111d2dc88e92d3ddab0ff001d443219e4c79ef083bb86ba",
+        "sha256:d66cf6f0eb1ff332199d2a1a7d81aa8a8222d305a98aab1bdd82f798fa8a4541"
+      ],
+      "subject_digest": "sha256:79bc316f8c07d94d4111d2dc88e92d3ddab0ff001d443219e4c79ef083bb86ba",
+      "validation_status": "PASS"
+    },
+    {
+      "authority_created": false,
+      "claim_ceiling": "LCM_10A_REFERENCE_ONLY",
+      "deterministic_identity": true,
+      "event_digest": "sha256:ad5c92ca3ea3ab85d00ddc4663657c8b830cafac941b46c7098ac7818ea73759",
+      "event_id": "TREATINVEVENT_F52082ACE76E15DB4EA4EFB6F45E6E3E",
+      "event_type": "AUTHORITY_BOUNDARY_MAP_CLOSED",
+      "generated_at": null,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_10a.service:LCM10ATreatmentExecutionInventoryService",
+      "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+      "schema_version": "1.0.0",
+      "sequence": 5,
+      "source_digests": [
+        "sha256:cd5fd2d71cea3302af37195743b2e3660cc98b3deb0aef0598d963cad52cbfbf",
+        "sha256:d66cf6f0eb1ff332199d2a1a7d81aa8a8222d305a98aab1bdd82f798fa8a4541"
+      ],
+      "subject_digest": "sha256:cd5fd2d71cea3302af37195743b2e3660cc98b3deb0aef0598d963cad52cbfbf",
+      "validation_status": "PASS"
+    },
+    {
+      "authority_created": false,
+      "claim_ceiling": "LCM_10A_REFERENCE_ONLY",
+      "deterministic_identity": true,
+      "event_digest": "sha256:41698eeb9368ce595422bd03581da863cbbd7ac4a23a18c7393598b29d1b2e25",
+      "event_id": "TREATINVEVENT_FE752DA7FF2E6A46A96979C6CC1DC913",
+      "event_type": "RISK_ASSUMPTION_REGISTRY_CLOSED",
+      "generated_at": null,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_10a.service:LCM10ATreatmentExecutionInventoryService",
+      "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+      "schema_version": "1.0.0",
+      "sequence": 6,
+      "source_digests": [
+        "sha256:4fde157a07eeb588a00abf4129cd4711af17d451f0a8b66fb4078f11582c2ec3",
+        "sha256:d66cf6f0eb1ff332199d2a1a7d81aa8a8222d305a98aab1bdd82f798fa8a4541"
+      ],
+      "subject_digest": "sha256:4fde157a07eeb588a00abf4129cd4711af17d451f0a8b66fb4078f11582c2ec3",
+      "validation_status": "PASS"
+    },
+    {
+      "authority_created": false,
+      "claim_ceiling": "LCM_10A_REFERENCE_ONLY",
+      "deterministic_identity": true,
+      "event_digest": "sha256:1ce533efaa1a13afdcbeab36b142302c84492877a9c213d0f83d6672f4bd4955",
+      "event_id": "TREATINVEVENT_6AEFA14C9C596004C765F53E0DE6A6A4",
+      "event_type": "EXECUTION_UNKNOWNS_PRESERVED",
+      "generated_at": null,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_10a.service:LCM10ATreatmentExecutionInventoryService",
+      "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+      "schema_version": "1.0.0",
+      "sequence": 7,
+      "source_digests": [
+        "sha256:1948298e03bc4614f530e5a2396c99dc3cd27cc5260aa6b2fca43c8105952010",
+        "sha256:d66cf6f0eb1ff332199d2a1a7d81aa8a8222d305a98aab1bdd82f798fa8a4541"
+      ],
+      "subject_digest": "sha256:1948298e03bc4614f530e5a2396c99dc3cd27cc5260aa6b2fca43c8105952010",
+      "validation_status": "PASS"
+    },
+    {
+      "authority_created": false,
+      "claim_ceiling": "LCM_10A_REFERENCE_ONLY",
+      "deterministic_identity": true,
+      "event_digest": "sha256:f1f58e1206fc6bfb6c8ae22d50e89dddc94d9d2b71dc4c2b4db6fd48bbf3f4e9",
+      "event_id": "TREATINVEVENT_29848C78F730346D463F75A309E512E8",
+      "event_type": "EXTRACTION_ORDER_EMITTED",
+      "generated_at": null,
+      "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+      "owner": "ALPHA_LAB_MIGRATION_OWNER",
+      "producer": "tools.strategy_factory.lcm.lcm_10a.service:LCM10ATreatmentExecutionInventoryService",
+      "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+      "schema_version": "1.0.0",
+      "sequence": 8,
+      "source_digests": [
+        "sha256:15b7b6804466cec3e57ade889895b36aa13836ed8d98f10ba4cef8be65fe7baa",
+        "sha256:d66cf6f0eb1ff332199d2a1a7d81aa8a8222d305a98aab1bdd82f798fa8a4541"
+      ],
+      "subject_digest": "sha256:15b7b6804466cec3e57ade889895b36aa13836ed8d98f10ba4cef8be65fe7baa",
+      "validation_status": "PASS"
+    }
+  ],
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "inventory_id": "TREATINV_98D30D63F6B6CA7BEA4ABAC517956B02",
+  "ledger_digest": "sha256:b0cc50f470b7881724a9f0ca6fc9b6287cfccebd7836c6201fbb3de34b6720ca",
+  "owner": "ALPHA_LAB_MIGRATION_OWNER",
+  "producer": "tools.strategy_factory.lcm.lcm_10a.service:LCM10ATreatmentExecutionInventoryService",
+  "reviewer": "INDEPENDENT_MIGRATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:d66cf6f0eb1ff332199d2a1a7d81aa8a8222d305a98aab1bdd82f798fa8a4541"
+  ],
+  "validation_status": "PASS"
+}

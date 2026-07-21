@@ -1,0 +1,94 @@
+{
+  "$id": "https://alpha-lab.local/lcm10a/extraction_plan.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "claim_ceiling": {
+      "const": "LCM_10A_REFERENCE_ONLY",
+      "type": "string"
+    },
+    "deterministic_identity": {
+      "const": true,
+      "type": "boolean"
+    },
+    "execution_boundary_default": {
+      "const": "DISABLED_FAIL_CLOSED"
+    },
+    "extraction_item_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "generated_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "generated_time_semantics": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "inventory_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "live_adapter_activation_allowed": {
+      "const": false
+    },
+    "ordered_items": {
+      "minItems": 1,
+      "type": "array"
+    },
+    "owner": {},
+    "plan_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "producer": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reviewer": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "source_digests": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "source_move_allowed": {
+      "const": false
+    },
+    "validation_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "producer",
+    "source_digests",
+    "generated_at",
+    "generated_time_semantics",
+    "deterministic_identity",
+    "owner",
+    "reviewer",
+    "claim_ceiling",
+    "validation_status",
+    "inventory_id",
+    "extraction_item_count",
+    "ordered_items",
+    "execution_boundary_default",
+    "live_adapter_activation_allowed",
+    "source_move_allowed",
+    "plan_digest"
+  ],
+  "title": "extraction_plan",
+  "type": "object"
+}

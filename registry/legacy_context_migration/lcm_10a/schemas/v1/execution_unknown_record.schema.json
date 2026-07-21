@@ -1,0 +1,107 @@
+{
+  "$id": "https://alpha-lab.local/lcm10a/execution_unknown_record.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "blocking": {
+      "type": "boolean"
+    },
+    "claim_ceiling": {
+      "const": "LCM_10A_REFERENCE_ONLY",
+      "type": "string"
+    },
+    "details": {
+      "type": "object"
+    },
+    "deterministic_identity": {
+      "const": true,
+      "type": "boolean"
+    },
+    "generated_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "generated_time_semantics": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "owner": {},
+    "producer": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "resolution_owner": {
+      "type": "string"
+    },
+    "resolution_state": {
+      "const": "OPEN"
+    },
+    "reviewer": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "source_digests": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "source_path": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "subject_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "subject_type": {
+      "type": "string"
+    },
+    "unknown_code": {
+      "type": "string"
+    },
+    "unknown_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "unknown_id": {
+      "minLength": 3,
+      "type": "string"
+    },
+    "validation_status": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "producer",
+    "source_digests",
+    "generated_at",
+    "generated_time_semantics",
+    "deterministic_identity",
+    "owner",
+    "reviewer",
+    "claim_ceiling",
+    "validation_status",
+    "unknown_id",
+    "unknown_code",
+    "subject_type",
+    "subject_id",
+    "blocking",
+    "resolution_owner",
+    "resolution_state",
+    "details",
+    "unknown_digest"
+  ],
+  "title": "execution_unknown_record",
+  "type": "object"
+}

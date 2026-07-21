@@ -1,0 +1,9 @@
+{
+  "authority_created": false,
+  "claim_ceiling": "LCM_10A_REFERENCE_ONLY",
+  "non_compensatory": true,
+  "phase_id": "LCM-10A",
+  "policy_id": "LCM10A_MODE_SEPARATION",
+  "schema_version": "1.0.0",
+  "statement": "Tester, dry-run, paper, shadow and live surfaces are separately recorded; absent mode evidence remains UNKNOWN."
+}

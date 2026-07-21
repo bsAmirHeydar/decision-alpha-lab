@@ -1,0 +1,77 @@
+{
+  "authority_assertions": {
+    "adapter_activated": false,
+    "adapter_constructed": false,
+    "capital_authority_created": false,
+    "consumer_cutover_performed": false,
+    "live_order_authority_created": false,
+    "promotion_authority_created": false,
+    "runtime_authority_created": false,
+    "source_behavior_changed": false
+  },
+  "checks": {
+    "deterministic_rebuild": {
+      "passed": true
+    },
+    "inventory_package_verification": {
+      "manifest_file_count": 33,
+      "manifest_total_bytes": 53235157,
+      "passed": true
+    },
+    "lcm09b_and_roadmap_regression_tests": {
+      "passed": true,
+      "test_count": 39
+    },
+    "lcm10a_direct_tests": {
+      "passed": true,
+      "test_count": 24
+    },
+    "python_compileall": {
+      "module_root": "tools/strategy_factory/lcm/lcm_10a",
+      "passed": true
+    },
+    "schema_catalog_validation": {
+      "passed": true,
+      "schema_count": 15
+    },
+    "source_mutation_guard": {
+      "legacy_source_path_count_in_patch": 0,
+      "passed": true
+    },
+    "static_authority_validation": {
+      "finding_count": 0,
+      "passed": true,
+      "scanned_file_count": 22
+    }
+  },
+  "claim_ceiling": "LCM_10A_REFERENCE_ONLY",
+  "downstream_handoff_digest": "sha256:6f513e66cc269c963e7380429b82ea78e0fba7812a3ec50fde1070e3c9c5c14b",
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_BUILD_NO_WALL_CLOCK_IDENTITY",
+  "inventory_counts": {
+    "authority_boundary_count": 1190,
+    "blocking_unknown_count": 2829,
+    "boundary_violation_count": 1190,
+    "broker_reachability_record_count": 1408,
+    "execution_capability_count": 1334,
+    "extraction_item_count": 483,
+    "risk_assumption_count": 488,
+    "security_restricted_path_record_count": 818,
+    "setup_binding_count": 60,
+    "source_file_count": 7382,
+    "treatment_atom_count": 1109,
+    "unknown_count": 4302
+  },
+  "inventory_id": "TREATINV_98D30D63F6B6CA7BEA4ABAC517956B02",
+  "master_phase": "LCM-10",
+  "patch_counts": {
+    "added_file_count": 200,
+    "deleted_file_count": 0,
+    "modified_file_count": 5,
+    "payload_file_count": 205
+  },
+  "phase_id": "LCM-10A",
+  "qa_passed": true,
+  "schema_version": "1.0.0",
+  "upstream_handoff_digest": "sha256:104e4567686811724302be71f49f08f382196bed235c1fd969ebec1e58cd67ac"
+}
