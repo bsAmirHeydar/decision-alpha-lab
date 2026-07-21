@@ -1,0 +1,12 @@
+cycle_definition_version: 1.0.0
+cycles:
+- {cycle_id: L, start: '07:00:00', end: '09:30:00', interval: HALF_OPEN}
+- {cycle_id: N, start: '09:30:00', end: '16:00:00', interval: HALF_OPEN}
+- {cycle_id: A, start: '16:00:00', end: '20:00:00', interval: HALF_OPEN}
+- {cycle_id: DAILY, start: '20:00:00', end: '20:00:00_next_day', interval: HALF_OPEN}
+- {cycle_id: FCR_1, start: '09:30:00', end: '10:00:00', interval: HALF_OPEN}
+- {cycle_id: FCR_2, start: '10:00:00', end: '16:00:00', interval: HALF_OPEN}
+- {cycle_id: PP_1, start: '09:00:00', end: '09:30:00', interval: HALF_OPEN}
+- {cycle_id: PP_2, start: '09:30:00', end: '16:00:00', interval: HALF_OPEN}
+- {cycle_id: M15_GROUP, start: '09:30:00', end: '16:00:00', bar_minutes: 15, interval: HALF_OPEN}
+weekly_cycle: {start: 'Sunday 18:00:00', end: 'Friday 17:00:00', timezone: America/New_York}

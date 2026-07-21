@@ -1,0 +1,14 @@
+extension_id: RTHP_SEMANTIC_CONTRACTS_V1
+version: 1.0.0
+contracts:
+  missingness: contracts/missingness_and_unknown.yaml
+  cycles: contracts/cycle_registry.yaml
+  calendar: contracts/calendar_contract.yaml
+  symbol_pair: contracts/symbol_pair_contract.yaml
+  price_basis: contracts/price_basis_contract.yaml
+  touch: contracts/touch_contract.yaml
+  signal_families: contracts/signal_family_registry.yaml
+  lookback: contracts/lookback_policy.yaml
+  revisions: contracts/revision_policy.yaml
+  parity: contracts/historical_live_parity.yaml
+  visual_boundary: contracts/visual_projection_boundary.yaml

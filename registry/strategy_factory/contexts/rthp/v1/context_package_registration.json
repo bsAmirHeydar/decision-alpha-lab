@@ -1,0 +1,13 @@
+{
+  "acl_level": "ACL-02",
+  "artifact_id": "al://alpha-lab/contexts/context/CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1@1.0.0#sha256:2298b1e6c72e45a41d7e90a1e116cf7278390336727a682c19b7776097a9ff11",
+  "capital_authority": false,
+  "claim_ceiling": "CONTEXT_ONLY",
+  "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "order_authority": false,
+  "package_root": "lab/11_strategy_factory/contexts/CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+  "runtime_authority": false,
+  "source_digest": "sha256:7f31bf49be51da3483787038ede87e1ddc3615c6c6c84c929b08126cc700b45a",
+  "status": "SEMANTICALLY_VALIDATED",
+  "version": "1.0.0"
+}

@@ -1,0 +1,28 @@
+examples:
+- example_id: POS_HIGH_A_ONLY
+  kind: POSITIVE
+  fixture_ref: fixtures/golden/POS_HIGH_A_ONLY.json
+  known_time_annotation: Both symbols expose the same M15 confirmation close and only the primary High is touched.
+  expected_classification: CONFIRMED_BEARISH_DIVERGENCE
+- example_id: POS_LOW_B_ONLY
+  kind: POSITIVE
+  fixture_ref: fixtures/golden/POS_LOW_B_ONLY.json
+  known_time_annotation: Both symbols expose the same M15 confirmation close and only the secondary Low is touched.
+  expected_classification: CONFIRMED_BULLISH_DIVERGENCE
+- example_id: NEG_BOTH_HIGH
+  kind: NEGATIVE
+  fixture_ref: fixtures/golden/NEG_BOTH_HIGH.json
+  known_time_annotation: Both corresponding High levels are touched by the common confirmation close.
+  expected_classification: NO_EVENT_BOTH_TOUCHED
+- example_id: NEG_NONE_LOW
+  kind: NEGATIVE
+  fixture_ref: fixtures/golden/NEG_NONE_LOW.json
+  known_time_annotation: Neither corresponding Low level is touched by the common confirmation close.
+  expected_classification: NO_EVENT_NONE_TOUCHED
+- example_id: AMB_STALE_SECONDARY
+  kind: AMBIGUOUS
+  fixture_ref: fixtures/golden/AMB_STALE_SECONDARY.json
+  known_time_annotation: The secondary observation belongs to an earlier cut and is retained only as stale evidence.
+  expected_classification: UNCONFIRMED_STALE_DATA
+minimum_per_class: 1
+counterexample_policy: Every semantic amendment must add or update positive, negative, and ambiguous immutable fixtures before approval.

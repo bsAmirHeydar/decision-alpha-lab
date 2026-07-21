@@ -1,0 +1,18 @@
+gates:
+- gate_id: RTHP_SCHEMA_CLOSED
+  required_evidence: [ALL_STANDARD_CONTRACTS_SCHEMA_VALID, CUSTOM_REGISTRIES_VERSIONED, NO_BLOCKING_DOMAIN_AMBIGUITY]
+  owner_role: technical_owner
+  failure_state: DRAFT_CONTEXT
+- gate_id: RTHP_CONTEXT_ONLY_BOUNDARY
+  required_evidence: [NO_ENTRY, NO_TREATMENT, NO_EXECUTION, NO_ORDER_AUTHORITY, NO_CAPITAL_AUTHORITY]
+  owner_role: security_owner
+  failure_state: AUTHORITY_BOUNDARY_FAILURE
+- gate_id: RTHP_TEMPORAL_INTEGRITY
+  required_evidence: [IANA_TIMEZONE, HALF_OPEN_INTERVALS, SYNCHRONIZED_M15, STALE_DATA_QUARANTINE]
+  owner_role: semantic_owner
+  failure_state: TEMPORAL_REVIEW_REQUIRED
+- gate_id: RTHP_REPLAY_PARITY
+  required_evidence: [STABLE_EVENT_ID, APPEND_ONLY_CORRECTION, RESTART_DEDUP, GOLDEN_FIXTURES_PASS]
+  owner_role: technical_owner
+  failure_state: PARITY_REVIEW_REQUIRED
+maximum_acl02_state: SEMANTICALLY_VALIDATED

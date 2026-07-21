@@ -1,0 +1,20 @@
+{
+  "families": [
+    "WW",
+    "DD",
+    "NN",
+    "LN",
+    "AN",
+    "NL",
+    "NA",
+    "FCR",
+    "PMI",
+    "PP",
+    "M15_CYCLE_GROUP"
+  ],
+  "polarity": {
+    "HIGH": "BEARISH_DIVERGENCE",
+    "LOW": "BULLISH_DIVERGENCE"
+  },
+  "version": "1.0.0"
+}

@@ -1,0 +1,10 @@
+unit: AVAILABLE_COMPLETED_TRADING_CYCLES
+default_count: 12
+calendar_days: false
+missing_sessions_are_skipped: true
+partial_history: EVALUATE_AVAILABLE_AND_PUBLISH_PARTIAL
+zero_history: INSUFFICIENT_HISTORY_NO_EVENT
+current_cycle_inclusion: FAMILY_SPECIFIC
+m15_group_scope: SAME_N_SESSION_ONLY
+m15_sequential_rule: active_index == reference_index + 1
+m15_non_sequential_rule: active_index > reference_index + 1

@@ -1,0 +1,6 @@
+default_price_basis: BID
+same_basis_required: true
+allowed_bases: [BID, ASK, LAST]
+mismatch_result: INVALID_PRICE_BASIS_MISMATCH
+normalization: SYMBOL_TRADE_TICK_SIZE
+additional_touch_tolerance_ticks: 0

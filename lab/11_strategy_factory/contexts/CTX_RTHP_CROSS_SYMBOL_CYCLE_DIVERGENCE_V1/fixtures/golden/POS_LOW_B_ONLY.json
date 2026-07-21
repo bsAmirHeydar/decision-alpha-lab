@@ -1,0 +1,34 @@
+{
+  "expected": {
+    "evaluation_status": "CONFIRMED",
+    "event_created": true,
+    "polarity": "BULLISH_DIVERGENCE"
+  },
+  "input": {
+    "active_cycle_id": "ACTIVE_2",
+    "available_reference_count": 12,
+    "case_id": "POS_LOW_B_ONLY",
+    "confirmation_close_time": "2026-01-05T10:15:00-05:00",
+    "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+    "cycle_definition_version": "1.0.0",
+    "family": "NN",
+    "level_side": "LOW",
+    "pair_id": "PAIR_A_B",
+    "price_basis_primary": "BID",
+    "price_basis_secondary": "BID",
+    "primary": {
+      "data_status": "VALID",
+      "first_touch_time": null,
+      "symbol": "SYMA",
+      "touched": false
+    },
+    "reference_cycle_id": "REF_2",
+    "required_reference_count": 12,
+    "secondary": {
+      "data_status": "VALID",
+      "first_touch_time": "2026-01-05T10:08:00-05:00",
+      "symbol": "SYMB",
+      "touched": true
+    }
+  }
+}

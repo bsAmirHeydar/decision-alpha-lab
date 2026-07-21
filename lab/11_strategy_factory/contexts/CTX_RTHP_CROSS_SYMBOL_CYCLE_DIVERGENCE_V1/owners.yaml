@@ -1,0 +1,5 @@
+semantic_owner: AMIR_RTHP_DOMAIN_OWNER
+technical_owner: ALPHA_LAB_CONTEXT_ENGINEERING_OWNER
+security_owner: ALPHA_LAB_SECURITY_OWNER
+capital_authority: NONE_CONTEXT_PACKAGE_HAS_NO_CAPITAL_AUTHORITY
+review_policy: Semantic changes require semantic-owner approval and independent context review; runtime, order, and capital authority remain absent.

@@ -1,0 +1,227 @@
+{
+  "components": {
+    "ambiguity": {
+      "blocking_count": 0,
+      "finding_count": 0,
+      "findings": []
+    },
+    "authority": {
+      "findings": [],
+      "passed": true
+    },
+    "causal_clock": {
+      "findings": [],
+      "passed": true
+    },
+    "completeness": {
+      "blocking_count": 0,
+      "findings": [],
+      "overall_score": 1.0,
+      "sections": [
+        {
+          "blockers": 0,
+          "earned_weight": 4.0,
+          "missing": [],
+          "required_weight": 4.0,
+          "score": 1.0,
+          "section": "acceptance_gates",
+          "warnings": 0
+        },
+        {
+          "blockers": 0,
+          "earned_weight": 2.0,
+          "missing": [],
+          "required_weight": 2.0,
+          "score": 1.0,
+          "section": "amendments",
+          "warnings": 0
+        },
+        {
+          "blockers": 0,
+          "earned_weight": 13.0,
+          "missing": [],
+          "required_weight": 13.0,
+          "score": 1.0,
+          "section": "causal_clock",
+          "warnings": 0
+        },
+        {
+          "blockers": 0,
+          "earned_weight": 6.0,
+          "missing": [],
+          "required_weight": 6.0,
+          "score": 1.0,
+          "section": "data",
+          "warnings": 0
+        },
+        {
+          "blockers": 0,
+          "earned_weight": 18.0,
+          "missing": [],
+          "required_weight": 18.0,
+          "score": 1.0,
+          "section": "doctrine",
+          "warnings": 0
+        },
+        {
+          "blockers": 0,
+          "earned_weight": 6.0,
+          "missing": [],
+          "required_weight": 6.0,
+          "score": 1.0,
+          "section": "examples",
+          "warnings": 0
+        },
+        {
+          "blockers": 0,
+          "earned_weight": 5.0,
+          "missing": [],
+          "required_weight": 5.0,
+          "score": 1.0,
+          "section": "feature_views",
+          "warnings": 0
+        },
+        {
+          "blockers": 0,
+          "earned_weight": 11.0,
+          "missing": [],
+          "required_weight": 11.0,
+          "score": 1.0,
+          "section": "manifest",
+          "warnings": 0
+        },
+        {
+          "blockers": 0,
+          "earned_weight": 19.0,
+          "missing": [],
+          "required_weight": 19.0,
+          "score": 1.0,
+          "section": "occurrence",
+          "warnings": 0
+        },
+        {
+          "blockers": 0,
+          "earned_weight": 8.0,
+          "missing": [],
+          "required_weight": 8.0,
+          "score": 1.0,
+          "section": "ontology",
+          "warnings": 0
+        },
+        {
+          "blockers": 0,
+          "earned_weight": 10.0,
+          "missing": [],
+          "required_weight": 10.0,
+          "score": 1.0,
+          "section": "owners",
+          "warnings": 0
+        },
+        {
+          "blockers": 0,
+          "earned_weight": 2.0,
+          "missing": [],
+          "required_weight": 2.0,
+          "score": 1.0,
+          "section": "references",
+          "warnings": 0
+        },
+        {
+          "blockers": 0,
+          "earned_weight": 18.0,
+          "missing": [],
+          "required_weight": 18.0,
+          "score": 1.0,
+          "section": "scope",
+          "warnings": 0
+        },
+        {
+          "blockers": 0,
+          "earned_weight": 5.0,
+          "missing": [],
+          "required_weight": 5.0,
+          "score": 1.0,
+          "section": "security_profile",
+          "warnings": 0
+        },
+        {
+          "blockers": 0,
+          "earned_weight": 11.0,
+          "missing": [],
+          "required_weight": 11.0,
+          "score": 1.0,
+          "section": "state_machine",
+          "warnings": 0
+        },
+        {
+          "blockers": 0,
+          "earned_weight": 4.0,
+          "missing": [],
+          "required_weight": 4.0,
+          "score": 1.0,
+          "section": "treatment_envelope",
+          "warnings": 0
+        }
+      ]
+    },
+    "schema_findings": [],
+    "security": {
+      "declared_classification": "RESTRICTED",
+      "drivers": [
+        "PROPRIETARY_DOCTRINE"
+      ],
+      "findings": [],
+      "inferred_minimum_classification": "RESTRICTED",
+      "passed": true
+    },
+    "semantics": {
+      "findings": [],
+      "passed": true
+    }
+  },
+  "package_digest": "sha256:e87841495affede451adc5d8136ab580be0c144dcfb9e09e83fd812cfafa0f47",
+  "readiness": {
+    "blocking_count": 0,
+    "blocking_findings": [],
+    "capital_activation_allowed": false,
+    "claim_ceiling": "SEMANTIC_INTAKE_REFERENCE_ONLY",
+    "completeness_score": 1.0,
+    "context_id": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1",
+    "decision": "ACCEPT_FOR_SEMANTIC_REVIEW",
+    "highest_state": "INTAKE_COMPLETE",
+    "live_order_submission_allowed": false,
+    "report_digest": "sha256:1a5841b779474bc5d941c93c327156915ec63ca4f9d57a222c2f9ad1efd0e0f6",
+    "stages": {
+      "context_compile": {
+        "ready": false,
+        "reason_codes": [
+          "ACL03_CONTEXT_COMPILER_REQUIRED"
+        ]
+      },
+      "intake_complete": {
+        "blockers": [],
+        "ready": true
+      },
+      "live_activation": {
+        "ready": false,
+        "reason_codes": [
+          "ACL11_RUNTIME_PARITY_REQUIRED",
+          "ACL12_SECURITY_HARDENING_REQUIRED",
+          "ACL14_CAPITAL_AUTHORIZATION_REQUIRED"
+        ]
+      },
+      "research_entry": {
+        "ready": false,
+        "reason_codes": [
+          "ACL05_IMMUTABLE_BATCH_REQUIRED"
+        ]
+      },
+      "semantic_review": {
+        "manual_approval_required": true,
+        "ready": true
+      }
+    },
+    "warning_count": 0,
+    "warning_findings": []
+  }
+}

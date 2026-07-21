@@ -1,0 +1,51 @@
+terms:
+- term_id: corresponding_level
+  definition: A symbol-local High or Low created from the same cycle-definition identity and semantic side as the paired symbol level; numeric prices are independent.
+  observable: true
+  synonyms: [paired_cycle_level]
+  forbidden_ambiguities: [same_numeric_price, shared_price_level]
+- term_id: touch
+  definition: A tick-size-normalized observed price equals or crosses the symbol-local reference High or Low without requiring a bar close beyond that level.
+  observable: true
+  synonyms: [hunt, sweep]
+  forbidden_ambiguities: [close_confirmation, tolerance_inference]
+- term_id: hunter_symbol
+  definition: The member of the registered symbol pair whose corresponding level has the earliest recorded touch before the synchronized evaluation cut.
+  observable: true
+  synonyms: [touching_symbol]
+  forbidden_ambiguities: [trade_symbol, preferred_symbol]
+- term_id: protected_symbol
+  definition: The paired symbol whose corresponding level remains untouched at the synchronized evaluation cut that confirms the relationship occurrence.
+  observable: true
+  synonyms: [untouched_symbol]
+  forbidden_ambiguities: [safe_asset, entry_symbol]
+- term_id: divergence_event
+  definition: An immutable Context relationship record emitted only from exclusive-or touch state under synchronized non-stale observations and matching price-basis labels.
+  observable: true
+  synonyms: [rthp_context_occurrence]
+  forbidden_ambiguities: [trade_signal, guaranteed_reversal]
+- term_id: reference_exhausted
+  definition: A scoped reference state reached when the protected symbol later touches its corresponding level, ending future eligibility for that family and level side.
+  observable: true
+  synonyms: [consumed_reference]
+  forbidden_ambiguities: [deleted_history, invalidated_past_event]
+- term_id: active_cycle
+  definition: The versioned cycle occurrence whose observation window is evaluated against one or more registered reference-cycle occurrences.
+  observable: true
+  synonyms: [evaluation_cycle]
+  forbidden_ambiguities: [entry_window]
+- term_id: reference_cycle
+  definition: A completed or explicitly partial versioned cycle occurrence that supplies symbol-local High or Low reference levels for a registered family.
+  observable: true
+  synonyms: [source_cycle]
+  forbidden_ambiguities: [future_cycle, inferred_cycle]
+- term_id: synchronized_evaluation_cut
+  definition: The common M15 close for which both symbols have non-stale observations and at which exclusive-or touch state is confirmed or rejected.
+  observable: true
+  synonyms: [confirmation_close]
+  forbidden_ambiguities: [latest_available_substitution, asynchronous_cut]
+- term_id: stale_or_imputed
+  definition: An earlier observation retained as evidence when the synchronized observation is absent; this status forbids creation of a confirmed context occurrence.
+  observable: true
+  synonyms: [stale_evidence]
+  forbidden_ambiguities: [confirmed_data, synchronized_data]

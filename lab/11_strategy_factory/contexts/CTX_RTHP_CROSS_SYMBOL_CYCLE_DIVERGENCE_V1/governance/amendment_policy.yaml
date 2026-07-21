@@ -1,0 +1,6 @@
+breaking_change_policy: Changes to the invariant, polarity mapping, event identity, confirmation semantics, state meaning, or authority boundary require a new major version and migration plan.
+additive_change_policy: New optional cycle families or views require a minor version, semantic diff, fixtures, and owner plus reviewer approval without changing prior meanings.
+patch_change_policy: Typographical and non-semantic documentation corrections require a patch version and proof that compiled semantic digest is unchanged.
+migration_required: true
+rollback_required: true
+semantic_diff_required: true

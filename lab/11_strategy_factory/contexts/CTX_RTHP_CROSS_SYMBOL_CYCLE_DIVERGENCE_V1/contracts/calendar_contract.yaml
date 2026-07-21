@@ -1,0 +1,9 @@
+timezone: America/New_York
+interval_semantics: HALF_OPEN
+weekly_market_window:
+  sunday: {start: '18:00:00', end: '20:00:00', completeness: PARTIAL}
+  monday_through_thursday: {start: '20:00:00', end: '20:00:00_next_day', completeness: COMPLETE}
+  friday: {start: '20:00:00_previous_day', end: '17:00:00', completeness: PARTIAL_MARKET_WEEK_END}
+weekend_closed: ['Friday 17:00:00', 'Sunday 18:00:00']
+dst_policy: Resolve all boundaries using the IANA America/New_York timezone, never a fixed UTC offset.
+early_close_policy: Register a partial cycle with explicit observed end time and completeness status.

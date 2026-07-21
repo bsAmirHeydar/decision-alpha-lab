@@ -1,0 +1,10 @@
+classification: RESTRICTED
+proprietary_edge: true
+asset_types: [PROPRIETARY_DOCTRINE, MARKET_DATA_REFERENCE]
+allowed_zones: [ALPHA_LAB_RESTRICTED_RESEARCH, ALPHA_LAB_CONTROLLED_BUILD]
+secrets: []
+secret_reference_only: true
+network_egress: []
+plugin_capabilities: [READ_NORMALIZED_MARKET_EVIDENCE, EMIT_CONTEXT_REFERENCE_ARTIFACTS]
+required_controls: [PROVENANCE, ACCESS_CONTROL, AUDIT, ENCRYPTION_AT_REST, ENCRYPTION_IN_TRANSIT, DEPENDENCY_SCAN, SIGNATURE_VERIFY, EGRESS_DENY_DEFAULT]
+public_release_approved: false

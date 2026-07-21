@@ -1,0 +1,5 @@
+event_records: IMMUTABLE_APPEND_ONLY
+correction_policy: APPEND_CORRECTION_EVENT
+correction_fields: [supersedes_event_id, correction_time, corrected_payload_digest, reason_code]
+source_history_revision: Recompute deterministically, retain original event, append correction or no-event revision evidence.
+silent_overwrite_forbidden: true

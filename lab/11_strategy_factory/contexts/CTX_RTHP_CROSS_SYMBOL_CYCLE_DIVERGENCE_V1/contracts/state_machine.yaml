@@ -1,0 +1,36 @@
+initial_state: UNTOUCHED_BOTH
+states: [UNTOUCHED_BOTH, ONE_SIDE_TOUCHED, DIVERGENCE_CONFIRMED, BOTH_SIDES_TOUCHED, REFERENCE_EXHAUSTED, UNCONFIRMED, UNKNOWN]
+transitions:
+- from: UNTOUCHED_BOTH
+  to: ONE_SIDE_TOUCHED
+  event: FIRST_SYMBOL_TOUCH
+  guard: Exactly one symbol-local level has a recorded first touch and the paired level has no recorded touch.
+  priority: 10
+  unknown_guard_policy: QUARANTINE
+- from: ONE_SIDE_TOUCHED
+  to: DIVERGENCE_CONFIRMED
+  event: SYNCHRONIZED_M15_XOR_CONFIRMATION
+  guard: Both symbols have synchronized non-stale observations and exactly one corresponding level is touched at the confirmation cut.
+  priority: 20
+  unknown_guard_policy: QUARANTINE
+- from: ONE_SIDE_TOUCHED
+  to: BOTH_SIDES_TOUCHED
+  event: PROTECTED_SYMBOL_TOUCH_BEFORE_CONFIRMATION
+  guard: The paired symbol touches its corresponding level before the synchronized confirmation transition is committed.
+  priority: 30
+  unknown_guard_policy: QUARANTINE
+- from: DIVERGENCE_CONFIRMED
+  to: REFERENCE_EXHAUSTED
+  event: PROTECTED_SYMBOL_LATER_TOUCH
+  guard: The protected symbol later touches its corresponding level within the same family and level-side reference scope.
+  priority: 40
+  unknown_guard_policy: QUARANTINE
+- from: UNTOUCHED_BOTH
+  to: UNCONFIRMED
+  event: MISSING_SYNCHRONIZED_DATA
+  guard: At least one symbol lacks the observation for the common M15 close and only stale or missing evidence is available.
+  priority: 50
+  unknown_guard_policy: QUARANTINE
+terminal_states: [BOTH_SIDES_TOUCHED, REFERENCE_EXHAUSTED]
+unknown_state: UNKNOWN
+determinism_policy: SINGLE_TRANSITION_OR_FAIL

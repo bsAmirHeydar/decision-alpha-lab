@@ -1,0 +1,5 @@
+required_dimensions: [first_touch_sequence, synchronized_confirmation_state, event_identity, state_transition_order, stale_data_status, reference_exhaustion]
+restart_policy: Rebuild ledger deterministically and suppress duplicate event identity.
+history_reload_policy: Same source history and known-time sequence must produce byte-stable event material.
+future_leakage_policy: Future revisions cannot alter earlier known-time decisions without append-only correction.
+expiry_policy: Zero or partial prior cycles produce deterministic insufficiency states, never exceptions.

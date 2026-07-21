@@ -1,0 +1,6 @@
+pair_role_policy: SYMMETRIC_RELATION_WITH_EXPLICIT_PRIMARY_AND_SECONDARY_LABELS
+identity_fields: [pair_id, primary_symbol, secondary_symbol, price_basis, mapping_version]
+correspondence_rule: Each symbol supplies its own High or Low from the same semantic reference-cycle definition.
+hunter_policy: Either symbol may be hunter.
+protected_policy: The paired symbol not touched by the synchronized evaluation cut is protected.
+same_tick_dual_touch_policy: BOTH_SIDES_TOUCHED_NO_DIVERGENCE

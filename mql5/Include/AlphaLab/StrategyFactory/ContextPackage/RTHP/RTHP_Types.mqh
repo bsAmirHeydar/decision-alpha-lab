@@ -1,0 +1,8 @@
+#ifndef ALPHA_LAB_RTHP_TYPES_MQH
+#define ALPHA_LAB_RTHP_TYPES_MQH
+enum ENUM_RTHP_LEVEL_SIDE{RTHP_LEVEL_HIGH=0,RTHP_LEVEL_LOW=1};
+enum ENUM_RTHP_DATA_STATUS{RTHP_DATA_VALID=0,RTHP_DATA_STALE_OR_IMPUTED=1,RTHP_DATA_MISSING=2};
+enum ENUM_RTHP_EVAL_STATUS{RTHP_EVAL_CONFIRMED=0,RTHP_EVAL_NO_EVENT=1,RTHP_EVAL_UNCONFIRMED=2,RTHP_EVAL_INVALID_BASIS=3,RTHP_EVAL_INSUFFICIENT_HISTORY=4};
+struct RTHP_SymbolObservation{string symbol;bool touched;datetime first_touch_time;ENUM_RTHP_DATA_STATUS data_status;};
+struct RTHP_Evaluation{ENUM_RTHP_EVAL_STATUS status;bool event_created;string polarity;string hunter_symbol;string protected_symbol;};
+#endif

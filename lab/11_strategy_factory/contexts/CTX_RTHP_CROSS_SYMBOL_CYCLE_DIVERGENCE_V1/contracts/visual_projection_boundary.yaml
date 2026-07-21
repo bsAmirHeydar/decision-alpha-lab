@@ -1,0 +1,5 @@
+drawing_is_source_truth: false
+historical_line_persistence_allowed: true
+resolved_event_may_remain_visible: true
+visual_state_must_not_override_context_state: true
+visualizer_authority: READ_ONLY_PROJECTION

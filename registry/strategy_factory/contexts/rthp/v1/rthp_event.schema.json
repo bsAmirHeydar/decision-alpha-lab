@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "confirmation_close_time": {
+      "type": "string"
+    },
+    "context_id": {
+      "const": "CTX_RTHP_CROSS_SYMBOL_CYCLE_DIVERGENCE_V1"
+    },
+    "data_status": {
+      "enum": [
+        "VALID",
+        "PARTIAL_HISTORY"
+      ]
+    },
+    "event_id": {
+      "pattern": "^RTHPEVT_[A-F0-9]{32}$",
+      "type": "string"
+    },
+    "family": {
+      "enum": [
+        "WW",
+        "DD",
+        "NN",
+        "LN",
+        "AN",
+        "NL",
+        "NA",
+        "FCR",
+        "PMI",
+        "PP",
+        "M15_CYCLE_GROUP"
+      ]
+    },
+    "first_touch_time": {
+      "type": "string"
+    },
+    "hunter_symbol": {
+      "type": "string"
+    },
+    "level_side": {
+      "enum": [
+        "HIGH",
+        "LOW"
+      ]
+    },
+    "lifecycle_state": {
+      "enum": [
+        "DIVERGENCE_CONFIRMED",
+        "REFERENCE_EXHAUSTED"
+      ]
+    },
+    "pair_id": {
+      "type": "string"
+    },
+    "polarity": {
+      "enum": [
+        "BULLISH_DIVERGENCE",
+        "BEARISH_DIVERGENCE"
+      ]
+    },
+    "protected_symbol": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "event_id",
+    "context_id",
+    "family",
+    "pair_id",
+    "level_side",
+    "polarity",
+    "hunter_symbol",
+    "protected_symbol",
+    "first_touch_time",
+    "confirmation_close_time",
+    "data_status",
+    "lifecycle_state"
+  ],
+  "type": "object"
+}

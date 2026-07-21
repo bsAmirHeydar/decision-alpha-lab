@@ -1,0 +1,11 @@
+{
+  "states": [
+    "UNTOUCHED_BOTH",
+    "ONE_SIDE_TOUCHED",
+    "DIVERGENCE_CONFIRMED",
+    "BOTH_SIDES_TOUCHED",
+    "REFERENCE_EXHAUSTED",
+    "UNCONFIRMED",
+    "UNKNOWN"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "data_status": {
+      "enum": [
+        "VALID",
+        "STALE_OR_IMPUTED",
+        "MISSING"
+      ]
+    },
+    "event_time": {
+      "type": "string"
+    },
+    "known_time": {
+      "type": "string"
+    },
+    "level_side": {
+      "enum": [
+        "HIGH",
+        "LOW"
+      ]
+    },
+    "observed_price": {
+      "type": "number"
+    },
+    "reference_price": {
+      "type": "number"
+    },
+    "symbol": {
+      "type": "string"
+    },
+    "tick_size": {
+      "exclusiveMinimum": 0,
+      "type": "number"
+    },
+    "touched": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "symbol",
+    "level_side",
+    "reference_price",
+    "observed_price",
+    "tick_size",
+    "event_time",
+    "known_time",
+    "data_status",
+    "touched"
+  ],
+  "type": "object"
+}

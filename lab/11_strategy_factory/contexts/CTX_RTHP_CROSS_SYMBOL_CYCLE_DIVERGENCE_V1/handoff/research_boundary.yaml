@@ -1,0 +1,4 @@
+allowed_inputs: [RTHP_EVENT_VIEW, RTHP_REFERENCE_STATE_VIEW, cycle_definition_version, signal_family]
+allowed_outputs: [frequency_report, forward_outcome_report, confidence_interval, walk_forward_report, multiple_testing_report]
+forbidden_outputs_into_context: [entry, stop, target, position_size, trade_instruction, profit_claim]
+versioning: Every discovered cycle or relation is a new experiment configuration and never overwrites Context v1.

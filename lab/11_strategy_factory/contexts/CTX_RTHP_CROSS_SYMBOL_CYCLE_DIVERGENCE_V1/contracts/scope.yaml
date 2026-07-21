@@ -1,0 +1,20 @@
+symbols:
+- PRIMARY_SYMBOL
+- SECONDARY_SYMBOL
+markets: [GENERIC_MARKET_WITH_TICK_DATA]
+timeframes: [TICK_OBSERVATION, M15_CONFIRMATION]
+sessions: [AMERICA_NEW_YORK_VERSIONED_CYCLES]
+directions: [BIDIRECTIONAL]
+goals:
+- Produce deterministic cross-symbol cycle-divergence context events.
+- Preserve first touch, synchronized confirmation, reference lifecycle and provenance.
+non_goals:
+- Entry logic
+- Treatment logic
+- Execution logic
+- Stop or target logic
+- Risk or sizing logic
+- Win-rate or profitability claims
+exclusions:
+- exclusion_id: RTHP_EXC_TRADING_AUTHORITY
+  reason: ACL-02 context packages cannot authorize orders or capital.

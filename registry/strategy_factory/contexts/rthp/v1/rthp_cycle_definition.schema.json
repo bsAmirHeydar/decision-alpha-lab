@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "cycle_id": {
+      "type": "string"
+    },
+    "end": {
+      "type": "string"
+    },
+    "interval_semantics": {
+      "const": "HALF_OPEN"
+    },
+    "start": {
+      "type": "string"
+    },
+    "timezone": {
+      "const": "America/New_York"
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "cycle_id",
+    "version",
+    "timezone",
+    "start",
+    "end",
+    "interval_semantics"
+  ],
+  "type": "object"
+}

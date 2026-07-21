@@ -1,0 +1,17 @@
+views:
+- view_id: RTHP_EVENT_VIEW
+  kind: EVENT_STREAM
+  known_time_safe: true
+  fields: [event_id, family, polarity, level_side, hunter_symbol, protected_symbol, first_touch_time, confirmation_close_time, data_status, lifecycle_state]
+  missingness_vector: REQUIRED
+  freshness_vector: REQUIRED
+  schema_ref: registry/strategy_factory/contexts/rthp/v1/rthp_event.schema.json
+- view_id: RTHP_REFERENCE_STATE_VIEW
+  kind: TABULAR
+  known_time_safe: true
+  fields: [reference_cycle_id, family, level_side, state, exhaustion_time]
+  missingness_vector: REQUIRED
+  freshness_vector: REQUIRED
+  schema_ref: registry/strategy_factory/contexts/rthp/v1/rthp_reference_state.schema.json
+fusion_policy: Join only by registered symbol-pair identity, family scope, cycle identities, and equal synchronized confirmation-close identity.
+missing_view_policy: MASK_AND_ABSTAIN

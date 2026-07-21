@@ -1,0 +1,34 @@
+entities:
+- entity_type: SymbolPair
+  definition: A registered ordered identity containing primary and secondary symbol labels while preserving symmetric hunter eligibility.
+  identity_fields: [pair_id, primary_symbol, secondary_symbol, price_basis]
+- entity_type: CycleDefinition
+  definition: A versioned timezone-aware half-open temporal rule used to construct repeatable cycle occurrences.
+  identity_fields: [cycle_definition_id, version]
+- entity_type: CycleOccurrence
+  definition: One symbol-specific realization of a registered cycle definition with explicit start, end, completeness, and provenance.
+  identity_fields: [cycle_definition_id, version, symbol, start_time, end_time]
+- entity_type: ReferenceLevel
+  definition: One symbol-local High or Low derived from a cycle occurrence and retained through an explicit scoped lifecycle.
+  identity_fields: [cycle_occurrence_id, symbol, level_side]
+- entity_type: TouchObservation
+  definition: The earliest tick-size-normalized equality or crossing observation for one symbol-local reference level.
+  identity_fields: [reference_level_id, symbol, first_touch_time]
+- entity_type: DivergenceEvent
+  definition: Immutable cross-symbol relationship occurrence produced from exclusive-or touch state at one synchronized evaluation cut.
+  identity_fields: [family, active_cycle_id, reference_cycle_id, level_side, hunter_symbol, protected_symbol, confirmation_time]
+relations:
+- relation_type: HAS_CORRESPONDING_LEVEL
+  from_type: SymbolPair
+  to_type: ReferenceLevel
+  temporal: true
+- relation_type: CONFIRMED_BY_SYNCHRONIZED_CUT
+  from_type: DivergenceEvent
+  to_type: TouchObservation
+  temporal: true
+invariants:
+- Corresponding levels share cycle semantics and level side while retaining independent numeric prices.
+- Confirmed divergence requires exactly one touched corresponding level under synchronized non-stale observations.
+- Low-side polarity is BULLISH_DIVERGENCE and High-side polarity is BEARISH_DIVERGENCE.
+- Drawing, research outcomes, and trading actions cannot create or modify Context truth.
+unknown_semantics: REJECT_AND_RECORD_UNKNOWN

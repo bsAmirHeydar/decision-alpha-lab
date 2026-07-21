@@ -1,0 +1,6 @@
+high_touch_rule: normalized_observed_price >= normalized_reference_high
+low_touch_rule: normalized_observed_price <= normalized_reference_low
+close_beyond_required: false
+first_touch_only: true
+repeated_hunter_touch_creates_event: false
+confirmation: Evaluate XOR touch state at synchronized M15 close.

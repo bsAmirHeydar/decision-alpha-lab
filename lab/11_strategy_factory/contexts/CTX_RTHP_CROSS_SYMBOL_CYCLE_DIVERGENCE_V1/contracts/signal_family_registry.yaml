@@ -1,0 +1,15 @@
+registry_version: 1.0.0
+families:
+- {family: WW, active: CURRENT_WEEK, references: [PREVIOUS_COMPLETED_WEEK], lookback: 1}
+- {family: DD, active: CURRENT_DAILY, references: [PREVIOUS_DAILY], lookback: 12}
+- {family: NN, active: CURRENT_N, references: [PREVIOUS_N], lookback: 12}
+- {family: LN, active: CURRENT_N, references: [CURRENT_L, PREVIOUS_L], lookback: 12}
+- {family: AN, active: CURRENT_N, references: [PREVIOUS_A], lookback: 12}
+- {family: NL, active: CURRENT_L, references: [PREVIOUS_N], lookback: 12}
+- {family: NA, active: CURRENT_A, references: [PREVIOUS_N], lookback: 12}
+- {family: FCR, active: FCR_2, references: [FCR_1], lookback: 0}
+- {family: PMI, active: CURRENT_N, references: [CURRENT_L], lookback: 0}
+- {family: PP, active: PP_2, references: [PP_1], lookback: 0}
+- {family: M15_CYCLE_GROUP, active: CURRENT_M15_IN_N, references: [PRIOR_M15_IN_SAME_N], lookback: ALL_PRIOR_IN_SESSION}
+polarity: {LOW: BULLISH_DIVERGENCE, HIGH: BEARISH_DIVERGENCE}
+multi_family_same_cut_policy: EMIT_SEPARATE_EVENTS

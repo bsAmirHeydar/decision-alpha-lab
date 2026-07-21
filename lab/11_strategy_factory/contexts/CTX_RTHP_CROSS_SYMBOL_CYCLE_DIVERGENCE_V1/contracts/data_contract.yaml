@@ -1,0 +1,22 @@
+sources:
+- source_id: PRIMARY_SYMBOL_TICKS
+  artifact_ref: al://alpha-lab/data/source/RTHP_PRIMARY_TICKS@1.0.0#sha256:0000000000000000000000000000000000000000000000000000000000000000
+  fields: [symbol, bid, ask, last, event_time, known_time, tick_size]
+  classification: RESTRICTED
+  freshness_slo_ms: 0
+  missingness_policy: QUARANTINE
+  license_id: INTERNAL_MARKET_DATA_ENTITLEMENT
+  known_time_field: known_time
+- source_id: SECONDARY_SYMBOL_TICKS
+  artifact_ref: al://alpha-lab/data/source/RTHP_SECONDARY_TICKS@1.0.0#sha256:0000000000000000000000000000000000000000000000000000000000000000
+  fields: [symbol, bid, ask, last, event_time, known_time, tick_size]
+  classification: RESTRICTED
+  freshness_slo_ms: 0
+  missingness_policy: QUARANTINE
+  license_id: INTERNAL_MARKET_DATA_ENTITLEMENT
+  known_time_field: known_time
+synchronization: Both symbols must expose observations whose M15 confirmation-close identity is equal; earlier observations are quarantined as stale evidence and cannot confirm an occurrence.
+precision_policy: Normalize each observed price and its symbol-local reference price to the registered tick size; additional touch tolerance is exactly zero ticks.
+revision_policy: APPEND_ONLY
+corporate_action_policy: NOT_APPLICABLE_TO_GENERIC_SYMBOL_PAIR_UNLESS_A_VERSIONED_ADAPTER_DECLARATION_OVERRIDES_THIS_POLICY
+data_retention: Preserve source artifact references, observation hashes, first-touch evidence, confirmation cuts, and append-only correction lineage for deterministic replay.

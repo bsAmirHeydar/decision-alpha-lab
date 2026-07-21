@@ -1,0 +1,11 @@
+allowed_atoms:
+  entry: []
+  stop: []
+  exit: []
+  management: []
+  sizing: []
+forbidden_actions: [DIRECT_ORDER_SEND, ENTRY_LOGIC, STOP_LOGIC, TARGET_LOGIC, POSITION_SIZING, TREATMENT_INFERENCE, EXECUTION_INFERENCE, SELF_AUTHORIZATION]
+max_search_trials: 0
+requires_human_search_authority: true
+direct_code_generation_allowed: false
+live_order_submission_allowed: false

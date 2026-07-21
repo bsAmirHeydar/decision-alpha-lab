@@ -1,0 +1,41 @@
+calendar_id: RTHP_AMERICA_NEW_YORK_CALENDAR_V1
+timezone: America/New_York
+clocks:
+  event_time:
+    field: first_touch_time
+    rule: Earliest observed symbol-local touch time used by the immutable occurrence identity.
+    timezone: America/New_York
+    can_use_future_revision: false
+  observation_time:
+    field: observation_time
+    rule: Source observation time attached to the normalized tick or bar evidence.
+    timezone: America/New_York
+    can_use_future_revision: false
+  known_time:
+    field: known_time
+    rule: First time the observation was available to the context evaluator.
+    timezone: America/New_York
+    can_use_future_revision: false
+  decision_time:
+    field: confirmation_close_time
+    rule: Common M15 close at which the exclusive-or touch state is evaluated.
+    timezone: America/New_York
+    can_use_future_revision: false
+  maturity_time:
+    field: reference_exhaustion_time
+    rule: Time at which a later protected-symbol touch exhausts the scoped reference; null while not exhausted.
+    timezone: America/New_York
+    can_use_future_revision: false
+  correction_time:
+    field: correction_time
+    rule: Time at which append-only corrected evidence becomes known; null when no correction exists.
+    timezone: America/New_York
+    can_use_future_revision: false
+required_order:
+- event_time<=observation_time
+- observation_time<=known_time
+- known_time<=decision_time
+- decision_time<=maturity_time
+- maturity_time<=correction_time
+late_data_policy: APPEND_CORRECTION
+clock_skew_tolerance_ms: 0

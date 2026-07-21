@@ -1,0 +1,6 @@
+states: [VALID, PARTIAL_HISTORY, NONE, STALE_OR_IMPUTED, UNCONFIRMED, BLOCKED_BY_DATA, INVALID_PRICE_BASIS_MISMATCH, INVALID_CONFIGURATION, UNKNOWN]
+rules:
+- Last available data may be recorded as stale evidence but confirmed_context_event must remain false.
+- Real synchronized data triggers reevaluation and produces either a confirmed event or no event.
+- UNKNOWN is never converted to false, no-divergence or pass.
+- Requested lookback may exceed available history; evaluate available completed cycles and publish sufficiency.

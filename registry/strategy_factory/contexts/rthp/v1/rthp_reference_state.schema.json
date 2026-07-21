@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["reference_cycle_id", "family", "level_side", "state"],
+  "properties": {
+    "reference_cycle_id": {"type": "string"},
+    "family": {"enum": ["WW", "DD", "NN", "LN", "AN", "NL", "NA", "FCR", "PMI", "PP", "M15_CYCLE_GROUP"]},
+    "level_side": {"enum": ["HIGH", "LOW"]},
+    "state": {"enum": ["UNTOUCHED_BOTH", "ONE_SIDE_TOUCHED", "DIVERGENCE_CONFIRMED", "BOTH_SIDES_TOUCHED", "REFERENCE_EXHAUSTED", "UNCONFIRMED", "UNKNOWN"]},
+    "exhaustion_time": {"type": ["string", "null"]}
+  }
+}
