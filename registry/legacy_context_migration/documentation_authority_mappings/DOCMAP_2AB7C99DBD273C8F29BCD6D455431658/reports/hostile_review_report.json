@@ -1,0 +1,28 @@
+{
+  "checks": {
+    "CONTRADICTION_SILENT_HARMONIZATION_COUNT": 0,
+    "DOCUMENT_DELETE_COUNT": 0,
+    "DOCUMENT_MOVE_COUNT": 0,
+    "EXTERNAL_LINKS_ASSUMED_ABSENT": false,
+    "GENERATED_DOCUMENT_AUTHORITY_ESCALATION_COUNT": 21,
+    "INSTALLER_HISTORY_DELETE_COUNT": 0
+  },
+  "claim_ceiling": "LCM_12A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-12",
+  "owner": "ALPHA_LAB_DOCUMENTATION_MIGRATION_OWNER",
+  "phase_id": "LCM-12A",
+  "producer": "tools.strategy_factory.lcm.lcm_12a.service:LCM12ADocumentationAuthorityService",
+  "report_digest": "sha256:ea09923357a4fe00edea682155a7ba1d2b47f79a9199beb230eb85e5435385e7",
+  "report_id": "DOCHOSTILE_9171547CF58BF50BD54146A587BAF63E",
+  "result": "PASS",
+  "reviewer": "INDEPENDENT_DOCUMENTATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:740190a1b8275602a4906f5a3c57c1131d50e35ef371aa6ebf5ea3ea5f4f71dc",
+    "sha256:4b2725a79ace12625ead4999304a52566f1106be48d1ae01dd13736839d78766"
+  ],
+  "validation_status": "PASS"
+}

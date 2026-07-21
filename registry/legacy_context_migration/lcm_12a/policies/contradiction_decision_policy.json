@@ -1,0 +1,8 @@
+{
+  "editorial_preference_is_not_authority": true,
+  "owner_decision_required": true,
+  "phase_id": "LCM-12A",
+  "policy_id": "LCM12A_CONTRADICTION_DECISION_POLICY_V1",
+  "schema_version": "1.0.0",
+  "silent_harmonization_allowed": false
+}

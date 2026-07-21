@@ -1,0 +1,10 @@
+{
+  "byte_duplicate_proof": "SHA256_BYTES",
+  "merge_or_removal_authorized": false,
+  "normalized_duplicate_proof": "NORMALIZED_SHA256",
+  "partial_superset_requires_unique_line_digests": true,
+  "phase_id": "LCM-12A",
+  "policy_id": "LCM12A_DUPLICATE_EVIDENCE_POLICY_V1",
+  "schema_version": "1.0.0",
+  "semantic_overlap_is_not_equivalence": true
+}

@@ -1,0 +1,12 @@
+{
+  "active_document_count": 25965,
+  "contradiction_count": 3,
+  "document_count": 25965,
+  "exact_duplicate_group_count": 946,
+  "handoff_digest": "sha256:020ea2360275ae066eded754c0879869b5d57058cc961017caa34e23473d5645",
+  "mapping_id": "DOCMAP_2AB7C99DBD273C8F29BCD6D455431658",
+  "normalized_duplicate_group_count": 0,
+  "output_manifest_digest": "sha256:01569a9be5f8e88b2a0a9764b691ecee0e01a4917ddec976cbe715c1e28b2f77",
+  "output_root": "registry/legacy_context_migration/documentation_authority_mappings/DOCMAP_2AB7C99DBD273C8F29BCD6D455431658",
+  "unknown_count": 51911
+}

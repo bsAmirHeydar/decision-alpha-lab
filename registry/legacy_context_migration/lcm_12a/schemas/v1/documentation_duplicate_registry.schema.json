@@ -1,0 +1,91 @@
+{
+  "$id": "https://alpha-lab.local/lcm12a/documentation_duplicate_registry.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "byte_duplicate_groups": {
+      "type": "array"
+    },
+    "claim_ceiling": {
+      "const": "LCM_12A_REFERENCE_ONLY"
+    },
+    "counts": {
+      "type": "object"
+    },
+    "deterministic_identity": {
+      "const": true
+    },
+    "generated_at": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "generated_time_semantics": {
+      "const": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY"
+    },
+    "master_phase": {
+      "const": "LCM-12"
+    },
+    "normalized_duplicate_groups": {
+      "type": "array"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "phase_id": {
+      "const": "LCM-12A"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "registry_digest": {
+      "type": "string"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "reviewer": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "source_digests": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "validation_status": {
+      "enum": [
+        "PASS",
+        "FAILED",
+        "UNKNOWN",
+        "BLOCKED"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "master_phase",
+    "claim_ceiling",
+    "producer",
+    "owner",
+    "reviewer",
+    "generated_at",
+    "generated_time_semantics",
+    "deterministic_identity",
+    "source_digests",
+    "validation_status",
+    "registry_id",
+    "byte_duplicate_groups",
+    "normalized_duplicate_groups",
+    "counts",
+    "registry_digest"
+  ],
+  "title": "documentation_duplicate_registry",
+  "type": "object"
+}

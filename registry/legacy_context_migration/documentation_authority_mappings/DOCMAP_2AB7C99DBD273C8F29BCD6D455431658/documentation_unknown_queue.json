@@ -1,0 +1,32 @@
+{
+  "claim_ceiling": "LCM_12A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "global_waiver_allowed": false,
+  "master_phase": "LCM-12",
+  "owner": "ALPHA_LAB_DOCUMENTATION_MIGRATION_OWNER",
+  "phase_id": "LCM-12A",
+  "producer": "tools.strategy_factory.lcm.lcm_12a.service:LCM12ADocumentationAuthorityService",
+  "queue_digest": "sha256:bb72b7aa97a4bba2ebbf531b0d1ae3d5de7ecfc2088fafc9763ea14dd3e6ee67",
+  "queue_id": "DOCUNKNOWNQ_9171547CF58BF50BD54146A587BAF63E",
+  "reviewer": "INDEPENDENT_DOCUMENTATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:740190a1b8275602a4906f5a3c57c1131d50e35ef371aa6ebf5ea3ea5f4f71dc",
+    "sha256:4b2725a79ace12625ead4999304a52566f1106be48d1ae01dd13736839d78766"
+  ],
+  "unknown_count": 51911,
+  "unknown_type_counts": {
+    "AMBIGUOUS_WIKI_LINK": 25897,
+    "AUTHORITY_CLASSIFICATION_UNKNOWN": 17718,
+    "CONTRADICTION_OWNER_DECISION": 3,
+    "OWNER_UNKNOWN": 317,
+    "SEMANTIC_OVERLAP_OWNER_DECISION": 1292,
+    "UNRESOLVED_DOCUMENT_REFERENCE": 723,
+    "UNRESOLVED_WIKI_LINK": 5961
+  },
+  "unknowns_block_affected_paths_only": true,
+  "unknowns_path": "unknowns/documentation_unknowns.jsonl",
+  "validation_status": "PASS"
+}

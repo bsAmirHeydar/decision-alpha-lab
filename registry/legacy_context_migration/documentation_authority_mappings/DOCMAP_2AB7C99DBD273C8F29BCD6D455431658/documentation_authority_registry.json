@@ -1,0 +1,31 @@
+{
+  "active_document_count": 25965,
+  "authority_counts": {
+    "CANONICAL": 6190,
+    "DUPLICATE": 976,
+    "GENERATED_PROJECTION": 162,
+    "SUPPORTING_EVIDENCE": 919,
+    "UNKNOWN": 17718
+  },
+  "claim_ceiling": "LCM_12A_REFERENCE_ONLY",
+  "classification_policy_version": "LCM12A_AUTHORITY_POLICY_V1",
+  "deterministic_identity": true,
+  "document_count": 25965,
+  "every_active_document_classified_or_unknown": true,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-12",
+  "owner": "ALPHA_LAB_DOCUMENTATION_MIGRATION_OWNER",
+  "phase_id": "LCM-12A",
+  "producer": "tools.strategy_factory.lcm.lcm_12a.service:LCM12ADocumentationAuthorityService",
+  "records_path": "records/documentation_records.jsonl",
+  "registry_digest": "sha256:2273959d6c1e52d260301119dd3d4153d8268076ef01cc291d5e33c9908968c6",
+  "registry_id": "DOCAUTHREG_9171547CF58BF50BD54146A587BAF63E",
+  "reviewer": "INDEPENDENT_DOCUMENTATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:740190a1b8275602a4906f5a3c57c1131d50e35ef371aa6ebf5ea3ea5f4f71dc",
+    "sha256:4b2725a79ace12625ead4999304a52566f1106be48d1ae01dd13736839d78766"
+  ],
+  "validation_status": "PASS"
+}

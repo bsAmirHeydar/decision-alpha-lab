@@ -1,0 +1,20 @@
+{
+  "authority_classes": [
+    "CANONICAL",
+    "SUPPORTING_EVIDENCE",
+    "GENERATED_PROJECTION",
+    "SUPERSEDED",
+    "DUPLICATE",
+    "CONTRADICTORY",
+    "ARCHIVE_ONLY",
+    "UNKNOWN"
+  ],
+  "claim_ceiling": "LCM_12A_REFERENCE_ONLY",
+  "delete_allowed": false,
+  "generated_detail_does_not_create_authority": true,
+  "move_allowed": false,
+  "phase_id": "LCM-12A",
+  "policy_id": "LCM12A_DOCUMENTATION_AUTHORITY_POLICY_V1",
+  "schema_version": "1.0.0",
+  "unknown_is_explicit": true
+}

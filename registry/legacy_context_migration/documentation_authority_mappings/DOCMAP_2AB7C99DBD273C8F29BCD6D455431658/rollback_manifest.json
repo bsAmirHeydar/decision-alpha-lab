@@ -1,0 +1,28 @@
+{
+  "claim_ceiling": "LCM_12A_REFERENCE_ONLY",
+  "deterministic_identity": true,
+  "document_delete_reversal_count": 0,
+  "document_move_reversal_count": 0,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "master_phase": "LCM-12",
+  "owner": "ALPHA_LAB_DOCUMENTATION_MIGRATION_OWNER",
+  "phase_id": "LCM-12A",
+  "producer": "tools.strategy_factory.lcm.lcm_12a.service:LCM12ADocumentationAuthorityService",
+  "remove_paths": [
+    "registry/legacy_context_migration/documentation_authority_mappings/DOCMAP_2AB7C99DBD273C8F29BCD6D455431658"
+  ],
+  "restore_paths": [],
+  "reviewer": "INDEPENDENT_DOCUMENTATION_REVIEWER",
+  "rollback_digest": "sha256:85e37b9f05698173acf03e2d4147c62fbbc4073b0775e15665a1c906fad53c27",
+  "rollback_id": "DOCROLLBACK_9171547CF58BF50BD54146A587BAF63E",
+  "schema_version": "1.0.0",
+  "smallest_direct_verification": [
+    "python -m pytest -q lab/11_strategy_factory/migration/tests_lcm_12a/test_acceptance.py"
+  ],
+  "source_digests": [
+    "sha256:740190a1b8275602a4906f5a3c57c1131d50e35ef371aa6ebf5ea3ea5f4f71dc",
+    "sha256:4b2725a79ace12625ead4999304a52566f1106be48d1ae01dd13736839d78766"
+  ],
+  "validation_status": "PASS"
+}

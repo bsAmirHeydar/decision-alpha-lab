@@ -1,0 +1,95 @@
+{
+  "$id": "https://alpha-lab.local/lcm12a/lcm12a_to_lcm12b_handoff.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "allowed_next_actions": {
+      "type": "array"
+    },
+    "claim_ceiling": {
+      "const": "LCM_12A_REFERENCE_ONLY"
+    },
+    "deterministic_identity": {
+      "const": true
+    },
+    "forbidden_actions": {
+      "type": "array"
+    },
+    "generated_at": {
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "generated_time_semantics": {
+      "const": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY"
+    },
+    "handoff_digest": {
+      "type": "string"
+    },
+    "handoff_id": {
+      "type": "string"
+    },
+    "handoff_type": {
+      "const": "LCM12A_TO_LCM12B"
+    },
+    "master_phase": {
+      "const": "LCM-12"
+    },
+    "output_manifest_digest": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "phase_id": {
+      "const": "LCM-12A"
+    },
+    "producer": {
+      "type": "string"
+    },
+    "reviewer": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "source_digests": {
+      "items": {
+        "pattern": "^sha256:[0-9a-f]{64}$",
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "validation_status": {
+      "enum": [
+        "PASS",
+        "FAILED",
+        "UNKNOWN",
+        "BLOCKED"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "phase_id",
+    "master_phase",
+    "claim_ceiling",
+    "producer",
+    "owner",
+    "reviewer",
+    "generated_at",
+    "generated_time_semantics",
+    "deterministic_identity",
+    "source_digests",
+    "validation_status",
+    "handoff_id",
+    "handoff_type",
+    "output_manifest_digest",
+    "allowed_next_actions",
+    "forbidden_actions",
+    "handoff_digest"
+  ],
+  "title": "lcm12a_to_lcm12b_handoff",
+  "type": "object"
+}

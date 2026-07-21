@@ -1,0 +1,52 @@
+{
+  "artifact_paths": [
+    "analysis/documentation_semantic_overlap_candidates.jsonl",
+    "analysis/documentation_superset_analysis.jsonl",
+    "documentation_authority_registry.json",
+    "documentation_canonical_map.json",
+    "documentation_contradiction_registry.json",
+    "documentation_duplicate_registry.json",
+    "documentation_inbound_reference_graph.json",
+    "documentation_unknown_queue.json",
+    "handoff/approved_relocation_candidates.jsonl",
+    "records/documentation_records.jsonl",
+    "references/documentation_reference_edges.jsonl",
+    "reports/acceptance_report.json",
+    "reports/hostile_review_report.json",
+    "unknowns/documentation_unknowns.jsonl"
+  ],
+  "claim_ceiling": "LCM_12A_REFERENCE_ONLY",
+  "counts": {
+    "active_document_count": 25965,
+    "approved_relocation_count": 656,
+    "contradiction_count": 3,
+    "document_count": 25965,
+    "exact_duplicate_group_count": 946,
+    "normalized_duplicate_group_count": 0,
+    "partial_superset_count": 14,
+    "reference_edge_count": 83138,
+    "semantic_overlap_candidate_count": 1292,
+    "unknown_count": 51911,
+    "unresolved_reference_count": 32581
+  },
+  "deterministic_identity": true,
+  "document_delete_count": 0,
+  "document_move_count": 0,
+  "generated_at": null,
+  "generated_time_semantics": "DETERMINISTIC_FROM_BOUND_INPUTS_NO_WALL_CLOCK_IDENTITY",
+  "manifest_id": "DOCOUTMAN_9171547CF58BF50BD54146A587BAF63E",
+  "mapping_id": "DOCMAP_2AB7C99DBD273C8F29BCD6D455431658",
+  "master_phase": "LCM-12",
+  "output_manifest_digest": "sha256:01569a9be5f8e88b2a0a9764b691ecee0e01a4917ddec976cbe715c1e28b2f77",
+  "owner": "ALPHA_LAB_DOCUMENTATION_MIGRATION_OWNER",
+  "phase_id": "LCM-12A",
+  "producer": "tools.strategy_factory.lcm.lcm_12a.service:LCM12ADocumentationAuthorityService",
+  "production_source_mutation_count": 0,
+  "reviewer": "INDEPENDENT_DOCUMENTATION_REVIEWER",
+  "schema_version": "1.0.0",
+  "source_digests": [
+    "sha256:740190a1b8275602a4906f5a3c57c1131d50e35ef371aa6ebf5ea3ea5f4f71dc",
+    "sha256:4b2725a79ace12625ead4999304a52566f1106be48d1ae01dd13736839d78766"
+  ],
+  "validation_status": "PASS"
+}
